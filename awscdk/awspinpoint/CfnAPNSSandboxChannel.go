@@ -42,6 +42,9 @@ type CfnAPNSSandboxChannel interface {
 	// The unique identifier for the Amazon Pinpoint application that the APNs sandbox channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// (Deprecated) An identifier for the APNs sandbox channel.
+	//
+	// This property is retained only for backward compatibility.
 	AttrId() *string
 	// The bundle identifier that's assigned to your iOS app.
 	BundleId() *string

@@ -4,6 +4,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
+// Properties for the Action construct.
+//
 // Example:
 //   var fn function
 //

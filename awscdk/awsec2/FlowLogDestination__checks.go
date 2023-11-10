@@ -22,6 +22,14 @@ func (f *jsiiProxy_FlowLogDestination) validateBindParameters(scope constructs.C
 	return nil
 }
 
+func validateFlowLogDestination_ToKinesisDataFirehoseDestinationParameters(deliveryStreamArn *string) error {
+	if deliveryStreamArn == nil {
+		return fmt.Errorf("parameter deliveryStreamArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFlowLogDestination_ToS3Parameters(options *S3DestinationOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err

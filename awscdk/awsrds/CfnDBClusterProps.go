@@ -407,6 +407,8 @@ type CfnDBClusterProps struct {
 	//
 	// If you specify the `SnapshotIdentifier` property, the `StorageEncrypted` property value is inherited from the snapshot, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used.
 	//
+	// If you create a read replica of an encrypted DB cluster in another AWS Region, make sure to set `KmsKeyId` to a KMS key identifier that is valid in the destination AWS Region. This KMS key is used to encrypt the read replica in that AWS Region.
+	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
 	//
@@ -603,6 +605,8 @@ type CfnDBClusterProps struct {
 	// - Must be specified if `UseLatestRestorableTime` parameter isn't provided
 	// - Can't be specified if the `UseLatestRestorableTime` parameter is enabled
 	// - Can't be specified if the `RestoreType` parameter is `copy-on-write`
+	//
+	// This property must be used with `SourceDBClusterIdentifier` property. The resulting cluster will have the identifier that matches the value of the `DBclusterIdentifier` property.
 	//
 	// Example: `2015-03-07T23:45:00Z`
 	//

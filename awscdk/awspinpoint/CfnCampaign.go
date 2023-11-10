@@ -513,7 +513,7 @@ type CfnCampaign interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The message configuration settings for the campaign.
+	// The message configuration settings for the treatment.
 	MessageConfiguration() interface{}
 	SetMessageConfiguration(val interface{})
 	// The name of the campaign.
@@ -529,7 +529,7 @@ type CfnCampaign interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The schedule settings for the campaign.
+	// The schedule settings for the treatment.
 	Schedule() interface{}
 	SetSchedule(val interface{})
 	// The unique identifier for the segment to associate with the campaign.
@@ -550,10 +550,10 @@ type CfnCampaign interface {
 	// The message template to use for the treatment.
 	TemplateConfiguration() interface{}
 	SetTemplateConfiguration(val interface{})
-	// A custom description of the default treatment for the campaign.
+	// A custom description of the treatment.
 	TreatmentDescription() *string
 	SetTreatmentDescription(val *string)
-	// A custom name of the default treatment for the campaign, if the campaign has multiple treatments.
+	// A custom name for the treatment.
 	TreatmentName() *string
 	SetTreatmentName(val *string)
 	// Deprecated.

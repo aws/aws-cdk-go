@@ -66,6 +66,7 @@ type CfnBranch interface {
 	AttrArn() *string
 	// Name for a branch, part of an Amplify App.
 	AttrBranchName() *string
+	// The backend environment for an Amplify app.
 	Backend() interface{}
 	SetBackend(val interface{})
 	// The basic authorization credentials for a branch of an Amplify app.

@@ -463,7 +463,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrClientId", GoGetter: "AttrClientId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrClientSecret", GoGetter: "AttrClientSecret"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
 			_jsii_.MemberProperty{JsiiProperty: "authSessionValidity", GoGetter: "AuthSessionValidity"},
 			_jsii_.MemberProperty{JsiiProperty: "callbackUrLs", GoGetter: "CallbackUrLs"},

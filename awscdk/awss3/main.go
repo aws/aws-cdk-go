@@ -852,6 +852,14 @@ func init() {
 		reflect.TypeOf((*CfnStorageLens_StorageLensConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.CfnStorageLens.StorageLensGroupLevelProperty",
+		reflect.TypeOf((*CfnStorageLens_StorageLensGroupLevelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.CfnStorageLens.StorageLensGroupSelectionCriteriaProperty",
+		reflect.TypeOf((*CfnStorageLens_StorageLensGroupSelectionCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnStorageLensProps",
 		reflect.TypeOf((*CfnStorageLensProps)(nil)).Elem(),
 	)

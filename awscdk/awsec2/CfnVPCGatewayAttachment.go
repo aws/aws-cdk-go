@@ -29,7 +29,8 @@ import (
 type CfnVPCGatewayAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
+	// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment.
+	AttrAttachmentType() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -215,11 +216,11 @@ type jsiiProxy_CfnVPCGatewayAttachment struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnVPCGatewayAttachment) AttrId() *string {
+func (j *jsiiProxy_CfnVPCGatewayAttachment) AttrAttachmentType() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrAttachmentType",
 		&returns,
 	)
 	return returns

@@ -11,13 +11,11 @@ package awsquicksight
 //   pivotTableDataPathOptionProperty := &PivotTableDataPathOptionProperty{
 //   	DataPathList: []interface{}{
 //   		&DataPathValueProperty{
-//   			FieldId: jsii.String("fieldId"),
-//   			FieldValue: jsii.String("fieldValue"),
-//
-//   			// the properties below are optional
 //   			DataPathType: &DataPathTypeProperty{
 //   				PivotTableDataPathType: jsii.String("pivotTableDataPathType"),
 //   			},
+//   			FieldId: jsii.String("fieldId"),
+//   			FieldValue: jsii.String("fieldValue"),
 //   		},
 //   	},
 //

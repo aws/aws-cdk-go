@@ -181,7 +181,7 @@ type CfnSegmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The criteria that define the dimensions for the segment.
+	// An array that defines the dimensions for the segment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-dimensions
 	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`

@@ -57,7 +57,6 @@ type CfnApplicationSettings interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Specifies whether to enable application-related alarms in Amazon CloudWatch.
 	CloudWatchMetricsEnabled() interface{}
 	SetCloudWatchMetricsEnabled(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

@@ -222,6 +222,7 @@ type CfnAutoScalingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	AttrId() *string
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
@@ -489,6 +490,16 @@ type jsiiProxy_CfnAutoScalingGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAutoScalingGroup) AutoScalingGroupName() *string {

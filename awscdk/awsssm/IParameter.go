@@ -11,7 +11,7 @@ import (
 // An SSM Parameter reference.
 type IParameter interface {
 	awscdk.IResource
-	// Grants read (DescribeParameter, GetParameter, GetParameterHistory) permissions on the SSM Parameter.
+	// Grants read (DescribeParameter, GetParameters, GetParameter, GetParameterHistory) permissions on the SSM Parameter.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants write (PutParameter) permissions on the SSM Parameter.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant

@@ -144,3 +144,23 @@ func ConfigurationContent_FromInlineText(content *string) ConfigurationContent {
 	return returns
 }
 
+// Defines the hosted configuration content as YAML from inline code.
+// Experimental.
+func ConfigurationContent_FromInlineYaml(content *string) ConfigurationContent {
+	_init_.Initialize()
+
+	if err := validateConfigurationContent_FromInlineYamlParameters(content); err != nil {
+		panic(err)
+	}
+	var returns ConfigurationContent
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-appconfig-alpha.ConfigurationContent",
+		"fromInlineYaml",
+		[]interface{}{content},
+		&returns,
+	)
+
+	return returns
+}
+

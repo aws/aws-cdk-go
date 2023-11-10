@@ -37,6 +37,9 @@ type CfnADMChannel interface {
 	// The unique identifier for the Amazon Pinpoint application that the ADM channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// (Deprecated) An identifier for the ADM channel.
+	//
+	// This property is retained only for backward compatibility.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -101,10 +101,10 @@ type UserPoolProps struct {
 	// Default: RemovalPolicy.RETAIN
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
-	// Whether self sign up should be enabled.
+	// Whether self sign-up should be enabled.
 	//
-	// This can be further configured via the `selfSignUp` property.
-	// Default: false.
+	// To configure self sign-up configuration use the `userVerification` property.
+	// Default: - false.
 	//
 	SelfSignUpEnabled *bool `field:"optional" json:"selfSignUpEnabled" yaml:"selfSignUpEnabled"`
 	// Methods in which a user registers or signs in to a user pool.

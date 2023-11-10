@@ -874,6 +874,28 @@ func OracleEngineVersion_VER_19_0_0_0_2023_04_R1() OracleEngineVersion {
 	return returns
 }
 
+func OracleEngineVersion_VER_19_0_0_0_2023_07_R1() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_19_0_0_0_2023_07_R1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleEngineVersion_VER_19_0_0_0_2023_10_R1() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_19_0_0_0_2023_10_R1",
+		&returns,
+	)
+	return returns
+}
+
 func OracleEngineVersion_VER_21() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
@@ -946,6 +968,28 @@ func OracleEngineVersion_VER_21_0_0_0_2023_04_R1() OracleEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.OracleEngineVersion",
 		"VER_21_0_0_0_2023_04_R1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleEngineVersion_VER_21_0_0_0_2023_07_R1() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_21_0_0_0_2023_07_R1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleEngineVersion_VER_21_0_0_0_2023_10_R1() OracleEngineVersion {
+	_init_.Initialize()
+	var returns OracleEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"VER_21_0_0_0_2023_10_R1",
 		&returns,
 	)
 	return returns

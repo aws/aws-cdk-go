@@ -38,7 +38,6 @@ type CfnAttributeGroupAssociation interface {
 	// The name or ID of the attribute group that holds the attributes to describe the application.
 	AttributeGroup() *string
 	SetAttributeGroup(val *string)
-	// The Id of the Association.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

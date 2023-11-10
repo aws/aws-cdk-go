@@ -9,28 +9,18 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   awsVpcConfigurationProperty := &AwsVpcConfigurationProperty{
-//   	Subnets: []*string{
-//   		jsii.String("subnets"),
-//   	},
-//
-//   	// the properties below are optional
 //   	AssignPublicIp: jsii.String("assignPublicIp"),
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
+//   	},
+//   	Subnets: []*string{
+//   		jsii.String("subnets"),
 //   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html
 //
 type CfnService_AwsVpcConfigurationProperty struct {
-	// The IDs of the subnets associated with the task or service.
-	//
-	// There's a limit of 16 subnets that can be specified per `AwsVpcConfiguration` .
-	//
-	// > All specified subnets must be from the same VPC.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
-	//
-	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 	// Whether the task's elastic network interface receives a public IP address.
 	//
 	// The default value is `DISABLED` .
@@ -45,5 +35,13 @@ type CfnService_AwsVpcConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// The IDs of the subnets associated with the task or service.
+	//
+	// There's a limit of 16 subnets that can be specified per `AwsVpcConfiguration` .
+	//
+	// > All specified subnets must be from the same VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
+	//
+	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
 }
 

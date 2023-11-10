@@ -92,10 +92,6 @@ type CfnStackSetProps struct {
 	//
 	// The name must be unique in the Region where you create your stack set.
 	//
-	// *Maximum* : `128`
-	//
-	// *Pattern* : `^[a-zA-Z][a-zA-Z0-9-]{0,127}$`
-	//
 	// > The `StackSetName` property is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
 	//
@@ -181,19 +177,17 @@ type CfnStackSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
 	//
 	StackInstancesGroup interface{} `field:"optional" json:"stackInstancesGroup" yaml:"stackInstancesGroup"`
-	// The key-value pairs to associate with this stack set and the stacks created from it.
+	// Key-value pairs to associate with this stack.
 	//
-	// AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+	// AWS CloudFormation also propagates these tags to supported resources in the stack. You can specify a maximum number of 50 tags.
+	//
+	// If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's tags. If you specify an empty value, AWS CloudFormation removes all associated tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
 	//
 	Tags *[]*CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	//
 	// You must include either `TemplateURL` or `TemplateBody` in a StackSet, but you can't use both. Dynamic references in the `TemplateBody` may not work correctly in all cases. It's recommended to pass templates containing dynamic references through `TemplateUrl` instead.
-	//
-	// *Minimum* : `1`
-	//
-	// *Maximum* : `51200`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
 	//
 	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`

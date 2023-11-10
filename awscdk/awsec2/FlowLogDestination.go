@@ -63,6 +63,25 @@ func FlowLogDestination_ToCloudWatchLogs(logGroup awslogs.ILogGroup, iamRole aws
 	return returns
 }
 
+// Use Kinesis Data Firehose as the destination.
+func FlowLogDestination_ToKinesisDataFirehoseDestination(deliveryStreamArn *string) FlowLogDestination {
+	_init_.Initialize()
+
+	if err := validateFlowLogDestination_ToKinesisDataFirehoseDestinationParameters(deliveryStreamArn); err != nil {
+		panic(err)
+	}
+	var returns FlowLogDestination
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.FlowLogDestination",
+		"toKinesisDataFirehoseDestination",
+		[]interface{}{deliveryStreamArn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Use S3 as the destination.
 func FlowLogDestination_ToS3(bucket awss3.IBucket, keyPrefix *string, options *S3DestinationOptions) FlowLogDestination {
 	_init_.Initialize()

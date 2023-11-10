@@ -166,7 +166,7 @@ func validateEnvironment_FromEnvironmentArnParameters(scope constructs.Construct
 	return nil
 }
 
-func validateEnvironment_FromEnvironmentAttributesParameters(scope constructs.Construct, id *string, attr *EnvironmentAttributes) error {
+func validateEnvironment_FromEnvironmentAttributesParameters(scope constructs.Construct, id *string, attrs *EnvironmentAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -175,10 +175,10 @@ func validateEnvironment_FromEnvironmentAttributesParameters(scope constructs.Co
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if attr == nil {
-		return fmt.Errorf("parameter attr is required, but nil was provided")
+	if attrs == nil {
+		return fmt.Errorf("parameter attrs is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(attr, func() string { return "parameter attr" }); err != nil {
+	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
 		return err
 	}
 

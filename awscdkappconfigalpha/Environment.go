@@ -330,10 +330,10 @@ func Environment_FromEnvironmentArn(scope constructs.Construct, id *string, envi
 
 // Imports an environment into the CDK from its attributes.
 // Experimental.
-func Environment_FromEnvironmentAttributes(scope constructs.Construct, id *string, attr *EnvironmentAttributes) IEnvironment {
+func Environment_FromEnvironmentAttributes(scope constructs.Construct, id *string, attrs *EnvironmentAttributes) IEnvironment {
 	_init_.Initialize()
 
-	if err := validateEnvironment_FromEnvironmentAttributesParameters(scope, id, attr); err != nil {
+	if err := validateEnvironment_FromEnvironmentAttributesParameters(scope, id, attrs); err != nil {
 		panic(err)
 	}
 	var returns IEnvironment
@@ -341,7 +341,7 @@ func Environment_FromEnvironmentAttributes(scope constructs.Construct, id *strin
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-appconfig-alpha.Environment",
 		"fromEnvironmentAttributes",
-		[]interface{}{scope, id, attr},
+		[]interface{}{scope, id, attrs},
 		&returns,
 	)
 

@@ -19,13 +19,7 @@ import (
 //
 //   build := gamelift.NewBuild(this, jsii.String("Build"), &BuildProps{
 //   	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),
-//   })
-//
-//   awscdk.NewCfnOutput(this, jsii.String("BuildArn"), &CfnOutputProps{
-//   	Value: build.BuildArn,
-//   })
-//   awscdk.NewCfnOutput(this, jsii.String("BuildId"), &CfnOutputProps{
-//   	Value: build.BuildId,
+//   	ServerSdkVersion: jsii.String("5.0.0"),
 //   })
 //
 // Experimental.

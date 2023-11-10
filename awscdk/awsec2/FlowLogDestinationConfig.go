@@ -24,6 +24,7 @@ import (
 //   	LogDestinationType: awscdk.Aws_ec2.FlowLogDestinationType_CLOUD_WATCH_LOGS,
 //
 //   	// the properties below are optional
+//   	DeliveryStreamArn: jsii.String("deliveryStreamArn"),
 //   	DestinationOptions: &DestinationOptions{
 //   		FileFormat: awscdk.*Aws_ec2.FlowLogFileFormat_PLAIN_TEXT,
 //   		HiveCompatiblePartitions: jsii.Boolean(false),
@@ -40,6 +41,10 @@ type FlowLogDestinationConfig struct {
 	// Default: - CLOUD_WATCH_LOGS.
 	//
 	LogDestinationType FlowLogDestinationType `field:"required" json:"logDestinationType" yaml:"logDestinationType"`
+	// The ARN of Kinesis Data Firehose delivery stream to publish the flow logs to.
+	// Default: - undefined.
+	//
+	DeliveryStreamArn *string `field:"optional" json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// Options for writing flow logs to a supported destination.
 	// Default: - undefined.
 	//

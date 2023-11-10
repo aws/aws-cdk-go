@@ -2,22 +2,14 @@ package awsec2
 
 
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	VpnConnections: map[string]vpnConnectionOptions{
-//   		"dynamic": &vpnConnectionOptions{
-//   			 // Dynamic routing (BGP)
-//   			"ip": jsii.String("1.2.3.4"),
-//   		},
-//   		"static": &vpnConnectionOptions{
-//   			 // Static routing
-//   			"ip": jsii.String("4.5.6.7"),
-//   			"staticRoutes": []*string{
-//   				jsii.String("192.168.10.0/24"),
-//   				jsii.String("192.168.20.0/24"),
-//   			},
-//   		},
-//   	},
+//   // Across all tunnels in the account/region
+//   allDataOut := ec2.VpnConnection_MetricAllTunnelDataOut()
+//
+//   // For a specific vpn connection
+//   vpnConnection := vpc.addVpnConnection(jsii.String("Dynamic"), &VpnConnectionOptions{
+//   	Ip: jsii.String("1.2.3.4"),
 //   })
+//   state := vpnConnection.metricTunnelState()
 //
 type VpnConnectionOptions struct {
 	// The ip address of the customer gateway.

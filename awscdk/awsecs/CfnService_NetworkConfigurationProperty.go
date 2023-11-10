@@ -10,14 +10,12 @@ package awsecs
 //
 //   networkConfigurationProperty := &NetworkConfigurationProperty{
 //   	AwsvpcConfiguration: &AwsVpcConfigurationProperty{
-//   		Subnets: []*string{
-//   			jsii.String("subnets"),
-//   		},
-//
-//   		// the properties below are optional
 //   		AssignPublicIp: jsii.String("assignPublicIp"),
 //   		SecurityGroups: []*string{
 //   			jsii.String("securityGroups"),
+//   		},
+//   		Subnets: []*string{
+//   			jsii.String("subnets"),
 //   		},
 //   	},
 //   }

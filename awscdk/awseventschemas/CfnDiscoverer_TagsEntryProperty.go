@@ -16,11 +16,11 @@ package awseventschemas
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-discoverer-tagsentry.html
 //
 type CfnDiscoverer_TagsEntryProperty struct {
-	// They key of a key-value pair.
+	// The key of a key-value pair.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-discoverer-tagsentry.html#cfn-eventschemas-discoverer-tagsentry-key
 	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// They value of a key-value pair.
+	// The value of a key-value pair.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eventschemas-discoverer-tagsentry.html#cfn-eventschemas-discoverer-tagsentry-value
 	//
 	Value *string `field:"required" json:"value" yaml:"value"`

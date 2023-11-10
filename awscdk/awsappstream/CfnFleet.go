@@ -91,6 +91,7 @@ type CfnFleet interface {
 	// The maximum number of concurrent sessions that can be run on an Elastic fleet.
 	MaxConcurrentSessions() *float64
 	SetMaxConcurrentSessions(val *float64)
+	// The maximum number of user sessions on an instance.
 	MaxSessionsPerInstance() *float64
 	SetMaxSessionsPerInstance(val *float64)
 	// The maximum amount of time that a streaming session can remain active, in seconds.

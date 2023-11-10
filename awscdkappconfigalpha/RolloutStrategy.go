@@ -18,6 +18,8 @@ import (
 //   	}),
 //   })
 //
+// See: https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html
+//
 // Experimental.
 type RolloutStrategy interface {
 	// The deployment duration of the rollout strategy.
@@ -91,7 +93,7 @@ func NewRolloutStrategy_Override(r RolloutStrategy) {
 	)
 }
 
-// Returns: An exponential rollout strategy.
+// Build your own exponential rollout strategy.
 // Experimental.
 func RolloutStrategy_Exponential(props *RolloutStrategyProps) RolloutStrategy {
 	_init_.Initialize()
@@ -111,7 +113,7 @@ func RolloutStrategy_Exponential(props *RolloutStrategyProps) RolloutStrategy {
 	return returns
 }
 
-// Returns: A linear rollout strategy.
+// Build your own linear rollout strategy.
 // Experimental.
 func RolloutStrategy_Linear(props *RolloutStrategyProps) RolloutStrategy {
 	_init_.Initialize()

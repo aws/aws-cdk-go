@@ -24,6 +24,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Tier: jsii.String("tier"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html
@@ -47,5 +48,9 @@ type CfnIPAMProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The tier of the IPAM.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-tier
+	//
+	Tier *string `field:"optional" json:"tier" yaml:"tier"`
 }
 

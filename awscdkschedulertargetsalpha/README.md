@@ -25,6 +25,7 @@ The following targets are supported:
 
 1. `targets.LambdaInvoke`: [Invoke an AWS Lambda function](#invoke-a-lambda-function))
 2. `targets.StepFunctionsStartExecution`: [Start an AWS Step Function](#start-an-aws-step-function)
+3. `targets.CodeBuildStartBuild`: [Start a CodeBuild job](#start-a-codebuild-job)
 
 ## Invoke a Lambda function
 
@@ -103,5 +104,24 @@ awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	Target: targets.NewStepFunctionsStartExecution(stateMachine, &ScheduleTargetBaseProps{
 		Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(payload),
 	}),
+})
+```
+
+## Start a CodeBuild job
+
+Use the `CodeBuildStartBuild` target to start a new build run on a CodeBuild project.
+
+The code snippet below creates an event rule with a CodeBuild project as target which is
+called every hour by Event Bridge Scheduler.
+
+```go
+import codebuild "github.com/aws/aws-cdk-go/awscdk"
+
+var project project
+
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
+	Target: targets.NewCodeBuildStartBuild(project),
 })
 ```

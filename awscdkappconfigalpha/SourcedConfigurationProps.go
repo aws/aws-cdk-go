@@ -5,6 +5,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
+// Properties for SourcedConfiguration.
+//
 // Example:
 //   var application application
 //   var bucket bucket

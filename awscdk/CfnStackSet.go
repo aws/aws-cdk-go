@@ -164,7 +164,7 @@ type CfnStackSet interface {
 	SetStackSetName(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() TagManager
-	// The key-value pairs to associate with this stack set and the stacks created from it.
+	// Key-value pairs to associate with this stack.
 	TagsRaw() *[]*CfnTag
 	SetTagsRaw(val *[]*CfnTag)
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.

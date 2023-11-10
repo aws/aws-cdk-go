@@ -39,6 +39,9 @@ type CfnGCMChannel interface {
 	// The unique identifier for the Amazon Pinpoint application that the GCM channel applies to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// (Deprecated) An identifier for the GCM channel.
+	//
+	// This property is retained only for backward compatibility.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

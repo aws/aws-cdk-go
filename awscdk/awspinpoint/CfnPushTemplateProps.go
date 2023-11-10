@@ -67,7 +67,9 @@ package awspinpoint
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html
 //
 type CfnPushTemplateProps struct {
-	// The name of the message template.
+	// The name of the message template to use for the message.
+	//
+	// If specified, this value must match the name of an existing message template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-templatename
 	//
 	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`

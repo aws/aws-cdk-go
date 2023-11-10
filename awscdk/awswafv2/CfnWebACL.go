@@ -13,9 +13,9 @@ import (
 //
 // For information, including how to migrate your AWS WAF resources from the prior release, see the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 //
-// Use an `WebACL` to define a collection of rules to use to inspect and control web requests. The rules in a web ACL can contain rule statements that you define explicitly and rule statements that reference rule groups and managed rule groups.
+// Use an `WebACL` to define a collection of rules to use to inspect and control web requests. Each rule in a web ACL has a statement that defines what to look for in web requests and an action that AWS WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that doesn't match any of the rules.
 //
-// Each rule has an action defined, such as Allow, Block, or CAPTCHA, for requests that match the statement of the rule. In the web ACL, you specify the default action to take for any request that doesn't match any of the rules. The default action can be Allow or Block.
+// The rules in a web ACL can be a combination of explicitly defined rules and rule groups that you reference from the web ACL. The rule groups can be rule groups that you manage or rule groups that are managed by others.
 //
 // You can associate a web ACL with one or more AWS resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer , an AWS AppSync GraphQL API , an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance.
 //
@@ -103,7 +103,7 @@ type CfnWebACL interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The rule statements used to identify the web requests that you want to allow, block, or count.
+	// The rule statements used to identify the web requests that you want to manage.
 	Rules() interface{}
 	SetRules(val interface{})
 	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application.

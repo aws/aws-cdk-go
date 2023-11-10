@@ -292,10 +292,10 @@ func Extension_FromExtensionArn(scope constructs.Construct, id *string, extensio
 
 // Imports an extension into the CDK using its attributes.
 // Experimental.
-func Extension_FromExtensionAttributes(scope constructs.Construct, id *string, attr *ExtensionAttributes) IExtension {
+func Extension_FromExtensionAttributes(scope constructs.Construct, id *string, attrs *ExtensionAttributes) IExtension {
 	_init_.Initialize()
 
-	if err := validateExtension_FromExtensionAttributesParameters(scope, id, attr); err != nil {
+	if err := validateExtension_FromExtensionAttributesParameters(scope, id, attrs); err != nil {
 		panic(err)
 	}
 	var returns IExtension
@@ -303,7 +303,7 @@ func Extension_FromExtensionAttributes(scope constructs.Construct, id *string, a
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-appconfig-alpha.Extension",
 		"fromExtensionAttributes",
-		[]interface{}{scope, id, attr},
+		[]interface{}{scope, id, attrs},
 		&returns,
 	)
 

@@ -20,7 +20,6 @@ import (
 //
 //   cfnSimpleAD := awscdk.Aws_directoryservice.NewCfnSimpleAD(this, jsii.String("MyCfnSimpleAD"), &CfnSimpleADProps{
 //   	Name: jsii.String("name"),
-//   	Password: jsii.String("password"),
 //   	Size: jsii.String("size"),
 //   	VpcSettings: &VpcSettingsProperty{
 //   		SubnetIds: []*string{
@@ -33,6 +32,7 @@ import (
 //   	CreateAlias: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	EnableSso: jsii.Boolean(false),
+//   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
 //   })
 //
@@ -540,9 +540,6 @@ func (j *jsiiProxy_CfnSimpleAD)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnSimpleAD)SetPassword(val *string) {
-	if err := j.validateSetPasswordParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"password",

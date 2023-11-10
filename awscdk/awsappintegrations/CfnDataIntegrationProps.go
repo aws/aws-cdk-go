@@ -17,13 +17,6 @@ import (
 //   cfnDataIntegrationProps := &CfnDataIntegrationProps{
 //   	KmsKey: jsii.String("kmsKey"),
 //   	Name: jsii.String("name"),
-//   	ScheduleConfig: &ScheduleConfigProperty{
-//   		ScheduleExpression: jsii.String("scheduleExpression"),
-//
-//   		// the properties below are optional
-//   		FirstExecutionFrom: jsii.String("firstExecutionFrom"),
-//   		Object: jsii.String("object"),
-//   	},
 //   	SourceUri: jsii.String("sourceUri"),
 //
 //   	// the properties below are optional
@@ -37,6 +30,13 @@ import (
 //   		Filters: filters,
 //   	},
 //   	ObjectConfiguration: objectConfiguration,
+//   	ScheduleConfig: &ScheduleConfigProperty{
+//   		ScheduleExpression: jsii.String("scheduleExpression"),
+//
+//   		// the properties below are optional
+//   		FirstExecutionFrom: jsii.String("firstExecutionFrom"),
+//   		Object: jsii.String("object"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -56,10 +56,6 @@ type CfnDataIntegrationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The name of the data and how often it should be pulled from the source.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-scheduleconfig
-	//
-	ScheduleConfig interface{} `field:"required" json:"scheduleConfig" yaml:"scheduleConfig"`
 	// The URI of the data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-sourceuri
 	//
@@ -76,6 +72,10 @@ type CfnDataIntegrationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-objectconfiguration
 	//
 	ObjectConfiguration interface{} `field:"optional" json:"objectConfiguration" yaml:"objectConfiguration"`
+	// The name of the data and how often it should be pulled from the source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html#cfn-appintegrations-dataintegration-scheduleconfig
+	//
+	ScheduleConfig interface{} `field:"optional" json:"scheduleConfig" yaml:"scheduleConfig"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

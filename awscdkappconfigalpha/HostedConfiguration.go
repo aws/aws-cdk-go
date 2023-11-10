@@ -9,6 +9,8 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// A hosted configuration represents configuration stored in the AWS AppConfig hosted configuration store.
+//
 // Example:
 //   var application application
 //

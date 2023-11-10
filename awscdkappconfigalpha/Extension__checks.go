@@ -58,7 +58,7 @@ func validateExtension_FromExtensionArnParameters(scope constructs.Construct, id
 	return nil
 }
 
-func validateExtension_FromExtensionAttributesParameters(scope constructs.Construct, id *string, attr *ExtensionAttributes) error {
+func validateExtension_FromExtensionAttributesParameters(scope constructs.Construct, id *string, attrs *ExtensionAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -67,10 +67,10 @@ func validateExtension_FromExtensionAttributesParameters(scope constructs.Constr
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if attr == nil {
-		return fmt.Errorf("parameter attr is required, but nil was provided")
+	if attrs == nil {
+		return fmt.Errorf("parameter attrs is required, but nil was provided")
 	}
-	if err := _jsii_.ValidateStruct(attr, func() string { return "parameter attr" }); err != nil {
+	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
 		return err
 	}
 

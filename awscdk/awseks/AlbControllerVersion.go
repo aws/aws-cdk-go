@@ -11,9 +11,9 @@ import (
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_21(),
+//   	Version: eks.KubernetesVersion_V1_27(),
 //   	AlbController: &AlbControllerOptions{
-//   		Version: eks.AlbControllerVersion_V2_4_1(),
+//   		Version: eks.AlbControllerVersion_V2_6_2(),
 //   	},
 //   })
 //
@@ -324,6 +324,72 @@ func AlbControllerVersion_V2_5_1() AlbControllerVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_eks.AlbControllerVersion",
 		"V2_5_1",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_5_2() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_5_2",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_5_3() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_5_3",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_5_4() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_5_4",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_6_0() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_6_0",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_6_1() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_6_1",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_6_2() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"V2_6_2",
 		&returns,
 	)
 	return returns

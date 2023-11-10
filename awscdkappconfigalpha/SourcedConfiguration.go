@@ -10,6 +10,8 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+// A sourced configuration represents configuration stored in an Amazon S3 bucket, AWS Secrets Manager secret, Systems Manager (SSM) Parameter Store parameter, SSM document, or AWS CodePipeline.
+//
 // Example:
 //   var application application
 //   var bucket bucket

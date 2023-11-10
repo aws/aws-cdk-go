@@ -34,7 +34,6 @@ type CfnResourceAssociation interface {
 	SetApplication(val *string)
 	// The Amazon resource name (ARN) that specifies the application.
 	AttrApplicationArn() *string
-	// The Id of the Association.
 	AttrId() *string
 	// The Amazon resource name (ARN) that specifies the resource.
 	AttrResourceArn() *string

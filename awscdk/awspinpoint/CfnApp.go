@@ -37,6 +37,9 @@ type CfnApp interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the application.
 	AttrArn() *string
+	// The unique identifier for the application.
+	//
+	// This identifier is displayed as the *Project ID* on the Amazon Pinpoint console.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -20,7 +20,7 @@ func validateExtension_FromExtensionArnParameters(scope constructs.Construct, id
 	return nil
 }
 
-func validateExtension_FromExtensionAttributesParameters(scope constructs.Construct, id *string, attr *ExtensionAttributes) error {
+func validateExtension_FromExtensionAttributesParameters(scope constructs.Construct, id *string, attrs *ExtensionAttributes) error {
 	return nil
 }
 

@@ -80,7 +80,7 @@ type StringListParameter interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grants read (DescribeParameter, GetParameter, GetParameterHistory) permissions on the SSM Parameter.
+	// Grants read (DescribeParameter, GetParameters, GetParameter, GetParameterHistory) permissions on the SSM Parameter.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants write (PutParameter) permissions on the SSM Parameter.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant

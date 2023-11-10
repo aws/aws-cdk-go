@@ -49,6 +49,8 @@ type CfnSchemaMapping interface {
 	awscdk.IInspectable
 	// The time of this SchemaMapping got created.
 	AttrCreatedAt() *string
+	// The boolean value that indicates whether or not a SchemaMapping has MatchingWorkflows that are associated with.
+	AttrHasWorkflows() awscdk.IResolvable
 	// The SchemaMapping arn associated with the Schema.
 	AttrSchemaArn() *string
 	// The time of this SchemaMapping got last updated at.
@@ -246,6 +248,16 @@ func (j *jsiiProxy_CfnSchemaMapping) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSchemaMapping) AttrHasWorkflows() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrHasWorkflows",
 		&returns,
 	)
 	return returns

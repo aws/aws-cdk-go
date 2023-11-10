@@ -34,6 +34,8 @@ type FlowLog interface {
 	IFlowLog
 	// The S3 bucket to publish flow logs to.
 	Bucket() awss3.IBucket
+	// The ARN of the Kinesis Data Firehose delivery stream to publish flow logs to.
+	DeliveryStreamArn() *string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -102,6 +104,16 @@ func (j *jsiiProxy_FlowLog) Bucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FlowLog) DeliveryStreamArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deliveryStreamArn",
 		&returns,
 	)
 	return returns

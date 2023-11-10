@@ -139,7 +139,7 @@ type CfnPushTemplate interface {
 	// A custom description of the message template.
 	TemplateDescription() *string
 	SetTemplateDescription(val *string)
-	// The name of the message template.
+	// The name of the message template to use for the message.
 	TemplateName() *string
 	SetTemplateName(val *string)
 	// Deprecated.

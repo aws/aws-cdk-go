@@ -85,7 +85,7 @@ import (
 type CfnReplicator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Amazon Resource Name for the created replicator.
+	// Amazon Resource Name (ARN) for the created replicator.
 	AttrReplicatorArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

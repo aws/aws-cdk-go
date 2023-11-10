@@ -105,6 +105,7 @@ import (
 //   		IngressConfiguration: &IngressConfigurationProperty{
 //   			IsPubliclyAccessible: jsii.Boolean(false),
 //   		},
+//   		IpAddressType: jsii.String("ipAddressType"),
 //   	},
 //   	ObservabilityConfiguration: &ServiceObservabilityConfigurationProperty{
 //   		ObservabilityEnabled: jsii.Boolean(false),

@@ -33,6 +33,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Tier: jsii.String("tier"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html
@@ -98,6 +99,9 @@ type CfnIPAM interface {
 	// The key/value combination of a tag assigned to the resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The tier of the IPAM.
+	Tier() *string
+	SetTier(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -445,6 +449,16 @@ func (j *jsiiProxy_CfnIPAM) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAM) Tier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAM) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -519,6 +533,14 @@ func (j *jsiiProxy_CfnIPAM)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAM)SetTier(val *string) {
+	_jsii_.Set(
+		j,
+		"tier",
 		val,
 	)
 }

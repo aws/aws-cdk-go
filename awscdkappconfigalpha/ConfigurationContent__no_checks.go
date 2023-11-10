@@ -20,3 +20,7 @@ func validateConfigurationContent_FromInlineTextParameters(content *string) erro
 	return nil
 }
 
+func validateConfigurationContent_FromInlineYamlParameters(content *string) error {
+	return nil
+}
+

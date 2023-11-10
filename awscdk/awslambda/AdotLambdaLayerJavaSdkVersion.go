@@ -80,6 +80,17 @@ func AdotLambdaLayerJavaSdkVersion_V1_30_0() AdotLambdaLayerJavaSdkVersion {
 	return returns
 }
 
+func AdotLambdaLayerJavaSdkVersion_V1_31_0() AdotLambdaLayerJavaSdkVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerJavaSdkVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerJavaSdkVersion",
+		"V1_31_0",
+		&returns,
+	)
+	return returns
+}
+
 func (a *jsiiProxy_AdotLambdaLayerJavaSdkVersion) LayerArn(scope constructs.IConstruct, architecture Architecture) *string {
 	if err := a.validateLayerArnParameters(scope, architecture); err != nil {
 		panic(err)

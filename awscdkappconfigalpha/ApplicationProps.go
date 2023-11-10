@@ -1,6 +1,8 @@
 package awscdkappconfigalpha
 
 
+// Properties for the Application construct.
+//
 // Example:
 //   appconfig.NewApplication(this, jsii.String("MyApplication"), &ApplicationProps{
 //   	Name: jsii.String("App1"),

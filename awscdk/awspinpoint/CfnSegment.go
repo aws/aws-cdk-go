@@ -198,7 +198,7 @@ type CfnSegment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The criteria that define the dimensions for the segment.
+	// An array that defines the dimensions for the segment.
 	Dimensions() interface{}
 	SetDimensions(val interface{})
 	// The logical ID for this CloudFormation stack element.

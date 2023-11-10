@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnSimpleAD) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnSimpleAD) validateSetPasswordParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnSimpleAD) validateSetSizeParameters(val *string) error {
 	return nil
 }

@@ -78,6 +78,17 @@ func AdotLambdaLayerJavaScriptSdkVersion_V1_16_0() AdotLambdaLayerJavaScriptSdkV
 	return returns
 }
 
+func AdotLambdaLayerJavaScriptSdkVersion_V1_17_1() AdotLambdaLayerJavaScriptSdkVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerJavaScriptSdkVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerJavaScriptSdkVersion",
+		"V1_17_1",
+		&returns,
+	)
+	return returns
+}
+
 func AdotLambdaLayerJavaScriptSdkVersion_V1_7_0() AdotLambdaLayerJavaScriptSdkVersion {
 	_init_.Initialize()
 	var returns AdotLambdaLayerJavaScriptSdkVersion

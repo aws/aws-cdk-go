@@ -47,6 +47,16 @@ package awss3
 //   	DetailedStatusCodesMetrics: &DetailedStatusCodesMetricsProperty{
 //   		IsEnabled: jsii.Boolean(false),
 //   	},
+//   	StorageLensGroupLevel: &StorageLensGroupLevelProperty{
+//   		StorageLensGroupSelectionCriteria: &StorageLensGroupSelectionCriteriaProperty{
+//   			Exclude: []*string{
+//   				jsii.String("exclude"),
+//   			},
+//   			Include: []*string{
+//   				jsii.String("include"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
@@ -72,5 +82,9 @@ type CfnStorageLens_AccountLevelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-detailedstatuscodesmetrics
 	//
 	DetailedStatusCodesMetrics interface{} `field:"optional" json:"detailedStatusCodesMetrics" yaml:"detailedStatusCodesMetrics"`
+	// Specifies the details of Amazon S3 Storage Lens Group configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-storagelensgrouplevel
+	//
+	StorageLensGroupLevel interface{} `field:"optional" json:"storageLensGroupLevel" yaml:"storageLensGroupLevel"`
 }
 

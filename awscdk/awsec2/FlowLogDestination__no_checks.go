@@ -8,6 +8,10 @@ func (f *jsiiProxy_FlowLogDestination) validateBindParameters(scope constructs.C
 	return nil
 }
 
+func validateFlowLogDestination_ToKinesisDataFirehoseDestinationParameters(deliveryStreamArn *string) error {
+	return nil
+}
+
 func validateFlowLogDestination_ToS3Parameters(options *S3DestinationOptions) error {
 	return nil
 }

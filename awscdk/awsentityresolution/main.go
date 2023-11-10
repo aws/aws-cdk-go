@@ -184,6 +184,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrHasWorkflows", GoGetter: "AttrHasWorkflows"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSchemaArn", GoGetter: "AttrSchemaArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

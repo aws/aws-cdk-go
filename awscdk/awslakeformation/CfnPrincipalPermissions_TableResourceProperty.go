@@ -24,6 +24,9 @@ package awslakeformation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tableresource.html
 //
 type CfnPrincipalPermissions_TableResourceProperty struct {
+	// The identifier for the Data Catalog.
+	//
+	// By default, it is the account ID of the caller.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tableresource.html#cfn-lakeformation-principalpermissions-tableresource-catalogid
 	//
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`

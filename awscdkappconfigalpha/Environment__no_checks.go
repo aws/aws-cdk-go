@@ -56,7 +56,7 @@ func validateEnvironment_FromEnvironmentArnParameters(scope constructs.Construct
 	return nil
 }
 
-func validateEnvironment_FromEnvironmentAttributesParameters(scope constructs.Construct, id *string, attr *EnvironmentAttributes) error {
+func validateEnvironment_FromEnvironmentAttributesParameters(scope constructs.Construct, id *string, attrs *EnvironmentAttributes) error {
 	return nil
 }
 

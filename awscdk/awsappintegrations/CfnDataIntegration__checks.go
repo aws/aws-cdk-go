@@ -220,9 +220,6 @@ func (j *jsiiProxy_CfnDataIntegration) validateSetNameParameters(val *string) er
 }
 
 func (j *jsiiProxy_CfnDataIntegration) validateSetScheduleConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

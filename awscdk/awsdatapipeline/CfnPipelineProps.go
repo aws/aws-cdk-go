@@ -10,6 +10,10 @@ package awsdatapipeline
 //
 //   cfnPipelineProps := &CfnPipelineProps{
 //   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	Activate: jsii.Boolean(false),
+//   	Description: jsii.String("description"),
 //   	ParameterObjects: []interface{}{
 //   		&ParameterObjectProperty{
 //   			Attributes: []interface{}{
@@ -21,10 +25,6 @@ package awsdatapipeline
 //   			Id: jsii.String("id"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Activate: jsii.Boolean(false),
-//   	Description: jsii.String("description"),
 //   	ParameterValues: []interface{}{
 //   		&ParameterValueProperty{
 //   			Id: jsii.String("id"),
@@ -61,10 +61,6 @@ type CfnPipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The parameter objects used with the pipeline.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
-	//
-	ParameterObjects interface{} `field:"required" json:"parameterObjects" yaml:"parameterObjects"`
 	// Indicates whether to validate and start the pipeline or stop an active pipeline.
 	//
 	// By default, the value is set to `true` .
@@ -75,6 +71,10 @@ type CfnPipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The parameter objects used with the pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
+	//
+	ParameterObjects interface{} `field:"optional" json:"parameterObjects" yaml:"parameterObjects"`
 	// The parameter values used with the pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues
 	//

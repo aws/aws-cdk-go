@@ -1,6 +1,7 @@
 package awscdkappconfigalpha
 
 
+// Defines the source type for event destinations.
 // Experimental.
 type SourceType string
 

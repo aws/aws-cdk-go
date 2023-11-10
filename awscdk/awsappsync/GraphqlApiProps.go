@@ -47,7 +47,7 @@ type GraphqlApiProps struct {
 	// SchemaFile.fromAsset(filePath: string) allows schema definition through schema.graphql file
 	// Default: - schema will be generated code-first (i.e. addType, addObjectType, etc.)
 	//
-	// Deprecated: use apiSource.schema instead
+	// Deprecated: use Definition.schema instead
 	Schema ISchema `field:"optional" json:"schema" yaml:"schema"`
 	// A value indicating whether the API is accessible from anywhere (GLOBAL) or can only be access from a VPC (PRIVATE).
 	// Default: - GLOBAL.

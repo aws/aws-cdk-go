@@ -11,7 +11,7 @@ import (
 
 // Use the `AWS::IoT::SoftwarePackage` resource to create a software package.
 //
-// For information about working with software packages, see [AWS IoT Device Management Software Package Catalog](https://docs.aws.amazon.com/iot/latest/developerguide/software-package-catalog) and [Creating a software package and package version](https://docs.aws.amazon.com/iot/latest/developerguide/creating-pacakge-and-version) in the *AWS IoT Developer Guide* . See also, [CreatePackage](https://docs.aws.amazon.com/iot/latest/apireference/API_CreatePackage.html) in the *API Guide* .
+// For information about working with software packages, see [AWS IoT Device Management Software Package Catalog](https://docs.aws.amazon.com/iot/latest/developerguide/software-package-catalog.html) and [Creating a software package and package version](https://docs.aws.amazon.com/iot/latest/developerguide/creating-package-and-version.html) in the *AWS IoT Developer Guide* . See also, [CreatePackage](https://docs.aws.amazon.com/iot/latest/apireference/API_CreatePackage.html) in the *API Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

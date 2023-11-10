@@ -997,11 +997,22 @@ genericWindows := ec2.MachineImage_GenericWindows(map[string]*string{
 Create your VPC with VPN connections by specifying the `vpnConnections` props (keys are construct `id`s):
 
 ```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
 vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
 	VpnConnections: map[string]vpnConnectionOptions{
 		"dynamic": &vpnConnectionOptions{
 			 // Dynamic routing (BGP)
 			"ip": jsii.String("1.2.3.4"),
+			"tunnelOptions": []VpnTunnelOption{
+				&VpnTunnelOption{
+					"preSharedKeySecret": awscdk.SecretValue_unsafePlainText(jsii.String("secretkey1234")),
+				},
+				&VpnTunnelOption{
+					"preSharedKeySecret": awscdk.SecretValue_unsafePlainText(jsii.String("secretkey5678")),
+				},
+			},
 		},
 		"static": &vpnConnectionOptions{
 			 // Static routing
@@ -1945,6 +1956,20 @@ ec2.NewFlowLog(this, jsii.String("FlowLog"), &FlowLogProps{
 ec2.NewFlowLog(this, jsii.String("FlowLogWithKeyPrefix"), &FlowLogProps{
 	ResourceType: ec2.FlowLogResourceType_*FromVpc(vpc),
 	Destination: ec2.FlowLogDestination_*ToS3(bucket, jsii.String("prefix/")),
+})
+```
+
+*Kinesis Data Firehose*
+
+```go
+import firehose "github.com/aws/aws-cdk-go/awscdk"
+
+var vpc vpc
+var deliveryStream cfnDeliveryStream
+
+
+vpc.addFlowLog(jsii.String("FlowLogsKinesisDataFirehose"), &FlowLogOptions{
+	Destination: ec2.FlowLogDestination_ToKinesisDataFirehoseDestination(deliveryStream.AttrArn),
 })
 ```
 

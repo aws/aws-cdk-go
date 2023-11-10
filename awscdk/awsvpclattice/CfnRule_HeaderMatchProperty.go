@@ -34,8 +34,6 @@ type CfnRule_HeaderMatchProperty struct {
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Indicates whether the match is case sensitive.
-	//
-	// Defaults to false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatch.html#cfn-vpclattice-rule-headermatch-casesensitive
 	//
 	// Default: - false.

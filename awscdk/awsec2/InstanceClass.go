@@ -170,10 +170,18 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
 	InstanceClass_R7GD InstanceClass = "R7GD"
-	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
+	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation w/  3.2GHz turbo frequency.
+	InstanceClass_MEMORY7_INTEL_BASE InstanceClass = "MEMORY7_INTEL_BASE"
+	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation w/  3.2GHz turbo frequency.
+	InstanceClass_R7I InstanceClass = "R7I"
+	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation, with sustained 3.9GHz turbo frequency.
 	InstanceClass_MEMORY7_INTEL InstanceClass = "MEMORY7_INTEL"
-	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
+	// Memory optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation, with sustained 3.9GHz turbo frequency.
 	InstanceClass_R7IZ InstanceClass = "R7IZ"
+	// Memory optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
+	InstanceClass_MEMORY7_AMD InstanceClass = "MEMORY7_AMD"
+	// Memory optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
+	InstanceClass_R7A InstanceClass = "R7A"
 	// Compute optimized instances, 3rd generation.
 	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
 	// Compute optimized instances, 3rd generation.
@@ -250,6 +258,10 @@ const (
 	InstanceClass_COMPUTE7_INTEL InstanceClass = "COMPUTE7_INTEL"
 	// Compute optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
 	InstanceClass_C7I InstanceClass = "C7I"
+	// Compute optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
+	InstanceClass_COMPUTE7_AMD InstanceClass = "COMPUTE7_AMD"
+	// Compute optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
+	InstanceClass_C7A InstanceClass = "C7A"
 	// Storage-optimized instances, 2nd generation.
 	InstanceClass_STORAGE2 InstanceClass = "STORAGE2"
 	// Storage-optimized instances, 2nd generation.
@@ -450,6 +462,10 @@ const (
 	InstanceClass_STANDARD7_INTEL_FLEX InstanceClass = "STANDARD7_INTEL_FLEX"
 	// Flexible instances with high memory and compute capacity based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation The M7i-Flex instances deliver a baseline of 40% CPU performance, and can scale up to full CPU performance 95% of the time.
 	InstanceClass_M7I_FLEX InstanceClass = "M7I_FLEX"
+	// Standard instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
+	InstanceClass_STANDARD7_AMD InstanceClass = "STANDARD7_AMD"
+	// Standard instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
+	InstanceClass_M7A InstanceClass = "M7A"
 	// High memory and compute capacity instances, 1st generation.
 	InstanceClass_HIGH_COMPUTE_MEMORY1 InstanceClass = "HIGH_COMPUTE_MEMORY1"
 	// High memory and compute capacity instances, 1st generation.

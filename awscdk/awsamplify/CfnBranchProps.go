@@ -52,10 +52,6 @@ import (
 //
 type CfnBranchProps struct {
 	// The unique ID for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 20.
-	//
-	// *Pattern:* d[a-z0-9]+.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
 	//
 	AppId *string `field:"required" json:"appId" yaml:"appId"`
@@ -67,6 +63,7 @@ type CfnBranchProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
 	//
 	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
+	// The backend environment for an Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-backend
 	//
 	Backend interface{} `field:"optional" json:"backend" yaml:"backend"`

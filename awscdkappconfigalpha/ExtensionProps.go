@@ -1,6 +1,8 @@
 package awscdkappconfigalpha
 
 
+// Properties for the Extension construct.
+//
 // Example:
 //   var fn function
 //

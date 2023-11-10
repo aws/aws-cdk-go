@@ -54,6 +54,16 @@ import (
 //   			DetailedStatusCodesMetrics: &DetailedStatusCodesMetricsProperty{
 //   				IsEnabled: jsii.Boolean(false),
 //   			},
+//   			StorageLensGroupLevel: &StorageLensGroupLevelProperty{
+//   				StorageLensGroupSelectionCriteria: &StorageLensGroupSelectionCriteriaProperty{
+//   					Exclude: []*string{
+//   						jsii.String("exclude"),
+//   					},
+//   					Include: []*string{
+//   						jsii.String("include"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   		Id: jsii.String("id"),
 //   		IsEnabled: jsii.Boolean(false),

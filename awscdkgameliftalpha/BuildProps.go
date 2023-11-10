@@ -62,5 +62,12 @@ type BuildProps struct {
 	//
 	// Experimental.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// A server SDK version you used when integrating your game server build with Amazon GameLift.
+	// See: https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html
+	//
+	// Default: - 4.0.2
+	//
+	// Experimental.
+	ServerSdkVersion *string `field:"optional" json:"serverSdkVersion" yaml:"serverSdkVersion"`
 }
 

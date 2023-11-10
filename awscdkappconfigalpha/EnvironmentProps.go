@@ -1,6 +1,8 @@
 package awscdkappconfigalpha
 
 
+// Properties for the Environment construct.
+//
 // Example:
 //   var application application
 //   var alarm alarm

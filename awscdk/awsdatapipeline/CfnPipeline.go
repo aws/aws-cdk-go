@@ -31,6 +31,10 @@ import (
 //
 //   cfnPipeline := awscdk.Aws_datapipeline.NewCfnPipeline(this, jsii.String("MyCfnPipeline"), &CfnPipelineProps{
 //   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	Activate: jsii.Boolean(false),
+//   	Description: jsii.String("description"),
 //   	ParameterObjects: []interface{}{
 //   		&ParameterObjectProperty{
 //   			Attributes: []interface{}{
@@ -42,10 +46,6 @@ import (
 //   			Id: jsii.String("id"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Activate: jsii.Boolean(false),
-//   	Description: jsii.String("description"),
 //   	ParameterValues: []interface{}{
 //   		&ParameterValueProperty{
 //   			Id: jsii.String("id"),

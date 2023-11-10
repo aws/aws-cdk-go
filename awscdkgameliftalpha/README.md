@@ -192,6 +192,19 @@ awscdk.NewCfnOutput(this, jsii.String("BuildId"), &CfnOutputProps{
 })
 ```
 
+To specify a server SDK version you used when integrating your game server build with Amazon GameLift use the `serverSdkVersion` parameter:
+
+> See [Integrate games with custom game servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html) for more details.
+
+```go
+var bucket bucket
+
+build := gamelift.NewBuild(this, jsii.String("Build"), &BuildProps{
+	Content: gamelift.Content_FromBucket(bucket, jsii.String("sample-asset-key")),
+	ServerSdkVersion: jsii.String("5.0.0"),
+})
+```
+
 #### Upload a realtime server Script
 
 Your server script can include one or more files combined into a single .zip file for uploading. The .zip file must contain

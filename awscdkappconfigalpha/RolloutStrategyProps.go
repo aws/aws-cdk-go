@@ -4,6 +4,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
+// Properties for the Rollout Strategy.
+//
 // Example:
 //   var application application
 //

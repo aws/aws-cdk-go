@@ -22,13 +22,6 @@ import (
 //   cfnDataIntegration := awscdk.Aws_appintegrations.NewCfnDataIntegration(this, jsii.String("MyCfnDataIntegration"), &CfnDataIntegrationProps{
 //   	KmsKey: jsii.String("kmsKey"),
 //   	Name: jsii.String("name"),
-//   	ScheduleConfig: &ScheduleConfigProperty{
-//   		ScheduleExpression: jsii.String("scheduleExpression"),
-//
-//   		// the properties below are optional
-//   		FirstExecutionFrom: jsii.String("firstExecutionFrom"),
-//   		Object: jsii.String("object"),
-//   	},
 //   	SourceUri: jsii.String("sourceUri"),
 //
 //   	// the properties below are optional
@@ -42,6 +35,13 @@ import (
 //   		Filters: filters,
 //   	},
 //   	ObjectConfiguration: objectConfiguration,
+//   	ScheduleConfig: &ScheduleConfigProperty{
+//   		ScheduleExpression: jsii.String("scheduleExpression"),
+//
+//   		// the properties below are optional
+//   		FirstExecutionFrom: jsii.String("firstExecutionFrom"),
+//   		Object: jsii.String("object"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),

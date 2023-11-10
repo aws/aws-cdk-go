@@ -461,7 +461,7 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The schedule settings for the campaign.
+	// The schedule settings for the treatment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-schedule
 	//
 	Schedule interface{} `field:"required" json:"schedule" yaml:"schedule"`
@@ -501,7 +501,7 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-limits
 	//
 	Limits interface{} `field:"optional" json:"limits" yaml:"limits"`
-	// The message configuration settings for the campaign.
+	// The message configuration settings for the treatment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-messageconfiguration
 	//
 	MessageConfiguration interface{} `field:"optional" json:"messageConfiguration" yaml:"messageConfiguration"`
@@ -525,13 +525,11 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-templateconfiguration
 	//
 	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
-	// A custom description of the default treatment for the campaign.
+	// A custom description of the treatment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-treatmentdescription
 	//
 	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`
-	// A custom name of the default treatment for the campaign, if the campaign has multiple treatments.
-	//
-	// A *treatment* is a variation of a campaign that's used for A/B testing.
+	// A custom name for the treatment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-treatmentname
 	//
 	TreatmentName *string `field:"optional" json:"treatmentName" yaml:"treatmentName"`

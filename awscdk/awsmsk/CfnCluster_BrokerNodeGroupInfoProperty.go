@@ -65,7 +65,7 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 	ClientSubnets *[]*string `field:"required" json:"clientSubnets" yaml:"clientSubnets"`
 	// The type of Amazon EC2 instances to use for brokers.
 	//
-	// The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, and kafka.m5.24xlarge, and kafka.t3.small.
+	// The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-instancetype
 	//
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`

@@ -5,9 +5,9 @@ package awseks
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_21(),
+//   	Version: eks.KubernetesVersion_V1_27(),
 //   	AlbController: &AlbControllerOptions{
-//   		Version: eks.AlbControllerVersion_V2_4_1(),
+//   		Version: eks.AlbControllerVersion_V2_6_2(),
 //   	},
 //   })
 //

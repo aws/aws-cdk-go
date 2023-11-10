@@ -27,7 +27,9 @@ type CfnSmsTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-body
 	//
 	Body *string `field:"required" json:"body" yaml:"body"`
-	// The name of the message template.
+	// The name of the message template to use for the message.
+	//
+	// If specified, this value must match the name of an existing message template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html#cfn-pinpoint-smstemplate-templatename
 	//
 	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`

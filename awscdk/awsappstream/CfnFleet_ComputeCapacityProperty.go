@@ -20,6 +20,9 @@ type CfnFleet_ComputeCapacityProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredinstances
 	//
 	DesiredInstances *float64 `field:"optional" json:"desiredInstances" yaml:"desiredInstances"`
+	// The desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+	//
+	// When you create a fleet, you must set either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredsessions
 	//
 	DesiredSessions *float64 `field:"optional" json:"desiredSessions" yaml:"desiredSessions"`

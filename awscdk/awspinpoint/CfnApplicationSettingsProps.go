@@ -43,7 +43,6 @@ type CfnApplicationSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-campaignhook
 	//
 	CampaignHook interface{} `field:"optional" json:"campaignHook" yaml:"campaignHook"`
-	// Specifies whether to enable application-related alarms in Amazon CloudWatch.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html#cfn-pinpoint-applicationsettings-cloudwatchmetricsenabled
 	//
 	CloudWatchMetricsEnabled interface{} `field:"optional" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`

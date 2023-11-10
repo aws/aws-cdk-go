@@ -40,6 +40,9 @@ type CfnBaiduChannel interface {
 	// The unique identifier for the Amazon Pinpoint application that you're configuring the Baidu channel for.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// (Deprecated) An identifier for the Baidu channel.
+	//
+	// This property is retained only for backward compatibility.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

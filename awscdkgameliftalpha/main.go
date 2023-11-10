@@ -782,7 +782,9 @@ func init() {
 		map[string]interface{}{
 			"AMAZON_LINUX": OperatingSystem_AMAZON_LINUX,
 			"AMAZON_LINUX_2": OperatingSystem_AMAZON_LINUX_2,
+			"AMAZON_LINUX_2023": OperatingSystem_AMAZON_LINUX_2023,
 			"WINDOWS_2012": OperatingSystem_WINDOWS_2012,
+			"WINDOWS_2016": OperatingSystem_WINDOWS_2016,
 		},
 	)
 	_jsii_.RegisterClass(

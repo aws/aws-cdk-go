@@ -1,6 +1,8 @@
 package awscdkappconfigalpha
 
 
+// Properties for DeploymentStrategy.
+//
 // Example:
 //   appconfig.NewDeploymentStrategy(this, jsii.String("MyDeploymentStrategy"), &DeploymentStrategyProps{
 //   	RolloutStrategy: appconfig.RolloutStrategy_Linear(&RolloutStrategyProps{

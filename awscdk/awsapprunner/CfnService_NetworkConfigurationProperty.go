@@ -20,6 +20,7 @@ package awsapprunner
 //   	IngressConfiguration: &IngressConfigurationProperty{
 //   		IsPubliclyAccessible: jsii.Boolean(false),
 //   	},
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html
@@ -33,5 +34,9 @@ type CfnService_NetworkConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-ingressconfiguration
 	//
 	IngressConfiguration interface{} `field:"optional" json:"ingressConfiguration" yaml:"ingressConfiguration"`
+	// App Runner service endpoint IP address type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html#cfn-apprunner-service-networkconfiguration-ipaddresstype
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 }
 

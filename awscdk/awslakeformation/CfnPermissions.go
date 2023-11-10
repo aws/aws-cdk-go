@@ -69,6 +69,7 @@ import (
 type CfnPermissions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A unique identifier for the batch permissions request entry.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

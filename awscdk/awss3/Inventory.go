@@ -53,6 +53,8 @@ type Inventory struct {
 	//
 	IncludeObjectVersions InventoryObjectVersion `field:"optional" json:"includeObjectVersions" yaml:"includeObjectVersions"`
 	// The inventory configuration ID.
+	//
+	// Should be limited to 64 characters and can only contain letters, numbers, periods, dashes, and underscores.
 	// Default: - generated ID.
 	//
 	InventoryId *string `field:"optional" json:"inventoryId" yaml:"inventoryId"`

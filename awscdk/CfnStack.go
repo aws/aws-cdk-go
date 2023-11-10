@@ -55,9 +55,6 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnStack := cdk.NewCfnStack(this, jsii.String("MyCfnStack"), &CfnStackProps{
-//   	TemplateUrl: jsii.String("templateUrl"),
-//
-//   	// the properties below are optional
 //   	NotificationArns: []*string{
 //   		jsii.String("notificationArns"),
 //   	},
@@ -70,6 +67,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TemplateUrl: jsii.String("templateUrl"),
 //   	TimeoutInMinutes: jsii.Number(123),
 //   })
 //
@@ -596,9 +594,6 @@ func (j *jsiiProxy_CfnStack)SetTagsRaw(val *[]*CfnTag) {
 }
 
 func (j *jsiiProxy_CfnStack)SetTemplateUrl(val *string) {
-	if err := j.validateSetTemplateUrlParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"templateUrl",

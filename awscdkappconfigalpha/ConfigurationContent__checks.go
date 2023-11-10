@@ -38,3 +38,11 @@ func validateConfigurationContent_FromInlineTextParameters(content *string) erro
 	return nil
 }
 
+func validateConfigurationContent_FromInlineYamlParameters(content *string) error {
+	if content == nil {
+		return fmt.Errorf("parameter content is required, but nil was provided")
+	}
+
+	return nil
+}
+

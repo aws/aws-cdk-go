@@ -192,7 +192,6 @@ type CfnRule interface {
 	awscdk.IInspectable
 	// The ARN of the rule, such as `arn:aws:events:us-east-2:123456789012:rule/example` .
 	AttrArn() *string
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -398,16 +397,6 @@ func (j *jsiiProxy_CfnRule) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnRule) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

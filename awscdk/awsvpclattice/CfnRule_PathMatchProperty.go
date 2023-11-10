@@ -26,8 +26,6 @@ type CfnRule_PathMatchProperty struct {
 	//
 	Match interface{} `field:"required" json:"match" yaml:"match"`
 	// Indicates whether the match is case sensitive.
-	//
-	// Defaults to false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatch.html#cfn-vpclattice-rule-pathmatch-casesensitive
 	//
 	// Default: - false.

@@ -48,7 +48,6 @@ type CfnApplication interface {
 	awscdk.IInspectable
 	// The application ID.
 	AttrApplicationId() *string
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -239,16 +238,6 @@ func (j *jsiiProxy_CfnApplication) AttrApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"attrApplicationId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnApplication) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

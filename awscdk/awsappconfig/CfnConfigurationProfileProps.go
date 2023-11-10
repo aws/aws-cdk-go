@@ -58,6 +58,7 @@ type CfnConfigurationProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-kmskeyidentifier
 	//
 	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`

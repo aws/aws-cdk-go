@@ -13,6 +13,8 @@ import (
 //
 // For more information, see [What Is CodePipeline?](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) in the *AWS CodePipeline User Guide* .
 //
+// > V2 type pipelines, along with triggers on Git tags and pipeline-level variables, are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see [Pipeline types](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html) in the *AWS CodePipeline User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -10,7 +10,6 @@ package awsdirectoryservice
 //
 //   cfnSimpleADProps := &CfnSimpleADProps{
 //   	Name: jsii.String("name"),
-//   	Password: jsii.String("password"),
 //   	Size: jsii.String("size"),
 //   	VpcSettings: &VpcSettingsProperty{
 //   		SubnetIds: []*string{
@@ -23,6 +22,7 @@ package awsdirectoryservice
 //   	CreateAlias: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	EnableSso: jsii.Boolean(false),
+//   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
 //   }
 //
@@ -33,14 +33,6 @@ type CfnSimpleADProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The password for the directory administrator.
-	//
-	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
-	//
-	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-password
-	//
-	Password *string `field:"required" json:"password" yaml:"password"`
 	// The size of the directory.
 	//
 	// For valid values, see [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) in the *AWS Directory Service API Reference* .
@@ -69,6 +61,14 @@ type CfnSimpleADProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-enablesso
 	//
 	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
+	// The password for the directory administrator.
+	//
+	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
+	//
+	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-password
+	//
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The NetBIOS name of the directory, such as `CORP` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-shortname
 	//

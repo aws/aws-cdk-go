@@ -101,7 +101,6 @@ type CfnUserPoolClient interface {
 	SetAnalyticsConfiguration(val interface{})
 	AttrClientId() *string
 	AttrClientSecret() *string
-	AttrId() *string
 	AttrName() *string
 	// Amazon Cognito creates a session token for each API request in an authentication flow.
 	AuthSessionValidity() *float64
@@ -399,16 +398,6 @@ func (j *jsiiProxy_CfnUserPoolClient) AttrClientSecret() *string {
 	_jsii_.Get(
 		j,
 		"attrClientSecret",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnUserPoolClient) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns
