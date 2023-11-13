@@ -353,6 +353,17 @@ func Runtime_NODEJS_18_X() Runtime {
 	return returns
 }
 
+func Runtime_NODEJS_20_X() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"NODEJS_20_X",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_NODEJS_4_3() Runtime {
 	_init_.Initialize()
 	var returns Runtime
