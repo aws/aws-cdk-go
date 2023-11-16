@@ -75,7 +75,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "applicationId", GoGetter: "ApplicationId"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationProfileId", GoGetter: "AttrConfigurationProfileId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrKmsKeyArn", GoGetter: "AttrKmsKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

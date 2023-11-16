@@ -11,6 +11,9 @@ package awsappstream
 //   userSettingProperty := &UserSettingProperty{
 //   	Action: jsii.String("action"),
 //   	Permission: jsii.String("permission"),
+//
+//   	// the properties below are optional
+//   	MaximumLength: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html
@@ -24,5 +27,8 @@ type CfnStack_UserSettingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-permission
 	//
 	Permission *string `field:"required" json:"permission" yaml:"permission"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-maximumlength
+	//
+	MaximumLength *float64 `field:"optional" json:"maximumLength" yaml:"maximumLength"`
 }
 

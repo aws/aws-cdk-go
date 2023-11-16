@@ -14,47 +14,86 @@ import (
 // During a stack operation, CloudFormation calls AWS Lake Formation `AddLFTagsToResource` API to create a `TagAssociation` resource and calls the `RemoveLFTagsToResource` API to delete it.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var catalog interface{}
-//   var tableWildcard interface{}
+//   var stack stack
+//   var accountId string
 //
-//   cfnTagAssociation := awscdk.Aws_lakeformation.NewCfnTagAssociation(this, jsii.String("MyCfnTagAssociation"), &CfnTagAssociationProps{
-//   	LfTags: []interface{}{
-//   		&LFTagPairProperty{
-//   			CatalogId: jsii.String("catalogId"),
-//   			TagKey: jsii.String("tagKey"),
-//   			TagValues: []*string{
-//   				jsii.String("tagValues"),
-//   			},
+//
+//   tagKey := "aws"
+//   tagValues := []*string{
+//   	"dev",
+//   }
+//
+//   database := awscdkgluealpha.NewDatabase(this, jsii.String("Database"))
+//
+//   table := awscdkgluealpha.NewS3Table(this, jsii.String("Table"), &S3TableProps{
+//   	Database: Database,
+//   	Columns: []column{
+//   		&column{
+//   			Name: jsii.String("col1"),
+//   			Type: awscdkgluealpha.Schema_STRING(),
+//   		},
+//   		&column{
+//   			Name: jsii.String("col2"),
+//   			Type: awscdkgluealpha.Schema_STRING(),
 //   		},
 //   	},
-//   	Resource: &ResourceProperty{
-//   		Catalog: catalog,
-//   		Database: &DatabaseResourceProperty{
-//   			CatalogId: jsii.String("catalogId"),
-//   			Name: jsii.String("name"),
-//   		},
-//   		Table: &TableResourceProperty{
-//   			CatalogId: jsii.String("catalogId"),
-//   			DatabaseName: jsii.String("databaseName"),
+//   	DataFormat: awscdkgluealpha.DataFormat_CSV(),
+//   })
 //
-//   			// the properties below are optional
-//   			Name: jsii.String("name"),
-//   			TableWildcard: tableWildcard,
+//   synthesizer := stack.Synthesizer.(defaultStackSynthesizer)
+//   awscdk.NewCfnDataLakeSettings(this, jsii.String("DataLakeSettings"), &CfnDataLakeSettingsProps{
+//   	Admins: []interface{}{
+//   		&DataLakePrincipalProperty{
+//   			DataLakePrincipalIdentifier: stack.FormatArn(&ArnComponents{
+//   				Service: jsii.String("iam"),
+//   				Resource: jsii.String("role"),
+//   				Region: jsii.String(""),
+//   				Account: accountId,
+//   				ResourceName: jsii.String("Admin"),
+//   			}),
 //   		},
-//   		TableWithColumns: &TableWithColumnsResourceProperty{
-//   			CatalogId: jsii.String("catalogId"),
-//   			ColumnNames: []*string{
-//   				jsii.String("columnNames"),
-//   			},
-//   			DatabaseName: jsii.String("databaseName"),
-//   			Name: jsii.String("name"),
+//   		&DataLakePrincipalProperty{
+//   			// The CDK cloudformation execution role.
+//   			DataLakePrincipalIdentifier: synthesizer.cloudFormationExecutionRoleArn.replace(jsii.String("${AWS::Partition}"), jsii.String("aws")),
 //   		},
 //   	},
 //   })
+//
+//   tag := awscdk.NewCfnTag(this, jsii.String("Tag"), &CfnTagProps{
+//   	CatalogId: accountId,
+//   	TagKey: jsii.String(TagKey),
+//   	TagValues: TagValues,
+//   })
+//
+//   lfTagPairProperty := &LFTagPairProperty{
+//   	CatalogId: accountId,
+//   	TagKey: jsii.String(TagKey),
+//   	TagValues: TagValues,
+//   }
+//
+//   tagAssociation := awscdk.NewCfnTagAssociation(this, jsii.String("TagAssociation"), &CfnTagAssociationProps{
+//   	LfTags: []interface{}{
+//   		lfTagPairProperty,
+//   	},
+//   	Resource: &ResourceProperty{
+//   		TableWithColumns: &TableWithColumnsResourceProperty{
+//   			DatabaseName: database.DatabaseName,
+//   			ColumnNames: []*string{
+//   				jsii.String("col1"),
+//   				jsii.String("col2"),
+//   			},
+//   			CatalogId: accountId,
+//   			Name: table.TableName,
+//   		},
+//   	},
+//   })
+//
+//   tagAssociation.Node.AddDependency(tag)
+//   tagAssociation.Node.AddDependency(table)
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html
 //

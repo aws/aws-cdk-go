@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_27(),
+//   	Version: eks.KubernetesVersion_V1_28(),
 //   	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 //   })
 //

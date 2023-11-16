@@ -66,8 +66,6 @@ type CfnConfigurationProfile interface {
 	SetApplicationId(val *string)
 	// The configuration profile ID.
 	AttrConfigurationProfileId() *string
-	// The ID of the configuration profile.
-	AttrId() *string
 	// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store.
 	//
 	// This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
@@ -289,16 +287,6 @@ func (j *jsiiProxy_CfnConfigurationProfile) AttrConfigurationProfileId() *string
 	_jsii_.Get(
 		j,
 		"attrConfigurationProfileId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnConfigurationProfile) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

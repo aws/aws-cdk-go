@@ -60,7 +60,6 @@ type CfnUser interface {
 	//
 	// For example: `arn:aws:iam::123456789012:user/mystack-myuser-1CCXAFG2H2U4D` .
 	AttrArn() *string
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -271,16 +270,6 @@ func (j *jsiiProxy_CfnUser) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnUser) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

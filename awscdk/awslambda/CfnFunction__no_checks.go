@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnFunction) validateSetImageConfigParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetLoggingConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetRoleParameters(val *string) error {
 	return nil
 }

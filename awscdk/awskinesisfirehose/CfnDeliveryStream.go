@@ -14,7 +14,25 @@ import (
 // For more information, see [Creating an Amazon Kinesis Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Amazon Kinesis Data Firehose Developer Guide* .
 //
 // Example:
+//   destinationBucket := s3.NewBucket(this, jsii.String("Bucket"))
+//   deliveryStreamRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
+//   })
 //
+//   stream := firehose.NewCfnDeliveryStream(this, jsii.String("MyStream"), &CfnDeliveryStreamProps{
+//   	DeliveryStreamName: jsii.String("amazon-apigateway-delivery-stream"),
+//   	S3DestinationConfiguration: &S3DestinationConfigurationProperty{
+//   		BucketArn: destinationBucket.BucketArn,
+//   		RoleArn: deliveryStreamRole.RoleArn,
+//   	},
+//   })
+//
+//   api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+//   	DeployOptions: &StageOptions{
+//   		AccessLogDestination: apigateway.NewFirehoseLogDestination(stream),
+//   		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
+//   	},
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 //

@@ -47,17 +47,37 @@ import (
 //
 //   		// the properties below are optional
 //   		CustomizedMetricSpecification: &CustomizedMetricSpecificationProperty{
-//   			MetricName: jsii.String("metricName"),
-//   			Namespace: jsii.String("namespace"),
-//   			Statistic: jsii.String("statistic"),
-//
-//   			// the properties below are optional
 //   			Dimensions: []interface{}{
 //   				&MetricDimensionProperty{
 //   					Name: jsii.String("name"),
 //   					Value: jsii.String("value"),
 //   				},
 //   			},
+//   			MetricName: jsii.String("metricName"),
+//   			Metrics: []interface{}{
+//   				&TargetTrackingMetricDataQueryProperty{
+//   					Expression: jsii.String("expression"),
+//   					Id: jsii.String("id"),
+//   					Label: jsii.String("label"),
+//   					MetricStat: &TargetTrackingMetricStatProperty{
+//   						Metric: &TargetTrackingMetricProperty{
+//   							Dimensions: []interface{}{
+//   								&TargetTrackingMetricDimensionProperty{
+//   									Name: jsii.String("name"),
+//   									Value: jsii.String("value"),
+//   								},
+//   							},
+//   							MetricName: jsii.String("metricName"),
+//   							Namespace: jsii.String("namespace"),
+//   						},
+//   						Stat: jsii.String("stat"),
+//   						Unit: jsii.String("unit"),
+//   					},
+//   					ReturnData: jsii.Boolean(false),
+//   				},
+//   			},
+//   			Namespace: jsii.String("namespace"),
+//   			Statistic: jsii.String("statistic"),
 //   			Unit: jsii.String("unit"),
 //   		},
 //   		DisableScaleIn: jsii.Boolean(false),
@@ -77,6 +97,8 @@ import (
 type CfnScalingPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// ARN is a read only property for the resource.
+	AttrArn() *string
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -278,6 +300,16 @@ type CfnScalingPolicy interface {
 type jsiiProxy_CfnScalingPolicy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnScalingPolicy) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnScalingPolicy) AttrId() *string {

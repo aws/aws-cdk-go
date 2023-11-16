@@ -164,7 +164,7 @@ type CfnRuleGroup_RuleGroupProperty struct {
 	RuleVariables interface{} `field:"optional" json:"ruleVariables" yaml:"ruleVariables"`
 	// Additional options governing how Network Firewall handles stateful rules.
 	//
-	// The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings.
+	// The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup-statefulruleoptions
 	//
 	StatefulRuleOptions interface{} `field:"optional" json:"statefulRuleOptions" yaml:"statefulRuleOptions"`

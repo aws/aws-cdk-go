@@ -129,6 +129,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "anywhereConfiguration", GoGetter: "AnywhereConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "applyCapacity", GoGetter: "ApplyCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFleetId", GoGetter: "AttrFleetId"},
 			_jsii_.MemberProperty{JsiiProperty: "buildId", GoGetter: "BuildId"},
@@ -168,6 +169,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceCreationLimitPolicy", GoGetter: "ResourceCreationLimitPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "runtimeConfiguration", GoGetter: "RuntimeConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "scalingPolicies", GoGetter: "ScalingPolicies"},
 			_jsii_.MemberProperty{JsiiProperty: "scriptId", GoGetter: "ScriptId"},
 			_jsii_.MemberProperty{JsiiProperty: "serverLaunchParameters", GoGetter: "ServerLaunchParameters"},
 			_jsii_.MemberProperty{JsiiProperty: "serverLaunchPath", GoGetter: "ServerLaunchPath"},
@@ -214,8 +216,16 @@ func init() {
 		reflect.TypeOf((*CfnFleet_RuntimeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnFleet.ScalingPolicyProperty",
+		reflect.TypeOf((*CfnFleet_ScalingPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnFleet.ServerProcessProperty",
 		reflect.TypeOf((*CfnFleet_ServerProcessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnFleet.TargetConfigurationProperty",
+		reflect.TypeOf((*CfnFleet_TargetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnFleetProps",

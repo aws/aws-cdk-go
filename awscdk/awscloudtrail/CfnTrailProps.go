@@ -145,7 +145,7 @@ type CfnTrailProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-includeglobalserviceevents
 	//
 	IncludeGlobalServiceEvents interface{} `field:"optional" json:"includeGlobalServiceEvents" yaml:"includeGlobalServiceEvents"`
-	// A JSON string that contains the insight types you want to log on a trail.
+	// A JSON string that contains the Insights types you want to log on a trail.
 	//
 	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid Insight types.
 	//

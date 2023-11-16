@@ -1426,6 +1426,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigateway.FirehoseLogDestination",
+		reflect.TypeOf((*FirehoseLogDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_FirehoseLogDestination{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessLogDestination)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.GatewayResponse",
 		reflect.TypeOf((*GatewayResponse)(nil)).Elem(),
 		[]_jsii_.Member{

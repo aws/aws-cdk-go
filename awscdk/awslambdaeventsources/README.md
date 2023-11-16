@@ -320,6 +320,32 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 }))
 ```
 
+You can also specify an S3 bucket as an "on failure" destination:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var bucket iBucket
+var myFunction function
+
+
+// Your MSK cluster arn
+clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
+
+// The Kafka topic you want to subscribe to
+topic := "some-cool-topic"
+
+s3OnFailureDestination := awscdk.NewS3OnFailureDestination(bucket)
+
+myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
+	ClusterArn: jsii.String(ClusterArn),
+	Topic: jsii.String(Topic),
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	OnFailure: s3OnFailureDestination,
+}))
+```
+
 ## Roadmap
 
 Eventually, this module will support all the event sources described under

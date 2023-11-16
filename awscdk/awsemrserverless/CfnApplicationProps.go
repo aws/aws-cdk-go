@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var configurationObjectProperty_ configurationObjectProperty
+//
 //   cfnApplicationProps := &CfnApplicationProps{
 //   	ReleaseLabel: jsii.String("releaseLabel"),
 //   	Type: jsii.String("type"),
@@ -49,6 +51,16 @@ import (
 //   		// the properties below are optional
 //   		Disk: jsii.String("disk"),
 //   	},
+//   	MonitoringConfiguration: &MonitoringConfigurationProperty{
+//   		ManagedPersistenceMonitoringConfiguration: &ManagedPersistenceMonitoringConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   		},
+//   		S3MonitoringConfiguration: &S3MonitoringConfigurationProperty{
+//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   			LogUri: jsii.String("logUri"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
 //   		SecurityGroupIds: []*string{
@@ -56,6 +68,19 @@ import (
 //   		},
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   	RuntimeConfiguration: []interface{}{
+//   		&configurationObjectProperty{
+//   			Classification: jsii.String("classification"),
+//
+//   			// the properties below are optional
+//   			Configurations: []interface{}{
+//   				configurationObjectProperty_,
+//   			},
+//   			Properties: map[string]*string{
+//   				"propertiesKey": jsii.String("properties"),
+//   			},
 //   		},
 //   	},
 //   	Tags: []cfnTag{
@@ -76,7 +101,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html
 //
 type CfnApplicationProps struct {
-	// The Amazon EMR release associated with the application.
+	// The EMR release associated with the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-releaselabel
 	//
 	ReleaseLabel *string `field:"required" json:"releaseLabel" yaml:"releaseLabel"`
@@ -110,6 +135,12 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-maximumcapacity
 	//
 	MaximumCapacity interface{} `field:"optional" json:"maximumCapacity" yaml:"maximumCapacity"`
+	// A configuration specification to be used when provisioning an application.
+	//
+	// A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-monitoringconfiguration
+	//
+	MonitoringConfiguration interface{} `field:"optional" json:"monitoringConfiguration" yaml:"monitoringConfiguration"`
 	// The name of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-name
 	//
@@ -118,6 +149,10 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-runtimeconfiguration
+	//
+	RuntimeConfiguration interface{} `field:"optional" json:"runtimeConfiguration" yaml:"runtimeConfiguration"`
 	// The tags assigned to the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-tags
 	//

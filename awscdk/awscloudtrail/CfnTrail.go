@@ -134,7 +134,7 @@ type CfnTrail interface {
 	// Specifies whether the trail is publishing events from global services such as IAM to the log files.
 	IncludeGlobalServiceEvents() interface{}
 	SetIncludeGlobalServiceEvents(val interface{})
-	// A JSON string that contains the insight types you want to log on a trail.
+	// A JSON string that contains the Insights types you want to log on a trail.
 	InsightSelectors() interface{}
 	SetInsightSelectors(val interface{})
 	// Whether the CloudTrail trail is currently logging AWS API calls.

@@ -19,7 +19,7 @@ import (
 // - A security group policy, which manages VPC security groups across your AWS organization.
 // - An AWS Network Firewall policy, which provides firewall rules to filter network traffic in specified Amazon VPCs.
 // - A DNS Firewall policy, which provides Amazon Route 53 Resolver DNS Firewall rules to filter DNS queries for specified Amazon VPCs.
-// - A third-party firewall policy, which manages a third-party firewall service such as the Palo Alto Networks Cloud Next-Generation Firewall.
+// - A third-party firewall policy, which manages a third-party firewall service.
 //
 // Each policy is specific to one of the types. If you want to enforce more than one policy type across accounts, create multiple policies. You can create multiple policies for each type.
 //

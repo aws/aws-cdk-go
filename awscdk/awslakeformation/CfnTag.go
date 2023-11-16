@@ -14,19 +14,86 @@ import (
 // During a stack operation, AWS CloudFormation calls the AWS Lake Formation `CreateLFTag` API to create a tag, and `UpdateLFTag` API to update a tag resource, and a `DeleteLFTag` to delete it.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnTag := awscdk.Aws_lakeformation.NewCfnTag(this, jsii.String("MyCfnTag"), &CfnTagProps{
-//   	TagKey: jsii.String("tagKey"),
-//   	TagValues: []*string{
-//   		jsii.String("tagValues"),
-//   	},
+//   var stack stack
+//   var accountId string
 //
-//   	// the properties below are optional
-//   	CatalogId: jsii.String("catalogId"),
+//
+//   tagKey := "aws"
+//   tagValues := []*string{
+//   	"dev",
+//   }
+//
+//   database := awscdkgluealpha.NewDatabase(this, jsii.String("Database"))
+//
+//   table := awscdkgluealpha.NewS3Table(this, jsii.String("Table"), &S3TableProps{
+//   	Database: Database,
+//   	Columns: []column{
+//   		&column{
+//   			Name: jsii.String("col1"),
+//   			Type: awscdkgluealpha.Schema_STRING(),
+//   		},
+//   		&column{
+//   			Name: jsii.String("col2"),
+//   			Type: awscdkgluealpha.Schema_STRING(),
+//   		},
+//   	},
+//   	DataFormat: awscdkgluealpha.DataFormat_CSV(),
 //   })
+//
+//   synthesizer := stack.Synthesizer.(defaultStackSynthesizer)
+//   awscdk.NewCfnDataLakeSettings(this, jsii.String("DataLakeSettings"), &CfnDataLakeSettingsProps{
+//   	Admins: []interface{}{
+//   		&DataLakePrincipalProperty{
+//   			DataLakePrincipalIdentifier: stack.FormatArn(&ArnComponents{
+//   				Service: jsii.String("iam"),
+//   				Resource: jsii.String("role"),
+//   				Region: jsii.String(""),
+//   				Account: accountId,
+//   				ResourceName: jsii.String("Admin"),
+//   			}),
+//   		},
+//   		&DataLakePrincipalProperty{
+//   			// The CDK cloudformation execution role.
+//   			DataLakePrincipalIdentifier: synthesizer.cloudFormationExecutionRoleArn.replace(jsii.String("${AWS::Partition}"), jsii.String("aws")),
+//   		},
+//   	},
+//   })
+//
+//   tag := awscdk.NewCfnTag(this, jsii.String("Tag"), &CfnTagProps{
+//   	CatalogId: accountId,
+//   	TagKey: jsii.String(TagKey),
+//   	TagValues: TagValues,
+//   })
+//
+//   lfTagPairProperty := &LFTagPairProperty{
+//   	CatalogId: accountId,
+//   	TagKey: jsii.String(TagKey),
+//   	TagValues: TagValues,
+//   }
+//
+//   tagAssociation := awscdk.NewCfnTagAssociation(this, jsii.String("TagAssociation"), &CfnTagAssociationProps{
+//   	LfTags: []interface{}{
+//   		lfTagPairProperty,
+//   	},
+//   	Resource: &ResourceProperty{
+//   		TableWithColumns: &TableWithColumnsResourceProperty{
+//   			DatabaseName: database.DatabaseName,
+//   			ColumnNames: []*string{
+//   				jsii.String("col1"),
+//   				jsii.String("col2"),
+//   			},
+//   			CatalogId: accountId,
+//   			Name: table.TableName,
+//   		},
+//   	},
+//   })
+//
+//   tagAssociation.Node.AddDependency(tag)
+//   tagAssociation.Node.AddDependency(table)
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tag.html
 //

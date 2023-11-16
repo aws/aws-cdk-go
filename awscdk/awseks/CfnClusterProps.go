@@ -30,6 +30,10 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	AccessConfig: &AccessConfigProperty{
+//   		AuthenticationMode: jsii.String("authenticationMode"),
+//   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
+//   	},
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -81,10 +85,6 @@ type CfnClusterProps struct {
 	// The VPC configuration that's used by the cluster control plane.
 	//
 	// Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups. However, we recommend that you use a dedicated security group for your cluster control plane.
-	//
-	// > All subnets that you add must be in the same set of AZs as originally provided when you created the cluster. New subnets must satisfy all of the other requirements, for example they must have sufficient IP addresses.
-	// >
-	// > For example, assume that you made a cluster and specified four subnets. In the order that you specified them, the first subnet is in the `us-west-2a` Availability Zone, the second and third subnets are in `us-west-2b` Availability Zone, and the fourth subnet is in `us-west-2c` Availability Zone. If you want to change the subnets, you must provide at least one subnet in each of the three Availability Zones, and the subnets must be in the same VPC as the original subnets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
 	//
 	ResourcesVpcConfig interface{} `field:"required" json:"resourcesVpcConfig" yaml:"resourcesVpcConfig"`
@@ -94,6 +94,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	// An object representing the Access Config to use for the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-accessconfig
+	//
+	AccessConfig interface{} `field:"optional" json:"accessConfig" yaml:"accessConfig"`
 	// The encryption configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
 	//

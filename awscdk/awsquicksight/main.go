@@ -117,6 +117,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_ArcOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.AssetOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_AssetOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.AttributeAggregationFunctionProperty",
 		reflect.TypeOf((*CfnAnalysis_AttributeAggregationFunctionProperty)(nil)).Elem(),
 	)
@@ -1990,6 +1994,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "linkSharingConfiguration", GoGetter: "LinkSharingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -2058,6 +2063,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ArcOptionsProperty",
 		reflect.TypeOf((*CfnDashboard_ArcOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.AssetOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_AssetOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.AttributeAggregationFunctionProperty",
@@ -3078,6 +3087,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.LineSeriesAxisDisplayOptionsProperty",
 		reflect.TypeOf((*CfnDashboard_LineSeriesAxisDisplayOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.LinkSharingConfigurationProperty",
+		reflect.TypeOf((*CfnDashboard_LinkSharingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ListControlDisplayOptionsProperty",
@@ -4374,8 +4387,16 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_SslPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSource.StarburstParametersProperty",
+		reflect.TypeOf((*CfnDataSource_StarburstParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSource.TeradataParametersProperty",
 		reflect.TypeOf((*CfnDataSource_TeradataParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSource.TrinoParametersProperty",
+		reflect.TypeOf((*CfnDataSource_TrinoParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSource.VpcConnectionPropertiesProperty",
@@ -4544,6 +4565,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.ArcOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_ArcOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.AssetOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_AssetOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.AttributeAggregationFunctionProperty",

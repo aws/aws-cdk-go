@@ -38,6 +38,7 @@ package awsgrafana
 //   		jsii.String("organizationalUnits"),
 //   	},
 //   	OrganizationRoleName: jsii.String("organizationRoleName"),
+//   	PluginAdminEnabled: jsii.Boolean(false),
 //   	RoleArn: jsii.String("roleArn"),
 //   	SamlConfiguration: &SamlConfigurationProperty{
 //   		IdpMetadata: &IdpMetadataProperty{
@@ -145,6 +146,10 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-organizationrolename
 	//
 	OrganizationRoleName *string `field:"optional" json:"organizationRoleName" yaml:"organizationRoleName"`
+	// Allow workspace admins to install plugins.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-pluginadminenabled
+	//
+	PluginAdminEnabled interface{} `field:"optional" json:"pluginAdminEnabled" yaml:"pluginAdminEnabled"`
 	// The IAM role that grants permissions to the AWS resources that the workspace will view data from.
 	//
 	// This role must already exist.

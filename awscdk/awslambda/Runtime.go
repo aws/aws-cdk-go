@@ -265,6 +265,17 @@ func Runtime_JAVA_17() Runtime {
 	return returns
 }
 
+func Runtime_JAVA_21() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"JAVA_21",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_JAVA_8() Runtime {
 	_init_.Initialize()
 	var returns Runtime

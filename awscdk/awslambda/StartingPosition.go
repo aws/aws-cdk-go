@@ -4,21 +4,30 @@ package awslambda
 // The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 //
 // Example:
-//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var table table
-//
-//   var fn function
+//   var myFunction function
 //
 //
-//   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-//   fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
+//   // Your MSK cluster arn
+//   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
+//
+//   // The Kafka topic you want to subscribe to
+//   topic := "some-cool-topic"
+//
+//   // The secret that allows access to your MSK cluster
+//   // You still have to make sure that it is associated with your cluster as described in the documentation
+//   secret := awscdk.NewSecret(this, jsii.String("Secret"), &SecretProps{
+//   	SecretName: jsii.String("AmazonMSK_KafkaSecret"),
+//   })
+//   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
+//   	ClusterArn: jsii.String(ClusterArn),
+//   	Topic: topic,
+//   	Secret: secret,
+//   	BatchSize: jsii.Number(100),
+//   	 // default
 //   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
-//   	BatchSize: jsii.Number(5),
-//   	BisectBatchOnError: jsii.Boolean(true),
-//   	OnFailure: awscdk.NewSqsDlq(deadLetterQueue),
-//   	RetryAttempts: jsii.Number(10),
 //   }))
 //
 type StartingPosition string

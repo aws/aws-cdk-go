@@ -85,6 +85,12 @@ type SelfManagedKafkaEventSourceProps struct {
 	// Default: - none.
 	//
 	Filters *[]*map[string]interface{} `field:"optional" json:"filters" yaml:"filters"`
+	// Add an on Failure Destination for this Kafka event.
+	//
+	// SNS/SQS/S3 are supported.
+	// Default: - discarded records are ignored.
+	//
+	OnFailure awslambda.IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	// Default: none.
 	//

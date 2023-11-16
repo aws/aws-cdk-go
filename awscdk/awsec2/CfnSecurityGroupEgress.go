@@ -49,6 +49,7 @@ import (
 type CfnSecurityGroupEgress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Security Group Rule Id.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

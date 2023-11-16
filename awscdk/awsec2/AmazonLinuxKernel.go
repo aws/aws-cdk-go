@@ -5,7 +5,9 @@ package awsec2
 type AmazonLinuxKernel string
 
 const (
-	// Standard edition.
+	// Kernel version 5.10.
 	AmazonLinuxKernel_KERNEL5_X AmazonLinuxKernel = "KERNEL5_X"
+	// Kernel version 6.1.
+	AmazonLinuxKernel_KERNEL6_1 AmazonLinuxKernel = "KERNEL6_1"
 )
 

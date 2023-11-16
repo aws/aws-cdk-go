@@ -165,6 +165,10 @@ func init() {
 		reflect.TypeOf((*CfnView_IncludedPropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_resourceexplorer2.CfnView.SearchFilterProperty",
+		reflect.TypeOf((*CfnView_SearchFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_resourceexplorer2.CfnViewProps",
 		reflect.TypeOf((*CfnViewProps)(nil)).Elem(),
 	)

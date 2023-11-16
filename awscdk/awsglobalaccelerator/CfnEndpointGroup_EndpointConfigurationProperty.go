@@ -25,7 +25,7 @@ type CfnEndpointGroup_EndpointConfigurationProperty struct {
 	//
 	// If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active when you add it as an endpoint.
 	//
-	// An Application Load Balancer can be either internal or internet-facing.
+	// For cross-account endpoints, this must be the ARN of the resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
 	//
 	EndpointId *string `field:"required" json:"endpointId" yaml:"endpointId"`

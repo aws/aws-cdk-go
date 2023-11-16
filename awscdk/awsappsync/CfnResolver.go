@@ -75,7 +75,6 @@ type CfnResolver interface {
 	SetApiId(val *string)
 	// The GraphQL field on a type that invokes the resolver.
 	AttrFieldName() *string
-	AttrId() *string
 	// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
 	AttrResolverArn() *string
 	// The GraphQL type that invokes this resolver.
@@ -316,16 +315,6 @@ func (j *jsiiProxy_CfnResolver) AttrFieldName() *string {
 	_jsii_.Get(
 		j,
 		"attrFieldName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnResolver) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

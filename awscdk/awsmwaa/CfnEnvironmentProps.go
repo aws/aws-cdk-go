@@ -90,7 +90,7 @@ type CfnEnvironmentProps struct {
 	//
 	// If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
 	//
-	// *Allowed Values* : `2.0.2` | `1.10.12` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` (latest)
+	// *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` (latest)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
 	//
 	AirflowVersion *string `field:"optional" json:"airflowVersion" yaml:"airflowVersion"`

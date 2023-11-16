@@ -64,6 +64,7 @@ import (
 //   	},
 //   	StartingPosition: awscdk.*Aws_lambda.StartingPosition_TRIM_HORIZON,
 //   	StartingPositionTimestamp: jsii.Number(123),
+//   	SupportS3OnFailureDestination: jsii.Boolean(false),
 //   	TumblingWindow: cdk.Duration_*Minutes(jsii.Number(30)),
 //   })
 //

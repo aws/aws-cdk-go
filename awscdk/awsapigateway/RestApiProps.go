@@ -8,15 +8,25 @@ import (
 // Props to create a new instance of RestApi.
 //
 // Example:
-//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
-//   	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
-//   	Definition: stepfunctions.Chain_Start(stepfunctions.NewPass(this, jsii.String("Pass"))),
+//   destinationBucket := s3.NewBucket(this, jsii.String("Bucket"))
+//   deliveryStreamRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
 //   })
 //
-//   api := apigateway.NewRestApi(this, jsii.String("Api"), &RestApiProps{
-//   	RestApiName: jsii.String("MyApi"),
+//   stream := firehose.NewCfnDeliveryStream(this, jsii.String("MyStream"), &CfnDeliveryStreamProps{
+//   	DeliveryStreamName: jsii.String("amazon-apigateway-delivery-stream"),
+//   	S3DestinationConfiguration: &S3DestinationConfigurationProperty{
+//   		BucketArn: destinationBucket.BucketArn,
+//   		RoleArn: deliveryStreamRole.RoleArn,
+//   	},
 //   })
-//   api.Root.AddMethod(jsii.String("GET"), apigateway.StepFunctionsIntegration_StartExecution(stateMachine))
+//
+//   api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+//   	DeployOptions: &StageOptions{
+//   		AccessLogDestination: apigateway.NewFirehoseLogDestination(stream),
+//   		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
+//   	},
+//   })
 //
 type RestApiProps struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.

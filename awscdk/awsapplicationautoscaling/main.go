@@ -132,6 +132,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -190,6 +191,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.StepScalingPolicyConfigurationProperty",
 		reflect.TypeOf((*CfnScalingPolicy_StepScalingPolicyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.TargetTrackingMetricDataQueryProperty",
+		reflect.TypeOf((*CfnScalingPolicy_TargetTrackingMetricDataQueryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.TargetTrackingMetricDimensionProperty",
+		reflect.TypeOf((*CfnScalingPolicy_TargetTrackingMetricDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.TargetTrackingMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_TargetTrackingMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.TargetTrackingMetricStatProperty",
+		reflect.TypeOf((*CfnScalingPolicy_TargetTrackingMetricStatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty",

@@ -716,7 +716,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFieldName", GoGetter: "AttrFieldName"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResolverArn", GoGetter: "AttrResolverArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrTypeName", GoGetter: "AttrTypeName"},
 			_jsii_.MemberProperty{JsiiProperty: "cachingConfig", GoGetter: "CachingConfig"},

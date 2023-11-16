@@ -63,6 +63,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "manualSnapshotRetentionPeriod", GoGetter: "ManualSnapshotRetentionPeriod"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUsername", GoGetter: "MasterUsername"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUserPassword", GoGetter: "MasterUserPassword"},
+			_jsii_.MemberProperty{JsiiProperty: "multiAz", GoGetter: "MultiAz"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "nodeType", GoGetter: "NodeType"},
 			_jsii_.MemberProperty{JsiiProperty: "numberOfNodes", GoGetter: "NumberOfNodes"},

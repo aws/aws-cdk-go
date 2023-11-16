@@ -4,7 +4,7 @@ package awsdlm
 // *[Snapshot and AMI policies only]* Specifies when the policy should create snapshots or AMIs.
 //
 // > - You must specify either *CronExpression* , or *Interval* , *IntervalUnit* , and *Times* .
-// > - If you need to specify an `ArchiveRule` for the schedule, then you must specify a creation frequency of at least 28 days.
+// > - If you need to specify an [ArchiveRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html) for the schedule, then you must specify a creation frequency of at least 28 days.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,6 +16,18 @@ package awsdlm
 //   	Interval: jsii.Number(123),
 //   	IntervalUnit: jsii.String("intervalUnit"),
 //   	Location: jsii.String("location"),
+//   	Scripts: []interface{}{
+//   		&ScriptProperty{
+//   			ExecuteOperationOnScriptFailure: jsii.Boolean(false),
+//   			ExecutionHandler: jsii.String("executionHandler"),
+//   			ExecutionHandlerService: jsii.String("executionHandlerService"),
+//   			ExecutionTimeout: jsii.Number(123),
+//   			MaximumRetryCount: jsii.Number(123),
+//   			Stages: []*string{
+//   				jsii.String("stages"),
+//   			},
+//   		},
+//   	},
 //   	Times: []*string{
 //   		jsii.String("times"),
 //   	},
@@ -48,6 +60,14 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-location
 	//
 	Location *string `field:"optional" json:"location" yaml:"location"`
+	// *[Snapshot policies that target instances only]* Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances.
+	//
+	// This is useful for creating application-consistent snapshots, or for performing specific administrative tasks before or after Amazon Data Lifecycle Manager initiates snapshot creation.
+	//
+	// For more information, see [Automating application-consistent snapshots with pre and post scripts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/automate-app-consistent-backups.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-scripts
+	//
+	Scripts interface{} `field:"optional" json:"scripts" yaml:"scripts"`
 	// The time, in UTC, to start the operation. The supported format is hh:mm.
 	//
 	// The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.

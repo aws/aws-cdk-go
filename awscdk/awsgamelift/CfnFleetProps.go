@@ -15,6 +15,7 @@ package awsgamelift
 //   	AnywhereConfiguration: &AnywhereConfigurationProperty{
 //   		Cost: jsii.String("cost"),
 //   	},
+//   	ApplyCapacity: jsii.String("applyCapacity"),
 //   	BuildId: jsii.String("buildId"),
 //   	CertificateConfiguration: &CertificateConfigurationProperty{
 //   		CertificateType: jsii.String("certificateType"),
@@ -74,6 +75,26 @@ package awsgamelift
 //   			},
 //   		},
 //   	},
+//   	ScalingPolicies: []interface{}{
+//   		&ScalingPolicyProperty{
+//   			MetricName: jsii.String("metricName"),
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			ComparisonOperator: jsii.String("comparisonOperator"),
+//   			EvaluationPeriods: jsii.Number(123),
+//   			Location: jsii.String("location"),
+//   			PolicyType: jsii.String("policyType"),
+//   			ScalingAdjustment: jsii.Number(123),
+//   			ScalingAdjustmentType: jsii.String("scalingAdjustmentType"),
+//   			Status: jsii.String("status"),
+//   			TargetConfiguration: &TargetConfigurationProperty{
+//   				TargetValue: jsii.Number(123),
+//   			},
+//   			Threshold: jsii.Number(123),
+//   			UpdateStatus: jsii.String("updateStatus"),
+//   		},
+//   	},
 //   	ScriptId: jsii.String("scriptId"),
 //   	ServerLaunchParameters: jsii.String("serverLaunchParameters"),
 //   	ServerLaunchPath: jsii.String("serverLaunchPath"),
@@ -92,6 +113,10 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-anywhereconfiguration
 	//
 	AnywhereConfiguration interface{} `field:"optional" json:"anywhereConfiguration" yaml:"anywhereConfiguration"`
+	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-applycapacity
+	//
+	ApplyCapacity *string `field:"optional" json:"applyCapacity" yaml:"applyCapacity"`
 	// A unique identifier for a build to be deployed on the new fleet.
 	//
 	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a `READY` status. This fleet setting cannot be changed once the fleet is created.
@@ -138,17 +163,19 @@ type CfnFleetProps struct {
 	Ec2InstanceType *string `field:"optional" json:"ec2InstanceType" yaml:"ec2InstanceType"`
 	// Indicates whether to use On-Demand or Spot instances for this fleet.
 	//
-	// By default, this property is set to `ON_DEMAND` . Learn more about when to use [On-Demand versus Spot Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot) . This property cannot be changed after the fleet is created.
+	// By default, this property is set to `ON_DEMAND` . Learn more about when to use [On-Demand versus Spot Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot) . This fleet property can't be changed after the fleet is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
 	//
 	FleetType *string `field:"optional" json:"fleetType" yaml:"fleetType"`
-	// A unique identifier for an IAM role that manages access to your AWS services.
+	// A unique identifier for an IAM role with access permissions to other AWS services.
 	//
-	// With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN by using the [IAM dashboard](https://docs.aws.amazon.com/iam/) in the AWS Management Console . Learn more about using on-box credentials for your game servers at [Access external resources from a game server](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) .
+	// Any application that runs on an instance in the fleet--including install scripts, server processes, and other processes--can use these permissions to interact with AWS resources that you own or have access to. For more information about using the role with your game server builds, see [Communicate with other AWS resources from your fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
 	//
 	InstanceRoleArn *string `field:"optional" json:"instanceRoleArn" yaml:"instanceRoleArn"`
-	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+	// Indicates that fleet instances maintain a shared credentials file for the IAM role defined in `InstanceRoleArn` .
+	//
+	// Shared credentials allow applications that are deployed with the game server executable to communicate with other AWS resources. This property is used only when the game server is integrated with the server SDK version 5.x. For more information about using shared credentials, see [Communicate with other AWS resources from your fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolecredentialsprovider
 	//
 	InstanceRoleCredentialsProvider *string `field:"optional" json:"instanceRoleCredentialsProvider" yaml:"instanceRoleCredentialsProvider"`
@@ -218,6 +245,10 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
 	//
 	RuntimeConfiguration interface{} `field:"optional" json:"runtimeConfiguration" yaml:"runtimeConfiguration"`
+	// A list of rules that control how a fleet is scaled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scalingpolicies
+	//
+	ScalingPolicies interface{} `field:"optional" json:"scalingPolicies" yaml:"scalingPolicies"`
 	// The unique identifier for a Realtime configuration script to be deployed on fleet instances.
 	//
 	// You can use either the script ID or ARN. Scripts must be uploaded to Amazon GameLift prior to creating the fleet. This fleet property cannot be changed later.

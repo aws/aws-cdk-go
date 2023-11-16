@@ -9,12 +9,11 @@ package awscodebuild
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   environmentProperty := &EnvironmentProperty{
-//   	ComputeType: jsii.String("computeType"),
 //   	Image: jsii.String("image"),
-//   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
 //   	Certificate: jsii.String("certificate"),
+//   	ComputeType: jsii.String("computeType"),
 //   	EnvironmentVariables: []interface{}{
 //   		&EnvironmentVariableProperty{
 //   			Name: jsii.String("name"),
@@ -30,23 +29,12 @@ package awscodebuild
 //   		Credential: jsii.String("credential"),
 //   		CredentialProvider: jsii.String("credentialProvider"),
 //   	},
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html
 //
 type CfnProject_EnvironmentProperty struct {
-	// The type of compute environment.
-	//
-	// This determines the number of CPU cores and memory the build environment uses. Available values include:
-	//
-	// - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
-	// - `BUILD_GENERAL1_MEDIUM` : Use up to 7 GB memory and 4 vCPUs for builds.
-	// - `BUILD_GENERAL1_LARGE` : Use up to 15 GB memory and 8 vCPUs for builds.
-	//
-	// For more information, see [Build Environment Compute Types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide.*
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype
-	//
-	ComputeType *string `field:"required" json:"computeType" yaml:"computeType"`
 	// The image tag or image digest that identifies the Docker image to use for this build project.
 	//
 	// Use the following formats:
@@ -58,24 +46,24 @@ type CfnProject_EnvironmentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-image
 	//
 	Image *string `field:"required" json:"image" yaml:"image"`
-	// The type of build environment to use for related builds.
-	//
-	// - The environment type `ARM_CONTAINER` is available only in regions US East (Ohio), US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Hong Kong), Asia Pacific (Jakarta), Asia Pacific (Hyderabad), Asia Pacific (Melbourne), Asia Pacific (Mumbai), Asia Pacific (Osaka), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), China (Beijing), China (Ningxia), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Milan), Europe (Paris), Europe (Spain), Europe (Stockholm), Europe (Zurich), Israel (Tel Aviv), Middle East (Bahrain), Middle East (UAE), and South America (São Paulo).
-	// - The environment type `LINUX_CONTAINER` with compute type `build.general1.2xlarge` is available only in regions US East (Ohio), US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Hyderabad), Asia Pacific (Hong Kong), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), China (Beijing), China (Ningxia), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Spain), Europe (Stockholm), Europe (Zurich), Israel (Tel Aviv), Middle East (Bahrain), Middle East (UAE), and South America (São Paulo).
-	// - The environment type `LINUX_GPU_CONTAINER` is available only in regions US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), China (Beijing), China (Ningxia), Europe (Frankfurt), Europe (Ireland), and Europe (London).
-	//
-	// - The environment types `WINDOWS_SERVER_2019_CONTAINER` are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland).
-	//
-	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type
-	//
-	Type *string `field:"required" json:"type" yaml:"type"`
 	// The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project.
 	//
 	// For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-certificate
 	//
 	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
+	// The type of compute environment.
+	//
+	// This determines the number of CPU cores and memory the build environment uses. Available values include:
+	//
+	// - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
+	// - `BUILD_GENERAL1_MEDIUM` : Use up to 7 GB memory and 4 vCPUs for builds.
+	// - `BUILD_GENERAL1_LARGE` : Use up to 15 GB memory and 8 vCPUs for builds.
+	//
+	// For more information, see [Build Environment Compute Types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide.*
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype
+	//
+	ComputeType *string `field:"optional" json:"computeType" yaml:"computeType"`
 	// A set of environment variables to make available to builds for this build project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-environmentvariables
 	//
@@ -116,5 +104,17 @@ type CfnProject_EnvironmentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-registrycredential
 	//
 	RegistryCredential interface{} `field:"optional" json:"registryCredential" yaml:"registryCredential"`
+	// The type of build environment to use for related builds.
+	//
+	// - The environment type `ARM_CONTAINER` is available only in regions US East (Ohio), US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Hong Kong), Asia Pacific (Jakarta), Asia Pacific (Hyderabad), Asia Pacific (Melbourne), Asia Pacific (Mumbai), Asia Pacific (Osaka), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), China (Beijing), China (Ningxia), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Milan), Europe (Paris), Europe (Spain), Europe (Stockholm), Europe (Zurich), Israel (Tel Aviv), Middle East (Bahrain), Middle East (UAE), and South America (São Paulo).
+	// - The environment type `LINUX_CONTAINER` with compute type `build.general1.2xlarge` is available only in regions US East (Ohio), US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Hyderabad), Asia Pacific (Hong Kong), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), China (Beijing), China (Ningxia), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Spain), Europe (Stockholm), Europe (Zurich), Israel (Tel Aviv), Middle East (Bahrain), Middle East (UAE), and South America (São Paulo).
+	// - The environment type `LINUX_GPU_CONTAINER` is available only in regions US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), China (Beijing), China (Ningxia), Europe (Frankfurt), Europe (Ireland), and Europe (London).
+	//
+	// - The environment types `WINDOWS_SERVER_2019_CONTAINER` are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland).
+	//
+	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

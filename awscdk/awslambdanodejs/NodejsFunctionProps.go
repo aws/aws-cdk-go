@@ -321,7 +321,7 @@ type NodejsFunctionProps struct {
 	//
 	// Only runtimes of the Node.js family are
 	// supported.
-	// Default: Runtime.NODEJS_18_X
+	// Default: `Runtime.NODEJS_LATEST` if the `@aws-cdk/aws-lambda-nodejs:useLatestRuntimeVersion` feature flag is enabled, otherwise `Runtime.NODEJS_16_X`
 	//
 	Runtime awslambda.Runtime `field:"optional" json:"runtime" yaml:"runtime"`
 }

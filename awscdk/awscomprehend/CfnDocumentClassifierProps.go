@@ -98,7 +98,7 @@ type CfnDocumentClassifierProps struct {
 	LanguageCode *string `field:"required" json:"languageCode" yaml:"languageCode"`
 	// Indicates the mode in which the classifier will be trained.
 	//
-	// The classifier can be trained in multi-class mode, which identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+	// The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifier.html#cfn-comprehend-documentclassifier-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`

@@ -35,6 +35,16 @@ import (
 //   			Type: glue.Schema_SMALL_INT(),
 //   		},
 //   	},
+//   	PartitionIndexes: []partitionIndex{
+//   		&partitionIndex{
+//   			IndexName: jsii.String("my-index"),
+//   			 // optional
+//   			KeyNames: []*string{
+//   				jsii.String("year"),
+//   			},
+//   		},
+//   	},
+//   	 // supply up to 3 indexes
 //   	DataFormat: glue.DataFormat_JSON(),
 //   })
 //

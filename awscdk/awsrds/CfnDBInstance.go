@@ -83,6 +83,7 @@ import (
 //   	},
 //   	DbSnapshotIdentifier: jsii.String("dbSnapshotIdentifier"),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
+//   	DedicatedLogVolume: jsii.Boolean(false),
 //   	DeleteAutomatedBackups: jsii.Boolean(false),
 //   	DeletionProtection: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
@@ -266,6 +267,9 @@ type CfnDBInstance interface {
 	// A DB subnet group to associate with the DB instance.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
+	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+	DedicatedLogVolume() interface{}
+	SetDedicatedLogVolume(val interface{})
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups() interface{}
 	SetDeleteAutomatedBackups(val interface{})
@@ -950,6 +954,16 @@ func (j *jsiiProxy_CfnDBInstance) DbSubnetGroupName() *string {
 	_jsii_.Get(
 		j,
 		"dbSubnetGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) DedicatedLogVolume() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dedicatedLogVolume",
 		&returns,
 	)
 	return returns
@@ -1773,6 +1787,17 @@ func (j *jsiiProxy_CfnDBInstance)SetDbSubnetGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"dbSubnetGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetDedicatedLogVolume(val interface{}) {
+	if err := j.validateSetDedicatedLogVolumeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dedicatedLogVolume",
 		val,
 	)
 }

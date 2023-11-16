@@ -66,6 +66,7 @@ import (
 //   	},
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
+//   	MultiAz: jsii.Boolean(false),
 //   	NumberOfNodes: jsii.Number(123),
 //   	OwnerAccount: jsii.String("ownerAccount"),
 //   	Port: jsii.Number(123),
@@ -223,6 +224,9 @@ type CfnCluster interface {
 	// The password associated with the admin user account for the cluster that is being created.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
+	// A boolean indicating whether Amazon Redshift should deploy the cluster in two Availability Zones.
+	MultiAz() interface{}
+	SetMultiAz(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The node type to be provisioned for the cluster.
@@ -841,6 +845,16 @@ func (j *jsiiProxy_CfnCluster) MasterUserPassword() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) MultiAz() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"multiAz",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -1377,6 +1391,17 @@ func (j *jsiiProxy_CfnCluster)SetMasterUserPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"masterUserPassword",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetMultiAz(val interface{}) {
+	if err := j.validateSetMultiAzParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"multiAz",
 		val,
 	)
 }

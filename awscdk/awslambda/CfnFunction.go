@@ -78,6 +78,12 @@ import (
 //   	Layers: []*string{
 //   		jsii.String("layers"),
 //   	},
+//   	LoggingConfig: &LoggingConfigProperty{
+//   		ApplicationLogLevel: jsii.String("applicationLogLevel"),
+//   		LogFormat: jsii.String("logFormat"),
+//   		LogGroup: jsii.String("logGroup"),
+//   		SystemLogLevel: jsii.String("systemLogLevel"),
+//   	},
 //   	MemorySize: jsii.Number(123),
 //   	PackageType: jsii.String("packageType"),
 //   	Policy: policy,
@@ -177,6 +183,9 @@ type CfnFunction interface {
 	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
 	Layers() *[]*string
 	SetLayers(val *[]*string)
+	// The function's logging configuration.
+	LoggingConfig() interface{}
+	SetLoggingConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -593,6 +602,16 @@ func (j *jsiiProxy_CfnFunction) Layers() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) LoggingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"loggingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -929,6 +948,17 @@ func (j *jsiiProxy_CfnFunction)SetLayers(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"layers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetLoggingConfig(val interface{}) {
+	if err := j.validateSetLoggingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"loggingConfig",
 		val,
 	)
 }

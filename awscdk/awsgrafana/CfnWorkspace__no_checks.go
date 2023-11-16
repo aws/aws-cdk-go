@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnWorkspace) validateSetPermissionTypeParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkspace) validateSetPluginAdminEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkspace) validateSetSamlConfigurationParameters(val interface{}) error {
 	return nil
 }

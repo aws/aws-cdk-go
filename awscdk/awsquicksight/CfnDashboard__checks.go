@@ -243,6 +243,30 @@ func (j *jsiiProxy_CfnDashboard) validateSetDefinitionParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnDashboard) validateSetLinkSharingConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDashboard_LinkSharingConfigurationProperty:
+		val := val.(*CfnDashboard_LinkSharingConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDashboard_LinkSharingConfigurationProperty:
+		val_ := val.(CfnDashboard_LinkSharingConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDashboard_LinkSharingConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDashboard) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

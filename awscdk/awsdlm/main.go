@@ -131,6 +131,10 @@ func init() {
 		reflect.TypeOf((*CfnLifecyclePolicy_ScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.ScriptProperty",
+		reflect.TypeOf((*CfnLifecyclePolicy_ScriptProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.ShareRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_ShareRuleProperty)(nil)).Elem(),
 	)

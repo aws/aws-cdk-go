@@ -44,6 +44,7 @@ import (
 //   	},
 //   	StartingPosition: awscdk.Aws_lambda.StartingPosition_TRIM_HORIZON,
 //   	StartingPositionTimestamp: jsii.Number(123),
+//   	SupportS3OnFailureDestination: jsii.Boolean(false),
 //   	TumblingWindow: cdk.Duration_*Minutes(jsii.Number(30)),
 //   }
 //
@@ -164,6 +165,12 @@ type EventSourceMappingOptions struct {
 	// Default: - no timestamp.
 	//
 	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
+	// Check if support S3 onfailure destination(ODF).
+	//
+	// Currently only MSK and self managed kafka event support S3 ODF.
+	// Default: false.
+	//
+	SupportS3OnFailureDestination *bool `field:"optional" json:"supportS3OnFailureDestination" yaml:"supportS3OnFailureDestination"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//

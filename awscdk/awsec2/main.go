@@ -221,6 +221,7 @@ func init() {
 		reflect.TypeOf((*AmazonLinuxKernel)(nil)).Elem(),
 		map[string]interface{}{
 			"KERNEL5_X": AmazonLinuxKernel_KERNEL5_X,
+			"KERNEL6_1": AmazonLinuxKernel_KERNEL6_1,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -2193,6 +2194,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.ElasticGpuSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_ElasticGpuSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.EnaSrdSpecificationProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_EnaSrdSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.EnaSrdUdpSpecificationProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_EnaSrdUdpSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.EnclaveOptionsProperty",

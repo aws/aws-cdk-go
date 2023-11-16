@@ -49,6 +49,7 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - *`eventCategory`* - This is required and must be set to `Equals` .
 	//
 	// - For CloudTrail event records, the value must be `Management` or `Data` .
+	// - For CloudTrail Insights event records, the value must be `Insight` .
 	// - For AWS Config configuration items, the value must be `ConfigurationItem` .
 	// - For Audit Manager evidence, the value must be `Evidence` .
 	// - For non- AWS events, the value must be `ActivityAuditLog` .

@@ -362,6 +362,30 @@ func (j *jsiiProxy_CfnFunction) validateSetImageConfigParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetLoggingConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFunction_LoggingConfigProperty:
+		val := val.(*CfnFunction_LoggingConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFunction_LoggingConfigProperty:
+		val_ := val.(CfnFunction_LoggingConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_LoggingConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetRoleParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

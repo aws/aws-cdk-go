@@ -3,7 +3,7 @@ package awsdlm
 
 // *[Event-based policies only]* Specifies a cross-Region copy action for event-based policies.
 //
-// > To specify a cross-Region copy rule for snapshot and AMI policies, use `CrossRegionCopyRule` .
+// > To specify a cross-Region copy rule for snapshot and AMI policies, use [CrossRegionCopyRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyRule.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

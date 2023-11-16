@@ -34,6 +34,9 @@ type CfnAnalysis_AnalysisDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-filtergroups
 	//
 	FilterGroups interface{} `field:"optional" json:"filterGroups" yaml:"filterGroups"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-options
+	//
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// An array of parameter declarations for an analysis.
 	//
 	// Parameters are named variables that can transfer a value for use by an action or an object.

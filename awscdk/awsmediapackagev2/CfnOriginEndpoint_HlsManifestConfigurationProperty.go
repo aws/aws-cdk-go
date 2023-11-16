@@ -13,6 +13,12 @@ package awsmediapackagev2
 //
 //   	// the properties below are optional
 //   	ChildManifestName: jsii.String("childManifestName"),
+//   	FilterConfiguration: &FilterConfigurationProperty{
+//   		End: jsii.String("end"),
+//   		ManifestFilter: jsii.String("manifestFilter"),
+//   		Start: jsii.String("start"),
+//   		TimeDelaySeconds: jsii.Number(123),
+//   	},
 //   	ManifestWindowSeconds: jsii.Number(123),
 //   	ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   	ScteHls: &ScteHlsProperty{
@@ -32,6 +38,12 @@ type CfnOriginEndpoint_HlsManifestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-childmanifestname
 	//
 	ChildManifestName *string `field:"optional" json:"childManifestName" yaml:"childManifestName"`
+	// <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+	//
+	// </p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-filterconfiguration
+	//
+	FilterConfiguration interface{} `field:"optional" json:"filterConfiguration" yaml:"filterConfiguration"`
 	// The duration of the manifest window, in seconds, for the HLS manifest configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-manifestwindowseconds
 	//

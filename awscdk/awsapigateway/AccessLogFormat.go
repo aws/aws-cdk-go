@@ -8,15 +8,25 @@ import (
 // factory methods for access log format.
 //
 // Example:
-//   apigateway.AccessLogFormat_Custom(jSON.stringify(map[string]interface{}{
-//   	"requestId": apigateway.AccessLogField_contextRequestId(),
-//   	"sourceIp": apigateway.AccessLogField_contextIdentitySourceIp(),
-//   	"method": apigateway.AccessLogField_contextHttpMethod(),
-//   	"userContext": map[string]*string{
-//   		"sub": apigateway.AccessLogField_contextAuthorizerClaims(jsii.String("sub")),
-//   		"email": apigateway.AccessLogField_contextAuthorizerClaims(jsii.String("email")),
+//   destinationBucket := s3.NewBucket(this, jsii.String("Bucket"))
+//   deliveryStreamRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
+//   })
+//
+//   stream := firehose.NewCfnDeliveryStream(this, jsii.String("MyStream"), &CfnDeliveryStreamProps{
+//   	DeliveryStreamName: jsii.String("amazon-apigateway-delivery-stream"),
+//   	S3DestinationConfiguration: &S3DestinationConfigurationProperty{
+//   		BucketArn: destinationBucket.BucketArn,
+//   		RoleArn: deliveryStreamRole.RoleArn,
 //   	},
-//   }))
+//   })
+//
+//   api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+//   	DeployOptions: &StageOptions{
+//   		AccessLogDestination: apigateway.NewFirehoseLogDestination(stream),
+//   		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
+//   	},
+//   })
 //
 type AccessLogFormat interface {
 	// Output a format string to be used with CloudFormation.

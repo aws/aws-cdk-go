@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnDBInstance) validateSetCopyTagsToSnapshotParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetDedicatedLogVolumeParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetDeleteAutomatedBackupsParameters(val interface{}) error {
 	return nil
 }

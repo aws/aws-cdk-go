@@ -22,9 +22,16 @@ import (
 // to support all features expected by this synthesizer.
 //
 // Example:
-//   NewMyStack(app, jsii.String("MyStack"), &stackProps{
+//   var app app
+//
+//
+//   prodStage := awscdk.NewStage(app, jsii.String("ProdStage"), &StageProps{
+//   	PermissionsBoundary: awscdk.PermissionsBoundary_FromName(jsii.String("cdk-${Qualifier}-PermissionsBoundary-${AWS::AccountId}-${AWS::Region}")),
+//   })
+//
+//   awscdk.Newstack(prodStage, jsii.String("ProdStack"), &StackProps{
 //   	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
-//   		FileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),
+//   		Qualifier: jsii.String("custom"),
 //   	}),
 //   })
 //

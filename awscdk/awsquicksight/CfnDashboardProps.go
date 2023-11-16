@@ -35,6 +35,10 @@ type CfnDashboardProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-definition
 	//
 	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
+	// A structure that contains the configuration of a shareable link to the dashboard.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-linksharingconfiguration
+	//
+	LinkSharingConfiguration interface{} `field:"optional" json:"linkSharingConfiguration" yaml:"linkSharingConfiguration"`
 	// The parameters for the creation of the dashboard, which you want to use to override the default settings.
 	//
 	// A dashboard can have any type of parameters, and some parameters might accept multiple values.

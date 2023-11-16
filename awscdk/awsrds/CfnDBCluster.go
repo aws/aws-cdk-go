@@ -73,6 +73,7 @@ import (
 //   	EnableCloudwatchLogsExports: []*string{
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
+//   	EnableGlobalWriteForwarding: jsii.Boolean(false),
 //   	EnableHttpEndpoint: jsii.Boolean(false),
 //   	EnableIamDatabaseAuthentication: jsii.Boolean(false),
 //   	Engine: jsii.String("engine"),
@@ -220,6 +221,9 @@ type CfnDBCluster interface {
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
 	EnableCloudwatchLogsExports() *[]*string
 	SetEnableCloudwatchLogsExports(val *[]*string)
+	// Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database).
+	EnableGlobalWriteForwarding() interface{}
+	SetEnableGlobalWriteForwarding(val interface{})
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster.
 	EnableHttpEndpoint() interface{}
 	SetEnableHttpEndpoint(val interface{})
@@ -794,6 +798,16 @@ func (j *jsiiProxy_CfnDBCluster) EnableCloudwatchLogsExports() *[]*string {
 	_jsii_.Get(
 		j,
 		"enableCloudwatchLogsExports",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) EnableGlobalWriteForwarding() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableGlobalWriteForwarding",
 		&returns,
 	)
 	return returns
@@ -1399,6 +1413,17 @@ func (j *jsiiProxy_CfnDBCluster)SetEnableCloudwatchLogsExports(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"enableCloudwatchLogsExports",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetEnableGlobalWriteForwarding(val interface{}) {
+	if err := j.validateSetEnableGlobalWriteForwardingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enableGlobalWriteForwarding",
 		val,
 	)
 }

@@ -35,6 +35,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maximumCapacity", GoGetter: "MaximumCapacity"},
+			_jsii_.MemberProperty{JsiiProperty: "monitoringConfiguration", GoGetter: "MonitoringConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -46,6 +47,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "runtimeConfiguration", GoGetter: "RuntimeConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -74,6 +76,10 @@ func init() {
 		reflect.TypeOf((*CfnApplication_AutoStopConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.ConfigurationObjectProperty",
+		reflect.TypeOf((*CfnApplication_ConfigurationObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.ImageConfigurationInputProperty",
 		reflect.TypeOf((*CfnApplication_ImageConfigurationInputProperty)(nil)).Elem(),
 	)
@@ -86,12 +92,24 @@ func init() {
 		reflect.TypeOf((*CfnApplication_InitialCapacityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.ManagedPersistenceMonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_ManagedPersistenceMonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.MaximumAllowedResourcesProperty",
 		reflect.TypeOf((*CfnApplication_MaximumAllowedResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.MonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_MonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_NetworkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.S3MonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_S3MonitoringConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.WorkerConfigurationProperty",

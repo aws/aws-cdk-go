@@ -175,6 +175,12 @@ package awsec2
 //   			DeleteOnTermination: jsii.Boolean(false),
 //   			Description: jsii.String("description"),
 //   			DeviceIndex: jsii.Number(123),
+//   			EnaSrdSpecification: &EnaSrdSpecificationProperty{
+//   				EnaSrdEnabled: jsii.Boolean(false),
+//   				EnaSrdUdpSpecification: &EnaSrdUdpSpecificationProperty{
+//   					EnaSrdUdpEnabled: jsii.Boolean(false),
+//   				},
+//   			},
 //   			Groups: []*string{
 //   				jsii.String("groups"),
 //   			},
@@ -435,7 +441,7 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// One or more security group names.
 	//
-	// For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
+	// For a nondefault VPC, you must use security group IDs instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`

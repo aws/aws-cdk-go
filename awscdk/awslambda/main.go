@@ -536,6 +536,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyArn", GoGetter: "KmsKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "layers", GoGetter: "Layers"},
+			_jsii_.MemberProperty{JsiiProperty: "loggingConfig", GoGetter: "LoggingConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "memorySize", GoGetter: "MemorySize"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -596,6 +597,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.ImageConfigProperty",
 		reflect.TypeOf((*CfnFunction_ImageConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnFunction.LoggingConfigProperty",
+		reflect.TypeOf((*CfnFunction_LoggingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnFunction.RuntimeManagementConfigProperty",

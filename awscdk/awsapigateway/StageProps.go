@@ -6,10 +6,10 @@ import (
 
 // Example:
 //   // production stage
-//   prdLogGroup := logs.NewLogGroup(this, jsii.String("PrdLogs"))
+//   prodLogGroup := logs.NewLogGroup(this, jsii.String("PrdLogs"))
 //   api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 //   	DeployOptions: &StageOptions{
-//   		AccessLogDestination: apigateway.NewLogGroupLogDestination(prdLogGroup),
+//   		AccessLogDestination: apigateway.NewLogGroupLogDestination(prodLogGroup),
 //   		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
 //   	},
 //   })
@@ -88,7 +88,7 @@ type StageProps struct {
 	// Default: - No additional restriction.
 	//
 	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
-	// The CloudWatch Logs log group.
+	// The CloudWatch Logs log group or Firehose delivery stream where to write access logs.
 	// Default: - No destination.
 	//
 	AccessLogDestination IAccessLogDestination `field:"optional" json:"accessLogDestination" yaml:"accessLogDestination"`

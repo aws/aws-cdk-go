@@ -12,54 +12,86 @@ import (
 // The `AWS::LakeFormation::DataLakeSettings` resource is an AWS Lake Formation resource type that manages the data lake settings for your account.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var parameters interface{}
+//   var stack stack
+//   var accountId string
 //
-//   cfnDataLakeSettings := awscdk.Aws_lakeformation.NewCfnDataLakeSettings(this, jsii.String("MyCfnDataLakeSettings"), &CfnDataLakeSettingsProps{
+//
+//   tagKey := "aws"
+//   tagValues := []*string{
+//   	"dev",
+//   }
+//
+//   database := awscdkgluealpha.NewDatabase(this, jsii.String("Database"))
+//
+//   table := awscdkgluealpha.NewS3Table(this, jsii.String("Table"), &S3TableProps{
+//   	Database: Database,
+//   	Columns: []column{
+//   		&column{
+//   			Name: jsii.String("col1"),
+//   			Type: awscdkgluealpha.Schema_STRING(),
+//   		},
+//   		&column{
+//   			Name: jsii.String("col2"),
+//   			Type: awscdkgluealpha.Schema_STRING(),
+//   		},
+//   	},
+//   	DataFormat: awscdkgluealpha.DataFormat_CSV(),
+//   })
+//
+//   synthesizer := stack.Synthesizer.(defaultStackSynthesizer)
+//   awscdk.NewCfnDataLakeSettings(this, jsii.String("DataLakeSettings"), &CfnDataLakeSettingsProps{
 //   	Admins: []interface{}{
 //   		&DataLakePrincipalProperty{
-//   			DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
+//   			DataLakePrincipalIdentifier: stack.FormatArn(&ArnComponents{
+//   				Service: jsii.String("iam"),
+//   				Resource: jsii.String("role"),
+//   				Region: jsii.String(""),
+//   				Account: accountId,
+//   				ResourceName: jsii.String("Admin"),
+//   			}),
 //   		},
-//   	},
-//   	AllowExternalDataFiltering: jsii.Boolean(false),
-//   	AllowFullTableExternalDataAccess: jsii.Boolean(false),
-//   	AuthorizedSessionTagValueList: []*string{
-//   		jsii.String("authorizedSessionTagValueList"),
-//   	},
-//   	CreateDatabaseDefaultPermissions: []interface{}{
-//   		&PrincipalPermissionsProperty{
-//   			Permissions: []*string{
-//   				jsii.String("permissions"),
-//   			},
-//   			Principal: &DataLakePrincipalProperty{
-//   				DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
-//   			},
-//   		},
-//   	},
-//   	CreateTableDefaultPermissions: []interface{}{
-//   		&PrincipalPermissionsProperty{
-//   			Permissions: []*string{
-//   				jsii.String("permissions"),
-//   			},
-//   			Principal: &DataLakePrincipalProperty{
-//   				DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
-//   			},
-//   		},
-//   	},
-//   	ExternalDataFilteringAllowList: []interface{}{
 //   		&DataLakePrincipalProperty{
-//   			DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
+//   			// The CDK cloudformation execution role.
+//   			DataLakePrincipalIdentifier: synthesizer.cloudFormationExecutionRoleArn.replace(jsii.String("${AWS::Partition}"), jsii.String("aws")),
 //   		},
-//   	},
-//   	MutationType: jsii.String("mutationType"),
-//   	Parameters: parameters,
-//   	TrustedResourceOwners: []*string{
-//   		jsii.String("trustedResourceOwners"),
 //   	},
 //   })
+//
+//   tag := awscdk.NewCfnTag(this, jsii.String("Tag"), &CfnTagProps{
+//   	CatalogId: accountId,
+//   	TagKey: jsii.String(TagKey),
+//   	TagValues: TagValues,
+//   })
+//
+//   lfTagPairProperty := &LFTagPairProperty{
+//   	CatalogId: accountId,
+//   	TagKey: jsii.String(TagKey),
+//   	TagValues: TagValues,
+//   }
+//
+//   tagAssociation := awscdk.NewCfnTagAssociation(this, jsii.String("TagAssociation"), &CfnTagAssociationProps{
+//   	LfTags: []interface{}{
+//   		lfTagPairProperty,
+//   	},
+//   	Resource: &ResourceProperty{
+//   		TableWithColumns: &TableWithColumnsResourceProperty{
+//   			DatabaseName: database.DatabaseName,
+//   			ColumnNames: []*string{
+//   				jsii.String("col1"),
+//   				jsii.String("col2"),
+//   			},
+//   			CatalogId: accountId,
+//   			Name: table.TableName,
+//   		},
+//   	},
+//   })
+//
+//   tagAssociation.Node.AddDependency(tag)
+//   tagAssociation.Node.AddDependency(table)
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html
 //

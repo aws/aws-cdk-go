@@ -29,6 +29,12 @@ import (
 //
 //   			// the properties below are optional
 //   			ChildManifestName: jsii.String("childManifestName"),
+//   			FilterConfiguration: &FilterConfigurationProperty{
+//   				End: jsii.String("end"),
+//   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Start: jsii.String("start"),
+//   				TimeDelaySeconds: jsii.Number(123),
+//   			},
 //   			ManifestWindowSeconds: jsii.Number(123),
 //   			ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   			ScteHls: &ScteHlsProperty{
@@ -43,6 +49,12 @@ import (
 //
 //   			// the properties below are optional
 //   			ChildManifestName: jsii.String("childManifestName"),
+//   			FilterConfiguration: &FilterConfigurationProperty{
+//   				End: jsii.String("end"),
+//   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Start: jsii.String("start"),
+//   				TimeDelaySeconds: jsii.Number(123),
+//   			},
 //   			ManifestWindowSeconds: jsii.Number(123),
 //   			ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   			ScteHls: &ScteHlsProperty{

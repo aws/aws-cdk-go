@@ -62,6 +62,9 @@ type CfnDashboard interface {
 	SetDashboardPublishOptions(val interface{})
 	Definition() interface{}
 	SetDefinition(val interface{})
+	// A structure that contains the configuration of a shareable link to the dashboard.
+	LinkSharingConfiguration() interface{}
+	SetLinkSharingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -486,6 +489,16 @@ func (j *jsiiProxy_CfnDashboard) Definition() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDashboard) LinkSharingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"linkSharingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDashboard) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -704,6 +717,17 @@ func (j *jsiiProxy_CfnDashboard)SetDefinition(val interface{}) {
 	_jsii_.Set(
 		j,
 		"definition",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDashboard)SetLinkSharingConfiguration(val interface{}) {
+	if err := j.validateSetLinkSharingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"linkSharingConfiguration",
 		val,
 	)
 }

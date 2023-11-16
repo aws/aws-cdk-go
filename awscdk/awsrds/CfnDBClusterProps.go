@@ -41,6 +41,7 @@ import (
 //   	EnableCloudwatchLogsExports: []*string{
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
+//   	EnableGlobalWriteForwarding: jsii.Boolean(false),
 //   	EnableHttpEndpoint: jsii.Boolean(false),
 //   	EnableIamDatabaseAuthentication: jsii.Boolean(false),
 //   	Engine: jsii.String("engine"),
@@ -283,6 +284,16 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
 	//
 	EnableCloudwatchLogsExports *[]*string `field:"optional" json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
+	// Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database).
+	//
+	// By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
+	//
+	// You can set this value only on Aurora DB clusters that are members of an Aurora global database. With this parameter enabled, a secondary cluster can forward writes to the current primary cluster, and the resulting changes are replicated back to this cluster. For the primary DB cluster of an Aurora global database, this value is used immediately if the primary is demoted by a global cluster API operation, but it does nothing until then.
+	//
+	// Valid for Cluster Type: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableglobalwriteforwarding
+	//
+	EnableGlobalWriteForwarding interface{} `field:"optional" json:"enableGlobalWriteForwarding" yaml:"enableGlobalWriteForwarding"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster.
 	//
 	// By default, the HTTP endpoint is disabled.

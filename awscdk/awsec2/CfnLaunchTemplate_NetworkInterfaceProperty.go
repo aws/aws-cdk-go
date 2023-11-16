@@ -16,6 +16,12 @@ package awsec2
 //   	DeleteOnTermination: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DeviceIndex: jsii.Number(123),
+//   	EnaSrdSpecification: &EnaSrdSpecificationProperty{
+//   		EnaSrdEnabled: jsii.Boolean(false),
+//   		EnaSrdUdpSpecification: &EnaSrdUdpSpecificationProperty{
+//   			EnaSrdUdpEnabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   	Groups: []*string{
 //   		jsii.String("groups"),
 //   	},
@@ -77,6 +83,10 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex
 	//
 	DeviceIndex *float64 `field:"optional" json:"deviceIndex" yaml:"deviceIndex"`
+	// Allows customer to specify ENA-SRD options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-enasrdspecification
+	//
+	EnaSrdSpecification interface{} `field:"optional" json:"enaSrdSpecification" yaml:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups
 	//

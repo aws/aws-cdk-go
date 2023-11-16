@@ -44,6 +44,7 @@ import (
 //   	},
 //   	DbSnapshotIdentifier: jsii.String("dbSnapshotIdentifier"),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
+//   	DedicatedLogVolume: jsii.Boolean(false),
 //   	DeleteAutomatedBackups: jsii.Boolean(false),
 //   	DeletionProtection: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
@@ -485,6 +486,10 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsubnetgroupname
 	//
 	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dedicatedlogvolume
+	//
+	DedicatedLogVolume interface{} `field:"optional" json:"dedicatedLogVolume" yaml:"dedicatedLogVolume"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted.
 	//
 	// This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.

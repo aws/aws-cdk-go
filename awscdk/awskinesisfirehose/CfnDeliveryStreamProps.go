@@ -7,7 +7,25 @@ import (
 // Properties for defining a `CfnDeliveryStream`.
 //
 // Example:
+//   destinationBucket := s3.NewBucket(this, jsii.String("Bucket"))
+//   deliveryStreamRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
+//   })
 //
+//   stream := firehose.NewCfnDeliveryStream(this, jsii.String("MyStream"), &CfnDeliveryStreamProps{
+//   	DeliveryStreamName: jsii.String("amazon-apigateway-delivery-stream"),
+//   	S3DestinationConfiguration: &S3DestinationConfigurationProperty{
+//   		BucketArn: destinationBucket.BucketArn,
+//   		RoleArn: deliveryStreamRole.RoleArn,
+//   	},
+//   })
+//
+//   api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+//   	DeployOptions: &StageOptions{
+//   		AccessLogDestination: apigateway.NewFirehoseLogDestination(stream),
+//   		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
+//   	},
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 //

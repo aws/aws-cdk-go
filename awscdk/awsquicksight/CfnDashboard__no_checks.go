@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDashboard) validateSetDefinitionParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnDashboard) validateSetLinkSharingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDashboard) validateSetNameParameters(val *string) error {
 	return nil
 }

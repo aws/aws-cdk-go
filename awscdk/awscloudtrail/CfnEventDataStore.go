@@ -50,6 +50,12 @@ import (
 //   		},
 //   	},
 //   	IngestionEnabled: jsii.Boolean(false),
+//   	InsightsDestination: jsii.String("insightsDestination"),
+//   	InsightSelectors: []interface{}{
+//   		&InsightSelectorProperty{
+//   			InsightType: jsii.String("insightType"),
+//   		},
+//   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MultiRegionEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
@@ -93,6 +99,12 @@ type CfnEventDataStore interface {
 	// Specifies whether the event data store should start ingesting live events.
 	IngestionEnabled() interface{}
 	SetIngestionEnabled(val interface{})
+	// The ARN (or ID suffix of the ARN) of the destination event data store that logs Insights events.
+	InsightsDestination() *string
+	SetInsightsDestination(val *string)
+	// A JSON string that contains the Insights types you want to log on an event data store.
+	InsightSelectors() interface{}
+	SetInsightSelectors(val interface{})
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -384,6 +396,26 @@ func (j *jsiiProxy_CfnEventDataStore) IngestionEnabled() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventDataStore) InsightsDestination() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"insightsDestination",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventDataStore) InsightSelectors() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"insightSelectors",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventDataStore) KmsKeyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -570,6 +602,25 @@ func (j *jsiiProxy_CfnEventDataStore)SetIngestionEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"ingestionEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventDataStore)SetInsightsDestination(val *string) {
+	_jsii_.Set(
+		j,
+		"insightsDestination",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventDataStore)SetInsightSelectors(val interface{}) {
+	if err := j.validateSetInsightSelectorsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"insightSelectors",
 		val,
 	)
 }

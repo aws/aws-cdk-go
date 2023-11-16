@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var configurationObjectProperty_ configurationObjectProperty
+//
 //   cfnApplication := awscdk.Aws_emrserverless.NewCfnApplication(this, jsii.String("MyCfnApplication"), &CfnApplicationProps{
 //   	ReleaseLabel: jsii.String("releaseLabel"),
 //   	Type: jsii.String("type"),
@@ -56,6 +58,16 @@ import (
 //   		// the properties below are optional
 //   		Disk: jsii.String("disk"),
 //   	},
+//   	MonitoringConfiguration: &MonitoringConfigurationProperty{
+//   		ManagedPersistenceMonitoringConfiguration: &ManagedPersistenceMonitoringConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   		},
+//   		S3MonitoringConfiguration: &S3MonitoringConfigurationProperty{
+//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   			LogUri: jsii.String("logUri"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
 //   		SecurityGroupIds: []*string{
@@ -63,6 +75,19 @@ import (
 //   		},
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   	RuntimeConfiguration: []interface{}{
+//   		&configurationObjectProperty{
+//   			Classification: jsii.String("classification"),
+//
+//   			// the properties below are optional
+//   			Configurations: []interface{}{
+//   				configurationObjectProperty_,
+//   			},
+//   			Properties: map[string]*string{
+//   				"propertiesKey": jsii.String("properties"),
+//   			},
 //   		},
 //   	},
 //   	Tags: []cfnTag{
@@ -127,6 +152,9 @@ type CfnApplication interface {
 	// The maximum capacity of the application.
 	MaximumCapacity() interface{}
 	SetMaximumCapacity(val interface{})
+	// A configuration specification to be used when provisioning an application.
+	MonitoringConfiguration() interface{}
+	SetMonitoringConfiguration(val interface{})
 	// The name of the application.
 	Name() *string
 	SetName(val *string)
@@ -140,9 +168,12 @@ type CfnApplication interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon EMR release associated with the application.
+	// The EMR release associated with the application.
 	ReleaseLabel() *string
 	SetReleaseLabel(val *string)
+	// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+	RuntimeConfiguration() interface{}
+	SetRuntimeConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -435,6 +466,16 @@ func (j *jsiiProxy_CfnApplication) MaximumCapacity() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) MonitoringConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"monitoringConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -480,6 +521,16 @@ func (j *jsiiProxy_CfnApplication) ReleaseLabel() *string {
 	_jsii_.Get(
 		j,
 		"releaseLabel",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) RuntimeConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"runtimeConfiguration",
 		&returns,
 	)
 	return returns
@@ -646,6 +697,17 @@ func (j *jsiiProxy_CfnApplication)SetMaximumCapacity(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnApplication)SetMonitoringConfiguration(val interface{}) {
+	if err := j.validateSetMonitoringConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"monitoringConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnApplication)SetName(val *string) {
 	_jsii_.Set(
 		j,
@@ -672,6 +734,17 @@ func (j *jsiiProxy_CfnApplication)SetReleaseLabel(val *string) {
 	_jsii_.Set(
 		j,
 		"releaseLabel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetRuntimeConfiguration(val interface{}) {
+	if err := j.validateSetRuntimeConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"runtimeConfiguration",
 		val,
 	)
 }

@@ -59,6 +59,7 @@ import (
 //   	},
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
+//   	MultiAz: jsii.Boolean(false),
 //   	NumberOfNodes: jsii.Number(123),
 //   	OwnerAccount: jsii.String("ownerAccount"),
 //   	Port: jsii.Number(123),
@@ -331,6 +332,12 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
 	//
 	ManualSnapshotRetentionPeriod *float64 `field:"optional" json:"manualSnapshotRetentionPeriod" yaml:"manualSnapshotRetentionPeriod"`
+	// A boolean indicating whether Amazon Redshift should deploy the cluster in two Availability Zones.
+	//
+	// The default is false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-multiaz
+	//
+	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`
 	// The number of compute nodes in the cluster.
 	//
 	// This parameter is required when the *ClusterType* parameter is specified as `multi-node` .
@@ -379,7 +386,7 @@ type CfnClusterProps struct {
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The Amazon Redshift operation to be performed.
 	//
-	// Supported operations are `pause-cluster` and `resume-cluster` .
+	// Supported operations are `pause-cluster` , `resume-cluster` , and `failover-primary-compute` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
 	//
 	ResourceAction *string `field:"optional" json:"resourceAction" yaml:"resourceAction"`

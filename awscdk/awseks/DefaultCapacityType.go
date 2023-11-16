@@ -5,7 +5,7 @@ package awseks
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_27(),
+//   	Version: eks.KubernetesVersion_V1_28(),
 //   	DefaultCapacityType: eks.DefaultCapacityType_EC2,
 //   })
 //

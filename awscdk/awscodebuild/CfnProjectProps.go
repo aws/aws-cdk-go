@@ -26,12 +26,11 @@ import (
 //   		Path: jsii.String("path"),
 //   	},
 //   	Environment: &EnvironmentProperty{
-//   		ComputeType: jsii.String("computeType"),
 //   		Image: jsii.String("image"),
-//   		Type: jsii.String("type"),
 //
 //   		// the properties below are optional
 //   		Certificate: jsii.String("certificate"),
+//   		ComputeType: jsii.String("computeType"),
 //   		EnvironmentVariables: []interface{}{
 //   			&EnvironmentVariableProperty{
 //   				Name: jsii.String("name"),
@@ -47,6 +46,7 @@ import (
 //   			Credential: jsii.String("credential"),
 //   			CredentialProvider: jsii.String("credentialProvider"),
 //   		},
+//   		Type: jsii.String("type"),
 //   	},
 //   	ServiceRole: jsii.String("serviceRole"),
 //   	Source: &SourceProperty{

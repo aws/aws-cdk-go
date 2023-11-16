@@ -42,6 +42,12 @@ type CfnAssessment_DelegationProperty struct {
 	//
 	ControlSetId *string `field:"optional" json:"controlSetId" yaml:"controlSetId"`
 	// The user or role that created the delegation.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	//
+	// *Pattern* : `^[a-zA-Z0-9-_()\\[\\]\\s]+$`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-createdby
 	//
 	CreatedBy *string `field:"optional" json:"createdBy" yaml:"createdBy"`

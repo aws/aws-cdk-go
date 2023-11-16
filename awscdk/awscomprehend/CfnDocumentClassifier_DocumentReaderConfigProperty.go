@@ -51,8 +51,8 @@ type CfnDocumentClassifier_DocumentReaderConfigProperty struct {
 	//
 	// If you chose `TEXTRACT_ANALYZE_DOCUMENT` as the read action, you must specify one or both of the following values:
 	//
-	// - `TABLES` - Returns information about any tables that are detected in the input document.
-	// - `FORMS` - Returns information and the data from any forms that are detected in the input document.
+	// - `TABLES` - Returns additional information about any tables that are detected in the input document.
+	// - `FORMS` - Returns additional information about any forms that are detected in the input document.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentreaderconfig.html#cfn-comprehend-documentclassifier-documentreaderconfig-featuretypes
 	//
 	FeatureTypes *[]*string `field:"optional" json:"featureTypes" yaml:"featureTypes"`

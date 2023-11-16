@@ -92,6 +92,18 @@ import (
 //   					Interval: jsii.Number(123),
 //   					IntervalUnit: jsii.String("intervalUnit"),
 //   					Location: jsii.String("location"),
+//   					Scripts: []interface{}{
+//   						&ScriptProperty{
+//   							ExecuteOperationOnScriptFailure: jsii.Boolean(false),
+//   							ExecutionHandler: jsii.String("executionHandler"),
+//   							ExecutionHandlerService: jsii.String("executionHandlerService"),
+//   							ExecutionTimeout: jsii.Number(123),
+//   							MaximumRetryCount: jsii.Number(123),
+//   							Stages: []*string{
+//   								jsii.String("stages"),
+//   							},
+//   						},
+//   					},
 //   					Times: []*string{
 //   						jsii.String("times"),
 //   					},

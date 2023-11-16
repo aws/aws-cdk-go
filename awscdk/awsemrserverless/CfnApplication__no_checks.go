@@ -100,11 +100,19 @@ func (j *jsiiProxy_CfnApplication) validateSetMaximumCapacityParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetMonitoringConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetNetworkConfigurationParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnApplication) validateSetReleaseLabelParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplication) validateSetRuntimeConfigurationParameters(val interface{}) error {
 	return nil
 }
 

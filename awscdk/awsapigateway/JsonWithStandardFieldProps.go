@@ -5,10 +5,10 @@ package awsapigateway
 //
 // Example:
 //   // production stage
-//   prdLogGroup := logs.NewLogGroup(this, jsii.String("PrdLogs"))
+//   prodLogGroup := logs.NewLogGroup(this, jsii.String("PrdLogs"))
 //   api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 //   	DeployOptions: &StageOptions{
-//   		AccessLogDestination: apigateway.NewLogGroupLogDestination(prdLogGroup),
+//   		AccessLogDestination: apigateway.NewLogGroupLogDestination(prodLogGroup),
 //   		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
 //   	},
 //   })

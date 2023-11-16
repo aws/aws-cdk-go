@@ -92,6 +92,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "ingestionEnabled", GoGetter: "IngestionEnabled"},
+			_jsii_.MemberProperty{JsiiProperty: "insightsDestination", GoGetter: "InsightsDestination"},
+			_jsii_.MemberProperty{JsiiProperty: "insightSelectors", GoGetter: "InsightSelectors"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -132,6 +134,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStore.AdvancedFieldSelectorProperty",
 		reflect.TypeOf((*CfnEventDataStore_AdvancedFieldSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStore.InsightSelectorProperty",
+		reflect.TypeOf((*CfnEventDataStore_InsightSelectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStoreProps",

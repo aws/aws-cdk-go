@@ -1533,10 +1533,10 @@ Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-log
 
 ```go
 // production stage
-prdLogGroup := logs.NewLogGroup(this, jsii.String("PrdLogs"))
+prodLogGroup := logs.NewLogGroup(this, jsii.String("PrdLogs"))
 api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 	DeployOptions: &StageOptions{
-		AccessLogDestination: apigateway.NewLogGroupLogDestination(prdLogGroup),
+		AccessLogDestination: apigateway.NewLogGroupLogDestination(prodLogGroup),
 		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
 	},
 })
@@ -1627,6 +1627,34 @@ api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 	},
 })
 ```
+
+To write access log files to a Firehose delivery stream destination use the `FirehoseLogDestination` class:
+
+```go
+destinationBucket := s3.NewBucket(this, jsii.String("Bucket"))
+deliveryStreamRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
+})
+
+stream := firehose.NewCfnDeliveryStream(this, jsii.String("MyStream"), &CfnDeliveryStreamProps{
+	DeliveryStreamName: jsii.String("amazon-apigateway-delivery-stream"),
+	S3DestinationConfiguration: &S3DestinationConfigurationProperty{
+		BucketArn: destinationBucket.BucketArn,
+		RoleArn: deliveryStreamRole.RoleArn,
+	},
+})
+
+api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
+	DeployOptions: &StageOptions{
+		AccessLogDestination: apigateway.NewFirehoseLogDestination(stream),
+		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
+	},
+})
+```
+
+**Note:** The delivery stream name must start with `amazon-apigateway-`.
+
+> Visit [Logging API calls to Kinesis Data Firehose](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-logging-to-kinesis.html) for more details.
 
 ## Cross Origin Resource Sharing (CORS)
 

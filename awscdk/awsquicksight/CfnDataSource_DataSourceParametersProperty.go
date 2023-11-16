@@ -96,8 +96,21 @@ package awsquicksight
 //   		Host: jsii.String("host"),
 //   		Port: jsii.Number(123),
 //   	},
+//   	StarburstParameters: &StarburstParametersProperty{
+//   		Catalog: jsii.String("catalog"),
+//   		Host: jsii.String("host"),
+//   		Port: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		ProductType: jsii.String("productType"),
+//   	},
 //   	TeradataParameters: &TeradataParametersProperty{
 //   		Database: jsii.String("database"),
+//   		Host: jsii.String("host"),
+//   		Port: jsii.Number(123),
+//   	},
+//   	TrinoParameters: &TrinoParametersProperty{
+//   		Catalog: jsii.String("catalog"),
 //   		Host: jsii.String("host"),
 //   		Port: jsii.Number(123),
 //   	},
@@ -174,9 +187,17 @@ type CfnDataSource_DataSourceParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
 	//
 	SqlServerParameters interface{} `field:"optional" json:"sqlServerParameters" yaml:"sqlServerParameters"`
+	// The parameters that are required to connect to a Starburst data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-starburstparameters
+	//
+	StarburstParameters interface{} `field:"optional" json:"starburstParameters" yaml:"starburstParameters"`
 	// The parameters for Teradata.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
 	//
 	TeradataParameters interface{} `field:"optional" json:"teradataParameters" yaml:"teradataParameters"`
+	// The parameters that are required to connect to a Trino data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-trinoparameters
+	//
+	TrinoParameters interface{} `field:"optional" json:"trinoParameters" yaml:"trinoParameters"`
 }
 

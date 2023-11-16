@@ -45,6 +45,12 @@ import (
 //   		},
 //   	},
 //   	IngestionEnabled: jsii.Boolean(false),
+//   	InsightsDestination: jsii.String("insightsDestination"),
+//   	InsightSelectors: []interface{}{
+//   		&InsightSelectorProperty{
+//   			InsightType: jsii.String("insightType"),
+//   		},
+//   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MultiRegionEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
@@ -80,6 +86,22 @@ type CfnEventDataStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-ingestionenabled
 	//
 	IngestionEnabled interface{} `field:"optional" json:"ingestionEnabled" yaml:"ingestionEnabled"`
+	// The ARN (or ID suffix of the ARN) of the destination event data store that logs Insights events.
+	//
+	// For more information, see [Create an event data store for CloudTrail Insights events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store-insights.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-insightsdestination
+	//
+	InsightsDestination *string `field:"optional" json:"insightsDestination" yaml:"insightsDestination"`
+	// A JSON string that contains the Insights types you want to log on an event data store.
+	//
+	// `ApiCallRateInsight` and `ApiErrorRateInsight` are valid Insight types.
+	//
+	// The `ApiCallRateInsight` Insights type analyzes write-only management API calls that are aggregated per minute against a baseline API call volume.
+	//
+	// The `ApiErrorRateInsight` Insights type analyzes management API calls that result in error codes. The error is shown if the API call is unsuccessful.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-insightselectors
+	//
+	InsightSelectors interface{} `field:"optional" json:"insightSelectors" yaml:"insightSelectors"`
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail.
 	//
 	// The value can be an alias name prefixed by `alias/` , a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.

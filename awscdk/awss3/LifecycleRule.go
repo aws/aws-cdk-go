@@ -129,10 +129,14 @@ type LifecycleRule struct {
 	// must be later than the transition time.
 	NoncurrentVersionTransitions *[]*NoncurrentVersionTransition `field:"optional" json:"noncurrentVersionTransitions" yaml:"noncurrentVersionTransitions"`
 	// Specifies the minimum object size in bytes for this rule to apply to.
+	//
+	// Objects must be larger than this value in bytes.
 	// Default: - No rule.
 	//
 	ObjectSizeGreaterThan *float64 `field:"optional" json:"objectSizeGreaterThan" yaml:"objectSizeGreaterThan"`
 	// Specifies the maximum object size in bytes for this rule to apply to.
+	//
+	// Objects must be smaller than this value in bytes.
 	// Default: - No rule.
 	//
 	ObjectSizeLessThan *float64 `field:"optional" json:"objectSizeLessThan" yaml:"objectSizeLessThan"`

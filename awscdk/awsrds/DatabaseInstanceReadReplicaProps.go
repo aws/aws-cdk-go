@@ -81,7 +81,7 @@ type DatabaseInstanceReadReplicaProps struct {
 	//
 	CopyTagsToSnapshot *bool `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	// Default: false.
+	// Default: true.
 	//
 	DeleteAutomatedBackups *bool `field:"optional" json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.

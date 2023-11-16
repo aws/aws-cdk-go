@@ -235,6 +235,10 @@ func init() {
 		reflect.TypeOf((*CfnOriginEndpoint_EncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.FilterConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_FilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.HlsManifestConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_HlsManifestConfigurationProperty)(nil)).Elem(),
 	)

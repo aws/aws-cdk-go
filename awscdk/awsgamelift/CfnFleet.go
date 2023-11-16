@@ -25,6 +25,7 @@ import (
 //   	AnywhereConfiguration: &AnywhereConfigurationProperty{
 //   		Cost: jsii.String("cost"),
 //   	},
+//   	ApplyCapacity: jsii.String("applyCapacity"),
 //   	BuildId: jsii.String("buildId"),
 //   	CertificateConfiguration: &CertificateConfigurationProperty{
 //   		CertificateType: jsii.String("certificateType"),
@@ -84,6 +85,26 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ScalingPolicies: []interface{}{
+//   		&ScalingPolicyProperty{
+//   			MetricName: jsii.String("metricName"),
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			ComparisonOperator: jsii.String("comparisonOperator"),
+//   			EvaluationPeriods: jsii.Number(123),
+//   			Location: jsii.String("location"),
+//   			PolicyType: jsii.String("policyType"),
+//   			ScalingAdjustment: jsii.Number(123),
+//   			ScalingAdjustmentType: jsii.String("scalingAdjustmentType"),
+//   			Status: jsii.String("status"),
+//   			TargetConfiguration: &TargetConfigurationProperty{
+//   				TargetValue: jsii.Number(123),
+//   			},
+//   			Threshold: jsii.Number(123),
+//   			UpdateStatus: jsii.String("updateStatus"),
+//   		},
+//   	},
 //   	ScriptId: jsii.String("scriptId"),
 //   	ServerLaunchParameters: jsii.String("serverLaunchParameters"),
 //   	ServerLaunchPath: jsii.String("serverLaunchPath"),
@@ -97,6 +118,9 @@ type CfnFleet interface {
 	// Amazon GameLift Anywhere configuration options for your Anywhere fleets.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
+	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+	ApplyCapacity() *string
+	SetApplyCapacity(val *string)
 	// A unique identifier for the fleet.
 	AttrFleetId() *string
 	// A unique identifier for a build to be deployed on the new fleet.
@@ -132,10 +156,10 @@ type CfnFleet interface {
 	// Indicates whether to use On-Demand or Spot instances for this fleet.
 	FleetType() *string
 	SetFleetType(val *string)
-	// A unique identifier for an IAM role that manages access to your AWS services.
+	// A unique identifier for an IAM role with access permissions to other AWS services.
 	InstanceRoleArn() *string
 	SetInstanceRoleArn(val *string)
-	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+	// Indicates that fleet instances maintain a shared credentials file for the IAM role defined in `InstanceRoleArn` .
 	InstanceRoleCredentialsProvider() *string
 	SetInstanceRoleCredentialsProvider(val *string)
 	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
@@ -190,6 +214,9 @@ type CfnFleet interface {
 	// Instructions for how to launch and maintain server processes on instances in the fleet.
 	RuntimeConfiguration() interface{}
 	SetRuntimeConfiguration(val interface{})
+	// A list of rules that control how a fleet is scaled.
+	ScalingPolicies() interface{}
+	SetScalingPolicies(val interface{})
 	// The unique identifier for a Realtime configuration script to be deployed on fleet instances.
 	ScriptId() *string
 	SetScriptId(val *string)
@@ -358,6 +385,16 @@ func (j *jsiiProxy_CfnFleet) AnywhereConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"anywhereConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) ApplyCapacity() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"applyCapacity",
 		&returns,
 	)
 	return returns
@@ -653,6 +690,16 @@ func (j *jsiiProxy_CfnFleet) RuntimeConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) ScalingPolicies() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"scalingPolicies",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) ScriptId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -748,6 +795,14 @@ func (j *jsiiProxy_CfnFleet)SetAnywhereConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"anywhereConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetApplyCapacity(val *string) {
+	_jsii_.Set(
+		j,
+		"applyCapacity",
 		val,
 	)
 }
@@ -934,6 +989,17 @@ func (j *jsiiProxy_CfnFleet)SetRuntimeConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"runtimeConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetScalingPolicies(val interface{}) {
+	if err := j.validateSetScalingPoliciesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"scalingPolicies",
 		val,
 	)
 }

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDBCluster) validateSetDeletionProtectionParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBCluster) validateSetEnableGlobalWriteForwardingParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBCluster) validateSetEnableHttpEndpointParameters(val interface{}) error {
 	return nil
 }

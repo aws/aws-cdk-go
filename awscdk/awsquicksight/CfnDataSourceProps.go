@@ -99,8 +99,21 @@ import (
 //   				Host: jsii.String("host"),
 //   				Port: jsii.Number(123),
 //   			},
+//   			StarburstParameters: &StarburstParametersProperty{
+//   				Catalog: jsii.String("catalog"),
+//   				Host: jsii.String("host"),
+//   				Port: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				ProductType: jsii.String("productType"),
+//   			},
 //   			TeradataParameters: &TeradataParametersProperty{
 //   				Database: jsii.String("database"),
+//   				Host: jsii.String("host"),
+//   				Port: jsii.Number(123),
+//   			},
+//   			TrinoParameters: &TrinoParametersProperty{
+//   				Catalog: jsii.String("catalog"),
 //   				Host: jsii.String("host"),
 //   				Port: jsii.Number(123),
 //   			},
@@ -201,8 +214,21 @@ import (
 //   						Host: jsii.String("host"),
 //   						Port: jsii.Number(123),
 //   					},
+//   					StarburstParameters: &StarburstParametersProperty{
+//   						Catalog: jsii.String("catalog"),
+//   						Host: jsii.String("host"),
+//   						Port: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						ProductType: jsii.String("productType"),
+//   					},
 //   					TeradataParameters: &TeradataParametersProperty{
 //   						Database: jsii.String("database"),
+//   						Host: jsii.String("host"),
+//   						Port: jsii.Number(123),
+//   					},
+//   					TrinoParameters: &TrinoParametersProperty{
+//   						Catalog: jsii.String("catalog"),
 //   						Host: jsii.String("host"),
 //   						Port: jsii.Number(123),
 //   					},
@@ -298,8 +324,21 @@ import (
 //   			Host: jsii.String("host"),
 //   			Port: jsii.Number(123),
 //   		},
+//   		StarburstParameters: &StarburstParametersProperty{
+//   			Catalog: jsii.String("catalog"),
+//   			Host: jsii.String("host"),
+//   			Port: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			ProductType: jsii.String("productType"),
+//   		},
 //   		TeradataParameters: &TeradataParametersProperty{
 //   			Database: jsii.String("database"),
+//   			Host: jsii.String("host"),
+//   			Port: jsii.Number(123),
+//   		},
+//   		TrinoParameters: &TrinoParametersProperty{
+//   			Catalog: jsii.String("catalog"),
 //   			Host: jsii.String("host"),
 //   			Port: jsii.Number(123),
 //   		},

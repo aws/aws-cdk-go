@@ -48,6 +48,7 @@ import (
 //   		jsii.String("organizationalUnits"),
 //   	},
 //   	OrganizationRoleName: jsii.String("organizationRoleName"),
+//   	PluginAdminEnabled: jsii.Boolean(false),
 //   	RoleArn: jsii.String("roleArn"),
 //   	SamlConfiguration: &SamlConfigurationProperty{
 //   		IdpMetadata: &IdpMetadataProperty{
@@ -186,6 +187,9 @@ type CfnWorkspace interface {
 	// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
 	PermissionType() *string
 	SetPermissionType(val *string)
+	// Allow workspace admins to install plugins.
+	PluginAdminEnabled() interface{}
+	SetPluginAdminEnabled(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -613,6 +617,16 @@ func (j *jsiiProxy_CfnWorkspace) PermissionType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkspace) PluginAdminEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"pluginAdminEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkspace) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -825,6 +839,17 @@ func (j *jsiiProxy_CfnWorkspace)SetPermissionType(val *string) {
 	_jsii_.Set(
 		j,
 		"permissionType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkspace)SetPluginAdminEnabled(val interface{}) {
+	if err := j.validateSetPluginAdminEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"pluginAdminEnabled",
 		val,
 	)
 }

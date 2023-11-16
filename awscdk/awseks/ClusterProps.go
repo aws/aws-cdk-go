@@ -12,7 +12,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_27(),
+//   	Version: eks.KubernetesVersion_V1_28(),
 //   	DefaultCapacity: jsii.Number(0),
 //   })
 //
@@ -56,8 +56,6 @@ type ClusterProps struct {
 	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place EKS Control Plane ENIs.
-	//
-	// If you want to create public load balancers, this must include public subnets.
 	//
 	// For example, to only select private subnets, supply the following:
 	//

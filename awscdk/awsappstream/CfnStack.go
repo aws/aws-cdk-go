@@ -65,6 +65,9 @@ import (
 //   		&UserSettingProperty{
 //   			Action: jsii.String("action"),
 //   			Permission: jsii.String("permission"),
+//
+//   			// the properties below are optional
+//   			MaximumLength: jsii.Number(123),
 //   		},
 //   	},
 //   })

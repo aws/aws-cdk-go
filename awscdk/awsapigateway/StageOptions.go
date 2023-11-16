@@ -66,7 +66,7 @@ type StageOptions struct {
 	// Default: - No additional restriction.
 	//
 	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
-	// The CloudWatch Logs log group.
+	// The CloudWatch Logs log group or Firehose delivery stream where to write access logs.
 	// Default: - No destination.
 	//
 	AccessLogDestination IAccessLogDestination `field:"optional" json:"accessLogDestination" yaml:"accessLogDestination"`

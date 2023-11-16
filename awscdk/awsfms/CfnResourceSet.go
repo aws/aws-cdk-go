@@ -41,7 +41,7 @@ type CfnResourceSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The ID of the resource set.
+	// A Base62 ID.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -75,7 +75,6 @@ type CfnResourceSet interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The resources included in the resource set.
 	Resources() *[]*string
 	SetResources(val *[]*string)
 	// Determines the resources that can be associated to the resource set.
@@ -87,7 +86,6 @@ type CfnResourceSet interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A collection of key:value pairs associated with a resource set.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

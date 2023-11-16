@@ -112,7 +112,7 @@ type CfnUserPoolUser interface {
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
-	// The user's validation data.
+	// Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger.
 	ValidationData() interface{}
 	SetValidationData(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

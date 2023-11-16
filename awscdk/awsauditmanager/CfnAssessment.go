@@ -86,7 +86,7 @@ type CfnAssessment interface {
 	SetAssessmentReportsDestination(val interface{})
 	// The Amazon Resource Name (ARN) of the assessment.
 	AttrArn() *string
-	// The unique identifier for the associated assessment.
+	// The unique identifier for the assessment.
 	AttrAssessmentId() *string
 	// Specifies when the assessment was created.
 	AttrCreationTime() awscdk.IResolvable

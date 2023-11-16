@@ -27,6 +27,7 @@ import (
 //   		},
 //   	},
 //   	DataFormat: glue.DataFormat_JSON(),
+//   	EnablePartitionFiltering: jsii.Boolean(true),
 //   })
 //
 // Experimental.

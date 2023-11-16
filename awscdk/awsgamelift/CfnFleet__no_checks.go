@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnFleet) validateSetRuntimeConfigurationParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetScalingPoliciesParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnFleetParameters(scope constructs.Construct, id *string, props *CfnFleetProps) error {
 	return nil
 }
