@@ -20,6 +20,7 @@ package awsresourceexplorer2
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	Scope: jsii.String("scope"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -46,6 +47,12 @@ type CfnViewProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-includedproperties
 	//
 	IncludedProperties interface{} `field:"optional" json:"includedProperties" yaml:"includedProperties"`
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN.
+	//
+	// If left empty, the default is account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-scope
+	//
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// Tag key and value pairs that are attached to the view.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html#cfn-resourceexplorer2-view-tags
 	//

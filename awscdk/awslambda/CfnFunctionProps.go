@@ -119,16 +119,11 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-architectures
 	//
 	Architectures *[]*string `field:"optional" json:"architectures" yaml:"architectures"`
-	// To enable code signing for this function, specify the ARN of a code-signing configuration.
-	//
-	// A code-signing configuration
-	// includes a set of signing profiles, which define the trusted publishers for this function.
+	// A unique Arn for CodeSigningConfig resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
 	//
 	CodeSigningConfigArn *string `field:"optional" json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
-	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
-	//
-	// For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq) .
+	// The dead-letter queue for failed asynchronous invocations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
 	//
 	DeadLetterConfig interface{} `field:"optional" json:"deadLetterConfig" yaml:"deadLetterConfig"`
@@ -136,35 +131,29 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Environment variables that are accessible from function code during execution.
+	// A function's environment variable settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
 	//
 	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
-	// The size of the function's `/tmp` directory in MB.
-	//
-	// The default value is 512, but it can be any whole number between 512 and 10,240 MB.
+	// A function's ephemeral storage settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-ephemeralstorage
 	//
 	EphemeralStorage interface{} `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
 	// Connection settings for an Amazon EFS file system.
 	//
-	// To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a `DependsOn` attribute to ensure that the mount target is created or updated before the function.
-	//
-	// For more information about using the `DependsOn` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+	// To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
 	//
 	FileSystemConfigs interface{} `field:"optional" json:"fileSystemConfigs" yaml:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length.
 	//
 	// If you don't specify a name, AWS CloudFormation generates one.
-	//
-	// If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
 	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
-	// The name of the method within your code that Lambda calls to run your function.
+	// The name of the method within your code that Lambda calls to execute your function.
 	//
-	// Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html) .
+	// The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
 	//
 	Handler *string `field:"optional" json:"handler" yaml:"handler"`
@@ -174,25 +163,29 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
 	//
 	ImageConfig interface{} `field:"optional" json:"imageConfig" yaml:"imageConfig"`
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption) . When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
+	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables.
+	//
+	// If it's not provided, AWS Lambda uses a default service key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
+	// A list of function layers to add to the function's execution environment.
+	//
+	// Specify each layer by its ARN, including the version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
 	//
 	Layers *[]*string `field:"optional" json:"layers" yaml:"layers"`
-	// The function's logging configuration.
+	// LoggingConfig for the function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-loggingconfig
 	//
 	LoggingConfig interface{} `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
-	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
+	// The amount of memory that your function has access to.
+	//
+	// Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
 	//
 	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
-	// The type of deployment package.
-	//
-	// Set to `Image` for container image and set `Zip` for .zip file archive.
+	// PackageType.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
 	//
 	PackageType *string `field:"optional" json:"packageType" yaml:"packageType"`
@@ -204,9 +197,7 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
 	//
 	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
-	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
-	//
-	// The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy) .
+	// The identifier of the function's runtime.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
 	//
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
@@ -216,27 +207,31 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtimemanagementconfig
 	//
 	RuntimeManagementConfig interface{} `field:"optional" json:"runtimeManagementConfig" yaml:"runtimeManagementConfig"`
-	// The function's [AWS Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+	// The function's SnapStart setting.
+	//
+	// When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-snapstart
 	//
 	SnapStart interface{} `field:"optional" json:"snapStart" yaml:"snapStart"`
-	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
+	// A list of tags to apply to the function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.
+	// The amount of time that Lambda allows a function to run before stopping it.
 	//
-	// The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html) .
+	// The default is 3 seconds. The maximum allowed value is 900 seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
 	//
 	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
-	// Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) .
+	// The function's AWS X-Ray tracing configuration.
+	//
+	// To sample and record incoming requests, set Mode to Active.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
 	//
 	TracingConfig interface{} `field:"optional" json:"tracingConfig" yaml:"tracingConfig"`
-	// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+	// The VPC security groups and subnets that are attached to a Lambda function.
 	//
-	// When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html) .
+	// When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
 	//
 	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`

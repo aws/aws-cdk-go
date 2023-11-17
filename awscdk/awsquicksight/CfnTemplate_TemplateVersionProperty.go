@@ -46,10 +46,6 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
-//   	Options: &AssetOptionsProperty{
-//   		Timezone: jsii.String("timezone"),
-//   		WeekStart: jsii.String("weekStart"),
-//   	},
 //   	Sheets: []interface{}{
 //   		&SheetProperty{
 //   			Name: jsii.String("name"),
@@ -83,9 +79,6 @@ type CfnTemplate_TemplateVersionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-errors
 	//
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-options
-	//
-	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// A list of the associated sheets with the unique identifier and name of each sheet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html#cfn-quicksight-template-templateversion-sheets
 	//

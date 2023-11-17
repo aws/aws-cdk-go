@@ -26,6 +26,10 @@ package awsautoscaling
 //   	HealthCheckGracePeriod: jsii.Number(123),
 //   	HealthCheckType: jsii.String("healthCheckType"),
 //   	InstanceId: jsii.String("instanceId"),
+//   	InstanceMaintenancePolicy: &InstanceMaintenancePolicyProperty{
+//   		MaxHealthyPercentage: jsii.Number(123),
+//   		MinHealthyPercentage: jsii.Number(123),
+//   	},
 //   	LaunchConfigurationName: jsii.String("launchConfigurationName"),
 //   	LaunchTemplate: &LaunchTemplateSpecificationProperty{
 //   		Version: jsii.String("version"),
@@ -303,6 +307,9 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instanceid
 	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instancemaintenancepolicy
+	//
+	InstanceMaintenancePolicy interface{} `field:"optional" json:"instanceMaintenancePolicy" yaml:"instanceMaintenancePolicy"`
 	// The name of the launch configuration to use to launch instances.
 	//
 	// Required only if you don't specify `LaunchTemplate` , `MixedInstancesPolicy` , or `InstanceId` .

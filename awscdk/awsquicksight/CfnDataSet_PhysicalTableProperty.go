@@ -16,6 +16,9 @@ package awsquicksight
 //   			&InputColumnProperty{
 //   				Name: jsii.String("name"),
 //   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				SubType: jsii.String("subType"),
 //   			},
 //   		},
 //   		DataSourceArn: jsii.String("dataSourceArn"),
@@ -28,6 +31,9 @@ package awsquicksight
 //   			&InputColumnProperty{
 //   				Name: jsii.String("name"),
 //   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				SubType: jsii.String("subType"),
 //   			},
 //   		},
 //   		Name: jsii.String("name"),
@@ -42,6 +48,9 @@ package awsquicksight
 //   			&InputColumnProperty{
 //   				Name: jsii.String("name"),
 //   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				SubType: jsii.String("subType"),
 //   			},
 //   		},
 //

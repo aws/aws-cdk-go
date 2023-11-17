@@ -48,11 +48,11 @@ type CfnEnvironmentTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html#cfn-proton-environmenttemplate-provisioning
 	//
 	Provisioning *string `field:"optional" json:"provisioning" yaml:"provisioning"`
-	// An optional list of metadata items that you can associate with the environment template.
+	// An optional list of metadata items that you can associate with the AWS Proton environment template.
 	//
 	// A tag is a key-value pair.
 	//
-	// For more information, see [resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *User Guide* .
+	// For more information, see [AWS Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *AWS Proton User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html#cfn-proton-environmenttemplate-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

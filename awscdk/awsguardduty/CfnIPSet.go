@@ -19,13 +19,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnIPSet := awscdk.Aws_guardduty.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &CfnIPSetProps{
-//   	Activate: jsii.Boolean(false),
-//   	DetectorId: jsii.String("detectorId"),
 //   	Format: jsii.String("format"),
 //   	Location: jsii.String("location"),
+//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	Name: jsii.String("name"),
+//   	Activate: jsii.Boolean(false),
+//   	DetectorId: jsii.String("detectorId"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -458,9 +458,6 @@ func (j *jsiiProxy_CfnIPSet)SetActivate(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnIPSet)SetDetectorId(val *string) {
-	if err := j.validateSetDetectorIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"detectorId",
@@ -491,6 +488,9 @@ func (j *jsiiProxy_CfnIPSet)SetLocation(val *string) {
 }
 
 func (j *jsiiProxy_CfnIPSet)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",

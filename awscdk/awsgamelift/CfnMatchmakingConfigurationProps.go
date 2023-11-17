@@ -21,6 +21,7 @@ import (
 //   	AcceptanceTimeoutSeconds: jsii.Number(123),
 //   	AdditionalPlayerCount: jsii.Number(123),
 //   	BackfillMode: jsii.String("backfillMode"),
+//   	CreationTime: jsii.String("creationTime"),
 //   	CustomEventData: jsii.String("customEventData"),
 //   	Description: jsii.String("description"),
 //   	FlexMatchMode: jsii.String("flexMatchMode"),
@@ -35,6 +36,7 @@ import (
 //   		jsii.String("gameSessionQueueArns"),
 //   	},
 //   	NotificationTarget: jsii.String("notificationTarget"),
+//   	RuleSetArn: jsii.String("ruleSetArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -86,6 +88,10 @@ type CfnMatchmakingConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-backfillmode
 	//
 	BackfillMode *string `field:"optional" json:"backfillMode" yaml:"backfillMode"`
+	// A time stamp indicating when this data object was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-creationtime
+	//
+	CreationTime *string `field:"optional" json:"creationTime" yaml:"creationTime"`
 	// Information to add to all events related to the matchmaking configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-customeventdata
 	//
@@ -123,6 +129,10 @@ type CfnMatchmakingConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-notificationtarget
 	//
 	NotificationTarget *string `field:"optional" json:"notificationTarget" yaml:"notificationTarget"`
+	// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-rulesetarn
+	//
+	RuleSetArn *string `field:"optional" json:"ruleSetArn" yaml:"ruleSetArn"`
 	// A list of labels to assign to the new matchmaking configuration resource.
 	//
 	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.

@@ -201,7 +201,7 @@ type CfnDBInstance interface {
 	AttrEndpointPort() *string
 	// The Amazon Resource Name (ARN) of the secret.
 	AttrMasterUserSecretSecretArn() *string
-	// Enables replication of automated backups to a different Amazon Web Services Region.
+	// The destination region for the backup replication of the DB instance.
 	AutomaticBackupReplicationRegion() *string
 	SetAutomaticBackupReplicationRegion(val *string)
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.

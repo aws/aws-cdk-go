@@ -42,6 +42,7 @@ import (
 //   var key key
 //   var lambdaInsightsVersion lambdaInsightsVersion
 //   var layerVersion layerVersion
+//   var logGroup logGroup
 //   var paramsAndSecretsLayerVersion paramsAndSecretsLayerVersion
 //   var policyStatement policyStatement
 //   var profilingGroup profilingGroup
@@ -70,6 +71,7 @@ import (
 //   	},
 //   	AllowAllOutbound: jsii.Boolean(false),
 //   	AllowPublicSubnet: jsii.Boolean(false),
+//   	ApplicationLogLevel: jsii.String("applicationLogLevel"),
 //   	Architecture: architecture,
 //   	CodeSigningConfig: codeSigningConfig,
 //   	CurrentVersionOptions: &VersionOptions{
@@ -104,6 +106,8 @@ import (
 //   	Layers: []iLayerVersion{
 //   		layerVersion,
 //   	},
+//   	LogFormat: jsii.String("logFormat"),
+//   	LogGroup: logGroup,
 //   	LogRetention: awscdk.Aws_logs.RetentionDays_ONE_DAY,
 //   	LogRetentionRetryOptions: &LogRetentionRetryOptions{
 //   		Base: cdk.Duration_*Minutes(jsii.Number(30)),
@@ -125,6 +129,7 @@ import (
 //   		securityGroup,
 //   	},
 //   	SnapStart: snapStartConf,
+//   	SystemLogLevel: jsii.String("systemLogLevel"),
 //   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	Tracing: awscdk.*Aws_lambda.Tracing_ACTIVE,
 //   	Vpc: vpc,

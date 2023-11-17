@@ -45,7 +45,7 @@ type CfnMembershipProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-collaborationidentifier
 	//
 	CollaborationIdentifier *string `field:"required" json:"collaborationIdentifier" yaml:"collaborationIdentifier"`
-	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html#cfn-cleanrooms-membership-querylogstatus
 	//
 	QueryLogStatus *string `field:"required" json:"queryLogStatus" yaml:"queryLogStatus"`

@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnSecurityProfile) validateSetBehaviorsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnSecurityProfile) validateSetMetricsExportConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSecurityProfile) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

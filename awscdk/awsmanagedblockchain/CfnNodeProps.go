@@ -9,23 +9,19 @@ package awsmanagedblockchain
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnNodeProps := &CfnNodeProps{
-//   	MemberId: jsii.String("memberId"),
 //   	NetworkId: jsii.String("networkId"),
 //   	NodeConfiguration: &NodeConfigurationProperty{
 //   		AvailabilityZone: jsii.String("availabilityZone"),
 //   		InstanceType: jsii.String("instanceType"),
 //   	},
+//
+//   	// the properties below are optional
+//   	MemberId: jsii.String("memberId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html
 //
 type CfnNodeProps struct {
-	// The unique identifier of the member to which the node belongs.
-	//
-	// Applies only to Hyperledger Fabric.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-memberid
-	//
-	MemberId *string `field:"required" json:"memberId" yaml:"memberId"`
 	// The unique identifier of the network for the node.
 	//
 	// Ethereum public networks have the following `NetworkId` s:
@@ -39,5 +35,11 @@ type CfnNodeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-nodeconfiguration
 	//
 	NodeConfiguration interface{} `field:"required" json:"nodeConfiguration" yaml:"nodeConfiguration"`
+	// The unique identifier of the member to which the node belongs.
+	//
+	// Applies only to Hyperledger Fabric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-memberid
+	//
+	MemberId *string `field:"optional" json:"memberId" yaml:"memberId"`
 }
 

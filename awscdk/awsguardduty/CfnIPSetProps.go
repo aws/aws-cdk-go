@@ -12,13 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnIPSetProps := &CfnIPSetProps{
-//   	Activate: jsii.Boolean(false),
-//   	DetectorId: jsii.String("detectorId"),
 //   	Format: jsii.String("format"),
 //   	Location: jsii.String("location"),
+//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
-//   	Name: jsii.String("name"),
+//   	Activate: jsii.Boolean(false),
+//   	DetectorId: jsii.String("detectorId"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -30,14 +30,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html
 //
 type CfnIPSetProps struct {
-	// Indicates whether or not GuardDuty uses the `IPSet` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-activate
-	//
-	Activate interface{} `field:"required" json:"activate" yaml:"activate"`
-	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-detectorid
-	//
-	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The format of the file that contains the IPSet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-format
 	//
@@ -51,7 +43,15 @@ type CfnIPSetProps struct {
 	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-name
 	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// Indicates whether or not GuardDuty uses the `IPSet` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-activate
+	//
+	Activate interface{} `field:"optional" json:"activate" yaml:"activate"`
+	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-detectorid
+	//
+	DetectorId *string `field:"optional" json:"detectorId" yaml:"detectorId"`
 	// The tags to be added to a new IP set resource.
 	//
 	// Each tag consists of a key and an optional value, both of which you define.

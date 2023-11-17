@@ -49,7 +49,10 @@ type CfnMatchmakingRuleSet interface {
 	awscdk.ITaggable
 	// The unique Amazon Resource Name (ARN) assigned to the rule set.
 	AttrArn() *string
-	AttrId() *string
+	// A time stamp indicating when this data object was created.
+	//
+	// Format is a number expressed in Unix time as milliseconds.
+	AttrCreationTime() *string
 	// The unique name of the rule set.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -250,11 +253,11 @@ func (j *jsiiProxy_CfnMatchmakingRuleSet) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchmakingRuleSet) AttrId() *string {
+func (j *jsiiProxy_CfnMatchmakingRuleSet) AttrCreationTime() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrCreationTime",
 		&returns,
 	)
 	return returns

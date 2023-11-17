@@ -14,6 +14,7 @@ package awsiot
 //   	Metric: jsii.String("metric"),
 //
 //   	// the properties below are optional
+//   	ExportMetric: jsii.Boolean(false),
 //   	MetricDimension: &MetricDimensionProperty{
 //   		DimensionName: jsii.String("dimensionName"),
 //
@@ -29,6 +30,10 @@ type CfnSecurityProfile_MetricToRetainProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
 	//
 	Metric *string `field:"required" json:"metric" yaml:"metric"`
+	// Flag to enable/disable metrics export for metric to be retained.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-exportmetric
+	//
+	ExportMetric interface{} `field:"optional" json:"exportMetric" yaml:"exportMetric"`
 	// The dimension of the metric.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
 	//

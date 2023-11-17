@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnPipe) validateSetEnrichmentParametersParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnPipe) validateSetLogConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPipe) validateSetRoleArnParameters(val *string) error {
 	return nil
 }

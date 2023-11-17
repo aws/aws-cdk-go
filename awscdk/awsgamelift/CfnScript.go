@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::GameLift::Script` resource creates a new script record for your Realtime Servers script.
-//
-// Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,10 +43,20 @@ type CfnScript interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The unique Amazon Resource Name (ARN) for the script.
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it.
+	//
+	// ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.
 	AttrArn() *string
-	// A unique identifier for a Realtime script.
+	// A time stamp indicating when this data object was created.
+	//
+	// Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+	AttrCreationTime() *string
+	// A unique identifier for the Realtime script.
 	AttrId() *string
+	// The file size of the uploaded Realtime script, expressed in bytes.
+	//
+	// When files are uploaded from an S3 location, this value remains at "0".
+	AttrSizeOnDisk() *float64
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -82,12 +90,11 @@ type CfnScript interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored.
 	StorageLocation() interface{}
 	SetStorageLocation(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of labels to assign to the new script resource.
+	// An array of key-value pairs to apply to this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -103,7 +110,7 @@ type CfnScript interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The version that is associated with a build or script.
+	// The version that is associated with a script.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -250,11 +257,31 @@ func (j *jsiiProxy_CfnScript) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScript) AttrCreationTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScript) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScript) AttrSizeOnDisk() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrSizeOnDisk",
 		&returns,
 	)
 	return returns

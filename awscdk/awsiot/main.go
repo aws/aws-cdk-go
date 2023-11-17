@@ -1122,6 +1122,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "metricsExportConfig", GoGetter: "MetricsExportConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -1177,6 +1178,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnSecurityProfile.MetricValueProperty",
 		reflect.TypeOf((*CfnSecurityProfile_MetricValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnSecurityProfile.MetricsExportConfigProperty",
+		reflect.TypeOf((*CfnSecurityProfile_MetricsExportConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnSecurityProfile.StatisticalThresholdProperty",

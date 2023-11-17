@@ -84,15 +84,15 @@ func (j *jsiiProxy_CfnIPSet) validateSetActivateParameters(val interface{}) erro
 	return nil
 }
 
-func (j *jsiiProxy_CfnIPSet) validateSetDetectorIdParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnIPSet) validateSetFormatParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnIPSet) validateSetLocationParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnIPSet) validateSetNameParameters(val *string) error {
 	return nil
 }
 

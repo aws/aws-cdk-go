@@ -19,12 +19,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnNode := awscdk.Aws_managedblockchain.NewCfnNode(this, jsii.String("MyCfnNode"), &CfnNodeProps{
-//   	MemberId: jsii.String("memberId"),
 //   	NetworkId: jsii.String("networkId"),
 //   	NodeConfiguration: &NodeConfigurationProperty{
 //   		AvailabilityZone: jsii.String("availabilityZone"),
 //   		InstanceType: jsii.String("instanceType"),
 //   	},
+//
+//   	// the properties below are optional
+//   	MemberId: jsii.String("memberId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html
@@ -426,9 +428,6 @@ func NewCfnNode_Override(c CfnNode, scope constructs.Construct, id *string, prop
 }
 
 func (j *jsiiProxy_CfnNode)SetMemberId(val *string) {
-	if err := j.validateSetMemberIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"memberId",

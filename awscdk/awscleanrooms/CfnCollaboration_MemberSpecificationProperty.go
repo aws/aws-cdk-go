@@ -21,7 +21,7 @@ package awscleanrooms
 type CfnCollaboration_MemberSpecificationProperty struct {
 	// The identifier used to reference members of the collaboration.
 	//
-	// Currently only supports ID.
+	// Currently only supports AWS account ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-accountid
 	//
 	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`

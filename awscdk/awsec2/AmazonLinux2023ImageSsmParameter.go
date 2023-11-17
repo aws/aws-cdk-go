@@ -68,7 +68,7 @@ func NewAmazonLinux2023ImageSsmParameter_Override(a AmazonLinux2023ImageSsmParam
 	)
 }
 
-// Generates a SSM Parameter name for a specific amazon linux 2022 AMI.
+// Generates a SSM Parameter name for a specific amazon linux 2023 AMI.
 //
 // Example values:
 //

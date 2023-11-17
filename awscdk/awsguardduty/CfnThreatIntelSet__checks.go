@@ -180,9 +180,6 @@ func validateCfnThreatIntelSet_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnThreatIntelSet) validateSetActivateParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case *bool:
 		// ok
@@ -199,14 +196,6 @@ func (j *jsiiProxy_CfnThreatIntelSet) validateSetActivateParameters(val interfac
 	return nil
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) validateSetDetectorIdParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnThreatIntelSet) validateSetFormatParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -216,6 +205,14 @@ func (j *jsiiProxy_CfnThreatIntelSet) validateSetFormatParameters(val *string) e
 }
 
 func (j *jsiiProxy_CfnThreatIntelSet) validateSetLocationParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnThreatIntelSet) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}

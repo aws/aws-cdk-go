@@ -91,7 +91,7 @@ type CfnMembership interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// An indicator as to whether query logging has been enabled or disabled for the collaboration.
+	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus() *string
 	SetQueryLogStatus(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

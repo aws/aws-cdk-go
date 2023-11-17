@@ -24,6 +24,7 @@ import (
 //   			Metric: jsii.String("metric"),
 //
 //   			// the properties below are optional
+//   			ExportMetric: jsii.Boolean(false),
 //   			MetricDimension: &MetricDimensionProperty{
 //   				DimensionName: jsii.String("dimensionName"),
 //
@@ -71,6 +72,7 @@ import (
 //   					},
 //   				},
 //   			},
+//   			ExportMetric: jsii.Boolean(false),
 //   			Metric: jsii.String("metric"),
 //   			MetricDimension: &MetricDimensionProperty{
 //   				DimensionName: jsii.String("dimensionName"),
@@ -80,6 +82,10 @@ import (
 //   			},
 //   			SuppressAlerts: jsii.Boolean(false),
 //   		},
+//   	},
+//   	MetricsExportConfig: &MetricsExportConfigProperty{
+//   		MqttTopic: jsii.String("mqttTopic"),
+//   		RoleArn: jsii.String("roleArn"),
 //   	},
 //   	SecurityProfileDescription: jsii.String("securityProfileDescription"),
 //   	SecurityProfileName: jsii.String("securityProfileName"),
@@ -130,6 +136,9 @@ type CfnSecurityProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// A structure containing the mqtt topic for metrics export.
+	MetricsExportConfig() interface{}
+	SetMetricsExportConfig(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -392,6 +401,16 @@ func (j *jsiiProxy_CfnSecurityProfile) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSecurityProfile) MetricsExportConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"metricsExportConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecurityProfile) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -549,6 +568,17 @@ func (j *jsiiProxy_CfnSecurityProfile)SetBehaviors(val interface{}) {
 	_jsii_.Set(
 		j,
 		"behaviors",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecurityProfile)SetMetricsExportConfig(val interface{}) {
+	if err := j.validateSetMetricsExportConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"metricsExportConfig",
 		val,
 	)
 }

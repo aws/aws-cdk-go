@@ -40,6 +40,7 @@ package awsiot
 //   			},
 //   		},
 //   	},
+//   	ExportMetric: jsii.Boolean(false),
 //   	Metric: jsii.String("metric"),
 //   	MetricDimension: &MetricDimensionProperty{
 //   		DimensionName: jsii.String("dimensionName"),
@@ -63,6 +64,10 @@ type CfnSecurityProfile_BehaviorProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
 	//
 	Criteria interface{} `field:"optional" json:"criteria" yaml:"criteria"`
+	// Flag to enable/disable metrics export for metric to be retained.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-exportmetric
+	//
+	ExportMetric interface{} `field:"optional" json:"exportMetric" yaml:"exportMetric"`
 	// What is measured by the behavior.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
 	//

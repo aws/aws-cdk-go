@@ -11,6 +11,7 @@ package awsquicksight
 //   outputColumnProperty := &OutputColumnProperty{
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
+//   	SubType: jsii.String("subType"),
 //   	Type: jsii.String("type"),
 //   }
 //
@@ -25,6 +26,9 @@ type CfnDataSet_OutputColumnProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-subtype
+	//
+	SubType *string `field:"optional" json:"subType" yaml:"subType"`
 	// The type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-type
 	//

@@ -31,6 +31,24 @@ package awspipes
 //   		},
 //   		InputTemplate: jsii.String("inputTemplate"),
 //   	},
+//   	LogConfiguration: &PipeLogConfigurationProperty{
+//   		CloudwatchLogsLogDestination: &CloudwatchLogsLogDestinationProperty{
+//   			LogGroupArn: jsii.String("logGroupArn"),
+//   		},
+//   		FirehoseLogDestination: &FirehoseLogDestinationProperty{
+//   			DeliveryStreamArn: jsii.String("deliveryStreamArn"),
+//   		},
+//   		IncludeExecutionData: []*string{
+//   			jsii.String("includeExecutionData"),
+//   		},
+//   		Level: jsii.String("level"),
+//   		S3LogDestination: &S3LogDestinationProperty{
+//   			BucketName: jsii.String("bucketName"),
+//   			BucketOwner: jsii.String("bucketOwner"),
+//   			OutputFormat: jsii.String("outputFormat"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	SourceParameters: &PipeSourceParametersProperty{
 //   		ActiveMqBrokerParameters: &PipeSourceActiveMQBrokerParametersProperty{
@@ -367,6 +385,9 @@ type CfnPipeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichmentparameters
 	//
 	EnrichmentParameters interface{} `field:"optional" json:"enrichmentParameters" yaml:"enrichmentParameters"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-logconfiguration
+	//
+	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 	// The name of the pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-name
 	//

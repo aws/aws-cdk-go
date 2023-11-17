@@ -128,7 +128,7 @@ type CfnFunction interface {
 	// The instruction set architecture that the function supports.
 	Architectures() *[]*string
 	SetArchitectures(val *[]*string)
-	// The Amazon Resource Name (ARN) of the function.
+	// Unique identifier for function resources.
 	AttrArn() *string
 	// The function's SnapStart Response.
 	//
@@ -146,23 +146,23 @@ type CfnFunction interface {
 	// The code for the function.
 	Code() interface{}
 	SetCode(val interface{})
-	// To enable code signing for this function, specify the ARN of a code-signing configuration.
+	// A unique Arn for CodeSigningConfig resource.
 	CodeSigningConfigArn() *string
 	SetCodeSigningConfigArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+	// The dead-letter queue for failed asynchronous invocations.
 	DeadLetterConfig() interface{}
 	SetDeadLetterConfig(val interface{})
 	// A description of the function.
 	Description() *string
 	SetDescription(val *string)
-	// Environment variables that are accessible from function code during execution.
+	// A function's environment variable settings.
 	Environment() interface{}
 	SetEnvironment(val interface{})
-	// The size of the function's `/tmp` directory in MB.
+	// A function's ephemeral storage settings.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
 	// Connection settings for an Amazon EFS file system.
@@ -171,19 +171,19 @@ type CfnFunction interface {
 	// The name of the Lambda function, up to 64 characters in length.
 	FunctionName() *string
 	SetFunctionName(val *string)
-	// The name of the method within your code that Lambda calls to run your function.
+	// The name of the method within your code that Lambda calls to execute your function.
 	Handler() *string
 	SetHandler(val *string)
 	// Configuration values that override the container image Dockerfile settings.
 	ImageConfig() interface{}
 	SetImageConfig(val interface{})
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption) . When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
+	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
-	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
+	// A list of function layers to add to the function's execution environment.
 	Layers() *[]*string
 	SetLayers(val *[]*string)
-	// The function's logging configuration.
+	// LoggingConfig for the function.
 	LoggingConfig() interface{}
 	SetLoggingConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -196,12 +196,12 @@ type CfnFunction interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
+	// The amount of memory that your function has access to.
 	MemorySize() *float64
 	SetMemorySize(val *float64)
 	// The tree node.
 	Node() constructs.Node
-	// The type of deployment package.
+	// PackageType.
 	PackageType() *string
 	SetPackageType(val *string)
 	// The resource policy of your function.
@@ -218,13 +218,13 @@ type CfnFunction interface {
 	// The Amazon Resource Name (ARN) of the function's execution role.
 	Role() *string
 	SetRole(val *string)
-	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
+	// The identifier of the function's runtime.
 	Runtime() *string
 	SetRuntime(val *string)
 	// Sets the runtime management configuration for a function's version.
 	RuntimeManagementConfig() interface{}
 	SetRuntimeManagementConfig(val interface{})
-	// The function's [AWS Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+	// The function's SnapStart setting.
 	SnapStart() interface{}
 	SetSnapStart(val interface{})
 	// The stack in which this element is defined.
@@ -233,13 +233,13 @@ type CfnFunction interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
+	// A list of tags to apply to the function.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.
+	// The amount of time that Lambda allows a function to run before stopping it.
 	Timeout() *float64
 	SetTimeout(val *float64)
-	// Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) .
+	// The function's AWS X-Ray tracing configuration.
 	TracingConfig() interface{}
 	SetTracingConfig(val interface{})
 	// Deprecated.
@@ -255,7 +255,7 @@ type CfnFunction interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+	// The VPC security groups and subnets that are attached to a Lambda function.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

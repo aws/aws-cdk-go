@@ -84,7 +84,7 @@ type CfnPolicyStore interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Specifies the validation setting for this .
+	// Specifies the validation setting for this policy store.
 	ValidationSettings() interface{}
 	SetValidationSettings(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

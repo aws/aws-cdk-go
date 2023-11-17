@@ -149,6 +149,18 @@ func init() {
 		"aws-cdk-lib.aws_lambda.AliasProps",
 		reflect.TypeOf((*AliasProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.ApplicationLogLevel",
+		reflect.TypeOf((*ApplicationLogLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"INFO": ApplicationLogLevel_INFO,
+			"DEBUG": ApplicationLogLevel_DEBUG,
+			"WARN": ApplicationLogLevel_WARN,
+			"TRACE": ApplicationLogLevel_TRACE,
+			"ERROR": ApplicationLogLevel_ERROR,
+			"FATAL": ApplicationLogLevel_FATAL,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.Architecture",
 		reflect.TypeOf((*Architecture)(nil)).Elem(),
@@ -1689,6 +1701,14 @@ func init() {
 		"aws-cdk-lib.aws_lambda.LayerVersionProps",
 		reflect.TypeOf((*LayerVersionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.LogFormat",
+		reflect.TypeOf((*LogFormat)(nil)).Elem(),
+		map[string]interface{}{
+			"TEXT": LogFormat_TEXT,
+			"JSON": LogFormat_JSON,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.LogRetentionRetryOptions",
 		reflect.TypeOf((*LogRetentionRetryOptions)(nil)).Elem(),
@@ -1924,6 +1944,15 @@ func init() {
 			"TRIM_HORIZON": StartingPosition_TRIM_HORIZON,
 			"LATEST": StartingPosition_LATEST,
 			"AT_TIMESTAMP": StartingPosition_AT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.SystemLogLevel",
+		reflect.TypeOf((*SystemLogLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"INFO": SystemLogLevel_INFO,
+			"DEBUG": SystemLogLevel_DEBUG,
+			"WARN": SystemLogLevel_WARN,
 		},
 	)
 	_jsii_.RegisterEnum(

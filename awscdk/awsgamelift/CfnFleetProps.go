@@ -15,7 +15,6 @@ package awsgamelift
 //   	AnywhereConfiguration: &AnywhereConfigurationProperty{
 //   		Cost: jsii.String("cost"),
 //   	},
-//   	ApplyCapacity: jsii.String("applyCapacity"),
 //   	BuildId: jsii.String("buildId"),
 //   	CertificateConfiguration: &CertificateConfigurationProperty{
 //   		CertificateType: jsii.String("certificateType"),
@@ -113,10 +112,6 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-anywhereconfiguration
 	//
 	AnywhereConfiguration interface{} `field:"optional" json:"anywhereConfiguration" yaml:"anywhereConfiguration"`
-	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-applycapacity
-	//
-	ApplyCapacity *string `field:"optional" json:"applyCapacity" yaml:"applyCapacity"`
 	// A unique identifier for a build to be deployed on the new fleet.
 	//
 	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a `READY` status. This fleet setting cannot be changed once the fleet is created.

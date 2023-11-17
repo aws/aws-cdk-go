@@ -11,6 +11,9 @@ package awsquicksight
 //   inputColumnProperty := &InputColumnProperty{
 //   	Name: jsii.String("name"),
 //   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	SubType: jsii.String("subType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html
@@ -24,5 +27,8 @@ type CfnDataSet_InputColumnProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-subtype
+	//
+	SubType *string `field:"optional" json:"subType" yaml:"subType"`
 }
 

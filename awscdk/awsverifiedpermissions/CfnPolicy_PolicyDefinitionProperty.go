@@ -37,15 +37,15 @@ package awsverifiedpermissions
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html
 //
 type CfnPolicy_PolicyDefinitionProperty struct {
-	// A structure that describes .
+	// A structure that describes a static policy.
 	//
-	// An doesn't use a template or allow placeholders for entities.
+	// An static policy doesn't use a template or allow placeholders for entities.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html#cfn-verifiedpermissions-policy-policydefinition-static
 	//
 	Static interface{} `field:"optional" json:"static" yaml:"static"`
 	// A structure that describes a policy that was instantiated from a template.
 	//
-	// The template can specify placeholders for `principal` and `resource` . When you use [CreatePolicy](https://docs.aws.amazon.com/API_CreatePolicy.html) to create a policy from a template, you specify the exact principal and resource to use for the instantiated policy.
+	// The template can specify placeholders for `principal` and `resource` . When you use [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) to create a policy from a template, you specify the exact principal and resource to use for the instantiated policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html#cfn-verifiedpermissions-policy-policydefinition-templatelinked
 	//
 	TemplateLinked interface{} `field:"optional" json:"templateLinked" yaml:"templateLinked"`

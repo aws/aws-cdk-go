@@ -14,6 +14,7 @@ package awsquicksight
 //
 //   	// the properties below are optional
 //   	Format: jsii.String("format"),
+//   	SubType: jsii.String("subType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html
@@ -31,5 +32,8 @@ type CfnDataSet_CastColumnTypeOperationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
 	//
 	Format *string `field:"optional" json:"format" yaml:"format"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-subtype
+	//
+	SubType *string `field:"optional" json:"subType" yaml:"subType"`
 }
 

@@ -158,6 +158,29 @@ if fn.Timeout {
 }
 ```
 
+## Advanced Logging
+
+You can have more control over your function logs, by specifying the log format
+(Json or plain text), the system log level, the application log level, as well
+as choosing the log group:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var logGroup iLogGroup
+
+
+lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
+	Code: lambda.NewInlineCode(jsii.String("foo")),
+	Handler: jsii.String("index.handler"),
+	Runtime: lambda.Runtime_NODEJS_18_X(),
+	LogFormat: lambda.LogFormat_JSON,
+	SystemLogLevel: lambda.SystemLogLevel_INFO,
+	ApplicationLogLevel: lambda.ApplicationLogLevel_INFO,
+	LogGroup: logGroup,
+})
+```
+
 ## Resource-based Policies
 
 AWS Lambda supports resource-based policies for controlling access to Lambda

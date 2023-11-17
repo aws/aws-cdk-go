@@ -201,7 +201,9 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-associatedroles
 	//
 	AssociatedRoles interface{} `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
-	// Enables replication of automated backups to a different Amazon Web Services Region.
+	// The destination region for the backup replication of the DB instance.
+	//
+	// For more info, see [Replicating automated backups to another AWS Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationregion
 	//
 	AutomaticBackupReplicationRegion *string `field:"optional" json:"automaticBackupReplicationRegion" yaml:"automaticBackupReplicationRegion"`

@@ -17,6 +17,7 @@ import (
 //   			Metric: jsii.String("metric"),
 //
 //   			// the properties below are optional
+//   			ExportMetric: jsii.Boolean(false),
 //   			MetricDimension: &MetricDimensionProperty{
 //   				DimensionName: jsii.String("dimensionName"),
 //
@@ -64,6 +65,7 @@ import (
 //   					},
 //   				},
 //   			},
+//   			ExportMetric: jsii.Boolean(false),
 //   			Metric: jsii.String("metric"),
 //   			MetricDimension: &MetricDimensionProperty{
 //   				DimensionName: jsii.String("dimensionName"),
@@ -73,6 +75,10 @@ import (
 //   			},
 //   			SuppressAlerts: jsii.Boolean(false),
 //   		},
+//   	},
+//   	MetricsExportConfig: &MetricsExportConfigProperty{
+//   		MqttTopic: jsii.String("mqttTopic"),
+//   		RoleArn: jsii.String("roleArn"),
 //   	},
 //   	SecurityProfileDescription: jsii.String("securityProfileDescription"),
 //   	SecurityProfileName: jsii.String("securityProfileName"),
@@ -106,6 +112,10 @@ type CfnSecurityProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
 	//
 	Behaviors interface{} `field:"optional" json:"behaviors" yaml:"behaviors"`
+	// A structure containing the mqtt topic for metrics export.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-metricsexportconfig
+	//
+	MetricsExportConfig interface{} `field:"optional" json:"metricsExportConfig" yaml:"metricsExportConfig"`
 	// A description of the security profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
 	//

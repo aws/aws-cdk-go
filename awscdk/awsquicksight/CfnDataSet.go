@@ -158,6 +158,7 @@ import (
 //
 //   						// the properties below are optional
 //   						"format": jsii.String("format"),
+//   						"subType": jsii.String("subType"),
 //   					},
 //   					"createColumnsOperation": &CreateColumnsOperationProperty{
 //   						"columns": []interface{}{
@@ -231,6 +232,9 @@ import (
 //   					&InputColumnProperty{
 //   						"name": jsii.String("name"),
 //   						"type": jsii.String("type"),
+//
+//   						// the properties below are optional
+//   						"subType": jsii.String("subType"),
 //   					},
 //   				},
 //   				"dataSourceArn": jsii.String("dataSourceArn"),
@@ -243,6 +247,9 @@ import (
 //   					&InputColumnProperty{
 //   						"name": jsii.String("name"),
 //   						"type": jsii.String("type"),
+//
+//   						// the properties below are optional
+//   						"subType": jsii.String("subType"),
 //   					},
 //   				},
 //   				"name": jsii.String("name"),
@@ -257,6 +264,9 @@ import (
 //   					&InputColumnProperty{
 //   						"name": jsii.String("name"),
 //   						"type": jsii.String("type"),
+//
+//   						// the properties below are optional
+//   						"subType": jsii.String("subType"),
 //   					},
 //   				},
 //

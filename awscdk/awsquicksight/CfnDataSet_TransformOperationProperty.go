@@ -17,6 +17,7 @@ package awsquicksight
 //
 //   		// the properties below are optional
 //   		Format: jsii.String("format"),
+//   		SubType: jsii.String("subType"),
 //   	},
 //   	CreateColumnsOperation: &CreateColumnsOperationProperty{
 //   		Columns: []interface{}{

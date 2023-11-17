@@ -35,6 +35,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logConfiguration", GoGetter: "LogConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -100,6 +101,10 @@ func init() {
 		reflect.TypeOf((*CfnPipe_CapacityProviderStrategyItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.CloudwatchLogsLogDestinationProperty",
+		reflect.TypeOf((*CfnPipe_CloudwatchLogsLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.DeadLetterConfigProperty",
 		reflect.TypeOf((*CfnPipe_DeadLetterConfigProperty)(nil)).Elem(),
 	)
@@ -140,6 +145,10 @@ func init() {
 		reflect.TypeOf((*CfnPipe_FilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.FirehoseLogDestinationProperty",
+		reflect.TypeOf((*CfnPipe_FirehoseLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.MQBrokerAccessCredentialsProperty",
 		reflect.TypeOf((*CfnPipe_MQBrokerAccessCredentialsProperty)(nil)).Elem(),
 	)
@@ -158,6 +167,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.PipeEnrichmentParametersProperty",
 		reflect.TypeOf((*CfnPipe_PipeEnrichmentParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeLogConfigurationProperty",
+		reflect.TypeOf((*CfnPipe_PipeLogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.PipeSourceActiveMQBrokerParametersProperty",
@@ -246,6 +259,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.PlacementStrategyProperty",
 		reflect.TypeOf((*CfnPipe_PlacementStrategyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.S3LogDestinationProperty",
+		reflect.TypeOf((*CfnPipe_S3LogDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.SageMakerPipelineParameterProperty",

@@ -28,6 +28,7 @@ import (
 //   	AcceptanceTimeoutSeconds: jsii.Number(123),
 //   	AdditionalPlayerCount: jsii.Number(123),
 //   	BackfillMode: jsii.String("backfillMode"),
+//   	CreationTime: jsii.String("creationTime"),
 //   	CustomEventData: jsii.String("customEventData"),
 //   	Description: jsii.String("description"),
 //   	FlexMatchMode: jsii.String("flexMatchMode"),
@@ -42,6 +43,7 @@ import (
 //   		jsii.String("gameSessionQueueArns"),
 //   	},
 //   	NotificationTarget: jsii.String("notificationTarget"),
+//   	RuleSetArn: jsii.String("ruleSetArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -67,7 +69,6 @@ type CfnMatchmakingConfiguration interface {
 	SetAdditionalPlayerCount(val *float64)
 	// The unique Amazon Resource Name (ARN) for the `MatchmakingConfiguration` .
 	AttrArn() *string
-	AttrId() *string
 	// The `MatchmakingConfiguration` name, which is unique.
 	AttrName() *string
 	// The method used to backfill game sessions that are created with this matchmaking configuration.
@@ -82,6 +83,9 @@ type CfnMatchmakingConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A time stamp indicating when this data object was created.
+	CreationTime() *string
+	SetCreationTime(val *string)
 	// Information to add to all events related to the matchmaking configuration.
 	CustomEventData() *string
 	SetCustomEventData(val *string)
@@ -126,6 +130,9 @@ type CfnMatchmakingConfiguration interface {
 	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
 	RequestTimeoutSeconds() *float64
 	SetRequestTimeoutSeconds(val *float64)
+	// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+	RuleSetArn() *string
+	SetRuleSetArn(val *string)
 	// A unique identifier for the matchmaking rule set to use with this configuration.
 	RuleSetName() *string
 	SetRuleSetName(val *string)
@@ -325,16 +332,6 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMatchmakingConfiguration) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnMatchmakingConfiguration) AttrName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -390,6 +387,16 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMatchmakingConfiguration) CreationTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"creationTime",
 		&returns,
 	)
 	return returns
@@ -510,6 +517,16 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration) RequestTimeoutSeconds() *float64
 	_jsii_.Get(
 		j,
 		"requestTimeoutSeconds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMatchmakingConfiguration) RuleSetArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ruleSetArn",
 		&returns,
 	)
 	return returns
@@ -638,6 +655,14 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration)SetBackfillMode(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetCreationTime(val *string) {
+	_jsii_.Set(
+		j,
+		"creationTime",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnMatchmakingConfiguration)SetCustomEventData(val *string) {
 	_jsii_.Set(
 		j,
@@ -715,6 +740,14 @@ func (j *jsiiProxy_CfnMatchmakingConfiguration)SetRequestTimeoutSeconds(val *flo
 	_jsii_.Set(
 		j,
 		"requestTimeoutSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMatchmakingConfiguration)SetRuleSetArn(val *string) {
+	_jsii_.Set(
+		j,
+		"ruleSetArn",
 		val,
 	)
 }

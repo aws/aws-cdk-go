@@ -38,6 +38,10 @@ import (
 //   	HealthCheckGracePeriod: jsii.Number(123),
 //   	HealthCheckType: jsii.String("healthCheckType"),
 //   	InstanceId: jsii.String("instanceId"),
+//   	InstanceMaintenancePolicy: &InstanceMaintenancePolicyProperty{
+//   		MaxHealthyPercentage: jsii.Number(123),
+//   		MinHealthyPercentage: jsii.Number(123),
+//   	},
 //   	LaunchConfigurationName: jsii.String("launchConfigurationName"),
 //   	LaunchTemplate: &LaunchTemplateSpecificationProperty{
 //   		Version: jsii.String("version"),
@@ -266,6 +270,8 @@ type CfnAutoScalingGroup interface {
 	// The ID of the instance used to base the launch configuration on.
 	InstanceId() *string
 	SetInstanceId(val *string)
+	InstanceMaintenancePolicy() interface{}
+	SetInstanceMaintenancePolicy(val interface{})
 	// The name of the launch configuration to use to launch instances.
 	LaunchConfigurationName() *string
 	SetLaunchConfigurationName(val *string)
@@ -641,6 +647,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) InstanceId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) InstanceMaintenancePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"instanceMaintenancePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) LaunchConfigurationName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1006,6 +1022,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetInstanceId(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetInstanceMaintenancePolicy(val interface{}) {
+	if err := j.validateSetInstanceMaintenancePolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"instanceMaintenancePolicy",
 		val,
 	)
 }

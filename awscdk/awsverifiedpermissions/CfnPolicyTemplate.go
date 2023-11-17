@@ -69,7 +69,7 @@ type CfnPolicyTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies the content that you want to use for the new , written in the policy language.
+	// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
 	Statement() *string
 	SetStatement(val *string)
 	// Deprecated.

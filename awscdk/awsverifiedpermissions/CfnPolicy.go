@@ -100,7 +100,7 @@ type CfnPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the `PolicyStoreId` of the you want to store the policy in.
+	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId() *string
 	SetPolicyStoreId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

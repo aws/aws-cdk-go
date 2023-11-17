@@ -19,7 +19,7 @@ package awsverifiedpermissions
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html
 //
 type CfnPolicyTemplateProps struct {
-	// Specifies the content that you want to use for the new , written in the policy language.
+	// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-statement
 	//
 	Statement *string `field:"required" json:"statement" yaml:"statement"`

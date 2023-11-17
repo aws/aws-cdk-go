@@ -19,9 +19,11 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html
 //
 type CfnInstance_CreditSpecificationProperty struct {
-	// The credit option for CPU usage of a T instance.
+	// The credit option for CPU usage of the instance.
 	//
-	// Valid values: `standard` | `unlimited`.
+	// Valid values: `standard` | `unlimited`
+	//
+	// T3 instances with `host` tenancy do not support the `unlimited` CPU credit option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html#cfn-ec2-instance-creditspecification-cpucredits
 	//
 	CpuCredits *string `field:"optional" json:"cpuCredits" yaml:"cpuCredits"`

@@ -19,7 +19,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPullThroughCacheRule := awscdk.Aws_ecr.NewCfnPullThroughCacheRule(this, jsii.String("MyCfnPullThroughCacheRule"), &CfnPullThroughCacheRuleProps{
+//   	CredentialArn: jsii.String("credentialArn"),
 //   	EcrRepositoryPrefix: jsii.String("ecrRepositoryPrefix"),
+//   	UpstreamRegistry: jsii.String("upstreamRegistry"),
 //   	UpstreamRegistryUrl: jsii.String("upstreamRegistryUrl"),
 //   })
 //
@@ -37,6 +39,9 @@ type CfnPullThroughCacheRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+	CredentialArn() *string
+	SetCredentialArn(val *string)
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
 	EcrRepositoryPrefix() *string
 	SetEcrRepositoryPrefix(val *string)
@@ -74,6 +79,9 @@ type CfnPullThroughCacheRule interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The name of the upstream registry.
+	UpstreamRegistry() *string
+	SetUpstreamRegistry(val *string)
 	// The upstream registry URL associated with the pull through cache rule.
 	UpstreamRegistryUrl() *string
 	SetUpstreamRegistryUrl(val *string)
@@ -250,6 +258,16 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPullThroughCacheRule) CredentialArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"credentialArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPullThroughCacheRule) EcrRepositoryPrefix() *string {
 	var returns *string
 	_jsii_.Get(
@@ -320,6 +338,16 @@ func (j *jsiiProxy_CfnPullThroughCacheRule) UpdatedProperties() *map[string]inte
 	return returns
 }
 
+func (j *jsiiProxy_CfnPullThroughCacheRule) UpstreamRegistry() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"upstreamRegistry",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPullThroughCacheRule) UpstreamRegistryUrl() *string {
 	var returns *string
 	_jsii_.Get(
@@ -358,10 +386,26 @@ func NewCfnPullThroughCacheRule_Override(c CfnPullThroughCacheRule, scope constr
 	)
 }
 
+func (j *jsiiProxy_CfnPullThroughCacheRule)SetCredentialArn(val *string) {
+	_jsii_.Set(
+		j,
+		"credentialArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPullThroughCacheRule)SetEcrRepositoryPrefix(val *string) {
 	_jsii_.Set(
 		j,
 		"ecrRepositoryPrefix",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPullThroughCacheRule)SetUpstreamRegistry(val *string) {
+	_jsii_.Set(
+		j,
+		"upstreamRegistry",
 		val,
 	)
 }

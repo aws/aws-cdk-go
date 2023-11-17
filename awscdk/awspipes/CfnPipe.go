@@ -41,6 +41,24 @@ import (
 //   		},
 //   		InputTemplate: jsii.String("inputTemplate"),
 //   	},
+//   	LogConfiguration: &PipeLogConfigurationProperty{
+//   		CloudwatchLogsLogDestination: &CloudwatchLogsLogDestinationProperty{
+//   			LogGroupArn: jsii.String("logGroupArn"),
+//   		},
+//   		FirehoseLogDestination: &FirehoseLogDestinationProperty{
+//   			DeliveryStreamArn: jsii.String("deliveryStreamArn"),
+//   		},
+//   		IncludeExecutionData: []*string{
+//   			jsii.String("includeExecutionData"),
+//   		},
+//   		Level: jsii.String("level"),
+//   		S3LogDestination: &S3LogDestinationProperty{
+//   			BucketName: jsii.String("bucketName"),
+//   			BucketOwner: jsii.String("bucketOwner"),
+//   			OutputFormat: jsii.String("outputFormat"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	SourceParameters: &PipeSourceParametersProperty{
 //   		ActiveMqBrokerParameters: &PipeSourceActiveMQBrokerParametersProperty{
@@ -383,6 +401,8 @@ type CfnPipe interface {
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters() interface{}
 	SetEnrichmentParameters(val interface{})
+	LogConfiguration() interface{}
+	SetLogConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -704,6 +724,16 @@ func (j *jsiiProxy_CfnPipe) EnrichmentParameters() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipe) LogConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"logConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipe) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -903,6 +933,17 @@ func (j *jsiiProxy_CfnPipe)SetEnrichmentParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enrichmentParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipe)SetLogConfiguration(val interface{}) {
+	if err := j.validateSetLogConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"logConfiguration",
 		val,
 	)
 }

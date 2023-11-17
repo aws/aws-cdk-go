@@ -1,7 +1,7 @@
 package awslambda
 
 
-// The function's logging configuration.
+// LoggingConfig for the function.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,19 +18,19 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html
 //
 type CfnFunction_LoggingConfigProperty struct {
-	// Application log granularity level, can only be used when LogFormat is set to JSON.
+	// Unique identifier for a runtime version arn.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-applicationloglevel
 	//
 	ApplicationLogLevel *string `field:"optional" json:"applicationLogLevel" yaml:"applicationLogLevel"`
-	// Log delivery format for the lambda function.
+	// Trigger for runtime update.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-logformat
 	//
 	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
-	// The log group name.
+	// Unique identifier for a runtime version arn.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-loggroup
 	//
 	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
-	// System log granularity level, can only be used when LogFormat is set to JSON.
+	// Unique identifier for a runtime version arn.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-systemloglevel
 	//
 	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`

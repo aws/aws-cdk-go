@@ -35,6 +35,7 @@ import (
 //   var key key
 //   var lambdaInsightsVersion lambdaInsightsVersion
 //   var layerVersion layerVersion
+//   var logGroup logGroup
 //   var paramsAndSecretsLayerVersion paramsAndSecretsLayerVersion
 //   var policyStatement policyStatement
 //   var profilingGroup profilingGroup
@@ -56,6 +57,7 @@ import (
 //   	},
 //   	AllowAllOutbound: jsii.Boolean(false),
 //   	AllowPublicSubnet: jsii.Boolean(false),
+//   	ApplicationLogLevel: jsii.String("applicationLogLevel"),
 //   	Architecture: architecture,
 //   	CodeSigningConfig: codeSigningConfig,
 //   	CurrentVersionOptions: &VersionOptions{
@@ -89,6 +91,8 @@ import (
 //   	Layers: []iLayerVersion{
 //   		layerVersion,
 //   	},
+//   	LogFormat: jsii.String("logFormat"),
+//   	LogGroup: logGroup,
 //   	LogRetention: awscdk.Aws_logs.RetentionDays_ONE_DAY,
 //   	LogRetentionRetryOptions: &LogRetentionRetryOptions{
 //   		Base: cdk.Duration_*Minutes(jsii.Number(30)),
@@ -110,6 +114,7 @@ import (
 //   		securityGroup,
 //   	},
 //   	SnapStart: snapStartConf,
+//   	SystemLogLevel: jsii.String("systemLogLevel"),
 //   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	Tracing: awscdk.*Aws_lambda.Tracing_ACTIVE,
 //   	Vpc: vpc,
@@ -173,6 +178,10 @@ type FunctionOptions struct {
 	// Default: false.
 	//
 	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
+	// Sets the application log level for the function.
+	// Default: INFO.
+	//
+	ApplicationLogLevel *string `field:"optional" json:"applicationLogLevel" yaml:"applicationLogLevel"`
 	// The system architectures compatible with this lambda function.
 	// Default: Architecture.X86_64
 	//
@@ -260,6 +269,14 @@ type FunctionOptions struct {
 	// Default: - No layers.
 	//
 	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
+	// Sets the logFormat for the function.
+	// Default: Text format.
+	//
+	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
+	// Sets the log group name for the function.
+	// Default: `/aws/lambda/${this.functionName}` default log group name created by Lambda
+	//
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
@@ -343,6 +360,10 @@ type FunctionOptions struct {
 	// Default: - No snapstart.
 	//
 	SnapStart SnapStartConf `field:"optional" json:"snapStart" yaml:"snapStart"`
+	// Sets the system log level for the function.
+	// Default: INFO.
+	//
+	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value

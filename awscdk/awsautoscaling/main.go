@@ -165,6 +165,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "healthCheckType", GoGetter: "HealthCheckType"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceMaintenancePolicy", GoGetter: "InstanceMaintenancePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "launchConfigurationName", GoGetter: "LaunchConfigurationName"},
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplate", GoGetter: "LaunchTemplate"},
 			_jsii_.MemberProperty{JsiiProperty: "lifecycleHookSpecificationList", GoGetter: "LifecycleHookSpecificationList"},
@@ -219,6 +220,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.InstanceMaintenancePolicyProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_InstanceMaintenancePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.InstanceRequirementsProperty",

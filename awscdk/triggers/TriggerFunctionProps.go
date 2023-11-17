@@ -69,6 +69,10 @@ type TriggerFunctionProps struct {
 	// Default: false.
 	//
 	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
+	// Sets the application log level for the function.
+	// Default: INFO.
+	//
+	ApplicationLogLevel *string `field:"optional" json:"applicationLogLevel" yaml:"applicationLogLevel"`
 	// The system architectures compatible with this lambda function.
 	// Default: Architecture.X86_64
 	//
@@ -156,6 +160,14 @@ type TriggerFunctionProps struct {
 	// Default: - No layers.
 	//
 	Layers *[]awslambda.ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
+	// Sets the logFormat for the function.
+	// Default: Text format.
+	//
+	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
+	// Sets the log group name for the function.
+	// Default: `/aws/lambda/${this.functionName}` default log group name created by Lambda
+	//
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
@@ -239,6 +251,10 @@ type TriggerFunctionProps struct {
 	// Default: - No snapstart.
 	//
 	SnapStart awslambda.SnapStartConf `field:"optional" json:"snapStart" yaml:"snapStart"`
+	// Sets the system log level for the function.
+	// Default: INFO.
+	//
+	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value

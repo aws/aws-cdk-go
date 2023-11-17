@@ -18,19 +18,19 @@ package awscleanrooms
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html
 //
 type CfnCollaboration_DataEncryptionMetadataProperty struct {
-	// Indicates whether encrypted tables can contain cleartext data (true) or are to cryptographically process every column (false).
+	// Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html#cfn-cleanrooms-collaboration-dataencryptionmetadata-allowcleartext
 	//
 	AllowCleartext interface{} `field:"required" json:"allowCleartext" yaml:"allowCleartext"`
-	// Indicates whether Fingerprint columns can contain duplicate entries (true) or are to contain only non-repeated values (false).
+	// Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html#cfn-cleanrooms-collaboration-dataencryptionmetadata-allowduplicates
 	//
 	AllowDuplicates interface{} `field:"required" json:"allowDuplicates" yaml:"allowDuplicates"`
-	// Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name (true) or can only be joined on Fingerprint columns of the same name (false).
+	// Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html#cfn-cleanrooms-collaboration-dataencryptionmetadata-allowjoinsoncolumnswithdifferentnames
 	//
 	AllowJoinsOnColumnsWithDifferentNames interface{} `field:"required" json:"allowJoinsOnColumnsWithDifferentNames" yaml:"allowJoinsOnColumnsWithDifferentNames"`
-	// Indicates whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+	// Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html#cfn-cleanrooms-collaboration-dataencryptionmetadata-preservenulls
 	//
 	PreserveNulls interface{} `field:"required" json:"preserveNulls" yaml:"preserveNulls"`

@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnPipe) validateSetEnrichmentParametersParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnPipe) validateSetLogConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPipe_PipeLogConfigurationProperty:
+		val := val.(*CfnPipe_PipeLogConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPipe_PipeLogConfigurationProperty:
+		val_ := val.(CfnPipe_PipeLogConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPipe_PipeLogConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnPipe) validateSetRoleArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

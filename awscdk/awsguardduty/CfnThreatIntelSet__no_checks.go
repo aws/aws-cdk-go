@@ -84,15 +84,15 @@ func (j *jsiiProxy_CfnThreatIntelSet) validateSetActivateParameters(val interfac
 	return nil
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) validateSetDetectorIdParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnThreatIntelSet) validateSetFormatParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnThreatIntelSet) validateSetLocationParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnThreatIntelSet) validateSetNameParameters(val *string) error {
 	return nil
 }
 

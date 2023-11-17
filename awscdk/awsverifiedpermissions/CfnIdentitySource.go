@@ -63,7 +63,7 @@ type CfnIdentitySource interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Contains configuration information used when creating a new .
+	// Contains configuration information used when creating a new identity source.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -82,10 +82,10 @@ type CfnIdentitySource interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the ID of the in which you want to store this .
+	// Specifies the ID of the policy store in which you want to store this identity source.
 	PolicyStoreId() *string
 	SetPolicyStoreId(val *string)
-	// Specifies the namespace and data type of the principals generated for identities authenticated by the new .
+	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 	PrincipalEntityType() *string
 	SetPrincipalEntityType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

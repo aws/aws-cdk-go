@@ -25,7 +25,6 @@ import (
 //   	AnywhereConfiguration: &AnywhereConfigurationProperty{
 //   		Cost: jsii.String("cost"),
 //   	},
-//   	ApplyCapacity: jsii.String("applyCapacity"),
 //   	BuildId: jsii.String("buildId"),
 //   	CertificateConfiguration: &CertificateConfigurationProperty{
 //   		CertificateType: jsii.String("certificateType"),
@@ -118,9 +117,6 @@ type CfnFleet interface {
 	// Amazon GameLift Anywhere configuration options for your Anywhere fleets.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
-	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-	ApplyCapacity() *string
-	SetApplyCapacity(val *string)
 	// A unique identifier for the fleet.
 	AttrFleetId() *string
 	// A unique identifier for a build to be deployed on the new fleet.
@@ -385,16 +381,6 @@ func (j *jsiiProxy_CfnFleet) AnywhereConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"anywhereConfiguration",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnFleet) ApplyCapacity() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"applyCapacity",
 		&returns,
 	)
 	return returns
@@ -795,14 +781,6 @@ func (j *jsiiProxy_CfnFleet)SetAnywhereConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"anywhereConfiguration",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnFleet)SetApplyCapacity(val *string) {
-	_jsii_.Set(
-		j,
-		"applyCapacity",
 		val,
 	)
 }

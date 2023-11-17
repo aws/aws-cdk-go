@@ -28,6 +28,7 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	Scope: jsii.String("scope"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -75,6 +76,9 @@ type CfnView interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN.
+	Scope() *string
+	SetScope(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -334,6 +338,16 @@ func (j *jsiiProxy_CfnView) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnView) Scope() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scope",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnView) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -440,6 +454,14 @@ func (j *jsiiProxy_CfnView)SetIncludedProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"includedProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnView)SetScope(val *string) {
+	_jsii_.Set(
+		j,
+		"scope",
 		val,
 	)
 }

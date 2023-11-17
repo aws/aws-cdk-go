@@ -9,17 +9,27 @@ package awsecr
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPullThroughCacheRuleProps := &CfnPullThroughCacheRuleProps{
+//   	CredentialArn: jsii.String("credentialArn"),
 //   	EcrRepositoryPrefix: jsii.String("ecrRepositoryPrefix"),
+//   	UpstreamRegistry: jsii.String("upstreamRegistry"),
 //   	UpstreamRegistryUrl: jsii.String("upstreamRegistryUrl"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html
 //
 type CfnPullThroughCacheRuleProps struct {
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-credentialarn
+	//
+	CredentialArn *string `field:"optional" json:"credentialArn" yaml:"credentialArn"`
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-ecrrepositoryprefix
 	//
 	EcrRepositoryPrefix *string `field:"optional" json:"ecrRepositoryPrefix" yaml:"ecrRepositoryPrefix"`
+	// The name of the upstream registry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-upstreamregistry
+	//
+	UpstreamRegistry *string `field:"optional" json:"upstreamRegistry" yaml:"upstreamRegistry"`
 	// The upstream registry URL associated with the pull through cache rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html#cfn-ecr-pullthroughcacherule-upstreamregistryurl
 	//

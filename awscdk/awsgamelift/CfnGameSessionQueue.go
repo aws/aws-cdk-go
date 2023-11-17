@@ -65,7 +65,6 @@ type CfnGameSessionQueue interface {
 	awscdk.ITaggable
 	// The unique Amazon Resource Name (ARN) for the `GameSessionQueue` .
 	AttrArn() *string
-	AttrId() *string
 	// A descriptive label that is associated with a game session queue.
 	//
 	// Names are unique within each Region.
@@ -281,16 +280,6 @@ func (j *jsiiProxy_CfnGameSessionQueue) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnGameSessionQueue) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

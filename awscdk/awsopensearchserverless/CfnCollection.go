@@ -48,7 +48,7 @@ type CfnCollection interface {
 	//
 	// For example, `https://07tjusf2h91cunochc.us-east-1.aoss.amazonaws.com` .
 	AttrCollectionEndpoint() *string
-	// Collection-specific endpoint used to access OpenSearch Dashboards.
+	// The collection-specific endpoint used to access OpenSearch Dashboards.
 	//
 	// For example, `https://07tjusf2h91cunochc.us-east-1.aoss.amazonaws.com/_dashboards` .
 	AttrDashboardEndpoint() *string

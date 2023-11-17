@@ -293,7 +293,7 @@ type CfnTaskDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) of the Amazon ECS task definition.
+	// The ARN of the task definition.
 	AttrTaskDefinitionArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
