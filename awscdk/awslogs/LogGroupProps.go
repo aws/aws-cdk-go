@@ -51,6 +51,13 @@ type LogGroupProps struct {
 	// Default: Server-side encrpytion managed by the CloudWatch Logs service.
 	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS.
+	//
+	// INFREQUENT_ACCESS class provides customers a cost-effective way to
+	// consolidate logs which supports querying using Logs Insights.
+	// Default: LogGroupClass.STANDARD
+	//
+	LogGroupClass LogGroupClass `field:"optional" json:"logGroupClass" yaml:"logGroupClass"`
 	// Name of the log group.
 	// Default: Automatically generated.
 	//

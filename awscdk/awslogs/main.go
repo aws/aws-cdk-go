@@ -131,6 +131,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroupClass", GoGetter: "LogGroupClass"},
 			_jsii_.MemberProperty{JsiiProperty: "logGroupName", GoGetter: "LogGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -592,6 +593,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogGroup)
 			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_logs.LogGroupClass",
+		reflect.TypeOf((*LogGroupClass)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": LogGroupClass_STANDARD,
+			"INFREQUENT_ACCESS": LogGroupClass_INFREQUENT_ACCESS,
 		},
 	)
 	_jsii_.RegisterStruct(

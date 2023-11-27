@@ -29,6 +29,7 @@ import (
 //   cfnLogGroup := awscdk.Aws_logs.NewCfnLogGroup(this, jsii.String("MyCfnLogGroup"), &CfnLogGroupProps{
 //   	DataProtectionPolicy: dataProtectionPolicy,
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	LogGroupClass: jsii.String("logGroupClass"),
 //   	LogGroupName: jsii.String("logGroupName"),
 //   	RetentionInDays: jsii.Number(123),
 //   	Tags: []cfnTag{
@@ -45,7 +46,7 @@ type CfnLogGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`.
+	// The CloudWatch log group ARN.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -56,12 +57,15 @@ type CfnLogGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Creates a data protection policy and assigns it to the log group.
+	// The body of the policy document you want to use for this topic.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
-	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
+	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
+	// The class of the log group.
+	LogGroupClass() *string
+	SetLogGroupClass(val *string)
 	// The name of the log group.
 	LogGroupName() *string
 	SetLogGroupName(val *string)
@@ -91,7 +95,7 @@ type CfnLogGroup interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An array of key-value pairs to apply to the log group.
+	// An array of key-value pairs to apply to this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -311,6 +315,16 @@ func (j *jsiiProxy_CfnLogGroup) KmsKeyId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLogGroup) LogGroupClass() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logGroupClass",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLogGroup) LogGroupName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -451,6 +465,14 @@ func (j *jsiiProxy_CfnLogGroup)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLogGroup)SetLogGroupClass(val *string) {
+	_jsii_.Set(
+		j,
+		"logGroupClass",
 		val,
 	)
 }
