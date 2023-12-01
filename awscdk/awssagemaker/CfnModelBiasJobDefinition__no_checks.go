@@ -72,7 +72,7 @@ func validateCfnModelBiasJobDefinition_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
-func validateCfnModelBiasJobDefinition_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnModelBiasJobDefinition_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

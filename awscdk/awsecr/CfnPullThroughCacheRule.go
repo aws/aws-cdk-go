@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a pull through cache rule.
+// The `AWS::ECR::PullThroughCacheRule` resource creates or updates a pull through cache rule.
 //
-// A pull through cache rule provides a way to cache images from an external public registry in your Amazon ECR private registry.
+// A pull through cache rule provides a way to cache images from an upstream registry in your Amazon ECR private registry.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,7 +39,7 @@ type CfnPullThroughCacheRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+	// The ARN of the Secrets Manager secret associated with the pull through cache rule.
 	CredentialArn() *string
 	SetCredentialArn(val *string)
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
@@ -79,7 +79,7 @@ type CfnPullThroughCacheRule interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The name of the upstream registry.
+	// The name of the upstream source registry associated with the pull through cache rule.
 	UpstreamRegistry() *string
 	SetUpstreamRegistry(val *string)
 	// The upstream registry URL associated with the pull through cache rule.
@@ -442,11 +442,11 @@ func CfnPullThroughCacheRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnPullThroughCacheRule_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnPullThroughCacheRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnPullThroughCacheRule_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnPullThroughCacheRule_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -454,7 +454,7 @@ func CfnPullThroughCacheRule_IsCfnResource(construct constructs.IConstruct) *boo
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecr.CfnPullThroughCacheRule",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

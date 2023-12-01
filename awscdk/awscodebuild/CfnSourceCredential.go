@@ -466,11 +466,11 @@ func CfnSourceCredential_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSourceCredential_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSourceCredential_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSourceCredential_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSourceCredential_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -478,7 +478,7 @@ func CfnSourceCredential_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_codebuild.CfnSourceCredential",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

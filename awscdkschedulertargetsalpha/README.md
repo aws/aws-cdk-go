@@ -26,6 +26,10 @@ The following targets are supported:
 1. `targets.LambdaInvoke`: [Invoke an AWS Lambda function](#invoke-a-lambda-function))
 2. `targets.StepFunctionsStartExecution`: [Start an AWS Step Function](#start-an-aws-step-function)
 3. `targets.CodeBuildStartBuild`: [Start a CodeBuild job](#start-a-codebuild-job)
+4. `targets.SqsSendMessage`: [Send a Message to an Amazon SQS Queue](#send-a-message-to-sqs-queue)
+5. `targets.SnsPublish`: [Publish messages to an Amazon SNS topic](#publish-messages-to-an-amazon-sns-topic)
+6. `targets.EventBridgePutEvents`: [Put Events on EventBridge](#send-events-to-an-eventbridge-event-bus)
+7. `targets.InspectorStartAssessmentRun`: [Start an Amazon Inspector assessment run](#start-an-amazon-inspector-assessment-run)
 
 ## Invoke a Lambda function
 
@@ -123,5 +127,111 @@ var project project
 awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
 	Target: targets.NewCodeBuildStartBuild(project),
+})
+```
+
+## Send A Message To SQS Queue
+
+Use the `SqsSendMessage` target to send a message to SQS Queue.
+
+The code snippet below creates an event rule with a SQS Queue as a target
+called every hour by Event Bridge Scheduler with a custom payload.
+
+Contains the `messageGroupId` to use when the target is a FIFO queue. If you specify
+a FIFO queue as a target, the queue must have content-based deduplication enabled.
+
+```go
+payload := "test"
+messageGroupId := "id"
+queue := sqs.NewQueue(this, jsii.String("MyQueue"), &QueueProps{
+	Fifo: jsii.Boolean(true),
+	ContentBasedDeduplication: jsii.Boolean(true),
+})
+
+target := targets.NewSqsSendMessage(queue, &SqsSendMessageProps{
+	Input: awscdkscheduleralpha.ScheduleTargetInput_FromText(payload),
+	MessageGroupId: jsii.String(MessageGroupId),
+})
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
+	Target: Target,
+})
+```
+
+## Publish messages to an Amazon SNS topic
+
+Use the `SnsPublish` target to publish messages to an Amazon SNS topic.
+
+The code snippets below create an event rule with a Amazon SNS topic as a target.
+It's called every hour by Amazon Event Bridge Scheduler with custom payload.
+
+```go
+import sns "github.com/aws/aws-cdk-go/awscdk"
+
+
+topic := sns.NewTopic(this, jsii.String("Topic"))
+
+payload := map[string]*string{
+	"message": jsii.String("Hello scheduler!"),
+}
+
+target := targets.NewSnsPublish(topic, &ScheduleTargetBaseProps{
+	Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(payload),
+})
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
+	Target: Target,
+})
+```
+
+## Send events to an EventBridge event bus
+
+Use the `EventBridgePutEvents` target to send events to an EventBridge event bus.
+
+The code snippet below creates an event rule with an EventBridge event bus as a target
+called every hour by Event Bridge Scheduler with a custom event payload.
+
+```go
+import events "github.com/aws/aws-cdk-go/awscdk"
+
+
+eventBus := events.NewEventBus(this, jsii.String("EventBus"), &EventBusProps{
+	EventBusName: jsii.String("DomainEvents"),
+})
+
+eventEntry := &EventBridgePutEventsEntry{
+	EventBus: EventBus,
+	Source: jsii.String("PetService"),
+	Detail: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
+		"Name": jsii.String("Fluffy"),
+	}),
+	DetailType: jsii.String("🐶"),
+}
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
+	Target: targets.NewEventBridgePutEvents(eventEntry, &ScheduleTargetBaseProps{
+	}),
+})
+```
+
+## Start an Amazon Inspector assessment run
+
+Use the `InspectorStartAssessmentRun` target to start an Inspector assessment run.
+
+The code snippet below creates an event rule with an assessment template as target which is
+called every hour by Event Bridge Scheduler.
+
+```go
+import inspector "github.com/aws/aws-cdk-go/awscdk"
+
+var assessmentTemplate cfnAssessmentTemplate
+
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
+	Target: targets.NewInspectorStartAssessmentRun(assessmentTemplate),
 })
 ```

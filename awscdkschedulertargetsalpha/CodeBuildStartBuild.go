@@ -32,6 +32,8 @@ type CodeBuildStartBuild interface {
 	// Experimental.
 	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
 	// Create a return a Schedule Target Configuration for the given schedule.
+	//
+	// Returns: a Schedule Target Configuration.
 	// Experimental.
 	Bind(schedule awscdkscheduleralpha.ISchedule) *awscdkscheduleralpha.ScheduleTargetConfig
 	// Experimental.

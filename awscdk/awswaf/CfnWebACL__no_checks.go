@@ -72,7 +72,7 @@ func validateCfnWebACL_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnWebACL_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnWebACL_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

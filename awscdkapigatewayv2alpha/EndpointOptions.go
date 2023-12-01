@@ -24,22 +24,22 @@ import (
 //   	SecurityPolicy: apigatewayv2_alpha.SecurityPolicy_TLS_1_0,
 //   }
 //
-// Experimental.
+// Deprecated.
 type EndpointOptions struct {
 	// The ACM certificate for this domain name.
 	//
 	// Certificate can be both ACM issued or imported.
-	// Experimental.
+	// Deprecated.
 	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
 	// Default: - No friendly certificate name.
 	//
-	// Experimental.
+	// Deprecated.
 	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// The type of endpoint for this DomainName.
 	// Default: EndpointType.REGIONAL
 	//
-	// Experimental.
+	// Deprecated.
 	EndpointType EndpointType `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// A public certificate issued by ACM to validate that you own a custom domain.
 	//
@@ -48,12 +48,12 @@ type EndpointOptions struct {
 	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
 	// Default: - only required when configuring mTLS.
 	//
-	// Experimental.
+	// Deprecated.
 	OwnershipCertificate awscertificatemanager.ICertificate `field:"optional" json:"ownershipCertificate" yaml:"ownershipCertificate"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// Default: SecurityPolicy.TLS_1_2
 	//
-	// Experimental.
+	// Deprecated.
 	SecurityPolicy SecurityPolicy `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 

@@ -72,7 +72,7 @@ func validateCfnMicrosoftAD_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnMicrosoftAD_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnMicrosoftAD_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

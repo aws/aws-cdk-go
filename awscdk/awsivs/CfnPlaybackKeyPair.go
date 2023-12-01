@@ -470,11 +470,11 @@ func CfnPlaybackKeyPair_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnPlaybackKeyPair_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnPlaybackKeyPair_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnPlaybackKeyPair_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnPlaybackKeyPair_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -482,7 +482,7 @@ func CfnPlaybackKeyPair_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ivs.CfnPlaybackKeyPair",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

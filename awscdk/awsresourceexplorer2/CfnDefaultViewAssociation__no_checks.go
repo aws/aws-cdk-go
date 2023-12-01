@@ -72,7 +72,7 @@ func validateCfnDefaultViewAssociation_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
-func validateCfnDefaultViewAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDefaultViewAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

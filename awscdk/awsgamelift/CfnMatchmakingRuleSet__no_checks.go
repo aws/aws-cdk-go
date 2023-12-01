@@ -72,7 +72,7 @@ func validateCfnMatchmakingRuleSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnMatchmakingRuleSet_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnMatchmakingRuleSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -618,11 +618,11 @@ func CfnSiteToSiteVpnAttachment_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSiteToSiteVpnAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSiteToSiteVpnAttachment_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSiteToSiteVpnAttachment_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSiteToSiteVpnAttachment_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -630,7 +630,7 @@ func CfnSiteToSiteVpnAttachment_IsCfnResource(construct constructs.IConstruct) *
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_networkmanager.CfnSiteToSiteVpnAttachment",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

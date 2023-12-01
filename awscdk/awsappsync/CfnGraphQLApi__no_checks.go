@@ -72,7 +72,7 @@ func validateCfnGraphQLApi_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnGraphQLApi_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnGraphQLApi_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

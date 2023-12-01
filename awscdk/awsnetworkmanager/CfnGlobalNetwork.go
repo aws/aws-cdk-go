@@ -490,11 +490,11 @@ func CfnGlobalNetwork_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnGlobalNetwork_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnGlobalNetwork_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnGlobalNetwork_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnGlobalNetwork_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -502,7 +502,7 @@ func CfnGlobalNetwork_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_networkmanager.CfnGlobalNetwork",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

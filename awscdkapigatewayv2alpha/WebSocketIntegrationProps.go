@@ -16,16 +16,16 @@ package awscdkapigatewayv2alpha
 //   	WebSocketApi: webSocketApi,
 //   }
 //
-// Experimental.
+// Deprecated.
 type WebSocketIntegrationProps struct {
 	// Integration type.
-	// Experimental.
+	// Deprecated.
 	IntegrationType WebSocketIntegrationType `field:"required" json:"integrationType" yaml:"integrationType"`
 	// Integration URI.
-	// Experimental.
+	// Deprecated.
 	IntegrationUri *string `field:"required" json:"integrationUri" yaml:"integrationUri"`
 	// The WebSocket API to which this integration should be bound.
-	// Experimental.
+	// Deprecated.
 	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 }
 

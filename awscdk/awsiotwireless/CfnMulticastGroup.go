@@ -582,11 +582,11 @@ func CfnMulticastGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnMulticastGroup_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnMulticastGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnMulticastGroup_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnMulticastGroup_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -594,7 +594,7 @@ func CfnMulticastGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotwireless.CfnMulticastGroup",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

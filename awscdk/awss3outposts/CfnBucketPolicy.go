@@ -412,11 +412,11 @@ func CfnBucketPolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnBucketPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnBucketPolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnBucketPolicy_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnBucketPolicy_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -424,7 +424,7 @@ func CfnBucketPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3outposts.CfnBucketPolicy",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

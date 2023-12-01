@@ -56,6 +56,10 @@ type NetworkLoadBalancerAttributes struct {
 	// Default: - When not provided, LB cannot be used as Route53 Alias target.
 	//
 	LoadBalancerDnsName *string `field:"optional" json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
+	// Security groups to associate with this load balancer.
+	// Default: - No security groups associated with the load balancer.
+	//
+	LoadBalancerSecurityGroups *[]*string `field:"optional" json:"loadBalancerSecurityGroups" yaml:"loadBalancerSecurityGroups"`
 	// The VPC to associate with the load balancer.
 	// Default: - When not provided, listeners cannot be created on imported load
 	// balancers.

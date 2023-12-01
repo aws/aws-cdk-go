@@ -38,9 +38,7 @@ import (
 type CfnBuild interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// A unique identifier for a build to be deployed on the new fleet.
-	//
-	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+	// A unique identifier for the build.
 	AttrBuildId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -488,11 +486,11 @@ func CfnBuild_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnBuild_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnBuild_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnBuild_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnBuild_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -500,7 +498,7 @@ func CfnBuild_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnBuild",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -14,12 +14,12 @@ package awscdkapigatewayv2alpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type GrantInvokeOptions struct {
 	// The HTTP methods to allow.
 	// Default: - the HttpMethod of the route.
 	//
-	// Experimental.
+	// Deprecated.
 	HttpMethods *[]HttpMethod `field:"optional" json:"httpMethods" yaml:"httpMethods"`
 }
 

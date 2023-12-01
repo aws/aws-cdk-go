@@ -72,7 +72,7 @@ func validateCfnConfiguredTableAssociation_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnConfiguredTableAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnConfiguredTableAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

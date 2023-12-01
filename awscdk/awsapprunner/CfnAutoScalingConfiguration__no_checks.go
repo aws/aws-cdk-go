@@ -72,7 +72,7 @@ func validateCfnAutoScalingConfiguration_IsCfnElementParameters(x interface{}) e
 	return nil
 }
 
-func validateCfnAutoScalingConfiguration_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnAutoScalingConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

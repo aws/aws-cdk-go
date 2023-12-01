@@ -4,22 +4,34 @@ package awselasticloadbalancingv2
 // Basic properties for a Network Listener.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
+//   import elb "github.com/aws/aws-cdk-go/awscdk"
+//   import elb2 "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var clb loadBalancer
+//   var alb applicationLoadBalancer
+//   var nlb networkLoadBalancer
 //
 //
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &NetworkLoadBalancerProps{
-//   	Vpc: Vpc,
-//   })
-//   listener := lb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
+//   albListener := alb.AddListener(jsii.String("ALBListener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),
 //   })
-//   listener.AddTargets(jsii.String("target"), &AddNetworkTargetsProps{
+//   albTargetGroup := albListener.AddTargets(jsii.String("ALBFleet"), &AddApplicationTargetsProps{
 //   	Port: jsii.Number(80),
 //   })
 //
-//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   nlbListener := nlb.AddListener(jsii.String("NLBListener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   nlbTargetGroup := nlbListener.AddTargets(jsii.String("NLBFleet"), &AddNetworkTargetsProps{
+//   	Port: jsii.Number(80),
+//   })
+//
+//   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
+//   	LoadBalancers: []loadBalancer{
+//   		codedeploy.*loadBalancer_Classic(clb),
+//   		codedeploy.*loadBalancer_Application(albTargetGroup),
+//   		codedeploy.*loadBalancer_Network(nlbTargetGroup),
+//   	},
 //   })
 //
 type BaseNetworkListenerProps struct {

@@ -417,11 +417,11 @@ func CfnApplicationCloudWatchLoggingOptionV2_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnApplicationCloudWatchLoggingOptionV2_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnApplicationCloudWatchLoggingOptionV2_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnApplicationCloudWatchLoggingOptionV2_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnApplicationCloudWatchLoggingOptionV2_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -429,7 +429,7 @@ func CfnApplicationCloudWatchLoggingOptionV2_IsCfnResource(construct constructs.
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

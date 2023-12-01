@@ -18,7 +18,7 @@ package awscdkapigatewayv2alpha
 //   	AuthorizerId: jsii.String("authorizerId"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type HttpRouteAuthorizerConfig struct {
 	// The type of authorization.
 	//
@@ -27,17 +27,17 @@ type HttpRouteAuthorizerConfig struct {
 	// - JWT - JSON Web Token Authorizer
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization.
-	// Experimental.
+	// Deprecated.
 	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// The list of OIDC scopes to include in the authorization.
 	// Default: - no authorization scopes.
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The authorizer id.
 	// Default: - No authorizer id (useful for AWS_IAM route authorizer).
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 }
 

@@ -72,7 +72,7 @@ func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_IsCfnElem
 	return nil
 }
 
-func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

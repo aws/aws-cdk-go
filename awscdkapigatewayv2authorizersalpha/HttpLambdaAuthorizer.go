@@ -33,11 +33,11 @@ import (
 //   	Authorizer: Authorizer,
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpLambdaAuthorizer interface {
 	awscdkapigatewayv2alpha.IHttpRouteAuthorizer
 	// Bind this authorizer to a specified Http route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *awscdkapigatewayv2alpha.HttpRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig
 }
 
@@ -47,7 +47,7 @@ type jsiiProxy_HttpLambdaAuthorizer struct {
 }
 
 // Initialize a lambda authorizer to be bound with HTTP route.
-// Experimental.
+// Deprecated.
 func NewHttpLambdaAuthorizer(id *string, handler awslambda.IFunction, props *HttpLambdaAuthorizerProps) HttpLambdaAuthorizer {
 	_init_.Initialize()
 
@@ -66,7 +66,7 @@ func NewHttpLambdaAuthorizer(id *string, handler awslambda.IFunction, props *Htt
 }
 
 // Initialize a lambda authorizer to be bound with HTTP route.
-// Experimental.
+// Deprecated.
 func NewHttpLambdaAuthorizer_Override(h HttpLambdaAuthorizer, id *string, handler awslambda.IFunction, props *HttpLambdaAuthorizerProps) {
 	_init_.Initialize()
 

@@ -68,8 +68,11 @@ type CfnTrail_DataResourceProperty struct {
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
+	// - `AWS::ServiceDiscovery::Namespace`
+	// - `AWS::ServiceDiscovery::Service`
 	// - `AWS::SNS::PlatformEndpoint`
 	// - `AWS::SNS::Topic`
+	// - `AWS::SQS::Queue`
 	// - `AWS::S3::AccessPoint`
 	// - `AWS::S3ObjectLambda::AccessPoint`
 	// - `AWS::S3Outposts::Object`

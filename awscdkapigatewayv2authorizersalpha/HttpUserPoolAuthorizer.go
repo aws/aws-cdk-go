@@ -29,11 +29,11 @@ import (
 //   	Authorizer: Authorizer,
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpUserPoolAuthorizer interface {
 	awscdkapigatewayv2alpha.IHttpRouteAuthorizer
 	// Bind this authorizer to a specified Http route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *awscdkapigatewayv2alpha.HttpRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig
 }
 
@@ -43,7 +43,7 @@ type jsiiProxy_HttpUserPoolAuthorizer struct {
 }
 
 // Initialize a Cognito user pool authorizer to be bound with HTTP route.
-// Experimental.
+// Deprecated.
 func NewHttpUserPoolAuthorizer(id *string, pool awscognito.IUserPool, props *HttpUserPoolAuthorizerProps) HttpUserPoolAuthorizer {
 	_init_.Initialize()
 
@@ -62,7 +62,7 @@ func NewHttpUserPoolAuthorizer(id *string, pool awscognito.IUserPool, props *Htt
 }
 
 // Initialize a Cognito user pool authorizer to be bound with HTTP route.
-// Experimental.
+// Deprecated.
 func NewHttpUserPoolAuthorizer_Override(h HttpUserPoolAuthorizer, id *string, pool awscognito.IUserPool, props *HttpUserPoolAuthorizerProps) {
 	_init_.Initialize()
 

@@ -72,7 +72,7 @@ func validateCfnHttpNamespace_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnHttpNamespace_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnHttpNamespace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

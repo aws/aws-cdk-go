@@ -687,11 +687,11 @@ func CfnMetricStream_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnMetricStream_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnMetricStream_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnMetricStream_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnMetricStream_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -699,7 +699,7 @@ func CfnMetricStream_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudwatch.CfnMetricStream",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

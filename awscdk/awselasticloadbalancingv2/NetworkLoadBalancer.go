@@ -81,6 +81,8 @@ type NetworkLoadBalancer interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// Security groups associated with this load balancer.
+	SecurityGroups() *[]*string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// The VPC this load balancer has been created in.
@@ -281,6 +283,16 @@ func (j *jsiiProxy_NetworkLoadBalancer) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkLoadBalancer) SecurityGroups() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"securityGroups",
 		&returns,
 	)
 	return returns

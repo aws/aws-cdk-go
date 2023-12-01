@@ -51,7 +51,7 @@ type CfnMatchmakingRuleSet interface {
 	AttrArn() *string
 	// A time stamp indicating when this data object was created.
 	//
-	// Format is a number expressed in Unix time as milliseconds.
+	// Format is a number expressed in Unix time as milliseconds (for example `"1469498468.057"` ).
 	AttrCreationTime() *string
 	// The unique name of the rule set.
 	AttrName() *string
@@ -498,11 +498,11 @@ func CfnMatchmakingRuleSet_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnMatchmakingRuleSet_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnMatchmakingRuleSet_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnMatchmakingRuleSet_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnMatchmakingRuleSet_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -510,7 +510,7 @@ func CfnMatchmakingRuleSet_IsCfnResource(construct constructs.IConstruct) *bool 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnMatchmakingRuleSet",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

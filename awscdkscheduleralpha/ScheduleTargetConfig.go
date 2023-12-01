@@ -5,7 +5,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler"
 )
 
-// Config of a Schedule Target used during initalization of Schedule.
+// Config of a Schedule Target used during initialization of Schedule.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -117,7 +117,7 @@ type ScheduleTargetConfig struct {
 	// The templated target type for the EventBridge PutEvents API operation.
 	// Experimental.
 	EventBridgeParameters *awsscheduler.CfnSchedule_EventBridgeParametersProperty `field:"optional" json:"eventBridgeParameters" yaml:"eventBridgeParameters"`
-	// What input to pass to the tatget.
+	// What input to pass to the target.
 	// Experimental.
 	Input ScheduleTargetInput `field:"optional" json:"input" yaml:"input"`
 	// The templated target type for the Amazon Kinesis PutRecord API operation.

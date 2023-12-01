@@ -502,11 +502,11 @@ func CfnClusterParameterGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnClusterParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnClusterParameterGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnClusterParameterGroup_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnClusterParameterGroup_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -514,7 +514,7 @@ func CfnClusterParameterGroup_IsCfnResource(construct constructs.IConstruct) *bo
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_redshift.CfnClusterParameterGroup",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

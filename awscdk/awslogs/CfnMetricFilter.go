@@ -471,11 +471,11 @@ func CfnMetricFilter_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnMetricFilter_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnMetricFilter_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnMetricFilter_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnMetricFilter_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -483,7 +483,7 @@ func CfnMetricFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_logs.CfnMetricFilter",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

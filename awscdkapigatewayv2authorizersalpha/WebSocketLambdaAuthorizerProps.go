@@ -15,12 +15,12 @@ package awscdkapigatewayv2authorizersalpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type WebSocketLambdaAuthorizerProps struct {
 	// The name of the authorizer.
 	// Default: - same value as `id` passed in the constructor.
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	//
@@ -29,7 +29,7 @@ type WebSocketLambdaAuthorizerProps struct {
 	// Context parameter match `'context.[a-zA-Z0-9._-]+'`.
 	// Default: ['route.request.header.Authorization']
 	//
-	// Experimental.
+	// Deprecated.
 	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 }
 

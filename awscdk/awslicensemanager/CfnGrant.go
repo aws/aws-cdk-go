@@ -516,11 +516,11 @@ func CfnGrant_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnGrant_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnGrant_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnGrant_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnGrant_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -528,7 +528,7 @@ func CfnGrant_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_licensemanager.CfnGrant",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

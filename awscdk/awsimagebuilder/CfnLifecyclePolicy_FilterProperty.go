@@ -1,7 +1,9 @@
 package awsimagebuilder
 
 
-// The filters to apply of the policy detail.
+// A filter name and value pair that is used to return a more specific list of results from a list operation.
+//
+// Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

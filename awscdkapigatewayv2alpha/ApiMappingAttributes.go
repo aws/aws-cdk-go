@@ -12,10 +12,10 @@ package awscdkapigatewayv2alpha
 //   	ApiMappingId: jsii.String("apiMappingId"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type ApiMappingAttributes struct {
 	// The API mapping ID.
-	// Experimental.
+	// Deprecated.
 	ApiMappingId *string `field:"required" json:"apiMappingId" yaml:"apiMappingId"`
 }
 

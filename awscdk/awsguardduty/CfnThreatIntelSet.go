@@ -533,11 +533,11 @@ func CfnThreatIntelSet_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnThreatIntelSet_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnThreatIntelSet_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnThreatIntelSet_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnThreatIntelSet_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -545,7 +545,7 @@ func CfnThreatIntelSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_guardduty.CfnThreatIntelSet",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

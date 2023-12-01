@@ -72,7 +72,7 @@ func validateCfnWirelessGateway_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnWirelessGateway_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnWirelessGateway_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

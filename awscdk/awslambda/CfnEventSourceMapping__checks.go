@@ -163,9 +163,9 @@ func validateCfnEventSourceMapping_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnEventSourceMapping_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnEventSourceMapping_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

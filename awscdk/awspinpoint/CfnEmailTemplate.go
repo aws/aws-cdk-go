@@ -555,11 +555,11 @@ func CfnEmailTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnEmailTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnEmailTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnEmailTemplate_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnEmailTemplate_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -567,7 +567,7 @@ func CfnEmailTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_pinpoint.CfnEmailTemplate",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

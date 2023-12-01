@@ -72,7 +72,7 @@ func validateCfnBrowserSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnBrowserSettings_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnBrowserSettings_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

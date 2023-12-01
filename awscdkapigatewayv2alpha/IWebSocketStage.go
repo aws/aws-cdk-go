@@ -5,18 +5,18 @@ import (
 )
 
 // Represents the WebSocketStage.
-// Experimental.
+// Deprecated.
 type IWebSocketStage interface {
 	IStage
 	// The API this stage is associated to.
-	// Experimental.
+	// Deprecated.
 	Api() IWebSocketApi
 	// The callback URL to this stage.
 	//
 	// You can use the callback URL to send messages to the client from the backend system.
 	// https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html
 	// https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html
-	// Experimental.
+	// Deprecated.
 	CallbackUrl() *string
 }
 

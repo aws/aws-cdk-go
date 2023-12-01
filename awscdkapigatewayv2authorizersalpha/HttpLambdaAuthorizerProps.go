@@ -28,17 +28,17 @@ import (
 //   	Authorizer: Authorizer,
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpLambdaAuthorizerProps struct {
 	// Friendly authorizer name.
 	// Default: - same value as `id` passed in the constructor.
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Default: ['$request.header.Authorization']
 	//
-	// Experimental.
+	// Deprecated.
 	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// The types of responses the lambda can return.
 	//
@@ -48,7 +48,7 @@ type HttpLambdaAuthorizerProps struct {
 	//
 	// Default: [HttpLambdaResponseType.IAM]
 	//
-	// Experimental.
+	// Deprecated.
 	ResponseTypes *[]HttpLambdaResponseType `field:"optional" json:"responseTypes" yaml:"responseTypes"`
 	// How long APIGateway should cache the results.
 	//
@@ -56,7 +56,7 @@ type HttpLambdaAuthorizerProps struct {
 	// Disable caching by setting this to `Duration.seconds(0)`.
 	// Default: Duration.minutes(5)
 	//
-	// Experimental.
+	// Deprecated.
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }
 

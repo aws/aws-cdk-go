@@ -72,7 +72,7 @@ func validateCfnMicrosoftTeamsChannelConfiguration_IsCfnElementParameters(x inte
 	return nil
 }
 
-func validateCfnMicrosoftTeamsChannelConfiguration_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnMicrosoftTeamsChannelConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

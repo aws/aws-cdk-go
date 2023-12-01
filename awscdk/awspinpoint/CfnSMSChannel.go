@@ -466,11 +466,11 @@ func CfnSMSChannel_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSMSChannel_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSMSChannel_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSMSChannel_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSMSChannel_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -478,7 +478,7 @@ func CfnSMSChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_pinpoint.CfnSMSChannel",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

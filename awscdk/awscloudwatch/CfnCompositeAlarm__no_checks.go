@@ -72,7 +72,7 @@ func validateCfnCompositeAlarm_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnCompositeAlarm_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCompositeAlarm_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

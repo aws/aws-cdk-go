@@ -415,11 +415,11 @@ func CfnDirectoryRegistration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnDirectoryRegistration_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnDirectoryRegistration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnDirectoryRegistration_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnDirectoryRegistration_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -427,7 +427,7 @@ func CfnDirectoryRegistration_IsCfnResource(construct constructs.IConstruct) *bo
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_pcaconnectorad.CfnDirectoryRegistration",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

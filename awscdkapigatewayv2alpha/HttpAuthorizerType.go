@@ -2,18 +2,18 @@ package awscdkapigatewayv2alpha
 
 
 // Supported Authorizer types.
-// Experimental.
+// Deprecated.
 type HttpAuthorizerType string
 
 const (
 	// IAM Authorizer.
-	// Experimental.
+	// Deprecated.
 	HttpAuthorizerType_IAM HttpAuthorizerType = "IAM"
 	// JSON Web Tokens.
-	// Experimental.
+	// Deprecated.
 	HttpAuthorizerType_JWT HttpAuthorizerType = "JWT"
 	// Lambda Authorizer.
-	// Experimental.
+	// Deprecated.
 	HttpAuthorizerType_LAMBDA HttpAuthorizerType = "LAMBDA"
 )
 

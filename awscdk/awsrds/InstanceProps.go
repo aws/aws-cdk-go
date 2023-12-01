@@ -53,7 +53,7 @@ type InstanceProps struct {
 	//
 	DeleteAutomatedBackups *bool `field:"optional" json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Default: - false, unless ``performanceInsightRentention`` or ``performanceInsightEncryptionKey`` is set.
+	// Default: - false, unless ``performanceInsightRetention`` or ``performanceInsightEncryptionKey`` is set.
 	//
 	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// What type of instance to start for the replicas.

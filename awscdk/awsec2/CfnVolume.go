@@ -685,11 +685,11 @@ func CfnVolume_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnVolume_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnVolume_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnVolume_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnVolume_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -697,7 +697,7 @@ func CfnVolume_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVolume",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

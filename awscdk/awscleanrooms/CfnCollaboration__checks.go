@@ -163,9 +163,9 @@ func validateCfnCollaboration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnCollaboration_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnCollaboration_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil
@@ -190,6 +190,30 @@ func (j *jsiiProxy_CfnCollaboration) validateSetCreatorDisplayNameParameters(val
 func (j *jsiiProxy_CfnCollaboration) validateSetCreatorMemberAbilitiesParameters(val *[]*string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnCollaboration) validateSetCreatorPaymentConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCollaboration_PaymentConfigurationProperty:
+		val := val.(*CfnCollaboration_PaymentConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCollaboration_PaymentConfigurationProperty:
+		val_ := val.(CfnCollaboration_PaymentConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCollaboration_PaymentConfigurationProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

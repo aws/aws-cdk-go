@@ -20,9 +20,7 @@ type CfnFunction_FunctionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-comment
 	//
 	Comment *string `field:"required" json:"comment" yaml:"comment"`
-	// The function's runtime environment.
-	//
-	// The only valid value is `cloudfront-js-1.0` .
+	// The function's runtime environment version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime
 	//
 	Runtime *string `field:"required" json:"runtime" yaml:"runtime"`

@@ -72,7 +72,7 @@ func validateCfnAPNSSandboxChannel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnAPNSSandboxChannel_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnAPNSSandboxChannel_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

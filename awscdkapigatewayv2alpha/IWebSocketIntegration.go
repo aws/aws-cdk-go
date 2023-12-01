@@ -5,11 +5,11 @@ import (
 )
 
 // Represents an Integration for an WebSocket API.
-// Experimental.
+// Deprecated.
 type IWebSocketIntegration interface {
 	IIntegration
 	// The WebSocket API associated with this integration.
-	// Experimental.
+	// Deprecated.
 	WebSocketApi() IWebSocketApi
 }
 

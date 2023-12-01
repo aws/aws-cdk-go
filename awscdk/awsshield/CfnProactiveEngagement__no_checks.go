@@ -72,7 +72,7 @@ func validateCfnProactiveEngagement_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
-func validateCfnProactiveEngagement_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnProactiveEngagement_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

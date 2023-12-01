@@ -9,21 +9,21 @@ import (
 )
 
 // Represents a Stage.
-// Experimental.
+// Deprecated.
 type IStage interface {
 	awscdk.IResource
 	// Return the given named metric for this HTTP Api Gateway Stage.
 	// Default: - average over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The name of the stage;
 	//
 	// its primary identifier.
-	// Experimental.
+	// Deprecated.
 	StageName() *string
 	// The URL to this stage.
-	// Experimental.
+	// Deprecated.
 	Url() *string
 }
 

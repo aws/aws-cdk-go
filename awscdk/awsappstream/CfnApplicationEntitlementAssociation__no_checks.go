@@ -72,7 +72,7 @@ func validateCfnApplicationEntitlementAssociation_IsCfnElementParameters(x inter
 	return nil
 }
 
-func validateCfnApplicationEntitlementAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnApplicationEntitlementAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

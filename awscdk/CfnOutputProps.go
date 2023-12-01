@@ -66,5 +66,7 @@ type CfnOutputProps struct {
 	// Default: - the output is not exported.
 	//
 	ExportName *string `field:"optional" json:"exportName" yaml:"exportName"`
+	// The key of the property returned by aws cloudformation describe-stacks command.
+	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 

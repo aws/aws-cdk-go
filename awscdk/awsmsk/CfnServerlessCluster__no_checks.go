@@ -72,7 +72,7 @@ func validateCfnServerlessCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnServerlessCluster_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnServerlessCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

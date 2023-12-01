@@ -2,15 +2,15 @@ package awscdkapigatewayv2alpha
 
 
 // WebSocket Integration Types.
-// Experimental.
+// Deprecated.
 type WebSocketIntegrationType string
 
 const (
 	// AWS Proxy Integration Type.
-	// Experimental.
+	// Deprecated.
 	WebSocketIntegrationType_AWS_PROXY WebSocketIntegrationType = "AWS_PROXY"
 	// Mock Integration Type.
-	// Experimental.
+	// Deprecated.
 	WebSocketIntegrationType_MOCK WebSocketIntegrationType = "MOCK"
 )
 

@@ -16,13 +16,13 @@ import (
 //   	Vpc: Vpc,
 //   })
 //
-// Experimental.
+// Deprecated.
 type VpcLinkAttributes struct {
 	// The VPC to which this VPC link is associated with.
-	// Experimental.
+	// Deprecated.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The VPC Link id.
-	// Experimental.
+	// Deprecated.
 	VpcLinkId *string `field:"required" json:"vpcLinkId" yaml:"vpcLinkId"`
 }
 

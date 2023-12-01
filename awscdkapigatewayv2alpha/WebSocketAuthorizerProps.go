@@ -22,30 +22,30 @@ package awscdkapigatewayv2alpha
 //   	AuthorizerUri: jsii.String("authorizerUri"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type WebSocketAuthorizerProps struct {
 	// The identity source for which authorization is requested.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	//
-	// Experimental.
+	// Deprecated.
 	IdentitySource *[]*string `field:"required" json:"identitySource" yaml:"identitySource"`
 	// The type of authorizer.
-	// Experimental.
+	// Deprecated.
 	Type WebSocketAuthorizerType `field:"required" json:"type" yaml:"type"`
 	// WebSocket Api to attach the authorizer to.
-	// Experimental.
+	// Deprecated.
 	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 	// Name of the authorizer.
 	// Default: - id of the WebSocketAuthorizer construct.
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// For REQUEST authorizers, this must be a well-formed Lambda function URI.
 	// Default: - required for Request authorizer types.
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 }
 

@@ -72,7 +72,7 @@ func validateCfnPlaybackConfiguration_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
-func validateCfnPlaybackConfiguration_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnPlaybackConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

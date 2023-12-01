@@ -485,6 +485,9 @@ func DockerImageFunction_ClassifyVersionProperty(propertyName *string, locked *b
 }
 
 // Import a lambda function into the CDK using its ARN.
+//
+// For `Function.addPermissions()` to work on this imported lambda, make sure that is
+// in the same account and region as the stack you are importing it into.
 func DockerImageFunction_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) IFunction {
 	_init_.Initialize()
 
@@ -504,6 +507,9 @@ func DockerImageFunction_FromFunctionArn(scope constructs.Construct, id *string,
 }
 
 // Creates a Lambda function object which represents a function not defined within this stack.
+//
+// For `Function.addPermissions()` to work on this imported lambda, set the sameEnvironment property to true
+// if this imported lambda is in the same account and region as the stack you are importing it into.
 func DockerImageFunction_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *FunctionAttributes) IFunction {
 	_init_.Initialize()
 

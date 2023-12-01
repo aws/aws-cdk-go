@@ -1,7 +1,9 @@
 package awss3
 
 
-// Sets the Storage Lens Group filter.
+// This resource sets the criteria for the Storage Lens group data that is displayed.
+//
+// For multiple filter conditions, the `AND` or `OR` logical operator is used.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -78,31 +80,41 @@ package awss3
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html
 //
 type CfnStorageLensGroup_FilterProperty struct {
-	// The Storage Lens group will include objects that match all of the specified filter values.
+	// This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data.
+	//
+	// Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html#cfn-s3-storagelensgroup-filter-and
 	//
 	And interface{} `field:"optional" json:"and" yaml:"and"`
-	// Filter to match any of the specified prefixes.
+	// This property contains a list of prefixes.
+	//
+	// At least one prefix must be specified. Up to 10 prefixes are allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html#cfn-s3-storagelensgroup-filter-matchanyprefix
 	//
 	MatchAnyPrefix *[]*string `field:"optional" json:"matchAnyPrefix" yaml:"matchAnyPrefix"`
-	// Filter to match any of the specified suffixes.
+	// This property contains a list of suffixes.
+	//
+	// At least one suffix must be specified. Up to 10 suffixes are allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html#cfn-s3-storagelensgroup-filter-matchanysuffix
 	//
 	MatchAnySuffix *[]*string `field:"optional" json:"matchAnySuffix" yaml:"matchAnySuffix"`
-	// Filter to match any of the specified object tags.
+	// This property contains the list of S3 object tags.
+	//
+	// At least one object tag must be specified. Up to 10 object tags are allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html#cfn-s3-storagelensgroup-filter-matchanytag
 	//
 	MatchAnyTag interface{} `field:"optional" json:"matchAnyTag" yaml:"matchAnyTag"`
-	// Filter to match all of the specified values for the minimum and maximum object age.
+	// This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html#cfn-s3-storagelensgroup-filter-matchobjectage
 	//
 	MatchObjectAge interface{} `field:"optional" json:"matchObjectAge" yaml:"matchObjectAge"`
-	// Filter to match all of the specified values for the minimum and maximum object size.
+	// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html#cfn-s3-storagelensgroup-filter-matchobjectsize
 	//
 	MatchObjectSize interface{} `field:"optional" json:"matchObjectSize" yaml:"matchObjectSize"`
-	// The Storage Lens group will include objects that match any of the specified filter values.
+	// This property contains the `Or` logical operator, which allows multiple filter conditions to be joined.
+	//
+	// Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html#cfn-s3-storagelensgroup-filter-or
 	//
 	Or interface{} `field:"optional" json:"or" yaml:"or"`

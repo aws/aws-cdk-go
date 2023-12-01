@@ -411,11 +411,11 @@ func CfnSlackWorkspaceConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSlackWorkspaceConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSlackWorkspaceConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSlackWorkspaceConfiguration_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSlackWorkspaceConfiguration_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -423,7 +423,7 @@ func CfnSlackWorkspaceConfiguration_IsCfnResource(construct constructs.IConstruc
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_supportapp.CfnSlackWorkspaceConfiguration",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

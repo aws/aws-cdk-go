@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[All policy types]* Specifies the configuration of a lifecycle policy.
+// Specifies the configuration of a lifecycle policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -177,13 +177,13 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-eventsource
 	//
 	EventSource interface{} `field:"optional" json:"eventSource" yaml:"eventSource"`
-	// *[Snapshot and AMI policies only]* A set of optional parameters for snapshot and AMI lifecycle policies.
+	// *[Custom snapshot and AMI policies only]* A set of optional parameters for snapshot and AMI lifecycle policies.
 	//
 	// > If you are modifying a policy that was created or previously modified using the Amazon Data Lifecycle Manager console, then you must include this parameter and specify either the default values or the new values that you require. You can't omit this parameter or set its values to null.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
-	// *[All policy types]* The valid target resource types and actions a policy can manage.
+	// *[Custom policies only]* The valid target resource types and actions a policy can manage.
 	//
 	// Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account .
 	//
@@ -191,7 +191,7 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policytype
 	//
 	PolicyType *string `field:"optional" json:"policyType" yaml:"policyType"`
-	// *[Snapshot and AMI policies only]* The location of the resources to backup.
+	// *[Custom snapshot and AMI policies only]* The location of the resources to backup.
 	//
 	// If the source resources are located in an AWS Region , specify `CLOUD` . If the source resources are located on an Outpost in your account, specify `OUTPOST` .
 	//
@@ -199,19 +199,19 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcelocations
 	//
 	ResourceLocations *[]*string `field:"optional" json:"resourceLocations" yaml:"resourceLocations"`
-	// *[Snapshot policies only]* The target resource type for snapshot and AMI lifecycle policies.
+	// *[Custom snapshot policies only]* The target resource type for snapshot and AMI lifecycle policies.
 	//
 	// Use `VOLUME` to create snapshots of individual volumes or use `INSTANCE` to create multi-volume snapshots from the volumes for an instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes
 	//
 	ResourceTypes *[]*string `field:"optional" json:"resourceTypes" yaml:"resourceTypes"`
-	// *[Snapshot and AMI policies only]* The schedules of policy-defined actions for snapshot and AMI lifecycle policies.
+	// *[Custom snapshot and AMI policies only]* The schedules of policy-defined actions for snapshot and AMI lifecycle policies.
 	//
 	// A policy can have up to four schedules—one mandatory schedule and up to three optional schedules.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-schedules
 	//
 	Schedules interface{} `field:"optional" json:"schedules" yaml:"schedules"`
-	// *[Snapshot and AMI policies only]* The single tag that identifies targeted resources for this policy.
+	// *[Custom snapshot and AMI policies only]* The single tag that identifies targeted resources for this policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags
 	//
 	TargetTags interface{} `field:"optional" json:"targetTags" yaml:"targetTags"`

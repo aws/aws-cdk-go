@@ -58,6 +58,46 @@ package awsiottwinmaker
 //   			},
 //   		},
 //   	},
+//   	CompositeComponents: map[string]interface{}{
+//   		"compositeComponentsKey": &CompositeComponentProperty{
+//   			"componentName": jsii.String("componentName"),
+//   			"componentPath": jsii.String("componentPath"),
+//   			"componentTypeId": jsii.String("componentTypeId"),
+//   			"description": jsii.String("description"),
+//   			"properties": map[string]interface{}{
+//   				"propertiesKey": &PropertyProperty{
+//   					"definition": definition,
+//   					"value": &dataValueProperty{
+//   						"booleanValue": jsii.Boolean(false),
+//   						"doubleValue": jsii.Number(123),
+//   						"expression": jsii.String("expression"),
+//   						"integerValue": jsii.Number(123),
+//   						"listValue": []interface{}{
+//   							dataValueProperty_,
+//   						},
+//   						"longValue": jsii.Number(123),
+//   						"mapValue": map[string]interface{}{
+//   							"mapValueKey": dataValueProperty_,
+//   						},
+//   						"relationshipValue": relationshipValue,
+//   						"stringValue": jsii.String("stringValue"),
+//   					},
+//   				},
+//   			},
+//   			"propertyGroups": map[string]interface{}{
+//   				"propertyGroupsKey": &PropertyGroupProperty{
+//   					"groupType": jsii.String("groupType"),
+//   					"propertyNames": []*string{
+//   						jsii.String("propertyNames"),
+//   					},
+//   				},
+//   			},
+//   			"status": &StatusProperty{
+//   				"error": error,
+//   				"state": jsii.String("state"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	EntityId: jsii.String("entityId"),
 //   	ParentEntityId: jsii.String("parentEntityId"),
@@ -85,6 +125,10 @@ type CfnEntityProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-components
 	//
 	Components interface{} `field:"optional" json:"components" yaml:"components"`
+	// A map that sets information about a composite component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-compositecomponents
+	//
+	CompositeComponents interface{} `field:"optional" json:"compositeComponents" yaml:"compositeComponents"`
 	// The description of the entity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-description
 	//

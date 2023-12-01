@@ -72,7 +72,7 @@ func validateCfnCustomDBEngineVersion_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
-func validateCfnCustomDBEngineVersion_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCustomDBEngineVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

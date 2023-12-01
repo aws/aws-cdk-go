@@ -72,7 +72,7 @@ func validateCfnReplicationSubnetGroup_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
-func validateCfnReplicationSubnetGroup_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnReplicationSubnetGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

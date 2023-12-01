@@ -9,14 +9,14 @@ import (
 )
 
 // Represents an API Gateway VpcLink.
-// Experimental.
+// Deprecated.
 type IVpcLink interface {
 	awscdk.IResource
 	// The VPC to which this VPC Link is associated with.
-	// Experimental.
+	// Deprecated.
 	Vpc() awsec2.IVpc
 	// Physical ID of the VpcLink resource.
-	// Experimental.
+	// Deprecated.
 	VpcLinkId() *string
 }
 

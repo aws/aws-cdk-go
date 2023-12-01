@@ -594,11 +594,11 @@ func CfnIdMappingWorkflow_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnIdMappingWorkflow_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnIdMappingWorkflow_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnIdMappingWorkflow_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnIdMappingWorkflow_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -606,7 +606,7 @@ func CfnIdMappingWorkflow_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

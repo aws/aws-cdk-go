@@ -32,6 +32,9 @@ type CfnDataSet_CastColumnTypeOperationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
 	//
 	Format *string `field:"optional" json:"format" yaml:"format"`
+	// The sub data type of the new column.
+	//
+	// Sub types are only available for decimal columns that are part of a SPICE dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-subtype
 	//
 	SubType *string `field:"optional" json:"subType" yaml:"subType"`

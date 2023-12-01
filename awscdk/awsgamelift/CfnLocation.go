@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a custom location for use in an Anywhere fleet.
+// The AWS::GameLift::Location resource creates a custom location for use in an Anywhere fleet.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,6 +34,9 @@ type CfnLocation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// A unique identifier for the custom location.
+	//
+	// For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
 	AttrLocationArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -44,7 +47,7 @@ type CfnLocation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The location's name.
+	// A descriptive name for the custom location.
 	LocationName() *string
 	SetLocationName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,7 +73,7 @@ type CfnLocation interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An array of key-value pairs to apply to this resource.
+	// A list of labels to assign to the new matchmaking configuration resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -434,11 +437,11 @@ func CfnLocation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnLocation_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnLocation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnLocation_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnLocation_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -446,7 +449,7 @@ func CfnLocation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnLocation",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

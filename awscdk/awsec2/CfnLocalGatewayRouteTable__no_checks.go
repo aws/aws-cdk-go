@@ -72,7 +72,7 @@ func validateCfnLocalGatewayRouteTable_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
-func validateCfnLocalGatewayRouteTable_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnLocalGatewayRouteTable_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

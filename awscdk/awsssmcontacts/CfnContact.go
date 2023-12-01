@@ -487,11 +487,11 @@ func CfnContact_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnContact_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnContact_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnContact_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnContact_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -499,7 +499,7 @@ func CfnContact_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

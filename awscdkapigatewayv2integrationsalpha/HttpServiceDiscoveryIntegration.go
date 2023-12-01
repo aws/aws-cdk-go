@@ -32,27 +32,27 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpServiceDiscoveryIntegration interface {
 	awscdkapigatewayv2alpha.HttpRouteIntegration
-	// Experimental.
+	// Deprecated.
 	ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType
-	// Experimental.
+	// Deprecated.
 	SetConnectionType(val awscdkapigatewayv2alpha.HttpConnectionType)
-	// Experimental.
+	// Deprecated.
 	HttpMethod() awscdkapigatewayv2alpha.HttpMethod
-	// Experimental.
+	// Deprecated.
 	SetHttpMethod(val awscdkapigatewayv2alpha.HttpMethod)
-	// Experimental.
+	// Deprecated.
 	IntegrationType() awscdkapigatewayv2alpha.HttpIntegrationType
-	// Experimental.
+	// Deprecated.
 	SetIntegrationType(val awscdkapigatewayv2alpha.HttpIntegrationType)
-	// Experimental.
+	// Deprecated.
 	PayloadFormatVersion() awscdkapigatewayv2alpha.PayloadFormatVersion
-	// Experimental.
+	// Deprecated.
 	SetPayloadFormatVersion(val awscdkapigatewayv2alpha.PayloadFormatVersion)
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
@@ -62,7 +62,7 @@ type HttpServiceDiscoveryIntegration interface {
 	// created for this route or it is an existing one, previously created for other
 	// routes. In most cases, however, concrete implementations do not need to
 	// override this method.
-	// Experimental.
+	// Deprecated.
 	CompleteBind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions)
 }
 
@@ -112,7 +112,7 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) PayloadFormatVersion() awscd
 }
 
 
-// Experimental.
+// Deprecated.
 func NewHttpServiceDiscoveryIntegration(id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) HttpServiceDiscoveryIntegration {
 	_init_.Initialize()
 
@@ -130,7 +130,7 @@ func NewHttpServiceDiscoveryIntegration(id *string, service awsservicediscovery.
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpServiceDiscoveryIntegration_Override(h HttpServiceDiscoveryIntegration, id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) {
 	_init_.Initialize()
 

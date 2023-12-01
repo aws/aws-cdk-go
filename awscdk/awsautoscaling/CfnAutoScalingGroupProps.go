@@ -307,6 +307,9 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instanceid
 	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	// An instance maintenance policy.
+	//
+	// For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instancemaintenancepolicy
 	//
 	InstanceMaintenancePolicy interface{} `field:"optional" json:"instanceMaintenancePolicy" yaml:"instanceMaintenancePolicy"`

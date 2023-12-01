@@ -163,9 +163,9 @@ func validateCfnConformancePack_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnConformancePack_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnConformancePack_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

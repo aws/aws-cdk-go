@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Associates a CIDR block with your VPC.
-//
-// You can only associate a single IPv6 CIDR block with your VPC. The IPv6 CIDR block size is fixed at /56.
+// Associates a CIDR block with your VPC. You can only associate a single IPv6 CIDR block with your VPC.
 //
 // For more information about associating CIDR blocks with your VPC and applicable restrictions, see [VPC and Subnet Sizing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing) in the *Amazon VPC User Guide* .
 //
@@ -593,11 +591,11 @@ func CfnVPCCidrBlock_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnVPCCidrBlock_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnVPCCidrBlock_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnVPCCidrBlock_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnVPCCidrBlock_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -605,7 +603,7 @@ func CfnVPCCidrBlock_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVPCCidrBlock",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

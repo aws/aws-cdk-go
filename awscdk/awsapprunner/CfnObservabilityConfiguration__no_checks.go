@@ -72,7 +72,7 @@ func validateCfnObservabilityConfiguration_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnObservabilityConfiguration_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnObservabilityConfiguration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

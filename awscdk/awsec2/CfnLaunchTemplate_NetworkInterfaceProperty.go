@@ -13,6 +13,11 @@ package awsec2
 //   networkInterfaceProperty := &NetworkInterfaceProperty{
 //   	AssociateCarrierIpAddress: jsii.Boolean(false),
 //   	AssociatePublicIpAddress: jsii.Boolean(false),
+//   	ConnectionTrackingSpecification: &ConnectionTrackingSpecificationProperty{
+//   		TcpEstablishedTimeout: jsii.Number(123),
+//   		UdpStreamTimeout: jsii.Number(123),
+//   		UdpTimeout: jsii.Number(123),
+//   	},
 //   	DeleteOnTermination: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DeviceIndex: jsii.Number(123),
@@ -71,6 +76,10 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
 	//
 	AssociatePublicIpAddress interface{} `field:"optional" json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
+	// Allows customer to specify Connection Tracking options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-connectiontrackingspecification
+	//
+	ConnectionTrackingSpecification interface{} `field:"optional" json:"connectionTrackingSpecification" yaml:"connectionTrackingSpecification"`
 	// Indicates whether the network interface is deleted when the instance is terminated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deleteontermination
 	//

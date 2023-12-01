@@ -467,11 +467,11 @@ func CfnRequestValidator_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnRequestValidator_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnRequestValidator_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnRequestValidator_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnRequestValidator_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -479,7 +479,7 @@ func CfnRequestValidator_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigateway.CfnRequestValidator",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

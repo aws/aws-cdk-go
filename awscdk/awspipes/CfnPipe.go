@@ -401,6 +401,7 @@ type CfnPipe interface {
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters() interface{}
 	SetEnrichmentParameters(val interface{})
+	// The logging configuration settings for the pipe.
 	LogConfiguration() interface{}
 	SetLogConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -1043,11 +1044,11 @@ func CfnPipe_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnPipe_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnPipe_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnPipe_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnPipe_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -1055,7 +1056,7 @@ func CfnPipe_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_pipes.CfnPipe",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

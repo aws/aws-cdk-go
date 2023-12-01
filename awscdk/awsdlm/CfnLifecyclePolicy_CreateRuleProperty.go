@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot and AMI policies only]* Specifies when the policy should create snapshots or AMIs.
+// *[Custom snapshot and AMI policies only]* Specifies when the policy should create snapshots or AMIs.
 //
 // > - You must specify either *CronExpression* , or *Interval* , *IntervalUnit* , and *Times* .
 // > - If you need to specify an [ArchiveRule](https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html) for the schedule, then you must specify a creation frequency of at least 28 days.
@@ -52,7 +52,7 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-intervalunit
 	//
 	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
-	// *[Snapshot policies only]* Specifies the destination for snapshots created by the policy.
+	// *[Custom snapshot policies only]* Specifies the destination for snapshots created by the policy.
 	//
 	// To create snapshots in the same Region as the source resource, specify `CLOUD` . To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL` . If you omit this parameter, `CLOUD` is used by default.
 	//
@@ -60,7 +60,7 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-location
 	//
 	Location *string `field:"optional" json:"location" yaml:"location"`
-	// *[Snapshot policies that target instances only]* Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances.
+	// *[Custom snapshot policies that target instances only]* Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances.
 	//
 	// This is useful for creating application-consistent snapshots, or for performing specific administrative tasks before or after Amazon Data Lifecycle Manager initiates snapshot creation.
 	//

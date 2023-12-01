@@ -425,11 +425,11 @@ func CfnRobotApplicationVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnRobotApplicationVersion_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnRobotApplicationVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnRobotApplicationVersion_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnRobotApplicationVersion_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -437,7 +437,7 @@ func CfnRobotApplicationVersion_IsCfnResource(construct constructs.IConstruct) *
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_robomaker.CfnRobotApplicationVersion",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

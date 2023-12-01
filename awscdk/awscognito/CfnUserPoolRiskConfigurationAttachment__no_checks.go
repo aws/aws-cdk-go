@@ -72,7 +72,7 @@ func validateCfnUserPoolRiskConfigurationAttachment_IsCfnElementParameters(x int
 	return nil
 }
 
-func validateCfnUserPoolRiskConfigurationAttachment_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnUserPoolRiskConfigurationAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

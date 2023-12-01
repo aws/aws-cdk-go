@@ -520,11 +520,11 @@ func CfnAutoScalingConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnAutoScalingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnAutoScalingConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnAutoScalingConfiguration_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnAutoScalingConfiguration_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -532,7 +532,7 @@ func CfnAutoScalingConfiguration_IsCfnResource(construct constructs.IConstruct) 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apprunner.CfnAutoScalingConfiguration",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

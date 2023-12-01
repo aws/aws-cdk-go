@@ -114,7 +114,7 @@ import (
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Amazon GameLift Anywhere configuration options for your Anywhere fleets.
+	// Amazon GameLift Anywhere configuration options.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
 	// A unique identifier for the fleet.
@@ -210,7 +210,7 @@ type CfnFleet interface {
 	// Instructions for how to launch and maintain server processes on instances in the fleet.
 	RuntimeConfiguration() interface{}
 	SetRuntimeConfiguration(val interface{})
-	// A list of rules that control how a fleet is scaled.
+	// Rule that controls how a fleet is scaled.
 	ScalingPolicies() interface{}
 	SetScalingPolicies(val interface{})
 	// The unique identifier for a Realtime configuration script to be deployed on fleet instances.
@@ -1030,11 +1030,11 @@ func CfnFleet_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnFleet_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnFleet_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnFleet_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnFleet_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -1042,7 +1042,7 @@ func CfnFleet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnFleet",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -72,7 +72,7 @@ func validateCfnCustomerGatewayAssociation_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnCustomerGatewayAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCustomerGatewayAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

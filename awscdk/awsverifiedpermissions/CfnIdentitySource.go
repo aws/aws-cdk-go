@@ -512,11 +512,11 @@ func CfnIdentitySource_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnIdentitySource_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnIdentitySource_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnIdentitySource_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnIdentitySource_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -524,7 +524,7 @@ func CfnIdentitySource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -72,7 +72,7 @@ func validateCfnPullThroughCacheRule_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
-func validateCfnPullThroughCacheRule_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnPullThroughCacheRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

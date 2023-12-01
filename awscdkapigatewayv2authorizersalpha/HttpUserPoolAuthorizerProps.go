@@ -25,27 +25,27 @@ import (
 //   	UserPoolRegion: jsii.String("userPoolRegion"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type HttpUserPoolAuthorizerProps struct {
 	// Friendly name of the authorizer.
 	// Default: - same value as `id` passed in the constructor.
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Default: ['$request.header.Authorization']
 	//
-	// Experimental.
+	// Deprecated.
 	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// The user pool clients that should be used to authorize requests with the user pool.
 	// Default: - a new client will be created for the given user pool.
 	//
-	// Experimental.
+	// Deprecated.
 	UserPoolClients *[]awscognito.IUserPoolClient `field:"optional" json:"userPoolClients" yaml:"userPoolClients"`
 	// The AWS region in which the user pool is present.
 	// Default: - same region as the Route the authorizer is attached to.
 	//
-	// Experimental.
+	// Deprecated.
 	UserPoolRegion *string `field:"optional" json:"userPoolRegion" yaml:"userPoolRegion"`
 }
 

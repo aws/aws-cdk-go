@@ -539,11 +539,11 @@ func CfnPrivateDnsNamespace_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnPrivateDnsNamespace_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnPrivateDnsNamespace_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnPrivateDnsNamespace_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnPrivateDnsNamespace_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -551,7 +551,7 @@ func CfnPrivateDnsNamespace_IsCfnResource(construct constructs.IConstruct) *bool
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_servicediscovery.CfnPrivateDnsNamespace",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

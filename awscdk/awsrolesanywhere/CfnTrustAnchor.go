@@ -9,11 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a trust anchor to establish trust between IAM Roles Anywhere and your certificate authority (CA).
-//
-// You can define a trust anchor as a reference to an AWS Private Certificate Authority ( AWS Private CA ) or by uploading a CA certificate. Your AWS workloads can authenticate with the trust anchor using certificates issued by the CA in exchange for temporary AWS credentials.
-//
-// *Required permissions:* `rolesanywhere:CreateTrustAnchor` .
+// Creates a TrustAnchor.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -541,11 +537,11 @@ func CfnTrustAnchor_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnTrustAnchor_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnTrustAnchor_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnTrustAnchor_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnTrustAnchor_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -553,7 +549,7 @@ func CfnTrustAnchor_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rolesanywhere.CfnTrustAnchor",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

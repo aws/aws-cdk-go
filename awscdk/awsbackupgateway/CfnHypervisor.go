@@ -544,11 +544,11 @@ func CfnHypervisor_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnHypervisor_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnHypervisor_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnHypervisor_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnHypervisor_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -556,7 +556,7 @@ func CfnHypervisor_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_backupgateway.CfnHypervisor",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

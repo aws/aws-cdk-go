@@ -15,32 +15,32 @@ package awscdkapigatewayv2alpha
 //   	StageName: jsii.String("dev"),
 //   	AutoDeploy: jsii.Boolean(true),
 //   })
-//   webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
+//   webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
 //   	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
-// Experimental.
+// Deprecated.
 type WebSocketStageProps struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Default: - no custom domain and api mapping configuration.
 	//
-	// Experimental.
+	// Deprecated.
 	DomainMapping *DomainMappingOptions `field:"optional" json:"domainMapping" yaml:"domainMapping"`
 	// Throttle settings for the routes of this stage.
 	// Default: - no throttling configuration.
 	//
-	// Experimental.
+	// Deprecated.
 	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 	// The name of the stage.
-	// Experimental.
+	// Deprecated.
 	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 	// The WebSocket API to which this stage is associated.
-	// Experimental.
+	// Deprecated.
 	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 }
 

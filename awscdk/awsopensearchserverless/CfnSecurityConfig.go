@@ -466,11 +466,11 @@ func CfnSecurityConfig_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSecurityConfig_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSecurityConfig_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSecurityConfig_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSecurityConfig_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -478,7 +478,7 @@ func CfnSecurityConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_opensearchserverless.CfnSecurityConfig",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

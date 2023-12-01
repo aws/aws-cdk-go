@@ -72,7 +72,7 @@ func validateCfnStackFleetAssociation_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
-func validateCfnStackFleetAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnStackFleetAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

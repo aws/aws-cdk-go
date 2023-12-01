@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Amazon OpenSearchServerless lifecycle policy resource.
+// Creates a lifecyle policy to be applied to OpenSearch Serverless indexes.
+//
+// Lifecycle policies define the number of days or hours to retain the data on an OpenSearch Serverless index. For more information, see [Creating data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-create) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,7 +41,7 @@ type CfnLifecyclePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the policy.
+	// The description of the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -52,12 +54,12 @@ type CfnLifecyclePolicy interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the policy.
+	// The name of the lifecycle policy.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The JSON policy document that is the content for the policy.
+	// The JSON policy document without any whitespaces.
 	Policy() *string
 	SetPolicy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -451,11 +453,11 @@ func CfnLifecyclePolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnLifecyclePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnLifecyclePolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnLifecyclePolicy_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnLifecyclePolicy_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -463,7 +465,7 @@ func CfnLifecyclePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_opensearchserverless.CfnLifecyclePolicy",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -72,7 +72,7 @@ func validateCfnSizeConstraintSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnSizeConstraintSet_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSizeConstraintSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

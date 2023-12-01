@@ -72,7 +72,7 @@ func validateCfnContinuousDeploymentPolicy_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnContinuousDeploymentPolicy_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnContinuousDeploymentPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

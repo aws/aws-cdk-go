@@ -72,7 +72,7 @@ func validateCfnClientVpnAuthorizationRule_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnClientVpnAuthorizationRule_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnClientVpnAuthorizationRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

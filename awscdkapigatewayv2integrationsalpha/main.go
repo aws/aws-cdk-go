@@ -1,4 +1,4 @@
-// Integrations for AWS APIGateway V2
+// This module is deprecated. All constructs are now available under aws-cdk-lib/aws-apigatewayv2-integrations
 package awscdkapigatewayv2integrationsalpha
 
 import (

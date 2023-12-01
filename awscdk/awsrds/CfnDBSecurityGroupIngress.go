@@ -486,11 +486,11 @@ func CfnDBSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnDBSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnDBSecurityGroupIngress_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnDBSecurityGroupIngress_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnDBSecurityGroupIngress_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -498,7 +498,7 @@ func CfnDBSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *b
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

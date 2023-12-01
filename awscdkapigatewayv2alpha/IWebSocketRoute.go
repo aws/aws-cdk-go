@@ -5,14 +5,14 @@ import (
 )
 
 // Represents a Route for an WebSocket API.
-// Experimental.
+// Deprecated.
 type IWebSocketRoute interface {
 	IRoute
 	// The key to this route.
-	// Experimental.
+	// Deprecated.
 	RouteKey() *string
 	// The WebSocket API associated with this route.
-	// Experimental.
+	// Deprecated.
 	WebSocketApi() IWebSocketApi
 }
 

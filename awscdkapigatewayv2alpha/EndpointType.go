@@ -2,15 +2,15 @@ package awscdkapigatewayv2alpha
 
 
 // Endpoint type for a domain name.
-// Experimental.
+// Deprecated.
 type EndpointType string
 
 const (
 	// For an edge-optimized custom domain name.
-	// Experimental.
+	// Deprecated.
 	EndpointType_EDGE EndpointType = "EDGE"
 	// For a regional custom domain name.
-	// Experimental.
+	// Deprecated.
 	EndpointType_REGIONAL EndpointType = "REGIONAL"
 )
 

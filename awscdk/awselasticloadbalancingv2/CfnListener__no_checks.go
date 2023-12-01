@@ -72,7 +72,7 @@ func validateCfnListener_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnListener_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnListener_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
@@ -89,6 +89,10 @@ func (j *jsiiProxy_CfnListener) validateSetDefaultActionsParameters(val interfac
 }
 
 func (j *jsiiProxy_CfnListener) validateSetLoadBalancerArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnListener) validateSetMutualAuthenticationParameters(val interface{}) error {
 	return nil
 }
 

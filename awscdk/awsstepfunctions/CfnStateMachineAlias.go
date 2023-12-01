@@ -477,11 +477,11 @@ func CfnStateMachineAlias_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnStateMachineAlias_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnStateMachineAlias_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnStateMachineAlias_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnStateMachineAlias_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -489,7 +489,7 @@ func CfnStateMachineAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_stepfunctions.CfnStateMachineAlias",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

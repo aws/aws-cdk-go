@@ -3,7 +3,7 @@ package awscdkintegtestsalpha
 
 // The type of invocation.
 //
-// Default is REQUEST_RESPONE.
+// Default is REQUEST_RESPONSE.
 //
 // Example:
 //   var app app
@@ -60,7 +60,7 @@ const (
 	// Keep the connection open until the function returns a response or times out.
 	// The API response includes the function response and additional data.
 	// Experimental.
-	InvocationType_REQUEST_RESPONE InvocationType = "REQUEST_RESPONE"
+	InvocationType_REQUEST_RESPONSE InvocationType = "REQUEST_RESPONSE"
 	// Validate parameter values and verify that the user or role has permission to invoke the function.
 	// Experimental.
 	InvocationType_DRY_RUN InvocationType = "DRY_RUN"

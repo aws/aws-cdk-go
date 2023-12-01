@@ -51,5 +51,9 @@ type NetworkLoadBalancerProps struct {
 	// Default: false.
 	//
 	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
+	// Security groups to associate with this load balancer.
+	// Default: - No security groups associated with the load balancer.
+	//
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 

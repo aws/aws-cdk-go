@@ -19,19 +19,19 @@ import (
 //   	ParameterMapping: parameterMapping,
 //   }
 //
-// Experimental.
+// Deprecated.
 type HttpUrlIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Default: HttpMethod.ANY
 	//
-	// Experimental.
+	// Deprecated.
 	Method awscdkapigatewayv2alpha.HttpMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Default: undefined requests are sent to the backend unmodified.
 	//
-	// Experimental.
+	// Deprecated.
 	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 }
 

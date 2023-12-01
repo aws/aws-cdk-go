@@ -34,6 +34,7 @@ import (
 //   	DnsSupport: jsii.String("dnsSupport"),
 //   	MulticastSupport: jsii.String("multicastSupport"),
 //   	PropagationDefaultRouteTableId: jsii.String("propagationDefaultRouteTableId"),
+//   	SecurityGroupReferencingSupport: jsii.String("securityGroupReferencingSupport"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -60,6 +61,7 @@ type CfnTransitGateway interface {
 	SetAssociationDefaultRouteTableId(val *string)
 	// The ID of the transit gateway.
 	AttrId() *string
+	AttrTransitGatewayArn() *string
 	// Enable or disable automatic acceptance of attachment requests.
 	AutoAcceptSharedAttachments() *string
 	SetAutoAcceptSharedAttachments(val *string)
@@ -107,6 +109,8 @@ type CfnTransitGateway interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	SecurityGroupReferencingSupport() *string
+	SetSecurityGroupReferencingSupport(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -299,6 +303,16 @@ func (j *jsiiProxy_CfnTransitGateway) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGateway) AttrTransitGatewayArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrTransitGatewayArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGateway) AutoAcceptSharedAttachments() *string {
 	var returns *string
 	_jsii_.Get(
@@ -434,6 +448,16 @@ func (j *jsiiProxy_CfnTransitGateway) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGateway) SecurityGroupReferencingSupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"securityGroupReferencingSupport",
 		&returns,
 	)
 	return returns
@@ -609,6 +633,14 @@ func (j *jsiiProxy_CfnTransitGateway)SetPropagationDefaultRouteTableId(val *stri
 	)
 }
 
+func (j *jsiiProxy_CfnTransitGateway)SetSecurityGroupReferencingSupport(val *string) {
+	_jsii_.Set(
+		j,
+		"securityGroupReferencingSupport",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTransitGateway)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsRawParameters(val); err != nil {
 		panic(err)
@@ -660,11 +692,11 @@ func CfnTransitGateway_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnTransitGateway_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnTransitGateway_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnTransitGateway_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnTransitGateway_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -672,7 +704,7 @@ func CfnTransitGateway_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGateway",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

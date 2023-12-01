@@ -72,7 +72,7 @@ func validateCfnTransitGatewayRouteTableAssociation_IsCfnElementParameters(x int
 	return nil
 }
 
-func validateCfnTransitGatewayRouteTableAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTransitGatewayRouteTableAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

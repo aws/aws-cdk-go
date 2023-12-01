@@ -28,11 +28,11 @@ import (
 //   	Integration: booksIntegration,
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpLambdaIntegration interface {
 	awscdkapigatewayv2alpha.HttpRouteIntegration
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
@@ -42,7 +42,7 @@ type HttpLambdaIntegration interface {
 	// created for this route or it is an existing one, previously created for other
 	// routes. In most cases, however, concrete implementations do not need to
 	// override this method.
-	// Experimental.
+	// Deprecated.
 	CompleteBind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions)
 }
 
@@ -51,7 +51,7 @@ type jsiiProxy_HttpLambdaIntegration struct {
 	internal.Type__awscdkapigatewayv2alphaHttpRouteIntegration
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpLambdaIntegration(id *string, handler awslambda.IFunction, props *HttpLambdaIntegrationProps) HttpLambdaIntegration {
 	_init_.Initialize()
 
@@ -69,7 +69,7 @@ func NewHttpLambdaIntegration(id *string, handler awslambda.IFunction, props *Ht
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpLambdaIntegration_Override(h HttpLambdaIntegration, id *string, handler awslambda.IFunction, props *HttpLambdaIntegrationProps) {
 	_init_.Initialize()
 

@@ -1195,11 +1195,11 @@ func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnRuleGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnRuleGroup_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnRuleGroup_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -1207,7 +1207,7 @@ func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

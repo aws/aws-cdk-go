@@ -72,7 +72,7 @@ func validateCfnDRTAccess_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnDRTAccess_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDRTAccess_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -25,20 +25,20 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type MTLSConfig struct {
 	// The bucket that the trust store is hosted in.
-	// Experimental.
+	// Deprecated.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The key in S3 to look at for the trust store.
-	// Experimental.
+	// Deprecated.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
 	// Default: - latest version.
 	//
-	// Experimental.
+	// Deprecated.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

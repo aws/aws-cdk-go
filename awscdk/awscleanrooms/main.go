@@ -99,6 +99,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "creatorDisplayName", GoGetter: "CreatorDisplayName"},
 			_jsii_.MemberProperty{JsiiProperty: "creatorMemberAbilities", GoGetter: "CreatorMemberAbilities"},
+			_jsii_.MemberProperty{JsiiProperty: "creatorPaymentConfiguration", GoGetter: "CreatorPaymentConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "dataEncryptionMetadata", GoGetter: "DataEncryptionMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -138,6 +139,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.MemberSpecificationProperty",
 		reflect.TypeOf((*CfnCollaboration_MemberSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.PaymentConfigurationProperty",
+		reflect.TypeOf((*CfnCollaboration_PaymentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.QueryComputePaymentConfigProperty",
+		reflect.TypeOf((*CfnCollaboration_QueryComputePaymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaborationProps",
@@ -322,6 +331,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "paymentConfiguration", GoGetter: "PaymentConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "queryLogStatus", GoGetter: "QueryLogStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -343,12 +353,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipPaymentConfigurationProperty",
+		reflect.TypeOf((*CfnMembership_MembershipPaymentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipProtectedQueryOutputConfigurationProperty",
 		reflect.TypeOf((*CfnMembership_MembershipProtectedQueryOutputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipProtectedQueryResultConfigurationProperty",
 		reflect.TypeOf((*CfnMembership_MembershipProtectedQueryResultConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipQueryComputePaymentConfigProperty",
+		reflect.TypeOf((*CfnMembership_MembershipQueryComputePaymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnMembership.ProtectedQueryS3OutputConfigurationProperty",

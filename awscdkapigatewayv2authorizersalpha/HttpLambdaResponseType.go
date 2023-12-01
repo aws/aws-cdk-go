@@ -2,15 +2,15 @@ package awscdkapigatewayv2authorizersalpha
 
 
 // Specifies the type responses the lambda returns.
-// Experimental.
+// Deprecated.
 type HttpLambdaResponseType string
 
 const (
 	// Returns simple boolean response.
-	// Experimental.
+	// Deprecated.
 	HttpLambdaResponseType_SIMPLE HttpLambdaResponseType = "SIMPLE"
 	// Returns an IAM Policy.
-	// Experimental.
+	// Deprecated.
 	HttpLambdaResponseType_IAM HttpLambdaResponseType = "IAM"
 )
 

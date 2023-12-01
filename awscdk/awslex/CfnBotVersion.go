@@ -449,11 +449,11 @@ func CfnBotVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnBotVersion_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnBotVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnBotVersion_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnBotVersion_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -461,7 +461,7 @@ func CfnBotVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lex.CfnBotVersion",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

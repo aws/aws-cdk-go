@@ -8,11 +8,11 @@ import (
 )
 
 // Represents a route.
-// Experimental.
+// Deprecated.
 type IRoute interface {
 	awscdk.IResource
 	// Id of the Route.
-	// Experimental.
+	// Deprecated.
 	RouteId() *string
 }
 

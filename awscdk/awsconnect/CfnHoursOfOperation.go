@@ -544,11 +544,11 @@ func CfnHoursOfOperation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnHoursOfOperation_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnHoursOfOperation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnHoursOfOperation_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnHoursOfOperation_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -556,7 +556,7 @@ func CfnHoursOfOperation_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_connect.CfnHoursOfOperation",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -24,12 +24,24 @@ import (
 //   			MemberAbilities: []*string{
 //   				jsii.String("memberAbilities"),
 //   			},
+//
+//   			// the properties below are optional
+//   			PaymentConfiguration: &PaymentConfigurationProperty{
+//   				QueryCompute: &QueryComputePaymentConfigProperty{
+//   					IsResponsible: jsii.Boolean(false),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   	QueryLogStatus: jsii.String("queryLogStatus"),
 //
 //   	// the properties below are optional
+//   	CreatorPaymentConfiguration: &PaymentConfigurationProperty{
+//   		QueryCompute: &QueryComputePaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
+//   	},
 //   	DataEncryptionMetadata: &DataEncryptionMetadataProperty{
 //   		AllowCleartext: jsii.Boolean(false),
 //   		AllowDuplicates: jsii.Boolean(false),
@@ -77,6 +89,9 @@ type CfnCollaborationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-querylogstatus
 	//
 	QueryLogStatus *string `field:"required" json:"queryLogStatus" yaml:"queryLogStatus"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatorpaymentconfiguration
+	//
+	CreatorPaymentConfiguration interface{} `field:"optional" json:"creatorPaymentConfiguration" yaml:"creatorPaymentConfiguration"`
 	// The settings for client-side encryption for cryptographic computing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-dataencryptionmetadata
 	//

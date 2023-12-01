@@ -72,7 +72,7 @@ func validateCfnPhoneNumber_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnPhoneNumber_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnPhoneNumber_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

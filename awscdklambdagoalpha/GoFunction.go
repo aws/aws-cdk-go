@@ -540,6 +540,9 @@ func GoFunction_ClassifyVersionProperty(propertyName *string, locked *bool) {
 }
 
 // Import a lambda function into the CDK using its ARN.
+//
+// For `Function.addPermissions()` to work on this imported lambda, make sure that is
+// in the same account and region as the stack you are importing it into.
 // Experimental.
 func GoFunction_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) awslambda.IFunction {
 	_init_.Initialize()
@@ -560,6 +563,9 @@ func GoFunction_FromFunctionArn(scope constructs.Construct, id *string, function
 }
 
 // Creates a Lambda function object which represents a function not defined within this stack.
+//
+// For `Function.addPermissions()` to work on this imported lambda, set the sameEnvironment property to true
+// if this imported lambda is in the same account and region as the stack you are importing it into.
 // Experimental.
 func GoFunction_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *awslambda.FunctionAttributes) awslambda.IFunction {
 	_init_.Initialize()

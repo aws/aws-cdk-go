@@ -72,7 +72,7 @@ func validateCfnNetworkInsightsAccessScopeAnalysis_IsCfnElementParameters(x inte
 	return nil
 }
 
-func validateCfnNetworkInsightsAccessScopeAnalysis_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnNetworkInsightsAccessScopeAnalysis_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

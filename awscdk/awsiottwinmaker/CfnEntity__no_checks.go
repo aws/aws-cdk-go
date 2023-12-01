@@ -72,7 +72,7 @@ func validateCfnEntity_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnEntity_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnEntity_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
@@ -81,6 +81,10 @@ func validateCfnEntity_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnEntity) validateSetComponentsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnEntity) validateSetCompositeComponentsParameters(val interface{}) error {
 	return nil
 }
 

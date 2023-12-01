@@ -16,10 +16,10 @@ package awscdkapigatewayv2alpha
 //   	Integration: httpRouteIntegration,
 //   }
 //
-// Experimental.
+// Deprecated.
 type BatchHttpRouteOptions struct {
 	// The integration to be configured on this route.
-	// Experimental.
+	// Deprecated.
 	Integration HttpRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 }
 

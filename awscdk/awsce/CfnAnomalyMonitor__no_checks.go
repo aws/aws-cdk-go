@@ -72,7 +72,7 @@ func validateCfnAnomalyMonitor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnAnomalyMonitor_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnAnomalyMonitor_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

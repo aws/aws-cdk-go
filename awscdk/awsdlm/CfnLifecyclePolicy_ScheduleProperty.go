@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot and AMI policies only]* Specifies a schedule for a snapshot or AMI lifecycle policy.
+// *[Custom snapshot and AMI policies only]* Specifies a schedule for a snapshot or AMI lifecycle policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -104,7 +104,7 @@ package awsdlm
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html
 //
 type CfnLifecyclePolicy_ScheduleProperty struct {
-	// *[Snapshot policies that target volumes only]* The snapshot archiving rule for the schedule.
+	// *[Custom snapshot policies that target volumes only]* The snapshot archiving rule for the schedule.
 	//
 	// When you specify an archiving rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's retention threshold is met. Snapshots are then retained in the archive tier for the archive retention period that you specify.
 	//
@@ -126,11 +126,11 @@ type CfnLifecyclePolicy_ScheduleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-crossregioncopyrules
 	//
 	CrossRegionCopyRules interface{} `field:"optional" json:"crossRegionCopyRules" yaml:"crossRegionCopyRules"`
-	// *[AMI policies only]* The AMI deprecation rule for the schedule.
+	// *[Custom AMI policies only]* The AMI deprecation rule for the schedule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-deprecaterule
 	//
 	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`
-	// *[Snapshot policies only]* The rule for enabling fast snapshot restore.
+	// *[Custom snapshot policies only]* The rule for enabling fast snapshot restore.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-fastrestorerule
 	//
 	FastRestoreRule interface{} `field:"optional" json:"fastRestoreRule" yaml:"fastRestoreRule"`
@@ -142,7 +142,7 @@ type CfnLifecyclePolicy_ScheduleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-retainrule
 	//
 	RetainRule interface{} `field:"optional" json:"retainRule" yaml:"retainRule"`
-	// *[Snapshot policies only]* The rule for sharing snapshots with other AWS accounts .
+	// *[Custom snapshot policies only]* The rule for sharing snapshots with other AWS accounts .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-sharerules
 	//
 	ShareRules interface{} `field:"optional" json:"shareRules" yaml:"shareRules"`

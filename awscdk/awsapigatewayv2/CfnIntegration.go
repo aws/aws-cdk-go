@@ -53,6 +53,7 @@ type CfnIntegration interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
+	// The identifier.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -778,11 +779,11 @@ func CfnIntegration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnIntegration_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnIntegration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnIntegration_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnIntegration_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -790,7 +791,7 @@ func CfnIntegration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigatewayv2.CfnIntegration",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -23,22 +23,22 @@ package awscdkapigatewayv2authorizersalpha
 //   	Authorizer: Authorizer,
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpJwtAuthorizerProps struct {
 	// A list of the intended recipients of the JWT.
 	//
 	// A valid JWT must provide an aud that matches at least one entry in this list.
-	// Experimental.
+	// Deprecated.
 	JwtAudience *[]*string `field:"required" json:"jwtAudience" yaml:"jwtAudience"`
 	// The name of the authorizer.
 	// Default: - same value as `id` passed in the constructor.
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Default: ['$request.header.Authorization']
 	//
-	// Experimental.
+	// Deprecated.
 	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 }
 

@@ -17,6 +17,11 @@ package awsiottwinmaker
 //   	WorkspaceId: jsii.String("workspaceId"),
 //
 //   	// the properties below are optional
+//   	CompositeComponentTypes: map[string]interface{}{
+//   		"compositeComponentTypesKey": &CompositeComponentTypeProperty{
+//   			"componentTypeId": jsii.String("componentTypeId"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	ExtendsFrom: []*string{
 //   		jsii.String("extendsFrom"),
@@ -114,6 +119,12 @@ type CfnComponentTypeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-workspaceid
 	//
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
+	// An map of the composite component types in the component type.
+	//
+	// Each composite component type's key must be unique to this map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-compositecomponenttypes
+	//
+	CompositeComponentTypes interface{} `field:"optional" json:"compositeComponentTypes" yaml:"compositeComponentTypes"`
 	// The description of the component type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-description
 	//

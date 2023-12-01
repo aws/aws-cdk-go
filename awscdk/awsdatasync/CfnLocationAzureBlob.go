@@ -577,11 +577,11 @@ func CfnLocationAzureBlob_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnLocationAzureBlob_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnLocationAzureBlob_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnLocationAzureBlob_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnLocationAzureBlob_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -589,7 +589,7 @@ func CfnLocationAzureBlob_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_datasync.CfnLocationAzureBlob",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

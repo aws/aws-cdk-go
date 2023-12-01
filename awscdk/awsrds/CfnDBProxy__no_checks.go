@@ -72,7 +72,7 @@ func validateCfnDBProxy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnDBProxy_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDBProxy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

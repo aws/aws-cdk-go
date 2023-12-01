@@ -72,7 +72,7 @@ func validateCfnThingType_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnThingType_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnThingType_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

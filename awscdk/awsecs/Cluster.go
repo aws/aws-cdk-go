@@ -33,6 +33,7 @@ import (
 //
 //   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
 //   	AutoScalingGroup: AutoScalingGroup,
+//   	InstanceWarmupPeriod: jsii.Number(300),
 //   })
 //   cluster.AddAsgCapacityProvider(capacityProvider)
 //

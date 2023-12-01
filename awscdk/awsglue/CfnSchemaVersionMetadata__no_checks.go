@@ -72,7 +72,7 @@ func validateCfnSchemaVersionMetadata_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
-func validateCfnSchemaVersionMetadata_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSchemaVersionMetadata_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

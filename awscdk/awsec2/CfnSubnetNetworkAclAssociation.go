@@ -416,11 +416,11 @@ func CfnSubnetNetworkAclAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSubnetNetworkAclAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSubnetNetworkAclAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSubnetNetworkAclAssociation_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSubnetNetworkAclAssociation_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -428,7 +428,7 @@ func CfnSubnetNetworkAclAssociation_IsCfnResource(construct constructs.IConstruc
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnSubnetNetworkAclAssociation",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

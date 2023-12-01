@@ -453,11 +453,11 @@ func CfnIdentityPoolPrincipalTag_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnIdentityPoolPrincipalTag_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnIdentityPoolPrincipalTag_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnIdentityPoolPrincipalTag_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnIdentityPoolPrincipalTag_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -465,7 +465,7 @@ func CfnIdentityPoolPrincipalTag_IsCfnResource(construct constructs.IConstruct) 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cognito.CfnIdentityPoolPrincipalTag",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

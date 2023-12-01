@@ -146,7 +146,11 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-organizationrolename
 	//
 	OrganizationRoleName *string `field:"optional" json:"organizationRoleName" yaml:"organizationRoleName"`
-	// Allow workspace admins to install plugins.
+	// Whether plugin administration is enabled in the workspace.
+	//
+	// Setting to `true` allows workspace admins to install, uninstall, and update plugins from within the Grafana workspace.
+	//
+	// > This option is only valid for workspaces that support Grafana version 9 or newer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-pluginadminenabled
 	//
 	PluginAdminEnabled interface{} `field:"optional" json:"pluginAdminEnabled" yaml:"pluginAdminEnabled"`

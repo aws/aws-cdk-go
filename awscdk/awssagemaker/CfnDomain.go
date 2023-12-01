@@ -43,66 +43,6 @@ import (
 //   		ExecutionRole: jsii.String("executionRole"),
 //
 //   		// the properties below are optional
-//   		CodeEditorAppSettings: &CodeEditorAppSettingsProperty{
-//   			CustomImages: []interface{}{
-//   				&CustomImageProperty{
-//   					AppImageConfigName: jsii.String("appImageConfigName"),
-//   					ImageName: jsii.String("imageName"),
-//
-//   					// the properties below are optional
-//   					ImageVersionNumber: jsii.Number(123),
-//   				},
-//   			},
-//   			DefaultResourceSpec: &ResourceSpecProperty{
-//   				InstanceType: jsii.String("instanceType"),
-//   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
-//   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
-//   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
-//   			},
-//   			LifecycleConfigArns: []*string{
-//   				jsii.String("lifecycleConfigArns"),
-//   			},
-//   		},
-//   		CustomFileSystemConfigs: []interface{}{
-//   			&CustomFileSystemConfigProperty{
-//   				EfsFileSystemConfig: &EFSFileSystemConfigProperty{
-//   					FileSystemId: jsii.String("fileSystemId"),
-//
-//   					// the properties below are optional
-//   					FileSystemPath: jsii.String("fileSystemPath"),
-//   				},
-//   			},
-//   		},
-//   		CustomPosixUserConfig: &CustomPosixUserConfigProperty{
-//   			Gid: jsii.Number(123),
-//   			Uid: jsii.Number(123),
-//   		},
-//   		DefaultLandingUri: jsii.String("defaultLandingUri"),
-//   		JupyterLabAppSettings: &JupyterLabAppSettingsProperty{
-//   			CodeRepositories: []interface{}{
-//   				&CodeRepositoryProperty{
-//   					RepositoryUrl: jsii.String("repositoryUrl"),
-//   				},
-//   			},
-//   			CustomImages: []interface{}{
-//   				&CustomImageProperty{
-//   					AppImageConfigName: jsii.String("appImageConfigName"),
-//   					ImageName: jsii.String("imageName"),
-//
-//   					// the properties below are optional
-//   					ImageVersionNumber: jsii.Number(123),
-//   				},
-//   			},
-//   			DefaultResourceSpec: &ResourceSpecProperty{
-//   				InstanceType: jsii.String("instanceType"),
-//   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
-//   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
-//   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
-//   			},
-//   			LifecycleConfigArns: []*string{
-//   				jsii.String("lifecycleConfigArns"),
-//   			},
-//   		},
 //   		JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
@@ -157,13 +97,6 @@ import (
 //   			S3KmsKeyId: jsii.String("s3KmsKeyId"),
 //   			S3OutputPath: jsii.String("s3OutputPath"),
 //   		},
-//   		SpaceStorageSettings: &DefaultSpaceStorageSettingsProperty{
-//   			DefaultEbsStorageSettings: &DefaultEbsStorageSettingsProperty{
-//   				DefaultEbsVolumeSizeInGb: jsii.Number(123),
-//   				MaximumEbsVolumeSizeInGb: jsii.Number(123),
-//   			},
-//   		},
-//   		StudioWebPortal: jsii.String("studioWebPortal"),
 //   	},
 //   	DomainName: jsii.String("domainName"),
 //   	SubnetIds: []*string{
@@ -910,11 +843,11 @@ func CfnDomain_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnDomain_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnDomain_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnDomain_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -922,7 +855,7 @@ func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

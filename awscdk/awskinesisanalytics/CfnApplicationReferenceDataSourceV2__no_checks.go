@@ -72,7 +72,7 @@ func validateCfnApplicationReferenceDataSourceV2_IsCfnElementParameters(x interf
 	return nil
 }
 
-func validateCfnApplicationReferenceDataSourceV2_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnApplicationReferenceDataSourceV2_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

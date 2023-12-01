@@ -334,7 +334,7 @@ func init() {
 		reflect.TypeOf((*InvocationType)(nil)).Elem(),
 		map[string]interface{}{
 			"EVENT": InvocationType_EVENT,
-			"REQUEST_RESPONE": InvocationType_REQUEST_RESPONE,
+			"REQUEST_RESPONSE": InvocationType_REQUEST_RESPONSE,
 			"DRY_RUN": InvocationType_DRY_RUN,
 		},
 	)

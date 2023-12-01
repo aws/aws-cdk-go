@@ -72,7 +72,7 @@ func validateCfnDisk_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnDisk_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDisk_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

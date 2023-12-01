@@ -72,7 +72,7 @@ func validateCfnDecoderManifest_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnDecoderManifest_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDecoderManifest_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -72,7 +72,7 @@ func validateCfnCollaboration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnCollaboration_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCollaboration_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
@@ -85,6 +85,10 @@ func (j *jsiiProxy_CfnCollaboration) validateSetCreatorDisplayNameParameters(val
 }
 
 func (j *jsiiProxy_CfnCollaboration) validateSetCreatorMemberAbilitiesParameters(val *[]*string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCollaboration) validateSetCreatorPaymentConfigurationParameters(val interface{}) error {
 	return nil
 }
 

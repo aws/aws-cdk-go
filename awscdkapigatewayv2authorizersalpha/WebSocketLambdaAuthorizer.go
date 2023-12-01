@@ -33,11 +33,11 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type WebSocketLambdaAuthorizer interface {
 	awscdkapigatewayv2alpha.IWebSocketRouteAuthorizer
 	// Bind this authorizer to a specified WebSocket route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *awscdkapigatewayv2alpha.WebSocketRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteAuthorizerConfig
 }
 
@@ -46,7 +46,7 @@ type jsiiProxy_WebSocketLambdaAuthorizer struct {
 	internal.Type__awscdkapigatewayv2alphaIWebSocketRouteAuthorizer
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketLambdaAuthorizer(id *string, handler awslambda.IFunction, props *WebSocketLambdaAuthorizerProps) WebSocketLambdaAuthorizer {
 	_init_.Initialize()
 
@@ -64,7 +64,7 @@ func NewWebSocketLambdaAuthorizer(id *string, handler awslambda.IFunction, props
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketLambdaAuthorizer_Override(w WebSocketLambdaAuthorizer, id *string, handler awslambda.IFunction, props *WebSocketLambdaAuthorizerProps) {
 	_init_.Initialize()
 

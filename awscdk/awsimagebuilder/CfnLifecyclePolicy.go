@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::ImageBuilder::LifecyclePolicy.
+// The configuration details for a lifecycle policy resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -92,7 +92,7 @@ import (
 type CfnLifecyclePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) of the lifecycle policy.
+	// The Amazon Resource Name (ARN) of the lifecycle policy resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -103,10 +103,10 @@ type CfnLifecyclePolicy interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the lifecycle policy.
+	// Optional description for the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
-	// The execution role of the lifecycle policy.
+	// The name of the IAM role that Image Builder uses to run the lifecycle policy.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -124,7 +124,7 @@ type CfnLifecyclePolicy interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The policy details of the lifecycle policy.
+	// The configuration details for a lifecycle policy resource.
 	PolicyDetails() interface{}
 	SetPolicyDetails(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -132,20 +132,20 @@ type CfnLifecyclePolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The resource selection for the lifecycle policy.
+	// Resource selection criteria used to run the lifecycle policy.
 	ResourceSelection() interface{}
 	SetResourceSelection(val interface{})
-	// The resource type of the lifecycle policy.
+	// The type of resources the lifecycle policy targets.
 	ResourceType() *string
 	SetResourceType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The status of the lifecycle policy.
+	// Indicates whether the lifecycle policy resource is enabled.
 	Status() *string
 	SetStatus(val *string)
-	// The tags associated with the lifecycle policy.
+	// To help manage your lifecycle policy resources, you can assign your own metadata to each resource in the form of tags.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.
@@ -615,11 +615,11 @@ func CfnLifecyclePolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnLifecyclePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnLifecyclePolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnLifecyclePolicy_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnLifecyclePolicy_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -627,7 +627,7 @@ func CfnLifecyclePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_imagebuilder.CfnLifecyclePolicy",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

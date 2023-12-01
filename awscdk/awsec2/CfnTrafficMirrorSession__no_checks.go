@@ -72,7 +72,7 @@ func validateCfnTrafficMirrorSession_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
-func validateCfnTrafficMirrorSession_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTrafficMirrorSession_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -72,7 +72,7 @@ func validateCfnFirewallRuleGroupAssociation_IsCfnElementParameters(x interface{
 	return nil
 }
 
-func validateCfnFirewallRuleGroupAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnFirewallRuleGroupAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

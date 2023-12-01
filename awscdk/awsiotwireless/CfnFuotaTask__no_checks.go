@@ -72,7 +72,7 @@ func validateCfnFuotaTask_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnFuotaTask_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnFuotaTask_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

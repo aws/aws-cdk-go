@@ -754,11 +754,11 @@ func CfnApplicationV2_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnApplicationV2_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnApplicationV2_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnApplicationV2_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnApplicationV2_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -766,7 +766,7 @@ func CfnApplicationV2_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_kinesisanalytics.CfnApplicationV2",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

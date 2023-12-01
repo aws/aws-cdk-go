@@ -34,6 +34,7 @@ type CfnAnalysis_AnalysisDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-filtergroups
 	//
 	FilterGroups interface{} `field:"optional" json:"filterGroups" yaml:"filterGroups"`
+	// An array of option definitions for an analysis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-options
 	//
 	Options interface{} `field:"optional" json:"options" yaml:"options"`

@@ -25,10 +25,10 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpRouteIntegration interface {
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *HttpRouteIntegrationBindOptions) *HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
@@ -38,7 +38,7 @@ type HttpRouteIntegration interface {
 	// created for this route or it is an existing one, previously created for other
 	// routes. In most cases, however, concrete implementations do not need to
 	// override this method.
-	// Experimental.
+	// Deprecated.
 	CompleteBind(_options *HttpRouteIntegrationBindOptions)
 }
 
@@ -48,7 +48,7 @@ type jsiiProxy_HttpRouteIntegration struct {
 }
 
 // Initialize an integration for a route on http api.
-// Experimental.
+// Deprecated.
 func NewHttpRouteIntegration_Override(h HttpRouteIntegration, id *string) {
 	_init_.Initialize()
 

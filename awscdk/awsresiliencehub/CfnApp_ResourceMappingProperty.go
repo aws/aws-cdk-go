@@ -42,6 +42,9 @@ type CfnApp_ResourceMappingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-physicalresourceid
 	//
 	PhysicalResourceId interface{} `field:"required" json:"physicalResourceId" yaml:"physicalResourceId"`
+	// Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.
+	//
+	// > This parameter accepts values in "eks-cluster/namespace" format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-ekssourcename
 	//
 	EksSourceName *string `field:"optional" json:"eksSourceName" yaml:"eksSourceName"`

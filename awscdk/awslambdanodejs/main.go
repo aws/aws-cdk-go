@@ -35,6 +35,8 @@ func init() {
 		"aws-cdk-lib.aws_lambda_nodejs.LogLevel",
 		reflect.TypeOf((*LogLevel)(nil)).Elem(),
 		map[string]interface{}{
+			"VERBOSE": LogLevel_VERBOSE,
+			"DEBUG": LogLevel_DEBUG,
 			"INFO": LogLevel_INFO,
 			"WARNING": LogLevel_WARNING,
 			"ERROR": LogLevel_ERROR,

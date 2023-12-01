@@ -16,10 +16,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 //
-// Experimental.
+// Deprecated.
 type PayloadFormatVersion interface {
 	// version as a string.
-	// Experimental.
+	// Deprecated.
 	Version() *string
 }
 
@@ -42,7 +42,7 @@ func (j *jsiiProxy_PayloadFormatVersion) Version() *string {
 // A custom payload version.
 //
 // Typically used if there is a version number that the CDK doesn't support yet.
-// Experimental.
+// Deprecated.
 func PayloadFormatVersion_Custom(version *string) PayloadFormatVersion {
 	_init_.Initialize()
 

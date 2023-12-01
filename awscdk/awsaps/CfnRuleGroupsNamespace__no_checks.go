@@ -72,7 +72,7 @@ func validateCfnRuleGroupsNamespace_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
-func validateCfnRuleGroupsNamespace_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnRuleGroupsNamespace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

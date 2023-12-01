@@ -72,7 +72,7 @@ func validateCfnResolverQueryLoggingConfig_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnResolverQueryLoggingConfig_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnResolverQueryLoggingConfig_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

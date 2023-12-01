@@ -72,7 +72,7 @@ func validateCfnRateBasedRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnRateBasedRule_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnRateBasedRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

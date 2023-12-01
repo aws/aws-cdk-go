@@ -72,7 +72,7 @@ func validateCfnApiCache_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnApiCache_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnApiCache_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

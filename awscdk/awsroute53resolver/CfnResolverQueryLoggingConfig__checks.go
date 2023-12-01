@@ -163,9 +163,9 @@ func validateCfnResolverQueryLoggingConfig_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnResolverQueryLoggingConfig_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnResolverQueryLoggingConfig_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

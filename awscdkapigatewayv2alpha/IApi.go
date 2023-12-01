@@ -9,19 +9,19 @@ import (
 )
 
 // Represents a API Gateway HTTP/WebSocket API.
-// Experimental.
+// Deprecated.
 type IApi interface {
 	awscdk.IResource
 	// Return the given named metric for this Api Gateway.
 	// Default: - average over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The default endpoint for an API.
-	// Experimental.
+	// Deprecated.
 	ApiEndpoint() *string
 	// The identifier of this API Gateway API.
-	// Experimental.
+	// Deprecated.
 	ApiId() *string
 }
 

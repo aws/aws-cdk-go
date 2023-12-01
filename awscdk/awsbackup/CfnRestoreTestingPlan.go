@@ -522,11 +522,11 @@ func CfnRestoreTestingPlan_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnRestoreTestingPlan_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnRestoreTestingPlan_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnRestoreTestingPlan_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnRestoreTestingPlan_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -534,7 +534,7 @@ func CfnRestoreTestingPlan_IsCfnResource(construct constructs.IConstruct) *bool 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_backup.CfnRestoreTestingPlan",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

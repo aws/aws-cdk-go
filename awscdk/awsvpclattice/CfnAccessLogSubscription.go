@@ -495,11 +495,11 @@ func CfnAccessLogSubscription_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnAccessLogSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnAccessLogSubscription_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnAccessLogSubscription_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnAccessLogSubscription_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -507,7 +507,7 @@ func CfnAccessLogSubscription_IsCfnResource(construct constructs.IConstruct) *bo
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_vpclattice.CfnAccessLogSubscription",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

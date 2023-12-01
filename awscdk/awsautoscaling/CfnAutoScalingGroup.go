@@ -270,6 +270,7 @@ type CfnAutoScalingGroup interface {
 	// The ID of the instance used to base the launch configuration on.
 	InstanceId() *string
 	SetInstanceId(val *string)
+	// An instance maintenance policy.
 	InstanceMaintenancePolicy() interface{}
 	SetInstanceMaintenancePolicy(val interface{})
 	// The name of the launch configuration to use to launch instances.
@@ -1235,11 +1236,11 @@ func CfnAutoScalingGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnAutoScalingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnAutoScalingGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnAutoScalingGroup_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnAutoScalingGroup_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -1247,7 +1248,7 @@ func CfnAutoScalingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

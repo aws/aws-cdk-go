@@ -72,7 +72,7 @@ func validateCfnApiKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnApiKey_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnApiKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

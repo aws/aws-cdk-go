@@ -480,11 +480,11 @@ func CfnStep_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnStep_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnStep_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnStep_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnStep_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -492,7 +492,7 @@ func CfnStep_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_emr.CfnStep",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -711,11 +711,11 @@ func CfnAlarmModel_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnAlarmModel_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnAlarmModel_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnAlarmModel_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnAlarmModel_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -723,7 +723,7 @@ func CfnAlarmModel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iotevents.CfnAlarmModel",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

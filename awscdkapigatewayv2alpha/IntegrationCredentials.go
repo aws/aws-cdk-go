@@ -19,10 +19,10 @@ import (
 //
 //   integrationCredentials := apigatewayv2_alpha.IntegrationCredentials_FromRole(role)
 //
-// Experimental.
+// Deprecated.
 type IntegrationCredentials interface {
 	// The ARN of the credentials.
-	// Experimental.
+	// Deprecated.
 	CredentialsArn() *string
 }
 
@@ -42,7 +42,7 @@ func (j *jsiiProxy_IntegrationCredentials) CredentialsArn() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewIntegrationCredentials_Override(i IntegrationCredentials) {
 	_init_.Initialize()
 
@@ -54,7 +54,7 @@ func NewIntegrationCredentials_Override(i IntegrationCredentials) {
 }
 
 // Use the specified role for integration requests.
-// Experimental.
+// Deprecated.
 func IntegrationCredentials_FromRole(role awsiam.IRole) IntegrationCredentials {
 	_init_.Initialize()
 
@@ -74,7 +74,7 @@ func IntegrationCredentials_FromRole(role awsiam.IRole) IntegrationCredentials {
 }
 
 // Use the calling user's identity to call the integration.
-// Experimental.
+// Deprecated.
 func IntegrationCredentials_UseCallerIdentity() IntegrationCredentials {
 	_init_.Initialize()
 

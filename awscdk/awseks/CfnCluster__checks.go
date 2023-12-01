@@ -163,9 +163,9 @@ func validateCfnCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnCluster_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnCluster_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil
@@ -174,30 +174,6 @@ func validateCfnCluster_IsCfnResourceParameters(construct constructs.IConstruct)
 func validateCfnCluster_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnCluster) validateSetAccessConfigParameters(val interface{}) error {
-	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
-	case *CfnCluster_AccessConfigProperty:
-		val := val.(*CfnCluster_AccessConfigProperty)
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	case CfnCluster_AccessConfigProperty:
-		val_ := val.(CfnCluster_AccessConfigProperty)
-		val := &val_
-		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
-			return err
-		}
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_AccessConfigProperty; received %#v (a %T)", val, val)
-		}
 	}
 
 	return nil

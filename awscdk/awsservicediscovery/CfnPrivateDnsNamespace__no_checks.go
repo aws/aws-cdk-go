@@ -72,7 +72,7 @@ func validateCfnPrivateDnsNamespace_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
-func validateCfnPrivateDnsNamespace_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnPrivateDnsNamespace_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

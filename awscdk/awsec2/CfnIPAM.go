@@ -99,7 +99,7 @@ type CfnIPAM interface {
 	// The key/value combination of a tag assigned to the resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The tier of the IPAM.
+	// IPAM is offered in a Free Tier and an Advanced Tier.
 	Tier() *string
 	SetTier(val *string)
 	// Deprecated.
@@ -569,11 +569,11 @@ func CfnIPAM_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnIPAM_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnIPAM_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnIPAM_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnIPAM_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -581,7 +581,7 @@ func CfnIPAM_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnIPAM",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

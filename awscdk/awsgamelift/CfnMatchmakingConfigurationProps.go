@@ -89,6 +89,8 @@ type CfnMatchmakingConfigurationProps struct {
 	//
 	BackfillMode *string `field:"optional" json:"backfillMode" yaml:"backfillMode"`
 	// A time stamp indicating when this data object was created.
+	//
+	// Format is a number expressed in Unix time as milliseconds (for example `"1469498468.057"` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-creationtime
 	//
 	CreationTime *string `field:"optional" json:"creationTime" yaml:"creationTime"`
@@ -129,7 +131,7 @@ type CfnMatchmakingConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-notificationtarget
 	//
 	NotificationTarget *string `field:"optional" json:"notificationTarget" yaml:"notificationTarget"`
-	// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) associated with the GameLift matchmaking rule set resource that this configuration uses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html#cfn-gamelift-matchmakingconfiguration-rulesetarn
 	//
 	RuleSetArn *string `field:"optional" json:"ruleSetArn" yaml:"ruleSetArn"`

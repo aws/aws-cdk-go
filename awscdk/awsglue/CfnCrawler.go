@@ -759,11 +759,11 @@ func CfnCrawler_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnCrawler_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnCrawler_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnCrawler_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnCrawler_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -771,7 +771,7 @@ func CfnCrawler_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_glue.CfnCrawler",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

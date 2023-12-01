@@ -72,7 +72,7 @@ func validateCfnGeoMatchSet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnGeoMatchSet_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnGeoMatchSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -72,7 +72,7 @@ func validateCfnFlywheel_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnFlywheel_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnFlywheel_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

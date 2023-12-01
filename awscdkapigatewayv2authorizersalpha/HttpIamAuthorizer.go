@@ -30,11 +30,11 @@ import (
 //
 //   routes[0].GrantInvoke(principal)
 //
-// Experimental.
+// Deprecated.
 type HttpIamAuthorizer interface {
 	awscdkapigatewayv2alpha.IHttpRouteAuthorizer
 	// Bind this authorizer to a specified Http route.
-	// Experimental.
+	// Deprecated.
 	Bind(_options *awscdkapigatewayv2alpha.HttpRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig
 }
 
@@ -43,7 +43,7 @@ type jsiiProxy_HttpIamAuthorizer struct {
 	internal.Type__awscdkapigatewayv2alphaIHttpRouteAuthorizer
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpIamAuthorizer() HttpIamAuthorizer {
 	_init_.Initialize()
 
@@ -58,7 +58,7 @@ func NewHttpIamAuthorizer() HttpIamAuthorizer {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpIamAuthorizer_Override(h HttpIamAuthorizer) {
 	_init_.Initialize()
 

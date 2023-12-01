@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
+// The `AWS::S3::StorageLensGroup` resource creates an S3 Storage Lens group.
+//
+// A Storage Lens group is a custom grouping of objects that include filters for prefixes, suffixes, object tags, object size, or object age. You can create an S3 Storage Lens group that includes a single filter or multiple filter conditions. To specify multiple filter conditions, you use `AND` or `OR` logical operators. For more information about S3 Storage Lens groups, see [Working with S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups-overview.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -110,7 +112,7 @@ type CfnStorageLensGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Sets the Storage Lens Group filter.
+	// This property contains the criteria for the Storage Lens group data that is displayed.
 	Filter() interface{}
 	SetFilter(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -123,7 +125,7 @@ type CfnStorageLensGroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name that identifies the Amazon S3 Storage Lens Group.
+	// This property contains the Storage Lens group name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -137,7 +139,7 @@ type CfnStorageLensGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
+	// This property contains the AWS resource tags that you're adding to your Storage Lens group.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -511,11 +513,11 @@ func CfnStorageLensGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnStorageLensGroup_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnStorageLensGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnStorageLensGroup_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnStorageLensGroup_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -523,7 +525,7 @@ func CfnStorageLensGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_s3.CfnStorageLensGroup",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

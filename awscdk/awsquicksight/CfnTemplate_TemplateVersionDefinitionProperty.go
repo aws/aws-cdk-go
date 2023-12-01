@@ -34,6 +34,7 @@ type CfnTemplate_TemplateVersionDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-filtergroups
 	//
 	FilterGroups interface{} `field:"optional" json:"filterGroups" yaml:"filterGroups"`
+	// An array of option definitions for a template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-options
 	//
 	Options interface{} `field:"optional" json:"options" yaml:"options"`

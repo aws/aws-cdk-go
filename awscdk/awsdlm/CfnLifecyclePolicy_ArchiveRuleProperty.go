@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot policies only]* Specifies a snapshot archiving rule for a schedule.
+// *[Custom snapshot policies only]* Specifies a snapshot archiving rule for a schedule.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

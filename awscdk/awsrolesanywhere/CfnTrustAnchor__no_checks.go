@@ -72,7 +72,7 @@ func validateCfnTrustAnchor_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnTrustAnchor_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTrustAnchor_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

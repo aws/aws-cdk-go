@@ -598,11 +598,11 @@ func CfnCACertificate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnCACertificate_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnCACertificate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnCACertificate_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnCACertificate_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -610,7 +610,7 @@ func CfnCACertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnCACertificate",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -563,11 +563,11 @@ func CfnInstanceStorageConfig_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnInstanceStorageConfig_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnInstanceStorageConfig_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnInstanceStorageConfig_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnInstanceStorageConfig_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -575,7 +575,7 @@ func CfnInstanceStorageConfig_IsCfnResource(construct constructs.IConstruct) *bo
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_connect.CfnInstanceStorageConfig",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

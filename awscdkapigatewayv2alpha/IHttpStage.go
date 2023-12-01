@@ -7,46 +7,46 @@ import (
 )
 
 // Represents the HttpStage.
-// Experimental.
+// Deprecated.
 type IHttpStage interface {
 	IStage
 	// Metric for the number of client-side errors captured in a given period.
 	// Default: - sum over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the total number API requests in a given period.
 	// Default: - SampleCount over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the amount of data processed in bytes.
 	// Default: - sum over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
 	// Default: - no statistic.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
 	//
 	// The latency includes the integration latency and other API Gateway overhead.
 	// Default: - no statistic.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of server-side errors captured in a given period.
 	// Default: - sum over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The API this stage is associated to.
-	// Experimental.
+	// Deprecated.
 	Api() IHttpApi
 	// The custom domain URL to this stage.
-	// Experimental.
+	// Deprecated.
 	DomainUrl() *string
 }
 

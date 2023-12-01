@@ -88,6 +88,7 @@ type CfnResiliencyPolicy interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// Tags assigned to the resource.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
 	// The tier for this resiliency policy, ranging from the highest severity ( `MissionCritical` ) to lowest ( `NonCritical` ).
@@ -529,11 +530,11 @@ func CfnResiliencyPolicy_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnResiliencyPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnResiliencyPolicy_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnResiliencyPolicy_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnResiliencyPolicy_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -541,7 +542,7 @@ func CfnResiliencyPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_resiliencehub.CfnResiliencyPolicy",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

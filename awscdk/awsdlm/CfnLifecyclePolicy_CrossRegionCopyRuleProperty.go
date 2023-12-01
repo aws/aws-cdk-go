@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot and AMI policies only]* Specifies a cross-Region copy rule for a snapshot and AMI policies.
+// *[Custom snapshot and AMI policies only]* Specifies a cross-Region copy rule for a snapshot and AMI policies.
 //
 // > To specify a cross-Region copy action for event-based polices, use [CrossRegionCopyAction](https://docs.aws.amazon.com/dlm/latest/APIReference/API_CrossRegionCopyAction.html) .
 //
@@ -47,7 +47,7 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-copytags
 	//
 	CopyTags interface{} `field:"optional" json:"copyTags" yaml:"copyTags"`
-	// *[AMI policies only]* The AMI deprecation rule for cross-Region AMI copies created by the rule.
+	// *[Custom AMI policies only]* The AMI deprecation rule for cross-Region AMI copies created by the rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-deprecaterule
 	//
 	DeprecateRule interface{} `field:"optional" json:"deprecateRule" yaml:"deprecateRule"`
@@ -57,7 +57,7 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	RetainRule interface{} `field:"optional" json:"retainRule" yaml:"retainRule"`
 	// > Use this parameter for snapshot policies only. For AMI policies, use *TargetRegion* instead.
 	//
-	// *[Snapshot policies only]* The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+	// *[Custom snapshot policies only]* The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-target
 	//
 	Target *string `field:"optional" json:"target" yaml:"target"`
@@ -65,7 +65,7 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	//
 	// For snapshot policies, use *Target* instead. For snapshot policies created before the *Target* parameter was introduced, this parameter indicates the target Region for snapshot copies.
 	//
-	// *[AMI policies only]* The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+	// *[Custom AMI policies only]* The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-targetregion
 	//
 	TargetRegion *string `field:"optional" json:"targetRegion" yaml:"targetRegion"`

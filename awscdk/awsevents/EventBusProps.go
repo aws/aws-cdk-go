@@ -7,21 +7,23 @@ package awsevents
 //   import events "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   myEventBus := events.NewEventBus(this, jsii.String("EventBus"), &EventBusProps{
-//   	EventBusName: jsii.String("MyEventBus1"),
+//   eventBus := events.NewEventBus(this, jsii.String("EventBus"), &EventBusProps{
+//   	EventBusName: jsii.String("DomainEvents"),
 //   })
 //
-//   tasks.NewEventBridgePutEvents(this, jsii.String("Send an event to EventBridge"), &EventBridgePutEventsProps{
-//   	Entries: []eventBridgePutEventsEntry{
-//   		&eventBridgePutEventsEntry{
-//   			Detail: sfn.TaskInput_FromObject(map[string]interface{}{
-//   				"Message": jsii.String("Hello from Step Functions!"),
-//   			}),
-//   			EventBus: myEventBus,
-//   			DetailType: jsii.String("MessageFromStepFunctions"),
-//   			Source: jsii.String("step.functions"),
-//   		},
-//   	},
+//   eventEntry := &EventBridgePutEventsEntry{
+//   	EventBus: EventBus,
+//   	Source: jsii.String("PetService"),
+//   	Detail: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
+//   		"Name": jsii.String("Fluffy"),
+//   	}),
+//   	DetailType: jsii.String("🐶"),
+//   }
+//
+//   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
+//   	Target: targets.NewEventBridgePutEvents(eventEntry, &ScheduleTargetBaseProps{
+//   	}),
 //   })
 //
 type EventBusProps struct {

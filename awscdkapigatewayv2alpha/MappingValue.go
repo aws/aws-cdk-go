@@ -25,11 +25,11 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated.
 type MappingValue interface {
 	IMappingValue
 	// Represents a Mapping Value.
-	// Experimental.
+	// Deprecated.
 	Value() *string
 }
 
@@ -49,7 +49,7 @@ func (j *jsiiProxy_MappingValue) Value() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewMappingValue(value *string) MappingValue {
 	_init_.Initialize()
 
@@ -67,7 +67,7 @@ func NewMappingValue(value *string) MappingValue {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewMappingValue_Override(m MappingValue, value *string) {
 	_init_.Initialize()
 
@@ -79,7 +79,7 @@ func NewMappingValue_Override(m MappingValue, value *string) {
 }
 
 // Creates a context variable mapping value.
-// Experimental.
+// Deprecated.
 func MappingValue_ContextVariable(variableName *string) MappingValue {
 	_init_.Initialize()
 
@@ -99,7 +99,7 @@ func MappingValue_ContextVariable(variableName *string) MappingValue {
 }
 
 // Creates a custom mapping value.
-// Experimental.
+// Deprecated.
 func MappingValue_Custom(value *string) MappingValue {
 	_init_.Initialize()
 
@@ -119,7 +119,7 @@ func MappingValue_Custom(value *string) MappingValue {
 }
 
 // Creates a request body mapping value.
-// Experimental.
+// Deprecated.
 func MappingValue_RequestBody(name *string) MappingValue {
 	_init_.Initialize()
 
@@ -139,7 +139,7 @@ func MappingValue_RequestBody(name *string) MappingValue {
 }
 
 // Creates a header mapping value.
-// Experimental.
+// Deprecated.
 func MappingValue_RequestHeader(name *string) MappingValue {
 	_init_.Initialize()
 
@@ -159,7 +159,7 @@ func MappingValue_RequestHeader(name *string) MappingValue {
 }
 
 // Creates a request path mapping value.
-// Experimental.
+// Deprecated.
 func MappingValue_RequestPath() MappingValue {
 	_init_.Initialize()
 
@@ -176,7 +176,7 @@ func MappingValue_RequestPath() MappingValue {
 }
 
 // Creates a request path parameter mapping value.
-// Experimental.
+// Deprecated.
 func MappingValue_RequestPathParam(name *string) MappingValue {
 	_init_.Initialize()
 
@@ -196,7 +196,7 @@ func MappingValue_RequestPathParam(name *string) MappingValue {
 }
 
 // Creates a query string mapping value.
-// Experimental.
+// Deprecated.
 func MappingValue_RequestQueryString(name *string) MappingValue {
 	_init_.Initialize()
 
@@ -216,7 +216,7 @@ func MappingValue_RequestQueryString(name *string) MappingValue {
 }
 
 // Creates a stage variable mapping value.
-// Experimental.
+// Deprecated.
 func MappingValue_StageVariable(variableName *string) MappingValue {
 	_init_.Initialize()
 

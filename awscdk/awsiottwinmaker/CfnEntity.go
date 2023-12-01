@@ -66,6 +66,46 @@ import (
 //   			},
 //   		},
 //   	},
+//   	CompositeComponents: map[string]interface{}{
+//   		"compositeComponentsKey": &CompositeComponentProperty{
+//   			"componentName": jsii.String("componentName"),
+//   			"componentPath": jsii.String("componentPath"),
+//   			"componentTypeId": jsii.String("componentTypeId"),
+//   			"description": jsii.String("description"),
+//   			"properties": map[string]interface{}{
+//   				"propertiesKey": &PropertyProperty{
+//   					"definition": definition,
+//   					"value": &dataValueProperty{
+//   						"booleanValue": jsii.Boolean(false),
+//   						"doubleValue": jsii.Number(123),
+//   						"expression": jsii.String("expression"),
+//   						"integerValue": jsii.Number(123),
+//   						"listValue": []interface{}{
+//   							dataValueProperty_,
+//   						},
+//   						"longValue": jsii.Number(123),
+//   						"mapValue": map[string]interface{}{
+//   							"mapValueKey": dataValueProperty_,
+//   						},
+//   						"relationshipValue": relationshipValue,
+//   						"stringValue": jsii.String("stringValue"),
+//   					},
+//   				},
+//   			},
+//   			"propertyGroups": map[string]interface{}{
+//   				"propertyGroupsKey": &PropertyGroupProperty{
+//   					"groupType": jsii.String("groupType"),
+//   					"propertyNames": []*string{
+//   						jsii.String("propertyNames"),
+//   					},
+//   				},
+//   			},
+//   			"status": &StatusProperty{
+//   				"error": error,
+//   				"state": jsii.String("state"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	EntityId: jsii.String("entityId"),
 //   	ParentEntityId: jsii.String("parentEntityId"),
@@ -102,6 +142,9 @@ type CfnEntity interface {
 	// An object that maps strings to the components in the entity.
 	Components() interface{}
 	SetComponents(val interface{})
+	// A map that sets information about a composite component.
+	CompositeComponents() interface{}
+	SetCompositeComponents(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -424,6 +467,16 @@ func (j *jsiiProxy_CfnEntity) Components() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEntity) CompositeComponents() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"compositeComponents",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEntity) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -603,6 +656,17 @@ func (j *jsiiProxy_CfnEntity)SetComponents(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnEntity)SetCompositeComponents(val interface{}) {
+	if err := j.validateSetCompositeComponentsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"compositeComponents",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEntity)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -681,11 +745,11 @@ func CfnEntity_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnEntity_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnEntity_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnEntity_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnEntity_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -693,7 +757,7 @@ func CfnEntity_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iottwinmaker.CfnEntity",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

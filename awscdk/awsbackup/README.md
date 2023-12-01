@@ -63,6 +63,29 @@ plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
 If not specified, a new IAM role with a managed policy for backup will be
 created for the selection. The `BackupSelection` implements `IGrantable`.
 
+To disable the plan from assigning the default `AWSBackupServiceRolePolicyForBackup` backup policy use the `disableDefaultBackupPolicy` property.
+
+This is useful if you want to avoid granting unnecessary permissions to the role.
+
+```go
+var plan backupPlan
+
+
+role := iam.NewRole(this, jsii.String("BackupRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("backup.amazonaws.com")),
+})
+// Assign S3-specific backup policy
+role.AddManagedPolicy(iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AWSBackupServiceRolePolicyForS3Backup")))
+
+plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
+	Resources: []backupResource{
+		backup.*backupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
+	},
+	Role: Role,
+	DisableDefaultBackupPolicy: jsii.Boolean(true),
+})
+```
+
 To add rules to a plan, use `addRule()`:
 
 ```go

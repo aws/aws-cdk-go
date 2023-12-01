@@ -29,12 +29,24 @@ import (
 //   			MemberAbilities: []*string{
 //   				jsii.String("memberAbilities"),
 //   			},
+//
+//   			// the properties below are optional
+//   			PaymentConfiguration: &PaymentConfigurationProperty{
+//   				QueryCompute: &QueryComputePaymentConfigProperty{
+//   					IsResponsible: jsii.Boolean(false),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   	QueryLogStatus: jsii.String("queryLogStatus"),
 //
 //   	// the properties below are optional
+//   	CreatorPaymentConfiguration: &PaymentConfigurationProperty{
+//   		QueryCompute: &QueryComputePaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
+//   	},
 //   	DataEncryptionMetadata: &DataEncryptionMetadataProperty{
 //   		AllowCleartext: jsii.Boolean(false),
 //   		AllowDuplicates: jsii.Boolean(false),
@@ -77,6 +89,8 @@ type CfnCollaboration interface {
 	// The abilities granted to the collaboration creator.
 	CreatorMemberAbilities() *[]*string
 	SetCreatorMemberAbilities(val *[]*string)
+	CreatorPaymentConfiguration() interface{}
+	SetCreatorPaymentConfiguration(val interface{})
 	// The settings for client-side encryption for cryptographic computing.
 	DataEncryptionMetadata() interface{}
 	SetDataEncryptionMetadata(val interface{})
@@ -342,6 +356,16 @@ func (j *jsiiProxy_CfnCollaboration) CreatorMemberAbilities() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollaboration) CreatorPaymentConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"creatorPaymentConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollaboration) DataEncryptionMetadata() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -512,6 +536,17 @@ func (j *jsiiProxy_CfnCollaboration)SetCreatorMemberAbilities(val *[]*string) {
 	)
 }
 
+func (j *jsiiProxy_CfnCollaboration)SetCreatorPaymentConfiguration(val interface{}) {
+	if err := j.validateSetCreatorPaymentConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"creatorPaymentConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCollaboration)SetDataEncryptionMetadata(val interface{}) {
 	if err := j.validateSetDataEncryptionMetadataParameters(val); err != nil {
 		panic(err)
@@ -602,11 +637,11 @@ func CfnCollaboration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnCollaboration_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnCollaboration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnCollaboration_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnCollaboration_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -614,7 +649,7 @@ func CfnCollaboration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

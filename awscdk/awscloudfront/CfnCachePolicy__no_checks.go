@@ -72,7 +72,7 @@ func validateCfnCachePolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnCachePolicy_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCachePolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

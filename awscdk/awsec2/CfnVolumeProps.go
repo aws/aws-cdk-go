@@ -62,11 +62,11 @@ type CfnVolumeProps struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000-16,000 IOPS
-	// - `io1` : 100-64,000 IOPS
-	// - `io2` : 100-64,000 IOPS
+	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `io1` : 100 - 64,000 IOPS
+	// - `io2` : 100 - 256,000 IOPS
 	//
-	// `io1` and `io2` volumes support up to 64,000 IOPS only on [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families support performance up to 32,000 IOPS.
+	// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
 	//
 	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-iops
@@ -103,10 +103,11 @@ type CfnVolumeProps struct {
 	//
 	// The following are the supported volumes sizes for each volume type:
 	//
-	// - `gp2` and `gp3` : 1-16,384
-	// - `io1` and `io2` : 4-16,384
-	// - `st1` and `sc1` : 125-16,384
-	// - `standard` : 1-1,024.
+	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `io1` : 4 - 16,384 GiB
+	// - `io2` : 4 - 65,536 GiB
+	// - `st1` and `sc1` : 125 - 16,384 GiB
+	// - `standard` : 1 - 1024 GiB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-size
 	//
 	Size *float64 `field:"optional" json:"size" yaml:"size"`

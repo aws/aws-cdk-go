@@ -30,11 +30,11 @@ import (
 //   	Authorizer: Authorizer,
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpJwtAuthorizer interface {
 	awscdkapigatewayv2alpha.IHttpRouteAuthorizer
 	// Bind this authorizer to a specified Http route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *awscdkapigatewayv2alpha.HttpRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.HttpRouteAuthorizerConfig
 }
 
@@ -44,7 +44,7 @@ type jsiiProxy_HttpJwtAuthorizer struct {
 }
 
 // Initialize a JWT authorizer to be bound with HTTP route.
-// Experimental.
+// Deprecated.
 func NewHttpJwtAuthorizer(id *string, jwtIssuer *string, props *HttpJwtAuthorizerProps) HttpJwtAuthorizer {
 	_init_.Initialize()
 
@@ -63,7 +63,7 @@ func NewHttpJwtAuthorizer(id *string, jwtIssuer *string, props *HttpJwtAuthorize
 }
 
 // Initialize a JWT authorizer to be bound with HTTP route.
-// Experimental.
+// Deprecated.
 func NewHttpJwtAuthorizer_Override(h HttpJwtAuthorizer, id *string, jwtIssuer *string, props *HttpJwtAuthorizerProps) {
 	_init_.Initialize()
 

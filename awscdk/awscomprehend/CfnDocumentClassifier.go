@@ -700,11 +700,11 @@ func CfnDocumentClassifier_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnDocumentClassifier_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnDocumentClassifier_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnDocumentClassifier_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnDocumentClassifier_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -712,7 +712,7 @@ func CfnDocumentClassifier_IsCfnResource(construct constructs.IConstruct) *bool 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_comprehend.CfnDocumentClassifier",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

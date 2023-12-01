@@ -7,55 +7,55 @@ import (
 )
 
 // Represents an HTTP API.
-// Experimental.
+// Deprecated.
 type IHttpApi interface {
 	IApi
 	// Add a new VpcLink.
-	// Experimental.
+	// Deprecated.
 	AddVpcLink(options *VpcLinkProps) VpcLink
 	// Metric for the number of client-side errors captured in a given period.
 	// Default: - sum over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the total number API requests in a given period.
 	// Default: - SampleCount over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the amount of data processed in bytes.
 	// Default: - sum over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
 	// Default: - no statistic.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
 	//
 	// The latency includes the integration latency and other API Gateway overhead.
 	// Default: - no statistic.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of server-side errors captured in a given period.
 	// Default: - sum over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Default OIDC scopes attached to all routes in the gateway, unless explicitly configured on the route.
 	//
 	// The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation.
 	// Default: - no default authorization scopes.
 	//
-	// Experimental.
+	// Deprecated.
 	DefaultAuthorizationScopes() *[]*string
 	// Default Authorizer applied to all routes in the gateway.
 	// Default: - no default authorizer.
 	//
-	// Experimental.
+	// Deprecated.
 	DefaultAuthorizer() IHttpRouteAuthorizer
 	// The identifier of this API Gateway HTTP API.
 	// Deprecated: - use apiId instead.

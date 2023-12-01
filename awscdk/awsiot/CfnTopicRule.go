@@ -948,11 +948,11 @@ func CfnTopicRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnTopicRule_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnTopicRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnTopicRule_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnTopicRule_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -960,7 +960,7 @@ func CfnTopicRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnTopicRule",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -72,7 +72,7 @@ func validateCfnDataLakeSettings_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnDataLakeSettings_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDataLakeSettings_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

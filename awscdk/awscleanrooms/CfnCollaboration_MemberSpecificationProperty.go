@@ -14,6 +14,13 @@ package awscleanrooms
 //   	MemberAbilities: []*string{
 //   		jsii.String("memberAbilities"),
 //   	},
+//
+//   	// the properties below are optional
+//   	PaymentConfiguration: &PaymentConfigurationProperty{
+//   		QueryCompute: &QueryComputePaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html
@@ -35,5 +42,8 @@ type CfnCollaboration_MemberSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-memberabilities
 	//
 	MemberAbilities *[]*string `field:"required" json:"memberAbilities" yaml:"memberAbilities"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-paymentconfiguration
+	//
+	PaymentConfiguration interface{} `field:"optional" json:"paymentConfiguration" yaml:"paymentConfiguration"`
 }
 

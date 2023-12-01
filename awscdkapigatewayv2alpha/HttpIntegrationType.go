@@ -2,7 +2,7 @@ package awscdkapigatewayv2alpha
 
 
 // Supported integration types.
-// Experimental.
+// Deprecated.
 type HttpIntegrationType string
 
 const (
@@ -13,7 +13,7 @@ const (
 	// integration. For HTTP API private integrations, use an HTTP_PROXY integration.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-http.html
 	//
-	// Experimental.
+	// Deprecated.
 	HttpIntegrationType_HTTP_PROXY HttpIntegrationType = "HTTP_PROXY"
 	// Integration type is an AWS proxy.
 	//
@@ -22,7 +22,7 @@ const (
 	// integration.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 	//
-	// Experimental.
+	// Deprecated.
 	HttpIntegrationType_AWS_PROXY HttpIntegrationType = "AWS_PROXY"
 )
 

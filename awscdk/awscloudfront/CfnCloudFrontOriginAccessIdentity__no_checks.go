@@ -72,7 +72,7 @@ func validateCfnCloudFrontOriginAccessIdentity_IsCfnElementParameters(x interfac
 	return nil
 }
 
-func validateCfnCloudFrontOriginAccessIdentity_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCloudFrontOriginAccessIdentity_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

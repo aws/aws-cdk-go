@@ -72,7 +72,7 @@ func validateCfnDomainNameApiAssociation_IsCfnElementParameters(x interface{}) e
 	return nil
 }
 
-func validateCfnDomainNameApiAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDomainNameApiAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

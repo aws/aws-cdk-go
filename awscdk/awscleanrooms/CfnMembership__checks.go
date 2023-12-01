@@ -163,9 +163,9 @@ func validateCfnMembership_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnMembership_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnMembership_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil
@@ -205,6 +205,30 @@ func (j *jsiiProxy_CfnMembership) validateSetDefaultResultConfigurationParameter
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMembership_MembershipProtectedQueryResultConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnMembership) validateSetPaymentConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnMembership_MembershipPaymentConfigurationProperty:
+		val := val.(*CfnMembership_MembershipPaymentConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnMembership_MembershipPaymentConfigurationProperty:
+		val_ := val.(CfnMembership_MembershipPaymentConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMembership_MembershipPaymentConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

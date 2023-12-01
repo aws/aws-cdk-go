@@ -15,13 +15,13 @@ package awscdkapigatewayv2alpha
 //   	StageName: jsii.String("stageName"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type WebSocketStageAttributes struct {
 	// The name of the stage.
-	// Experimental.
+	// Deprecated.
 	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 	// The API to which this stage is associated.
-	// Experimental.
+	// Deprecated.
 	Api IWebSocketApi `field:"required" json:"api" yaml:"api"`
 }
 

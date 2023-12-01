@@ -72,7 +72,7 @@ func validateCfnClientVpnTargetNetworkAssociation_IsCfnElementParameters(x inter
 	return nil
 }
 
-func validateCfnClientVpnTargetNetworkAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnClientVpnTargetNetworkAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

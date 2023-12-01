@@ -8,29 +8,22 @@ import (
 // Properties for defining an Application Load Balancer.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
-//   var vpc vpc
+//   import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 //
-//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   })
 //
-//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("lb"), &ApplicationLoadBalancerProps{
 //   	Vpc: Vpc,
-//   	InternetFacing: jsii.Boolean(true),
 //   })
-//   listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),
 //   })
-//   service.RegisterLoadBalancerTargets(&EcsTarget{
-//   	ContainerName: jsii.String("web"),
-//   	ContainerPort: jsii.Number(80),
-//   	NewTargetGroupId: jsii.String("ECS"),
-//   	Listener: ecs.ListenerConfig_ApplicationListener(listener, &AddApplicationTargetsProps{
-//   		Protocol: elbv2.ApplicationProtocol_HTTPS,
-//   	}),
+//   listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 type ApplicationLoadBalancerProps struct {

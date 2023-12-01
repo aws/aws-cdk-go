@@ -72,7 +72,7 @@ func validateCfnUserPoolUserToGroupAttachment_IsCfnElementParameters(x interface
 	return nil
 }
 
-func validateCfnUserPoolUserToGroupAttachment_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnUserPoolUserToGroupAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -49,7 +49,6 @@ import (
 type CfnSecurityGroupEgress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Security Group Rule Id.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -584,11 +583,11 @@ func CfnSecurityGroupEgress_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSecurityGroupEgress_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSecurityGroupEgress_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSecurityGroupEgress_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSecurityGroupEgress_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -596,7 +595,7 @@ func CfnSecurityGroupEgress_IsCfnResource(construct constructs.IConstruct) *bool
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnSecurityGroupEgress",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

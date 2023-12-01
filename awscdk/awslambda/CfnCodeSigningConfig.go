@@ -456,11 +456,11 @@ func CfnCodeSigningConfig_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnCodeSigningConfig_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnCodeSigningConfig_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnCodeSigningConfig_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnCodeSigningConfig_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -468,7 +468,7 @@ func CfnCodeSigningConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.CfnCodeSigningConfig",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

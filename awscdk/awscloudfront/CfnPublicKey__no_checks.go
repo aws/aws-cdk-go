@@ -72,7 +72,7 @@ func validateCfnPublicKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnPublicKey_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnPublicKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

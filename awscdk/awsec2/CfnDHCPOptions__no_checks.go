@@ -72,7 +72,7 @@ func validateCfnDHCPOptions_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnDHCPOptions_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDHCPOptions_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

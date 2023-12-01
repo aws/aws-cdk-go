@@ -551,11 +551,11 @@ func CfnLocationFSxONTAP_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnLocationFSxONTAP_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnLocationFSxONTAP_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnLocationFSxONTAP_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnLocationFSxONTAP_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -563,7 +563,7 @@ func CfnLocationFSxONTAP_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_datasync.CfnLocationFSxONTAP",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

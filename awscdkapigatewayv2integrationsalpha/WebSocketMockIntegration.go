@@ -17,11 +17,11 @@ import (
 //
 //   webSocketMockIntegration := apigatewayv2_integrations_alpha.NewWebSocketMockIntegration(jsii.String("id"))
 //
-// Experimental.
+// Deprecated.
 type WebSocketMockIntegration interface {
 	awscdkapigatewayv2alpha.WebSocketRouteIntegration
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig
 }
 
@@ -30,7 +30,7 @@ type jsiiProxy_WebSocketMockIntegration struct {
 	internal.Type__awscdkapigatewayv2alphaWebSocketRouteIntegration
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketMockIntegration(id *string) WebSocketMockIntegration {
 	_init_.Initialize()
 
@@ -48,7 +48,7 @@ func NewWebSocketMockIntegration(id *string) WebSocketMockIntegration {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketMockIntegration_Override(w WebSocketMockIntegration, id *string) {
 	_init_.Initialize()
 

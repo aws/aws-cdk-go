@@ -27,6 +27,9 @@ type CfnDataSet_InputColumnProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The sub data type of the column.
+	//
+	// Sub types are only available for decimal columns that are part of a SPICE dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-subtype
 	//
 	SubType *string `field:"optional" json:"subType" yaml:"subType"`

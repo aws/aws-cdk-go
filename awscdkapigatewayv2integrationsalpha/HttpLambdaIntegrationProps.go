@@ -20,21 +20,21 @@ import (
 //   	PayloadFormatVersion: payloadFormatVersion,
 //   }
 //
-// Experimental.
+// Deprecated.
 type HttpLambdaIntegrationProps struct {
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Default: undefined requests are sent to the backend unmodified.
 	//
-	// Experimental.
+	// Deprecated.
 	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// Version of the payload sent to the lambda handler.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 	//
 	// Default: PayloadFormatVersion.VERSION_2_0
 	//
-	// Experimental.
+	// Deprecated.
 	PayloadFormatVersion awscdkapigatewayv2alpha.PayloadFormatVersion `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 }
 

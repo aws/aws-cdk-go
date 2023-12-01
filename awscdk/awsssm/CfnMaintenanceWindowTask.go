@@ -750,11 +750,11 @@ func CfnMaintenanceWindowTask_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnMaintenanceWindowTask_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnMaintenanceWindowTask_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnMaintenanceWindowTask_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnMaintenanceWindowTask_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -762,7 +762,7 @@ func CfnMaintenanceWindowTask_IsCfnResource(construct constructs.IConstruct) *bo
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ssm.CfnMaintenanceWindowTask",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

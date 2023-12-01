@@ -29,6 +29,7 @@ import (
 //   			Ip: jsii.String("ip"),
 //   			Ipv6: jsii.String("ipv6"),
 //   			Port: jsii.String("port"),
+//   			Protocol: jsii.String("protocol"),
 //   		},
 //   	},
 //   }

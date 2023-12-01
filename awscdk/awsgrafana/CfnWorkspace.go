@@ -187,7 +187,7 @@ type CfnWorkspace interface {
 	// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
 	PermissionType() *string
 	SetPermissionType(val *string)
-	// Allow workspace admins to install plugins.
+	// Whether plugin administration is enabled in the workspace.
 	PluginAdminEnabled() interface{}
 	SetPluginAdminEnabled(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -916,11 +916,11 @@ func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnWorkspace_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnWorkspace_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnWorkspace_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -928,7 +928,7 @@ func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_grafana.CfnWorkspace",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

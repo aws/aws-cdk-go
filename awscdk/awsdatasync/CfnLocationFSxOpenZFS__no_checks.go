@@ -72,7 +72,7 @@ func validateCfnLocationFSxOpenZFS_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnLocationFSxOpenZFS_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnLocationFSxOpenZFS_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

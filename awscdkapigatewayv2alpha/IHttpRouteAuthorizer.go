@@ -5,10 +5,10 @@ import (
 )
 
 // An authorizer that can attach to an Http Route.
-// Experimental.
+// Deprecated.
 type IHttpRouteAuthorizer interface {
 	// Bind this authorizer to a specified Http route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig
 }
 

@@ -72,7 +72,7 @@ func validateCfnLoadBalancerTlsCertificate_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnLoadBalancerTlsCertificate_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnLoadBalancerTlsCertificate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

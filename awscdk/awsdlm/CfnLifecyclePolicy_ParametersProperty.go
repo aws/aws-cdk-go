@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot and AMI policies only]* Specifies optional parameters for snapshot and AMI policies.
+// *[Custom snapshot and AMI policies only]* Specifies optional parameters for snapshot and AMI policies.
 //
 // The set of valid parameters depends on the combination of policy type and target resource type.
 //
@@ -26,19 +26,19 @@ package awsdlm
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html
 //
 type CfnLifecyclePolicy_ParametersProperty struct {
-	// *[Snapshot policies that target instances only]* Indicates whether to exclude the root volume from multi-volume snapshot sets.
+	// *[Custom snapshot policies that target instances only]* Indicates whether to exclude the root volume from multi-volume snapshot sets.
 	//
 	// The default is `false` . If you specify `true` , then the root volumes attached to targeted instances will be excluded from the multi-volume snapshot sets created by the policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludebootvolume
 	//
 	ExcludeBootVolume interface{} `field:"optional" json:"excludeBootVolume" yaml:"excludeBootVolume"`
-	// *[Snapshot policies that target instances only]* The tags used to identify data (non-root) volumes to exclude from multi-volume snapshot sets.
+	// *[Custom snapshot policies that target instances only]* The tags used to identify data (non-root) volumes to exclude from multi-volume snapshot sets.
 	//
 	// If you create a snapshot lifecycle policy that targets instances and you specify tags for this parameter, then data volumes with the specified tags that are attached to targeted instances will be excluded from the multi-volume snapshot sets created by the policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-excludedatavolumetags
 	//
 	ExcludeDataVolumeTags interface{} `field:"optional" json:"excludeDataVolumeTags" yaml:"excludeDataVolumeTags"`
-	// *[AMI policies only]* Indicates whether targeted instances are rebooted when the lifecycle policy runs.
+	// *[Custom AMI policies only]* Indicates whether targeted instances are rebooted when the lifecycle policy runs.
 	//
 	// `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html#cfn-dlm-lifecyclepolicy-parameters-noreboot

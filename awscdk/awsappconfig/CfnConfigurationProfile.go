@@ -621,11 +621,11 @@ func CfnConfigurationProfile_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnConfigurationProfile_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnConfigurationProfile_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnConfigurationProfile_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnConfigurationProfile_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -633,7 +633,7 @@ func CfnConfigurationProfile_IsCfnResource(construct constructs.IConstruct) *boo
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appconfig.CfnConfigurationProfile",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

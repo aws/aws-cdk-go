@@ -72,7 +72,7 @@ func validateCfnResourceUpdateConstraint_IsCfnElementParameters(x interface{}) e
 	return nil
 }
 
-func validateCfnResourceUpdateConstraint_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnResourceUpdateConstraint_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

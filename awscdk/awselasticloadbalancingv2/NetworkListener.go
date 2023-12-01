@@ -11,22 +11,32 @@ import (
 // Define a Network Listener.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
+//   var vpc vpc
+//   var asg autoScalingGroup
+//   var sg iSecurityGroup
 //
 //
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &NetworkLoadBalancerProps{
+//   // Create the load balancer in a VPC. 'internetFacing' is 'false'
+//   // by default, which creates an internal load balancer.
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
-//   })
-//   listener := lb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   listener.AddTargets(jsii.String("target"), &AddNetworkTargetsProps{
-//   	Port: jsii.Number(80),
+//   	InternetFacing: jsii.Boolean(true),
+//   	SecurityGroups: []*iSecurityGroup{
+//   		sg,
+//   	},
 //   })
 //
-//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   // Add a listener on a particular port.
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(443),
+//   })
+//
+//   // Add targets on a particular port.
+//   listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
+//   	Port: jsii.Number(443),
+//   	Targets: []iNetworkLoadBalancerTarget{
+//   		asg,
+//   	},
 //   })
 //
 type NetworkListener interface {

@@ -163,9 +163,9 @@ func validateCfnListener_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnListener_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnListener_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil
@@ -305,6 +305,30 @@ func (j *jsiiProxy_CfnListener) validateSetDefaultActionsParameters(val interfac
 func (j *jsiiProxy_CfnListener) validateSetLoadBalancerArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnListener) validateSetMutualAuthenticationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnListener_MutualAuthenticationProperty:
+		val := val.(*CfnListener_MutualAuthenticationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnListener_MutualAuthenticationProperty:
+		val_ := val.(CfnListener_MutualAuthenticationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnListener_MutualAuthenticationProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

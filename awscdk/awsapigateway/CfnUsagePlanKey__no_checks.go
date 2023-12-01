@@ -72,7 +72,7 @@ func validateCfnUsagePlanKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnUsagePlanKey_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnUsagePlanKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -10,17 +10,17 @@ import (
 // Represents an APIGatewayV2 DomainName.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html
 //
-// Experimental.
+// Deprecated.
 type IDomainName interface {
 	awscdk.IResource
 	// The custom domain name.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 	// The domain name associated with the regional endpoint for this custom domain name.
-	// Experimental.
+	// Deprecated.
 	RegionalDomainName() *string
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-	// Experimental.
+	// Deprecated.
 	RegionalHostedZoneId() *string
 }
 

@@ -72,7 +72,7 @@ func validateCfnVPCPeeringConnection_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
-func validateCfnVPCPeeringConnection_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnVPCPeeringConnection_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

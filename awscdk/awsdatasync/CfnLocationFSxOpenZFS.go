@@ -524,11 +524,11 @@ func CfnLocationFSxOpenZFS_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnLocationFSxOpenZFS_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnLocationFSxOpenZFS_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnLocationFSxOpenZFS_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnLocationFSxOpenZFS_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -536,7 +536,7 @@ func CfnLocationFSxOpenZFS_IsCfnResource(construct constructs.IConstruct) *bool 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_datasync.CfnLocationFSxOpenZFS",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

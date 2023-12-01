@@ -5,10 +5,10 @@ import (
 )
 
 // Represents a Mapping Value.
-// Experimental.
+// Deprecated.
 type IMappingValue interface {
 	// Represents a Mapping Value.
-	// Experimental.
+	// Deprecated.
 	Value() *string
 }
 

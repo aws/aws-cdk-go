@@ -15,15 +15,15 @@ package awscdkapigatewayv2alpha
 //   	ApiEndpoint: jsii.String("apiEndpoint"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type HttpApiAttributes struct {
 	// The identifier of the HttpApi.
-	// Experimental.
+	// Deprecated.
 	HttpApiId *string `field:"required" json:"httpApiId" yaml:"httpApiId"`
 	// The endpoint URL of the HttpApi.
 	// Default: - throws an error if apiEndpoint is accessed.
 	//
-	// Experimental.
+	// Deprecated.
 	ApiEndpoint *string `field:"optional" json:"apiEndpoint" yaml:"apiEndpoint"`
 }
 

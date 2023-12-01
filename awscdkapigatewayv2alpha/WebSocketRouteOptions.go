@@ -15,26 +15,26 @@ package awscdkapigatewayv2alpha
 //   	StageName: jsii.String("dev"),
 //   	AutoDeploy: jsii.Boolean(true),
 //   })
-//   webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
+//   webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
 //   	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
-// Experimental.
+// Deprecated.
 type WebSocketRouteOptions struct {
 	// The integration to be configured on this route.
-	// Experimental.
+	// Deprecated.
 	Integration WebSocketRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 	// The authorize to this route.
 	//
 	// You can only set authorizer to a $connect route.
 	// Default: - No Authorizer.
 	//
-	// Experimental.
+	// Deprecated.
 	Authorizer IWebSocketRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// Should the route send a response to the client.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	ReturnResponse *bool `field:"optional" json:"returnResponse" yaml:"returnResponse"`
 }
 

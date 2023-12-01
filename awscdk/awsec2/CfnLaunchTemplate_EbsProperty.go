@@ -40,13 +40,13 @@ type CfnLaunchTemplate_EbsProperty struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000-16,000 IOPS
-	// - `io1` : 100-64,000 IOPS
-	// - `io2` : 100-64,000 IOPS
+	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `io1` : 100 - 64,000 IOPS
+	// - `io2` : 100 - 256,000 IOPS
 	//
-	// For `io1` and `io2` volumes, we guarantee 64,000 IOPS only for [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families guarantee performance up to 32,000 IOPS.
+	// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
 	//
-	// This parameter is supported for `io1` , `io2` , and `gp3` volumes only. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
+	// This parameter is supported for `io1` , `io2` , and `gp3` volumes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-iops
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
@@ -68,10 +68,11 @@ type CfnLaunchTemplate_EbsProperty struct {
 	//
 	// You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
 	//
-	// - `gp2` and `gp3` : 1-16,384
-	// - `io1` and `io2` : 4-16,384
-	// - `st1` and `sc1` : 125-16,384
-	// - `standard` : 1-1,024.
+	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `io1` : 4 - 16,384 GiB
+	// - `io2` : 4 - 65,536 GiB
+	// - `st1` and `sc1` : 125 - 16,384 GiB
+	// - `standard` : 1 - 1024 GiB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-volumesize
 	//
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`

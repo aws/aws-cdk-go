@@ -640,11 +640,11 @@ func CfnVerifiedAccessTrustProvider_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnVerifiedAccessTrustProvider_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnVerifiedAccessTrustProvider_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnVerifiedAccessTrustProvider_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnVerifiedAccessTrustProvider_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -652,7 +652,7 @@ func CfnVerifiedAccessTrustProvider_IsCfnResource(construct constructs.IConstruc
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessTrustProvider",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

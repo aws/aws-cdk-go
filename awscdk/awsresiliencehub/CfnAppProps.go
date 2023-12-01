@@ -260,6 +260,9 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resiliencypolicyarn
 	//
 	ResiliencyPolicyArn *string `field:"optional" json:"resiliencyPolicyArn" yaml:"resiliencyPolicyArn"`
+	// Tags assigned to the resource.
+	//
+	// A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

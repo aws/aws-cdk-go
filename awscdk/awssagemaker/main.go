@@ -494,48 +494,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sagemaker.CfnDomain.CodeEditorAppSettingsProperty",
-		reflect.TypeOf((*CfnDomain_CodeEditorAppSettingsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sagemaker.CfnDomain.CodeRepositoryProperty",
-		reflect.TypeOf((*CfnDomain_CodeRepositoryProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sagemaker.CfnDomain.CustomFileSystemConfigProperty",
-		reflect.TypeOf((*CfnDomain_CustomFileSystemConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.CustomImageProperty",
 		reflect.TypeOf((*CfnDomain_CustomImageProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sagemaker.CfnDomain.CustomPosixUserConfigProperty",
-		reflect.TypeOf((*CfnDomain_CustomPosixUserConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sagemaker.CfnDomain.DefaultEbsStorageSettingsProperty",
-		reflect.TypeOf((*CfnDomain_DefaultEbsStorageSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.DefaultSpaceSettingsProperty",
 		reflect.TypeOf((*CfnDomain_DefaultSpaceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sagemaker.CfnDomain.DefaultSpaceStorageSettingsProperty",
-		reflect.TypeOf((*CfnDomain_DefaultSpaceStorageSettingsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.DomainSettingsProperty",
 		reflect.TypeOf((*CfnDomain_DomainSettingsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sagemaker.CfnDomain.EFSFileSystemConfigProperty",
-		reflect.TypeOf((*CfnDomain_EFSFileSystemConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sagemaker.CfnDomain.JupyterLabAppSettingsProperty",
-		reflect.TypeOf((*CfnDomain_JupyterLabAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.JupyterServerAppSettingsProperty",

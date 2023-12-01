@@ -26,7 +26,7 @@ package awslambdanodejs
 //   			"process.env.PRODUCTION": JSON.stringify(jsii.Boolean(true)),
 //   			"process.env.NUMBER": JSON.stringify(jsii.Number(123)),
 //   		},
-//   		LogLevel: nodejs.LogLevel_SILENT,
+//   		LogLevel: nodejs.LogLevel_ERROR,
 //   		 // defaults to LogLevel.WARNING
 //   		KeepNames: jsii.Boolean(true),
 //   		 // defaults to false
@@ -64,6 +64,10 @@ type LogLevel string
 
 const (
 	// Show everything.
+	LogLevel_VERBOSE LogLevel = "VERBOSE"
+	// Show everything from info and some additional messages for debugging.
+	LogLevel_DEBUG LogLevel = "DEBUG"
+	// Show warnings, errors, and an output file summary.
 	LogLevel_INFO LogLevel = "INFO"
 	// Show warnings and errors.
 	LogLevel_WARNING LogLevel = "WARNING"

@@ -455,11 +455,11 @@ func CfnInstanceAccessControlAttributeConfiguration_IsCfnElement(x interface{}) 
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnInstanceAccessControlAttributeConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnInstanceAccessControlAttributeConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnInstanceAccessControlAttributeConfiguration_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnInstanceAccessControlAttributeConfiguration_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -467,7 +467,7 @@ func CfnInstanceAccessControlAttributeConfiguration_IsCfnResource(construct cons
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sso.CfnInstanceAccessControlAttributeConfiguration",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

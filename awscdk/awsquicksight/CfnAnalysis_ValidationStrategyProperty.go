@@ -17,7 +17,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-validationstrategy.html
 //
 type CfnAnalysis_ValidationStrategyProperty struct {
-	// The mode of validation for the asset to be creaed or updated.
+	// The mode of validation for the asset to be created or updated.
 	//
 	// When you set this value to `STRICT` , strict validation for every error is enforced. When you set this value to `LENIENT` , validation is skipped for specific UI errors.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-validationstrategy.html#cfn-quicksight-analysis-validationstrategy-mode

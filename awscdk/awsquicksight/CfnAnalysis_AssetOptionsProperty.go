@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// An array of analysis level configurations.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,11 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-assetoptions.html
 //
 type CfnAnalysis_AssetOptionsProperty struct {
+	// Determines the timezone for the analysis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-assetoptions.html#cfn-quicksight-analysis-assetoptions-timezone
 	//
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
+	// Determines the week start day for an analysis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-assetoptions.html#cfn-quicksight-analysis-assetoptions-weekstart
 	//
 	WeekStart *string `field:"optional" json:"weekStart" yaml:"weekStart"`

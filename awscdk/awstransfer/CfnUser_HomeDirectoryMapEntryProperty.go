@@ -20,7 +20,7 @@ type CfnUser_HomeDirectoryMapEntryProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-homedirectorymapentry.html#cfn-transfer-user-homedirectorymapentry-entry
 	//
 	Entry *string `field:"required" json:"entry" yaml:"entry"`
-	// Represents the map target that is used in a `HomeDirectorymapEntry` .
+	// Represents the map target that is used in a `HomeDirectoryMapEntry` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-homedirectorymapentry.html#cfn-transfer-user-homedirectorymapentry-target
 	//
 	Target *string `field:"required" json:"target" yaml:"target"`

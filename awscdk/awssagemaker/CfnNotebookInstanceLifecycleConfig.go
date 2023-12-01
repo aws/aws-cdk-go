@@ -457,11 +457,11 @@ func CfnNotebookInstanceLifecycleConfig_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnNotebookInstanceLifecycleConfig_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnNotebookInstanceLifecycleConfig_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnNotebookInstanceLifecycleConfig_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnNotebookInstanceLifecycleConfig_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -469,7 +469,7 @@ func CfnNotebookInstanceLifecycleConfig_IsCfnResource(construct constructs.ICons
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnNotebookInstanceLifecycleConfig",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

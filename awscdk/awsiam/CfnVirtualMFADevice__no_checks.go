@@ -72,7 +72,7 @@ func validateCfnVirtualMFADevice_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnVirtualMFADevice_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnVirtualMFADevice_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

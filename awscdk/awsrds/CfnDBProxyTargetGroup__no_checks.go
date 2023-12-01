@@ -72,7 +72,7 @@ func validateCfnDBProxyTargetGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnDBProxyTargetGroup_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDBProxyTargetGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -536,11 +536,11 @@ func CfnQuickConnect_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnQuickConnect_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnQuickConnect_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnQuickConnect_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnQuickConnect_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -548,7 +548,7 @@ func CfnQuickConnect_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_connect.CfnQuickConnect",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

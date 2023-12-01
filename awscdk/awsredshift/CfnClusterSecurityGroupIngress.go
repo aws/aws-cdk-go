@@ -465,11 +465,11 @@ func CfnClusterSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnClusterSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnClusterSecurityGroupIngress_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnClusterSecurityGroupIngress_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnClusterSecurityGroupIngress_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -477,7 +477,7 @@ func CfnClusterSecurityGroupIngress_IsCfnResource(construct constructs.IConstruc
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_redshift.CfnClusterSecurityGroupIngress",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

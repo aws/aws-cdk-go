@@ -72,7 +72,7 @@ func validateCfnVPCEndpointConnectionNotification_IsCfnElementParameters(x inter
 	return nil
 }
 
-func validateCfnVPCEndpointConnectionNotification_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnVPCEndpointConnectionNotification_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

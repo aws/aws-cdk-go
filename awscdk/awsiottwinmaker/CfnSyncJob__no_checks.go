@@ -72,7 +72,7 @@ func validateCfnSyncJob_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnSyncJob_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSyncJob_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

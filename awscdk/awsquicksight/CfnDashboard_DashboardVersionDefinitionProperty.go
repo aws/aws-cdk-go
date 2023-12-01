@@ -34,6 +34,7 @@ type CfnDashboard_DashboardVersionDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html#cfn-quicksight-dashboard-dashboardversiondefinition-filtergroups
 	//
 	FilterGroups interface{} `field:"optional" json:"filterGroups" yaml:"filterGroups"`
+	// An array of option definitions for a dashboard.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html#cfn-quicksight-dashboard-dashboardversiondefinition-options
 	//
 	Options interface{} `field:"optional" json:"options" yaml:"options"`

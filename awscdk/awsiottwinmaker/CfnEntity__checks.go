@@ -163,9 +163,9 @@ func validateCfnEntity_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnEntity_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnEntity_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil
@@ -227,6 +227,66 @@ func (j *jsiiProxy_CfnEntity) validateSetComponentsParameters(val interface{}) e
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
 					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEntity_ComponentProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnEntity) validateSetCompositeComponentsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *map[string]interface{}:
+		val := val.(*map[string]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnEntity_CompositeComponentProperty:
+				v := v.(*CfnEntity_CompositeComponentProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnEntity_CompositeComponentProperty:
+				v_ := v.(CfnEntity_CompositeComponentProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEntity_CompositeComponentProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case map[string]interface{}:
+		val_ := val.(map[string]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnEntity_CompositeComponentProperty:
+				v := v.(*CfnEntity_CompositeComponentProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnEntity_CompositeComponentProperty:
+				v_ := v.(CfnEntity_CompositeComponentProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnEntity_CompositeComponentProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

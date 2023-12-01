@@ -72,7 +72,7 @@ func validateCfnSubnetRouteTableAssociation_IsCfnElementParameters(x interface{}
 	return nil
 }
 
-func validateCfnSubnetRouteTableAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSubnetRouteTableAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

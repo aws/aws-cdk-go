@@ -72,7 +72,7 @@ func validateCfnResolverDNSSECConfig_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
-func validateCfnResolverDNSSECConfig_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnResolverDNSSECConfig_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

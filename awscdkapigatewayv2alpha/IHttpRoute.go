@@ -7,23 +7,23 @@ import (
 )
 
 // Represents a Route for an HTTP API.
-// Experimental.
+// Deprecated.
 type IHttpRoute interface {
 	IRoute
 	// Grant access to invoke the route.
 	//
 	// This method requires that the authorizer of the route is undefined or is
 	// an `HttpIamAuthorizer`.
-	// Experimental.
+	// Deprecated.
 	GrantInvoke(grantee awsiam.IGrantable, options *GrantInvokeOptions) awsiam.Grant
 	// The HTTP API associated with this route.
-	// Experimental.
+	// Deprecated.
 	HttpApi() IHttpApi
 	// Returns the path component of this HTTP route, `undefined` if the path is the catch-all route.
-	// Experimental.
+	// Deprecated.
 	Path() *string
 	// Returns the arn of the route.
-	// Experimental.
+	// Deprecated.
 	RouteArn() *string
 }
 

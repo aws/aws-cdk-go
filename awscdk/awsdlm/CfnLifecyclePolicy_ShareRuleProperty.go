@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot policies only]* Specifies a rule for sharing snapshots across AWS accounts .
+// *[Custom snapshot policies only]* Specifies a rule for sharing snapshots across AWS accounts .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

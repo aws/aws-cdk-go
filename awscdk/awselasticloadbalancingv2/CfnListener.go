@@ -98,6 +98,11 @@ import (
 //   			CertificateArn: jsii.String("certificateArn"),
 //   		},
 //   	},
+//   	MutualAuthentication: &MutualAuthenticationProperty{
+//   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
+//   		Mode: jsii.String("mode"),
+//   		TrustStoreArn: jsii.String("trustStoreArn"),
+//   	},
 //   	Port: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
 //   	SslPolicy: jsii.String("sslPolicy"),
@@ -143,6 +148,8 @@ type CfnListener interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	MutualAuthentication() interface{}
+	SetMutualAuthentication(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The port on which the load balancer is listening.
@@ -409,6 +416,16 @@ func (j *jsiiProxy_CfnListener) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnListener) MutualAuthentication() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"mutualAuthentication",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnListener) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -558,6 +575,17 @@ func (j *jsiiProxy_CfnListener)SetLoadBalancerArn(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnListener)SetMutualAuthentication(val interface{}) {
+	if err := j.validateSetMutualAuthenticationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"mutualAuthentication",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnListener)SetPort(val *float64) {
 	_jsii_.Set(
 		j,
@@ -606,11 +634,11 @@ func CfnListener_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnListener_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnListener_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnListener_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnListener_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -618,7 +646,7 @@ func CfnListener_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

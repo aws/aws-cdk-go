@@ -30,10 +30,6 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
-//   	AccessConfig: &AccessConfigProperty{
-//   		AuthenticationMode: jsii.String("authenticationMode"),
-//   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
-//   	},
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -94,10 +90,6 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// An object representing the Access Config to use for the cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-accessconfig
-	//
-	AccessConfig interface{} `field:"optional" json:"accessConfig" yaml:"accessConfig"`
 	// The encryption configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
 	//

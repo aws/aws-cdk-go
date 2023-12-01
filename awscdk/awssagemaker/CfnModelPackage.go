@@ -1293,11 +1293,11 @@ func CfnModelPackage_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnModelPackage_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnModelPackage_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnModelPackage_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnModelPackage_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -1305,7 +1305,7 @@ func CfnModelPackage_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_sagemaker.CfnModelPackage",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

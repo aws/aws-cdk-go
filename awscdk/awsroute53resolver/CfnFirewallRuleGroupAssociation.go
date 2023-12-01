@@ -617,11 +617,11 @@ func CfnFirewallRuleGroupAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnFirewallRuleGroupAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnFirewallRuleGroupAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnFirewallRuleGroupAssociation_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnFirewallRuleGroupAssociation_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -629,7 +629,7 @@ func CfnFirewallRuleGroupAssociation_IsCfnResource(construct constructs.IConstru
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_route53resolver.CfnFirewallRuleGroupAssociation",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

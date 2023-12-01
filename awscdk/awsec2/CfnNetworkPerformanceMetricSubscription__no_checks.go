@@ -72,7 +72,7 @@ func validateCfnNetworkPerformanceMetricSubscription_IsCfnElementParameters(x in
 	return nil
 }
 
-func validateCfnNetworkPerformanceMetricSubscription_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnNetworkPerformanceMetricSubscription_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

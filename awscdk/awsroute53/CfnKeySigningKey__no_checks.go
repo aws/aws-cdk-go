@@ -72,7 +72,7 @@ func validateCfnKeySigningKey_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnKeySigningKey_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnKeySigningKey_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot policies only]* Describes the retention rule for archived snapshots.
+// *[Custom snapshot policies only]* Describes the retention rule for archived snapshots.
 //
 // Once the archive retention threshold is met, the snapshots are permanently deleted from the archive tier.
 //

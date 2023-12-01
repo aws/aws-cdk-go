@@ -20,7 +20,7 @@ package awsapigatewayv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html
 //
 type CfnApiMappingProps struct {
-	// The identifier of the API.
+	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apiid
 	//
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`

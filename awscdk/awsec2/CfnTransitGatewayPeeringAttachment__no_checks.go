@@ -72,7 +72,7 @@ func validateCfnTransitGatewayPeeringAttachment_IsCfnElementParameters(x interfa
 	return nil
 }
 
-func validateCfnTransitGatewayPeeringAttachment_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTransitGatewayPeeringAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

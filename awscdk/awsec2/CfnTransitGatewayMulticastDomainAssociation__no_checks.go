@@ -72,7 +72,7 @@ func validateCfnTransitGatewayMulticastDomainAssociation_IsCfnElementParameters(
 	return nil
 }
 
-func validateCfnTransitGatewayMulticastDomainAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTransitGatewayMulticastDomainAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

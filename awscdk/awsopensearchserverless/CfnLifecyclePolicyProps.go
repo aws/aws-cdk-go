@@ -20,11 +20,11 @@ package awsopensearchserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html
 //
 type CfnLifecyclePolicyProps struct {
-	// The name of the policy.
+	// The name of the lifecycle policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html#cfn-opensearchserverless-lifecyclepolicy-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The JSON policy document that is the content for the policy.
+	// The JSON policy document without any whitespaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html#cfn-opensearchserverless-lifecyclepolicy-policy
 	//
 	Policy *string `field:"required" json:"policy" yaml:"policy"`
@@ -32,7 +32,7 @@ type CfnLifecyclePolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html#cfn-opensearchserverless-lifecyclepolicy-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The description of the policy.
+	// The description of the lifecycle policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html#cfn-opensearchserverless-lifecyclepolicy-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

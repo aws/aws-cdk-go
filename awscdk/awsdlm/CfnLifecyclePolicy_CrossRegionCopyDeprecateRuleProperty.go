@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[AMI policies only]* Specifies an AMI deprecation rule for cross-Region AMI copies created by an AMI policy.
+// *[Custom AMI policies only]* Specifies an AMI deprecation rule for cross-Region AMI copies created by an AMI policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

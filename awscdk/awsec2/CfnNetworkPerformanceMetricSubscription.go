@@ -452,11 +452,11 @@ func CfnNetworkPerformanceMetricSubscription_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnNetworkPerformanceMetricSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnNetworkPerformanceMetricSubscription_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnNetworkPerformanceMetricSubscription_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnNetworkPerformanceMetricSubscription_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -464,7 +464,7 @@ func CfnNetworkPerformanceMetricSubscription_IsCfnResource(construct constructs.
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkPerformanceMetricSubscription",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

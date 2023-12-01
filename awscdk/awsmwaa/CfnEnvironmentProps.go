@@ -18,6 +18,7 @@ package awsmwaa
 //   	AirflowConfigurationOptions: airflowConfigurationOptions,
 //   	AirflowVersion: jsii.String("airflowVersion"),
 //   	DagS3Path: jsii.String("dagS3Path"),
+//   	EndpointManagement: jsii.String("endpointManagement"),
 //   	EnvironmentClass: jsii.String("environmentClass"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	KmsKey: jsii.String("kmsKey"),
@@ -100,6 +101,12 @@ type CfnEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
 	//
 	DagS3Path *string `field:"optional" json:"dagS3Path" yaml:"dagS3Path"`
+	// Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
+	//
+	// If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-endpointmanagement
+	//
+	EndpointManagement *string `field:"optional" json:"endpointManagement" yaml:"endpointManagement"`
 	// The environment class type.
 	//
 	// Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .

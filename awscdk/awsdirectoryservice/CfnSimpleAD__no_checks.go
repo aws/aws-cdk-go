@@ -72,7 +72,7 @@ func validateCfnSimpleAD_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnSimpleAD_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSimpleAD_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

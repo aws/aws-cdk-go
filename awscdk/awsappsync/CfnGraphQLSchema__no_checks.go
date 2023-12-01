@@ -72,7 +72,7 @@ func validateCfnGraphQLSchema_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnGraphQLSchema_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnGraphQLSchema_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

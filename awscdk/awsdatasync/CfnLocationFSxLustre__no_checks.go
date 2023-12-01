@@ -72,7 +72,7 @@ func validateCfnLocationFSxLustre_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnLocationFSxLustre_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnLocationFSxLustre_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -72,7 +72,7 @@ func validateCfnPushTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnPushTemplate_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnPushTemplate_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -72,7 +72,7 @@ func validateCfnDataCellsFilter_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnDataCellsFilter_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDataCellsFilter_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

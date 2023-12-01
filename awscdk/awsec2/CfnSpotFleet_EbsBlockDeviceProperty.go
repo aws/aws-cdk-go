@@ -44,13 +44,13 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	//
 	// The following are the supported values for each volume type:
 	//
-	// - `gp3` : 3,000-16,000 IOPS
-	// - `io1` : 100-64,000 IOPS
-	// - `io2` : 100-64,000 IOPS
+	// - `gp3` : 3,000 - 16,000 IOPS
+	// - `io1` : 100 - 64,000 IOPS
+	// - `io2` : 100 - 256,000 IOPS
 	//
-	// For `io1` and `io2` volumes, we guarantee 64,000 IOPS only for [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families guarantee performance up to 32,000 IOPS.
+	// For `io2` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . On other instances, you can achieve performance up to 32,000 IOPS.
 	//
-	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
+	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-iops
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
@@ -62,18 +62,19 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	//
 	// You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 	//
-	// The following are the supported volumes sizes for each volume type:
+	// The following are the supported sizes for each volume type:
 	//
-	// - `gp2` and `gp3` :1-16,384
-	// - `io1` and `io2` : 4-16,384
-	// - `st1` and `sc1` : 125-16,384
-	// - `standard` : 1-1,024.
+	// - `gp2` and `gp3` : 1 - 16,384 GiB
+	// - `io1` : 4 - 16,384 GiB
+	// - `io2` : 4 - 65,536 GiB
+	// - `st1` and `sc1` : 125 - 16,384 GiB
+	// - `standard` : 1 - 1024 GiB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
 	//
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
-	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide* . If the volume type is `io1` or `io2` , you must specify the IOPS that the volume supports.
+	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
 	//
 	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`

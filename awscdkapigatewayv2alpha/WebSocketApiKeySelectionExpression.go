@@ -12,10 +12,10 @@ import (
 //   	ApiKeySelectionExpression: apigwv2.WebSocketApiKeySelectionExpression_HEADER_X_API_KEY(),
 //   })
 //
-// Experimental.
+// Deprecated.
 type WebSocketApiKeySelectionExpression interface {
 	// The expression used by API Gateway.
-	// Experimental.
+	// Deprecated.
 	CustomApiKeySelector() *string
 }
 
@@ -35,7 +35,7 @@ func (j *jsiiProxy_WebSocketApiKeySelectionExpression) CustomApiKeySelector() *s
 }
 
 
-// Experimental.
+// Deprecated.
 func NewWebSocketApiKeySelectionExpression(customApiKeySelector *string) WebSocketApiKeySelectionExpression {
 	_init_.Initialize()
 
@@ -53,7 +53,7 @@ func NewWebSocketApiKeySelectionExpression(customApiKeySelector *string) WebSock
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketApiKeySelectionExpression_Override(w WebSocketApiKeySelectionExpression, customApiKeySelector *string) {
 	_init_.Initialize()
 

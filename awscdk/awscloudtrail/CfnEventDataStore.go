@@ -49,6 +49,7 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	BillingMode: jsii.String("billingMode"),
 //   	IngestionEnabled: jsii.Boolean(false),
 //   	InsightsDestination: jsii.String("insightsDestination"),
 //   	InsightSelectors: []interface{}{
@@ -87,6 +88,9 @@ type CfnEventDataStore interface {
 	AttrStatus() *string
 	// `Ref` returns the time stamp that updates were made to an event data store, such as `1598296624` .
 	AttrUpdatedTimestamp() *string
+	// The billing mode for the event data store determines the cost for ingesting events and the default and maximum retention period for the event data store.
+	BillingMode() *string
+	SetBillingMode(val *string)
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -346,6 +350,16 @@ func (j *jsiiProxy_CfnEventDataStore) AttrUpdatedTimestamp() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventDataStore) BillingMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"billingMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventDataStore) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -595,6 +609,14 @@ func (j *jsiiProxy_CfnEventDataStore)SetAdvancedEventSelectors(val interface{}) 
 	)
 }
 
+func (j *jsiiProxy_CfnEventDataStore)SetBillingMode(val *string) {
+	_jsii_.Set(
+		j,
+		"billingMode",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEventDataStore)SetIngestionEnabled(val interface{}) {
 	if err := j.validateSetIngestionEnabledParameters(val); err != nil {
 		panic(err)
@@ -717,11 +739,11 @@ func CfnEventDataStore_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnEventDataStore_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnEventDataStore_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnEventDataStore_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnEventDataStore_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -729,7 +751,7 @@ func CfnEventDataStore_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudtrail.CfnEventDataStore",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

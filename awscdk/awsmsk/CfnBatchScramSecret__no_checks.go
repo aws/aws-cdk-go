@@ -72,7 +72,7 @@ func validateCfnBatchScramSecret_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnBatchScramSecret_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnBatchScramSecret_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

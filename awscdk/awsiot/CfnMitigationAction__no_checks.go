@@ -72,7 +72,7 @@ func validateCfnMitigationAction_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnMitigationAction_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnMitigationAction_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

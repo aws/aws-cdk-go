@@ -26,7 +26,7 @@ package awslambdanodejs
 //   			"process.env.PRODUCTION": JSON.stringify(jsii.Boolean(true)),
 //   			"process.env.NUMBER": JSON.stringify(jsii.Number(123)),
 //   		},
-//   		LogLevel: nodejs.LogLevel_SILENT,
+//   		LogLevel: nodejs.LogLevel_ERROR,
 //   		 // defaults to LogLevel.WARNING
 //   		KeepNames: jsii.Boolean(true),
 //   		 // defaults to false

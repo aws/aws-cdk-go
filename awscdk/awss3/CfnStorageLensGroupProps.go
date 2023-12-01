@@ -92,15 +92,17 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelensgroup.html
 //
 type CfnStorageLensGroupProps struct {
-	// Sets the Storage Lens Group filter.
+	// This property contains the criteria for the Storage Lens group data that is displayed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelensgroup.html#cfn-s3-storagelensgroup-filter
 	//
 	Filter interface{} `field:"required" json:"filter" yaml:"filter"`
-	// The name that identifies the Amazon S3 Storage Lens Group.
+	// This property contains the Storage Lens group name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelensgroup.html#cfn-s3-storagelensgroup-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
+	// This property contains the AWS resource tags that you're adding to your Storage Lens group.
+	//
+	// This parameter is optional.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelensgroup.html#cfn-s3-storagelensgroup-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

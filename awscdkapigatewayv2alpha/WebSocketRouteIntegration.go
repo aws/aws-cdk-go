@@ -19,14 +19,14 @@ import (
 //   	StageName: jsii.String("dev"),
 //   	AutoDeploy: jsii.Boolean(true),
 //   })
-//   webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
+//   webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
 //   	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
-// Experimental.
+// Deprecated.
 type WebSocketRouteIntegration interface {
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *WebSocketRouteIntegrationBindOptions) *WebSocketRouteIntegrationConfig
 }
 
@@ -36,7 +36,7 @@ type jsiiProxy_WebSocketRouteIntegration struct {
 }
 
 // Initialize an integration for a route on websocket api.
-// Experimental.
+// Deprecated.
 func NewWebSocketRouteIntegration_Override(w WebSocketRouteIntegration, id *string) {
 	_init_.Initialize()
 

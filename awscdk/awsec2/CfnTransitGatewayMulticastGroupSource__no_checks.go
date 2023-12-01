@@ -72,7 +72,7 @@ func validateCfnTransitGatewayMulticastGroupSource_IsCfnElementParameters(x inte
 	return nil
 }
 
-func validateCfnTransitGatewayMulticastGroupSource_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTransitGatewayMulticastGroupSource_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -1,4 +1,4 @@
-// The CDK Construct Library for AWS::APIGatewayv2
+// This module is deprecated. All constructs are now available under aws-cdk-lib/aws-apigatewayv2
 package awscdkapigatewayv2alpha
 
 import (

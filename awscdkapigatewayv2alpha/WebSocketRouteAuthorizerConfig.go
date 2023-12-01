@@ -15,19 +15,19 @@ package awscdkapigatewayv2alpha
 //   	AuthorizerId: jsii.String("authorizerId"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type WebSocketRouteAuthorizerConfig struct {
 	// The type of authorization.
 	//
 	// Possible values are:
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization.
-	// Experimental.
+	// Deprecated.
 	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// The authorizer id.
 	// Default: - No authorizer id (useful for AWS_IAM route authorizer).
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 }
 

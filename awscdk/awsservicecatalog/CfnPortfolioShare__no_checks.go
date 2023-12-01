@@ -72,7 +72,7 @@ func validateCfnPortfolioShare_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnPortfolioShare_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnPortfolioShare_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -6,11 +6,11 @@ package awscdkapigatewayv2alpha
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 //
-//   var booksDefaultFn function
+//   var bookStoreDefaultFn function
 //
 //
 //   getBooksIntegration := awscdkapigatewayv2integrationsalpha.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
-//   booksDefaultIntegration := awscdkapigatewayv2integrationsalpha.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+//   bookStoreDefaultIntegration := awscdkapigatewayv2integrationsalpha.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), bookStoreDefaultFn)
 //
 //   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
@@ -26,36 +26,36 @@ package awscdkapigatewayv2alpha
 //   	Methods: []*httpMethod{
 //   		apigwv2.*httpMethod_ANY,
 //   	},
-//   	Integration: booksDefaultIntegration,
+//   	Integration: bookStoreDefaultIntegration,
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpMethod string
 
 const (
 	// HTTP ANY.
-	// Experimental.
+	// Deprecated.
 	HttpMethod_ANY HttpMethod = "ANY"
 	// HTTP DELETE.
-	// Experimental.
+	// Deprecated.
 	HttpMethod_DELETE HttpMethod = "DELETE"
 	// HTTP GET.
-	// Experimental.
+	// Deprecated.
 	HttpMethod_GET HttpMethod = "GET"
 	// HTTP HEAD.
-	// Experimental.
+	// Deprecated.
 	HttpMethod_HEAD HttpMethod = "HEAD"
 	// HTTP OPTIONS.
-	// Experimental.
+	// Deprecated.
 	HttpMethod_OPTIONS HttpMethod = "OPTIONS"
 	// HTTP PATCH.
-	// Experimental.
+	// Deprecated.
 	HttpMethod_PATCH HttpMethod = "PATCH"
 	// HTTP POST.
-	// Experimental.
+	// Deprecated.
 	HttpMethod_POST HttpMethod = "POST"
 	// HTTP PUT.
-	// Experimental.
+	// Deprecated.
 	HttpMethod_PUT HttpMethod = "PUT"
 )
 

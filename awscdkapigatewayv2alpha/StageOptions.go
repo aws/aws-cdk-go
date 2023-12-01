@@ -26,22 +26,22 @@ package awscdkapigatewayv2alpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type StageOptions struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Default: - no custom domain and api mapping configuration.
 	//
-	// Experimental.
+	// Deprecated.
 	DomainMapping *DomainMappingOptions `field:"optional" json:"domainMapping" yaml:"domainMapping"`
 	// Throttle settings for the routes of this stage.
 	// Default: - no throttling configuration.
 	//
-	// Experimental.
+	// Deprecated.
 	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 }
 

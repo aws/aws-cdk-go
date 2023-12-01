@@ -31,6 +31,7 @@ import (
 //   	// the properties below are optional
 //   	AllowRestores: jsii.Boolean(false),
 //   	BackupSelectionName: jsii.String("backupSelectionName"),
+//   	DisableDefaultBackupPolicy: jsii.Boolean(false),
 //   	Role: role,
 //   })
 //

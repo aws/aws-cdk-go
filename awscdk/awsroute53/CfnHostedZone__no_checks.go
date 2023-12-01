@@ -72,7 +72,7 @@ func validateCfnHostedZone_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnHostedZone_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnHostedZone_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -72,7 +72,7 @@ func validateCfnContainerRecipe_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnContainerRecipe_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnContainerRecipe_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

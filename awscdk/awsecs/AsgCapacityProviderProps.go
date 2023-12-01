@@ -93,6 +93,12 @@ type AsgCapacityProviderProps struct {
 	// Default: true.
 	//
 	EnableManagedTerminationProtection *bool `field:"optional" json:"enableManagedTerminationProtection" yaml:"enableManagedTerminationProtection"`
+	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group.
+	//
+	// Must be between 0 and 10000.
+	// Default: 300.
+	//
+	InstanceWarmupPeriod *float64 `field:"optional" json:"instanceWarmupPeriod" yaml:"instanceWarmupPeriod"`
 	// Maximum scaling step size.
 	//
 	// In most cases this should be left alone.

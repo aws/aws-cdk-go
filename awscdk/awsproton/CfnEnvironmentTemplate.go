@@ -525,11 +525,11 @@ func CfnEnvironmentTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnEnvironmentTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnEnvironmentTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnEnvironmentTemplate_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnEnvironmentTemplate_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -537,7 +537,7 @@ func CfnEnvironmentTemplate_IsCfnResource(construct constructs.IConstruct) *bool
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_proton.CfnEnvironmentTemplate",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

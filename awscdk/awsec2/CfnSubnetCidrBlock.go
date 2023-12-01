@@ -11,7 +11,7 @@ import (
 
 // Associates a CIDR block with your subnet.
 //
-// You can associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
+// You can associate a single IPv6 CIDR block with your subnet.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,8 +40,6 @@ type CfnSubnetCidrBlock interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The IPv6 network range for the subnet, in CIDR notation.
-	//
-	// The subnet size must use a /64 prefix length.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -418,11 +416,11 @@ func CfnSubnetCidrBlock_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSubnetCidrBlock_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSubnetCidrBlock_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSubnetCidrBlock_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSubnetCidrBlock_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -430,7 +428,7 @@ func CfnSubnetCidrBlock_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnSubnetCidrBlock",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

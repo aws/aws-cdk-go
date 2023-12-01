@@ -1,7 +1,7 @@
 package awsdlm
 
 
-// *[Snapshot policies only]* Specifies information about the archive storage tier retention period.
+// *[Custom snapshot policies only]* Specifies information about the archive storage tier retention period.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

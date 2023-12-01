@@ -48,11 +48,11 @@ import (
 //   	},
 //   }))
 //
-// Experimental.
+// Deprecated.
 type WebSocketIamAuthorizer interface {
 	awscdkapigatewayv2alpha.IWebSocketRouteAuthorizer
 	// Bind this authorizer to a specified WebSocket route.
-	// Experimental.
+	// Deprecated.
 	Bind(_options *awscdkapigatewayv2alpha.WebSocketRouteAuthorizerBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteAuthorizerConfig
 }
 
@@ -61,7 +61,7 @@ type jsiiProxy_WebSocketIamAuthorizer struct {
 	internal.Type__awscdkapigatewayv2alphaIWebSocketRouteAuthorizer
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketIamAuthorizer() WebSocketIamAuthorizer {
 	_init_.Initialize()
 
@@ -76,7 +76,7 @@ func NewWebSocketIamAuthorizer() WebSocketIamAuthorizer {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketIamAuthorizer_Override(w WebSocketIamAuthorizer) {
 	_init_.Initialize()
 

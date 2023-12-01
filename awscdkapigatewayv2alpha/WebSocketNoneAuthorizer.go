@@ -14,11 +14,11 @@ import (
 //
 //   webSocketNoneAuthorizer := apigatewayv2_alpha.NewWebSocketNoneAuthorizer()
 //
-// Experimental.
+// Deprecated.
 type WebSocketNoneAuthorizer interface {
 	IWebSocketRouteAuthorizer
 	// Bind this authorizer to a specified WebSocket route.
-	// Experimental.
+	// Deprecated.
 	Bind(_options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig
 }
 
@@ -27,7 +27,7 @@ type jsiiProxy_WebSocketNoneAuthorizer struct {
 	jsiiProxy_IWebSocketRouteAuthorizer
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketNoneAuthorizer() WebSocketNoneAuthorizer {
 	_init_.Initialize()
 
@@ -42,7 +42,7 @@ func NewWebSocketNoneAuthorizer() WebSocketNoneAuthorizer {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketNoneAuthorizer_Override(w WebSocketNoneAuthorizer) {
 	_init_.Initialize()
 

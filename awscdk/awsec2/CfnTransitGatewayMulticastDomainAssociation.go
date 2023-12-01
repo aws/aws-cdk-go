@@ -465,11 +465,11 @@ func CfnTransitGatewayMulticastDomainAssociation_IsCfnElement(x interface{}) *bo
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnTransitGatewayMulticastDomainAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnTransitGatewayMulticastDomainAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnTransitGatewayMulticastDomainAssociation_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnTransitGatewayMulticastDomainAssociation_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -477,7 +477,7 @@ func CfnTransitGatewayMulticastDomainAssociation_IsCfnResource(construct constru
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMulticastDomainAssociation",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

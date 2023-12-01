@@ -415,11 +415,11 @@ func CfnClientVpnTargetNetworkAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnClientVpnTargetNetworkAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnClientVpnTargetNetworkAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnClientVpnTargetNetworkAssociation_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnClientVpnTargetNetworkAssociation_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -427,7 +427,7 @@ func CfnClientVpnTargetNetworkAssociation_IsCfnResource(construct constructs.ICo
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnClientVpnTargetNetworkAssociation",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

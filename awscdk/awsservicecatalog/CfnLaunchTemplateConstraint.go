@@ -484,11 +484,11 @@ func CfnLaunchTemplateConstraint_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnLaunchTemplateConstraint_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnLaunchTemplateConstraint_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnLaunchTemplateConstraint_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnLaunchTemplateConstraint_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -496,7 +496,7 @@ func CfnLaunchTemplateConstraint_IsCfnResource(construct constructs.IConstruct) 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_servicecatalog.CfnLaunchTemplateConstraint",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

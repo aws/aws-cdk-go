@@ -19,17 +19,17 @@ package awscdkapigatewayv2alpha
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type DomainMappingOptions struct {
 	// The domain name for the mapping.
-	// Experimental.
+	// Deprecated.
 	DomainName IDomainName `field:"required" json:"domainName" yaml:"domainName"`
 	// The API mapping key.
 	//
 	// Leave it undefined for the root path mapping.
 	// Default: - empty key for the root path mapping.
 	//
-	// Experimental.
+	// Deprecated.
 	MappingKey *string `field:"optional" json:"mappingKey" yaml:"mappingKey"`
 }
 

@@ -60,10 +60,18 @@ type BackupSelectionOptions struct {
 	// Default: - a CDK generated name.
 	//
 	BackupSelectionName *string `field:"optional" json:"backupSelectionName" yaml:"backupSelectionName"`
+	// Whether to disable automatically assigning default backup permissions to the role that AWS Backup uses.
+	//
+	// If `false`, the `AWSBackupServiceRolePolicyForBackup` managed policy will be
+	// attached to the role.
+	// Default: false.
+	//
+	DisableDefaultBackupPolicy *bool `field:"optional" json:"disableDefaultBackupPolicy" yaml:"disableDefaultBackupPolicy"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
-	// will be attached to this role.
+	// will be attached to this role unless `disableDefaultBackupPolicy`
+	// is set to `true`.
 	// Default: - a new role will be created.
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`

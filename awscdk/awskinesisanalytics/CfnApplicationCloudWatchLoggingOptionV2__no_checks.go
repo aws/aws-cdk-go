@@ -72,7 +72,7 @@ func validateCfnApplicationCloudWatchLoggingOptionV2_IsCfnElementParameters(x in
 	return nil
 }
 
-func validateCfnApplicationCloudWatchLoggingOptionV2_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnApplicationCloudWatchLoggingOptionV2_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

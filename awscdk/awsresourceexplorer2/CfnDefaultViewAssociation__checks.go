@@ -163,9 +163,9 @@ func validateCfnDefaultViewAssociation_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
-func validateCfnDefaultViewAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
-	if construct == nil {
-		return fmt.Errorf("parameter construct is required, but nil was provided")
+func validateCfnDefaultViewAssociation_IsCfnResourceParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
 	}
 
 	return nil

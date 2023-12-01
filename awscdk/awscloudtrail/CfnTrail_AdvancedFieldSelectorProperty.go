@@ -77,8 +77,11 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
+	// - `AWS::ServiceDiscovery::Namespace`
+	// - `AWS::ServiceDiscovery::Service`
 	// - `AWS::SNS::PlatformEndpoint`
 	// - `AWS::SNS::Topic`
+	// - `AWS::SQS::Queue`
 	// - `AWS::S3::AccessPoint`
 	// - `AWS::S3ObjectLambda::AccessPoint`
 	// - `AWS::S3Outposts::Object`
@@ -179,6 +182,14 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:sagemaker:<region>:<account_ID>:feature-group/<feature_group_name>`
 	//
+	// When `resources.type` equals `AWS::ServiceDiscovery::Namespace` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:servicediscovery:<region>:<account_ID>:namespace/<namespace_ID>`
+	//
+	// When `resources.type` equals `AWS::ServiceDiscovery::Service` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:servicediscovery:<region>:<account_ID>:service/<service_ID>`
+	//
 	// When `resources.type` equals `AWS::SNS::PlatformEndpoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sns:<region>:<account_ID>:endpoint/<endpoint_type>/<endpoint_name>/<endpoint_ID>`
@@ -186,6 +197,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::SNS::Topic` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sns:<region>:<account_ID>:<topic_name>`
+	//
+	// When `resources.type` equals `AWS::SQS::Queue` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:sqs:<region>:<account_ID>:<queue_name>`
 	//
 	// When `resources.type` equals `AWS::S3::AccessPoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in one of the following formats. To log events on all objects in an S3 access point, we recommend that you use only the access point ARN, don’t include the object path, and use the `StartsWith` or `NotStartsWith` operators.
 	//

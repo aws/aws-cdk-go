@@ -72,7 +72,7 @@ func validateCfnCloudFormationProvisionedProduct_IsCfnElementParameters(x interf
 	return nil
 }
 
-func validateCfnCloudFormationProvisionedProduct_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCloudFormationProvisionedProduct_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

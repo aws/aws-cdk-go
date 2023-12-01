@@ -29,7 +29,7 @@ type LambdaInvokeFunctionProps struct {
 	// Experimental.
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 	// The type of invocation to use.
-	// Default: InvocationType.REQUEST_RESPONE
+	// Default: InvocationType.REQUEST_RESPONSE
 	//
 	// Experimental.
 	InvocationType InvocationType `field:"optional" json:"invocationType" yaml:"invocationType"`

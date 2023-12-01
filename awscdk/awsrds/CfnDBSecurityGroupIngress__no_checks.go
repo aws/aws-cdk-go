@@ -72,7 +72,7 @@ func validateCfnDBSecurityGroupIngress_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
-func validateCfnDBSecurityGroupIngress_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnDBSecurityGroupIngress_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

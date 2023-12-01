@@ -72,7 +72,7 @@ func validateCfnPrefixList_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnPrefixList_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnPrefixList_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

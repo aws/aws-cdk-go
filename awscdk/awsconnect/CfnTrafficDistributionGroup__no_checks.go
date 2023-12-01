@@ -72,7 +72,7 @@ func validateCfnTrafficDistributionGroup_IsCfnElementParameters(x interface{}) e
 	return nil
 }
 
-func validateCfnTrafficDistributionGroup_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTrafficDistributionGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

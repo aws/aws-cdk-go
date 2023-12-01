@@ -136,7 +136,7 @@ type CfnSecurityProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A structure containing the mqtt topic for metrics export.
+	// Specifies the MQTT topic and role ARN required for metric export.
 	MetricsExportConfig() interface{}
 	SetMetricsExportConfig(val interface{})
 	// The tree node.
@@ -642,11 +642,11 @@ func CfnSecurityProfile_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnSecurityProfile_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnSecurityProfile_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnSecurityProfile_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnSecurityProfile_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -654,7 +654,7 @@ func CfnSecurityProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnSecurityProfile",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

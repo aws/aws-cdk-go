@@ -72,7 +72,7 @@ func validateCfnSecretTargetAttachment_IsCfnElementParameters(x interface{}) err
 	return nil
 }
 
-func validateCfnSecretTargetAttachment_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSecretTargetAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

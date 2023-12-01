@@ -37,6 +37,10 @@ type CfnFleet_ServerProcessProperty struct {
 	//
 	LaunchPath *string `field:"required" json:"launchPath" yaml:"launchPath"`
 	// An optional list of parameters to pass to the server executable or Realtime script on launch.
+	//
+	// Length Constraints: Minimum length of 1. Maximum length of 1024.
+	//
+	// Pattern: [A-Za-z0-9_:.+\/\\\- =@{},?'\[\]"]+
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
 	//
 	Parameters *string `field:"optional" json:"parameters" yaml:"parameters"`

@@ -2,7 +2,7 @@ package awscdkapigatewayv2alpha
 
 
 // An authorizer for WebSocket APIs.
-// Experimental.
+// Deprecated.
 type IWebSocketAuthorizer interface {
 	IAuthorizer
 }

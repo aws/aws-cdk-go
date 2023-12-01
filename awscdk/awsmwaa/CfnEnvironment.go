@@ -26,6 +26,7 @@ import (
 //   	AirflowConfigurationOptions: airflowConfigurationOptions,
 //   	AirflowVersion: jsii.String("airflowVersion"),
 //   	DagS3Path: jsii.String("dagS3Path"),
+//   	EndpointManagement: jsii.String("endpointManagement"),
 //   	EnvironmentClass: jsii.String("environmentClass"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	KmsKey: jsii.String("kmsKey"),
@@ -93,6 +94,10 @@ type CfnEnvironment interface {
 	SetAirflowVersion(val *string)
 	// The ARN for the Amazon MWAA environment.
 	AttrArn() *string
+	// The queue ARN for the environment's [Celery Executor](https://docs.aws.amazon.com/https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/celery.html) . Amazon MWAA uses a Celery Executor to distribute tasks across multiple workers. When you create an environment in a shared VPC, you must provide access to the Celery Executor queue from your VPC.
+	AttrCeleryExecutorQueue() *string
+	// The VPC endpoint for the environment's Amazon RDS database.
+	AttrDatabaseVpcEndpointService() *string
 	AttrLoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn() *string
 	AttrLoggingConfigurationSchedulerLogsCloudWatchLogGroupArn() *string
 	AttrLoggingConfigurationTaskLogsCloudWatchLogGroupArn() *string
@@ -100,6 +105,8 @@ type CfnEnvironment interface {
 	AttrLoggingConfigurationWorkerLogsCloudWatchLogGroupArn() *string
 	// The URL of your Apache Airflow UI.
 	AttrWebserverUrl() *string
+	// The VPC endpoint for the environment's web server.
+	AttrWebserverVpcEndpointService() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -112,6 +119,9 @@ type CfnEnvironment interface {
 	// The relative path to the DAGs folder on your Amazon S3 bucket.
 	DagS3Path() *string
 	SetDagS3Path(val *string)
+	// Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
+	EndpointManagement() *string
+	SetEndpointManagement(val *string)
 	// The environment class type.
 	EnvironmentClass() *string
 	SetEnvironmentClass(val *string)
@@ -375,6 +385,26 @@ func (j *jsiiProxy_CfnEnvironment) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) AttrCeleryExecutorQueue() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCeleryExecutorQueue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) AttrDatabaseVpcEndpointService() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDatabaseVpcEndpointService",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) AttrLoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -435,6 +465,16 @@ func (j *jsiiProxy_CfnEnvironment) AttrWebserverUrl() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) AttrWebserverVpcEndpointService() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrWebserverVpcEndpointService",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -480,6 +520,16 @@ func (j *jsiiProxy_CfnEnvironment) DagS3Path() *string {
 	_jsii_.Get(
 		j,
 		"dagS3Path",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) EndpointManagement() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"endpointManagement",
 		&returns,
 	)
 	return returns
@@ -797,6 +847,14 @@ func (j *jsiiProxy_CfnEnvironment)SetDagS3Path(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnEnvironment)SetEndpointManagement(val *string) {
+	_jsii_.Set(
+		j,
+		"endpointManagement",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEnvironment)SetEnvironmentClass(val *string) {
 	_jsii_.Set(
 		j,
@@ -982,11 +1040,11 @@ func CfnEnvironment_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnEnvironment_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnEnvironment_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnEnvironment_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnEnvironment_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -994,7 +1052,7 @@ func CfnEnvironment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_mwaa.CfnEnvironment",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

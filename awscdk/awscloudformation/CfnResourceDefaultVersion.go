@@ -432,11 +432,11 @@ func CfnResourceDefaultVersion_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnResourceDefaultVersion_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnResourceDefaultVersion_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnResourceDefaultVersion_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnResourceDefaultVersion_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -444,7 +444,7 @@ func CfnResourceDefaultVersion_IsCfnResource(construct constructs.IConstruct) *b
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudformation.CfnResourceDefaultVersion",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

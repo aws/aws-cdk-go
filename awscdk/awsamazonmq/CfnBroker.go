@@ -1064,11 +1064,11 @@ func CfnBroker_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnBroker_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnBroker_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnBroker_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnBroker_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -1076,7 +1076,7 @@ func CfnBroker_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_amazonmq.CfnBroker",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

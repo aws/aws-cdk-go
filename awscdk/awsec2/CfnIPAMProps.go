@@ -48,7 +48,9 @@ type CfnIPAMProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The tier of the IPAM.
+	// IPAM is offered in a Free Tier and an Advanced Tier.
+	//
+	// For more information about the features available in each tier and the costs associated with the tiers, see the [VPC IPAM product pricing page](https://docs.aws.amazon.com//vpc/pricing/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-tier
 	//
 	Tier *string `field:"optional" json:"tier" yaml:"tier"`

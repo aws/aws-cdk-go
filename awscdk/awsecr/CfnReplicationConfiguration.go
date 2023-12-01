@@ -412,11 +412,11 @@ func CfnReplicationConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnReplicationConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnReplicationConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnReplicationConfiguration_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnReplicationConfiguration_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -424,7 +424,7 @@ func CfnReplicationConfiguration_IsCfnResource(construct constructs.IConstruct) 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ecr.CfnReplicationConfiguration",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

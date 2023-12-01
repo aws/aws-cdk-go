@@ -13,10 +13,10 @@ package awscdkapigatewayv2alpha
 //   	AuthorizerType: jsii.String("authorizerType"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type HttpAuthorizerAttributes struct {
 	// Id of the Authorizer.
-	// Experimental.
+	// Deprecated.
 	AuthorizerId *string `field:"required" json:"authorizerId" yaml:"authorizerId"`
 	// Type of authorizer.
 	//
@@ -24,7 +24,7 @@ type HttpAuthorizerAttributes struct {
 	// - JWT - JSON Web Token Authorizer
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization.
-	// Experimental.
+	// Deprecated.
 	AuthorizerType *string `field:"required" json:"authorizerType" yaml:"authorizerType"`
 }
 

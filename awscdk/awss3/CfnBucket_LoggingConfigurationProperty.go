@@ -12,9 +12,17 @@ package awss3
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var simplePrefix interface{}
+//
 //   loggingConfigurationProperty := &LoggingConfigurationProperty{
 //   	DestinationBucketName: jsii.String("destinationBucketName"),
 //   	LogFilePrefix: jsii.String("logFilePrefix"),
+//   	TargetObjectKeyFormat: &TargetObjectKeyFormatProperty{
+//   		PartitionedPrefix: &PartitionedPrefixProperty{
+//   			PartitionDateSource: jsii.String("partitionDateSource"),
+//   		},
+//   		SimplePrefix: simplePrefix,
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html
@@ -32,5 +40,11 @@ type CfnBucket_LoggingConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html#cfn-s3-bucket-loggingconfiguration-logfileprefix
 	//
 	LogFilePrefix *string `field:"optional" json:"logFilePrefix" yaml:"logFilePrefix"`
+	// Amazon S3 key format for log objects.
+	//
+	// Only one format, PartitionedPrefix or SimplePrefix, is allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html#cfn-s3-bucket-loggingconfiguration-targetobjectkeyformat
+	//
+	TargetObjectKeyFormat interface{} `field:"optional" json:"targetObjectKeyFormat" yaml:"targetObjectKeyFormat"`
 }
 

@@ -16,18 +16,18 @@ import (
 //
 //   httpRouteKey := apigatewayv2_alpha.HttpRouteKey_With(jsii.String("path"), apigatewayv2_alpha.HttpMethod_ANY)
 //
-// Experimental.
+// Deprecated.
 type HttpRouteKey interface {
 	// The key to the RouteKey as recognized by APIGateway.
-	// Experimental.
+	// Deprecated.
 	Key() *string
 	// The method of the route.
-	// Experimental.
+	// Deprecated.
 	Method() HttpMethod
 	// The path part of this RouteKey.
 	//
 	// Returns `undefined` when `RouteKey.DEFAULT` is used.
-	// Experimental.
+	// Deprecated.
 	Path() *string
 }
 
@@ -68,7 +68,7 @@ func (j *jsiiProxy_HttpRouteKey) Path() *string {
 
 
 // Create a route key with the combination of the path and the method.
-// Experimental.
+// Deprecated.
 func HttpRouteKey_With(path *string, method HttpMethod) HttpRouteKey {
 	_init_.Initialize()
 

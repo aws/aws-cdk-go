@@ -23,33 +23,33 @@ package awscdkapigatewayv2alpha
 //   	ReturnResponse: jsii.Boolean(false),
 //   }
 //
-// Experimental.
+// Deprecated.
 type WebSocketRouteProps struct {
 	// The integration to be configured on this route.
-	// Experimental.
+	// Deprecated.
 	Integration WebSocketRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 	// The authorize to this route.
 	//
 	// You can only set authorizer to a $connect route.
 	// Default: - No Authorizer.
 	//
-	// Experimental.
+	// Deprecated.
 	Authorizer IWebSocketRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// Should the route send a response to the client.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	ReturnResponse *bool `field:"optional" json:"returnResponse" yaml:"returnResponse"`
 	// The key to this route.
-	// Experimental.
+	// Deprecated.
 	RouteKey *string `field:"required" json:"routeKey" yaml:"routeKey"`
 	// The API the route is associated with.
-	// Experimental.
+	// Deprecated.
 	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 	// Whether the route requires an API Key to be provided.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	ApiKeyRequired *bool `field:"optional" json:"apiKeyRequired" yaml:"apiKeyRequired"`
 }
 

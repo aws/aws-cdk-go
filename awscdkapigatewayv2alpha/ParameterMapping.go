@@ -25,34 +25,34 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated.
 type ParameterMapping interface {
 	// Represents all created parameter mappings.
-	// Experimental.
+	// Deprecated.
 	Mappings() *map[string]*string
 	// Creates a mapping to append a header.
-	// Experimental.
+	// Deprecated.
 	AppendHeader(name *string, value MappingValue) ParameterMapping
 	// Creates a mapping to append a query string.
-	// Experimental.
+	// Deprecated.
 	AppendQueryString(name *string, value MappingValue) ParameterMapping
 	// Creates a custom mapping.
-	// Experimental.
+	// Deprecated.
 	Custom(key *string, value *string) ParameterMapping
 	// Creates a mapping to overwrite a header.
-	// Experimental.
+	// Deprecated.
 	OverwriteHeader(name *string, value MappingValue) ParameterMapping
 	// Creates a mapping to overwrite a path.
-	// Experimental.
+	// Deprecated.
 	OverwritePath(value MappingValue) ParameterMapping
 	// Creates a mapping to overwrite a querystring.
-	// Experimental.
+	// Deprecated.
 	OverwriteQueryString(name *string, value MappingValue) ParameterMapping
 	// Creates a mapping to remove a header.
-	// Experimental.
+	// Deprecated.
 	RemoveHeader(name *string) ParameterMapping
 	// Creates a mapping to remove a querystring.
-	// Experimental.
+	// Deprecated.
 	RemoveQueryString(name *string) ParameterMapping
 }
 
@@ -72,7 +72,7 @@ func (j *jsiiProxy_ParameterMapping) Mappings() *map[string]*string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewParameterMapping() ParameterMapping {
 	_init_.Initialize()
 
@@ -87,7 +87,7 @@ func NewParameterMapping() ParameterMapping {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewParameterMapping_Override(p ParameterMapping) {
 	_init_.Initialize()
 
@@ -99,7 +99,7 @@ func NewParameterMapping_Override(p ParameterMapping) {
 }
 
 // Creates a mapping from an object.
-// Experimental.
+// Deprecated.
 func ParameterMapping_FromObject(obj *map[string]MappingValue) ParameterMapping {
 	_init_.Initialize()
 

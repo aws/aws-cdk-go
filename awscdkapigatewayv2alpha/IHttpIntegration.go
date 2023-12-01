@@ -5,11 +5,11 @@ import (
 )
 
 // Represents an Integration for an HTTP API.
-// Experimental.
+// Deprecated.
 type IHttpIntegration interface {
 	IIntegration
 	// The HTTP API associated with this integration.
-	// Experimental.
+	// Deprecated.
 	HttpApi() IHttpApi
 }
 

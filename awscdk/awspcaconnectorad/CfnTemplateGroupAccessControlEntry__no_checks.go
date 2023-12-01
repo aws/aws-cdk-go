@@ -72,7 +72,7 @@ func validateCfnTemplateGroupAccessControlEntry_IsCfnElementParameters(x interfa
 	return nil
 }
 
-func validateCfnTemplateGroupAccessControlEntry_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTemplateGroupAccessControlEntry_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

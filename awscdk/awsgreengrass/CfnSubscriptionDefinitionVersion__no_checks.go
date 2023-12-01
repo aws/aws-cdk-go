@@ -72,7 +72,7 @@ func validateCfnSubscriptionDefinitionVersion_IsCfnElementParameters(x interface
 	return nil
 }
 
-func validateCfnSubscriptionDefinitionVersion_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSubscriptionDefinitionVersion_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

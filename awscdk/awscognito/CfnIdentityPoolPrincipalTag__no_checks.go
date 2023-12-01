@@ -72,7 +72,7 @@ func validateCfnIdentityPoolPrincipalTag_IsCfnElementParameters(x interface{}) e
 	return nil
 }
 
-func validateCfnIdentityPoolPrincipalTag_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnIdentityPoolPrincipalTag_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -8,19 +8,22 @@ import (
 // The text, or well-formed JSON, passed to the target of the schedule.
 //
 // Example:
-//   var fn function
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
-//   	Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
-//   		"payload": jsii.String("useful"),
-//   	}),
+//   topic := sns.NewTopic(this, jsii.String("Topic"))
+//
+//   payload := map[string]*string{
+//   	"message": jsii.String("Hello scheduler!"),
+//   }
+//
+//   target := targets.NewSnsPublish(topic, &ScheduleTargetBaseProps{
+//   	Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(payload),
 //   })
 //
-//   schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
-//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
+//   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
 //   	Target: Target,
-//   	Description: jsii.String("This is a test schedule that invokes lambda function every 10 minutes."),
 //   })
 //
 // Experimental.

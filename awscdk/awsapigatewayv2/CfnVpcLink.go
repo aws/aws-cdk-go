@@ -482,11 +482,11 @@ func CfnVpcLink_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnVpcLink_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnVpcLink_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnVpcLink_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnVpcLink_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -494,7 +494,7 @@ func CfnVpcLink_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigatewayv2.CfnVpcLink",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

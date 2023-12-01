@@ -72,7 +72,7 @@ func validateCfnScalingPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnScalingPolicy_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnScalingPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

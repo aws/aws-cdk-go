@@ -12,25 +12,14 @@ import (
 // The `AWS::Inspector::AssessmentTemplate` resource creates an Amazon Inspector assessment template, which specifies the Inspector assessment targets that will be evaluated by an assessment run and its related configurations.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import inspector "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnAssessmentTemplate := awscdk.Aws_inspector.NewCfnAssessmentTemplate(this, jsii.String("MyCfnAssessmentTemplate"), &CfnAssessmentTemplateProps{
-//   	AssessmentTargetArn: jsii.String("assessmentTargetArn"),
-//   	DurationInSeconds: jsii.Number(123),
-//   	RulesPackageArns: []*string{
-//   		jsii.String("rulesPackageArns"),
-//   	},
+//   var assessmentTemplate cfnAssessmentTemplate
 //
-//   	// the properties below are optional
-//   	AssessmentTemplateName: jsii.String("assessmentTemplateName"),
-//   	UserAttributesForFindings: []interface{}{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
+//
+//   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
+//   	Target: targets.NewInspectorStartAssessmentRun(assessmentTemplate),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html
@@ -495,11 +484,11 @@ func CfnAssessmentTemplate_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnAssessmentTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnAssessmentTemplate_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnAssessmentTemplate_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnAssessmentTemplate_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -507,7 +496,7 @@ func CfnAssessmentTemplate_IsCfnResource(construct constructs.IConstruct) *bool 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_inspector.CfnAssessmentTemplate",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

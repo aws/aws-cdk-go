@@ -34,6 +34,7 @@ import (
 //   			Ip: jsii.String("ip"),
 //   			Ipv6: jsii.String("ipv6"),
 //   			Port: jsii.String("port"),
+//   			Protocol: jsii.String("protocol"),
 //   		},
 //   	},
 //   })
@@ -601,11 +602,11 @@ func CfnResolverRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnResolverRule_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnResolverRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnResolverRule_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnResolverRule_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -613,7 +614,7 @@ func CfnResolverRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

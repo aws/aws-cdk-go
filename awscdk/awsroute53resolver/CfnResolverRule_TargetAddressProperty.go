@@ -12,6 +12,7 @@ package awsroute53resolver
 //   	Ip: jsii.String("ip"),
 //   	Ipv6: jsii.String("ipv6"),
 //   	Port: jsii.String("port"),
+//   	Protocol: jsii.String("protocol"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html
@@ -29,5 +30,9 @@ type CfnResolverRule_TargetAddressProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port
 	//
 	Port *string `field:"optional" json:"port" yaml:"port"`
+	// The protocol that you want to use to forward DNS queries.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-protocol
+	//
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 

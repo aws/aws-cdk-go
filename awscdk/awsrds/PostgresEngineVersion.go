@@ -492,6 +492,17 @@ func PostgresEngineVersion_VER_11_21() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_11_22() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_11_22",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_11_4() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -646,6 +657,17 @@ func PostgresEngineVersion_VER_12_16() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_12_17() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_12_17",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_12_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -789,6 +811,17 @@ func PostgresEngineVersion_VER_13_12() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_13_13() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_13_13",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_13_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -894,6 +927,17 @@ func PostgresEngineVersion_VER_14_1() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
 		"VER_14_1",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_14_10() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_14_10",
 		&returns,
 	)
 	return returns
@@ -1026,6 +1070,39 @@ func PostgresEngineVersion_VER_15_4() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
 		"VER_15_4",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_15_5() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_15_5",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_16() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_16",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_16_1() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_16_1",
 		&returns,
 	)
 	return returns

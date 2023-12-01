@@ -46,7 +46,7 @@ type TokenAuthorizerProps struct {
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
-	// Default: Duration.minutes(5)
+	// Default: - Duration.minutes(5)
 	//
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 	// The request header mapping expression for the bearer token.

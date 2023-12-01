@@ -192,6 +192,8 @@ type CfnLifecyclePolicyProps struct {
 	//
 	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The configuration details of the lifecycle policy.
+	//
+	// > If you create a default policy, you can specify the request parameters either in the request body, or in the PolicyDetails request structure, but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-policydetails
 	//
 	PolicyDetails interface{} `field:"optional" json:"policyDetails" yaml:"policyDetails"`

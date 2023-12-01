@@ -72,7 +72,7 @@ func validateCfnStorageLens_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnStorageLens_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnStorageLens_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

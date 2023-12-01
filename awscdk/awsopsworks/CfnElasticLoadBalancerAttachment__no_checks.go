@@ -72,7 +72,7 @@ func validateCfnElasticLoadBalancerAttachment_IsCfnElementParameters(x interface
 	return nil
 }
 
-func validateCfnElasticLoadBalancerAttachment_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnElasticLoadBalancerAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -72,7 +72,7 @@ func validateCfnReceiptRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnReceiptRule_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnReceiptRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

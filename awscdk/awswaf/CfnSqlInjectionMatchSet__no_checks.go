@@ -72,7 +72,7 @@ func validateCfnSqlInjectionMatchSet_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
-func validateCfnSqlInjectionMatchSet_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSqlInjectionMatchSet_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

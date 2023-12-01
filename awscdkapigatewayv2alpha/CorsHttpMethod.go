@@ -22,33 +22,33 @@ package awscdkapigatewayv2alpha
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type CorsHttpMethod string
 
 const (
 	// HTTP ANY.
-	// Experimental.
+	// Deprecated.
 	CorsHttpMethod_ANY CorsHttpMethod = "ANY"
 	// HTTP DELETE.
-	// Experimental.
+	// Deprecated.
 	CorsHttpMethod_DELETE CorsHttpMethod = "DELETE"
 	// HTTP GET.
-	// Experimental.
+	// Deprecated.
 	CorsHttpMethod_GET CorsHttpMethod = "GET"
 	// HTTP HEAD.
-	// Experimental.
+	// Deprecated.
 	CorsHttpMethod_HEAD CorsHttpMethod = "HEAD"
 	// HTTP OPTIONS.
-	// Experimental.
+	// Deprecated.
 	CorsHttpMethod_OPTIONS CorsHttpMethod = "OPTIONS"
 	// HTTP PATCH.
-	// Experimental.
+	// Deprecated.
 	CorsHttpMethod_PATCH CorsHttpMethod = "PATCH"
 	// HTTP POST.
-	// Experimental.
+	// Deprecated.
 	CorsHttpMethod_POST CorsHttpMethod = "POST"
 	// HTTP PUT.
-	// Experimental.
+	// Deprecated.
 	CorsHttpMethod_PUT CorsHttpMethod = "PUT"
 )
 

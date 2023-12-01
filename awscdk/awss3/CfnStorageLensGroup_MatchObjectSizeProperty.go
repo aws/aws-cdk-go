@@ -1,7 +1,7 @@
 package awss3
 
 
-// Filter to match all of the specified values for the minimum and maximum object size.
+// This resource filters objects that match the specified object size range.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,15 @@ package awss3
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-matchobjectsize.html
 //
 type CfnStorageLensGroup_MatchObjectSizeProperty struct {
-	// Minimum object size to which the rule applies.
+	// This property specifies the minimum object size in bytes.
+	//
+	// The value must be a positive number, greater than 0 and less than 5 TB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-matchobjectsize.html#cfn-s3-storagelensgroup-matchobjectsize-bytesgreaterthan
 	//
 	BytesGreaterThan *float64 `field:"optional" json:"bytesGreaterThan" yaml:"bytesGreaterThan"`
-	// Maximum object size to which the rule applies.
+	// This property specifies the maximum object size in bytes.
+	//
+	// The value must be a positive number, greater than the minimum object size and less than 5 TB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-matchobjectsize.html#cfn-s3-storagelensgroup-matchobjectsize-byteslessthan
 	//
 	BytesLessThan *float64 `field:"optional" json:"bytesLessThan" yaml:"bytesLessThan"`

@@ -25,6 +25,11 @@ import (
 //   	WorkspaceId: jsii.String("workspaceId"),
 //
 //   	// the properties below are optional
+//   	CompositeComponentTypes: map[string]interface{}{
+//   		"compositeComponentTypesKey": &CompositeComponentTypeProperty{
+//   			"componentTypeId": jsii.String("componentTypeId"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	ExtendsFrom: []*string{
 //   		jsii.String("extendsFrom"),
@@ -141,6 +146,9 @@ type CfnComponentType interface {
 	// The ID of the component type.
 	ComponentTypeId() *string
 	SetComponentTypeId(val *string)
+	// An map of the composite component types in the component type.
+	CompositeComponentTypes() interface{}
+	SetCompositeComponentTypes(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -479,6 +487,16 @@ func (j *jsiiProxy_CfnComponentType) ComponentTypeId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComponentType) CompositeComponentTypes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"compositeComponentTypes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComponentType) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -678,6 +696,17 @@ func (j *jsiiProxy_CfnComponentType)SetComponentTypeId(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnComponentType)SetCompositeComponentTypes(val interface{}) {
+	if err := j.validateSetCompositeComponentTypesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"compositeComponentTypes",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnComponentType)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -781,11 +810,11 @@ func CfnComponentType_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnComponentType_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnComponentType_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnComponentType_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnComponentType_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -793,7 +822,7 @@ func CfnComponentType_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

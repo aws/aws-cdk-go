@@ -5,10 +5,10 @@ import (
 )
 
 // An authorizer that can attach to an WebSocket Route.
-// Experimental.
+// Deprecated.
 type IWebSocketRouteAuthorizer interface {
 	// Bind this authorizer to a specified WebSocket route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig
 }
 

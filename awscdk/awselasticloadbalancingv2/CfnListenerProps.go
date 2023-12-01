@@ -90,6 +90,11 @@ package awselasticloadbalancingv2
 //   			CertificateArn: jsii.String("certificateArn"),
 //   		},
 //   	},
+//   	MutualAuthentication: &MutualAuthenticationProperty{
+//   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
+//   		Mode: jsii.String("mode"),
+//   		TrustStoreArn: jsii.String("trustStoreArn"),
+//   	},
 //   	Port: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
 //   	SslPolicy: jsii.String("sslPolicy"),
@@ -120,6 +125,9 @@ type CfnListenerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
 	//
 	Certificates interface{} `field:"optional" json:"certificates" yaml:"certificates"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-mutualauthentication
+	//
+	MutualAuthentication interface{} `field:"optional" json:"mutualAuthentication" yaml:"mutualAuthentication"`
 	// The port on which the load balancer is listening.
 	//
 	// You cannot specify a port for a Gateway Load Balancer.

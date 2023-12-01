@@ -72,7 +72,7 @@ func validateCfnClusterCapacityProviderAssociations_IsCfnElementParameters(x int
 	return nil
 }
 
-func validateCfnClusterCapacityProviderAssociations_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnClusterCapacityProviderAssociations_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

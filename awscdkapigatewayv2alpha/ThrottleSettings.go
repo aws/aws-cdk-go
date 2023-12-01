@@ -13,17 +13,17 @@ package awscdkapigatewayv2alpha
 //   	RateLimit: jsii.Number(123),
 //   }
 //
-// Experimental.
+// Deprecated.
 type ThrottleSettings struct {
 	// The maximum API request rate limit over a time ranging from one to a few seconds.
 	// Default: none.
 	//
-	// Experimental.
+	// Deprecated.
 	BurstLimit *float64 `field:"optional" json:"burstLimit" yaml:"burstLimit"`
 	// The API request steady-state rate limit (average requests per second over an extended period of time).
 	// Default: none.
 	//
-	// Experimental.
+	// Deprecated.
 	RateLimit *float64 `field:"optional" json:"rateLimit" yaml:"rateLimit"`
 }
 

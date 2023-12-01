@@ -8,11 +8,11 @@ import (
 )
 
 // Represents an integration to an API Route.
-// Experimental.
+// Deprecated.
 type IIntegration interface {
 	awscdk.IResource
 	// Id of the integration.
-	// Experimental.
+	// Deprecated.
 	IntegrationId() *string
 }
 

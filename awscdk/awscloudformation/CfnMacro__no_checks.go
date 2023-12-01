@@ -72,7 +72,7 @@ func validateCfnMacro_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnMacro_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnMacro_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -63,6 +63,7 @@ type CfnStage interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
+	// The identifier.
 	AttrId() *string
 	// Specifies whether updates to an API automatically trigger a new deployment.
 	AutoDeploy() interface{}
@@ -673,11 +674,11 @@ func CfnStage_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnStage_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnStage_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnStage_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnStage_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -685,7 +686,7 @@ func CfnStage_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigatewayv2.CfnStage",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

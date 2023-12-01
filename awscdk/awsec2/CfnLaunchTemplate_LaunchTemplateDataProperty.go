@@ -172,6 +172,11 @@ package awsec2
 //   		&NetworkInterfaceProperty{
 //   			AssociateCarrierIpAddress: jsii.Boolean(false),
 //   			AssociatePublicIpAddress: jsii.Boolean(false),
+//   			ConnectionTrackingSpecification: &ConnectionTrackingSpecificationProperty{
+//   				TcpEstablishedTimeout: jsii.Number(123),
+//   				UdpStreamTimeout: jsii.Number(123),
+//   				UdpTimeout: jsii.Number(123),
+//   			},
 //   			DeleteOnTermination: jsii.Boolean(false),
 //   			Description: jsii.String("description"),
 //   			DeviceIndex: jsii.Number(123),

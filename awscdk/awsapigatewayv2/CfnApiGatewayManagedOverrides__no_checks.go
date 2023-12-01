@@ -72,7 +72,7 @@ func validateCfnApiGatewayManagedOverrides_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnApiGatewayManagedOverrides_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnApiGatewayManagedOverrides_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

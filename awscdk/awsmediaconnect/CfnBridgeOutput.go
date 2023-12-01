@@ -433,11 +433,11 @@ func CfnBridgeOutput_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnBridgeOutput_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnBridgeOutput_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnBridgeOutput_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnBridgeOutput_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -445,7 +445,7 @@ func CfnBridgeOutput_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_mediaconnect.CfnBridgeOutput",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

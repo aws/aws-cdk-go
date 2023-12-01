@@ -72,7 +72,7 @@ func validateCfnResolverQueryLoggingConfigAssociation_IsCfnElementParameters(x i
 	return nil
 }
 
-func validateCfnResolverQueryLoggingConfigAssociation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnResolverQueryLoggingConfigAssociation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -72,7 +72,7 @@ func validateCfnLaunchTemplateConstraint_IsCfnElementParameters(x interface{}) e
 	return nil
 }
 
-func validateCfnLaunchTemplateConstraint_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnLaunchTemplateConstraint_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

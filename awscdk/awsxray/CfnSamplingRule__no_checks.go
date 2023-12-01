@@ -72,7 +72,7 @@ func validateCfnSamplingRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnSamplingRule_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSamplingRule_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -30,27 +30,27 @@ import (
 //   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpNlbIntegration interface {
 	awscdkapigatewayv2alpha.HttpRouteIntegration
-	// Experimental.
+	// Deprecated.
 	ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType
-	// Experimental.
+	// Deprecated.
 	SetConnectionType(val awscdkapigatewayv2alpha.HttpConnectionType)
-	// Experimental.
+	// Deprecated.
 	HttpMethod() awscdkapigatewayv2alpha.HttpMethod
-	// Experimental.
+	// Deprecated.
 	SetHttpMethod(val awscdkapigatewayv2alpha.HttpMethod)
-	// Experimental.
+	// Deprecated.
 	IntegrationType() awscdkapigatewayv2alpha.HttpIntegrationType
-	// Experimental.
+	// Deprecated.
 	SetIntegrationType(val awscdkapigatewayv2alpha.HttpIntegrationType)
-	// Experimental.
+	// Deprecated.
 	PayloadFormatVersion() awscdkapigatewayv2alpha.PayloadFormatVersion
-	// Experimental.
+	// Deprecated.
 	SetPayloadFormatVersion(val awscdkapigatewayv2alpha.PayloadFormatVersion)
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
@@ -60,7 +60,7 @@ type HttpNlbIntegration interface {
 	// created for this route or it is an existing one, previously created for other
 	// routes. In most cases, however, concrete implementations do not need to
 	// override this method.
-	// Experimental.
+	// Deprecated.
 	CompleteBind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions)
 }
 
@@ -110,7 +110,7 @@ func (j *jsiiProxy_HttpNlbIntegration) PayloadFormatVersion() awscdkapigatewayv2
 }
 
 
-// Experimental.
+// Deprecated.
 func NewHttpNlbIntegration(id *string, listener awselasticloadbalancingv2.INetworkListener, props *HttpNlbIntegrationProps) HttpNlbIntegration {
 	_init_.Initialize()
 
@@ -128,7 +128,7 @@ func NewHttpNlbIntegration(id *string, listener awselasticloadbalancingv2.INetwo
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpNlbIntegration_Override(h HttpNlbIntegration, id *string, listener awselasticloadbalancingv2.INetworkListener, props *HttpNlbIntegrationProps) {
 	_init_.Initialize()
 

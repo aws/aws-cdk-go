@@ -72,7 +72,7 @@ func validateCfnNotebookInstanceLifecycleConfig_IsCfnElementParameters(x interfa
 	return nil
 }
 
-func validateCfnNotebookInstanceLifecycleConfig_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnNotebookInstanceLifecycleConfig_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

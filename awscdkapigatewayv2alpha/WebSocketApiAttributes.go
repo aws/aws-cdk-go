@@ -8,15 +8,15 @@ package awscdkapigatewayv2alpha
 //   	WebSocketId: jsii.String("api-1234"),
 //   })
 //
-// Experimental.
+// Deprecated.
 type WebSocketApiAttributes struct {
 	// The identifier of the WebSocketApi.
-	// Experimental.
+	// Deprecated.
 	WebSocketId *string `field:"required" json:"webSocketId" yaml:"webSocketId"`
 	// The endpoint URL of the WebSocketApi.
 	// Default: - throw san error if apiEndpoint is accessed.
 	//
-	// Experimental.
+	// Deprecated.
 	ApiEndpoint *string `field:"optional" json:"apiEndpoint" yaml:"apiEndpoint"`
 }
 

@@ -10,11 +10,11 @@ import (
 // Represents an ApiGatewayV2 ApiMapping resource.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html
 //
-// Experimental.
+// Deprecated.
 type IApiMapping interface {
 	awscdk.IResource
 	// ID of the api mapping.
-	// Experimental.
+	// Deprecated.
 	ApiMappingId() *string
 }
 

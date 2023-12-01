@@ -72,7 +72,7 @@ func validateCfnCacheCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnCacheCluster_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCacheCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

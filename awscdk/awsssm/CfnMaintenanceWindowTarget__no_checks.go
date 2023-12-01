@@ -72,7 +72,7 @@ func validateCfnMaintenanceWindowTarget_IsCfnElementParameters(x interface{}) er
 	return nil
 }
 
-func validateCfnMaintenanceWindowTarget_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnMaintenanceWindowTarget_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

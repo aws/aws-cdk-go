@@ -619,11 +619,11 @@ func CfnTrafficMirrorFilterRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnTrafficMirrorFilterRule_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnTrafficMirrorFilterRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnTrafficMirrorFilterRule_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnTrafficMirrorFilterRule_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -631,7 +631,7 @@ func CfnTrafficMirrorFilterRule_IsCfnResource(construct constructs.IConstruct) *
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnTrafficMirrorFilterRule",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

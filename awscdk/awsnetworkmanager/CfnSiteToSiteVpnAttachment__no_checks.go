@@ -72,7 +72,7 @@ func validateCfnSiteToSiteVpnAttachment_IsCfnElementParameters(x interface{}) er
 	return nil
 }
 
-func validateCfnSiteToSiteVpnAttachment_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSiteToSiteVpnAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

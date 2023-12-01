@@ -72,7 +72,7 @@ func validateCfnIdMappingWorkflow_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnIdMappingWorkflow_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnIdMappingWorkflow_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

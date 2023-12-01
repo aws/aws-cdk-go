@@ -484,11 +484,11 @@ func CfnLocalGatewayRouteTableVPCAssociation_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnLocalGatewayRouteTableVPCAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnLocalGatewayRouteTableVPCAssociation_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnLocalGatewayRouteTableVPCAssociation_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnLocalGatewayRouteTableVPCAssociation_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -496,7 +496,7 @@ func CfnLocalGatewayRouteTableVPCAssociation_IsCfnResource(construct constructs.
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnLocalGatewayRouteTableVPCAssociation",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

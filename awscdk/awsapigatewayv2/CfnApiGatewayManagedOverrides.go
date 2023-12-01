@@ -67,6 +67,7 @@ type CfnApiGatewayManagedOverrides interface {
 	// The ID of the API for which to override the configuration of API Gateway-managed resources.
 	ApiId() *string
 	SetApiId(val *string)
+	// The identifier.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -499,11 +500,11 @@ func CfnApiGatewayManagedOverrides_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnApiGatewayManagedOverrides_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnApiGatewayManagedOverrides_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnApiGatewayManagedOverrides_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnApiGatewayManagedOverrides_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -511,7 +512,7 @@ func CfnApiGatewayManagedOverrides_IsCfnResource(construct constructs.IConstruct
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_apigatewayv2.CfnApiGatewayManagedOverrides",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

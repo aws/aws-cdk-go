@@ -112,7 +112,7 @@ type CfnSecurityProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
 	//
 	Behaviors interface{} `field:"optional" json:"behaviors" yaml:"behaviors"`
-	// A structure containing the mqtt topic for metrics export.
+	// Specifies the MQTT topic and role ARN required for metric export.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-metricsexportconfig
 	//
 	MetricsExportConfig interface{} `field:"optional" json:"metricsExportConfig" yaml:"metricsExportConfig"`

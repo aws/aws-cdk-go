@@ -14,16 +14,16 @@ package awscdkapigatewayv2alpha
 //   	RegionalHostedZoneId: jsii.String("regionalHostedZoneId"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type DomainNameAttributes struct {
 	// domain name string.
-	// Experimental.
+	// Deprecated.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The domain name associated with the regional endpoint for this custom domain name.
-	// Experimental.
+	// Deprecated.
 	RegionalDomainName *string `field:"required" json:"regionalDomainName" yaml:"regionalDomainName"`
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-	// Experimental.
+	// Deprecated.
 	RegionalHostedZoneId *string `field:"required" json:"regionalHostedZoneId" yaml:"regionalHostedZoneId"`
 }
 

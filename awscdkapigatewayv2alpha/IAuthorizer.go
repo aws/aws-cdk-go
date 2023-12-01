@@ -8,11 +8,11 @@ import (
 )
 
 // Represents an Authorizer.
-// Experimental.
+// Deprecated.
 type IAuthorizer interface {
 	awscdk.IResource
 	// Id of the Authorizer.
-	// Experimental.
+	// Deprecated.
 	AuthorizerId() *string
 }
 

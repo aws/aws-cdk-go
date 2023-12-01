@@ -72,7 +72,7 @@ func validateCfnConnectPeer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnConnectPeer_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnConnectPeer_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

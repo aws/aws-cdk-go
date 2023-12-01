@@ -72,7 +72,7 @@ func validateCfnUserPoolUICustomizationAttachment_IsCfnElementParameters(x inter
 	return nil
 }
 
-func validateCfnUserPoolUICustomizationAttachment_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnUserPoolUICustomizationAttachment_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

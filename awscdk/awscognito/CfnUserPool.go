@@ -1085,11 +1085,11 @@ func CfnUserPool_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnUserPool_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnUserPool_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnUserPool_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnUserPool_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -1097,7 +1097,7 @@ func CfnUserPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

@@ -17,6 +17,12 @@ import (
 //
 // Amazon EKS nodes run in your AWS account and connect to your cluster's control plane over the Kubernetes API server endpoint and a certificate file that is created for your cluster.
 //
+// You can use the `endpointPublicAccess` and `endpointPrivateAccess` parameters to enable or disable public and private access to your cluster's Kubernetes API server endpoint. By default, public access is enabled, and private access is disabled. For more information, see [Amazon EKS Cluster Endpoint Access Control](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) in the **Amazon EKS User Guide** .
+//
+// You can use the `logging` parameter to enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see [Amazon EKS Cluster Control Plane Logs](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) in the **Amazon EKS User Guide** .
+//
+// > CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see [CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
+//
 // In most cases, it takes several minutes to create a cluster. After you create an Amazon EKS cluster, you must configure your Kubernetes tooling to communicate with the API server and launch nodes into your cluster. For more information, see [Managing Cluster Authentication](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html) and [Launching Amazon EKS nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) in the *Amazon EKS User Guide* .
 //
 // Example:
@@ -43,10 +49,6 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
-//   	AccessConfig: &AccessConfigProperty{
-//   		AuthenticationMode: jsii.String("authenticationMode"),
-//   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
-//   	},
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -98,9 +100,6 @@ type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// An object representing the Access Config to use for the cluster.
-	AccessConfig() interface{}
-	SetAccessConfig(val interface{})
 	// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:cluster/prod` .
 	AttrArn() *string
 	// The `certificate-authority-data` for your cluster.
@@ -327,16 +326,6 @@ type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
-}
-
-func (j *jsiiProxy_CfnCluster) AccessConfig() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"accessConfig",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnCluster) AttrArn() *string {
@@ -647,17 +636,6 @@ func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string
 	)
 }
 
-func (j *jsiiProxy_CfnCluster)SetAccessConfig(val interface{}) {
-	if err := j.validateSetAccessConfigParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"accessConfig",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnCluster)SetEncryptionConfig(val interface{}) {
 	if err := j.validateSetEncryptionConfigParameters(val); err != nil {
 		panic(err)
@@ -775,11 +753,11 @@ func CfnCluster_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnCluster_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnCluster_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnCluster_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -787,7 +765,7 @@ func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_eks.CfnCluster",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

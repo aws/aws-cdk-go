@@ -72,7 +72,7 @@ func validateCfnVirtualCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnVirtualCluster_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnVirtualCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

@@ -459,11 +459,11 @@ func CfnApiKey_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnApiKey_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnApiKey_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnApiKey_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnApiKey_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -471,7 +471,7 @@ func CfnApiKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_appsync.CfnApiKey",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

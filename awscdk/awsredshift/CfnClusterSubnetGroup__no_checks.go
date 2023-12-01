@@ -72,7 +72,7 @@ func validateCfnClusterSubnetGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnClusterSubnetGroup_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnClusterSubnetGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

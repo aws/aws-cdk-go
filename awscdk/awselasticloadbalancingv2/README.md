@@ -252,6 +252,7 @@ Balancers:
 ```go
 var vpc vpc
 var asg autoScalingGroup
+var sg iSecurityGroup
 
 
 // Create the load balancer in a VPC. 'internetFacing' is 'false'
@@ -259,6 +260,9 @@ var asg autoScalingGroup
 lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 	Vpc: Vpc,
 	InternetFacing: jsii.Boolean(true),
+	SecurityGroups: []*iSecurityGroup{
+		sg,
+	},
 })
 
 // Add a listener on a particular port.

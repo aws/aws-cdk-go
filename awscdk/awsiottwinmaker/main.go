@@ -33,6 +33,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "componentTypeId", GoGetter: "ComponentTypeId"},
+			_jsii_.MemberProperty{JsiiProperty: "compositeComponentTypes", GoGetter: "CompositeComponentTypes"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "extendsFrom", GoGetter: "ExtendsFrom"},
@@ -69,6 +70,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType.CompositeComponentTypeProperty",
+		reflect.TypeOf((*CfnComponentType_CompositeComponentTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iottwinmaker.CfnComponentType.DataConnectorProperty",
@@ -143,6 +148,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "components", GoGetter: "Components"},
+			_jsii_.MemberProperty{JsiiProperty: "compositeComponents", GoGetter: "CompositeComponents"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "entityId", GoGetter: "EntityId"},
@@ -181,6 +187,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iottwinmaker.CfnEntity.ComponentProperty",
 		reflect.TypeOf((*CfnEntity_ComponentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iottwinmaker.CfnEntity.CompositeComponentProperty",
+		reflect.TypeOf((*CfnEntity_CompositeComponentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iottwinmaker.CfnEntity.DataTypeProperty",

@@ -14,8 +14,11 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
 //
-//   var lb applicationLoadBalancer
 //
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("lb"), &ApplicationLoadBalancerProps{
+//   	Vpc: Vpc,
+//   })
 //   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),
 //   })
@@ -24,32 +27,30 @@ import (
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
-//   		ParameterMapping: apigwv2.NewParameterMapping().Custom(jsii.String("myKey"), jsii.String("myValue")),
-//   	}),
+//   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpAlbIntegration interface {
 	awscdkapigatewayv2alpha.HttpRouteIntegration
-	// Experimental.
+	// Deprecated.
 	ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType
-	// Experimental.
+	// Deprecated.
 	SetConnectionType(val awscdkapigatewayv2alpha.HttpConnectionType)
-	// Experimental.
+	// Deprecated.
 	HttpMethod() awscdkapigatewayv2alpha.HttpMethod
-	// Experimental.
+	// Deprecated.
 	SetHttpMethod(val awscdkapigatewayv2alpha.HttpMethod)
-	// Experimental.
+	// Deprecated.
 	IntegrationType() awscdkapigatewayv2alpha.HttpIntegrationType
-	// Experimental.
+	// Deprecated.
 	SetIntegrationType(val awscdkapigatewayv2alpha.HttpIntegrationType)
-	// Experimental.
+	// Deprecated.
 	PayloadFormatVersion() awscdkapigatewayv2alpha.PayloadFormatVersion
-	// Experimental.
+	// Deprecated.
 	SetPayloadFormatVersion(val awscdkapigatewayv2alpha.PayloadFormatVersion)
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
@@ -59,7 +60,7 @@ type HttpAlbIntegration interface {
 	// created for this route or it is an existing one, previously created for other
 	// routes. In most cases, however, concrete implementations do not need to
 	// override this method.
-	// Experimental.
+	// Deprecated.
 	CompleteBind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions)
 }
 
@@ -109,7 +110,7 @@ func (j *jsiiProxy_HttpAlbIntegration) PayloadFormatVersion() awscdkapigatewayv2
 }
 
 
-// Experimental.
+// Deprecated.
 func NewHttpAlbIntegration(id *string, listener awselasticloadbalancingv2.IApplicationListener, props *HttpAlbIntegrationProps) HttpAlbIntegration {
 	_init_.Initialize()
 
@@ -127,7 +128,7 @@ func NewHttpAlbIntegration(id *string, listener awselasticloadbalancingv2.IAppli
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpAlbIntegration_Override(h HttpAlbIntegration, id *string, listener awselasticloadbalancingv2.IApplicationListener, props *HttpAlbIntegrationProps) {
 	_init_.Initialize()
 

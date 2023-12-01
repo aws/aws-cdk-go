@@ -3,16 +3,14 @@
 <!--BEGIN STABILITY BANNER-->---
 
 
-![cdk-constructs: Experimental](https://img.shields.io/badge/cdk--constructs-experimental-important.svg?style=for-the-badge)
+![Deprecated](https://img.shields.io/badge/deprecated-critical.svg?style=for-the-badge)
 
-> The APIs of higher level constructs in this module are experimental and under active development.
-> They are subject to non-backward compatible changes or removal in any future version. These are
-> not subject to the [Semantic Versioning](https://semver.org/) model and breaking changes will be
-> announced in the release notes. This means that while you may use them, you may need to update
-> your source code when upgrading to a newer version of this package.
+> This API may emit warnings. Backward compatibility is not guaranteed.
 
 ---
 <!--END STABILITY BANNER-->
+
+All constructs moved to aws-cdk-lib/aws-apigatewayv2-integrations.
 
 ## Table of Contents
 
@@ -35,8 +33,8 @@ Integrations connect a route to backend resources. HTTP APIs support Lambda prox
 Lambda integrations enable integrating an HTTP API route with a Lambda function. When a client invokes the route, the
 API Gateway service forwards the request to the Lambda function and returns the function's response to the client.
 
-The API Gateway service will invoke the lambda function with an event payload of a specific format. The service expects
-the function to respond in a specific format. The details on this format is available at [Working with AWS Lambda
+The API Gateway service will invoke the Lambda function with an event payload of a specific format. The service expects
+the function to respond in a specific format. The details on this format are available at [Working with AWS Lambda
 proxy integrations](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html).
 
 The following code configures a route `GET /books` with a Lambda proxy integration.
@@ -227,11 +225,11 @@ WebSocket integrations connect a route to backend resources. The following integ
 ### Lambda WebSocket Integration
 
 Lambda integrations enable integrating a WebSocket API route with a Lambda function. When a client connects/disconnects
-or sends message specific to a route, the API Gateway service forwards the request to the Lambda function
+or sends a message specific to a route, the API Gateway service forwards the request to the Lambda function
 
-The API Gateway service will invoke the lambda function with an event payload of a specific format.
+The API Gateway service will invoke the Lambda function with an event payload of a specific format.
 
-The following code configures a `sendmessage` route with a Lambda integration
+The following code configures a `sendMessage` route with a Lambda integration
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
@@ -245,7 +243,7 @@ apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
 	StageName: jsii.String("dev"),
 	AutoDeploy: jsii.Boolean(true),
 })
-webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
+webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
 	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 })
 ```

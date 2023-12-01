@@ -25,13 +25,13 @@ package awscdkapigatewayv2alpha
 //   	Authorizer: Authorizer,
 //   })
 //
-// Experimental.
+// Deprecated.
 type AddRoutesOptions struct {
 	// The integration to be configured on this route.
-	// Experimental.
+	// Deprecated.
 	Integration HttpRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 	// The path at which all of these routes are configured.
-	// Experimental.
+	// Deprecated.
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// The list of OIDC scopes to include in the authorization.
 	//
@@ -39,19 +39,19 @@ type AddRoutesOptions struct {
 	// Set to [] to remove default scopes.
 	// Default: - uses defaultAuthorizationScopes if configured on the API, otherwise none.
 	//
-	// Experimental.
+	// Deprecated.
 	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// Authorizer to be associated to these routes.
 	//
 	// Use NoneAuthorizer to remove the default authorizer for the api.
 	// Default: - uses the default authorizer if one is specified on the HttpApi.
 	//
-	// Experimental.
+	// Deprecated.
 	Authorizer IHttpRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// The HTTP methods to be configured.
 	// Default: HttpMethod.ANY
 	//
-	// Experimental.
+	// Deprecated.
 	Methods *[]HttpMethod `field:"optional" json:"methods" yaml:"methods"`
 }
 

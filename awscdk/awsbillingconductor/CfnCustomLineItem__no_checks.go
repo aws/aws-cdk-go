@@ -72,7 +72,7 @@ func validateCfnCustomLineItem_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnCustomLineItem_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCustomLineItem_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

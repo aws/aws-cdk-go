@@ -503,11 +503,11 @@ func CfnOIDCProvider_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnOIDCProvider_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnOIDCProvider_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnOIDCProvider_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnOIDCProvider_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -515,7 +515,7 @@ func CfnOIDCProvider_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iam.CfnOIDCProvider",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

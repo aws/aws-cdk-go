@@ -114,7 +114,7 @@ type CfnTopicProps struct {
 	TopicName *string `field:"optional" json:"topicName" yaml:"topicName"`
 	// Tracing mode of an Amazon SNS topic.
 	//
-	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to `Active` , Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	// By default `TracingConfig` is set to `PassThrough` , and the topic passes through the tracing header it receives from an Amazon SNS publisher to its subscriptions. If set to `Active` , Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-tracingconfig
 	//
 	TracingConfig *string `field:"optional" json:"tracingConfig" yaml:"tracingConfig"`

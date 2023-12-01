@@ -72,7 +72,7 @@ func validateCfnSAMLProvider_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnSAMLProvider_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnSAMLProvider_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

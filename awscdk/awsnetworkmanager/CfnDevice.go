@@ -49,7 +49,7 @@ type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The date and time that the device was created.
+	// The time that the device was created.
 	AttrCreatedAt() *string
 	// The ARN of the device.
 	//
@@ -664,11 +664,11 @@ func CfnDevice_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnDevice_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnDevice_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnDevice_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnDevice_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -676,7 +676,7 @@ func CfnDevice_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_networkmanager.CfnDevice",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

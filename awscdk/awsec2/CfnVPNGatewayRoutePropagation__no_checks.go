@@ -72,7 +72,7 @@ func validateCfnVPNGatewayRoutePropagation_IsCfnElementParameters(x interface{})
 	return nil
 }
 
-func validateCfnVPNGatewayRoutePropagation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnVPNGatewayRoutePropagation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

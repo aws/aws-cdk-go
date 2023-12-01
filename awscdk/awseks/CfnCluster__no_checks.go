@@ -72,15 +72,11 @@ func validateCfnCluster_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnCluster_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCluster_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 
 func validateCfnCluster_IsConstructParameters(x interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnCluster) validateSetAccessConfigParameters(val interface{}) error {
 	return nil
 }
 

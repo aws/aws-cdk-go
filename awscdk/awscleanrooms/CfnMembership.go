@@ -35,6 +35,11 @@ import (
 //   		// the properties below are optional
 //   		RoleArn: jsii.String("roleArn"),
 //   	},
+//   	PaymentConfiguration: &MembershipPaymentConfigurationProperty{
+//   		QueryCompute: &MembershipQueryComputePaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -91,6 +96,8 @@ type CfnMembership interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	PaymentConfiguration() interface{}
+	SetPaymentConfiguration(val interface{})
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus() *string
 	SetQueryLogStatus(val *string)
@@ -372,6 +379,16 @@ func (j *jsiiProxy_CfnMembership) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMembership) PaymentConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"paymentConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMembership) QueryLogStatus() *string {
 	var returns *string
 	_jsii_.Get(
@@ -482,6 +499,17 @@ func (j *jsiiProxy_CfnMembership)SetDefaultResultConfiguration(val interface{}) 
 	)
 }
 
+func (j *jsiiProxy_CfnMembership)SetPaymentConfiguration(val interface{}) {
+	if err := j.validateSetPaymentConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"paymentConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnMembership)SetQueryLogStatus(val *string) {
 	if err := j.validateSetQueryLogStatusParameters(val); err != nil {
 		panic(err)
@@ -528,11 +556,11 @@ func CfnMembership_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnMembership_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnMembership_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnMembership_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnMembership_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -540,7 +568,7 @@ func CfnMembership_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cleanrooms.CfnMembership",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

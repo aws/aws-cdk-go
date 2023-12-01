@@ -48,7 +48,7 @@ type ProvisionedClusterInstanceProps struct {
 	//
 	CaCertificate CaCertificate `field:"optional" json:"caCertificate" yaml:"caCertificate"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Default: - false, unless ``performanceInsightRentention`` or ``performanceInsightEncryptionKey`` is set.
+	// Default: - false, unless ``performanceInsightRetention`` or ``performanceInsightEncryptionKey`` is set.
 	//
 	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The identifier for the database instance.

@@ -23,15 +23,15 @@ import (
 //   	StageName: jsii.String("dev"),
 //   	AutoDeploy: jsii.Boolean(true),
 //   })
-//   webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
+//   webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
 //   	Integration: awscdkapigatewayv2integrationsalpha.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
-// Experimental.
+// Deprecated.
 type WebSocketLambdaIntegration interface {
 	awscdkapigatewayv2alpha.WebSocketRouteIntegration
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig
 }
 
@@ -40,7 +40,7 @@ type jsiiProxy_WebSocketLambdaIntegration struct {
 	internal.Type__awscdkapigatewayv2alphaWebSocketRouteIntegration
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketLambdaIntegration(id *string, handler awslambda.IFunction) WebSocketLambdaIntegration {
 	_init_.Initialize()
 
@@ -58,7 +58,7 @@ func NewWebSocketLambdaIntegration(id *string, handler awslambda.IFunction) WebS
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewWebSocketLambdaIntegration_Override(w WebSocketLambdaIntegration, id *string, handler awslambda.IFunction) {
 	_init_.Initialize()
 

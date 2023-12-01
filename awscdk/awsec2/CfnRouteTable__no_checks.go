@@ -72,7 +72,7 @@ func validateCfnRouteTable_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnRouteTable_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnRouteTable_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

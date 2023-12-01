@@ -19,6 +19,8 @@ type INetworkLoadBalancer interface {
 	AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener
 	// All metrics available for this load balancer.
 	Metrics() INetworkLoadBalancerMetrics
+	// Security groups associated with this load balancer.
+	SecurityGroups() *[]*string
 	// The VPC this load balancer has been created in (if available).
 	Vpc() awsec2.IVpc
 }
@@ -61,6 +63,16 @@ func (j *jsiiProxy_INetworkLoadBalancer) Metrics() INetworkLoadBalancerMetrics {
 	_jsii_.Get(
 		j,
 		"metrics",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INetworkLoadBalancer) SecurityGroups() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"securityGroups",
 		&returns,
 	)
 	return returns

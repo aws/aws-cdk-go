@@ -439,11 +439,11 @@ func CfnResourceSpecificLogging_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnResourceSpecificLogging_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnResourceSpecificLogging_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnResourceSpecificLogging_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnResourceSpecificLogging_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -451,7 +451,7 @@ func CfnResourceSpecificLogging_IsCfnResource(construct constructs.IConstruct) *
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_iot.CfnResourceSpecificLogging",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

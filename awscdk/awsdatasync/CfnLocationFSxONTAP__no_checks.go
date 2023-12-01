@@ -72,7 +72,7 @@ func validateCfnLocationFSxONTAP_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnLocationFSxONTAP_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnLocationFSxONTAP_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

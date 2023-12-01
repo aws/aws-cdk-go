@@ -72,7 +72,7 @@ func validateCfnOriginRequestPolicy_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
-func validateCfnOriginRequestPolicy_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnOriginRequestPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

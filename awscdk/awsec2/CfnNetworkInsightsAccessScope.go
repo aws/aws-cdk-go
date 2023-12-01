@@ -660,11 +660,11 @@ func CfnNetworkInsightsAccessScope_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnNetworkInsightsAccessScope_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnNetworkInsightsAccessScope_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnNetworkInsightsAccessScope_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnNetworkInsightsAccessScope_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -672,7 +672,7 @@ func CfnNetworkInsightsAccessScope_IsCfnResource(construct constructs.IConstruct
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInsightsAccessScope",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

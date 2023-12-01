@@ -2,15 +2,15 @@ package awscdkapigatewayv2alpha
 
 
 // Supported Authorizer types.
-// Experimental.
+// Deprecated.
 type WebSocketAuthorizerType string
 
 const (
 	// Lambda Authorizer.
-	// Experimental.
+	// Deprecated.
 	WebSocketAuthorizerType_LAMBDA WebSocketAuthorizerType = "LAMBDA"
 	// IAM Authorizer.
-	// Experimental.
+	// Deprecated.
 	WebSocketAuthorizerType_IAM WebSocketAuthorizerType = "IAM"
 )
 

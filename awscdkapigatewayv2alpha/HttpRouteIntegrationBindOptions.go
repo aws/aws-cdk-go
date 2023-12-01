@@ -20,16 +20,16 @@ import (
 //   	Scope: construct,
 //   }
 //
-// Experimental.
+// Deprecated.
 type HttpRouteIntegrationBindOptions struct {
 	// The route to which this is being bound.
-	// Experimental.
+	// Deprecated.
 	Route IHttpRoute `field:"required" json:"route" yaml:"route"`
 	// The current scope in which the bind is occurring.
 	//
 	// If the `HttpRouteIntegration` being bound creates additional constructs,
 	// this will be used as their parent scope.
-	// Experimental.
+	// Deprecated.
 	Scope constructs.Construct `field:"required" json:"scope" yaml:"scope"`
 }
 

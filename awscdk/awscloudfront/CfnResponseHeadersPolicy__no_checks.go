@@ -72,7 +72,7 @@ func validateCfnResponseHeadersPolicy_IsCfnElementParameters(x interface{}) erro
 	return nil
 }
 
-func validateCfnResponseHeadersPolicy_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnResponseHeadersPolicy_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

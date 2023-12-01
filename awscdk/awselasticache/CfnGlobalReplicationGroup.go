@@ -610,11 +610,11 @@ func CfnGlobalReplicationGroup_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnGlobalReplicationGroup_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnGlobalReplicationGroup_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnGlobalReplicationGroup_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnGlobalReplicationGroup_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -622,7 +622,7 @@ func CfnGlobalReplicationGroup_IsCfnResource(construct constructs.IConstruct) *b
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

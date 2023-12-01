@@ -72,7 +72,7 @@ func validateCfnCapacityReservation_IsCfnElementParameters(x interface{}) error 
 	return nil
 }
 
-func validateCfnCapacityReservation_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnCapacityReservation_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

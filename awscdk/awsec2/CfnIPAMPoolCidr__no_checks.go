@@ -72,7 +72,7 @@ func validateCfnIPAMPoolCidr_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnIPAMPoolCidr_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnIPAMPoolCidr_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

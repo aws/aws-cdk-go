@@ -72,7 +72,7 @@ func validateCfnTopicRuleDestination_IsCfnElementParameters(x interface{}) error
 	return nil
 }
 
-func validateCfnTopicRuleDestination_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnTopicRuleDestination_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

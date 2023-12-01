@@ -82,7 +82,7 @@ type CfnStorageLens_AccountLevelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-detailedstatuscodesmetrics
 	//
 	DetailedStatusCodesMetrics interface{} `field:"optional" json:"detailedStatusCodesMetrics" yaml:"detailedStatusCodesMetrics"`
-	// Specifies the details of Amazon S3 Storage Lens Group configuration.
+	// This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-storagelensgrouplevel
 	//
 	StorageLensGroupLevel interface{} `field:"optional" json:"storageLensGroupLevel" yaml:"storageLensGroupLevel"`

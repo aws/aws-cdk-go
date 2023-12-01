@@ -510,11 +510,11 @@ func CfnInsightRule_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnInsightRule_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnInsightRule_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnInsightRule_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnInsightRule_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -522,7 +522,7 @@ func CfnInsightRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudwatch.CfnInsightRule",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

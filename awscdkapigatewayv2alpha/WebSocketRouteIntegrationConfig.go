@@ -13,13 +13,13 @@ package awscdkapigatewayv2alpha
 //   	Uri: jsii.String("uri"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type WebSocketRouteIntegrationConfig struct {
 	// Integration type.
-	// Experimental.
+	// Deprecated.
 	Type WebSocketIntegrationType `field:"required" json:"type" yaml:"type"`
 	// Integration URI.
-	// Experimental.
+	// Deprecated.
 	Uri *string `field:"required" json:"uri" yaml:"uri"`
 }
 

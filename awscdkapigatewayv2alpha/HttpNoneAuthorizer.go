@@ -62,11 +62,11 @@ import (
 //   	Authorizer: apigwv2.NewHttpNoneAuthorizer(),
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpNoneAuthorizer interface {
 	IHttpRouteAuthorizer
 	// Bind this authorizer to a specified Http route.
-	// Experimental.
+	// Deprecated.
 	Bind(_options *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig
 }
 
@@ -75,7 +75,7 @@ type jsiiProxy_HttpNoneAuthorizer struct {
 	jsiiProxy_IHttpRouteAuthorizer
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpNoneAuthorizer() HttpNoneAuthorizer {
 	_init_.Initialize()
 
@@ -90,7 +90,7 @@ func NewHttpNoneAuthorizer() HttpNoneAuthorizer {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpNoneAuthorizer_Override(h HttpNoneAuthorizer) {
 	_init_.Initialize()
 

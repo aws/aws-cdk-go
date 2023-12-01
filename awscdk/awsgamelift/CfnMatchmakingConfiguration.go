@@ -130,7 +130,7 @@ type CfnMatchmakingConfiguration interface {
 	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
 	RequestTimeoutSeconds() *float64
 	SetRequestTimeoutSeconds(val *float64)
-	// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) associated with the GameLift matchmaking rule set resource that this configuration uses.
 	RuleSetArn() *string
 	SetRuleSetArn(val *string)
 	// A unique identifier for the matchmaking rule set to use with this configuration.
@@ -798,11 +798,11 @@ func CfnMatchmakingConfiguration_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Check whether the given construct is a CfnResource.
-func CfnMatchmakingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
+// Check whether the given object is a CfnResource.
+func CfnMatchmakingConfiguration_IsCfnResource(x interface{}) *bool {
 	_init_.Initialize()
 
-	if err := validateCfnMatchmakingConfiguration_IsCfnResourceParameters(construct); err != nil {
+	if err := validateCfnMatchmakingConfiguration_IsCfnResourceParameters(x); err != nil {
 		panic(err)
 	}
 	var returns *bool
@@ -810,7 +810,7 @@ func CfnMatchmakingConfiguration_IsCfnResource(construct constructs.IConstruct) 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_gamelift.CfnMatchmakingConfiguration",
 		"isCfnResource",
-		[]interface{}{construct},
+		[]interface{}{x},
 		&returns,
 	)
 

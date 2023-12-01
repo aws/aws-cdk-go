@@ -32,11 +32,11 @@ import (
 //   	Authorizer: Authorizer,
 //   })
 //
-// Experimental.
+// Deprecated.
 type HttpUrlIntegration interface {
 	awscdkapigatewayv2alpha.HttpRouteIntegration
 	// Bind this integration to the route.
-	// Experimental.
+	// Deprecated.
 	Bind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
@@ -46,7 +46,7 @@ type HttpUrlIntegration interface {
 	// created for this route or it is an existing one, previously created for other
 	// routes. In most cases, however, concrete implementations do not need to
 	// override this method.
-	// Experimental.
+	// Deprecated.
 	CompleteBind(_options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions)
 }
 
@@ -55,7 +55,7 @@ type jsiiProxy_HttpUrlIntegration struct {
 	internal.Type__awscdkapigatewayv2alphaHttpRouteIntegration
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpUrlIntegration(id *string, url *string, props *HttpUrlIntegrationProps) HttpUrlIntegration {
 	_init_.Initialize()
 
@@ -73,7 +73,7 @@ func NewHttpUrlIntegration(id *string, url *string, props *HttpUrlIntegrationPro
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHttpUrlIntegration_Override(h HttpUrlIntegration, id *string, url *string, props *HttpUrlIntegrationProps) {
 	_init_.Initialize()
 

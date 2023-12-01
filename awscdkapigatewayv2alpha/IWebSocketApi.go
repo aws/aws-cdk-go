@@ -2,7 +2,7 @@ package awscdkapigatewayv2alpha
 
 
 // Represents a WebSocket API.
-// Experimental.
+// Deprecated.
 type IWebSocketApi interface {
 	IApi
 }

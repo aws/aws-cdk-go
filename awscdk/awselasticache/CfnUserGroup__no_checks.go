@@ -72,7 +72,7 @@ func validateCfnUserGroup_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
 
-func validateCfnUserGroup_IsCfnResourceParameters(construct constructs.IConstruct) error {
+func validateCfnUserGroup_IsCfnResourceParameters(x interface{}) error {
 	return nil
 }
 

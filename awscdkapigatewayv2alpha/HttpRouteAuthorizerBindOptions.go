@@ -20,13 +20,13 @@ import (
 //   	Scope: construct,
 //   }
 //
-// Experimental.
+// Deprecated.
 type HttpRouteAuthorizerBindOptions struct {
 	// The route to which the authorizer is being bound.
-	// Experimental.
+	// Deprecated.
 	Route IHttpRoute `field:"required" json:"route" yaml:"route"`
 	// The scope for any constructs created as part of the bind.
-	// Experimental.
+	// Deprecated.
 	Scope constructs.Construct `field:"required" json:"scope" yaml:"scope"`
 }
 
