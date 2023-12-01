@@ -9,7 +9,18 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
+// The `AWS::S3::AccessGrantsLocation` resource creates the S3 data location that you would like to register in your S3 Access Grants instance.
+//
+// Your S3 data must be in the same Region as your S3 Access Grants instance. The location can be one of the following:
+//
+// - The default S3 location `s3://`
+// - A bucket - `S3://<bucket-name>`
+// - A bucket and prefix - `S3://<bucket-name>/<prefix>`
+//
+// When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering. Give S3 Access Grants permission to assume this role [using a policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html) . S3 Access Grants assumes this role to manage access to the location and to vend temporary credentials to grantees or client applications.
+//
+// - **Permissions** - You must have the `s3:CreateAccessGrantsLocation` permission to use this resource.
+// - **Additional Permissions** - You must also have the following permission for the specified IAM role: `iam:PassRole`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +43,11 @@ import (
 type CfnAccessGrantsLocation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) of the specified Access Grants location.
+	// The ARN of the location you are registering.
 	AttrAccessGrantsLocationArn() *string
-	// The unique identifier for the specified Access Grants location.
+	// The ID of the registered location to which you are granting access.
+	//
+	// S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID `default` to the default location `s3://` and assigns an auto-generated ID to other locations that you register.
 	AttrAccessGrantsLocationId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -45,10 +58,10 @@ type CfnAccessGrantsLocation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
+	// The Amazon Resource Name (ARN) of the IAM role for the registered location.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
-	// Descriptor for where the location actually points.
+	// The S3 URI path to the location that you are registering.
 	LocationScope() *string
 	SetLocationScope(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -72,6 +85,7 @@ type CfnAccessGrantsLocation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The AWS resource tags that you are adding to the S3 Access Grants location.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

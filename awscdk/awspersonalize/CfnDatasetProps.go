@@ -37,7 +37,9 @@ type CfnDatasetProps struct {
 	//
 	// - Interactions
 	// - Items
-	// - Users.
+	// - Users
+	// - Actions
+	// - Action_Interactions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasettype
 	//
 	DatasetType *string `field:"required" json:"datasetType" yaml:"datasetType"`

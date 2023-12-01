@@ -28,6 +28,9 @@ import (
 //   	BypassPolicyLockoutSafetyCheck: jsii.Boolean(false),
 //   	Encrypted: jsii.Boolean(false),
 //   	FileSystemPolicy: fileSystemPolicy,
+//   	FileSystemProtection: &FileSystemProtectionProperty{
+//   		ReplicationOverwriteProtection: jsii.String("replicationOverwriteProtection"),
+//   	},
 //   	FileSystemTags: []elasticFileSystemTagProperty{
 //   		&elasticFileSystemTagProperty{
 //   			Key: jsii.String("key"),
@@ -37,6 +40,7 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LifecyclePolicies: []interface{}{
 //   		&LifecyclePolicyProperty{
+//   			TransitionToArchive: jsii.String("transitionToArchive"),
 //   			TransitionToIa: jsii.String("transitionToIa"),
 //   			TransitionToPrimaryStorageClass: jsii.String("transitionToPrimaryStorageClass"),
 //   		},
@@ -70,7 +74,7 @@ type CfnFileSystem interface {
 	//
 	// For example: `fs-abcdef0123456789a`.
 	AttrFileSystemId() *string
-	// Used to create a file system that uses One Zone storage classes.
+	// Used to create a One Zone file system.
 	AvailabilityZoneName() *string
 	SetAvailabilityZoneName(val *string)
 	// Use the `BackupPolicy` to turn automatic backups on or off for the file system.
@@ -94,6 +98,8 @@ type CfnFileSystem interface {
 	// The `FileSystemPolicy` for the EFS file system.
 	FileSystemPolicy() interface{}
 	SetFileSystemPolicy(val interface{})
+	FileSystemProtection() interface{}
+	SetFileSystemProtection(val interface{})
 	// Use to create one or more tags associated with the file system.
 	FileSystemTagsRaw() *[]*CfnFileSystem_ElasticFileSystemTagProperty
 	SetFileSystemTagsRaw(val *[]*CfnFileSystem_ElasticFileSystemTagProperty)
@@ -115,7 +121,7 @@ type CfnFileSystem interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The performance mode of the file system.
+	// The Performance mode of the file system.
 	PerformanceMode() *string
 	SetPerformanceMode(val *string)
 	// The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating.
@@ -395,6 +401,16 @@ func (j *jsiiProxy_CfnFileSystem) FileSystemPolicy() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFileSystem) FileSystemProtection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"fileSystemProtection",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFileSystem) FileSystemTagsRaw() *[]*CfnFileSystem_ElasticFileSystemTagProperty {
 	var returns *[]*CfnFileSystem_ElasticFileSystemTagProperty
 	_jsii_.Get(
@@ -608,6 +624,17 @@ func (j *jsiiProxy_CfnFileSystem)SetFileSystemPolicy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"fileSystemPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFileSystem)SetFileSystemProtection(val interface{}) {
+	if err := j.validateSetFileSystemProtectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"fileSystemProtection",
 		val,
 	)
 }

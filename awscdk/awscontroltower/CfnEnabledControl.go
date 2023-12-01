@@ -18,9 +18,19 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var value interface{}
+//
 //   cfnEnabledControl := awscdk.Aws_controltower.NewCfnEnabledControl(this, jsii.String("MyCfnEnabledControl"), &CfnEnabledControlProps{
 //   	ControlIdentifier: jsii.String("controlIdentifier"),
 //   	TargetIdentifier: jsii.String("targetIdentifier"),
+//
+//   	// the properties below are optional
+//   	Parameters: []interface{}{
+//   		&EnabledControlParameterProperty{
+//   			Key: jsii.String("key"),
+//   			Value: value,
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html
@@ -52,6 +62,9 @@ type CfnEnabledControl interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Array of `EnabledControlParameter` objects.
+	Parameters() interface{}
+	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -280,6 +293,16 @@ func (j *jsiiProxy_CfnEnabledControl) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnabledControl) Parameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"parameters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnabledControl) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -365,6 +388,17 @@ func (j *jsiiProxy_CfnEnabledControl)SetControlIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"controlIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnabledControl)SetParameters(val interface{}) {
+	if err := j.validateSetParametersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"parameters",
 		val,
 	)
 }

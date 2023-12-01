@@ -23,7 +23,7 @@ type CfnKnowledgeBase_RenderingConfigurationProperty struct {
 	// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
 	// - Zendesk: `id` , `title` , `updated_at` , or `draft`
 	//
-	// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html) .
+	// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html#cfn-wisdom-knowledgebase-renderingconfiguration-templateuri
 	//
 	TemplateUri *string `field:"optional" json:"templateUri" yaml:"templateUri"`

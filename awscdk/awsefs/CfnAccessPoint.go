@@ -98,7 +98,7 @@ type CfnAccessPoint interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
+	// The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.
 	RootDirectory() interface{}
 	SetRootDirectory(val interface{})
 	// The stack in which this element is defined.

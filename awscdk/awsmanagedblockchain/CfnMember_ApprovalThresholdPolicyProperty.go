@@ -27,7 +27,7 @@ type CfnMember_ApprovalThresholdPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html#cfn-managedblockchain-member-approvalthresholdpolicy-proposaldurationinhours
 	//
 	ProposalDurationInHours *float64 `field:"optional" json:"proposalDurationInHours" yaml:"proposalDurationInHours"`
-	// Determines whether the vote percentage must be greater than the `ThresholdPercentage` or must be greater than or equal to the `ThreholdPercentage` to be approved.
+	// Determines whether the vote percentage must be greater than the `ThresholdPercentage` or must be greater than or equal to the `ThresholdPercentage` to be approved.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html#cfn-managedblockchain-member-approvalthresholdpolicy-thresholdcomparator
 	//
 	ThresholdComparator *string `field:"optional" json:"thresholdComparator" yaml:"thresholdComparator"`

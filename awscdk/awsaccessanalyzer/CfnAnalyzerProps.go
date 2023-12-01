@@ -15,6 +15,11 @@ import (
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	AnalyzerConfiguration: &AnalyzerConfigurationProperty{
+//   		UnusedAccessConfiguration: &UnusedAccessConfigurationProperty{
+//   			UnusedAccessAge: jsii.Number(123),
+//   		},
+//   	},
 //   	AnalyzerName: jsii.String("analyzerName"),
 //   	ArchiveRules: []interface{}{
 //   		&ArchiveRuleProperty{
@@ -55,6 +60,10 @@ type CfnAnalyzerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The configuration for the analyzer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzerconfiguration
+	//
+	AnalyzerConfiguration interface{} `field:"optional" json:"analyzerConfiguration" yaml:"analyzerConfiguration"`
 	// The name of the analyzer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
 	//
@@ -63,7 +72,7 @@ type CfnAnalyzerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
 	//
 	ArchiveRules interface{} `field:"optional" json:"archiveRules" yaml:"archiveRules"`
-	// The tags to apply to the analyzer.
+	// An array of key-value pairs to apply to the analyzer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

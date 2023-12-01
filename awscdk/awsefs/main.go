@@ -141,6 +141,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "encrypted", GoGetter: "Encrypted"},
 			_jsii_.MemberProperty{JsiiProperty: "fileSystemPolicy", GoGetter: "FileSystemPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "fileSystemProtection", GoGetter: "FileSystemProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "fileSystemTagsRaw", GoGetter: "FileSystemTagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -183,6 +184,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_efs.CfnFileSystem.ElasticFileSystemTagProperty",
 		reflect.TypeOf((*CfnFileSystem_ElasticFileSystemTagProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_efs.CfnFileSystem.FileSystemProtectionProperty",
+		reflect.TypeOf((*CfnFileSystem_FileSystemProtectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_efs.CfnFileSystem.LifecyclePolicyProperty",

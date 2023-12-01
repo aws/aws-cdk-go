@@ -21,7 +21,6 @@ import (
 //   	DnsSupport: jsii.String("dnsSupport"),
 //   	MulticastSupport: jsii.String("multicastSupport"),
 //   	PropagationDefaultRouteTableId: jsii.String("propagationDefaultRouteTableId"),
-//   	SecurityGroupReferencingSupport: jsii.String("securityGroupReferencingSupport"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -83,9 +82,6 @@ type CfnTransitGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-propagationdefaultroutetableid
 	//
 	PropagationDefaultRouteTableId *string `field:"optional" json:"propagationDefaultRouteTableId" yaml:"propagationDefaultRouteTableId"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-securitygroupreferencingsupport
-	//
-	SecurityGroupReferencingSupport *string `field:"optional" json:"securityGroupReferencingSupport" yaml:"securityGroupReferencingSupport"`
 	// The tags for the transit gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
 	//

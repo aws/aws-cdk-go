@@ -16,6 +16,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	StandbyReplicas: jsii.String("standbyReplicas"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -43,6 +44,10 @@ type CfnCollectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The possible standby replicas for the collection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-standbyreplicas
+	//
+	StandbyReplicas *string `field:"optional" json:"standbyReplicas" yaml:"standbyReplicas"`
 	// An arbitrary set of tags (key–value pairs) to associate with the collection.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

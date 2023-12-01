@@ -9,7 +9,16 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
+// The `AWS::S3::AccessGrant` resource creates an access grant that gives a grantee access to your S3 data.
+//
+// The grantee can be an IAM user or role or a directory user, or group. Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data. You can create an S3 Access Grants instance using the [AWS::S3::AccessGrantsInstance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantsinstance.html) . You must also have registered at least one S3 data location in your S3 Access Grants instance using [AWS::S3::AccessGrantsLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantslocation.html) .
+//
+// - **Permissions** - You must have the `s3:CreateAccessGrant` permission to use this resource.
+// - **Additional Permissions** - For any directory identity - `sso:DescribeInstance` and `sso:DescribeApplication`
+//
+// For directory users - `identitystore:DescribeUser`
+//
+// For directory groups - `identitystore:DescribeGroup`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,21 +52,24 @@ import (
 type CfnAccessGrant interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The configuration options of the grant location.
 	AccessGrantsLocationConfiguration() interface{}
 	SetAccessGrantsLocationConfiguration(val interface{})
-	// The custom S3 location to be accessed by the grantee.
+	// The ID of the registered location to which you are granting access.
 	AccessGrantsLocationId() *string
 	SetAccessGrantsLocationId(val *string)
-	// The ARN of the application grantees will use to access the location.
+	// The Amazon Resource Name (ARN) of an AWS IAM Identity Center application associated with your Identity Center instance.
 	ApplicationArn() *string
 	SetApplicationArn(val *string)
-	// the Amazon Resource Name (ARN) of the specified access grant.
+	// The ARN of the access grant.
 	AttrAccessGrantArn() *string
-	// The ID assigned to this access grant.
+	// The ID of the access grant.
+	//
+	// S3 Access Grants auto-generates this ID when you create the access grant.
 	AttrAccessGrantId() *string
 	// The S3 path of the data to which you are granting access.
 	//
-	// It is a combination of the S3 path of the registered location and the subprefix.
+	// It is the result of appending the `Subprefix` to the location scope.
 	AttrGrantScope() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -68,6 +80,7 @@ type CfnAccessGrant interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The user, group, or role to which you are granting access.
 	Grantee() interface{}
 	SetGrantee(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -82,7 +95,7 @@ type CfnAccessGrant interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The level of access to be afforded to the grantee.
+	// The type of access that you are granting to your S3 data, which can be set to one of the following values:  - `READ` – Grant read-only access to the S3 data.
 	Permission() *string
 	SetPermission(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -90,13 +103,14 @@ type CfnAccessGrant interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The type of S3SubPrefix.
+	// The type of `S3SubPrefix` .
 	S3PrefixType() *string
 	SetS3PrefixType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The AWS resource tags that you are adding to the access grant.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

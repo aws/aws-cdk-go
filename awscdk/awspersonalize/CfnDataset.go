@@ -13,13 +13,15 @@ import (
 //
 // Use [CreateDatasetImportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html) to import your training data to a dataset.
 //
-// There are three types of datasets:
+// There are 5 types of datasets:
 //
-// - Interactions
+// - Item interactions
 // - Items
 // - Users
+// - Action interactions
+// - Actions
 //
-// Each dataset type has an associated schema with required field types. Only the `Interactions` dataset is required in order to train a model (also referred to as creating a solution).
+// Each dataset type has an associated schema with required field types. Only the `Item interactions` dataset is required in order to train a model (also referred to as creating a solution).
 //
 // A dataset can be in one of the following states:
 //

@@ -330,7 +330,7 @@ type CfnAutomationRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-rulestatus
 	//
 	RuleStatus *string `field:"optional" json:"ruleStatus" yaml:"ruleStatus"`
-	// User-defined tags that help you label the purpose of a rule.
+	// User-defined tags associated with an automation rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

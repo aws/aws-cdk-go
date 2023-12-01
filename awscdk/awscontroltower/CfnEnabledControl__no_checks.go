@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnEnabledControl) validateSetControlIdentifierParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnabledControl) validateSetParametersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEnabledControl) validateSetTargetIdentifierParameters(val *string) error {
 	return nil
 }

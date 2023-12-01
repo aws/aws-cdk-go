@@ -32,7 +32,7 @@ type CfnKnowledgeBase_AppIntegrationsConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-appintegrationsconfiguration.html#cfn-wisdom-knowledgebase-appintegrationsconfiguration-appintegrationarn
 	//
 	AppIntegrationArn *string `field:"required" json:"appIntegrationArn" yaml:"appIntegrationArn"`
-	// The fields from the source that are made available to your agents in Wisdom.
+	// The fields from the source that are made available to your agents in Amazon Q.
 	//
 	// Optional if ObjectConfiguration is included in the provided DataIntegration.
 	//

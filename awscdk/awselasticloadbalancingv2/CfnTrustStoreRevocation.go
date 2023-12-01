@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation.
+// Adds the specified revocation contents to the specified trust store.
+//
+// You must specify `TrustStoreArn` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +35,9 @@ import (
 type CfnTrustStoreRevocation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ID associated with the revocation.
+	// The revocation ID of the revocation file.
 	AttrRevocationId() *float64
-	// The data associated with a trust store revocation.
+	// Information about the revocation file in the trust store.
 	AttrTrustStoreRevocations() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -63,7 +65,7 @@ type CfnTrustStoreRevocation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The attributes required to create a trust store revocation.
+	// The revocation file to add.
 	RevocationContents() interface{}
 	SetRevocationContents(val interface{})
 	// The stack in which this element is defined.

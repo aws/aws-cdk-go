@@ -89,6 +89,13 @@ type ClusterProps struct {
 	//
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// This controls storage mode for supported storage tiers.
+	// See: https://docs.aws.amazon.com/msk/latest/developerguide/msk-tiered-storage.html
+	//
+	// Default: - StorageMode.LOCAL
+	//
+	// Experimental.
+	StorageMode StorageMode `field:"optional" json:"storageMode" yaml:"storageMode"`
 	// Where to place the nodes within the VPC.
 	//
 	// Amazon MSK distributes the broker nodes evenly across the subnets that you specify.

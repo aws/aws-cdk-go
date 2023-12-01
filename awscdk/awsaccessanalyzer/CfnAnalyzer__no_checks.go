@@ -80,6 +80,10 @@ func validateCfnAnalyzer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnalyzer) validateSetAnalyzerConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAnalyzer) validateSetArchiveRulesParameters(val interface{}) error {
 	return nil
 }

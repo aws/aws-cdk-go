@@ -18,6 +18,9 @@ package awsefs
 //   	BypassPolicyLockoutSafetyCheck: jsii.Boolean(false),
 //   	Encrypted: jsii.Boolean(false),
 //   	FileSystemPolicy: fileSystemPolicy,
+//   	FileSystemProtection: &FileSystemProtectionProperty{
+//   		ReplicationOverwriteProtection: jsii.String("replicationOverwriteProtection"),
+//   	},
 //   	FileSystemTags: []elasticFileSystemTagProperty{
 //   		&elasticFileSystemTagProperty{
 //   			Key: jsii.String("key"),
@@ -27,6 +30,7 @@ package awsefs
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LifecyclePolicies: []interface{}{
 //   		&LifecyclePolicyProperty{
+//   			TransitionToArchive: jsii.String("transitionToArchive"),
 //   			TransitionToIa: jsii.String("transitionToIa"),
 //   			TransitionToPrimaryStorageClass: jsii.String("transitionToPrimaryStorageClass"),
 //   		},
@@ -49,11 +53,11 @@ package awsefs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 //
 type CfnFileSystemProps struct {
-	// Used to create a file system that uses One Zone storage classes.
+	// Used to create a One Zone file system.
 	//
-	// It specifies the AWS Availability Zone in which to create the file system. Use the format `us-east-1a` to specify the Availability Zone. For more information about One Zone storage classes, see [Using EFS storage classes](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide* .
+	// It specifies the AWS Availability Zone in which to create the file system. Use the format `us-east-1a` to specify the Availability Zone. For more information about One Zone file systems, see [Using EFS storage classes](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide* .
 	//
-	// > One Zone storage classes are not available in all Availability Zones in AWS Regions where Amazon EFS is available.
+	// > One Zone file systems are not available in all Availability Zones in AWS Regions where Amazon EFS is available.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
 	//
 	AvailabilityZoneName *string `field:"optional" json:"availabilityZoneName" yaml:"availabilityZoneName"`
@@ -79,6 +83,9 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
 	//
 	FileSystemPolicy interface{} `field:"optional" json:"fileSystemPolicy" yaml:"fileSystemPolicy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemprotection
+	//
+	FileSystemProtection interface{} `field:"optional" json:"fileSystemProtection" yaml:"fileSystemProtection"`
 	// Use to create one or more tags associated with the file system.
 	//
 	// Each tag is a user-defined key-value pair. Name your file system on creation by including a `"Key":"Name","Value":"{value}"` key-value pair. Each key must be unique. For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
@@ -109,9 +116,9 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
 	//
 	LifecyclePolicies interface{} `field:"optional" json:"lifecyclePolicies" yaml:"lifecyclePolicies"`
-	// The performance mode of the file system.
+	// The Performance mode of the file system.
 	//
-	// We recommend `generalPurpose` performance mode for all file systems. File systems using the `maxIO` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The `maxIO` mode is not supported on file systems using One Zone storage classes.
+	// We recommend `generalPurpose` performance mode for all file systems. File systems using the `maxIO` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The `maxIO` mode is not supported on One Zone file systems.
 	//
 	// > Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
 	//
@@ -131,7 +138,7 @@ type CfnFileSystemProps struct {
 	ReplicationConfiguration interface{} `field:"optional" json:"replicationConfiguration" yaml:"replicationConfiguration"`
 	// Specifies the throughput mode for the file system.
 	//
-	// The mode can be `bursting` , `provisioned` , or `elastic` . If you set `ThroughputMode` to `provisioned` , you must also set a value for `ProvisionedThroughputInMibps` . After you create the file system, you can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide* .
+	// The mode can be `bursting` , `provisioned` , or `elastic` . If you set `ThroughputMode` to `provisioned` , you must also set a value for `ProvisionedThroughputInMibps` . After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide* .
 	//
 	// Default is `bursting` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode

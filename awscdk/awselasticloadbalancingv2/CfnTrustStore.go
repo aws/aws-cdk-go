@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore.
+// Creates a trust store.
+//
+// You must specify `CaCertificatesBundleS3Bucket` and `CaCertificatesBundleS3Key` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,19 +36,19 @@ import (
 type CfnTrustStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The number of certificates associated with the trust store.
+	// The number of ca certificates in the trust store.
 	AttrNumberOfCaCertificates() *float64
-	// The status of the trust store, could be either of ACTIVE or CREATING.
+	// The current status of the trust store.
 	AttrStatus() *string
 	// The Amazon Resource Name (ARN) of the trust store.
 	AttrTrustStoreArn() *string
-	// The name of the S3 bucket to fetch the CA certificate bundle from.
+	// The Amazon S3 bucket for the ca certificates bundle.
 	CaCertificatesBundleS3Bucket() *string
 	SetCaCertificatesBundleS3Bucket(val *string)
-	// The name of the S3 object to fetch the CA certificate bundle from.
+	// The Amazon S3 path for the ca certificates bundle.
 	CaCertificatesBundleS3Key() *string
 	SetCaCertificatesBundleS3Key(val *string)
-	// The version of the S3 bucket that contains the CA certificate bundle.
+	// The Amazon S3 object version for the ca certificates bundle.
 	CaCertificatesBundleS3ObjectVersion() *string
 	SetCaCertificatesBundleS3ObjectVersion(val *string)
 	// Options for this resource, such as condition, update policy etc.

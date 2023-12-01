@@ -61,7 +61,7 @@ type CfnAccessPointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
 	//
 	PosixUser interface{} `field:"optional" json:"posixUser" yaml:"posixUser"`
-	// The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
+	// The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
 	//
 	RootDirectory interface{} `field:"optional" json:"rootDirectory" yaml:"rootDirectory"`

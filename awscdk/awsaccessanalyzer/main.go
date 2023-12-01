@@ -18,6 +18,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "analyzerConfiguration", GoGetter: "AnalyzerConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "analyzerName", GoGetter: "AnalyzerName"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "archiveRules", GoGetter: "ArchiveRules"},
@@ -57,12 +58,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer.AnalyzerConfigurationProperty",
+		reflect.TypeOf((*CfnAnalyzer_AnalyzerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer.ArchiveRuleProperty",
 		reflect.TypeOf((*CfnAnalyzer_ArchiveRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer.FilterProperty",
 		reflect.TypeOf((*CfnAnalyzer_FilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer.UnusedAccessConfigurationProperty",
+		reflect.TypeOf((*CfnAnalyzer_UnusedAccessConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzerProps",

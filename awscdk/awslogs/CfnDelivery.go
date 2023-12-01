@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Logs::Delivery.
+// This structure contains information about one delivery in your account.
+//
+// A delivery is a connection between a logical delivery source and a logical delivery destination.
+//
+// For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -113,6 +113,7 @@ func init() {
 		"@aws-cdk/aws-msk-alpha.KafkaVersion",
 		reflect.TypeOf((*KafkaVersion)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "isTieredStorageCompatible", GoMethod: "IsTieredStorageCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
 		func() interface{} {
@@ -134,6 +135,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-msk-alpha.SaslTlsAuthProps",
 		reflect.TypeOf((*SaslTlsAuthProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-msk-alpha.StorageMode",
+		reflect.TypeOf((*StorageMode)(nil)).Elem(),
+		map[string]interface{}{
+			"LOCAL": StorageMode_LOCAL,
+			"TIERED": StorageMode_TIERED,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-msk-alpha.TlsAuthProps",

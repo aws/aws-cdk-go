@@ -9,17 +9,22 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Logs::DeliveryDestination.
+// This structure contains information about one delivery destination in your account.
+//
+// A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var deliveryDestinationPolicy interface{}
+//
 //   cfnDeliveryDestination := awscdk.Aws_logs.NewCfnDeliveryDestination(this, jsii.String("MyCfnDeliveryDestination"), &CfnDeliveryDestinationProps{
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DeliveryDestinationPolicy: deliveryDestinationPolicy,
 //   	DestinationResourceArn: jsii.String("destinationResourceArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -47,6 +52,9 @@ type CfnDeliveryDestination interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+	DeliveryDestinationPolicy() interface{}
+	SetDeliveryDestinationPolicy(val interface{})
 	// Amazon Resource Names (ARNs) uniquely identify AWS resources.
 	DestinationResourceArn() *string
 	SetDestinationResourceArn(val *string)
@@ -283,6 +291,16 @@ func (j *jsiiProxy_CfnDeliveryDestination) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliveryDestination) DeliveryDestinationPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deliveryDestinationPolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliveryDestination) DestinationResourceArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -398,6 +416,14 @@ func NewCfnDeliveryDestination_Override(c CfnDeliveryDestination, scope construc
 		"aws-cdk-lib.aws_logs.CfnDeliveryDestination",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryDestination)SetDeliveryDestinationPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"deliveryDestinationPolicy",
+		val,
 	)
 }
 

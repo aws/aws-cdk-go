@@ -25,6 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	StandbyReplicas: jsii.String("standbyReplicas"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -92,6 +93,9 @@ type CfnCollection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The possible standby replicas for the collection.
+	StandbyReplicas() *string
+	SetStandbyReplicas(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// An arbitrary set of tags (key–value pairs) to associate with the collection.
@@ -387,6 +391,16 @@ func (j *jsiiProxy_CfnCollection) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollection) StandbyReplicas() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"standbyReplicas",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollection) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -480,6 +494,14 @@ func (j *jsiiProxy_CfnCollection)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollection)SetStandbyReplicas(val *string) {
+	_jsii_.Set(
+		j,
+		"standbyReplicas",
 		val,
 	)
 }

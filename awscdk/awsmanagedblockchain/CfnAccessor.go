@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a new accessor for use with Managed Blockchain Ethereum nodes.
+// Creates a new accessor for use with Amazon Managed Blockchain service that supports token based access.
 //
-// An accessor contains information required for token based access to your Ethereum nodes.
+// The accessor contains information required for token based access.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,7 @@ import (
 //   	AccessorType: jsii.String("accessorType"),
 //
 //   	// the properties below are optional
+//   	NetworkType: jsii.String("networkType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -72,6 +73,9 @@ type CfnAccessor interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The blockchain network that the `Accessor` token is created for.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -345,6 +349,16 @@ func (j *jsiiProxy_CfnAccessor) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessor) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessor) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -450,6 +464,14 @@ func (j *jsiiProxy_CfnAccessor)SetAccessorType(val *string) {
 	_jsii_.Set(
 		j,
 		"accessorType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccessor)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

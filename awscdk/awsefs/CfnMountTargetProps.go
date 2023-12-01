@@ -34,7 +34,7 @@ type CfnMountTargetProps struct {
 	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`
 	// The ID of the subnet to add the mount target in.
 	//
-	// For file systems that use One Zone storage classes, use the subnet that is associated with the file system's Availability Zone.
+	// For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
 	//
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`

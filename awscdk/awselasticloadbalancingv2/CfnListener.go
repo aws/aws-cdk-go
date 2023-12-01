@@ -148,6 +148,7 @@ type CfnListener interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The mutual authentication configuration information.
 	MutualAuthentication() interface{}
 	SetMutualAuthentication(val interface{})
 	// The tree node.

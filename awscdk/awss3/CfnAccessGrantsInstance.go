@@ -9,7 +9,12 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations.
+// The `AWS::S3::AccessGrantInstance` resource creates an S3 Access Grants instance, which serves as a logical grouping for access grants.
+//
+// You can create one S3 Access Grants instance per Region per account.
+//
+// - **Permissions** - You must have the `s3:CreateAccessGrantsInstance` permission to use this resource.
+// - **Additional Permissions** - To associate an IAM Identity Center instance with your S3 Access Grants instance, you must also have the `sso:DescribeInstance` , `sso:CreateApplication` , `sso:PutApplicationGrant` , and `sso:PutApplicationAuthenticationMethod` permissions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,9 +36,11 @@ import (
 type CfnAccessGrantsInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) of the specified Access Grants instance.
+	// The ARN of the S3 Access Grants instance.
 	AttrAccessGrantsInstanceArn() *string
-	// A unique identifier for the specified access grants instance.
+	// The ID of the S3 Access Grants instance.
+	//
+	// The ID is `default` . You can have one S3 Access Grants instance per Region per account.
 	AttrAccessGrantsInstanceId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -44,7 +51,7 @@ type CfnAccessGrantsInstance interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the specified AWS Identity Center.
+	// If you would like to associate your S3 Access Grants instance with an AWS IAM Identity Center instance, use this field to pass the Amazon Resource Name (ARN) of the AWS IAM Identity Center instance that you are associating with your S3 Access Grants instance.
 	IdentityCenterArn() *string
 	SetIdentityCenterArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -68,6 +75,7 @@ type CfnAccessGrantsInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The AWS resource tags that you are adding to the S3 Access Grants instance.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

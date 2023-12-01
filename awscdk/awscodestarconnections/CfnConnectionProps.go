@@ -30,7 +30,7 @@ import (
 type CfnConnectionProps struct {
 	// The name of the connection.
 	//
-	// Connection names must be unique in an AWS user account.
+	// Connection names must be unique in an AWS account .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
 	//
 	ConnectionName *string `field:"required" json:"connectionName" yaml:"connectionName"`

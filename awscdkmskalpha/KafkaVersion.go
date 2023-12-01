@@ -27,6 +27,9 @@ type KafkaVersion interface {
 	// cluster version number.
 	// Experimental.
 	Version() *string
+	// Checks if the cluster version supports tiered storage mode.
+	// Experimental.
+	IsTieredStorageCompatible() *bool
 }
 
 // The jsii proxy struct for KafkaVersion
@@ -219,6 +222,17 @@ func KafkaVersion_V2_8_1() KafkaVersion {
 	return returns
 }
 
+func KafkaVersion_V2_8_2_TIERED() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V2_8_2_TIERED",
+		&returns,
+	)
+	return returns
+}
+
 func KafkaVersion_V3_1_1() KafkaVersion {
 	_init_.Initialize()
 	var returns KafkaVersion
@@ -271,6 +285,30 @@ func KafkaVersion_V3_4_0() KafkaVersion {
 		"V3_4_0",
 		&returns,
 	)
+	return returns
+}
+
+func KafkaVersion_V3_5_1() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V3_5_1",
+		&returns,
+	)
+	return returns
+}
+
+func (k *jsiiProxy_KafkaVersion) IsTieredStorageCompatible() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		k,
+		"isTieredStorageCompatible",
+		nil, // no parameters
+		&returns,
+	)
+
 	return returns
 }
 

@@ -9,7 +9,20 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Backup::RestoreTestingSelection.
+// This request can be sent after CreateRestoreTestingPlan request returns successfully.
+//
+// This is the second part of creating a resource testing plan, and it must be completed sequentially.
+//
+// This consists of `RestoreTestingSelectionName` , `ProtectedResourceType` , and one of the following:
+//
+// - `ProtectedResourceArns`
+// - `ProtectedResourceConditions`
+//
+// Each protected resource type can have one single value.
+//
+// A restore testing selection can include a wildcard value ("*") for `ProtectedResourceArns` along with `ProtectedResourceConditions` . Alternatively, you can include up to 30 specific protected resource ARNs in `ProtectedResourceArns` .
+//
+// Cannot select by both protected resource types AND specific ARNs. Request will fail if both are included.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -60,6 +73,7 @@ type CfnRestoreTestingSelection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource;.
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -74,10 +88,13 @@ type CfnRestoreTestingSelection interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
 	ProtectedResourceArns() *[]*string
 	SetProtectedResourceArns(val *[]*string)
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions() interface{}
 	SetProtectedResourceConditions(val interface{})
+	// The type of AWS resource included in a resource testing selection;.
 	ProtectedResourceType() *string
 	SetProtectedResourceType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -85,10 +102,13 @@ type CfnRestoreTestingSelection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` .
 	RestoreMetadataOverrides() interface{}
 	SetRestoreMetadataOverrides(val interface{})
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan.
 	RestoreTestingPlanName() *string
 	SetRestoreTestingPlanName(val *string)
+	// This is the unique name of the restore testing selection that belongs to the related restore testing plan.
 	RestoreTestingSelectionName() *string
 	SetRestoreTestingSelectionName(val *string)
 	// The stack in which this element is defined.
@@ -108,6 +128,7 @@ type CfnRestoreTestingSelection interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// This is amount of hours (1 to 168) available to run a validation script on the data.
 	ValidationWindowHours() *float64
 	SetValidationWindowHours(val *float64)
 	// Syntactic sugar for `addOverride(path, undefined)`.

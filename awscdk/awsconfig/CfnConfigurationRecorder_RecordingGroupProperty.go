@@ -44,13 +44,13 @@ package awsconfig
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
 //
 type CfnConfigurationRecorder_RecordingGroupProperty struct {
-	// Specifies whether AWS Config records configuration changes for all supported regionally recorded resource types.
+	// Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
 	//
-	// If you set this field to `true` , when AWS Config adds support for a new regionally recorded resource type, AWS Config starts recording resources of that type automatically.
+	// If you set this field to `true` , when AWS Config adds support for a new resource type, AWS Config starts recording resources of that type automatically.
 	//
 	// If you set this field to `true` , you cannot enumerate specific resource types to record in the `resourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) , or to exclude in the `resourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
 	//
-	// > *Region Availability*
+	// > *Region availability*
 	// >
 	// > Check [Resource Coverage by Region Availability](https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html) to see if a resource type is supported in the AWS Region where you set up AWS Config .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-allsupported

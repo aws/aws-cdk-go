@@ -22,6 +22,11 @@ import (
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	AnalyzerConfiguration: &AnalyzerConfigurationProperty{
+//   		UnusedAccessConfiguration: &UnusedAccessConfigurationProperty{
+//   			UnusedAccessAge: jsii.Number(123),
+//   		},
+//   	},
 //   	AnalyzerName: jsii.String("analyzerName"),
 //   	ArchiveRules: []interface{}{
 //   		&ArchiveRuleProperty{
@@ -59,6 +64,9 @@ type CfnAnalyzer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The configuration for the analyzer.
+	AnalyzerConfiguration() interface{}
+	SetAnalyzerConfiguration(val interface{})
 	// The name of the analyzer.
 	AnalyzerName() *string
 	SetAnalyzerName(val *string)
@@ -99,7 +107,7 @@ type CfnAnalyzer interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The tags to apply to the analyzer.
+	// An array of key-value pairs to apply to the analyzer.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type represents the zone of trust for the analyzer.
@@ -250,6 +258,16 @@ type jsiiProxy_CfnAnalyzer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnAnalyzer) AnalyzerConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"analyzerConfiguration",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAnalyzer) AnalyzerName() *string {
@@ -437,6 +455,17 @@ func NewCfnAnalyzer_Override(c CfnAnalyzer, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnAnalyzer)SetAnalyzerConfiguration(val interface{}) {
+	if err := j.validateSetAnalyzerConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"analyzerConfiguration",
+		val,
 	)
 }
 

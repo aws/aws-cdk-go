@@ -120,7 +120,9 @@ type CfnCluster interface {
 	AttrId() *string
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	AttrKubernetesNetworkConfigServiceIpv6Cidr() *string
-	// The issuer URL for the OIDC identity provider.
+	// The issuer URL for the OIDC identity provider of the cluster, such as `https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E` . If you need to remove `https://` from this output value, you can include the following code in your template.
+	//
+	// `!Select [1, !Split ["//", !GetAtt EKSCluster.OpenIdConnectIssuerUrl]]`
 	AttrOpenIdConnectIssuerUrl() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

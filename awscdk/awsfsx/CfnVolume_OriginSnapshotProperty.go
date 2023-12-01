@@ -16,10 +16,14 @@ package awsfsx
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-originsnapshot.html
 //
 type CfnVolume_OriginSnapshotProperty struct {
-	// The strategy used when copying data from the snapshot to the new volume.
+	// Specifies the strategy used when copying data from the snapshot to the new volume.
 	//
 	// - `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.
 	// - `FULL_COPY` - Copies all data from the snapshot to the new volume.
+	//
+	// Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.
+	//
+	// > The `INCREMENTAL_COPY` option is only for updating an existing volume by using a snapshot from another FSx for OpenZFS file system. For more information, see [CopySnapshotAndUpdateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-originsnapshot.html#cfn-fsx-volume-originsnapshot-copystrategy
 	//
 	CopyStrategy *string `field:"required" json:"copyStrategy" yaml:"copyStrategy"`

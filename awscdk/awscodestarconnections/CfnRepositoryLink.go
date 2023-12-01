@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
+// Information about the repository link resource, such as the repository link ARN, the associated connection ARN, encryption key ARN, and owner ID.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,14 +47,14 @@ type CfnRepositoryLink interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The Amazon Resource Name (ARN) of the CodeStarConnection.
+	// The Amazon Resource Name (ARN) of the connection associated with the repository link.
 	ConnectionArn() *string
 	SetConnectionArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ARN of the KMS key that the customer can optionally specify to use to encrypt RepositoryLink properties.
+	// The Amazon Resource Name (ARN) of the encryption key for the repository associated with the repository link.
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -69,7 +69,7 @@ type CfnRepositoryLink interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// the ID of the entity that owns the repository.
+	// The owner ID for the repository associated with the repository link, such as the owner ID in GitHub.
 	OwnerId() *string
 	SetOwnerId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -77,14 +77,14 @@ type CfnRepositoryLink interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The repository for which the link is being created.
+	// The name of the repository associated with the repository link.
 	RepositoryName() *string
 	SetRepositoryName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies the tags applied to a RepositoryLink.
+	// The tags for the repository to be associated with the repository link.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

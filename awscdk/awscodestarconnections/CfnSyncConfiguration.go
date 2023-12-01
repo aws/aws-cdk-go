@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
+// Information, such as repository, branch, provider, and resource names for a specific sync configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,13 +30,13 @@ import (
 type CfnSyncConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// the ID of the entity that owns the repository.
+	// The owner ID for the repository associated with a specific sync configuration, such as the owner ID in GitHub.
 	AttrOwnerId() *string
 	// The name of the external provider where your third-party code repository is configured.
 	AttrProviderType() *string
 	// The name of the repository that is being synced to.
 	AttrRepositoryName() *string
-	// The name of the branch of the repository from which resources are to be synchronized,.
+	// The branch associated with a specific sync configuration.
 	Branch() *string
 	SetBranch(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -44,7 +44,7 @@ type CfnSyncConfiguration interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The source provider repository path of the sync configuration file of the respective SyncType.
+	// The file path to the configuration file associated with a specific sync configuration.
 	ConfigFile() *string
 	SetConfigFile(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -68,20 +68,20 @@ type CfnSyncConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
+	// The ID of the repository link associated with a specific sync configuration.
 	RepositoryLinkId() *string
 	SetRepositoryLinkId(val *string)
-	// The name of the resource that is being synchronized to the repository.
+	// The name of the connection resource associated with a specific sync configuration.
 	ResourceName() *string
 	SetResourceName(val *string)
-	// The IAM Role that allows AWS to update CloudFormation stacks based on content in the specified repository.
+	// The Amazon Resource Name (ARN) of the IAM role associated with a specific sync configuration.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
+	// The type of sync for a specific sync configuration.
 	SyncType() *string
 	SetSyncType(val *string)
 	// Deprecated.

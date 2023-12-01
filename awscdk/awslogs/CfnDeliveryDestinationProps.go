@@ -11,10 +11,13 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var deliveryDestinationPolicy interface{}
+//
 //   cfnDeliveryDestinationProps := &CfnDeliveryDestinationProps{
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DeliveryDestinationPolicy: deliveryDestinationPolicy,
 //   	DestinationResourceArn: jsii.String("destinationResourceArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -31,6 +34,14 @@ type CfnDeliveryDestinationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 51200.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-deliverydestinationpolicy
+	//
+	DeliveryDestinationPolicy interface{} `field:"optional" json:"deliveryDestinationPolicy" yaml:"deliveryDestinationPolicy"`
 	// Amazon Resource Names (ARNs) uniquely identify AWS resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-destinationresourcearn
 	//

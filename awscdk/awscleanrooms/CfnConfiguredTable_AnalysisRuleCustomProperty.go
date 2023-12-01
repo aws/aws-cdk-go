@@ -3,6 +3,8 @@ package awscleanrooms
 
 // A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables.
 //
+// It supports differential privacy.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

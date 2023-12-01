@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Backup::RestoreTestingPlan Resource Type.
+// This is the first of two steps to create a restore testing plan;
+//
+// once this request is successful, finish the procedure with request CreateRestoreTestingSelection.
+//
+// You must include the parameter RestoreTestingPlan. You may optionally include CreatorRequestId and Tags.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -51,6 +55,7 @@ import (
 type CfnRestoreTestingPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
 	AttrRestoreTestingPlanArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -73,6 +78,7 @@ type CfnRestoreTestingPlan interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
 	RecoveryPointSelection() interface{}
 	SetRecoveryPointSelection(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -80,16 +86,20 @@ type CfnRestoreTestingPlan interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// This is the restore testing plan name.
 	RestoreTestingPlanName() *string
 	SetRestoreTestingPlanName(val *string)
+	// A CRON expression in specified timezone when a restore testing plan is executed.
 	ScheduleExpression() *string
 	SetScheduleExpression(val *string)
+	// Optional.
 	ScheduleExpressionTimezone() *string
 	SetScheduleExpressionTimezone(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Defaults to 24 hours.
 	StartWindowHours() *float64
 	SetStartWindowHours(val *float64)
 	Tags() *[]*awscdk.CfnTag

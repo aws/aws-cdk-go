@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::ControlTower::LandingZone Resource Type.
+// Creates a new landing zone.
+//
+// This API call starts an asynchronous operation that creates and configures a landing zone, based on the parameters specified in the manifest JSON file.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,10 +35,15 @@ import (
 type CfnLandingZone interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the landing zone.
 	AttrArn() *string
+	// The drift status of the landing zone.
 	AttrDriftStatus() *string
+	// The unique identifier of the landing zone.
 	AttrLandingZoneIdentifier() *string
+	// The latest available version of the landing zone.
 	AttrLatestAvailableVersion() *string
+	// The landing zone deployment status.
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -68,6 +75,7 @@ type CfnLandingZone interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Tags to be applied to the landing zone.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -83,6 +91,7 @@ type CfnLandingZone interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The landing zone's current deployed version.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

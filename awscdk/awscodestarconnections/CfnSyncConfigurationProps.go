@@ -20,27 +20,29 @@ package awscodestarconnections
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html
 //
 type CfnSyncConfigurationProps struct {
-	// The name of the branch of the repository from which resources are to be synchronized,.
+	// The branch associated with a specific sync configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-branch
 	//
 	Branch *string `field:"required" json:"branch" yaml:"branch"`
-	// The source provider repository path of the sync configuration file of the respective SyncType.
+	// The file path to the configuration file associated with a specific sync configuration.
+	//
+	// The path should point to an actual file in the sync configurations linked repository.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-configfile
 	//
 	ConfigFile *string `field:"required" json:"configFile" yaml:"configFile"`
-	// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
+	// The ID of the repository link associated with a specific sync configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-repositorylinkid
 	//
 	RepositoryLinkId *string `field:"required" json:"repositoryLinkId" yaml:"repositoryLinkId"`
-	// The name of the resource that is being synchronized to the repository.
+	// The name of the connection resource associated with a specific sync configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-resourcename
 	//
 	ResourceName *string `field:"required" json:"resourceName" yaml:"resourceName"`
-	// The IAM Role that allows AWS to update CloudFormation stacks based on content in the specified repository.
+	// The Amazon Resource Name (ARN) of the IAM role associated with a specific sync configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
+	// The type of sync for a specific sync configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-synctype
 	//
 	SyncType *string `field:"required" json:"syncType" yaml:"syncType"`

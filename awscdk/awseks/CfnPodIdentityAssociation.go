@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// An object representing an Amazon EKS PodIdentityAssociation.
+// Amazon EKS Pod Identity associations provide the ability to manage credentials for your applications, similar to the way that Amazon EC2 instance profiles provide credentials to Amazon EC2 instances.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,16 +36,16 @@ import (
 type CfnPodIdentityAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ARN of the pod identity association.
+	// The Amazon Resource Name (ARN) of the association.
 	AttrAssociationArn() *string
-	// The ID of the pod identity association.
+	// The ID of the association.
 	AttrAssociationId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The cluster that the pod identity association is created for.
+	// The name of the cluster that the association is in.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -62,7 +62,7 @@ type CfnPodIdentityAssociation interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The Kubernetes namespace that the pod identity association is created for.
+	// The name of the Kubernetes namespace inside the cluster to create the association in.
 	Namespace() *string
 	SetNamespace(val *string)
 	// The tree node.
@@ -72,17 +72,17 @@ type CfnPodIdentityAssociation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The IAM role ARN that the pod identity association is created for.
+	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account.
 	RoleArn() *string
 	SetRoleArn(val *string)
-	// The Kubernetes service account that the pod identity association is created for.
+	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
 	ServiceAccount() *string
 	SetServiceAccount(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// The metadata that you apply to a resource to assist with categorization and organization.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

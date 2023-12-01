@@ -9,7 +9,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
+// Creates or updates an *anomaly detector* that regularly scans one or more log groups and look for patterns and anomalies in the logs.
+//
+// An anomaly detector can help surface issues by automatically discovering anomalies in your log event traffic. An anomaly detector uses machine learning algorithms to scan log events and find *patterns* . A pattern is a shared text structure that recurs among your log fields. Patterns provide a useful tool for analyzing large sets of logs because a large number of log events can often be compressed into a few patterns.
+//
+// The anomaly detector uses pattern recognition to find `anomalies` , which are unusual log events. It compares current log events and patterns with trained baselines.
+//
+// Fields within a pattern are called *tokens* . Fields that vary within a pattern, such as a request ID or timestamp, are referred to as *dynamic tokens* and represented by `<*>` .
+//
+// For more information see [Log anomaly detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/LogsAnomalyDetection.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,18 +41,19 @@ import (
 type CfnLogAnomalyDetector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Account ID for owner of detector.
+	// The ID of the account to create the anomaly detector in.
 	AccountId() *string
 	SetAccountId(val *string)
+	// The number of days to have visibility on an anomaly.
 	AnomalyVisibilityTime() *float64
 	SetAnomalyVisibilityTime(val *float64)
-	// ARN of LogAnomalyDetector.
+	// The ARN of the anomaly detector.
 	AttrAnomalyDetectorArn() *string
-	// Current status of detector.
+	// Specifies whether the anomaly detector is currently active.
 	AttrAnomalyDetectorStatus() *string
-	// When detector was created.
+	// The time that the anomaly detector was created.
 	AttrCreationTimeStamp() awscdk.IResolvable
-	// When detector was lsat modified.
+	// The time that the anomaly detector was most recently modified.
 	AttrLastModifiedTimeStamp() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -55,18 +64,19 @@ type CfnLogAnomalyDetector interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Name of detector.
+	// A name for this anomaly detector.
 	DetectorName() *string
 	SetDetectorName(val *string)
-	// How often log group is evaluated.
+	// Specifies how often the anomaly detector is to run and look for anomalies.
 	EvaluationFrequency() *string
 	SetEvaluationFrequency(val *string)
+	// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here.
 	FilterPattern() *string
 	SetFilterPattern(val *string)
-	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
+	// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
-	// List of Arns for the given log group.
+	// The ARN of the log group that is associated with this anomaly detector.
 	LogGroupArnList() *[]*string
 	SetLogGroupArnList(val *[]*string)
 	// The logical ID for this CloudFormation stack element.

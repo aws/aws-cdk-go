@@ -375,7 +375,7 @@ type CfnAutomationRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// User-defined tags that help you label the purpose of a rule.
+	// User-defined tags associated with an automation rule.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

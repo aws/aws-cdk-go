@@ -29,27 +29,23 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-repositorylink.html
 //
 type CfnRepositoryLinkProps struct {
-	// The Amazon Resource Name (ARN) of the CodeStarConnection.
-	//
-	// The ARN is used as the connection reference when the connection is shared between AWS services.
+	// The Amazon Resource Name (ARN) of the connection associated with the repository link.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-repositorylink.html#cfn-codestarconnections-repositorylink-connectionarn
 	//
 	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
-	// the ID of the entity that owns the repository.
+	// The owner ID for the repository associated with the repository link, such as the owner ID in GitHub.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-repositorylink.html#cfn-codestarconnections-repositorylink-ownerid
 	//
 	OwnerId *string `field:"required" json:"ownerId" yaml:"ownerId"`
-	// The repository for which the link is being created.
+	// The name of the repository associated with the repository link.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-repositorylink.html#cfn-codestarconnections-repositorylink-repositoryname
 	//
 	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
-	// The ARN of the KMS key that the customer can optionally specify to use to encrypt RepositoryLink properties.
-	//
-	// If not specified, a default key will be used.
+	// The Amazon Resource Name (ARN) of the encryption key for the repository associated with the repository link.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-repositorylink.html#cfn-codestarconnections-repositorylink-encryptionkeyarn
 	//
 	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
-	// Specifies the tags applied to a RepositoryLink.
+	// The tags for the repository to be associated with the repository link.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-repositorylink.html#cfn-codestarconnections-repositorylink-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

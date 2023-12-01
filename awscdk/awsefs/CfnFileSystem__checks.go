@@ -237,6 +237,30 @@ func (j *jsiiProxy_CfnFileSystem) validateSetEncryptedParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnFileSystem) validateSetFileSystemProtectionParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFileSystem_FileSystemProtectionProperty:
+		val := val.(*CfnFileSystem_FileSystemProtectionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFileSystem_FileSystemProtectionProperty:
+		val_ := val.(CfnFileSystem_FileSystemProtectionProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFileSystem_FileSystemProtectionProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFileSystem) validateSetFileSystemTagsRawParameters(val *[]*CfnFileSystem_ElasticFileSystemTagProperty) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

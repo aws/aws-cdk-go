@@ -23,7 +23,7 @@ package awselasticloadbalancingv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststorerevocation.html
 //
 type CfnTrustStoreRevocationProps struct {
-	// The attributes required to create a trust store revocation.
+	// The revocation file to add.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststorerevocation.html#cfn-elasticloadbalancingv2-truststorerevocation-revocationcontents
 	//
 	RevocationContents interface{} `field:"optional" json:"revocationContents" yaml:"revocationContents"`
