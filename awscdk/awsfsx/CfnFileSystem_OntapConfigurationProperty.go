@@ -20,11 +20,13 @@ package awsfsx
 //   	},
 //   	EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
 //   	FsxAdminPassword: jsii.String("fsxAdminPassword"),
+//   	HaPairs: jsii.Number(123),
 //   	PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   	RouteTableIds: []*string{
 //   		jsii.String("routeTableIds"),
 //   	},
 //   	ThroughputCapacity: jsii.Number(123),
+//   	ThroughputCapacityPerHaPair: jsii.Number(123),
 //   	WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
 //   }
 //
@@ -67,6 +69,9 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-fsxadminpassword
 	//
 	FsxAdminPassword *string `field:"optional" json:"fsxAdminPassword" yaml:"fsxAdminPassword"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-hapairs
+	//
+	HaPairs *float64 `field:"optional" json:"haPairs" yaml:"haPairs"`
 	// Required when `DeploymentType` is set to `MULTI_AZ_1` .
 	//
 	// This specifies the subnet in which you want the preferred file server to be located.
@@ -90,6 +95,9 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-throughputcapacity
 	//
 	ThroughputCapacity *float64 `field:"optional" json:"throughputCapacity" yaml:"throughputCapacity"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-throughputcapacityperhapair
+	//
+	ThroughputCapacityPerHaPair *float64 `field:"optional" json:"throughputCapacityPerHaPair" yaml:"throughputCapacityPerHaPair"`
 	// A recurring weekly time, in the format `D:HH:MM` .
 	//
 	// `D` is the day of the week, for which 1 represents Monday and 7 represents Sunday. For further details, see [the ISO-8601 spec as described on Wikipedia](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_week_date) .

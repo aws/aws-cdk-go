@@ -24,7 +24,7 @@ type CfnChannel_DestinationProperty struct {
 	Location *string `field:"required" json:"location" yaml:"location"`
 	// The type of destination for events arriving from a channel.
 	//
-	// For channels used for a CloudTrail Lake integration, the value is `EventDataStore` . For service-linked channels, the value is `AWS_SERVICE` .
+	// For channels used for a CloudTrail Lake integration, the value is `EVENT_DATA_STORE` . For service-linked channels, the value is `AWS_SERVICE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-channel-destination.html#cfn-cloudtrail-channel-destination-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

@@ -244,6 +244,7 @@ import (
 //   	ResourceIdentifier: jsii.String("resourceIdentifier"),
 //   	S3Settings: &S3SettingsProperty{
 //   		AddColumnName: jsii.Boolean(false),
+//   		AddTrailingPaddingCharacter: jsii.Boolean(false),
 //   		BucketFolder: jsii.String("bucketFolder"),
 //   		BucketName: jsii.String("bucketName"),
 //   		CannedAclForObjects: jsii.String("cannedAclForObjects"),
@@ -267,7 +268,9 @@ import (
 //   		EnableStatistics: jsii.Boolean(false),
 //   		EncodingType: jsii.String("encodingType"),
 //   		EncryptionMode: jsii.String("encryptionMode"),
+//   		ExpectedBucketOwner: jsii.String("expectedBucketOwner"),
 //   		ExternalTableDefinition: jsii.String("externalTableDefinition"),
+//   		GlueCatalogGeneration: jsii.Boolean(false),
 //   		IgnoreHeaderRows: jsii.Number(123),
 //   		IncludeOpForFullLoad: jsii.Boolean(false),
 //   		MaxFileSize: jsii.Number(123),

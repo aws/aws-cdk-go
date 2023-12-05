@@ -9,11 +9,20 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A delivery source is an AWS resource that sends logs to an AWS destination.
+// This structure contains information about one *delivery source* in your account.
 //
-// The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+// A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 //
-// Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
+// Only some AWS services support being configured as a delivery source. These services are listed as *Supported [V2 Permissions]* in the table at [Enabling logging from AWS services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
+//
+// To configure logs delivery between a supported AWS service and a destination, you must do the following:
+//
+// - Create a delivery source, which is a logical object that represents the resource that is actually sending the logs. For more information, see [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html) .
+// - Create a *delivery destination* , which is a logical object that represents the actual delivery destination. For more information, see [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html) .
+// - If you are delivering logs cross-account, you must use [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationolicy.html) in the destination account to assign an IAM policy to the destination. This policy allows delivery to that destination.
+// - Create a *delivery* by pairing exactly one delivery source and one delivery destination. For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html) .
+//
+// You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,11 +48,13 @@ import (
 type CfnDeliverySource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ARN of the resource that will be sending the logs.
+	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 	AttrArn() *string
-	// List of ARN of the resource that will be sending the logs.
+	// This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source.
+	//
+	// Currently, only one ARN can be in the array.
 	AttrResourceArns() *[]*string
-	// The service generating the log.
+	// The AWS service that is sending logs.
 	AttrService() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -64,10 +75,10 @@ type CfnDeliverySource interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The type of logs being delivered.
+	// The type of log that the source is sending.
 	LogType() *string
 	SetLogType(val *string)
-	// The unique name of the Log source.
+	// The unique name of the delivery source.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,7 +95,7 @@ type CfnDeliverySource interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// The tags that have been assigned to this delivery source.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

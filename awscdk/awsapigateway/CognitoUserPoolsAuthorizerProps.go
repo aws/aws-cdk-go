@@ -33,8 +33,8 @@ type CognitoUserPoolsAuthorizerProps struct {
 	// The request header mapping expression for the bearer token.
 	//
 	// This is typically passed as part of the header, in which case
-	// this should be `method.request.header.Authorizer` where Authorizer is the header containing the bearer token.
-	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
+	// this should be `method.request.header.Authorizer` where `Authorizer` is the header containing the bearer token.
+	// See: https://docs.aws.amazon.com/apigateway/latest/api/API_CreateAuthorizer.html#apigw-CreateAuthorizer-request-identitySource
 	//
 	// Default: `IdentitySource.header('Authorization')`
 	//

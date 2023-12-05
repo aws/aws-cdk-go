@@ -14,12 +14,14 @@ import (
 // Example:
 //   var application application
 //   var alarm alarm
+//   var compositeAlarm compositeAlarm
 //
 //
 //   appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 //   	Application: Application,
 //   	Monitors: []monitor{
 //   		appconfig.*monitor_FromCloudWatchAlarm(alarm),
+//   		appconfig.*monitor_*FromCloudWatchAlarm(compositeAlarm),
 //   	},
 //   })
 //
@@ -31,6 +33,9 @@ type Monitor interface {
 	// The IAM role ARN for AWS AppConfig to view the alarm state.
 	// Experimental.
 	AlarmRoleArn() *string
+	// Indicates whether a CloudWatch alarm is a composite alarm.
+	// Experimental.
+	IsCompositeAlarm() *bool
 	// The type of monitor.
 	// Experimental.
 	MonitorType() MonitorType
@@ -56,6 +61,16 @@ func (j *jsiiProxy_Monitor) AlarmRoleArn() *string {
 	_jsii_.Get(
 		j,
 		"alarmRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Monitor) IsCompositeAlarm() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isCompositeAlarm",
 		&returns,
 	)
 	return returns

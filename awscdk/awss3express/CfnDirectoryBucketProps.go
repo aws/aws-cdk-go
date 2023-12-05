@@ -19,19 +19,21 @@ package awss3express
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html
 //
 type CfnDirectoryBucketProps struct {
-	// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+	// The number of Availability Zone that's used for redundancy for the bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-dataredundancy
 	//
 	DataRedundancy *string `field:"required" json:"dataRedundancy" yaml:"dataRedundancy"`
-	// Specifies the AZ ID of the Availability Zone where the directory bucket will be created.
+	// The name of the location where the bucket will be created.
 	//
-	// An example AZ ID value is 'use1-az5'.
+	// For directory buckets, the name of the location is the AZ ID of the Availability Zone where the bucket will be created. An example AZ ID value is `usw2-az1` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-locationname
 	//
 	LocationName *string `field:"required" json:"locationName" yaml:"locationName"`
-	// Specifies a name for the bucket.
+	// A name for the bucket.
 	//
-	// The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format `*bucket_base_name* -- *az_id* --x-s3` (for example, `*DOC-EXAMPLE-BUCKET* -- *usw2-az1* --x-s3` ). If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. For information about bucket naming restrictions, see [Directory bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html) in the *Amazon S3 User Guide* .
+	//
+	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-bucketname
 	//
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`

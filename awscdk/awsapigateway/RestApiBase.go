@@ -13,16 +13,12 @@ import (
 // Base implementation that are common to various implementations of IRestApi.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import targets "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var api restApi
-//   var hostedZoneForExampleCom interface{}
 //
-//
-//   route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &ARecordProps{
-//   	Zone: hostedZoneForExampleCom,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGateway(api)),
+//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.NewRestApiOrigin(api),
+//   	},
 //   })
 //
 type RestApiBase interface {
@@ -76,6 +72,8 @@ type RestApiBase interface {
 	Root() IResource
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The deployed root URL of this REST API.
+	Url() *string
 	// Add an ApiKey to the deploymentStage.
 	AddApiKey(id *string, options *ApiKeyOptions) IApiKey
 	// Defines an API Gateway domain name and maps it to this API.
@@ -271,6 +269,16 @@ func (j *jsiiProxy_RestApiBase) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RestApiBase) Url() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"url",
 		&returns,
 	)
 	return returns

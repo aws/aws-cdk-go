@@ -18,7 +18,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var manifest interface{}
+//
 //   cfnLandingZone := awscdk.Aws_controltower.NewCfnLandingZone(this, jsii.String("MyCfnLandingZone"), &CfnLandingZoneProps{
+//   	Manifest: manifest,
 //   	Version: jsii.String("version"),
 //
 //   	// the properties below are optional
@@ -64,6 +67,9 @@ type CfnLandingZone interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The landing zone `manifest.yaml` text file that specifies the landing zone configurations.
+	Manifest() interface{}
+	SetManifest(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -327,6 +333,16 @@ func (j *jsiiProxy_CfnLandingZone) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLandingZone) Manifest() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"manifest",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLandingZone) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -422,6 +438,17 @@ func NewCfnLandingZone_Override(c CfnLandingZone, scope constructs.Construct, id
 		"aws-cdk-lib.aws_controltower.CfnLandingZone",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnLandingZone)SetManifest(val interface{}) {
+	if err := j.validateSetManifestParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"manifest",
+		val,
 	)
 }
 

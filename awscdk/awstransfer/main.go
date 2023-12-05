@@ -287,6 +287,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "s3StorageOptions", GoGetter: "S3StorageOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "securityPolicyName", GoGetter: "SecurityPolicyName"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -318,6 +319,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnServer.ProtocolDetailsProperty",
 		reflect.TypeOf((*CfnServer_ProtocolDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnServer.S3StorageOptionsProperty",
+		reflect.TypeOf((*CfnServer_S3StorageOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnServer.WorkflowDetailProperty",

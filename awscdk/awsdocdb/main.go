@@ -158,6 +158,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrPort", GoGetter: "AttrPort"},
 			_jsii_.MemberProperty{JsiiProperty: "autoMinorVersionUpgrade", GoGetter: "AutoMinorVersionUpgrade"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
+			_jsii_.MemberProperty{JsiiProperty: "caCertificateIdentifier", GoGetter: "CaCertificateIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "certificateRotationRestart", GoGetter: "CertificateRotationRestart"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},

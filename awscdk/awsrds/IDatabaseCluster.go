@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -18,6 +19,8 @@ type IDatabaseCluster interface {
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this cluster.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
+	// Grant the given identity connection access to the Cluster.
+	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// Return the given named metric for this DBCluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
@@ -113,6 +116,22 @@ func (i *jsiiProxy_IDatabaseCluster) AddProxy(id *string, options *DatabaseProxy
 		i,
 		"addProxy",
 		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IDatabaseCluster) GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant {
+	if err := i.validateGrantConnectParameters(grantee, dbUser); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantConnect",
+		[]interface{}{grantee, dbUser},
 		&returns,
 	)
 

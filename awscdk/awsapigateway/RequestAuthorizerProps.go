@@ -56,13 +56,13 @@ type RequestAuthorizerProps struct {
 	//
 	// Supported parameter types are
 	// Header, Query String, Stage Variable, and Context. For instance, extracting an authorization
-	// token from a header would use the identity source `IdentitySource.header('Authorizer')`.
+	// token from a header would use the identity source `IdentitySource.header('Authorization')`.
 	//
 	// Note: API Gateway uses the specified identity sources as the request authorizer caching key. When caching is
 	// enabled, API Gateway calls the authorizer's Lambda function only after successfully verifying that all the
 	// specified identity sources are present at runtime. If a specified identify source is missing, null, or empty,
 	// API Gateway returns a 401 Unauthorized response without calling the authorizer Lambda function.
-	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
+	// See: https://docs.aws.amazon.com/apigateway/latest/api/API_CreateAuthorizer.html#apigw-CreateAuthorizer-request-identitySource
 	//
 	IdentitySources *[]*string `field:"required" json:"identitySources" yaml:"identitySources"`
 }

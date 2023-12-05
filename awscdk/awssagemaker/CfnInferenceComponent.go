@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::SageMaker::InferenceComponent.
+// Creates an inference component, which is a SageMaker hosting object that you can use to deploy a model to an endpoint.
+//
+// In the inference component settings, you specify the model, the endpoint, and how the model utilizes the resources that the endpoint hosts. You can optimize resource utilization by tailoring how the required CPU cores, accelerators, and memory are allocated. You can deploy multiple inference components to an endpoint, where each inference component contains one model and the resource utilization needs for that individual model. After you deploy an inference component, you can directly invoke the associated model when you use the InvokeEndpoint API action.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -68,12 +70,15 @@ import (
 type CfnInferenceComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The time when the inference component was created.
 	AttrCreationTime() *string
 	// The failure reason if the inference component is in a failed state.
 	AttrFailureReason() *string
 	// The Amazon Resource Name (ARN) of the inference component.
 	AttrInferenceComponentArn() *string
+	// The status of the inference component.
 	AttrInferenceComponentStatus() *string
+	// The time when the inference component was last updated.
 	AttrLastModifiedTime() *string
 	// The number of copies for the inference component.
 	AttrRuntimeConfigCurrentCopyCount() *float64
@@ -89,10 +94,10 @@ type CfnInferenceComponent interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the endpoint the inference component is associated with.
+	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 	EndpointArn() *string
 	SetEndpointArn(val *string)
-	// The name of the endpoint the inference component is associated with.
+	// The name of the endpoint that hosts the inference component.
 	EndpointName() *string
 	SetEndpointName(val *string)
 	// The name of the inference component.
@@ -141,7 +146,7 @@ type CfnInferenceComponent interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The name of the endpoint variant the inference component is associated with.
+	// The name of the production variant that hosts the inference component.
 	VariantName() *string
 	SetVariantName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

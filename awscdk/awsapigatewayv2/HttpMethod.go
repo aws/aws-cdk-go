@@ -4,13 +4,13 @@ package awsapigatewayv2
 // Supported HTTP methods.
 //
 // Example:
-//   import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var booksDefaultFn function
 //
 //
-//   getBooksIntegration := awscdklibawsapigatewayv2integrations.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
-//   booksDefaultIntegration := awscdklibawsapigatewayv2integrations.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+//   getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
+//   booksDefaultIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
 //
 //   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //

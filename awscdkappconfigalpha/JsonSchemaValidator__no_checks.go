@@ -4,7 +4,7 @@ package awscdkappconfigalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateJsonSchemaValidator_FromFileParameters(path *string) error {
+func validateJsonSchemaValidator_FromFileParameters(inputPath *string) error {
 	return nil
 }
 

@@ -494,16 +494,48 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.CodeEditorAppSettingsProperty",
+		reflect.TypeOf((*CfnDomain_CodeEditorAppSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.CodeRepositoryProperty",
+		reflect.TypeOf((*CfnDomain_CodeRepositoryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.CustomFileSystemConfigProperty",
+		reflect.TypeOf((*CfnDomain_CustomFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.CustomImageProperty",
 		reflect.TypeOf((*CfnDomain_CustomImageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.CustomPosixUserConfigProperty",
+		reflect.TypeOf((*CfnDomain_CustomPosixUserConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.DefaultEbsStorageSettingsProperty",
+		reflect.TypeOf((*CfnDomain_DefaultEbsStorageSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.DefaultSpaceSettingsProperty",
 		reflect.TypeOf((*CfnDomain_DefaultSpaceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.DefaultSpaceStorageSettingsProperty",
+		reflect.TypeOf((*CfnDomain_DefaultSpaceStorageSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.DomainSettingsProperty",
 		reflect.TypeOf((*CfnDomain_DomainSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.EFSFileSystemConfigProperty",
+		reflect.TypeOf((*CfnDomain_EFSFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.JupyterLabAppSettingsProperty",
+		reflect.TypeOf((*CfnDomain_JupyterLabAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.JupyterServerAppSettingsProperty",
@@ -646,7 +678,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataCaptureConfig", GoGetter: "DataCaptureConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "enableNetworkIsolation", GoGetter: "EnableNetworkIsolation"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointConfigName", GoGetter: "EndpointConfigName"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRoleArn", GoGetter: "ExecutionRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "explainerConfig", GoGetter: "ExplainerConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -671,6 +705,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcConfig", GoGetter: "VpcConfig"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEndpointConfig{}
@@ -733,12 +768,24 @@ func init() {
 		reflect.TypeOf((*CfnEndpointConfig_ExplainerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ManagedInstanceScalingProperty",
+		reflect.TypeOf((*CfnEndpointConfig_ManagedInstanceScalingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ProductionVariantProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ProductionVariantProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.RoutingConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfig_RoutingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ServerlessConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ServerlessConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.VpcConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfig_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfigProps",
@@ -1203,12 +1250,20 @@ func init() {
 		reflect.TypeOf((*CfnModel_InferenceExecutionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModel.ModelDataSourceProperty",
+		reflect.TypeOf((*CfnModel_ModelDataSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModel.MultiModelConfigProperty",
 		reflect.TypeOf((*CfnModel_MultiModelConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModel.RepositoryAuthConfigProperty",
 		reflect.TypeOf((*CfnModel_RepositoryAuthConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModel.S3DataSourceProperty",
+		reflect.TypeOf((*CfnModel_S3DataSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModel.VpcConfigProperty",
@@ -2549,8 +2604,40 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.CodeEditorAppSettingsProperty",
+		reflect.TypeOf((*CfnUserProfile_CodeEditorAppSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.CodeRepositoryProperty",
+		reflect.TypeOf((*CfnUserProfile_CodeRepositoryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.CustomFileSystemConfigProperty",
+		reflect.TypeOf((*CfnUserProfile_CustomFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.CustomImageProperty",
 		reflect.TypeOf((*CfnUserProfile_CustomImageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.CustomPosixUserConfigProperty",
+		reflect.TypeOf((*CfnUserProfile_CustomPosixUserConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.DefaultEbsStorageSettingsProperty",
+		reflect.TypeOf((*CfnUserProfile_DefaultEbsStorageSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.DefaultSpaceStorageSettingsProperty",
+		reflect.TypeOf((*CfnUserProfile_DefaultSpaceStorageSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.EFSFileSystemConfigProperty",
+		reflect.TypeOf((*CfnUserProfile_EFSFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.JupyterLabAppSettingsProperty",
+		reflect.TypeOf((*CfnUserProfile_JupyterLabAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.JupyterServerAppSettingsProperty",

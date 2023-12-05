@@ -4,29 +4,25 @@ package awsapigatewayv2
 // Props for WebSocket API.
 //
 // Example:
-//   import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var connectHandler function
-//   var disconnectHandler function
-//   var defaultHandler function
+//   // This function handles your auth logic
+//   var authHandler function
+//
+//   // This function handles your WebSocket requests
+//   var handler function
 //
 //
-//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocketApiProps{
+//   authorizer := awscdk.NewWebSocketLambdaAuthorizer(jsii.String("Authorizer"), authHandler)
+//
+//   integration := awscdk.NewWebSocketLambdaIntegration(jsii.String("Integration"), handler)
+//
+//   apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"), &WebSocketApiProps{
 //   	ConnectRouteOptions: &WebSocketRouteOptions{
-//   		Integration: awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("ConnectIntegration"), connectHandler),
+//   		Integration: *Integration,
+//   		Authorizer: *Authorizer,
 //   	},
-//   	DisconnectRouteOptions: &WebSocketRouteOptions{
-//   		Integration: *awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("DisconnectIntegration"), disconnectHandler),
-//   	},
-//   	DefaultRouteOptions: &WebSocketRouteOptions{
-//   		Integration: *awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("DefaultIntegration"), defaultHandler),
-//   	},
-//   })
-//
-//   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
-//   	WebSocketApi: WebSocketApi,
-//   	StageName: jsii.String("dev"),
-//   	AutoDeploy: jsii.Boolean(true),
 //   })
 //
 type WebSocketApiProps struct {

@@ -13,7 +13,65 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   userSettingsProperty := &UserSettingsProperty{
+//   	CodeEditorAppSettings: &CodeEditorAppSettingsProperty{
+//   		CustomImages: []interface{}{
+//   			&CustomImageProperty{
+//   				AppImageConfigName: jsii.String("appImageConfigName"),
+//   				ImageName: jsii.String("imageName"),
+//
+//   				// the properties below are optional
+//   				ImageVersionNumber: jsii.Number(123),
+//   			},
+//   		},
+//   		DefaultResourceSpec: &ResourceSpecProperty{
+//   			InstanceType: jsii.String("instanceType"),
+//   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
+//   		},
+//   	},
+//   	CustomFileSystemConfigs: []interface{}{
+//   		&CustomFileSystemConfigProperty{
+//   			EfsFileSystemConfig: &EFSFileSystemConfigProperty{
+//   				FileSystemId: jsii.String("fileSystemId"),
+//
+//   				// the properties below are optional
+//   				FileSystemPath: jsii.String("fileSystemPath"),
+//   			},
+//   		},
+//   	},
+//   	CustomPosixUserConfig: &CustomPosixUserConfigProperty{
+//   		Gid: jsii.Number(123),
+//   		Uid: jsii.Number(123),
+//   	},
+//   	DefaultLandingUri: jsii.String("defaultLandingUri"),
 //   	ExecutionRole: jsii.String("executionRole"),
+//   	JupyterLabAppSettings: &JupyterLabAppSettingsProperty{
+//   		CodeRepositories: []interface{}{
+//   			&CodeRepositoryProperty{
+//   				RepositoryUrl: jsii.String("repositoryUrl"),
+//   			},
+//   		},
+//   		CustomImages: []interface{}{
+//   			&CustomImageProperty{
+//   				AppImageConfigName: jsii.String("appImageConfigName"),
+//   				ImageName: jsii.String("imageName"),
+//
+//   				// the properties below are optional
+//   				ImageVersionNumber: jsii.Number(123),
+//   			},
+//   		},
+//   		DefaultResourceSpec: &ResourceSpecProperty{
+//   			InstanceType: jsii.String("instanceType"),
+//   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
+//   		},
+//   	},
 //   	JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
@@ -49,15 +107,40 @@ package awssagemaker
 //   		S3KmsKeyId: jsii.String("s3KmsKeyId"),
 //   		S3OutputPath: jsii.String("s3OutputPath"),
 //   	},
+//   	SpaceStorageSettings: &DefaultSpaceStorageSettingsProperty{
+//   		DefaultEbsStorageSettings: &DefaultEbsStorageSettingsProperty{
+//   			DefaultEbsVolumeSizeInGb: jsii.Number(123),
+//   			MaximumEbsVolumeSizeInGb: jsii.Number(123),
+//   		},
+//   	},
+//   	StudioWebPortal: jsii.String("studioWebPortal"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
 //
 type CfnUserProfile_UserSettingsProperty struct {
+	// The CodeEditor app settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-codeeditorappsettings
+	//
+	CodeEditorAppSettings interface{} `field:"optional" json:"codeEditorAppSettings" yaml:"codeEditorAppSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-customfilesystemconfigs
+	//
+	CustomFileSystemConfigs interface{} `field:"optional" json:"customFileSystemConfigs" yaml:"customFileSystemConfigs"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-customposixuserconfig
+	//
+	CustomPosixUserConfig interface{} `field:"optional" json:"customPosixUserConfig" yaml:"customPosixUserConfig"`
+	// Defines which Amazon SageMaker application users are directed to by default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-defaultlandinguri
+	//
+	DefaultLandingUri *string `field:"optional" json:"defaultLandingUri" yaml:"defaultLandingUri"`
 	// The execution role for the user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
 	//
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
+	// The JupyterLab app settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterlabappsettings
+	//
+	JupyterLabAppSettings interface{} `field:"optional" json:"jupyterLabAppSettings" yaml:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
 	//
@@ -84,5 +167,15 @@ type CfnUserProfile_UserSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
 	//
 	SharingSettings interface{} `field:"optional" json:"sharingSettings" yaml:"sharingSettings"`
+	// Default storage settings for a space.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-spacestoragesettings
+	//
+	SpaceStorageSettings interface{} `field:"optional" json:"spaceStorageSettings" yaml:"spaceStorageSettings"`
+	// Indicates whether the Studio experience is available to users.
+	//
+	// If not, users cannot access Studio.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-studiowebportal
+	//
+	StudioWebPortal *string `field:"optional" json:"studioWebPortal" yaml:"studioWebPortal"`
 }
 

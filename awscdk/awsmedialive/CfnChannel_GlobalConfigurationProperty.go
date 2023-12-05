@@ -10,6 +10,8 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var pipelineLockingSettings interface{}
+//
 //   globalConfigurationProperty := &GlobalConfigurationProperty{
 //   	InitialAudioGain: jsii.Number(123),
 //   	InputEndAction: jsii.String("inputEndAction"),
@@ -25,6 +27,13 @@ package awsmedialive
 //   		RepeatFrameMsec: jsii.Number(123),
 //   	},
 //   	OutputLockingMode: jsii.String("outputLockingMode"),
+//   	OutputLockingSettings: &OutputLockingSettingsProperty{
+//   		EpochLockingSettings: &EpochLockingSettingsProperty{
+//   			CustomEpoch: jsii.String("customEpoch"),
+//   			JamSyncTime: jsii.String("jamSyncTime"),
+//   		},
+//   		PipelineLockingSettings: pipelineLockingSettings,
+//   	},
 //   	OutputTimingSource: jsii.String("outputTimingSource"),
 //   	SupportLowFramerateInputs: jsii.String("supportLowFramerateInputs"),
 //   }
@@ -52,6 +61,9 @@ type CfnChannel_GlobalConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputlockingmode
 	//
 	OutputLockingMode *string `field:"optional" json:"outputLockingMode" yaml:"outputLockingMode"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputlockingsettings
+	//
+	OutputLockingSettings interface{} `field:"optional" json:"outputLockingSettings" yaml:"outputLockingSettings"`
 	// Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally might be locked to another source through NTP) or should be locked to the clock of the source that is providing the input stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html#cfn-medialive-channel-globalconfiguration-outputtimingsource
 	//

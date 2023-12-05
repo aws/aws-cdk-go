@@ -59,11 +59,13 @@ import (
 //   		},
 //   		EndpointIpAddressRange: jsii.String("endpointIpAddressRange"),
 //   		FsxAdminPassword: jsii.String("fsxAdminPassword"),
+//   		HaPairs: jsii.Number(123),
 //   		PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   		RouteTableIds: []*string{
 //   			jsii.String("routeTableIds"),
 //   		},
 //   		ThroughputCapacity: jsii.Number(123),
+//   		ThroughputCapacityPerHaPair: jsii.Number(123),
 //   		WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
 //   	},
 //   	OpenZfsConfiguration: &OpenZFSConfigurationProperty{

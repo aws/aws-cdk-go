@@ -12,6 +12,7 @@ package awsmedialive
 //
 //   featureActivationsProperty := &FeatureActivationsProperty{
 //   	InputPrepareScheduleActions: jsii.String("inputPrepareScheduleActions"),
+//   	OutputStaticImageOverlayScheduleActions: jsii.String("outputStaticImageOverlayScheduleActions"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html
@@ -24,5 +25,8 @@ type CfnChannel_FeatureActivationsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html#cfn-medialive-channel-featureactivations-inputpreparescheduleactions
 	//
 	InputPrepareScheduleActions *string `field:"optional" json:"inputPrepareScheduleActions" yaml:"inputPrepareScheduleActions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html#cfn-medialive-channel-featureactivations-outputstaticimageoverlayscheduleactions
+	//
+	OutputStaticImageOverlayScheduleActions *string `field:"optional" json:"outputStaticImageOverlayScheduleActions" yaml:"outputStaticImageOverlayScheduleActions"`
 }
 

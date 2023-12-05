@@ -12,6 +12,7 @@ package awsdms
 //
 //   s3SettingsProperty := &S3SettingsProperty{
 //   	AddColumnName: jsii.Boolean(false),
+//   	AddTrailingPaddingCharacter: jsii.Boolean(false),
 //   	BucketFolder: jsii.String("bucketFolder"),
 //   	BucketName: jsii.String("bucketName"),
 //   	CannedAclForObjects: jsii.String("cannedAclForObjects"),
@@ -35,7 +36,9 @@ package awsdms
 //   	EnableStatistics: jsii.Boolean(false),
 //   	EncodingType: jsii.String("encodingType"),
 //   	EncryptionMode: jsii.String("encryptionMode"),
+//   	ExpectedBucketOwner: jsii.String("expectedBucketOwner"),
 //   	ExternalTableDefinition: jsii.String("externalTableDefinition"),
+//   	GlueCatalogGeneration: jsii.Boolean(false),
 //   	IgnoreHeaderRows: jsii.Number(123),
 //   	IncludeOpForFullLoad: jsii.Boolean(false),
 //   	MaxFileSize: jsii.Number(123),
@@ -60,6 +63,12 @@ type CfnEndpoint_S3SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-addcolumnname
 	//
 	AddColumnName interface{} `field:"optional" json:"addColumnName" yaml:"addColumnName"`
+	// Use the S3 target endpoint setting `AddTrailingPaddingCharacter` to add padding on string data.
+	//
+	// The default value is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-addtrailingpaddingcharacter
+	//
+	AddTrailingPaddingCharacter interface{} `field:"optional" json:"addTrailingPaddingCharacter" yaml:"addTrailingPaddingCharacter"`
 	// An optional parameter to set a folder name in the S3 bucket.
 	//
 	// If provided, tables are created in the path `*bucketFolder* / *schema_name* / *table_name* /` . If this parameter isn't specified, the path used is `*schema_name* / *table_name* /` .
@@ -237,12 +246,26 @@ type CfnEndpoint_S3SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-encryptionmode
 	//
 	EncryptionMode *string `field:"optional" json:"encryptionMode" yaml:"encryptionMode"`
+	// To specify a bucket owner and prevent sniping, you can use the `ExpectedBucketOwner` endpoint setting.
+	//
+	// Example: `--s3-settings='{"ExpectedBucketOwner": " *AWS_Account_ID* "}'`
+	//
+	// When you make a request to test a connection or perform a migration, S3 checks the account ID of the bucket owner against the specified parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-expectedbucketowner
+	//
+	ExpectedBucketOwner *string `field:"optional" json:"expectedBucketOwner" yaml:"expectedBucketOwner"`
 	// The external table definition.
 	//
 	// Conditional: If `S3` is used as a source then `ExternalTableDefinition` is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-externaltabledefinition
 	//
 	ExternalTableDefinition *string `field:"optional" json:"externalTableDefinition" yaml:"externalTableDefinition"`
+	// When true, allows AWS Glue to catalog your S3 bucket.
+	//
+	// Creating an AWS Glue catalog lets you use Athena to query your data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html#cfn-dms-endpoint-s3settings-gluecataloggeneration
+	//
+	GlueCatalogGeneration interface{} `field:"optional" json:"glueCatalogGeneration" yaml:"glueCatalogGeneration"`
 	// When this value is set to 1, AWS DMS ignores the first row header in a .csv file. A value of 1 turns on the feature; a value of 0 turns off the feature.
 	//
 	// The default is 0.

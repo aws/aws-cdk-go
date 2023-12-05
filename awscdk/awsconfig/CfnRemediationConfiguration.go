@@ -92,7 +92,7 @@ type CfnRemediationConfiguration interface {
 	// The type of a resource.
 	ResourceType() *string
 	SetResourceType(val *string)
-	// Maximum time in seconds that AWS Config runs auto-remediation.
+	// Time window to determine whether or not to add a remediation exception to prevent infinite remediation attempts.
 	RetryAttemptSeconds() *float64
 	SetRetryAttemptSeconds(val *float64)
 	// The stack in which this element is defined.

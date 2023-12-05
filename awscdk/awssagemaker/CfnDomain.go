@@ -43,6 +43,66 @@ import (
 //   		ExecutionRole: jsii.String("executionRole"),
 //
 //   		// the properties below are optional
+//   		CodeEditorAppSettings: &CodeEditorAppSettingsProperty{
+//   			CustomImages: []interface{}{
+//   				&CustomImageProperty{
+//   					AppImageConfigName: jsii.String("appImageConfigName"),
+//   					ImageName: jsii.String("imageName"),
+//
+//   					// the properties below are optional
+//   					ImageVersionNumber: jsii.Number(123),
+//   				},
+//   			},
+//   			DefaultResourceSpec: &ResourceSpecProperty{
+//   				InstanceType: jsii.String("instanceType"),
+//   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   			LifecycleConfigArns: []*string{
+//   				jsii.String("lifecycleConfigArns"),
+//   			},
+//   		},
+//   		CustomFileSystemConfigs: []interface{}{
+//   			&CustomFileSystemConfigProperty{
+//   				EfsFileSystemConfig: &EFSFileSystemConfigProperty{
+//   					FileSystemId: jsii.String("fileSystemId"),
+//
+//   					// the properties below are optional
+//   					FileSystemPath: jsii.String("fileSystemPath"),
+//   				},
+//   			},
+//   		},
+//   		CustomPosixUserConfig: &CustomPosixUserConfigProperty{
+//   			Gid: jsii.Number(123),
+//   			Uid: jsii.Number(123),
+//   		},
+//   		DefaultLandingUri: jsii.String("defaultLandingUri"),
+//   		JupyterLabAppSettings: &JupyterLabAppSettingsProperty{
+//   			CodeRepositories: []interface{}{
+//   				&CodeRepositoryProperty{
+//   					RepositoryUrl: jsii.String("repositoryUrl"),
+//   				},
+//   			},
+//   			CustomImages: []interface{}{
+//   				&CustomImageProperty{
+//   					AppImageConfigName: jsii.String("appImageConfigName"),
+//   					ImageName: jsii.String("imageName"),
+//
+//   					// the properties below are optional
+//   					ImageVersionNumber: jsii.Number(123),
+//   				},
+//   			},
+//   			DefaultResourceSpec: &ResourceSpecProperty{
+//   				InstanceType: jsii.String("instanceType"),
+//   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   			LifecycleConfigArns: []*string{
+//   				jsii.String("lifecycleConfigArns"),
+//   			},
+//   		},
 //   		JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
@@ -97,6 +157,13 @@ import (
 //   			S3KmsKeyId: jsii.String("s3KmsKeyId"),
 //   			S3OutputPath: jsii.String("s3OutputPath"),
 //   		},
+//   		SpaceStorageSettings: &DefaultSpaceStorageSettingsProperty{
+//   			DefaultEbsStorageSettings: &DefaultEbsStorageSettingsProperty{
+//   				DefaultEbsVolumeSizeInGb: jsii.Number(123),
+//   				MaximumEbsVolumeSizeInGb: jsii.Number(123),
+//   			},
+//   		},
+//   		StudioWebPortal: jsii.String("studioWebPortal"),
 //   	},
 //   	DomainName: jsii.String("domainName"),
 //   	SubnetIds: []*string{

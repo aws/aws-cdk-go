@@ -17,14 +17,21 @@ import (
 //   	// the properties below are optional
 //   	BackupId: jsii.String("backupId"),
 //   	OntapConfiguration: &OntapConfigurationProperty{
-//   		SizeInMegabytes: jsii.String("sizeInMegabytes"),
 //   		StorageVirtualMachineId: jsii.String("storageVirtualMachineId"),
 //
 //   		// the properties below are optional
+//   		AggregateConfiguration: &AggregateConfigurationProperty{
+//   			Aggregates: []*string{
+//   				jsii.String("aggregates"),
+//   			},
+//   			ConstituentsPerAggregate: jsii.Number(123),
+//   		},
 //   		CopyTagsToBackups: jsii.String("copyTagsToBackups"),
 //   		JunctionPath: jsii.String("junctionPath"),
 //   		OntapVolumeType: jsii.String("ontapVolumeType"),
 //   		SecurityStyle: jsii.String("securityStyle"),
+//   		SizeInBytes: jsii.String("sizeInBytes"),
+//   		SizeInMegabytes: jsii.String("sizeInMegabytes"),
 //   		SnaplockConfiguration: &SnaplockConfigurationProperty{
 //   			SnaplockType: jsii.String("snaplockType"),
 //
@@ -65,6 +72,7 @@ import (
 //   			CoolingPeriod: jsii.Number(123),
 //   			Name: jsii.String("name"),
 //   		},
+//   		VolumeStyle: jsii.String("volumeStyle"),
 //   	},
 //   	OpenZfsConfiguration: &OpenZFSConfigurationProperty{
 //   		ParentVolumeId: jsii.String("parentVolumeId"),

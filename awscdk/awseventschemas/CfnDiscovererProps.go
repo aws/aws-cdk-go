@@ -32,6 +32,8 @@ type CfnDiscovererProps struct {
 	// Allows for the discovery of the event schemas that are sent to the event bus from another account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-crossaccount
 	//
+	// Default: - true.
+	//
 	CrossAccount interface{} `field:"optional" json:"crossAccount" yaml:"crossAccount"`
 	// A description for the discoverer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-description

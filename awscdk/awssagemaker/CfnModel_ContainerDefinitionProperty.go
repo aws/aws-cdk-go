@@ -24,6 +24,13 @@ package awssagemaker
 //   	},
 //   	InferenceSpecificationName: jsii.String("inferenceSpecificationName"),
 //   	Mode: jsii.String("mode"),
+//   	ModelDataSource: &ModelDataSourceProperty{
+//   		S3DataSource: &S3DataSourceProperty{
+//   			CompressionType: jsii.String("compressionType"),
+//   			S3DataType: jsii.String("s3DataType"),
+//   			S3Uri: jsii.String("s3Uri"),
+//   		},
+//   	},
 //   	ModelDataUrl: jsii.String("modelDataUrl"),
 //   	ModelPackageName: jsii.String("modelPackageName"),
 //   	MultiModelConfig: &MultiModelConfigProperty{
@@ -70,6 +77,9 @@ type CfnModel_ContainerDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldatasource
+	//
+	ModelDataSource interface{} `field:"optional" json:"modelDataSource" yaml:"modelDataSource"`
 	// The S3 path where the model artifacts, which result from model training, are stored.
 	//
 	// This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html) .

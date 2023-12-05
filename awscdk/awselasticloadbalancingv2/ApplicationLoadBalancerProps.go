@@ -8,7 +8,7 @@ import (
 // Properties for defining an Application Load Balancer.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdkapigatewayv2integrationsalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
@@ -23,7 +23,7 @@ import (
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdkapigatewayv2integrationsalpha.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   	DefaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 type ApplicationLoadBalancerProps struct {

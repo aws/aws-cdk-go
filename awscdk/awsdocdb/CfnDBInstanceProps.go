@@ -18,6 +18,8 @@ import (
 //   	// the properties below are optional
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	CaCertificateIdentifier: jsii.String("caCertificateIdentifier"),
+//   	CertificateRotationRestart: jsii.Boolean(false),
 //   	DbInstanceIdentifier: jsii.String("dbInstanceIdentifier"),
 //   	EnablePerformanceInsights: jsii.Boolean(false),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
@@ -58,6 +60,22 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// The CA certificate identifier to use for the DB instance's server certificate.
+	//
+	// For more information, see [Updating Your Amazon DocumentDB TLS Certificates](https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html) and [Encrypting Data in Transit](https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html) in the *Amazon DocumentDB Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-cacertificateidentifier
+	//
+	CaCertificateIdentifier *string `field:"optional" json:"caCertificateIdentifier" yaml:"caCertificateIdentifier"`
+	// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+	//
+	// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+	//
+	// > Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance.
+	//
+	// If you are using SSL/TLS to connect to the DB instance, see [Updating Your Amazon DocumentDB TLS Certificates](https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html) and [Encrypting Data in Transit](https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html) in the *Amazon DocumentDB Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html#cfn-docdb-dbinstance-certificaterotationrestart
+	//
+	CertificateRotationRestart interface{} `field:"optional" json:"certificateRotationRestart" yaml:"certificateRotationRestart"`
 	// The instance identifier. This parameter is stored as a lowercase string.
 	//
 	// Constraints:

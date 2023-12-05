@@ -1,7 +1,7 @@
 package awsaccessanalyzer
 
 
-// The configuration for the analyzer.
+// Contains information about the configuration of an unused access analyzer for an AWS organization or account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,9 @@ package awsaccessanalyzer
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html
 //
 type CfnAnalyzer_AnalyzerConfigurationProperty struct {
-	// The Configuration for Unused Access Analyzer.
+	// Specifies the configuration of an unused access analyzer for an AWS organization or account.
+	//
+	// External access analyzers do not support any configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html#cfn-accessanalyzer-analyzer-analyzerconfiguration-unusedaccessconfiguration
 	//
 	UnusedAccessConfiguration interface{} `field:"optional" json:"unusedAccessConfiguration" yaml:"unusedAccessConfiguration"`

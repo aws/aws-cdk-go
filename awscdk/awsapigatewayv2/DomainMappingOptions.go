@@ -4,14 +4,14 @@ package awsapigatewayv2
 // Options for DomainMapping.
 //
 // Example:
-//   import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var handler function
 //   var dn domainName
 //
 //
 //   apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdklibawsapigatewayv2integrations.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+//   	DefaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 //   	// https://${dn.domainName}/demo goes to apiDemo $default stage
 //   	DefaultDomainMapping: &DomainMappingOptions{
 //   		DomainName: dn,

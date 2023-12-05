@@ -14,12 +14,14 @@ import (
 // Example:
 //   var application application
 //   var alarm alarm
+//   var compositeAlarm compositeAlarm
 //
 //
 //   appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 //   	Application: Application,
 //   	Monitors: []monitor{
 //   		appconfig.*monitor_FromCloudWatchAlarm(alarm),
+//   		appconfig.*monitor_*FromCloudWatchAlarm(compositeAlarm),
 //   	},
 //   })
 //

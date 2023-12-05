@@ -41,6 +41,9 @@ import (
 //   	Name: jsii.String("name"),
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	PreferredInstanceType: jsii.String("preferredInstanceType"),
+//   	Protocols: []*string{
+//   		jsii.String("protocols"),
+//   	},
 //   	ResolverEndpointType: jsii.String("resolverEndpointType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -107,6 +110,8 @@ type CfnResolverEndpoint interface {
 	// The Amazon EC2 instance type.
 	PreferredInstanceType() *string
 	SetPreferredInstanceType(val *string)
+	Protocols() *[]*string
+	SetProtocols(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -474,6 +479,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) PreferredInstanceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint) Protocols() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"protocols",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -624,6 +639,14 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetPreferredInstanceType(val *string) {
 	_jsii_.Set(
 		j,
 		"preferredInstanceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint)SetProtocols(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"protocols",
 		val,
 	)
 }

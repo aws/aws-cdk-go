@@ -71,10 +71,10 @@ func NewJsonSchemaValidator_Override(j JsonSchemaValidator) {
 
 // Defines a JSON Schema validator from a file.
 // Experimental.
-func JsonSchemaValidator_FromFile(path *string) JsonSchemaValidator {
+func JsonSchemaValidator_FromFile(inputPath *string) JsonSchemaValidator {
 	_init_.Initialize()
 
-	if err := validateJsonSchemaValidator_FromFileParameters(path); err != nil {
+	if err := validateJsonSchemaValidator_FromFileParameters(inputPath); err != nil {
 		panic(err)
 	}
 	var returns JsonSchemaValidator
@@ -82,7 +82,7 @@ func JsonSchemaValidator_FromFile(path *string) JsonSchemaValidator {
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-appconfig-alpha.JsonSchemaValidator",
 		"fromFile",
-		[]interface{}{path},
+		[]interface{}{inputPath},
 		&returns,
 	)
 

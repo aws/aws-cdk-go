@@ -2291,6 +2291,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "root", GoGetter: "Root"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForPath", GoMethod: "UrlForPath"},
 		},
 		func() interface{} {
@@ -2379,6 +2380,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "root", GoGetter: "Root"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
 			_jsii_.MemberMethod{JsiiMethod: "urlForPath", GoMethod: "UrlForPath"},
 		},
 		func() interface{} {

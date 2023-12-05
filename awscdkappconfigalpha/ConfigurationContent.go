@@ -66,10 +66,10 @@ func NewConfigurationContent_Override(c ConfigurationContent) {
 
 // Defines the hosted configuration content from a file.
 // Experimental.
-func ConfigurationContent_FromFile(path *string, contentType *string) ConfigurationContent {
+func ConfigurationContent_FromFile(inputPath *string, contentType *string) ConfigurationContent {
 	_init_.Initialize()
 
-	if err := validateConfigurationContent_FromFileParameters(path); err != nil {
+	if err := validateConfigurationContent_FromFileParameters(inputPath); err != nil {
 		panic(err)
 	}
 	var returns ConfigurationContent
@@ -77,7 +77,7 @@ func ConfigurationContent_FromFile(path *string, contentType *string) Configurat
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-appconfig-alpha.ConfigurationContent",
 		"fromFile",
-		[]interface{}{path, contentType},
+		[]interface{}{inputPath, contentType},
 		&returns,
 	)
 

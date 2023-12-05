@@ -9,14 +9,21 @@ package awsfsx
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   ontapConfigurationProperty := &OntapConfigurationProperty{
-//   	SizeInMegabytes: jsii.String("sizeInMegabytes"),
 //   	StorageVirtualMachineId: jsii.String("storageVirtualMachineId"),
 //
 //   	// the properties below are optional
+//   	AggregateConfiguration: &AggregateConfigurationProperty{
+//   		Aggregates: []*string{
+//   			jsii.String("aggregates"),
+//   		},
+//   		ConstituentsPerAggregate: jsii.Number(123),
+//   	},
 //   	CopyTagsToBackups: jsii.String("copyTagsToBackups"),
 //   	JunctionPath: jsii.String("junctionPath"),
 //   	OntapVolumeType: jsii.String("ontapVolumeType"),
 //   	SecurityStyle: jsii.String("securityStyle"),
+//   	SizeInBytes: jsii.String("sizeInBytes"),
+//   	SizeInMegabytes: jsii.String("sizeInMegabytes"),
 //   	SnaplockConfiguration: &SnaplockConfigurationProperty{
 //   		SnaplockType: jsii.String("snaplockType"),
 //
@@ -57,19 +64,19 @@ package awsfsx
 //   		CoolingPeriod: jsii.Number(123),
 //   		Name: jsii.String("name"),
 //   	},
+//   	VolumeStyle: jsii.String("volumeStyle"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html
 //
 type CfnVolume_OntapConfigurationProperty struct {
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-sizeinmegabytes
-	//
-	SizeInMegabytes *string `field:"required" json:"sizeInMegabytes" yaml:"sizeInMegabytes"`
 	// Specifies the ONTAP SVM in which to create the volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-storagevirtualmachineid
 	//
 	StorageVirtualMachineId *string `field:"required" json:"storageVirtualMachineId" yaml:"storageVirtualMachineId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-aggregateconfiguration
+	//
+	AggregateConfiguration interface{} `field:"optional" json:"aggregateConfiguration" yaml:"aggregateConfiguration"`
 	// A boolean flag indicating whether tags for the volume should be copied to backups.
 	//
 	// This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value.
@@ -101,6 +108,13 @@ type CfnVolume_OntapConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-securitystyle
 	//
 	SecurityStyle *string `field:"optional" json:"securityStyle" yaml:"securityStyle"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-sizeinbytes
+	//
+	SizeInBytes *string `field:"optional" json:"sizeInBytes" yaml:"sizeInBytes"`
+	// Specifies the size of the volume, in megabytes (MB), that you are creating.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-sizeinmegabytes
+	//
+	SizeInMegabytes *string `field:"optional" json:"sizeInMegabytes" yaml:"sizeInMegabytes"`
 	// The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-snaplockconfiguration
 	//
@@ -139,5 +153,8 @@ type CfnVolume_OntapConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-tieringpolicy
 	//
 	TieringPolicy interface{} `field:"optional" json:"tieringPolicy" yaml:"tieringPolicy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html#cfn-fsx-volume-ontapconfiguration-volumestyle
+	//
+	VolumeStyle *string `field:"optional" json:"volumeStyle" yaml:"volumeStyle"`
 }
 

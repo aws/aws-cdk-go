@@ -18,7 +18,7 @@ package awssecretsmanager
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html
 //
 type CfnSecret_ReplicaRegionProperty struct {
-	// (Optional) A string that represents a `Region` , for example "us-east-1".
+	// A string that represents a `Region` , for example "us-east-1".
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html#cfn-secretsmanager-secret-replicaregion-region
 	//
 	Region *string `field:"required" json:"region" yaml:"region"`

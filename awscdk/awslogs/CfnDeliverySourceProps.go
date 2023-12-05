@@ -28,13 +28,13 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html
 //
 type CfnDeliverySourceProps struct {
-	// The unique name of the Log source.
+	// The unique name of the delivery source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The type of logs being delivered.
+	// The type of log that the source is sending.
 	//
-	// Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
+	// For valid values for this parameter, see the documentation for the source service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-logtype
 	//
 	LogType *string `field:"optional" json:"logType" yaml:"logType"`
@@ -42,7 +42,7 @@ type CfnDeliverySourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-resourcearn
 	//
 	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags that have been assigned to this delivery source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

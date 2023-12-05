@@ -16,24 +16,23 @@ import (
 // in the IAM User Guide guide.
 //
 // Example:
-//   var postAuthFn function
+//   var books resource
+//   var iamUser user
 //
 //
-//   userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
-//   	LambdaTriggers: &UserPoolTriggers{
-//   		PostAuthentication: postAuthFn,
-//   	},
+//   getBooks := books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
+//   	AuthorizationType: apigateway.AuthorizationType_IAM,
 //   })
 //
-//   // provide permissions to describe the user pool scoped to the ARN the user pool
-//   postAuthFn.Role.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("userpool-policy"), &PolicyProps{
+//   iamUser.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowBooks"), &PolicyProps{
 //   	Statements: []policyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
-//   				jsii.String("cognito-idp:DescribeUserPool"),
+//   				jsii.String("execute-api:Invoke"),
 //   			},
+//   			Effect: iam.Effect_ALLOW,
 //   			Resources: []*string{
-//   				userpool.UserPoolArn,
+//   				getBooks.methodArn,
 //   			},
 //   		}),
 //   	},

@@ -28,6 +28,10 @@ func (d *jsiiProxy_DatabaseCluster) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseCluster) validateGrantConnectParameters(grantee awsiam.IGrantable, dbUser *string) error {
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseCluster) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

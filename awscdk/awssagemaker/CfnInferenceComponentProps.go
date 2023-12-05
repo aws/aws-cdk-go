@@ -61,7 +61,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html
 //
 type CfnInferenceComponentProps struct {
-	// The name of the endpoint the inference component is associated with.
+	// The name of the endpoint that hosts the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-endpointname
 	//
 	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
@@ -73,11 +73,11 @@ type CfnInferenceComponentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-specification
 	//
 	Specification interface{} `field:"required" json:"specification" yaml:"specification"`
-	// The name of the endpoint variant the inference component is associated with.
+	// The name of the production variant that hosts the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-variantname
 	//
 	VariantName *string `field:"required" json:"variantName" yaml:"variantName"`
-	// The Amazon Resource Name (ARN) of the endpoint the inference component is associated with.
+	// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html#cfn-sagemaker-inferencecomponent-endpointarn
 	//
 	EndpointArn *string `field:"optional" json:"endpointArn" yaml:"endpointArn"`

@@ -21,9 +21,6 @@ import (
 //   var environment interface{}
 //
 //   cfnModel := awscdk.Aws_sagemaker.NewCfnModel(this, jsii.String("MyCfnModel"), &CfnModelProps{
-//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
-//
-//   	// the properties below are optional
 //   	Containers: []interface{}{
 //   		&ContainerDefinitionProperty{
 //   			ContainerHostname: jsii.String("containerHostname"),
@@ -39,6 +36,13 @@ import (
 //   			},
 //   			InferenceSpecificationName: jsii.String("inferenceSpecificationName"),
 //   			Mode: jsii.String("mode"),
+//   			ModelDataSource: &ModelDataSourceProperty{
+//   				S3DataSource: &S3DataSourceProperty{
+//   					CompressionType: jsii.String("compressionType"),
+//   					S3DataType: jsii.String("s3DataType"),
+//   					S3Uri: jsii.String("s3Uri"),
+//   				},
+//   			},
 //   			ModelDataUrl: jsii.String("modelDataUrl"),
 //   			ModelPackageName: jsii.String("modelPackageName"),
 //   			MultiModelConfig: &MultiModelConfigProperty{
@@ -47,6 +51,7 @@ import (
 //   		},
 //   	},
 //   	EnableNetworkIsolation: jsii.Boolean(false),
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	InferenceExecutionConfig: &InferenceExecutionConfigProperty{
 //   		Mode: jsii.String("mode"),
 //   	},
@@ -65,6 +70,13 @@ import (
 //   		},
 //   		InferenceSpecificationName: jsii.String("inferenceSpecificationName"),
 //   		Mode: jsii.String("mode"),
+//   		ModelDataSource: &ModelDataSourceProperty{
+//   			S3DataSource: &S3DataSourceProperty{
+//   				CompressionType: jsii.String("compressionType"),
+//   				S3DataType: jsii.String("s3DataType"),
+//   				S3Uri: jsii.String("s3Uri"),
+//   			},
+//   		},
 //   		ModelDataUrl: jsii.String("modelDataUrl"),
 //   		ModelPackageName: jsii.String("modelPackageName"),
 //   		MultiModelConfig: &MultiModelConfigProperty{
@@ -560,9 +572,6 @@ func (j *jsiiProxy_CfnModel)SetEnableNetworkIsolation(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnModel)SetExecutionRoleArn(val *string) {
-	if err := j.validateSetExecutionRoleArnParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"executionRoleArn",

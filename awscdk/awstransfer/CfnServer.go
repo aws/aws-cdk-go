@@ -57,6 +57,9 @@ import (
 //   	Protocols: []*string{
 //   		jsii.String("protocols"),
 //   	},
+//   	S3StorageOptions: &S3StorageOptionsProperty{
+//   		DirectoryListingOptimization: jsii.String("directoryListingOptimization"),
+//   	},
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	StructuredLogDestinations: []*string{
 //   		jsii.String("structuredLogDestinations"),
@@ -158,6 +161,8 @@ type CfnServer interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	S3StorageOptions() interface{}
+	SetS3StorageOptions(val interface{})
 	// Specifies the name of the security policy that is attached to the server.
 	SecurityPolicyName() *string
 	SetSecurityPolicyName(val *string)
@@ -523,6 +528,16 @@ func (j *jsiiProxy_CfnServer) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServer) S3StorageOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"s3StorageOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServer) SecurityPolicyName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -724,6 +739,17 @@ func (j *jsiiProxy_CfnServer)SetProtocols(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"protocols",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServer)SetS3StorageOptions(val interface{}) {
+	if err := j.validateSetS3StorageOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"s3StorageOptions",
 		val,
 	)
 }

@@ -22,6 +22,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCrossAccount", GoGetter: "AttrCrossAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDiscovererArn", GoGetter: "AttrDiscovererArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDiscovererId", GoGetter: "AttrDiscovererId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},

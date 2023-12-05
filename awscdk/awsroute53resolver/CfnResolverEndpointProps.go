@@ -30,6 +30,9 @@ import (
 //   	Name: jsii.String("name"),
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	PreferredInstanceType: jsii.String("preferredInstanceType"),
+//   	Protocols: []*string{
+//   		jsii.String("protocols"),
+//   	},
 //   	ResolverEndpointType: jsii.String("resolverEndpointType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -75,6 +78,9 @@ type CfnResolverEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-preferredinstancetype
 	//
 	PreferredInstanceType *string `field:"optional" json:"preferredInstanceType" yaml:"preferredInstanceType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-protocols
+	//
+	Protocols *[]*string `field:"optional" json:"protocols" yaml:"protocols"`
 	// The Resolver endpoint IP address type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-resolverendpointtype
 	//

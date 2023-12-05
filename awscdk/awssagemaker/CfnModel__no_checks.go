@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnModel) validateSetEnableNetworkIsolationParameters(val int
 	return nil
 }
 
-func (j *jsiiProxy_CfnModel) validateSetExecutionRoleArnParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnModel) validateSetInferenceExecutionConfigParameters(val interface{}) error {
 	return nil
 }

@@ -251,6 +251,30 @@ func (j *jsiiProxy_CfnServer) validateSetProtocolDetailsParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnServer) validateSetS3StorageOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnServer_S3StorageOptionsProperty:
+		val := val.(*CfnServer_S3StorageOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnServer_S3StorageOptionsProperty:
+		val_ := val.(CfnServer_S3StorageOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServer_S3StorageOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnServer) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

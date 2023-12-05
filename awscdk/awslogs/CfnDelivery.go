@@ -9,11 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// This structure contains information about one delivery in your account.
+// This structure contains information about one *delivery* in your account.
 //
-// A delivery is a connection between a logical delivery source and a logical delivery destination.
+// A delivery is a connection between a logical *delivery source* and a logical *delivery destination* .
 //
-// For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
+// For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html) .
+//
+// You can't update an existing delivery. You can only create and delete deliveries.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,11 +40,11 @@ import (
 type CfnDelivery interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Amazon Resource Names (ARNs) uniquely identify AWS resources.
+	// The Amazon Resource Name (ARN) that uniquely identifies this delivery.
 	AttrArn() *string
-	// The value of the DeliveryDestinationType property for this object.
+	// Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 	AttrDeliveryDestinationType() *string
-	// The value of the Id property for this object.
+	// The unique ID that identifies this delivery in your account.
 	AttrDeliveryId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,10 +55,10 @@ type CfnDelivery interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Amazon Resource Names (ARNs) uniquely identify AWS resources.
+	// The ARN of the delivery destination that is associated with this delivery.
 	DeliveryDestinationArn() *string
 	SetDeliveryDestinationArn(val *string)
-	// The value of the DeliverySourceName property for this object.
+	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName() *string
 	SetDeliverySourceName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,7 +82,7 @@ type CfnDelivery interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The value of the Tags property for this object.
+	// The tags that have been assigned to this delivery.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

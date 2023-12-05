@@ -358,6 +358,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnVolume.AggregateConfigurationProperty",
+		reflect.TypeOf((*CfnVolume_AggregateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnVolume.AutocommitPeriodProperty",
 		reflect.TypeOf((*CfnVolume_AutocommitPeriodProperty)(nil)).Elem(),
 	)

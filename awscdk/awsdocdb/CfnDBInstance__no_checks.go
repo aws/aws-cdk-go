@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnDBInstance) validateSetAutoMinorVersionUpgradeParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetCertificateRotationRestartParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetDbClusterIdentifierParameters(val *string) error {
 	return nil
 }

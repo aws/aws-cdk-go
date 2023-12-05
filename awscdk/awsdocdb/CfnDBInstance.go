@@ -25,6 +25,8 @@ import (
 //   	// the properties below are optional
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	CaCertificateIdentifier: jsii.String("caCertificateIdentifier"),
+//   	CertificateRotationRestart: jsii.Boolean(false),
 //   	DbInstanceIdentifier: jsii.String("dbInstanceIdentifier"),
 //   	EnablePerformanceInsights: jsii.Boolean(false),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
@@ -55,6 +57,12 @@ type CfnDBInstance interface {
 	// The Amazon EC2 Availability Zone that the instance is created in.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
+	// The CA certificate identifier to use for the DB instance's server certificate.
+	CaCertificateIdentifier() *string
+	SetCaCertificateIdentifier(val *string)
+	// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+	CertificateRotationRestart() interface{}
+	SetCertificateRotationRestart(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -304,6 +312,26 @@ func (j *jsiiProxy_CfnDBInstance) AvailabilityZone() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) CaCertificateIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"caCertificateIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) CertificateRotationRestart() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"certificateRotationRestart",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -517,6 +545,25 @@ func (j *jsiiProxy_CfnDBInstance)SetAvailabilityZone(val *string) {
 	_jsii_.Set(
 		j,
 		"availabilityZone",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetCaCertificateIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"caCertificateIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetCertificateRotationRestart(val interface{}) {
+	if err := j.validateSetCertificateRotationRestartParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"certificateRotationRestart",
 		val,
 	)
 }

@@ -41,6 +41,8 @@ import (
 type Alias interface {
 	awscdk.Resource
 	IAlias
+	// The ARN of the alias.
+	AliasArn() *string
 	// The name of the alias.
 	AliasName() *string
 	// The Key to which the Alias refers.
@@ -54,7 +56,8 @@ type Alias interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
-	// The ARN of the key.
+	// The ARN of the alias.
+	// Deprecated: use `aliasArn` instead.
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
 	KeyId() *string
@@ -118,6 +121,16 @@ type Alias interface {
 type jsiiProxy_Alias struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IAlias
+}
+
+func (j *jsiiProxy_Alias) AliasArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"aliasArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Alias) AliasName() *string {

@@ -8,11 +8,22 @@ import (
 // Represents a Mapping Value.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   mappingValue := awscdk.Aws_apigatewayv2.MappingValue_ContextVariable(jsii.String("variableName"))
+//   var lb applicationLoadBalancer
+//
+//   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(80),
+//   })
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
+//   		ParameterMapping: apigwv2.NewParameterMapping().AppendHeader(jsii.String("header2"), apigwv2.MappingValue_RequestHeader(jsii.String("header1"))).RemoveHeader(jsii.String("header1")),
+//   	}),
+//   })
 //
 type MappingValue interface {
 	IMappingValue

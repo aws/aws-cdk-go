@@ -80,6 +80,10 @@ func validateCfnLandingZone_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLandingZone) validateSetManifestParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLandingZone) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

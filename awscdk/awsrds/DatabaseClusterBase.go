@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -85,6 +86,8 @@ type DatabaseClusterBase interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Grant the given identity connection access to the Cluster.
+	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// Return the given named metric for this DBCluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
@@ -436,6 +439,22 @@ func (d *jsiiProxy_DatabaseClusterBase) GetResourceNameAttribute(nameAttr *strin
 		d,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseClusterBase) GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant {
+	if err := d.validateGrantConnectParameters(grantee, dbUser); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		d,
+		"grantConnect",
+		[]interface{}{grantee, dbUser},
 		&returns,
 	)
 

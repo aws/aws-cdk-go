@@ -64,7 +64,7 @@ type CfnAnalyzer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The configuration for the analyzer.
+	// Contains information about the configuration of an unused access analyzer for an AWS organization or account.
 	AnalyzerConfiguration() interface{}
 	SetAnalyzerConfiguration(val interface{})
 	// The name of the analyzer.

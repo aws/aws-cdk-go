@@ -4,14 +4,19 @@ package awsapigatewayv2
 // Options used to add route to the API.
 //
 // Example:
-//   import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var messageHandler function
 //
+//
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
-//   webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
-//   	Integration: awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
-//   	ReturnResponse: jsii.Boolean(true),
+//   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+//   	WebSocketApi: WebSocketApi,
+//   	StageName: jsii.String("dev"),
+//   	AutoDeploy: jsii.Boolean(true),
+//   })
+//   webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
+//   	Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
 type WebSocketRouteOptions struct {

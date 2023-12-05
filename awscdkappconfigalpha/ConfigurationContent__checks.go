@@ -6,9 +6,9 @@ import (
 	"fmt"
 )
 
-func validateConfigurationContent_FromFileParameters(path *string) error {
-	if path == nil {
-		return fmt.Errorf("parameter path is required, but nil was provided")
+func validateConfigurationContent_FromFileParameters(inputPath *string) error {
+	if inputPath == nil {
+		return fmt.Errorf("parameter inputPath is required, but nil was provided")
 	}
 
 	return nil

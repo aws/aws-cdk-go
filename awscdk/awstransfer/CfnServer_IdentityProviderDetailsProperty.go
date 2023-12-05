@@ -21,7 +21,7 @@ package awstransfer
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html
 //
 type CfnServer_IdentityProviderDetailsProperty struct {
-	// The identifier of the AWS Directory Service directory that you want to stop sharing.
+	// The identifier of the AWS Directory Service directory that you want to use as your identity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html#cfn-transfer-server-identityproviderdetails-directoryid
 	//
 	DirectoryId *string `field:"optional" json:"directoryId" yaml:"directoryId"`

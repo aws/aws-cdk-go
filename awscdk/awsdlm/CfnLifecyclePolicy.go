@@ -18,9 +18,23 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var crossRegionCopyTargets interface{}
+//   var excludeTags interface{}
+//   var excludeVolumeTypes interface{}
+//
 //   cfnLifecyclePolicy := awscdk.Aws_dlm.NewCfnLifecyclePolicy(this, jsii.String("MyCfnLifecyclePolicy"), &CfnLifecyclePolicyProps{
+//   	CopyTags: jsii.Boolean(false),
+//   	CreateInterval: jsii.Number(123),
+//   	CrossRegionCopyTargets: crossRegionCopyTargets,
+//   	DefaultPolicy: jsii.String("defaultPolicy"),
 //   	Description: jsii.String("description"),
+//   	Exclusions: &ExclusionsProperty{
+//   		ExcludeBootVolumes: jsii.Boolean(false),
+//   		ExcludeTags: excludeTags,
+//   		ExcludeVolumeTypes: excludeVolumeTypes,
+//   	},
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
+//   	ExtendDeletion: jsii.Boolean(false),
 //   	PolicyDetails: &PolicyDetailsProperty{
 //   		Actions: []interface{}{
 //   			&ActionProperty{
@@ -44,6 +58,9 @@ import (
 //   				Name: jsii.String("name"),
 //   			},
 //   		},
+//   		CopyTags: jsii.Boolean(false),
+//   		CreateInterval: jsii.Number(123),
+//   		CrossRegionCopyTargets: crossRegionCopyTargets,
 //   		EventSource: &EventSourceProperty{
 //   			Type: jsii.String("type"),
 //
@@ -58,6 +75,12 @@ import (
 //   				DescriptionRegex: jsii.String("descriptionRegex"),
 //   			},
 //   		},
+//   		Exclusions: &ExclusionsProperty{
+//   			ExcludeBootVolumes: jsii.Boolean(false),
+//   			ExcludeTags: excludeTags,
+//   			ExcludeVolumeTypes: excludeVolumeTypes,
+//   		},
+//   		ExtendDeletion: jsii.Boolean(false),
 //   		Parameters: &ParametersProperty{
 //   			ExcludeBootVolume: jsii.Boolean(false),
 //   			ExcludeDataVolumeTags: []interface{}{
@@ -68,13 +91,16 @@ import (
 //   			},
 //   			NoReboot: jsii.Boolean(false),
 //   		},
+//   		PolicyLanguage: jsii.String("policyLanguage"),
 //   		PolicyType: jsii.String("policyType"),
 //   		ResourceLocations: []*string{
 //   			jsii.String("resourceLocations"),
 //   		},
+//   		ResourceType: jsii.String("resourceType"),
 //   		ResourceTypes: []*string{
 //   			jsii.String("resourceTypes"),
 //   		},
+//   		RetainInterval: jsii.Number(123),
 //   		Schedules: []interface{}{
 //   			&ScheduleProperty{
 //   				ArchiveRule: &ArchiveRuleProperty{
@@ -176,6 +202,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	RetainInterval: jsii.Number(123),
 //   	State: jsii.String("state"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -199,16 +226,36 @@ type CfnLifecyclePolicy interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// *[Default policies only]* Indicates whether the policy should copy tags from the source resource to the snapshot or AMI.
+	CopyTags() interface{}
+	SetCopyTags(val interface{})
+	// *[Default policies only]* Specifies how often the policy should run and create snapshots or AMIs.
+	CreateInterval() *float64
+	SetCreateInterval(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// *[Default policies only]* Specifies destination Regions for snapshot or AMI copies.
+	CrossRegionCopyTargets() interface{}
+	SetCrossRegionCopyTargets(val interface{})
+	// *[Default policies only]* The type of default policy.
+	//
+	// Values include:.
+	DefaultPolicy() *string
+	SetDefaultPolicy(val *string)
 	// A description of the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
+	// *[Default policies only]* Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.
+	Exclusions() interface{}
+	SetExclusions(val interface{})
 	// The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
+	// *[Default policies only]* Defines the snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state.
+	ExtendDeletion() interface{}
+	SetExtendDeletion(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -229,6 +276,9 @@ type CfnLifecyclePolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// *[Default policies only]* Specifies how long the policy should retain snapshots or AMIs before deleting them.
+	RetainInterval() *float64
+	SetRetainInterval(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -438,11 +488,51 @@ func (j *jsiiProxy_CfnLifecyclePolicy) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLifecyclePolicy) CopyTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"copyTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) CreateInterval() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"createInterval",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLifecyclePolicy) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) CrossRegionCopyTargets() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"crossRegionCopyTargets",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) DefaultPolicy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"defaultPolicy",
 		&returns,
 	)
 	return returns
@@ -458,11 +548,31 @@ func (j *jsiiProxy_CfnLifecyclePolicy) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLifecyclePolicy) Exclusions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"exclusions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLifecyclePolicy) ExecutionRoleArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"executionRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) ExtendDeletion() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"extendDeletion",
 		&returns,
 	)
 	return returns
@@ -503,6 +613,16 @@ func (j *jsiiProxy_CfnLifecyclePolicy) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) RetainInterval() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"retainInterval",
 		&returns,
 	)
 	return returns
@@ -596,10 +716,56 @@ func NewCfnLifecyclePolicy_Override(c CfnLifecyclePolicy, scope constructs.Const
 	)
 }
 
+func (j *jsiiProxy_CfnLifecyclePolicy)SetCopyTags(val interface{}) {
+	if err := j.validateSetCopyTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"copyTags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy)SetCreateInterval(val *float64) {
+	_jsii_.Set(
+		j,
+		"createInterval",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy)SetCrossRegionCopyTargets(val interface{}) {
+	_jsii_.Set(
+		j,
+		"crossRegionCopyTargets",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy)SetDefaultPolicy(val *string) {
+	_jsii_.Set(
+		j,
+		"defaultPolicy",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnLifecyclePolicy)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy)SetExclusions(val interface{}) {
+	if err := j.validateSetExclusionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"exclusions",
 		val,
 	)
 }
@@ -612,6 +778,17 @@ func (j *jsiiProxy_CfnLifecyclePolicy)SetExecutionRoleArn(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnLifecyclePolicy)SetExtendDeletion(val interface{}) {
+	if err := j.validateSetExtendDeletionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"extendDeletion",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnLifecyclePolicy)SetPolicyDetails(val interface{}) {
 	if err := j.validateSetPolicyDetailsParameters(val); err != nil {
 		panic(err)
@@ -619,6 +796,14 @@ func (j *jsiiProxy_CfnLifecyclePolicy)SetPolicyDetails(val interface{}) {
 	_jsii_.Set(
 		j,
 		"policyDetails",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy)SetRetainInterval(val *float64) {
+	_jsii_.Set(
+		j,
+		"retainInterval",
 		val,
 	)
 }

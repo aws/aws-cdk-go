@@ -80,6 +80,18 @@ func validateCfnLifecyclePolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLifecyclePolicy) validateSetCopyTagsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) validateSetExclusionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) validateSetExtendDeletionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLifecyclePolicy) validateSetPolicyDetailsParameters(val interface{}) error {
 	return nil
 }

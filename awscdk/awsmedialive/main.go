@@ -275,6 +275,10 @@ func init() {
 		reflect.TypeOf((*CfnChannel_EncoderSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.EpochLockingSettingsProperty",
+		reflect.TypeOf((*CfnChannel_EpochLockingSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.EsamProperty",
 		reflect.TypeOf((*CfnChannel_EsamProperty)(nil)).Elem(),
 	)
@@ -537,6 +541,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.OutputLocationRefProperty",
 		reflect.TypeOf((*CfnChannel_OutputLocationRefProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.OutputLockingSettingsProperty",
+		reflect.TypeOf((*CfnChannel_OutputLockingSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.OutputProperty",

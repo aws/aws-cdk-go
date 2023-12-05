@@ -227,6 +227,23 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetDataCaptureConfigParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) validateSetEnableNetworkIsolationParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEndpointConfig) validateSetExplainerConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -378,6 +395,30 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetTagsRawParameters(val *[]*awscd
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnEndpointConfig) validateSetVpcConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEndpointConfig_VpcConfigProperty:
+		val := val.(*CfnEndpointConfig_VpcConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEndpointConfig_VpcConfigProperty:
+		val_ := val.(CfnEndpointConfig_VpcConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_VpcConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

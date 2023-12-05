@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 func (i *jsiiProxy_IDatabaseCluster) validateAddProxyParameters(id *string, options *DatabaseProxyOptions) error {
@@ -21,6 +22,18 @@ func (i *jsiiProxy_IDatabaseCluster) validateAddProxyParameters(id *string, opti
 	}
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IDatabaseCluster) validateGrantConnectParameters(grantee awsiam.IGrantable, dbUser *string) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	if dbUser == nil {
+		return fmt.Errorf("parameter dbUser is required, but nil was provided")
 	}
 
 	return nil

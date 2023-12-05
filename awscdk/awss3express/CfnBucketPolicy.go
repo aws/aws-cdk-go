@@ -9,7 +9,42 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::S3Express::BucketPolicy.
+// Applies an Amazon S3 bucket policy to an Amazon S3 directory bucket.
+//
+// - **Permissions** - If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity must both have the required permissions on the specified bucket and belong to the bucket owner's account in order to use this operation. For more information about directory bucket policies and permissions, see [AWS Identity and Access Management (IAM) for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html) in the *Amazon S3 User Guide* .
+//
+// > To ensure that bucket owners don't inadvertently lock themselves out of their own buckets, the root principal in a bucket owner's AWS account can perform the `GetBucketPolicy` , `PutBucketPolicy` , and `DeleteBucketPolicy` API actions, even if their bucket policy explicitly denies the root principal's access. Bucket owner root principals can only be blocked from performing these API actions by VPC endpoint policies and AWS Organizations policies.
+//
+// The required permissions for CloudFormation to use are based on the operations that are performed on the stack.
+//
+// - Create
+//
+// - s3express:GetBucketPolicy
+// - s3express:PutBucketPolicy
+// - Read
+//
+// - s3express:GetBucketPolicy
+// - Update
+//
+// - s3express:GetBucketPolicy
+// - s3express:PutBucketPolicy
+// - Delete
+//
+// - s3express:GetBucketPolicy
+// - s3express:DeleteBucketPolicy
+// - List
+//
+// - s3express:GetBucketPolicy
+// - s3express:ListAllMyDirectoryBuckets
+//
+// For more information about example bucket policies, see [Example bucket policies for S3 Express One Zone](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html) in the *Amazon S3 User Guide* .
+//
+// The following operations are related to `AWS::S3Express::BucketPolicy` :
+//
+// - [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html)
+// - [GetBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html)
+// - [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html)
+// - [ListDirectoryBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListDirectoryBuckets.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,6 +87,7 @@ type CfnBucketPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// A policy document containing permissions to add to the specified bucket.
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

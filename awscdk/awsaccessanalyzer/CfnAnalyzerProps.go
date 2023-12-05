@@ -56,11 +56,11 @@ import (
 type CfnAnalyzerProps struct {
 	// The type represents the zone of trust for the analyzer.
 	//
-	// *Allowed Values* : ACCOUNT | ORGANIZATION.
+	// *Allowed Values* : ACCOUNT | ORGANIZATION | ACCOUNT_UNUSED_ACCESS | ORGANIZATION_UNUSED_ACCESS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The configuration for the analyzer.
+	// Contains information about the configuration of an unused access analyzer for an AWS organization or account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzerconfiguration
 	//
 	AnalyzerConfiguration interface{} `field:"optional" json:"analyzerConfiguration" yaml:"analyzerConfiguration"`
@@ -69,6 +69,8 @@ type CfnAnalyzerProps struct {
 	//
 	AnalyzerName *string `field:"optional" json:"analyzerName" yaml:"analyzerName"`
 	// Specifies the archive rules to add for the analyzer.
+	//
+	// Archive rules automatically archive findings that meet the criteria you define for the rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
 	//
 	ArchiveRules interface{} `field:"optional" json:"archiveRules" yaml:"archiveRules"`

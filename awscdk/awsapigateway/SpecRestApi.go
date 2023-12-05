@@ -81,6 +81,8 @@ type SpecRestApi interface {
 	Root() IResource
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The deployed root URL of this REST API.
+	Url() *string
 	// Add an ApiKey to the deploymentStage.
 	AddApiKey(id *string, options *ApiKeyOptions) IApiKey
 	// Defines an API Gateway domain name and maps it to this API.
@@ -275,6 +277,16 @@ func (j *jsiiProxy_SpecRestApi) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SpecRestApi) Url() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"url",
 		&returns,
 	)
 	return returns

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetDataCaptureConfigParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) validateSetEnableNetworkIsolationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEndpointConfig) validateSetExplainerConfigParameters(val interface{}) error {
 	return nil
 }
@@ -101,6 +105,10 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetShadowProductionVariantsParamet
 }
 
 func (j *jsiiProxy_CfnEndpointConfig) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnEndpointConfig) validateSetVpcConfigParameters(val interface{}) error {
 	return nil
 }
 

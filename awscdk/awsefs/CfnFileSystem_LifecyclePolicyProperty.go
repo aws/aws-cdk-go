@@ -22,6 +22,9 @@ package awsefs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
 //
 type CfnFileSystem_LifecyclePolicyProperty struct {
+	// The number of days after files were last accessed in primary storage (the Standard storage class) files at which to move them to Archive storage.
+	//
+	// Metadata operations such as listing the contents of a directory don't count as file access events.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoarchive
 	//
 	TransitionToArchive *string `field:"optional" json:"transitionToArchive" yaml:"transitionToArchive"`

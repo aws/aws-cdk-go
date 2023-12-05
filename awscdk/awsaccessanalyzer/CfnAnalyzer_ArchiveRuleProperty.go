@@ -1,7 +1,7 @@
 package awsaccessanalyzer
 
 
-// The criteria for an archive rule.
+// Contains information about an archive rule.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,7 +36,7 @@ type CfnAnalyzer_ArchiveRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
 	//
 	Filter interface{} `field:"required" json:"filter" yaml:"filter"`
-	// The name of the archive rule.
+	// The name of the rule to create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
 	//
 	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`

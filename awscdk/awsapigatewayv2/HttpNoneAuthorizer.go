@@ -8,11 +8,59 @@ import (
 // Explicitly configure no authorizers on specific HTTP API routes.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   httpNoneAuthorizer := awscdk.Aws_apigatewayv2.NewHttpNoneAuthorizer()
+//
+//   issuer := "https://test.us.auth0.com"
+//   authorizer := awscdk.NewHttpJwtAuthorizer(jsii.String("DefaultAuthorizer"), issuer, &HttpJwtAuthorizerProps{
+//   	JwtAudience: []*string{
+//   		jsii.String("3131231"),
+//   	},
+//   })
+//
+//   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &HttpApiProps{
+//   	DefaultAuthorizer: authorizer,
+//   	DefaultAuthorizationScopes: []*string{
+//   		jsii.String("read:books"),
+//   	},
+//   })
+//
+//   api.AddRoutes(&AddRoutesOptions{
+//   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+//   	Path: jsii.String("/books"),
+//   	Methods: []httpMethod{
+//   		apigwv2.*httpMethod_GET,
+//   	},
+//   })
+//
+//   api.AddRoutes(&AddRoutesOptions{
+//   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIdIntegration"), jsii.String("https://get-books-proxy.example.com")),
+//   	Path: jsii.String("/books/{id}"),
+//   	Methods: []*httpMethod{
+//   		apigwv2.*httpMethod_GET,
+//   	},
+//   })
+//
+//   api.AddRoutes(&AddRoutesOptions{
+//   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+//   	Path: jsii.String("/books"),
+//   	Methods: []*httpMethod{
+//   		apigwv2.*httpMethod_POST,
+//   	},
+//   	AuthorizationScopes: []*string{
+//   		jsii.String("write:books"),
+//   	},
+//   })
+//
+//   api.AddRoutes(&AddRoutesOptions{
+//   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("LoginIntegration"), jsii.String("https://get-books-proxy.example.com")),
+//   	Path: jsii.String("/login"),
+//   	Methods: []*httpMethod{
+//   		apigwv2.*httpMethod_POST,
+//   	},
+//   	Authorizer: apigwv2.NewHttpNoneAuthorizer(),
+//   })
 //
 type HttpNoneAuthorizer interface {
 	IHttpRouteAuthorizer

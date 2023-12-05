@@ -8,19 +8,21 @@ import (
 // The interface that various route integration classes will inherit.
 //
 // Example:
-//   import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var handler function
-//   var dn domainName
+//   var lb applicationLoadBalancer
 //
+//   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(80),
+//   })
 //
-//   apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdklibawsapigatewayv2integrations.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
-//   	// https://${dn.domainName}/demo goes to apiDemo $default stage
-//   	DefaultDomainMapping: &DomainMappingOptions{
-//   		DomainName: dn,
-//   		MappingKey: jsii.String("demo"),
-//   	},
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
+//   		ParameterMapping: apigwv2.NewParameterMapping().Custom(jsii.String("myKey"), jsii.String("myValue")),
+//   	}),
 //   })
 //
 type HttpRouteIntegration interface {

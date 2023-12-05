@@ -83,6 +83,7 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
 	//
 	FileSystemPolicy interface{} `field:"optional" json:"fileSystemPolicy" yaml:"fileSystemPolicy"`
+	// Describes the protection on the file system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemprotection
 	//
 	FileSystemProtection interface{} `field:"optional" json:"fileSystemProtection" yaml:"fileSystemProtection"`

@@ -564,6 +564,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "alarmArn", GoGetter: "AlarmArn"},
 			_jsii_.MemberProperty{JsiiProperty: "alarmRoleArn", GoGetter: "AlarmRoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "isCompositeAlarm", GoGetter: "IsCompositeAlarm"},
 			_jsii_.MemberProperty{JsiiProperty: "monitorType", GoGetter: "MonitorType"},
 		},
 		func() interface{} {

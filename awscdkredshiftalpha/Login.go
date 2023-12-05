@@ -29,14 +29,14 @@ type Login struct {
 	// Experimental.
 	MasterUsername *string `field:"required" json:"masterUsername" yaml:"masterUsername"`
 	// KMS encryption key to encrypt the generated secret.
-	// Default: default master key.
+	// Default: - default master key.
 	//
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
-	// Default: a Secrets Manager generated password.
+	// Default: - a Secrets Manager generated password.
 	//
 	// Experimental.
 	MasterPassword awscdk.SecretValue `field:"optional" json:"masterPassword" yaml:"masterPassword"`

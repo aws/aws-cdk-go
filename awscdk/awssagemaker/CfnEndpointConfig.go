@@ -21,8 +21,6 @@ import (
 //   cfnEndpointConfig := awscdk.Aws_sagemaker.NewCfnEndpointConfig(this, jsii.String("MyCfnEndpointConfig"), &CfnEndpointConfigProps{
 //   	ProductionVariants: []interface{}{
 //   		&ProductionVariantProperty{
-//   			InitialVariantWeight: jsii.Number(123),
-//   			ModelName: jsii.String("modelName"),
 //   			VariantName: jsii.String("variantName"),
 //
 //   			// the properties below are optional
@@ -30,8 +28,18 @@ import (
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InitialInstanceCount: jsii.Number(123),
+//   			InitialVariantWeight: jsii.Number(123),
 //   			InstanceType: jsii.String("instanceType"),
+//   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
+//   				MaxInstanceCount: jsii.Number(123),
+//   				MinInstanceCount: jsii.Number(123),
+//   				Status: jsii.String("status"),
+//   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   			ModelName: jsii.String("modelName"),
+//   			RoutingConfig: &RoutingConfigProperty{
+//   				RoutingStrategy: jsii.String("routingStrategy"),
+//   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
 //   				MaxConcurrency: jsii.Number(123),
 //   				MemorySizeInMb: jsii.Number(123),
@@ -84,7 +92,9 @@ import (
 //   		EnableCapture: jsii.Boolean(false),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	EnableNetworkIsolation: jsii.Boolean(false),
 //   	EndpointConfigName: jsii.String("endpointConfigName"),
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	ExplainerConfig: &ExplainerConfigProperty{
 //   		ClarifyExplainerConfig: &ClarifyExplainerConfigProperty{
 //   			ShapConfig: &ClarifyShapConfigProperty{
@@ -130,8 +140,6 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	ShadowProductionVariants: []interface{}{
 //   		&ProductionVariantProperty{
-//   			InitialVariantWeight: jsii.Number(123),
-//   			ModelName: jsii.String("modelName"),
 //   			VariantName: jsii.String("variantName"),
 //
 //   			// the properties below are optional
@@ -139,8 +147,18 @@ import (
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InitialInstanceCount: jsii.Number(123),
+//   			InitialVariantWeight: jsii.Number(123),
 //   			InstanceType: jsii.String("instanceType"),
+//   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
+//   				MaxInstanceCount: jsii.Number(123),
+//   				MinInstanceCount: jsii.Number(123),
+//   				Status: jsii.String("status"),
+//   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   			ModelName: jsii.String("modelName"),
+//   			RoutingConfig: &RoutingConfigProperty{
+//   				RoutingStrategy: jsii.String("routingStrategy"),
+//   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
 //   				MaxConcurrency: jsii.Number(123),
 //   				MemorySizeInMb: jsii.Number(123),
@@ -155,6 +173,14 @@ import (
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VpcConfig: &VpcConfigProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		Subnets: []*string{
+//   			jsii.String("subnets"),
 //   		},
 //   	},
 //   })
@@ -183,9 +209,13 @@ type CfnEndpointConfig interface {
 	// Specifies how to capture endpoint data for model monitor.
 	DataCaptureConfig() interface{}
 	SetDataCaptureConfig(val interface{})
+	EnableNetworkIsolation() interface{}
+	SetEnableNetworkIsolation(val interface{})
 	// The name of the endpoint configuration.
 	EndpointConfigName() *string
 	SetEndpointConfigName(val *string)
+	ExecutionRoleArn() *string
+	SetExecutionRoleArn(val *string)
 	// A parameter to activate explainers.
 	ExplainerConfig() interface{}
 	SetExplainerConfig(val interface{})
@@ -237,6 +267,8 @@ type CfnEndpointConfig interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	VpcConfig() interface{}
+	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -451,11 +483,31 @@ func (j *jsiiProxy_CfnEndpointConfig) DataCaptureConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) EnableNetworkIsolation() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableNetworkIsolation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpointConfig) EndpointConfigName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"endpointConfigName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointConfig) ExecutionRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionRoleArn",
 		&returns,
 	)
 	return returns
@@ -581,6 +633,16 @@ func (j *jsiiProxy_CfnEndpointConfig) UpdatedProperties() *map[string]interface{
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) VpcConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcConfig",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnEndpointConfig(scope constructs.Construct, id *string, props *CfnEndpointConfigProps) CfnEndpointConfig {
 	_init_.Initialize()
@@ -631,10 +693,29 @@ func (j *jsiiProxy_CfnEndpointConfig)SetDataCaptureConfig(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnEndpointConfig)SetEnableNetworkIsolation(val interface{}) {
+	if err := j.validateSetEnableNetworkIsolationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enableNetworkIsolation",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEndpointConfig)SetEndpointConfigName(val *string) {
 	_jsii_.Set(
 		j,
 		"endpointConfigName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointConfig)SetExecutionRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"executionRoleArn",
 		val,
 	)
 }
@@ -687,6 +768,17 @@ func (j *jsiiProxy_CfnEndpointConfig)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointConfig)SetVpcConfig(val interface{}) {
+	if err := j.validateSetVpcConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vpcConfig",
 		val,
 	)
 }

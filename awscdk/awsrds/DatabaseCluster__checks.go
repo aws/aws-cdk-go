@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,6 +77,18 @@ func (d *jsiiProxy_DatabaseCluster) validateGetResourceArnAttributeParameters(ar
 func (d *jsiiProxy_DatabaseCluster) validateGetResourceNameAttributeParameters(nameAttr *string) error {
 	if nameAttr == nil {
 		return fmt.Errorf("parameter nameAttr is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_DatabaseCluster) validateGrantConnectParameters(grantee awsiam.IGrantable, dbUser *string) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	if dbUser == nil {
+		return fmt.Errorf("parameter dbUser is required, but nil was provided")
 	}
 
 	return nil

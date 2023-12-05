@@ -11,6 +11,9 @@ package awstransfer
 //   homeDirectoryMapEntryProperty := &HomeDirectoryMapEntryProperty{
 //   	Entry: jsii.String("entry"),
 //   	Target: jsii.String("target"),
+//
+//   	// the properties below are optional
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-homedirectorymapentry.html
@@ -24,5 +27,8 @@ type CfnUser_HomeDirectoryMapEntryProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-homedirectorymapentry.html#cfn-transfer-user-homedirectorymapentry-target
 	//
 	Target *string `field:"required" json:"target" yaml:"target"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-homedirectorymapentry.html#cfn-transfer-user-homedirectorymapentry-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

@@ -24,9 +24,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "copyTags", GoGetter: "CopyTags"},
+			_jsii_.MemberProperty{JsiiProperty: "createInterval", GoGetter: "CreateInterval"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "crossRegionCopyTargets", GoGetter: "CrossRegionCopyTargets"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultPolicy", GoGetter: "DefaultPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "exclusions", GoGetter: "Exclusions"},
 			_jsii_.MemberProperty{JsiiProperty: "executionRoleArn", GoGetter: "ExecutionRoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "extendDeletion", GoGetter: "ExtendDeletion"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -40,6 +46,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "retainInterval", GoGetter: "RetainInterval"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
@@ -105,6 +112,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.EventSourceProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_EventSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.ExclusionsProperty",
+		reflect.TypeOf((*CfnLifecyclePolicy_ExclusionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.FastRestoreRuleProperty",

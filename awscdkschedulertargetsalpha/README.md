@@ -30,6 +30,8 @@ The following targets are supported:
 5. `targets.SnsPublish`: [Publish messages to an Amazon SNS topic](#publish-messages-to-an-amazon-sns-topic)
 6. `targets.EventBridgePutEvents`: [Put Events on EventBridge](#send-events-to-an-eventbridge-event-bus)
 7. `targets.InspectorStartAssessmentRun`: [Start an Amazon Inspector assessment run](#start-an-amazon-inspector-assessment-run)
+8. `targets.KinesisStreamPutRecord`: [Put a record to an Amazon Kinesis Data Streams](#put-a-record-to-an-amazon-kinesis-data-streams)
+9. `targets.KinesisDataFirehosePutRecord`: [Put a record to a Kinesis Data Firehose](#put-a-record-to-a-kinesis-data-firehose)
 
 ## Invoke a Lambda function
 
@@ -233,5 +235,50 @@ var assessmentTemplate cfnAssessmentTemplate
 awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
 	Target: targets.NewInspectorStartAssessmentRun(assessmentTemplate),
+})
+```
+
+## Put a record to an Amazon Kinesis Data Streams
+
+Use the `KinesisStreamPutRecord` target to put a record to an Amazon Kinesis Data Streams.
+
+The code snippet below creates an event rule with a stream as target which is
+called every hour by Event Bridge Scheduler.
+
+```go
+import kinesis "github.com/aws/aws-cdk-go/awscdk"
+
+
+stream := kinesis.NewStream(this, jsii.String("MyStream"))
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
+	Target: targets.NewKinesisStreamPutRecord(stream, &KinesisStreamPutRecordProps{
+		PartitionKey: jsii.String("key"),
+	}),
+})
+```
+
+## Put a record to a Kinesis Data Firehose
+
+Use the `KinesisDataFirehosePutRecord` target to put a record to a Kinesis Data Firehose delivery stream.
+
+The code snippet below creates an event rule with a delivery stream as a target
+called every hour by Event Bridge Scheduler with a custom payload.
+
+```go
+import firehose "github.com/aws/aws-cdk-go/awscdk"
+var deliveryStream cfnDeliveryStream
+
+
+payload := map[string]*string{
+	"Data": jsii.String("record"),
+}
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
+	Target: targets.NewKinesisDataFirehosePutRecord(deliveryStream, &ScheduleTargetBaseProps{
+		Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(payload),
+	}),
 })
 ```

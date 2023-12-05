@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The specification for the inference component.
+// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,16 +39,19 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html
 //
 type CfnInferenceComponent_InferenceComponentSpecificationProperty struct {
+	// The compute resources allocated to run the model assigned to the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-computeresourcerequirements
 	//
 	ComputeResourceRequirements interface{} `field:"required" json:"computeResourceRequirements" yaml:"computeResourceRequirements"`
+	// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-container
 	//
 	Container interface{} `field:"optional" json:"container" yaml:"container"`
-	// The name of the model to use with the inference component.
+	// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-modelname
 	//
 	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
+	// Settings that take effect while the model container starts up.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-startupparameters
 	//
 	StartupParameters interface{} `field:"optional" json:"startupParameters" yaml:"startupParameters"`

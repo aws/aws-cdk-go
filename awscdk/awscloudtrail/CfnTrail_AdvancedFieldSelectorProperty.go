@@ -37,19 +37,25 @@ package awscloudtrail
 type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// A field in a CloudTrail event record on which to filter events to be logged.
 	//
-	// For event data stores for AWS Config configuration items, Audit Manager evidence, or non- AWS events, the field is used only for selecting events as filtering is not supported.
+	// For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS , the field is used only for selecting events as filtering is not supported.
 	//
-	// For CloudTrail event records, supported fields include `readOnly` , `eventCategory` , `eventSource` (for management events), `eventName` , `resources.type` , and `resources.ARN` .
+	// For CloudTrail management events, supported fields include `readOnly` , `eventCategory` , and `eventSource` .
 	//
-	// For event data stores for AWS Config configuration items, Audit Manager evidence, or non- AWS events, the only supported field is `eventCategory` .
+	// For CloudTrail data events, supported fields include `readOnly` , `eventCategory` , `eventName` , `resources.type` , and `resources.ARN` .
+	//
+	// For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS , the only supported field is `eventCategory` .
 	//
 	// - *`readOnly`* - Optional. Can be set to `Equals` a value of `true` or `false` . If you do not add this field, CloudTrail logs both `read` and `write` events. A value of `true` logs only `read` events. A value of `false` logs only `write` events.
 	// - *`eventSource`* - For filtering management events only. This can be set to `NotEquals` `kms.amazonaws.com` or `NotEquals` `rdsdata.amazonaws.com` .
 	// - *`eventName`* - Can use any operator. You can use it to ﬁlter in or ﬁlter out any data event logged to CloudTrail, such as `PutBucket` or `GetSnapshotBlock` . You can have multiple values for this ﬁeld, separated by commas.
 	// - *`eventCategory`* - This is required and must be set to `Equals` .
 	//
-	// - For CloudTrail event records, the value must be `Management` or `Data` .
-	// - For CloudTrail Insights event records, the value must be `Insight` .
+	// - For CloudTrail management events, the value must be `Management` .
+	// - For CloudTrail data events, the value must be `Data` .
+	//
+	// The following are used only for event data stores:
+	//
+	// - For CloudTrail Insights events, the value must be `Insight` .
 	// - For AWS Config configuration items, the value must be `ConfigurationItem` .
 	// - For Audit Manager evidence, the value must be `Evidence` .
 	// - For non- AWS events, the value must be `ActivityAuditLog` .
@@ -58,6 +64,9 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::DynamoDB::Table`
 	// - `AWS::Lambda::Function`
 	// - `AWS::S3::Object`
+	// - `AWS::Bedrock::AgentAlias`
+	// - `AWS::Bedrock::KnowledgeBase`
+	// - `AWS::CloudFront:KeyValueStore`
 	// - `AWS::CloudTrail::Channel`
 	// - `AWS::CodeWhisperer::Customization`
 	// - `AWS::CodeWhisperer::Profile`
@@ -73,6 +82,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::ManagedBlockchain::Network`
 	// - `AWS::ManagedBlockchain::Node`
 	// - `AWS::MedicalImaging::Datastore`
+	// - `AWS::NeptuneGraph::Graph`
 	// - `AWS::PCAConnectorAD::Connector`
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
@@ -105,6 +115,18 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When resources.type equals `AWS::Lambda::Function` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:lambda:<region>:<account_ID>:function:<function_name>`
+	//
+	// When resources.type equals `AWS::Bedrock::AgentAlias` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:bedrock:<region>:<account_ID>:agent-alias/<agent_ID>/<alias_ID>`
+	//
+	// When resources.type equals `AWS::Bedrock::KnowledgeBase` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:bedrock:<region>:<account_ID>:knowledge-base/<knowledge_base_ID>`
+	//
+	// When resources.type equals `AWS::CloudFront:KeyValueStore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:cloudfront:<region>:<account_ID>:key-value-store/<KVS_name>`
 	//
 	// When resources.type equals `AWS::CloudTrail::Channel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
@@ -165,6 +187,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::MedicalImaging::Datastore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:medical-imaging:<region>:<account_ID>:datastore/<data_store_ID>`
+	//
+	// When `resources.type` equals `AWS::NeptuneGraph::Graph` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:neptune-graph:<region>:<account_ID>:graph/<graph_ID>`
 	//
 	// When `resources.type` equals `AWS::PCAConnectorAD::Connector` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

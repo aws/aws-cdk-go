@@ -11,8 +11,6 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   productionVariantProperty := &ProductionVariantProperty{
-//   	InitialVariantWeight: jsii.Number(123),
-//   	ModelName: jsii.String("modelName"),
 //   	VariantName: jsii.String("variantName"),
 //
 //   	// the properties below are optional
@@ -20,8 +18,18 @@ package awssagemaker
 //   	ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   	EnableSsmAccess: jsii.Boolean(false),
 //   	InitialInstanceCount: jsii.Number(123),
+//   	InitialVariantWeight: jsii.Number(123),
 //   	InstanceType: jsii.String("instanceType"),
+//   	ManagedInstanceScaling: &ManagedInstanceScalingProperty{
+//   		MaxInstanceCount: jsii.Number(123),
+//   		MinInstanceCount: jsii.Number(123),
+//   		Status: jsii.String("status"),
+//   	},
 //   	ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   	ModelName: jsii.String("modelName"),
+//   	RoutingConfig: &RoutingConfigProperty{
+//   		RoutingStrategy: jsii.String("routingStrategy"),
+//   	},
 //   	ServerlessConfig: &ServerlessConfigProperty{
 //   		MaxConcurrency: jsii.Number(123),
 //   		MemorySizeInMb: jsii.Number(123),
@@ -35,18 +43,6 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html
 //
 type CfnEndpointConfig_ProductionVariantProperty struct {
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
-	//
-	// The traffic to a production variant is determined by the ratio of the `VariantWeight` to the sum of all `VariantWeight` values across all ProductionVariants. If unspecified, it defaults to 1.0.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
-	//
-	InitialVariantWeight *float64 `field:"required" json:"initialVariantWeight" yaml:"initialVariantWeight"`
-	// The name of the model that you want to host.
-	//
-	// This is the name that you specified when creating the model.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
-	//
-	ModelName *string `field:"required" json:"modelName" yaml:"modelName"`
 	// The name of the production variant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname
 	//
@@ -73,14 +69,32 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
 	//
 	InitialInstanceCount *float64 `field:"optional" json:"initialInstanceCount" yaml:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+	//
+	// The traffic to a production variant is determined by the ratio of the `VariantWeight` to the sum of all `VariantWeight` values across all ProductionVariants. If unspecified, it defaults to 1.0.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
+	//
+	InitialVariantWeight *float64 `field:"optional" json:"initialVariantWeight" yaml:"initialVariantWeight"`
 	// The ML compute instance type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
 	//
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-managedinstancescaling
+	//
+	ManagedInstanceScaling interface{} `field:"optional" json:"managedInstanceScaling" yaml:"managedInstanceScaling"`
 	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modeldatadownloadtimeoutinseconds
 	//
 	ModelDataDownloadTimeoutInSeconds *float64 `field:"optional" json:"modelDataDownloadTimeoutInSeconds" yaml:"modelDataDownloadTimeoutInSeconds"`
+	// The name of the model that you want to host.
+	//
+	// This is the name that you specified when creating the model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
+	//
+	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-routingconfig
+	//
+	RoutingConfig interface{} `field:"optional" json:"routingConfig" yaml:"routingConfig"`
 	// The serverless configuration for an endpoint.
 	//
 	// Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.

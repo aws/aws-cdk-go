@@ -27,7 +27,7 @@ func (r *jsiiProxy_RestApiOrigin) validateBindParameters(_scope constructs.Const
 	return nil
 }
 
-func validateNewRestApiOriginParameters(restApi awsapigateway.RestApi, props *RestApiOriginProps) error {
+func validateNewRestApiOriginParameters(restApi awsapigateway.RestApiBase, props *RestApiOriginProps) error {
 	if restApi == nil {
 		return fmt.Errorf("parameter restApi is required, but nil was provided")
 	}

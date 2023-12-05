@@ -11,7 +11,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var manifest interface{}
+//
 //   cfnLandingZoneProps := &CfnLandingZoneProps{
+//   	Manifest: manifest,
 //   	Version: jsii.String("version"),
 //
 //   	// the properties below are optional
@@ -26,6 +29,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html
 //
 type CfnLandingZoneProps struct {
+	// The landing zone `manifest.yaml` text file that specifies the landing zone configurations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-manifest
+	//
+	Manifest interface{} `field:"required" json:"manifest" yaml:"manifest"`
 	// The landing zone's current deployed version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-version
 	//

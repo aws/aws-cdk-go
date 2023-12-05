@@ -179,6 +179,64 @@ func validateCfnLifecyclePolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLifecyclePolicy) validateSetCopyTagsParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) validateSetExclusionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLifecyclePolicy_ExclusionsProperty:
+		val := val.(*CfnLifecyclePolicy_ExclusionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLifecyclePolicy_ExclusionsProperty:
+		val_ := val.(CfnLifecyclePolicy_ExclusionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLifecyclePolicy_ExclusionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnLifecyclePolicy) validateSetExtendDeletionParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLifecyclePolicy) validateSetPolicyDetailsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

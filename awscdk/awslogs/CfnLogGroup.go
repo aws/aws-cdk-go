@@ -46,7 +46,7 @@ type CfnLogGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The CloudWatch log group ARN.
+	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -57,13 +57,15 @@ type CfnLogGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The body of the policy document you want to use for this topic.
+	// Creates a data protection policy and assigns it to the log group.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
-	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
+	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
-	// The class of the log group.
+	// Specifies the log group class for this log group.
+	//
+	// There are two classes:.
 	LogGroupClass() *string
 	SetLogGroupClass(val *string)
 	// The name of the log group.
@@ -95,7 +97,7 @@ type CfnLogGroup interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An array of key-value pairs to apply to this resource.
+	// An array of key-value pairs to apply to the log group.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

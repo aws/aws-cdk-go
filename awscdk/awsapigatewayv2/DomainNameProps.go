@@ -8,7 +8,7 @@ import (
 //
 // Example:
 //   import acm "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var handler function
 //
@@ -21,7 +21,7 @@ import (
 //   	Certificate: acm.Certificate_FromCertificateArn(this, jsii.String("cert"), certArn),
 //   })
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpProxyProdApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdklibawsapigatewayv2integrations.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+//   	DefaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 //   	// https://${dn.domainName}/foo goes to prodApi $default stage
 //   	DefaultDomainMapping: &DomainMappingOptions{
 //   		DomainName: dn,

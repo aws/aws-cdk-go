@@ -98,6 +98,7 @@ type CfnFileSystem interface {
 	// The `FileSystemPolicy` for the EFS file system.
 	FileSystemPolicy() interface{}
 	SetFileSystemPolicy(val interface{})
+	// Describes the protection on the file system.
 	FileSystemProtection() interface{}
 	SetFileSystemProtection(val interface{})
 	// Use to create one or more tags associated with the file system.

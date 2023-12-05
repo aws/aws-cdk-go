@@ -29,6 +29,9 @@ import (
 //   		&HomeDirectoryMapEntryProperty{
 //   			Entry: jsii.String("entry"),
 //   			Target: jsii.String("target"),
+//
+//   			// the properties below are optional
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
 //   	HomeDirectoryType: jsii.String("homeDirectoryType"),

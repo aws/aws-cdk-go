@@ -9,7 +9,34 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::S3Express::DirectoryBucket.
+// The `AWS::S3Express::DirectoryBucket` resource creates an Amazon S3 directory bucket in the same AWS Region where you create the AWS CloudFormation stack.
+//
+// To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
+//
+// > You can only delete empty buckets. Deletion fails for buckets that have contents.
+//
+// - **Permissions** - The required permissions for CloudFormation to use are based on the operations that are performed on the stack.
+//
+// - Create
+//
+// - s3express:CreateBucket
+// - s3express:ListAllMyDirectoryBuckets
+// - Read
+//
+// - s3express:ListAllMyDirectoryBuckets
+// - Delete
+//
+// - s3express:DeleteBucket
+// - s3express:ListAllMyDirectoryBuckets
+// - List
+//
+// - s3express:ListAllMyDirectoryBuckets
+//
+// The following operations are related to `AWS::S3Express::DirectoryBucket` :
+//
+// - [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+// - [ListDirectoryBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListDirectoryBuckets.html)
+// - [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,9 +56,11 @@ import (
 type CfnDirectoryBucket interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) of the specified bucket.
+	// Returns the Amazon Resource Name (ARN) of the specified bucket.
+	//
+	// Example: `arn:aws:s3express: *us-west-2* : *account_id* :bucket/ *DOC-EXAMPLE-BUCKET* -- *usw2-az1* --x-s3`.
 	AttrArn() *string
-	// Specifies a name for the bucket.
+	// A name for the bucket.
 	BucketName() *string
 	SetBucketName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -43,10 +72,10 @@ type CfnDirectoryBucket interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+	// The number of Availability Zone that's used for redundancy for the bucket.
 	DataRedundancy() *string
 	SetDataRedundancy(val *string)
-	// Specifies the AZ ID of the Availability Zone where the directory bucket will be created.
+	// The name of the location where the bucket will be created.
 	LocationName() *string
 	SetLocationName(val *string)
 	// The logical ID for this CloudFormation stack element.

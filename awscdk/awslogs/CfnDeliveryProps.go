@@ -27,15 +27,15 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html
 //
 type CfnDeliveryProps struct {
-	// Amazon Resource Names (ARNs) uniquely identify AWS resources.
+	// The ARN of the delivery destination that is associated with this delivery.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html#cfn-logs-delivery-deliverydestinationarn
 	//
 	DeliveryDestinationArn *string `field:"required" json:"deliveryDestinationArn" yaml:"deliveryDestinationArn"`
-	// The value of the DeliverySourceName property for this object.
+	// The name of the delivery source that is associated with this delivery.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html#cfn-logs-delivery-deliverysourcename
 	//
 	DeliverySourceName *string `field:"required" json:"deliverySourceName" yaml:"deliverySourceName"`
-	// The value of the Tags property for this object.
+	// The tags that have been assigned to this delivery.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html#cfn-logs-delivery-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

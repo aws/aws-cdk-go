@@ -53,13 +53,13 @@ As an early example, the following code snippet configures a route `GET /books` 
 configures all other HTTP method calls to `/books` to a lambda proxy.
 
 ```go
-import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var booksDefaultFn function
 
 
-getBooksIntegration := awscdklibawsapigatewayv2integrations.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
-booksDefaultIntegration := awscdklibawsapigatewayv2integrations.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
+booksDefaultIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
 
 httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 
@@ -91,11 +91,11 @@ The `defaultIntegration` option while defining HTTP APIs lets you create a defau
 matched when a client reaches a route that is not explicitly defined.
 
 ```go
-import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 
 apigwv2.NewHttpApi(this, jsii.String("HttpProxyApi"), &HttpApiProps{
-	DefaultIntegration: awscdklibawsapigatewayv2integrations.NewHttpUrlIntegration(jsii.String("DefaultIntegration"), jsii.String("https://example.com")),
+	DefaultIntegration: awscdk.NewHttpUrlIntegration(jsii.String("DefaultIntegration"), jsii.String("https://example.com")),
 })
 ```
 
@@ -165,7 +165,7 @@ custom domain to the `$default` stage of the API.
 
 ```go
 import acm "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var handler function
 
@@ -178,7 +178,7 @@ dn := apigwv2.NewDomainName(this, jsii.String("DN"), &DomainNameProps{
 	Certificate: acm.Certificate_FromCertificateArn(this, jsii.String("cert"), certArn),
 })
 api := apigwv2.NewHttpApi(this, jsii.String("HttpProxyProdApi"), &HttpApiProps{
-	DefaultIntegration: awscdklibawsapigatewayv2integrations.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+	DefaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 	// https://${dn.domainName}/foo goes to prodApi $default stage
 	DefaultDomainMapping: &DomainMappingOptions{
 		DomainName: dn,
@@ -212,14 +212,14 @@ api.AddStage(jsii.String("beta"), &HttpStageOptions{
 The same domain name can be associated with stages across different `HttpApi` as so -
 
 ```go
-import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var handler function
 var dn domainName
 
 
 apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &HttpApiProps{
-	DefaultIntegration: awscdklibawsapigatewayv2integrations.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+	DefaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 	// https://${dn.domainName}/demo goes to apiDemo $default stage
 	DefaultDomainMapping: &DomainMappingOptions{
 		DomainName: dn,
@@ -358,7 +358,7 @@ Integrations are available in the `aws-apigatewayv2-integrations` module and mor
 To add the default WebSocket routes supported by API Gateway (`$connect`, `$disconnect` and `$default`), configure them as part of api props:
 
 ```go
-import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var connectHandler function
 var disconnectHandler function
@@ -367,13 +367,13 @@ var defaultHandler function
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocketApiProps{
 	ConnectRouteOptions: &WebSocketRouteOptions{
-		Integration: awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("ConnectIntegration"), connectHandler),
+		Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("ConnectIntegration"), connectHandler),
 	},
 	DisconnectRouteOptions: &WebSocketRouteOptions{
-		Integration: *awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("DisconnectIntegration"), disconnectHandler),
+		Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("DisconnectIntegration"), disconnectHandler),
 	},
 	DefaultRouteOptions: &WebSocketRouteOptions{
-		Integration: *awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("DefaultIntegration"), defaultHandler),
+		Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("DefaultIntegration"), defaultHandler),
 	},
 })
 
@@ -398,26 +398,26 @@ callbackURL := webSocketStage.callbackUrl
 To add any other route:
 
 ```go
-import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var messageHandler function
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
-	Integration: awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+	Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 })
 ```
 
 To add a route that can return a result:
 
 ```go
-import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 var messageHandler function
 
 webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 webSocketApi.AddRoute(jsii.String("sendmessage"), &WebSocketRouteOptions{
-	Integration: awscdklibawsapigatewayv2integrations.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+	Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 	ReturnResponse: jsii.Boolean(true),
 })
 ```

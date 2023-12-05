@@ -14,8 +14,6 @@ import (
 //   cfnEndpointConfigProps := &CfnEndpointConfigProps{
 //   	ProductionVariants: []interface{}{
 //   		&ProductionVariantProperty{
-//   			InitialVariantWeight: jsii.Number(123),
-//   			ModelName: jsii.String("modelName"),
 //   			VariantName: jsii.String("variantName"),
 //
 //   			// the properties below are optional
@@ -23,8 +21,18 @@ import (
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InitialInstanceCount: jsii.Number(123),
+//   			InitialVariantWeight: jsii.Number(123),
 //   			InstanceType: jsii.String("instanceType"),
+//   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
+//   				MaxInstanceCount: jsii.Number(123),
+//   				MinInstanceCount: jsii.Number(123),
+//   				Status: jsii.String("status"),
+//   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   			ModelName: jsii.String("modelName"),
+//   			RoutingConfig: &RoutingConfigProperty{
+//   				RoutingStrategy: jsii.String("routingStrategy"),
+//   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
 //   				MaxConcurrency: jsii.Number(123),
 //   				MemorySizeInMb: jsii.Number(123),
@@ -77,7 +85,9 @@ import (
 //   		EnableCapture: jsii.Boolean(false),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	EnableNetworkIsolation: jsii.Boolean(false),
 //   	EndpointConfigName: jsii.String("endpointConfigName"),
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	ExplainerConfig: &ExplainerConfigProperty{
 //   		ClarifyExplainerConfig: &ClarifyExplainerConfigProperty{
 //   			ShapConfig: &ClarifyShapConfigProperty{
@@ -123,8 +133,6 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	ShadowProductionVariants: []interface{}{
 //   		&ProductionVariantProperty{
-//   			InitialVariantWeight: jsii.Number(123),
-//   			ModelName: jsii.String("modelName"),
 //   			VariantName: jsii.String("variantName"),
 //
 //   			// the properties below are optional
@@ -132,8 +140,18 @@ import (
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InitialInstanceCount: jsii.Number(123),
+//   			InitialVariantWeight: jsii.Number(123),
 //   			InstanceType: jsii.String("instanceType"),
+//   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
+//   				MaxInstanceCount: jsii.Number(123),
+//   				MinInstanceCount: jsii.Number(123),
+//   				Status: jsii.String("status"),
+//   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   			ModelName: jsii.String("modelName"),
+//   			RoutingConfig: &RoutingConfigProperty{
+//   				RoutingStrategy: jsii.String("routingStrategy"),
+//   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
 //   				MaxConcurrency: jsii.Number(123),
 //   				MemorySizeInMb: jsii.Number(123),
@@ -148,6 +166,14 @@ import (
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VpcConfig: &VpcConfigProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		Subnets: []*string{
+//   			jsii.String("subnets"),
 //   		},
 //   	},
 //   }
@@ -169,10 +195,16 @@ type CfnEndpointConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig
 	//
 	DataCaptureConfig interface{} `field:"optional" json:"dataCaptureConfig" yaml:"dataCaptureConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-enablenetworkisolation
+	//
+	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// The name of the endpoint configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
 	//
 	EndpointConfigName *string `field:"optional" json:"endpointConfigName" yaml:"endpointConfigName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-executionrolearn
+	//
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// A parameter to activate explainers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-explainerconfig
 	//
@@ -206,5 +238,8 @@ type CfnEndpointConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-vpcconfig
+	//
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 

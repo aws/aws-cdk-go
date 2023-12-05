@@ -8,6 +8,10 @@ func (i *jsiiProxy_IDatabaseCluster) validateAddProxyParameters(id *string, opti
 	return nil
 }
 
+func (i *jsiiProxy_IDatabaseCluster) validateGrantConnectParameters(grantee awsiam.IGrantable, dbUser *string) error {
+	return nil
+}
+
 func (i *jsiiProxy_IDatabaseCluster) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

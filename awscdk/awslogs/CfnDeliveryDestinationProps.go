@@ -30,23 +30,21 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html
 //
 type CfnDeliveryDestinationProps struct {
-	// The unique name of the Delivery Destination.
+	// The name of this delivery destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
-	//
-	// The policy must be in JSON string format.
-	//
-	// Length Constraints: Maximum length of 51200.
+	// A structure that contains information about one delivery destination policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-deliverydestinationpolicy
 	//
 	DeliveryDestinationPolicy interface{} `field:"optional" json:"deliveryDestinationPolicy" yaml:"deliveryDestinationPolicy"`
-	// Amazon Resource Names (ARNs) uniquely identify AWS resources.
+	// The ARN of the AWS destination that this delivery destination represents.
+	//
+	// That AWS destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Kinesis Data Firehose.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-destinationresourcearn
 	//
 	DestinationResourceArn *string `field:"optional" json:"destinationResourceArn" yaml:"destinationResourceArn"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags that have been assigned to this delivery destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

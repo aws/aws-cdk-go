@@ -13,19 +13,20 @@ import (
 // Create a new API Gateway HTTP API endpoint.
 //
 // Example:
-//   import "github.com/aws-samples/dummy/awscdklib/awsapigatewayv2integrations"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var handler function
-//   var dn domainName
+//   var booksDefaultFn function
 //
+//   booksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
 //
-//   apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdklibawsapigatewayv2integrations.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
-//   	// https://${dn.domainName}/demo goes to apiDemo $default stage
-//   	DefaultDomainMapping: &DomainMappingOptions{
-//   		DomainName: dn,
-//   		MappingKey: jsii.String("demo"),
+//   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
+//
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/books"),
+//   	Methods: []httpMethod{
+//   		apigwv2.*httpMethod_GET,
 //   	},
+//   	Integration: booksIntegration,
 //   })
 //
 type HttpApi interface {

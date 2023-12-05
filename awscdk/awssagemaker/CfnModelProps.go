@@ -14,9 +14,6 @@ import (
 //   var environment interface{}
 //
 //   cfnModelProps := &CfnModelProps{
-//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
-//
-//   	// the properties below are optional
 //   	Containers: []interface{}{
 //   		&ContainerDefinitionProperty{
 //   			ContainerHostname: jsii.String("containerHostname"),
@@ -32,6 +29,13 @@ import (
 //   			},
 //   			InferenceSpecificationName: jsii.String("inferenceSpecificationName"),
 //   			Mode: jsii.String("mode"),
+//   			ModelDataSource: &ModelDataSourceProperty{
+//   				S3DataSource: &S3DataSourceProperty{
+//   					CompressionType: jsii.String("compressionType"),
+//   					S3DataType: jsii.String("s3DataType"),
+//   					S3Uri: jsii.String("s3Uri"),
+//   				},
+//   			},
 //   			ModelDataUrl: jsii.String("modelDataUrl"),
 //   			ModelPackageName: jsii.String("modelPackageName"),
 //   			MultiModelConfig: &MultiModelConfigProperty{
@@ -40,6 +44,7 @@ import (
 //   		},
 //   	},
 //   	EnableNetworkIsolation: jsii.Boolean(false),
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	InferenceExecutionConfig: &InferenceExecutionConfigProperty{
 //   		Mode: jsii.String("mode"),
 //   	},
@@ -58,6 +63,13 @@ import (
 //   		},
 //   		InferenceSpecificationName: jsii.String("inferenceSpecificationName"),
 //   		Mode: jsii.String("mode"),
+//   		ModelDataSource: &ModelDataSourceProperty{
+//   			S3DataSource: &S3DataSourceProperty{
+//   				CompressionType: jsii.String("compressionType"),
+//   				S3DataType: jsii.String("s3DataType"),
+//   				S3Uri: jsii.String("s3Uri"),
+//   			},
+//   		},
 //   		ModelDataUrl: jsii.String("modelDataUrl"),
 //   		ModelPackageName: jsii.String("modelPackageName"),
 //   		MultiModelConfig: &MultiModelConfigProperty{
@@ -83,14 +95,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html
 //
 type CfnModelProps struct {
-	// The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs.
-	//
-	// Deploying on ML compute instances is part of model hosting. For more information, see [SageMaker Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html) .
-	//
-	// > To be able to pass this role to SageMaker, the caller of this API must have the `iam:PassRole` permission.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
-	//
-	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Specifies the containers in the inference pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers
 	//
@@ -101,6 +105,14 @@ type CfnModelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-enablenetworkisolation
 	//
 	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
+	// The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs.
+	//
+	// Deploying on ML compute instances is part of model hosting. For more information, see [SageMaker Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html) .
+	//
+	// > To be able to pass this role to SageMaker, the caller of this API must have the `iam:PassRole` permission.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
+	//
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Specifies details of how containers in a multi-container endpoint are called.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-inferenceexecutionconfig
 	//

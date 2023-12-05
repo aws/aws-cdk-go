@@ -36,7 +36,7 @@ type jsiiProxy_RestApiOrigin struct {
 	internal.Type__awscloudfrontOriginBase
 }
 
-func NewRestApiOrigin(restApi awsapigateway.RestApi, props *RestApiOriginProps) RestApiOrigin {
+func NewRestApiOrigin(restApi awsapigateway.RestApiBase, props *RestApiOriginProps) RestApiOrigin {
 	_init_.Initialize()
 
 	if err := validateNewRestApiOriginParameters(restApi, props); err != nil {
@@ -53,7 +53,7 @@ func NewRestApiOrigin(restApi awsapigateway.RestApi, props *RestApiOriginProps) 
 	return &j
 }
 
-func NewRestApiOrigin_Override(r RestApiOrigin, restApi awsapigateway.RestApi, props *RestApiOriginProps) {
+func NewRestApiOrigin_Override(r RestApiOrigin, restApi awsapigateway.RestApiBase, props *RestApiOriginProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

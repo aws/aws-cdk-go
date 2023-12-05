@@ -43,6 +43,8 @@ type CfnDiscoverer interface {
 	AttrDiscovererArn() *string
 	// The ID of the discoverer.
 	AttrDiscovererId() *string
+	// Defines the current state of the discoverer.
+	AttrState() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -259,6 +261,16 @@ func (j *jsiiProxy_CfnDiscoverer) AttrDiscovererId() *string {
 	_jsii_.Get(
 		j,
 		"attrDiscovererId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDiscoverer) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
 		&returns,
 	)
 	return returns
