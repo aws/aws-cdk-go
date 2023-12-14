@@ -26,6 +26,16 @@ package awsautoscaling
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   instanceRequirementsProperty := &InstanceRequirementsProperty{
+//   	MemoryMiB: &MemoryMiBRequestProperty{
+//   		Max: jsii.Number(123),
+//   		Min: jsii.Number(123),
+//   	},
+//   	VCpuCount: &VCpuCountRequestProperty{
+//   		Max: jsii.Number(123),
+//   		Min: jsii.Number(123),
+//   	},
+//
+//   	// the properties below are optional
 //   	AcceleratorCount: &AcceleratorCountRequestProperty{
 //   		Max: jsii.Number(123),
 //   		Min: jsii.Number(123),
@@ -69,10 +79,6 @@ package awsautoscaling
 //   		Max: jsii.Number(123),
 //   		Min: jsii.Number(123),
 //   	},
-//   	MemoryMiB: &MemoryMiBRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
 //   	NetworkBandwidthGbps: &NetworkBandwidthGbpsRequestProperty{
 //   		Max: jsii.Number(123),
 //   		Min: jsii.Number(123),
@@ -88,15 +94,19 @@ package awsautoscaling
 //   		Max: jsii.Number(123),
 //   		Min: jsii.Number(123),
 //   	},
-//   	VCpuCount: &VCpuCountRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html
 //
 type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
+	// The minimum and maximum instance memory size for an instance type, in MiB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib
+	//
+	MemoryMiB interface{} `field:"required" json:"memoryMiB" yaml:"memoryMiB"`
+	// The minimum and maximum number of vCPUs for an instance type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-vcpucount
+	//
+	VCpuCount interface{} `field:"required" json:"vCpuCount" yaml:"vCpuCount"`
 	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
 	//
 	// To exclude accelerator-enabled instance types, set `Max` to `0` .
@@ -238,10 +248,6 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorygibpervcpu
 	//
 	MemoryGiBPerVCpu interface{} `field:"optional" json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
-	// The minimum and maximum instance memory size for an instance type, in MiB.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-memorymib
-	//
-	MemoryMiB interface{} `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
 	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
 	//
 	// Default: No minimum or maximum limits.
@@ -286,9 +292,5 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-totallocalstoragegb
 	//
 	TotalLocalStorageGb interface{} `field:"optional" json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
-	// The minimum and maximum number of vCPUs for an instance type.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-vcpucount
-	//
-	VCpuCount interface{} `field:"optional" json:"vCpuCount" yaml:"vCpuCount"`
 }
 

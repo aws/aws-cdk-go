@@ -76,7 +76,7 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
 	//
 	AssociatePublicIpAddress interface{} `field:"optional" json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
-	// Allows customer to specify Connection Tracking options.
+	// A connection tracking specification for the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-connectiontrackingspecification
 	//
 	ConnectionTrackingSpecification interface{} `field:"optional" json:"connectionTrackingSpecification" yaml:"connectionTrackingSpecification"`
@@ -92,7 +92,7 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex
 	//
 	DeviceIndex *float64 `field:"optional" json:"deviceIndex" yaml:"deviceIndex"`
-	// Allows customer to specify ENA-SRD options.
+	// The ENA Express configuration for the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-enasrdspecification
 	//
 	EnaSrdSpecification interface{} `field:"optional" json:"enaSrdSpecification" yaml:"enaSrdSpecification"`

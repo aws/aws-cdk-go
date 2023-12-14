@@ -119,6 +119,12 @@ type EmrAddStepProps struct {
 	// Default: - No args.
 	//
 	Args *[]*string `field:"optional" json:"args" yaml:"args"`
+	// The Amazon Resource Name (ARN) of the runtime role for a step on the cluster.
+	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_AddJobFlowSteps.html#API_AddJobFlowSteps_RequestSyntax
+	//
+	// Default: - Uses EC2 instance profile role.
+	//
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The name of the main class in the specified Java file.
 	//
 	// If not specified, the JAR file should specify a Main-Class in its manifest file.

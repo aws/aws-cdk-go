@@ -1,6 +1,8 @@
 package awscdkscheduleralpha
 
 import (
+	"time"
+
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
@@ -43,6 +45,13 @@ type ScheduleProps struct {
 	//
 	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
+	// The date, in UTC, before which the schedule can invoke its target.
+	//
+	// EventBridge Scheduler ignores end for one-time schedules.
+	// Default: - no value.
+	//
+	// Experimental.
+	End *time.Time `field:"optional" json:"end" yaml:"end"`
 	// The schedule's group.
 	// Default: - By default a schedule will be associated with the `default` group.
 	//
@@ -60,6 +69,13 @@ type ScheduleProps struct {
 	//
 	// Experimental.
 	ScheduleName *string `field:"optional" json:"scheduleName" yaml:"scheduleName"`
+	// The date, in UTC, after which the schedule can begin invoking its target.
+	//
+	// EventBridge Scheduler ignores start for one-time schedules.
+	// Default: - no value.
+	//
+	// Experimental.
+	Start *time.Time `field:"optional" json:"start" yaml:"start"`
 	// Allows to override target properties when creating a new schedule.
 	// Experimental.
 	TargetOverrides *ScheduleTargetProps `field:"optional" json:"targetOverrides" yaml:"targetOverrides"`

@@ -32,6 +32,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   	IdcInstanceArn: jsii.String("idcInstanceArn"),
+//   	IdcUserAssignment: jsii.String("idcUserAssignment"),
 //   	IdpAuthUrl: jsii.String("idpAuthUrl"),
 //   	IdpRelayStateParameterName: jsii.String("idpRelayStateParameterName"),
 //   	Tags: []cfnTag{
@@ -40,6 +43,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TrustedIdentityPropagationEnabled: jsii.Boolean(false),
 //   	UserRole: jsii.String("userRole"),
 //   })
 //
@@ -79,9 +83,17 @@ type CfnStudio interface {
 	// A detailed description of the Amazon EMR Studio.
 	Description() *string
 	SetDescription(val *string)
+	EncryptionKeyArn() *string
+	SetEncryptionKeyArn(val *string)
 	// The ID of the Amazon EMR Studio Engine security group.
 	EngineSecurityGroupId() *string
 	SetEngineSecurityGroupId(val *string)
+	// The ARN of the IAM Identity Center instance to create the Studio application.
+	IdcInstanceArn() *string
+	SetIdcInstanceArn(val *string)
+	// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL.
+	IdcUserAssignment() *string
+	SetIdcUserAssignment(val *string)
 	// Your identity provider's authentication endpoint.
 	IdpAuthUrl() *string
 	SetIdpAuthUrl(val *string)
@@ -123,6 +135,9 @@ type CfnStudio interface {
 	// An array of key-value pairs to apply to this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// A Boolean indicating whether to enable Trusted identity propagation for the Studio.
+	TrustedIdentityPropagationEnabled() interface{}
+	SetTrustedIdentityPropagationEnabled(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -379,11 +394,41 @@ func (j *jsiiProxy_CfnStudio) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStudio) EncryptionKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"encryptionKeyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStudio) EngineSecurityGroupId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"engineSecurityGroupId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudio) IdcInstanceArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"idcInstanceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudio) IdcUserAssignment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"idcUserAssignment",
 		&returns,
 	)
 	return returns
@@ -499,6 +544,16 @@ func (j *jsiiProxy_CfnStudio) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStudio) TrustedIdentityPropagationEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"trustedIdentityPropagationEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStudio) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -607,6 +662,14 @@ func (j *jsiiProxy_CfnStudio)SetDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnStudio)SetEncryptionKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"encryptionKeyArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnStudio)SetEngineSecurityGroupId(val *string) {
 	if err := j.validateSetEngineSecurityGroupIdParameters(val); err != nil {
 		panic(err)
@@ -614,6 +677,22 @@ func (j *jsiiProxy_CfnStudio)SetEngineSecurityGroupId(val *string) {
 	_jsii_.Set(
 		j,
 		"engineSecurityGroupId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudio)SetIdcInstanceArn(val *string) {
+	_jsii_.Set(
+		j,
+		"idcInstanceArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudio)SetIdcUserAssignment(val *string) {
+	_jsii_.Set(
+		j,
+		"idcUserAssignment",
 		val,
 	)
 }
@@ -674,6 +753,17 @@ func (j *jsiiProxy_CfnStudio)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudio)SetTrustedIdentityPropagationEnabled(val interface{}) {
+	if err := j.validateSetTrustedIdentityPropagationEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"trustedIdentityPropagationEnabled",
 		val,
 	)
 }

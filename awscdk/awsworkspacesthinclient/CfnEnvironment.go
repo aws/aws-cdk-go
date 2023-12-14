@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource type definition for AWS::WorkSpacesThinClient::Environment.
+// Describes an environment.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,13 +52,13 @@ import (
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Activation code for devices associated with environment.
+	// The activation code to register a device to the environment.
 	AttrActivationCode() *string
-	// The environment ARN.
+	// The Amazon Resource Name (ARN) of the environment.
 	AttrArn() *string
-	// The timestamp in unix epoch format when environment was created.
+	// The timestamp of when the environment was created.
 	AttrCreatedAt() *string
-	// The type of VDI.
+	// The type of streaming desktop for the environment.
 	AttrDesktopType() *string
 	// Unique identifier of the environment.
 	AttrId() *string
@@ -66,11 +66,11 @@ type CfnEnvironment interface {
 	AttrPendingSoftwareSetId() *string
 	// The version of the software set that is pending to be installed.
 	AttrPendingSoftwareSetVersion() *string
-	// Number of devices registered to the environment.
+	// The number of devices registered to the environment.
 	AttrRegisteredDevicesCount() *float64
 	// Describes if the software currently installed on all devices in the environment is a supported version.
 	AttrSoftwareSetComplianceStatus() *string
-	// The timestamp in unix epoch format when environment was last updated.
+	// The timestamp of when the device was updated.
 	AttrUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -84,10 +84,10 @@ type CfnEnvironment interface {
 	// The ID of the software set to apply.
 	DesiredSoftwareSetId() *string
 	SetDesiredSoftwareSetId(val *string)
-	// The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
+	// The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces , WorkSpaces Web, or AppStream 2.0 .
 	DesktopArn() *string
 	SetDesktopArn(val *string)
-	// The URL for the identity provider login (only for environments that use AppStream 2.0).
+	// The URL for the identity provider login (only for environments that use AppStream 2.0 ).
 	DesktopEndpoint() *string
 	SetDesktopEndpoint(val *string)
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
@@ -103,6 +103,7 @@ type CfnEnvironment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// A specification for a time window to apply software updates.
 	MaintenanceWindow() interface{}
 	SetMaintenanceWindow(val interface{})
 	// The name of the environment.

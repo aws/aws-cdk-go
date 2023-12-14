@@ -239,9 +239,7 @@ type CfnLifecyclePolicy interface {
 	// *[Default policies only]* Specifies destination Regions for snapshot or AMI copies.
 	CrossRegionCopyTargets() interface{}
 	SetCrossRegionCopyTargets(val interface{})
-	// *[Default policies only]* The type of default policy.
-	//
-	// Values include:.
+	// Indicates whether the policy is a default lifecycle policy or a custom lifecycle policy.
 	DefaultPolicy() *string
 	SetDefaultPolicy(val *string)
 	// A description of the lifecycle policy.

@@ -16,21 +16,35 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   var asg autoScalingGroup
+//   var vpc vpc
 //
 //
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("lb"), &ApplicationLoadBalancerProps{
+//   // Create the load balancer in a VPC. 'internetFacing' is 'false'
+//   // by default, which creates an internal load balancer.
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
 //   	Vpc: Vpc,
-//   })
-//   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
-//   	Port: jsii.Number(80),
+//   	InternetFacing: jsii.Boolean(true),
 //   })
 //
-//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   // Add a listener and open up the load balancer's security group
+//   // to the world.
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//
+//   	// 'open: true' is the default, you can leave it out if you want. Set it
+//   	// to 'false' and use `listener.connections` if you want to be selective
+//   	// about who can access the load balancer.
+//   	Open: jsii.Boolean(true),
+//   })
+//
+//   // Create an AutoScaling group and add it as a load balancing
+//   // target to the listener.
+//   listener.AddTargets(jsii.String("ApplicationFleet"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(8080),
+//   	Targets: []iApplicationLoadBalancerTarget{
+//   		asg,
+//   	},
 //   })
 //
 type ApplicationLoadBalancer interface {

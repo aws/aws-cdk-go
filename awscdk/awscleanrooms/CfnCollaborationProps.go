@@ -89,6 +89,7 @@ type CfnCollaborationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-querylogstatus
 	//
 	QueryLogStatus *string `field:"required" json:"queryLogStatus" yaml:"queryLogStatus"`
+	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatorpaymentconfiguration
 	//
 	CreatorPaymentConfiguration interface{} `field:"optional" json:"creatorPaymentConfiguration" yaml:"creatorPaymentConfiguration"`

@@ -12,11 +12,13 @@ package awsosis
 //   	VpcEndpointId: jsii.String("vpcEndpointId"),
 //   	VpcId: jsii.String("vpcId"),
 //   	VpcOptions: &VpcOptionsProperty{
-//   		SecurityGroupIds: []*string{
-//   			jsii.String("securityGroupIds"),
-//   		},
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
+//   		},
+//
+//   		// the properties below are optional
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
 //   		},
 //   	},
 //   }

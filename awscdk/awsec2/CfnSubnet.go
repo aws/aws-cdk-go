@@ -104,7 +104,7 @@ type CfnSubnet interface {
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
 	EnableDns64() interface{}
 	SetEnableDns64(val interface{})
-	// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool.
+	// An IPv4 netmask length for the subnet.
 	Ipv4NetmaskLength() *float64
 	SetIpv4NetmaskLength(val *float64)
 	// The IPv6 CIDR block.
@@ -113,7 +113,7 @@ type CfnSubnet interface {
 	// Indicates whether this is an IPv6 only subnet.
 	Ipv6Native() interface{}
 	SetIpv6Native(val interface{})
-	// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool.
+	// An IPv6 netmask length for the subnet.
 	Ipv6NetmaskLength() *float64
 	SetIpv6NetmaskLength(val *float64)
 	// The logical ID for this CloudFormation stack element.

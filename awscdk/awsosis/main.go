@@ -22,10 +22,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrIngestEndpointUrls", GoGetter: "AttrIngestEndpointUrls"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPipelineArn", GoGetter: "AttrPipelineArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVpcEndpoints", GoGetter: "AttrVpcEndpoints"},
+			_jsii_.MemberProperty{JsiiProperty: "bufferOptions", GoGetter: "BufferOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionAtRestOptions", GoGetter: "EncryptionAtRestOptions"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -62,8 +64,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_osis.CfnPipeline.BufferOptionsProperty",
+		reflect.TypeOf((*CfnPipeline_BufferOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_osis.CfnPipeline.CloudWatchLogDestinationProperty",
 		reflect.TypeOf((*CfnPipeline_CloudWatchLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_osis.CfnPipeline.EncryptionAtRestOptionsProperty",
+		reflect.TypeOf((*CfnPipeline_EncryptionAtRestOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_osis.CfnPipeline.LogPublishingOptionsProperty",

@@ -79,7 +79,9 @@ func init() {
 		reflect.TypeOf((*ImageId)(nil)).Elem(),
 		map[string]interface{}{
 			"AMAZON_LINUX_2": ImageId_AMAZON_LINUX_2,
+			"AMAZON_LINUX_2023": ImageId_AMAZON_LINUX_2023,
 			"UBUNTU_18_04": ImageId_UBUNTU_18_04,
+			"UBUNTU_22_04": ImageId_UBUNTU_22_04,
 		},
 	)
 	_jsii_.RegisterClass(

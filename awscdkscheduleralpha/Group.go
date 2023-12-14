@@ -129,7 +129,7 @@ type Group interface {
 	// Default: - sum over 5 minutes.
 	//
 	// Experimental.
-	MetricSentToDLQTrunacted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricSentToDLQTruncated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Emitted when the target returns an exception after EventBridge Scheduler calls the target API.
 	// Default: - sum over 5 minutes.
 	//
@@ -589,15 +589,15 @@ func (g *jsiiProxy_Group) MetricSentToDLQ(props *awscloudwatch.MetricOptions) aw
 	return returns
 }
 
-func (g *jsiiProxy_Group) MetricSentToDLQTrunacted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	if err := g.validateMetricSentToDLQTrunactedParameters(props); err != nil {
+func (g *jsiiProxy_Group) MetricSentToDLQTruncated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := g.validateMetricSentToDLQTruncatedParameters(props); err != nil {
 		panic(err)
 	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
 		g,
-		"metricSentToDLQTrunacted",
+		"metricSentToDLQTruncated",
 		[]interface{}{props},
 		&returns,
 	)

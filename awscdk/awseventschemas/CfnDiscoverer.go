@@ -43,7 +43,7 @@ type CfnDiscoverer interface {
 	AttrDiscovererArn() *string
 	// The ID of the discoverer.
 	AttrDiscovererId() *string
-	// Defines the current state of the discoverer.
+	// The state of the discoverer.
 	AttrState() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

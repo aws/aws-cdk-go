@@ -1,6 +1,10 @@
 package awssagemaker
 
 
+// Specifies the location of ML model data to deploy.
+//
+// If specified, you must specify one and only one of the available data sources.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,6 +21,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-modeldatasource.html
 //
 type CfnModel_ModelDataSourceProperty struct {
+	// Specifies the S3 location of ML model data to deploy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-modeldatasource.html#cfn-sagemaker-model-modeldatasource-s3datasource
 	//
 	S3DataSource interface{} `field:"required" json:"s3DataSource" yaml:"s3DataSource"`

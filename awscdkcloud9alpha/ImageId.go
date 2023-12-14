@@ -24,8 +24,14 @@ const (
 	// Create using Amazon Linux 2.
 	// Experimental.
 	ImageId_AMAZON_LINUX_2 ImageId = "AMAZON_LINUX_2"
-	// Create using Ubunut 18.04.
+	// Create using Amazon Linux 2023.
 	// Experimental.
+	ImageId_AMAZON_LINUX_2023 ImageId = "AMAZON_LINUX_2023"
+	// Create using Ubuntu 18.04.
+	// Deprecated: Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you choose Ubuntu 22.04.
 	ImageId_UBUNTU_18_04 ImageId = "UBUNTU_18_04"
+	// Create using Ubuntu 22.04.
+	// Experimental.
+	ImageId_UBUNTU_22_04 ImageId = "UBUNTU_22_04"
 )
 

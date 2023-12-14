@@ -89,6 +89,7 @@ type CfnCollaboration interface {
 	// The abilities granted to the collaboration creator.
 	CreatorMemberAbilities() *[]*string
 	SetCreatorMemberAbilities(val *[]*string)
+	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	CreatorPaymentConfiguration() interface{}
 	SetCreatorPaymentConfiguration(val interface{})
 	// The settings for client-side encryption for cryptographic computing.

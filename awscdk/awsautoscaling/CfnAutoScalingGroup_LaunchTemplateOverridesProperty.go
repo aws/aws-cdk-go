@@ -18,6 +18,16 @@ package awsautoscaling
 //
 //   launchTemplateOverridesProperty := &LaunchTemplateOverridesProperty{
 //   	InstanceRequirements: &InstanceRequirementsProperty{
+//   		MemoryMiB: &MemoryMiBRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   		VCpuCount: &VCpuCountRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//
+//   		// the properties below are optional
 //   		AcceleratorCount: &AcceleratorCountRequestProperty{
 //   			Max: jsii.Number(123),
 //   			Min: jsii.Number(123),
@@ -61,10 +71,6 @@ package awsautoscaling
 //   			Max: jsii.Number(123),
 //   			Min: jsii.Number(123),
 //   		},
-//   		MemoryMiB: &MemoryMiBRequestProperty{
-//   			Max: jsii.Number(123),
-//   			Min: jsii.Number(123),
-//   		},
 //   		NetworkBandwidthGbps: &NetworkBandwidthGbpsRequestProperty{
 //   			Max: jsii.Number(123),
 //   			Min: jsii.Number(123),
@@ -77,10 +83,6 @@ package awsautoscaling
 //   		RequireHibernateSupport: jsii.Boolean(false),
 //   		SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
 //   		TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
-//   			Max: jsii.Number(123),
-//   			Min: jsii.Number(123),
-//   		},
-//   		VCpuCount: &VCpuCountRequestProperty{
 //   			Max: jsii.Number(123),
 //   			Min: jsii.Number(123),
 //   		},

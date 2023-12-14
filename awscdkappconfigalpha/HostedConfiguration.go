@@ -90,6 +90,9 @@ type HostedConfiguration interface {
 	// Adds an extension association to the configuration profile.
 	// Experimental.
 	AddExtension(extension IExtension)
+	// Deploys the configuration to the specified environment.
+	// Experimental.
+	Deploy(environment IEnvironment)
 	// Experimental.
 	DeployConfigToEnvironments()
 	// Experimental.
@@ -424,6 +427,17 @@ func (h *jsiiProxy_HostedConfiguration) AddExtension(extension IExtension) {
 		h,
 		"addExtension",
 		[]interface{}{extension},
+	)
+}
+
+func (h *jsiiProxy_HostedConfiguration) Deploy(environment IEnvironment) {
+	if err := h.validateDeployParameters(environment); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		h,
+		"deploy",
+		[]interface{}{environment},
 	)
 }
 

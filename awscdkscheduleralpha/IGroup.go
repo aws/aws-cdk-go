@@ -53,7 +53,7 @@ type IGroup interface {
 	// Default: - sum over 5 minutes.
 	//
 	// Experimental.
-	MetricSentToDLQTrunacted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricSentToDLQTruncated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Emitted when the target returns an exception after EventBridge Scheduler calls the target API.
 	// Default: - sum over 5 minutes.
 	//
@@ -233,15 +233,15 @@ func (i *jsiiProxy_IGroup) MetricSentToDLQ(props *awscloudwatch.MetricOptions) a
 	return returns
 }
 
-func (i *jsiiProxy_IGroup) MetricSentToDLQTrunacted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	if err := i.validateMetricSentToDLQTrunactedParameters(props); err != nil {
+func (i *jsiiProxy_IGroup) MetricSentToDLQTruncated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricSentToDLQTruncatedParameters(props); err != nil {
 		panic(err)
 	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
 		i,
-		"metricSentToDLQTrunacted",
+		"metricSentToDLQTruncated",
 		[]interface{}{props},
 		&returns,
 	)

@@ -22,6 +22,7 @@ import (
 //
 //   integration := apigateway.NewIntegration(&IntegrationProps{
 //   	Type: apigateway.IntegrationType_HTTP_PROXY,
+//   	IntegrationHttpMethod: jsii.String("ANY"),
 //   	Options: &IntegrationOptions{
 //   		ConnectionType: apigateway.ConnectionType_VPC_LINK,
 //   		VpcLink: link,

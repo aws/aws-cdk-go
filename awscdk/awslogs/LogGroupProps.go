@@ -53,8 +53,9 @@ type LogGroupProps struct {
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS.
 	//
-	// INFREQUENT_ACCESS class provides customers a cost-effective way to
-	// consolidate logs which supports querying using Logs Insights.
+	// INFREQUENT_ACCESS class provides customers a cost-effective way to consolidate
+	// logs which supports querying using Logs Insights. The logGroupClass property cannot
+	// be changed once the log group is created.
 	// Default: LogGroupClass.STANDARD
 	//
 	LogGroupClass LogGroupClass `field:"optional" json:"logGroupClass" yaml:"logGroupClass"`

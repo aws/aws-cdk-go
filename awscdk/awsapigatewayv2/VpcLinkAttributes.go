@@ -7,14 +7,17 @@ import (
 // Attributes when importing a new VpcLink.
 //
 // Example:
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var vpc vpc
 //
-//   awesomeLink := apigwv2.VpcLink_FromVpcLinkAttributes(this, jsii.String("awesome-vpc-link"), &VpcLinkAttributes{
-//   	VpcLinkId: jsii.String("us-east-1_oiuR12Abd"),
-//   	Vpc: Vpc,
-//   })
+//   vpcLinkAttributes := &VpcLinkAttributes{
+//   	Vpc: vpc,
+//   	VpcLinkId: jsii.String("vpcLinkId"),
+//   }
 //
 type VpcLinkAttributes struct {
 	// The VPC to which this VPC link is associated with.

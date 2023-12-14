@@ -18,6 +18,12 @@ import (
 //   	PipelineName: jsii.String("pipelineName"),
 //
 //   	// the properties below are optional
+//   	BufferOptions: &BufferOptionsProperty{
+//   		PersistentBufferEnabled: jsii.Boolean(false),
+//   	},
+//   	EncryptionAtRestOptions: &EncryptionAtRestOptionsProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	LogPublishingOptions: &LogPublishingOptionsProperty{
 //   		CloudWatchLogDestination: &CloudWatchLogDestinationProperty{
 //   			LogGroup: jsii.String("logGroup"),
@@ -31,11 +37,13 @@ import (
 //   		},
 //   	},
 //   	VpcOptions: &VpcOptionsProperty{
-//   		SecurityGroupIds: []*string{
-//   			jsii.String("securityGroupIds"),
-//   		},
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
+//   		},
+//
+//   		// the properties below are optional
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
 //   		},
 //   	},
 //   }
@@ -59,6 +67,14 @@ type CfnPipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-pipelinename
 	//
 	PipelineName *string `field:"required" json:"pipelineName" yaml:"pipelineName"`
+	// Key-value pairs to configure buffering.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-bufferoptions
+	//
+	BufferOptions interface{} `field:"optional" json:"bufferOptions" yaml:"bufferOptions"`
+	// Key-value pairs to configure encryption at rest.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-encryptionatrestoptions
+	//
+	EncryptionAtRestOptions interface{} `field:"optional" json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`
 	// Key-value pairs that represent log publishing settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-logpublishingoptions
 	//

@@ -25,6 +25,16 @@ import (
 //   	ArchivePolicy: archivePolicy,
 //   	ContentBasedDeduplication: jsii.Boolean(false),
 //   	DataProtectionPolicy: dataProtectionPolicy,
+//   	DeliveryStatusLogging: []interface{}{
+//   		&LoggingConfigProperty{
+//   			Protocol: jsii.String("protocol"),
+//
+//   			// the properties below are optional
+//   			FailureFeedbackRoleArn: jsii.String("failureFeedbackRoleArn"),
+//   			SuccessFeedbackRoleArn: jsii.String("successFeedbackRoleArn"),
+//   			SuccessFeedbackSampleRate: jsii.String("successFeedbackSampleRate"),
+//   		},
+//   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	FifoTopic: jsii.Boolean(false),
 //   	KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
@@ -73,6 +83,9 @@ type CfnTopic interface {
 	// The body of the policy document you want to use for this topic.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
+	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	DeliveryStatusLogging() interface{}
+	SetDeliveryStatusLogging(val interface{})
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName() *string
 	SetDisplayName(val *string)
@@ -357,6 +370,16 @@ func (j *jsiiProxy_CfnTopic) DataProtectionPolicy() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) DeliveryStatusLogging() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deliveryStatusLogging",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopic) DisplayName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -558,6 +581,17 @@ func (j *jsiiProxy_CfnTopic)SetDataProtectionPolicy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"dataProtectionPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetDeliveryStatusLogging(val interface{}) {
+	if err := j.validateSetDeliveryStatusLoggingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deliveryStatusLogging",
 		val,
 	)
 }

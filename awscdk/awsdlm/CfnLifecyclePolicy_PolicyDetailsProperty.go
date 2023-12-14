@@ -249,7 +249,7 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policylanguage
 	//
 	PolicyLanguage *string `field:"optional" json:"policyLanguage" yaml:"policyLanguage"`
-	// *[Custom policies only]* The valid target resource types and actions a policy can manage.
+	// The type of policy.
 	//
 	// Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account .
 	//

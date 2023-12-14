@@ -52,7 +52,7 @@ func validateSchedule_MetricAllSentToDLQParameters(props *awscloudwatch.MetricOp
 	return nil
 }
 
-func validateSchedule_MetricAllSentToDLQTrunactedParameters(props *awscloudwatch.MetricOptions) error {
+func validateSchedule_MetricAllSentToDLQTruncatedParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
 

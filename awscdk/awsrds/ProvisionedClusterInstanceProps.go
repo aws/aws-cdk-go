@@ -124,7 +124,11 @@ type ProvisionedClusterInstanceProps struct {
 	//
 	PerformanceInsightRetention PerformanceInsightRetention `field:"optional" json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Default: - true if the instance is placed in a public subnet.
+	//
+	// If not specified,
+	// the cluster's vpcSubnets will be used to determine if the instance is internet-facing
+	// or not.
+	// Default: - `true` if the cluster's `vpcSubnets` is `subnetType: SubnetType.PUBLIC`, `false` otherwise
 	//
 	PubliclyAccessible *bool `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The cluster instance type.

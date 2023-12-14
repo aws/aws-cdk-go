@@ -179,6 +179,54 @@ func validateCfnPipeline_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPipeline) validateSetBufferOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPipeline_BufferOptionsProperty:
+		val := val.(*CfnPipeline_BufferOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPipeline_BufferOptionsProperty:
+		val_ := val.(CfnPipeline_BufferOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_BufferOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnPipeline) validateSetEncryptionAtRestOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPipeline_EncryptionAtRestOptionsProperty:
+		val := val.(*CfnPipeline_EncryptionAtRestOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPipeline_EncryptionAtRestOptionsProperty:
+		val_ := val.(CfnPipeline_EncryptionAtRestOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPipeline_EncryptionAtRestOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnPipeline) validateSetLogPublishingOptionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

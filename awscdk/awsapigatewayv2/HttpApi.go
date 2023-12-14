@@ -15,18 +15,19 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var booksDefaultFn function
+//   var lb applicationLoadBalancer
 //
-//   booksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+//   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   listener.AddTargets(jsii.String("target"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(80),
+//   })
 //
-//   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
-//
-//   httpApi.AddRoutes(&AddRoutesOptions{
-//   	Path: jsii.String("/books"),
-//   	Methods: []httpMethod{
-//   		apigwv2.*httpMethod_GET,
-//   	},
-//   	Integration: booksIntegration,
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
+//   		ParameterMapping: apigwv2.NewParameterMapping().Custom(jsii.String("myKey"), jsii.String("myValue")),
+//   	}),
 //   })
 //
 type HttpApi interface {

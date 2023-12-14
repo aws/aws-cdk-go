@@ -45,6 +45,8 @@ import (
 //   		},
 //   	},
 //   	BillingMode: jsii.String("billingMode"),
+//   	FederationEnabled: jsii.Boolean(false),
+//   	FederationRoleArn: jsii.String("federationRoleArn"),
 //   	IngestionEnabled: jsii.Boolean(false),
 //   	InsightsDestination: jsii.String("insightsDestination"),
 //   	InsightSelectors: []interface{}{
@@ -94,6 +96,14 @@ type CfnEventDataStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-billingmode
 	//
 	BillingMode *string `field:"optional" json:"billingMode" yaml:"billingMode"`
+	// Indicates whether federation is enabled on an event data store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-federationenabled
+	//
+	FederationEnabled interface{} `field:"optional" json:"federationEnabled" yaml:"federationEnabled"`
+	// The ARN of the role used for event data store federation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-federationrolearn
+	//
+	FederationRoleArn *string `field:"optional" json:"federationRoleArn" yaml:"federationRoleArn"`
 	// Specifies whether the event data store should start ingesting live events.
 	//
 	// The default is true.

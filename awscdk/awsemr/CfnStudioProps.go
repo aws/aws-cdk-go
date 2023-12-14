@@ -25,6 +25,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   	IdcInstanceArn: jsii.String("idcInstanceArn"),
+//   	IdcUserAssignment: jsii.String("idcUserAssignment"),
 //   	IdpAuthUrl: jsii.String("idpAuthUrl"),
 //   	IdpRelayStateParameterName: jsii.String("idpRelayStateParameterName"),
 //   	Tags: []cfnTag{
@@ -33,6 +36,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TrustedIdentityPropagationEnabled: jsii.Boolean(false),
 //   	UserRole: jsii.String("userRole"),
 //   }
 //
@@ -83,6 +87,19 @@ type CfnStudioProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-encryptionkeyarn
+	//
+	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
+	// The ARN of the IAM Identity Center instance to create the Studio application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idcinstancearn
+	//
+	IdcInstanceArn *string `field:"optional" json:"idcInstanceArn" yaml:"idcInstanceArn"`
+	// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL.
+	//
+	// If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idcuserassignment
+	//
+	IdcUserAssignment *string `field:"optional" json:"idcUserAssignment" yaml:"idcUserAssignment"`
 	// Your identity provider's authentication endpoint.
 	//
 	// Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
@@ -99,6 +116,12 @@ type CfnStudioProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// A Boolean indicating whether to enable Trusted identity propagation for the Studio.
+	//
+	// The default value is false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-trustedidentitypropagationenabled
+	//
+	TrustedIdentityPropagationEnabled interface{} `field:"optional" json:"trustedIdentityPropagationEnabled" yaml:"trustedIdentityPropagationEnabled"`
 	// The Amazon Resource Name (ARN) of the IAM user role that will be assumed by users and groups logged in to a Studio.
 	//
 	// The permissions attached to this IAM role can be scoped down for each user or group using session policies. You only need to specify `UserRole` when you set `AuthMode` to `SSO` .

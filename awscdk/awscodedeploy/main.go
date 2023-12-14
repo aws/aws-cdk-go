@@ -151,6 +151,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "zonalConfig", GoGetter: "ZonalConfig"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDeploymentConfig{}
@@ -158,6 +159,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig.MinimumHealthyHostsPerZoneProperty",
+		reflect.TypeOf((*CfnDeploymentConfig_MinimumHealthyHostsPerZoneProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig.MinimumHealthyHostsProperty",
@@ -174,6 +179,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig.TrafficRoutingConfigProperty",
 		reflect.TypeOf((*CfnDeploymentConfig_TrafficRoutingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfig.ZonalConfigProperty",
+		reflect.TypeOf((*CfnDeploymentConfig_ZonalConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codedeploy.CfnDeploymentConfigProps",

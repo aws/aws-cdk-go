@@ -138,6 +138,22 @@ awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 })
 ```
 
+### Configuring a start and end time of the Schedule
+
+If you choose a recurring schedule, you can set the start and end time of the Schedule by specifying the `start` and `end`.
+
+```go
+var target lambdaInvoke
+
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(cdk.Duration_Hours(jsii.Number(12))),
+	Target: target,
+	Start: NewDate(jsii.String("2023-01-01T00:00:00.000Z")),
+	End: NewDate(jsii.String("2023-02-01T00:00:00.000Z")),
+})
+```
+
 ## Scheduler Targets
 
 The `@aws-cdk/aws-scheduler-targets-alpha` module includes classes that implement the `IScheduleTarget` interface for

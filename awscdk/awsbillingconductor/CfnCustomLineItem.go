@@ -23,6 +23,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AccountId: jsii.String("accountId"),
 //   	BillingPeriodRange: &BillingPeriodRangeProperty{
 //   		ExclusiveEndBillingPeriod: jsii.String("exclusiveEndBillingPeriod"),
 //   		InclusiveStartBillingPeriod: jsii.String("inclusiveStartBillingPeriod"),
@@ -67,6 +68,9 @@ type CfnCustomLineItem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The AWS account in which this custom line item will be applied to.
+	AccountId() *string
+	SetAccountId(val *string)
 	// The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.
 	AttrArn() *string
 	// The number of resources that are associated to the custom line item.
@@ -276,6 +280,16 @@ type jsiiProxy_CfnCustomLineItem struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnCustomLineItem) AccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"accountId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCustomLineItem) AttrArn() *string {
@@ -533,6 +547,14 @@ func NewCfnCustomLineItem_Override(c CfnCustomLineItem, scope constructs.Constru
 		"aws-cdk-lib.aws_billingconductor.CfnCustomLineItem",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomLineItem)SetAccountId(val *string) {
+	_jsii_.Set(
+		j,
+		"accountId",
+		val,
 	)
 }
 

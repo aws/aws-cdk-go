@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnStudio) validateSetTagsRawParameters(val *[]*awscdk.CfnTag
 	return nil
 }
 
+func (j *jsiiProxy_CfnStudio) validateSetTrustedIdentityPropagationEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStudio) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

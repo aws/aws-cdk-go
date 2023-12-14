@@ -227,6 +227,30 @@ func (j *jsiiProxy_CfnDeploymentConfig) validateSetTrafficRoutingConfigParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeploymentConfig) validateSetZonalConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDeploymentConfig_ZonalConfigProperty:
+		val := val.(*CfnDeploymentConfig_ZonalConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDeploymentConfig_ZonalConfigProperty:
+		val_ := val.(CfnDeploymentConfig_ZonalConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentConfig_ZonalConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnDeploymentConfigParameters(scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

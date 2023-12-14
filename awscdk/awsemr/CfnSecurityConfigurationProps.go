@@ -4,18 +4,71 @@ package awsemr
 // Properties for defining a `CfnSecurityConfiguration`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import emr "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var securityConfiguration interface{}
 //
-//   cfnSecurityConfigurationProps := &CfnSecurityConfigurationProps{
-//   	SecurityConfiguration: securityConfiguration,
+//   cfnSecurityConfiguration := emr.NewCfnSecurityConfiguration(this, jsii.String("EmrSecurityConfiguration"), &CfnSecurityConfigurationProps{
+//   	Name: jsii.String("AddStepRuntimeRoleSecConfig"),
+//   	SecurityConfiguration: jSON.parse(jsii.String(`
+//   	    {
+//   	      "AuthorizationConfiguration": {
+//   	          "IAMConfiguration": {
+//   	              "EnableApplicationScopedIAMRole": true,
+//   	              "ApplicationScopedIAMRoleConfiguration":
+//   	                  {
+//   	                      "PropagateSourceIdentity": true
+//   	                  }
+//   	          },
+//   	          "LakeFormationConfiguration": {
+//   	              "AuthorizedSessionTagValue": "Amazon EMR"
+//   	          }
+//   	      }
+//   	    }`)),
+//   })
 //
-//   	// the properties below are optional
-//   	Name: jsii.String("name"),
-//   }
+//   task := tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateClusterProps{
+//   	Instances: &InstancesConfigProperty{
+//   	},
+//   	Name: sfn.TaskInput_FromJsonPathAt(jsii.String("$.ClusterName")).value,
+//   	SecurityConfiguration: cfnSecurityConfiguration.Name,
+//   })
+//
+//   executionRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewArnPrincipal(task.clusterRole.RoleArn),
+//   })
+//
+//   executionRole.AssumeRolePolicy.AddStatements(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Effect: iam.Effect_ALLOW,
+//   	Principals: []iPrincipal{
+//   		task.clusterRole,
+//   	},
+//   	Actions: []*string{
+//   		jsii.String("sts:SetSourceIdentity"),
+//   	},
+//   }),
+//   iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Effect: iam.Effect_ALLOW,
+//   	Principals: []*iPrincipal{
+//   		task.clusterRole,
+//   	},
+//   	Actions: []*string{
+//   		jsii.String("sts:TagSession"),
+//   	},
+//   	Conditions: map[string]interface{}{
+//   		"StringEquals": map[string]*string{
+//   			"aws:RequestTag/LakeFormationAuthorizedCaller": jsii.String("Amazon EMR"),
+//   		},
+//   	},
+//   }))
+//
+//   tasks.NewEmrAddStep(this, jsii.String("Task"), &EmrAddStepProps{
+//   	ClusterId: jsii.String("ClusterId"),
+//   	ExecutionRoleArn: executionRole.RoleArn,
+//   	Name: jsii.String("StepName"),
+//   	Jar: jsii.String("Jar"),
+//   	ActionOnFailure: tasks.ActionOnFailure_CONTINUE,
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html
 //

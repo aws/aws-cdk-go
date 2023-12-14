@@ -13,12 +13,29 @@ import (
 // Represents a stage where an instance of the API is deployed.
 //
 // Example:
-//   var api httpApi
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var domainName domainName
+//   var httpApi httpApi
 //
-//   apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
-//   	HttpApi: api,
-//   	StageName: jsii.String("beta"),
+//   httpStage := awscdk.Aws_apigatewayv2.NewHttpStage(this, jsii.String("MyHttpStage"), &HttpStageProps{
+//   	HttpApi: httpApi,
+//
+//   	// the properties below are optional
+//   	AutoDeploy: jsii.Boolean(false),
+//   	DomainMapping: &DomainMappingOptions{
+//   		DomainName: domainName,
+//
+//   		// the properties below are optional
+//   		MappingKey: jsii.String("mappingKey"),
+//   	},
+//   	StageName: jsii.String("stageName"),
+//   	Throttle: &ThrottleSettings{
+//   		BurstLimit: jsii.Number(123),
+//   		RateLimit: jsii.Number(123),
+//   	},
 //   })
 //
 type HttpStage interface {

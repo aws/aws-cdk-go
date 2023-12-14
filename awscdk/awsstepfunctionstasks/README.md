@@ -34,6 +34,9 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
   * [Batch](#batch)
 
     * [SubmitJob](#submitjob)
+  * [Bedrock](#bedrock)
+
+    * [InvokeModel](#invokemodel)
   * [CodeBuild](#codebuild)
 
     * [StartBuild](#startbuild)
@@ -180,7 +183,7 @@ tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &CallApiGa
 The `CallApiGatewayHttpApiEndpoint` calls the HTTP API endpoint.
 
 ```go
-import apigatewayv2 "github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha"
+import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 
 httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 
@@ -336,6 +339,37 @@ task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &BatchSubmitJob
 	JobDefinitionArn: batchJobDefinition.JobDefinitionArn,
 	JobName: jsii.String("MyJob"),
 	JobQueueArn: batchQueue.JobQueueArn,
+})
+```
+
+## Bedrock
+
+Step Functions supports [Bedrock](https://docs.aws.amazon.com/step-functions/latest/dg/connect-bedrock.html) through the service integration pattern.
+
+### InvokeModel
+
+The [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) API
+invokes the specified Bedrock model to run inference using the input provided.
+The format of the input body and the response body depend on the model selected.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_AMAZON_TITAN_TEXT_G1_EXPRESS_V1())
+
+task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
+	Model: Model,
+	Body: sfn.TaskInput_FromObject(map[string]interface{}{
+		"inputText": jsii.String("Generate a list of five first names."),
+		"textGenerationConfig": map[string]*f64{
+			"maxTokenCount": jsii.Number(100),
+			"temperature": jsii.Number(1),
+		},
+	}),
+	ResultSelector: map[string]interface{}{
+		"names": sfn.JsonPath_stringAt(jsii.String("$.Body.results[0].outputText")),
+	},
 })
 ```
 
@@ -667,6 +701,79 @@ Corresponds to the [`addJobFlowSteps`](https://docs.aws.amazon.com/emr/latest/AP
 ```go
 tasks.NewEmrAddStep(this, jsii.String("Task"), &EmrAddStepProps{
 	ClusterId: jsii.String("ClusterId"),
+	Name: jsii.String("StepName"),
+	Jar: jsii.String("Jar"),
+	ActionOnFailure: tasks.ActionOnFailure_CONTINUE,
+})
+```
+
+To specify a custom runtime role use the `executionRoleArn` property.
+
+**Note:** The EMR cluster must be created with a security configuration and the runtime role must have a specific trust policy.
+See this [blog post](https://aws.amazon.com/blogs/big-data/introducing-runtime-roles-for-amazon-emr-steps-use-iam-roles-and-aws-lake-formation-for-access-control-with-amazon-emr/) for more details.
+
+```go
+import emr "github.com/aws/aws-cdk-go/awscdk"
+
+
+cfnSecurityConfiguration := emr.NewCfnSecurityConfiguration(this, jsii.String("EmrSecurityConfiguration"), &CfnSecurityConfigurationProps{
+	Name: jsii.String("AddStepRuntimeRoleSecConfig"),
+	SecurityConfiguration: jSON.parse(jsii.String(`
+	    {
+	      "AuthorizationConfiguration": {
+	          "IAMConfiguration": {
+	              "EnableApplicationScopedIAMRole": true,
+	              "ApplicationScopedIAMRoleConfiguration":
+	                  {
+	                      "PropagateSourceIdentity": true
+	                  }
+	          },
+	          "LakeFormationConfiguration": {
+	              "AuthorizedSessionTagValue": "Amazon EMR"
+	          }
+	      }
+	    }`)),
+})
+
+task := tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateClusterProps{
+	Instances: &InstancesConfigProperty{
+	},
+	Name: sfn.TaskInput_FromJsonPathAt(jsii.String("$.ClusterName")).value,
+	SecurityConfiguration: cfnSecurityConfiguration.Name,
+})
+
+executionRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewArnPrincipal(task.clusterRole.RoleArn),
+})
+
+executionRole.AssumeRolePolicy.AddStatements(
+iam.NewPolicyStatement(&PolicyStatementProps{
+	Effect: iam.Effect_ALLOW,
+	Principals: []iPrincipal{
+		task.clusterRole,
+	},
+	Actions: []*string{
+		jsii.String("sts:SetSourceIdentity"),
+	},
+}),
+iam.NewPolicyStatement(&PolicyStatementProps{
+	Effect: iam.Effect_ALLOW,
+	Principals: []*iPrincipal{
+		task.clusterRole,
+	},
+	Actions: []*string{
+		jsii.String("sts:TagSession"),
+	},
+	Conditions: map[string]interface{}{
+		"StringEquals": map[string]*string{
+			"aws:RequestTag/LakeFormationAuthorizedCaller": jsii.String("Amazon EMR"),
+		},
+	},
+}))
+
+tasks.NewEmrAddStep(this, jsii.String("Task"), &EmrAddStepProps{
+	ClusterId: jsii.String("ClusterId"),
+	ExecutionRoleArn: executionRole.RoleArn,
 	Name: jsii.String("StepName"),
 	Jar: jsii.String("Jar"),
 	ActionOnFailure: tasks.ActionOnFailure_CONTINUE,

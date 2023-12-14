@@ -119,7 +119,7 @@ func validateSchedule_MetricAllSentToDLQParameters(props *awscloudwatch.MetricOp
 	return nil
 }
 
-func validateSchedule_MetricAllSentToDLQTrunactedParameters(props *awscloudwatch.MetricOptions) error {
+func validateSchedule_MetricAllSentToDLQTruncatedParameters(props *awscloudwatch.MetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

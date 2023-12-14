@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnTopic) validateSetContentBasedDeduplicationParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnTopic) validateSetDeliveryStatusLoggingParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTopic) validateSetFifoTopicParameters(val interface{}) error {
 	return nil
 }

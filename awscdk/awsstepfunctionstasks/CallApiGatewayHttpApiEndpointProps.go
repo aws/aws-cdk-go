@@ -8,7 +8,7 @@ import (
 // Properties for calling an HTTP API Endpoint.
 //
 // Example:
-//   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha"
+//   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 //

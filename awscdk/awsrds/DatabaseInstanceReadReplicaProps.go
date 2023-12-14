@@ -194,7 +194,11 @@ type DatabaseInstanceReadReplicaProps struct {
 	//
 	ProcessorFeatures *ProcessorFeatures `field:"optional" json:"processorFeatures" yaml:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Default: - `true` if `vpcSubnets` is `subnetType: SubnetType.PUBLIC`, `false` otherwise
+	//
+	// If not specified,
+	// the instance's vpcSubnets will be used to determine if the instance is internet-facing
+	// or not.
+	// Default: - `true` if the instance's `vpcSubnets` is `subnetType: SubnetType.PUBLIC`, `false` otherwise
 	//
 	PubliclyAccessible *bool `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.

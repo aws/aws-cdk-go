@@ -7,23 +7,27 @@ import (
 // Options for the CORS Configuration.
 //
 // Example:
-//   apigwv2.NewHttpApi(this, jsii.String("HttpProxyApi"), &HttpApiProps{
-//   	CorsPreflight: &CorsPreflightOptions{
-//   		AllowHeaders: []*string{
-//   			jsii.String("Authorization"),
-//   		},
-//   		AllowMethods: []corsHttpMethod{
-//   			apigwv2.*corsHttpMethod_GET,
-//   			apigwv2.*corsHttpMethod_HEAD,
-//   			apigwv2.*corsHttpMethod_OPTIONS,
-//   			apigwv2.*corsHttpMethod_POST,
-//   		},
-//   		AllowOrigins: []*string{
-//   			jsii.String("*"),
-//   		},
-//   		MaxAge: awscdk.Duration_Days(jsii.Number(10)),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   corsPreflightOptions := &CorsPreflightOptions{
+//   	AllowCredentials: jsii.Boolean(false),
+//   	AllowHeaders: []*string{
+//   		jsii.String("allowHeaders"),
 //   	},
-//   })
+//   	AllowMethods: []corsHttpMethod{
+//   		awscdk.Aws_apigatewayv2.*corsHttpMethod_ANY,
+//   	},
+//   	AllowOrigins: []*string{
+//   		jsii.String("allowOrigins"),
+//   	},
+//   	ExposeHeaders: []*string{
+//   		jsii.String("exposeHeaders"),
+//   	},
+//   	MaxAge: cdk.Duration_Minutes(jsii.Number(30)),
+//   }
 //
 type CorsPreflightOptions struct {
 	// Specifies whether credentials are included in the CORS request.

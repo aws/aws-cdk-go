@@ -181,6 +181,21 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 })
 ```
 
+To deploy a configuration to an environment after initialization use the `deploy` method:
+
+```go
+var application application
+var env environment
+
+
+config := appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+	Application: Application,
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
+})
+
+config.deploy(env)
+```
+
 ### SourcedConfiguration
 
 A sourced configuration represents configuration stored in an Amazon S3 bucket, AWS Secrets Manager secret, Systems Manager

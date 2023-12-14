@@ -107,9 +107,10 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	AcceleratorCount interface{} `field:"optional" json:"acceleratorCount" yaml:"acceleratorCount"`
 	// Indicates whether instance types must have accelerators by specific manufacturers.
 	//
-	// - For instance types with NVIDIA devices, specify `nvidia` .
-	// - For instance types with AMD devices, specify `amd` .
 	// - For instance types with AWS devices, specify `amazon-web-services` .
+	// - For instance types with AMD devices, specify `amd` .
+	// - For instance types with Habana devices, specify `habana` .
+	// - For instance types with NVIDIA devices, specify `nvidia` .
 	// - For instance types with Xilinx devices, specify `xilinx` .
 	//
 	// Default: Any manufacturer.
@@ -118,15 +119,18 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	AcceleratorManufacturers *[]*string `field:"optional" json:"acceleratorManufacturers" yaml:"acceleratorManufacturers"`
 	// The accelerators that must be on the instance type.
 	//
+	// - For instance types with NVIDIA A10G GPUs, specify `a10g` .
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
-	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
-	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
-	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
-	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
-	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
-	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
 	// - For instance types with AWS Inferentia chips, specify `inferentia` .
 	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
+	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
+	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
+	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
+	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
 	//
 	// Default: Any accelerator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-acceleratornames

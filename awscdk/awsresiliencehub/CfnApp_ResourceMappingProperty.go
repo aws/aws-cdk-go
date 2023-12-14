@@ -30,11 +30,6 @@ package awsresiliencehub
 //
 type CfnApp_ResourceMappingProperty struct {
 	// Specifies the type of resource mapping.
-	//
-	// - **AppRegistryApp** - The resource is mapped to another application. The name of the application is contained in the `appRegistryAppName` property.
-	// - **CfnStack** - The resource is mapped to a AWS CloudFormation stack. The name of the AWS CloudFormation stack is contained in the `logicalStackName` property.
-	// - **Resource** - The resource is mapped to another resource. The name of the resource is contained in the `resourceName` property.
-	// - **ResourceGroup** - The resource is mapped to AWS Resource Groups . The name of the resource group is contained in the `resourceGroupName` property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-mappingtype
 	//
 	MappingType *string `field:"required" json:"mappingType" yaml:"mappingType"`
@@ -42,21 +37,21 @@ type CfnApp_ResourceMappingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-physicalresourceid
 	//
 	PhysicalResourceId interface{} `field:"required" json:"physicalResourceId" yaml:"physicalResourceId"`
-	// Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.
+	// Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
 	//
 	// > This parameter accepts values in "eks-cluster/namespace" format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-ekssourcename
 	//
 	EksSourceName *string `field:"optional" json:"eksSourceName" yaml:"eksSourceName"`
-	// The name of the AWS CloudFormation stack this resource is mapped to.
+	// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-logicalstackname
 	//
 	LogicalStackName *string `field:"optional" json:"logicalStackName" yaml:"logicalStackName"`
-	// Name of the resource that the resource is mapped to.
+	// Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-resourcename
 	//
 	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`
-	// The short name of the Terraform source.
+	// Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html#cfn-resiliencehub-app-resourcemapping-terraformsourcename
 	//
 	TerraformSourceName *string `field:"optional" json:"terraformSourceName" yaml:"terraformSourceName"`

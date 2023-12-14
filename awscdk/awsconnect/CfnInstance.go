@@ -37,6 +37,12 @@ import (
 //   	// the properties below are optional
 //   	DirectoryId: jsii.String("directoryId"),
 //   	InstanceAlias: jsii.String("instanceAlias"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html
@@ -98,6 +104,9 @@ type CfnInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -414,6 +423,16 @@ func (j *jsiiProxy_CfnInstance) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInstance) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstance) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -496,6 +515,17 @@ func (j *jsiiProxy_CfnInstance)SetInstanceAlias(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceAlias",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInstance)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -8,6 +8,10 @@ func (h *jsiiProxy_HostedConfiguration) validateAddExtensionParameters(extension
 	return nil
 }
 
+func (h *jsiiProxy_HostedConfiguration) validateDeployParameters(environment IEnvironment) error {
+	return nil
+}
+
 func (h *jsiiProxy_HostedConfiguration) validateGetDeploymentHashParameters(environment IEnvironment) error {
 	return nil
 }

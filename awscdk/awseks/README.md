@@ -613,6 +613,20 @@ For example, if the Amazon EKS cluster version is `1.17`, the Bottlerocket AMI v
 
 Please note Bottlerocket does not allow to customize bootstrap options and `bootstrapOptions` properties is not supported when you create the `Bottlerocket` capacity.
 
+To create a Bottlerocket managed nodegroup with Nvidia-based EC2 instance types use the `BOTTLEROCKET_X86_64_NVIDIA` or
+`BOTTLEROCKET_ARM_64_NVIDIA` AMIs:
+
+```go
+var cluster cluster
+
+cluster.AddNodegroupCapacity(jsii.String("BottlerocketNvidiaNG"), &NodegroupOptions{
+	AmiType: eks.NodegroupAmiType_BOTTLEROCKET_X86_64_NVIDIA,
+	InstanceTypes: []instanceType{
+		ec2.NewInstanceType(jsii.String("g4dn.xlarge")),
+	},
+})
+```
+
 For more details about Bottlerocket, see [Bottlerocket FAQs](https://aws.amazon.com/bottlerocket/faqs/) and [Bottlerocket Open Source Blog](https://aws.amazon.com/blogs/opensource/announcing-the-general-availability-of-bottlerocket-an-open-source-linux-distribution-purpose-built-to-run-containers/).
 
 ### Endpoint Access

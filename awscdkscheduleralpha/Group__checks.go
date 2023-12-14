@@ -120,7 +120,7 @@ func (g *jsiiProxy_Group) validateMetricSentToDLQParameters(props *awscloudwatch
 	return nil
 }
 
-func (g *jsiiProxy_Group) validateMetricSentToDLQTrunactedParameters(props *awscloudwatch.MetricOptions) error {
+func (g *jsiiProxy_Group) validateMetricSentToDLQTruncatedParameters(props *awscloudwatch.MetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

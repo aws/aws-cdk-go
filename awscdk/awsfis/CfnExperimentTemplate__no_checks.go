@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetDescriptionParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnExperimentTemplate) validateSetExperimentOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnExperimentTemplate) validateSetLogConfigurationParameters(val interface{}) error {
 	return nil
 }

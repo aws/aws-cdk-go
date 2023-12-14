@@ -13,12 +13,13 @@ import (
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
-//   	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   		CaCertificate: rds.CaCertificate_RDS_CA_RDS2048_G1(),
+//   	}),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
-//   			ScaleWithWriter: jsii.Boolean(true),
+//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader"), &ServerlessV2ClusterInstanceProps{
+//   			CaCertificate: rds.CaCertificate_Of(jsii.String("custom-ca")),
 //   		}),
-//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
 //   	},
 //   	Vpc: Vpc,
 //   })
@@ -119,7 +120,11 @@ type ServerlessV2ClusterInstanceProps struct {
 	//
 	PerformanceInsightRetention PerformanceInsightRetention `field:"optional" json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Default: - true if the instance is placed in a public subnet.
+	//
+	// If not specified,
+	// the cluster's vpcSubnets will be used to determine if the instance is internet-facing
+	// or not.
+	// Default: - `true` if the cluster's `vpcSubnets` is `subnetType: SubnetType.PUBLIC`, `false` otherwise
 	//
 	PubliclyAccessible *bool `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
 	// Only applicable to reader instances.

@@ -435,17 +435,17 @@ func Schedule_MetricAllSentToDLQ(props *awscloudwatch.MetricOptions) awscloudwat
 // Default: - sum over 5 minutes.
 //
 // Experimental.
-func Schedule_MetricAllSentToDLQTrunacted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func Schedule_MetricAllSentToDLQTruncated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
-	if err := validateSchedule_MetricAllSentToDLQTrunactedParameters(props); err != nil {
+	if err := validateSchedule_MetricAllSentToDLQTruncatedParameters(props); err != nil {
 		panic(err)
 	}
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-scheduler-alpha.Schedule",
-		"metricAllSentToDLQTrunacted",
+		"metricAllSentToDLQTruncated",
 		[]interface{}{props},
 		&returns,
 	)

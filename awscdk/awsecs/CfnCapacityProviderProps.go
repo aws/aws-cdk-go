@@ -16,6 +16,7 @@ import (
 //   		AutoScalingGroupArn: jsii.String("autoScalingGroupArn"),
 //
 //   		// the properties below are optional
+//   		ManagedDraining: jsii.String("managedDraining"),
 //   		ManagedScaling: &ManagedScalingProperty{
 //   			InstanceWarmupPeriod: jsii.Number(123),
 //   			MaximumScalingStepSize: jsii.Number(123),

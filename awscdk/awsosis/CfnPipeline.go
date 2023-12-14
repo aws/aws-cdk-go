@@ -23,6 +23,12 @@ import (
 //   	PipelineName: jsii.String("pipelineName"),
 //
 //   	// the properties below are optional
+//   	BufferOptions: &BufferOptionsProperty{
+//   		PersistentBufferEnabled: jsii.Boolean(false),
+//   	},
+//   	EncryptionAtRestOptions: &EncryptionAtRestOptionsProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	LogPublishingOptions: &LogPublishingOptionsProperty{
 //   		CloudWatchLogDestination: &CloudWatchLogDestinationProperty{
 //   			LogGroup: jsii.String("logGroup"),
@@ -36,11 +42,13 @@ import (
 //   		},
 //   	},
 //   	VpcOptions: &VpcOptionsProperty{
-//   		SecurityGroupIds: []*string{
-//   			jsii.String("securityGroupIds"),
-//   		},
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
+//   		},
+//
+//   		// the properties below are optional
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
 //   		},
 //   	},
 //   })
@@ -59,6 +67,9 @@ type CfnPipeline interface {
 	AttrPipelineArn() *string
 	// The VPC interface endpoints that have access to the pipeline.
 	AttrVpcEndpoints() awscdk.IResolvable
+	// Key-value pairs to configure buffering.
+	BufferOptions() interface{}
+	SetBufferOptions(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -68,6 +79,9 @@ type CfnPipeline interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Key-value pairs to configure encryption at rest.
+	EncryptionAtRestOptions() interface{}
+	SetEncryptionAtRestOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -289,6 +303,16 @@ func (j *jsiiProxy_CfnPipeline) AttrVpcEndpoints() awscdk.IResolvable {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) BufferOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"bufferOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -324,6 +348,16 @@ func (j *jsiiProxy_CfnPipeline) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipeline) EncryptionAtRestOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encryptionAtRestOptions",
 		&returns,
 	)
 	return returns
@@ -494,6 +528,28 @@ func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_osis.CfnPipeline",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetBufferOptions(val interface{}) {
+	if err := j.validateSetBufferOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"bufferOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetEncryptionAtRestOptions(val interface{}) {
+	if err := j.validateSetEncryptionAtRestOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encryptionAtRestOptions",
+		val,
 	)
 }
 

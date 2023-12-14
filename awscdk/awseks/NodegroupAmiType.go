@@ -4,22 +4,19 @@ package awseks
 // The AMI type for your node group.
 //
 // GPU instance types should use the `AL2_x86_64_GPU` AMI type, which uses the
-// Amazon EKS-optimized Linux AMI with GPU support. Non-GPU instances should use the `AL2_x86_64` AMI type, which
-// uses the Amazon EKS-optimized Linux AMI.
+// Amazon EKS-optimized Linux AMI with GPU support or the `BOTTLEROCKET_ARM_64_NVIDIA` or `BOTTLEROCKET_X86_64_NVIDIA`
+// AMI types, which uses the Amazon EKS-optimized Linux AMI with Nvidia-GPU support.
+//
+// Non-GPU instances should use the `AL2_x86_64` AMI type, which uses the Amazon EKS-optimized Linux AMI.
 //
 // Example:
-//   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_28(),
-//   	DefaultCapacity: jsii.Number(0),
-//   })
+//   var cluster cluster
 //
-//   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+//   cluster.AddNodegroupCapacity(jsii.String("BottlerocketNvidiaNG"), &NodegroupOptions{
+//   	AmiType: eks.NodegroupAmiType_BOTTLEROCKET_X86_64_NVIDIA,
 //   	InstanceTypes: []instanceType{
-//   		ec2.NewInstanceType(jsii.String("m5.large")),
+//   		ec2.NewInstanceType(jsii.String("g4dn.xlarge")),
 //   	},
-//   	MinSize: jsii.Number(4),
-//   	DiskSize: jsii.Number(100),
-//   	AmiType: eks.NodegroupAmiType_AL2_X86_64_GPU,
 //   })
 //
 type NodegroupAmiType string
@@ -31,10 +28,14 @@ const (
 	NodegroupAmiType_AL2_X86_64_GPU NodegroupAmiType = "AL2_X86_64_GPU"
 	// Amazon Linux 2 (ARM-64).
 	NodegroupAmiType_AL2_ARM_64 NodegroupAmiType = "AL2_ARM_64"
-	// Bottlerocket Linux(ARM-64).
+	// Bottlerocket Linux (ARM-64).
 	NodegroupAmiType_BOTTLEROCKET_ARM_64 NodegroupAmiType = "BOTTLEROCKET_ARM_64"
-	// Bottlerocket(x86-64).
+	// Bottlerocket (x86-64).
 	NodegroupAmiType_BOTTLEROCKET_X86_64 NodegroupAmiType = "BOTTLEROCKET_X86_64"
+	// Bottlerocket Linux with Nvidia-GPU support (ARM-64).
+	NodegroupAmiType_BOTTLEROCKET_ARM_64_NVIDIA NodegroupAmiType = "BOTTLEROCKET_ARM_64_NVIDIA"
+	// Bottlerocket with Nvidia-GPU support (x86-64).
+	NodegroupAmiType_BOTTLEROCKET_X86_64_NVIDIA NodegroupAmiType = "BOTTLEROCKET_X86_64_NVIDIA"
 	// Windows Core 2019 (x86-64).
 	NodegroupAmiType_WINDOWS_CORE_2019_X86_64 NodegroupAmiType = "WINDOWS_CORE_2019_X86_64"
 	// Windows Core 2022 (x86-64).

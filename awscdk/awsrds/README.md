@@ -772,11 +772,13 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 
 ## Setting Public Accessibility
 
-You can set public accessibility for the database instance or cluster using the `publiclyAccessible` property.
+You can set public accessibility for the `DatabaseInstance` or the `ClusterInstance` using the `publiclyAccessible` property.
 If you specify `true`, it creates an instance with a publicly resolvable DNS name, which resolves to a public IP address.
 If you specify `false`, it creates an internal instance with a DNS name that resolves to a private IP address.
-The default value depends on `vpcSubnets`.
-It will be `true` if `vpcSubnets` is `subnetType: SubnetType.PUBLIC`, `false` otherwise.
+
+The default value will be `true` if `vpcSubnets` is `subnetType: SubnetType.PUBLIC`, `false` otherwise. In the case of a
+cluster, the default value will be determined on the vpc placement of the `DatabaseCluster` otherwise it will be determined
+based on the vpc placement of standalone `DatabaseInstance`.
 
 ```go
 var vpc vpc
@@ -794,18 +796,18 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	PubliclyAccessible: jsii.Boolean(true),
 })
 
-// Setting public accessibility for DB cluster
-// Setting public accessibility for DB cluster
+// Setting public accessibility for DB cluster instance
+// Setting public accessibility for DB cluster instance
 rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
 	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
 	}),
-	InstanceProps: &InstanceProps{
-		Vpc: *Vpc,
-		VpcSubnets: &SubnetSelection{
-			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-		},
+	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("Writer"), &ServerlessV2ClusterInstanceProps{
 		PubliclyAccessible: jsii.Boolean(true),
+	}),
+	Vpc: Vpc,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 	},
 })
 ```

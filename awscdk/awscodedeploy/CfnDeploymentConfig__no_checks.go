@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDeploymentConfig) validateSetTrafficRoutingConfigParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeploymentConfig) validateSetZonalConfigParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnDeploymentConfigParameters(scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) error {
 	return nil
 }

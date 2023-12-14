@@ -1,11 +1,7 @@
 package awsfis
 
 
-// Specifies a target for an experiment.
-//
-// You must specify at least one Amazon Resource Name (ARN) or at least one resource tag. You cannot specify both ARNs and tags.
-//
-// For more information, see [Targets](https://docs.aws.amazon.com/fis/latest/userguide/targets.html) in the *AWS Fault Injection Simulator User Guide* .
+// Describes a target for an experiment template.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -51,7 +47,7 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
 	//
 	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
-	// The parameters for the resource type.
+	// The resource type parameters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

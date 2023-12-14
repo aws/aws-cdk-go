@@ -8,15 +8,23 @@ import (
 // Type union for task classes that accept multiple types of payload.
 //
 // Example:
-//   var fn function
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with callback"), &LambdaInvokeProps{
-//   	LambdaFunction: fn,
-//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-//   	Payload: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"token": sfn.JsonPath_taskToken(),
-//   		"input": sfn.JsonPath_stringAt(jsii.String("$.someField")),
+//
+//   model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_AMAZON_TITAN_TEXT_G1_EXPRESS_V1())
+//
+//   task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
+//   	Model: Model,
+//   	Body: sfn.TaskInput_FromObject(map[string]interface{}{
+//   		"inputText": jsii.String("Generate a list of five first names."),
+//   		"textGenerationConfig": map[string]*f64{
+//   			"maxTokenCount": jsii.Number(100),
+//   			"temperature": jsii.Number(1),
+//   		},
 //   	}),
+//   	ResultSelector: map[string]interface{}{
+//   		"names": sfn.JsonPath_stringAt(jsii.String("$.Body.results[0].outputText")),
+//   	},
 //   })
 //
 type TaskInput interface {

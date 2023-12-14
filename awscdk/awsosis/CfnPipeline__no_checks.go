@@ -80,6 +80,14 @@ func validateCfnPipeline_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPipeline) validateSetBufferOptionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnPipeline) validateSetEncryptionAtRestOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPipeline) validateSetLogPublishingOptionsParameters(val interface{}) error {
 	return nil
 }

@@ -50,6 +50,8 @@ import (
 //   		},
 //   	},
 //   	BillingMode: jsii.String("billingMode"),
+//   	FederationEnabled: jsii.Boolean(false),
+//   	FederationRoleArn: jsii.String("federationRoleArn"),
 //   	IngestionEnabled: jsii.Boolean(false),
 //   	InsightsDestination: jsii.String("insightsDestination"),
 //   	InsightSelectors: []interface{}{
@@ -100,6 +102,12 @@ type CfnEventDataStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Indicates whether federation is enabled on an event data store.
+	FederationEnabled() interface{}
+	SetFederationEnabled(val interface{})
+	// The ARN of the role used for event data store federation.
+	FederationRoleArn() *string
+	SetFederationRoleArn(val *string)
 	// Specifies whether the event data store should start ingesting live events.
 	IngestionEnabled() interface{}
 	SetIngestionEnabled(val interface{})
@@ -400,6 +408,26 @@ func (j *jsiiProxy_CfnEventDataStore) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventDataStore) FederationEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"federationEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventDataStore) FederationRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"federationRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventDataStore) IngestionEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -613,6 +641,25 @@ func (j *jsiiProxy_CfnEventDataStore)SetBillingMode(val *string) {
 	_jsii_.Set(
 		j,
 		"billingMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventDataStore)SetFederationEnabled(val interface{}) {
+	if err := j.validateSetFederationEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"federationEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventDataStore)SetFederationRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"federationRoleArn",
 		val,
 	)
 }

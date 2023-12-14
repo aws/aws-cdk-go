@@ -92,6 +92,9 @@ type SourcedConfiguration interface {
 	// Adds an extension association to the configuration profile.
 	// Experimental.
 	AddExtension(extension IExtension)
+	// Deploys the configuration to the specified environment.
+	// Experimental.
+	Deploy(environment IEnvironment)
 	// Experimental.
 	DeployConfigToEnvironments()
 	// Experimental.
@@ -406,6 +409,17 @@ func (s *jsiiProxy_SourcedConfiguration) AddExtension(extension IExtension) {
 		s,
 		"addExtension",
 		[]interface{}{extension},
+	)
+}
+
+func (s *jsiiProxy_SourcedConfiguration) Deploy(environment IEnvironment) {
+	if err := s.validateDeployParameters(environment); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"deploy",
+		[]interface{}{environment},
 	)
 }
 

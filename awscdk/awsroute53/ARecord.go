@@ -11,7 +11,7 @@ import (
 // A DNS A record.
 //
 // Example:
-//   import apigwv2 "github.com/aws/aws-cdk-go/awscdkapigatewayv2alpha"
+//   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var zone hostedZone
 //   var domainName domainName

@@ -60,7 +60,6 @@ type CfnTransitGateway interface {
 	SetAssociationDefaultRouteTableId(val *string)
 	// The ID of the transit gateway.
 	AttrId() *string
-	// The Amazon Resource Name (ARN) of the transit gateway.
 	AttrTransitGatewayArn() *string
 	// Enable or disable automatic acceptance of attachment requests.
 	AutoAcceptSharedAttachments() *string

@@ -11,7 +11,7 @@ import (
 
 // The `AWS::CodeDeploy::DeploymentConfig` resource creates a set of deployment rules, deployment success conditions, and deployment failure conditions that AWS CodeDeploy uses during a deployment.
 //
-// The deployment configuration specifies, through the use of a `MinimumHealthyHosts` value, the number or percentage of instances that must remain available at any time during a deployment.
+// The deployment configuration specifies the number or percentage of instances that must remain available at any time during a deployment.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,6 +37,14 @@ import (
 //   			LinearInterval: jsii.Number(123),
 //   			LinearPercentage: jsii.Number(123),
 //   		},
+//   	},
+//   	ZonalConfig: &ZonalConfigProperty{
+//   		FirstZoneMonitorDurationInSeconds: jsii.Number(123),
+//   		MinimumHealthyHostsPerZone: &MinimumHealthyHostsPerZoneProperty{
+//   			Type: jsii.String("type"),
+//   			Value: jsii.Number(123),
+//   		},
+//   		MonitorDurationInSeconds: jsii.Number(123),
 //   	},
 //   })
 //
@@ -100,6 +108,8 @@ type CfnDeploymentConfig interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	ZonalConfig() interface{}
+	SetZonalConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -373,6 +383,16 @@ func (j *jsiiProxy_CfnDeploymentConfig) UpdatedProperties() *map[string]interfac
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeploymentConfig) ZonalConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"zonalConfig",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnDeploymentConfig(scope constructs.Construct, id *string, props *CfnDeploymentConfigProps) CfnDeploymentConfig {
 	_init_.Initialize()
@@ -435,6 +455,17 @@ func (j *jsiiProxy_CfnDeploymentConfig)SetTrafficRoutingConfig(val interface{}) 
 	_jsii_.Set(
 		j,
 		"trafficRoutingConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeploymentConfig)SetZonalConfig(val interface{}) {
+	if err := j.validateSetZonalConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"zonalConfig",
 		val,
 	)
 }

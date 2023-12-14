@@ -230,10 +230,10 @@ type CfnLifecyclePolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-crossregioncopytargets
 	//
 	CrossRegionCopyTargets interface{} `field:"optional" json:"crossRegionCopyTargets" yaml:"crossRegionCopyTargets"`
-	// *[Default policies only]* The type of default policy. Values include:.
+	// Indicates whether the policy is a default lifecycle policy or a custom lifecycle policy.
 	//
-	// - `VOLUME` - Default policy for EBS snapshots
-	// - `INSTANCE` - Default policy for EBS-backed AMIs.
+	// - `true` - the policy is a default policy.
+	// - `false` - the policy is a custom policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-defaultpolicy
 	//
 	DefaultPolicy *string `field:"optional" json:"defaultPolicy" yaml:"defaultPolicy"`

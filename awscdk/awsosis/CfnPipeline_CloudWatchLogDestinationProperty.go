@@ -20,6 +20,6 @@ type CfnPipeline_CloudWatchLogDestinationProperty struct {
 	// You can specify an existing log group or create a new one. For example, `/aws/OpenSearchService/IngestionService/my-pipeline` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html#cfn-osis-pipeline-cloudwatchlogdestination-loggroup
 	//
-	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup *string `field:"required" json:"logGroup" yaml:"logGroup"`
 }
 

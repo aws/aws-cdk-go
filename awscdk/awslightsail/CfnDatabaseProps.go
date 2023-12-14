@@ -121,6 +121,8 @@ type CfnDatabaseProps struct {
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// A Boolean value indicating whether automated backup retention is enabled for the database.
+	//
+	// Data Import Mode is enabled when `BackupRetention` is set to `false` , and is disabled when `BackupRetention` is set to `true` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html#cfn-lightsail-database-backupretention
 	//
 	BackupRetention interface{} `field:"optional" json:"backupRetention" yaml:"backupRetention"`

@@ -134,6 +134,13 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. Aurora cluster volumes automatically grow as the amount of data in your database increases, though you are only charged for the space that you use in an Aurora cluster volume.
 	//
+	// *Db2*
+	//
+	// Constraints to the amount of storage for each storage type are the following:
+	//
+	// - General Purpose (SSD) storage (gp3): Must be an integer from 20 to 64000.
+	// - Provisioned IOPS storage (io1): Must be an integer from 100 to 64000.
+	//
 	// *MySQL*
 	//
 	// Constraints to the amount of storage for each storage type are the following:
@@ -351,6 +358,16 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. The database name is managed by the DB cluster.
 	//
+	// *Db2*
+	//
+	// The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.
+	//
+	// Constraints:
+	//
+	// - Must contain 1 to 64 letters or numbers.
+	// - Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).
+	// - Can't be a word reserved by the specified database engine.
+	//
 	// *MySQL*
 	//
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance.
@@ -514,7 +531,7 @@ type CfnDBInstanceProps struct {
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
 	//
-	// Currently, only Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+	// Currently, only Db2, MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	//
 	// For more information, see [Kerberos Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html) in the *Amazon RDS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-domain
@@ -574,6 +591,10 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. CloudWatch Logs exports are managed by the DB cluster.
 	//
+	// *Db2*
+	//
+	// Valid values: `diag.log` , `notify.log`
+	//
 	// *MariaDB*
 	//
 	// Valid values: `audit` , `error` , `general` , `slowquery`
@@ -624,6 +645,8 @@ type CfnDBInstanceProps struct {
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The name of the database engine that you want to use for this DB instance.
 	//
+	// Not every database engine is available in every AWS Region.
+	//
 	// > When you are creating a DB instance, the `Engine` property is required.
 	//
 	// Valid Values:
@@ -635,6 +658,8 @@ type CfnDBInstanceProps struct {
 	// - `custom-sqlserver-ee` (for RDS Custom for SQL Server DB instances)
 	// - `custom-sqlserver-se` (for RDS Custom for SQL Server DB instances)
 	// - `custom-sqlserver-web` (for RDS Custom for SQL Server DB instances)
+	// - `db2-ae`
+	// - `db2-se`
 	// - `mariadb`
 	// - `mysql`
 	// - `oracle-ee`
@@ -658,6 +683,10 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.
+	//
+	// *Db2*
+	//
+	// See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*
 	//
 	// *MariaDB*
 	//
@@ -688,6 +717,11 @@ type CfnDBInstanceProps struct {
 	// If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide* .
 	//
 	// > If you specify `io1` for the `StorageType` property, then you must also specify the `Iops` property.
+	//
+	// Constraints:
+	//
+	// - For RDS for Db2, MariaDB, MySQL, Oracle, and PostgreSQL - Must be a multiple between .5 and 50 of the storage amount for the DB instance.
+	// - For RDS for SQL Server - Must be a multiple between 1 and 50 of the storage amount for the DB instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-iops
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
@@ -711,15 +745,16 @@ type CfnDBInstanceProps struct {
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// License model information for this DB instance.
 	//
-	// Valid values:
+	// Valid Values:
 	//
 	// - Aurora MySQL - `general-public-license`
 	// - Aurora PostgreSQL - `postgresql-license`
-	// - MariaDB - `general-public-license`
-	// - Microsoft SQL Server - `license-included`
-	// - MySQL - `general-public-license`
-	// - Oracle - `bring-your-own-license` or `license-included`
-	// - PostgreSQL - `postgresql-license`
+	// - RDS for Db2 - `bring-your-own-license` . For more information about RDS for Db2 licensing, see [](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html) in the *Amazon RDS User Guide.*
+	// - RDS for MariaDB - `general-public-license`
+	// - RDS for Microsoft SQL Server - `license-included`
+	// - RDS for MySQL - `general-public-license`
+	// - RDS for Oracle - `bring-your-own-license` or `license-included`
+	// - RDS for PostgreSQL - `postgresql-license`
 	//
 	// > If you've specified `DBSecurityGroups` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-licensemodel
@@ -738,51 +773,56 @@ type CfnDBInstanceProps struct {
 	// The master user name for the DB instance.
 	//
 	// > If you specify the `SourceDBInstanceIdentifier` or `DBSnapshotIdentifier` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
+	// >
+	// > When migrating a self-managed Db2 database, we recommend that you use the same master username as your self-managed Db2 instance name.
 	//
 	// *Amazon Aurora*
 	//
 	// Not applicable. The name for the master user is managed by the DB cluster.
 	//
-	// *MariaDB*
+	// *RDS for Db2*
 	//
 	// Constraints:
 	//
-	// - Required for MariaDB.
-	// - Must be 1 to 16 letters or numbers.
-	// - Can't be a reserved word for the chosen database engine.
-	//
-	// *Microsoft SQL Server*
-	//
-	// Constraints:
-	//
-	// - Required for SQL Server.
-	// - Must be 1 to 128 letters or numbers.
-	// - The first character must be a letter.
-	// - Can't be a reserved word for the chosen database engine.
-	//
-	// *MySQL*
-	//
-	// Constraints:
-	//
-	// - Required for MySQL.
 	// - Must be 1 to 16 letters or numbers.
 	// - First character must be a letter.
 	// - Can't be a reserved word for the chosen database engine.
 	//
-	// *Oracle*
+	// *RDS for MariaDB*
 	//
 	// Constraints:
 	//
-	// - Required for Oracle.
+	// - Must be 1 to 16 letters or numbers.
+	// - Can't be a reserved word for the chosen database engine.
+	//
+	// *RDS for Microsoft SQL Server*
+	//
+	// Constraints:
+	//
+	// - Must be 1 to 128 letters or numbers.
+	// - First character must be a letter.
+	// - Can't be a reserved word for the chosen database engine.
+	//
+	// *RDS for MySQL*
+	//
+	// Constraints:
+	//
+	// - Must be 1 to 16 letters or numbers.
+	// - First character must be a letter.
+	// - Can't be a reserved word for the chosen database engine.
+	//
+	// *RDS for Oracle*
+	//
+	// Constraints:
+	//
 	// - Must be 1 to 30 letters or numbers.
 	// - First character must be a letter.
 	// - Can't be a reserved word for the chosen database engine.
 	//
-	// *PostgreSQL*
+	// *RDS for PostgreSQL*
 	//
 	// Constraints:
 	//
-	// - Required for PostgreSQL.
 	// - Must be 1 to 63 letters or numbers.
 	// - First character must be a letter.
 	// - Can't be a reserved word for the chosen database engine.
@@ -795,23 +835,27 @@ type CfnDBInstanceProps struct {
 	//
 	// Not applicable. The password for the master user is managed by the DB cluster.
 	//
-	// *MariaDB*
+	// *RDS for Db2*
+	//
+	// Must contain from 8 to 255 characters.
+	//
+	// *RDS for MariaDB*
 	//
 	// Constraints: Must contain from 8 to 41 characters.
 	//
-	// *Microsoft SQL Server*
+	// *RDS for Microsoft SQL Server*
 	//
 	// Constraints: Must contain from 8 to 128 characters.
 	//
-	// *MySQL*
+	// *RDS for MySQL*
 	//
 	// Constraints: Must contain from 8 to 41 characters.
 	//
-	// *Oracle*
+	// *RDS for Oracle*
 	//
 	// Constraints: Must contain from 8 to 30 characters.
 	//
-	// *PostgreSQL*
+	// *RDS for PostgreSQL*
 	//
 	// Constraints: Must contain from 8 to 128 characters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masteruserpassword
@@ -926,6 +970,10 @@ type CfnDBInstanceProps struct {
 	// *Amazon Aurora*
 	//
 	// Not applicable. The port number is managed by the DB cluster.
+	//
+	// *Db2*
+	//
+	// Default value: `50000`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-port
 	//
 	Port *string `field:"optional" json:"port" yaml:"port"`

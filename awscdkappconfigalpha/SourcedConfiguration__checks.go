@@ -18,6 +18,14 @@ func (s *jsiiProxy_SourcedConfiguration) validateAddExtensionParameters(extensio
 	return nil
 }
 
+func (s *jsiiProxy_SourcedConfiguration) validateDeployParameters(environment IEnvironment) error {
+	if environment == nil {
+		return fmt.Errorf("parameter environment is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_SourcedConfiguration) validateGetDeploymentHashParameters(environment IEnvironment) error {
 	if environment == nil {
 		return fmt.Errorf("parameter environment is required, but nil was provided")

@@ -11,14 +11,23 @@ import (
 // You cannot specify IAM groups or instance profiles as principals.
 //
 // Example:
-//   // Option 3: Create a new role that allows the account root principal to assume. Add this role in the `system:masters` and witch to this role from the AWS console.
-//   var cluster cluster
+//   // Option 2: create your custom mastersRole with scoped assumeBy arn as the Cluster prop. Switch to this role from the AWS console.
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv28"
+//   var vpc vpc
 //
 //
-//   consoleReadOnlyRole := iam.NewRole(this, jsii.String("ConsoleReadOnlyRole"), &RoleProps{
+//   mastersRole := iam.NewRole(this, jsii.String("MastersRole"), &RoleProps{
 //   	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
 //   })
-//   consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//
+//   cluster := eks.NewCluster(this, jsii.String("EksCluster"), &ClusterProps{
+//   	Vpc: Vpc,
+//   	Version: eks.KubernetesVersion_V1_28(),
+//   	KubectlLayer: kubectlv28.NewKubectlV28Layer(this, jsii.String("KubectlLayer")),
+//   	MastersRole: MastersRole,
+//   })
+//
+//   mastersRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Actions: []*string{
 //   		jsii.String("eks:AccessKubernetesApi"),
 //   		jsii.String("eks:Describe*"),
@@ -28,9 +37,6 @@ import (
 //   		cluster.ClusterArn,
 //   	},
 //   }))
-//
-//   // Add this role to system:masters RBAC group
-//   cluster.awsAuth.AddMastersRole(consoleReadOnlyRole)
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
 //

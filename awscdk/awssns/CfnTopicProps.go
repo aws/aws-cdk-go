@@ -18,6 +18,16 @@ import (
 //   	ArchivePolicy: archivePolicy,
 //   	ContentBasedDeduplication: jsii.Boolean(false),
 //   	DataProtectionPolicy: dataProtectionPolicy,
+//   	DeliveryStatusLogging: []interface{}{
+//   		&LoggingConfigProperty{
+//   			Protocol: jsii.String("protocol"),
+//
+//   			// the properties below are optional
+//   			FailureFeedbackRoleArn: jsii.String("failureFeedbackRoleArn"),
+//   			SuccessFeedbackRoleArn: jsii.String("successFeedbackRoleArn"),
+//   			SuccessFeedbackSampleRate: jsii.String("successFeedbackSampleRate"),
+//   		},
+//   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	FifoTopic: jsii.Boolean(false),
 //   	KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
@@ -66,6 +76,10 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-dataprotectionpolicy
 	//
 	DataProtectionPolicy interface{} `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
+	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-deliverystatuslogging
+	//
+	DeliveryStatusLogging interface{} `field:"optional" json:"deliveryStatusLogging" yaml:"deliveryStatusLogging"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	//
 	// The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.

@@ -88,6 +88,7 @@ import (
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	EngineVersion: jsii.String("engineVersion"),
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	LogPublishingOptions: map[string]interface{}{
 //   		"logPublishingOptionsKey": &LogPublishingOptionProperty{
 //   			"cloudWatchLogsLogGroupArn": jsii.String("cloudWatchLogsLogGroupArn"),
@@ -149,6 +150,7 @@ type CfnDomain interface {
 	// The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
 	AttrDomainEndpoint() *string
 	AttrDomainEndpoints() awscdk.IResolvable
+	AttrDomainEndpointV2() *string
 	// The resource ID.
 	//
 	// For example, `123456789012/my-domain` .
@@ -195,6 +197,8 @@ type CfnDomain interface {
 	// The version of OpenSearch to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	IpAddressType() *string
+	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -456,6 +460,16 @@ func (j *jsiiProxy_CfnDomain) AttrDomainEndpoints() awscdk.IResolvable {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) AttrDomainEndpointV2() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDomainEndpointV2",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -671,6 +685,16 @@ func (j *jsiiProxy_CfnDomain) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) IpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipAddressType",
 		&returns,
 	)
 	return returns
@@ -949,6 +973,14 @@ func (j *jsiiProxy_CfnDomain)SetEngineVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"engineVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"ipAddressType",
 		val,
 	)
 }

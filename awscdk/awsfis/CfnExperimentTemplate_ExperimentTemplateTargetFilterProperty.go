@@ -1,9 +1,7 @@
 package awsfis
 
 
-// Specifies a filter used for the target resource input in an experiment template.
-//
-// For more information, see [Resource filters](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters) in the *AWS Fault Injection Simulator User Guide* .
+// Describes a filter used for the target resources in an experiment template.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

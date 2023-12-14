@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnInstance) validateSetIdentityManagementTypeParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnInstance) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnInstanceParameters(scope constructs.Construct, id *string, props *CfnInstanceProps) error {
 	return nil
 }

@@ -66,6 +66,10 @@ package awsfis
 //   			},
 //   		},
 //   	},
+//   	ExperimentOptions: &ExperimentTemplateExperimentOptionsProperty{
+//   		AccountTargeting: jsii.String("accountTargeting"),
+//   		EmptyTargetResolutionMode: jsii.String("emptyTargetResolutionMode"),
+//   	},
 //   	LogConfiguration: &ExperimentTemplateLogConfigurationProperty{
 //   		LogSchemaVersion: jsii.Number(123),
 //
@@ -101,6 +105,10 @@ type CfnExperimentTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
 	//
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
+	// The experiment options for an experiment template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-experimentoptions
+	//
+	ExperimentOptions interface{} `field:"optional" json:"experimentOptions" yaml:"experimentOptions"`
 	// The configuration for experiment logging.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-logconfiguration
 	//

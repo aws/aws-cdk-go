@@ -17,6 +17,7 @@ package awssagemaker
 //   	SecurityConfig: &OnlineStoreSecurityConfigProperty{
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	StorageType: jsii.String("storageType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html
@@ -34,5 +35,8 @@ type CfnFeatureGroup_OnlineStoreConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-securityconfig
 	//
 	SecurityConfig interface{} `field:"optional" json:"securityConfig" yaml:"securityConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-storagetype
+	//
+	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 }
 

@@ -96,6 +96,7 @@ type CfnMembership interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration() interface{}
 	SetPaymentConfiguration(val interface{})
 	// An indicator as to whether query logging has been enabled or disabled for the membership.

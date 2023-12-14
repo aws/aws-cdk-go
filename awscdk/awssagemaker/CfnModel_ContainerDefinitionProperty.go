@@ -77,6 +77,9 @@ type CfnModel_ContainerDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
+	// Specifies the location of ML model data to deploy.
+	//
+	// > Currently you cannot use `ModelDataSource` in conjunction with SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker Marketplace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldatasource
 	//
 	ModelDataSource interface{} `field:"optional" json:"modelDataSource" yaml:"modelDataSource"`

@@ -67,6 +67,8 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	//
 	RegionConcurrencyType *string `field:"optional" json:"regionConcurrencyType" yaml:"regionConcurrencyType"`
 	// The order of the Regions where you want to perform the stack operation.
+	//
+	// > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
 	//
 	RegionOrder *[]*string `field:"optional" json:"regionOrder" yaml:"regionOrder"`

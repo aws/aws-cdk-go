@@ -8,9 +8,11 @@ import (
 // Represents the currently available API Key Selection Expressions.
 //
 // Example:
-//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocketApiProps{
-//   	ApiKeySelectionExpression: apigwv2.WebSocketApiKeySelectionExpression_HEADER_X_API_KEY(),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   webSocketApiKeySelectionExpression := awscdk.Aws_apigatewayv2.NewWebSocketApiKeySelectionExpression(jsii.String("customApiKeySelector"))
 //
 type WebSocketApiKeySelectionExpression interface {
 	// The expression used by API Gateway.

@@ -28,6 +28,14 @@ package awscodedeploy
 //   			LinearPercentage: jsii.Number(123),
 //   		},
 //   	},
+//   	ZonalConfig: &ZonalConfigProperty{
+//   		FirstZoneMonitorDurationInSeconds: jsii.Number(123),
+//   		MinimumHealthyHostsPerZone: &MinimumHealthyHostsPerZoneProperty{
+//   			Type: jsii.String("type"),
+//   			Value: jsii.Number(123),
+//   		},
+//   		MonitorDurationInSeconds: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html
@@ -66,5 +74,8 @@ type CfnDeploymentConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-trafficroutingconfig
 	//
 	TrafficRoutingConfig interface{} `field:"optional" json:"trafficRoutingConfig" yaml:"trafficRoutingConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-zonalconfig
+	//
+	ZonalConfig interface{} `field:"optional" json:"zonalConfig" yaml:"zonalConfig"`
 }
 

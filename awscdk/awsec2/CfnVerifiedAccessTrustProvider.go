@@ -25,6 +25,7 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	DeviceOptions: &DeviceOptionsProperty{
+//   		PublicSigningKeyUrl: jsii.String("publicSigningKeyUrl"),
 //   		TenantId: jsii.String("tenantId"),
 //   	},
 //   	DeviceTrustProviderType: jsii.String("deviceTrustProviderType"),

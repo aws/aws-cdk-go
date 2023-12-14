@@ -3,7 +3,7 @@ package awsautoscaling
 
 // `MetricStat` is a property of the [AWS::AutoScaling::ScalingPolicy MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdataquery.html) property type.
 //
-// This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.
+// This structure defines the CloudWatch metric to return, along with the statistic and unit.
 //
 // For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide* .
 //

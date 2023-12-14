@@ -16,6 +16,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AccountId: jsii.String("accountId"),
 //   	BillingPeriodRange: &BillingPeriodRangeProperty{
 //   		ExclusiveEndBillingPeriod: jsii.String("exclusiveEndBillingPeriod"),
 //   		InclusiveStartBillingPeriod: jsii.String("inclusiveStartBillingPeriod"),
@@ -65,6 +66,10 @@ type CfnCustomLineItemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The AWS account in which this custom line item will be applied to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-accountid
+	//
+	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
 	// A time range for which the custom line item is effective.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-billingperiodrange
 	//

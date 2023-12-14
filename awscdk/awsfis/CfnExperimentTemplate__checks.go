@@ -247,6 +247,30 @@ func (j *jsiiProxy_CfnExperimentTemplate) validateSetDescriptionParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnExperimentTemplate) validateSetExperimentOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnExperimentTemplate_ExperimentTemplateExperimentOptionsProperty:
+		val := val.(*CfnExperimentTemplate_ExperimentTemplateExperimentOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnExperimentTemplate_ExperimentTemplateExperimentOptionsProperty:
+		val_ := val.(CfnExperimentTemplate_ExperimentTemplateExperimentOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnExperimentTemplate_ExperimentTemplateExperimentOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnExperimentTemplate) validateSetLogConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

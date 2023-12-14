@@ -13,12 +13,24 @@ import (
 // Define a new VPC Link Specifies an API Gateway VPC link for a HTTP API to access resources in an Amazon Virtual Private Cloud (VPC).
 //
 // Example:
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &VpcLinkProps{
 //   	Vpc: Vpc,
+//   })
+//   namespace := servicediscovery.NewPrivateDnsNamespace(this, jsii.String("Namespace"), &PrivateDnsNamespaceProps{
+//   	Name: jsii.String("boobar.com"),
+//   	Vpc: Vpc,
+//   })
+//   service := namespace.CreateService(jsii.String("Service"))
+//
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdk.NewHttpServiceDiscoveryIntegration(jsii.String("DefaultIntegration"), service, &HttpServiceDiscoveryIntegrationProps{
+//   		VpcLink: *VpcLink,
+//   	}),
 //   })
 //
 type VpcLink interface {
