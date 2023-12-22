@@ -82,7 +82,7 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html
 //
 type CfnLifecyclePolicyProps struct {
-	// The name of the IAM role that Image Builder uses to run the lifecycle policy.
+	// The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to run the lifecycle policy.
 	//
 	// This is a custom role that you create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-executionrole

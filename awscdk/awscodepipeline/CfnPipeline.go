@@ -97,11 +97,45 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	PipelineType: jsii.String("pipelineType"),
 //   	RestartExecutionOnUpdate: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	Triggers: []interface{}{
+//   		&PipelineTriggerDeclarationProperty{
+//   			ProviderType: jsii.String("providerType"),
+//
+//   			// the properties below are optional
+//   			GitConfiguration: &GitConfigurationProperty{
+//   				SourceActionName: jsii.String("sourceActionName"),
+//
+//   				// the properties below are optional
+//   				Push: []interface{}{
+//   					&GitPushFilterProperty{
+//   						Tags: &GitTagFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	Variables: []interface{}{
+//   		&VariableDeclarationProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			DefaultValue: jsii.String("defaultValue"),
+//   			Description: jsii.String("description"),
 //   		},
 //   	},
 //   })
@@ -150,6 +184,9 @@ type CfnPipeline interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// CodePipeline provides the following pipeline types, which differ in characteristics and price, so that you can tailor your pipeline features and cost to the needs of your applications.
+	PipelineType() *string
+	SetPipelineType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -173,6 +210,9 @@ type CfnPipeline interface {
 	// Specifies the tags applied to the pipeline.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.
+	Triggers() interface{}
+	SetTriggers(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -186,6 +226,9 @@ type CfnPipeline interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// A list that defines the pipeline variables for a pipeline resource.
+	Variables() interface{}
+	SetVariables(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -440,6 +483,16 @@ func (j *jsiiProxy_CfnPipeline) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) PipelineType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"pipelineType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -510,6 +563,16 @@ func (j *jsiiProxy_CfnPipeline) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) Triggers() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"triggers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -525,6 +588,16 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipeline) Variables() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"variables",
 		&returns,
 	)
 	return returns
@@ -599,6 +672,14 @@ func (j *jsiiProxy_CfnPipeline)SetName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnPipeline)SetPipelineType(val *string) {
+	_jsii_.Set(
+		j,
+		"pipelineType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPipeline)SetRestartExecutionOnUpdate(val interface{}) {
 	if err := j.validateSetRestartExecutionOnUpdateParameters(val); err != nil {
 		panic(err)
@@ -639,6 +720,28 @@ func (j *jsiiProxy_CfnPipeline)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetTriggers(val interface{}) {
+	if err := j.validateSetTriggersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"triggers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetVariables(val interface{}) {
+	if err := j.validateSetVariablesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"variables",
 		val,
 	)
 }

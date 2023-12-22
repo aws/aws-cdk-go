@@ -46,6 +46,18 @@ func (m *jsiiProxy_Map) validateAddChoiceParameters(condition Condition, next St
 	return nil
 }
 
+func (m *jsiiProxy_Map) validateAddItemProcessorParameters(processor StateGraph, config *ProcessorConfig) error {
+	if processor == nil {
+		return fmt.Errorf("parameter processor is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *jsiiProxy_Map) validateAddIteratorParameters(iteration StateGraph) error {
 	if iteration == nil {
 		return fmt.Errorf("parameter iteration is required, but nil was provided")
@@ -73,6 +85,18 @@ func (m *jsiiProxy_Map) validateAddRetryParameters(props *RetryProps) error {
 func (m *jsiiProxy_Map) validateBindToGraphParameters(graph StateGraph) error {
 	if graph == nil {
 		return fmt.Errorf("parameter graph is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (m *jsiiProxy_Map) validateItemProcessorParameters(processor IChainable, config *ProcessorConfig) error {
+	if processor == nil {
+		return fmt.Errorf("parameter processor is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
 	}
 
 	return nil
@@ -165,6 +189,14 @@ func validateMap_PrefixStatesParameters(root constructs.IConstruct, prefix *stri
 
 	if prefix == nil {
 		return fmt.Errorf("parameter prefix is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_Map) validateSetProcessorConfigParameters(val *ProcessorConfig) error {
+	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+		return err
 	}
 
 	return nil

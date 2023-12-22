@@ -12,7 +12,9 @@ import (
 // A dedicated IP pool.
 //
 // Example:
-//   ses.NewDedicatedIpPool(this, jsii.String("Pool"))
+//   ses.NewDedicatedIpPool(this, jsii.String("Pool"), &DedicatedIpPoolProps{
+//   	ScalingMode: ses.ScalingMode_STANDARD,
+//   })
 //
 type DedicatedIpPool interface {
 	awscdk.Resource

@@ -16,6 +16,10 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateAddChoiceParameter
 	return nil
 }
 
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEmrContainersDeleteVirtualCluster_IsConstructParameters(x interface
 }
 
 func validateEmrContainersDeleteVirtualCluster_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

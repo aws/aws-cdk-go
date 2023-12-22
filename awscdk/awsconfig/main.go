@@ -262,6 +262,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "recordingGroup", GoGetter: "RecordingGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "recordingMode", GoGetter: "RecordingMode"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -288,6 +289,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConfigurationRecorder.RecordingGroupProperty",
 		reflect.TypeOf((*CfnConfigurationRecorder_RecordingGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConfigurationRecorder.RecordingModeOverrideProperty",
+		reflect.TypeOf((*CfnConfigurationRecorder_RecordingModeOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConfigurationRecorder.RecordingModeProperty",
+		reflect.TypeOf((*CfnConfigurationRecorder_RecordingModeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConfigurationRecorder.RecordingStrategyProperty",

@@ -67,7 +67,7 @@ type CfnPipeline interface {
 	AttrPipelineArn() *string
 	// The VPC interface endpoints that have access to the pipeline.
 	AttrVpcEndpoints() awscdk.IResolvable
-	// Key-value pairs to configure buffering.
+	// Options that specify the configuration of a persistent buffer.
 	BufferOptions() interface{}
 	SetBufferOptions(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -79,7 +79,7 @@ type CfnPipeline interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Key-value pairs to configure encryption at rest.
+	// Options to control how OpenSearch encrypts all data-at-rest.
 	EncryptionAtRestOptions() interface{}
 	SetEncryptionAtRestOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -16,6 +16,10 @@ func (c *jsiiProxy_CodeBuildStartBuild) validateAddChoiceParameters(condition aw
 	return nil
 }
 
+func (c *jsiiProxy_CodeBuildStartBuild) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (c *jsiiProxy_CodeBuildStartBuild) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateCodeBuildStartBuild_IsConstructParameters(x interface{}) error {
 }
 
 func validateCodeBuildStartBuild_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CodeBuildStartBuild) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

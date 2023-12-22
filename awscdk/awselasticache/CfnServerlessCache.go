@@ -32,9 +32,17 @@ import (
 //   	},
 //   	DailySnapshotTime: jsii.String("dailySnapshotTime"),
 //   	Description: jsii.String("description"),
+//   	Endpoint: &EndpointProperty{
+//   		Address: jsii.String("address"),
+//   		Port: jsii.Number(123),
+//   	},
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MajorEngineVersion: jsii.String("majorEngineVersion"),
+//   	ReaderEndpoint: &EndpointProperty{
+//   		Address: jsii.String("address"),
+//   		Port: jsii.Number(123),
+//   	},
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -63,12 +71,16 @@ type CfnServerlessCache interface {
 	AttrArn() *string
 	// When the serverless cache was created.
 	AttrCreateTime() *string
-	// Represents the information required for client programs to connect to a cache node.
-	AttrEndpoint() awscdk.IResolvable
+	// The DNS hostname of the cache node.
+	AttrEndpointAddress() *string
+	// The port number that the cache engine is listening on.
+	AttrEndpointPort() *float64
 	// The name and version number of the engine the serverless cache is compatible with.
 	AttrFullEngineVersion() *string
-	// Represents the information required for client programs to connect to a cache node.
-	AttrReaderEndpoint() awscdk.IResolvable
+	// The DNS hostname of the cache node.
+	AttrReaderEndpointAddress() *string
+	// The port number that the cache engine is listening on.
+	AttrReaderEndpointPort() *float64
 	// The current status of the serverless cache.
 	//
 	// The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
@@ -91,6 +103,9 @@ type CfnServerlessCache interface {
 	// A description of the serverless cache.
 	Description() *string
 	SetDescription(val *string)
+	// Represents the information required for client programs to connect to a cache node.
+	Endpoint() interface{}
+	SetEndpoint(val interface{})
 	// The engine the serverless cache is compatible with.
 	Engine() *string
 	SetEngine(val *string)
@@ -115,6 +130,9 @@ type CfnServerlessCache interface {
 	SetMajorEngineVersion(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Represents the information required for client programs to connect to a cache node.
+	ReaderEndpoint() interface{}
+	SetReaderEndpoint(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -311,11 +329,21 @@ func (j *jsiiProxy_CfnServerlessCache) AttrCreateTime() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCache) AttrEndpoint() awscdk.IResolvable {
-	var returns awscdk.IResolvable
+func (j *jsiiProxy_CfnServerlessCache) AttrEndpointAddress() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
-		"attrEndpoint",
+		"attrEndpointAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServerlessCache) AttrEndpointPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrEndpointPort",
 		&returns,
 	)
 	return returns
@@ -331,11 +359,21 @@ func (j *jsiiProxy_CfnServerlessCache) AttrFullEngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCache) AttrReaderEndpoint() awscdk.IResolvable {
-	var returns awscdk.IResolvable
+func (j *jsiiProxy_CfnServerlessCache) AttrReaderEndpointAddress() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
-		"attrReaderEndpoint",
+		"attrReaderEndpointAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServerlessCache) AttrReaderEndpointPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrReaderEndpointPort",
 		&returns,
 	)
 	return returns
@@ -421,6 +459,16 @@ func (j *jsiiProxy_CfnServerlessCache) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServerlessCache) Endpoint() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"endpoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServerlessCache) Engine() *string {
 	var returns *string
 	_jsii_.Get(
@@ -476,6 +524,16 @@ func (j *jsiiProxy_CfnServerlessCache) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServerlessCache) ReaderEndpoint() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"readerEndpoint",
 		&returns,
 	)
 	return returns
@@ -646,6 +704,17 @@ func (j *jsiiProxy_CfnServerlessCache)SetDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnServerlessCache)SetEndpoint(val interface{}) {
+	if err := j.validateSetEndpointParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"endpoint",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnServerlessCache)SetEngine(val *string) {
 	if err := j.validateSetEngineParameters(val); err != nil {
 		panic(err)
@@ -677,6 +746,17 @@ func (j *jsiiProxy_CfnServerlessCache)SetMajorEngineVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"majorEngineVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServerlessCache)SetReaderEndpoint(val interface{}) {
+	if err := j.validateSetReaderEndpointParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"readerEndpoint",
 		val,
 	)
 }

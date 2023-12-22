@@ -68,6 +68,10 @@ type CallApiGatewayRestApiEndpoint interface {
 	Node() constructs.Node
 	OutputPath() *string
 	Parameters() *map[string]interface{}
+	Processor() awsstepfunctions.StateGraph
+	SetProcessor(val awsstepfunctions.StateGraph)
+	ProcessorConfig() *awsstepfunctions.ProcessorConfig
+	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	StageName() *string
@@ -87,6 +91,8 @@ type CallApiGatewayRestApiEndpoint interface {
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions)
+	// Add a item processor to this state.
+	AddItemProcessor(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig)
 	// Add a map iterator to this state.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -154,6 +160,8 @@ type CallApiGatewayRestApiEndpoint interface {
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
 	RenderInputOutput() interface{}
+	// Render ItemProcessor in ASL JSON format.
+	RenderItemProcessor() interface{}
 	// Render map iterator in ASL JSON format.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
@@ -299,6 +307,26 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Parameters() *map[string]inter
 	return returns
 }
 
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Processor() awsstepfunctions.StateGraph {
+	var returns awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ProcessorConfig() *awsstepfunctions.ProcessorConfig {
+	var returns *awsstepfunctions.ProcessorConfig
+	_jsii_.Get(
+		j,
+		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -419,6 +447,25 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint)SetIteration(val awsstepfunctio
 	_jsii_.Set(
 		j,
 		"iteration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint)SetProcessor(val awsstepfunctions.StateGraph) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint)SetProcessorConfig(val *awsstepfunctions.ProcessorConfig) {
+	if err := j.validateSetProcessorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"processorConfig",
 		val,
 	)
 }
@@ -566,6 +613,17 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddChoice(condition awsstepfun
 		c,
 		"addChoice",
 		[]interface{}{condition, next, options},
+	)
+}
+
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) AddItemProcessor(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) {
+	if err := c.validateAddItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addItemProcessor",
+		[]interface{}{processor, config},
 	)
 }
 
@@ -861,6 +919,19 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderInputOutput() interface{
 	_jsii_.Invoke(
 		c,
 		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderItemProcessor() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderItemProcessor",
 		nil, // no parameters
 		&returns,
 	)

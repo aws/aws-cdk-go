@@ -1,7 +1,7 @@
 package awsdms
 
 
-// It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject.
+// Information about a data provider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,18 +19,22 @@ package awsdms
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-dataproviderdescriptor.html
 //
 type CfnMigrationProject_DataProviderDescriptorProperty struct {
+	// The Amazon Resource Name (ARN) of the data provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-dataproviderdescriptor.html#cfn-dms-migrationproject-dataproviderdescriptor-dataproviderarn
 	//
 	DataProviderArn *string `field:"optional" json:"dataProviderArn" yaml:"dataProviderArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-dataproviderdescriptor.html#cfn-dms-migrationproject-dataproviderdescriptor-dataprovideridentifier
 	//
 	DataProviderIdentifier *string `field:"optional" json:"dataProviderIdentifier" yaml:"dataProviderIdentifier"`
+	// The user-friendly name of the data provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-dataproviderdescriptor.html#cfn-dms-migrationproject-dataproviderdescriptor-dataprovidername
 	//
 	DataProviderName *string `field:"optional" json:"dataProviderName" yaml:"dataProviderName"`
+	// The ARN of the role used to access AWS Secrets Manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-dataproviderdescriptor.html#cfn-dms-migrationproject-dataproviderdescriptor-secretsmanageraccessrolearn
 	//
 	SecretsManagerAccessRoleArn *string `field:"optional" json:"secretsManagerAccessRoleArn" yaml:"secretsManagerAccessRoleArn"`
+	// The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-dataproviderdescriptor.html#cfn-dms-migrationproject-dataproviderdescriptor-secretsmanagersecretid
 	//
 	SecretsManagerSecretId *string `field:"optional" json:"secretsManagerSecretId" yaml:"secretsManagerSecretId"`

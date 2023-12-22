@@ -19,13 +19,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnEnvironmentEC2 := awscdk.Aws_cloud9.NewCfnEnvironmentEC2(this, jsii.String("MyCfnEnvironmentEC2"), &CfnEnvironmentEC2Props{
+//   	ImageId: jsii.String("imageId"),
 //   	InstanceType: jsii.String("instanceType"),
 //
 //   	// the properties below are optional
 //   	AutomaticStopTimeMinutes: jsii.Number(123),
 //   	ConnectionType: jsii.String("connectionType"),
 //   	Description: jsii.String("description"),
-//   	ImageId: jsii.String("imageId"),
 //   	Name: jsii.String("name"),
 //   	OwnerArn: jsii.String("ownerArn"),
 //   	Repositories: []interface{}{
@@ -556,6 +556,9 @@ func (j *jsiiProxy_CfnEnvironmentEC2)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnEnvironmentEC2)SetImageId(val *string) {
+	if err := j.validateSetImageIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"imageId",

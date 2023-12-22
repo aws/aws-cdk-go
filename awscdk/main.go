@@ -1608,9 +1608,34 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CustomResourceProvider{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_CustomResourceProviderBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.CustomResourceProviderBase",
+		reflect.TypeOf((*CustomResourceProviderBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "codeHash", GoGetter: "CodeHash"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceToken", GoGetter: "ServiceToken"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CustomResourceProviderBase{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CustomResourceProviderBaseProps",
+		reflect.TypeOf((*CustomResourceProviderBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CustomResourceProviderOptions",
+		reflect.TypeOf((*CustomResourceProviderOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CustomResourceProviderProps",

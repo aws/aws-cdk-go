@@ -16,6 +16,10 @@ func (d *jsiiProxy_DynamoGetItem) validateAddChoiceParameters(condition awsstepf
 	return nil
 }
 
+func (d *jsiiProxy_DynamoGetItem) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (d *jsiiProxy_DynamoGetItem) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateDynamoGetItem_IsConstructParameters(x interface{}) error {
 }
 
 func validateDynamoGetItem_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_DynamoGetItem) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

@@ -90,6 +90,10 @@ type ExternalServiceProps struct {
 	// Default: - CloudFormation-generated name.
 	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
+	// Revision number for the task definition or `latest` to use the latest active task revision.
+	// Default: - Uses the revision of the passed task definition deployed by CloudFormation.
+	//
+	TaskDefinitionRevision TaskDefinitionRevision `field:"optional" json:"taskDefinitionRevision" yaml:"taskDefinitionRevision"`
 	// The task definition to use for tasks in the service.
 	//
 	// [disable-awslint:ref-via-interface].

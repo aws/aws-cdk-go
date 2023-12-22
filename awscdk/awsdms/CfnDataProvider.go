@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::DMS::DataProvider.
+// Provides information that defines a data provider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,9 +46,9 @@ import (
 type CfnDataProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The data provider ARN.
+	// The Amazon Resource Name (ARN) string that uniquely identifies the data provider.
 	AttrDataProviderArn() *string
-	// The data provider creation time.
+	// The time the data provider was created.
 	AttrDataProviderCreationTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -59,16 +59,16 @@ type CfnDataProvider interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The property describes an identifier for the data provider.
+	// The identifier of the data provider.
 	DataProviderIdentifier() *string
 	SetDataProviderIdentifier(val *string)
-	// The property describes a name to identify the data provider.
+	// The name of the data provider.
 	DataProviderName() *string
 	SetDataProviderName(val *string)
-	// The optional description of the data provider.
+	// A description of the data provider.
 	Description() *string
 	SetDescription(val *string)
-	// The property describes a data engine for the data provider.
+	// The type of database engine for the data provider.
 	Engine() *string
 	SetEngine(val *string)
 	// The property describes the exact settings which can be modified.
@@ -91,6 +91,7 @@ type CfnDataProvider interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The settings in JSON format for a data provider.
 	Settings() interface{}
 	SetSettings(val interface{})
 	// The stack in which this element is defined.

@@ -97,7 +97,7 @@ import (
 type CfnScalingPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// ARN is a read only property for the resource.
+	// Returns the ARN of a scaling policy.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

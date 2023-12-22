@@ -16,6 +16,10 @@ func (e *jsiiProxy_EventBridgePutEvents) validateAddChoiceParameters(condition a
 	return nil
 }
 
+func (e *jsiiProxy_EventBridgePutEvents) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EventBridgePutEvents) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEventBridgePutEvents_IsConstructParameters(x interface{}) error {
 }
 
 func validateEventBridgePutEvents_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EventBridgePutEvents) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

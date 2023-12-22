@@ -161,6 +161,9 @@ type CfnServer interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Specifies whether or not performance for your Amazon S3 directories is optimized.
+	//
+	// This is disabled by default.
 	S3StorageOptions() interface{}
 	SetS3StorageOptions(val interface{})
 	// Specifies the name of the security policy that is attached to the server.

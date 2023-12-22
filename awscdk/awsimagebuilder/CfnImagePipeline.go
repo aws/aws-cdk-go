@@ -27,6 +27,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	DistributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	EnhancedImageMetadataEnabled: jsii.Boolean(false),
+//   	ExecutionRole: jsii.String("executionRole"),
 //   	ImageRecipeArn: jsii.String("imageRecipeArn"),
 //   	ImageScanningConfiguration: &ImageScanningConfigurationProperty{
 //   		EcrConfiguration: &EcrConfigurationProperty{
@@ -48,6 +49,21 @@ import (
 //   	Status: jsii.String("status"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	Workflows: []interface{}{
+//   		&WorkflowConfigurationProperty{
+//   			OnFailure: jsii.String("onFailure"),
+//   			ParallelGroup: jsii.String("parallelGroup"),
+//   			Parameters: []interface{}{
+//   				&WorkflowParameterProperty{
+//   					Name: jsii.String("name"),
+//   					Value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			WorkflowArn: jsii.String("workflowArn"),
+//   		},
 //   	},
 //   })
 //
@@ -84,6 +100,9 @@ type CfnImagePipeline interface {
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
+	// The execution role name/ARN for the image build, if provided.
+	ExecutionRole() *string
+	SetExecutionRole(val *string)
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
@@ -144,6 +163,9 @@ type CfnImagePipeline interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Workflows to define the image build process.
+	Workflows() interface{}
+	SetWorkflows(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -378,6 +400,16 @@ func (j *jsiiProxy_CfnImagePipeline) EnhancedImageMetadataEnabled() interface{} 
 	return returns
 }
 
+func (j *jsiiProxy_CfnImagePipeline) ExecutionRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionRole",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImagePipeline) ImageRecipeArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -528,6 +560,16 @@ func (j *jsiiProxy_CfnImagePipeline) UpdatedProperties() *map[string]interface{}
 	return returns
 }
 
+func (j *jsiiProxy_CfnImagePipeline) Workflows() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"workflows",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnImagePipeline(scope constructs.Construct, id *string, props *CfnImagePipelineProps) CfnImagePipeline {
 	_init_.Initialize()
@@ -587,6 +629,14 @@ func (j *jsiiProxy_CfnImagePipeline)SetEnhancedImageMetadataEnabled(val interfac
 	_jsii_.Set(
 		j,
 		"enhancedImageMetadataEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImagePipeline)SetExecutionRole(val *string) {
+	_jsii_.Set(
+		j,
+		"executionRole",
 		val,
 	)
 }
@@ -666,6 +716,17 @@ func (j *jsiiProxy_CfnImagePipeline)SetTagsRaw(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImagePipeline)SetWorkflows(val interface{}) {
+	if err := j.validateSetWorkflowsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"workflows",
 		val,
 	)
 }

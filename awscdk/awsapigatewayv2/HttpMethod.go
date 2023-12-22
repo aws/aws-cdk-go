@@ -6,9 +6,11 @@ package awsapigatewayv2
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var booksDefaultFn function
+//   var bookStoreDefaultFn function
 //
-//   booksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+//
+//   getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
+//   bookStoreDefaultIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), bookStoreDefaultFn)
 //
 //   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
@@ -17,7 +19,14 @@ package awsapigatewayv2
 //   	Methods: []httpMethod{
 //   		apigwv2.*httpMethod_GET,
 //   	},
-//   	Integration: booksIntegration,
+//   	Integration: getBooksIntegration,
+//   })
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/books"),
+//   	Methods: []*httpMethod{
+//   		apigwv2.*httpMethod_ANY,
+//   	},
+//   	Integration: bookStoreDefaultIntegration,
 //   })
 //
 type HttpMethod string

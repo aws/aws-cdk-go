@@ -53,25 +53,19 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html
 //
 type CfnMigrationProjectProps struct {
-	// The optional description of the migration project.
+	// A user-friendly description of the migration project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The property describes an instance profile arn for the migration project.
-	//
-	// For read.
+	// The Amazon Resource Name (ARN) of the instance profile for your migration project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-instanceprofilearn
 	//
 	InstanceProfileArn *string `field:"optional" json:"instanceProfileArn" yaml:"instanceProfileArn"`
-	// The property describes an instance profile identifier for the migration project.
-	//
-	// For create.
+	// The identifier of the instance profile for your migration project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-instanceprofileidentifier
 	//
 	InstanceProfileIdentifier *string `field:"optional" json:"instanceProfileIdentifier" yaml:"instanceProfileIdentifier"`
-	// The property describes an instance profile name for the migration project.
-	//
-	// For read.
+	// The name of the associated instance profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-instanceprofilename
 	//
 	InstanceProfileName *string `field:"optional" json:"instanceProfileName" yaml:"instanceProfileName"`
@@ -80,21 +74,21 @@ type CfnMigrationProjectProps struct {
 	//
 	// Deprecated: this property has been deprecated.
 	MigrationProjectCreationTime *string `field:"optional" json:"migrationProjectCreationTime" yaml:"migrationProjectCreationTime"`
-	// The property describes an identifier for the migration project.
+	// The identifier of the migration project.
 	//
-	// It is used for describing/deleting/modifying can be name/arn.
+	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-migrationprojectidentifier
 	//
 	MigrationProjectIdentifier *string `field:"optional" json:"migrationProjectIdentifier" yaml:"migrationProjectIdentifier"`
-	// The property describes a name to identify the migration project.
+	// The name of the migration project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-migrationprojectname
 	//
 	MigrationProjectName *string `field:"optional" json:"migrationProjectName" yaml:"migrationProjectName"`
-	// The property describes schema conversion application attributes for the migration project.
+	// The schema conversion application attributes, including the Amazon S3 bucket name and Amazon S3 role ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-schemaconversionapplicationattributes
 	//
 	SchemaConversionApplicationAttributes interface{} `field:"optional" json:"schemaConversionApplicationAttributes" yaml:"schemaConversionApplicationAttributes"`
-	// The property describes source data provider descriptors for the migration project.
+	// Information about the source data provider, including the name or ARN, and AWS Secrets Manager parameters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-sourcedataproviderdescriptors
 	//
 	SourceDataProviderDescriptors interface{} `field:"optional" json:"sourceDataProviderDescriptors" yaml:"sourceDataProviderDescriptors"`
@@ -102,11 +96,13 @@ type CfnMigrationProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The property describes target data provider descriptors for the migration project.
+	// Information about the target data provider, including the name or ARN, and AWS Secrets Manager parameters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-targetdataproviderdescriptors
 	//
 	TargetDataProviderDescriptors interface{} `field:"optional" json:"targetDataProviderDescriptors" yaml:"targetDataProviderDescriptors"`
-	// The property describes transformation rules for the migration project.
+	// The settings in JSON format for migration rules.
+	//
+	// Migration rules make it possible for you to change the object names according to the rules that you specify. For example, you can change an object name to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-transformationrules
 	//
 	TransformationRules *string `field:"optional" json:"transformationRules" yaml:"transformationRules"`

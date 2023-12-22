@@ -18,6 +18,18 @@ func (c *jsiiProxy_CustomState) validateAddBranchParameters(branch StateGraph) e
 	return nil
 }
 
+func (c *jsiiProxy_CustomState) validateAddCatchParameters(handler IChainable, props *CatchProps) error {
+	if handler == nil {
+		return fmt.Errorf("parameter handler is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CustomState) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
 	if condition == nil {
 		return fmt.Errorf("parameter condition is required, but nil was provided")
@@ -28,6 +40,18 @@ func (c *jsiiProxy_CustomState) validateAddChoiceParameters(condition Condition,
 	}
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CustomState) validateAddItemProcessorParameters(processor StateGraph, config *ProcessorConfig) error {
+	if processor == nil {
+		return fmt.Errorf("parameter processor is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
 		return err
 	}
 
@@ -137,6 +161,14 @@ func validateCustomState_PrefixStatesParameters(root constructs.IConstruct, pref
 
 	if prefix == nil {
 		return fmt.Errorf("parameter prefix is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CustomState) validateSetProcessorConfigParameters(val *ProcessorConfig) error {
+	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+		return err
 	}
 
 	return nil

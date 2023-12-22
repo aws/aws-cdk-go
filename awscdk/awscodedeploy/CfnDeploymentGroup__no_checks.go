@@ -136,6 +136,10 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetTagsRawParameters(val *[]*awsc
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeploymentGroup) validateSetTerminationHookEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetTriggerConfigurationsParameters(val interface{}) error {
 	return nil
 }

@@ -83,15 +83,16 @@ type CfnStudio interface {
 	// A detailed description of the Amazon EMR Studio.
 	Description() *string
 	SetDescription(val *string)
+	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
 	// The ID of the Amazon EMR Studio Engine security group.
 	EngineSecurityGroupId() *string
 	SetEngineSecurityGroupId(val *string)
-	// The ARN of the IAM Identity Center instance to create the Studio application.
+	// The ARN of the IAM Identity Center instance the Studio application belongs to.
 	IdcInstanceArn() *string
 	SetIdcInstanceArn(val *string)
-	// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL.
+	// Indicates whether the Studio has `REQUIRED` or `OPTIONAL` IAM Identity Center user assignment.
 	IdcUserAssignment() *string
 	SetIdcUserAssignment(val *string)
 	// Your identity provider's authentication endpoint.
@@ -135,7 +136,7 @@ type CfnStudio interface {
 	// An array of key-value pairs to apply to this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// A Boolean indicating whether to enable Trusted identity propagation for the Studio.
+	// Indicates whether the Studio has Trusted identity propagation enabled.
 	TrustedIdentityPropagationEnabled() interface{}
 	SetTrustedIdentityPropagationEnabled(val interface{})
 	// Deprecated.

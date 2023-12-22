@@ -46,7 +46,7 @@ type CfnComponentProps struct {
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// The change description of the component.
 	//
-	// Describes what change has been made in this version, or what makes this version different from other versions of this component.
+	// Describes what change has been made in this version, or what makes this version different from other versions of the component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
 	//
 	ChangeDescription *string `field:"optional" json:"changeDescription" yaml:"changeDescription"`

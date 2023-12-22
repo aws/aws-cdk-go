@@ -32,7 +32,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configurations", GoGetter: "Configurations"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customAmiId", GoGetter: "CustomAmiId"},
+			_jsii_.MemberProperty{JsiiProperty: "ebsRootVolumeIops", GoGetter: "EbsRootVolumeIops"},
 			_jsii_.MemberProperty{JsiiProperty: "ebsRootVolumeSize", GoGetter: "EbsRootVolumeSize"},
+			_jsii_.MemberProperty{JsiiProperty: "ebsRootVolumeThroughput", GoGetter: "EbsRootVolumeThroughput"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -49,6 +51,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "osReleaseLabel", GoGetter: "OsReleaseLabel"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "placementGroupConfigs", GoGetter: "PlacementGroupConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "releaseLabel", GoGetter: "ReleaseLabel"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -156,6 +159,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.OnDemandProvisioningSpecificationProperty",
 		reflect.TypeOf((*CfnCluster_OnDemandProvisioningSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.PlacementGroupConfigProperty",
+		reflect.TypeOf((*CfnCluster_PlacementGroupConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.PlacementTypeProperty",

@@ -254,6 +254,10 @@ cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions
 })
 ```
 
+> **NOTE:** If you add instances with the inferentia (`inf1` or `inf2`) class the
+> [neuron plugin](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/dlc-then-eks-devflow.html)
+> will be automatically installed in the kubernetes cluster.
+
 #### Node Groups with IPv6 Support
 
 Node groups are available with IPv6 configured networks.  For custom roles assigned to node groups additional permissions are necessary in order for pods to obtain an IPv6 address.  The default node role will include these permissions.
@@ -668,6 +672,9 @@ eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 	},
 })
 ```
+
+The `albController` requires `defaultCapacity` or at least one nodegroup. If there's no `defaultCapacity` or available
+nodegroup for the cluster, the `albController` deployment would fail.
 
 Querying the controller pods should look something like this:
 

@@ -197,6 +197,7 @@ type CfnDomain interface {
 	// The version of OpenSearch to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	// The type of IP addresses supported by the endpoint for the domain.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.

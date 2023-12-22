@@ -44,6 +44,10 @@ type BatchSubmitJob interface {
 	Node() constructs.Node
 	OutputPath() *string
 	Parameters() *map[string]interface{}
+	Processor() awsstepfunctions.StateGraph
+	SetProcessor(val awsstepfunctions.StateGraph)
+	ProcessorConfig() *awsstepfunctions.ProcessorConfig
+	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -62,6 +66,8 @@ type BatchSubmitJob interface {
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions)
+	// Add a item processor to this state.
+	AddItemProcessor(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig)
 	// Add a map iterator to this state.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -128,6 +134,8 @@ type BatchSubmitJob interface {
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
 	RenderInputOutput() interface{}
+	// Render ItemProcessor in ASL JSON format.
+	RenderItemProcessor() interface{}
 	// Render map iterator in ASL JSON format.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
@@ -253,6 +261,26 @@ func (j *jsiiProxy_BatchSubmitJob) Parameters() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_BatchSubmitJob) Processor() awsstepfunctions.StateGraph {
+	var returns awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BatchSubmitJob) ProcessorConfig() *awsstepfunctions.ProcessorConfig {
+	var returns *awsstepfunctions.ProcessorConfig
+	_jsii_.Get(
+		j,
+		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_BatchSubmitJob) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -363,6 +391,25 @@ func (j *jsiiProxy_BatchSubmitJob)SetIteration(val awsstepfunctions.StateGraph) 
 	_jsii_.Set(
 		j,
 		"iteration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_BatchSubmitJob)SetProcessor(val awsstepfunctions.StateGraph) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_BatchSubmitJob)SetProcessorConfig(val *awsstepfunctions.ProcessorConfig) {
+	if err := j.validateSetProcessorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"processorConfig",
 		val,
 	)
 }
@@ -510,6 +557,17 @@ func (b *jsiiProxy_BatchSubmitJob) AddChoice(condition awsstepfunctions.Conditio
 		b,
 		"addChoice",
 		[]interface{}{condition, next, options},
+	)
+}
+
+func (b *jsiiProxy_BatchSubmitJob) AddItemProcessor(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) {
+	if err := b.validateAddItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"addItemProcessor",
+		[]interface{}{processor, config},
 	)
 }
 
@@ -792,6 +850,19 @@ func (b *jsiiProxy_BatchSubmitJob) RenderInputOutput() interface{} {
 	_jsii_.Invoke(
 		b,
 		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BatchSubmitJob) RenderItemProcessor() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"renderItemProcessor",
 		nil, // no parameters
 		&returns,
 	)

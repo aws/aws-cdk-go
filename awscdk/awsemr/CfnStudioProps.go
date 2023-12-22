@@ -87,16 +87,17 @@ type CfnStudioProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-encryptionkeyarn
 	//
 	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
-	// The ARN of the IAM Identity Center instance to create the Studio application.
+	// The ARN of the IAM Identity Center instance the Studio application belongs to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idcinstancearn
 	//
 	IdcInstanceArn *string `field:"optional" json:"idcInstanceArn" yaml:"idcInstanceArn"`
-	// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL.
+	// Indicates whether the Studio has `REQUIRED` or `OPTIONAL` IAM Identity Center user assignment.
 	//
-	// If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+	// If the value is set to `REQUIRED` , users must be explicitly assigned to the Studio application to access the Studio.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-idcuserassignment
 	//
 	IdcUserAssignment *string `field:"optional" json:"idcUserAssignment" yaml:"idcUserAssignment"`
@@ -116,9 +117,9 @@ type CfnStudioProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// A Boolean indicating whether to enable Trusted identity propagation for the Studio.
+	// Indicates whether the Studio has Trusted identity propagation enabled.
 	//
-	// The default value is false.
+	// The default value is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-trustedidentitypropagationenabled
 	//
 	TrustedIdentityPropagationEnabled interface{} `field:"optional" json:"trustedIdentityPropagationEnabled" yaml:"trustedIdentityPropagationEnabled"`

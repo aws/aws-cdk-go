@@ -16,6 +16,10 @@ func (s *jsiiProxy_SqsSendMessage) validateAddChoiceParameters(condition awsstep
 	return nil
 }
 
+func (s *jsiiProxy_SqsSendMessage) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (s *jsiiProxy_SqsSendMessage) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateSqsSendMessage_IsConstructParameters(x interface{}) error {
 }
 
 func validateSqsSendMessage_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_SqsSendMessage) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

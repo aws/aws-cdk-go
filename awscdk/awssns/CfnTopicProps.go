@@ -76,7 +76,15 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-dataprotectionpolicy
 	//
 	DataProtectionPolicy interface{} `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
-	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	// The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:.
+	//
+	// - HTTP
+	// - Amazon Kinesis Data Firehose
+	// - AWS Lambda
+	// - Platform application endpoint
+	// - Amazon Simple Queue Service
+	//
+	// Once configured, log entries are sent to Amazon CloudWatch Logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-deliverystatuslogging
 	//
 	DeliveryStatusLogging interface{} `field:"optional" json:"deliveryStatusLogging" yaml:"deliveryStatusLogging"`

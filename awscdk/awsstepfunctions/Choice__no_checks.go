@@ -12,6 +12,10 @@ func (c *jsiiProxy_Choice) validateAddChoiceParameters(condition Condition, next
 	return nil
 }
 
+func (c *jsiiProxy_Choice) validateAddItemProcessorParameters(processor StateGraph, config *ProcessorConfig) error {
+	return nil
+}
+
 func (c *jsiiProxy_Choice) validateAddIteratorParameters(iteration StateGraph) error {
 	return nil
 }
@@ -65,6 +69,10 @@ func validateChoice_IsConstructParameters(x interface{}) error {
 }
 
 func validateChoice_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_Choice) validateSetProcessorConfigParameters(val *ProcessorConfig) error {
 	return nil
 }
 

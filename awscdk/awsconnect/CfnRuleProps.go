@@ -12,11 +12,32 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assignContactCategoryActions interface{}
+//   var emptyValue interface{}
+//   var endAssociatedTaskActions interface{}
 //
 //   cfnRuleProps := &CfnRuleProps{
 //   	Actions: &ActionsProperty{
 //   		AssignContactCategoryActions: []interface{}{
 //   			assignContactCategoryActions,
+//   		},
+//   		CreateCaseActions: []interface{}{
+//   			&CreateCaseActionProperty{
+//   				Fields: []interface{}{
+//   					&FieldProperty{
+//   						Id: jsii.String("id"),
+//   						Value: &FieldValueProperty{
+//   							BooleanValue: jsii.Boolean(false),
+//   							DoubleValue: jsii.Number(123),
+//   							EmptyValue: emptyValue,
+//   							StringValue: jsii.String("stringValue"),
+//   						},
+//   					},
+//   				},
+//   				TemplateId: jsii.String("templateId"),
+//   			},
+//   		},
+//   		EndAssociatedTaskActions: []interface{}{
+//   			endAssociatedTaskActions,
 //   		},
 //   		EventBridgeActions: []interface{}{
 //   			&EventBridgeActionProperty{
@@ -52,6 +73,21 @@ import (
 //   					"referencesKey": &ReferenceProperty{
 //   						"type": jsii.String("type"),
 //   						"value": jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		UpdateCaseActions: []interface{}{
+//   			&UpdateCaseActionProperty{
+//   				Fields: []interface{}{
+//   					&FieldProperty{
+//   						Id: jsii.String("id"),
+//   						Value: &FieldValueProperty{
+//   							BooleanValue: jsii.Boolean(false),
+//   							DoubleValue: jsii.Number(123),
+//   							EmptyValue: emptyValue,
+//   							StringValue: jsii.String("stringValue"),
+//   						},
 //   					},
 //   				},
 //   			},

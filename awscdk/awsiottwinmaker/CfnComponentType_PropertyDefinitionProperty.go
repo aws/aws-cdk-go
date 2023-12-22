@@ -80,7 +80,7 @@ type CfnComponentType_PropertyDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-defaultvalue
 	//
 	DefaultValue interface{} `field:"optional" json:"defaultValue" yaml:"defaultValue"`
-	// A Boolean value that specifies whether the property ID comes from an external data store.
+	// A Boolean value that specifies whether the property ID comes from an external data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html#cfn-iottwinmaker-componenttype-propertydefinition-isexternalid
 	//
 	IsExternalId interface{} `field:"optional" json:"isExternalId" yaml:"isExternalId"`

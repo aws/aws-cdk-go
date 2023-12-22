@@ -108,6 +108,7 @@ type CfnDeploymentConfig interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Configure the `ZonalConfig` object if you want AWS CodeDeploy to deploy your application to one [Availability Zone](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones) at a time, within an AWS Region.
 	ZonalConfig() interface{}
 	SetZonalConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

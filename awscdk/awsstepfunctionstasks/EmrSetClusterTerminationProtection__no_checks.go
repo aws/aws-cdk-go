@@ -16,6 +16,10 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateAddChoiceParamete
 	return nil
 }
 
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrSetClusterTerminationProtection) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEmrSetClusterTerminationProtection_IsConstructParameters(x interfac
 }
 
 func validateEmrSetClusterTerminationProtection_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EmrSetClusterTerminationProtection) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

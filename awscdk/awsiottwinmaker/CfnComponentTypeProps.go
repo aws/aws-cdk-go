@@ -119,9 +119,9 @@ type CfnComponentTypeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-workspaceid
 	//
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
-	// An map of the composite component types in the component type.
+	// Maps strings to `compositeComponentTypes` of the `componentType` .
 	//
-	// Each composite component type's key must be unique to this map.
+	// `CompositeComponentType` is referenced by `componentTypeId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html#cfn-iottwinmaker-componenttype-compositecomponenttypes
 	//
 	CompositeComponentTypes interface{} `field:"optional" json:"compositeComponentTypes" yaml:"compositeComponentTypes"`

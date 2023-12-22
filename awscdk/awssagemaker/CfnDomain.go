@@ -44,15 +44,6 @@ import (
 //
 //   		// the properties below are optional
 //   		CodeEditorAppSettings: &CodeEditorAppSettingsProperty{
-//   			CustomImages: []interface{}{
-//   				&CustomImageProperty{
-//   					AppImageConfigName: jsii.String("appImageConfigName"),
-//   					ImageName: jsii.String("imageName"),
-//
-//   					// the properties below are optional
-//   					ImageVersionNumber: jsii.Number(123),
-//   				},
-//   			},
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
@@ -256,6 +247,10 @@ type CfnDomain interface {
 	AttrHomeEfsFileSystemId() *string
 	// The ID of the security group that authorizes traffic between the `RSessionGateway` apps and the `RStudioServerPro` app.
 	AttrSecurityGroupIdForDomainBoundary() *string
+	// The ARN of the application managed by SageMaker in IAM Identity Center.
+	//
+	// This value is only returned for domains created after October 1, 2023.
+	AttrSingleSignOnApplicationArn() *string
 	// The IAM Identity Center managed application instance ID.
 	AttrSingleSignOnManagedApplicationInstanceId() *string
 	// The URL for the Domain.
@@ -521,6 +516,16 @@ func (j *jsiiProxy_CfnDomain) AttrSecurityGroupIdForDomainBoundary() *string {
 	_jsii_.Get(
 		j,
 		"attrSecurityGroupIdForDomainBoundary",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) AttrSingleSignOnApplicationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSingleSignOnApplicationArn",
 		&returns,
 	)
 	return returns

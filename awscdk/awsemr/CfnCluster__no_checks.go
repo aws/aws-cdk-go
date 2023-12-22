@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnCluster) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetPlacementGroupConfigsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetServiceRoleParameters(val *string) error {
 	return nil
 }

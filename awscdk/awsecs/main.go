@@ -2399,6 +2399,16 @@ func init() {
 		"aws-cdk-lib.aws_ecs.TaskDefinitionProps",
 		reflect.TypeOf((*TaskDefinitionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.TaskDefinitionRevision",
+		reflect.TypeOf((*TaskDefinitionRevision)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "revision", GoGetter: "Revision"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TaskDefinitionRevision{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.Tmpfs",
 		reflect.TypeOf((*Tmpfs)(nil)).Elem(),

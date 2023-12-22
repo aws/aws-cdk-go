@@ -15,6 +15,7 @@ package awsgamelift
 //   	AnywhereConfiguration: &AnywhereConfigurationProperty{
 //   		Cost: jsii.String("cost"),
 //   	},
+//   	ApplyCapacity: jsii.String("applyCapacity"),
 //   	BuildId: jsii.String("buildId"),
 //   	CertificateConfiguration: &CertificateConfigurationProperty{
 //   		CertificateType: jsii.String("certificateType"),
@@ -112,6 +113,16 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-anywhereconfiguration
 	//
 	AnywhereConfiguration interface{} `field:"optional" json:"anywhereConfiguration" yaml:"anywhereConfiguration"`
+	// Current resource capacity settings in a specified fleet or location.
+	//
+	// The location value might refer to a fleet's remote location or its home Region.
+	//
+	// *Related actions*
+	//
+	// [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) | [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) | [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-applycapacity
+	//
+	ApplyCapacity *string `field:"optional" json:"applyCapacity" yaml:"applyCapacity"`
 	// A unique identifier for a build to be deployed on the new fleet.
 	//
 	// If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a `READY` status. This fleet setting cannot be changed once the fleet is created.

@@ -649,6 +649,32 @@ service := ecs.NewExternalService(this, jsii.String("Service"), &ExternalService
 `Services` by default will create a security group if not provided.
 If you'd like to specify which security groups to use you can override the `securityGroups` property.
 
+By default, the service will use the revision of the passed task definition generated when the `TaskDefinition`
+is deployed by CloudFormation. However, this may not be desired if the revision is externally managed,
+for example through CodeDeploy.
+
+To set a specific revision number or the special `latest` revision, use the `taskDefinitionRevision` parameter:
+
+```go
+var cluster cluster
+var taskDefinition taskDefinition
+
+
+ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	DesiredCount: jsii.Number(5),
+	TaskDefinitionRevision: ecs.TaskDefinitionRevision_Of(jsii.Number(1)),
+})
+
+ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	DesiredCount: jsii.Number(5),
+	TaskDefinitionRevision: ecs.TaskDefinitionRevision_LATEST(),
+})
+```
+
 ### Deployment circuit breaker and rollback
 
 Amazon ECS [deployment circuit breaker](https://aws.amazon.com/tw/blogs/containers/announcing-amazon-ecs-deployment-circuit-breaker/)
@@ -1212,6 +1238,31 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 	}),
 })
 ```
+
+When forwarding logs to CloudWatch Logs using Fluent Bit, you can set the retention period for the newly created Log Group by specifying the `log_retention_days` parameter.
+If a Fluent Bit container has not been added, CDK will automatically add it to the task definition, and the necessary IAM permissions will be added to the task role.
+If you are adding the Fluent Bit container manually, ensure to add the `logs:PutRetentionPolicy` policy to the task role.
+
+```go
+taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_Firelens(&FireLensLogDriverProps{
+		Options: map[string]*string{
+			"Name": jsii.String("cloudwatch"),
+			"region": jsii.String("us-west-2"),
+			"log_group_name": jsii.String("firelens-fluent-bit"),
+			"log_stream_prefix": jsii.String("from-fluent-bit"),
+			"auto_create_group": jsii.String("true"),
+			"log_retention_days": jsii.String("1"),
+		},
+	}),
+})
+```
+
+> Visit [Fluent Bit CloudWatch Configuration Parameters](https://docs.fluentbit.io/manual/pipeline/outputs/cloudwatch#configuration-parameters)
+> for more details.
 
 ### Generic Log Driver
 

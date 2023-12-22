@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::DMS::MigrationProject.
+// Provides information that defines a migration project.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -60,7 +60,7 @@ import (
 type CfnMigrationProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The property describes an ARN of the migration project.
+	// The ARN string that uniquely identifies the migration project.
 	AttrMigrationProjectArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -71,16 +71,16 @@ type CfnMigrationProject interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The optional description of the migration project.
+	// A user-friendly description of the migration project.
 	Description() *string
 	SetDescription(val *string)
-	// The property describes an instance profile arn for the migration project.
+	// The Amazon Resource Name (ARN) of the instance profile for your migration project.
 	InstanceProfileArn() *string
 	SetInstanceProfileArn(val *string)
-	// The property describes an instance profile identifier for the migration project.
+	// The identifier of the instance profile for your migration project.
 	InstanceProfileIdentifier() *string
 	SetInstanceProfileIdentifier(val *string)
-	// The property describes an instance profile name for the migration project.
+	// The name of the associated instance profile.
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -98,10 +98,10 @@ type CfnMigrationProject interface {
 	MigrationProjectCreationTime() *string
 	// Deprecated: this property has been deprecated.
 	SetMigrationProjectCreationTime(val *string)
-	// The property describes an identifier for the migration project.
+	// The identifier of the migration project.
 	MigrationProjectIdentifier() *string
 	SetMigrationProjectIdentifier(val *string)
-	// The property describes a name to identify the migration project.
+	// The name of the migration project.
 	MigrationProjectName() *string
 	SetMigrationProjectName(val *string)
 	// The tree node.
@@ -111,10 +111,10 @@ type CfnMigrationProject interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The property describes schema conversion application attributes for the migration project.
+	// The schema conversion application attributes, including the Amazon S3 bucket name and Amazon S3 role ARN.
 	SchemaConversionApplicationAttributes() interface{}
 	SetSchemaConversionApplicationAttributes(val interface{})
-	// The property describes source data provider descriptors for the migration project.
+	// Information about the source data provider, including the name or ARN, and AWS Secrets Manager parameters.
 	SourceDataProviderDescriptors() interface{}
 	SetSourceDataProviderDescriptors(val interface{})
 	// The stack in which this element is defined.
@@ -124,10 +124,10 @@ type CfnMigrationProject interface {
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The property describes target data provider descriptors for the migration project.
+	// Information about the target data provider, including the name or ARN, and AWS Secrets Manager parameters.
 	TargetDataProviderDescriptors() interface{}
 	SetTargetDataProviderDescriptors(val interface{})
-	// The property describes transformation rules for the migration project.
+	// The settings in JSON format for migration rules.
 	TransformationRules() *string
 	SetTransformationRules(val *string)
 	// Deprecated.

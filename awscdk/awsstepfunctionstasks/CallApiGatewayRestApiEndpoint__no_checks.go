@@ -16,6 +16,10 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateAddChoiceParameters(co
 	return nil
 }
 
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateCallApiGatewayRestApiEndpoint_IsConstructParameters(x interface{}) 
 }
 
 func validateCallApiGatewayRestApiEndpoint_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

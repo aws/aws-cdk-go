@@ -68,6 +68,9 @@ type EdgeFunctionProps struct {
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
+	//
+	// Do not specify this property if the `securityGroups` or `securityGroup` property is set.
+	// Instead, configure `allowAllOutbound` directly on the security group.
 	// Default: true.
 	//
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`

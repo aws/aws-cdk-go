@@ -1,7 +1,7 @@
 package awsosis
 
 
-// Key-value pairs to configure encryption at rest.
+// Options to control how OpenSearch encrypts all data-at-rest.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +15,9 @@ package awsosis
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-encryptionatrestoptions.html
 //
 type CfnPipeline_EncryptionAtRestOptionsProperty struct {
-	// The KMS key to use for encrypting data.
+	// The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion.
 	//
-	// By default an AWS owned key is used.
+	// By default, data is encrypted using an AWS owned key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-encryptionatrestoptions.html#cfn-osis-pipeline-encryptionatrestoptions-kmskeyarn
 	//
 	KmsKeyArn *string `field:"required" json:"kmsKeyArn" yaml:"kmsKeyArn"`

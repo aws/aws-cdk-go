@@ -16,6 +16,10 @@ func (e *jsiiProxy_EcsRunTask) validateAddChoiceParameters(condition awsstepfunc
 	return nil
 }
 
+func (e *jsiiProxy_EcsRunTask) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EcsRunTask) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEcsRunTask_IsConstructParameters(x interface{}) error {
 }
 
 func validateEcsRunTask_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EcsRunTask) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

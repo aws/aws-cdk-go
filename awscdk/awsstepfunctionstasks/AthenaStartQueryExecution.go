@@ -53,6 +53,10 @@ type AthenaStartQueryExecution interface {
 	Node() constructs.Node
 	OutputPath() *string
 	Parameters() *map[string]interface{}
+	Processor() awsstepfunctions.StateGraph
+	SetProcessor(val awsstepfunctions.StateGraph)
+	ProcessorConfig() *awsstepfunctions.ProcessorConfig
+	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -71,6 +75,8 @@ type AthenaStartQueryExecution interface {
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions)
+	// Add a item processor to this state.
+	AddItemProcessor(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig)
 	// Add a map iterator to this state.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -137,6 +143,8 @@ type AthenaStartQueryExecution interface {
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
 	RenderInputOutput() interface{}
+	// Render ItemProcessor in ASL JSON format.
+	RenderItemProcessor() interface{}
 	// Render map iterator in ASL JSON format.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
@@ -262,6 +270,26 @@ func (j *jsiiProxy_AthenaStartQueryExecution) Parameters() *map[string]interface
 	return returns
 }
 
+func (j *jsiiProxy_AthenaStartQueryExecution) Processor() awsstepfunctions.StateGraph {
+	var returns awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution) ProcessorConfig() *awsstepfunctions.ProcessorConfig {
+	var returns *awsstepfunctions.ProcessorConfig
+	_jsii_.Get(
+		j,
+		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_AthenaStartQueryExecution) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -372,6 +400,25 @@ func (j *jsiiProxy_AthenaStartQueryExecution)SetIteration(val awsstepfunctions.S
 	_jsii_.Set(
 		j,
 		"iteration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution)SetProcessor(val awsstepfunctions.StateGraph) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution)SetProcessorConfig(val *awsstepfunctions.ProcessorConfig) {
+	if err := j.validateSetProcessorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"processorConfig",
 		val,
 	)
 }
@@ -519,6 +566,17 @@ func (a *jsiiProxy_AthenaStartQueryExecution) AddChoice(condition awsstepfunctio
 		a,
 		"addChoice",
 		[]interface{}{condition, next, options},
+	)
+}
+
+func (a *jsiiProxy_AthenaStartQueryExecution) AddItemProcessor(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) {
+	if err := a.validateAddItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"addItemProcessor",
+		[]interface{}{processor, config},
 	)
 }
 
@@ -801,6 +859,19 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderInputOutput() interface{} {
 	_jsii_.Invoke(
 		a,
 		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AthenaStartQueryExecution) RenderItemProcessor() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderItemProcessor",
 		nil, // no parameters
 		&returns,
 	)

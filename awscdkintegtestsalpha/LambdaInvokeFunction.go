@@ -10,7 +10,7 @@ import (
 
 // An AWS Lambda Invoke function API call.
 //
-// Use this istead of the generic AwsApiCall in order to
+// Use this instead of the generic AwsApiCall in order to
 // invoke a lambda function. This will automatically create
 // the correct permissions to invoke the function.
 //

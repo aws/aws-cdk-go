@@ -184,6 +184,20 @@ repository.AddLifecycleRule(&LifecycleRule{
 })
 ```
 
+When using `tagPatternList`, an image is successfully matched if it matches
+the wildcard filter.
+
+```go
+var repository repository
+
+repository.AddLifecycleRule(&LifecycleRule{
+	TagPatternList: []*string{
+		jsii.String("prod*"),
+	},
+	MaxImageCount: jsii.Number(9999),
+})
+```
+
 ### Repository deletion
 
 When a repository is removed from a stack (or the stack is deleted), the ECR
@@ -193,12 +207,13 @@ policy is set to `RemovalPolicy.DESTROY`, the repository will be deleted as long
 as it does not contain any images.
 
 To override this and force all images to get deleted during repository deletion,
-enable the`autoDeleteImages` option.
+enable the `emptyOnDelete` option as well as setting the removal policy to
+`RemovalPolicy.DESTROY`.
 
 ```go
 repository := ecr.NewRepository(this, jsii.String("MyTempRepo"), &RepositoryProps{
 	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
-	AutoDeleteImages: jsii.Boolean(true),
+	EmptyOnDelete: jsii.Boolean(true),
 })
 ```
 

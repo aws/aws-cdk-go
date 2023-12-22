@@ -1844,6 +1844,70 @@ instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 })
 ```
 
+### Specifying a key pair
+
+To allow SSH access to an EC2 instance by default, a Key Pair must be specified. Key pairs can
+be provided with the `keyPair` property to instances and launch templates. You can create a
+key pair for an instance like this:
+
+```go
+var vpc vpc
+var instanceType instanceType
+
+
+keyPair := ec2.NewKeyPair(this, jsii.String("KeyPair"), &KeyPairProps{
+	Type: ec2.KeyPairType_ED25519,
+	Format: ec2.KeyPairFormat_PEM,
+})
+instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+	// Use the custom key pair
+	KeyPair: KeyPair,
+})
+```
+
+When a new EC2 Key Pair is created (without imported material), the private key material is
+automatically stored in Systems Manager Parameter Store. This can be retrieved from the key pair
+construct:
+
+```go
+keyPair := ec2.NewKeyPair(this, jsii.String("KeyPair"))
+privateKey := keyPair.privateKey
+```
+
+If you already have an SSH key that you wish to use in EC2, that can be provided when constructing the
+`KeyPair`. If public key material is provided, the key pair is considered "imported" and there
+will not be any data automatically stored in Systems Manager Parameter Store and the `type` property
+cannot be specified for the key pair.
+
+```go
+keyPair := ec2.NewKeyPair(this, jsii.String("KeyPair"), &KeyPairProps{
+	PublicKeyMaterial: jsii.String("ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB7jpNzG+YG0s+xIGWbxrxIZiiozHOEuzIJacvASP0mq"),
+})
+```
+
+#### Using an existing EC2 Key Pair
+
+If you already have an EC2 Key Pair created outside of the CDK, you can import that key to
+your CDK stack.
+
+You can import it purely by name:
+
+```go
+keyPair := ec2.KeyPair_FromKeyPairName(this, jsii.String("KeyPair"), jsii.String("the-keypair-name"))
+```
+
+Or by specifying additional attributes:
+
+```go
+keyPair := ec2.KeyPair_FromKeyPairAttributes(this, jsii.String("KeyPair"), &KeyPairAttributes{
+	KeyPairName: jsii.String("the-keypair-name"),
+	Type: ec2.KeyPairType_RSA,
+})
+```
+
 ## VPC Flow Logs
 
 VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data can be published to Amazon CloudWatch Logs and Amazon S3. After you've created a flow log, you can retrieve and view its data in the chosen destination. ([https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)).

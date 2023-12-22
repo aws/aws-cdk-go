@@ -35,6 +35,10 @@ type CfnFeatureGroup_OnlineStoreConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-securityconfig
 	//
 	SecurityConfig interface{} `field:"optional" json:"securityConfig" yaml:"securityConfig"`
+	// Option for different tiers of low latency storage for real-time data retrieval.
+	//
+	// - `Standard` : A managed low latency data store for feature groups.
+	// - `InMemory` : A managed data store for feature groups that supports very low latency retrieval.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`

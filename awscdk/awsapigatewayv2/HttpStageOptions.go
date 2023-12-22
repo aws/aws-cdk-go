@@ -4,26 +4,19 @@ package awsapigatewayv2
 // The options to create a new Stage for an HTTP API.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var api httpApi
+//   var dn domainName
 //
-//   var domainName domainName
 //
-//   httpStageOptions := &HttpStageOptions{
-//   	AutoDeploy: jsii.Boolean(false),
+//   api.AddStage(jsii.String("beta"), &HttpStageOptions{
+//   	StageName: jsii.String("beta"),
+//   	AutoDeploy: jsii.Boolean(true),
+//   	// https://${dn.domainName}/bar goes to the beta stage
 //   	DomainMapping: &DomainMappingOptions{
-//   		DomainName: domainName,
-//
-//   		// the properties below are optional
-//   		MappingKey: jsii.String("mappingKey"),
+//   		DomainName: dn,
+//   		MappingKey: jsii.String("bar"),
 //   	},
-//   	StageName: jsii.String("stageName"),
-//   	Throttle: &ThrottleSettings{
-//   		BurstLimit: jsii.Number(123),
-//   		RateLimit: jsii.Number(123),
-//   	},
-//   }
+//   })
 //
 type HttpStageOptions struct {
 	// Whether updates to an API automatically trigger a new deployment.

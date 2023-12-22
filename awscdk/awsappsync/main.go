@@ -577,6 +577,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrApiId", GoGetter: "AttrApiId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrGraphQlDns", GoGetter: "AttrGraphQlDns"},
+			_jsii_.MemberProperty{JsiiProperty: "attrGraphQlEndpointArn", GoGetter: "AttrGraphQlEndpointArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrGraphQlUrl", GoGetter: "AttrGraphQlUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRealtimeDns", GoGetter: "AttrRealtimeDns"},

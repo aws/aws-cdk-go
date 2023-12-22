@@ -9,10 +9,31 @@ package awsconnect
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assignContactCategoryActions interface{}
+//   var emptyValue interface{}
+//   var endAssociatedTaskActions interface{}
 //
 //   actionsProperty := &ActionsProperty{
 //   	AssignContactCategoryActions: []interface{}{
 //   		assignContactCategoryActions,
+//   	},
+//   	CreateCaseActions: []interface{}{
+//   		&CreateCaseActionProperty{
+//   			Fields: []interface{}{
+//   				&FieldProperty{
+//   					Id: jsii.String("id"),
+//   					Value: &FieldValueProperty{
+//   						BooleanValue: jsii.Boolean(false),
+//   						DoubleValue: jsii.Number(123),
+//   						EmptyValue: emptyValue,
+//   						StringValue: jsii.String("stringValue"),
+//   					},
+//   				},
+//   			},
+//   			TemplateId: jsii.String("templateId"),
+//   		},
+//   	},
+//   	EndAssociatedTaskActions: []interface{}{
+//   		endAssociatedTaskActions,
 //   	},
 //   	EventBridgeActions: []interface{}{
 //   		&EventBridgeActionProperty{
@@ -52,6 +73,21 @@ package awsconnect
 //   			},
 //   		},
 //   	},
+//   	UpdateCaseActions: []interface{}{
+//   		&UpdateCaseActionProperty{
+//   			Fields: []interface{}{
+//   				&FieldProperty{
+//   					Id: jsii.String("id"),
+//   					Value: &FieldValueProperty{
+//   						BooleanValue: jsii.Boolean(false),
+//   						DoubleValue: jsii.Number(123),
+//   						EmptyValue: emptyValue,
+//   						StringValue: jsii.String("stringValue"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html
@@ -63,6 +99,14 @@ type CfnRule_ActionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-assigncontactcategoryactions
 	//
 	AssignContactCategoryActions interface{} `field:"optional" json:"assignContactCategoryActions" yaml:"assignContactCategoryActions"`
+	// This action will create a case when a rule is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-createcaseactions
+	//
+	CreateCaseActions interface{} `field:"optional" json:"createCaseActions" yaml:"createCaseActions"`
+	// This action will end associated tasks when a rule is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-endassociatedtaskactions
+	//
+	EndAssociatedTaskActions interface{} `field:"optional" json:"endAssociatedTaskActions" yaml:"endAssociatedTaskActions"`
 	// Information about the EventBridge action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-eventbridgeactions
 	//
@@ -77,5 +121,9 @@ type CfnRule_ActionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-taskactions
 	//
 	TaskActions interface{} `field:"optional" json:"taskActions" yaml:"taskActions"`
+	// This action will update a case when a rule is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-updatecaseactions
+	//
+	UpdateCaseActions interface{} `field:"optional" json:"updateCaseActions" yaml:"updateCaseActions"`
 }
 

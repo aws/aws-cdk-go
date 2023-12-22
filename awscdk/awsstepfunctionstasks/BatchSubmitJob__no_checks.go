@@ -16,6 +16,10 @@ func (b *jsiiProxy_BatchSubmitJob) validateAddChoiceParameters(condition awsstep
 	return nil
 }
 
+func (b *jsiiProxy_BatchSubmitJob) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (b *jsiiProxy_BatchSubmitJob) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateBatchSubmitJob_IsConstructParameters(x interface{}) error {
 }
 
 func validateBatchSubmitJob_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_BatchSubmitJob) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

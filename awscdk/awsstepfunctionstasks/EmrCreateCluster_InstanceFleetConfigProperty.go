@@ -55,6 +55,9 @@ package awsstepfunctionstasks
 //   		},
 //   	},
 //   	LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
+//   		OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
+//   			AllocationStrategy: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.OnDemandAllocationStrategy_LOWEST_PRICE,
+//   		},
 //   		SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   			TimeoutAction: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.SpotTimeoutAction_SWITCH_TO_ON_DEMAND,
 //   			TimeoutDurationMinutes: jsii.Number(123),

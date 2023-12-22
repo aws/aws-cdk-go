@@ -23,6 +23,7 @@ import (
 type RotationScheduleOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
 	//
+	// The minimum value is 4 hours.
 	// The maximum value is 1000 days.
 	//
 	// A value of zero (`Duration.days(0)`) will not create RotationRules.

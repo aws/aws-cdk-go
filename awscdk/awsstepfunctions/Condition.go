@@ -27,7 +27,7 @@ import (
 //
 //   definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(finish)
 //
-//   map.Iterator(definition)
+//   map.ItemProcessor(definition)
 //
 type Condition interface {
 	// Render Amazon States Language JSON for the condition.

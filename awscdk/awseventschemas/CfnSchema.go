@@ -38,13 +38,16 @@ type CfnSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	AttrId() *string
+	// The last modified time of the schema.
+	AttrLastModified() *string
 	// The ARN of the schema.
 	AttrSchemaArn() *string
 	// The name of the schema.
 	AttrSchemaName() *string
 	// The version number of the schema.
 	AttrSchemaVersion() *string
+	// The date the schema version was created.
+	AttrVersionCreatedDate() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -242,11 +245,11 @@ type jsiiProxy_CfnSchema struct {
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnSchema) AttrId() *string {
+func (j *jsiiProxy_CfnSchema) AttrLastModified() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrLastModified",
 		&returns,
 	)
 	return returns
@@ -277,6 +280,16 @@ func (j *jsiiProxy_CfnSchema) AttrSchemaVersion() *string {
 	_jsii_.Get(
 		j,
 		"attrSchemaVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSchema) AttrVersionCreatedDate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVersionCreatedDate",
 		&returns,
 	)
 	return returns

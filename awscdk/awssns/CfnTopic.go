@@ -83,7 +83,7 @@ type CfnTopic interface {
 	// The body of the policy document you want to use for this topic.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
-	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	// The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:.
 	DeliveryStatusLogging() interface{}
 	SetDeliveryStatusLogging(val interface{})
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.

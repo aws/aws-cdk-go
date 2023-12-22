@@ -65,6 +65,8 @@ type Topic interface {
 	TopicArn() *string
 	// The name of the topic.
 	TopicName() *string
+	// Adds a delivery status logging configuration to the topic.
+	AddLoggingConfig(config *LoggingConfig)
 	// Subscribe some endpoint to this topic.
 	AddSubscription(topicSubscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
@@ -356,6 +358,17 @@ func Topic_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_Topic) AddLoggingConfig(config *LoggingConfig) {
+	if err := t.validateAddLoggingConfigParameters(config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"addLoggingConfig",
+		[]interface{}{config},
+	)
 }
 
 func (t *jsiiProxy_Topic) AddSubscription(topicSubscription ITopicSubscription) Subscription {

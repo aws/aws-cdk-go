@@ -4,6 +4,10 @@ package awssns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (t *jsiiProxy_Topic) validateAddLoggingConfigParameters(config *LoggingConfig) error {
+	return nil
+}
+
 func (t *jsiiProxy_Topic) validateAddSubscriptionParameters(topicSubscription ITopicSubscription) error {
 	return nil
 }

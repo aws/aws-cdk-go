@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::DMS::InstanceProfile.
+// Provides information that defines an instance profile.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,11 +41,11 @@ import (
 type CfnInstanceProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The property describes an ARN of the instance profile.
+	// The Amazon Resource Name (ARN) string that uniquely identifies the instance profile.
 	AttrInstanceProfileArn() *string
-	// The property describes a creating time of the instance profile.
+	// The time the instance profile was created.
 	AttrInstanceProfileCreationTime() *string
-	// The property describes an availability zone of the instance profile.
+	// The Availability Zone where the instance profile runs.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -57,16 +57,16 @@ type CfnInstanceProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The optional description of the instance profile.
+	// A description of the instance profile.
 	Description() *string
 	SetDescription(val *string)
-	// The property describes an identifier for the instance profile.
+	// The identifier of the instance profile.
 	InstanceProfileIdentifier() *string
 	SetInstanceProfileIdentifier(val *string)
-	// The property describes a name for the instance profile.
+	// The user-friendly name for the instance profile.
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
-	// The property describes kms key arn for the instance profile.
+	// The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the connection parameters for the instance profile.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -79,12 +79,12 @@ type CfnInstanceProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The property describes a network type for the instance profile.
+	// Specifies the network type for the instance profile.
 	NetworkType() *string
 	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The property describes the publicly accessible of the instance profile.
+	// Specifies the accessibility options for the instance profile.
 	PubliclyAccessible() interface{}
 	SetPubliclyAccessible(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -96,7 +96,7 @@ type CfnInstanceProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The property describes a subnet group identifier for the instance profile.
+	// The identifier of the subnet group that is associated with the instance profile.
 	SubnetGroupIdentifier() *string
 	SetSubnetGroupIdentifier(val *string)
 	// An array of key-value pairs to apply to this resource.
@@ -115,7 +115,7 @@ type CfnInstanceProfile interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The property describes vps security groups for the instance profile.
+	// The VPC security groups that are used with the instance profile.
 	VpcSecurityGroups() *[]*string
 	SetVpcSecurityGroups(val *[]*string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

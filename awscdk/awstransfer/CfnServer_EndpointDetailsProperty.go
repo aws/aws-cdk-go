@@ -29,7 +29,18 @@ package awstransfer
 type CfnServer_EndpointDetailsProperty struct {
 	// A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
 	//
-	// > This property can only be set when `EndpointType` is set to `VPC` and it is only valid in the `UpdateServer` API.
+	// An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+	//
+	// This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+	//
+	// > This property can only be set as follows:
+	// >
+	// > - `EndpointType` must be set to `VPC`
+	// > - The Transfer Family server must be offline.
+	// > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+	// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+	// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+	// > - Call the `UpdateServer` API to set or change this parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html#cfn-transfer-server-endpointdetails-addressallocationids
 	//
 	AddressAllocationIds *[]*string `field:"optional" json:"addressAllocationIds" yaml:"addressAllocationIds"`

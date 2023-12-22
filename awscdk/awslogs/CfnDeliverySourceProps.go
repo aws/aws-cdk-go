@@ -38,7 +38,7 @@ type CfnDeliverySourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-logtype
 	//
 	LogType *string `field:"optional" json:"logType" yaml:"logType"`
-	// The ARN of the resource that will be sending the logs.
+	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-resourcearn
 	//
 	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`

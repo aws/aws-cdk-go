@@ -15,13 +15,6 @@ package awscdk
 //   })
 //
 type CustomResourceProviderProps struct {
-	// A local file system directory with the provider's code.
-	//
-	// The code will be
-	// bundled into a zip asset and wired to the provider's AWS Lambda function.
-	CodeDirectory *string `field:"required" json:"codeDirectory" yaml:"codeDirectory"`
-	// The AWS Lambda runtime and version to use for the provider.
-	Runtime CustomResourceProviderRuntime `field:"required" json:"runtime" yaml:"runtime"`
 	// A description of the function.
 	// Default: - No description.
 	//
@@ -43,17 +36,17 @@ type CustomResourceProviderProps struct {
 	// objects like you will see in the rest of the CDK.
 	//
 	// Example:
-	//   provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
-	//   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
-	//   	PolicyStatements: []interface{}{
-	//   		map[string]*string{
-	//   			"Effect": jsii.String("Allow"),
-	//   			"Action": jsii.String("s3:PutObject*"),
-	//   			"Resource": jsii.String("*"),
-	//   		},
-	//   	},
-	//   })
+	//   const provider = CustomResourceProvider.getOrCreateProvider(this, 'Custom::MyCustomResourceType', {
+	//     codeDirectory: `${__dirname}/my-handler`,
+	//     runtime: CustomResourceProviderRuntime.NODEJS_18_X,
+	//     policyStatements: [
+	//       {
+	//         Effect: 'Allow',
+	//         Action: 's3:PutObject*',
+	//         Resource: '*',
+	//       }
+	//     ],
+	//   });
 	//
 	// Default: - no additional inline policy.
 	//
@@ -66,5 +59,12 @@ type CustomResourceProviderProps struct {
 	// Default: - `true` if `inlineCode: false` and `false` otherwise.
 	//
 	UseCfnResponseWrapper *bool `field:"optional" json:"useCfnResponseWrapper" yaml:"useCfnResponseWrapper"`
+	// A local file system directory with the provider's code.
+	//
+	// The code will be
+	// bundled into a zip asset and wired to the provider's AWS Lambda function.
+	CodeDirectory *string `field:"required" json:"codeDirectory" yaml:"codeDirectory"`
+	// The AWS Lambda runtime and version to use for the provider.
+	Runtime CustomResourceProviderRuntime `field:"required" json:"runtime" yaml:"runtime"`
 }
 

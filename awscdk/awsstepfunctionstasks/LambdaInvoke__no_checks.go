@@ -16,6 +16,10 @@ func (l *jsiiProxy_LambdaInvoke) validateAddChoiceParameters(condition awsstepfu
 	return nil
 }
 
+func (l *jsiiProxy_LambdaInvoke) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (l *jsiiProxy_LambdaInvoke) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateLambdaInvoke_IsConstructParameters(x interface{}) error {
 }
 
 func validateLambdaInvoke_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_LambdaInvoke) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

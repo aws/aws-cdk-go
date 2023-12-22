@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetScheduleParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnImagePipeline) validateSetWorkflowsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnImagePipelineParameters(scope constructs.Construct, id *string, props *CfnImagePipelineProps) error {
 	return nil
 }

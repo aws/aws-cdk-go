@@ -16,7 +16,14 @@ type RepositoryProps struct {
 	// Requires the `removalPolicy` to be set to `RemovalPolicy.DESTROY`.
 	// Default: false.
 	//
+	// Deprecated: Use `emptyOnDelete` instead.
 	AutoDeleteImages *bool `field:"optional" json:"autoDeleteImages" yaml:"autoDeleteImages"`
+	// If true, deleting the repository force deletes the contents of the repository.
+	//
+	// If false, the repository must be empty before attempting to delete it.
+	// Default: false.
+	//
+	EmptyOnDelete *bool `field:"optional" json:"emptyOnDelete" yaml:"emptyOnDelete"`
 	// The kind of server-side encryption to apply to this repository.
 	//
 	// If you choose KMS, you can specify a KMS key via `encryptionKey`. If

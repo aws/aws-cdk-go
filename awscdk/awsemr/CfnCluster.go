@@ -526,7 +526,9 @@ import (
 //   		},
 //   	},
 //   	CustomAmiId: jsii.String("customAmiId"),
+//   	EbsRootVolumeIops: jsii.Number(123),
 //   	EbsRootVolumeSize: jsii.Number(123),
+//   	EbsRootVolumeThroughput: jsii.Number(123),
 //   	KerberosAttributes: &KerberosAttributesProperty{
 //   		KdcAdminPassword: jsii.String("kdcAdminPassword"),
 //   		Realm: jsii.String("realm"),
@@ -550,6 +552,14 @@ import (
 //   		},
 //   	},
 //   	OsReleaseLabel: jsii.String("osReleaseLabel"),
+//   	PlacementGroupConfigs: []interface{}{
+//   		&PlacementGroupConfigProperty{
+//   			InstanceRole: jsii.String("instanceRole"),
+//
+//   			// the properties below are optional
+//   			PlacementStrategy: jsii.String("placementStrategy"),
+//   		},
+//   	},
 //   	ReleaseLabel: jsii.String("releaseLabel"),
 //   	ScaleDownBehavior: jsii.String("scaleDownBehavior"),
 //   	SecurityConfiguration: jsii.String("securityConfiguration"),
@@ -626,9 +636,13 @@ type CfnCluster interface {
 	// Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
 	CustomAmiId() *string
 	SetCustomAmiId(val *string)
+	EbsRootVolumeIops() *float64
+	SetEbsRootVolumeIops(val *float64)
 	// The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
 	EbsRootVolumeSize() *float64
 	SetEbsRootVolumeSize(val *float64)
+	EbsRootVolumeThroughput() *float64
+	SetEbsRootVolumeThroughput(val *float64)
 	// A specification of the number and type of Amazon EC2 instances.
 	Instances() interface{}
 	SetInstances(val interface{})
@@ -665,6 +679,8 @@ type CfnCluster interface {
 	// The Amazon Linux release specified in a cluster launch RunJobFlow request.
 	OsReleaseLabel() *string
 	SetOsReleaseLabel(val *string)
+	PlacementGroupConfigs() interface{}
+	SetPlacementGroupConfigs(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -977,11 +993,31 @@ func (j *jsiiProxy_CfnCluster) CustomAmiId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) EbsRootVolumeIops() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ebsRootVolumeIops",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) EbsRootVolumeSize() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
 		"ebsRootVolumeSize",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) EbsRootVolumeThroughput() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ebsRootVolumeThroughput",
 		&returns,
 	)
 	return returns
@@ -1082,6 +1118,16 @@ func (j *jsiiProxy_CfnCluster) OsReleaseLabel() *string {
 	_jsii_.Get(
 		j,
 		"osReleaseLabel",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) PlacementGroupConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"placementGroupConfigs",
 		&returns,
 	)
 	return returns
@@ -1313,10 +1359,26 @@ func (j *jsiiProxy_CfnCluster)SetCustomAmiId(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster)SetEbsRootVolumeIops(val *float64) {
+	_jsii_.Set(
+		j,
+		"ebsRootVolumeIops",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster)SetEbsRootVolumeSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"ebsRootVolumeSize",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetEbsRootVolumeThroughput(val *float64) {
+	_jsii_.Set(
+		j,
+		"ebsRootVolumeThroughput",
 		val,
 	)
 }
@@ -1396,6 +1458,17 @@ func (j *jsiiProxy_CfnCluster)SetOsReleaseLabel(val *string) {
 	_jsii_.Set(
 		j,
 		"osReleaseLabel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetPlacementGroupConfigs(val interface{}) {
+	if err := j.validateSetPlacementGroupConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"placementGroupConfigs",
 		val,
 	)
 }

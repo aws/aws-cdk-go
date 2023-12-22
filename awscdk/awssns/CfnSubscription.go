@@ -21,6 +21,7 @@ import (
 //   var deliveryPolicy interface{}
 //   var filterPolicy interface{}
 //   var redrivePolicy interface{}
+//   var replayPolicy interface{}
 //
 //   cfnSubscription := awscdk.Aws_sns.NewCfnSubscription(this, jsii.String("MyCfnSubscription"), &CfnSubscriptionProps{
 //   	Protocol: jsii.String("protocol"),
@@ -34,6 +35,7 @@ import (
 //   	RawMessageDelivery: jsii.Boolean(false),
 //   	RedrivePolicy: redrivePolicy,
 //   	Region: jsii.String("region"),
+//   	ReplayPolicy: replayPolicy,
 //   	SubscriptionRoleArn: jsii.String("subscriptionRoleArn"),
 //   })
 //
@@ -93,6 +95,8 @@ type CfnSubscription interface {
 	// For cross-region subscriptions, the region in which the topic resides.
 	Region() *string
 	SetRegion(val *string)
+	ReplayPolicy() interface{}
+	SetReplayPolicy(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -409,6 +413,16 @@ func (j *jsiiProxy_CfnSubscription) Region() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubscription) ReplayPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"replayPolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubscription) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -553,6 +567,14 @@ func (j *jsiiProxy_CfnSubscription)SetRegion(val *string) {
 	_jsii_.Set(
 		j,
 		"region",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubscription)SetReplayPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"replayPolicy",
 		val,
 	)
 }

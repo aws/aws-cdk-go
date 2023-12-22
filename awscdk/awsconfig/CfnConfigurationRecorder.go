@@ -48,6 +48,22 @@ import (
 //   			jsii.String("resourceTypes"),
 //   		},
 //   	},
+//   	RecordingMode: &RecordingModeProperty{
+//   		RecordingFrequency: jsii.String("recordingFrequency"),
+//
+//   		// the properties below are optional
+//   		RecordingModeOverrides: []interface{}{
+//   			&RecordingModeOverrideProperty{
+//   				RecordingFrequency: jsii.String("recordingFrequency"),
+//   				ResourceTypes: []*string{
+//   					jsii.String("resourceTypes"),
+//   				},
+//
+//   				// the properties below are optional
+//   				Description: jsii.String("description"),
+//   			},
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
@@ -85,6 +101,9 @@ type CfnConfigurationRecorder interface {
 	// Specifies which resource types AWS Config records for configuration changes.
 	RecordingGroup() interface{}
 	SetRecordingGroup(val interface{})
+	// Specifies the default recording frequency that AWS Config uses to record configuration changes.
+	RecordingMode() interface{}
+	SetRecordingMode(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -333,6 +352,16 @@ func (j *jsiiProxy_CfnConfigurationRecorder) RecordingGroup() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationRecorder) RecordingMode() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"recordingMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationRecorder) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -426,6 +455,17 @@ func (j *jsiiProxy_CfnConfigurationRecorder)SetRecordingGroup(val interface{}) {
 	_jsii_.Set(
 		j,
 		"recordingGroup",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationRecorder)SetRecordingMode(val interface{}) {
+	if err := j.validateSetRecordingModeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"recordingMode",
 		val,
 	)
 }

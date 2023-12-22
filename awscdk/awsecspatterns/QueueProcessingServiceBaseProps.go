@@ -27,9 +27,6 @@ import (
 //   var vpc vpc
 //
 //   queueProcessingServiceBaseProps := &QueueProcessingServiceBaseProps{
-//   	Image: containerImage,
-//
-//   	// the properties below are optional
 //   	CapacityProviderStrategies: []capacityProviderStrategy{
 //   		&capacityProviderStrategy{
 //   			CapacityProvider: jsii.String("capacityProvider"),
@@ -56,6 +53,7 @@ import (
 //   		"environmentKey": jsii.String("environment"),
 //   	},
 //   	Family: jsii.String("family"),
+//   	Image: containerImage,
 //   	LogDriver: logDriver,
 //   	MaxHealthyPercent: jsii.Number(123),
 //   	MaxReceiveCount: jsii.Number(123),
@@ -83,8 +81,6 @@ import (
 //   }
 //
 type QueueProcessingServiceBaseProps struct {
-	// The image used to start a container.
-	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Default: - undefined.
 	//
@@ -143,6 +139,13 @@ type QueueProcessingServiceBaseProps struct {
 	// Default: - Automatically generated name.
 	//
 	Family *string `field:"optional" json:"family" yaml:"family"`
+	// The image used to start a container.
+	//
+	// For `QueueProcessingFargateService`, either `image` or `taskDefinition` must be specified, but not both.
+	// For `QueueProcessingEc2Service`, `image` is required.
+	// Default: - the image of the task definition is used for Fargate, required otherwise.
+	//
+	Image awsecs.ContainerImage `field:"optional" json:"image" yaml:"image"`
 	// The log driver to use.
 	// Default: - AwsLogDriver if enableLogging is true.
 	//

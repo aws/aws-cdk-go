@@ -39,21 +39,25 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html
 //
 type CfnDataProviderProps struct {
-	// The property describes a data engine for the data provider.
+	// The type of database engine for the data provider.
+	//
+	// Valid values include `"aurora"` , `"aurora-postgresql"` , `"mysql"` , `"oracle"` , `"postgres"` , `"sqlserver"` , `redshift` , `mariadb` , `mongodb` , and `docdb` . A value of `"aurora"` represents Amazon Aurora MySQL-Compatible Edition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-engine
 	//
 	Engine *string `field:"required" json:"engine" yaml:"engine"`
-	// The property describes an identifier for the data provider.
+	// The identifier of the data provider.
 	//
-	// It is used for describing/deleting/modifying can be name/arn.
+	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-dataprovideridentifier
 	//
 	DataProviderIdentifier *string `field:"optional" json:"dataProviderIdentifier" yaml:"dataProviderIdentifier"`
-	// The property describes a name to identify the data provider.
+	// The name of the data provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-dataprovidername
 	//
 	DataProviderName *string `field:"optional" json:"dataProviderName" yaml:"dataProviderName"`
-	// The optional description of the data provider.
+	// A description of the data provider.
+	//
+	// Descriptions can have up to 31 characters. A description can contain only ASCII letters, digits, and hyphens ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -63,6 +67,7 @@ type CfnDataProviderProps struct {
 	// Default: - false.
 	//
 	ExactSettings interface{} `field:"optional" json:"exactSettings" yaml:"exactSettings"`
+	// The settings in JSON format for a data provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-settings
 	//
 	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`

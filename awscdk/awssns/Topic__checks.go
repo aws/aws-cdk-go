@@ -13,6 +13,17 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (t *jsiiProxy_Topic) validateAddLoggingConfigParameters(config *LoggingConfig) error {
+	if config == nil {
+		return fmt.Errorf("parameter config is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_Topic) validateAddSubscriptionParameters(topicSubscription ITopicSubscription) error {
 	if topicSubscription == nil {
 		return fmt.Errorf("parameter topicSubscription is required, but nil was provided")

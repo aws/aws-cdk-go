@@ -654,6 +654,46 @@ tasks.NewEmrCreateCluster(this, jsii.String("Create Cluster"), &EmrCreateCluster
 })
 ```
 
+You can use the launch specification for On-Demand and Spot instances in the fleet.
+
+```go
+tasks.NewEmrCreateCluster(this, jsii.String("OnDemandSpecification"), &EmrCreateClusterProps{
+	Instances: &InstancesConfigProperty{
+		InstanceFleets: []instanceFleetConfigProperty{
+			&instanceFleetConfigProperty{
+				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
+				LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
+					OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
+						AllocationStrategy: tasks.EmrCreateCluster.OnDemandAllocationStrategy_LOWEST_PRICE,
+					},
+				},
+			},
+		},
+	},
+	Name: jsii.String("OnDemandCluster"),
+	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+})
+
+tasks.NewEmrCreateCluster(this, jsii.String("SpotSpecification"), &EmrCreateClusterProps{
+	Instances: &InstancesConfigProperty{
+		InstanceFleets: []*instanceFleetConfigProperty{
+			&instanceFleetConfigProperty{
+				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
+				LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
+					SpotSpecification: &SpotProvisioningSpecificationProperty{
+						AllocationStrategy: tasks.EmrCreateCluster.SpotAllocationStrategy_CAPACITY_OPTIMIZED,
+						TimeoutAction: tasks.EmrCreateCluster.SpotTimeoutAction_TERMINATE_CLUSTER,
+						TimeoutDurationMinutes: jsii.Number(60),
+					},
+				},
+			},
+		},
+	},
+	Name: jsii.String("SpotCluster"),
+	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+})
+```
+
 If you want to run multiple steps in [parallel](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-concurrent-steps.html),
 you can specify the `stepConcurrencyLevel` property. The concurrency range is between 1
 and 256 inclusive, where the default concurrency of 1 means no step concurrency is allowed.

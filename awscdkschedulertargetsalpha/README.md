@@ -32,6 +32,7 @@ The following targets are supported:
 7. `targets.InspectorStartAssessmentRun`: [Start an Amazon Inspector assessment run](#start-an-amazon-inspector-assessment-run)
 8. `targets.KinesisStreamPutRecord`: [Put a record to an Amazon Kinesis Data Streams](#put-a-record-to-an-amazon-kinesis-data-streams)
 9. `targets.KinesisDataFirehosePutRecord`: [Put a record to a Kinesis Data Firehose](#put-a-record-to-a-kinesis-data-firehose)
+10. `targets.CodePipelineStartPipelineExecution`: [Start a CodePipeline execution](#start-a-codepipeline-execution)
 
 ## Invoke a Lambda function
 
@@ -280,5 +281,24 @@ awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	Target: targets.NewKinesisDataFirehosePutRecord(deliveryStream, &ScheduleTargetBaseProps{
 		Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(payload),
 	}),
+})
+```
+
+## Start a CodePipeline execution
+
+Use the `CodePipelineStartPipelineExecution` target to start a new execution for a CodePipeline pipeline.
+
+The code snippet below creates an event rule with a CodePipeline pipeline as target which is
+called every hour by Event Bridge Scheduler.
+
+```go
+import codepipeline "github.com/aws/aws-cdk-go/awscdk"
+
+var pipeline pipeline
+
+
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
+	Target: targets.NewCodePipelineStartPipelineExecution(pipeline),
 })
 ```

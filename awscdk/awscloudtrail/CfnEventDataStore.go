@@ -102,10 +102,10 @@ type CfnEventDataStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Indicates whether federation is enabled on an event data store.
+	// Indicates if [Lake query federation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html) is enabled. By default, Lake query federation is disabled. You cannot delete an event data store if Lake query federation is enabled.
 	FederationEnabled() interface{}
 	SetFederationEnabled(val interface{})
-	// The ARN of the role used for event data store federation.
+	// If Lake query federation is enabled, provides the ARN of the federation role used to access the resources for the federated event data store.
 	FederationRoleArn() *string
 	SetFederationRoleArn(val *string)
 	// Specifies whether the event data store should start ingesting live events.

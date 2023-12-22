@@ -99,8 +99,10 @@ type CfnGraphQLApi interface {
 	AttrArn() *string
 	// The fully qualified domain name (FQDN) of the endpoint URL of your GraphQL API.
 	AttrGraphQlDns() *string
+	AttrGraphQlEndpointArn() *string
 	// The Endpoint URL of your GraphQL API.
 	AttrGraphQlUrl() *string
+	// The ID value.
 	AttrId() *string
 	// The fully qualified domain name (FQDN) of the real-time endpoint URL of your GraphQL API.
 	AttrRealtimeDns() *string
@@ -365,6 +367,16 @@ func (j *jsiiProxy_CfnGraphQLApi) AttrGraphQlDns() *string {
 	_jsii_.Get(
 		j,
 		"attrGraphQlDns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraphQLApi) AttrGraphQlEndpointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrGraphQlEndpointArn",
 		&returns,
 	)
 	return returns

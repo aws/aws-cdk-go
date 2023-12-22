@@ -84,7 +84,15 @@ func (j *jsiiProxy_CfnServerlessCache) validateSetCacheUsageLimitsParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnServerlessCache) validateSetEndpointParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnServerlessCache) validateSetEngineParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnServerlessCache) validateSetReaderEndpointParameters(val interface{}) error {
 	return nil
 }
 

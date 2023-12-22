@@ -38,6 +38,7 @@ type CfnGraphQLSchema interface {
 	// The AWS AppSync GraphQL API identifier to which you want to apply this schema.
 	ApiId() *string
 	SetApiId(val *string)
+	// The ID value.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

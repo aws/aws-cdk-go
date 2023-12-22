@@ -16,6 +16,10 @@ func (e *jsiiProxy_EmrContainersStartJobRun) validateAddChoiceParameters(conditi
 	return nil
 }
 
+func (e *jsiiProxy_EmrContainersStartJobRun) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrContainersStartJobRun) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEmrContainersStartJobRun_IsConstructParameters(x interface{}) error
 }
 
 func validateEmrContainersStartJobRun_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

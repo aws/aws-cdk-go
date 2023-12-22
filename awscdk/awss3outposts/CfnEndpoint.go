@@ -81,7 +81,7 @@ type CfnEndpoint interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The id of the customer outpost on which the bucket resides.
+	// The ID of the Outpost.
 	OutpostId() *string
 	SetOutpostId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

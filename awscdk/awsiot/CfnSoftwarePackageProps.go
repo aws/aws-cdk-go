@@ -25,17 +25,13 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html
 //
 type CfnSoftwarePackageProps struct {
-	// A summary of the package being created.
-	//
-	// This can be used to outline the package's contents or purpose.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html#cfn-iot-softwarepackage-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the new software package.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html#cfn-iot-softwarepackage-packagename
 	//
 	PackageName *string `field:"optional" json:"packageName" yaml:"packageName"`
-	// Metadata that can be used to manage the package.
+	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html#cfn-iot-softwarepackage-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

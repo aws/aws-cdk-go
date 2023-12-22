@@ -27,9 +27,17 @@ import (
 //   	},
 //   	DailySnapshotTime: jsii.String("dailySnapshotTime"),
 //   	Description: jsii.String("description"),
+//   	Endpoint: &EndpointProperty{
+//   		Address: jsii.String("address"),
+//   		Port: jsii.Number(123),
+//   	},
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MajorEngineVersion: jsii.String("majorEngineVersion"),
+//   	ReaderEndpoint: &EndpointProperty{
+//   		Address: jsii.String("address"),
+//   		Port: jsii.Number(123),
+//   	},
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -74,6 +82,10 @@ type CfnServerlessCacheProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Represents the information required for client programs to connect to a cache node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-endpoint
+	//
+	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The name of the final snapshot taken of a cache before the cache is deleted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-finalsnapshotname
 	//
@@ -86,6 +98,10 @@ type CfnServerlessCacheProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-majorengineversion
 	//
 	MajorEngineVersion *string `field:"optional" json:"majorEngineVersion" yaml:"majorEngineVersion"`
+	// Represents the information required for client programs to connect to a cache node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-readerendpoint
+	//
+	ReaderEndpoint interface{} `field:"optional" json:"readerEndpoint" yaml:"readerEndpoint"`
 	// The IDs of the EC2 security groups associated with the serverless cache.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-securitygroupids
 	//

@@ -13,6 +13,7 @@ package awsec2
 //
 //   	// the properties below are optional
 //   	CarrierGatewayId: jsii.String("carrierGatewayId"),
+//   	CoreNetworkArn: jsii.String("coreNetworkArn"),
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	DestinationIpv6CidrBlock: jsii.String("destinationIpv6CidrBlock"),
 //   	DestinationPrefixListId: jsii.String("destinationPrefixListId"),
@@ -40,6 +41,10 @@ type CfnRouteProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-carriergatewayid
 	//
 	CarrierGatewayId *string `field:"optional" json:"carrierGatewayId" yaml:"carrierGatewayId"`
+	// The Amazon Resource Name (ARN) of the core network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-corenetworkarn
+	//
+	CoreNetworkArn *string `field:"optional" json:"coreNetworkArn" yaml:"coreNetworkArn"`
 	// The IPv4 CIDR address block used for the destination match.
 	//
 	// Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify `100.68.0.18/18` , we modify it to `100.68.0.0/18` .

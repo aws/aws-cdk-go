@@ -34,7 +34,12 @@ type NatInstanceProps struct {
 	// Name of SSH keypair to grant access to instance.
 	// Default: - No SSH access will be possible.
 	//
+	// Deprecated: - Use `keyPair` instead.
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
+	// The SSH keypair to grant access to the instance.
+	// Default: - No SSH access will be possible.
+	//
+	KeyPair IKeyPair `field:"optional" json:"keyPair" yaml:"keyPair"`
 	// The machine image (AMI) to use.
 	//
 	// By default, will do an AMI lookup for the latest NAT instance image.

@@ -16,6 +16,10 @@ func (m *jsiiProxy_Map) validateAddChoiceParameters(condition Condition, next St
 	return nil
 }
 
+func (m *jsiiProxy_Map) validateAddItemProcessorParameters(processor StateGraph, config *ProcessorConfig) error {
+	return nil
+}
+
 func (m *jsiiProxy_Map) validateAddIteratorParameters(iteration StateGraph) error {
 	return nil
 }
@@ -29,6 +33,10 @@ func (m *jsiiProxy_Map) validateAddRetryParameters(props *RetryProps) error {
 }
 
 func (m *jsiiProxy_Map) validateBindToGraphParameters(graph StateGraph) error {
+	return nil
+}
+
+func (m *jsiiProxy_Map) validateItemProcessorParameters(processor IChainable, config *ProcessorConfig) error {
 	return nil
 }
 
@@ -69,6 +77,10 @@ func validateMap_IsConstructParameters(x interface{}) error {
 }
 
 func validateMap_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_Map) validateSetProcessorConfigParameters(val *ProcessorConfig) error {
 	return nil
 }
 

@@ -35,6 +35,10 @@ type TaskStateBase interface {
 	Node() constructs.Node
 	OutputPath() *string
 	Parameters() *map[string]interface{}
+	Processor() StateGraph
+	SetProcessor(val StateGraph)
+	ProcessorConfig() *ProcessorConfig
+	SetProcessorConfig(val *ProcessorConfig)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -53,6 +57,8 @@ type TaskStateBase interface {
 	AddCatch(handler IChainable, props *CatchProps) TaskStateBase
 	// Add a choice branch to this state.
 	AddChoice(condition Condition, next State, options *ChoiceTransitionOptions)
+	// Add a item processor to this state.
+	AddItemProcessor(processor StateGraph, config *ProcessorConfig)
 	// Add a map iterator to this state.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -119,6 +125,8 @@ type TaskStateBase interface {
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
 	RenderInputOutput() interface{}
+	// Render ItemProcessor in ASL JSON format.
+	RenderItemProcessor() interface{}
 	// Render map iterator in ASL JSON format.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
@@ -245,6 +253,26 @@ func (j *jsiiProxy_TaskStateBase) Parameters() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_TaskStateBase) Processor() StateGraph {
+	var returns StateGraph
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TaskStateBase) ProcessorConfig() *ProcessorConfig {
+	var returns *ProcessorConfig
+	_jsii_.Get(
+		j,
+		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TaskStateBase) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -338,6 +366,25 @@ func (j *jsiiProxy_TaskStateBase)SetIteration(val StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TaskStateBase)SetProcessor(val StateGraph) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TaskStateBase)SetProcessorConfig(val *ProcessorConfig) {
+	if err := j.validateSetProcessorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"processorConfig",
 		val,
 	)
 }
@@ -485,6 +532,17 @@ func (t *jsiiProxy_TaskStateBase) AddChoice(condition Condition, next State, opt
 		t,
 		"addChoice",
 		[]interface{}{condition, next, options},
+	)
+}
+
+func (t *jsiiProxy_TaskStateBase) AddItemProcessor(processor StateGraph, config *ProcessorConfig) {
+	if err := t.validateAddItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"addItemProcessor",
+		[]interface{}{processor, config},
 	)
 }
 
@@ -767,6 +825,19 @@ func (t *jsiiProxy_TaskStateBase) RenderInputOutput() interface{} {
 	_jsii_.Invoke(
 		t,
 		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TaskStateBase) RenderItemProcessor() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderItemProcessor",
 		nil, // no parameters
 		&returns,
 	)

@@ -93,6 +93,7 @@ type CfnDataSource interface {
 	SetApiId(val *string)
 	// The Amazon Resource Name (ARN) of the API key, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/datasources/datasourcename` .
 	AttrDataSourceArn() *string
+	// The ID value.
 	AttrId() *string
 	// Friendly name for you to identify your AWS AppSync data source after creation.
 	AttrName() *string

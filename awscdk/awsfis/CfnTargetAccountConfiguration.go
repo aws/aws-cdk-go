@@ -11,7 +11,7 @@ import (
 
 // Creates a target account configuration for the experiment template.
 //
-// A target account configuration is required when `accountTargeting` of `experimentOptions` is set to `multi-account` . For more information, see [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html) in the *AWS Fault Injection Simulator User Guide* .
+// A target account configuration is required when `accountTargeting` of `experimentOptions` is set to `multi-account` . For more information, see [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html) in the *AWS Fault Injection Service User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

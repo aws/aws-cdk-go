@@ -9,19 +9,21 @@ package awsconnect
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   kinesisVideoStreamConfigProperty := &KinesisVideoStreamConfigProperty{
-//   	Prefix: jsii.String("prefix"),
-//   	RetentionPeriodHours: jsii.Number(123),
-//
-//   	// the properties below are optional
 //   	EncryptionConfig: &EncryptionConfigProperty{
 //   		EncryptionType: jsii.String("encryptionType"),
 //   		KeyId: jsii.String("keyId"),
 //   	},
+//   	Prefix: jsii.String("prefix"),
+//   	RetentionPeriodHours: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html
 //
 type CfnInstanceStorageConfig_KinesisVideoStreamConfigProperty struct {
+	// The encryption configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-encryptionconfig
+	//
+	EncryptionConfig interface{} `field:"required" json:"encryptionConfig" yaml:"encryptionConfig"`
 	// The prefix of the video stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-prefix
 	//
@@ -34,9 +36,5 @@ type CfnInstanceStorageConfig_KinesisVideoStreamConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-retentionperiodhours
 	//
 	RetentionPeriodHours *float64 `field:"required" json:"retentionPeriodHours" yaml:"retentionPeriodHours"`
-	// The encryption configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html#cfn-connect-instancestorageconfig-kinesisvideostreamconfig-encryptionconfig
-	//
-	EncryptionConfig interface{} `field:"optional" json:"encryptionConfig" yaml:"encryptionConfig"`
 }
 

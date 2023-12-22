@@ -450,6 +450,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainId", GoGetter: "AttrDomainId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrHomeEfsFileSystemId", GoGetter: "AttrHomeEfsFileSystemId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSecurityGroupIdForDomainBoundary", GoGetter: "AttrSecurityGroupIdForDomainBoundary"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSingleSignOnApplicationArn", GoGetter: "AttrSingleSignOnApplicationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSingleSignOnManagedApplicationInstanceId", GoGetter: "AttrSingleSignOnManagedApplicationInstanceId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUrl", GoGetter: "AttrUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "authMode", GoGetter: "AuthMode"},

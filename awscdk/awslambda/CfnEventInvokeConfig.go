@@ -40,7 +40,6 @@ import (
 type CfnEventInvokeConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -230,16 +229,6 @@ type CfnEventInvokeConfig interface {
 type jsiiProxy_CfnEventInvokeConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnEventInvokeConfig) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnEventInvokeConfig) CfnOptions() awscdk.ICfnResourceOptions {

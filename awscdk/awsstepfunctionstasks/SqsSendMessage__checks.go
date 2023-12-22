@@ -48,6 +48,18 @@ func (s *jsiiProxy_SqsSendMessage) validateAddChoiceParameters(condition awsstep
 	return nil
 }
 
+func (s *jsiiProxy_SqsSendMessage) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	if processor == nil {
+		return fmt.Errorf("parameter processor is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_SqsSendMessage) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	if iteration == nil {
 		return fmt.Errorf("parameter iteration is required, but nil was provided")
@@ -243,6 +255,14 @@ func validateSqsSendMessage_PrefixStatesParameters(root constructs.IConstruct, p
 
 	if prefix == nil {
 		return fmt.Errorf("parameter prefix is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_SqsSendMessage) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
+	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+		return err
 	}
 
 	return nil

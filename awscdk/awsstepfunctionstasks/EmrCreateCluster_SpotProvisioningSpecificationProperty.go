@@ -4,18 +4,41 @@ package awsstepfunctionstasks
 // The launch specification for Spot instances in the instance fleet, which determines the defined duration and provisioning timeout behavior.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   tasks.NewEmrCreateCluster(this, jsii.String("OnDemandSpecification"), &EmrCreateClusterProps{
+//   	Instances: &InstancesConfigProperty{
+//   		InstanceFleets: []instanceFleetConfigProperty{
+//   			&instanceFleetConfigProperty{
+//   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
+//   				LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
+//   					OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
+//   						AllocationStrategy: tasks.EmrCreateCluster.OnDemandAllocationStrategy_LOWEST_PRICE,
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	Name: jsii.String("OnDemandCluster"),
+//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   })
 //
-//   spotProvisioningSpecificationProperty := &SpotProvisioningSpecificationProperty{
-//   	TimeoutAction: awscdk.Aws_stepfunctions_tasks.EmrCreateCluster.SpotTimeoutAction_SWITCH_TO_ON_DEMAND,
-//   	TimeoutDurationMinutes: jsii.Number(123),
-//
-//   	// the properties below are optional
-//   	AllocationStrategy: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.SpotAllocationStrategy_CAPACITY_OPTIMIZED,
-//   	BlockDurationMinutes: jsii.Number(123),
-//   }
+//   tasks.NewEmrCreateCluster(this, jsii.String("SpotSpecification"), &EmrCreateClusterProps{
+//   	Instances: &InstancesConfigProperty{
+//   		InstanceFleets: []*instanceFleetConfigProperty{
+//   			&instanceFleetConfigProperty{
+//   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
+//   				LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
+//   					SpotSpecification: &SpotProvisioningSpecificationProperty{
+//   						AllocationStrategy: tasks.EmrCreateCluster.SpotAllocationStrategy_CAPACITY_OPTIMIZED,
+//   						TimeoutAction: tasks.EmrCreateCluster.SpotTimeoutAction_TERMINATE_CLUSTER,
+//   						TimeoutDurationMinutes: jsii.Number(60),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	Name: jsii.String("SpotCluster"),
+//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   })
 //
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_SpotProvisioningSpecification.html
 //

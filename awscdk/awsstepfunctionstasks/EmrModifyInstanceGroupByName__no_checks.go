@@ -16,6 +16,10 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateAddChoiceParameters(con
 	return nil
 }
 
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEmrModifyInstanceGroupByName_IsConstructParameters(x interface{}) e
 }
 
 func validateEmrModifyInstanceGroupByName_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EmrModifyInstanceGroupByName) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

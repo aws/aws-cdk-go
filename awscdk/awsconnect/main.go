@@ -898,8 +898,20 @@ func init() {
 		reflect.TypeOf((*CfnRule_ActionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRule.CreateCaseActionProperty",
+		reflect.TypeOf((*CfnRule_CreateCaseActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRule.EventBridgeActionProperty",
 		reflect.TypeOf((*CfnRule_EventBridgeActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRule.FieldProperty",
+		reflect.TypeOf((*CfnRule_FieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRule.FieldValueProperty",
+		reflect.TypeOf((*CfnRule_FieldValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRule.NotificationRecipientTypeProperty",
@@ -920,6 +932,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRule.TaskActionProperty",
 		reflect.TypeOf((*CfnRule_TaskActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRule.UpdateCaseActionProperty",
+		reflect.TypeOf((*CfnRule_UpdateCaseActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRuleProps",

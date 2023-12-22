@@ -37,6 +37,10 @@ type EmrContainersDeleteVirtualCluster interface {
 	Node() constructs.Node
 	OutputPath() *string
 	Parameters() *map[string]interface{}
+	Processor() awsstepfunctions.StateGraph
+	SetProcessor(val awsstepfunctions.StateGraph)
+	ProcessorConfig() *awsstepfunctions.ProcessorConfig
+	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -55,6 +59,8 @@ type EmrContainersDeleteVirtualCluster interface {
 	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
 	// Add a choice branch to this state.
 	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State, options *awsstepfunctions.ChoiceTransitionOptions)
+	// Add a item processor to this state.
+	AddItemProcessor(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig)
 	// Add a map iterator to this state.
 	AddIterator(iteration awsstepfunctions.StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -121,6 +127,8 @@ type EmrContainersDeleteVirtualCluster interface {
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
 	RenderInputOutput() interface{}
+	// Render ItemProcessor in ASL JSON format.
+	RenderItemProcessor() interface{}
 	// Render map iterator in ASL JSON format.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
@@ -246,6 +254,26 @@ func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Parameters() *map[string]i
 	return returns
 }
 
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Processor() awsstepfunctions.StateGraph {
+	var returns awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) ProcessorConfig() *awsstepfunctions.ProcessorConfig {
+	var returns *awsstepfunctions.ProcessorConfig
+	_jsii_.Get(
+		j,
+		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -356,6 +384,25 @@ func (j *jsiiProxy_EmrContainersDeleteVirtualCluster)SetIteration(val awsstepfun
 	_jsii_.Set(
 		j,
 		"iteration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster)SetProcessor(val awsstepfunctions.StateGraph) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster)SetProcessorConfig(val *awsstepfunctions.ProcessorConfig) {
+	if err := j.validateSetProcessorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"processorConfig",
 		val,
 	)
 }
@@ -503,6 +550,17 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) AddChoice(condition awsste
 		e,
 		"addChoice",
 		[]interface{}{condition, next, options},
+	)
+}
+
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) AddItemProcessor(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) {
+	if err := e.validateAddItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"addItemProcessor",
+		[]interface{}{processor, config},
 	)
 }
 
@@ -785,6 +843,19 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderInputOutput() interf
 	_jsii_.Invoke(
 		e,
 		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderItemProcessor() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderItemProcessor",
 		nil, // no parameters
 		&returns,
 	)

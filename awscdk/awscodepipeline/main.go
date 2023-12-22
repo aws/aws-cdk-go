@@ -182,6 +182,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "pipelineType", GoGetter: "PipelineType"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -194,9 +195,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "triggers", GoGetter: "Triggers"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "variables", GoGetter: "Variables"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPipeline{}
@@ -231,6 +234,18 @@ func init() {
 		reflect.TypeOf((*CfnPipeline_EncryptionKeyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.GitConfigurationProperty",
+		reflect.TypeOf((*CfnPipeline_GitConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.GitPushFilterProperty",
+		reflect.TypeOf((*CfnPipeline_GitPushFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.GitTagFilterCriteriaProperty",
+		reflect.TypeOf((*CfnPipeline_GitTagFilterCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.InputArtifactProperty",
 		reflect.TypeOf((*CfnPipeline_InputArtifactProperty)(nil)).Elem(),
 	)
@@ -239,12 +254,20 @@ func init() {
 		reflect.TypeOf((*CfnPipeline_OutputArtifactProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.PipelineTriggerDeclarationProperty",
+		reflect.TypeOf((*CfnPipeline_PipelineTriggerDeclarationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.StageDeclarationProperty",
 		reflect.TypeOf((*CfnPipeline_StageDeclarationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.StageTransitionProperty",
 		reflect.TypeOf((*CfnPipeline_StageTransitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.VariableDeclarationProperty",
+		reflect.TypeOf((*CfnPipeline_VariableDeclarationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipelineProps",

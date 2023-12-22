@@ -12,13 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnEnvironmentEC2Props := &CfnEnvironmentEC2Props{
+//   	ImageId: jsii.String("imageId"),
 //   	InstanceType: jsii.String("instanceType"),
 //
 //   	// the properties below are optional
 //   	AutomaticStopTimeMinutes: jsii.Number(123),
 //   	ConnectionType: jsii.String("connectionType"),
 //   	Description: jsii.String("description"),
-//   	ImageId: jsii.String("imageId"),
 //   	Name: jsii.String("name"),
 //   	OwnerArn: jsii.String("ownerArn"),
 //   	Repositories: []interface{}{
@@ -39,24 +39,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html
 //
 type CfnEnvironmentEC2Props struct {
-	// The type of instance to connect to the environment (for example, `t2.micro` ).
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-instancetype
-	//
-	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
-	// The number of minutes until the running instance is shut down after the environment was last used.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-automaticstoptimeminutes
-	//
-	AutomaticStopTimeMinutes *float64 `field:"optional" json:"automaticStopTimeMinutes" yaml:"automaticStopTimeMinutes"`
-	// The connection type used for connecting to an Amazon EC2 environment.
-	//
-	// Valid values are `CONNECT_SSH` (default) and `CONNECT_SSM` (connected through AWS Systems Manager ).
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-connectiontype
-	//
-	ConnectionType *string `field:"optional" json:"connectionType" yaml:"connectionType"`
-	// The description of the environment to create.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-description
-	//
-	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
 	//
 	// To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS Systems Manager path.
@@ -82,7 +64,25 @@ type CfnEnvironmentEC2Props struct {
 	// - Ubuntu 22.04: `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-imageid
 	//
-	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
+	ImageId *string `field:"required" json:"imageId" yaml:"imageId"`
+	// The type of instance to connect to the environment (for example, `t2.micro` ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-instancetype
+	//
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
+	// The number of minutes until the running instance is shut down after the environment was last used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-automaticstoptimeminutes
+	//
+	AutomaticStopTimeMinutes *float64 `field:"optional" json:"automaticStopTimeMinutes" yaml:"automaticStopTimeMinutes"`
+	// The connection type used for connecting to an Amazon EC2 environment.
+	//
+	// Valid values are `CONNECT_SSH` (default) and `CONNECT_SSM` (connected through AWS Systems Manager ).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-connectiontype
+	//
+	ConnectionType *string `field:"optional" json:"connectionType" yaml:"connectionType"`
+	// The description of the environment to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-name
 	//

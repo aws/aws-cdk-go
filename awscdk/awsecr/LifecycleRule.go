@@ -45,7 +45,21 @@ type LifecycleRule struct {
 	// Default: Automatically assigned.
 	//
 	RulePriority *float64 `field:"optional" json:"rulePriority" yaml:"rulePriority"`
+	// Select images that have ALL the given patterns in their tag.
+	//
+	// There is a maximum limit of four wildcards (*) per string.
+	// For example, ["*test*1*2*3", "test*1*2*3*"] is valid but
+	// ["test*1*2*3*4*5*6"] is invalid.
+	//
+	// Both tagPrefixList and tagPatternList cannot be specified
+	// together in a rule.
+	//
+	// Only if tagStatus == TagStatus.Tagged
+	TagPatternList *[]*string `field:"optional" json:"tagPatternList" yaml:"tagPatternList"`
 	// Select images that have ALL the given prefixes in their tag.
+	//
+	// Both tagPrefixList and tagPatternList cannot be specified
+	// together in a rule.
 	//
 	// Only if tagStatus == TagStatus.Tagged
 	TagPrefixList *[]*string `field:"optional" json:"tagPrefixList" yaml:"tagPrefixList"`
@@ -53,7 +67,8 @@ type LifecycleRule struct {
 	//
 	// Only one rule is allowed to select untagged images, and it must
 	// have the highest rulePriority.
-	// Default: TagStatus.Tagged if tagPrefixList is given, TagStatus.Any otherwise
+	// Default: TagStatus.Tagged if tagPrefixList or tagPatternList is
+	// given, TagStatus.Any otherwise
 	//
 	TagStatus TagStatus `field:"optional" json:"tagStatus" yaml:"tagStatus"`
 }

@@ -508,8 +508,29 @@ finish := sfn.NewPass(this, jsii.String("Finish"))
 
 definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(finish)
 
-map.Iterator(definition)
+map.ItemProcessor(definition)
 ```
+
+To define a distributed `Map` state set `itemProcessors` mode to `ProcessorMode.DISTRIBUTED`.
+An `executionType` must be specified for the distributed `Map` workflow.
+
+```go
+map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
+	MaxConcurrency: jsii.Number(1),
+	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
+	Parameters: map[string]interface{}{
+		"item": sfn.JsonPath_*StringAt(jsii.String("$.Map.Item.Value")),
+	},
+	ResultPath: jsii.String("$.mapOutput"),
+})
+
+map.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")), &ProcessorConfig{
+	Mode: sfn.ProcessorMode_DISTRIBUTED,
+	ExecutionType: sfn.ProcessorType_STANDARD,
+})
+```
+
+> Visit [Using Map state in Distributed mode to orchestrate large-scale parallel workloads](https://docs.aws.amazon.com/step-functions/latest/dg/use-dist-map-orchestrate-large-scale-parallel-workloads.html) for more details.
 
 ### Custom State
 
@@ -567,6 +588,10 @@ stateJson := map[string]interface{}{
 custom := sfn.NewCustomState(this, jsii.String("my custom task"), &CustomStateProps{
 	StateJson: StateJson,
 })
+
+// catch errors with addCatch
+errorHandler := sfn.NewPass(this, jsii.String("handle failure"))
+custom.AddCatch(errorHandler)
 
 chain := sfn.Chain_Start(custom).Next(finalStatus)
 

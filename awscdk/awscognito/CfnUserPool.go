@@ -168,6 +168,7 @@ type CfnUserPool interface {
 	AttrProviderName() *string
 	// The URL of the provider of the Amazon Cognito user pool, specified as a `String` .
 	AttrProviderUrl() *string
+	// The ID of the user pool.
 	AttrUserPoolId() *string
 	// The attributes to be auto-verified.
 	AutoVerifiedAttributes() *[]*string

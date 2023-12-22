@@ -1,7 +1,7 @@
 package awsimagebuilder
 
 
-// A schedule configures how often and when a pipeline will automatically create a new image.
+// A schedule configures when and how often a pipeline will automatically create a new image.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

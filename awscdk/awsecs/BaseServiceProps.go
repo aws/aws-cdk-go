@@ -17,6 +17,7 @@ import (
 //   var containerDefinition containerDefinition
 //   var logDriver logDriver
 //   var namespace iNamespace
+//   var taskDefinitionRevision taskDefinitionRevision
 //
 //   baseServiceProps := &BaseServiceProps{
 //   	Cluster: cluster,
@@ -78,6 +79,7 @@ import (
 //   		},
 //   	},
 //   	ServiceName: jsii.String("serviceName"),
+//   	TaskDefinitionRevision: taskDefinitionRevision,
 //   }
 //
 type BaseServiceProps struct {
@@ -152,6 +154,10 @@ type BaseServiceProps struct {
 	// Default: - CloudFormation-generated name.
 	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
+	// Revision number for the task definition or `latest` to use the latest active task revision.
+	// Default: - Uses the revision of the passed task definition deployed by CloudFormation.
+	//
+	TaskDefinitionRevision TaskDefinitionRevision `field:"optional" json:"taskDefinitionRevision" yaml:"taskDefinitionRevision"`
 	// The launch type on which to run your service.
 	//
 	// LaunchType will be omitted if capacity provider strategies are specified on the service.

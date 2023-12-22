@@ -203,9 +203,57 @@ func (j *jsiiProxy_CfnServerlessCache) validateSetCacheUsageLimitsParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnServerlessCache) validateSetEndpointParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnServerlessCache_EndpointProperty:
+		val := val.(*CfnServerlessCache_EndpointProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnServerlessCache_EndpointProperty:
+		val_ := val.(CfnServerlessCache_EndpointProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServerlessCache_EndpointProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnServerlessCache) validateSetEngineParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnServerlessCache) validateSetReaderEndpointParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnServerlessCache_EndpointProperty:
+		val := val.(*CfnServerlessCache_EndpointProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnServerlessCache_EndpointProperty:
+		val_ := val.(CfnServerlessCache_EndpointProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnServerlessCache_EndpointProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

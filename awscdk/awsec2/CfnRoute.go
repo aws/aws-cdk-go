@@ -25,6 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	CarrierGatewayId: jsii.String("carrierGatewayId"),
+//   	CoreNetworkArn: jsii.String("coreNetworkArn"),
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	DestinationIpv6CidrBlock: jsii.String("destinationIpv6CidrBlock"),
 //   	DestinationPrefixListId: jsii.String("destinationPrefixListId"),
@@ -54,6 +55,9 @@ type CfnRoute interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The Amazon Resource Name (ARN) of the core network.
+	CoreNetworkArn() *string
+	SetCoreNetworkArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -314,6 +318,16 @@ func (j *jsiiProxy_CfnRoute) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRoute) CoreNetworkArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"coreNetworkArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRoute) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -546,6 +560,14 @@ func (j *jsiiProxy_CfnRoute)SetCarrierGatewayId(val *string) {
 	_jsii_.Set(
 		j,
 		"carrierGatewayId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRoute)SetCoreNetworkArn(val *string) {
+	_jsii_.Set(
+		j,
+		"coreNetworkArn",
 		val,
 	)
 }

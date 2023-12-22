@@ -67,7 +67,7 @@ type CfnLandingZone interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The landing zone `manifest.yaml` text file that specifies the landing zone configurations.
+	// The landing zone manifest JSON text file that specifies the landing zone configurations.
 	Manifest() interface{}
 	SetManifest(val interface{})
 	// The tree node.

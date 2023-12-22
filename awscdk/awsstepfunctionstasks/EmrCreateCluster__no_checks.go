@@ -16,6 +16,10 @@ func (e *jsiiProxy_EmrCreateCluster) validateAddChoiceParameters(condition awsst
 	return nil
 }
 
+func (e *jsiiProxy_EmrCreateCluster) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrCreateCluster) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEmrCreateCluster_IsConstructParameters(x interface{}) error {
 }
 
 func validateEmrCreateCluster_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EmrCreateCluster) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

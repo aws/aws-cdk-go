@@ -16,6 +16,10 @@ func (b *jsiiProxy_BedrockInvokeModel) validateAddChoiceParameters(condition aws
 	return nil
 }
 
+func (b *jsiiProxy_BedrockInvokeModel) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (b *jsiiProxy_BedrockInvokeModel) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateBedrockInvokeModel_IsConstructParameters(x interface{}) error {
 }
 
 func validateBedrockInvokeModel_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_BedrockInvokeModel) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

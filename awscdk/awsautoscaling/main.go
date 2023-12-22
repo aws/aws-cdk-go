@@ -882,6 +882,7 @@ func init() {
 		reflect.TypeOf((*OnDemandAllocationStrategy)(nil)).Elem(),
 		map[string]interface{}{
 			"PRIORITIZED": OnDemandAllocationStrategy_PRIORITIZED,
+			"LOWEST_PRICE": OnDemandAllocationStrategy_LOWEST_PRICE,
 		},
 	)
 	_jsii_.RegisterEnum(

@@ -90,11 +90,45 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	PipelineType: jsii.String("pipelineType"),
 //   	RestartExecutionOnUpdate: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	Triggers: []interface{}{
+//   		&PipelineTriggerDeclarationProperty{
+//   			ProviderType: jsii.String("providerType"),
+//
+//   			// the properties below are optional
+//   			GitConfiguration: &GitConfigurationProperty{
+//   				SourceActionName: jsii.String("sourceActionName"),
+//
+//   				// the properties below are optional
+//   				Push: []interface{}{
+//   					&GitPushFilterProperty{
+//   						Tags: &GitTagFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	Variables: []interface{}{
+//   		&VariableDeclarationProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			DefaultValue: jsii.String("defaultValue"),
+//   			Description: jsii.String("description"),
 //   		},
 //   	},
 //   }
@@ -132,6 +166,19 @@ type CfnPipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// CodePipeline provides the following pipeline types, which differ in characteristics and price, so that you can tailor your pipeline features and cost to the needs of your applications.
+	//
+	// - V1 type pipelines have a JSON structure that contains standard pipeline, stage, and action-level parameters.
+	// - V2 type pipelines have the same structure as a V1 type, along with additional parameters for release safety and trigger configuration.
+	//
+	// > Including V2 parameters, such as triggers on Git tags, in the pipeline JSON when creating or updating a pipeline will result in the pipeline having the V2 type of pipeline and the associated costs.
+	//
+	// For information about pricing for CodePipeline, see [Pricing](https://docs.aws.amazon.com/https://aws.amazon.com/codepipeline/pricing/) .
+	//
+	// For information about which type of pipeline to choose, see [What type of pipeline is right for me?](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-pipelinetype
+	//
+	PipelineType *string `field:"optional" json:"pipelineType" yaml:"pipelineType"`
 	// Indicates whether to rerun the CodePipeline pipeline after you update it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-restartexecutiononupdate
 	//
@@ -140,5 +187,17 @@ type CfnPipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.
+	//
+	// > When a trigger configuration is specified, default change detection for repository and branch commits is disabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-triggers
+	//
+	Triggers interface{} `field:"optional" json:"triggers" yaml:"triggers"`
+	// A list that defines the pipeline variables for a pipeline resource.
+	//
+	// Variable names can have alphanumeric and underscore characters, and the values must match `[A-Za-z0-9@\-_]+` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-variables
+	//
+	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 

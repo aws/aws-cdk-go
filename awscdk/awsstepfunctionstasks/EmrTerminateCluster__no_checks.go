@@ -16,6 +16,10 @@ func (e *jsiiProxy_EmrTerminateCluster) validateAddChoiceParameters(condition aw
 	return nil
 }
 
+func (e *jsiiProxy_EmrTerminateCluster) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrTerminateCluster) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEmrTerminateCluster_IsConstructParameters(x interface{}) error {
 }
 
 func validateEmrTerminateCluster_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EmrTerminateCluster) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

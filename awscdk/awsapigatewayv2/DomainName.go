@@ -12,31 +12,26 @@ import (
 // Custom domain resource for the API.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
-//   var certificate certificate
+//   var handler function
 //
-//   domainName := awscdk.Aws_apigatewayv2.NewDomainName(this, jsii.String("MyDomainName"), &DomainNameProps{
-//   	Certificate: certificate,
-//   	DomainName: jsii.String("domainName"),
 //
-//   	// the properties below are optional
-//   	CertificateName: jsii.String("certificateName"),
-//   	EndpointType: awscdk.*Aws_apigatewayv2.EndpointType_EDGE,
-//   	Mtls: &MTLSConfig{
-//   		Bucket: bucket,
-//   		Key: jsii.String("key"),
+//   certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
+//   domainName := "example.com"
 //
-//   		// the properties below are optional
-//   		Version: jsii.String("version"),
+//   dn := apigwv2.NewDomainName(this, jsii.String("DN"), &DomainNameProps{
+//   	DomainName: domainName,
+//   	Certificate: acm.Certificate_FromCertificateArn(this, jsii.String("cert"), certArn),
+//   })
+//   api := apigwv2.NewHttpApi(this, jsii.String("HttpProxyProdApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+//   	// https://${dn.domainName}/foo goes to prodApi $default stage
+//   	DefaultDomainMapping: &DomainMappingOptions{
+//   		DomainName: dn,
+//   		MappingKey: jsii.String("foo"),
 //   	},
-//   	OwnershipCertificate: certificate,
-//   	SecurityPolicy: awscdk.*Aws_apigatewayv2.SecurityPolicy_TLS_1_0,
 //   })
 //
 type DomainName interface {

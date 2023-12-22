@@ -8,7 +8,9 @@ import (
 //
 // Example:
 //   topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
+//   	ContentBasedDeduplication: jsii.Boolean(true),
 //   	DisplayName: jsii.String("Customer subscription topic"),
+//   	Fifo: jsii.Boolean(true),
 //   })
 //
 type TopicProps struct {
@@ -24,6 +26,12 @@ type TopicProps struct {
 	// Default: None.
 	//
 	Fifo *bool `field:"optional" json:"fifo" yaml:"fifo"`
+	// The list of delivery status logging configurations for the topic.
+	//
+	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html.
+	// Default: None.
+	//
+	LoggingConfigs *[]*LoggingConfig `field:"optional" json:"loggingConfigs" yaml:"loggingConfigs"`
 	// A KMS Key, either managed by this CDK app, or imported.
 	// Default: None.
 	//

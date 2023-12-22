@@ -35,7 +35,6 @@ type CfnRegistry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	AttrId() *string
 	// The ARN of the registry.
 	AttrRegistryArn() *string
 	// The name of the registry.
@@ -226,16 +225,6 @@ type jsiiProxy_CfnRegistry struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
-}
-
-func (j *jsiiProxy_CfnRegistry) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnRegistry) AttrRegistryArn() *string {

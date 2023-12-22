@@ -1,6 +1,8 @@
 package awsiottwinmaker
 
 
+// Information about a composite component.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -57,30 +59,29 @@ type CfnEntity_CompositeComponentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-componentname
 	//
 	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
-	// The path of the component.
+	// The path to the composite component, starting from the top-level component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-componentpath
 	//
 	ComponentPath *string `field:"optional" json:"componentPath" yaml:"componentPath"`
-	// The ID of the component type.
+	// The ID of the composite component type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-componenttypeid
 	//
 	ComponentTypeId *string `field:"optional" json:"componentTypeId" yaml:"componentTypeId"`
-	// The description of the component.
+	// The description of the component type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// An object that maps strings to the properties to set in the component type.
+	// Map of strings to the properties in the component type.
 	//
-	// Each string in the mapping must be unique to this object.
+	// Each string in the mapping must be unique to this component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-properties
 	//
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
-	// An object that maps strings to the property groups to set in the component type.
-	//
-	// Each string in the mapping must be unique to this object.
+	// The property groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-propertygroups
 	//
 	PropertyGroups interface{} `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
+	// The current status of the composite component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html#cfn-iottwinmaker-entity-compositecomponent-status
 	//
 	Status interface{} `field:"optional" json:"status" yaml:"status"`

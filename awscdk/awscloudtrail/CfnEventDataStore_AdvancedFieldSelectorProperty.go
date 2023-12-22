@@ -64,6 +64,7 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::DynamoDB::Table`
 	// - `AWS::Lambda::Function`
 	// - `AWS::S3::Object`
+	// - `AWS::B2BI::Transformer`
 	// - `AWS::Bedrock::AgentAlias`
 	// - `AWS::Bedrock::KnowledgeBase`
 	// - `AWS::CloudFront:KeyValueStore`
@@ -84,6 +85,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::MedicalImaging::Datastore`
 	// - `AWS::NeptuneGraph::Graph`
 	// - `AWS::PCAConnectorAD::Connector`
+	// - `AWS::QBusiness::Application`
+	// - `AWS::QBusiness::DataSource`
+	// - `AWS::QBusiness::Index`
+	// - `AWS::QBusiness::WebExperience`
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
@@ -96,6 +101,8 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::S3ObjectLambda::AccessPoint`
 	// - `AWS::S3Outposts::Object`
 	// - `AWS::SSMMessages::ControlChannel`
+	// - `AWS::ThinClient::Device`
+	// - `AWS::ThinClient::Environment`
 	// - `AWS::Timestream::Database`
 	// - `AWS::Timestream::Table`
 	// - `AWS::VerifiedPermissions::PolicyStore`
@@ -115,6 +122,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When resources.type equals `AWS::Lambda::Function` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:lambda:<region>:<account_ID>:function:<function_name>`
+	//
+	// When resources.type equals `AWS::B2BI::Transformer` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:b2bi:<region>:<account_ID>:transformer/<transformer_ID>`
 	//
 	// When resources.type equals `AWS::Bedrock::AgentAlias` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
@@ -196,6 +207,22 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID>`
 	//
+	// When `resources.type` equals `AWS::QBusiness::Application` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>`
+	//
+	// When `resources.type` equals `AWS::QBusiness::DataSource` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID>/data-source/<datasource_ID>`
+	//
+	// When `resources.type` equals `AWS::QBusiness::Index` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID>`
+	//
+	// When `resources.type` equals `AWS::QBusiness::WebExperience` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/web-experience/<web_experience_ID>`
+	//
 	// When `resources.type` equals `AWS::SageMaker::Endpoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sagemaker:<region>:<account_ID>:endpoint/<endpoint_name>`
@@ -244,6 +271,14 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::SSMMessages::ControlChannel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID>`
+	//
+	// When `resources.type` equals `AWS::ThinClient::Device` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:thinclient:<region>:<account_ID>:device/<device_ID>`
+	//
+	// When `resources.type` equals `AWS::ThinClient::Environment` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:thinclient:<region>:<account_ID>:environment/<environment_ID>`
 	//
 	// When `resources.type` equals `AWS::Timestream::Database` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

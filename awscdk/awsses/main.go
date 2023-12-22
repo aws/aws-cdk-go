@@ -1128,6 +1128,14 @@ func init() {
 		"aws-cdk-lib.aws_ses.SNSActionConfig",
 		reflect.TypeOf((*SNSActionConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ses.ScalingMode",
+		reflect.TypeOf((*ScalingMode)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": ScalingMode_STANDARD,
+			"MANAGED": ScalingMode_MANAGED,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.StopActionConfig",
 		reflect.TypeOf((*StopActionConfig)(nil)).Elem(),

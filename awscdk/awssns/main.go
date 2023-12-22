@@ -48,6 +48,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "replayPolicy", GoGetter: "ReplayPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subscriptionRoleArn", GoGetter: "SubscriptionRoleArn"},
@@ -315,6 +316,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sns.LoggingConfig",
+		reflect.TypeOf((*LoggingConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_sns.LoggingProtocol",
+		reflect.TypeOf((*LoggingProtocol)(nil)).Elem(),
+		map[string]interface{}{
+			"HTTP": LoggingProtocol_HTTP,
+			"SQS": LoggingProtocol_SQS,
+			"LAMBDA": LoggingProtocol_LAMBDA,
+			"FIREHOSE": LoggingProtocol_FIREHOSE,
+			"APPLICATION": LoggingProtocol_APPLICATION,
+		},
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sns.NumericConditions",
 		reflect.TypeOf((*NumericConditions)(nil)).Elem(),
 	)
@@ -395,6 +411,7 @@ func init() {
 		"aws-cdk-lib.aws_sns.Topic",
 		reflect.TypeOf((*Topic)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addLoggingConfig", GoMethod: "AddLoggingConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "addSubscription", GoMethod: "AddSubscription"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},

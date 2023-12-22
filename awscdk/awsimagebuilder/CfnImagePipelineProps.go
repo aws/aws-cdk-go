@@ -17,6 +17,7 @@ package awsimagebuilder
 //   	Description: jsii.String("description"),
 //   	DistributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	EnhancedImageMetadataEnabled: jsii.Boolean(false),
+//   	ExecutionRole: jsii.String("executionRole"),
 //   	ImageRecipeArn: jsii.String("imageRecipeArn"),
 //   	ImageScanningConfiguration: &ImageScanningConfigurationProperty{
 //   		EcrConfiguration: &EcrConfigurationProperty{
@@ -38,6 +39,21 @@ package awsimagebuilder
 //   	Status: jsii.String("status"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	Workflows: []interface{}{
+//   		&WorkflowConfigurationProperty{
+//   			OnFailure: jsii.String("onFailure"),
+//   			ParallelGroup: jsii.String("parallelGroup"),
+//   			Parameters: []interface{}{
+//   				&WorkflowParameterProperty{
+//   					Name: jsii.String("name"),
+//   					Value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			WorkflowArn: jsii.String("workflowArn"),
+//   		},
 //   	},
 //   }
 //
@@ -70,6 +86,10 @@ type CfnImagePipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
 	//
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
+	// The execution role name/ARN for the image build, if provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-executionrole
+	//
+	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
 	//
@@ -96,5 +116,9 @@ type CfnImagePipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+	// Workflows to define the image build process.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-workflows
+	//
+	Workflows interface{} `field:"optional" json:"workflows" yaml:"workflows"`
 }
 

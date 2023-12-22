@@ -60,10 +60,14 @@ import (
 //   	},
 //   	IbmDb2Settings: &IbmDb2SettingsProperty{
 //   		CurrentLsn: jsii.String("currentLsn"),
+//   		KeepCsvFiles: jsii.Boolean(false),
+//   		LoadTimeout: jsii.Number(123),
+//   		MaxFileSize: jsii.Number(123),
 //   		MaxKBytesPerRead: jsii.Number(123),
 //   		SecretsManagerAccessRoleArn: jsii.String("secretsManagerAccessRoleArn"),
 //   		SecretsManagerSecretId: jsii.String("secretsManagerSecretId"),
 //   		SetDataCaptureChanges: jsii.Boolean(false),
+//   		WriteBufferSize: jsii.Number(123),
 //   	},
 //   	KafkaSettings: &KafkaSettingsProperty{
 //   		Broker: jsii.String("broker"),

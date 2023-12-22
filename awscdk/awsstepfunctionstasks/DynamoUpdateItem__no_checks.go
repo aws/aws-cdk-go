@@ -16,6 +16,10 @@ func (d *jsiiProxy_DynamoUpdateItem) validateAddChoiceParameters(condition awsst
 	return nil
 }
 
+func (d *jsiiProxy_DynamoUpdateItem) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (d *jsiiProxy_DynamoUpdateItem) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateDynamoUpdateItem_IsConstructParameters(x interface{}) error {
 }
 
 func validateDynamoUpdateItem_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_DynamoUpdateItem) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

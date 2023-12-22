@@ -69,6 +69,8 @@ type IntegrationConfig struct {
 	//
 	DeploymentToken *string `field:"optional" json:"deploymentToken" yaml:"deploymentToken"`
 	// The integration's HTTP method type.
+	//
+	// Required unless you use a MOCK integration.
 	// Default: - no integration method specified.
 	//
 	IntegrationHttpMethod *string `field:"optional" json:"integrationHttpMethod" yaml:"integrationHttpMethod"`

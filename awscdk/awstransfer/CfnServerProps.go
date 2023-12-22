@@ -198,6 +198,9 @@ type CfnServerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-protocols
 	//
 	Protocols *[]*string `field:"optional" json:"protocols" yaml:"protocols"`
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+	//
+	// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-s3storageoptions
 	//
 	S3StorageOptions interface{} `field:"optional" json:"s3StorageOptions" yaml:"s3StorageOptions"`

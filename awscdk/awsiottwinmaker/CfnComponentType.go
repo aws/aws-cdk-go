@@ -146,7 +146,7 @@ type CfnComponentType interface {
 	// The ID of the component type.
 	ComponentTypeId() *string
 	SetComponentTypeId(val *string)
-	// An map of the composite component types in the component type.
+	// Maps strings to `compositeComponentTypes` of the `componentType` .
 	CompositeComponentTypes() interface{}
 	SetCompositeComponentTypes(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

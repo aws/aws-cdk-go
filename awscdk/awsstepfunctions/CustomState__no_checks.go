@@ -8,7 +8,15 @@ func (c *jsiiProxy_CustomState) validateAddBranchParameters(branch StateGraph) e
 	return nil
 }
 
+func (c *jsiiProxy_CustomState) validateAddCatchParameters(handler IChainable, props *CatchProps) error {
+	return nil
+}
+
 func (c *jsiiProxy_CustomState) validateAddChoiceParameters(condition Condition, next State, options *ChoiceTransitionOptions) error {
+	return nil
+}
+
+func (c *jsiiProxy_CustomState) validateAddItemProcessorParameters(processor StateGraph, config *ProcessorConfig) error {
 	return nil
 }
 
@@ -57,6 +65,10 @@ func validateCustomState_IsConstructParameters(x interface{}) error {
 }
 
 func validateCustomState_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CustomState) validateSetProcessorConfigParameters(val *ProcessorConfig) error {
 	return nil
 }
 

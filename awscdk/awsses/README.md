@@ -120,7 +120,9 @@ dedicated IP addresses that are reserved for your exclusive use.
 Use the `DedicatedIpPool` construct to create a pool of dedicated IP addresses:
 
 ```go
-ses.NewDedicatedIpPool(this, jsii.String("Pool"))
+ses.NewDedicatedIpPool(this, jsii.String("Pool"), &DedicatedIpPoolProps{
+	ScalingMode: ses.ScalingMode_STANDARD,
+})
 ```
 
 The pool can then be used in a configuration set.

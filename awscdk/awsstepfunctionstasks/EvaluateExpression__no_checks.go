@@ -16,6 +16,10 @@ func (e *jsiiProxy_EvaluateExpression) validateAddChoiceParameters(condition aws
 	return nil
 }
 
+func (e *jsiiProxy_EvaluateExpression) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EvaluateExpression) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEvaluateExpression_IsConstructParameters(x interface{}) error {
 }
 
 func validateEvaluateExpression_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EvaluateExpression) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

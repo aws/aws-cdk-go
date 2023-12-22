@@ -53,7 +53,7 @@ type CfnBucketProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
 	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
-	// The id of the customer outpost on which the bucket resides.
+	// The ID of the Outpost of the specified bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
 	//
 	OutpostId *string `field:"required" json:"outpostId" yaml:"outpostId"`

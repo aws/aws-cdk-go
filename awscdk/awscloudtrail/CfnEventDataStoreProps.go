@@ -96,11 +96,13 @@ type CfnEventDataStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-billingmode
 	//
 	BillingMode *string `field:"optional" json:"billingMode" yaml:"billingMode"`
-	// Indicates whether federation is enabled on an event data store.
+	// Indicates if [Lake query federation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html) is enabled. By default, Lake query federation is disabled. You cannot delete an event data store if Lake query federation is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-federationenabled
 	//
 	FederationEnabled interface{} `field:"optional" json:"federationEnabled" yaml:"federationEnabled"`
-	// The ARN of the role used for event data store federation.
+	// If Lake query federation is enabled, provides the ARN of the federation role used to access the resources for the federated event data store.
+	//
+	// The federation role must exist in your account and provide the [required minimum permissions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html#query-federation-permissions-role) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-federationrolearn
 	//
 	FederationRoleArn *string `field:"optional" json:"federationRoleArn" yaml:"federationRoleArn"`

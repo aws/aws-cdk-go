@@ -97,11 +97,12 @@ type CfnTask_OptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-objecttags
 	//
 	ObjectTags *string `field:"optional" json:"objectTags" yaml:"objectTags"`
-	// Specifies whether data at the destination location should be overwritten or preserved.
+	// Specifies whether DataSync should modify or preserve data at the destination location.
 	//
-	// If set to `NEVER` , a destination file for example will not be replaced by a source file (even if the destination file differs from the source file). If you modify files in the destination and you sync the files, you can use this value to protect against overwriting those changes.
+	// - `ALWAYS` (default) - DataSync modifies data in the destination location when source data (including metadata) has changed.
 	//
-	// Some storage classes have specific behaviors that can affect your Amazon S3 storage cost. For detailed information, see [Considerations when working with Amazon S3 storage classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) .
+	// If DataSync overwrites objects, you might incur additional charges for certain Amazon S3 storage classes (for example, for retrieval or early deletion). For more information, see [Storage class considerations with Amazon S3 transfers](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes) .
+	// - `NEVER` - DataSync doesn't overwrite data in the destination location even if the source data has changed. You can use this option to protect against overwriting changes made to files or objects in the destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
 	//
 	OverwriteMode *string `field:"optional" json:"overwriteMode" yaml:"overwriteMode"`

@@ -25,11 +25,11 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html
 //
 type CfnEC2Fleet_TargetCapacitySpecificationRequestProperty struct {
-	// The number of units to request, filled using `DefaultTargetCapacityType` .
+	// The number of units to request, filled using the default target capacity type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-totaltargetcapacity
 	//
 	TotalTargetCapacity *float64 `field:"required" json:"totalTargetCapacity" yaml:"totalTargetCapacity"`
-	// The default `TotalTargetCapacity` , which is either `Spot` or `On-Demand` .
+	// The default target capacity type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-defaulttargetcapacitytype
 	//
 	DefaultTargetCapacityType *string `field:"optional" json:"defaultTargetCapacityType" yaml:"defaultTargetCapacityType"`
@@ -41,9 +41,9 @@ type CfnEC2Fleet_TargetCapacitySpecificationRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-spottargetcapacity
 	//
 	SpotTargetCapacity *float64 `field:"optional" json:"spotTargetCapacity" yaml:"spotTargetCapacity"`
-	// The unit for the target capacity. `TargetCapacityUnitType` can only be specified when `InstanceRequirements` is specified.
+	// The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
 	//
-	// Default: `units` (translates to number of instances).
+	// Default: `units` (the number of instances).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-targetcapacityunittype
 	//
 	TargetCapacityUnitType *string `field:"optional" json:"targetCapacityUnitType" yaml:"targetCapacityUnitType"`

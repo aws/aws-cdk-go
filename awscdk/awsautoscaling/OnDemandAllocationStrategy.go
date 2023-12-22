@@ -12,5 +12,10 @@ const (
 	// the Auto Scaling group launches the remaining capacity using the second priority instance type, and
 	// so on.
 	OnDemandAllocationStrategy_PRIORITIZED OnDemandAllocationStrategy = "PRIORITIZED"
+	// This strategy uses the lowest-price instance types in each Availability Zone based on the current On-Demand instance price.
+	//
+	// To meet your desired capacity, you might receive On-Demand Instances of more than one instance type
+	// in each Availability Zone. This depends on how much capacity you request.
+	OnDemandAllocationStrategy_LOWEST_PRICE OnDemandAllocationStrategy = "LOWEST_PRICE"
 )
 

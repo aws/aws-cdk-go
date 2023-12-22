@@ -27,6 +27,10 @@ type State interface {
 	Node() constructs.Node
 	OutputPath() *string
 	Parameters() *map[string]interface{}
+	Processor() StateGraph
+	SetProcessor(val StateGraph)
+	ProcessorConfig() *ProcessorConfig
+	SetProcessorConfig(val *ProcessorConfig)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -38,6 +42,8 @@ type State interface {
 	AddBranch(branch StateGraph)
 	// Add a choice branch to this state.
 	AddChoice(condition Condition, next State, options *ChoiceTransitionOptions)
+	// Add a item processor to this state.
+	AddItemProcessor(processor StateGraph, config *ProcessorConfig)
 	// Add a map iterator to this state.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -57,6 +63,8 @@ type State interface {
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
 	RenderInputOutput() interface{}
+	// Render ItemProcessor in ASL JSON format.
+	RenderItemProcessor() interface{}
 	// Render map iterator in ASL JSON format.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
@@ -183,6 +191,26 @@ func (j *jsiiProxy_State) Parameters() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_State) Processor() StateGraph {
+	var returns StateGraph
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_State) ProcessorConfig() *ProcessorConfig {
+	var returns *ProcessorConfig
+	_jsii_.Get(
+		j,
+		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_State) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -256,6 +284,25 @@ func (j *jsiiProxy_State)SetIteration(val StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_State)SetProcessor(val StateGraph) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_State)SetProcessorConfig(val *ProcessorConfig) {
+	if err := j.validateSetProcessorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"processorConfig",
 		val,
 	)
 }
@@ -390,6 +437,17 @@ func (s *jsiiProxy_State) AddChoice(condition Condition, next State, options *Ch
 	)
 }
 
+func (s *jsiiProxy_State) AddItemProcessor(processor StateGraph, config *ProcessorConfig) {
+	if err := s.validateAddItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"addItemProcessor",
+		[]interface{}{processor, config},
+	)
+}
+
 func (s *jsiiProxy_State) AddIterator(iteration StateGraph) {
 	if err := s.validateAddIteratorParameters(iteration); err != nil {
 		panic(err)
@@ -477,6 +535,19 @@ func (s *jsiiProxy_State) RenderInputOutput() interface{} {
 	_jsii_.Invoke(
 		s,
 		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_State) RenderItemProcessor() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderItemProcessor",
 		nil, // no parameters
 		&returns,
 	)

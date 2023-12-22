@@ -87,7 +87,7 @@ type CfnUserPoolClient interface {
 	// The access token time limit.
 	AccessTokenValidity() *float64
 	SetAccessTokenValidity(val *float64)
-	// The allowed OAuth flows.
+	// The OAuth grant types that you want your app client to generate.
 	AllowedOAuthFlows() *[]*string
 	SetAllowedOAuthFlows(val *[]*string)
 	// Set to `true` to use OAuth 2.0 features in your user pool app client.

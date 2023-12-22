@@ -16,6 +16,10 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) validateAddChoiceParameters(conditio
 	return nil
 }
 
+func (g *jsiiProxy_GlueDataBrewStartJobRun) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (g *jsiiProxy_GlueDataBrewStartJobRun) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateGlueDataBrewStartJobRun_IsConstructParameters(x interface{}) error 
 }
 
 func validateGlueDataBrewStartJobRun_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_GlueDataBrewStartJobRun) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

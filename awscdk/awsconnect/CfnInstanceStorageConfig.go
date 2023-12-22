@@ -29,14 +29,12 @@ import (
 //   		StreamArn: jsii.String("streamArn"),
 //   	},
 //   	KinesisVideoStreamConfig: &KinesisVideoStreamConfigProperty{
-//   		Prefix: jsii.String("prefix"),
-//   		RetentionPeriodHours: jsii.Number(123),
-//
-//   		// the properties below are optional
 //   		EncryptionConfig: &EncryptionConfigProperty{
 //   			EncryptionType: jsii.String("encryptionType"),
 //   			KeyId: jsii.String("keyId"),
 //   		},
+//   		Prefix: jsii.String("prefix"),
+//   		RetentionPeriodHours: jsii.Number(123),
 //   	},
 //   	S3Config: &S3ConfigProperty{
 //   		BucketName: jsii.String("bucketName"),

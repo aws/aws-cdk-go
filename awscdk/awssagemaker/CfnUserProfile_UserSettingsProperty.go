@@ -14,15 +14,6 @@ package awssagemaker
 //
 //   userSettingsProperty := &UserSettingsProperty{
 //   	CodeEditorAppSettings: &CodeEditorAppSettingsProperty{
-//   		CustomImages: []interface{}{
-//   			&CustomImageProperty{
-//   				AppImageConfigName: jsii.String("appImageConfigName"),
-//   				ImageName: jsii.String("imageName"),
-//
-//   				// the properties below are optional
-//   				ImageVersionNumber: jsii.Number(123),
-//   			},
-//   		},
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),

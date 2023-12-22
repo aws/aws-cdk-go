@@ -57,7 +57,7 @@ type CfnInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html#cfn-connect-instance-instancealias
 	//
 	InstanceAlias *string `field:"optional" json:"instanceAlias" yaml:"instanceAlias"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags of an instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html#cfn-connect-instance-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

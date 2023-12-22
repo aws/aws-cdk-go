@@ -16,6 +16,10 @@ func (e *jsiiProxy_EksCall) validateAddChoiceParameters(condition awsstepfunctio
 	return nil
 }
 
+func (e *jsiiProxy_EksCall) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EksCall) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEksCall_IsConstructParameters(x interface{}) error {
 }
 
 func validateEksCall_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EksCall) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

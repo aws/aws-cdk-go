@@ -16,6 +16,10 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) validateAddChoiceParameters(co
 	return nil
 }
 
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateCallApiGatewayHttpApiEndpoint_IsConstructParameters(x interface{}) 
 }
 
 func validateCallApiGatewayHttpApiEndpoint_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

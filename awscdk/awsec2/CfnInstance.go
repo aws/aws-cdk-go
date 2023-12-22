@@ -192,6 +192,7 @@ type CfnInstance interface {
 	AttrAvailabilityZone() *string
 	// The ID of the instance.
 	AttrId() *string
+	AttrInstanceId() *string
 	// The private DNS name of the specified instance.
 	//
 	// For example: `ip-10-24-34-0.ec2.internal` .
@@ -369,7 +370,7 @@ type CfnInstance interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user data script to make available to the instance.
+	// The parameters or scripts to store as user data.
 	UserData() *string
 	SetUserData(val *string)
 	// The volumes to attach to the instance.
@@ -544,6 +545,16 @@ func (j *jsiiProxy_CfnInstance) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) AttrInstanceId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInstanceId",
 		&returns,
 	)
 	return returns

@@ -16,6 +16,10 @@ func (e *jsiiProxy_EmrAddStep) validateAddChoiceParameters(condition awsstepfunc
 	return nil
 }
 
+func (e *jsiiProxy_EmrAddStep) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (e *jsiiProxy_EmrAddStep) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateEmrAddStep_IsConstructParameters(x interface{}) error {
 }
 
 func validateEmrAddStep_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_EmrAddStep) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

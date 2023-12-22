@@ -23,7 +23,7 @@ package awsstepfunctions
 //
 //   definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(finish)
 //
-//   map.Iterator(definition)
+//   map.ItemProcessor(definition)
 //
 type MapProps struct {
 	// An optional description for this state.

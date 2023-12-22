@@ -48,6 +48,18 @@ func (a *jsiiProxy_AthenaGetQueryResults) validateAddChoiceParameters(condition 
 	return nil
 }
 
+func (a *jsiiProxy_AthenaGetQueryResults) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	if processor == nil {
+		return fmt.Errorf("parameter processor is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_AthenaGetQueryResults) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	if iteration == nil {
 		return fmt.Errorf("parameter iteration is required, but nil was provided")
@@ -243,6 +255,14 @@ func validateAthenaGetQueryResults_PrefixStatesParameters(root constructs.IConst
 
 	if prefix == nil {
 		return fmt.Errorf("parameter prefix is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_AthenaGetQueryResults) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
+	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+		return err
 	}
 
 	return nil

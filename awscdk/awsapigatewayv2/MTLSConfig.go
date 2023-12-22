@@ -7,20 +7,23 @@ import (
 // The mTLS authentication configuration for a custom domain name.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
 //   var bucket bucket
 //
-//   mTLSConfig := &MTLSConfig{
-//   	Bucket: bucket,
-//   	Key: jsii.String("key"),
 //
-//   	// the properties below are optional
-//   	Version: jsii.String("version"),
-//   }
+//   certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
+//   domainName := "example.com"
+//
+//   apigwv2.NewDomainName(this, jsii.String("DomainName"), &DomainNameProps{
+//   	DomainName: jsii.String(DomainName),
+//   	Certificate: acm.Certificate_FromCertificateArn(this, jsii.String("cert"), certArn),
+//   	Mtls: &MTLSConfig{
+//   		Bucket: *Bucket,
+//   		Key: jsii.String("someca.pem"),
+//   		Version: jsii.String("version"),
+//   	},
+//   })
 //
 type MTLSConfig struct {
 	// The bucket that the trust store is hosted in.

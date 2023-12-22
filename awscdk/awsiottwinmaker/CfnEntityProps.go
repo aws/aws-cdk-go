@@ -113,7 +113,7 @@ type CfnEntityProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-entityname
 	//
 	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
-	// The ID of the workspace.
+	// The ID of the workspace that contains the entity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-workspaceid
 	//
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
@@ -125,7 +125,9 @@ type CfnEntityProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-components
 	//
 	Components interface{} `field:"optional" json:"components" yaml:"components"`
-	// A map that sets information about a composite component.
+	// Maps string to `compositeComponent` updates in the request.
+	//
+	// Each key of the map represents the `componentPath` of the `compositeComponent` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html#cfn-iottwinmaker-entity-compositecomponents
 	//
 	CompositeComponents interface{} `field:"optional" json:"compositeComponents" yaml:"compositeComponents"`

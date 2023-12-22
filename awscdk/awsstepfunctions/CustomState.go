@@ -44,6 +44,10 @@ import (
 //   	StateJson: StateJson,
 //   })
 //
+//   // catch errors with addCatch
+//   errorHandler := sfn.NewPass(this, jsii.String("handle failure"))
+//   custom.AddCatch(errorHandler)
+//
 //   chain := sfn.Chain_Start(custom).Next(finalStatus)
 //
 //   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
@@ -74,6 +78,10 @@ type CustomState interface {
 	Node() constructs.Node
 	OutputPath() *string
 	Parameters() *map[string]interface{}
+	Processor() StateGraph
+	SetProcessor(val StateGraph)
+	ProcessorConfig() *ProcessorConfig
+	SetProcessorConfig(val *ProcessorConfig)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -83,8 +91,15 @@ type CustomState interface {
 	StateName() *string
 	// Add a parallel branch to this state.
 	AddBranch(branch StateGraph)
+	// Add a recovery handler for this state.
+	//
+	// When a particular error occurs, execution will continue at the error
+	// handler instead of failing the state machine execution.
+	AddCatch(handler IChainable, props *CatchProps) CustomState
 	// Add a choice branch to this state.
 	AddChoice(condition Condition, next State, options *ChoiceTransitionOptions)
+	// Add a item processor to this state.
+	AddItemProcessor(processor StateGraph, config *ProcessorConfig)
 	// Add a map iterator to this state.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -106,6 +121,8 @@ type CustomState interface {
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
 	RenderInputOutput() interface{}
+	// Render ItemProcessor in ASL JSON format.
+	RenderItemProcessor() interface{}
 	// Render map iterator in ASL JSON format.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
@@ -233,6 +250,26 @@ func (j *jsiiProxy_CustomState) Parameters() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CustomState) Processor() StateGraph {
+	var returns StateGraph
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CustomState) ProcessorConfig() *ProcessorConfig {
+	var returns *ProcessorConfig
+	_jsii_.Get(
+		j,
+		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CustomState) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -323,6 +360,25 @@ func (j *jsiiProxy_CustomState)SetIteration(val StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CustomState)SetProcessor(val StateGraph) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CustomState)SetProcessorConfig(val *ProcessorConfig) {
+	if err := j.validateSetProcessorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"processorConfig",
 		val,
 	)
 }
@@ -446,6 +502,22 @@ func (c *jsiiProxy_CustomState) AddBranch(branch StateGraph) {
 	)
 }
 
+func (c *jsiiProxy_CustomState) AddCatch(handler IChainable, props *CatchProps) CustomState {
+	if err := c.validateAddCatchParameters(handler, props); err != nil {
+		panic(err)
+	}
+	var returns CustomState
+
+	_jsii_.Invoke(
+		c,
+		"addCatch",
+		[]interface{}{handler, props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CustomState) AddChoice(condition Condition, next State, options *ChoiceTransitionOptions) {
 	if err := c.validateAddChoiceParameters(condition, next, options); err != nil {
 		panic(err)
@@ -454,6 +526,17 @@ func (c *jsiiProxy_CustomState) AddChoice(condition Condition, next State, optio
 		c,
 		"addChoice",
 		[]interface{}{condition, next, options},
+	)
+}
+
+func (c *jsiiProxy_CustomState) AddItemProcessor(processor StateGraph, config *ProcessorConfig) {
+	if err := c.validateAddItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addItemProcessor",
+		[]interface{}{processor, config},
 	)
 }
 
@@ -560,6 +643,19 @@ func (c *jsiiProxy_CustomState) RenderInputOutput() interface{} {
 	_jsii_.Invoke(
 		c,
 		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CustomState) RenderItemProcessor() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderItemProcessor",
 		nil, // no parameters
 		&returns,
 	)

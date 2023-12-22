@@ -168,6 +168,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TerminationHookEnabled: jsii.Boolean(false),
 //   	TriggerConfigurations: []interface{}{
 //   		&TriggerConfigProperty{
 //   			TriggerEvents: []*string{
@@ -272,6 +273,8 @@ type CfnDeploymentGroup interface {
 	// The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	TerminationHookEnabled() interface{}
+	SetTerminationHookEnabled(val interface{})
 	// Information about triggers associated with the deployment group.
 	TriggerConfigurations() interface{}
 	SetTriggerConfigurations(val interface{})
@@ -702,6 +705,16 @@ func (j *jsiiProxy_CfnDeploymentGroup) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeploymentGroup) TerminationHookEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"terminationHookEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeploymentGroup) TriggerConfigurations() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -942,6 +955,17 @@ func (j *jsiiProxy_CfnDeploymentGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeploymentGroup)SetTerminationHookEnabled(val interface{}) {
+	if err := j.validateSetTerminationHookEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"terminationHookEnabled",
 		val,
 	)
 }

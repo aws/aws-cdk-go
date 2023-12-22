@@ -80,7 +80,12 @@ type InstanceProps struct {
 	// Name of SSH keypair to grant access to instance.
 	// Default: - No SSH access will be possible.
 	//
+	// Deprecated: - Use {@link keyPair } instead.
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
+	// The SSH keypair to grant access to the instance.
+	// Default: - No SSH access will be possible.
+	//
+	KeyPair IKeyPair `field:"optional" json:"keyPair" yaml:"keyPair"`
 	// Defines a private IP address to associate with an instance.
 	//
 	// Private IP should be available within the VPC that the instance is build within.

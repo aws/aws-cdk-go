@@ -25,7 +25,7 @@ package awss3outposts
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html
 //
 type CfnEndpointProps struct {
-	// The id of the customer outpost on which the bucket resides.
+	// The ID of the Outpost.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
 	//
 	OutpostId *string `field:"required" json:"outpostId" yaml:"outpostId"`

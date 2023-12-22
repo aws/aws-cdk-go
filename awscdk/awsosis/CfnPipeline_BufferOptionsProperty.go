@@ -1,7 +1,9 @@
 package awsosis
 
 
-// Key-value pairs to configure buffering.
+// Options that specify the configuration of a persistent buffer.
+//
+// To configure how OpenSearch Ingestion encrypts this data, set the EncryptionAtRestOptions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

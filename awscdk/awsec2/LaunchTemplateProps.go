@@ -126,7 +126,12 @@ type LaunchTemplateProps struct {
 	// Name of SSH keypair to grant access to instance.
 	// Default: - No SSH access will be possible.
 	//
+	// Deprecated: - Use `keyPair` instead.
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
+	// The SSK keypair to grant access to the instance.
+	// Default: - No SSH access will be possible.
+	//
+	KeyPair IKeyPair `field:"optional" json:"keyPair" yaml:"keyPair"`
 	// Name for this launch template.
 	// Default: Automatically generated name.
 	//

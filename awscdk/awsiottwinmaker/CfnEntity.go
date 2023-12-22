@@ -142,7 +142,7 @@ type CfnEntity interface {
 	// An object that maps strings to the components in the entity.
 	Components() interface{}
 	SetComponents(val interface{})
-	// A map that sets information about a composite component.
+	// Maps string to `compositeComponent` updates in the request.
 	CompositeComponents() interface{}
 	SetCompositeComponents(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -200,7 +200,7 @@ type CfnEntity interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the workspace.
+	// The ID of the workspace that contains the entity.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

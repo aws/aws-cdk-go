@@ -4,18 +4,20 @@ package awsapigatewayv2
 // Options for DomainMapping.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var domainName domainName
+//   var handler function
+//   var dn domainName
 //
-//   domainMappingOptions := &DomainMappingOptions{
-//   	DomainName: domainName,
 //
-//   	// the properties below are optional
-//   	MappingKey: jsii.String("mappingKey"),
-//   }
+//   apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+//   	// https://${dn.domainName}/demo goes to apiDemo $default stage
+//   	DefaultDomainMapping: &DomainMappingOptions{
+//   		DomainName: dn,
+//   		MappingKey: jsii.String("demo"),
+//   	},
+//   })
 //
 type DomainMappingOptions struct {
 	// The domain name for the mapping.

@@ -16,6 +16,10 @@ func (a *jsiiProxy_AthenaStopQueryExecution) validateAddChoiceParameters(conditi
 	return nil
 }
 
+func (a *jsiiProxy_AthenaStopQueryExecution) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (a *jsiiProxy_AthenaStopQueryExecution) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateAthenaStopQueryExecution_IsConstructParameters(x interface{}) error
 }
 
 func validateAthenaStopQueryExecution_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_AthenaStopQueryExecution) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

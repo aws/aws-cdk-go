@@ -16,6 +16,10 @@ func (p *jsiiProxy_Parallel) validateAddChoiceParameters(condition Condition, ne
 	return nil
 }
 
+func (p *jsiiProxy_Parallel) validateAddItemProcessorParameters(processor StateGraph, config *ProcessorConfig) error {
+	return nil
+}
+
 func (p *jsiiProxy_Parallel) validateAddIteratorParameters(iteration StateGraph) error {
 	return nil
 }
@@ -65,6 +69,10 @@ func validateParallel_IsConstructParameters(x interface{}) error {
 }
 
 func validateParallel_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_Parallel) validateSetProcessorConfigParameters(val *ProcessorConfig) error {
 	return nil
 }
 

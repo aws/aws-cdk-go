@@ -49,6 +49,7 @@ type CfnTrail_DataResourceProperty struct {
 	//
 	// The following resource types are only available through *advanced* event selectors. Basic event selector resource types are valid in advanced event selectors, but advanced event selector resource types are not valid in basic event selectors. For more information, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) .
 	//
+	// - `AWS::B2BI::Transformer`
 	// - `AWS::Bedrock::AgentAlias`
 	// - `AWS::Bedrock::KnowledgeBase`
 	// - `AWS::CloudFront:KeyValueStore`
@@ -69,6 +70,10 @@ type CfnTrail_DataResourceProperty struct {
 	// - `AWS::MedicalImaging::Datastore`
 	// - `AWS::NeptuneGraph::Graph`
 	// - `AWS::PCAConnectorAD::Connector`
+	// - `AWS::QBusiness::Application`
+	// - `AWS::QBusiness::DataSource`
+	// - `AWS::QBusiness::Index`
+	// - `AWS::QBusiness::WebExperience`
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
@@ -81,6 +86,8 @@ type CfnTrail_DataResourceProperty struct {
 	// - `AWS::S3ObjectLambda::AccessPoint`
 	// - `AWS::S3Outposts::Object`
 	// - `AWS::SSMMessages::ControlChannel`
+	// - `AWS::ThinClient::Device`
+	// - `AWS::ThinClient::Environment`
 	// - `AWS::Timestream::Database`
 	// - `AWS::Timestream::Table`
 	// - `AWS::VerifiedPermissions::PolicyStore`.

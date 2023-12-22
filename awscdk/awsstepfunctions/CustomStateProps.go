@@ -38,6 +38,10 @@ package awsstepfunctions
 //   	StateJson: StateJson,
 //   })
 //
+//   // catch errors with addCatch
+//   errorHandler := sfn.NewPass(this, jsii.String("handle failure"))
+//   custom.AddCatch(errorHandler)
+//
 //   chain := sfn.Chain_Start(custom).Next(finalStatus)
 //
 //   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{

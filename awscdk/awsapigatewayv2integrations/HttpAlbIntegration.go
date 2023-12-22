@@ -14,8 +14,11 @@ import (
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var lb applicationLoadBalancer
 //
+//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("lb"), &ApplicationLoadBalancerProps{
+//   	Vpc: Vpc,
+//   })
 //   listener := lb.AddListener(jsii.String("listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),
 //   })
@@ -24,9 +27,7 @@ import (
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &HttpAlbIntegrationProps{
-//   		ParameterMapping: apigwv2.NewParameterMapping().Custom(jsii.String("myKey"), jsii.String("myValue")),
-//   	}),
+//   	DefaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 type HttpAlbIntegration interface {

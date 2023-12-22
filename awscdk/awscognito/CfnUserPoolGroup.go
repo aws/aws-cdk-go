@@ -9,11 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies a new group in the identified user pool.
-//
-// Calling this action requires developer credentials.
-//
-// > If you don't specify a value for a parameter, Amazon Cognito sets it to a default value.
+// A user pool group that you can add a user to.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

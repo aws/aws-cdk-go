@@ -47,6 +47,18 @@ func (t *jsiiProxy_TaskStateBase) validateAddChoiceParameters(condition Conditio
 	return nil
 }
 
+func (t *jsiiProxy_TaskStateBase) validateAddItemProcessorParameters(processor StateGraph, config *ProcessorConfig) error {
+	if processor == nil {
+		return fmt.Errorf("parameter processor is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TaskStateBase) validateAddIteratorParameters(iteration StateGraph) error {
 	if iteration == nil {
 		return fmt.Errorf("parameter iteration is required, but nil was provided")
@@ -242,6 +254,14 @@ func validateTaskStateBase_PrefixStatesParameters(root constructs.IConstruct, pr
 
 	if prefix == nil {
 		return fmt.Errorf("parameter prefix is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_TaskStateBase) validateSetProcessorConfigParameters(val *ProcessorConfig) error {
+	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+		return err
 	}
 
 	return nil

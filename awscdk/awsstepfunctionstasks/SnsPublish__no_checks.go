@@ -16,6 +16,10 @@ func (s *jsiiProxy_SnsPublish) validateAddChoiceParameters(condition awsstepfunc
 	return nil
 }
 
+func (s *jsiiProxy_SnsPublish) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (s *jsiiProxy_SnsPublish) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateSnsPublish_IsConstructParameters(x interface{}) error {
 }
 
 func validateSnsPublish_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_SnsPublish) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

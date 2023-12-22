@@ -127,6 +127,8 @@ type CfnSubnet interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// Indicates whether instances launched in this subnet receive a public IPv4 address.
+	//
+	// The default value is `false` .
 	MapPublicIpOnLaunch() interface{}
 	SetMapPublicIpOnLaunch(val interface{})
 	// The tree node.

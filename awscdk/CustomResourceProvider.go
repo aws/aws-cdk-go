@@ -4,7 +4,6 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,7 +41,7 @@ import (
 //   })
 //
 type CustomResourceProvider interface {
-	constructs.Construct
+	CustomResourceProviderBase
 	// The hash of the lambda code backing this provider.
 	//
 	// Can be used to trigger updates
@@ -53,19 +52,6 @@ type CustomResourceProvider interface {
 	// The ARN of the provider's AWS Lambda function role.
 	RoleArn() *string
 	// The ARN of the provider's AWS Lambda function which should be used as the `serviceToken` when defining a custom resource.
-	//
-	// Example:
-	//   var myProvider customResourceProvider
-	//
-	//
-	//   awscdk.NewCustomResource(this, jsii.String("MyCustomResource"), &CustomResourceProps{
-	//   	ServiceToken: myProvider.ServiceToken,
-	//   	Properties: map[string]interface{}{
-	//   		"myPropertyOne": jsii.String("one"),
-	//   		"myPropertyTwo": jsii.String("two"),
-	//   	},
-	//   })
-	//
 	ServiceToken() *string
 	// Add an IAM policy statement to the inline policy of the provider's lambda function's role.
 	//
@@ -73,14 +59,13 @@ type CustomResourceProvider interface {
 	// object like you will see in the rest of the CDK.
 	//
 	// Example:
-	//   var myProvider customResourceProvider
+	//   declare const myProvider: CustomResourceProvider;
 	//
-	//
-	//   myProvider.AddToRolePolicy(map[string]*string{
-	//   	"Effect": jsii.String("Allow"),
-	//   	"Action": jsii.String("s3:GetObject"),
-	//   	"Resource": jsii.String("*"),
-	//   })
+	//   myProvider.addToRolePolicy({
+	//     Effect: 'Allow',
+	//     Action: 's3:GetObject',
+	//     Resource: '*',
+	//   });
 	//
 	AddToRolePolicy(statement interface{})
 	// Returns a string representation of this construct.
@@ -89,7 +74,7 @@ type CustomResourceProvider interface {
 
 // The jsii proxy struct for CustomResourceProvider
 type jsiiProxy_CustomResourceProvider struct {
-	internal.Type__constructsConstruct
+	jsiiProxy_CustomResourceProviderBase
 }
 
 func (j *jsiiProxy_CustomResourceProvider) CodeHash() *string {

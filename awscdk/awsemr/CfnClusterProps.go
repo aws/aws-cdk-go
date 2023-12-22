@@ -517,7 +517,9 @@ import (
 //   		},
 //   	},
 //   	CustomAmiId: jsii.String("customAmiId"),
+//   	EbsRootVolumeIops: jsii.Number(123),
 //   	EbsRootVolumeSize: jsii.Number(123),
+//   	EbsRootVolumeThroughput: jsii.Number(123),
 //   	KerberosAttributes: &KerberosAttributesProperty{
 //   		KdcAdminPassword: jsii.String("kdcAdminPassword"),
 //   		Realm: jsii.String("realm"),
@@ -541,6 +543,14 @@ import (
 //   		},
 //   	},
 //   	OsReleaseLabel: jsii.String("osReleaseLabel"),
+//   	PlacementGroupConfigs: []interface{}{
+//   		&PlacementGroupConfigProperty{
+//   			InstanceRole: jsii.String("instanceRole"),
+//
+//   			// the properties below are optional
+//   			PlacementStrategy: jsii.String("placementStrategy"),
+//   		},
+//   	},
 //   	ReleaseLabel: jsii.String("releaseLabel"),
 //   	ScaleDownBehavior: jsii.String("scaleDownBehavior"),
 //   	SecurityConfiguration: jsii.String("securityConfiguration"),
@@ -630,12 +640,18 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-customamiid
 	//
 	CustomAmiId *string `field:"optional" json:"customAmiId" yaml:"customAmiId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-ebsrootvolumeiops
+	//
+	EbsRootVolumeIops *float64 `field:"optional" json:"ebsRootVolumeIops" yaml:"ebsRootVolumeIops"`
 	// The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
 	//
 	// Available in Amazon EMR releases 4.x and later.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-ebsrootvolumesize
 	//
 	EbsRootVolumeSize *float64 `field:"optional" json:"ebsRootVolumeSize" yaml:"ebsRootVolumeSize"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-ebsrootvolumethroughput
+	//
+	EbsRootVolumeThroughput *float64 `field:"optional" json:"ebsRootVolumeThroughput" yaml:"ebsRootVolumeThroughput"`
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
 	//
 	// For more information see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide* .
@@ -664,6 +680,9 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-osreleaselabel
 	//
 	OsReleaseLabel *string `field:"optional" json:"osReleaseLabel" yaml:"osReleaseLabel"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-placementgroupconfigs
+	//
+	PlacementGroupConfigs interface{} `field:"optional" json:"placementGroupConfigs" yaml:"placementGroupConfigs"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
 	//
 	// Release labels are in the form `emr-x.x.x` , where x.x.x is an Amazon EMR release version such as `emr-5.14.0` . For more information about Amazon EMR release versions and included application versions and features, see [](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/) . The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use `AmiVersion` .

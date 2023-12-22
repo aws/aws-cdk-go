@@ -16,6 +16,10 @@ func (g *jsiiProxy_GlueStartJobRun) validateAddChoiceParameters(condition awsste
 	return nil
 }
 
+func (g *jsiiProxy_GlueStartJobRun) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (g *jsiiProxy_GlueStartJobRun) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateGlueStartJobRun_IsConstructParameters(x interface{}) error {
 }
 
 func validateGlueStartJobRun_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_GlueStartJobRun) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

@@ -32,6 +32,16 @@ type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The name of the application.
+	AttrApplicationName() *string
+	// The key of the AWS application tag, which is awsApplication.
+	//
+	// Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+	AttrApplicationTagKey() *string
+	// The value of the AWS application tag, which is the identifier of an associated resource.
+	//
+	// Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+	AttrApplicationTagValue() *string
 	// The Amazon resource name (ARN) that specifies the application across services.
 	AttrArn() *string
 	// The identifier of the application.
@@ -222,6 +232,36 @@ type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnApplication) AttrApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApplicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) AttrApplicationTagKey() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApplicationTagKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) AttrApplicationTagValue() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApplicationTagValue",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnApplication) AttrArn() *string {

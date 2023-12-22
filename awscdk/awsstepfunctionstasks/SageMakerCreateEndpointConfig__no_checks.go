@@ -16,6 +16,10 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) validateAddChoiceParameters(co
 	return nil
 }
 
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) validateAddItemProcessorParameters(processor awsstepfunctions.StateGraph, config *awsstepfunctions.ProcessorConfig) error {
+	return nil
+}
+
 func (s *jsiiProxy_SageMakerCreateEndpointConfig) validateAddIteratorParameters(iteration awsstepfunctions.StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateSageMakerCreateEndpointConfig_IsConstructParameters(x interface{}) 
 }
 
 func validateSageMakerCreateEndpointConfig_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_SageMakerCreateEndpointConfig) validateSetProcessorConfigParameters(val *awsstepfunctions.ProcessorConfig) error {
 	return nil
 }
 

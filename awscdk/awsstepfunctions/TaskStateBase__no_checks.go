@@ -16,6 +16,10 @@ func (t *jsiiProxy_TaskStateBase) validateAddChoiceParameters(condition Conditio
 	return nil
 }
 
+func (t *jsiiProxy_TaskStateBase) validateAddItemProcessorParameters(processor StateGraph, config *ProcessorConfig) error {
+	return nil
+}
+
 func (t *jsiiProxy_TaskStateBase) validateAddIteratorParameters(iteration StateGraph) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func validateTaskStateBase_IsConstructParameters(x interface{}) error {
 }
 
 func validateTaskStateBase_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_TaskStateBase) validateSetProcessorConfigParameters(val *ProcessorConfig) error {
 	return nil
 }
 

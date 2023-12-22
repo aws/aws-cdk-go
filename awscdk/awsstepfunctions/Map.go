@@ -35,7 +35,7 @@ import (
 //
 //   definition := choice.When(condition1, step1).Otherwise(step2).Afterwards().Next(finish)
 //
-//   map.Iterator(definition)
+//   map.ItemProcessor(definition)
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html
 //
@@ -57,6 +57,10 @@ type Map interface {
 	Node() constructs.Node
 	OutputPath() *string
 	Parameters() *map[string]interface{}
+	Processor() StateGraph
+	SetProcessor(val StateGraph)
+	ProcessorConfig() *ProcessorConfig
+	SetProcessorConfig(val *ProcessorConfig)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -73,6 +77,8 @@ type Map interface {
 	AddCatch(handler IChainable, props *CatchProps) Map
 	// Add a choice branch to this state.
 	AddChoice(condition Condition, next State, options *ChoiceTransitionOptions)
+	// Add a item processor to this state.
+	AddItemProcessor(processor StateGraph, config *ProcessorConfig)
 	// Add a map iterator to this state.
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
@@ -87,7 +93,14 @@ type Map interface {
 	// Don't call this. It will be called automatically when you work
 	// with states normally.
 	BindToGraph(graph StateGraph)
+	// Define item processor in Map.
+	//
+	// A Map must either have a non-empty iterator or a non-empty item processor, not both.
+	ItemProcessor(processor IChainable, config *ProcessorConfig) Map
 	// Define iterator state machine in Map.
+	//
+	// A Map must either have a non-empty iterator or a non-empty item processor, not both.
+	// Deprecated: - use `itemProcessor` instead.
 	Iterator(iterator IChainable) Map
 	// Make the indicated state the default choice transition of this state.
 	MakeDefault(def State)
@@ -101,6 +114,8 @@ type Map interface {
 	RenderChoices() interface{}
 	// Render InputPath/Parameters/OutputPath in ASL JSON format.
 	RenderInputOutput() interface{}
+	// Render ItemProcessor in ASL JSON format.
+	RenderItemProcessor() interface{}
 	// Render map iterator in ASL JSON format.
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
@@ -227,6 +242,26 @@ func (j *jsiiProxy_Map) Parameters() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_Map) Processor() StateGraph {
+	var returns StateGraph
+	_jsii_.Get(
+		j,
+		"processor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Map) ProcessorConfig() *ProcessorConfig {
+	var returns *ProcessorConfig
+	_jsii_.Get(
+		j,
+		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Map) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -317,6 +352,25 @@ func (j *jsiiProxy_Map)SetIteration(val StateGraph) {
 	_jsii_.Set(
 		j,
 		"iteration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_Map)SetProcessor(val StateGraph) {
+	_jsii_.Set(
+		j,
+		"processor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_Map)SetProcessorConfig(val *ProcessorConfig) {
+	if err := j.validateSetProcessorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"processorConfig",
 		val,
 	)
 }
@@ -467,6 +521,17 @@ func (m *jsiiProxy_Map) AddChoice(condition Condition, next State, options *Choi
 	)
 }
 
+func (m *jsiiProxy_Map) AddItemProcessor(processor StateGraph, config *ProcessorConfig) {
+	if err := m.validateAddItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		m,
+		"addItemProcessor",
+		[]interface{}{processor, config},
+	)
+}
+
 func (m *jsiiProxy_Map) AddIterator(iteration StateGraph) {
 	if err := m.validateAddIteratorParameters(iteration); err != nil {
 		panic(err)
@@ -514,6 +579,22 @@ func (m *jsiiProxy_Map) BindToGraph(graph StateGraph) {
 		"bindToGraph",
 		[]interface{}{graph},
 	)
+}
+
+func (m *jsiiProxy_Map) ItemProcessor(processor IChainable, config *ProcessorConfig) Map {
+	if err := m.validateItemProcessorParameters(processor, config); err != nil {
+		panic(err)
+	}
+	var returns Map
+
+	_jsii_.Invoke(
+		m,
+		"itemProcessor",
+		[]interface{}{processor, config},
+		&returns,
+	)
+
+	return returns
 }
 
 func (m *jsiiProxy_Map) Iterator(iterator IChainable) Map {
@@ -602,6 +683,19 @@ func (m *jsiiProxy_Map) RenderInputOutput() interface{} {
 	_jsii_.Invoke(
 		m,
 		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_Map) RenderItemProcessor() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		m,
+		"renderItemProcessor",
 		nil, // no parameters
 		&returns,
 	)

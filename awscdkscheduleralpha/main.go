@@ -180,4 +180,15 @@ func init() {
 		"@aws-cdk/aws-scheduler-alpha.ScheduleTargetProps",
 		reflect.TypeOf((*ScheduleTargetProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-scheduler-alpha.TimeWindow",
+		reflect.TypeOf((*TimeWindow)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "maxWindow", GoGetter: "MaxWindow"},
+			_jsii_.MemberProperty{JsiiProperty: "mode", GoGetter: "Mode"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TimeWindow{}
+		},
+	)
 }

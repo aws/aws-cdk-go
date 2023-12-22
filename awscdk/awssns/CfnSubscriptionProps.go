@@ -11,6 +11,7 @@ package awssns
 //   var deliveryPolicy interface{}
 //   var filterPolicy interface{}
 //   var redrivePolicy interface{}
+//   var replayPolicy interface{}
 //
 //   cfnSubscriptionProps := &CfnSubscriptionProps{
 //   	Protocol: jsii.String("protocol"),
@@ -24,6 +25,7 @@ package awssns
 //   	RawMessageDelivery: jsii.Boolean(false),
 //   	RedrivePolicy: redrivePolicy,
 //   	Region: jsii.String("region"),
+//   	ReplayPolicy: replayPolicy,
 //   	SubscriptionRoleArn: jsii.String("subscriptionRoleArn"),
 //   }
 //
@@ -90,6 +92,9 @@ type CfnSubscriptionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-replaypolicy
+	//
+	ReplayPolicy interface{} `field:"optional" json:"replayPolicy" yaml:"replayPolicy"`
 	// This property applies only to Amazon Kinesis Data Firehose delivery stream subscriptions.
 	//
 	// Specify the ARN of the IAM role that has the following:

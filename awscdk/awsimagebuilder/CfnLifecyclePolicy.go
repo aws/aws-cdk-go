@@ -106,7 +106,7 @@ type CfnLifecyclePolicy interface {
 	// Optional description for the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
-	// The name of the IAM role that Image Builder uses to run the lifecycle policy.
+	// The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to run the lifecycle policy.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
 	// The logical ID for this CloudFormation stack element.
