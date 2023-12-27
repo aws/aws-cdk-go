@@ -636,11 +636,13 @@ type CfnCluster interface {
 	// Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
 	CustomAmiId() *string
 	SetCustomAmiId(val *string)
+	// The IOPS, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
 	EbsRootVolumeIops() *float64
 	SetEbsRootVolumeIops(val *float64)
 	// The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
 	EbsRootVolumeSize() *float64
 	SetEbsRootVolumeSize(val *float64)
+	// The throughput, in MiB/s, of the Amazon EBS root device volume of the Linux AMI that is used for each Amazon EC2 instance.
 	EbsRootVolumeThroughput() *float64
 	SetEbsRootVolumeThroughput(val *float64)
 	// A specification of the number and type of Amazon EC2 instances.

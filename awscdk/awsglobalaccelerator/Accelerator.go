@@ -57,6 +57,8 @@ type Accelerator interface {
 	AcceleratorArn() *string
 	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
 	DnsName() *string
+	// The DNS name that points to the dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
+	DualStackDnsName() *string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -66,6 +68,10 @@ type Accelerator interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The array of IPv4 addresses in the IP address set.
+	Ipv4Addresses() *[]*string
+	// The array of IPv6 addresses in the IP address set.
+	Ipv6Addresses() *[]*string
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -134,11 +140,41 @@ func (j *jsiiProxy_Accelerator) DnsName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Accelerator) DualStackDnsName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dualStackDnsName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Accelerator) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Accelerator) Ipv4Addresses() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"ipv4Addresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Accelerator) Ipv6Addresses() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"ipv6Addresses",
 		&returns,
 	)
 	return returns

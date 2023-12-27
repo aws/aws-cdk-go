@@ -3,7 +3,7 @@ package awsgreengrass
 
 // Connectors are modules that provide built-in integration with local infrastructure, device protocols, AWS , and other cloud services.
 //
-// For more information, see [Integrate with Services and Protocols Using Greengrass Connectors](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors.html) in the *Developer Guide* .
+// For more information, see [Integrate with Services and Protocols Using Greengrass Connectors](https://docs.aws.amazon.com/greengrass/v1/developerguide/connectors.html) in the *Developer Guide* .
 //
 // In an AWS CloudFormation template, the `Connectors` property of the [`ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html) property type contains a list of `Connector` property types.
 //
@@ -27,7 +27,7 @@ package awsgreengrass
 type CfnConnectorDefinition_ConnectorProperty struct {
 	// The Amazon Resource Name (ARN) of the connector.
 	//
-	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
+	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/v1/developerguide/connectors-list.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html#cfn-greengrass-connectordefinition-connector-connectorarn
 	//
 	ConnectorArn *string `field:"required" json:"connectorArn" yaml:"connectorArn"`
@@ -39,7 +39,7 @@ type CfnConnectorDefinition_ConnectorProperty struct {
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The parameters or configuration used by the connector.
 	//
-	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
+	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/v1/developerguide/connectors-list.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html#cfn-greengrass-connectordefinition-connector-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

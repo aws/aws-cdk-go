@@ -52,18 +52,29 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-capability.html
 //
 type CfnCapabilityProps struct {
+	// Specifies a structure that contains the details for a capability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-capability.html#cfn-b2bi-capability-configuration
 	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
+	// The display name of the capability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-capability.html#cfn-b2bi-capability-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Returns the type of the capability.
+	//
+	// Currently, only `edi` is supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-capability.html#cfn-b2bi-capability-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability.
+	//
+	// Each item contains the name of the bucket and the key, to identify the document's location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-capability.html#cfn-b2bi-capability-instructionsdocuments
 	//
 	InstructionsDocuments interface{} `field:"optional" json:"instructionsDocuments" yaml:"instructionsDocuments"`
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type.
+	//
+	// You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-capability.html#cfn-b2bi-capability-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -322,6 +322,56 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 
 when queue not provided by user, CDK will create a primary queue and a dead letter queue with default redrive policy and attach permission to the task to be able to access the primary queue.
 
+NOTE: `QueueProcessingFargateService` adds a CPU Based scaling strategy by default. You can turn this off by setting `disableCpuBasedScaling: true`.
+
+```go
+var cluster cluster
+
+queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
+	Cluster: Cluster,
+	MemoryLimitMiB: jsii.Number(512),
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	Command: []*string{
+		jsii.String("-c"),
+		jsii.String("4"),
+		jsii.String("amazon.com"),
+	},
+	EnableLogging: jsii.Boolean(false),
+	DesiredTaskCount: jsii.Number(2),
+	Environment: map[string]*string{
+		"TEST_ENVIRONMENT_VARIABLE1": jsii.String("test environment variable 1 value"),
+		"TEST_ENVIRONMENT_VARIABLE2": jsii.String("test environment variable 2 value"),
+	},
+	MaxScalingCapacity: jsii.Number(5),
+	ContainerName: jsii.String("test"),
+	DisableCpuBasedScaling: jsii.Boolean(true),
+})
+```
+
+To specify a custom target CPU utilization percentage for the scaling strategy use the  `cpuTargetUtilizationPercent` property:
+
+```go
+var cluster cluster
+
+queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
+	Cluster: Cluster,
+	MemoryLimitMiB: jsii.Number(512),
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	Command: []*string{
+		jsii.String("-c"),
+		jsii.String("4"),
+		jsii.String("amazon.com"),
+	},
+	EnableLogging: jsii.Boolean(false),
+	DesiredTaskCount: jsii.Number(2),
+	Environment: map[string]interface{}{
+	},
+	MaxScalingCapacity: jsii.Number(5),
+	ContainerName: jsii.String("test"),
+	CpuTargetUtilizationPercent: jsii.Number(90),
+})
+```
+
 ## Scheduled Tasks
 
 To define a task that runs periodically, there are 2 options:

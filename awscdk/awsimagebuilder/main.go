@@ -271,6 +271,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionConfigurationArn", GoGetter: "DistributionConfigurationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "enhancedImageMetadataEnabled", GoGetter: "EnhancedImageMetadataEnabled"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "imageRecipeArn", GoGetter: "ImageRecipeArn"},
@@ -295,6 +296,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "workflows", GoGetter: "Workflows"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnImage{}
@@ -315,6 +317,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.ImageTestsConfigurationProperty",
 		reflect.TypeOf((*CfnImage_ImageTestsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.WorkflowConfigurationProperty",
+		reflect.TypeOf((*CfnImage_WorkflowConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.WorkflowParameterProperty",
+		reflect.TypeOf((*CfnImage_WorkflowParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline",

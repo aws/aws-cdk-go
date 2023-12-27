@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::B2BI::Partnership Resource Type.
+// Creates a partnership between a customer and a trading partner, based on the supplied parameters.
+//
+// A partnership represents the connection between you and your trading partner. It ties together a profile and one or more trading capabilities.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,11 +41,17 @@ import (
 type CfnPartnership interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns a timestamp for creation date and time of the partnership.
 	AttrCreatedAt() *string
+	// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
 	AttrModifiedAt() *string
+	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 	AttrPartnershipArn() *string
+	// Returns the unique, system-generated identifier for a partnership.
 	AttrPartnershipId() *string
+	// Returns the unique, system-generated identifier for a trading partner.
 	AttrTradingPartnerId() *string
+	// Returns one or more capabilities associated with this partnership.
 	Capabilities() *[]*string
 	SetCapabilities(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -67,12 +75,14 @@ type CfnPartnership interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Returns the name of the partnership.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	Phone() *string
 	SetPhone(val *string)
+	// Returns the unique, system-generated identifier for the profile connected to this partnership.
 	ProfileId() *string
 	SetProfileId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -84,6 +94,7 @@ type CfnPartnership interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A key-value pair for a specific partnership.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

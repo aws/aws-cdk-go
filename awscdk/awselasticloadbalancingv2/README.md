@@ -239,6 +239,9 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 	// How the load balancer handles requests that might
 	// pose a security risk to your application
 	DesyncMitigationMode: elbv2.DesyncMitigationMode_DEFENSIVE,
+
+	// The type of IP addresses to use.
+	IpAddressType: elbv2.IpAddressType_IPV4,
 })
 ```
 
@@ -288,6 +291,22 @@ Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-
 and [Register targets with your Target
 Group](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)
 for more information.
+
+### Dualstack Network Load Balancer
+
+You can create a dualstack Network Load Balancer using the `ipAddressType` property:
+
+```go
+var vpc vpc
+
+
+lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+})
+```
+
+You cannot add UDP or TCP_UDP listeners to a dualstack Network Load Balancer.
 
 ## Targets and Target Groups
 

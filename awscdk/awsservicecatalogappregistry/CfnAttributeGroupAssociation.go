@@ -33,9 +33,9 @@ type CfnAttributeGroupAssociation interface {
 	SetApplication(val *string)
 	// The Amazon resource name (ARN) of the application that was augmented with attributes.
 	AttrApplicationArn() *string
-	// The Amazon resource name (ARN) of the attribute group that contains the application's new attributes.
+	// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
 	AttrAttributeGroupArn() *string
-	// The name or ID of the attribute group that holds the attributes to describe the application.
+	// The name or ID of the attribute group which holds the attributes that describe the application.
 	AttributeGroup() *string
 	SetAttributeGroup(val *string)
 	AttrId() *string

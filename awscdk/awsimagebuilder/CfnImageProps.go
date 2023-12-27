@@ -15,6 +15,7 @@ package awsimagebuilder
 //   	ContainerRecipeArn: jsii.String("containerRecipeArn"),
 //   	DistributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	EnhancedImageMetadataEnabled: jsii.Boolean(false),
+//   	ExecutionRole: jsii.String("executionRole"),
 //   	ImageRecipeArn: jsii.String("imageRecipeArn"),
 //   	ImageScanningConfiguration: &ImageScanningConfigurationProperty{
 //   		EcrConfiguration: &EcrConfigurationProperty{
@@ -31,6 +32,21 @@ package awsimagebuilder
 //   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	Workflows: []interface{}{
+//   		&WorkflowConfigurationProperty{
+//   			OnFailure: jsii.String("onFailure"),
+//   			ParallelGroup: jsii.String("parallelGroup"),
+//   			Parameters: []interface{}{
+//   				&WorkflowParameterProperty{
+//   					Name: jsii.String("name"),
+//   					Value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			WorkflowArn: jsii.String("workflowArn"),
+//   		},
 //   	},
 //   }
 //
@@ -53,6 +69,10 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
 	//
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
+	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-executionrole
+	//
+	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 	//
@@ -69,5 +89,9 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+	// Contains the build and test workflows that are associated with the image.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-workflows
+	//
+	Workflows interface{} `field:"optional" json:"workflows" yaml:"workflows"`
 }
 

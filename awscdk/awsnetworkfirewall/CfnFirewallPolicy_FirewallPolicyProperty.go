@@ -64,6 +64,7 @@ package awsnetworkfirewall
 //   			ResourceArn: jsii.String("resourceArn"),
 //   		},
 //   	},
+//   	TlsInspectionConfigurationArn: jsii.String("tlsInspectionConfigurationArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
@@ -132,5 +133,9 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
 	//
 	StatelessRuleGroupReferences interface{} `field:"optional" json:"statelessRuleGroupReferences" yaml:"statelessRuleGroupReferences"`
+	// A resource ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-tlsinspectionconfigurationarn
+	//
+	TlsInspectionConfigurationArn *string `field:"optional" json:"tlsInspectionConfigurationArn" yaml:"tlsInspectionConfigurationArn"`
 }
 

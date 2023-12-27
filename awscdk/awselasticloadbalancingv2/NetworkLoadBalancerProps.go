@@ -52,6 +52,13 @@ type NetworkLoadBalancerProps struct {
 	// Default: false.
 	//
 	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
+	// The type of IP addresses to use.
+	//
+	// If you want to add a UDP or TCP_UDP listener to the load balancer,
+	// you must choose IPv4.
+	// Default: IpAddressType.IPV4
+	//
+	IpAddressType IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Security groups to associate with this load balancer.
 	// Default: - No security groups associated with the load balancer.
 	//

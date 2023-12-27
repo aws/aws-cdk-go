@@ -23,7 +23,7 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
 //
 type CfnFargateProfile_SelectorProperty struct {
-	// The Kubernetes namespace that the selector should match.
+	// The Kubernetes `namespace` that the selector should match.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
 	//
 	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`

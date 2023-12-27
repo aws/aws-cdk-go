@@ -21,7 +21,7 @@ import (
 //
 // If any Fargate profiles in a cluster are in the `DELETING` status, you must wait for that Fargate profile to finish deleting before you can create any other profiles in that cluster.
 //
-// For more information, see [AWS Fargate Profile](https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html) in the *Amazon EKS User Guide* .
+// For more information, see [AWS Fargate profile](https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html) in the *Amazon EKS User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -71,7 +71,7 @@ type CfnFargateProfile interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The name of the Amazon EKS cluster to apply the Fargate profile to.
+	// The name of your cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -93,7 +93,7 @@ type CfnFargateProfile interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The Amazon Resource Name (ARN) of the pod execution role to use for pods that match the selectors in the Fargate profile.
+	// The Amazon Resource Name (ARN) of the `Pod` execution role to use for a `Pod` that matches the selectors in the Fargate profile.
 	PodExecutionRoleArn() *string
 	SetPodExecutionRoleArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -101,19 +101,19 @@ type CfnFargateProfile interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The selectors to match for pods to use this Fargate profile.
+	// The selectors to match for a `Pod` to use this Fargate profile.
 	Selectors() interface{}
 	SetSelectors(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The IDs of subnets to launch your pods into.
+	// The IDs of subnets to launch a `Pod` into.
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The metadata to apply to the Fargate profile to assist with categorization and organization.
+	// Metadata that assists with categorization and organization.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

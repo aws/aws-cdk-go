@@ -32,6 +32,7 @@ import (
 //   		"buildSecretsKey": jsii.String("buildSecrets"),
 //   	},
 //   	BuildSsh: jsii.String("buildSsh"),
+//   	CacheDisabled: jsii.Boolean(false),
 //   	CacheFrom: []dockerCacheOption{
 //   		&dockerCacheOption{
 //   			Type: jsii.String("type"),

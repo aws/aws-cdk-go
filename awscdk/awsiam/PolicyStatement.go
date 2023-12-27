@@ -8,39 +8,27 @@ import (
 // Represents a statement in an IAM policy document.
 //
 // Example:
-//   // Add gateway endpoints when creating the VPC
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	GatewayEndpoints: map[string]gatewayVpcEndpointOptions{
-//   		"S3": &gatewayVpcEndpointOptions{
-//   			"service": ec2.GatewayVpcEndpointAwsService_S3(),
-//   		},
-//   	},
-//   })
+//   crossAccountRoleArn := "arn:aws:iam::OTHERACCOUNT:role/CrossAccountRoleName" // arn of role deployed in separate account
 //
-//   // Alternatively gateway endpoints can be added on the VPC
-//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &gatewayVpcEndpointOptions{
-//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
-//   })
+//   callRegion := "us-west-1" // sdk call to be made in specified region (optional)
 //
-//   // This allows to customize the endpoint policy
-//   dynamoDbEndpoint.AddToPolicy(
-//   iam.NewPolicyStatement(&PolicyStatementProps{
-//   	 // Restrict to listing and describing tables
-//   	Principals: []iPrincipal{
-//   		iam.NewAnyPrincipal(),
+//    // sdk call to be made in specified region (optional)
+//   cr.NewAwsCustomResource(this, jsii.String("CrossAccount"), &AwsCustomResourceProps{
+//   	OnCreate: &AwsSdkCall{
+//   		AssumedRoleArn: crossAccountRoleArn,
+//   		Region: callRegion,
+//   		 // optional
+//   		Service: jsii.String("sts"),
+//   		Action: jsii.String("GetCallerIdentity"),
+//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
 //   	},
-//   	Actions: []*string{
-//   		jsii.String("dynamodb:DescribeTable"),
-//   		jsii.String("dynamodb:ListTables"),
-//   	},
-//   	Resources: []*string{
-//   		jsii.String("*"),
-//   	},
-//   }))
-//
-//   // Add an interface endpoint
-//   vpc.addInterfaceEndpoint(jsii.String("EcrDockerEndpoint"), &InterfaceVpcEndpointOptions{
-//   	Service: ec2.InterfaceVpcEndpointAwsService_ECR_DOCKER(),
+//   	Policy: cr.AwsCustomResourcePolicy_FromStatements([]policyStatement{
+//   		iam.*policyStatement_FromJson(map[string]*string{
+//   			"Effect": jsii.String("Allow"),
+//   			"Action": jsii.String("sts:AssumeRole"),
+//   			"Resource": crossAccountRoleArn,
+//   		}),
+//   	}),
 //   })
 //
 type PolicyStatement interface {

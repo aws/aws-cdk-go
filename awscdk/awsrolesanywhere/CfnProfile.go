@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a Profile.
+// Creates a *profile* , a list of the roles that Roles Anywhere service is trusted to assume.
+//
+// You use profiles to intersect permissions with IAM managed policies.
+//
+// *Required permissions:* `rolesanywhere:CreateProfile` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,10 +61,10 @@ type CfnProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The number of seconds vended session credentials will be valid for.
+	// Sets the maximum number of seconds that vended temporary credentials through [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html) will be valid for, between 900 and 3600.
 	DurationSeconds() *float64
 	SetDurationSeconds(val *float64)
-	// The enabled status of the resource.
+	// Indicates whether the profile is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -73,10 +77,10 @@ type CfnProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A list of managed policy ARNs.
+	// A list of managed policy ARNs that apply to the vended session credentials.
 	ManagedPolicyArns() *[]*string
 	SetManagedPolicyArns(val *[]*string)
-	// The customer specified name of the resource.
+	// The name of the profile.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -86,13 +90,13 @@ type CfnProfile interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies whether instance properties are required in CreateSession requests with this profile.
+	// Specifies whether instance properties are required in temporary credential requests with this profile.
 	RequireInstanceProperties() interface{}
 	SetRequireInstanceProperties(val interface{})
-	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+	// A list of IAM role ARNs.
 	RoleArns() *[]*string
 	SetRoleArns(val *[]*string)
-	// A session policy that will applied to the trust boundary of the vended session credentials.
+	// A session policy that applies to the trust boundary of the vended session credentials.
 	SessionPolicy() *string
 	SetSessionPolicy(val *string)
 	// The stack in which this element is defined.
@@ -101,7 +105,7 @@ type CfnProfile interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of Tags.
+	// The tags to attach to the profile.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

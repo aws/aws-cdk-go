@@ -21,6 +21,7 @@ package cloudassemblyschema
 //   		},
 //   	},
 //   	Source: &DockerImageSource{
+//   		CacheDisabled: jsii.Boolean(false),
 //   		CacheFrom: []dockerCacheOption{
 //   			&dockerCacheOption{
 //   				Type: jsii.String("type"),

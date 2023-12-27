@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnService) validateSetTagsRawParameters(val *[]*awscdk.CfnTa
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetVolumeConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnServiceParameters(scope constructs.Construct, id *string, props *CfnServiceProps) error {
 	return nil
 }

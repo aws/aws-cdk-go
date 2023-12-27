@@ -37,27 +37,41 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html
 //
 type CfnTransformerProps struct {
+	// Returns the details for the EDI standard that is being used for the transformer.
+	//
+	// Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-editype
 	//
 	EdiType interface{} `field:"required" json:"ediType" yaml:"ediType"`
+	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-fileformat
 	//
 	FileFormat *string `field:"required" json:"fileFormat" yaml:"fileFormat"`
+	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-mappingtemplate
 	//
 	MappingTemplate *string `field:"required" json:"mappingTemplate" yaml:"mappingTemplate"`
+	// Returns the descriptive name for the transformer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Returns the state of the newly created transformer.
+	//
+	// The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-status
 	//
 	Status *string `field:"required" json:"status" yaml:"status"`
+	// Returns a timestamp representing the date and time for the most recent change for the transformer object.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-modifiedat
 	//
 	ModifiedAt *string `field:"optional" json:"modifiedAt" yaml:"modifiedAt"`
+	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-sampledocument
 	//
 	SampleDocument *string `field:"optional" json:"sampleDocument" yaml:"sampleDocument"`
+	// A key-value pair for a specific transformer.
+	//
+	// Tags are metadata that you can use to search for and group capabilities for various purposes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

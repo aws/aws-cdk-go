@@ -192,7 +192,6 @@ type CfnInstance interface {
 	AttrAvailabilityZone() *string
 	// The ID of the instance.
 	AttrId() *string
-	AttrInstanceId() *string
 	// The private DNS name of the specified instance.
 	//
 	// For example: `ip-10-24-34-0.ec2.internal` .
@@ -545,16 +544,6 @@ func (j *jsiiProxy_CfnInstance) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnInstance) AttrInstanceId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrInstanceId",
 		&returns,
 	)
 	return returns

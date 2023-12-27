@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::B2BI::Capability Resource Type.
+// Instantiates a capability based on the specified parameters.
+//
+// A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -59,21 +61,27 @@ import (
 type CfnCapability interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 	AttrCapabilityArn() *string
+	// Returns a system-assigned unique identifier for the capability.
 	AttrCapabilityId() *string
+	// Returns a timestamp for creation date and time of the capability.
 	AttrCreatedAt() *string
+	// Returns a timestamp that identifies the most recent date and time that the capability was modified.
 	AttrModifiedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Specifies a structure that contains the details for a capability.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability.
 	InstructionsDocuments() interface{}
 	SetInstructionsDocuments(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -86,6 +94,7 @@ type CfnCapability interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The display name of the capability.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -99,8 +108,10 @@ type CfnCapability interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// Returns the type of the capability.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

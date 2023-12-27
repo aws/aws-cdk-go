@@ -1,6 +1,8 @@
 package awssagemaker
 
 
+// A Git repository that SageMaker automatically displays to users for cloning in the JupyterServer application.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +15,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-coderepository.html
 //
 type CfnUserProfile_CodeRepositoryProperty struct {
-	// A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+	// The URL of the Git repository.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-coderepository.html#cfn-sagemaker-userprofile-coderepository-repositoryurl
 	//
 	RepositoryUrl *string `field:"required" json:"repositoryUrl" yaml:"repositoryUrl"`

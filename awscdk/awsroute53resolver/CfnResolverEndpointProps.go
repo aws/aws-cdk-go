@@ -78,6 +78,23 @@ type CfnResolverEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-preferredinstancetype
 	//
 	PreferredInstanceType *string `field:"optional" json:"preferredInstanceType" yaml:"preferredInstanceType"`
+	// Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+	//
+	// For an inbound endpoint you can apply the protocols as follows:
+	//
+	// - Do53 and DoH in combination.
+	// - Do53 and DoH-FIPS in combination.
+	// - Do53 alone.
+	// - DoH alone.
+	// - DoH-FIPS alone.
+	// - None, which is treated as Do53.
+	//
+	// For an outbound endpoint you can apply the protocols as follows:
+	//
+	// - Do53 and DoH in combination.
+	// - Do53 alone.
+	// - DoH alone.
+	// - None, which is treated as Do53.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-protocols
 	//
 	Protocols *[]*string `field:"optional" json:"protocols" yaml:"protocols"`

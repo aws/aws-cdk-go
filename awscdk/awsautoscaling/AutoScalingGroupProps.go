@@ -273,6 +273,38 @@ type AutoScalingGroupProps struct {
 	// Default: - Do not provide any machine image.
 	//
 	MachineImage awsec2.IMachineImage `field:"optional" json:"machineImage" yaml:"machineImage"`
+	// Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group.
+	//
+	// It represents the maximum percentage of the group that can be in service and healthy, or pending,
+	// to support your workload when replacing instances.
+	//
+	// Value range is 0 to 100. After it's set, both `minHealthyPercentage` and `maxHealthyPercentage` to
+	// -1 will clear the previously set value.
+	//
+	// Both or neither of `minHealthyPercentage` and `maxHealthyPercentage` must be specified, and the
+	// difference between them cannot be greater than 100. A large range increases the number of
+	// instances that can be replaced at the same time.
+	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html
+	//
+	// Default: - No instance maintenance policy.
+	//
+	MaxHealthyPercentage *float64 `field:"optional" json:"maxHealthyPercentage" yaml:"maxHealthyPercentage"`
+	// Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group.
+	//
+	// It represents the minimum percentage of the group to keep in service, healthy, and ready to use
+	// to support your workload when replacing instances.
+	//
+	// Value range is 0 to 100. After it's set, both `minHealthyPercentage` and `maxHealthyPercentage` to
+	// -1 will clear the previously set value.
+	//
+	// Both or neither of `minHealthyPercentage` and `maxHealthyPercentage` must be specified, and the
+	// difference between them cannot be greater than 100. A large range increases the number of
+	// instances that can be replaced at the same time.
+	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html
+	//
+	// Default: - No instance maintenance policy.
+	//
+	MinHealthyPercentage *float64 `field:"optional" json:"minHealthyPercentage" yaml:"minHealthyPercentage"`
 	// Mixed Instances Policy to use.
 	//
 	// Launch configuration related settings and Launch Template  must not be specified when a

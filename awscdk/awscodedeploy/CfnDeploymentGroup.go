@@ -273,6 +273,7 @@ type CfnDeploymentGroup interface {
 	// The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
 	TerminationHookEnabled() interface{}
 	SetTerminationHookEnabled(val interface{})
 	// Information about triggers associated with the deployment group.

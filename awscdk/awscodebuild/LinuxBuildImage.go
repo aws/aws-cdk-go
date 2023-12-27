@@ -73,7 +73,7 @@ type LinuxBuildImage interface {
 	// Make a buildspec to run the indicated script.
 	RunScriptBuildspec(entrypoint *string) BuildSpec
 	// Allows the image a chance to validate whether the passed configuration is correct.
-	Validate(_env *BuildEnvironment) *[]*string
+	Validate(env *BuildEnvironment) *[]*string
 }
 
 // The jsii proxy struct for LinuxBuildImage
@@ -412,8 +412,8 @@ func (l *jsiiProxy_LinuxBuildImage) RunScriptBuildspec(entrypoint *string) Build
 	return returns
 }
 
-func (l *jsiiProxy_LinuxBuildImage) Validate(_env *BuildEnvironment) *[]*string {
-	if err := l.validateValidateParameters(_env); err != nil {
+func (l *jsiiProxy_LinuxBuildImage) Validate(env *BuildEnvironment) *[]*string {
+	if err := l.validateValidateParameters(env); err != nil {
 		panic(err)
 	}
 	var returns *[]*string
@@ -421,7 +421,7 @@ func (l *jsiiProxy_LinuxBuildImage) Validate(_env *BuildEnvironment) *[]*string 
 	_jsii_.Invoke(
 		l,
 		"validate",
-		[]interface{}{_env},
+		[]interface{}{env},
 		&returns,
 	)
 

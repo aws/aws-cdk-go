@@ -83,7 +83,7 @@ type CfnRoutingProfileProps struct {
 	QueueConfigs interface{} `field:"optional" json:"queueConfigs" yaml:"queueConfigs"`
 	// The tags used to organize, track, or control access for this resource.
 	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// For example, { "Tags": {"key1":"value1", "key2":"value2"} }.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

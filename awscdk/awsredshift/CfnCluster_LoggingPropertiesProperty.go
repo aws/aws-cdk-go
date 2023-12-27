@@ -10,8 +10,6 @@ package awsredshift
 //
 //   loggingPropertiesProperty := &LoggingPropertiesProperty{
 //   	BucketName: jsii.String("bucketName"),
-//
-//   	// the properties below are optional
 //   	S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   }
 //
@@ -26,7 +24,7 @@ type CfnCluster_LoggingPropertiesProperty struct {
 	// - The cluster must have read bucket and put object permissions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname
 	//
-	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The prefix applied to the log file names.
 	//
 	// Constraints:

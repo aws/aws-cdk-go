@@ -31,9 +31,9 @@ type CfnCluster_KubernetesNetworkConfigProperty struct {
 	//
 	// - Within one of the following private IP address blocks: `10.0.0.0/8` , `172.16.0.0/12` , or `192.168.0.0/16` .
 	// - Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
-	// - Between /24 and /12.
+	// - Between `/24` and `/12` .
 	//
-	// > You can only specify a custom CIDR block when you create a cluster and can't change this value once the cluster is created.
+	// > You can only specify a custom CIDR block when you create a cluster. You can't change this value after the cluster is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-serviceipv4cidr
 	//
 	ServiceIpv4Cidr *string `field:"optional" json:"serviceIpv4Cidr" yaml:"serviceIpv4Cidr"`

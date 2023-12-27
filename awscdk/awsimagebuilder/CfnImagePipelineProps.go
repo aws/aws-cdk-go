@@ -86,7 +86,7 @@ type CfnImagePipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
 	//
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
-	// The execution role name/ARN for the image build, if provided.
+	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-executionrole
 	//
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
@@ -116,7 +116,7 @@ type CfnImagePipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// Workflows to define the image build process.
+	// Contains the workflows that run for the image pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-workflows
 	//
 	Workflows interface{} `field:"optional" json:"workflows" yaml:"workflows"`

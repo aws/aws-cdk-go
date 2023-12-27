@@ -12,29 +12,18 @@ import (
 // Constructs for types of container images.
 //
 // Example:
-//   var cluster cluster
+//   var mySecret iSecret
 //
-//   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
-//   	Cluster: Cluster,
-//   	MemoryLimitMiB: jsii.Number(1024),
-//   	DesiredCount: jsii.Number(1),
-//   	Cpu: jsii.Number(512),
-//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
-//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	},
-//   })
 //
-//   scalableTarget := loadBalancedFargateService.Service.AutoScaleTaskCount(&EnableScalingProps{
-//   	MinCapacity: jsii.Number(1),
-//   	MaxCapacity: jsii.Number(20),
-//   })
-//
-//   scalableTarget.ScaleOnCpuUtilization(jsii.String("CpuScaling"), &CpuUtilizationScalingProps{
-//   	TargetUtilizationPercent: jsii.Number(50),
-//   })
-//
-//   scalableTarget.ScaleOnMemoryUtilization(jsii.String("MemoryScaling"), &MemoryUtilizationScalingProps{
-//   	TargetUtilizationPercent: jsii.Number(50),
+//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   		Cpu: jsii.Number(256),
+//   		Secrets: map[string]secret{
+//   			"MY_SECRET_ENV_VAR": batch.*secret_fromSecretsManager(mySecret),
+//   		},
+//   	}),
 //   })
 //
 type ContainerImage interface {

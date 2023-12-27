@@ -5,11 +5,16 @@ package awsses
 //
 // Example:
 //   ses.NewDedicatedIpPool(this, jsii.String("Pool"), &DedicatedIpPoolProps{
+//   	DedicatedIpPoolName: jsii.String("mypool"),
 //   	ScalingMode: ses.ScalingMode_STANDARD,
 //   })
 //
 type DedicatedIpPoolProps struct {
 	// A name for the dedicated IP pool.
+	//
+	// The name must adhere to specific constraints: it can only include
+	// lowercase letters (a-z), numbers (0-9), underscores (_), and hyphens (-),
+	// and must not exceed 64 characters in length.
 	// Default: - a CloudFormation generated name.
 	//
 	DedicatedIpPoolName *string `field:"optional" json:"dedicatedIpPoolName" yaml:"dedicatedIpPoolName"`

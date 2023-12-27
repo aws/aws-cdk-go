@@ -100,7 +100,7 @@ type CfnImagePipeline interface {
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
-	// The execution role name/ARN for the image build, if provided.
+	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
@@ -163,7 +163,7 @@ type CfnImagePipeline interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Workflows to define the image build process.
+	// Contains the workflows that run for the image pipeline.
 	Workflows() interface{}
 	SetWorkflows(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

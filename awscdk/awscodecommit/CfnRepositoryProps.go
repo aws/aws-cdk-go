@@ -27,6 +27,7 @@ import (
 //   		// the properties below are optional
 //   		BranchName: jsii.String("branchName"),
 //   	},
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	RepositoryDescription: jsii.String("repositoryDescription"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -68,6 +69,9 @@ type CfnRepositoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-code
 	//
 	Code interface{} `field:"optional" json:"code" yaml:"code"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-kmskeyid
+	//
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// A comment or description about the new repository.
 	//
 	// > The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a webpage can expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a webpage.

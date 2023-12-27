@@ -11,6 +11,16 @@ type IHttpApi interface {
 	IApi
 	// Add a new VpcLink.
 	AddVpcLink(options *VpcLinkProps) VpcLink
+	// Get the "execute-api" ARN.
+	//
+	// When 'ANY' is passed to the method, an ARN with the method set to '*' is obtained.
+	// Default: - The default behavior applies when no specific method, path, or stage is provided.
+	// In this case, the ARN will cover all methods, all resources, and all stages of this API.
+	// Specifically, if 'method' is not specified, it defaults to '*', representing all methods.
+	// If 'path' is not specified, it defaults to '/*', representing all paths.
+	// If 'stage' is not specified, it also defaults to '*', representing all stages.
+	//
+	ArnForExecuteApi(method *string, path *string, stage *string) *string
 	// Metric for the number of client-side errors captured in a given period.
 	// Default: - sum over 5 minutes.
 	//
@@ -64,6 +74,19 @@ func (i *jsiiProxy_IHttpApi) AddVpcLink(options *VpcLinkProps) VpcLink {
 		i,
 		"addVpcLink",
 		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpApi) ArnForExecuteApi(method *string, path *string, stage *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		i,
+		"arnForExecuteApi",
+		[]interface{}{method, path, stage},
 		&returns,
 	)
 

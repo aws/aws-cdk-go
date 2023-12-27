@@ -75,7 +75,11 @@ type CfnUserPool_LambdaConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-presignup
 	//
 	PreSignUp *string `field:"optional" json:"preSignUp" yaml:"preSignUp"`
-	// A Lambda trigger that is invoked before token generation.
+	// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+	//
+	// Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
+	//
+	// You can set ``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengeneration
 	//
 	PreTokenGeneration *string `field:"optional" json:"preTokenGeneration" yaml:"preTokenGeneration"`

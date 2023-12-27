@@ -38,7 +38,7 @@ type CfnSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The last modified time of the schema.
+	// The date and time that schema was modified.
 	AttrLastModified() *string
 	// The ARN of the schema.
 	AttrSchemaArn() *string

@@ -78,6 +78,10 @@ type DockerImageAssetProps struct {
 	// Default: - no --ssh flag.
 	//
 	BuildSsh *string `field:"optional" json:"buildSsh" yaml:"buildSsh"`
+	// Disable the cache and pass `--no-cache` to the `docker build` command.
+	// Default: - cache is used.
+	//
+	CacheDisabled *bool `field:"optional" json:"cacheDisabled" yaml:"cacheDisabled"`
 	// Cache from options to pass to the `docker build` command.
 	// See: https://docs.docker.com/build/cache/backends/
 	//

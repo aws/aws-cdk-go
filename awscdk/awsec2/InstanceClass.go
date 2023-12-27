@@ -276,6 +276,8 @@ const (
 	InstanceClass_D3EN InstanceClass = "D3EN"
 	// Storage/compute balanced instances, 1st generation.
 	InstanceClass_STORAGE_COMPUTE_1 InstanceClass = "STORAGE_COMPUTE_1"
+	// High performance computing powered by AWS Trainium.
+	InstanceClass_TRN1 InstanceClass = "TRN1"
 	// Storage/compute balanced instances, 1st generation.
 	InstanceClass_H1 InstanceClass = "H1"
 	// I/O-optimized instances, 3rd generation.

@@ -114,8 +114,6 @@ type CfnTrailProps struct {
 	// You must use a log group that exists in your account.
 	//
 	// Not required unless you specify `CloudWatchLogsRoleArn` .
-	//
-	// > Only the management account can configure a CloudWatch Logs log group for an organization trail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsloggrouparn
 	//
 	CloudWatchLogsLogGroupArn *string `field:"optional" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`

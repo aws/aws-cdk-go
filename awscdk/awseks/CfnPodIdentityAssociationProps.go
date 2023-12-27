@@ -49,9 +49,9 @@ type CfnPodIdentityAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-serviceaccount
 	//
 	ServiceAccount *string `field:"required" json:"serviceAccount" yaml:"serviceAccount"`
-	// The metadata that you apply to a resource to assist with categorization and organization.
+	// Metadata that assists with categorization and organization.
 	//
-	// Each tag consists of a key and an optional value. You define both.
+	// Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or AWS resources.
 	//
 	// The following basic restrictions apply to tags:
 	//

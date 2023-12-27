@@ -55,6 +55,10 @@ type QueueProcessingFargateServiceProps struct {
 	// Default: - CMD value built into container image.
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// The target CPU utilization percentage for CPU based scaling strategy when enabled.
+	// Default: - 50.
+	//
+	CpuTargetUtilizationPercent *float64 `field:"optional" json:"cpuTargetUtilizationPercent" yaml:"cpuTargetUtilizationPercent"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
@@ -62,6 +66,10 @@ type QueueProcessingFargateServiceProps struct {
 	// Default: - Rolling update (ECS).
 	//
 	DeploymentController *awsecs.DeploymentController `field:"optional" json:"deploymentController" yaml:"deploymentController"`
+	// Flag to disable CPU based auto scaling strategy on the service.
+	// Default: - false.
+	//
+	DisableCpuBasedScaling *bool `field:"optional" json:"disableCpuBasedScaling" yaml:"disableCpuBasedScaling"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see

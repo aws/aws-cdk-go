@@ -99,6 +99,10 @@ type HttpApi interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Get the "execute-api" ARN.
+	//
+	// When 'ANY' is passed to the method, an ARN with the method set to '*' is obtained.
+	ArnForExecuteApi(method *string, path *string, stage *string) *string
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -447,6 +451,19 @@ func (h *jsiiProxy_HttpApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (h *jsiiProxy_HttpApi) ArnForExecuteApi(method *string, path *string, stage *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		h,
+		"arnForExecuteApi",
+		[]interface{}{method, path, stage},
+		&returns,
+	)
+
+	return returns
 }
 
 func (h *jsiiProxy_HttpApi) GeneratePhysicalName() *string {

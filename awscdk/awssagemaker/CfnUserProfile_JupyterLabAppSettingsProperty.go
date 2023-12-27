@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The JupyterLab app settings.
+// The settings for the JupyterLab application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,18 +36,20 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html
 //
 type CfnUserProfile_JupyterLabAppSettingsProperty struct {
-	// A list of CodeRepositories available for use with JupyterLab apps.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-coderepositories
 	//
 	CodeRepositories interface{} `field:"optional" json:"codeRepositories" yaml:"codeRepositories"`
-	// A list of custom images available for use for JupyterLab apps.
+	// A list of custom SageMaker images that are configured to run as a JupyterLab app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-customimages
 	//
 	CustomImages interface{} `field:"optional" json:"customImages" yaml:"customImages"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-defaultresourcespec
 	//
 	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
-	// A list of LifecycleConfigArns available for use with JupyterLab apps.
+	// The Amazon Resource Name (ARN) of the lifecycle configurations attached to the user profile or domain.
+	//
+	// To remove a lifecycle config, you must set `LifecycleConfigArns` to an empty list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-lifecycleconfigarns
 	//
 	LifecycleConfigArns *[]*string `field:"optional" json:"lifecycleConfigArns" yaml:"lifecycleConfigArns"`

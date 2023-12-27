@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::B2BI::Transformer Resource Type.
+// Creates a transformer.
+//
+// A transformer describes how to process the incoming EDI documents and extract the necessary information to the output file.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,8 +46,13 @@ import (
 type CfnTransformer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns a timestamp indicating when the transformer was created.
+	//
+	// For example, `2023-07-20T19:58:44.624Z` .
 	AttrCreatedAt() *string
+	// Returns an Amazon Resource Name (ARN) for a specific transformer.
 	AttrTransformerArn() *string
+	// The system-assigned unique identifier for the transformer.
 	AttrTransformerId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -56,8 +63,10 @@ type CfnTransformer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Returns the details for the EDI standard that is being used for the transformer.
 	EdiType() interface{}
 	SetEdiType(val interface{})
+	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 	FileFormat() *string
 	SetFileFormat(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,10 +79,13 @@ type CfnTransformer interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
 	MappingTemplate() *string
 	SetMappingTemplate(val *string)
+	// Returns a timestamp representing the date and time for the most recent change for the transformer object.
 	ModifiedAt() *string
 	SetModifiedAt(val *string)
+	// Returns the descriptive name for the transformer.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -83,14 +95,17 @@ type CfnTransformer interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
 	SampleDocument() *string
 	SetSampleDocument(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Returns the state of the newly created transformer.
 	Status() *string
 	SetStatus(val *string)
+	// A key-value pair for a specific transformer.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

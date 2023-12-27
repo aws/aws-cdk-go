@@ -80,6 +80,10 @@ func validateCfnCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetAccessConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetEncryptionConfigParameters(val interface{}) error {
 	return nil
 }

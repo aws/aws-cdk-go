@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnImage) validateSetInfrastructureConfigurationArnParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnImage) validateSetWorkflowsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnImageParameters(scope constructs.Construct, id *string, props *CfnImageProps) error {
 	return nil
 }

@@ -47,11 +47,9 @@ type CfnLocationFSxWindowsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
 	//
 	User *string `field:"required" json:"user" yaml:"user"`
-	// Specifies the name of the Windows domain that the FSx for Windows File Server belongs to.
+	// Specifies the name of the Microsoft Active Directory domain that the FSx for Windows File Server file system belongs to.
 	//
-	// If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.
-	//
-	// For more information, see [required permissions](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions) for FSx for Windows File Server locations.
+	// If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right file system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
@@ -59,9 +57,7 @@ type CfnLocationFSxWindowsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-fsxfilesystemarn
 	//
 	FsxFilesystemArn *string `field:"optional" json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
-	// Specifies the password of the user who has the permissions to access files and folders in the file system.
-	//
-	// For more information, see [required permissions](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions) for FSx for Windows File Server locations.
+	// Specifies the password of the user with the permissions to mount and access the files, folders, and file metadata in your FSx for Windows File Server file system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
 	//
 	Password *string `field:"optional" json:"password" yaml:"password"`

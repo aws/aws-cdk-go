@@ -46,11 +46,9 @@ type CfnLocationSMBProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user
 	//
 	User *string `field:"required" json:"user" yaml:"user"`
-	// Specifies the Windows domain name that your SMB file server belongs to.
+	// Specifies the name of the Active Directory domain that your SMB file server belongs to.
 	//
-	// If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.
-	//
-	// For more information, see [required permissions](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions) for SMB locations.
+	// If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`

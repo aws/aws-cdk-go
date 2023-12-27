@@ -1,9 +1,9 @@
 package awseks
 
 
-// A property that allows a node to repel a set of pods.
+// A property that allows a node to repel a `Pod` .
 //
-// For more information, see [Node taints on managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html) .
+// For more information, see [Node taints on managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html) in the *Amazon EKS User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

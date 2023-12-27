@@ -71,6 +71,14 @@ func (c *jsiiProxy_Cluster) validateApplyRemovalPolicyParameters(policy awscdk.R
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateArnForTasksParameters(keyPattern *string) error {
+	if keyPattern == nil {
+		return fmt.Errorf("parameter keyPattern is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

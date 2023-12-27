@@ -401,6 +401,11 @@ func init() {
 			"MEDIUM": ComputeType_MEDIUM,
 			"LARGE": ComputeType_LARGE,
 			"X2_LARGE": ComputeType_X2_LARGE,
+			"LAMBDA_1GB": ComputeType_LAMBDA_1GB,
+			"LAMBDA_2GB": ComputeType_LAMBDA_2GB,
+			"LAMBDA_4GB": ComputeType_LAMBDA_4GB,
+			"LAMBDA_8GB": ComputeType_LAMBDA_8GB,
+			"LAMBDA_10GB": ComputeType_LAMBDA_10GB,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -673,6 +678,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		reflect.TypeOf((*LinuxArmLambdaBuildImage)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "defaultComputeType", GoGetter: "DefaultComputeType"},
+			_jsii_.MemberProperty{JsiiProperty: "imageId", GoGetter: "ImageId"},
+			_jsii_.MemberMethod{JsiiMethod: "runScriptBuildspec", GoMethod: "RunScriptBuildspec"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_LinuxArmLambdaBuildImage{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBuildImage)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
 		reflect.TypeOf((*LinuxBuildImage)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -706,6 +727,22 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_LinuxGpuBuildImage{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBindableBuildImage)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codebuild.LinuxLambdaBuildImage",
+		reflect.TypeOf((*LinuxLambdaBuildImage)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "defaultComputeType", GoGetter: "DefaultComputeType"},
+			_jsii_.MemberProperty{JsiiProperty: "imageId", GoGetter: "ImageId"},
+			_jsii_.MemberMethod{JsiiMethod: "runScriptBuildspec", GoMethod: "RunScriptBuildspec"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_LinuxLambdaBuildImage{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBuildImage)
 			return &j
 		},
 	)

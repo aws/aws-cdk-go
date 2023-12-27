@@ -53,9 +53,9 @@ package awsefs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 //
 type CfnFileSystemProps struct {
-	// Used to create a One Zone file system.
+	// For One Zone file systems, specify the AWS Availability Zone in which to create the file system.
 	//
-	// It specifies the AWS Availability Zone in which to create the file system. Use the format `us-east-1a` to specify the Availability Zone. For more information about One Zone file systems, see [Using EFS storage classes](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide* .
+	// Use the format `us-east-1a` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type) in the *Amazon EFS User Guide* .
 	//
 	// > One Zone file systems are not available in all Availability Zones in AWS Regions where Amazon EFS is available.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
@@ -108,12 +108,13 @@ type CfnFileSystemProps struct {
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// An array of `LifecyclePolicy` objects that define the file system's `LifecycleConfiguration` object.
 	//
-	// A `LifecycleConfiguration` object informs EFS lifecycle management and intelligent tiering of the following:
+	// A `LifecycleConfiguration` object informs Lifecycle management of the following:
 	//
-	// - When to move files in the file system from primary storage to the IA storage class.
-	// - When to move files that are in IA storage to primary storage.
+	// - When to move files in the file system from primary storage to IA storage.
+	// - When to move files in the file system from primary storage or IA storage to Archive storage.
+	// - When to move files that are in IA or Archive storage to primary storage.
 	//
-	// > Amazon EFS requires that each `LifecyclePolicy` object have only a single transition. This means that in a request body, `LifecyclePolicies` needs to be structured as an array of `LifecyclePolicy` objects, one object for each transition, `TransitionToIA` , `TransitionToPrimaryStorageClass` . See the example requests in the following section for more information.
+	// > Amazon EFS requires that each `LifecyclePolicy` object have only a single transition. This means that in a request body, `LifecyclePolicies` needs to be structured as an array of `LifecyclePolicy` objects, one object for each transition, `TransitionToIA` , `TransitionToArchive` `TransitionToPrimaryStorageClass` . See the example requests in the following section for more information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
 	//
 	LifecyclePolicies interface{} `field:"optional" json:"lifecyclePolicies" yaml:"lifecyclePolicies"`

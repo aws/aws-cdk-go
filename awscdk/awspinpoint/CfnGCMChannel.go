@@ -21,11 +21,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnGCMChannel := awscdk.Aws_pinpoint.NewCfnGCMChannel(this, jsii.String("MyCfnGCMChannel"), &CfnGCMChannelProps{
-//   	ApiKey: jsii.String("apiKey"),
 //   	ApplicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
+//   	ApiKey: jsii.String("apiKey"),
+//   	DefaultAuthenticationMethod: jsii.String("defaultAuthenticationMethod"),
 //   	Enabled: jsii.Boolean(false),
+//   	ServiceJson: jsii.String("serviceJson"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html
@@ -52,6 +54,8 @@ type CfnGCMChannel interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	DefaultAuthenticationMethod() *string
+	SetDefaultAuthenticationMethod(val *string)
 	// Specifies whether to enable the GCM channel for the Amazon Pinpoint application.
 	Enabled() interface{}
 	SetEnabled(val interface{})
@@ -72,6 +76,8 @@ type CfnGCMChannel interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ServiceJson() *string
+	SetServiceJson(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -292,6 +298,16 @@ func (j *jsiiProxy_CfnGCMChannel) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGCMChannel) DefaultAuthenticationMethod() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"defaultAuthenticationMethod",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGCMChannel) Enabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -327,6 +343,16 @@ func (j *jsiiProxy_CfnGCMChannel) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGCMChannel) ServiceJson() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"serviceJson",
 		&returns,
 	)
 	return returns
@@ -391,9 +417,6 @@ func NewCfnGCMChannel_Override(c CfnGCMChannel, scope constructs.Construct, id *
 }
 
 func (j *jsiiProxy_CfnGCMChannel)SetApiKey(val *string) {
-	if err := j.validateSetApiKeyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"apiKey",
@@ -412,6 +435,14 @@ func (j *jsiiProxy_CfnGCMChannel)SetApplicationId(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnGCMChannel)SetDefaultAuthenticationMethod(val *string) {
+	_jsii_.Set(
+		j,
+		"defaultAuthenticationMethod",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnGCMChannel)SetEnabled(val interface{}) {
 	if err := j.validateSetEnabledParameters(val); err != nil {
 		panic(err)
@@ -419,6 +450,14 @@ func (j *jsiiProxy_CfnGCMChannel)SetEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGCMChannel)SetServiceJson(val *string) {
+	_jsii_.Set(
+		j,
+		"serviceJson",
 		val,
 	)
 }

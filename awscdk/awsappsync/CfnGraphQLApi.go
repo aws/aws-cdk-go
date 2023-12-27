@@ -47,6 +47,7 @@ import (
 //   		},
 //   	},
 //   	ApiType: jsii.String("apiType"),
+//   	IntrospectionConfig: jsii.String("introspectionConfig"),
 //   	LambdaAuthorizerConfig: &LambdaAuthorizerConfigProperty{
 //   		AuthorizerResultTtlInSeconds: jsii.Number(123),
 //   		AuthorizerUri: jsii.String("authorizerUri"),
@@ -65,6 +66,8 @@ import (
 //   		Issuer: jsii.String("issuer"),
 //   	},
 //   	OwnerContact: jsii.String("ownerContact"),
+//   	QueryDepthLimit: jsii.Number(123),
+//   	ResolverCountLimit: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -99,6 +102,7 @@ type CfnGraphQLApi interface {
 	AttrArn() *string
 	// The fully qualified domain name (FQDN) of the endpoint URL of your GraphQL API.
 	AttrGraphQlDns() *string
+	// The GraphQL endpoint ARN.
 	AttrGraphQlEndpointArn() *string
 	// The Endpoint URL of your GraphQL API.
 	AttrGraphQlUrl() *string
@@ -122,6 +126,8 @@ type CfnGraphQLApi interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	IntrospectionConfig() *string
+	SetIntrospectionConfig(val *string)
 	// A `LambdaAuthorizerConfig` holds configuration on how to authorize AWS AppSync API access when using the `AWS_LAMBDA` authorizer mode.
 	LambdaAuthorizerConfig() interface{}
 	SetLambdaAuthorizerConfig(val interface{})
@@ -152,11 +158,15 @@ type CfnGraphQLApi interface {
 	// The owner contact information for an API resource.
 	OwnerContact() *string
 	SetOwnerContact(val *string)
+	QueryDepthLimit() *float64
+	SetQueryDepthLimit(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ResolverCountLimit() *float64
+	SetResolverCountLimit(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -472,6 +482,16 @@ func (j *jsiiProxy_CfnGraphQLApi) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) IntrospectionConfig() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"introspectionConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) LambdaAuthorizerConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -552,11 +572,31 @@ func (j *jsiiProxy_CfnGraphQLApi) OwnerContact() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) QueryDepthLimit() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"queryDepthLimit",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) Ref() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraphQLApi) ResolverCountLimit() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"resolverCountLimit",
 		&returns,
 	)
 	return returns
@@ -700,6 +740,14 @@ func (j *jsiiProxy_CfnGraphQLApi)SetAuthenticationType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnGraphQLApi)SetIntrospectionConfig(val *string) {
+	_jsii_.Set(
+		j,
+		"introspectionConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnGraphQLApi)SetLambdaAuthorizerConfig(val interface{}) {
 	if err := j.validateSetLambdaAuthorizerConfigParameters(val); err != nil {
 		panic(err)
@@ -756,6 +804,22 @@ func (j *jsiiProxy_CfnGraphQLApi)SetOwnerContact(val *string) {
 	_jsii_.Set(
 		j,
 		"ownerContact",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraphQLApi)SetQueryDepthLimit(val *float64) {
+	_jsii_.Set(
+		j,
+		"queryDepthLimit",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraphQLApi)SetResolverCountLimit(val *float64) {
+	_jsii_.Set(
+		j,
+		"resolverCountLimit",
 		val,
 	)
 }

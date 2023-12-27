@@ -133,6 +133,40 @@ import (
 //   		},
 //   	},
 //   	TaskDefinition: jsii.String("taskDefinition"),
+//   	VolumeConfigurations: []interface{}{
+//   		&ServiceVolumeConfigurationProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			ManagedEbsVolume: &ServiceManagedEBSVolumeConfigurationProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				Encrypted: jsii.Boolean(false),
+//   				FilesystemType: jsii.String("filesystemType"),
+//   				Iops: jsii.Number(123),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   				SizeInGiB: jsii.Number(123),
+//   				SnapshotId: jsii.String("snapshotId"),
+//   				TagSpecifications: []interface{}{
+//   					&EBSTagSpecificationProperty{
+//   						ResourceType: jsii.String("resourceType"),
+//
+//   						// the properties below are optional
+//   						PropagateTags: jsii.String("propagateTags"),
+//   						Tags: []*cfnTag{
+//   							&cfnTag{
+//   								Key: jsii.String("key"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Throughput: jsii.Number(123),
+//   				VolumeType: jsii.String("volumeType"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
@@ -305,5 +339,8 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
 	//
 	TaskDefinition *string `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-volumeconfigurations
+	//
+	VolumeConfigurations interface{} `field:"optional" json:"volumeConfigurations" yaml:"volumeConfigurations"`
 }
 

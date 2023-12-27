@@ -149,6 +149,18 @@ asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerIm
 })
 ```
 
+You can optionally disable the cache:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
+	CacheDisabled: jsii.Boolean(true),
+})
+```
+
 ## Images from Tarball
 
 Images are loaded from a local tarball, uploaded to ECR by the CDK toolkit and/or your app's CI-CD pipeline, and can be

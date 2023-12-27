@@ -60,6 +60,18 @@ listener.AddEndpointGroup(jsii.String("Group2"), &EndpointGroupOptions{
 })
 ```
 
+### Create an Accelerator with IP addresses and IP address type
+
+```go
+accelerator := globalaccelerator.NewAccelerator(this, jsii.String("Accelerator"), &AcceleratorProps{
+	IpAddresses: []*string{
+		jsii.String("1.1.1.1"),
+		jsii.String("2.2.2.2"),
+	},
+	IpAddressType: globalaccelerator.IpAddressType_IPV4,
+})
+```
+
 ## Concepts
 
 The **Accelerator** construct defines a Global Accelerator resource.

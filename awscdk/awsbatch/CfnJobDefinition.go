@@ -381,7 +381,16 @@ type CfnJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	AttrId() *string
+	// The orchestration type of the compute environment.
+	//
+	// The valid values are `ECS` (default) or `EKS` .
+	AttrContainerOrchestrationType() *string
+	// The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
+	AttrJobDefinitionArn() *string
+	// The revision of the job definition.
+	AttrRevision() *float64
+	// The status of the job definition.
+	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -597,11 +606,41 @@ type jsiiProxy_CfnJobDefinition struct {
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnJobDefinition) AttrId() *string {
+func (j *jsiiProxy_CfnJobDefinition) AttrContainerOrchestrationType() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrContainerOrchestrationType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJobDefinition) AttrJobDefinitionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrJobDefinitionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJobDefinition) AttrRevision() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrRevision",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJobDefinition) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
 		&returns,
 	)
 	return returns

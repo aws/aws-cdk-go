@@ -24,6 +24,10 @@ func (c *jsiiProxy_Cluster) validateApplyRemovalPolicyParameters(policy awscdk.R
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateArnForTasksParameters(keyPattern *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

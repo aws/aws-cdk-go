@@ -5,6 +5,7 @@ package awsses
 //
 // Example:
 //   ses.NewDedicatedIpPool(this, jsii.String("Pool"), &DedicatedIpPoolProps{
+//   	DedicatedIpPoolName: jsii.String("mypool"),
 //   	ScalingMode: ses.ScalingMode_STANDARD,
 //   })
 //

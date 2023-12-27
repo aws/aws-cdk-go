@@ -145,11 +145,17 @@ type CfnDomain interface {
 	AdvancedSecurityOptions() interface{}
 	SetAdvancedSecurityOptions(val interface{})
 	AttrAdvancedSecurityOptionsAnonymousAuthDisableDate() *string
-	// The Amazon Resource Name (ARN) of the domain, such as `arn:aws:es:us-west-2:123456789012:domain/mystack-1ab2cdefghij` .
+	// The Amazon Resource Name (ARN) of the CloudFormation stack.
 	AttrArn() *string
 	// The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
 	AttrDomainEndpoint() *string
+	// The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints.
+	//
+	// Example `key, value` : `'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'` .
 	AttrDomainEndpoints() awscdk.IResolvable
+	// If `IPAddressType` to set to `dualstack` , a version 2 domain endpoint is provisioned.
+	//
+	// This endpoint functions like a normal endpoint, except that it works with both IPv4 and IPv6 IP addresses. Normal endpoints work only with IPv4 IP addresses.
 	AttrDomainEndpointV2() *string
 	// The resource ID.
 	//
@@ -197,7 +203,7 @@ type CfnDomain interface {
 	// The version of OpenSearch to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
-	// The type of IP addresses supported by the endpoint for the domain.
+	// Choose either dual stack or IPv4 as your IP address type.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -229,7 +235,7 @@ type CfnDomain interface {
 	// *DEPRECATED* .
 	SnapshotOptions() interface{}
 	SetSnapshotOptions(val interface{})
-	// Options for configuring service software updates for a domain.
+	// Service software update options for the domain.
 	SoftwareUpdateOptions() interface{}
 	SetSoftwareUpdateOptions(val interface{})
 	// The stack in which this element is defined.

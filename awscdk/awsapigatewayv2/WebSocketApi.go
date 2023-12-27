@@ -74,6 +74,16 @@ type WebSocketApi interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Get the "execute-api" ARN.
+	//
+	// When 'ANY' is passed to the method, an ARN with the method set to '*' is obtained.
+	// Default: - The default behavior applies when no specific method, path, or stage is provided.
+	// In this case, the ARN will cover all methods, all resources, and all stages of this API.
+	// Specifically, if 'method' is not specified, it defaults to '*', representing all methods.
+	// If 'path' is not specified, it defaults to '/*', representing all paths.
+	// If 'stage' is not specified, it also defaults to '*', representing all stages.
+	//
+	ArnForExecuteApi(method *string, path *string, stage *string) *string
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -318,6 +328,19 @@ func (w *jsiiProxy_WebSocketApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (w *jsiiProxy_WebSocketApi) ArnForExecuteApi(method *string, path *string, stage *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		w,
+		"arnForExecuteApi",
+		[]interface{}{method, path, stage},
+		&returns,
+	)
+
+	return returns
 }
 
 func (w *jsiiProxy_WebSocketApi) GeneratePhysicalName() *string {

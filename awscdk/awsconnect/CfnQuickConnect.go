@@ -52,7 +52,7 @@ type CfnQuickConnect interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) of the quick connect.
+	// The Amazon Resource Name (ARN) for the quick connect.
 	AttrQuickConnectArn() *string
 	// The type of quick connect.
 	//

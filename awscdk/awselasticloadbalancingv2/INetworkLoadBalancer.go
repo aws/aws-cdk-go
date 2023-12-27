@@ -17,6 +17,10 @@ type INetworkLoadBalancer interface {
 	//
 	// Returns: The newly created listener.
 	AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener
+	// The type of IP addresses to use.
+	// Default: IpAddressType.IPV4
+	//
+	IpAddressType() IpAddressType
 	// All metrics available for this load balancer.
 	Metrics() INetworkLoadBalancerMetrics
 	// Security groups associated with this load balancer.
@@ -56,6 +60,16 @@ func (i *jsiiProxy_INetworkLoadBalancer) ApplyRemovalPolicy(policy awscdk.Remova
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (j *jsiiProxy_INetworkLoadBalancer) IpAddressType() IpAddressType {
+	var returns IpAddressType
+	_jsii_.Get(
+		j,
+		"ipAddressType",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_INetworkLoadBalancer) Metrics() INetworkLoadBalancerMetrics {

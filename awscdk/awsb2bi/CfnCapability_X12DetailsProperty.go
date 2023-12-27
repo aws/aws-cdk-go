@@ -14,9 +14,15 @@ package awsb2bi
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-x12details.html
 //
 type CfnCapability_X12DetailsProperty struct {
+	// Returns an enumerated type where each value identifies an X12 transaction set.
+	//
+	// Transaction sets are maintained by the X12 Accredited Standards Committee.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-x12details.html#cfn-b2bi-capability-x12details-transactionset
 	//
 	TransactionSet *string `field:"optional" json:"transactionSet" yaml:"transactionSet"`
+	// Returns the version to use for the specified X12 transaction set.
+	//
+	// Supported versions are `4010` , `4030` , and `5010` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-x12details.html#cfn-b2bi-capability-x12details-version
 	//
 	Version *string `field:"optional" json:"version" yaml:"version"`

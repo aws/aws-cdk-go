@@ -25,6 +25,7 @@ import (
 //   	ContainerRecipeArn: jsii.String("containerRecipeArn"),
 //   	DistributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	EnhancedImageMetadataEnabled: jsii.Boolean(false),
+//   	ExecutionRole: jsii.String("executionRole"),
 //   	ImageRecipeArn: jsii.String("imageRecipeArn"),
 //   	ImageScanningConfiguration: &ImageScanningConfigurationProperty{
 //   		EcrConfiguration: &EcrConfigurationProperty{
@@ -41,6 +42,21 @@ import (
 //   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	Workflows: []interface{}{
+//   		&WorkflowConfigurationProperty{
+//   			OnFailure: jsii.String("onFailure"),
+//   			ParallelGroup: jsii.String("parallelGroup"),
+//   			Parameters: []interface{}{
+//   				&WorkflowParameterProperty{
+//   					Name: jsii.String("name"),
+//   					Value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   			WorkflowArn: jsii.String("workflowArn"),
+//   		},
 //   	},
 //   })
 //
@@ -82,6 +98,9 @@ type CfnImage interface {
 	// Indicates whether Image Builder collects additional information about the image, such as the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
+	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
+	ExecutionRole() *string
+	SetExecutionRole(val *string)
 	// The Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
@@ -133,6 +152,9 @@ type CfnImage interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Contains the build and test workflows that are associated with the image.
+	Workflows() interface{}
+	SetWorkflows(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -377,6 +399,16 @@ func (j *jsiiProxy_CfnImage) EnhancedImageMetadataEnabled() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImage) ExecutionRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionRole",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImage) ImageRecipeArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -497,6 +529,16 @@ func (j *jsiiProxy_CfnImage) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImage) Workflows() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"workflows",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnImage(scope constructs.Construct, id *string, props *CfnImageProps) CfnImage {
 	_init_.Initialize()
@@ -552,6 +594,14 @@ func (j *jsiiProxy_CfnImage)SetEnhancedImageMetadataEnabled(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnImage)SetExecutionRole(val *string) {
+	_jsii_.Set(
+		j,
+		"executionRole",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnImage)SetImageRecipeArn(val *string) {
 	_jsii_.Set(
 		j,
@@ -597,6 +647,17 @@ func (j *jsiiProxy_CfnImage)SetTagsRaw(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImage)SetWorkflows(val interface{}) {
+	if err := j.validateSetWorkflowsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"workflows",
 		val,
 	)
 }

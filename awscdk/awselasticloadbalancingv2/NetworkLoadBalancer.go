@@ -49,6 +49,8 @@ type NetworkLoadBalancer interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The type of IP addresses to use.
+	IpAddressType() IpAddressType
 	// The ARN of this load balancer.
 	//
 	// Example value: `arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/50dc6c495c0c9188`.
@@ -194,6 +196,16 @@ func (j *jsiiProxy_NetworkLoadBalancer) Env() *awscdk.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkLoadBalancer) IpAddressType() IpAddressType {
+	var returns IpAddressType
+	_jsii_.Get(
+		j,
+		"ipAddressType",
 		&returns,
 	)
 	return returns

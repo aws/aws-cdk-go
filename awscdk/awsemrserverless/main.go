@@ -76,6 +76,10 @@ func init() {
 		reflect.TypeOf((*CfnApplication_AutoStopConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.CloudWatchLoggingConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_CloudWatchLoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.ConfigurationObjectProperty",
 		reflect.TypeOf((*CfnApplication_ConfigurationObjectProperty)(nil)).Elem(),
 	)
@@ -90,6 +94,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.InitialCapacityConfigProperty",
 		reflect.TypeOf((*CfnApplication_InitialCapacityConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.LogTypeMapKeyValuePairProperty",
+		reflect.TypeOf((*CfnApplication_LogTypeMapKeyValuePairProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.ManagedPersistenceMonitoringConfigurationProperty",

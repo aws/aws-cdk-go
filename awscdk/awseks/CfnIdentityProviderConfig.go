@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Associate an identity provider configuration to a cluster.
+// Associates an identity provider configuration to a cluster.
 //
-// If you want to authenticate identities using an identity provider, you can create an identity provider configuration and associate it to your cluster. After configuring authentication to your cluster you can create Kubernetes `roles` and `clusterroles` to assign permissions to the roles, and then bind the roles to the identities using Kubernetes `rolebindings` and `clusterrolebindings` . For more information see [Using RBAC Authorization](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in the Kubernetes documentation.
+// If you want to authenticate identities using an identity provider, you can create an identity provider configuration and associate it to your cluster. After configuring authentication to your cluster you can create Kubernetes `Role` and `ClusterRole` objects, assign permissions to them, and then bind them to the identities using Kubernetes `RoleBinding` and `ClusterRoleBinding` objects. For more information see [Using RBAC Authorization](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in the Kubernetes documentation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -61,7 +61,7 @@ type CfnIdentityProviderConfig interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The cluster that the configuration is associated to.
+	// The name of your cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -97,7 +97,7 @@ type CfnIdentityProviderConfig interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The metadata to apply to the provider configuration to assist with categorization and organization.
+	// Metadata that assists with categorization and organization.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The type of the identity provider configuration.

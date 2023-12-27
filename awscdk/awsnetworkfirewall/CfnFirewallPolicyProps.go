@@ -68,6 +68,7 @@ import (
 //   				ResourceArn: jsii.String("resourceArn"),
 //   			},
 //   		},
+//   		TlsInspectionConfigurationArn: jsii.String("tlsInspectionConfigurationArn"),
 //   	},
 //   	FirewallPolicyName: jsii.String("firewallPolicyName"),
 //

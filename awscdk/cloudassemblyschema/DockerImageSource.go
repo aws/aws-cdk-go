@@ -9,6 +9,7 @@ package cloudassemblyschema
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dockerImageSource := &DockerImageSource{
+//   	CacheDisabled: jsii.Boolean(false),
 //   	CacheFrom: []dockerCacheOption{
 //   		&dockerCacheOption{
 //   			Type: jsii.String("type"),
@@ -48,6 +49,10 @@ package cloudassemblyschema
 //   }
 //
 type DockerImageSource struct {
+	// Disable the cache and pass `--no-cache` to the `docker build` command.
+	// Default: - cache is used.
+	//
+	CacheDisabled *bool `field:"optional" json:"cacheDisabled" yaml:"cacheDisabled"`
 	// Cache from options to pass to the `docker build` command.
 	// See: https://docs.docker.com/build/cache/backends/
 	//

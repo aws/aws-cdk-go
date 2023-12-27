@@ -30,12 +30,15 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html
 //
 type CfnProfileProps struct {
+	// Returns the name for the business associated with this profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html#cfn-b2bi-profile-businessname
 	//
 	BusinessName *string `field:"required" json:"businessName" yaml:"businessName"`
+	// Specifies whether or not logging is enabled for this profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html#cfn-b2bi-profile-logging
 	//
 	Logging *string `field:"required" json:"logging" yaml:"logging"`
+	// Returns the display name for profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html#cfn-b2bi-profile-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -45,6 +48,9 @@ type CfnProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html#cfn-b2bi-profile-email
 	//
 	Email *string `field:"optional" json:"email" yaml:"email"`
+	// A key-value pair for a specific profile.
+	//
+	// Tags are metadata that you can use to search for and group capabilities for various purposes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html#cfn-b2bi-profile-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

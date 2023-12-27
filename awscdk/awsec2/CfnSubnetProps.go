@@ -22,10 +22,11 @@ import (
 //   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	CidrBlock: jsii.String("cidrBlock"),
 //   	EnableDns64: jsii.Boolean(false),
-//   	Ipv4NetmaskLength: jsii.Number(123),
 //   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
+//   	Ipv6CidrBlocks: []*string{
+//   		jsii.String("ipv6CidrBlocks"),
+//   	},
 //   	Ipv6Native: jsii.Boolean(false),
-//   	Ipv6NetmaskLength: jsii.Number(123),
 //   	MapPublicIpOnLaunch: jsii.Boolean(false),
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	PrivateDnsNameOptionsOnLaunch: privateDnsNameOptionsOnLaunch,
@@ -74,26 +75,21 @@ type CfnSubnetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-enabledns64
 	//
 	EnableDns64 interface{} `field:"optional" json:"enableDns64" yaml:"enableDns64"`
-	// An IPv4 netmask length for the subnet.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv4netmasklength
-	//
-	Ipv4NetmaskLength *float64 `field:"optional" json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
 	// The IPv6 CIDR block.
 	//
 	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblock
 	//
 	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblocks
+	//
+	Ipv6CidrBlocks *[]*string `field:"optional" json:"ipv6CidrBlocks" yaml:"ipv6CidrBlocks"`
 	// Indicates whether this is an IPv6 only subnet.
 	//
 	// For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *Amazon Virtual Private Cloud User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6native
 	//
 	Ipv6Native interface{} `field:"optional" json:"ipv6Native" yaml:"ipv6Native"`
-	// An IPv6 netmask length for the subnet.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6netmasklength
-	//
-	Ipv6NetmaskLength *float64 `field:"optional" json:"ipv6NetmaskLength" yaml:"ipv6NetmaskLength"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is `false` .
 	//
 	// Starting on February 1, 2024, AWS will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/) .

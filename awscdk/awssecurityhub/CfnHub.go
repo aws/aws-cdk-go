@@ -39,10 +39,9 @@ type CfnHub interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// An ARN is automatically created for the customer.
+	// The Amazon Resource Name (ARN) of the `Hub` resource that was retrieved.
 	AttrArn() *string
-	AttrId() *string
-	// The date and time when Security Hub was enabled in the account.
+	// The date and time when Security Hub was enabled in your account.
 	AttrSubscribedAt() *string
 	// Whether to automatically enable new controls when they are added to standards that are enabled.
 	AutoEnableControls() interface{}
@@ -240,16 +239,6 @@ func (j *jsiiProxy_CfnHub) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnHub) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

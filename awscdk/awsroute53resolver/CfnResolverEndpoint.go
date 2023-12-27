@@ -110,6 +110,9 @@ type CfnResolverEndpoint interface {
 	// The Amazon EC2 instance type.
 	PreferredInstanceType() *string
 	SetPreferredInstanceType(val *string)
+	// Protocols used for the endpoint.
+	//
+	// DoH-FIPS is applicable for inbound endpoints only.
 	Protocols() *[]*string
 	SetProtocols(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

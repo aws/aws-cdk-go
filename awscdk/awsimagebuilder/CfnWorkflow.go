@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::ImageBuilder::Workflow.
+// Create a new workflow or a new version of an existing workflow.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,27 +37,27 @@ import (
 type CfnWorkflow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) of the workflow.
+	// The Amazon Resource Name (ARN) of the workflow resource.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The change description of the workflow.
+	// Describes what change has been made in this version of the workflow, or what makes this version different from other versions of the workflow.
 	ChangeDescription() *string
 	SetChangeDescription(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The data of the workflow.
+	// Contains the YAML document content for the workflow.
 	Data() *string
 	SetData(val *string)
 	// The description of the workflow.
 	Description() *string
 	SetDescription(val *string)
-	// The KMS key identifier used to encrypt the workflow.
+	// The KMS key identifier used to encrypt the workflow resource.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,7 +70,7 @@ type CfnWorkflow interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the workflow.
+	// The name of the workflow resource.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,10 +84,10 @@ type CfnWorkflow interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags associated with the workflow.
+	// The tags that apply to the workflow resource.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
-	// The type of the workflow denotes whether the workflow is used to build, test, or distribute.
+	// Specifies the image creation stage that the workflow applies to.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -106,7 +106,7 @@ type CfnWorkflow interface {
 	// The uri of the workflow.
 	Uri() *string
 	SetUri(val *string)
-	// The version of the workflow.
+	// The workflow resource version.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

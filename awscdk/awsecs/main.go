@@ -594,6 +594,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "volumeConfigurations", GoGetter: "VolumeConfigurations"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnService{}
@@ -626,6 +627,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.DeploymentControllerProperty",
 		reflect.TypeOf((*CfnService_DeploymentControllerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.EBSTagSpecificationProperty",
+		reflect.TypeOf((*CfnService_EBSTagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.LoadBalancerProperty",
@@ -664,8 +669,16 @@ func init() {
 		reflect.TypeOf((*CfnService_ServiceConnectServiceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceManagedEBSVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnService_ServiceManagedEBSVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.ServiceRegistryProperty",
 		reflect.TypeOf((*CfnService_ServiceRegistryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnService_ServiceVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnServiceProps",
@@ -951,6 +964,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCapacityProviderStrategy", GoMethod: "AddDefaultCapacityProviderStrategy"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCloudMapNamespace", GoMethod: "AddDefaultCloudMapNamespace"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "arnForTasks", GoMethod: "ArnForTasks"},
 			_jsii_.MemberProperty{JsiiProperty: "autoscalingGroup", GoGetter: "AutoscalingGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "capacityProviderNames", GoGetter: "CapacityProviderNames"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},

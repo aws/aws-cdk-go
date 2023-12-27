@@ -54,7 +54,7 @@ type CfnLocationFSxWindows interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies the name of the Windows domain that the FSx for Windows File Server belongs to.
+	// Specifies the name of the Microsoft Active Directory domain that the FSx for Windows File Server file system belongs to.
 	Domain() *string
 	SetDomain(val *string)
 	// Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file system.
@@ -72,7 +72,7 @@ type CfnLocationFSxWindows interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the password of the user who has the permissions to access files and folders in the file system.
+	// Specifies the password of the user with the permissions to mount and access the files, folders, and file metadata in your FSx for Windows File Server file system.
 	Password() *string
 	SetPassword(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

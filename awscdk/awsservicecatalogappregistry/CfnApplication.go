@@ -33,14 +33,16 @@ type CfnApplication interface {
 	awscdk.IInspectable
 	awscdk.ITaggable
 	// The name of the application.
-	AttrApplicationName() *string
-	// The key of the AWS application tag, which is awsApplication.
 	//
-	// Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+	// The name must be unique in the region in which you are creating the application.
+	AttrApplicationName() *string
+	// The key of the AWS application tag, which is `awsApplication` .
+	//
+	// Applications created before 11/13/2023 or applications without the `AppTag` linked resource group return no value.
 	AttrApplicationTagKey() *string
 	// The value of the AWS application tag, which is the identifier of an associated resource.
 	//
-	// Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+	// Applications created before 11/13/2023 or applications without the `AppTag` linked resource group return no value.
 	AttrApplicationTagValue() *string
 	// The Amazon resource name (ARN) that specifies the application across services.
 	AttrArn() *string

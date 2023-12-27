@@ -126,6 +126,10 @@ type Cluster interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Returns an ARN that represents all tasks within the cluster that match the task pattern specified.
+	//
+	// To represent all tasks, specify ``"*"``.
+	ArnForTasks(keyPattern *string) *string
 	// Enable the Fargate capacity providers for this cluster.
 	EnableFargateCapacityProviders()
 	GeneratePhysicalName() *string
@@ -536,6 +540,22 @@ func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (c *jsiiProxy_Cluster) ArnForTasks(keyPattern *string) *string {
+	if err := c.validateArnForTasksParameters(keyPattern); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"arnForTasks",
+		[]interface{}{keyPattern},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_Cluster) EnableFargateCapacityProviders() {

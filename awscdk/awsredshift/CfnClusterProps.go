@@ -11,11 +11,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var namespaceResourcePolicy interface{}
+//
 //   cfnClusterProps := &CfnClusterProps{
 //   	ClusterType: jsii.String("clusterType"),
 //   	DbName: jsii.String("dbName"),
 //   	MasterUsername: jsii.String("masterUsername"),
-//   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	NodeType: jsii.String("nodeType"),
 //
 //   	// the properties below are optional
@@ -53,13 +54,13 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LoggingProperties: &LoggingPropertiesProperty{
 //   		BucketName: jsii.String("bucketName"),
-//
-//   		// the properties below are optional
 //   		S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	},
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
+//   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MultiAz: jsii.Boolean(false),
+//   	NamespaceResourcePolicy: namespaceResourcePolicy,
 //   	NumberOfNodes: jsii.Number(123),
 //   	OwnerAccount: jsii.String("ownerAccount"),
 //   	Port: jsii.Number(123),
@@ -124,20 +125,6 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
 	//
 	MasterUsername *string `field:"required" json:"masterUsername" yaml:"masterUsername"`
-	// The password associated with the admin user account for the cluster that is being created.
-	//
-	// You can't use `MasterUserPassword` if `ManageMasterPassword` is `true` .
-	//
-	// Constraints:
-	//
-	// - Must be between 8 and 64 characters in length.
-	// - Must contain at least one uppercase letter.
-	// - Must contain at least one lowercase letter.
-	// - Must contain one number.
-	// - Can be any printable ASCII character (ASCII code 33-126) except `'` (single quote), `"` (double quote), `\` , `/` , or `@` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
-	//
-	MasterUserPassword *string `field:"required" json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The node type to be provisioned for the cluster.
 	//
 	// For information about node types, go to [Working with Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes) in the *Amazon Redshift Cluster Management Guide* .
@@ -332,12 +319,30 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
 	//
 	ManualSnapshotRetentionPeriod *float64 `field:"optional" json:"manualSnapshotRetentionPeriod" yaml:"manualSnapshotRetentionPeriod"`
+	// The password associated with the admin user account for the cluster that is being created.
+	//
+	// You can't use `MasterUserPassword` if `ManageMasterPassword` is `true` .
+	//
+	// Constraints:
+	//
+	// - Must be between 8 and 64 characters in length.
+	// - Must contain at least one uppercase letter.
+	// - Must contain at least one lowercase letter.
+	// - Must contain one number.
+	// - Can be any printable ASCII character (ASCII code 33-126) except `'` (single quote), `"` (double quote), `\` , `/` , or `@` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
+	//
+	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 	// A boolean indicating whether Amazon Redshift should deploy the cluster in two Availability Zones.
 	//
 	// The default is false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-multiaz
 	//
 	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`
+	// The namespace resource policy document that will be attached to a Redshift cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-namespaceresourcepolicy
+	//
+	NamespaceResourcePolicy interface{} `field:"optional" json:"namespaceResourcePolicy" yaml:"namespaceResourcePolicy"`
 	// The number of compute nodes in the cluster.
 	//
 	// This parameter is required when the *ClusterType* parameter is specified as `multi-node` .

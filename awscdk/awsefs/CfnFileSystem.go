@@ -74,7 +74,7 @@ type CfnFileSystem interface {
 	//
 	// For example: `fs-abcdef0123456789a`.
 	AttrFileSystemId() *string
-	// Used to create a One Zone file system.
+	// For One Zone file systems, specify the AWS Availability Zone in which to create the file system.
 	AvailabilityZoneName() *string
 	SetAvailabilityZoneName(val *string)
 	// Use the `BackupPolicy` to turn automatic backups on or off for the file system.

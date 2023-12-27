@@ -43,9 +43,11 @@ import (
 //   	Command: []*string{
 //   		jsii.String("command"),
 //   	},
+//   	CpuTargetUtilizationPercent: jsii.Number(123),
 //   	DeploymentController: &DeploymentController{
 //   		Type: awscdk.Aws_ecs.DeploymentControllerType_ECS,
 //   	},
+//   	DisableCpuBasedScaling: jsii.Boolean(false),
 //   	EnableECSManagedTags: jsii.Boolean(false),
 //   	EnableExecuteCommand: jsii.Boolean(false),
 //   	EnableLogging: jsii.Boolean(false),
@@ -104,6 +106,10 @@ type QueueProcessingServiceBaseProps struct {
 	// Default: - CMD value built into container image.
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// The target CPU utilization percentage for CPU based scaling strategy when enabled.
+	// Default: - 50.
+	//
+	CpuTargetUtilizationPercent *float64 `field:"optional" json:"cpuTargetUtilizationPercent" yaml:"cpuTargetUtilizationPercent"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
@@ -111,6 +117,10 @@ type QueueProcessingServiceBaseProps struct {
 	// Default: - Rolling update (ECS).
 	//
 	DeploymentController *awsecs.DeploymentController `field:"optional" json:"deploymentController" yaml:"deploymentController"`
+	// Flag to disable CPU based auto scaling strategy on the service.
+	// Default: - false.
+	//
+	DisableCpuBasedScaling *bool `field:"optional" json:"disableCpuBasedScaling" yaml:"disableCpuBasedScaling"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see

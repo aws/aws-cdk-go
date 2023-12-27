@@ -27,23 +27,27 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html
 //
 type CfnWorkflowProps struct {
-	// The name of the workflow.
+	// The name of the workflow resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html#cfn-imagebuilder-workflow-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The type of the workflow denotes whether the workflow is used to build, test, or distribute.
+	// Specifies the image creation stage that the workflow applies to.
+	//
+	// Image Builder currently supports build and test workflows.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html#cfn-imagebuilder-workflow-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The version of the workflow.
+	// The workflow resource version.
+	//
+	// Workflow resources are immutable. To make a change, you can clone a workflow or create a new version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html#cfn-imagebuilder-workflow-version
 	//
 	Version *string `field:"required" json:"version" yaml:"version"`
-	// The change description of the workflow.
+	// Describes what change has been made in this version of the workflow, or what makes this version different from other versions of the workflow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html#cfn-imagebuilder-workflow-changedescription
 	//
 	ChangeDescription *string `field:"optional" json:"changeDescription" yaml:"changeDescription"`
-	// The data of the workflow.
+	// Contains the YAML document content for the workflow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html#cfn-imagebuilder-workflow-data
 	//
 	Data *string `field:"optional" json:"data" yaml:"data"`
@@ -51,11 +55,11 @@ type CfnWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html#cfn-imagebuilder-workflow-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The KMS key identifier used to encrypt the workflow.
+	// The KMS key identifier used to encrypt the workflow resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html#cfn-imagebuilder-workflow-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// The tags associated with the workflow.
+	// The tags that apply to the workflow resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html#cfn-imagebuilder-workflow-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

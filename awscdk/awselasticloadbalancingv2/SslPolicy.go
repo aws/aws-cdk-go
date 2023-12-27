@@ -113,6 +113,22 @@ const (
 	SslPolicy_TLS13_11 SslPolicy = "TLS13_11"
 	// TLS1.3 only.
 	SslPolicy_TLS13_13 SslPolicy = "TLS13_13"
+	// TLS 1.3 only with AES 128 and 256 GCM SHA ciphers.
+	SslPolicy_FIPS_TLS13_13 SslPolicy = "FIPS_TLS13_13"
+	// TLS 1.2 and 1.3 with AES and ECDHE GCM/SHA ciphers.
+	SslPolicy_FIPS_TLS13_12_RES SslPolicy = "FIPS_TLS13_12_RES"
+	// TLS 1.2 and 1.3 with ECDHE SHA/GCM ciphers, excluding SHA1 ciphers.
+	SslPolicy_FIPS_TLS13_12 SslPolicy = "FIPS_TLS13_12"
+	// TLS 1.2 and 1.3 with all ECDHE ciphers.
+	SslPolicy_FIPS_TLS13_12_EXT0 SslPolicy = "FIPS_TLS13_12_EXT0"
+	// TLS 1.2 and 1.3 with all AES and ECDHE ciphers excluding SHA1 ciphers.
+	SslPolicy_FIPS_TLS13_12_EXT1 SslPolicy = "FIPS_TLS13_12_EXT1"
+	// TLS 1.2 and 1.3 with all ciphers.
+	SslPolicy_FIPS_TLS13_12_EXT2 SslPolicy = "FIPS_TLS13_12_EXT2"
+	// TLS1.1 through 1.3 with all ciphers.
+	SslPolicy_FIPS_TLS13_11 SslPolicy = "FIPS_TLS13_11"
+	// TLS1.0 through 1.3 with all ciphers.
+	SslPolicy_FIPS_TLS13_10 SslPolicy = "FIPS_TLS13_10"
 	// Strong foward secrecy ciphers and TLV1.2 only (2020 edition). Same as FORWARD_SECRECY_TLS12_RES, but only supports GCM versions of the TLS ciphers.
 	SslPolicy_FORWARD_SECRECY_TLS12_RES_GCM SslPolicy = "FORWARD_SECRECY_TLS12_RES_GCM"
 	// Strong forward secrecy ciphers and TLS1.2 only.

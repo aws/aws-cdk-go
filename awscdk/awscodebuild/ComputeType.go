@@ -67,5 +67,10 @@ const (
 	ComputeType_MEDIUM ComputeType = "MEDIUM"
 	ComputeType_LARGE ComputeType = "LARGE"
 	ComputeType_X2_LARGE ComputeType = "X2_LARGE"
+	ComputeType_LAMBDA_1GB ComputeType = "LAMBDA_1GB"
+	ComputeType_LAMBDA_2GB ComputeType = "LAMBDA_2GB"
+	ComputeType_LAMBDA_4GB ComputeType = "LAMBDA_4GB"
+	ComputeType_LAMBDA_8GB ComputeType = "LAMBDA_8GB"
+	ComputeType_LAMBDA_10GB ComputeType = "LAMBDA_10GB"
 )
 

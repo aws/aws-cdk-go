@@ -18,6 +18,8 @@ package awseks
 //
 type CfnCluster_ControlPlanePlacementProperty struct {
 	// The name of the placement group for the Kubernetes control plane instances.
+	//
+	// This property is only used for a local cluster on an AWS Outpost.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html#cfn-eks-cluster-controlplaneplacement-groupname
 	//
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`

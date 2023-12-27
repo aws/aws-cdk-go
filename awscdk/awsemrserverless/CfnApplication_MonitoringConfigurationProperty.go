@@ -9,6 +9,20 @@ package awsemrserverless
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   monitoringConfigurationProperty := &MonitoringConfigurationProperty{
+//   	CloudWatchLoggingConfiguration: &CloudWatchLoggingConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   		LogGroupName: jsii.String("logGroupName"),
+//   		LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
+//   		LogTypeMap: []interface{}{
+//   			&LogTypeMapKeyValuePairProperty{
+//   				Key: jsii.String("key"),
+//   				Value: []*string{
+//   					jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	ManagedPersistenceMonitoringConfiguration: &ManagedPersistenceMonitoringConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		EncryptionKeyArn: jsii.String("encryptionKeyArn"),
@@ -22,6 +36,9 @@ package awsemrserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html
 //
 type CfnApplication_MonitoringConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-cloudwatchloggingconfiguration
+	//
+	CloudWatchLoggingConfiguration interface{} `field:"optional" json:"cloudWatchLoggingConfiguration" yaml:"cloudWatchLoggingConfiguration"`
 	// The managed log persistence configuration for a job run.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-managedpersistencemonitoringconfiguration
 	//

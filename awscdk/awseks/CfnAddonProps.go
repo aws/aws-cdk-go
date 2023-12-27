@@ -36,7 +36,7 @@ type CfnAddonProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
 	//
 	AddonName *string `field:"required" json:"addonName" yaml:"addonName"`
-	// The name of the cluster.
+	// The name of your cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
 	//
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`

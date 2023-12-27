@@ -11,11 +11,11 @@ import (
 
 // Creates a managed node group for an Amazon EKS cluster.
 //
-// You can only create a node group for your cluster that is equal to the current Kubernetes version for the cluster.
+// You can only create a node group for your cluster that is equal to the current Kubernetes version for the cluster. All node groups are created with the latest AMI release version for the respective minor Kubernetes version of the cluster, unless you deploy a custom AMI using a launch template. For more information about using launch templates, see [Launch template support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) .
 //
 // An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that are managed by AWS for an Amazon EKS cluster. For more information, see [Managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) in the *Amazon EKS User Guide* .
 //
-// > Windows AMI types are only supported for commercial Regions that support Windows Amazon EKS.
+// > Windows AMI types are only supported for commercial AWS Regions that support Windows on Amazon EKS.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -88,7 +88,7 @@ type CfnNodegroup interface {
 	SetAmiType(val *string)
 	// The Amazon Resource Name (ARN) associated with the managed node group.
 	AttrArn() *string
-	// The name of the cluster that the managed node group resides in.
+	// The name of your cluster.
 	AttrClusterName() *string
 	AttrId() *string
 	// The name associated with an Amazon EKS managed node group.
@@ -101,7 +101,7 @@ type CfnNodegroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The name of the cluster to create the node group in.
+	// The name of your cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -111,13 +111,13 @@ type CfnNodegroup interface {
 	// The root device disk size (in GiB) for your node group instances.
 	DiskSize() *float64
 	SetDiskSize(val *float64)
-	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
+	// Force the update if any `Pod` on the existing node group can't be drained due to a `Pod` disruption budget issue.
 	ForceUpdateEnabled() interface{}
 	SetForceUpdateEnabled(val interface{})
 	// Specify the instance types for a node group.
 	InstanceTypes() *[]*string
 	SetInstanceTypes(val *[]*string)
-	// The Kubernetes labels applied to the nodes in the node group.
+	// The Kubernetes `labels` applied to the nodes in the node group.
 	Labels() interface{}
 	SetLabels(val interface{})
 	// An object representing a node group's launch template specification.
@@ -164,7 +164,7 @@ type CfnNodegroup interface {
 	SetSubnets(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The metadata applied to the node group to assist with categorization and organization.
+	// Metadata that assists with categorization and organization.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.

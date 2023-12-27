@@ -80,10 +80,6 @@ func validateCfnGCMChannel_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnGCMChannel) validateSetApiKeyParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnGCMChannel) validateSetApplicationIdParameters(val *string) error {
 	return nil
 }

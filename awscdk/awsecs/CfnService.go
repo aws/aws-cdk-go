@@ -140,6 +140,40 @@ import (
 //   		},
 //   	},
 //   	TaskDefinition: jsii.String("taskDefinition"),
+//   	VolumeConfigurations: []interface{}{
+//   		&ServiceVolumeConfigurationProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			ManagedEbsVolume: &ServiceManagedEBSVolumeConfigurationProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				Encrypted: jsii.Boolean(false),
+//   				FilesystemType: jsii.String("filesystemType"),
+//   				Iops: jsii.Number(123),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   				SizeInGiB: jsii.Number(123),
+//   				SnapshotId: jsii.String("snapshotId"),
+//   				TagSpecifications: []interface{}{
+//   					&EBSTagSpecificationProperty{
+//   						ResourceType: jsii.String("resourceType"),
+//
+//   						// the properties below are optional
+//   						PropagateTags: jsii.String("propagateTags"),
+//   						Tags: []*cfnTag{
+//   							&cfnTag{
+//   								Key: jsii.String("key"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Throughput: jsii.Number(123),
+//   				VolumeType: jsii.String("volumeType"),
+//   			},
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
@@ -267,6 +301,8 @@ type CfnService interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	VolumeConfigurations() interface{}
+	SetVolumeConfigurations(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -751,6 +787,16 @@ func (j *jsiiProxy_CfnService) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) VolumeConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"volumeConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
@@ -987,6 +1033,17 @@ func (j *jsiiProxy_CfnService)SetTaskDefinition(val *string) {
 	_jsii_.Set(
 		j,
 		"taskDefinition",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetVolumeConfigurations(val interface{}) {
+	if err := j.validateSetVolumeConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"volumeConfigurations",
 		val,
 	)
 }

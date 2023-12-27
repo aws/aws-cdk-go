@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// Properties related to the Amazon Elastic Block Store volume.
+// A collection of default EBS storage settings that applies to private spaces created within a domain or user profile.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,9 +16,11 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html
 //
 type CfnUserProfile_DefaultEbsStorageSettingsProperty struct {
+	// The default size of the EBS storage volume for a private space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html#cfn-sagemaker-userprofile-defaultebsstoragesettings-defaultebsvolumesizeingb
 	//
 	DefaultEbsVolumeSizeInGb *float64 `field:"required" json:"defaultEbsVolumeSizeInGb" yaml:"defaultEbsVolumeSizeInGb"`
+	// The maximum size of the EBS storage volume for a private space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html#cfn-sagemaker-userprofile-defaultebsstoragesettings-maximumebsvolumesizeingb
 	//
 	MaximumEbsVolumeSizeInGb *float64 `field:"required" json:"maximumEbsVolumeSizeInGb" yaml:"maximumEbsVolumeSizeInGb"`

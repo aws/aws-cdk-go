@@ -40,6 +40,7 @@ import (
 //   		},
 //   	},
 //   	ApiType: jsii.String("apiType"),
+//   	IntrospectionConfig: jsii.String("introspectionConfig"),
 //   	LambdaAuthorizerConfig: &LambdaAuthorizerConfigProperty{
 //   		AuthorizerResultTtlInSeconds: jsii.Number(123),
 //   		AuthorizerUri: jsii.String("authorizerUri"),
@@ -58,6 +59,8 @@ import (
 //   		Issuer: jsii.String("issuer"),
 //   	},
 //   	OwnerContact: jsii.String("ownerContact"),
+//   	QueryDepthLimit: jsii.Number(123),
+//   	ResolverCountLimit: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -101,6 +104,9 @@ type CfnGraphQLApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-apitype
 	//
 	ApiType *string `field:"optional" json:"apiType" yaml:"apiType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-introspectionconfig
+	//
+	IntrospectionConfig *string `field:"optional" json:"introspectionConfig" yaml:"introspectionConfig"`
 	// A `LambdaAuthorizerConfig` holds configuration on how to authorize AWS AppSync API access when using the `AWS_LAMBDA` authorizer mode.
 	//
 	// Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
@@ -127,6 +133,12 @@ type CfnGraphQLApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-ownercontact
 	//
 	OwnerContact *string `field:"optional" json:"ownerContact" yaml:"ownerContact"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-querydepthlimit
+	//
+	QueryDepthLimit *float64 `field:"optional" json:"queryDepthLimit" yaml:"queryDepthLimit"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-resolvercountlimit
+	//
+	ResolverCountLimit *float64 `field:"optional" json:"resolverCountLimit" yaml:"resolverCountLimit"`
 	// An arbitrary set of tags (key-value pairs) for this GraphQL API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
 	//

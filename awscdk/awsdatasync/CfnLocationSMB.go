@@ -60,7 +60,7 @@ type CfnLocationSMB interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies the Windows domain name that your SMB file server belongs to.
+	// Specifies the name of the Active Directory domain that your SMB file server belongs to.
 	Domain() *string
 	SetDomain(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -47,50 +47,7 @@ type CfnTrail_DataResourceProperty struct {
 	// - `AWS::Lambda::Function`
 	// - `AWS::S3::Object`
 	//
-	// The following resource types are only available through *advanced* event selectors. Basic event selector resource types are valid in advanced event selectors, but advanced event selector resource types are not valid in basic event selectors. For more information, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) .
-	//
-	// - `AWS::B2BI::Transformer`
-	// - `AWS::Bedrock::AgentAlias`
-	// - `AWS::Bedrock::KnowledgeBase`
-	// - `AWS::CloudFront:KeyValueStore`
-	// - `AWS::CloudTrail::Channel`
-	// - `AWS::CodeWhisperer::Customization`
-	// - `AWS::CodeWhisperer::Profile`
-	// - `AWS::Cognito::IdentityPool`
-	// - `AWS::DynamoDB::Stream`
-	// - `AWS::EC2::Snapshot`
-	// - `AWS::EMRWAL::Workspace`
-	// - `AWS::FinSpace::Environment`
-	// - `AWS::Glue::Table`
-	// - `AWS::GuardDuty::Detector`
-	// - `AWS::KendraRanking::ExecutionPlan`
-	// - `AWS::KinesisVideo::Stream`
-	// - `AWS::ManagedBlockchain::Network`
-	// - `AWS::ManagedBlockchain::Node`
-	// - `AWS::MedicalImaging::Datastore`
-	// - `AWS::NeptuneGraph::Graph`
-	// - `AWS::PCAConnectorAD::Connector`
-	// - `AWS::QBusiness::Application`
-	// - `AWS::QBusiness::DataSource`
-	// - `AWS::QBusiness::Index`
-	// - `AWS::QBusiness::WebExperience`
-	// - `AWS::SageMaker::Endpoint`
-	// - `AWS::SageMaker::ExperimentTrialComponent`
-	// - `AWS::SageMaker::FeatureGroup`
-	// - `AWS::ServiceDiscovery::Namespace`
-	// - `AWS::ServiceDiscovery::Service`
-	// - `AWS::SNS::PlatformEndpoint`
-	// - `AWS::SNS::Topic`
-	// - `AWS::SQS::Queue`
-	// - `AWS::S3::AccessPoint`
-	// - `AWS::S3ObjectLambda::AccessPoint`
-	// - `AWS::S3Outposts::Object`
-	// - `AWS::SSMMessages::ControlChannel`
-	// - `AWS::ThinClient::Device`
-	// - `AWS::ThinClient::Environment`
-	// - `AWS::Timestream::Database`
-	// - `AWS::Timestream::Table`
-	// - `AWS::VerifiedPermissions::PolicyStore`.
+	// Additional resource types are available through *advanced* event selectors. For more information about these additional resource types, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

@@ -18,11 +18,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var namespaceResourcePolicy interface{}
+//
 //   cfnCluster := awscdk.Aws_redshift.NewCfnCluster(this, jsii.String("MyCfnCluster"), &CfnClusterProps{
 //   	ClusterType: jsii.String("clusterType"),
 //   	DbName: jsii.String("dbName"),
 //   	MasterUsername: jsii.String("masterUsername"),
-//   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	NodeType: jsii.String("nodeType"),
 //
 //   	// the properties below are optional
@@ -60,13 +61,13 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LoggingProperties: &LoggingPropertiesProperty{
 //   		BucketName: jsii.String("bucketName"),
-//
-//   		// the properties below are optional
 //   		S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	},
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
+//   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MultiAz: jsii.Boolean(false),
+//   	NamespaceResourcePolicy: namespaceResourcePolicy,
 //   	NumberOfNodes: jsii.Number(123),
 //   	OwnerAccount: jsii.String("ownerAccount"),
 //   	Port: jsii.Number(123),
@@ -103,6 +104,8 @@ type CfnCluster interface {
 	// This parameter is retired.
 	AquaConfigurationStatus() *string
 	SetAquaConfigurationStatus(val *string)
+	// The Amazon Resource Name (ARN) of the cluster namespace.
+	AttrClusterNamespaceArn() *string
 	// A unique identifier for the maintenance window.
 	AttrDeferMaintenanceIdentifier() *string
 	AttrEndpointAddress() *string
@@ -227,6 +230,9 @@ type CfnCluster interface {
 	// A boolean indicating whether Amazon Redshift should deploy the cluster in two Availability Zones.
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
+	// The namespace resource policy document that will be attached to a Redshift cluster.
+	NamespaceResourcePolicy() interface{}
+	SetNamespaceResourcePolicy(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The node type to be provisioned for the cluster.
@@ -450,6 +456,16 @@ func (j *jsiiProxy_CfnCluster) AquaConfigurationStatus() *string {
 	_jsii_.Get(
 		j,
 		"aquaConfigurationStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrClusterNamespaceArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrClusterNamespaceArn",
 		&returns,
 	)
 	return returns
@@ -850,6 +866,16 @@ func (j *jsiiProxy_CfnCluster) MultiAz() interface{} {
 	_jsii_.Get(
 		j,
 		"multiAz",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) NamespaceResourcePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"namespaceResourcePolicy",
 		&returns,
 	)
 	return returns
@@ -1385,9 +1411,6 @@ func (j *jsiiProxy_CfnCluster)SetMasterUsername(val *string) {
 }
 
 func (j *jsiiProxy_CfnCluster)SetMasterUserPassword(val *string) {
-	if err := j.validateSetMasterUserPasswordParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"masterUserPassword",
@@ -1402,6 +1425,14 @@ func (j *jsiiProxy_CfnCluster)SetMultiAz(val interface{}) {
 	_jsii_.Set(
 		j,
 		"multiAz",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetNamespaceResourcePolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"namespaceResourcePolicy",
 		val,
 	)
 }

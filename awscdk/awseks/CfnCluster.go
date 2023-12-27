@@ -49,6 +49,10 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	AccessConfig: &AccessConfigProperty{
+//   		AuthenticationMode: jsii.String("authenticationMode"),
+//   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
+//   	},
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -100,6 +104,9 @@ type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The access configuration for the cluster.
+	AccessConfig() interface{}
+	SetAccessConfig(val interface{})
 	// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:cluster/prod` .
 	AttrArn() *string
 	// The `certificate-authority-data` for your cluster.
@@ -328,6 +335,16 @@ type jsiiProxy_CfnCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnCluster) AccessConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"accessConfig",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCluster) AttrArn() *string {
@@ -635,6 +652,17 @@ func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_eks.CfnCluster",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetAccessConfig(val interface{}) {
+	if err := j.validateSetAccessConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"accessConfig",
+		val,
 	)
 }
 

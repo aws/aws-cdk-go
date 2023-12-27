@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::B2BI::Profile Resource Type.
+// Creates a customer profile.
+//
+// You can have up to five customer profiles, each representing a distinct private network. A profile is the mechanism used to create the concept of a private network.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,11 +39,16 @@ import (
 type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Returns the timestamp for creation date and time of the profile.
 	AttrCreatedAt() *string
+	// Returns the name of the logging group.
 	AttrLogGroupName() *string
+	// Returns the timestamp that identifies the most recent date and time that the profile was modified.
 	AttrModifiedAt() *string
+	// Returns an Amazon Resource Name (ARN) for the profile.
 	AttrProfileArn() *string
 	AttrProfileId() *string
+	// Returns the name for the business associated with this profile.
 	BusinessName() *string
 	SetBusinessName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -55,6 +62,7 @@ type CfnProfile interface {
 	CreationStack() *[]*string
 	Email() *string
 	SetEmail(val *string)
+	// Specifies whether or not logging is enabled for this profile.
 	Logging() *string
 	SetLogging(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -67,6 +75,7 @@ type CfnProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Returns the display name for profile.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -82,6 +91,7 @@ type CfnProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A key-value pair for a specific profile.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

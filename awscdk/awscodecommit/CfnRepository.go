@@ -32,6 +32,7 @@ import (
 //   		// the properties below are optional
 //   		BranchName: jsii.String("branchName"),
 //   	},
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	RepositoryDescription: jsii.String("repositoryDescription"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -83,6 +84,8 @@ type CfnRepository interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	KmsKeyId() *string
+	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -365,6 +368,16 @@ func (j *jsiiProxy_CfnRepository) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepository) KmsKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepository) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -510,6 +523,14 @@ func (j *jsiiProxy_CfnRepository)SetCode(val interface{}) {
 	_jsii_.Set(
 		j,
 		"code",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRepository)SetKmsKeyId(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyId",
 		val,
 	)
 }

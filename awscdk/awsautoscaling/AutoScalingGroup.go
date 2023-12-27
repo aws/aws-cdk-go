@@ -26,21 +26,16 @@ import (
 //
 // Example:
 //   var vpc vpc
-//   var instanceType instanceType
-//   var machineImage iMachineImage
 //
 //
+//   mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+//   	Vpc: Vpc,
+//   })
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 //   	Vpc: Vpc,
-//   	InstanceType: InstanceType,
-//   	MachineImage: MachineImage,
-//
-//   	// ...
-//
-//   	Init: ec2.CloudFormationInit_FromElements(ec2.InitFile_FromString(jsii.String("/etc/my_instance"), jsii.String("This got written during instance startup"))),
-//   	Signals: autoscaling.Signals_WaitForAll(&SignalsOptions{
-//   		Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   	}),
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
+//   	SecurityGroup: mySecurityGroup,
 //   })
 //
 type AutoScalingGroup interface {

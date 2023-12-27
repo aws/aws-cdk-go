@@ -3,7 +3,7 @@ package awsdatasync
 
 // The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role used to access an Amazon S3 bucket.
 //
-// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html) in the *AWS DataSync User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

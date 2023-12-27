@@ -28,6 +28,10 @@ type DockerBuildOptions struct {
 	// Default: - no build args.
 	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Disable the cache and pass `--no-cache` to the `docker build` command.
+	// Default: - cache is used.
+	//
+	CacheDisabled *bool `field:"optional" json:"cacheDisabled" yaml:"cacheDisabled"`
 	// Cache from options to pass to the `docker build` command.
 	// Default: - no cache from args are passed.
 	//

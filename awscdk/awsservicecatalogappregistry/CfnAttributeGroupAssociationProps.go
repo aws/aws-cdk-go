@@ -20,7 +20,7 @@ type CfnAttributeGroupAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
 	//
 	Application *string `field:"required" json:"application" yaml:"application"`
-	// The name or ID of the attribute group that holds the attributes to describe the application.
+	// The name or ID of the attribute group which holds the attributes that describe the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
 	//
 	AttributeGroup *string `field:"required" json:"attributeGroup" yaml:"attributeGroup"`

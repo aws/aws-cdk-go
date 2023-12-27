@@ -27,6 +27,15 @@ type CfnStack_UserSettingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-permission
 	//
 	Permission *string `field:"required" json:"permission" yaml:"permission"`
+	// Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session.
+	//
+	// This can be specified only for the `CLIPBOARD_COPY_FROM_LOCAL_DEVICE` and `CLIPBOARD_COPY_TO_LOCAL_DEVICE` actions.
+	//
+	// This defaults to 20,971,520 (20 MB) when unspecified and the permission is `ENABLED` . This can't be specified when the permission is `DISABLED` .
+	//
+	// This can only be specified for AlwaysOn and OnDemand fleets. The attribute is not supported on Elastic fleets.
+	//
+	// The value can be between 1 and 20,971,520 (20 MB).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-maximumlength
 	//
 	MaximumLength *float64 `field:"optional" json:"maximumLength" yaml:"maximumLength"`

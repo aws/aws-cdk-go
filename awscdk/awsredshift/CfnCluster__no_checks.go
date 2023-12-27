@@ -124,10 +124,6 @@ func (j *jsiiProxy_CfnCluster) validateSetMasterUsernameParameters(val *string) 
 	return nil
 }
 
-func (j *jsiiProxy_CfnCluster) validateSetMasterUserPasswordParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCluster) validateSetMultiAzParameters(val interface{}) error {
 	return nil
 }

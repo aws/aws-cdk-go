@@ -24,6 +24,9 @@ package awselasticloadbalancingv2
 //   	// How the load balancer handles requests that might
 //   	// pose a security risk to your application
 //   	DesyncMitigationMode: elbv2.DesyncMitigationMode_DEFENSIVE,
+//
+//   	// The type of IP addresses to use.
+//   	IpAddressType: elbv2.IpAddressType_IPV4,
 //   })
 //
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#desync-mitigation-mode

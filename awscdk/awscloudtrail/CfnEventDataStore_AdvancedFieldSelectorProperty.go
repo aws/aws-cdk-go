@@ -67,7 +67,8 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::B2BI::Transformer`
 	// - `AWS::Bedrock::AgentAlias`
 	// - `AWS::Bedrock::KnowledgeBase`
-	// - `AWS::CloudFront:KeyValueStore`
+	// - `AWS::Cassandra::Table`
+	// - `AWS::CloudFront::KeyValueStore`
 	// - `AWS::CloudTrail::Channel`
 	// - `AWS::CodeWhisperer::Customization`
 	// - `AWS::CodeWhisperer::Profile`
@@ -78,6 +79,8 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::FinSpace::Environment`
 	// - `AWS::Glue::Table`
 	// - `AWS::GuardDuty::Detector`
+	// - `AWS::IoTTwinMaker::Entity`
+	// - `AWS::IoTTwinMaker::Workspace`
 	// - `AWS::KendraRanking::ExecutionPlan`
 	// - `AWS::KinesisVideo::Stream`
 	// - `AWS::ManagedBlockchain::Network`
@@ -89,11 +92,13 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::QBusiness::DataSource`
 	// - `AWS::QBusiness::Index`
 	// - `AWS::QBusiness::WebExperience`
+	// - `AWS::RDS::DBCluster`
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
 	// - `AWS::ServiceDiscovery::Namespace`
 	// - `AWS::ServiceDiscovery::Service`
+	// - `AWS::SCN::Instance`
 	// - `AWS::SNS::PlatformEndpoint`
 	// - `AWS::SNS::Topic`
 	// - `AWS::SQS::Queue`
@@ -135,7 +140,11 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:bedrock:<region>:<account_ID>:knowledge-base/<knowledge_base_ID>`
 	//
-	// When resources.type equals `AWS::CloudFront:KeyValueStore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	// When resources.type equals `AWS::Cassandra::Table` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:cassandra:<region>:<account_ID>:/keyspace/<keyspace_name>/table/<table_name>`
+	//
+	// When resources.type equals `AWS::CloudFront::KeyValueStore` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:cloudfront:<region>:<account_ID>:key-value-store/<KVS_name>`
 	//
@@ -165,7 +174,7 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// When `resources.type` equals `AWS::EMRWAL::Workspace` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
-	// - `arn:<partition>:emrwal:<region>::workspace/<workspace_name>`
+	// - `arn:<partition>:emrwal:<region>:<account_ID>:workspace/<workspace_name>`
 	//
 	// When `resources.type` equals `AWS::FinSpace::Environment` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
@@ -179,13 +188,21 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:guardduty:<region>:<account_ID>:detector/<detector_ID>`
 	//
+	// When `resources.type` equals `AWS::IoTTwinMaker::Entity` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID>/entity/<entity_ID>`
+	//
+	// When `resources.type` equals `AWS::IoTTwinMaker::Workspace` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID>`
+	//
 	// When `resources.type` equals `AWS::KendraRanking::ExecutionPlan` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:kendra-ranking:<region>:<account_ID>:rescore-execution-plan/<rescore_execution_plan_ID>`
 	//
 	// When `resources.type` equals `AWS::KinesisVideo::Stream` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
-	// - `arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name/<creation_time>`
+	// - `arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name>/<creation_time>`
 	//
 	// When `resources.type` equals `AWS::ManagedBlockchain::Network` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
@@ -223,6 +240,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/web-experience/<web_experience_ID>`
 	//
+	// When `resources.type` equals `AWS::RDS::DBCluster` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:rds:<region>:<account_ID>:cluster/<cluster_name>`
+	//
 	// When `resources.type` equals `AWS::SageMaker::Endpoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sagemaker:<region>:<account_ID>:endpoint/<endpoint_name>`
@@ -234,6 +255,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::SageMaker::FeatureGroup` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sagemaker:<region>:<account_ID>:feature-group/<feature_group_name>`
+	//
+	// When `resources.type` equals `AWS::SCN::Instance` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:scn:<region>:<account_ID>:instance/<instance_ID>`
 	//
 	// When `resources.type` equals `AWS::ServiceDiscovery::Namespace` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

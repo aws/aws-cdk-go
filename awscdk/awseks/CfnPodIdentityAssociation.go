@@ -82,7 +82,7 @@ type CfnPodIdentityAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The metadata that you apply to a resource to assist with categorization and organization.
+	// Metadata that assists with categorization and organization.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

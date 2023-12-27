@@ -20,6 +20,7 @@ package awscdk
 //   	},
 //   	DockerBuildSsh: jsii.String("dockerBuildSsh"),
 //   	DockerBuildTarget: jsii.String("dockerBuildTarget"),
+//   	DockerCacheDisabled: jsii.Boolean(false),
 //   	DockerCacheFrom: []dockerCacheOption{
 //   		&dockerCacheOption{
 //   			Type: jsii.String("type"),
@@ -99,6 +100,10 @@ type DockerImageAssetSource struct {
 	// Default: - no target.
 	//
 	DockerBuildTarget *string `field:"optional" json:"dockerBuildTarget" yaml:"dockerBuildTarget"`
+	// Disable the cache and pass `--no-cache` to the `docker build` command.
+	// Default: - cache is used.
+	//
+	DockerCacheDisabled *bool `field:"optional" json:"dockerCacheDisabled" yaml:"dockerCacheDisabled"`
 	// Cache from options to pass to the `docker build` command.
 	// Default: - no cache from args are passed.
 	//

@@ -55,7 +55,7 @@ type CfnAddon interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The name of the cluster.
+	// The name of your cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// The configuration values that you provided.

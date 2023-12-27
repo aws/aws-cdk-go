@@ -195,6 +195,27 @@ capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityPro
 cluster.AddAsgCapacityProvider(capacityProvider)
 ```
 
+The following code retrieve the Amazon Resource Names (ARNs) of tasks that are a part of a specified ECS cluster.
+It's useful when you want to grant permissions to a task to access other AWS resources.
+
+```go
+var cluster cluster
+var taskDefinition taskDefinition
+
+taskARNs := cluster.ArnForTasks(jsii.String("*")) // arn:aws:ecs:<region>:<regionId>:task/<clusterName>/*
+
+// Grant the task permission to access other AWS resources
+taskDefinition.AddToTaskRolePolicy(
+iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("ecs:UpdateTaskProtection"),
+	},
+	Resources: []*string{
+		taskARNs,
+	},
+}))
+```
+
 ### Bottlerocket
 
 [Bottlerocket](https://aws.amazon.com/bottlerocket/) is a Linux-based open source operating system that is

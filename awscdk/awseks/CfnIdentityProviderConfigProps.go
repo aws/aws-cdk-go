@@ -44,7 +44,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html
 //
 type CfnIdentityProviderConfigProps struct {
-	// The cluster that the configuration is associated to.
+	// The name of your cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-clustername
 	//
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
@@ -62,9 +62,9 @@ type CfnIdentityProviderConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-oidc
 	//
 	Oidc interface{} `field:"optional" json:"oidc" yaml:"oidc"`
-	// The metadata to apply to the provider configuration to assist with categorization and organization.
+	// Metadata that assists with categorization and organization.
 	//
-	// Each tag consists of a key and an optional value. You define both.
+	// Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or AWS resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html#cfn-eks-identityproviderconfig-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

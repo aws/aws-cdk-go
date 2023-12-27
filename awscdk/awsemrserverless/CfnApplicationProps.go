@@ -52,6 +52,20 @@ import (
 //   		Disk: jsii.String("disk"),
 //   	},
 //   	MonitoringConfiguration: &MonitoringConfigurationProperty{
+//   		CloudWatchLoggingConfiguration: &CloudWatchLoggingConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   			LogGroupName: jsii.String("logGroupName"),
+//   			LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
+//   			LogTypeMap: []interface{}{
+//   				&LogTypeMapKeyValuePairProperty{
+//   					Key: jsii.String("key"),
+//   					Value: []*string{
+//   						jsii.String("value"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		ManagedPersistenceMonitoringConfiguration: &ManagedPersistenceMonitoringConfigurationProperty{
 //   			Enabled: jsii.Boolean(false),
 //   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),

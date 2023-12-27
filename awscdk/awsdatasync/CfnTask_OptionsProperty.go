@@ -69,7 +69,9 @@ type CfnTask_OptionsProperty struct {
 	//
 	// To specify the log group, see [CloudWatchLogGroupArn](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn) .
 	//
-	// If you set `LogLevel` to `OFF` , no logs are published. `BASIC` publishes logs on errors for individual files transferred. `TRANSFER` publishes logs for every file or object that is transferred and integrity checked.
+	// - `BASIC` - Publishes logs with only basic information (such as transfer errors).
+	// - `TRANSFER` - Publishes logs for all files or objects that your DataSync task transfers and performs data-integrity checks on.
+	// - `OFF` - No logs are published.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
 	//
 	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
@@ -89,11 +91,9 @@ type CfnTask_OptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
 	//
 	Mtime *string `field:"optional" json:"mtime" yaml:"mtime"`
-	// Specifies whether object tags are preserved when transferring between object storage systems.
+	// Specifies whether you want DataSync to `PRESERVE` object tags (default behavior) when transferring between object storage systems.
 	//
 	// If you want your DataSync task to ignore object tags, specify the `NONE` value.
-	//
-	// Default Value: `PRESERVE`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-objecttags
 	//
 	ObjectTags *string `field:"optional" json:"objectTags" yaml:"objectTags"`

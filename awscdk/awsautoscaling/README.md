@@ -328,6 +328,39 @@ autoScalingGroup.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &BasicS
 })
 ```
 
+### Instance Maintenance Policy
+
+You can configure an instance maintenance policy for your Auto Scaling group to
+meet specific capacity requirements during events that cause instances to be replaced,
+such as an instance refresh or the health check process.
+
+For example, suppose you have an Auto Scaling group that has a small number of instances.
+You want to avoid the potential disruptions from terminating and then replacing an instance
+when health checks indicate an impaired instance. With an instance maintenance policy, you
+can make sure that Amazon EC2 Auto Scaling first launches a new instance and then waits for
+it to be fully ready before terminating the unhealthy instance.
+
+An instance maintenance policy also helps you minimize any potential disruptions in cases where
+multiple instances are replaced at the same time. You set the `minHealthyPercentage`
+and the `maxHealthyPercentage` for the policy, and your Auto Scaling group can only
+increase and decrease capacity within that minimum-maximum range when replacing instances.
+A larger range increases the number of instances that can be replaced at the same time.
+
+```go
+var vpc vpc
+
+
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
+	MaxHealthyPercentage: jsii.Number(200),
+	MinHealthyPercentage: jsii.Number(100),
+})
+```
+
+> Visit [Instance maintenance policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) for more details.
+
 ### Block Devices
 
 This type specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
