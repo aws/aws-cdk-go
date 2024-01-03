@@ -22,6 +22,10 @@ import (
 //   		MinCapacity: rds.AuroraCapacityUnit_ACU_8,
 //   		 // default is 2 Aurora capacity units (ACUs)
 //   		MaxCapacity: rds.AuroraCapacityUnit_ACU_32,
+//   		 // default is 16 Aurora capacity units (ACUs)
+//   		Timeout: awscdk.Duration_Seconds(jsii.Number(100)),
+//   		 // default is 5 minutes
+//   		TimeoutAction: rds.TimeoutAction_FORCE_APPLY_CAPACITY_CHANGE,
 //   	},
 //   })
 //
@@ -47,5 +51,16 @@ type ServerlessScalingOptions struct {
 	// Default: - determined by Aurora based on database engine.
 	//
 	MinCapacity AuroraCapacityUnit `field:"optional" json:"minCapacity" yaml:"minCapacity"`
+	// The amount of time that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+	// Default: - 5 minutes.
+	//
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
+	// The action to take when the timeout is reached.
+	//
+	// Selecting ForceApplyCapacityChange will force the capacity to the specified value as soon as possible, even without a scaling point.
+	// Selecting RollbackCapacityChange will ignore the capacity change if a scaling point is not found. This is the default behavior.
+	// Default: - TimeoutAction.ROLLBACK_CAPACITY_CHANGE
+	//
+	TimeoutAction TimeoutAction `field:"optional" json:"timeoutAction" yaml:"timeoutAction"`
 }
 

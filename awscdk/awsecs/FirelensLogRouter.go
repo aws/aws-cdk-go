@@ -86,6 +86,7 @@ import (
 //   	InferenceAcceleratorResources: []*string{
 //   		jsii.String("inferenceAcceleratorResources"),
 //   	},
+//   	Interactive: jsii.Boolean(false),
 //   	LinuxParameters: linuxParameters,
 //   	Logging: logDriver,
 //   	MemoryLimitMiB: jsii.Number(123),

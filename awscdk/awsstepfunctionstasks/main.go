@@ -1940,6 +1940,9 @@ func init() {
 		reflect.TypeOf((*EmrCreateCluster_SpotAllocationStrategy)(nil)).Elem(),
 		map[string]interface{}{
 			"CAPACITY_OPTIMIZED": EmrCreateCluster_SpotAllocationStrategy_CAPACITY_OPTIMIZED,
+			"PRICE_CAPACITY_OPTIMIZED": EmrCreateCluster_SpotAllocationStrategy_PRICE_CAPACITY_OPTIMIZED,
+			"LOWEST_PRICE": EmrCreateCluster_SpotAllocationStrategy_LOWEST_PRICE,
+			"DIVERSIFIED": EmrCreateCluster_SpotAllocationStrategy_DIVERSIFIED,
 		},
 	)
 	_jsii_.RegisterStruct(

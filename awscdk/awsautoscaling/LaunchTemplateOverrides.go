@@ -16,18 +16,102 @@ import (
 //   var launchTemplate launchTemplate
 //
 //   launchTemplateOverrides := &LaunchTemplateOverrides{
-//   	InstanceType: instanceType,
+//   	InstanceRequirements: &InstanceRequirementsProperty{
+//   		MemoryMiB: &MemoryMiBRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   		VCpuCount: &VCpuCountRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
 //
-//   	// the properties below are optional
+//   		// the properties below are optional
+//   		AcceleratorCount: &AcceleratorCountRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   		AcceleratorManufacturers: []*string{
+//   			jsii.String("acceleratorManufacturers"),
+//   		},
+//   		AcceleratorNames: []*string{
+//   			jsii.String("acceleratorNames"),
+//   		},
+//   		AcceleratorTotalMemoryMiB: &AcceleratorTotalMemoryMiBRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   		AcceleratorTypes: []*string{
+//   			jsii.String("acceleratorTypes"),
+//   		},
+//   		AllowedInstanceTypes: []*string{
+//   			jsii.String("allowedInstanceTypes"),
+//   		},
+//   		BareMetal: jsii.String("bareMetal"),
+//   		BaselineEbsBandwidthMbps: &BaselineEbsBandwidthMbpsRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   		BurstablePerformance: jsii.String("burstablePerformance"),
+//   		CpuManufacturers: []*string{
+//   			jsii.String("cpuManufacturers"),
+//   		},
+//   		ExcludedInstanceTypes: []*string{
+//   			jsii.String("excludedInstanceTypes"),
+//   		},
+//   		InstanceGenerations: []*string{
+//   			jsii.String("instanceGenerations"),
+//   		},
+//   		LocalStorage: jsii.String("localStorage"),
+//   		LocalStorageTypes: []*string{
+//   			jsii.String("localStorageTypes"),
+//   		},
+//   		MemoryGiBPerVCpu: &MemoryGiBPerVCpuRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   		NetworkBandwidthGbps: &NetworkBandwidthGbpsRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   		NetworkInterfaceCount: &NetworkInterfaceCountRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   		OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   		RequireHibernateSupport: jsii.Boolean(false),
+//   		SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
+//   		TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
+//   			Max: jsii.Number(123),
+//   			Min: jsii.Number(123),
+//   		},
+//   	},
+//   	InstanceType: instanceType,
 //   	LaunchTemplate: launchTemplate,
 //   	WeightedCapacity: jsii.Number(123),
 //   }
 //
 type LaunchTemplateOverrides struct {
-	// The instance type, such as m3.xlarge. You must use an instance type that is supported in your requested Region and Availability Zones.
+	// The instance requirements.
+	//
+	// Amazon EC2 Auto Scaling uses your specified requirements to identify instance types.
+	// Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
+	//
+	// You can specify up to four separate sets of instance requirements per Auto Scaling group.
+	// This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group.
+	// To do this, create the AMIs and create a new launch template for each AMI.
+	// Then, create a compatible set of instance requirements for each launch template.
+	//
+	// You must specify one of instanceRequirements or instanceType.
 	// Default: - Do not override instance type.
 	//
-	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
+	InstanceRequirements *CfnAutoScalingGroup_InstanceRequirementsProperty `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
+	// The instance type, such as m3.xlarge. You must use an instance type that is supported in your requested Region and Availability Zones.
+	//
+	// You must specify one of instanceRequirements or instanceType.
+	// Default: - Do not override instance type.
+	//
+	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// Provides the launch template to be used when launching the instance type.
 	//
 	// For example, some instance types might

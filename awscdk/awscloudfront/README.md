@@ -592,6 +592,7 @@ var s3Bucket bucket
 // Add a cloudfront Function to a Distribution
 cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
 })
 cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 	DefaultBehavior: &BehaviorOptions{
@@ -609,6 +610,27 @@ cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 It will auto-generate the name of the function and deploy it to the `live` stage.
 
 Additionally, you can load the function's code from a file using the `FunctionCode.fromFile()` method.
+
+### Key Value Store
+
+A CloudFront Key Value Store can be created and optionally have data imported from a JSON file
+by default.
+
+To create an empty Key Value Store:
+
+```go
+store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"))
+```
+
+To also include an initial set of value, the `source` property can be specified. For the
+structure of this file, see [Creating a file of key value pairs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create-s3-kvp.html).
+
+```go
+store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"), &KeyValueStoreProps{
+	KeyValueStoreName: jsii.String("KeyValueStore"),
+	Source: cloudfront.ImportSource_FromAsset(jsii.String("path-to-data.json")),
+})
+```
 
 ### Logging
 

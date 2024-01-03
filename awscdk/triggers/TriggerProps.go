@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   func := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
+//   func := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
 //   	Handler: jsii.String("index.handler"),
 //   	Runtime: lambda.Runtime_NODEJS_18_X(),
 //   	Code: lambda.Code_FromInline(jsii.String("foo")),

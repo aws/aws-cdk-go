@@ -50,6 +50,10 @@ type DatabaseProxyProps struct {
 	// Default: cdk.Duration.seconds(120)
 	//
 	BorrowTimeout awscdk.Duration `field:"optional" json:"borrowTimeout" yaml:"borrowTimeout"`
+	// Specifies the details of authentication used by a proxy to log in as a specific database user.
+	// Default: - CloudFormation defaults will apply given the specified database engine.
+	//
+	ClientPasswordAuthType ClientPasswordAuthType `field:"optional" json:"clientPasswordAuthType" yaml:"clientPasswordAuthType"`
 	// The identifier for the proxy.
 	//
 	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region.

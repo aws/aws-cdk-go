@@ -32,7 +32,7 @@ package awsstepfunctionstasks
 //   					SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   						AllocationStrategy: tasks.EmrCreateCluster.SpotAllocationStrategy_CAPACITY_OPTIMIZED,
 //   						TimeoutAction: tasks.EmrCreateCluster.SpotTimeoutAction_TERMINATE_CLUSTER,
-//   						TimeoutDurationMinutes: jsii.Number(60),
+//   						Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
 //   					},
 //   				},
 //   			},

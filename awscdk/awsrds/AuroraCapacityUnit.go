@@ -21,6 +21,10 @@ package awsrds
 //   		MinCapacity: rds.AuroraCapacityUnit_ACU_8,
 //   		 // default is 2 Aurora capacity units (ACUs)
 //   		MaxCapacity: rds.AuroraCapacityUnit_ACU_32,
+//   		 // default is 16 Aurora capacity units (ACUs)
+//   		Timeout: awscdk.Duration_Seconds(jsii.Number(100)),
+//   		 // default is 5 minutes
+//   		TimeoutAction: rds.TimeoutAction_FORCE_APPLY_CAPACITY_CHANGE,
 //   	},
 //   })
 //

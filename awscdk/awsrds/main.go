@@ -1050,6 +1050,16 @@ func init() {
 		"aws-cdk-lib.aws_rds.CfnOptionGroupProps",
 		reflect.TypeOf((*CfnOptionGroupProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_rds.ClientPasswordAuthType",
+		reflect.TypeOf((*ClientPasswordAuthType)(nil)).Elem(),
+		map[string]interface{}{
+			"MYSQL_NATIVE_PASSWORD": ClientPasswordAuthType_MYSQL_NATIVE_PASSWORD,
+			"POSTGRES_SCRAM_SHA_256": ClientPasswordAuthType_POSTGRES_SCRAM_SHA_256,
+			"POSTGRES_MD5": ClientPasswordAuthType_POSTGRES_MD5,
+			"SQL_SERVER_AUTHENTICATION": ClientPasswordAuthType_SQL_SERVER_AUTHENTICATION,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.ClusterEngineBindOptions",
 		reflect.TypeOf((*ClusterEngineBindOptions)(nil)).Elem(),
@@ -2340,5 +2350,13 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.SubnetGroupProps",
 		reflect.TypeOf((*SubnetGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_rds.TimeoutAction",
+		reflect.TypeOf((*TimeoutAction)(nil)).Elem(),
+		map[string]interface{}{
+			"FORCE_APPLY_CAPACITY_CHANGE": TimeoutAction_FORCE_APPLY_CAPACITY_CHANGE,
+			"ROLLBACK_CAPACITY_CHANGE": TimeoutAction_ROLLBACK_CAPACITY_CHANGE,
+		},
 	)
 }

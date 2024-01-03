@@ -212,7 +212,10 @@ See [documentation](https://docs.aws.amazon.com/glue/latest/dg/encryption-securi
 A `Database` is a logical grouping of `Tables` in the Glue Catalog.
 
 ```go
-glue.NewDatabase(this, jsii.String("MyDatabase"))
+glue.NewDatabase(this, jsii.String("MyDatabase"), &DatabaseProps{
+	DatabaseName: jsii.String("my_database"),
+	Description: jsii.String("my_database_description"),
+})
 ```
 
 ## Table
@@ -272,6 +275,27 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 		glue.*storageParameter_Custom(jsii.String("separatorChar"), jsii.String(",")),
 	},
 	// ...
+	Database: myDatabase,
+	Columns: []column{
+		&column{
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+})
+```
+
+Glue tables can also be configured to contain user-defined table properties through the [`parameters`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters) property:
+
+```go
+var myDatabase database
+
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
+	Parameters: map[string]*string{
+		"key1": jsii.String("val1"),
+		"key2": jsii.String("val2"),
+	},
 	Database: myDatabase,
 	Columns: []column{
 		&column{

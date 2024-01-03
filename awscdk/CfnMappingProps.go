@@ -11,9 +11,10 @@ package awscdk
 //   			"regionName": jsii.String("US East (Ohio)"),
 //   		},
 //   	},
+//   	Lazy: jsii.Boolean(true),
 //   })
 //
-//   regionTable.FindInMap(awscdk.Aws_REGION(), jsii.String("regionName"))
+//   regionTable.FindInMap(jsii.String("us-east-2"), jsii.String("regionName"))
 //
 type CfnMappingProps struct {
 	Lazy *bool `field:"optional" json:"lazy" yaml:"lazy"`

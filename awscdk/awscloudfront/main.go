@@ -21,6 +21,18 @@ func init() {
 			return &jsiiProxy_AllowedMethods{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.AssetImportSource",
+		reflect.TypeOf((*AssetImportSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AssetImportSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ImportSource)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.Behavior",
 		reflect.TypeOf((*Behavior)(nil)).Elem(),
@@ -1224,6 +1236,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "functionRuntime", GoGetter: "FunctionRuntime"},
 			_jsii_.MemberProperty{JsiiProperty: "functionStage", GoGetter: "FunctionStage"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1269,6 +1282,16 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.FunctionProps",
 		reflect.TypeOf((*FunctionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.FunctionRuntime",
+		reflect.TypeOf((*FunctionRuntime)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_FunctionRuntime{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.GeoRestriction",
@@ -1376,6 +1399,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_cloudfront.IKeyValueStore",
+		reflect.TypeOf((*IKeyValueStore)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreArn", GoGetter: "KeyValueStoreArn"},
+			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreId", GoGetter: "KeyValueStoreId"},
+			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreStatus", GoGetter: "KeyValueStoreStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IKeyValueStore{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cloudfront.IOrigin",
 		reflect.TypeOf((*IOrigin)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1458,6 +1499,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.ImportSource",
+		reflect.TypeOf((*ImportSource)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ImportSource{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.KeyGroup",
 		reflect.TypeOf((*KeyGroup)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1482,6 +1531,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.KeyGroupProps",
 		reflect.TypeOf((*KeyGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.KeyValueStore",
+		reflect.TypeOf((*KeyValueStore)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreArn", GoGetter: "KeyValueStoreArn"},
+			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreId", GoGetter: "KeyValueStoreId"},
+			_jsii_.MemberProperty{JsiiProperty: "keyValueStoreStatus", GoGetter: "KeyValueStoreStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_KeyValueStore{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKeyValueStore)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.KeyValueStoreProps",
+		reflect.TypeOf((*KeyValueStoreProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cloudfront.LambdaEdgeEventType",
@@ -1770,6 +1847,19 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.ResponseSecurityHeadersBehavior",
 		reflect.TypeOf((*ResponseSecurityHeadersBehavior)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.S3ImportSource",
+		reflect.TypeOf((*S3ImportSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3ImportSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ImportSource)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.S3OriginConfig",

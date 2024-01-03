@@ -8,6 +8,7 @@ package awscloudfront
 //   // Add a cloudfront Function to a Distribution
 //   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
 //   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+//   	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
@@ -32,5 +33,9 @@ type FunctionProps struct {
 	// Default: - generated from the `id`.
 	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	// The runtime environment for the function.
+	// Default: FunctionRuntime.JS_1_0
+	//
+	Runtime FunctionRuntime `field:"optional" json:"runtime" yaml:"runtime"`
 }
 

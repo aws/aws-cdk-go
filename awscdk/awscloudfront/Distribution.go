@@ -13,18 +13,19 @@ import (
 // A CloudFront distribution with associated origin(s) and caching behavior(s).
 //
 // Example:
+//   // Adding an existing Lambda@Edge function created in a different stack
+//   // to a CloudFront distribution.
 //   var s3Bucket bucket
-//   // Add a cloudfront Function to a Distribution
-//   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
-//   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
-//   })
+//
+//   functionVersion := lambda.Version_FromVersionArn(this, jsii.String("Version"), jsii.String("arn:aws:lambda:us-east-1:123456789012:function:functionName:1"))
+//
 //   cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
 //   		Origin: origins.NewS3Origin(s3Bucket),
-//   		FunctionAssociations: []functionAssociation{
-//   			&functionAssociation{
-//   				Function: cfFunction,
-//   				EventType: cloudfront.FunctionEventType_VIEWER_REQUEST,
+//   		EdgeLambdas: []edgeLambda{
+//   			&edgeLambda{
+//   				FunctionVersion: *FunctionVersion,
+//   				EventType: cloudfront.LambdaEdgeEventType_VIEWER_REQUEST,
 //   			},
 //   		},
 //   	},

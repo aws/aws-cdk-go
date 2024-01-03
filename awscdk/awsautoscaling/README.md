@@ -103,6 +103,37 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 })
 ```
 
+You can specify instances requirements with the `instanceRequirements ` property:
+
+```go
+var vpc vpc
+var launchTemplate1 launchTemplate
+
+
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	MixedInstancesPolicy: &MixedInstancesPolicy{
+		LaunchTemplate: launchTemplate1,
+		LaunchTemplateOverrides: []launchTemplateOverrides{
+			&launchTemplateOverrides{
+				InstanceRequirements: &InstanceRequirementsProperty{
+					VCpuCount: &VCpuCountRequestProperty{
+						Min: jsii.Number(4),
+						Max: jsii.Number(8),
+					},
+					MemoryMiB: &MemoryMiBRequestProperty{
+						Min: jsii.Number(16384),
+					},
+					CpuManufacturers: []*string{
+						jsii.String("intel"),
+					},
+				},
+			},
+		},
+	},
+})
+```
+
 ## Machine Images (AMIs)
 
 AMIs control the OS that gets launched when you start your EC2 instance. The EC2

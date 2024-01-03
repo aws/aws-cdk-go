@@ -414,7 +414,7 @@ CloudFormation to re-read the secret.
 ## ARN manipulation
 
 Sometimes you will need to put together or pick apart Amazon Resource Names
-(ARNs). The functions `stack.formatArn()` and `stack.parseArn()` exist for
+(ARNs). The functions `stack.formatArn()` and `stack.splitArn()` exist for
 this purpose.
 
 `formatArn()` can be used to build an ARN from components. It will automatically
@@ -428,12 +428,12 @@ var stack stack
 stack.FormatArn(&ArnComponents{
 	Service: jsii.String("lambda"),
 	Resource: jsii.String("function"),
-	Sep: jsii.String(":"),
+	ArnFormat: awscdk.ArnFormat_COLON_RESOURCE_NAME,
 	ResourceName: jsii.String("MyFunction"),
 })
 ```
 
-`parseArn()` can be used to get a single component from an ARN. `parseArn()`
+`splitArn()` can be used to get a single component from an ARN. `splitArn()`
 will correctly deal with both literal ARNs and deploy-time values (tokens),
 but in case of a deploy-time value be aware that the result will be another
 deploy-time value which cannot be inspected in the CDK application.
@@ -443,14 +443,13 @@ var stack stack
 
 
 // Extracts the function name out of an AWS Lambda Function ARN
-arnComponents := stack.ParseArn(arn, jsii.String(":"))
+arnComponents := stack.SplitArn(arn, awscdk.ArnFormat_COLON_RESOURCE_NAME)
 functionName := arnComponents.ResourceName
 ```
 
-Note that depending on the service, the resource separator can be either
-`:` or `/`, and the resource name can be either the 6th or 7th
-component in the ARN. When using these functions, you will need to know
-the format of the ARN you are dealing with.
+Note that the format of the resource separator depends on the service and
+may be any of the values supported by `ArnFormat`. When dealing with these
+functions, it is important to know the format of the ARN you are dealing with.
 
 For an exhaustive list of ARN formats used in AWS, see [AWS ARNs and
 Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
@@ -633,7 +632,7 @@ response to the CloudFormation service and handle various error cases.
 Set `serviceToken` to `lambda.functionArn` to use this provider:
 
 ```go
-fn := lambda.NewFunction(this, jsii.String("MyProvider"), functionProps)
+fn := lambda.NewSingletonFunction(this, jsii.String("MyProvider"), functionProps)
 
 awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
 	ServiceToken: fn.FunctionArn,
@@ -647,7 +646,8 @@ framework designed to implement simple and slim custom resource providers. It
 currently only supports Node.js-based user handlers, represents permissions as raw
 JSON blobs instead of `iam.PolicyStatement` objects, and it does not have
 support for asynchronous waiting (handler cannot exceed the 15min lambda
-timeout).
+timeout). The `CustomResourceProviderRuntime` supports runtime `nodejs12.x`,
+`nodejs14.x`, `nodejs16.x`, `nodejs18.x`.
 
 > **As an application builder, we do not recommend you use this provider type.** This provider exists purely for custom resources that are part of the AWS Construct Library.
 >
@@ -1103,6 +1103,31 @@ var regionTable cfnMapping
 regionTable.FindInMap(awscdk.Aws_REGION(), jsii.String("regionName"))
 ```
 
+An optional default value can also be passed to `findInMap`. If either key is not found in the map and the mapping is lazy, `findInMap` will return the default value and not render the mapping.
+If the mapping is not lazy or either key is an unresolved token, the call to `findInMap` will return a token that resolves to
+`{ "Fn::FindInMap": [ "MapName", "TopLevelKey", "SecondLevelKey", { "DefaultValue": "DefaultValue" } ] }`, and the mapping will be rendered.
+Note that the `AWS::LanguageExtentions` transform is added to enable the default value functionality.
+
+For example, the following code will again not produce anything in the "Mappings" section. The
+call to `findInMap` will be able to resolve the value during synthesis and simply return
+`'Region not found'`.
+
+```go
+regionTable := awscdk.NewCfnMapping(this, jsii.String("RegionTable"), &CfnMappingProps{
+	Mapping: map[string]map[string]interface{}{
+		"us-east-1": map[string]interface{}{
+			"regionName": jsii.String("US East (N. Virginia)"),
+		},
+		"us-east-2": map[string]interface{}{
+			"regionName": jsii.String("US East (Ohio)"),
+		},
+	},
+	Lazy: jsii.Boolean(true),
+})
+
+regionTable.FindInMap(jsii.String("us-west-1"), jsii.String("regionName"), jsii.String("Region not found"))
+```
+
 ### Dynamic References
 
 CloudFormation supports [dynamically resolving](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) values
@@ -1185,6 +1210,14 @@ stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
 })
 ```
 
+You can also set termination protection with the setter after you've instantiated the stack.
+
+```go
+stack := awscdk.Newstack(app, jsii.String("StackName"), &stackProps{
+})
+stack.terminationProtection = true
+```
+
 By default, termination protection is disabled.
 
 ### Description
@@ -1244,6 +1277,20 @@ When deploying to AWS CloudFormation, it needs to keep in check the amount of re
 It's possible to synthesize the project with more Resources than the allowed (or even reduce the number of Resources).
 
 Set the context key `@aws-cdk/core:stackResourceLimit` with the proper value, being 0 for disable the limit of resources.
+
+### Template Indentation
+
+The AWS CloudFormation templates generated by CDK include indentation by default.
+Indentation makes the templates more readable, but also increases their size,
+and CloudFormation templates cannot exceed 1MB.
+
+It's possible to reduce the size of your templates by suppressing indentation.
+
+To do this for all templates, set the context key `@aws-cdk/core:suppressTemplateIndentation` to `true`.
+
+To do this for a specific stack, add a `suppressTemplateIndentation: true` property to the
+stack's `StackProps` parameter. You can also set this property to `false` to override
+the context key setting.
 
 ## App Context
 
@@ -1448,6 +1495,10 @@ func (this *myPlugin) validate(context iPolicyValidationContextBeta1) policyVali
 }
 ```
 
+In addition to the name, plugins may optionally report their version (`version`
+property ) and a list of IDs of the rules they are going to evaluate (`ruleIds`
+property).
+
 Note that plugins are not allowed to modify anything in the cloud assembly. Any
 attempt to do so will result in synthesis failure.
 
@@ -1459,5 +1510,41 @@ part of the installation of your package. With `npm`, for example, you can run
 add it to the `postinstall`
 [script](https://docs.npmjs.com/cli/v9/using-npm/scripts) in the `package.json`
 file.
+
+## Annotations
+
+Construct authors can add annotations to constructs to report at three different
+levels: `ERROR`, `WARN`, `INFO`.
+
+Typically warnings are added for things that are important for the user to be
+aware of, but will not cause deployment errors in all cases. Some common
+scenarios are (non-exhaustive list):
+
+* Warn when the user needs to take a manual action, e.g. IAM policy should be
+  added to an referenced resource.
+* Warn if the user configuration might not follow best practices (but is still
+  valid)
+* Warn if the user is using a deprecated API
+
+### Acknowledging Warnings
+
+If you would like to run with `--strict` mode enabled (warnings will throw
+errors) it is possible to `acknowledge` warnings to make the warning go away.
+
+For example, if > 10 IAM managed policies are added to an IAM Group, a warning
+will be created:
+
+```text
+IAM:Group:MaxPoliciesExceeded: You added 11 to IAM Group my-group. The maximum number of managed policies attached to an IAM group is 10.
+```
+
+If you have requested a [quota increase](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entities)
+you may have the ability to add > 10 managed policies which means that this
+warning does not apply to you. You can acknowledge this by `acknowledging` the
+warning by the `id`.
+
+```go
+awscdk.Annotations_Of(this).AcknowledgeWarning(jsii.String("IAM:Group:MaxPoliciesExceeded"), jsii.String("Account has quota increased to 20"))
+```
 
 <!--END CORE DOCUMENTATION-->

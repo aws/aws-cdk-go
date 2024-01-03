@@ -216,6 +216,20 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 }))
 ```
 
+To manage task protection settings in an ECS cluster, you can use the `grantTaskProtection` method.
+This method grants the `ecs:UpdateTaskProtection` permission to a specified IAM entity.
+
+```go
+// Assume 'cluster' is an instance of ecs.Cluster
+var cluster cluster
+var taskRole role
+
+
+// Grant ECS Task Protection permissions to the role
+// Now 'taskRole' has the 'ecs:UpdateTaskProtection' permission on all tasks in the cluster
+cluster.GrantTaskProtection(taskRole)
+```
+
 ### Bottlerocket
 
 [Bottlerocket](https://aws.amazon.com/bottlerocket/) is a Linux-based open source operating system that is
@@ -233,6 +247,20 @@ cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{
 	MinCapacity: jsii.Number(2),
 	InstanceType: ec2.NewInstanceType(jsii.String("c5.large")),
 	MachineImage: ecs.NewBottleRocketImage(),
+})
+```
+
+You can also specify an NVIDIA-compatible AMI such as in this example:
+
+```go
+var cluster cluster
+
+
+cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{
+	InstanceType: ec2.NewInstanceType(jsii.String("p3.2xlarge")),
+	MachineImage: ecs.NewBottleRocketImage(&BottleRocketImageProps{
+		Variant: ecs.BottlerocketEcsVariant_AWS_ECS_2_NVIDIA,
+	}),
 })
 ```
 
@@ -476,6 +504,21 @@ taskDef := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionPr
 
 // Gives role required permissions to run taskDef
 taskDef.GrantRun(role)
+```
+
+To deploy containerized applications that require the allocation of standard input (stdin) or a terminal (tty), use the `interactive` property.
+
+This parameter corresponds to `OpenStdin` in the [Create a container](https://docs.docker.com/engine/api/v1.35/#tag/Container/operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.35/)
+and the `--interactive` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration).
+
+```go
+var taskDefinition taskDefinition
+
+
+taskDefinition.AddContainer(jsii.String("Container"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	Interactive: jsii.Boolean(true),
+})
 ```
 
 ### Images

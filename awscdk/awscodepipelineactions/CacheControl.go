@@ -73,6 +73,22 @@ func CacheControl_FromString(s *string) CacheControl {
 	return returns
 }
 
+// The 'immutable' cache control directive.
+func CacheControl_Immutable() CacheControl {
+	_init_.Initialize()
+
+	var returns CacheControl
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"immutable",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The 'max-age' cache control directive.
 func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
@@ -108,6 +124,22 @@ func CacheControl_MustRevalidate() CacheControl {
 	return returns
 }
 
+// The 'must-understand' cache control directive.
+func CacheControl_MustUnderstand() CacheControl {
+	_init_.Initialize()
+
+	var returns CacheControl
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"mustUnderstand",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // The 'no-cache' cache control directive.
 func CacheControl_NoCache() CacheControl {
 	_init_.Initialize()
@@ -117,6 +149,22 @@ func CacheControl_NoCache() CacheControl {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"noCache",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// The 'no-store' cache control directive.
+func CacheControl_NoStore() CacheControl {
+	_init_.Initialize()
+
+	var returns CacheControl
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"noStore",
 		nil, // no parameters
 		&returns,
 	)
@@ -200,6 +248,44 @@ func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		"sMaxAge",
+		[]interface{}{t},
+		&returns,
+	)
+
+	return returns
+}
+
+// The 'stale-if-error' cache control directive.
+func CacheControl_StaleIfError(t awscdk.Duration) CacheControl {
+	_init_.Initialize()
+
+	if err := validateCacheControl_StaleIfErrorParameters(t); err != nil {
+		panic(err)
+	}
+	var returns CacheControl
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"staleIfError",
+		[]interface{}{t},
+		&returns,
+	)
+
+	return returns
+}
+
+// The 'stale-while-revalidate' cache control directive.
+func CacheControl_StaleWhileRevalidate(t awscdk.Duration) CacheControl {
+	_init_.Initialize()
+
+	if err := validateCacheControl_StaleWhileRevalidateParameters(t); err != nil {
+		panic(err)
+	}
+	var returns CacheControl
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
+		"staleWhileRevalidate",
 		[]interface{}{t},
 		&returns,
 	)

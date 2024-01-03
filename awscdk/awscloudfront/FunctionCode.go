@@ -12,6 +12,7 @@ import (
 //   // Add a cloudfront Function to a Distribution
 //   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
 //   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+//   	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{

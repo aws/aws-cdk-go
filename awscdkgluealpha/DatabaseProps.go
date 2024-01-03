@@ -2,14 +2,10 @@ package awscdkgluealpha
 
 
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//
-//   databaseProps := &DatabaseProps{
-//   	DatabaseName: jsii.String("databaseName"),
-//   	LocationUri: jsii.String("locationUri"),
-//   }
+//   glue.NewDatabase(this, jsii.String("MyDatabase"), &DatabaseProps{
+//   	DatabaseName: jsii.String("my_database"),
+//   	Description: jsii.String("my_database_description"),
+//   })
 //
 // Experimental.
 type DatabaseProps struct {
@@ -18,6 +14,11 @@ type DatabaseProps struct {
 	//
 	// Experimental.
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	// A description of the database.
+	// Default: - no database description.
+	//
+	// Experimental.
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The location of the database (for example, an HDFS path).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
 	//

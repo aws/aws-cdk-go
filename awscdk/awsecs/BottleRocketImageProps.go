@@ -7,16 +7,15 @@ import (
 // Properties for BottleRocketImage.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var cluster cluster
 //
-//   bottleRocketImageProps := &BottleRocketImageProps{
-//   	Architecture: awscdk.Aws_ec2.InstanceArchitecture_ARM_64,
-//   	CachedInContext: jsii.Boolean(false),
-//   	Variant: awscdk.Aws_ecs.BottlerocketEcsVariant_AWS_ECS_1,
-//   }
+//
+//   cluster.AddCapacity(jsii.String("bottlerocket-asg"), &AddCapacityOptions{
+//   	InstanceType: ec2.NewInstanceType(jsii.String("p3.2xlarge")),
+//   	MachineImage: ecs.NewBottleRocketImage(&BottleRocketImageProps{
+//   		Variant: ecs.BottlerocketEcsVariant_AWS_ECS_2_NVIDIA,
+//   	}),
+//   })
 //
 type BottleRocketImageProps struct {
 	// The CPU architecture.
@@ -42,8 +41,6 @@ type BottleRocketImageProps struct {
 	//
 	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// The Amazon ECS variant to use.
-	//
-	// Only `aws-ecs-1` is currently available.
 	// Default: - BottlerocketEcsVariant.AWS_ECS_1
 	//
 	Variant BottlerocketEcsVariant `field:"optional" json:"variant" yaml:"variant"`

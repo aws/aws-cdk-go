@@ -49,6 +49,11 @@ type TableBase interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// The tables' properties associated with the table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+	//
+	// Experimental.
+	Parameters() *map[string]*string
 	// Experimental.
 	PartitionIndexes() *[]*PartitionIndex
 	// This table's partition keys if the table is partitioned.
@@ -192,6 +197,16 @@ func (j *jsiiProxy_TableBase) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TableBase) Parameters() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"parameters",
 		&returns,
 	)
 	return returns

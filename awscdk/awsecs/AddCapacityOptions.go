@@ -10,31 +10,13 @@ import (
 // The properties for adding instance capacity to an AutoScalingGroup.
 //
 // Example:
-//   var vpc vpc
+//   var cluster cluster
 //
 //
-//   // Create an ECS cluster
-//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-//   	Vpc: Vpc,
-//   })
-//
-//   // Add capacity to it
-//   cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-//   	DesiredCapacity: jsii.Number(3),
-//   })
-//
-//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.AddContainer(jsii.String("DefaultContainer"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	MemoryLimitMiB: jsii.Number(512),
-//   })
-//
-//   // Instantiate an Amazon ECS Service
-//   ecsService := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
+//   cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
+//   	MinCapacity: jsii.Number(2),
+//   	InstanceType: ec2.NewInstanceType(jsii.String("c6g.large")),
+//   	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(ecs.AmiHardwareType_ARM),
 //   })
 //
 type AddCapacityOptions struct {

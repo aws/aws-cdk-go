@@ -32,6 +32,22 @@ func validateCacheControl_SMaxAgeParameters(t awscdk.Duration) error {
 	return nil
 }
 
+func validateCacheControl_StaleIfErrorParameters(t awscdk.Duration) error {
+	if t == nil {
+		return fmt.Errorf("parameter t is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCacheControl_StaleWhileRevalidateParameters(t awscdk.Duration) error {
+	if t == nil {
+		return fmt.Errorf("parameter t is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CacheControl) validateSetValueParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

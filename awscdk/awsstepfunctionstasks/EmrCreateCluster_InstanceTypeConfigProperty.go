@@ -54,13 +54,15 @@ package awsstepfunctionstasks
 type EmrCreateCluster_InstanceTypeConfigProperty struct {
 	// An EC2 instance type.
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
-	// The bid price for each EC2 Spot instance type as defined by InstanceType.
+	// The bid price for each EC2 Spot instance type as defined by InstanceType. Expressed in USD.
 	//
-	// Expressed in USD.
+	// Cannot specify both `bidPrice` and `bidPriceAsPercentageOfOnDemandPrice`.
 	// Default: - None.
 	//
 	BidPrice *string `field:"optional" json:"bidPrice" yaml:"bidPrice"`
 	// The bid price, as a percentage of On-Demand price.
+	//
+	// Cannot specify both `bidPrice` and `bidPriceAsPercentageOfOnDemandPrice`.
 	// Default: - None.
 	//
 	BidPriceAsPercentageOfOnDemandPrice *float64 `field:"optional" json:"bidPriceAsPercentageOfOnDemandPrice" yaml:"bidPriceAsPercentageOfOnDemandPrice"`

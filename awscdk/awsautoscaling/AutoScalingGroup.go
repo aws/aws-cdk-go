@@ -25,17 +25,15 @@ import (
 // the Vpc default strategy if not specified.
 //
 // Example:
-//   var vpc vpc
+//   var cluster cluster
+//   var asg autoScalingGroup
 //
-//
-//   mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
-//   	Vpc: Vpc,
+//   importedCluster := eks.cluster_FromClusterAttributes(this, jsii.String("ImportedCluster"), &ClusterAttributes{
+//   	ClusterName: cluster.ClusterName,
+//   	ClusterSecurityGroupId: cluster.ClusterSecurityGroupId,
 //   })
-//   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-//   	Vpc: Vpc,
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
-//   	SecurityGroup: mySecurityGroup,
+//
+//   importedCluster.ConnectAutoScalingGroupCapacity(asg, &AutoScalingGroupOptions{
 //   })
 //
 type AutoScalingGroup interface {

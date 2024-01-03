@@ -1127,6 +1127,30 @@ proxy.GrantConnect(role, jsii.String("admin"))
 **Note**: In addition to the setup above, a database user will need to be created to support IAM auth.
 See [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html) for setup instructions.
 
+To specify the details of authentication used by a proxy to log in as a specific database
+user use the `clientPasswordAuthType` property:
+
+```go
+var vpc vpc
+
+cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
+	}),
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
+	Vpc: Vpc,
+})
+
+proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
+	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
+	Secrets: []iSecret{
+		cluster.Secret,
+	},
+	Vpc: Vpc,
+	ClientPasswordAuthType: rds.ClientPasswordAuthType_MYSQL_NATIVE_PASSWORD,
+})
+```
+
 ### Cluster
 
 The following example shows granting connection access for an IAM role to an Aurora Cluster.
@@ -1417,6 +1441,10 @@ cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &Server
 		MinCapacity: rds.AuroraCapacityUnit_ACU_8,
 		 // default is 2 Aurora capacity units (ACUs)
 		MaxCapacity: rds.AuroraCapacityUnit_ACU_32,
+		 // default is 16 Aurora capacity units (ACUs)
+		Timeout: awscdk.Duration_Seconds(jsii.Number(100)),
+		 // default is 5 minutes
+		TimeoutAction: rds.TimeoutAction_FORCE_APPLY_CAPACITY_CHANGE,
 	},
 })
 ```

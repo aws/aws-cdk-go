@@ -36,6 +36,10 @@ func (c *jsiiProxy_Cluster) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateGrantTaskProtectionParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

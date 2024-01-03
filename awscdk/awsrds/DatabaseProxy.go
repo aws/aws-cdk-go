@@ -31,12 +31,8 @@ import (
 //   		cluster.Secret,
 //   	},
 //   	Vpc: Vpc,
+//   	ClientPasswordAuthType: rds.ClientPasswordAuthType_MYSQL_NATIVE_PASSWORD,
 //   })
-//
-//   role := iam.NewRole(this, jsii.String("DBProxyRole"), &RoleProps{
-//   	AssumedBy: iam.NewAccountPrincipal(this.Account),
-//   })
-//   proxy.GrantConnect(role, jsii.String("admin"))
 //
 type DatabaseProxy interface {
 	awscdk.Resource

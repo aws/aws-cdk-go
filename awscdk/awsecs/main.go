@@ -236,6 +236,9 @@ func init() {
 		reflect.TypeOf((*BottlerocketEcsVariant)(nil)).Elem(),
 		map[string]interface{}{
 			"AWS_ECS_1": BottlerocketEcsVariant_AWS_ECS_1,
+			"AWS_ECS_1_NVIDIA": BottlerocketEcsVariant_AWS_ECS_1_NVIDIA,
+			"AWS_ECS_2": BottlerocketEcsVariant_AWS_ECS_2,
+			"AWS_ECS_2_NVIDIA": BottlerocketEcsVariant_AWS_ECS_2_NVIDIA,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -978,6 +981,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantTaskProtection", GoMethod: "GrantTaskProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "hasEc2Capacity", GoGetter: "HasEc2Capacity"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricCpuReservation", GoMethod: "MetricCpuReservation"},

@@ -2,6 +2,19 @@ package awscdk
 
 
 // An enum representing the various ARN formats that different services use.
+//
+// Example:
+//   var stack stack
+//
+//
+//   // Builds "arn:<PARTITION>:lambda:<REGION>:<ACCOUNT>:function:MyFunction"
+//   stack.FormatArn(&ArnComponents{
+//   	Service: jsii.String("lambda"),
+//   	Resource: jsii.String("function"),
+//   	ArnFormat: awscdk.ArnFormat_COLON_RESOURCE_NAME,
+//   	ResourceName: jsii.String("MyFunction"),
+//   })
+//
 type ArnFormat string
 
 const (

@@ -309,6 +309,14 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_opensearchservice.IpAddressType",
+		reflect.TypeOf((*IpAddressType)(nil)).Elem(),
+		map[string]interface{}{
+			"IPV4": IpAddressType_IPV4,
+			"DUAL_STACK": IpAddressType_DUAL_STACK,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.LoggingOptions",
 		reflect.TypeOf((*LoggingOptions)(nil)).Elem(),

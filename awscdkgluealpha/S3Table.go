@@ -35,17 +35,8 @@ import (
 //   			Type: glue.Schema_SMALL_INT(),
 //   		},
 //   	},
-//   	PartitionIndexes: []partitionIndex{
-//   		&partitionIndex{
-//   			IndexName: jsii.String("my-index"),
-//   			 // optional
-//   			KeyNames: []*string{
-//   				jsii.String("year"),
-//   			},
-//   		},
-//   	},
-//   	 // supply up to 3 indexes
 //   	DataFormat: glue.DataFormat_JSON(),
+//   	EnablePartitionFiltering: jsii.Boolean(true),
 //   })
 //
 // Experimental.
@@ -87,6 +78,11 @@ type S3Table interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// The tables' properties associated with the table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+	//
+	// Experimental.
+	Parameters() *map[string]*string
 	// This table's partition indexes.
 	// Experimental.
 	PartitionIndexes() *[]*PartitionIndex
@@ -270,6 +266,16 @@ func (j *jsiiProxy_S3Table) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3Table) Parameters() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"parameters",
 		&returns,
 	)
 	return returns

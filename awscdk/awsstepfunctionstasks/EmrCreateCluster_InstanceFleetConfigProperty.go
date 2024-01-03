@@ -60,11 +60,12 @@ package awsstepfunctionstasks
 //   		},
 //   		SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   			TimeoutAction: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.SpotTimeoutAction_SWITCH_TO_ON_DEMAND,
-//   			TimeoutDurationMinutes: jsii.Number(123),
 //
 //   			// the properties below are optional
 //   			AllocationStrategy: awscdk.*Aws_stepfunctions_tasks.EmrCreateCluster.SpotAllocationStrategy_CAPACITY_OPTIMIZED,
 //   			BlockDurationMinutes: jsii.Number(123),
+//   			Timeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   			TimeoutDurationMinutes: jsii.Number(123),
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
@@ -92,10 +93,22 @@ type EmrCreateCluster_InstanceFleetConfigProperty struct {
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+	//
+	// If not specified or set to 0, only Spot Instances are provisioned for the instance fleet using `targetSpotCapacity`.
+	//
+	// At least one of `targetSpotCapacity` and `targetOnDemandCapacity` should be greater than 0.
+	// For a master instance fleet, only one of `targetSpotCapacity` and `targetOnDemandCapacity` can be specified, and its value
+	// must be 1.
 	// Default: No targetOnDemandCapacity.
 	//
 	TargetOnDemandCapacity *float64 `field:"optional" json:"targetOnDemandCapacity" yaml:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+	//
+	// If not specified or set to 0, only On-Demand Instances are provisioned for the instance fleet using `targetOnDemandCapacity`.
+	//
+	// At least one of `targetSpotCapacity` and `targetOnDemandCapacity` should be greater than 0.
+	// For a master instance fleet, only one of `targetSpotCapacity` and `targetOnDemandCapacity` can be specified, and its value
+	// must be 1.
 	// Default: No targetSpotCapacity.
 	//
 	TargetSpotCapacity *float64 `field:"optional" json:"targetSpotCapacity" yaml:"targetSpotCapacity"`

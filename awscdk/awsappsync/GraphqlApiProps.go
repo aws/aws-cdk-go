@@ -38,6 +38,10 @@ type GraphqlApiProps struct {
 	// Default: - no domain name.
 	//
 	DomainName *DomainOptions `field:"optional" json:"domainName" yaml:"domainName"`
+	// A value indicating whether the API to enable (ENABLED) or disable (DISABLED) introspection.
+	// Default: IntrospectionConfig.ENABLED
+	//
+	IntrospectionConfig IntrospectionConfig `field:"optional" json:"introspectionConfig" yaml:"introspectionConfig"`
 	// Logging configuration for this api.
 	// Default: - None.
 	//

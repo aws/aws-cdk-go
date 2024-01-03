@@ -21,80 +21,32 @@ package awsautoscaling
 // `InstanceRequirements` is a property of the `LaunchTemplateOverrides` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
+//   var launchTemplate1 launchTemplate
 //
-//   instanceRequirementsProperty := &InstanceRequirementsProperty{
-//   	MemoryMiB: &MemoryMiBRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
-//   	VCpuCount: &VCpuCountRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
 //
-//   	// the properties below are optional
-//   	AcceleratorCount: &AcceleratorCountRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
+//   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   	Vpc: Vpc,
+//   	MixedInstancesPolicy: &MixedInstancesPolicy{
+//   		LaunchTemplate: launchTemplate1,
+//   		LaunchTemplateOverrides: []launchTemplateOverrides{
+//   			&launchTemplateOverrides{
+//   				InstanceRequirements: &InstanceRequirementsProperty{
+//   					VCpuCount: &VCpuCountRequestProperty{
+//   						Min: jsii.Number(4),
+//   						Max: jsii.Number(8),
+//   					},
+//   					MemoryMiB: &MemoryMiBRequestProperty{
+//   						Min: jsii.Number(16384),
+//   					},
+//   					CpuManufacturers: []*string{
+//   						jsii.String("intel"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
-//   	AcceleratorManufacturers: []*string{
-//   		jsii.String("acceleratorManufacturers"),
-//   	},
-//   	AcceleratorNames: []*string{
-//   		jsii.String("acceleratorNames"),
-//   	},
-//   	AcceleratorTotalMemoryMiB: &AcceleratorTotalMemoryMiBRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
-//   	AcceleratorTypes: []*string{
-//   		jsii.String("acceleratorTypes"),
-//   	},
-//   	AllowedInstanceTypes: []*string{
-//   		jsii.String("allowedInstanceTypes"),
-//   	},
-//   	BareMetal: jsii.String("bareMetal"),
-//   	BaselineEbsBandwidthMbps: &BaselineEbsBandwidthMbpsRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
-//   	BurstablePerformance: jsii.String("burstablePerformance"),
-//   	CpuManufacturers: []*string{
-//   		jsii.String("cpuManufacturers"),
-//   	},
-//   	ExcludedInstanceTypes: []*string{
-//   		jsii.String("excludedInstanceTypes"),
-//   	},
-//   	InstanceGenerations: []*string{
-//   		jsii.String("instanceGenerations"),
-//   	},
-//   	LocalStorage: jsii.String("localStorage"),
-//   	LocalStorageTypes: []*string{
-//   		jsii.String("localStorageTypes"),
-//   	},
-//   	MemoryGiBPerVCpu: &MemoryGiBPerVCpuRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
-//   	NetworkBandwidthGbps: &NetworkBandwidthGbpsRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
-//   	NetworkInterfaceCount: &NetworkInterfaceCountRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
-//   	OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(123),
-//   	RequireHibernateSupport: jsii.Boolean(false),
-//   	SpotMaxPricePercentageOverLowestPrice: jsii.Number(123),
-//   	TotalLocalStorageGb: &TotalLocalStorageGBRequestProperty{
-//   		Max: jsii.Number(123),
-//   		Min: jsii.Number(123),
-//   	},
-//   }
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html
 //

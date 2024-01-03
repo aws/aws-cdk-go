@@ -124,6 +124,12 @@ type ContainerDefinitionOptions struct {
 	// Default: - No inference accelerators assigned.
 	//
 	InferenceAcceleratorResources *[]*string `field:"optional" json:"inferenceAcceleratorResources" yaml:"inferenceAcceleratorResources"`
+	// When this parameter is true, you can deploy containerized applications that require stdin or a tty to be allocated.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-interactive
+	//
+	// Default: - false.
+	//
+	Interactive *bool `field:"optional" json:"interactive" yaml:"interactive"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.
 	//
 	// For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).

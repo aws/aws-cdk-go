@@ -30,6 +30,9 @@ package awscdkgluealpha
 //   	Compressed: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	EnablePartitionFiltering: jsii.Boolean(false),
+//   	Parameters: map[string]*string{
+//   		"parametersKey": jsii.String("parameters"),
+//   	},
 //   	PartitionIndexes: []partitionIndex{
 //   		&partitionIndex{
 //   			KeyNames: []*string{
@@ -87,6 +90,15 @@ type TableBaseProps struct {
 	//
 	// Experimental.
 	EnablePartitionFiltering *bool `field:"optional" json:"enablePartitionFiltering" yaml:"enablePartitionFiltering"`
+	// The key/value pairs define properties associated with the table.
+	//
+	// The key/value pairs that are allowed to be submitted are not limited, however their functionality is not guaranteed.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+	//
+	// Default: - The parameter is not defined.
+	//
+	// Experimental.
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// Partition indexes on the table.
 	//
 	// A maximum of 3 indexes

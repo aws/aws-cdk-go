@@ -13,21 +13,28 @@ import (
 // When the amount is passed as a token, unit conversion is not possible.
 //
 // Example:
-//   var application application
-//   var bucket bucket
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var cluster iCluster
+//   var taskDefinition taskDefinition
 //
 //
-//   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
-//   	Application: Application,
-//   	Location: appconfig.ConfigurationSource_FromBucket(bucket, jsii.String("path/to/file.json")),
-//   	DeploymentStrategy: appconfig.NewDeploymentStrategy(this, jsii.String("MyDeploymentStrategy"), &DeploymentStrategyProps{
-//   		RolloutStrategy: appconfig.RolloutStrategy_Linear(&RolloutStrategyProps{
-//   			GrowthFactor: jsii.Number(15),
-//   			DeploymentDuration: awscdk.Duration_Minutes(jsii.Number(30)),
-//   			FinalBakeTime: awscdk.Duration_*Minutes(jsii.Number(15)),
-//   		}),
-//   	}),
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
+//
+//   rule.AddTarget(
+//   targets.NewEcsTask(&EcsTaskProps{
+//   	Cluster: cluster,
+//   	TaskDefinition: taskDefinition,
+//   	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
+//   	Tags: []tag{
+//   		&tag{
+//   			Key: jsii.String("my-tag"),
+//   			Value: jsii.String("my-tag-value"),
+//   		},
+//   	},
+//   }))
 //
 type Duration interface {
 	// Returns stringified number of duration.

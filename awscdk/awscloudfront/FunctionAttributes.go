@@ -11,6 +11,9 @@ package awscloudfront
 //   functionAttributes := &FunctionAttributes{
 //   	FunctionArn: jsii.String("functionArn"),
 //   	FunctionName: jsii.String("functionName"),
+//
+//   	// the properties below are optional
+//   	FunctionRuntime: jsii.String("functionRuntime"),
 //   }
 //
 type FunctionAttributes struct {
@@ -18,5 +21,9 @@ type FunctionAttributes struct {
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The name of the function.
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
+	// The Runtime of the function.
+	// Default: FunctionRuntime.JS_1_0
+	//
+	FunctionRuntime *string `field:"optional" json:"functionRuntime" yaml:"functionRuntime"`
 }
 

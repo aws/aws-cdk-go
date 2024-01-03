@@ -75,6 +75,11 @@ type Table interface {
 	// The tree node.
 	// Deprecated: Use {@link S3Table } instead.
 	Node() constructs.Node
+	// The tables' properties associated with the table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+	//
+	// Deprecated: Use {@link S3Table } instead.
+	Parameters() *map[string]*string
 	// This table's partition indexes.
 	// Deprecated: Use {@link S3Table } instead.
 	PartitionIndexes() *[]*PartitionIndex
@@ -258,6 +263,16 @@ func (j *jsiiProxy_Table) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) Parameters() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"parameters",
 		&returns,
 	)
 	return returns

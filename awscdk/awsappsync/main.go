@@ -1213,6 +1213,14 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.IntrospectionConfig",
+		reflect.TypeOf((*IntrospectionConfig)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": IntrospectionConfig_ENABLED,
+			"DISABLED": IntrospectionConfig_DISABLED,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.KeyCondition",
 		reflect.TypeOf((*KeyCondition)(nil)).Elem(),

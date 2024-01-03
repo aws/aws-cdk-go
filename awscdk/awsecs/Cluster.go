@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -146,6 +147,11 @@ type Cluster interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Grants an ECS Task Protection API permission to the specified grantee.
+	//
+	// This method provides a streamlined way to assign the 'ecs:UpdateTaskProtection'
+	// permission, enabling the grantee to manage task protection in the ECS cluster.
+	GrantTaskProtection(grantee awsiam.IGrantable) awsiam.Grant
 	// This method returns the specifed CloudWatch metric for this cluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this clusters CPU reservation.
@@ -605,6 +611,22 @@ func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
 		c,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_Cluster) GrantTaskProtection(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := c.validateGrantTaskProtectionParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		c,
+		"grantTaskProtection",
+		[]interface{}{grantee},
 		&returns,
 	)
 

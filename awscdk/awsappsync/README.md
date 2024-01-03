@@ -762,3 +762,18 @@ appsync.NewResolver(this, jsii.String("PipelineResolver"), &ResolverProps{
 ```
 
 Learn more about Pipeline Resolvers and AppSync Functions [here](https://docs.aws.amazon.com/appsync/latest/devguide/pipeline-resolvers.html).
+
+## Introspection
+
+By default, AppSync allows you to use introspection queries.
+
+For customers that want to limit access to be introspection queries, the `introspectionConfig` property can be set to `IntrospectionConfig.DISABLED` at creation time.
+If `introspectionConfig` is not set, the service will default to `ENABLED`.
+
+```go
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("DisableIntrospectionApi"),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.schema.graphql"))),
+	IntrospectionConfig: appsync.IntrospectionConfig_DISABLED,
+})
+```

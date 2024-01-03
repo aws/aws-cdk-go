@@ -493,3 +493,14 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 	EnableAutoSoftwareUpdate: jsii.Boolean(true),
 })
 ```
+
+## IP address type
+
+You can specify either dual stack or IPv4 as your IP address type.
+
+```go
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
+	IpAddressType: awscdk.IpAddressType_DUAL_STACK,
+})
+```

@@ -1,7 +1,7 @@
 package awslambda
 
 
-// LoggingConfig for the function.
+// The function's Amazon CloudWatch Logs configuration settings.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,19 +18,27 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html
 //
 type CfnFunction_LoggingConfigProperty struct {
-	// Unique identifier for a runtime version arn.
+	// Set this property to filter the application logs for your function that Lambda sends to CloudWatch.
+	//
+	// Lambda only sends application logs at the selected level and lower.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-applicationloglevel
 	//
 	ApplicationLogLevel *string `field:"optional" json:"applicationLogLevel" yaml:"applicationLogLevel"`
-	// Trigger for runtime update.
+	// The format in which Lambda sends your function's application and system logs to CloudWatch.
+	//
+	// Select between plain text and structured JSON.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-logformat
 	//
 	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
-	// Unique identifier for a runtime version arn.
+	// The name of the Amazon CloudWatch log group the function sends logs to.
+	//
+	// By default, Lambda functions send logs to a default log group named `/aws/lambda/<function name>` . To use a different log group, enter an existing log group or enter a new log group name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-loggroup
 	//
 	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
-	// Unique identifier for a runtime version arn.
+	// Set this property to filter the system logs for your function that Lambda sends to CloudWatch.
+	//
+	// Lambda only sends system logs at the selected level and lower.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-systemloglevel
 	//
 	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`

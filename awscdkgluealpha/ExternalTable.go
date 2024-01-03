@@ -62,6 +62,11 @@ type ExternalTable interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// The tables' properties associated with the table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+	//
+	// Experimental.
+	Parameters() *map[string]*string
 	// This table's partition indexes.
 	// Experimental.
 	PartitionIndexes() *[]*PartitionIndex
@@ -220,6 +225,16 @@ func (j *jsiiProxy_ExternalTable) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTable) Parameters() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"parameters",
 		&returns,
 	)
 	return returns

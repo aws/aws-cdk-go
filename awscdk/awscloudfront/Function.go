@@ -16,6 +16,7 @@ import (
 //   // Add a cloudfront Function to a Distribution
 //   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
 //   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+//   	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
 //   })
 //   cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
@@ -45,6 +46,8 @@ type Function interface {
 	FunctionArn() *string
 	// the name of the CloudFront function.
 	FunctionName() *string
+	// the runtime of the CloudFront function.
+	FunctionRuntime() *string
 	// the deployment stage of the CloudFront function.
 	FunctionStage() *string
 	// The tree node.
@@ -118,6 +121,16 @@ func (j *jsiiProxy_Function) FunctionName() *string {
 	_jsii_.Get(
 		j,
 		"functionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Function) FunctionRuntime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"functionRuntime",
 		&returns,
 	)
 	return returns
