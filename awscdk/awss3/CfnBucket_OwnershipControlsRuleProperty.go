@@ -17,9 +17,7 @@ package awss3
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html
 //
 type CfnBucket_OwnershipControlsRuleProperty struct {
-	// Specifies an Object Ownership rule.
-	//
-	// *Allowed values* : `BucketOwnerEnforced` | `ObjectWriter` | `BucketOwnerPreferred`.
+	// Specifies an object ownership rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
 	//
 	ObjectOwnership *string `field:"optional" json:"objectOwnership" yaml:"objectOwnership"`

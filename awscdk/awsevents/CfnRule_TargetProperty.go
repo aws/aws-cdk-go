@@ -17,6 +17,9 @@ package awsevents
 //   	Id: jsii.String("id"),
 //
 //   	// the properties below are optional
+//   	AppSyncParameters: &AppSyncParametersProperty{
+//   		GraphQlOperation: jsii.String("graphQlOperation"),
+//   	},
 //   	BatchParameters: &BatchParametersProperty{
 //   		JobDefinition: jsii.String("jobDefinition"),
 //   		JobName: jsii.String("jobName"),
@@ -163,6 +166,9 @@ type CfnRule_TargetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-id
 	//
 	Id *string `field:"required" json:"id" yaml:"id"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-appsyncparameters
+	//
+	AppSyncParameters interface{} `field:"optional" json:"appSyncParameters" yaml:"appSyncParameters"`
 	// If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters.
 	//
 	// For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .

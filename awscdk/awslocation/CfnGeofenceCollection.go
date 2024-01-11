@@ -24,6 +24,12 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   	PricingPlanDataSource: jsii.String("pricingPlanDataSource"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html
@@ -94,6 +100,9 @@ type CfnGeofenceCollection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Applies one or more tags to the geofence collection.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -410,6 +419,16 @@ func (j *jsiiProxy_CfnGeofenceCollection) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGeofenceCollection) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGeofenceCollection) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -497,6 +516,17 @@ func (j *jsiiProxy_CfnGeofenceCollection)SetPricingPlanDataSource(val *string) {
 	_jsii_.Set(
 		j,
 		"pricingPlanDataSource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGeofenceCollection)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

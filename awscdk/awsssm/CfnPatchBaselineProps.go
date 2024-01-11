@@ -40,6 +40,7 @@ import (
 //   	},
 //   	ApprovedPatchesComplianceLevel: jsii.String("approvedPatchesComplianceLevel"),
 //   	ApprovedPatchesEnableNonSecurity: jsii.Boolean(false),
+//   	DefaultBaseline: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	GlobalFilters: &PatchFilterGroupProperty{
 //   		PatchFilters: []interface{}{
@@ -98,13 +99,25 @@ type CfnPatchBaselineProps struct {
 	// When an approved patch is reported as missing, this value describes the severity of the compliance violation. The default value is `UNSPECIFIED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchescompliancelevel
 	//
+	// Default: - "UNSPECIFIED".
+	//
 	ApprovedPatchesComplianceLevel *string `field:"optional" json:"approvedPatchesComplianceLevel" yaml:"approvedPatchesComplianceLevel"`
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the managed nodes.
 	//
 	// The default value is `false` . Applies to Linux managed nodes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchesenablenonsecurity
 	//
+	// Default: - false.
+	//
 	ApprovedPatchesEnableNonSecurity interface{} `field:"optional" json:"approvedPatchesEnableNonSecurity" yaml:"approvedPatchesEnableNonSecurity"`
+	// Set the baseline as default baseline.
+	//
+	// Only registering to default patch baseline is allowed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-defaultbaseline
+	//
+	// Default: - false.
+	//
+	DefaultBaseline interface{} `field:"optional" json:"defaultBaseline" yaml:"defaultBaseline"`
 	// A description of the patch baseline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-description
 	//
@@ -117,6 +130,8 @@ type CfnPatchBaselineProps struct {
 	//
 	// The default value is `WINDOWS` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-operatingsystem
+	//
+	// Default: - "WINDOWS".
 	//
 	OperatingSystem *string `field:"optional" json:"operatingSystem" yaml:"operatingSystem"`
 	// The name of the patch group to be registered with the patch baseline.
@@ -134,6 +149,8 @@ type CfnPatchBaselineProps struct {
 	// - *`ALLOW_AS_DEPENDENCY`* : A package in the `Rejected` patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as `InstalledOther` . This is the default action if no option is specified.
 	// - *`BLOCK`* : Packages in the `RejectedPatches` list, and packages that include them as dependencies, aren't installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as `InstalledRejected` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatchesaction
+	//
+	// Default: - "ALLOW_AS_DEPENDENCY".
 	//
 	RejectedPatchesAction *string `field:"optional" json:"rejectedPatchesAction" yaml:"rejectedPatchesAction"`
 	// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.

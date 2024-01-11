@@ -1,5 +1,8 @@
 package awslocation
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnTracker`.
 //
@@ -13,10 +16,18 @@ package awslocation
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EventBridgeEnabled: jsii.Boolean(false),
+//   	KmsKeyEnableGeospatialQueries: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	PositionFiltering: jsii.String("positionFiltering"),
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   	PricingPlanDataSource: jsii.String("pricingPlanDataSource"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html
@@ -36,6 +47,12 @@ type CfnTrackerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-eventbridgeenabled
+	//
+	EventBridgeEnabled interface{} `field:"optional" json:"eventBridgeEnabled" yaml:"eventBridgeEnabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyenablegeospatialqueries
+	//
+	KmsKeyEnableGeospatialQueries interface{} `field:"optional" json:"kmsKeyEnableGeospatialQueries" yaml:"kmsKeyEnableGeospatialQueries"`
 	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
 	//
@@ -60,5 +77,9 @@ type CfnTrackerProps struct {
 	//
 	// Deprecated: this property has been deprecated.
 	PricingPlanDataSource *string `field:"optional" json:"pricingPlanDataSource" yaml:"pricingPlanDataSource"`
+	// An array of key-value pairs to apply to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

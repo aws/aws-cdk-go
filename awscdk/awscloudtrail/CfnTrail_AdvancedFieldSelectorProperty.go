@@ -78,6 +78,8 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::EMRWAL::Workspace`
 	// - `AWS::FinSpace::Environment`
 	// - `AWS::Glue::Table`
+	// - `AWS::GreengrassV2::ComponentVersion`
+	// - `AWS::GreengrassV2::Deployment`
 	// - `AWS::GuardDuty::Detector`
 	// - `AWS::IoTTwinMaker::Entity`
 	// - `AWS::IoTTwinMaker::Workspace`
@@ -93,6 +95,9 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::QBusiness::Index`
 	// - `AWS::QBusiness::WebExperience`
 	// - `AWS::RDS::DBCluster`
+	// - `AWS::S3::AccessPoint`
+	// - `AWS::S3ObjectLambda::AccessPoint`
+	// - `AWS::S3Outposts::Object`
 	// - `AWS::SageMaker::Endpoint`
 	// - `AWS::SageMaker::ExperimentTrialComponent`
 	// - `AWS::SageMaker::FeatureGroup`
@@ -102,9 +107,6 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::SNS::PlatformEndpoint`
 	// - `AWS::SNS::Topic`
 	// - `AWS::SQS::Queue`
-	// - `AWS::S3::AccessPoint`
-	// - `AWS::S3ObjectLambda::AccessPoint`
-	// - `AWS::S3Outposts::Object`
 	// - `AWS::SSMMessages::ControlChannel`
 	// - `AWS::ThinClient::Device`
 	// - `AWS::ThinClient::Environment`
@@ -184,6 +186,14 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:glue:<region>:<account_ID>:table/<database_name>/<table_name>`
 	//
+	// When `resources.type` equals `AWS::GreengrassV2::ComponentVersion` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:greengrass:<region>:<account_ID>:components/<component_name>`
+	//
+	// When `resources.type` equals `AWS::GreengrassV2::Deployment` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:greengrass:<region>:<account_ID>:deployments/<deployment_ID`
+	//
 	// When `resources.type` equals `AWS::GuardDuty::Detector` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:guardduty:<region>:<account_ID>:detector/<detector_ID>`
@@ -244,6 +254,19 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:rds:<region>:<account_ID>:cluster/<cluster_name>`
 	//
+	// When `resources.type` equals `AWS::S3::AccessPoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in one of the following formats. To log events on all objects in an S3 access point, we recommend that you use only the access point ARN, don’t include the object path, and use the `StartsWith` or `NotStartsWith` operators.
+	//
+	// - `arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>`
+	// - `arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>/object/<object_path>`
+	//
+	// When `resources.type` equals `AWS::S3ObjectLambda::AccessPoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:s3-object-lambda:<region>:<account_ID>:accesspoint/<access_point_name>`
+	//
+	// When `resources.type` equals `AWS::S3Outposts::Object` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path>`
+	//
 	// When `resources.type` equals `AWS::SageMaker::Endpoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sagemaker:<region>:<account_ID>:endpoint/<endpoint_name>`
@@ -279,19 +302,6 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::SQS::Queue` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sqs:<region>:<account_ID>:<queue_name>`
-	//
-	// When `resources.type` equals `AWS::S3::AccessPoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in one of the following formats. To log events on all objects in an S3 access point, we recommend that you use only the access point ARN, don’t include the object path, and use the `StartsWith` or `NotStartsWith` operators.
-	//
-	// - `arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>`
-	// - `arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>/object/<object_path>`
-	//
-	// When `resources.type` equals `AWS::S3ObjectLambda::AccessPoint` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
-	//
-	// - `arn:<partition>:s3-object-lambda:<region>:<account_ID>:accesspoint/<access_point_name>`
-	//
-	// When `resources.type` equals `AWS::S3Outposts::Object` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
-	//
-	// - `arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path>`
 	//
 	// When `resources.type` equals `AWS::SSMMessages::ControlChannel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

@@ -80,10 +80,6 @@ func validateCfnSubnetCidrBlock_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnSubnetCidrBlock) validateSetIpv6CidrBlockParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnSubnetCidrBlock) validateSetSubnetIdParameters(val *string) error {
 	return nil
 }

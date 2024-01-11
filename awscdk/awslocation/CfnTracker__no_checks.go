@@ -80,6 +80,18 @@ func validateCfnTracker_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTracker) validateSetEventBridgeEnabledParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTracker) validateSetKmsKeyEnableGeospatialQueriesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTracker) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTracker) validateSetTrackerNameParameters(val *string) error {
 	return nil
 }

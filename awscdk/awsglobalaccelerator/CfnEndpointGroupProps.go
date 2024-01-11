@@ -18,6 +18,7 @@ package awsglobalaccelerator
 //   			EndpointId: jsii.String("endpointId"),
 //
 //   			// the properties below are optional
+//   			AttachmentArn: jsii.String("attachmentArn"),
 //   			ClientIpPreservationEnabled: jsii.Boolean(false),
 //   			Weight: jsii.Number(123),
 //   		},

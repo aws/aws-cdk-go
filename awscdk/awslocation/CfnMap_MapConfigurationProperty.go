@@ -10,6 +10,9 @@ package awslocation
 //
 //   mapConfigurationProperty := &MapConfigurationProperty{
 //   	Style: jsii.String("style"),
+//
+//   	// the properties below are optional
+//   	PoliticalView: jsii.String("politicalView"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
@@ -54,5 +57,9 @@ type CfnMap_MapConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
 	//
 	Style *string `field:"required" json:"style" yaml:"style"`
+	// Specifies the map political view selected from an available data provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-politicalview
+	//
+	PoliticalView *string `field:"optional" json:"politicalView" yaml:"politicalView"`
 }
 

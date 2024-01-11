@@ -35,6 +35,12 @@ type CertificateProps struct {
 	// Default: the full, absolute path of this construct.
 	//
 	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
+	// Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
+	// See: https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms.title
+	//
+	// Default: KeyAlgorithm.RSA_2048
+	//
+	KeyAlgorithm KeyAlgorithm `field:"optional" json:"keyAlgorithm" yaml:"keyAlgorithm"`
 	// Alternative domain names on your certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.

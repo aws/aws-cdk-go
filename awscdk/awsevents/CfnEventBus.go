@@ -9,9 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a new event bus within your account.
+// Specifies an event bus within your account.
 //
 // This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.
+//
+// > As an aid to help you jumpstart developing CloudFormation templates, the EventBridge console enables you to create templates from the existing event buses in your account. For more information, see [Generating CloudFormation templates from an EventBridge event bus](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-generate-event-bus-template.html) in the *Amazon EventBridge User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -80,6 +80,10 @@ func validateCfnNetworkInterface_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkInterface) validateSetEnablePrimaryIpv6Parameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnNetworkInterface) validateSetIpv4PrefixesParameters(val interface{}) error {
 	return nil
 }

@@ -80,19 +80,11 @@ func validateCfnPhoneNumber_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnPhoneNumber) validateSetCountryCodeParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPhoneNumber) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnPhoneNumber) validateSetTargetArnParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnPhoneNumber) validateSetTypeParameters(val *string) error {
 	return nil
 }
 

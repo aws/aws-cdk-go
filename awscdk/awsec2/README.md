@@ -1157,10 +1157,9 @@ ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &InterfaceVpcEndp
 
 #### Security groups for interface VPC endpoints
 
-By default, interface VPC endpoints create a new security group and traffic is **not**
-automatically allowed from the VPC CIDR.
+By default, interface VPC endpoints create a new security group and all traffic to the endpoint from within the VPC will be automatically allowed.
 
-Use the `connections` object to allow traffic to flow to the endpoint:
+Use the `connections` object to allow other traffic to flow to the endpoint:
 
 ```go
 var myEndpoint interfaceVpcEndpoint

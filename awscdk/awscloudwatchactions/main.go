@@ -53,6 +53,18 @@ func init() {
 			"REBOOT": Ec2InstanceAction_REBOOT,
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch_actions.LambdaAction",
+		reflect.TypeOf((*LambdaAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_LambdaAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscloudwatchIAlarmAction)
+			return &j
+		},
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cloudwatch_actions.OpsItemCategory",
 		reflect.TypeOf((*OpsItemCategory)(nil)).Elem(),

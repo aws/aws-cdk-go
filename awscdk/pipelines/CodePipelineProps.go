@@ -9,21 +9,26 @@ import (
 // Properties for a `CodePipeline`.
 //
 // Example:
-//   var codePipeline pipeline
-//
-//
-//   sourceArtifact := codepipeline.NewArtifact(jsii.String("MySourceArtifact"))
-//
-//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
-//   	CodePipeline: codePipeline,
+//   // Modern API
+//   modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+//   	SelfMutation: jsii.Boolean(false),
 //   	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
-//   		Input: pipelines.CodePipelineFileSet_FromArtifact(sourceArtifact),
+//   		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+//   			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+//   		}),
 //   		Commands: []*string{
 //   			jsii.String("npm ci"),
 //   			jsii.String("npm run build"),
 //   			jsii.String("npx cdk synth"),
 //   		},
 //   	}),
+//   })
+//
+//   // Original API
+//   cloudAssemblyArtifact := codepipeline.NewArtifact()
+//   originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdkPipelineProps{
+//   	selfMutating: jsii.Boolean(false),
+//   	cloudAssemblyArtifact: cloudAssemblyArtifact,
 //   })
 //
 type CodePipelineProps struct {
@@ -83,6 +88,15 @@ type CodePipelineProps struct {
 	// Default: false.
 	//
 	CrossAccountKeys *bool `field:"optional" json:"crossAccountKeys" yaml:"crossAccountKeys"`
+	// A map of region to S3 bucket name used for cross-region CodePipeline.
+	//
+	// For every Action that you specify targeting a different region than the Pipeline itself,
+	// if you don't provide an explicit Bucket for that region using this property,
+	// the construct will automatically create a Stack containing an S3 Bucket in that region.
+	// Passed directly through to the {@link cp.Pipeline}.
+	// Default: - no cross region replication buckets.
+	//
+	CrossRegionReplicationBuckets *map[string]awss3.IBucket `field:"optional" json:"crossRegionReplicationBuckets" yaml:"crossRegionReplicationBuckets"`
 	// A list of credentials used to authenticate to Docker registries.
 	//
 	// Specify any credentials necessary within the pipeline to build, synth, update, or publish assets.

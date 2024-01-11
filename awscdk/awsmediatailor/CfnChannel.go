@@ -59,6 +59,9 @@ import (
 //   		},
 //   	},
 //   	Tier: jsii.String("tier"),
+//   	TimeShiftConfiguration: &TimeShiftConfigurationProperty{
+//   		MaxTimeDelaySeconds: jsii.Number(123),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html
@@ -119,6 +122,9 @@ type CfnChannel interface {
 	// The tier for this channel.
 	Tier() *string
 	SetTier(val *string)
+	// The configuration for time-shifted viewing.
+	TimeShiftConfiguration() interface{}
+	SetTimeShiftConfiguration(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -425,6 +431,16 @@ func (j *jsiiProxy_CfnChannel) Tier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) TimeShiftConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"timeShiftConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -543,6 +559,17 @@ func (j *jsiiProxy_CfnChannel)SetTier(val *string) {
 	_jsii_.Set(
 		j,
 		"tier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetTimeShiftConfiguration(val interface{}) {
+	if err := j.validateSetTimeShiftConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"timeShiftConfiguration",
 		val,
 	)
 }

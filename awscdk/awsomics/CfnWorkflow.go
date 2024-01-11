@@ -101,7 +101,7 @@ type CfnWorkflow interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A storage capacity for the workflow in gigabytes.
+	// A storage capacity for the workflow in gibibytes.
 	StorageCapacity() *float64
 	SetStorageCapacity(val *float64)
 	// Tag Manager which manages the tags for this resource.

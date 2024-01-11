@@ -34,7 +34,7 @@ type NatInstanceProps struct {
 	// Name of SSH keypair to grant access to instance.
 	// Default: - No SSH access will be possible.
 	//
-	// Deprecated: - Use `keyPair` instead.
+	// Deprecated: - Use `keyPair` instead - https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2-readme.html#using-an-existing-ec2-key-pair
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// The SSH keypair to grant access to the instance.
 	// Default: - No SSH access will be possible.

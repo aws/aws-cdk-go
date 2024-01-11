@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnRouteCalculator) validateSetDataSourceParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnRouteCalculator) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnRouteCalculatorParameters(scope constructs.Construct, id *string, props *CfnRouteCalculatorProps) error {
 	return nil
 }

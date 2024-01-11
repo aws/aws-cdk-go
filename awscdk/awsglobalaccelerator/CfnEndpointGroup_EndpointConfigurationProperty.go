@@ -14,6 +14,7 @@ package awsglobalaccelerator
 //   	EndpointId: jsii.String("endpointId"),
 //
 //   	// the properties below are optional
+//   	AttachmentArn: jsii.String("attachmentArn"),
 //   	ClientIpPreservationEnabled: jsii.Boolean(false),
 //   	Weight: jsii.Number(123),
 //   }
@@ -29,6 +30,10 @@ type CfnEndpointGroup_EndpointConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
 	//
 	EndpointId *string `field:"required" json:"endpointId" yaml:"endpointId"`
+	// The Amazon Resource Name (ARN) of the cross-account attachment that specifies the endpoints (resources) that can be added to accelerators and principals that have permission to add the endpoints to accelerators.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-attachmentarn
+	//
+	AttachmentArn *string `field:"optional" json:"attachmentArn" yaml:"attachmentArn"`
 	// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
 	//
 	// The value is true or false. The default value is true for new accelerators.

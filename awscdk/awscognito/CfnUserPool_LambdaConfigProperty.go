@@ -26,6 +26,10 @@ package awscognito
 //   	PreAuthentication: jsii.String("preAuthentication"),
 //   	PreSignUp: jsii.String("preSignUp"),
 //   	PreTokenGeneration: jsii.String("preTokenGeneration"),
+//   	PreTokenGenerationConfig: &PreTokenGenerationConfigProperty{
+//   		LambdaArn: jsii.String("lambdaArn"),
+//   		LambdaVersion: jsii.String("lambdaVersion"),
+//   	},
 //   	UserMigration: jsii.String("userMigration"),
 //   	VerifyAuthChallengeResponse: jsii.String("verifyAuthChallengeResponse"),
 //   }
@@ -83,6 +87,9 @@ type CfnUserPool_LambdaConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengeneration
 	//
 	PreTokenGeneration *string `field:"optional" json:"preTokenGeneration" yaml:"preTokenGeneration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengenerationconfig
+	//
+	PreTokenGenerationConfig interface{} `field:"optional" json:"preTokenGenerationConfig" yaml:"preTokenGenerationConfig"`
 	// The user migration Lambda config type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-usermigration
 	//

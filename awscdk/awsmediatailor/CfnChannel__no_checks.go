@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnChannel) validateSetTagsParameters(val *[]*awscdk.CfnTag) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetTimeShiftConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnChannelParameters(scope constructs.Construct, id *string, props *CfnChannelProps) error {
 	return nil
 }

@@ -211,6 +211,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_certificatemanager.KeyAlgorithm",
+		reflect.TypeOf((*KeyAlgorithm)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_KeyAlgorithm{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_certificatemanager.PrivateCertificate",
 		reflect.TypeOf((*PrivateCertificate)(nil)).Elem(),
 		[]_jsii_.Member{

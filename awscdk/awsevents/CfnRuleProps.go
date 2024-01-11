@@ -24,6 +24,9 @@ package awsevents
 //   			Id: jsii.String("id"),
 //
 //   			// the properties below are optional
+//   			AppSyncParameters: &AppSyncParametersProperty{
+//   				GraphQlOperation: jsii.String("graphQlOperation"),
+//   			},
 //   			BatchParameters: &BatchParametersProperty{
 //   				JobDefinition: jsii.String("jobDefinition"),
 //   				JobName: jsii.String("jobName"),

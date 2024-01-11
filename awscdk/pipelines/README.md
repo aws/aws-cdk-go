@@ -25,7 +25,8 @@ down to using the `aws-codepipeline` construct library directly.
 > allows more control of CodeBuild project generation; supports deployment
 > engines other than CodePipeline.
 >
-> The README for the original API, as well as a migration guide, can be found in [our GitHub repository](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/pipelines/ORIGINAL_API.md).
+> The README for the original API, as well as a migration guide, can be found in
+> [our GitHub repository](https://github.com/aws/aws-cdk/blob/main/packages/@aws-cdk/pipelines/ORIGINAL_API.md).
 
 ## At a glance
 
@@ -1348,6 +1349,58 @@ bootstrap stack. This will create a new S3 file asset bucket in your account
 and orphan the old bucket. You should manually delete the orphaned bucket
 after you are sure you have redeployed all CDK applications and there are no
 more references to the old asset bucket.
+
+## Considerations around Running at Scale
+
+If you are planning to run pipelines for more than a hundred repos
+deploying across multiple regions, then you will want to consider reusing
+both artifacts buckets and cross-region replication buckets.
+
+In a situation like this, you will want to have a separate CDK app / dedicated repo which creates
+and managed the buckets which will be shared by the pipelines of all your other apps.
+Note that this app must NOT be using the shared buckets because of chicken & egg issues.
+
+The following code assumes you have created and are managing your buckets in the aforementioned
+separate cdk repo and are just importing them for use in one of your (many) pipelines.
+
+```go
+var sharedXRegionUsWest1BucketArn string
+var sharedXRegionUsWest1KeyArn string
+
+var sharedXRegionUsWest2BucketArn string
+var sharedXRegionUsWest2KeyArn string
+
+
+usWest1Bucket := s3.Bucket_FromBucketAttributes(*scope, jsii.String("UsEast1Bucket"), &BucketAttributes{
+	BucketArn: sharedXRegionUsWest1BucketArn,
+	EncryptionKey: kms.Key_FromKeyArn(scope, jsii.String("UsEast1BucketKeyArn"), sharedXRegionUsWest1BucketArn),
+})
+
+usWest2Bucket := s3.Bucket_FromBucketAttributes(*scope, jsii.String("UsWest2Bucket"), &BucketAttributes{
+	BucketArn: sharedXRegionUsWest2BucketArn,
+	EncryptionKey: kms.Key_*FromKeyArn(scope, jsii.String("UsWest2BucketKeyArn"), sharedXRegionUsWest2KeyArn),
+})
+
+crossRegionReplicationBuckets := map[string]iBucket{
+	"us-west-1": usWest1Bucket,
+	"us-west-2": usWest2Bucket,
+}
+
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
+		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
+			ConnectionArn: jsii.String("arn:aws:codestar-connections:us-east-1:222222222222:connection/7d2469ff-514a-4e4f-9003-5ca4a43cdc41"),
+		}),
+		Commands: []*string{
+			jsii.String("npm ci"),
+			jsii.String("npm run build"),
+			jsii.String("npx cdk synth"),
+		},
+	}),
+	 // Use shared buckets.
+	CrossRegionReplicationBuckets: CrossRegionReplicationBuckets,
+})
+```
 
 ## Context Lookups
 

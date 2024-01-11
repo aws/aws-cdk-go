@@ -235,6 +235,10 @@ func init() {
 		reflect.TypeOf((*CfnDeliveryStream_SerializerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SplunkBufferingHintsProperty",
+		reflect.TypeOf((*CfnDeliveryStream_SplunkBufferingHintsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SplunkDestinationConfigurationProperty",
 		reflect.TypeOf((*CfnDeliveryStream_SplunkDestinationConfigurationProperty)(nil)).Elem(),
 	)

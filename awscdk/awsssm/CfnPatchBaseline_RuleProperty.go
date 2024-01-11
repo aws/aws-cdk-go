@@ -59,6 +59,8 @@ type CfnPatchBaseline_RuleProperty struct {
 	// The default value is `false` . Applies to Linux managed nodes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
 	//
+	// Default: - false.
+	//
 	EnableNonSecurity interface{} `field:"optional" json:"enableNonSecurity" yaml:"enableNonSecurity"`
 	// The patch filter group that defines the criteria for the rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup

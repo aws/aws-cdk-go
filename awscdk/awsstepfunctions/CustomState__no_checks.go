@@ -28,6 +28,10 @@ func (c *jsiiProxy_CustomState) validateAddPrefixParameters(x *string) error {
 	return nil
 }
 
+func (c *jsiiProxy_CustomState) validateAddRetryParameters(props *RetryProps) error {
+	return nil
+}
+
 func (c *jsiiProxy_CustomState) validateBindToGraphParameters(graph StateGraph) error {
 	return nil
 }

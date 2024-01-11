@@ -151,6 +151,7 @@ acm.NewPrivateCertificate(this, jsii.String("PrivateCertificate"), &PrivateCerti
 	},
 	 // optional
 	CertificateAuthority: acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CA"), jsii.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/023077d8-2bfa-4eb0-8f22-05c96deade77")),
+	KeyAlgorithm: acm.KeyAlgorithm_RSA_2048(),
 })
 ```
 
@@ -164,6 +165,25 @@ acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
 	TransparencyLoggingEnabled: jsii.Boolean(false),
 })
 ```
+
+## Key Algorithms
+
+To specify the algorithm of the public and private key pair that your certificate uses to encrypt data use the `keyAlgorithm` property.
+
+Algorithms supported for an ACM certificate request include:
+
+* `RSA_2048`
+* `EC_prime256v1`
+* `EC_secp384r1`
+
+```go
+acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
+	DomainName: jsii.String("test.example.com"),
+	KeyAlgorithm: acm.KeyAlgorithm_EC_PRIME256V1(),
+})
+```
+
+> Visit [Key algorithms](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms.title) for more details.
 
 ## Importing
 

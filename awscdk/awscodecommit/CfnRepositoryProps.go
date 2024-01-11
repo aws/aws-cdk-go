@@ -69,6 +69,9 @@ type CfnRepositoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-code
 	//
 	Code interface{} `field:"optional" json:"code" yaml:"code"`
+	// The ID of the AWS Key Management Service encryption key used to encrypt and decrypt the repository.
+	//
+	// > The input can be the full ARN, the key ID, or the key alias. For more information, see [Finding the key ID and key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

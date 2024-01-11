@@ -48,11 +48,20 @@ import (
 //   errorHandler := sfn.NewPass(this, jsii.String("handle failure"))
 //   custom.AddCatch(errorHandler)
 //
+//   // retry the task if something goes wrong
+//   custom.AddRetry(&RetryProps{
+//   	Errors: []*string{
+//   		sfn.Errors_ALL(),
+//   	},
+//   	Interval: awscdk.Duration_Seconds(jsii.Number(10)),
+//   	MaxAttempts: jsii.Number(5),
+//   })
+//
 //   chain := sfn.Chain_Start(custom).Next(finalStatus)
 //
 //   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 //   	DefinitionBody: sfn.DefinitionBody_FromChainable(chain),
-//   	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
+//   	Timeout: awscdk.Duration_*Seconds(jsii.Number(30)),
 //   	Comment: jsii.String("a super cool state machine"),
 //   })
 //
@@ -104,6 +113,11 @@ type CustomState interface {
 	AddIterator(iteration StateGraph)
 	// Add a prefix to the stateId of this state.
 	AddPrefix(x *string)
+	// Add retry configuration for this state.
+	//
+	// This controls if and how the execution will be retried if a particular
+	// error occurs.
+	AddRetry(props *RetryProps) CustomState
 	// Register this state as part of the given graph.
 	//
 	// Don't call this. It will be called automatically when you work
@@ -560,6 +574,22 @@ func (c *jsiiProxy_CustomState) AddPrefix(x *string) {
 		"addPrefix",
 		[]interface{}{x},
 	)
+}
+
+func (c *jsiiProxy_CustomState) AddRetry(props *RetryProps) CustomState {
+	if err := c.validateAddRetryParameters(props); err != nil {
+		panic(err)
+	}
+	var returns CustomState
+
+	_jsii_.Invoke(
+		c,
+		"addRetry",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CustomState) BindToGraph(graph StateGraph) {

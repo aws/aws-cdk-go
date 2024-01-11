@@ -15,17 +15,16 @@ import (
 // the specified AWS service principal defined in `serviceAssumeRole`.
 //
 // Example:
-//   lambdaRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   var definition iChainable
+//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 //   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
-//   	Description: jsii.String("Example role..."),
+//   })
+//   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+//   	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
 //   })
 //
-//   stream := kinesis.NewStream(this, jsii.String("MyEncryptedStream"), &StreamProps{
-//   	Encryption: kinesis.StreamEncryption_KMS,
-//   })
-//
-//   // give lambda permissions to read stream
-//   stream.grantRead(lambdaRole)
+//   // Give role permission to get execution history of ALL executions for the state machine
+//   stateMachine.grantExecution(role, jsii.String("states:GetExecutionHistory"))
 //
 type Role interface {
 	awscdk.Resource

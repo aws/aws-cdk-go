@@ -126,6 +126,7 @@ type CfnGraphQLApi interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Sets the value of the GraphQL API to enable ( `ENABLED` ) or disable ( `DISABLED` ) introspection.
 	IntrospectionConfig() *string
 	SetIntrospectionConfig(val *string)
 	// A `LambdaAuthorizerConfig` holds configuration on how to authorize AWS AppSync API access when using the `AWS_LAMBDA` authorizer mode.
@@ -158,6 +159,7 @@ type CfnGraphQLApi interface {
 	// The owner contact information for an API resource.
 	OwnerContact() *string
 	SetOwnerContact(val *string)
+	// The maximum depth a query can have in a single request.
 	QueryDepthLimit() *float64
 	SetQueryDepthLimit(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -165,6 +167,7 @@ type CfnGraphQLApi interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The maximum number of resolvers that can be invoked in a single request.
 	ResolverCountLimit() *float64
 	SetResolverCountLimit(val *float64)
 	// The stack in which this element is defined.

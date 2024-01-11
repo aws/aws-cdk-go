@@ -69,6 +69,10 @@ package awscognito
 //   		PreAuthentication: jsii.String("preAuthentication"),
 //   		PreSignUp: jsii.String("preSignUp"),
 //   		PreTokenGeneration: jsii.String("preTokenGeneration"),
+//   		PreTokenGenerationConfig: &PreTokenGenerationConfigProperty{
+//   			LambdaArn: jsii.String("lambdaArn"),
+//   			LambdaVersion: jsii.String("lambdaVersion"),
+//   		},
 //   		UserMigration: jsii.String("userMigration"),
 //   		VerifyAuthChallengeResponse: jsii.String("verifyAuthChallengeResponse"),
 //   	},

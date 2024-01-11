@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnGeofenceCollection) validateSetCollectionNameParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnGeofenceCollection) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGeofenceCollectionParameters(scope constructs.Construct, id *string, props *CfnGeofenceCollectionProps) error {
 	return nil
 }

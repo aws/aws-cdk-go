@@ -35,4 +35,27 @@ alarm.AddAlarmAction(
 actions.NewSsmIncidentAction(jsii.String("ResponsePlanName")))
 ```
 
+## Lambda Action Example
+
+```go
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+var alarm alarm
+var fn function
+var alias alias
+var version version
+
+
+// Attach a Lambda Function when alarm triggers
+alarm.AddAlarmAction(
+actions.NewLambdaAction(fn))
+
+// Attach a Lambda Function Alias when alarm triggers
+alarm.AddAlarmAction(
+actions.NewLambdaAction(alias))
+
+// Attach a Lambda Function version when alarm triggers
+alarm.AddAlarmAction(
+actions.NewLambdaAction(version))
+```
+
 See `aws-cdk-lib/aws-cloudwatch` for more information.

@@ -52,11 +52,20 @@ import (
 //   errorHandler := sfn.NewPass(this, jsii.String("handle failure"))
 //   custom.AddCatch(errorHandler)
 //
+//   // retry the task if something goes wrong
+//   custom.AddRetry(&RetryProps{
+//   	Errors: []*string{
+//   		sfn.Errors_ALL(),
+//   	},
+//   	Interval: awscdk.Duration_Seconds(jsii.Number(10)),
+//   	MaxAttempts: jsii.Number(5),
+//   })
+//
 //   chain := sfn.Chain_Start(custom).Next(finalStatus)
 //
 //   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 //   	DefinitionBody: sfn.DefinitionBody_FromChainable(chain),
-//   	Timeout: awscdk.Duration_Seconds(jsii.Number(30)),
+//   	Timeout: awscdk.Duration_*Seconds(jsii.Number(30)),
 //   	Comment: jsii.String("a super cool state machine"),
 //   })
 //

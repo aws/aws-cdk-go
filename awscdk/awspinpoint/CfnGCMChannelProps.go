@@ -29,6 +29,9 @@ type CfnGCMChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html#cfn-pinpoint-gcmchannel-apikey
 	//
 	ApiKey *string `field:"optional" json:"apiKey" yaml:"apiKey"`
+	// The default authentication method used for GCM.
+	//
+	// Values are either "TOKEN" or "KEY". Defaults to "KEY".
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html#cfn-pinpoint-gcmchannel-defaultauthenticationmethod
 	//
 	DefaultAuthenticationMethod *string `field:"optional" json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
@@ -36,6 +39,9 @@ type CfnGCMChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html#cfn-pinpoint-gcmchannel-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// The contents of the JSON file provided by Google during registration in order to generate an access token for authentication.
+	//
+	// For more information see [Migrate from legacy FCM APIs to HTTP v1](https://docs.aws.amazon.com/https://firebase.google.com/docs/cloud-messaging/migrate-v1) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html#cfn-pinpoint-gcmchannel-servicejson
 	//
 	ServiceJson *string `field:"optional" json:"serviceJson" yaml:"serviceJson"`

@@ -64,7 +64,9 @@ import (
 //   		S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	},
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
+//   	ManageMasterPassword: jsii.Boolean(false),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
+//   	MasterPasswordSecretKmsKeyId: jsii.String("masterPasswordSecretKmsKeyId"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MultiAz: jsii.Boolean(false),
 //   	NamespaceResourcePolicy: namespaceResourcePolicy,
@@ -116,6 +118,8 @@ type CfnCluster interface {
 	//
 	// Example: `myexamplecluster`.
 	AttrId() *string
+	// The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+	AttrMasterPasswordSecretArn() *string
 	// The number of days that automated snapshots are retained.
 	AutomatedSnapshotRetentionPeriod() *float64
 	SetAutomatedSnapshotRetentionPeriod(val *float64)
@@ -218,9 +222,15 @@ type CfnCluster interface {
 	// An optional parameter for the name of the maintenance track for the cluster.
 	MaintenanceTrackName() *string
 	SetMaintenanceTrackName(val *string)
+	// A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not.
+	ManageMasterPassword() interface{}
+	SetManageMasterPassword(val interface{})
 	// The default number of days to retain a manual snapshot.
 	ManualSnapshotRetentionPeriod() *float64
 	SetManualSnapshotRetentionPeriod(val *float64)
+	// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+	MasterPasswordSecretKmsKeyId() *string
+	SetMasterPasswordSecretKmsKeyId(val *string)
 	// The user name associated with the admin user account for the cluster that is being created.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
@@ -506,6 +516,16 @@ func (j *jsiiProxy_CfnCluster) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrMasterPasswordSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrMasterPasswordSecretArn",
 		&returns,
 	)
 	return returns
@@ -831,11 +851,31 @@ func (j *jsiiProxy_CfnCluster) MaintenanceTrackName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) ManageMasterPassword() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"manageMasterPassword",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) ManualSnapshotRetentionPeriod() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
 		"manualSnapshotRetentionPeriod",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) MasterPasswordSecretKmsKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"masterPasswordSecretKmsKeyId",
 		&returns,
 	)
 	return returns
@@ -1391,10 +1431,29 @@ func (j *jsiiProxy_CfnCluster)SetMaintenanceTrackName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster)SetManageMasterPassword(val interface{}) {
+	if err := j.validateSetManageMasterPasswordParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"manageMasterPassword",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster)SetManualSnapshotRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"manualSnapshotRetentionPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetMasterPasswordSecretKmsKeyId(val *string) {
+	_jsii_.Set(
+		j,
+		"masterPasswordSecretKmsKeyId",
 		val,
 	)
 }

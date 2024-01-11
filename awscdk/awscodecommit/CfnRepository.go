@@ -84,6 +84,7 @@ type CfnRepository interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The ID of the AWS Key Management Service encryption key used to encrypt and decrypt the repository.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.

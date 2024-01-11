@@ -22,7 +22,7 @@ package awss3objectlambda
 type CfnAccessPoint_TransformationConfigurationProperty struct {
 	// A container for the action of an Object Lambda Access Point configuration.
 	//
-	// Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
+	// Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
 	//
 	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`

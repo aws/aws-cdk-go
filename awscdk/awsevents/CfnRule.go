@@ -29,6 +29,8 @@ import (
 //
 // An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, which alerts you when charges exceed your specified limit. For more information, see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html) .
 //
+// > As an aid to help you jumpstart developing CloudFormation templates, the EventBridge console enables you to create templates from the existing rules in your account. For more information, see [Generating CloudFormation templates from an EventBridge rule](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-generate-template.html) in the *Amazon EventBridge User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -50,6 +52,9 @@ import (
 //   			Id: jsii.String("id"),
 //
 //   			// the properties below are optional
+//   			AppSyncParameters: &AppSyncParametersProperty{
+//   				GraphQlOperation: jsii.String("graphQlOperation"),
+//   			},
 //   			BatchParameters: &BatchParametersProperty{
 //   				JobDefinition: jsii.String("jobDefinition"),
 //   				JobName: jsii.String("jobName"),

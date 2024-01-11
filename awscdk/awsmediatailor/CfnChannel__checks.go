@@ -316,6 +316,30 @@ func (j *jsiiProxy_CfnChannel) validateSetTagsParameters(val *[]*awscdk.CfnTag) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetTimeShiftConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnChannel_TimeShiftConfigurationProperty:
+		val := val.(*CfnChannel_TimeShiftConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnChannel_TimeShiftConfigurationProperty:
+		val_ := val.(CfnChannel_TimeShiftConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnChannel_TimeShiftConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnChannelParameters(scope constructs.Construct, id *string, props *CfnChannelProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

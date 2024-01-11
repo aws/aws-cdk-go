@@ -17,19 +17,20 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPhoneNumber := awscdk.Aws_connect.NewCfnPhoneNumber(this, jsii.String("MyCfnPhoneNumber"), &CfnPhoneNumberProps{
-//   	CountryCode: jsii.String("countryCode"),
 //   	TargetArn: jsii.String("targetArn"),
-//   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	CountryCode: jsii.String("countryCode"),
 //   	Description: jsii.String("description"),
 //   	Prefix: jsii.String("prefix"),
+//   	SourcePhoneNumberArn: jsii.String("sourcePhoneNumberArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Type: jsii.String("type"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html
@@ -79,6 +80,9 @@ type CfnPhoneNumber interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The claimed phone number ARN that was previously imported from the external service, such as Amazon Pinpoint.
+	SourcePhoneNumberArn() *string
+	SetSourcePhoneNumberArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -361,6 +365,16 @@ func (j *jsiiProxy_CfnPhoneNumber) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPhoneNumber) SourcePhoneNumberArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourcePhoneNumberArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPhoneNumber) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -460,9 +474,6 @@ func NewCfnPhoneNumber_Override(c CfnPhoneNumber, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnPhoneNumber)SetCountryCode(val *string) {
-	if err := j.validateSetCountryCodeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"countryCode",
@@ -482,6 +493,14 @@ func (j *jsiiProxy_CfnPhoneNumber)SetPrefix(val *string) {
 	_jsii_.Set(
 		j,
 		"prefix",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPhoneNumber)SetSourcePhoneNumberArn(val *string) {
+	_jsii_.Set(
+		j,
+		"sourcePhoneNumberArn",
 		val,
 	)
 }
@@ -509,9 +528,6 @@ func (j *jsiiProxy_CfnPhoneNumber)SetTargetArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnPhoneNumber)SetType(val *string) {
-	if err := j.validateSetTypeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"type",

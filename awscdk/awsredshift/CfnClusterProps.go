@@ -57,7 +57,9 @@ import (
 //   		S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	},
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
+//   	ManageMasterPassword: jsii.Boolean(false),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
+//   	MasterPasswordSecretKmsKeyId: jsii.String("masterPasswordSecretKmsKeyId"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MultiAz: jsii.Boolean(false),
 //   	NamespaceResourcePolicy: namespaceResourcePolicy,
@@ -311,6 +313,12 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
 	//
 	MaintenanceTrackName *string `field:"optional" json:"maintenanceTrackName" yaml:"maintenanceTrackName"`
+	// A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not.
+	//
+	// You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-managemasterpassword
+	//
+	ManageMasterPassword interface{} `field:"optional" json:"manageMasterPassword" yaml:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot.
 	//
 	// If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
@@ -319,6 +327,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
 	//
 	ManualSnapshotRetentionPeriod *float64 `field:"optional" json:"manualSnapshotRetentionPeriod" yaml:"manualSnapshotRetentionPeriod"`
+	// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterpasswordsecretkmskeyid
+	//
+	MasterPasswordSecretKmsKeyId *string `field:"optional" json:"masterPasswordSecretKmsKeyId" yaml:"masterPasswordSecretKmsKeyId"`
 	// The password associated with the admin user account for the cluster that is being created.
 	//
 	// You can't use `MasterUserPassword` if `ManageMasterPassword` is `true` .

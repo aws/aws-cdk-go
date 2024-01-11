@@ -36,6 +36,9 @@ package awsemrserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html
 //
 type CfnApplication_MonitoringConfigurationProperty struct {
+	// The Amazon CloudWatch configuration for monitoring logs.
+	//
+	// You can configure your jobs to send log information to CloudWatch .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-cloudwatchloggingconfiguration
 	//
 	CloudWatchLoggingConfiguration interface{} `field:"optional" json:"cloudWatchLoggingConfiguration" yaml:"cloudWatchLoggingConfiguration"`

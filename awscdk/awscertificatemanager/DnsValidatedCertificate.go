@@ -24,6 +24,7 @@ import (
 //
 //   var certificateValidation certificateValidation
 //   var hostedZone hostedZone
+//   var keyAlgorithm keyAlgorithm
 //   var role role
 //
 //   dnsValidatedCertificate := awscdk.Aws_certificatemanager.NewDnsValidatedCertificate(this, jsii.String("MyDnsValidatedCertificate"), &DnsValidatedCertificateProps{
@@ -34,6 +35,7 @@ import (
 //   	CertificateName: jsii.String("certificateName"),
 //   	CleanupRoute53Records: jsii.Boolean(false),
 //   	CustomResourceRole: role,
+//   	KeyAlgorithm: keyAlgorithm,
 //   	Region: jsii.String("region"),
 //   	Route53Endpoint: jsii.String("route53Endpoint"),
 //   	SubjectAlternativeNames: []*string{

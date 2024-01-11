@@ -45,6 +45,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tier", GoGetter: "Tier"},
+			_jsii_.MemberProperty{JsiiProperty: "timeShiftConfiguration", GoGetter: "TimeShiftConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -76,6 +77,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnChannel.SlateSourceProperty",
 		reflect.TypeOf((*CfnChannel_SlateSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediatailor.CfnChannel.TimeShiftConfigurationProperty",
+		reflect.TypeOf((*CfnChannel_TimeShiftConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_mediatailor.CfnChannelPolicy",

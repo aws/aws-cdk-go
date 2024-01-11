@@ -38,6 +38,10 @@ package awskinesisfirehose
 //   	},
 //
 //   	// the properties below are optional
+//   	BufferingHints: &SplunkBufferingHintsProperty{
+//   		IntervalInSeconds: jsii.Number(123),
+//   		SizeInMBs: jsii.Number(123),
+//   	},
 //   	CloudWatchLoggingOptions: &CloudWatchLoggingOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		LogGroupName: jsii.String("logGroupName"),
@@ -85,6 +89,12 @@ type CfnDeliveryStream_SplunkDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
 	//
 	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
+	// The buffering options.
+	//
+	// If no value is specified, the default values for Splunk are used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-bufferinghints
+	//
+	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
 	// The Amazon CloudWatch logging options for your delivery stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-cloudwatchloggingoptions
 	//

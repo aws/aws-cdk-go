@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnUser) validateSetUsernameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnUser) validateSetUserProficienciesParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnUserParameters(scope constructs.Construct, id *string, props *CfnUserProps) error {
 	return nil
 }

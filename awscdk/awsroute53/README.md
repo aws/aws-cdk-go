@@ -195,7 +195,7 @@ route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
 ### Cross Account Zone Delegation
 
 If you want to have your root domain hosted zone in one account and your subdomain hosted
-zone in a diferent one, you can use `CrossAccountZoneDelegationRecord` to set up delegation
+zone in a different one, you can use `CrossAccountZoneDelegationRecord` to set up delegation
 between them.
 
 In the account containing the parent hosted zone:
@@ -209,6 +209,45 @@ crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProp
 	RoleName: jsii.String("MyDelegationRole"),
 	// The other account
 	AssumedBy: iam.NewAccountPrincipal(jsii.String("12345678901")),
+	// You can scope down this role policy to be least privileged.
+	// If you want the other account to be able to manage specific records,
+	// you can scope down by resource and/or normalized record names
+	InlinePolicies: map[string]policyDocument{
+		"crossAccountPolicy": iam.NewPolicyDocument(&PolicyDocumentProps{
+			"statements": []PolicyStatement{
+				iam.NewPolicyStatement(&PolicyStatementProps{
+					"sid": jsii.String("ListHostedZonesByName"),
+					"effect": iam.Effect_ALLOW,
+					"actions": []*string{
+						jsii.String("route53:ListHostedZonesByName"),
+					},
+					"resources": []*string{
+						jsii.String("*"),
+					},
+				}),
+				iam.NewPolicyStatement(&PolicyStatementProps{
+					"sid": jsii.String("GetHostedZoneAndChangeResourceRecordSet"),
+					"effect": iam.Effect_ALLOW,
+					"actions": []*string{
+						jsii.String("route53:GetHostedZone"),
+						jsii.String("route53:ChangeResourceRecordSet"),
+					},
+					// This example assumes the RecordSet subdomain.somexample.com
+					// is contained in the HostedZone
+					"resources": []*string{
+						jsii.String("arn:aws:route53:::hostedzone/HZID00000000000000000"),
+					},
+					"conditions": map[string]interface{}{
+						"ForAllValues:StringLike": map[string][]*string{
+							"route53:ChangeResourceRecordSetsNormalizedRecordNames": []*string{
+								jsii.String("subdomain.someexample.com"),
+							},
+						},
+					},
+				}),
+			},
+		}),
+	},
 })
 parentZone.GrantDelegation(crossAccountRole)
 ```

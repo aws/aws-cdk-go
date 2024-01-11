@@ -21,10 +21,18 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EventBridgeEnabled: jsii.Boolean(false),
+//   	KmsKeyEnableGeospatialQueries: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	PositionFiltering: jsii.String("positionFiltering"),
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   	PricingPlanDataSource: jsii.String("pricingPlanDataSource"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html
@@ -60,6 +68,10 @@ type CfnTracker interface {
 	// An optional description for the tracker resource.
 	Description() *string
 	SetDescription(val *string)
+	EventBridgeEnabled() interface{}
+	SetEventBridgeEnabled(val interface{})
+	KmsKeyEnableGeospatialQueries() interface{}
+	SetKmsKeyEnableGeospatialQueries(val interface{})
 	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -95,6 +107,9 @@ type CfnTracker interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The name for the tracker resource.
 	TrackerName() *string
 	SetTrackerName(val *string)
@@ -334,6 +349,26 @@ func (j *jsiiProxy_CfnTracker) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTracker) EventBridgeEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"eventBridgeEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTracker) KmsKeyEnableGeospatialQueries() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"kmsKeyEnableGeospatialQueries",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTracker) KmsKeyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -414,6 +449,16 @@ func (j *jsiiProxy_CfnTracker) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTracker) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTracker) TrackerName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -480,6 +525,28 @@ func (j *jsiiProxy_CfnTracker)SetDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnTracker)SetEventBridgeEnabled(val interface{}) {
+	if err := j.validateSetEventBridgeEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"eventBridgeEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTracker)SetKmsKeyEnableGeospatialQueries(val interface{}) {
+	if err := j.validateSetKmsKeyEnableGeospatialQueriesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"kmsKeyEnableGeospatialQueries",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTracker)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
@@ -508,6 +575,17 @@ func (j *jsiiProxy_CfnTracker)SetPricingPlanDataSource(val *string) {
 	_jsii_.Set(
 		j,
 		"pricingPlanDataSource",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTracker)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

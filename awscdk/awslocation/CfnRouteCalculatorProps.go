@@ -1,5 +1,8 @@
 package awslocation
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnRouteCalculator`.
 //
@@ -15,6 +18,12 @@ package awslocation
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	PricingPlan: jsii.String("pricingPlan"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html
@@ -56,5 +65,9 @@ type CfnRouteCalculatorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
 	//
 	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
+	// An array of key-value pairs to apply to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

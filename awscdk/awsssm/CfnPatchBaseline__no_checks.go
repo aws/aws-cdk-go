@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnPatchBaseline) validateSetApprovedPatchesEnableNonSecurity
 	return nil
 }
 
+func (j *jsiiProxy_CfnPatchBaseline) validateSetDefaultBaselineParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPatchBaseline) validateSetGlobalFiltersParameters(val interface{}) error {
 	return nil
 }

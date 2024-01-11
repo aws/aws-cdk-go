@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnCluster) validateSetLoggingPropertiesParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetManageMasterPasswordParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetMasterUsernameParameters(val *string) error {
 	return nil
 }

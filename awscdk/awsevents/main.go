@@ -505,6 +505,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.CfnRule.AppSyncParametersProperty",
+		reflect.TypeOf((*CfnRule_AppSyncParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.CfnRule.AwsVpcConfigurationProperty",
 		reflect.TypeOf((*CfnRule_AwsVpcConfigurationProperty)(nil)).Elem(),
 	)

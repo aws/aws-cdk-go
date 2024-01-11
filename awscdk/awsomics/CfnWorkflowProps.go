@@ -57,7 +57,7 @@ type CfnWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-parametertemplate
 	//
 	ParameterTemplate interface{} `field:"optional" json:"parameterTemplate" yaml:"parameterTemplate"`
-	// A storage capacity for the workflow in gigabytes.
+	// A storage capacity for the workflow in gibibytes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html#cfn-omics-workflow-storagecapacity
 	//
 	StorageCapacity *float64 `field:"optional" json:"storageCapacity" yaml:"storageCapacity"`

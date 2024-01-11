@@ -43,7 +43,7 @@ type CfnEnvironmentEC2Props struct {
 	//
 	// To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS Systems Manager path.
 	//
-	// From December 04, 2023, you will be required to include the `imageId` parameter for the `CreateEnvironmentEC2` action. This change will be reflected across all direct methods of communicating with the API, such as AWS SDK, AWS CLI and AWS CloudFormation. This change will only affect direct API consumers, and not AWS Cloud9 console users.
+	// From December 04, 2023, you will be required to include the `ImageId` parameter for the `CreateEnvironmentEC2` action. This change will be reflected across all direct methods of communicating with the API, such as AWS SDK, AWS CLI and AWS CloudFormation. This change will only affect direct API consumers, and not AWS Cloud9 console users.
 	//
 	// From January 22, 2024, Amazon Linux (AL1) will be removed from the list of available image IDs for Cloud9. This is necessary as AL1 will reach the end of maintenance support in December 2023, and as a result will no longer receive security updates. We recommend using Amazon Linux 2023 as the new AMI to create your environment as it is fully supported. This change will only affect direct API consumers, and not AWS Cloud9 console users.
 	//

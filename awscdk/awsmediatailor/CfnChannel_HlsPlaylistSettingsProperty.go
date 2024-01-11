@@ -29,8 +29,6 @@ type CfnChannel_HlsPlaylistSettingsProperty struct {
 	// Minimum value: `30` seconds. Maximum value: `3600` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html#cfn-mediatailor-channel-hlsplaylistsettings-manifestwindowseconds
 	//
-	// Default: - 0.
-	//
 	ManifestWindowSeconds *float64 `field:"optional" json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
 }
 

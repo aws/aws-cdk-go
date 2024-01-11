@@ -74,6 +74,14 @@ func (c *jsiiProxy_CustomState) validateAddPrefixParameters(x *string) error {
 	return nil
 }
 
+func (c *jsiiProxy_CustomState) validateAddRetryParameters(props *RetryProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CustomState) validateBindToGraphParameters(graph StateGraph) error {
 	if graph == nil {
 		return fmt.Errorf("parameter graph is required, but nil was provided")

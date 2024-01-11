@@ -23,15 +23,11 @@ type CfnChannel_DashPlaylistSettingsProperty struct {
 	// Minimum value: `30` seconds. Maximum value: `3600` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html#cfn-mediatailor-channel-dashplaylistsettings-manifestwindowseconds
 	//
-	// Default: - 0.
-	//
 	ManifestWindowSeconds *float64 `field:"optional" json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
 	// Minimum amount of content (measured in seconds) that a player must keep available in the buffer.
 	//
 	// Minimum value: `2` seconds. Maximum value: `60` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html#cfn-mediatailor-channel-dashplaylistsettings-minbuffertimeseconds
-	//
-	// Default: - 0.
 	//
 	MinBufferTimeSeconds *float64 `field:"optional" json:"minBufferTimeSeconds" yaml:"minBufferTimeSeconds"`
 	// Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.
@@ -39,15 +35,11 @@ type CfnChannel_DashPlaylistSettingsProperty struct {
 	// Minimum value: `2` seconds. Maximum value: `60` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html#cfn-mediatailor-channel-dashplaylistsettings-minupdateperiodseconds
 	//
-	// Default: - 0.
-	//
 	MinUpdatePeriodSeconds *float64 `field:"optional" json:"minUpdatePeriodSeconds" yaml:"minUpdatePeriodSeconds"`
 	// Amount of time (in seconds) that the player should be from the live point at the end of the manifest.
 	//
 	// Minimum value: `2` seconds. Maximum value: `60` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html#cfn-mediatailor-channel-dashplaylistsettings-suggestedpresentationdelayseconds
-	//
-	// Default: - 0.
 	//
 	SuggestedPresentationDelaySeconds *float64 `field:"optional" json:"suggestedPresentationDelaySeconds" yaml:"suggestedPresentationDelaySeconds"`
 }

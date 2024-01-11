@@ -9,9 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Create a pipe.
+// Specifies a pipe.
 //
 // Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.
+//
+// > As an aid to help you jumpstart developing CloudFormation templates, the EventBridge console enables you to create templates from the existing pipes in your account. For more information, see [Generate an CloudFormation template from EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/pipes-generate-template.html) in the *Amazon EventBridge User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -19,8 +19,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnSubnetCidrBlock := awscdk.Aws_ec2.NewCfnSubnetCidrBlock(this, jsii.String("MyCfnSubnetCidrBlock"), &CfnSubnetCidrBlockProps{
-//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	SubnetId: jsii.String("subnetId"),
+//
+//   	// the properties below are optional
+//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
+//   	Ipv6IpamPoolId: jsii.String("ipv6IpamPoolId"),
+//   	Ipv6NetmaskLength: jsii.Number(123),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html
@@ -42,6 +46,12 @@ type CfnSubnetCidrBlock interface {
 	// The IPv6 network range for the subnet, in CIDR notation.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
+	// An IPv6 IPAM pool ID for the subnet.
+	Ipv6IpamPoolId() *string
+	SetIpv6IpamPoolId(val *string)
+	// An IPv6 netmask length for the subnet.
+	Ipv6NetmaskLength() *float64
+	SetIpv6NetmaskLength(val *float64)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -272,6 +282,26 @@ func (j *jsiiProxy_CfnSubnetCidrBlock) Ipv6CidrBlock() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubnetCidrBlock) Ipv6IpamPoolId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv6IpamPoolId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnetCidrBlock) Ipv6NetmaskLength() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv6NetmaskLength",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnetCidrBlock) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -371,12 +401,25 @@ func NewCfnSubnetCidrBlock_Override(c CfnSubnetCidrBlock, scope constructs.Const
 }
 
 func (j *jsiiProxy_CfnSubnetCidrBlock)SetIpv6CidrBlock(val *string) {
-	if err := j.validateSetIpv6CidrBlockParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"ipv6CidrBlock",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnetCidrBlock)SetIpv6IpamPoolId(val *string) {
+	_jsii_.Set(
+		j,
+		"ipv6IpamPoolId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnetCidrBlock)SetIpv6NetmaskLength(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv6NetmaskLength",
 		val,
 	)
 }

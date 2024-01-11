@@ -1,5 +1,8 @@
 package awslocation
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnGeofenceCollection`.
 //
@@ -16,6 +19,12 @@ package awslocation
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   	PricingPlanDataSource: jsii.String("pricingPlanDataSource"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html
@@ -47,5 +56,21 @@ type CfnGeofenceCollectionProps struct {
 	//
 	// Deprecated: this property has been deprecated.
 	PricingPlanDataSource *string `field:"optional" json:"pricingPlanDataSource" yaml:"pricingPlanDataSource"`
+	// Applies one or more tags to the geofence collection.
+	//
+	// A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.
+	//
+	// Format: `"key" : "value"`
+	//
+	// Restrictions:
+	//
+	// - Maximum 50 tags per resource
+	// - Each resource tag must be unique with a maximum of one value.
+	// - Maximum key length: 128 Unicode characters in UTF-8
+	// - Maximum value length: 256 Unicode characters in UTF-8
+	// - Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : /
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

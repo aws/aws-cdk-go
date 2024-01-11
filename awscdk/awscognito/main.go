@@ -413,6 +413,10 @@ func init() {
 		reflect.TypeOf((*CfnUserPool_PoliciesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnUserPool.PreTokenGenerationConfigProperty",
+		reflect.TypeOf((*CfnUserPool_PreTokenGenerationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPool.RecoveryOptionProperty",
 		reflect.TypeOf((*CfnUserPool_RecoveryOptionProperty)(nil)).Elem(),
 	)

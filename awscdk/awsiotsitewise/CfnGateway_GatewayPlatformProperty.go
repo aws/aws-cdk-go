@@ -24,7 +24,7 @@ type CfnGateway_GatewayPlatformProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
 	//
 	Greengrass interface{} `field:"optional" json:"greengrass" yaml:"greengrass"`
-	// A gateway that runs on AWS IoT Greengrass V2.
+	// A gateway that runs on AWS IoT Greengrass V2 .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrassv2
 	//
 	GreengrassV2 interface{} `field:"optional" json:"greengrassV2" yaml:"greengrassV2"`

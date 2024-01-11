@@ -54,6 +54,7 @@ type CfnGCMChannel interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The default authentication method used for GCM.
 	DefaultAuthenticationMethod() *string
 	SetDefaultAuthenticationMethod(val *string)
 	// Specifies whether to enable the GCM channel for the Amazon Pinpoint application.
@@ -76,6 +77,7 @@ type CfnGCMChannel interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The contents of the JSON file provided by Google during registration in order to generate an access token for authentication.
 	ServiceJson() *string
 	SetServiceJson(val *string)
 	// The stack in which this element is defined.

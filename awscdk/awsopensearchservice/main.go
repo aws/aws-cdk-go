@@ -331,6 +331,7 @@ func init() {
 		map[string]interface{}{
 			"TLS_1_0": TLSSecurityPolicy_TLS_1_0,
 			"TLS_1_2": TLSSecurityPolicy_TLS_1_2,
+			"TLS_1_2_PFS": TLSSecurityPolicy_TLS_1_2_PFS,
 		},
 	)
 	_jsii_.RegisterStruct(

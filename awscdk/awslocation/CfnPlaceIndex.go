@@ -30,6 +30,12 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	PricingPlan: jsii.String("pricingPlan"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
@@ -98,6 +104,9 @@ type CfnPlaceIndex interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -414,6 +423,16 @@ func (j *jsiiProxy_CfnPlaceIndex) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlaceIndex) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlaceIndex) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -507,6 +526,17 @@ func (j *jsiiProxy_CfnPlaceIndex)SetPricingPlan(val *string) {
 	_jsii_.Set(
 		j,
 		"pricingPlan",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPlaceIndex)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

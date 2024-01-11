@@ -104,7 +104,7 @@ type CfnInstance interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags of an instance.
+	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

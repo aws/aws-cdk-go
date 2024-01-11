@@ -11,6 +11,13 @@ package awscloudfront
 //   functionConfigProperty := &FunctionConfigProperty{
 //   	Comment: jsii.String("comment"),
 //   	Runtime: jsii.String("runtime"),
+//
+//   	// the properties below are optional
+//   	KeyValueStoreAssociations: []interface{}{
+//   		&KeyValueStoreAssociationProperty{
+//   			KeyValueStoreArn: jsii.String("keyValueStoreArn"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html
@@ -24,5 +31,9 @@ type CfnFunction_FunctionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime
 	//
 	Runtime *string `field:"required" json:"runtime" yaml:"runtime"`
+	// The configuration for the Key Value Store associations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-keyvaluestoreassociations
+	//
+	KeyValueStoreAssociations interface{} `field:"optional" json:"keyValueStoreAssociations" yaml:"keyValueStoreAssociations"`
 }
 

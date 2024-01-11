@@ -400,6 +400,7 @@ func init() {
 			"SMALL": ComputeType_SMALL,
 			"MEDIUM": ComputeType_MEDIUM,
 			"LARGE": ComputeType_LARGE,
+			"X_LARGE": ComputeType_X_LARGE,
 			"X2_LARGE": ComputeType_X2_LARGE,
 			"LAMBDA_1GB": ComputeType_LAMBDA_1GB,
 			"LAMBDA_2GB": ComputeType_LAMBDA_2GB,

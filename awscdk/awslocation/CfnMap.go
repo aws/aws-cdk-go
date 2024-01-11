@@ -19,12 +19,21 @@ import (
 //   cfnMap := awscdk.Aws_location.NewCfnMap(this, jsii.String("MyCfnMap"), &CfnMapProps{
 //   	Configuration: &MapConfigurationProperty{
 //   		Style: jsii.String("style"),
+//
+//   		// the properties below are optional
+//   		PoliticalView: jsii.String("politicalView"),
 //   	},
 //   	MapName: jsii.String("mapName"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	PricingPlan: jsii.String("pricingPlan"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
@@ -38,7 +47,6 @@ type CfnMap interface {
 	AttrArn() *string
 	// The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	AttrCreateTime() *string
-	// The data provider for the associated map tiles.
 	AttrDataSource() *string
 	// Synonym for `Arn` .
 	//
@@ -92,6 +100,9 @@ type CfnMap interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Applies one or more tags to the map resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -408,6 +419,16 @@ func (j *jsiiProxy_CfnMap) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMap) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMap) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -490,6 +511,17 @@ func (j *jsiiProxy_CfnMap)SetPricingPlan(val *string) {
 	_jsii_.Set(
 		j,
 		"pricingPlan",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMap)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

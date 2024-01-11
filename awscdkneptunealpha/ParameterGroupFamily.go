@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import neptune_alpha "github.com/aws/aws-cdk-go/awscdkneptunealpha"
 //
-//   parameterGroupFamily := neptune_alpha.NewParameterGroupFamily(jsii.String("family"))
+//   parameterGroupFamily := neptune_alpha.ParameterGroupFamily_NEPTUNE_1()
 //
 // Experimental.
 type ParameterGroupFamily interface {
@@ -85,6 +85,17 @@ func ParameterGroupFamily_NEPTUNE_1_2() ParameterGroupFamily {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-neptune-alpha.ParameterGroupFamily",
 		"NEPTUNE_1_2",
+		&returns,
+	)
+	return returns
+}
+
+func ParameterGroupFamily_NEPTUNE_1_3() ParameterGroupFamily {
+	_init_.Initialize()
+	var returns ParameterGroupFamily
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.ParameterGroupFamily",
+		"NEPTUNE_1_3",
 		&returns,
 	)
 	return returns

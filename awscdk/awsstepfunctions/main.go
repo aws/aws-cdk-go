@@ -415,6 +415,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},

@@ -40,7 +40,7 @@ type CfnUserHierarchyGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-parentgrouparn
 	//
 	ParentGroupArn *string `field:"optional" json:"parentGroupArn" yaml:"parentGroupArn"`
-	// One or more tags.
+	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html#cfn-connect-userhierarchygroup-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

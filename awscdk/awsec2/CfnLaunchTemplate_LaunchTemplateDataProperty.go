@@ -157,6 +157,7 @@ package awsec2
 //   	},
 //   	MaintenanceOptions: &MaintenanceOptionsProperty{
 //   		AutoRecovery: jsii.String("autoRecovery"),
+//   		RebootMigration: jsii.String("rebootMigration"),
 //   	},
 //   	MetadataOptions: &MetadataOptionsProperty{
 //   		HttpEndpoint: jsii.String("httpEndpoint"),

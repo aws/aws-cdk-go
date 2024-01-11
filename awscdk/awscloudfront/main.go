@@ -520,6 +520,10 @@ func init() {
 		reflect.TypeOf((*CfnFunction_FunctionMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnFunction.KeyValueStoreAssociationProperty",
+		reflect.TypeOf((*CfnFunction_KeyValueStoreAssociationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CfnFunctionProps",
 		reflect.TypeOf((*CfnFunctionProps)(nil)).Elem(),
 	)

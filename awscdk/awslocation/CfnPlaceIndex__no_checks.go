@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnPlaceIndex) validateSetIndexNameParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaceIndex) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnPlaceIndexParameters(scope constructs.Construct, id *string, props *CfnPlaceIndexProps) error {
 	return nil
 }

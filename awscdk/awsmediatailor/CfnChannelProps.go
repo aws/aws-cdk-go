@@ -52,6 +52,9 @@ import (
 //   		},
 //   	},
 //   	Tier: jsii.String("tier"),
+//   	TimeShiftConfiguration: &TimeShiftConfigurationProperty{
+//   		MaxTimeDelaySeconds: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html
@@ -95,5 +98,9 @@ type CfnChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-tier
 	//
 	Tier *string `field:"optional" json:"tier" yaml:"tier"`
+	// The configuration for time-shifted viewing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-timeshiftconfiguration
+	//
+	TimeShiftConfiguration interface{} `field:"optional" json:"timeShiftConfiguration" yaml:"timeShiftConfiguration"`
 }
 

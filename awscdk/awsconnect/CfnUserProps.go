@@ -44,6 +44,13 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UserProficiencies: []interface{}{
+//   		&UserProficiencyProperty{
+//   			AttributeName: jsii.String("attributeName"),
+//   			AttributeValue: jsii.String("attributeValue"),
+//   			Level: jsii.Number(123),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html
@@ -89,5 +96,9 @@ type CfnUserProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// One or more predefined attributes assigned to a user, with a numeric value that indicates how their level of skill in a specified area.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-userproficiencies
+	//
+	UserProficiencies interface{} `field:"optional" json:"userProficiencies" yaml:"userProficiencies"`
 }
 

@@ -48,15 +48,20 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
 	//
 	DocumentsMetadataConfiguration interface{} `field:"optional" json:"documentsMetadataConfiguration" yaml:"documentsMetadataConfiguration"`
-	// A list of glob patterns for documents that should not be indexed.
+	// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for file names and file types that should not be indexed.
 	//
-	// If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed.
+	// If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Examples of glob patterns include:
 	//
-	// Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:
-	//
+	// - `/myapp/config/*` - All files inside config directory
+	// - `/** /*.png` - All .png files in all directories
+	// - `/** /*.{png,ico,md}` - All .png, .ico or .md files in all directories
+	// - `/myapp/src/** /*.ts` - All .ts files inside src directory (and all its subdirectories)
+	// - `** /!(*.module).ts` - All .ts files but not .module.ts
 	// - **.png , *.jpg* will exclude all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
 	// - **internal** will exclude all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
 	// - *** /*internal** will exclude all internal-related files in a directory and its subdirectories.
+	//
+	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
 	//
 	ExclusionPatterns *[]*string `field:"optional" json:"exclusionPatterns" yaml:"exclusionPatterns"`

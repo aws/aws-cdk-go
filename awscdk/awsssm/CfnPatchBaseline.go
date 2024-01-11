@@ -49,6 +49,7 @@ import (
 //   	},
 //   	ApprovedPatchesComplianceLevel: jsii.String("approvedPatchesComplianceLevel"),
 //   	ApprovedPatchesEnableNonSecurity: jsii.Boolean(false),
+//   	DefaultBaseline: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	GlobalFilters: &PatchFilterGroupProperty{
 //   		PatchFilters: []interface{}{
@@ -103,6 +104,7 @@ type CfnPatchBaseline interface {
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the managed nodes.
 	ApprovedPatchesEnableNonSecurity() interface{}
 	SetApprovedPatchesEnableNonSecurity(val interface{})
+	// The ID of the patch baseline.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -113,6 +115,9 @@ type CfnPatchBaseline interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Set the baseline as default baseline.
+	DefaultBaseline() interface{}
+	SetDefaultBaseline(val interface{})
 	// A description of the patch baseline.
 	Description() *string
 	SetDescription(val *string)
@@ -400,6 +405,16 @@ func (j *jsiiProxy_CfnPatchBaseline) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPatchBaseline) DefaultBaseline() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"defaultBaseline",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPatchBaseline) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -622,6 +637,17 @@ func (j *jsiiProxy_CfnPatchBaseline)SetApprovedPatchesEnableNonSecurity(val inte
 	_jsii_.Set(
 		j,
 		"approvedPatchesEnableNonSecurity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPatchBaseline)SetDefaultBaseline(val interface{}) {
+	if err := j.validateSetDefaultBaselineParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"defaultBaseline",
 		val,
 	)
 }

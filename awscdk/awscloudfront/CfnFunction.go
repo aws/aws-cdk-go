@@ -29,6 +29,13 @@ import (
 //   	FunctionConfig: &FunctionConfigProperty{
 //   		Comment: jsii.String("comment"),
 //   		Runtime: jsii.String("runtime"),
+//
+//   		// the properties below are optional
+//   		KeyValueStoreAssociations: []interface{}{
+//   			&KeyValueStoreAssociationProperty{
+//   				KeyValueStoreArn: jsii.String("keyValueStoreArn"),
+//   			},
+//   		},
 //   	},
 //   	Name: jsii.String("name"),
 //

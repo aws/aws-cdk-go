@@ -103,14 +103,26 @@ type CfnSubnet interface {
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
 	EnableDns64() interface{}
 	SetEnableDns64(val interface{})
+	// An IPv4 IPAM pool ID for the subnet.
+	Ipv4IpamPoolId() *string
+	SetIpv4IpamPoolId(val *string)
+	// An IPv4 netmask length for the subnet.
+	Ipv4NetmaskLength() *float64
+	SetIpv4NetmaskLength(val *float64)
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
 	Ipv6CidrBlocks() *[]*string
 	SetIpv6CidrBlocks(val *[]*string)
+	// An IPv6 IPAM pool ID for the subnet.
+	Ipv6IpamPoolId() *string
+	SetIpv6IpamPoolId(val *string)
 	// Indicates whether this is an IPv6 only subnet.
 	Ipv6Native() interface{}
 	SetIpv6Native(val interface{})
+	// An IPv6 netmask length for the subnet.
+	Ipv6NetmaskLength() *float64
+	SetIpv6NetmaskLength(val *float64)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -468,6 +480,26 @@ func (j *jsiiProxy_CfnSubnet) EnableDns64() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubnet) Ipv4IpamPoolId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv4IpamPoolId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnet) Ipv4NetmaskLength() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv4NetmaskLength",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnet) Ipv6CidrBlock() *string {
 	var returns *string
 	_jsii_.Get(
@@ -488,11 +520,31 @@ func (j *jsiiProxy_CfnSubnet) Ipv6CidrBlocks() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubnet) Ipv6IpamPoolId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv6IpamPoolId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnet) Ipv6Native() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"ipv6Native",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnet) Ipv6NetmaskLength() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv6NetmaskLength",
 		&returns,
 	)
 	return returns
@@ -692,6 +744,22 @@ func (j *jsiiProxy_CfnSubnet)SetEnableDns64(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnSubnet)SetIpv4IpamPoolId(val *string) {
+	_jsii_.Set(
+		j,
+		"ipv4IpamPoolId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnet)SetIpv4NetmaskLength(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv4NetmaskLength",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSubnet)SetIpv6CidrBlock(val *string) {
 	_jsii_.Set(
 		j,
@@ -708,6 +776,14 @@ func (j *jsiiProxy_CfnSubnet)SetIpv6CidrBlocks(val *[]*string) {
 	)
 }
 
+func (j *jsiiProxy_CfnSubnet)SetIpv6IpamPoolId(val *string) {
+	_jsii_.Set(
+		j,
+		"ipv6IpamPoolId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSubnet)SetIpv6Native(val interface{}) {
 	if err := j.validateSetIpv6NativeParameters(val); err != nil {
 		panic(err)
@@ -715,6 +791,14 @@ func (j *jsiiProxy_CfnSubnet)SetIpv6Native(val interface{}) {
 	_jsii_.Set(
 		j,
 		"ipv6Native",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnet)SetIpv6NetmaskLength(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv6NetmaskLength",
 		val,
 	)
 }

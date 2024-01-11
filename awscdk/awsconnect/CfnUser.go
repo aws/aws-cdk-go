@@ -51,6 +51,13 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UserProficiencies: []interface{}{
+//   		&UserProficiencyProperty{
+//   			AttributeName: jsii.String("attributeName"),
+//   			AttributeValue: jsii.String("attributeValue"),
+//   			Level: jsii.Number(123),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html
@@ -136,6 +143,9 @@ type CfnUser interface {
 	// The user name assigned to the user account.
 	Username() *string
 	SetUsername(val *string)
+	// One or more predefined attributes assigned to a user, with a numeric value that indicates how their level of skill in a specified area.
+	UserProficiencies() interface{}
+	SetUserProficiencies(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -490,6 +500,16 @@ func (j *jsiiProxy_CfnUser) Username() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUser) UserProficiencies() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"userProficiencies",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
 	_init_.Initialize()
@@ -615,6 +635,17 @@ func (j *jsiiProxy_CfnUser)SetUsername(val *string) {
 	_jsii_.Set(
 		j,
 		"username",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetUserProficiencies(val interface{}) {
+	if err := j.validateSetUserProficienciesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"userProficiencies",
 		val,
 	)
 }

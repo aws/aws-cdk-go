@@ -21,6 +21,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EnablePrimaryIpv6: jsii.Boolean(false),
 //   	GroupSet: []*string{
 //   		jsii.String("groupSet"),
 //   	},
@@ -68,6 +69,8 @@ type CfnNetworkInterface interface {
 	awscdk.ITaggable
 	// The ID of the network interface.
 	AttrId() *string
+	// The primary IPv6 address.
+	AttrPrimaryIpv6Address() *string
 	// The primary private IP address of the network interface.
 	//
 	// For example, `10.0.0.192` .
@@ -88,6 +91,9 @@ type CfnNetworkInterface interface {
 	// A description for the network interface.
 	Description() *string
 	SetDescription(val *string)
+	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address.
+	EnablePrimaryIpv6() interface{}
+	SetEnablePrimaryIpv6(val interface{})
 	// The security group IDs associated with this network interface.
 	GroupSet() *[]*string
 	SetGroupSet(val *[]*string)
@@ -310,6 +316,16 @@ func (j *jsiiProxy_CfnNetworkInterface) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInterface) AttrPrimaryIpv6Address() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPrimaryIpv6Address",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInterface) AttrPrimaryPrivateIpAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -375,6 +391,16 @@ func (j *jsiiProxy_CfnNetworkInterface) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) EnablePrimaryIpv6() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enablePrimaryIpv6",
 		&returns,
 	)
 	return returns
@@ -622,6 +648,17 @@ func (j *jsiiProxy_CfnNetworkInterface)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetEnablePrimaryIpv6(val interface{}) {
+	if err := j.validateSetEnablePrimaryIpv6Parameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enablePrimaryIpv6",
 		val,
 	)
 }
