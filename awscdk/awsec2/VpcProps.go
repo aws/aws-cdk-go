@@ -82,12 +82,28 @@ type VpcProps struct {
 	// Default: - None.
 	//
 	GatewayEndpoints *map[string]*GatewayVpcEndpointOptions `field:"optional" json:"gatewayEndpoints" yaml:"gatewayEndpoints"`
-	// The Provider to use to allocate IP Space to your VPC.
+	// The Provider to use to allocate IPv4 Space to your VPC.
 	//
 	// Options include static allocation or from a pool.
+	//
+	// Note this is specific to IPv4 addresses.
 	// Default: ec2.IpAddresses.cidr
 	//
 	IpAddresses IIpAddresses `field:"optional" json:"ipAddresses" yaml:"ipAddresses"`
+	// The protocol of the vpc.
+	//
+	// Options are IPv4 only or dual stack.
+	// Default: IpProtocol.IPV4_ONLY
+	//
+	IpProtocol IpProtocol `field:"optional" json:"ipProtocol" yaml:"ipProtocol"`
+	// The Provider to use to allocate IPv6 Space to your VPC.
+	//
+	// Options include amazon provided CIDR block.
+	//
+	// Note this is specific to IPv6 addresses.
+	// Default: Ipv6Addresses.amazonProvided
+	//
+	Ipv6Addresses IIpv6Addresses `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`
 	// Define the maximum number of AZs to use in this region.
 	//
 	// If the region has more AZs than you want to use (for example, because of

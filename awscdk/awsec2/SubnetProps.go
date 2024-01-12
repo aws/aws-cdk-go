@@ -14,6 +14,8 @@ package awsec2
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	AssignIpv6AddressOnCreation: jsii.Boolean(false),
+//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	MapPublicIpOnLaunch: jsii.Boolean(false),
 //   }
 //
@@ -24,6 +26,18 @@ type SubnetProps struct {
 	CidrBlock *string `field:"required" json:"cidrBlock" yaml:"cidrBlock"`
 	// The VPC which this subnet is part of.
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	// Indicates whether a network interface created in this subnet receives an IPv6 address.
+	//
+	// If you specify AssignIpv6AddressOnCreation, you must also specify Ipv6CidrBlock.
+	// Default: false.
+	//
+	AssignIpv6AddressOnCreation *bool `field:"optional" json:"assignIpv6AddressOnCreation" yaml:"assignIpv6AddressOnCreation"`
+	// The IPv6 CIDR block.
+	//
+	// If you specify AssignIpv6AddressOnCreation, you must also specify Ipv6CidrBlock.
+	// Default: - no IPv6 CIDR block.
+	//
+	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// Controls if a public IP is associated to an instance at launch.
 	// Default: true in Subnet.Public, false in Subnet.Private or Subnet.Isolated.
 	//

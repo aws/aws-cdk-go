@@ -5,6 +5,8 @@ import (
 )
 
 // Implementations for ip address management.
+//
+// Note this is specific to the IPv4 CIDR.
 type IIpAddresses interface {
 	// Called by the VPC to retrieve Subnet options from the Ipam.
 	//

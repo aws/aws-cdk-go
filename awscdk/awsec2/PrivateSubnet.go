@@ -21,6 +21,8 @@ import (
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	AssignIpv6AddressOnCreation: jsii.Boolean(false),
+//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	MapPublicIpOnLaunch: jsii.Boolean(false),
 //   })
 //
@@ -79,6 +81,14 @@ type PrivateSubnet interface {
 	AddDefaultInternetRoute(gatewayId *string, gatewayAttachment constructs.IDependable)
 	// Adds an entry to this subnets route table that points to the passed NATGatewayId.
 	AddDefaultNatRoute(natGatewayId *string)
+	// Create a default IPv6 route that points to a passed EIGW.
+	AddIpv6DefaultEgressOnlyInternetRoute(gatewayId *string)
+	// Create a default IPv6 route that points to a passed IGW.
+	AddIpv6DefaultInternetRoute(gatewayId *string)
+	// Adds an entry to this subnets route table that points to the passed NATGatewayId.
+	//
+	// Uses the known 64:ff9b::/96 prefix.
+	AddIpv6Nat64Route(natGatewayId *string)
 	// Adds an entry to this subnets route table.
 	AddRoute(id *string, options *AddRouteOptions)
 	// Apply the given removal policy to this resource.
@@ -469,6 +479,39 @@ func (p *jsiiProxy_PrivateSubnet) AddDefaultNatRoute(natGatewayId *string) {
 	_jsii_.InvokeVoid(
 		p,
 		"addDefaultNatRoute",
+		[]interface{}{natGatewayId},
+	)
+}
+
+func (p *jsiiProxy_PrivateSubnet) AddIpv6DefaultEgressOnlyInternetRoute(gatewayId *string) {
+	if err := p.validateAddIpv6DefaultEgressOnlyInternetRouteParameters(gatewayId); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		p,
+		"addIpv6DefaultEgressOnlyInternetRoute",
+		[]interface{}{gatewayId},
+	)
+}
+
+func (p *jsiiProxy_PrivateSubnet) AddIpv6DefaultInternetRoute(gatewayId *string) {
+	if err := p.validateAddIpv6DefaultInternetRouteParameters(gatewayId); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		p,
+		"addIpv6DefaultInternetRoute",
+		[]interface{}{gatewayId},
+	)
+}
+
+func (p *jsiiProxy_PrivateSubnet) AddIpv6Nat64Route(natGatewayId *string) {
+	if err := p.validateAddIpv6Nat64RouteParameters(natGatewayId); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		p,
+		"addIpv6Nat64Route",
 		[]interface{}{natGatewayId},
 	)
 }

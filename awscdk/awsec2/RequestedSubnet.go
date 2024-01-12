@@ -16,6 +16,7 @@ package awsec2
 //
 //   		// the properties below are optional
 //   		CidrMask: jsii.Number(123),
+//   		Ipv6AssignAddressOnCreation: jsii.Boolean(false),
 //   		MapPublicIpOnLaunch: jsii.Boolean(false),
 //   		Reserved: jsii.Boolean(false),
 //   	},

@@ -32,6 +32,12 @@ type InstanceProps struct {
 	MachineImage IMachineImage `field:"required" json:"machineImage" yaml:"machineImage"`
 	// VPC to launch the instance in.
 	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// Whether the instance could initiate IPv6 connections to anywhere by default.
+	//
+	// This property is only used when you do not provide a security group.
+	// Default: false.
+	//
+	AllowAllIpv6Outbound *bool `field:"optional" json:"allowAllIpv6Outbound" yaml:"allowAllIpv6Outbound"`
 	// Whether the instance could initiate connections to anywhere by default.
 	//
 	// This property is only used when you do not provide a security group.

@@ -7,6 +7,8 @@ import (
 
 // An abstract Provider of IpAddresses.
 //
+// Note this is specific to the IPv4 CIDR.
+//
 // Example:
 //   vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 //   	// 'IpAddresses' configures the IP range and size of the entire VPC.
@@ -68,7 +70,9 @@ type jsiiProxy_IpAddresses struct {
 
 // Used to provide centralized Ip Address Management services for your VPC.
 //
-// Uses VPC Cidr allocations from AWS IPAM.
+// Uses VPC CIDR allocations from AWS IPAM
+//
+// Note this is specific to the IPv4 CIDR.
 // See: https://docs.aws.amazon.com/vpc/latest/ipam/what-it-is-ipam.html
 //
 func IpAddresses_AwsIpamAllocation(props *AwsIpamProps) IIpAddresses {
@@ -91,7 +95,9 @@ func IpAddresses_AwsIpamAllocation(props *AwsIpamProps) IIpAddresses {
 
 // Used to provide local Ip Address Management services for your VPC.
 //
-// VPC Cidr is supplied at creation and subnets are calculated locally.
+// VPC CIDR is supplied at creation and subnets are calculated locally
+//
+// Note this is specific to the IPv4 CIDR.
 func IpAddresses_Cidr(cidrBlock *string) IIpAddresses {
 	_init_.Initialize()
 

@@ -14,6 +14,7 @@ package awsec2
 //
 //   	// the properties below are optional
 //   	CidrMask: jsii.Number(123),
+//   	Ipv6AssignAddressOnCreation: jsii.Boolean(false),
 //   	MapPublicIpOnLaunch: jsii.Boolean(false),
 //   	Reserved: jsii.Boolean(false),
 //   }
@@ -35,11 +36,23 @@ type SubnetConfiguration struct {
 	// will be equal to `2^(32 - cidrMask) - 2`.
 	//
 	// Valid values are `16--28`.
+	//
+	// Note this is specific to IPv4 addresses.
 	// Default: - Available IP space is evenly divided across subnets.
 	//
 	CidrMask *float64 `field:"optional" json:"cidrMask" yaml:"cidrMask"`
-	// Controls if a public IP is associated to an instance at launch.
-	// Default: true in Subnet.Public, false in Subnet.Private or Subnet.Isolated.
+	// This property is specific to dual stack VPCs.
+	//
+	// If set to false, then an IPv6 address will not be automatically assigned.
+	//
+	// Note this is specific to IPv6 addresses.
+	// Default: true.
+	//
+	Ipv6AssignAddressOnCreation *bool `field:"optional" json:"ipv6AssignAddressOnCreation" yaml:"ipv6AssignAddressOnCreation"`
+	// Controls if a public IPv4 address is associated to an instance at launch.
+	//
+	// Note this is specific to IPv4 addresses.
+	// Default: true in Subnet.Public of IPV4_ONLY VPCs, false otherwise
 	//
 	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 	// Controls if subnet IP space needs to be reserved.

@@ -31,6 +31,30 @@ func (s *jsiiProxy_Subnet) validateAddDefaultNatRouteParameters(natGatewayId *st
 	return nil
 }
 
+func (s *jsiiProxy_Subnet) validateAddIpv6DefaultEgressOnlyInternetRouteParameters(gatewayId *string) error {
+	if gatewayId == nil {
+		return fmt.Errorf("parameter gatewayId is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_Subnet) validateAddIpv6DefaultInternetRouteParameters(gatewayId *string) error {
+	if gatewayId == nil {
+		return fmt.Errorf("parameter gatewayId is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (s *jsiiProxy_Subnet) validateAddIpv6Nat64RouteParameters(natGatewayId *string) error {
+	if natGatewayId == nil {
+		return fmt.Errorf("parameter natGatewayId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_Subnet) validateAddRouteParameters(id *string, options *AddRouteOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")

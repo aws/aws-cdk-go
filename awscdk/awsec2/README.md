@@ -292,6 +292,22 @@ ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 
 With this method of IP address management, no attempt is made to guess at subnet group sizes or to exhaustively allocate the IP range. All subnet groups must have an explicit `cidrMask` set as part of their subnet configuration, or `defaultSubnetIpv4NetmaskLength` must be set for a default size. If not, synthesis will fail and you must provide one or the other.
 
+### Dual Stack configuration
+
+To allocate both IPv4 and IPv6 addresses in your VPC, you can configure your VPC to have a dual stack protocol.
+
+```go
+ec2.NewVpc(this, jsii.String("DualStackVpc"), &VpcProps{
+	IpProtocol: ec2.IpProtocol_DUAL_STACK,
+})
+```
+
+By default, a dual stack VPC will create an Amazon provided IPv6 /56 CIDR block associated to the VPC. It will then assign /64 portions of the block to each subnet. For each subnet, auto-assigning an IPv6 address will be enabled, and auto-asigning a public IPv4 address will be disabled. An egress only internet gateway will be created for `PRIVATE_WITH_EGRESS` subnets, and IPv6 routes will be added for IGWs and EIGWs.
+
+Disabling the auto-assigning of a public IPv4 address by default can avoid the cost of public IPv4 addresses starting 2/1/2024. For use cases that need an IPv4 address, the `mapPublicIpOnLaunch` property in `subnetConfiguration` can be set to auto-assign the IPv4 address. Note that private IPv4 address allocation will not be changed.
+
+See [Advanced Subnet Configuration](#advanced-subnet-configuration) for all IPv6 specific properties.
+
 ### Reserving availability zones
 
 There are situations where the IP space for availability zones will
@@ -394,6 +410,38 @@ ApplicationSubnet3|`PRIVATE` |`10.0.5.0/24` |#3|Route to NAT in IngressSubnet3
 DatabaseSubnet1   |`ISOLATED`|`10.0.6.0/28` |#1|Only routes within the VPC
 DatabaseSubnet2   |`ISOLATED`|`10.0.6.16/28`|#2|Only routes within the VPC
 DatabaseSubnet3   |`ISOLATED`|`10.0.6.32/28`|#3|Only routes within the VPC
+
+#### Dual Stack Configurations
+
+Here is a break down of IPv4 and IPv6 specifc `subnetConfiguration` properties in a dual stack VPC:
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+	IpProtocol: ec2.IpProtocol_DUAL_STACK,
+
+	SubnetConfiguration: []subnetConfiguration{
+		&subnetConfiguration{
+			// general properties
+			Name: jsii.String("Public"),
+			SubnetType: ec2.SubnetType_PUBLIC,
+			Reserved: jsii.Boolean(false),
+
+			// IPv4 specific properties
+			MapPublicIpOnLaunch: jsii.Boolean(true),
+			CidrMask: jsii.Number(24),
+
+			// new IPv6 specific property
+			Ipv6AssignAddressOnCreation: jsii.Boolean(true),
+		},
+	},
+})
+```
+
+The property `mapPublicIpOnLaunch` controls if a public IPv4 address will be assigned. This defaults to `false` for dual stack VPCs to avoid inadvertant costs of having the public address. However, a public IP must be enabled (or otherwise configured with BYOIP or IPAM) in order for services that rely on the address to function.
+
+The `ipv6AssignAddressOnCreation` property controls the same behavior for the IPv6 address. It defaults to true.
+
+Using IPv6 specific properties in an IPv4 only VPC will result in errors.
 
 ### Accessing the Internet Gateway
 
@@ -1906,6 +1954,43 @@ keyPair := ec2.KeyPair_FromKeyPairAttributes(this, jsii.String("KeyPair"), &KeyP
 	Type: ec2.KeyPairType_RSA,
 })
 ```
+
+### Using IPv6 IPs
+
+Instances can be given IPv6 IPs by launching them into a subnet of a dual stack VPC.
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("Ip6VpcDualStack"), &VpcProps{
+	IpProtocol: ec2.IpProtocol_DUAL_STACK,
+	SubnetConfiguration: []subnetConfiguration{
+		&subnetConfiguration{
+			Name: jsii.String("Public"),
+			SubnetType: ec2.SubnetType_PUBLIC,
+			MapPublicIpOnLaunch: jsii.Boolean(true),
+		},
+		&subnetConfiguration{
+			Name: jsii.String("Private"),
+			SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+		},
+	},
+})
+
+instance := ec2.NewInstance(this, jsii.String("MyInstance"), &InstanceProps{
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T2, ec2.InstanceSize_MICRO),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
+	Vpc: vpc,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+	AllowAllIpv6Outbound: jsii.Boolean(true),
+})
+
+instance.Connections.AllowFrom(ec2.Peer_AnyIpv6(), ec2.Port_AllIcmpV6(), jsii.String("allow ICMPv6"))
+```
+
+Note to set `mapPublicIpOnLaunch` to true in the `subnetConfiguration`.
+
+Additionally, IPv6 support varies by instance type. Most instance types have IPv6 support with exception of m1-m3, c1, g2, and t1.micro. A full list can be found here: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI.
 
 ## VPC Flow Logs
 

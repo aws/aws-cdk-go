@@ -1,7 +1,7 @@
 package awsec2
 
 
-// Request for subnets Cidr to be allocated for a Vpc.
+// Request for subnets CIDR to be allocated for a Vpc.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,6 +18,7 @@ package awsec2
 //
 //   				// the properties below are optional
 //   				CidrMask: jsii.Number(123),
+//   				Ipv6AssignAddressOnCreation: jsii.Boolean(false),
 //   				MapPublicIpOnLaunch: jsii.Boolean(false),
 //   				Reserved: jsii.Boolean(false),
 //   			},

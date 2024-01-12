@@ -12,6 +12,18 @@ func (p *jsiiProxy_PrivateSubnet) validateAddDefaultNatRouteParameters(natGatewa
 	return nil
 }
 
+func (p *jsiiProxy_PrivateSubnet) validateAddIpv6DefaultEgressOnlyInternetRouteParameters(gatewayId *string) error {
+	return nil
+}
+
+func (p *jsiiProxy_PrivateSubnet) validateAddIpv6DefaultInternetRouteParameters(gatewayId *string) error {
+	return nil
+}
+
+func (p *jsiiProxy_PrivateSubnet) validateAddIpv6Nat64RouteParameters(natGatewayId *string) error {
+	return nil
+}
+
 func (p *jsiiProxy_PrivateSubnet) validateAddRouteParameters(id *string, options *AddRouteOptions) error {
 	return nil
 }

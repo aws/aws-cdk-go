@@ -68,6 +68,14 @@ func init() {
 		reflect.TypeOf((*AllocateCidrRequest)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AllocateIpv6CidrRequest",
+		reflect.TypeOf((*AllocateIpv6CidrRequest)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.AllocateVpcIpv6CidrRequest",
+		reflect.TypeOf((*AllocateVpcIpv6CidrRequest)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.AllocatedSubnet",
 		reflect.TypeOf((*AllocatedSubnet)(nil)).Elem(),
 	)
@@ -6351,6 +6359,10 @@ func init() {
 			"UNLIMITED": CpuCredits_UNLIMITED,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CreateIpv6CidrBlocksRequest",
+		reflect.TypeOf((*CreateIpv6CidrBlocksRequest)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ec2.DefaultInstanceTenancy",
 		reflect.TypeOf((*DefaultInstanceTenancy)(nil)).Elem(),
@@ -6736,6 +6748,19 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IIpAddresses{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_ec2.IIpv6Addresses",
+		reflect.TypeOf((*IIpv6Addresses)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "allocateSubnetsIpv6Cidr", GoMethod: "AllocateSubnetsIpv6Cidr"},
+			_jsii_.MemberMethod{JsiiMethod: "allocateVpcIpv6Cidr", GoMethod: "AllocateVpcIpv6Cidr"},
+			_jsii_.MemberProperty{JsiiProperty: "amazonProvided", GoGetter: "AmazonProvided"},
+			_jsii_.MemberMethod{JsiiMethod: "createIpv6CidrBlocks", GoMethod: "CreateIpv6CidrBlocks"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IIpv6Addresses{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -7682,6 +7707,22 @@ func init() {
 			return &jsiiProxy_IpAddresses{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ec2.IpProtocol",
+		reflect.TypeOf((*IpProtocol)(nil)).Elem(),
+		map[string]interface{}{
+			"IPV4_ONLY": IpProtocol_IPV4_ONLY,
+			"DUAL_STACK": IpProtocol_DUAL_STACK,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.Ipv6Addresses",
+		reflect.TypeOf((*Ipv6Addresses)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Ipv6Addresses{}
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.KeyPair",
 		reflect.TypeOf((*KeyPair)(nil)).Elem(),
@@ -8137,6 +8178,9 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultInternetRoute", GoMethod: "AddDefaultInternetRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultNatRoute", GoMethod: "AddDefaultNatRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6DefaultEgressOnlyInternetRoute", GoMethod: "AddIpv6DefaultEgressOnlyInternetRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6DefaultInternetRoute", GoMethod: "AddIpv6DefaultInternetRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6Nat64Route", GoMethod: "AddIpv6Nat64Route"},
 			_jsii_.MemberMethod{JsiiMethod: "addRoute", GoMethod: "AddRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateNetworkAcl", GoMethod: "AssociateNetworkAcl"},
@@ -8335,6 +8379,9 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultInternetRoute", GoMethod: "AddDefaultInternetRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultNatRoute", GoMethod: "AddDefaultNatRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6DefaultEgressOnlyInternetRoute", GoMethod: "AddIpv6DefaultEgressOnlyInternetRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6DefaultInternetRoute", GoMethod: "AddIpv6DefaultInternetRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6Nat64Route", GoMethod: "AddIpv6Nat64Route"},
 			_jsii_.MemberMethod{JsiiMethod: "addNatGateway", GoMethod: "AddNatGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "addRoute", GoMethod: "AddRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -8502,6 +8549,9 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultInternetRoute", GoMethod: "AddDefaultInternetRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultNatRoute", GoMethod: "AddDefaultNatRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6DefaultEgressOnlyInternetRoute", GoMethod: "AddIpv6DefaultEgressOnlyInternetRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6DefaultInternetRoute", GoMethod: "AddIpv6DefaultInternetRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "addIpv6Nat64Route", GoMethod: "AddIpv6Nat64Route"},
 			_jsii_.MemberMethod{JsiiMethod: "addRoute", GoMethod: "AddRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateNetworkAcl", GoMethod: "AssociateNetworkAcl"},
