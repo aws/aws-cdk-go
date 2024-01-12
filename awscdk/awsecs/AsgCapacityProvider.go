@@ -58,6 +58,8 @@ type AsgCapacityProvider interface {
 	// Default: Chosen by CloudFormation.
 	//
 	CapacityProviderName() *string
+	// Whether managed draining is enabled.
+	EnableManagedDraining() *bool
 	// Whether managed termination protection is enabled.
 	EnableManagedTerminationProtection() *bool
 	// Auto Scaling Group machineImageType.
@@ -98,6 +100,16 @@ func (j *jsiiProxy_AsgCapacityProvider) CapacityProviderName() *string {
 	_jsii_.Get(
 		j,
 		"capacityProviderName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AsgCapacityProvider) EnableManagedDraining() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"enableManagedDraining",
 		&returns,
 	)
 	return returns
