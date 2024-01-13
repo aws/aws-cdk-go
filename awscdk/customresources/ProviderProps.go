@@ -32,10 +32,6 @@ type ProviderProps struct {
 	// event, which will later be passed to `isComplete`. The `PhysicalResourceId`
 	// property must be included in the response.
 	OnEventHandler awslambda.IFunction `field:"required" json:"onEventHandler" yaml:"onEventHandler"`
-	// Whether logging for the waiter state machine is disabled.
-	// Default: - false.
-	//
-	DisableWaiterStateMachineLogging *bool `field:"optional" json:"disableWaiterStateMachineLogging" yaml:"disableWaiterStateMachineLogging"`
 	// The AWS Lambda function to invoke in order to determine if the operation is complete.
 	//
 	// This function will be called immediately after `onEvent` and then
@@ -103,9 +99,5 @@ type ProviderProps struct {
 	// Default: - the Vpc default strategy if not specified.
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
-	// Defines what execution history events of the waiter state machine are logged and where they are logged.
-	// Default: - A default log group will be created if logging for the waiter state machine is enabled.
-	//
-	WaiterStateMachineLogOptions *LogOptions `field:"optional" json:"waiterStateMachineLogOptions" yaml:"waiterStateMachineLogOptions"`
 }
 
