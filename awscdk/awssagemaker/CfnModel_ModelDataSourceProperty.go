@@ -15,6 +15,11 @@ package awssagemaker
 //   		CompressionType: jsii.String("compressionType"),
 //   		S3DataType: jsii.String("s3DataType"),
 //   		S3Uri: jsii.String("s3Uri"),
+//
+//   		// the properties below are optional
+//   		ModelAccessConfig: &ModelAccessConfigProperty{
+//   			AcceptEula: jsii.Boolean(false),
+//   		},
 //   	},
 //   }
 //

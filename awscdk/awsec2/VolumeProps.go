@@ -83,7 +83,7 @@ type VolumeProps struct {
 	//
 	// The maximum ratio is 50 IOPS/GiB for PROVISIONED_IOPS_SSD,
 	// and 500 IOPS/GiB for both PROVISIONED_IOPS_SSD_IO2 and GENERAL_PURPOSE_SSD_GP3.
-	// See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html
+	// See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html
 	// for more information.
 	//
 	// This parameter is valid only for PROVISIONED_IOPS_SSD, PROVISIONED_IOPS_SSD_IO2 and GENERAL_PURPOSE_SSD_GP3 volumes.
@@ -97,7 +97,7 @@ type VolumeProps struct {
 	// The size of the volume, in GiBs.
 	//
 	// You must specify either a snapshot ID or a volume size.
-	// See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html
+	// See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html
 	// for details on the allowable size for each type of volume.
 	// Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
 	//
@@ -109,7 +109,7 @@ type VolumeProps struct {
 	//
 	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The throughput that the volume supports, in MiB/s Takes a minimum of 125 and maximum of 1000.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-throughput
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-throughput
 	//
 	// Default: - 125 MiB/s. Only valid on gp3 volumes.
 	//

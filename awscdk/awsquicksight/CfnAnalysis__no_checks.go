@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnAnalysis) validateSetDefinitionParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnalysis) validateSetErrorsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAnalysis) validateSetNameParameters(val *string) error {
 	return nil
 }
@@ -101,6 +105,10 @@ func (j *jsiiProxy_CfnAnalysis) validateSetParametersParameters(val interface{})
 }
 
 func (j *jsiiProxy_CfnAnalysis) validateSetPermissionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnAnalysis) validateSetSheetsParameters(val interface{}) error {
 	return nil
 }
 

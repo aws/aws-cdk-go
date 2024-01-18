@@ -59,8 +59,6 @@ import (
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
 //   	PolicyStoreId: jsii.String("policyStoreId"),
 //   })
 //
@@ -438,6 +436,9 @@ func (j *jsiiProxy_CfnPolicy)SetDefinition(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnPolicy)SetPolicyStoreId(val *string) {
+	if err := j.validateSetPolicyStoreIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"policyStoreId",

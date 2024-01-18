@@ -1,7 +1,7 @@
 package awsfsx
 
 
-// Used to specify configuration options for a volume’s storage aggregate or aggregates.
+// Use to specify configuration options for a volume’s storage aggregate or aggregates.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,6 +30,9 @@ type CfnVolume_AggregateConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-aggregateconfiguration.html#cfn-fsx-volume-aggregateconfiguration-aggregates
 	//
 	Aggregates *[]*string `field:"optional" json:"aggregates" yaml:"aggregates"`
+	// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate.
+	//
+	// This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-aggregateconfiguration.html#cfn-fsx-volume-aggregateconfiguration-constituentsperaggregate
 	//
 	ConstituentsPerAggregate *float64 `field:"optional" json:"constituentsPerAggregate" yaml:"constituentsPerAggregate"`

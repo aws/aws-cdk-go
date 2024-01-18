@@ -27,9 +27,6 @@ import (
 //   	ServerCertificateArns: []*string{
 //   		jsii.String("serverCertificateArns"),
 //   	},
-//   	ServerCertificateConfig: &ServerCertificateConfigProperty{
-//   		EnableOcspCheck: jsii.Boolean(false),
-//   	},
 //   	ServiceType: jsii.String("serviceType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -98,8 +95,6 @@ type CfnDomainConfiguration interface {
 	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake.
 	ServerCertificateArns() *[]*string
 	SetServerCertificateArns(val *[]*string)
-	ServerCertificateConfig() interface{}
-	SetServerCertificateConfig(val interface{})
 	// The type of service delivered by the endpoint.
 	ServiceType() *string
 	SetServiceType(val *string)
@@ -415,16 +410,6 @@ func (j *jsiiProxy_CfnDomainConfiguration) ServerCertificateArns() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainConfiguration) ServerCertificateConfig() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"serverCertificateConfig",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDomainConfiguration) ServiceType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -572,17 +557,6 @@ func (j *jsiiProxy_CfnDomainConfiguration)SetServerCertificateArns(val *[]*strin
 	_jsii_.Set(
 		j,
 		"serverCertificateArns",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDomainConfiguration)SetServerCertificateConfig(val interface{}) {
-	if err := j.validateSetServerCertificateConfigParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"serverCertificateConfig",
 		val,
 	)
 }

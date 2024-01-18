@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -23,6 +24,14 @@ func (n *jsiiProxy_NetworkLoadBalancer) validateAddListenerParameters(id *string
 	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) validateAddSecurityGroupParameters(securityGroup awsec2.ISecurityGroup) error {
+	if securityGroup == nil {
+		return fmt.Errorf("parameter securityGroup is required, but nil was provided")
 	}
 
 	return nil

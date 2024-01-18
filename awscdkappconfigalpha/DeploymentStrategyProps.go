@@ -21,15 +21,15 @@ type DeploymentStrategyProps struct {
 	// or RolloutStrategy.CANARY_10_PERCENT_20_MINUTES.
 	// Experimental.
 	RolloutStrategy RolloutStrategy `field:"required" json:"rolloutStrategy" yaml:"rolloutStrategy"`
+	// A name for the deployment strategy.
+	// Default: - A name is generated.
+	//
+	// Experimental.
+	DeploymentStrategyName *string `field:"optional" json:"deploymentStrategyName" yaml:"deploymentStrategyName"`
 	// A description of the deployment strategy.
 	// Default: - No description.
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// A name for the deployment strategy.
-	// Default: - A name is generated.
-	//
-	// Experimental.
-	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

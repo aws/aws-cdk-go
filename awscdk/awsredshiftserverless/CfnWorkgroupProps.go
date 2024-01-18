@@ -53,7 +53,7 @@ type CfnWorkgroupProps struct {
 	BaseCapacity *float64 `field:"optional" json:"baseCapacity" yaml:"baseCapacity"`
 	// A list of parameters to set for finer control over a database.
 	//
-	// Available options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
+	// Available options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-configparameters
 	//
 	ConfigParameters interface{} `field:"optional" json:"configParameters" yaml:"configParameters"`

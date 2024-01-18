@@ -64,6 +64,7 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::DynamoDB::Table`
 	// - `AWS::Lambda::Function`
 	// - `AWS::S3::Object`
+	// - `AWS::AppConfig::Configuration`
 	// - `AWS::B2BI::Transformer`
 	// - `AWS::Bedrock::AgentAlias`
 	// - `AWS::Bedrock::KnowledgeBase`
@@ -81,6 +82,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::GreengrassV2::ComponentVersion`
 	// - `AWS::GreengrassV2::Deployment`
 	// - `AWS::GuardDuty::Detector`
+	// - `AWS::IoT::Certificate`
+	// - `AWS::IoT::Thing`
+	// - `AWS::IoTSiteWise::Asset`
+	// - `AWS::IoTSiteWise::TimeSeries`
 	// - `AWS::IoTTwinMaker::Entity`
 	// - `AWS::IoTTwinMaker::Workspace`
 	// - `AWS::KendraRanking::ExecutionPlan`
@@ -129,6 +134,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When resources.type equals `AWS::Lambda::Function` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:lambda:<region>:<account_ID>:function:<function_name>`
+	//
+	// When resources.type equals `AWS::AppConfig::Configuration` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:appconfig:<region>:<account_ID>:application/<application_ID>/environment/<environment_ID>/configuration/<configuration_profile_ID>`
 	//
 	// When resources.type equals `AWS::B2BI::Transformer` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
@@ -197,6 +206,22 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::GuardDuty::Detector` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:guardduty:<region>:<account_ID>:detector/<detector_ID>`
+	//
+	// When `resources.type` equals `AWS::IoT::Certificate` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:iot:<region>:<account_ID>:cert/<certificate_ID>`
+	//
+	// When `resources.type` equals `AWS::IoT::Thing` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:iot:<region>:<account_ID>:thing/<thing_ID>`
+	//
+	// When `resources.type` equals `AWS::IoTSiteWise::Asset` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:iotsitewise:<region>:<account_ID>:asset/<asset_ID>`
+	//
+	// When `resources.type` equals `AWS::IoTSiteWise::TimeSeries` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:iotsitewise:<region>:<account_ID>:timeseries/<timeseries_ID>`
 	//
 	// When `resources.type` equals `AWS::IoTTwinMaker::Entity` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

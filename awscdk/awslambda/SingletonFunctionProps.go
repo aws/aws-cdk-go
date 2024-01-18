@@ -68,7 +68,7 @@ type SingletonFunctionProps struct {
 	//
 	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// Sets the application log level for the function.
-	// Default: INFO.
+	// Default: "INFO".
 	//
 	ApplicationLogLevel *string `field:"optional" json:"applicationLogLevel" yaml:"applicationLogLevel"`
 	// The system architectures compatible with this lambda function.
@@ -159,11 +159,16 @@ type SingletonFunctionProps struct {
 	//
 	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// Sets the logFormat for the function.
-	// Default: Text format.
+	// Default: "Text".
 	//
 	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
-	// Sets the log group name for the function.
-	// Default: `/aws/lambda/${this.functionName}` default log group name created by Lambda
+	// The log group the function sends logs to.
+	//
+	// By default, Lambda functions send logs to an automatically created default log group named /aws/lambda/<function name>.
+	// However you cannot change the properties of this auto-created log group using the AWS CDK, e.g. you cannot set a different log retention.
+	//
+	// Use the `logGroup` property to create a fully customizable LogGroup ahead of time, and instruct the Lambda function to send logs to it.
+	// Default: `/aws/lambda/${this.functionName}` - default log group created by Lambda
 	//
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs.
@@ -173,16 +178,27 @@ type SingletonFunctionProps struct {
 	// remove the retention policy, set the value to `INFINITE`.
 	// Default: logs.RetentionDays.INFINITE
 	//
+	// Deprecated: instead create a fully customizable log group with `logs.LogGroup` and use the `logGroup` property to instruct the Lambda function to send logs to it.
+	// Migrating from `logRetention` to `logGroup` will cause the name of the log group to change.
+	// Users and code and referencing the name verbatim will have to adjust.
+	//
+	// In AWS CDK code, you can access the log group name directly from the LogGroup construct:
+	// ```ts
+	// declare const myLogGroup: logs.LogGroup;
+	// myLogGroup.logGroupName;
+	// ```.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
 	// Default: - Default AWS SDK retry options.
 	//
+	// Deprecated: instead use `logGroup` to create a fully customizable log group and instruct the Lambda function to send logs to it.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
 	// Default: - A new role is created.
 	//
+	// Deprecated: instead use `logGroup` to create a fully customizable log group and instruct the Lambda function to send logs to it.
 	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
@@ -250,7 +266,7 @@ type SingletonFunctionProps struct {
 	//
 	SnapStart SnapStartConf `field:"optional" json:"snapStart" yaml:"snapStart"`
 	// Sets the system log level for the function.
-	// Default: INFO.
+	// Default: "INFO".
 	//
 	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`
 	// The function execution time (in seconds) after which Lambda terminates the function.

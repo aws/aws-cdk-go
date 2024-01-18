@@ -28,6 +28,7 @@ import (
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
+//   			ConfiguredAtLaunch: jsii.Boolean(false),
 //   			DockerVolumeConfiguration: &DockerVolumeConfiguration{
 //   				Driver: jsii.String("driver"),
 //   				Scope: awscdk.Aws_ecs.Scope_TASK,

@@ -449,6 +449,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_codepipeline_actions.ICustomEventRule",
+		reflect.TypeOf((*ICustomEventRule)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "eventPattern", GoGetter: "EventPattern"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleName", GoGetter: "RuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ICustomEventRule{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_codepipeline_actions.IJenkinsProvider",
 		reflect.TypeOf((*IJenkinsProvider)(nil)).Elem(),
 		[]_jsii_.Member{

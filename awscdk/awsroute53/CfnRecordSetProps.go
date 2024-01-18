@@ -140,8 +140,6 @@ type CfnRecordSetProps struct {
 	//
 	// For example, if you want all queries from Africa to be routed to a web server with an IP address of `192.0.2.111` , create a resource record set with a `Type` of `A` and a `ContinentCode` of `AF` .
 	//
-	// > Although creating geolocation and geolocation alias resource record sets in a private hosted zone is allowed, it's not supported.
-	//
 	// If you create separate resource record sets for overlapping geographic regions (for example, one resource record set for a continent and one for a country on the same continent), priority goes to the smallest geographic region. This allows you to route most queries for a continent to one resource and to route queries for a country on that continent to a different resource.
 	//
 	// You can't create two geolocation resource record sets that specify the same geographic location.

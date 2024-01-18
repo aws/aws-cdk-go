@@ -37,7 +37,9 @@ import (
 type CfnEventSubscriptionProps struct {
 	// The Amazon Resource Name (ARN) of the SNS topic created for event notification.
 	//
-	// The ARN is created by Amazon SNS when you create a topic and subscribe to it.
+	// SNS automatically creates the ARN when you create a topic and subscribe to it.
+	//
+	// > RDS doesn't support FIFO (first in, first out) topics. For more information, see [Message ordering and deduplication (FIFO topics)](https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html) in the *Amazon Simple Notification Service Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-snstopicarn
 	//
 	SnsTopicArn *string `field:"required" json:"snsTopicArn" yaml:"snsTopicArn"`

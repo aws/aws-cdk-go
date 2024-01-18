@@ -17,34 +17,38 @@ import (
 // This creates a service using the Fargate launch type on an ECS cluster.
 //
 // Example:
-//   import cw "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var elbAlarm alarm
 //
-//
+//   serviceName := "MyFargateService"
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	ServiceName: jsii.String(ServiceName),
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	DeploymentAlarms: &DeploymentAlarmConfig{
-//   		AlarmNames: []*string{
-//   			elbAlarm.AlarmName,
-//   		},
-//   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
-//   	},
 //   })
 //
-//   // Defining a deployment alarm after the service has been created
-//   cpuAlarmName := "MyCpuMetricAlarm"
-//   cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
-//   	AlarmName: cpuAlarmName,
-//   	Metric: service.MetricCpuUtilization(),
+//   cpuMetric := cw.NewMetric(&MetricProps{
+//   	MetricName: jsii.String("CPUUtilization"),
+//   	Namespace: jsii.String("AWS/ECS"),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	Statistic: jsii.String("Average"),
+//   	DimensionsMap: map[string]*string{
+//   		"ClusterName": cluster.clusterName,
+//   		// Using `service.serviceName` here will cause a circular dependency
+//   		"ServiceName": serviceName,
+//   	},
+//   })
+//   myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
+//   	AlarmName: jsii.String("cpuAlarmName"),
+//   	Metric: cpuMetric,
 //   	EvaluationPeriods: jsii.Number(2),
 //   	Threshold: jsii.Number(80),
 //   })
+//
 //   service.EnableDeploymentAlarms([]*string{
-//   	cpuAlarmName,
+//   	myAlarm.AlarmName,
 //   }, &DeploymentAlarmOptions{
 //   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
 //   })
@@ -102,6 +106,8 @@ type FargateService interface {
 	Stack() awscdk.Stack
 	// The task definition to use for tasks in the service.
 	TaskDefinition() TaskDefinition
+	// Adds a volume to the Service.
+	AddVolume(volume ServiceManagedVolume)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -591,6 +597,17 @@ func FargateService_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (f *jsiiProxy_FargateService) AddVolume(volume ServiceManagedVolume) {
+	if err := f.validateAddVolumeParameters(volume); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"addVolume",
+		[]interface{}{volume},
+	)
 }
 
 func (f *jsiiProxy_FargateService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

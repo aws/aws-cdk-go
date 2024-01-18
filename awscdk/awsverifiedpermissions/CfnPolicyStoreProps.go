@@ -14,6 +14,7 @@ package awsverifiedpermissions
 //   	},
 //
 //   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	Schema: &SchemaDefinitionProperty{
 //   		CedarJson: jsii.String("cedarJson"),
 //   	},
@@ -30,6 +31,10 @@ type CfnPolicyStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-validationsettings
 	//
 	ValidationSettings interface{} `field:"required" json:"validationSettings" yaml:"validationSettings"`
+	// Descriptive text that you can provide to help with identification of the current policy store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Creates or updates the policy schema in a policy store.
 	//
 	// Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.

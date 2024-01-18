@@ -330,6 +330,25 @@ firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStream
 See: [Data Delivery Frequency](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#frequency)
 in the *Kinesis Data Firehose Developer Guide*.
 
+Zero buffering, where Amazon Kinesis Data Firehose stream can be configured to not buffer data before delivery, is supported by
+setting the "buffer interval" to 0.
+
+```go
+// Setup zero buffering
+var bucket bucket
+
+destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
+	BufferingInterval: awscdk.Duration_Seconds(jsii.Number(0)),
+})
+firehose.NewDeliveryStream(this, jsii.String("ZeroBufferDeliveryStream"), &DeliveryStreamProps{
+	Destinations: []iDestination{
+		destination,
+	},
+})
+```
+
+See: [Buffering Hints](https://docs.aws.amazon.com/firehose/latest/dev/buffering-hints.html).
+
 ## Destination Encryption
 
 Your data can be automatically encrypted when it is delivered to S3 as a final or an
@@ -525,6 +544,17 @@ firehose.NewDeliveryStream(stack, jsii.String("Delivery Stream"), &DeliveryStrea
 				BufferingSize: cdk.Size_*Mebibytes(jsii.Number(1)),
 				EncryptionKey: backupKey,
 			},
+		}),
+	},
+})
+
+firehose.NewDeliveryStream(stack, jsii.String("ZeroBufferingDeliveryStream"), &DeliveryStreamProps{
+	Destinations: []*iDestination{
+		destinations.NewS3Bucket(bucket, &S3BucketProps{
+			Compression: destinations.Compression_GZIP(),
+			DataOutputPrefix: jsii.String("regularPrefix"),
+			ErrorOutputPrefix: jsii.String("errorPrefix"),
+			BufferingInterval: cdk.Duration_*Seconds(jsii.Number(0)),
 		}),
 	},
 })

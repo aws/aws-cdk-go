@@ -40,6 +40,8 @@ import (
 type NetworkLoadBalancer interface {
 	BaseLoadBalancer
 	INetworkLoadBalancer
+	// The network connections associated with this resource.
+	Connections() awsec2.Connections
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -84,7 +86,7 @@ type NetworkLoadBalancer interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
-	// Security groups associated with this load balancer.
+	// After the implementation of `IConnectable` (see https://github.com/aws/aws-cdk/pull/28494), the default value for `securityGroups` is set by the `ec2.Connections` constructor to an empty array. To keep backward compatibility (`securityGroups` is `undefined` if the related property is not specified) a getter has been added.
 	SecurityGroups() *[]*string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
@@ -96,6 +98,8 @@ type NetworkLoadBalancer interface {
 	//
 	// Returns: The newly created listener.
 	AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener
+	// Add a security group to this load balancer.
+	AddSecurityGroup(securityGroup awsec2.ISecurityGroup)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -189,6 +193,16 @@ type NetworkLoadBalancer interface {
 type jsiiProxy_NetworkLoadBalancer struct {
 	jsiiProxy_BaseLoadBalancer
 	jsiiProxy_INetworkLoadBalancer
+}
+
+func (j *jsiiProxy_NetworkLoadBalancer) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_NetworkLoadBalancer) Env() *awscdk.ResourceEnvironment {
@@ -483,6 +497,17 @@ func (n *jsiiProxy_NetworkLoadBalancer) AddListener(id *string, props *BaseNetwo
 	)
 
 	return returns
+}
+
+func (n *jsiiProxy_NetworkLoadBalancer) AddSecurityGroup(securityGroup awsec2.ISecurityGroup) {
+	if err := n.validateAddSecurityGroupParameters(securityGroup); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"addSecurityGroup",
+		[]interface{}{securityGroup},
+	)
 }
 
 func (n *jsiiProxy_NetworkLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

@@ -12,8 +12,8 @@ package awscdkappconfigalpha
 //
 //   extensionOptions := &ExtensionOptions{
 //   	Description: jsii.String("description"),
+//   	ExtensionName: jsii.String("extensionName"),
 //   	LatestVersionNumber: jsii.Number(123),
-//   	Name: jsii.String("name"),
 //   	Parameters: []*parameter{
 //   		parameter,
 //   	},
@@ -26,6 +26,11 @@ type ExtensionOptions struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the extension.
+	// Default: - A name is generated.
+	//
+	// Experimental.
+	ExtensionName *string `field:"optional" json:"extensionName" yaml:"extensionName"`
 	// The latest version number of the extension.
 	//
 	// When you create a new version,
@@ -35,11 +40,6 @@ type ExtensionOptions struct {
 	//
 	// Experimental.
 	LatestVersionNumber *float64 `field:"optional" json:"latestVersionNumber" yaml:"latestVersionNumber"`
-	// The name of the extension.
-	// Default: - A name is generated.
-	//
-	// Experimental.
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The parameters accepted for the extension.
 	// Default: - None.
 	//

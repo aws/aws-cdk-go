@@ -4,6 +4,10 @@ package awsecs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (b *jsiiProxy_BaseService) validateAddVolumeParameters(volume ServiceManagedVolume) error {
+	return nil
+}
+
 func (b *jsiiProxy_BaseService) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

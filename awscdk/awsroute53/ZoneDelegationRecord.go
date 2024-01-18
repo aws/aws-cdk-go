@@ -30,7 +30,9 @@ import (
 //   	DeleteExisting: jsii.Boolean(false),
 //   	GeoLocation: geoLocation,
 //   	RecordName: jsii.String("recordName"),
+//   	SetIdentifier: jsii.String("setIdentifier"),
 //   	Ttl: cdk.Duration_Minutes(jsii.Number(30)),
+//   	Weight: jsii.Number(123),
 //   })
 //
 type ZoneDelegationRecord interface {

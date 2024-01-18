@@ -245,6 +245,7 @@ import (
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
 //   	Volumes: []interface{}{
 //   		&VolumeProperty{
+//   			ConfiguredAtLaunch: jsii.Boolean(false),
 //   			DockerVolumeConfiguration: &DockerVolumeConfigurationProperty{
 //   				Autoprovision: jsii.Boolean(false),
 //   				Driver: jsii.String("driver"),

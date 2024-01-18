@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnThreatIntelSet) validateSetLocationParameters(val *string)
 	return nil
 }
 
-func (j *jsiiProxy_CfnThreatIntelSet) validateSetNameParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnThreatIntelSet) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

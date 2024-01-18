@@ -8,34 +8,38 @@ import (
 // The properties for defining a service using the Fargate launch type.
 //
 // Example:
-//   import cw "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var elbAlarm alarm
 //
-//
+//   serviceName := "MyFargateService"
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   	ServiceName: jsii.String(ServiceName),
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	DeploymentAlarms: &DeploymentAlarmConfig{
-//   		AlarmNames: []*string{
-//   			elbAlarm.AlarmName,
-//   		},
-//   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
-//   	},
 //   })
 //
-//   // Defining a deployment alarm after the service has been created
-//   cpuAlarmName := "MyCpuMetricAlarm"
-//   cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
-//   	AlarmName: cpuAlarmName,
-//   	Metric: service.MetricCpuUtilization(),
+//   cpuMetric := cw.NewMetric(&MetricProps{
+//   	MetricName: jsii.String("CPUUtilization"),
+//   	Namespace: jsii.String("AWS/ECS"),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	Statistic: jsii.String("Average"),
+//   	DimensionsMap: map[string]*string{
+//   		"ClusterName": cluster.clusterName,
+//   		// Using `service.serviceName` here will cause a circular dependency
+//   		"ServiceName": serviceName,
+//   	},
+//   })
+//   myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
+//   	AlarmName: jsii.String("cpuAlarmName"),
+//   	Metric: cpuMetric,
 //   	EvaluationPeriods: jsii.Number(2),
 //   	Threshold: jsii.Number(80),
 //   })
+//
 //   service.EnableDeploymentAlarms([]*string{
-//   	cpuAlarmName,
+//   	myAlarm.AlarmName,
 //   }, &DeploymentAlarmOptions{
 //   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
 //   })
@@ -116,6 +120,13 @@ type FargateServiceProps struct {
 	// Default: - Uses the revision of the passed task definition deployed by CloudFormation.
 	//
 	TaskDefinitionRevision TaskDefinitionRevision `field:"optional" json:"taskDefinitionRevision" yaml:"taskDefinitionRevision"`
+	// Configuration details for a volume used by the service.
+	//
+	// This allows you to specify
+	// details about the EBS volume that can be attched to ECS tasks.
+	// Default: - undefined.
+	//
+	VolumeConfigurations *[]ServiceManagedVolume `field:"optional" json:"volumeConfigurations" yaml:"volumeConfigurations"`
 	// The task definition to use for tasks in the service.
 	//
 	// [disable-awslint:ref-via-interface].

@@ -36,6 +36,7 @@ import (
 //   	SnapshotIdentifier: jsii.String("snapshotIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	StorageEncrypted: jsii.Boolean(false),
+//   	StorageType: jsii.String("storageType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -217,6 +218,18 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-storageencrypted
 	//
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
+	// The storage type to associate with the DB cluster.
+	//
+	// For information on storage types for Amazon DocumentDB clusters, see Cluster storage configurations in the *Amazon DocumentDB Developer Guide* .
+	//
+	// Valid values for storage type - `standard | iopt1`
+	//
+	// Default value is `standard`
+	//
+	// > When you create a DocumentDB DB cluster with the storage type set to `iopt1` , the storage type is returned in the response. The storage type isn't returned when you set it to `standard` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-storagetype
+	//
+	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 	// The tags to be assigned to the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-tags
 	//

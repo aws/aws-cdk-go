@@ -154,7 +154,7 @@ type CfnServerlessCache interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// If no subnet IDs are given and your VPC is in SFO, then ElastiCache will select 2 default subnets across AZs in your VPC.
+	// If no subnet IDs are given and your VPC is in us-west-1, then ElastiCache will select 2 default subnets across AZs in your VPC.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
 	// A list of tags to be added to this resource.

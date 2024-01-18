@@ -44,6 +44,9 @@ package awsacmpca
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   crlConfigurationProperty := &CrlConfigurationProperty{
+//   	CrlDistributionPointExtensionConfiguration: &CrlDistributionPointExtensionConfigurationProperty{
+//   		OmitExtension: jsii.Boolean(false),
+//   	},
 //   	CustomCname: jsii.String("customCname"),
 //   	Enabled: jsii.Boolean(false),
 //   	ExpirationInDays: jsii.Number(123),
@@ -54,6 +57,10 @@ package awsacmpca
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
 //
 type CfnCertificateAuthority_CrlConfigurationProperty struct {
+	// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-crldistributionpointextensionconfiguration
+	//
+	CrlDistributionPointExtensionConfiguration interface{} `field:"optional" json:"crlDistributionPointExtensionConfiguration" yaml:"crlDistributionPointExtensionConfiguration"`
 	// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point.
 	//
 	// Use this value if you don't want the name of your S3 bucket to be public.

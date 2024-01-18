@@ -92,6 +92,8 @@ type BaseService interface {
 	Stack() awscdk.Stack
 	// The task definition to use for tasks in the service.
 	TaskDefinition() TaskDefinition
+	// Adds a volume to the Service.
+	AddVolume(volume ServiceManagedVolume)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -530,6 +532,17 @@ func BaseService_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (b *jsiiProxy_BaseService) AddVolume(volume ServiceManagedVolume) {
+	if err := b.validateAddVolumeParameters(volume); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"addVolume",
+		[]interface{}{volume},
+	)
 }
 
 func (b *jsiiProxy_BaseService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

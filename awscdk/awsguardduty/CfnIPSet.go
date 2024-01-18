@@ -21,11 +21,11 @@ import (
 //   cfnIPSet := awscdk.Aws_guardduty.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &CfnIPSetProps{
 //   	Format: jsii.String("format"),
 //   	Location: jsii.String("location"),
-//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Activate: jsii.Boolean(false),
 //   	DetectorId: jsii.String("detectorId"),
+//   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -488,9 +488,6 @@ func (j *jsiiProxy_CfnIPSet)SetLocation(val *string) {
 }
 
 func (j *jsiiProxy_CfnIPSet)SetName(val *string) {
-	if err := j.validateSetNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"name",

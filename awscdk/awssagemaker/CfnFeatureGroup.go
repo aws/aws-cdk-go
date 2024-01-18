@@ -47,6 +47,13 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	ThroughputConfig: &ThroughputConfigProperty{
+//   		ThroughputMode: jsii.String("throughputMode"),
+//
+//   		// the properties below are optional
+//   		ProvisionedReadCapacityUnits: jsii.Number(123),
+//   		ProvisionedWriteCapacityUnits: jsii.Number(123),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html
@@ -120,6 +127,9 @@ type CfnFeatureGroup interface {
 	// Tags used to define a `FeatureGroup` .
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// Used to set feature group throughput configuration.
+	ThroughputConfig() interface{}
+	SetThroughputConfig(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -467,6 +477,16 @@ func (j *jsiiProxy_CfnFeatureGroup) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFeatureGroup) ThroughputConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"throughputConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFeatureGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -598,6 +618,17 @@ func (j *jsiiProxy_CfnFeatureGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFeatureGroup)SetThroughputConfig(val interface{}) {
+	if err := j.validateSetThroughputConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"throughputConfig",
 		val,
 	)
 }

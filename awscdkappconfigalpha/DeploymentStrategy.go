@@ -286,7 +286,7 @@ func DeploymentStrategy_FromDeploymentStrategyArn(scope constructs.Construct, id
 
 // Imports a deployment strategy into the CDK using its ID.
 // Experimental.
-func DeploymentStrategy_FromDeploymentStrategyId(scope constructs.Construct, id *string, deploymentStrategyId *string) IDeploymentStrategy {
+func DeploymentStrategy_FromDeploymentStrategyId(scope constructs.Construct, id *string, deploymentStrategyId DeploymentStrategyId) IDeploymentStrategy {
 	_init_.Initialize()
 
 	if err := validateDeploymentStrategy_FromDeploymentStrategyIdParameters(scope, id, deploymentStrategyId); err != nil {

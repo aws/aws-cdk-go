@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -37,6 +38,10 @@ import (
 //
 type DatabaseCluster interface {
 	DatabaseClusterBase
+	// The log group is created when `cloudwatchLogsExports` is set.
+	//
+	// Each export value will create a separate log group.
+	CloudwatchLogGroups() *map[string]awslogs.ILogGroup
 	// The endpoint to use for read/write operations.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
@@ -208,6 +213,16 @@ type DatabaseCluster interface {
 // The jsii proxy struct for DatabaseCluster
 type jsiiProxy_DatabaseCluster struct {
 	jsiiProxy_DatabaseClusterBase
+}
+
+func (j *jsiiProxy_DatabaseCluster) CloudwatchLogGroups() *map[string]awslogs.ILogGroup {
+	var returns *map[string]awslogs.ILogGroup
+	_jsii_.Get(
+		j,
+		"cloudwatchLogGroups",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DatabaseCluster) ClusterEndpoint() Endpoint {

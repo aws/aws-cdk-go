@@ -11,6 +11,7 @@ import (
 
 // A network load balancer.
 type INetworkLoadBalancer interface {
+	awsec2.IConnectable
 	ILoadBalancerV2
 	awsec2.IVpcEndpointServiceLoadBalancer
 	// Add a listener to this load balancer.
@@ -31,6 +32,7 @@ type INetworkLoadBalancer interface {
 
 // The jsii proxy for INetworkLoadBalancer
 type jsiiProxy_INetworkLoadBalancer struct {
+	internal.Type__awsec2IConnectable
 	jsiiProxy_ILoadBalancerV2
 	internal.Type__awsec2IVpcEndpointServiceLoadBalancer
 }
@@ -97,6 +99,16 @@ func (j *jsiiProxy_INetworkLoadBalancer) Vpc() awsec2.IVpc {
 	_jsii_.Get(
 		j,
 		"vpc",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INetworkLoadBalancer) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
 		&returns,
 	)
 	return returns

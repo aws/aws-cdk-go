@@ -20,6 +20,11 @@ import (
 //   	SubnetId: jsii.String("subnetId"),
 //
 //   	// the properties below are optional
+//   	ConnectionTrackingSpecification: &ConnectionTrackingSpecificationProperty{
+//   		TcpEstablishedTimeout: jsii.Number(123),
+//   		UdpStreamTimeout: jsii.Number(123),
+//   		UdpTimeout: jsii.Number(123),
+//   	},
 //   	Description: jsii.String("description"),
 //   	EnablePrimaryIpv6: jsii.Boolean(false),
 //   	GroupSet: []*string{
@@ -69,7 +74,9 @@ type CfnNetworkInterface interface {
 	awscdk.ITaggable
 	// The ID of the network interface.
 	AttrId() *string
-	// The primary IPv6 address.
+	// The primary IPv6 address of the network interface.
+	//
+	// When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached.
 	AttrPrimaryIpv6Address() *string
 	// The primary private IP address of the network interface.
 	//
@@ -84,6 +91,9 @@ type CfnNetworkInterface interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// A connection tracking specification for the network interface.
+	ConnectionTrackingSpecification() interface{}
+	SetConnectionTrackingSpecification(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -91,7 +101,7 @@ type CfnNetworkInterface interface {
 	// A description for the network interface.
 	Description() *string
 	SetDescription(val *string)
-	// If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address.
+	// If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address.
 	EnablePrimaryIpv6() interface{}
 	SetEnablePrimaryIpv6(val interface{})
 	// The security group IDs associated with this network interface.
@@ -376,6 +386,16 @@ func (j *jsiiProxy_CfnNetworkInterface) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInterface) ConnectionTrackingSpecification() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"connectionTrackingSpecification",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInterface) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -641,6 +661,17 @@ func NewCfnNetworkInterface_Override(c CfnNetworkInterface, scope constructs.Con
 		"aws-cdk-lib.aws_ec2.CfnNetworkInterface",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterface)SetConnectionTrackingSpecification(val interface{}) {
+	if err := j.validateSetConnectionTrackingSpecificationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"connectionTrackingSpecification",
+		val,
 	)
 }
 

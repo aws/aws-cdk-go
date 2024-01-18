@@ -164,6 +164,16 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-appconfig-alpha.DeploymentStrategyId",
+		reflect.TypeOf((*DeploymentStrategyId)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DeploymentStrategyId{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-appconfig-alpha.DeploymentStrategyProps",
 		reflect.TypeOf((*DeploymentStrategyProps)(nil)).Elem(),
@@ -361,6 +371,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEnvironment", GoMethod: "AddEnvironment"},
 			_jsii_.MemberMethod{JsiiMethod: "addExistingEnvironment", GoMethod: "AddExistingEnvironment"},
+			_jsii_.MemberMethod{JsiiMethod: "addExtension", GoMethod: "AddExtension"},
 			_jsii_.MemberMethod{JsiiMethod: "addHostedConfiguration", GoMethod: "AddHostedConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "addSourcedConfiguration", GoMethod: "AddSourcedConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationArn", GoGetter: "ApplicationArn"},
@@ -371,6 +382,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "environments", GoGetter: "Environments"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "on", GoMethod: "On"},
+			_jsii_.MemberMethod{JsiiMethod: "onDeploymentBaking", GoMethod: "OnDeploymentBaking"},
+			_jsii_.MemberMethod{JsiiMethod: "onDeploymentComplete", GoMethod: "OnDeploymentComplete"},
+			_jsii_.MemberMethod{JsiiMethod: "onDeploymentRolledBack", GoMethod: "OnDeploymentRolledBack"},
+			_jsii_.MemberMethod{JsiiMethod: "onDeploymentStart", GoMethod: "OnDeploymentStart"},
+			_jsii_.MemberMethod{JsiiMethod: "onDeploymentStep", GoMethod: "OnDeploymentStep"},
+			_jsii_.MemberMethod{JsiiMethod: "preCreateHostedConfigurationVersion", GoMethod: "PreCreateHostedConfigurationVersion"},
+			_jsii_.MemberMethod{JsiiMethod: "preStartDeployment", GoMethod: "PreStartDeployment"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -599,16 +618,6 @@ func init() {
 		map[string]interface{}{
 			"X86_64": Platform_X86_64,
 			"ARM_64": Platform_ARM_64,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/aws-appconfig-alpha.PredefinedDeploymentStrategyId",
-		reflect.TypeOf((*PredefinedDeploymentStrategyId)(nil)).Elem(),
-		map[string]interface{}{
-			"CANARY_10_PERCENT_20_MINUTES": PredefinedDeploymentStrategyId_CANARY_10_PERCENT_20_MINUTES,
-			"LINEAR_50_PERCENT_EVERY_30_SECONDS": PredefinedDeploymentStrategyId_LINEAR_50_PERCENT_EVERY_30_SECONDS,
-			"LINEAR_20_PERCENT_EVERY_6_MINUTES": PredefinedDeploymentStrategyId_LINEAR_20_PERCENT_EVERY_6_MINUTES,
-			"ALL_AT_ONCE": PredefinedDeploymentStrategyId_ALL_AT_ONCE,
 		},
 	)
 	_jsii_.RegisterClass(

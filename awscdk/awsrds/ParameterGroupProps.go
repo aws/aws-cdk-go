@@ -1,5 +1,8 @@
 package awsrds
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for a parameter group.
 //
@@ -106,5 +109,9 @@ type ParameterGroupProps struct {
 	// Default: - None.
 	//
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
+	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
+	// Default: - RemovalPolicy.DESTROY
+	//
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

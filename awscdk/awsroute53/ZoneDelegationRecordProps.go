@@ -26,7 +26,9 @@ import (
 //   	DeleteExisting: jsii.Boolean(false),
 //   	GeoLocation: geoLocation,
 //   	RecordName: jsii.String("recordName"),
+//   	SetIdentifier: jsii.String("setIdentifier"),
 //   	Ttl: cdk.Duration_Minutes(jsii.Number(30)),
+//   	Weight: jsii.Number(123),
 //   }
 //
 type ZoneDelegationRecordProps struct {
@@ -61,10 +63,29 @@ type ZoneDelegationRecordProps struct {
 	// Default: zone root.
 	//
 	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
+	// A string used to distinguish between different records with the same combination of DNS name and type.
+	//
+	// It can only be set when either weight or geoLocation is defined.
+	//
+	// This parameter must be between 1 and 128 characters in length.
+	// Default: - Auto generated string.
+	//
+	SetIdentifier *string `field:"optional" json:"setIdentifier" yaml:"setIdentifier"`
 	// The resource record cache time to live (TTL).
 	// Default: Duration.minutes(30)
 	//
 	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
+	// Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+	//
+	// Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type.
+	// Route 53 then responds to queries based on the ratio of a resource's weight to the total.
+	//
+	// This value can be a number between 0 and 255.
+	// See: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-weighted.html
+	//
+	// Default: - Do not set weighted routing.
+	//
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 	// The name servers to report in the delegation records.
 	NameServers *[]*string `field:"required" json:"nameServers" yaml:"nameServers"`
 }

@@ -16,6 +16,14 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (b *jsiiProxy_BaseService) validateAddVolumeParameters(volume ServiceManagedVolume) error {
+	if volume == nil {
+		return fmt.Errorf("parameter volume is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (b *jsiiProxy_BaseService) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

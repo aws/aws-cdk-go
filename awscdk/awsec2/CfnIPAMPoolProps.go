@@ -37,6 +37,12 @@ import (
 //   	PublicIpSource: jsii.String("publicIpSource"),
 //   	PubliclyAdvertisable: jsii.Boolean(false),
 //   	SourceIpamPoolId: jsii.String("sourceIpamPoolId"),
+//   	SourceResource: &SourceResourceProperty{
+//   		ResourceId: jsii.String("resourceId"),
+//   		ResourceOwner: jsii.String("resourceOwner"),
+//   		ResourceRegion: jsii.String("resourceRegion"),
+//   		ResourceType: jsii.String("resourceType"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -126,6 +132,12 @@ type CfnIPAMPoolProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-sourceipampoolid
 	//
 	SourceIpamPoolId *string `field:"optional" json:"sourceIpamPoolId" yaml:"sourceIpamPoolId"`
+	// The resource associated with this pool's space.
+	//
+	// Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-sourceresource
+	//
+	SourceResource interface{} `field:"optional" json:"sourceResource" yaml:"sourceResource"`
 	// The key/value combination of a tag assigned to the resource.
 	//
 	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.

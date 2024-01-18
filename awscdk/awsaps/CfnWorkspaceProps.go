@@ -14,6 +14,7 @@ import (
 //   cfnWorkspaceProps := &CfnWorkspaceProps{
 //   	AlertManagerDefinition: jsii.String("alertManagerDefinition"),
 //   	Alias: jsii.String("alias"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		LogGroupArn: jsii.String("logGroupArn"),
 //   	},
@@ -42,6 +43,10 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-alias
 	//
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
+	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The LoggingConfiguration attribute is used to set the logging configuration for the workspace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html#cfn-aps-workspace-loggingconfiguration
 	//

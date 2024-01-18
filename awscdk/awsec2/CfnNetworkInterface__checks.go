@@ -179,6 +179,30 @@ func validateCfnNetworkInterface_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkInterface) validateSetConnectionTrackingSpecificationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnNetworkInterface_ConnectionTrackingSpecificationProperty:
+		val := val.(*CfnNetworkInterface_ConnectionTrackingSpecificationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnNetworkInterface_ConnectionTrackingSpecificationProperty:
+		val_ := val.(CfnNetworkInterface_ConnectionTrackingSpecificationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnNetworkInterface_ConnectionTrackingSpecificationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnNetworkInterface) validateSetEnablePrimaryIpv6Parameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -48,6 +49,10 @@ import (
 type DatabaseInstance interface {
 	DatabaseInstanceBase
 	IDatabaseInstance
+	// The log group is created when `cloudwatchLogsExports` is set.
+	//
+	// Each export value will create a separate log group.
+	CloudwatchLogGroups() *map[string]awslogs.ILogGroup
 	// Access to network connections.
 	Connections() awsec2.Connections
 	// The instance endpoint address.
@@ -174,6 +179,16 @@ type DatabaseInstance interface {
 type jsiiProxy_DatabaseInstance struct {
 	jsiiProxy_DatabaseInstanceBase
 	jsiiProxy_IDatabaseInstance
+}
+
+func (j *jsiiProxy_DatabaseInstance) CloudwatchLogGroups() *map[string]awslogs.ILogGroup {
+	var returns *map[string]awslogs.ILogGroup
+	_jsii_.Get(
+		j,
+		"cloudwatchLogGroups",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DatabaseInstance) Connections() awsec2.Connections {

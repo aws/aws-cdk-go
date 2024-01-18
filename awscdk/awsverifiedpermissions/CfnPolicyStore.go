@@ -24,6 +24,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	Schema: &SchemaDefinitionProperty{
 //   		CedarJson: jsii.String("cedarJson"),
 //   	},
@@ -47,6 +48,9 @@ type CfnPolicyStore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Descriptive text that you can provide to help with identification of the current policy store.
+	Description() *string
+	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -280,6 +284,16 @@ func (j *jsiiProxy_CfnPolicyStore) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPolicyStore) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicyStore) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -385,6 +399,14 @@ func NewCfnPolicyStore_Override(c CfnPolicyStore, scope constructs.Construct, id
 		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnPolicyStore)SetDescription(val *string) {
+	_jsii_.Set(
+		j,
+		"description",
+		val,
 	)
 }
 

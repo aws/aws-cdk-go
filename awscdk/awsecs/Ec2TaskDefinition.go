@@ -87,7 +87,9 @@ type Ec2TaskDefinition interface {
 	TaskDefinitionArn() *string
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
 	TaskRole() awsiam.IRole
-	// Adds a new container to the task definition.
+	// Tasks running in AWSVPC networking mode requires an additional environment variable for the region to be sourced.
+	//
+	// This override adds in the additional environment variable as required.
 	AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition
 	// Adds the specified extension to the task definition.
 	//

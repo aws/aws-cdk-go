@@ -104,6 +104,47 @@ codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
 })
 ```
 
+If you want to use a custom event for your `CodeCommitSourceAction`, you can pass in
+a `customEventRule` which needs an event pattern (see [here](https://docs.aws.amazon.com/codecommit/latest/userguide/monitoring-events.html)) and an `IRuleTarget` (see [here](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_events_targets-readme.html))
+
+```go
+var repo repository
+var lambdaFuntion function
+eventPattern := map[string]interface{}{
+	"detail-type": []*string{
+		jsii.String("CodeCommit Repository State Change"),
+	},
+	"resources": []*string{
+		jsii.String("foo"),
+	},
+	"source": []*string{
+		jsii.String("aws.codecommit"),
+	},
+	"detail": map[string][]*string{
+		"referenceType": []*string{
+			jsii.String("branch"),
+		},
+		"event": []*string{
+			jsii.String("referenceCreated"),
+			jsii.String("referenceUpdated"),
+		},
+		"referenceName": []*string{
+			jsii.String("master"),
+		},
+	},
+}
+sourceOutput := codepipeline.NewArtifact()
+sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+	ActionName: jsii.String("CodeCommit"),
+	Repository: repo,
+	Output: sourceOutput,
+	CustomEventRule: map[string]interface{}{
+		"eventPattern": eventPattern,
+		"target": targets.NewLambdaFunction(lambdaFuntion),
+	},
+})
+```
+
 ### GitHub
 
 If you want to use a GitHub repository as the source, you must create:

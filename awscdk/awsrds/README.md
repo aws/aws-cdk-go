@@ -1301,7 +1301,7 @@ store the data in highly durable storage, and manage the data with the CloudWatc
 instances and clusters; the types of logs available depend on the database type and engine being used.
 
 ```go
-import logs "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 var myLogsPublishingRole role
 var vpc vpc
 
@@ -1325,6 +1325,11 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 	CloudwatchLogsRetentionRole: myLogsPublishingRole,
 })
 
+// When 'cloudwatchLogsExports' is set, each export value creates its own log group in DB cluster.
+// Specify an export value to access its log group.
+errorLogGroup := cluster.cloudwatchLogGroups["error"]
+auditLogGroup := cluster.cloudwatchLogGroups.audit
+
 // Exporting logs from an instance
 instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
@@ -1334,7 +1339,13 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 	CloudwatchLogsExports: []*string{
 		jsii.String("postgresql"),
 	},
+	 // Export the PostgreSQL logs
+	CloudwatchLogsRetention: logs.RetentionDays_THREE_MONTHS,
 })
+
+// When 'cloudwatchLogsExports' is set, each export value creates its own log group in DB instance.
+// Specify an export value to access its log group.
+postgresqlLogGroup := instance.cloudwatchLogGroups["postgresql"]
 ```
 
 ## Option Groups

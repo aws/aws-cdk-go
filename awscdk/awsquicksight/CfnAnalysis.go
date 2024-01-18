@@ -47,6 +47,9 @@ type CfnAnalysis interface {
 	CreationStack() *[]*string
 	Definition() interface{}
 	SetDefinition(val interface{})
+	// Errors associated with the analysis.
+	Errors() interface{}
+	SetErrors(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -73,6 +76,9 @@ type CfnAnalysis interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// A list of the associated sheets with the unique identifier and name of each sheet.
+	Sheets() interface{}
+	SetSheets(val interface{})
 	// A source entity to use for the analysis that you're creating.
 	SourceEntity() interface{}
 	SetSourceEntity(val interface{})
@@ -371,6 +377,16 @@ func (j *jsiiProxy_CfnAnalysis) Definition() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnalysis) Errors() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"errors",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnalysis) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -426,6 +442,16 @@ func (j *jsiiProxy_CfnAnalysis) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAnalysis) Sheets() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sheets",
 		&returns,
 	)
 	return returns
@@ -582,6 +608,17 @@ func (j *jsiiProxy_CfnAnalysis)SetDefinition(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnAnalysis)SetErrors(val interface{}) {
+	if err := j.validateSetErrorsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"errors",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnAnalysis)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -611,6 +648,17 @@ func (j *jsiiProxy_CfnAnalysis)SetPermissions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"permissions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnalysis)SetSheets(val interface{}) {
+	if err := j.validateSetSheetsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sheets",
 		val,
 	)
 }

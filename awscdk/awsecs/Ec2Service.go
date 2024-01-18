@@ -100,6 +100,8 @@ type Ec2Service interface {
 	// For more information, see
 	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
 	AddPlacementStrategies(strategies ...PlacementStrategy)
+	// Adds a volume to the Service.
+	AddVolume(volume ServiceManagedVolume)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -614,6 +616,17 @@ func (e *jsiiProxy_Ec2Service) AddPlacementStrategies(strategies ...PlacementStr
 		e,
 		"addPlacementStrategies",
 		args,
+	)
+}
+
+func (e *jsiiProxy_Ec2Service) AddVolume(volume ServiceManagedVolume) {
+	if err := e.validateAddVolumeParameters(volume); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"addVolume",
+		[]interface{}{volume},
 	)
 }
 

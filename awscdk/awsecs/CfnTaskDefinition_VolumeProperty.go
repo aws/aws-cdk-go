@@ -11,6 +11,7 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   volumeProperty := &VolumeProperty{
+//   	ConfiguredAtLaunch: jsii.Boolean(false),
 //   	DockerVolumeConfiguration: &DockerVolumeConfigurationProperty{
 //   		Autoprovision: jsii.Boolean(false),
 //   		Driver: jsii.String("driver"),
@@ -43,6 +44,9 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html
 //
 type CfnTaskDefinition_VolumeProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-configuredatlaunch
+	//
+	ConfiguredAtLaunch interface{} `field:"optional" json:"configuredAtLaunch" yaml:"configuredAtLaunch"`
 	// This parameter is specified when you use Docker volumes.
 	//
 	// Windows containers only support the use of the `local` driver. To use bind mounts, specify the `host` parameter instead.

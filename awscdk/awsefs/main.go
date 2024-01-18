@@ -349,6 +349,9 @@ func init() {
 			"AFTER_30_DAYS": LifecyclePolicy_AFTER_30_DAYS,
 			"AFTER_60_DAYS": LifecyclePolicy_AFTER_60_DAYS,
 			"AFTER_90_DAYS": LifecyclePolicy_AFTER_90_DAYS,
+			"AFTER_180_DAYS": LifecyclePolicy_AFTER_180_DAYS,
+			"AFTER_270_DAYS": LifecyclePolicy_AFTER_270_DAYS,
+			"AFTER_365_DAYS": LifecyclePolicy_AFTER_365_DAYS,
 		},
 	)
 	_jsii_.RegisterEnum(

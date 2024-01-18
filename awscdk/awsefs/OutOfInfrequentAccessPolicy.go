@@ -11,6 +11,8 @@ package awsefs
 //   	PerformanceMode: efs.PerformanceMode_GENERAL_PURPOSE,
 //   	 // default
 //   	OutOfInfrequentAccessPolicy: efs.OutOfInfrequentAccessPolicy_AFTER_1_ACCESS,
+//   	 // files are not transitioned back from (infrequent access) IA to primary storage by default
+//   	TransitionToArchivePolicy: efs.LifecyclePolicy_AFTER_14_DAYS,
 //   })
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass

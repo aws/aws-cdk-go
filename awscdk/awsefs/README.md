@@ -28,6 +28,8 @@ fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSyste
 	PerformanceMode: efs.PerformanceMode_GENERAL_PURPOSE,
 	 // default
 	OutOfInfrequentAccessPolicy: efs.OutOfInfrequentAccessPolicy_AFTER_1_ACCESS,
+	 // files are not transitioned back from (infrequent access) IA to primary storage by default
+	TransitionToArchivePolicy: efs.LifecyclePolicy_AFTER_14_DAYS,
 })
 ```
 
@@ -53,6 +55,30 @@ importedFileSystem := efs.FileSystem_FromFileSystemAttributes(this, jsii.String(
 	}),
 })
 ```
+
+### One Zone file system
+
+To initialize a One Zone file system use the `oneZone` property:
+
+```go
+var vpc vpc
+
+
+efs.NewFileSystem(this, jsii.String("OneZoneFileSystem"), &FileSystemProps{
+	Vpc: Vpc,
+	OneZone: jsii.Boolean(true),
+})
+```
+
+⚠️ One Zone file systems are not compatible with the MAX_IO performance mode.
+
+⚠️ When `oneZone` is enabled, the file system is automatically placed in the first availability zone of the VPC.
+It is not currently possible to specify a different availability zone.
+
+⚠️ When `oneZone` is enabled, mount targets will be created only in the specified availability zone.
+This is to prevent deployment failures due to cross-AZ configurations.
+
+⚠️ When `oneZone` is enabled, `vpcSubnets` cannot be specified.
 
 ### IAM to control file system data access
 

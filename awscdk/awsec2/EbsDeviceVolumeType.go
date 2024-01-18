@@ -4,8 +4,8 @@ package awsec2
 // Supported EBS volume types for blockDevices.
 //
 // Example:
-//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
+//   domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
+//   	Version: es.ElasticsearchVersion_V7_4(),
 //   	Ebs: &EbsOptions{
 //   		VolumeSize: jsii.Number(100),
 //   		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD,

@@ -88,6 +88,8 @@ func TaskInput_FromJsonPathAt(path *string) TaskInput {
 // Use an object as task input.
 //
 // This object may contain JSON path fields as object values, if desired.
+//
+// Use `sfn.JsonPath.DISCARD` in place of `null` for languages that do not support `null` (i.e. Python).
 func TaskInput_FromObject(obj *map[string]interface{}) TaskInput {
 	_init_.Initialize()
 

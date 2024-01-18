@@ -270,6 +270,7 @@ package awsquicksight
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	TopicId: jsii.String("topicId"),
+//   	UserExperienceVersion: jsii.String("userExperienceVersion"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html
@@ -297,5 +298,9 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-topicid
 	//
 	TopicId *string `field:"optional" json:"topicId" yaml:"topicId"`
+	// The user experience version of a topic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-userexperienceversion
+	//
+	UserExperienceVersion *string `field:"optional" json:"userExperienceVersion" yaml:"userExperienceVersion"`
 }
 

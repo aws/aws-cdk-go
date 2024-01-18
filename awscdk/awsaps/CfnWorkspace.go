@@ -21,6 +21,7 @@ import (
 //   cfnWorkspace := awscdk.Aws_aps.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &CfnWorkspaceProps{
 //   	AlertManagerDefinition: jsii.String("alertManagerDefinition"),
 //   	Alias: jsii.String("alias"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		LogGroupArn: jsii.String("logGroupArn"),
 //   	},
@@ -65,6 +66,9 @@ type CfnWorkspace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
+	KmsKeyArn() *string
+	SetKmsKeyArn(val *string)
 	// The LoggingConfiguration attribute is used to set the logging configuration for the workspace.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
@@ -331,6 +335,16 @@ func (j *jsiiProxy_CfnWorkspace) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkspace) KmsKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkspace) LoggingConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -461,6 +475,14 @@ func (j *jsiiProxy_CfnWorkspace)SetAlias(val *string) {
 	_jsii_.Set(
 		j,
 		"alias",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkspace)SetKmsKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyArn",
 		val,
 	)
 }

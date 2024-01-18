@@ -151,10 +151,15 @@ func init() {
 		"aws-cdk-lib.aws_ecs.BaseLogDriverProps",
 		reflect.TypeOf((*BaseLogDriverProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.BaseMountPoint",
+		reflect.TypeOf((*BaseMountPoint)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.BaseService",
 		reflect.TypeOf((*BaseService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateCloudMapService", GoMethod: "AssociateCloudMapService"},
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -1109,6 +1114,10 @@ func init() {
 		"aws-cdk-lib.aws_ecs.ContainerImageConfig",
 		reflect.TypeOf((*ContainerImageConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ContainerMountPoint",
+		reflect.TypeOf((*ContainerMountPoint)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.CpuArchitecture",
 		reflect.TypeOf((*CpuArchitecture)(nil)).Elem(),
@@ -1163,12 +1172,25 @@ func init() {
 		"aws-cdk-lib.aws_ecs.DockerVolumeConfiguration",
 		reflect.TypeOf((*DockerVolumeConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.EBSTagSpecification",
+		reflect.TypeOf((*EBSTagSpecification)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.EbsPropagatedTagSource",
+		reflect.TypeOf((*EbsPropagatedTagSource)(nil)).Elem(),
+		map[string]interface{}{
+			"SERVICE": EbsPropagatedTagSource_SERVICE,
+			"TASK_DEFINITION": EbsPropagatedTagSource_TASK_DEFINITION,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.Ec2Service",
 		reflect.TypeOf((*Ec2Service)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPlacementConstraints", GoMethod: "AddPlacementConstraints"},
 			_jsii_.MemberMethod{JsiiMethod: "addPlacementStrategies", GoMethod: "AddPlacementStrategies"},
+			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateCloudMapService", GoMethod: "AssociateCloudMapService"},
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -1353,6 +1375,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.ExternalService",
 		reflect.TypeOf((*ExternalService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateCloudMapService", GoMethod: "AssociateCloudMapService"},
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -1474,6 +1497,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.FargateService",
 		reflect.TypeOf((*FargateService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateCloudMapService", GoMethod: "AssociateCloudMapService"},
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -1578,6 +1602,15 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.FargateTaskDefinitionProps",
 		reflect.TypeOf((*FargateTaskDefinitionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.FileSystemType",
+		reflect.TypeOf((*FileSystemType)(nil)).Elem(),
+		map[string]interface{}{
+			"EXT3": FileSystemType_EXT3,
+			"EXT4": FileSystemType_EXT4,
+			"XFS": FileSystemType_XFS,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.FireLensLogDriver",
@@ -2303,6 +2336,32 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.ServiceConnectService",
 		reflect.TypeOf((*ServiceConnectService)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ServiceManagedEBSVolumeConfiguration",
+		reflect.TypeOf((*ServiceManagedEBSVolumeConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.ServiceManagedVolume",
+		reflect.TypeOf((*ServiceManagedVolume)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "config", GoGetter: "Config"},
+			_jsii_.MemberProperty{JsiiProperty: "configuredAtLaunch", GoGetter: "ConfiguredAtLaunch"},
+			_jsii_.MemberMethod{JsiiMethod: "mountIn", GoMethod: "MountIn"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ServiceManagedVolume{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ServiceManagedVolumeProps",
+		reflect.TypeOf((*ServiceManagedVolumeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.SplunkLogDriver",

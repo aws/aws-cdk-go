@@ -8,6 +8,10 @@ func (n *jsiiProxy_NetworkLoadBalancer) validateAddListenerParameters(id *string
 	return nil
 }
 
+func (n *jsiiProxy_NetworkLoadBalancer) validateAddSecurityGroupParameters(securityGroup awsec2.ISecurityGroup) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkLoadBalancer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -106,6 +106,13 @@ type CodeCommitSourceActionProps struct {
 	// Default: false.
 	//
 	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
+	// You can pass a `customEventRule` to set up a custom event rule for the CodeCommit source action.
+	//
+	// You must provide the `eventPattern` and `target` properties in the `customEventRule` object.
+	// Check which `eventPattern` to use: https://docs.aws.amazon.com/codecommit/latest/userguide/monitoring-events.html
+	// Default: Event rule which is triggered by CodeCommit repository on commit.
+	//
+	CustomEventRule ICustomEventRule `field:"optional" json:"customEventRule" yaml:"customEventRule"`
 	// Role to be used by on commit event rule.
 	//
 	// Used only when trigger value is CodeCommitTrigger.EVENTS.

@@ -21,11 +21,11 @@ import (
 //   cfnThreatIntelSet := awscdk.Aws_guardduty.NewCfnThreatIntelSet(this, jsii.String("MyCfnThreatIntelSet"), &CfnThreatIntelSetProps{
 //   	Format: jsii.String("format"),
 //   	Location: jsii.String("location"),
-//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Activate: jsii.Boolean(false),
 //   	DetectorId: jsii.String("detectorId"),
+//   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -488,9 +488,6 @@ func (j *jsiiProxy_CfnThreatIntelSet)SetLocation(val *string) {
 }
 
 func (j *jsiiProxy_CfnThreatIntelSet)SetName(val *string) {
-	if err := j.validateSetNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"name",

@@ -9,19 +9,31 @@ package awsecs
 // For more information, see [Using Data Volumes in Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 //
 // Example:
-//   fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
-//   	MemoryLimitMiB: jsii.Number(512),
-//   	Cpu: jsii.Number(256),
-//   })
-//   volume := map[string]interface{}{
-//   	// Use an Elastic FileSystem
-//   	"name": jsii.String("mydatavolume"),
-//   	"efsVolumeConfiguration": map[string]*string{
-//   		"fileSystemId": jsii.String("EFS"),
-//   	},
-//   }
+//   var container containerDefinition
+//   var cluster cluster
+//   var taskDefinition taskDefinition
 //
-//   container := fargateTaskDefinition.AddVolume(volume)
+//
+//   volumeFromSnapshot := ecs.NewServiceManagedVolume(this, jsii.String("EBSVolume"), &ServiceManagedVolumeProps{
+//   	Name: jsii.String("nginx-vol"),
+//   	ManagedEBSVolume: &ServiceManagedEBSVolumeConfiguration{
+//   		SnapShotId: jsii.String("snap-066877671789bd71b"),
+//   		VolumeType: ec2.EbsDeviceVolumeType_GP3,
+//   		FileSystemType: ecs.FileSystemType_XFS,
+//   	},
+//   })
+//
+//   volumeFromSnapshot.MountIn(container, &ContainerMountPoint{
+//   	ContainerPath: jsii.String("/var/lib"),
+//   	ReadOnly: jsii.Boolean(false),
+//   })
+//   taskDefinition.AddVolume(volumeFromSnapshot)
+//   service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   })
+//
+//   service.AddVolume(volumeFromSnapshot)
 //
 type Volume struct {
 	// The name of the volume.
@@ -29,6 +41,10 @@ type Volume struct {
 	// Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
 	// This name is referenced in the sourceVolume parameter of container definition mountPoints.
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Indicates if the volume should be configured at launch.
+	// Default: false.
+	//
+	ConfiguredAtLaunch *bool `field:"optional" json:"configuredAtLaunch" yaml:"configuredAtLaunch"`
 	// This property is specified when you are using Docker volumes.
 	//
 	// Docker volumes are only supported when you are using the EC2 launch type.

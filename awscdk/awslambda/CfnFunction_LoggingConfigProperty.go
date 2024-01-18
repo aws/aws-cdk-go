@@ -20,7 +20,7 @@ package awslambda
 type CfnFunction_LoggingConfigProperty struct {
 	// Set this property to filter the application logs for your function that Lambda sends to CloudWatch.
 	//
-	// Lambda only sends application logs at the selected level and lower.
+	// Lambda only sends application logs at the selected level of detail and lower, where `TRACE` is the highest level and `FATAL` is the lowest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-applicationloglevel
 	//
 	ApplicationLogLevel *string `field:"optional" json:"applicationLogLevel" yaml:"applicationLogLevel"`
@@ -38,7 +38,7 @@ type CfnFunction_LoggingConfigProperty struct {
 	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// Set this property to filter the system logs for your function that Lambda sends to CloudWatch.
 	//
-	// Lambda only sends system logs at the selected level and lower.
+	// Lambda only sends system logs at the selected level of detail and lower, where `DEBUG` is the highest level and `WARN` is the lowest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-systemloglevel
 	//
 	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`

@@ -1772,6 +1772,95 @@ customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &
 })
 ```
 
+## ServiceManagedVolume
+
+Amazon ECS now supports the attachment of Amazon Elastic Block Store (EBS) volumes to ECS tasks,
+allowing you to utilize persistent, high-performance block storage with your ECS services.
+This feature supports various use cases, such as using EBS volumes as extended ephemeral storage or
+loading data from EBS snapshots.
+You can also specify `encrypted: true` so that ECS will manage the KMS key. If you want to use your own KMS key, you may do so by providing both `encrypted: true` and `kmsKeyId`.
+
+You can only attach a single volume for each task in the ECS Service.
+
+To add an empty EBS Volume to an ECS Service, call service.addVolume().
+
+```go
+var cluster cluster
+
+taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
+
+container := taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	PortMappings: []portMapping{
+		&portMapping{
+			ContainerPort: jsii.Number(80),
+			Protocol: ecs.Protocol_TCP,
+		},
+	},
+})
+
+volume := ecs.NewServiceManagedVolume(this, jsii.String("EBSVolume"), &ServiceManagedVolumeProps{
+	Name: jsii.String("ebs1"),
+	ManagedEBSVolume: &ServiceManagedEBSVolumeConfiguration{
+		Size: awscdk.Size_Gibibytes(jsii.Number(15)),
+		VolumeType: ec2.EbsDeviceVolumeType_GP3,
+		FileSystemType: ecs.FileSystemType_XFS,
+		TagSpecifications: []eBSTagSpecification{
+			&eBSTagSpecification{
+				Tags: map[string]*string{
+					"purpose": jsii.String("production"),
+				},
+				PropagateTags: ecs.EbsPropagatedTagSource_SERVICE,
+			},
+		},
+	},
+})
+
+volume.MountIn(container, &ContainerMountPoint{
+	ContainerPath: jsii.String("/var/lib"),
+	ReadOnly: jsii.Boolean(false),
+})
+
+taskDefinition.AddVolume(volume)
+
+service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+})
+
+service.AddVolume(volume)
+```
+
+To create an EBS volume from an existing snapshot by specifying the `snapShotId` while adding a volume to the service.
+
+```go
+var container containerDefinition
+var cluster cluster
+var taskDefinition taskDefinition
+
+
+volumeFromSnapshot := ecs.NewServiceManagedVolume(this, jsii.String("EBSVolume"), &ServiceManagedVolumeProps{
+	Name: jsii.String("nginx-vol"),
+	ManagedEBSVolume: &ServiceManagedEBSVolumeConfiguration{
+		SnapShotId: jsii.String("snap-066877671789bd71b"),
+		VolumeType: ec2.EbsDeviceVolumeType_GP3,
+		FileSystemType: ecs.FileSystemType_XFS,
+	},
+})
+
+volumeFromSnapshot.MountIn(container, &ContainerMountPoint{
+	ContainerPath: jsii.String("/var/lib"),
+	ReadOnly: jsii.Boolean(false),
+})
+taskDefinition.AddVolume(volumeFromSnapshot)
+service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+})
+
+service.AddVolume(volumeFromSnapshot)
+```
+
 ## Enable pseudo-terminal (TTY) allocation
 
 You can allocate a pseudo-terminal (TTY) for a container passing `pseudoTerminal` option while adding the container

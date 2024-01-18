@@ -4,39 +4,29 @@ package awslogs
 // How long, in days, the log contents will be retained.
 //
 // Example:
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var myLogsPublishingRole role
 //   var vpc vpc
 //
 //
-//   // Exporting logs from a cluster
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_Aurora(&AuroraClusterEngineProps{
-//   		Version: rds.AuroraEngineVersion_VER_1_17_9(),
-//   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
-//   	Vpc: Vpc,
-//   	CloudwatchLogsExports: []*string{
-//   		jsii.String("error"),
-//   		jsii.String("general"),
-//   		jsii.String("slowquery"),
-//   		jsii.String("audit"),
+//   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	MasterUser: &Login{
+//   		Username: jsii.String("myuser"),
 //   	},
-//   	 // Export all available MySQL-based logs
-//   	CloudwatchLogsRetention: logs.RetentionDays_THREE_MONTHS,
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PUBLIC,
+//   	},
+//   	Vpc: Vpc,
+//   	ExportProfilerLogsToCloudWatch: jsii.Boolean(true),
+//   	 // Enable sending profiler logs
+//   	ExportAuditLogsToCloudWatch: jsii.Boolean(true),
+//   	 // Enable sending audit logs
+//   	CloudWatchLogsRetention: logs.RetentionDays_THREE_MONTHS,
 //   	 // Optional - default is to never expire logs
-//   	CloudwatchLogsRetentionRole: myLogsPublishingRole,
-//   })
-//
-//   // Exporting logs from an instance
-//   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   		Version: rds.PostgresEngineVersion_VER_15_2(),
-//   	}),
-//   	Vpc: Vpc,
-//   	CloudwatchLogsExports: []*string{
-//   		jsii.String("postgresql"),
-//   	},
+//   	CloudWatchLogsRetentionRole: myLogsPublishingRole,
 //   })
 //
 type RetentionDays string

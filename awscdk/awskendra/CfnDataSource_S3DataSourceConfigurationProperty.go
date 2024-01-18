@@ -3,6 +3,8 @@ package awskendra
 
 // Provides the configuration information to connect to an Amazon S3 bucket.
 //
+// > `S3DataSourceConfiguration` is deprecated. Amazon VPC is not supported if you configure your Amazon S3 connector with this method. Use [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) to configure your Amazon S3 connector instead. See [Amazon S3 template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html#ds-s3-schema) for more details.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -190,6 +190,10 @@ func init() {
 		reflect.TypeOf((*CfnCertificateAuthority_CrlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.CrlDistributionPointExtensionConfigurationProperty",
+		reflect.TypeOf((*CfnCertificateAuthority_CrlDistributionPointExtensionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority.CsrExtensionsProperty",
 		reflect.TypeOf((*CfnCertificateAuthority_CsrExtensionsProperty)(nil)).Elem(),
 	)

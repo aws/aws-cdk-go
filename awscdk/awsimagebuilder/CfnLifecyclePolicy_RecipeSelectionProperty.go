@@ -10,8 +10,6 @@ package awsimagebuilder
 //
 //   recipeSelectionProperty := &RecipeSelectionProperty{
 //   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
 //   	SemanticVersion: jsii.String("semanticVersion"),
 //   }
 //
@@ -25,6 +23,6 @@ type CfnLifecyclePolicy_RecipeSelectionProperty struct {
 	// The recipe version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-recipeselection.html#cfn-imagebuilder-lifecyclepolicy-recipeselection-semanticversion
 	//
-	SemanticVersion *string `field:"optional" json:"semanticVersion" yaml:"semanticVersion"`
+	SemanticVersion *string `field:"required" json:"semanticVersion" yaml:"semanticVersion"`
 }
 

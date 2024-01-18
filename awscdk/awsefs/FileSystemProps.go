@@ -57,6 +57,12 @@ type FileSystemProps struct {
 	// Default: - None. EFS will not transition files to the IA storage class.
 	//
 	LifecyclePolicy LifecyclePolicy `field:"optional" json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
+	// Whether this is a One Zone file system.
+	//
+	// If enabled, `performanceMode` must be set to `GENERAL_PURPOSE` and `vpcSubnets` cannot be set.
+	// Default: false.
+	//
+	OneZone *bool `field:"optional" json:"oneZone" yaml:"oneZone"`
 	// A policy used by EFS lifecycle management to transition files from Infrequent Access (IA) storage class to primary storage class.
 	// Default: - None. EFS will not transition files from IA storage to primary storage.
 	//
@@ -87,6 +93,12 @@ type FileSystemProps struct {
 	// Default: ThroughputMode.BURSTING
 	//
 	ThroughputMode ThroughputMode `field:"optional" json:"throughputMode" yaml:"throughputMode"`
+	// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage.
+	//
+	// Metadata operations such as listing the contents of a directory don't count as file access events.
+	// Default: - None. EFS will not transition files to Archive storage class.
+	//
+	TransitionToArchivePolicy LifecyclePolicy `field:"optional" json:"transitionToArchivePolicy" yaml:"transitionToArchivePolicy"`
 	// Which subnets to place the mount target in the VPC.
 	// Default: - the Vpc default strategy if not specified.
 	//

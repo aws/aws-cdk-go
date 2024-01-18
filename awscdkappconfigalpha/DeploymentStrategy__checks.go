@@ -58,7 +58,7 @@ func validateDeploymentStrategy_FromDeploymentStrategyArnParameters(scope constr
 	return nil
 }
 
-func validateDeploymentStrategy_FromDeploymentStrategyIdParameters(scope constructs.Construct, id *string, deploymentStrategyId *string) error {
+func validateDeploymentStrategy_FromDeploymentStrategyIdParameters(scope constructs.Construct, id *string, deploymentStrategyId DeploymentStrategyId) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

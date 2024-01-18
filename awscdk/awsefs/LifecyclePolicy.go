@@ -1,7 +1,7 @@
 package awsefs
 
 
-// EFS Lifecycle Policy, if a file is not accessed for given days, it will move to EFS Infrequent Access.
+// EFS Lifecycle Policy, if a file is not accessed for given days, it will move to EFS Infrequent Access or Archive storage.
 //
 // Example:
 //   fileSystem := efs.NewFileSystem(this, jsii.String("MyEfsFileSystem"), &FileSystemProps{
@@ -11,6 +11,8 @@ package awsefs
 //   	PerformanceMode: efs.PerformanceMode_GENERAL_PURPOSE,
 //   	 // default
 //   	OutOfInfrequentAccessPolicy: efs.OutOfInfrequentAccessPolicy_AFTER_1_ACCESS,
+//   	 // files are not transitioned back from (infrequent access) IA to primary storage by default
+//   	TransitionToArchivePolicy: efs.LifecyclePolicy_AFTER_14_DAYS,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-lifecyclepolicies
@@ -30,5 +32,11 @@ const (
 	LifecyclePolicy_AFTER_60_DAYS LifecyclePolicy = "AFTER_60_DAYS"
 	// After 90 days of not being accessed.
 	LifecyclePolicy_AFTER_90_DAYS LifecyclePolicy = "AFTER_90_DAYS"
+	// After 180 days of not being accessed.
+	LifecyclePolicy_AFTER_180_DAYS LifecyclePolicy = "AFTER_180_DAYS"
+	// After 270 days of not being accessed.
+	LifecyclePolicy_AFTER_270_DAYS LifecyclePolicy = "AFTER_270_DAYS"
+	// After 365 days of not being accessed.
+	LifecyclePolicy_AFTER_365_DAYS LifecyclePolicy = "AFTER_365_DAYS"
 )
 

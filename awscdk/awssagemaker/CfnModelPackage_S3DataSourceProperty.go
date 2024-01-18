@@ -32,7 +32,7 @@ type CfnModelPackage_S3DataSourceProperty struct {
 	//
 	// For example:
 	//
-	// - A key name prefix might look like this: `s3://bucketname/exampleprefix`
+	// - A key name prefix might look like this: `s3://bucketname/exampleprefix/`
 	// - A manifest might look like this: `s3://bucketname/example.manifest`
 	//
 	// A manifest is an S3 object which is a JSON file consisting of an array of elements. The first element is a prefix which is followed by one or more suffixes. SageMaker appends the suffix elements to the prefix to get a full set of `S3Uri` . Note that the prefix must be a valid non-empty `S3Uri` that precludes users from specifying a manifest whose individual `S3Uri` is sourced from different S3 buckets.

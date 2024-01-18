@@ -8,15 +8,14 @@ import (
 // Type union for a record that accepts multiple types of target.
 //
 // Example:
-//   import apigwv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var zone hostedZone
-//   var domainName domainName
+//   var myZone hostedZone
+//   var distribution cloudFrontWebDistribution
 //
-//
-//   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
-//   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.RegionalDomainName, domainName.RegionalHostedZoneId)),
+//   route53.NewAaaaRecord(this, jsii.String("Alias"), &AaaaRecordProps{
+//   	Zone: myZone,
+//   	Target: route53.RecordTarget_FromAlias(targets.NewCloudFrontTarget(distribution)),
 //   })
 //
 type RecordTarget interface {

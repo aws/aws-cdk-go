@@ -14,11 +14,11 @@ import (
 //   cfnIPSetProps := &CfnIPSetProps{
 //   	Format: jsii.String("format"),
 //   	Location: jsii.String("location"),
-//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Activate: jsii.Boolean(false),
 //   	DetectorId: jsii.String("detectorId"),
+//   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -38,12 +38,6 @@ type CfnIPSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-location
 	//
 	Location *string `field:"required" json:"location" yaml:"location"`
-	// The user-friendly name to identify the IPSet.
-	//
-	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-name
-	//
-	Name *string `field:"required" json:"name" yaml:"name"`
 	// Indicates whether or not GuardDuty uses the `IPSet` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-activate
 	//
@@ -52,6 +46,12 @@ type CfnIPSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-detectorid
 	//
 	DetectorId *string `field:"optional" json:"detectorId" yaml:"detectorId"`
+	// The user-friendly name to identify the IPSet.
+	//
+	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The tags to be added to a new IP set resource.
 	//
 	// Each tag consists of a key and an optional value, both of which you define.

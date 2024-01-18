@@ -202,7 +202,7 @@ type CfnFileSystemProps struct {
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The Lustre configuration for the file system being created.
 	//
-	// > The following parameters are not supported for file systems with a data repository association.
+	// > The following parameters are not supported when creating Lustre file systems with a data repository association.
 	// >
 	// > - `AutoImportPolicy`
 	// > - `ExportPath`
@@ -222,6 +222,8 @@ type CfnFileSystemProps struct {
 	// A list of IDs specifying the security groups to apply to all network interfaces created for file system access.
 	//
 	// This list isn't returned in later requests to describe the file system.
+	//
+	// > You must specify a security group if you are creating a Multi-AZ FSx for ONTAP file system in a VPC subnet that has been shared with you.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`

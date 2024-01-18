@@ -22,9 +22,6 @@ import (
 //   	ServerCertificateArns: []*string{
 //   		jsii.String("serverCertificateArns"),
 //   	},
-//   	ServerCertificateConfig: &ServerCertificateConfigProperty{
-//   		EnableOcspCheck: jsii.Boolean(false),
-//   	},
 //   	ServiceType: jsii.String("serviceType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -67,9 +64,6 @@ type CfnDomainConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
 	//
 	ServerCertificateArns *[]*string `field:"optional" json:"serverCertificateArns" yaml:"serverCertificateArns"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificateconfig
-	//
-	ServerCertificateConfig interface{} `field:"optional" json:"serverCertificateConfig" yaml:"serverCertificateConfig"`
 	// The type of service delivered by the endpoint.
 	//
 	// > AWS IoT Core currently supports only the `DATA` service type.

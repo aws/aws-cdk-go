@@ -37,7 +37,7 @@ Create an application with a name and description:
 
 ```go
 appconfig.NewApplication(this, jsii.String("MyApplication"), &ApplicationProps{
-	Name: jsii.String("App1"),
+	ApplicationName: jsii.String("App1"),
 	Description: jsii.String("This is my application created through CDK."),
 })
 ```
@@ -66,6 +66,18 @@ appconfig.NewDeploymentStrategy(this, jsii.String("MyDeploymentStrategy"), &Depl
 		FinalBakeTime: awscdk.Duration_*Minutes(jsii.Number(30)),
 	}),
 })
+```
+
+Importing a deployment strategy by ID:
+
+```go
+appconfig.DeploymentStrategy_FromDeploymentStrategyId(this, jsii.String("MyImportedDeploymentStrategy"), appconfig.DeploymentStrategyId_FromString(jsii.String("abc123")))
+```
+
+Importing an AWS AppConfig predefined deployment strategy by ID:
+
+```go
+appconfig.DeploymentStrategy_FromDeploymentStrategyId(this, jsii.String("MyImportedPredefinedDeploymentStrategy"), appconfig.DeploymentStrategyId_CANARY_10_PERCENT_20_MINUTES())
 ```
 
 ## Configuration

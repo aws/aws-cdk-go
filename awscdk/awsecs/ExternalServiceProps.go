@@ -94,6 +94,13 @@ type ExternalServiceProps struct {
 	// Default: - Uses the revision of the passed task definition deployed by CloudFormation.
 	//
 	TaskDefinitionRevision TaskDefinitionRevision `field:"optional" json:"taskDefinitionRevision" yaml:"taskDefinitionRevision"`
+	// Configuration details for a volume used by the service.
+	//
+	// This allows you to specify
+	// details about the EBS volume that can be attched to ECS tasks.
+	// Default: - undefined.
+	//
+	VolumeConfigurations *[]ServiceManagedVolume `field:"optional" json:"volumeConfigurations" yaml:"volumeConfigurations"`
 	// The task definition to use for tasks in the service.
 	//
 	// [disable-awslint:ref-via-interface].

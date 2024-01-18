@@ -17,6 +17,7 @@ import (
 //   var containerDefinition containerDefinition
 //   var logDriver logDriver
 //   var namespace iNamespace
+//   var serviceManagedVolume serviceManagedVolume
 //   var taskDefinitionRevision taskDefinitionRevision
 //
 //   baseServiceProps := &BaseServiceProps{
@@ -80,6 +81,9 @@ import (
 //   	},
 //   	ServiceName: jsii.String("serviceName"),
 //   	TaskDefinitionRevision: taskDefinitionRevision,
+//   	VolumeConfigurations: []*serviceManagedVolume{
+//   		serviceManagedVolume,
+//   	},
 //   }
 //
 type BaseServiceProps struct {
@@ -158,6 +162,13 @@ type BaseServiceProps struct {
 	// Default: - Uses the revision of the passed task definition deployed by CloudFormation.
 	//
 	TaskDefinitionRevision TaskDefinitionRevision `field:"optional" json:"taskDefinitionRevision" yaml:"taskDefinitionRevision"`
+	// Configuration details for a volume used by the service.
+	//
+	// This allows you to specify
+	// details about the EBS volume that can be attched to ECS tasks.
+	// Default: - undefined.
+	//
+	VolumeConfigurations *[]ServiceManagedVolume `field:"optional" json:"volumeConfigurations" yaml:"volumeConfigurations"`
 	// The launch type on which to run your service.
 	//
 	// LaunchType will be omitted if capacity provider strategies are specified on the service.

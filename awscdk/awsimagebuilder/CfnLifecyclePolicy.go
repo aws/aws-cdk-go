@@ -68,8 +68,6 @@ import (
 //   		Recipes: []interface{}{
 //   			&RecipeSelectionProperty{
 //   				Name: jsii.String("name"),
-//
-//   				// the properties below are optional
 //   				SemanticVersion: jsii.String("semanticVersion"),
 //   			},
 //   		},

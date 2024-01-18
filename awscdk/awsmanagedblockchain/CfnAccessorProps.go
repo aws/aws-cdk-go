@@ -35,7 +35,7 @@ type CfnAccessorProps struct {
 	AccessorType *string `field:"required" json:"accessorType" yaml:"accessorType"`
 	// The blockchain network that the `Accessor` token is created for.
 	//
-	// > We recommend using the appropriate `networkType` value for the blockchain network that you are creating the `Accessor` token for. You cannnot use the value `ETHEREUM_MAINNET_AND_GOERLI` to specify a `networkType` for your Accessor token.
+	// > We recommend using the appropriate `networkType` value for the blockchain network that you are creating the `Accessor` token for. You cannot use the value `ETHEREUM_MAINNET_AND_GOERLI` to specify a `networkType` for your Accessor token.
 	// >
 	// > The default value of `ETHEREUM_MAINNET_AND_GOERLI` is only applied:
 	// >

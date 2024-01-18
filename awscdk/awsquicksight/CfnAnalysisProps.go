@@ -31,6 +31,10 @@ type CfnAnalysisProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-definition
 	//
 	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
+	// Errors associated with the analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
+	//
+	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
 	// The parameter names and override values that you want to use.
 	//
 	// An analysis can have any parameter type, and some parameters might accept multiple values.
@@ -45,6 +49,10 @@ type CfnAnalysisProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
 	//
 	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
+	// A list of the associated sheets with the unique identifier and name of each sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sheets
+	//
+	Sheets interface{} `field:"optional" json:"sheets" yaml:"sheets"`
 	// A source entity to use for the analysis that you're creating.
 	//
 	// This metadata structure contains details that describe a source template and one or more datasets.

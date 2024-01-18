@@ -43,6 +43,7 @@ import (
 //   	SnapshotIdentifier: jsii.String("snapshotIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	StorageEncrypted: jsii.Boolean(false),
+//   	StorageType: jsii.String("storageType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -171,6 +172,9 @@ type CfnDBCluster interface {
 	// Specifies whether the cluster is encrypted.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
+	// The storage type to associate with the DB cluster.
+	StorageType() *string
+	SetStorageType(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// The tags to be assigned to the cluster.
@@ -659,6 +663,16 @@ func (j *jsiiProxy_CfnDBCluster) StorageEncrypted() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) StorageType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"storageType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -912,6 +926,14 @@ func (j *jsiiProxy_CfnDBCluster)SetStorageEncrypted(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storageEncrypted",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetStorageType(val *string) {
+	_jsii_.Set(
+		j,
+		"storageType",
 		val,
 	)
 }

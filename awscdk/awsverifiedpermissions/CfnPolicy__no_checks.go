@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnPolicy) validateSetDefinitionParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnPolicy) validateSetPolicyStoreIdParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnPolicyParameters(scope constructs.Construct, id *string, props *CfnPolicyProps) error {
 	return nil
 }

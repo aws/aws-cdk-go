@@ -17,6 +17,9 @@ package awsacmpca
 //
 //   revocationConfigurationProperty := &RevocationConfigurationProperty{
 //   	CrlConfiguration: &CrlConfigurationProperty{
+//   		CrlDistributionPointExtensionConfiguration: &CrlDistributionPointExtensionConfigurationProperty{
+//   			OmitExtension: jsii.Boolean(false),
+//   		},
 //   		CustomCname: jsii.String("customCname"),
 //   		Enabled: jsii.Boolean(false),
 //   		ExpirationInDays: jsii.Number(123),

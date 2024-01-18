@@ -106,17 +106,12 @@ type CfnCluster interface {
 	// This parameter is retired.
 	AquaConfigurationStatus() *string
 	SetAquaConfigurationStatus(val *string)
-	// The Amazon Resource Name (ARN) of the cluster namespace.
+	// The namespace Amazon Resource Name (ARN) of the cluster.
 	AttrClusterNamespaceArn() *string
 	// A unique identifier for the maintenance window.
 	AttrDeferMaintenanceIdentifier() *string
 	AttrEndpointAddress() *string
 	AttrEndpointPort() *string
-	// A unique identifier for the cluster.
-	//
-	// You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console.
-	//
-	// Example: `myexamplecluster`.
 	AttrId() *string
 	// The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
 	AttrMasterPasswordSecretArn() *string
@@ -222,13 +217,13 @@ type CfnCluster interface {
 	// An optional parameter for the name of the maintenance track for the cluster.
 	MaintenanceTrackName() *string
 	SetMaintenanceTrackName(val *string)
-	// A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not.
+	// If `true` , Amazon Redshift uses AWS Secrets Manager to manage this cluster's admin credentials.
 	ManageMasterPassword() interface{}
 	SetManageMasterPassword(val interface{})
 	// The default number of days to retain a manual snapshot.
 	ManualSnapshotRetentionPeriod() *float64
 	SetManualSnapshotRetentionPeriod(val *float64)
-	// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
 	MasterPasswordSecretKmsKeyId() *string
 	SetMasterPasswordSecretKmsKeyId(val *string)
 	// The user name associated with the admin user account for the cluster that is being created.
@@ -240,7 +235,7 @@ type CfnCluster interface {
 	// A boolean indicating whether Amazon Redshift should deploy the cluster in two Availability Zones.
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
-	// The namespace resource policy document that will be attached to a Redshift cluster.
+	// The policy that is attached to a resource.
 	NamespaceResourcePolicy() interface{}
 	SetNamespaceResourcePolicy(val interface{})
 	// The tree node.

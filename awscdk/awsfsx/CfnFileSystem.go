@@ -15,7 +15,7 @@ import (
 //
 // - Amazon FSx for Lustre
 // - Amazon FSx for NetApp ONTAP
-// - Amazon FSx for OpenZFS
+// - FSx for OpenZFS
 // - Amazon FSx for Windows File Server.
 //
 // Example:

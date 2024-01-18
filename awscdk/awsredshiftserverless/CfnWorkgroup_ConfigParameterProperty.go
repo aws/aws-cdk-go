@@ -18,7 +18,7 @@ package awsredshiftserverless
 type CfnWorkgroup_ConfigParameterProperty struct {
 	// The key of the parameter.
 	//
-	// The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , and `max_query_execution_time` .
+	// The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-configparameter.html#cfn-redshiftserverless-workgroup-configparameter-parameterkey
 	//
 	ParameterKey *string `field:"optional" json:"parameterKey" yaml:"parameterKey"`

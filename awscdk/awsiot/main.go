@@ -495,7 +495,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "serverCertificateArns", GoGetter: "ServerCertificateArns"},
-			_jsii_.MemberProperty{JsiiProperty: "serverCertificateConfig", GoGetter: "ServerCertificateConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceType", GoGetter: "ServiceType"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -519,10 +518,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnDomainConfiguration.AuthorizerConfigProperty",
 		reflect.TypeOf((*CfnDomainConfiguration_AuthorizerConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_iot.CfnDomainConfiguration.ServerCertificateConfigProperty",
-		reflect.TypeOf((*CfnDomainConfiguration_ServerCertificateConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnDomainConfiguration.ServerCertificateSummaryProperty",

@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnFeatureGroup) validateSetTagsRawParameters(val *[]*awscdk.
 	return nil
 }
 
+func (j *jsiiProxy_CfnFeatureGroup) validateSetThroughputConfigParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnFeatureGroupParameters(scope constructs.Construct, id *string, props *CfnFeatureGroupProps) error {
 	return nil
 }

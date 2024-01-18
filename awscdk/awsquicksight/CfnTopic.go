@@ -278,6 +278,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	TopicId: jsii.String("topicId"),
+//   	UserExperienceVersion: jsii.String("userExperienceVersion"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html
@@ -345,6 +346,9 @@ type CfnTopic interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The user experience version of a topic.
+	UserExperienceVersion() *string
+	SetUserExperienceVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -638,6 +642,16 @@ func (j *jsiiProxy_CfnTopic) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) UserExperienceVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"userExperienceVersion",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnTopic(scope constructs.Construct, id *string, props *CfnTopicProps) CfnTopic {
 	_init_.Initialize()
@@ -705,6 +719,14 @@ func (j *jsiiProxy_CfnTopic)SetTopicId(val *string) {
 	_jsii_.Set(
 		j,
 		"topicId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetUserExperienceVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"userExperienceVersion",
 		val,
 	)
 }

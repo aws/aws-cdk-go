@@ -44,6 +44,12 @@ import (
 //   	PublicIpSource: jsii.String("publicIpSource"),
 //   	PubliclyAdvertisable: jsii.Boolean(false),
 //   	SourceIpamPoolId: jsii.String("sourceIpamPoolId"),
+//   	SourceResource: &SourceResourceProperty{
+//   		ResourceId: jsii.String("resourceId"),
+//   		ResourceOwner: jsii.String("resourceOwner"),
+//   		ResourceRegion: jsii.String("resourceRegion"),
+//   		ResourceType: jsii.String("resourceType"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -144,6 +150,9 @@ type CfnIPAMPool interface {
 	// The ID of the source IPAM pool.
 	SourceIpamPoolId() *string
 	SetSourceIpamPoolId(val *string)
+	// The resource associated with this pool's space.
+	SourceResource() interface{}
+	SetSourceResource(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -590,6 +599,16 @@ func (j *jsiiProxy_CfnIPAMPool) SourceIpamPoolId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAMPool) SourceResource() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sourceResource",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAMPool) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -794,6 +813,17 @@ func (j *jsiiProxy_CfnIPAMPool)SetSourceIpamPoolId(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceIpamPoolId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAMPool)SetSourceResource(val interface{}) {
+	if err := j.validateSetSourceResourceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sourceResource",
 		val,
 	)
 }
