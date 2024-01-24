@@ -3,7 +3,7 @@ package awsconfig
 
 // Specifies whether the configuration recorder excludes certain resource types from being recorded.
 //
-// Use the `resourceTypes` field to enter a comma-separated list of resource types you want to exclude from recording.
+// Use the `ResourceTypes` field to enter a comma-separated list of resource types you want to exclude from recording.
 //
 // By default, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
 //
@@ -21,6 +21,7 @@ package awsconfig
 // >
 // > - Asia Pacific (Hyderabad)
 // > - Asia Pacific (Melbourne)
+// > - Canada West (Calgary)
 // > - Europe (Spain)
 // > - Europe (Zurich)
 // > - Israel (Tel Aviv)

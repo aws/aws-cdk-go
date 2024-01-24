@@ -3,7 +3,9 @@ package awss3
 
 // Amazon S3 keys for log objects are partitioned in the following format:.
 //
-// `[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`.
+// `[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`
+//
+// PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -22,6 +22,22 @@ func validateFlowLogResourceType_FromSubnetParameters(subnet ISubnet) error {
 	return nil
 }
 
+func validateFlowLogResourceType_FromTransitGatewayAttachmentIdParameters(id *string) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateFlowLogResourceType_FromTransitGatewayIdParameters(id *string) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFlowLogResourceType_FromVpcParameters(vpc IVpc) error {
 	if vpc == nil {
 		return fmt.Errorf("parameter vpc is required, but nil was provided")

@@ -12,6 +12,14 @@ func validateFlowLogResourceType_FromSubnetParameters(subnet ISubnet) error {
 	return nil
 }
 
+func validateFlowLogResourceType_FromTransitGatewayAttachmentIdParameters(id *string) error {
+	return nil
+}
+
+func validateFlowLogResourceType_FromTransitGatewayIdParameters(id *string) error {
+	return nil
+}
+
 func validateFlowLogResourceType_FromVpcParameters(vpc IVpc) error {
 	return nil
 }

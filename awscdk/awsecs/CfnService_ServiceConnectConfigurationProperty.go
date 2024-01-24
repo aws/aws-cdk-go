@@ -44,6 +44,19 @@ package awsecs
 //   			},
 //   			DiscoveryName: jsii.String("discoveryName"),
 //   			IngressPortOverride: jsii.Number(123),
+//   			Timeout: &TimeoutConfigurationProperty{
+//   				IdleTimeoutSeconds: jsii.Number(123),
+//   				PerRequestTimeoutSeconds: jsii.Number(123),
+//   			},
+//   			Tls: &ServiceConnectTlsConfigurationProperty{
+//   				IssuerCertificateAuthority: &ServiceConnectTlsCertificateAuthorityProperty{
+//   					AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
+//   				},
+//
+//   				// the properties below are optional
+//   				KmsKey: jsii.String("kmsKey"),
+//   				RoleArn: jsii.String("roleArn"),
+//   			},
 //   		},
 //   	},
 //   }

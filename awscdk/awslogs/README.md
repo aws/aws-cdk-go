@@ -367,9 +367,12 @@ Creates a data protection policy and assigns it to the log group. A data protect
 
 For more information, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 
-For a list of types of identifiers that can be audited and masked, see [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html)
+For a list of types of managed identifiers that can be audited and masked, see [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
 
-If a new identifier is supported but not yet in the `DataIdentifiers` enum, the full ARN of the identifier can be supplied in `identifierArnStrings` instead.
+If a new identifier is supported but not yet in the `DataIdentifiers` enum, the name of the identifier can be supplied as `name` in the constructor instead.
+
+To add a custom data identifier, supply a custom `name` and `regex` to the `CustomDataIdentifiers` constructor.
+For more information on custom data identifiers, see [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
 
 Each policy may consist of a log group, S3 bucket, and/or Firehose delivery stream audit destination.
 
@@ -398,8 +401,12 @@ dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
 	Description: jsii.String("policy description"),
 	Identifiers: []dataIdentifier{
 		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+		 // managed data identifier
 		logs.NewDataIdentifier(jsii.String("EmailAddress")),
+		 // forward compatibility for new managed data identifiers
+		logs.NewCustomDataIdentifier(jsii.String("EmployeeId"), jsii.String("EmployeeId-\\d{9}")),
 	},
+	 // custom data identifier
 	LogGroupAuditDestination: logGroupDestination,
 	S3BucketAuditDestination: bucket,
 	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,

@@ -32,8 +32,12 @@ import (
 //   	Description: jsii.String("policy description"),
 //   	Identifiers: []dataIdentifier{
 //   		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+//   		 // managed data identifier
 //   		logs.NewDataIdentifier(jsii.String("EmailAddress")),
+//   		 // forward compatibility for new managed data identifiers
+//   		logs.NewCustomDataIdentifier(jsii.String("EmployeeId"), jsii.String("EmployeeId-\\d{9}")),
 //   	},
+//   	 // custom data identifier
 //   	LogGroupAuditDestination: logGroupDestination,
 //   	S3BucketAuditDestination: bucket,
 //   	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
@@ -45,6 +49,8 @@ import (
 //   })
 //
 type DataIdentifier interface {
+	// - name of the identifier.
+	Name() *string
 	ToString() *string
 }
 
@@ -53,29 +59,46 @@ type jsiiProxy_DataIdentifier struct {
 	_ byte // padding
 }
 
-func NewDataIdentifier(identifier *string) DataIdentifier {
+func (j *jsiiProxy_DataIdentifier) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a managed data identifier not in the list of static members.
+//
+// This is used to maintain forward compatibility, in case a new managed identifier is supported but not updated in CDK yet.
+func NewDataIdentifier(name *string) DataIdentifier {
 	_init_.Initialize()
 
-	if err := validateNewDataIdentifierParameters(identifier); err != nil {
+	if err := validateNewDataIdentifierParameters(name); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_DataIdentifier{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_logs.DataIdentifier",
-		[]interface{}{identifier},
+		[]interface{}{name},
 		&j,
 	)
 
 	return &j
 }
 
-func NewDataIdentifier_Override(d DataIdentifier, identifier *string) {
+// Create a managed data identifier not in the list of static members.
+//
+// This is used to maintain forward compatibility, in case a new managed identifier is supported but not updated in CDK yet.
+func NewDataIdentifier_Override(d DataIdentifier, name *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_logs.DataIdentifier",
-		[]interface{}{identifier},
+		[]interface{}{name},
 		d,
 	)
 }

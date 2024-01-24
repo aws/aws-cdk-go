@@ -286,6 +286,10 @@ type DatabaseInstanceReadReplicaProps struct {
 	// Each DB instance can have a limited number of read replicas. For more
 	// information, see https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html.
 	SourceDatabaseInstance IDatabaseInstance `field:"required" json:"sourceDatabaseInstance" yaml:"sourceDatabaseInstance"`
+	// The allocated storage size, specified in gibibytes (GiB).
+	// Default: - The replica will inherit the allocated storage of the source database instance.
+	//
+	AllocatedStorage *float64 `field:"optional" json:"allocatedStorage" yaml:"allocatedStorage"`
 	// Indicates whether the DB instance is encrypted.
 	// Default: - true if storageEncryptionKey has been provided, false otherwise.
 	//

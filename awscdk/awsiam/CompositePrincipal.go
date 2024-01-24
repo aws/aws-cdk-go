@@ -11,29 +11,25 @@ import (
 // have conditions. i.e. multiple ServicePrincipals that form a composite principal
 //
 // Example:
-//   var build build
+//   var vpc vpc
 //
-//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-//   	AssumedBy: iam.NewCompositePrincipal(iam.NewServicePrincipal(jsii.String("gamelift.amazonaws.com"))),
-//   })
-//   role.AddManagedPolicy(iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("CloudWatchAgentServerPolicy")))
-//
-//   fleet := gamelift.NewBuildFleet(this, jsii.String("Game server fleet"), &BuildFleetProps{
-//   	FleetName: jsii.String("test-fleet"),
-//   	Content: build,
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_C5, ec2.InstanceSize_LARGE),
-//   	RuntimeConfiguration: &RuntimeConfiguration{
-//   		ServerProcesses: []serverProcess{
-//   			&serverProcess{
-//   				LaunchPath: jsii.String("/local/game/GameLiftExampleServer.x86_64"),
-//   			},
-//   		},
+//   role := iam.NewRole(this, jsii.String("RDSDirectoryServicesRole"), &RoleProps{
+//   	AssumedBy: iam.NewCompositePrincipal(
+//   	iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
+//   	iam.NewServicePrincipal(jsii.String("directoryservice.rds.amazonaws.com"))),
+//   	ManagedPolicies: []iManagedPolicy{
+//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
 //   	},
-//   	Role: role,
 //   })
-//
-//   // Actions can also be grantted through dedicated method
-//   fleet.Grant(role, jsii.String("gamelift:ListFleets"))
+//   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+//   		Version: rds.MysqlEngineVersion_VER_8_0_19(),
+//   	}),
+//   	Vpc: Vpc,
+//   	Domain: jsii.String("d-????????"),
+//   	 // The ID of the domain for the instance to join.
+//   	DomainRole: role,
+//   })
 //
 type CompositePrincipal interface {
 	PrincipalBase

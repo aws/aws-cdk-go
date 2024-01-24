@@ -9,9 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates or updates an account-level data protection policy that applies to all log groups in the account.
+// Creates or updates an aaccount-level data protection policy or subscription filter policy that applies to all log groups or a subset of log groups in the account.
 //
-// A data protection policy can help safeguard sensitive data that's ingested by your log groups by auditing and masking the sensitive log data. Each account can have only one account-level policy.
+// *Data protection policy*
+//
+// A data protection policy can help safeguard sensitive data that's ingested by your log groups by auditing and masking the sensitive log data. Each account can have only one account-level data protection policy.
 //
 // > Sensitive data is detected and masked when it is ingested into a log group. When you set a data protection policy, log events ingested into the log groups before that time are not masked.
 //
@@ -25,6 +27,19 @@ import (
 //
 // An account-level policy applies to all log groups in the account. You can also create a data protection policy that applies to just one log group. If a log group has its own data protection policy and the account also has an account-level data protection policy, then the two policies are cumulative. Any sensitive term specified in either policy is masked.
 //
+// *Subscription filter policy*
+//
+// A subscription filter policy sets up a real-time feed of log events from CloudWatch Logs to other AWS services. Account-level subscription filter policies apply to both existing log groups and log groups that are created later in this account. Supported destinations are Kinesis Data Streams , Kinesis Data Firehose , and Lambda . When log events are sent to the receiving service, they are Base64 encoded and compressed with the GZIP format.
+//
+// The following destinations are supported for subscription filters:
+//
+// - An Kinesis Data Streams data stream in the same account as the subscription policy, for same-account delivery.
+// - An Kinesis Data Firehose data stream in the same account as the subscription policy, for same-account delivery.
+// - A Lambda function in the same account as the subscription policy, for same-account delivery.
+// - A logical destination in a different account created with [PutDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html) , for cross-account delivery. Kinesis Data Streams and Kinesis Data Firehose are supported as logical destinations.
+//
+// Each account can have one account-level subscription filter policy. If you are updating an existing filter, you must specify the correct name in `PolicyName` . To perform a `PutAccountPolicy` subscription filter operation for any destination except a Lambda function, you must also have the `iam:PassRole` permission.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,6 +52,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Scope: jsii.String("scope"),
+//   	SelectionCriteria: jsii.String("selectionCriteria"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html
@@ -69,13 +85,13 @@ type CfnAccountPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Specify the data protection policy, in JSON.
+	// Specify the policy, in JSON.
 	PolicyDocument() *string
 	SetPolicyDocument(val *string)
 	// A name for the policy.
 	PolicyName() *string
 	SetPolicyName(val *string)
-	// Currently the only valid value for this parameter is `DATA_PROTECTION_POLICY` .
+	// The type of policy that you're creating or updating.
 	PolicyType() *string
 	SetPolicyType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -83,9 +99,12 @@ type CfnAccountPolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Currently the only valid value for this parameter is `ALL` , which specifies that the data protection policy applies to all log groups in the account.
+	// Currently the only valid value for this parameter is `ALL` , which specifies that the policy applies to all log groups in the account.
 	Scope() *string
 	SetScope(val *string)
+	// Use this parameter to apply a subscription filter policy to a subset of log groups in the account.
+	SelectionCriteria() *string
+	SetSelectionCriteria(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -356,6 +375,16 @@ func (j *jsiiProxy_CfnAccountPolicy) Scope() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccountPolicy) SelectionCriteria() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"selectionCriteria",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccountPolicy) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -451,6 +480,14 @@ func (j *jsiiProxy_CfnAccountPolicy)SetScope(val *string) {
 	_jsii_.Set(
 		j,
 		"scope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccountPolicy)SetSelectionCriteria(val *string) {
+	_jsii_.Set(
+		j,
+		"selectionCriteria",
 		val,
 	)
 }

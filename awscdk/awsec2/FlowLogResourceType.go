@@ -8,18 +8,11 @@ import (
 // The type of resource to create the flow log for.
 //
 // Example:
-//   var vpc vpc
+//   var tgw cfnTransitGateway
 //
 //
-//   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))
-//
-//   role := iam.NewRole(this, jsii.String("MyCustomRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("vpc-flow-logs.amazonaws.com")),
-//   })
-//
-//   ec2.NewFlowLog(this, jsii.String("FlowLog"), &FlowLogProps{
-//   	ResourceType: ec2.FlowLogResourceType_FromVpc(vpc),
-//   	Destination: ec2.FlowLogDestination_ToCloudWatchLogs(logGroup, role),
+//   ec2.NewFlowLog(this, jsii.String("TransitGatewayFlowLog"), &FlowLogProps{
+//   	ResourceType: ec2.FlowLogResourceType_FromTransitGatewayId(tgw.ref),
 //   })
 //
 type FlowLogResourceType interface {
@@ -121,6 +114,44 @@ func FlowLogResourceType_FromSubnet(subnet ISubnet) FlowLogResourceType {
 		"aws-cdk-lib.aws_ec2.FlowLogResourceType",
 		"fromSubnet",
 		[]interface{}{subnet},
+		&returns,
+	)
+
+	return returns
+}
+
+// The Transit Gateway Attachment to attach the Flow Log to.
+func FlowLogResourceType_FromTransitGatewayAttachmentId(id *string) FlowLogResourceType {
+	_init_.Initialize()
+
+	if err := validateFlowLogResourceType_FromTransitGatewayAttachmentIdParameters(id); err != nil {
+		panic(err)
+	}
+	var returns FlowLogResourceType
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.FlowLogResourceType",
+		"fromTransitGatewayAttachmentId",
+		[]interface{}{id},
+		&returns,
+	)
+
+	return returns
+}
+
+// The Transit Gateway to attach the Flow Log to.
+func FlowLogResourceType_FromTransitGatewayId(id *string) FlowLogResourceType {
+	_init_.Initialize()
+
+	if err := validateFlowLogResourceType_FromTransitGatewayIdParameters(id); err != nil {
+		panic(err)
+	}
+	var returns FlowLogResourceType
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.FlowLogResourceType",
+		"fromTransitGatewayId",
+		[]interface{}{id},
 		&returns,
 	)
 

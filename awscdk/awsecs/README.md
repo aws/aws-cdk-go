@@ -295,6 +295,21 @@ cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
 })
 ```
 
+### Amazon Linux 2 (Neuron) Instances
+
+To launch Amazon EC2 Inf1, Trn1 or Inf2 instances, you can use the Amazon ECS optimized Amazon Linux 2 (Neuron) AMI. It comes pre-configured with AWS Inferentia and AWS Trainium drivers and the AWS Neuron runtime for Docker which makes running machine learning inference workloads easier on Amazon ECS.
+
+```go
+var cluster cluster
+
+
+cluster.AddCapacity(jsii.String("neuron-cluster"), &AddCapacityOptions{
+	MinCapacity: jsii.Number(2),
+	InstanceType: ec2.NewInstanceType(jsii.String("inf1.xlarge")),
+	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(ecs.AmiHardwareType_NEURON),
+})
+```
+
 ### Spot Instances
 
 To add spot instances into the cluster, you must specify the `spotPrice` in the `ecs.AddCapacityOptions` and optionally enable the `spotInstanceDraining` property.
@@ -742,9 +757,13 @@ ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
 ### Deployment circuit breaker and rollback
 
 Amazon ECS [deployment circuit breaker](https://aws.amazon.com/tw/blogs/containers/announcing-amazon-ecs-deployment-circuit-breaker/)
-automatically rolls back unhealthy service deployments without the need for manual intervention. Use `circuitBreaker` to enable
-deployment circuit breaker and optionally enable `rollback` for automatic rollback. See [Using the deployment circuit breaker](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html)
-for more details.
+automatically rolls back unhealthy service deployments, eliminating the need for manual intervention.
+
+Use `circuitBreaker` to enable the deployment circuit breaker which determines whether a service deployment
+will fail if the service can't reach a steady state.
+You can optionally enable `rollback` for automatic rollback.
+
+See [Using the deployment circuit breaker](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) for more details.
 
 ```go
 var cluster cluster
@@ -754,6 +773,7 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	CircuitBreaker: &DeploymentCircuitBreaker{
+		Enable: jsii.Boolean(true),
 		Rollback: jsii.Boolean(true),
 	},
 })

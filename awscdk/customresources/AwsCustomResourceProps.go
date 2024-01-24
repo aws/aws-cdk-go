@@ -53,9 +53,14 @@ type AwsCustomResourceProps struct {
 	// Default: - The value of `@aws-cdk/customresources:installLatestAwsSdkDefault`, otherwise `true`.
 	//
 	InstallLatestAwsSdk *bool `field:"optional" json:"installLatestAwsSdk" yaml:"installLatestAwsSdk"`
+	// The Log Group used for logging of events emitted by the custom resource's lambda function.
+	// Default: - a default log group created by AWS Lambda.
+	//
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days log events of the singleton Lambda function implementing this custom resource are kept in CloudWatch Logs.
 	// Default: logs.RetentionDays.INFINITE
 	//
+	// Deprecated: Use logGroup for full control over the custom resource log group.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// The AWS SDK call to make when the resource is created.
 	// Default: - the call when the resource is updated.

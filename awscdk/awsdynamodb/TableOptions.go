@@ -15,7 +15,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var bucket bucket
+//   var inputFormat inputFormat
 //   var key key
 //
 //   tableOptions := &TableOptions{
@@ -30,6 +33,15 @@ import (
 //   	DeletionProtection: jsii.Boolean(false),
 //   	Encryption: awscdk.*Aws_dynamodb.TableEncryption_DEFAULT,
 //   	EncryptionKey: key,
+//   	ImportSource: &ImportSourceSpecification{
+//   		Bucket: bucket,
+//   		InputFormat: inputFormat,
+//
+//   		// the properties below are optional
+//   		BucketOwner: jsii.String("bucketOwner"),
+//   		CompressionType: awscdk.*Aws_dynamodb.InputCompressionType_GZIP,
+//   		KeyPrefix: jsii.String("keyPrefix"),
+//   	},
 //   	PointInTimeRecovery: jsii.Boolean(false),
 //   	ReadCapacity: jsii.Number(123),
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
@@ -89,6 +101,10 @@ type TableOptions struct {
 	// an encryption key managed by DynamoDB, and you are not charged any fee for using it.
 	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// The properties of data being imported from the S3 bucket source to the table.
+	// Default: - no data import from the S3 bucket.
+	//
+	ImportSource *ImportSourceSpecification `field:"optional" json:"importSource" yaml:"importSource"`
 	// Whether point-in-time recovery is enabled.
 	// Default: - point-in-time recovery is disabled.
 	//

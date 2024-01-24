@@ -7,7 +7,7 @@ package awsstepfunctions
 //   map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
 //   	MaxConcurrency: jsii.Number(1),
 //   	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
-//   	Parameters: map[string]interface{}{
+//   	ItemSelector: map[string]interface{}{
 //   		"item": sfn.JsonPath_*StringAt(jsii.String("$.Map.Item.Value")),
 //   	},
 //   	ResultPath: jsii.String("$.mapOutput"),
@@ -37,6 +37,12 @@ type MapProps struct {
 	// Default: $.
 	//
 	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
+	// The JSON that you want to override your default iteration input (mutually exclusive  with `parameters`).
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-itemselector.html
+	//
+	// Default: $.
+	//
+	ItemSelector *map[string]interface{} `field:"optional" json:"itemSelector" yaml:"itemSelector"`
 	// JSONPath expression to select the array to iterate over.
 	// Default: $.
 	//
@@ -54,9 +60,13 @@ type MapProps struct {
 	// Default: $.
 	//
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
-	// The JSON that you want to override your default iteration input.
+	// The JSON that you want to override your default iteration input (mutually exclusive  with `itemSelector`).
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-itemselector.html
+	//
 	// Default: $.
 	//
+	// Deprecated: Step Functions has deprecated the `parameters` field in favor of
+	// the new `itemSelector` field.
 	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//

@@ -122,9 +122,14 @@ type BucketDeploymentProps struct {
 	// Default: - No include filters are used and all files are included with the sync command.
 	//
 	Include *[]*string `field:"optional" json:"include" yaml:"include"`
+	// The Log Group used for logging of events emitted by the custom resource's lambda function.
+	// Default: - a default log group created by AWS Lambda.
+	//
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days that the lambda function's log events are kept in CloudWatch Logs.
 	// Default: logs.RetentionDays.INFINITE
 	//
+	// Deprecated: Use logGroup for full control over the custom resource log group.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// The amount of memory (in MiB) to allocate to the AWS Lambda function which replicates the files from the CDK bucket to the destination bucket.
 	//

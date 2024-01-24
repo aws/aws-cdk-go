@@ -29,8 +29,12 @@ import (
 //   	Description: jsii.String("policy description"),
 //   	Identifiers: []dataIdentifier{
 //   		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+//   		 // managed data identifier
 //   		logs.NewDataIdentifier(jsii.String("EmailAddress")),
+//   		 // forward compatibility for new managed data identifiers
+//   		logs.NewCustomDataIdentifier(jsii.String("EmployeeId"), jsii.String("EmployeeId-\\d{9}")),
 //   	},
+//   	 // custom data identifier
 //   	LogGroupAuditDestination: logGroupDestination,
 //   	S3BucketAuditDestination: bucket,
 //   	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
@@ -44,7 +48,8 @@ import (
 type DataProtectionPolicyProps struct {
 	// List of data protection identifiers.
 	//
-	// Must be in the following list: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html
+	// Managed data identifiers must be in the following list: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-managed-data-identifiers.html
+	// Custom data identifiers must have a valid regex defined: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html#custom-data-identifiers-constraints
 	Identifiers *[]DataIdentifier `field:"required" json:"identifiers" yaml:"identifiers"`
 	// Amazon Kinesis Data Firehose delivery stream to send audit findings to.
 	//

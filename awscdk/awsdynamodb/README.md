@@ -1081,3 +1081,107 @@ const barStack = new BarStack(app, 'BarStack', {
   env: { region: 'us-east-1' },
 });
 ```
+
+## import from S3 Bucket
+
+You can import data in S3 when creating a Table using the `Table` construct.
+To import data into DynamoDB, it is required that your data is in a CSV, DynamoDB JSON, or Amazon Ion format within an Amazon S3 bucket.
+The data may be compressed using ZSTD or GZIP formats, or you may choose to import it without compression.
+The data source can be a single S3 object or multiple S3 objects sharing a common prefix.
+
+Further reading:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataImport.HowItWorks.html
+
+### use CSV format
+
+The `InputFormat.csv` method accepts `delimiter` and `headerList` options as arguments.
+If `delimiter` is not specified, `,` is used by default.
+And if `headerList` is specified, the first line of CSV is treated as data instead of header.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+
+var bucket iBucket
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"))
+
+dynamodb.NewTable(stack, jsii.String("Table"), &TableProps{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	ImportSource: &ImportSourceSpecification{
+		CompressionType: dynamodb.InputCompressionType_GZIP,
+		InputFormat: dynamodb.InputFormat_Csv(&CsvOptions{
+			Delimiter: jsii.String(","),
+			HeaderList: []*string{
+				jsii.String("id"),
+				jsii.String("name"),
+			},
+		}),
+		Bucket: *Bucket,
+		KeyPrefix: jsii.String("prefix"),
+	},
+})
+```
+
+### use DynamoDB JSON format
+
+Use the `InputFormat.dynamoDBJson()` method to specify the `inputFormat` property.
+There are currently no options available.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+
+var bucket iBucket
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"))
+
+dynamodb.NewTable(stack, jsii.String("Table"), &TableProps{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	ImportSource: &ImportSourceSpecification{
+		CompressionType: dynamodb.InputCompressionType_GZIP,
+		InputFormat: dynamodb.InputFormat_DynamoDBJson(),
+		Bucket: *Bucket,
+		KeyPrefix: jsii.String("prefix"),
+	},
+})
+```
+
+### use Amazon Ion format
+
+Use the `InputFormat.ion()` method to specify the `inputFormat` property.
+There are currently no options available.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+
+var bucket iBucket
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"))
+
+dynamodb.NewTable(stack, jsii.String("Table"), &TableProps{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	ImportSource: &ImportSourceSpecification{
+		CompressionType: dynamodb.InputCompressionType_GZIP,
+		InputFormat: dynamodb.InputFormat_Ion(),
+		Bucket: *Bucket,
+		KeyPrefix: jsii.String("prefix"),
+	},
+})
+```

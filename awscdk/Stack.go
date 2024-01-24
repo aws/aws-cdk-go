@@ -13,34 +13,30 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var bucket iBucket
 //
 //
 //   app := cdk.NewApp()
-//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
-//   	Env: &Environment{
-//   		Region: jsii.String("us-west-2"),
-//   	},
-//   })
+//   stack := cdk.NewStack(app, jsii.String("Stack"))
 //
-//   stream1 := kinesis.NewStream(stack, jsii.String("Stream1"))
-//   stream2 := kinesis.Stream_FromStreamArn(stack, jsii.String("Stream2"), jsii.String("arn:aws:kinesis:us-east-2:123456789012:stream/my-stream"))
-//
-//   globalTable := dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TablePropsV2{
+//   dynamodb.NewTable(stack, jsii.String("Table"), &TableProps{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("id"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	KinesisStream: stream1,
-//   	 // for table in us-west-2
-//   	Replicas: []replicaTableProps{
-//   		&replicaTableProps{
-//   			Region: jsii.String("us-east-1"),
-//   		},
-//   		&replicaTableProps{
-//   			Region: jsii.String("us-east-2"),
-//   			KinesisStream: stream2,
-//   		},
+//   	ImportSource: &ImportSourceSpecification{
+//   		CompressionType: dynamodb.InputCompressionType_GZIP,
+//   		InputFormat: dynamodb.InputFormat_Csv(&CsvOptions{
+//   			Delimiter: jsii.String(","),
+//   			HeaderList: []*string{
+//   				jsii.String("id"),
+//   				jsii.String("name"),
+//   			},
+//   		}),
+//   		Bucket: *Bucket,
+//   		KeyPrefix: jsii.String("prefix"),
 //   	},
 //   })
 //

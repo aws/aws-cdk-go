@@ -2033,6 +2033,30 @@ vpc.addFlowLog(jsii.String("FlowLogCloudWatch"), &FlowLogOptions{
 })
 ```
 
+To create a Transit Gateway flow log, you can use the `fromTransitGatewayId` method:
+
+```go
+var tgw cfnTransitGateway
+
+
+ec2.NewFlowLog(this, jsii.String("TransitGatewayFlowLog"), &FlowLogProps{
+	ResourceType: ec2.FlowLogResourceType_FromTransitGatewayId(tgw.ref),
+})
+```
+
+To create a Transit Gateway Attachment flow log, you can use the `fromTransitGatewayAttachmentId` method:
+
+```go
+var tgwAttachment cfnTransitGatewayAttachment
+
+
+ec2.NewFlowLog(this, jsii.String("TransitGatewayAttachmentFlowLog"), &FlowLogProps{
+	ResourceType: ec2.FlowLogResourceType_FromTransitGatewayAttachmentId(tgwAttachment.ref),
+})
+```
+
+For flow logs targeting TransitGateway and TransitGatewayAttachment, specifying the `trafficType` is not possible.
+
 ### Custom Formatting
 
 You can also custom format flow logs.

@@ -19,7 +19,7 @@ import (
 //   map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
 //   	MaxConcurrency: jsii.Number(1),
 //   	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
-//   	Parameters: map[string]interface{}{
+//   	ItemSelector: map[string]interface{}{
 //   		"item": sfn.JsonPath_*StringAt(jsii.String("$.Map.Item.Value")),
 //   	},
 //   	ResultPath: jsii.String("$.mapOutput"),
@@ -95,11 +95,11 @@ type Map interface {
 	BindToGraph(graph StateGraph)
 	// Define item processor in Map.
 	//
-	// A Map must either have a non-empty iterator or a non-empty item processor, not both.
+	// A Map must either have a non-empty iterator or a non-empty item processor (mutually exclusive  with `iterator`).
 	ItemProcessor(processor IChainable, config *ProcessorConfig) Map
 	// Define iterator state machine in Map.
 	//
-	// A Map must either have a non-empty iterator or a non-empty item processor, not both.
+	// A Map must either have a non-empty iterator or a non-empty item processor (mutually exclusive  with `itemProcessor`).
 	// Deprecated: - use `itemProcessor` instead.
 	Iterator(iterator IChainable) Map
 	// Make the indicated state the default choice transition of this state.

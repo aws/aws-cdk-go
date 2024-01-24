@@ -36,7 +36,7 @@ type QueueAttributes struct {
 	//
 	QueueName *string `field:"optional" json:"queueName" yaml:"queueName"`
 	// The URL of the queue.
-	// See: https://docs.aws.amazon.com/sdk-for-net/v2/developer-guide/QueueURL.html
+	// See: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html#sqs-general-identifiers
 	//
 	// Default: - 'https://sqs.<region-endpoint>/<account-ID>/<queue-name>'
 	//

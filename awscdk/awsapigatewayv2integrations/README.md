@@ -11,6 +11,7 @@
 * [WebSocket APIs](#websocket-apis)
 
   * [Lambda WebSocket Integration](#lambda-websocket-integration)
+  * [AWS WebSocket Integration](#aws-websocket-integration)
 
 ## HTTP APIs
 
@@ -233,5 +234,47 @@ apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
 })
 webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
 	Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+})
+```
+
+### AWS WebSocket Integration
+
+AWS type integrations enable integrating with any supported AWS service. This is only supported for WebSocket APIs. When a client
+connects/disconnects or sends a message specific to a route, the API Gateway service forwards the request to the specified AWS service.
+
+The following code configures a `$connect` route with a AWS integration that integrates with a dynamodb table. On websocket api connect,
+it will write new entry to the dynamodb table.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+import iam "github.com/aws/aws-cdk-go/awscdk"
+
+var apiRole role
+var table table
+
+
+webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
+apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+	WebSocketApi: WebSocketApi,
+	StageName: jsii.String("dev"),
+	AutoDeploy: jsii.Boolean(true),
+})
+webSocketApi.AddRoute(jsii.String("$connect"), &WebSocketRouteOptions{
+	Integration: awscdk.NewWebSocketAwsIntegration(jsii.String("DynamodbPutItem"), &WebSocketAwsIntegrationProps{
+		IntegrationUri: fmt.Sprintf("arn:aws:apigateway:%v:dynamodb:action/PutItem", this.Region),
+		IntegrationMethod: apigwv2.HttpMethod_POST,
+		CredentialsRole: apiRole,
+		RequestTemplates: map[string]*string{
+			"application/json": JSON.stringify(map[string]interface{}{
+				"TableName": table.tableName,
+				"Item": map[string]map[string]*string{
+					"id": map[string]*string{
+						"S": jsii.String("$context.requestId"),
+					},
+				},
+			}),
+		},
+	}),
 })
 ```

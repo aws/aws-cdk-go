@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnLoadBalancer := awscdk.Aws_elasticloadbalancingv2.NewCfnLoadBalancer(this, jsii.String("MyCfnLoadBalancer"), &CfnLoadBalancerProps{
+//   	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: jsii.String("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	LoadBalancerAttributes: []interface{}{
 //   		&LoadBalancerAttributeProperty{
@@ -86,6 +87,9 @@ type CfnLoadBalancer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink.
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string
+	SetEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic(val *string)
 	// The IP address type.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
@@ -383,6 +387,16 @@ func (j *jsiiProxy_CfnLoadBalancer) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) IpAddressType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -568,6 +582,14 @@ func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, 
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnLoadBalancer)SetEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic(val *string) {
+	_jsii_.Set(
+		j,
+		"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
+		val,
 	)
 }
 

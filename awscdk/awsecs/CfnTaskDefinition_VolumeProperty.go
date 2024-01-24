@@ -1,9 +1,9 @@
 package awsecs
 
 
-// The `Volume` property specifies a data volume used in a task definition.
+// The data volume configuration for tasks launched using this task definition.
 //
-// For tasks that use a Docker volume, specify a `DockerVolumeConfiguration` . For tasks that use a bind mount host volume, specify a `host` and optional `sourcePath` . For more information about `host` and optional `sourcePath` , see [Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#volumes) and [Using Data Volumes in Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) .
+// Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a `name` and one of either `configuredAtLaunch` , `dockerVolumeConfiguration` , `efsVolumeConfiguration` , `fsxWindowsFileServerVolumeConfiguration` , or `host` . If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,6 +44,11 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html
 //
 type CfnTaskDefinition_VolumeProperty struct {
+	// Indicates whether the volume should be configured at launch time.
+	//
+	// This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+	//
+	// To configure a volume at launch time, use this task definition revision and specify a `volumeConfigurations` object when calling the `CreateService` , `UpdateService` , `RunTask` or `StartTask` APIs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-configuredatlaunch
 	//
 	ConfiguredAtLaunch interface{} `field:"optional" json:"configuredAtLaunch" yaml:"configuredAtLaunch"`
@@ -67,11 +72,13 @@ type CfnTaskDefinition_VolumeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-host
 	//
 	Host interface{} `field:"optional" json:"host" yaml:"host"`
-	// The name of the volume.
+	// The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
 	//
-	// Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
+	// When using a volume configured at launch, the `name` is required and must also be specified as the volume name in the `ServiceVolumeConfiguration` or `TaskVolumeConfiguration` parameter when creating your service or standalone task.
 	//
-	// This is required wwhen you use an Amazon EFS volume.
+	// For all other types of volumes, this name is referenced in the `sourceVolume` parameter of the `mountPoints` object in the container definition.
+	//
+	// When a volume is using the `efsVolumeConfiguration` , the name is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

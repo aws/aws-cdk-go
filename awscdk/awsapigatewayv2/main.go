@@ -1797,6 +1797,7 @@ func init() {
 		map[string]interface{}{
 			"AWS_PROXY": WebSocketIntegrationType_AWS_PROXY,
 			"MOCK": WebSocketIntegrationType_MOCK,
+			"AWS": WebSocketIntegrationType_AWS,
 		},
 	)
 	_jsii_.RegisterClass(

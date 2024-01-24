@@ -739,6 +739,35 @@ gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &Databa
 })
 ```
 
+Use the `allocatedStorage` property to specify the amount of storage (in gigabytes) that is initially allocated for the instance
+to use for the instance:
+
+```go
+var vpc vpc
+
+// Setting allocatedStorage for DatabaseInstance replica
+// Note: If allocatedStorage isn't set here, the replica instance will inherit the allocatedStorage of the source instance
+var sourceInstance databaseInstance
+
+
+// Setting allocatedStorage for DatabaseInstance
+iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+	}),
+	Vpc: Vpc,
+	StorageType: rds.StorageType_IO1,
+	Iops: jsii.Number(5000),
+	AllocatedStorage: jsii.Number(500),
+})
+rds.NewDatabaseInstanceReadReplica(this, jsii.String("ReadReplica"), &DatabaseInstanceReadReplicaProps{
+	SourceDatabaseInstance: sourceInstance,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_LARGE),
+	Vpc: Vpc,
+	AllocatedStorage: jsii.Number(500),
+})
+```
+
 Use the `caCertificate` property to specify the [CA certificates](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html)
 to use for the instance:
 
@@ -1187,7 +1216,9 @@ Directory Services.
 var vpc vpc
 
 role := iam.NewRole(this, jsii.String("RDSDirectoryServicesRole"), &RoleProps{
-	AssumedBy: iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
+	AssumedBy: iam.NewCompositePrincipal(
+	iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
+	iam.NewServicePrincipal(jsii.String("directoryservice.rds.amazonaws.com"))),
 	ManagedPolicies: []iManagedPolicy{
 		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
 	},
@@ -1203,7 +1234,35 @@ instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInst
 })
 ```
 
-**Note**: In addition to the setup above, you need to make sure that the database instance has network connectivity
+You can also use the Kerberos authentication for an Aurora database cluster.
+
+```go
+var vpc vpc
+
+iamRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewCompositePrincipal(
+	iam.NewServicePrincipal(jsii.String("rds.amazonaws.com")),
+	iam.NewServicePrincipal(jsii.String("directoryservice.rds.amazonaws.com"))),
+	ManagedPolicies: []iManagedPolicy{
+		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonRDSDirectoryServiceAccess")),
+	},
+})
+
+rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_05_1(),
+	}),
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
+		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_MEDIUM),
+	}),
+	Vpc: Vpc,
+	Domain: jsii.String("d-????????"),
+	 // The ID of the domain for the cluster to join.
+	DomainRole: iamRole,
+})
+```
+
+**Note**: In addition to the setup above, you need to make sure that the database instance or cluster has network connectivity
 to the domain controllers. This includes enabling cross-VPC traffic if in a different VPC and setting up the
 appropriate security groups/network ACL to allow traffic between the database instance and domain controllers.
 Once configured, see [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html) for details

@@ -45,7 +45,6 @@ type CfnSoftwarePackage interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A summary of the package being created.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -60,7 +59,6 @@ type CfnSoftwarePackage interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The name of the new software package.
 	PackageName() *string
 	SetPackageName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -72,7 +70,7 @@ type CfnSoftwarePackage interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that can be used to manage the package.
+	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

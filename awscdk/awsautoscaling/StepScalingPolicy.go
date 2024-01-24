@@ -41,6 +41,7 @@ import (
 //   	// the properties below are optional
 //   	AdjustmentType: awscdk.*Aws_autoscaling.AdjustmentType_CHANGE_IN_CAPACITY,
 //   	Cooldown: cdk.Duration_Minutes(jsii.Number(30)),
+//   	DatapointsToAlarm: jsii.Number(123),
 //   	EstimatedInstanceWarmup: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	EvaluationPeriods: jsii.Number(123),
 //   	MetricAggregationType: awscdk.*Aws_autoscaling.MetricAggregationType_AVERAGE,

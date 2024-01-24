@@ -37,12 +37,14 @@ import (
 //   		},
 //   	},
 //   	CircuitBreaker: &DeploymentCircuitBreaker{
+//   		Enable: jsii.Boolean(false),
 //   		Rollback: jsii.Boolean(false),
 //   	},
 //   	Cluster: cluster,
 //   	Command: []*string{
 //   		jsii.String("command"),
 //   	},
+//   	Cooldown: cdk.Duration_Minutes(jsii.Number(30)),
 //   	CpuTargetUtilizationPercent: jsii.Number(123),
 //   	DeploymentController: &DeploymentController{
 //   		Type: awscdk.Aws_ecs.DeploymentControllerType_ECS,
@@ -64,7 +66,7 @@ import (
 //   	MinScalingCapacity: jsii.Number(123),
 //   	PropagateTags: awscdk.*Aws_ecs.PropagatedTagSource_SERVICE,
 //   	Queue: queue,
-//   	RetentionPeriod: cdk.Duration_Minutes(jsii.Number(30)),
+//   	RetentionPeriod: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	ScalingSteps: []scalingInterval{
 //   		&scalingInterval{
 //   			Change: jsii.Number(123),
@@ -106,6 +108,17 @@ type QueueProcessingServiceBaseProps struct {
 	// Default: - CMD value built into container image.
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// Grace period after scaling activity in seconds.
+	//
+	// Subsequent scale outs during the cooldown period are squashed so that only
+	// the biggest scale out happens.
+	//
+	// Subsequent scale ins during the cooldown period are ignored.
+	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html
+	//
+	// Default: 300 seconds.
+	//
+	Cooldown awscdk.Duration `field:"optional" json:"cooldown" yaml:"cooldown"`
 	// The target CPU utilization percentage for CPU based scaling strategy when enabled.
 	// Default: - 50.
 	//

@@ -1,9 +1,12 @@
 package awssagemaker
 
 
-// The access configuration file for the ML model.
+// The access configuration file to control access to the ML model.
 //
-// You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig` . For more information, see [End-user license agreements](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula) .
+// You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig` .
+//
+// - If you are a Jumpstart user, see the [End-user license agreements](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula) section for more details on accepting the EULA.
+// - If you are an AutoML user, see the *Optional Parameters* section of *Create an AutoML job to fine-tune text generation models using the API* for details on [How to set the EULA acceptance when fine-tuning a model using the AutoML API](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-finetune-llms.html#autopilot-llms-finetuning-api-optional-params) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

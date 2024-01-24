@@ -6,9 +6,9 @@ import (
 	"fmt"
 )
 
-func validateNewDataIdentifierParameters(identifier *string) error {
-	if identifier == nil {
-		return fmt.Errorf("parameter identifier is required, but nil was provided")
+func validateNewDataIdentifierParameters(name *string) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
 	}
 
 	return nil

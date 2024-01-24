@@ -21,6 +21,9 @@ import (
 //   		Style: jsii.String("style"),
 //
 //   		// the properties below are optional
+//   		CustomLayers: []*string{
+//   			jsii.String("customLayers"),
+//   		},
 //   		PoliticalView: jsii.String("politicalView"),
 //   	},
 //   	MapName: jsii.String("mapName"),

@@ -47,6 +47,9 @@ import (
 //   		},
 //   	},
 //   	ClusterConfig: &ClusterConfigProperty{
+//   		ColdStorageOptions: &ColdStorageOptionsProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
 //   		DedicatedMasterCount: jsii.Number(123),
 //   		DedicatedMasterEnabled: jsii.Boolean(false),
 //   		DedicatedMasterType: jsii.String("dedicatedMasterType"),

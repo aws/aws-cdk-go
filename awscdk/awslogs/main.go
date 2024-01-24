@@ -40,6 +40,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
+			_jsii_.MemberProperty{JsiiProperty: "selectionCriteria", GoGetter: "SelectionCriteria"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -669,9 +670,24 @@ func init() {
 		reflect.TypeOf((*CrossAccountDestinationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_logs.CustomDataIdentifier",
+		reflect.TypeOf((*CustomDataIdentifier)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "regex", GoGetter: "Regex"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CustomDataIdentifier{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_DataIdentifier)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_logs.DataIdentifier",
 		reflect.TypeOf((*DataIdentifier)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
@@ -685,10 +701,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_DataProtectionPolicy{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_logs.DataProtectionPolicyConfig",
-		reflect.TypeOf((*DataProtectionPolicyConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_logs.DataProtectionPolicyProps",

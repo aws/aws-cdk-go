@@ -114,6 +114,19 @@ import (
 //   				},
 //   				DiscoveryName: jsii.String("discoveryName"),
 //   				IngressPortOverride: jsii.Number(123),
+//   				Timeout: &TimeoutConfigurationProperty{
+//   					IdleTimeoutSeconds: jsii.Number(123),
+//   					PerRequestTimeoutSeconds: jsii.Number(123),
+//   				},
+//   				Tls: &ServiceConnectTlsConfigurationProperty{
+//   					IssuerCertificateAuthority: &ServiceConnectTlsCertificateAuthorityProperty{
+//   						AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
+//   					},
+//
+//   					// the properties below are optional
+//   					KmsKey: jsii.String("kmsKey"),
+//   					RoleArn: jsii.String("roleArn"),
+//   				},
 //   			},
 //   		},
 //   	},
@@ -339,6 +352,9 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
 	//
 	TaskDefinition *string `field:"optional" json:"taskDefinition" yaml:"taskDefinition"`
+	// The configuration for a volume specified in the task definition as a volume that is configured at launch time.
+	//
+	// Currently, the only supported volume type is an Amazon EBS volume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-volumeconfigurations
 	//
 	VolumeConfigurations interface{} `field:"optional" json:"volumeConfigurations" yaml:"volumeConfigurations"`

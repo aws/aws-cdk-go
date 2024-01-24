@@ -11,6 +11,8 @@ package awscognito
 //   cognitoIdentityProviderProperty := &CognitoIdentityProviderProperty{
 //   	ClientId: jsii.String("clientId"),
 //   	ProviderName: jsii.String("providerName"),
+//
+//   	// the properties below are optional
 //   	ServerSideTokenCheck: jsii.Boolean(false),
 //   }
 //
@@ -20,13 +22,13 @@ type CfnIdentityPool_CognitoIdentityProviderProperty struct {
 	// The client ID for the Amazon Cognito user pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-clientid
 	//
-	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The provider name for an Amazon Cognito user pool.
 	//
 	// For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-providername
 	//
-	ProviderName *string `field:"optional" json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
 	// TRUE if server-side token validation is enabled for the identity provider’s token.
 	//
 	// After you set the `ServerSideTokenCheck` to TRUE for an identity pool, that identity pool checks with the integrated user pools to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.

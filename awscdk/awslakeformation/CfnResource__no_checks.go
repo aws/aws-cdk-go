@@ -80,6 +80,10 @@ func validateCfnResource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnResource) validateSetHybridAccessEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnResource) validateSetResourceArnParameters(val *string) error {
 	return nil
 }

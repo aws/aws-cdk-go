@@ -10,62 +10,32 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var bucket iBucket
 //
 //
-//   // create a table
-//   table := dynamodb.NewTable(this, jsii.String("montable"), &TableProps{
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"))
+//
+//   dynamodb.NewTable(stack, jsii.String("Table"), &TableProps{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("id"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   })
-//
-//   finalStatus := sfn.NewPass(this, jsii.String("final step"))
-//
-//   // States language JSON to put an item into DynamoDB
-//   // snippet generated from https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-code-snippet.html#tutorial-code-snippet-1
-//   stateJson := map[string]interface{}{
-//   	"Type": jsii.String("Task"),
-//   	"Resource": jsii.String("arn:aws:states:::dynamodb:putItem"),
-//   	"Parameters": map[string]interface{}{
-//   		"TableName": table.tableName,
-//   		"Item": map[string]map[string]*string{
-//   			"id": map[string]*string{
-//   				"S": jsii.String("MyEntry"),
+//   	ImportSource: &ImportSourceSpecification{
+//   		CompressionType: dynamodb.InputCompressionType_GZIP,
+//   		InputFormat: dynamodb.InputFormat_Csv(&CsvOptions{
+//   			Delimiter: jsii.String(","),
+//   			HeaderList: []*string{
+//   				jsii.String("id"),
+//   				jsii.String("name"),
 //   			},
-//   		},
+//   		}),
+//   		Bucket: *Bucket,
+//   		KeyPrefix: jsii.String("prefix"),
 //   	},
-//   	"ResultPath": nil,
-//   }
-//
-//   // custom state which represents a task to insert data into DynamoDB
-//   custom := sfn.NewCustomState(this, jsii.String("my custom task"), &CustomStateProps{
-//   	StateJson: StateJson,
 //   })
-//
-//   // catch errors with addCatch
-//   errorHandler := sfn.NewPass(this, jsii.String("handle failure"))
-//   custom.AddCatch(errorHandler)
-//
-//   // retry the task if something goes wrong
-//   custom.AddRetry(&RetryProps{
-//   	Errors: []*string{
-//   		sfn.Errors_ALL(),
-//   	},
-//   	Interval: awscdk.Duration_Seconds(jsii.Number(10)),
-//   	MaxAttempts: jsii.Number(5),
-//   })
-//
-//   chain := sfn.Chain_Start(custom).Next(finalStatus)
-//
-//   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-//   	DefinitionBody: sfn.DefinitionBody_FromChainable(chain),
-//   	Timeout: awscdk.Duration_*Seconds(jsii.Number(30)),
-//   	Comment: jsii.String("a super cool state machine"),
-//   })
-//
-//   // don't forget permissions. You need to assign them
-//   table.GrantWriteData(sm)
 //
 type TableProps struct {
 	// Partition key attribute definition.
@@ -108,6 +78,10 @@ type TableProps struct {
 	// an encryption key managed by DynamoDB, and you are not charged any fee for using it.
 	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// The properties of data being imported from the S3 bucket source to the table.
+	// Default: - no data import from the S3 bucket.
+	//
+	ImportSource *ImportSourceSpecification `field:"optional" json:"importSource" yaml:"importSource"`
 	// Whether point-in-time recovery is enabled.
 	// Default: - point-in-time recovery is disabled.
 	//

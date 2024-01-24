@@ -492,7 +492,7 @@ execute the same steps for multiple entries of an array in the state input.
 map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
 	MaxConcurrency: jsii.Number(1),
 	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
-	Parameters: map[string]interface{}{
+	ItemSelector: map[string]interface{}{
 		"item": sfn.JsonPath_*StringAt(jsii.String("$.Map.Item.Value")),
 	},
 	ResultPath: jsii.String("$.mapOutput"),
@@ -518,7 +518,7 @@ An `executionType` must be specified for the distributed `Map` workflow.
 map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
 	MaxConcurrency: jsii.Number(1),
 	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
-	Parameters: map[string]interface{}{
+	ItemSelector: map[string]interface{}{
 		"item": sfn.JsonPath_*StringAt(jsii.String("$.Map.Item.Value")),
 	},
 	ResultPath: jsii.String("$.mapOutput"),

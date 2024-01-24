@@ -56,6 +56,17 @@ type QueueProcessingEc2ServiceProps struct {
 	// Default: - CMD value built into container image.
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// Grace period after scaling activity in seconds.
+	//
+	// Subsequent scale outs during the cooldown period are squashed so that only
+	// the biggest scale out happens.
+	//
+	// Subsequent scale ins during the cooldown period are ignored.
+	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html
+	//
+	// Default: 300 seconds.
+	//
+	Cooldown awscdk.Duration `field:"optional" json:"cooldown" yaml:"cooldown"`
 	// The target CPU utilization percentage for CPU based scaling strategy when enabled.
 	// Default: - 50.
 	//

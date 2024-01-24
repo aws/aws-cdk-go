@@ -23,6 +23,7 @@ import (
 //   	UseServiceLinkedRole: jsii.Boolean(false),
 //
 //   	// the properties below are optional
+//   	HybridAccessEnabled: jsii.Boolean(false),
 //   	RoleArn: jsii.String("roleArn"),
 //   	WithFederation: jsii.Boolean(false),
 //   })
@@ -42,6 +43,8 @@ type CfnResource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	HybridAccessEnabled() interface{}
+	SetHybridAccessEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -271,6 +274,16 @@ func (j *jsiiProxy_CfnResource) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResource) HybridAccessEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"hybridAccessEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResource) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -396,6 +409,17 @@ func NewCfnResource_Override(c CfnResource, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_lakeformation.CfnResource",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnResource)SetHybridAccessEnabled(val interface{}) {
+	if err := j.validateSetHybridAccessEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"hybridAccessEnabled",
+		val,
 	)
 }
 

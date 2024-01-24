@@ -15,18 +15,11 @@ import (
 // A VPC flow log.
 //
 // Example:
-//   var vpc vpc
+//   var tgw cfnTransitGateway
 //
 //
-//   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))
-//
-//   role := iam.NewRole(this, jsii.String("MyCustomRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("vpc-flow-logs.amazonaws.com")),
-//   })
-//
-//   ec2.NewFlowLog(this, jsii.String("FlowLog"), &FlowLogProps{
-//   	ResourceType: ec2.FlowLogResourceType_FromVpc(vpc),
-//   	Destination: ec2.FlowLogDestination_ToCloudWatchLogs(logGroup, role),
+//   ec2.NewFlowLog(this, jsii.String("TransitGatewayFlowLog"), &FlowLogProps{
+//   	ResourceType: ec2.FlowLogResourceType_FromTransitGatewayId(tgw.ref),
 //   })
 //
 type FlowLog interface {

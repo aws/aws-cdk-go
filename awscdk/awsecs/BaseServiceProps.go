@@ -35,6 +35,7 @@ import (
 //   		},
 //   	},
 //   	CircuitBreaker: &DeploymentCircuitBreaker{
+//   		Enable: jsii.Boolean(false),
 //   		Rollback: jsii.Boolean(false),
 //   	},
 //   	CloudMapOptions: &CloudMapOptions{

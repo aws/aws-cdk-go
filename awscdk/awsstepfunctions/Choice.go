@@ -16,7 +16,7 @@ import (
 //   map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
 //   	MaxConcurrency: jsii.Number(1),
 //   	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
-//   	Parameters: map[string]interface{}{
+//   	ItemSelector: map[string]interface{}{
 //   		"item": sfn.JsonPath_*StringAt(jsii.String("$.Map.Item.Value")),
 //   	},
 //   	ResultPath: jsii.String("$.mapOutput"),

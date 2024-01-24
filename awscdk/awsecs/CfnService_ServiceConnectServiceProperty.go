@@ -24,6 +24,19 @@ package awsecs
 //   	},
 //   	DiscoveryName: jsii.String("discoveryName"),
 //   	IngressPortOverride: jsii.Number(123),
+//   	Timeout: &TimeoutConfigurationProperty{
+//   		IdleTimeoutSeconds: jsii.Number(123),
+//   		PerRequestTimeoutSeconds: jsii.Number(123),
+//   	},
+//   	Tls: &ServiceConnectTlsConfigurationProperty{
+//   		IssuerCertificateAuthority: &ServiceConnectTlsCertificateAuthorityProperty{
+//   			AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
+//   		},
+//
+//   		// the properties below are optional
+//   		KmsKey: jsii.String("kmsKey"),
+//   		RoleArn: jsii.String("roleArn"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html
@@ -61,5 +74,11 @@ type CfnService_ServiceConnectServiceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-ingressportoverride
 	//
 	IngressPortOverride *float64 `field:"optional" json:"ingressPortOverride" yaml:"ingressPortOverride"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-timeout
+	//
+	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-tls
+	//
+	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 

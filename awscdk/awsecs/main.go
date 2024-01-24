@@ -30,6 +30,7 @@ func init() {
 			"STANDARD": AmiHardwareType_STANDARD,
 			"GPU": AmiHardwareType_GPU,
 			"ARM": AmiHardwareType_ARM,
+			"NEURON": AmiHardwareType_NEURON,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -678,6 +679,14 @@ func init() {
 		reflect.TypeOf((*CfnService_ServiceConnectServiceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectTlsCertificateAuthorityProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectTlsCertificateAuthorityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.ServiceConnectTlsConfigurationProperty",
+		reflect.TypeOf((*CfnService_ServiceConnectTlsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.ServiceManagedEBSVolumeConfigurationProperty",
 		reflect.TypeOf((*CfnService_ServiceManagedEBSVolumeConfigurationProperty)(nil)).Elem(),
 	)
@@ -688,6 +697,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.ServiceVolumeConfigurationProperty",
 		reflect.TypeOf((*CfnService_ServiceVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.TimeoutConfigurationProperty",
+		reflect.TypeOf((*CfnService_TimeoutConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnServiceProps",

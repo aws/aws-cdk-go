@@ -19,7 +19,9 @@ import (
 //   myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
 //   	OnEventHandler: onEvent,
 //   	IsCompleteHandler: isComplete,
-//   	LogRetention: logs.RetentionDays_ONE_DAY,
+//   	LogGroup: logs.NewLogGroup(this, jsii.String("MyProviderLogs"), &LogGroupProps{
+//   		Retention: logs.RetentionDays_ONE_DAY,
+//   	}),
 //   	Role: myRole,
 //   	ProviderFunctionName: jsii.String("the-lambda-name"),
 //   })

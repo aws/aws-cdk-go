@@ -3,7 +3,7 @@ package awssagemaker
 
 // Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to.
 //
-// You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

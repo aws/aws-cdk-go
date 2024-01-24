@@ -150,7 +150,7 @@ type CfnIPAMPool interface {
 	// The ID of the source IPAM pool.
 	SourceIpamPoolId() *string
 	SetSourceIpamPoolId(val *string)
-	// The resource associated with this pool's space.
+	// The resource used to provision CIDRs to a resource planning pool.
 	SourceResource() interface{}
 	SetSourceResource(val interface{})
 	// The stack in which this element is defined.

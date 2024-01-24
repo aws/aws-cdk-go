@@ -18,7 +18,7 @@ import (
 //
 //   var assignContactCategoryActions interface{}
 //   var emptyValue interface{}
-//   var endAssociatedTaskActions interface{}
+//   var endAssociatedTasksActions interface{}
 //
 //   cfnRule := awscdk.Aws_connect.NewCfnRule(this, jsii.String("MyCfnRule"), &CfnRuleProps{
 //   	Actions: &ActionsProperty{
@@ -41,8 +41,8 @@ import (
 //   				TemplateId: jsii.String("templateId"),
 //   			},
 //   		},
-//   		EndAssociatedTaskActions: []interface{}{
-//   			endAssociatedTaskActions,
+//   		EndAssociatedTasksActions: []interface{}{
+//   			endAssociatedTasksActions,
 //   		},
 //   		EventBridgeActions: []interface{}{
 //   			&EventBridgeActionProperty{

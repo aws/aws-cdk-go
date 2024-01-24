@@ -4,7 +4,7 @@ package awslogs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateNewDataIdentifierParameters(identifier *string) error {
+func validateNewDataIdentifierParameters(name *string) error {
 	return nil
 }
 

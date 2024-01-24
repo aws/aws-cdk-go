@@ -654,6 +654,23 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 })
 ```
 
+### Set cooldown for QueueProcessingFargateService
+
+The cooldown period is the amount of time to wait for a previous scaling activity to take effect.
+To specify something other than the default cooldown period of 300 seconds, use the `cooldown` parameter:
+
+```go
+var vpc vpc
+
+queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("Service"), &QueueProcessingFargateServiceProps{
+	Vpc: Vpc,
+	MemoryLimitMiB: jsii.Number(512),
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	AssignPublicIp: jsii.Boolean(true),
+	Cooldown: awscdk.Duration_Seconds(jsii.Number(500)),
+})
+```
+
 ### Set capacityProviderStrategies for QueueProcessingFargateService
 
 ```go

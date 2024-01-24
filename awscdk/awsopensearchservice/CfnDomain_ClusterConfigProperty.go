@@ -11,6 +11,9 @@ package awsopensearchservice
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   clusterConfigProperty := &ClusterConfigProperty{
+//   	ColdStorageOptions: &ColdStorageOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	DedicatedMasterCount: jsii.Number(123),
 //   	DedicatedMasterEnabled: jsii.Boolean(false),
 //   	DedicatedMasterType: jsii.String("dedicatedMasterType"),
@@ -29,6 +32,10 @@ package awsopensearchservice
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html
 //
 type CfnDomain_ClusterConfigProperty struct {
+	// Specifies cold storage options for the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-coldstorageoptions
+	//
+	ColdStorageOptions interface{} `field:"optional" json:"coldStorageOptions" yaml:"coldStorageOptions"`
 	// The number of instances to use for the master node.
 	//
 	// If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.

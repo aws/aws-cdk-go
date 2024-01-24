@@ -109,6 +109,22 @@ func init() {
 		reflect.TypeOf((*HttpUrlIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketAwsIntegration",
+		reflect.TypeOf((*WebSocketAwsIntegration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebSocketAwsIntegration{}
+			_jsii_.InitJsiiProxy(&j.Type__awsapigatewayv2WebSocketRouteIntegration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketAwsIntegrationProps",
+		reflect.TypeOf((*WebSocketAwsIntegrationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketLambdaIntegration",
 		reflect.TypeOf((*WebSocketLambdaIntegration)(nil)).Elem(),
 		[]_jsii_.Member{

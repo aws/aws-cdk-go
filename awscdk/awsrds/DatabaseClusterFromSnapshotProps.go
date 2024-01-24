@@ -92,6 +92,20 @@ type DatabaseClusterFromSnapshotProps struct {
 	// To disable deletion protection after it has been enabled, you must explicitly set this value to `false`.
 	//
 	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
+	// Directory ID for associating the DB cluster with a specific Active Directory.
+	//
+	// Necessary for enabling Kerberos authentication. If specified, the DB cluster joins the given Active Directory, enabling Kerberos authentication.
+	// If not specified, the DB cluster will not be associated with any Active Directory, and Kerberos authentication will not be enabled.
+	// Default: - DB cluster is not associated with an Active Directory; Kerberos authentication is not enabled.
+	//
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
+	// The IAM role to be used when making API calls to the Directory Service.
+	//
+	// The role needs the AWS-managed policy
+	// `AmazonRDSDirectoryServiceAccess` or equivalent.
+	// Default: - If `DatabaseClusterBaseProps.domain` is specified, a role with the `AmazonRDSDirectoryServiceAccess` policy is automatically created.
+	//
+	DomainRole awsiam.IRole `field:"optional" json:"domainRole" yaml:"domainRole"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	// Default: false.
 	//

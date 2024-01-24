@@ -132,9 +132,7 @@ type CfnIPAMPoolProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-sourceipampoolid
 	//
 	SourceIpamPoolId *string `field:"optional" json:"sourceIpamPoolId" yaml:"sourceIpamPoolId"`
-	// The resource associated with this pool's space.
-	//
-	// Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations.
+	// The resource used to provision CIDRs to a resource planning pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-sourceresource
 	//
 	SourceResource interface{} `field:"optional" json:"sourceResource" yaml:"sourceResource"`

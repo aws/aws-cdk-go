@@ -30,8 +30,12 @@ import (
 //   	Description: jsii.String("policy description"),
 //   	Identifiers: []dataIdentifier{
 //   		logs.*dataIdentifier_DRIVERSLICENSE_US(),
+//   		 // managed data identifier
 //   		logs.NewDataIdentifier(jsii.String("EmailAddress")),
+//   		 // forward compatibility for new managed data identifiers
+//   		logs.NewCustomDataIdentifier(jsii.String("EmployeeId"), jsii.String("EmployeeId-\\d{9}")),
 //   	},
+//   	 // custom data identifier
 //   	LogGroupAuditDestination: logGroupDestination,
 //   	S3BucketAuditDestination: bucket,
 //   	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,

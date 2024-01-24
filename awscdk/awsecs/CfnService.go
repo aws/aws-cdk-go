@@ -121,6 +121,19 @@ import (
 //   				},
 //   				DiscoveryName: jsii.String("discoveryName"),
 //   				IngressPortOverride: jsii.Number(123),
+//   				Timeout: &TimeoutConfigurationProperty{
+//   					IdleTimeoutSeconds: jsii.Number(123),
+//   					PerRequestTimeoutSeconds: jsii.Number(123),
+//   				},
+//   				Tls: &ServiceConnectTlsConfigurationProperty{
+//   					IssuerCertificateAuthority: &ServiceConnectTlsCertificateAuthorityProperty{
+//   						AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
+//   					},
+//
+//   					// the properties below are optional
+//   					KmsKey: jsii.String("kmsKey"),
+//   					RoleArn: jsii.String("roleArn"),
+//   				},
 //   			},
 //   		},
 //   	},
@@ -301,6 +314,7 @@ type CfnService interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The configuration for a volume specified in the task definition as a volume that is configured at launch time.
 	VolumeConfigurations() interface{}
 	SetVolumeConfigurations(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

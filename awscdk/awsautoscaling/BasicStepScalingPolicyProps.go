@@ -30,6 +30,8 @@ import (
 //   			Change: +jsii.Number(3),
 //   		},
 //   	},
+//   	EvaluationPeriods: jsii.Number(10),
+//   	DatapointsToAlarm: jsii.Number(5),
 //
 //   	// Change this to AdjustmentType.PERCENT_CHANGE_IN_CAPACITY to interpret the
 //   	// 'change' numbers before as percentages instead of capacity counts.
@@ -53,6 +55,16 @@ type BasicStepScalingPolicyProps struct {
 	// Default: Default cooldown period on your AutoScalingGroup.
 	//
 	Cooldown awscdk.Duration `field:"optional" json:"cooldown" yaml:"cooldown"`
+	// The number of data points out of the evaluation periods that must be breaching to trigger a scaling action.
+	//
+	// Creates an "M out of N" alarm, where this property is the M and the value set for
+	// `evaluationPeriods` is the N value.
+	//
+	// Only has meaning if `evaluationPeriods != 1`. Must be less than or equal to
+	// `evaluationPeriods`.
+	// Default: - Same as `evaluationPeriods`.
+	//
+	DatapointsToAlarm *float64 `field:"optional" json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
 	// Default: Same as the cooldown.
 	//
@@ -61,6 +73,9 @@ type BasicStepScalingPolicyProps struct {
 	//
 	// Raising this value can be used to smooth out the metric, at the expense
 	// of slower response times.
+	//
+	// If `datapointsToAlarm` is not set, then all data points in the evaluation period
+	// must meet the criteria to trigger a scaling action.
 	// Default: 1.
 	//
 	EvaluationPeriods *float64 `field:"optional" json:"evaluationPeriods" yaml:"evaluationPeriods"`

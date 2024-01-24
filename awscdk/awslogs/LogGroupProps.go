@@ -8,38 +8,33 @@ import (
 // Properties for a LogGroup.
 //
 // Example:
-//   import kinesisfirehose "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
-//   import destinations "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinationsalpha"
+//   var vpc vpc
 //
+//   kmsKey := kms.NewKey(this, jsii.String("KmsKey"))
 //
-//   logGroupDestination := logs.NewLogGroup(this, jsii.String("LogGroupLambdaAudit"), &LogGroupProps{
-//   	LogGroupName: jsii.String("auditDestinationForCDK"),
+//   // Pass the KMS key in the `encryptionKey` field to associate the key to the log group
+//   logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"), &LogGroupProps{
+//   	EncryptionKey: kmsKey,
 //   })
 //
-//   bucket := s3.NewBucket(this, jsii.String("audit-bucket"))
-//   s3Destination := destinations.NewS3Bucket(bucket)
+//   // Pass the KMS key in the `encryptionKey` field to associate the key to the S3 bucket
+//   execBucket := s3.NewBucket(this, jsii.String("EcsExecBucket"), &BucketProps{
+//   	EncryptionKey: kmsKey,
+//   })
 //
-//   deliveryStream := kinesisfirehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destinations: []iDestination{
-//   		s3Destination,
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+//   	Vpc: Vpc,
+//   	ExecuteCommandConfiguration: &ExecuteCommandConfiguration{
+//   		KmsKey: *KmsKey,
+//   		LogConfiguration: &ExecuteCommandLogConfiguration{
+//   			CloudWatchLogGroup: logGroup,
+//   			CloudWatchEncryptionEnabled: jsii.Boolean(true),
+//   			S3Bucket: execBucket,
+//   			S3EncryptionEnabled: jsii.Boolean(true),
+//   			S3KeyPrefix: jsii.String("exec-command-output"),
+//   		},
+//   		Logging: ecs.ExecuteCommandLogging_OVERRIDE,
 //   	},
-//   })
-//
-//   dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
-//   	Name: jsii.String("data protection policy"),
-//   	Description: jsii.String("policy description"),
-//   	Identifiers: []dataIdentifier{
-//   		logs.*dataIdentifier_DRIVERSLICENSE_US(),
-//   		logs.NewDataIdentifier(jsii.String("EmailAddress")),
-//   	},
-//   	LogGroupAuditDestination: logGroupDestination,
-//   	S3BucketAuditDestination: bucket,
-//   	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
-//   })
-//
-//   logs.NewLogGroup(this, jsii.String("LogGroupLambda"), &LogGroupProps{
-//   	LogGroupName: jsii.String("cdkIntegLogGroup"),
-//   	DataProtectionPolicy: dataProtectionPolicy,
 //   })
 //
 type LogGroupProps struct {

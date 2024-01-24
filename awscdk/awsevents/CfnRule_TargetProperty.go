@@ -166,6 +166,7 @@ type CfnRule_TargetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-id
 	//
 	Id *string `field:"required" json:"id" yaml:"id"`
+	// Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-appsyncparameters
 	//
 	AppSyncParameters interface{} `field:"optional" json:"appSyncParameters" yaml:"appSyncParameters"`

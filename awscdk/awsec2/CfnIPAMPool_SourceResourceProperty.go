@@ -1,9 +1,7 @@
 package awsec2
 
 
-// The resource associated with this pool's space.
-//
-// Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations.
+// The resource used to provision CIDRs to a resource planning pool.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,15 +18,19 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-sourceresource.html
 //
 type CfnIPAMPool_SourceResourceProperty struct {
+	// The source resource ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-sourceresource.html#cfn-ec2-ipampool-sourceresource-resourceid
 	//
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
+	// The source resource owner.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-sourceresource.html#cfn-ec2-ipampool-sourceresource-resourceowner
 	//
 	ResourceOwner *string `field:"required" json:"resourceOwner" yaml:"resourceOwner"`
+	// The source resource Region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-sourceresource.html#cfn-ec2-ipampool-sourceresource-resourceregion
 	//
 	ResourceRegion *string `field:"required" json:"resourceRegion" yaml:"resourceRegion"`
+	// The source resource type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-sourceresource.html#cfn-ec2-ipampool-sourceresource-resourcetype
 	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`

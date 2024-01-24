@@ -324,6 +324,10 @@ func init() {
 		reflect.TypeOf((*CfnTableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CsvOptions",
+		reflect.TypeOf((*CsvOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.EnableScalingProps",
 		reflect.TypeOf((*EnableScalingProps)(nil)).Elem(),
 	)
@@ -417,6 +421,27 @@ func init() {
 			j := jsiiProxy_ITableV2{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITable)
 			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.ImportSourceSpecification",
+		reflect.TypeOf((*ImportSourceSpecification)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_dynamodb.InputCompressionType",
+		reflect.TypeOf((*InputCompressionType)(nil)).Elem(),
+		map[string]interface{}{
+			"GZIP": InputCompressionType_GZIP,
+			"ZSTD": InputCompressionType_ZSTD,
+			"NONE": InputCompressionType_NONE,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.InputFormat",
+		reflect.TypeOf((*InputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_InputFormat{}
 		},
 	)
 	_jsii_.RegisterStruct(

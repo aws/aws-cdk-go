@@ -10,7 +10,7 @@ package awsconnect
 //
 //   var assignContactCategoryActions interface{}
 //   var emptyValue interface{}
-//   var endAssociatedTaskActions interface{}
+//   var endAssociatedTasksActions interface{}
 //
 //   actionsProperty := &ActionsProperty{
 //   	AssignContactCategoryActions: []interface{}{
@@ -32,8 +32,8 @@ package awsconnect
 //   			TemplateId: jsii.String("templateId"),
 //   		},
 //   	},
-//   	EndAssociatedTaskActions: []interface{}{
-//   		endAssociatedTaskActions,
+//   	EndAssociatedTasksActions: []interface{}{
+//   		endAssociatedTasksActions,
 //   	},
 //   	EventBridgeActions: []interface{}{
 //   		&EventBridgeActionProperty{
@@ -104,9 +104,9 @@ type CfnRule_ActionsProperty struct {
 	//
 	CreateCaseActions interface{} `field:"optional" json:"createCaseActions" yaml:"createCaseActions"`
 	// This action will end associated tasks when a rule is triggered.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-endassociatedtaskactions
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-endassociatedtasksactions
 	//
-	EndAssociatedTaskActions interface{} `field:"optional" json:"endAssociatedTaskActions" yaml:"endAssociatedTaskActions"`
+	EndAssociatedTasksActions interface{} `field:"optional" json:"endAssociatedTasksActions" yaml:"endAssociatedTasksActions"`
 	// Information about the EventBridge action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-eventbridgeactions
 	//

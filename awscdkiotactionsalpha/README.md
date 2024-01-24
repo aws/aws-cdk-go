@@ -388,3 +388,24 @@ actions.NewHttpsAction(jsii.String("https://example.com/endpoint"), &HttpsAction
 	},
 }))
 ```
+
+## Write Data to Open Search Service
+
+The code snippet below creates an AWS IoT Rule that writes data
+to an Open Search Service when it is triggered:
+
+```go
+import opensearch "github.com/aws/aws-cdk-go/awscdk"
+var domain domain
+
+
+topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
+})
+
+topicRule.AddAction(actions.NewOpenSearchAction(domain, &OpenSearchActionProps{
+	Id: jsii.String("my-id"),
+	Index: jsii.String("my-index"),
+	Type: jsii.String("my-type"),
+}))
+```

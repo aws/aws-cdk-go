@@ -28,6 +28,8 @@ package awsautoscaling
 //   			Change: +jsii.Number(3),
 //   		},
 //   	},
+//   	EvaluationPeriods: jsii.Number(10),
+//   	DatapointsToAlarm: jsii.Number(5),
 //
 //   	// Change this to AdjustmentType.PERCENT_CHANGE_IN_CAPACITY to interpret the
 //   	// 'change' numbers before as percentages instead of capacity counts.

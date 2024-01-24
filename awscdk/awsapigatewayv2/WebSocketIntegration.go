@@ -15,13 +15,26 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var role role
 //   var webSocketApi webSocketApi
 //
 //   webSocketIntegration := awscdk.Aws_apigatewayv2.NewWebSocketIntegration(this, jsii.String("MyWebSocketIntegration"), &WebSocketIntegrationProps{
 //   	IntegrationType: awscdk.*Aws_apigatewayv2.WebSocketIntegrationType_AWS_PROXY,
 //   	IntegrationUri: jsii.String("integrationUri"),
 //   	WebSocketApi: webSocketApi,
+//
+//   	// the properties below are optional
+//   	CredentialsRole: role,
+//   	IntegrationMethod: jsii.String("integrationMethod"),
+//   	RequestParameters: map[string]*string{
+//   		"requestParametersKey": jsii.String("requestParameters"),
+//   	},
+//   	RequestTemplates: map[string]*string{
+//   		"requestTemplatesKey": jsii.String("requestTemplates"),
+//   	},
+//   	TemplateSelectionExpression: jsii.String("templateSelectionExpression"),
 //   })
 //
 type WebSocketIntegration interface {

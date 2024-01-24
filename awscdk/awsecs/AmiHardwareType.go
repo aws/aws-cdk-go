@@ -25,5 +25,7 @@ const (
 	AmiHardwareType_GPU AmiHardwareType = "GPU"
 	// Use the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI.
 	AmiHardwareType_ARM AmiHardwareType = "ARM"
+	// Use the Amazon ECS-optimized Amazon Linux 2 (Neuron) AMI.
+	AmiHardwareType_NEURON AmiHardwareType = "NEURON"
 )
 

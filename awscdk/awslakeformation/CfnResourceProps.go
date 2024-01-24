@@ -13,6 +13,7 @@ package awslakeformation
 //   	UseServiceLinkedRole: jsii.Boolean(false),
 //
 //   	// the properties below are optional
+//   	HybridAccessEnabled: jsii.Boolean(false),
 //   	RoleArn: jsii.String("roleArn"),
 //   	WithFederation: jsii.Boolean(false),
 //   }
@@ -28,6 +29,9 @@ type CfnResourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-useservicelinkedrole
 	//
 	UseServiceLinkedRole interface{} `field:"required" json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-hybridaccessenabled
+	//
+	HybridAccessEnabled interface{} `field:"optional" json:"hybridAccessEnabled" yaml:"hybridAccessEnabled"`
 	// The IAM role that registered a resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html#cfn-lakeformation-resource-rolearn
 	//

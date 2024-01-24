@@ -13,7 +13,7 @@ import (
 //
 //   var assignContactCategoryActions interface{}
 //   var emptyValue interface{}
-//   var endAssociatedTaskActions interface{}
+//   var endAssociatedTasksActions interface{}
 //
 //   cfnRuleProps := &CfnRuleProps{
 //   	Actions: &ActionsProperty{
@@ -36,8 +36,8 @@ import (
 //   				TemplateId: jsii.String("templateId"),
 //   			},
 //   		},
-//   		EndAssociatedTaskActions: []interface{}{
-//   			endAssociatedTaskActions,
+//   		EndAssociatedTasksActions: []interface{}{
+//   			endAssociatedTasksActions,
 //   		},
 //   		EventBridgeActions: []interface{}{
 //   			&EventBridgeActionProperty{

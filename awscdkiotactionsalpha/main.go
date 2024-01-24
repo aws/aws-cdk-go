@@ -175,6 +175,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iot-actions-alpha.OpenSearchAction",
+		reflect.TypeOf((*OpenSearchAction)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			j := jsiiProxy_OpenSearchAction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkiotalphaIAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.OpenSearchActionProps",
+		reflect.TypeOf((*OpenSearchActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-actions-alpha.S3PutObjectAction",
 		reflect.TypeOf((*S3PutObjectAction)(nil)).Elem(),
 		nil, // no members

@@ -11,11 +11,16 @@ package awsecs
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	CircuitBreaker: &DeploymentCircuitBreaker{
+//   		Enable: jsii.Boolean(true),
 //   		Rollback: jsii.Boolean(true),
 //   	},
 //   })
 //
 type DeploymentCircuitBreaker struct {
+	// Whether to enable the deployment circuit breaker logic.
+	// Default: true.
+	//
+	Enable *bool `field:"optional" json:"enable" yaml:"enable"`
 	// Whether to enable rollback on deployment failure.
 	// Default: false.
 	//

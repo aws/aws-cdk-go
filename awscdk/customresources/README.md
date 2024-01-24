@@ -43,8 +43,9 @@ myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
 	OnEventHandler: onEvent,
 	IsCompleteHandler: isComplete,
 	 // optional async "waiter"
-	LogRetention: logs.RetentionDays_ONE_DAY,
-	 // default is INFINITE
+	LogGroup: logs.NewLogGroup(this, jsii.String("MyProviderLogs"), &LogGroupProps{
+		Retention: logs.RetentionDays_ONE_DAY,
+	}),
 	Role: myRole,
 })
 
@@ -398,7 +399,9 @@ var myRole role
 myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
 	OnEventHandler: onEvent,
 	IsCompleteHandler: isComplete,
-	LogRetention: logs.RetentionDays_ONE_DAY,
+	LogGroup: logs.NewLogGroup(this, jsii.String("MyProviderLogs"), &LogGroupProps{
+		Retention: logs.RetentionDays_ONE_DAY,
+	}),
 	Role: myRole,
 	ProviderFunctionName: jsii.String("the-lambda-name"),
 })
@@ -421,7 +424,9 @@ key := kms.NewKey(this, jsii.String("MyKey"))
 myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
 	OnEventHandler: onEvent,
 	IsCompleteHandler: isComplete,
-	LogRetention: logs.RetentionDays_ONE_DAY,
+	LogGroup: logs.NewLogGroup(this, jsii.String("MyProviderLogs"), &LogGroupProps{
+		Retention: logs.RetentionDays_ONE_DAY,
+	}),
 	Role: myRole,
 	ProviderFunctionEnvEncryption: key,
 })
@@ -554,7 +559,7 @@ In both the cases, you will get a synth time error if you attempt to use it in c
 
 ### Customizing the Lambda function implementing the custom resource
 
-Use the `role`, `timeout`, `logRetention`, `functionName` and `removalPolicy` properties to customize
+Use the `role`, `timeout`, `logGroup`, `functionName` and `removalPolicy` properties to customize
 the Lambda function implementing the custom resource:
 
 ```go
@@ -565,8 +570,9 @@ cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps
 	 // must be assumable by the `lambda.amazonaws.com` service principal
 	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
 	 // defaults to 2 minutes
-	LogRetention: logs.RetentionDays_ONE_WEEK,
-	 // defaults to never delete logs
+	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
+		Retention: logs.RetentionDays_ONE_DAY,
+	}),
 	FunctionName: jsii.String("my-custom-name"),
 	 // defaults to a CloudFormation generated name
 	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,

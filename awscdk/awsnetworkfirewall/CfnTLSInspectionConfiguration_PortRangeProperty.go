@@ -3,7 +3,7 @@ package awsnetworkfirewall
 
 // A single port range specification.
 //
-// This is used for source and destination port ranges in the stateless rule `MatchAttributes` , `SourcePorts` , and `DestinationPorts` settings.
+// This is used for source and destination port ranges in the stateless rule [MatchAttributes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html) , `SourcePorts` , and `DestinationPorts` settings.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
