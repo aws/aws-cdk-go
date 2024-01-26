@@ -18,6 +18,7 @@ package awsroute53resolver
 //   	BlockOverrideDomain: jsii.String("blockOverrideDomain"),
 //   	BlockOverrideTtl: jsii.Number(123),
 //   	BlockResponse: jsii.String("blockResponse"),
+//   	Qtype: jsii.String("qtype"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html
@@ -72,5 +73,24 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockresponse
 	//
 	BlockResponse *string `field:"optional" json:"blockResponse" yaml:"blockResponse"`
+	// The DNS query type you want the rule to evaluate. Allowed values are;
+	//
+	// - A: Returns an IPv4 address.
+	// - AAAA: Returns an Ipv6 address.
+	// - CAA: Restricts CAs that can create SSL/TLS certifications for the domain.
+	// - CNAME: Returns another domain name.
+	// - DS: Record that identifies the DNSSEC signing key of a delegated zone.
+	// - MX: Specifies mail servers.
+	// - NAPTR: Regular-expression-based rewriting of domain names.
+	// - NS: Authoritative name servers.
+	// - PTR: Maps an IP address to a domain name.
+	// - SOA: Start of authority record for the zone.
+	// - SPF: Lists the servers authorized to send emails from a domain.
+	// - SRV: Application specific values that identify servers.
+	// - TXT: Verifies email senders and application-specific values.
+	// - A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be defined as TYPE NUMBER , where the NUMBER can be 1-65334, for example, TYPE28. For more information, see [List of DNS record types](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/List_of_DNS_record_types) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-qtype
+	//
+	Qtype *string `field:"optional" json:"qtype" yaml:"qtype"`
 }
 

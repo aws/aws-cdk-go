@@ -37,6 +37,7 @@ type CfnIdentityPool interface {
 	// Specifies whether the identity pool supports unauthenticated logins.
 	AllowUnauthenticatedIdentities() interface{}
 	SetAllowUnauthenticatedIdentities(val interface{})
+	// An identity pool ID in the format REGION:GUID.
 	AttrId() *string
 	// The name of the Amazon Cognito identity pool, returned as a string.
 	AttrName() *string

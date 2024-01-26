@@ -28,6 +28,7 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	FileFormat: jsii.String("fileFormat"),
+//   	LanguageCode: jsii.String("languageCode"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -66,6 +67,9 @@ type CfnFaq interface {
 	// The identifier of the index that contains the FAQ.
 	IndexId() *string
 	SetIndexId(val *string)
+	// The code for a language.
+	LanguageCode() *string
+	SetLanguageCode(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -338,6 +342,16 @@ func (j *jsiiProxy_CfnFaq) IndexId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFaq) LanguageCode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"languageCode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFaq) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -499,6 +513,14 @@ func (j *jsiiProxy_CfnFaq)SetIndexId(val *string) {
 	_jsii_.Set(
 		j,
 		"indexId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFaq)SetLanguageCode(val *string) {
+	_jsii_.Set(
+		j,
+		"languageCode",
 		val,
 	)
 }

@@ -176,6 +176,19 @@ route53.NewARecord(this, jsii.String("ARecordWeighted1"), &ARecordProps{
 })
 ```
 
+To enable [latency based routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html), use the `region` parameter:
+
+```go
+var myZone hostedZone
+
+
+route53.NewARecord(this, jsii.String("ARecordLatency1"), &ARecordProps{
+	Zone: myZone,
+	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4")),
+	Region: jsii.String("us-east-1"),
+})
+```
+
 To specify a unique identifier to differentiate among multiple resource record sets that have the same combination of name and type, use the `setIdentifier` parameter:
 
 ```go
@@ -190,7 +203,7 @@ route53.NewARecord(this, jsii.String("ARecordWeighted1"), &ARecordProps{
 })
 ```
 
-**Warning** It is not possible to specify `setIdentifier` in a simple routing without one of `weight` or `geoLocation` defined.
+**Warning** It is not possible to specify `setIdentifier` for a simple routing policy.
 
 Constructs are available for A, AAAA, CAA, CNAME, MX, NS, SRV and TXT records.
 

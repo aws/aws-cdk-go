@@ -112,6 +112,7 @@ type CfnSubnet interface {
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
+	// The IPv6 network ranges for the subnet, in CIDR notation.
 	Ipv6CidrBlocks() *[]*string
 	SetIpv6CidrBlocks(val *[]*string)
 	// An IPv6 IPAM pool ID for the subnet.

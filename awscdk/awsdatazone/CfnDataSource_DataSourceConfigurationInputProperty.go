@@ -1,6 +1,8 @@
 package awsdatazone
 
 
+// The configuration of the data source.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -61,10 +63,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html
 //
 type CfnDataSource_DataSourceConfigurationInputProperty struct {
+	// The configuration of the AWS Glue data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html#cfn-datazone-datasource-datasourceconfigurationinput-gluerunconfiguration
 	//
 	GlueRunConfiguration interface{} `field:"optional" json:"glueRunConfiguration" yaml:"glueRunConfiguration"`
-	// The configuration details of the Amazon Redshift data source.
+	// The configuration of the Amazon Redshift data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html#cfn-datazone-datasource-datasourceconfigurationinput-redshiftrunconfiguration
 	//
 	RedshiftRunConfiguration interface{} `field:"optional" json:"redshiftRunConfiguration" yaml:"redshiftRunConfiguration"`

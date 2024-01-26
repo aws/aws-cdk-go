@@ -140,6 +140,7 @@ import (
 //   						LocalStorageTypes: []*string{
 //   							jsii.String("localStorageTypes"),
 //   						},
+//   						MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: jsii.Number(123),
 //   						MemoryGiBPerVCpu: &MemoryGiBPerVCpuRequestProperty{
 //   							Max: jsii.Number(123),
 //   							Min: jsii.Number(123),

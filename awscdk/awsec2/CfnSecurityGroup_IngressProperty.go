@@ -1,19 +1,15 @@
 package awsec2
 
 
-// Adds an inbound rule to a security group.
+// Adds an inbound (ingress) rule to a security group.
 //
-// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR address range, or from the instances associated with the specified security group.
+// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 address range, the IP address ranges that are specified by a prefix list, or the instances that are associated with a source security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html) .
 //
-// You must specify only one of the following properties: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , `SourceSecurityGroupId` , or `SourceSecurityGroupName` .
+// You must specify exactly one of the following sources: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully, but the rule is not added to the security group.
 //
-// You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify a port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
+// You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
 //
-// You must specify a source security group ( `SourcePrefixListId` , `SourceSecurityGroupId` , or `SourceSecurityGroupName` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ). If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.
-//
-// Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
-//
-// The EC2 Security Group Rule is an embedded property of the `AWS::EC2::SecurityGroup` type.
+// Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -70,7 +66,7 @@ type CfnSecurityGroup_IngressProperty struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// If the protocol is TCP or UDP, this is the start of the port range.
 	//
-	// If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
+	// If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html#cfn-ec2-securitygroup-ingress-fromport
 	//
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
@@ -79,8 +75,6 @@ type CfnSecurityGroup_IngressProperty struct {
 	//
 	SourcePrefixListId *string `field:"optional" json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
 	// The ID of the security group.
-	//
-	// You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html#cfn-ec2-securitygroup-ingress-sourcesecuritygroupid
 	//
 	SourceSecurityGroupId *string `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
@@ -102,7 +96,7 @@ type CfnSecurityGroup_IngressProperty struct {
 	SourceSecurityGroupOwnerId *string `field:"optional" json:"sourceSecurityGroupOwnerId" yaml:"sourceSecurityGroupOwnerId"`
 	// If the protocol is TCP or UDP, this is the end of the port range.
 	//
-	// If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
+	// If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html#cfn-ec2-securitygroup-ingress-toport
 	//
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`

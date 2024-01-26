@@ -30,6 +30,7 @@ import (
 //   	DeleteExisting: jsii.Boolean(false),
 //   	GeoLocation: geoLocation,
 //   	RecordName: jsii.String("recordName"),
+//   	Region: jsii.String("region"),
 //   	SetIdentifier: jsii.String("setIdentifier"),
 //   	Ttl: cdk.Duration_Minutes(jsii.Number(30)),
 //   	Weight: jsii.Number(123),

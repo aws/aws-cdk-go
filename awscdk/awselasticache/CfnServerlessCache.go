@@ -34,14 +34,14 @@ import (
 //   	Description: jsii.String("description"),
 //   	Endpoint: &EndpointProperty{
 //   		Address: jsii.String("address"),
-//   		Port: jsii.Number(123),
+//   		Port: jsii.String("port"),
 //   	},
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MajorEngineVersion: jsii.String("majorEngineVersion"),
 //   	ReaderEndpoint: &EndpointProperty{
 //   		Address: jsii.String("address"),
-//   		Port: jsii.Number(123),
+//   		Port: jsii.String("port"),
 //   	},
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -74,13 +74,13 @@ type CfnServerlessCache interface {
 	// The DNS hostname of the cache node.
 	AttrEndpointAddress() *string
 	// The port number that the cache engine is listening on.
-	AttrEndpointPort() *float64
+	AttrEndpointPort() *string
 	// The name and version number of the engine the serverless cache is compatible with.
 	AttrFullEngineVersion() *string
 	// The DNS hostname of the cache node.
 	AttrReaderEndpointAddress() *string
 	// The port number that the cache engine is listening on.
-	AttrReaderEndpointPort() *float64
+	AttrReaderEndpointPort() *string
 	// The current status of the serverless cache.
 	//
 	// The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
@@ -339,8 +339,8 @@ func (j *jsiiProxy_CfnServerlessCache) AttrEndpointAddress() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCache) AttrEndpointPort() *float64 {
-	var returns *float64
+func (j *jsiiProxy_CfnServerlessCache) AttrEndpointPort() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
 		"attrEndpointPort",
@@ -369,8 +369,8 @@ func (j *jsiiProxy_CfnServerlessCache) AttrReaderEndpointAddress() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCache) AttrReaderEndpointPort() *float64 {
-	var returns *float64
+func (j *jsiiProxy_CfnServerlessCache) AttrReaderEndpointPort() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
 		"attrReaderEndpointPort",

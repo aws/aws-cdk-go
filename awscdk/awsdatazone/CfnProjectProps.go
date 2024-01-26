@@ -22,15 +22,15 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html
 //
 type CfnProjectProps struct {
-	// The ID of the Amazon DataZone domain in which this project is created.
+	// The identifier of a Amazon DataZone domain where the project exists.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-domainidentifier
 	//
 	DomainIdentifier *string `field:"required" json:"domainIdentifier" yaml:"domainIdentifier"`
-	// The name of the Amazon DataZone project.
+	// The name of a project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The description of the Amazon DataZone project.
+	// The description of a project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

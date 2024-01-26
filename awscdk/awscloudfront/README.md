@@ -632,6 +632,19 @@ store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"), &KeyVal
 })
 ```
 
+The Key Value Store can then be associated to a function using the `cloudfront-js-2.0` runtime
+or newer:
+
+```go
+store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"))
+cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
+	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+	// Note that JS_2_0 must be used for Key Value Store support
+	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
+	KeyValueStore: store,
+})
+```
+
 ### Logging
 
 You can configure CloudFront to create log files that contain detailed information about every user request that CloudFront receives.
@@ -664,6 +677,33 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 	LogFilePrefix: jsii.String("distribution-access-logs/"),
 	LogIncludesCookies: jsii.Boolean(true),
 })
+```
+
+### Additional CloudFront distribution metrics
+
+You can enable [additional CloudFront distribution metrics](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional), which include the following metrics:
+
+* 4xx and 5xx error rates: View 4xx and 5xx error rates by the specific HTTP status code, as a percentage of total requests.
+* Origin latency: See the total time spent from when CloudFront receives a request to when it provides a response to the network (not the viewer), for responses that are served from the origin, not the CloudFront cache.
+* Cache hit rate: View cache hits as a percentage of total cacheable requests, excluding errors.
+
+```go
+dist := cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewHttpOrigin(jsii.String("www.example.com")),
+	},
+	PublishAdditionalMetrics: jsii.Boolean(true),
+})
+
+// Retrieving additional distribution metrics
+latencyMetric := dist.MetricOriginLatency()
+cacheHitRateMetric := dist.MetricCacheHitRate()
+http401ErrorRateMetric := dist.Metric401ErrorRate()
+http403ErrorRateMetric := dist.Metric403ErrorRate()
+http404ErrorRateMetric := dist.Metric404ErrorRate()
+http502ErrorRateMetric := dist.Metric502ErrorRate()
+http503ErrorRateMetric := dist.Metric503ErrorRate()
+http504ErrorRateMetric := dist.Metric504ErrorRate()
 ```
 
 ### HTTP Versions

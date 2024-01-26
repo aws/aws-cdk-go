@@ -140,6 +140,19 @@ type DomainProps struct {
 	// Default: - One new security group is created.
 	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// Specify whether to create a CloudWatch Logs resource policy or not.
+	//
+	// When logging is enabled for the domain, a CloudWatch Logs resource policy is created by default.
+	// However, CloudWatch Logs supports only 10 resource policies per region.
+	// If you enable logging for several domains, it may hit the quota and cause an error.
+	// By setting this property to true, creating a resource policy is suppressed, allowing you to avoid this problem.
+	//
+	// If you set this option to true, you must create a resource policy before deployment.
+	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createdomain-configure-slow-logs.html
+	//
+	// Default: - false.
+	//
+	SuppressLogsResourcePolicy *bool `field:"optional" json:"suppressLogsResourcePolicy" yaml:"suppressLogsResourcePolicy"`
 	// The minimum TLS version required for traffic to the domain.
 	// Default: - TLSSecurityPolicy.TLS_1_0
 	//

@@ -264,6 +264,17 @@ func FactName_S3_STATIC_WEBSITE_ZONE_53_HOSTED_ZONE_ID() *string {
 	return returns
 }
 
+func FactName_SAML_SIGN_ON_URL() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.region_info.FactName",
+		"SAML_SIGN_ON_URL",
+		&returns,
+	)
+	return returns
+}
+
 func FactName_VPC_ENDPOINT_SERVICE_NAME_PREFIX() *string {
 	_init_.Initialize()
 	var returns *string

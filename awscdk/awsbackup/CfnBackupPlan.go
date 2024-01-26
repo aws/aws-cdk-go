@@ -40,6 +40,7 @@ import (
 //   						Lifecycle: &LifecycleResourceTypeProperty{
 //   							DeleteAfterDays: jsii.Number(123),
 //   							MoveToColdStorageAfterDays: jsii.Number(123),
+//   							OptInToArchiveForSupportedResources: jsii.Boolean(false),
 //   						},
 //   					},
 //   				},
@@ -47,6 +48,7 @@ import (
 //   				Lifecycle: &LifecycleResourceTypeProperty{
 //   					DeleteAfterDays: jsii.Number(123),
 //   					MoveToColdStorageAfterDays: jsii.Number(123),
+//   					OptInToArchiveForSupportedResources: jsii.Boolean(false),
 //   				},
 //   				RecoveryPointTags: map[string]*string{
 //   					"recoveryPointTagsKey": jsii.String("recoveryPointTags"),

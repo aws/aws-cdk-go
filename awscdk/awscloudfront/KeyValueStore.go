@@ -12,7 +12,10 @@ import (
 // A CloudFront Key Value Store.
 //
 // Example:
-//   store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"))
+//   store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"), &KeyValueStoreProps{
+//   	KeyValueStoreName: jsii.String("KeyValueStore"),
+//   	Source: cloudfront.ImportSource_FromAsset(jsii.String("path-to-data.json")),
+//   })
 //
 type KeyValueStore interface {
 	awscdk.Resource

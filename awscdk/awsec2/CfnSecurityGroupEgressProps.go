@@ -75,13 +75,13 @@ type CfnSecurityGroupEgressProps struct {
 	DestinationSecurityGroupId *string `field:"optional" json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
 	// If the protocol is TCP or UDP, this is the start of the port range.
 	//
-	// If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
+	// If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupegress.html#cfn-ec2-securitygroupegress-fromport
 	//
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// If the protocol is TCP or UDP, this is the end of the port range.
 	//
-	// If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.
+	// If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupegress.html#cfn-ec2-securitygroupegress-toport
 	//
 	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`

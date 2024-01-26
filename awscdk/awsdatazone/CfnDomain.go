@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A domain is an organizing entity for connecting together assets, users, and their projects.
+// The `AWS::DataZone::Domain` resource specifies an Amazon DataZone domain.
+//
+// You can use domains to organize your assets, users, and their projects.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -42,15 +44,15 @@ type CfnDomain interface {
 	awscdk.IInspectable
 	// The ARN of the Amazon DataZone domain.
 	AttrArn() *string
-	// The timestamp of when the Amazon DataZone domain was last updated.
+	// A timestamp of when a Amazon DataZone domain was created.
 	AttrCreatedAt() *string
-	// The id of the Amazon DataZone domain.
+	// The ID of the Amazon DataZone domain.
 	AttrId() *string
-	// The timestamp of when the Amazon DataZone domain was last updated.
+	// A timestamp of when a Amazon DataZone domain was last updated.
 	AttrLastUpdatedAt() *string
 	// The identifier of the AWS account that manages the domain.
 	AttrManagedAccountId() *string
-	// The URL of the data portal for this Amazon DataZone domain.
+	// The data portal URL for the Amazon DataZone domain.
 	AttrPortalUrl() *string
 	// The status of the Amazon DataZone domain.
 	AttrStatus() *string
@@ -92,7 +94,7 @@ type CfnDomain interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The single-sign on configuration of the Amazon DataZone domain.
+	// The single sign-on details in Amazon DataZone.
 	SingleSignOn() interface{}
 	SetSingleSignOn(val interface{})
 	// The stack in which this element is defined.

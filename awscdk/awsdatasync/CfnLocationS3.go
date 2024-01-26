@@ -84,12 +84,12 @@ type CfnLocationS3 interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A subdirectory in the Amazon S3 bucket.
+	// Specifies a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).
 	Subdirectory() *string
 	SetSubdirectory(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The key-value pair that represents the tag that you want to add to the location.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

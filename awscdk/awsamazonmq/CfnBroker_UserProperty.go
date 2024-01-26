@@ -19,6 +19,7 @@ package awsamazonmq
 //   	Groups: []*string{
 //   		jsii.String("groups"),
 //   	},
+//   	ReplicationUser: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html
@@ -50,5 +51,8 @@ type CfnBroker_UserProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-groups
 	//
 	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html#cfn-amazonmq-broker-user-replicationuser
+	//
+	ReplicationUser interface{} `field:"optional" json:"replicationUser" yaml:"replicationUser"`
 }
 

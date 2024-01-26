@@ -23,6 +23,7 @@ import (
 //   			BlockOverrideDomain: jsii.String("blockOverrideDomain"),
 //   			BlockOverrideTtl: jsii.Number(123),
 //   			BlockResponse: jsii.String("blockResponse"),
+//   			Qtype: jsii.String("qtype"),
 //   		},
 //   	},
 //   	Name: jsii.String("name"),

@@ -63,7 +63,6 @@ import (
 type CfnRecordSetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Specifies a coordinate of the east–west position of a geographic point on the surface of the Earth.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

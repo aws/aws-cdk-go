@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
+// The details of an environment profile.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,14 +17,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnEnvironmentProfile := awscdk.Aws_datazone.NewCfnEnvironmentProfile(this, jsii.String("MyCfnEnvironmentProfile"), &CfnEnvironmentProfileProps{
+//   	AwsAccountId: jsii.String("awsAccountId"),
+//   	AwsAccountRegion: jsii.String("awsAccountRegion"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	EnvironmentBlueprintIdentifier: jsii.String("environmentBlueprintIdentifier"),
 //   	Name: jsii.String("name"),
 //   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //
 //   	// the properties below are optional
-//   	AwsAccountId: jsii.String("awsAccountId"),
-//   	AwsAccountRegion: jsii.String("awsAccountRegion"),
 //   	Description: jsii.String("description"),
 //   	UserParameters: []interface{}{
 //   		&EnvironmentParameterProperty{
@@ -39,24 +39,24 @@ import (
 type CfnEnvironmentProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The timestamp of when this environment profile was created.
+	// The timestamp of when an environment profile was created.
 	AttrCreatedAt() *string
-	// The Amazon DataZone user who created this environment profile.
+	// The Amazon DataZone user who created the environment profile.
 	AttrCreatedBy() *string
-	// The ID of the Amazon DataZone domain in which this environment profile is created.
+	// The identifier of the Amazon DataZone domain in which the environment profile exists.
 	AttrDomainId() *string
-	// The ID of the blueprint with which this environment profile is created.
+	// The identifier of a blueprint with which an environment profile is created.
 	AttrEnvironmentBlueprintId() *string
-	// The ID of this Amazon DataZone environment profile.
+	// The identifier of the environment profile.
 	AttrId() *string
-	// The identifier of the project in which to create the environment profile.
+	// The identifier of a project in which an environment profile exists.
 	AttrProjectId() *string
-	// The timestamp of when this environment profile was updated.
+	// The timestamp of when the environment profile was updated.
 	AttrUpdatedAt() *string
-	// The AWS account in which the Amazon DataZone environment is created.
+	// The identifier of an AWS account in which an environment profile exists.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
-	// The AWS region in which this environment profile is created.
+	// The AWS Region in which an environment profile exists.
 	AwsAccountRegion() *string
 	SetAwsAccountRegion(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -68,13 +68,13 @@ type CfnEnvironmentProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of this Amazon DataZone environment profile.
+	// The description of the environment profile.
 	Description() *string
 	SetDescription(val *string)
-	// The ID of the Amazon DataZone domain in which this environment profile is created.
+	// The identifier of the Amazon DataZone domain in which the environment profile exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	// The ID of the blueprint with which this environment profile is created.
+	// The identifier of a blueprint with which an environment profile is created.
 	EnvironmentBlueprintIdentifier() *string
 	SetEnvironmentBlueprintIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -87,12 +87,12 @@ type CfnEnvironmentProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of this Amazon DataZone environment profile.
+	// The name of the environment profile.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The identifier of the project in which to create the environment profile.
+	// The identifier of a project in which an environment profile exists.
 	ProjectIdentifier() *string
 	SetProjectIdentifier(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -532,6 +532,9 @@ func NewCfnEnvironmentProfile_Override(c CfnEnvironmentProfile, scope constructs
 }
 
 func (j *jsiiProxy_CfnEnvironmentProfile)SetAwsAccountId(val *string) {
+	if err := j.validateSetAwsAccountIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"awsAccountId",
@@ -540,6 +543,9 @@ func (j *jsiiProxy_CfnEnvironmentProfile)SetAwsAccountId(val *string) {
 }
 
 func (j *jsiiProxy_CfnEnvironmentProfile)SetAwsAccountRegion(val *string) {
+	if err := j.validateSetAwsAccountRegionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"awsAccountRegion",

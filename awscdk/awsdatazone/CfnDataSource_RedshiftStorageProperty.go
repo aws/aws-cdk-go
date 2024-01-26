@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// The details of the Amazon Redshift cluster source.
+// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,11 +20,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftstorage.html
 //
 type CfnDataSource_RedshiftStorageProperty struct {
-	// The name of an Amazon Redshift cluster.
+	// The details of the Amazon Redshift cluster source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftstorage.html#cfn-datazone-datasource-redshiftstorage-redshiftclustersource
 	//
 	RedshiftClusterSource interface{} `field:"optional" json:"redshiftClusterSource" yaml:"redshiftClusterSource"`
-	// The details of the Amazon Redshift Serverless workgroup storage.
+	// The details of the Amazon Redshift Serverless workgroup source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftstorage.html#cfn-datazone-datasource-redshiftstorage-redshiftserverlesssource
 	//
 	RedshiftServerlessSource interface{} `field:"optional" json:"redshiftServerlessSource" yaml:"redshiftServerlessSource"`

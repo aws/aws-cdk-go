@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::DataZone::Environment Resource Type.
+// The `AWS::DataZone::Environment` resource specifies an Amazon DataZone environment, which is a collection of zero or more configured resources with a given set of IAM principals who can operate on those resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,27 +40,27 @@ import (
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The AWS account in which the Amazon DataZone environment is created.
+	// The identifier of the AWS account in which an environment exists.
 	AttrAwsAccountId() *string
-	// The AWS region in which the Amazon DataZone environment is created.
+	// The AWS Region in which an environment exists.
 	AttrAwsAccountRegion() *string
 	// The timestamp of when the environment was created.
 	AttrCreatedAt() *string
 	// The Amazon DataZone user who created the environment.
 	AttrCreatedBy() *string
-	// The identifier of the Amazon DataZone domain in which the environment is created.
+	// The identifier of the Amazon DataZone domain in which the environment exists.
 	AttrDomainId() *string
-	// The ID of the blueprint with which the Amazon DataZone environment was created.
+	// The identifier of a blueprint with which an environment profile is created.
 	AttrEnvironmentBlueprintId() *string
-	// The ID of the environment profile with which the Amazon DataZone environment was created.
+	// The identifier of the environment profile with which the environment was created.
 	AttrEnvironmentProfileId() *string
-	// The ID of the Amazon DataZone environment.
+	// The identifier of the environment.
 	AttrId() *string
-	// The ID of the Amazon DataZone project in which the environment is created.
+	// The identifier of the project in which the environment exists.
 	AttrProjectId() *string
-	// The provider of the Amazon DataZone environment.
+	// The provider of the environment.
 	AttrProvider() *string
-	// The status of the Amazon DataZone environment.
+	// The status of the environment.
 	AttrStatus() *string
 	// The timestamp of when the environment was updated.
 	AttrUpdatedAt() *string
@@ -73,16 +73,16 @@ type CfnEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the Amazon DataZone environment.
+	// The description of the environment.
 	Description() *string
 	SetDescription(val *string)
-	// The identifier of the Amazon DataZone domain in which the environment would be created.
+	// The identifier of the Amazon DataZone domain in which the environment is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	// The ID of the environment profile with which the Amazon DataZone environment would be created.
+	// The identifier of the environment profile that is used to create this Amazon DataZone environment.
 	EnvironmentProfileIdentifier() *string
 	SetEnvironmentProfileIdentifier(val *string)
-	// The glossary terms that can be used in the Amazon DataZone environment.
+	// The glossary terms that can be used in this Amazon DataZone environment.
 	GlossaryTerms() *[]*string
 	SetGlossaryTerms(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -95,12 +95,12 @@ type CfnEnvironment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the environment.
+	// The name of the Amazon DataZone environment.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The ID of the Amazon DataZone project in which the environment would be created.
+	// The identifier of the Amazon DataZone project in which this environment is created.
 	ProjectIdentifier() *string
 	SetProjectIdentifier(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -125,7 +125,7 @@ type CfnEnvironment interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user parameters of the Amazon DataZone environment.
+	// The user parameters of this Amazon DataZone environment.
 	UserParameters() interface{}
 	SetUserParameters(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -74,9 +74,11 @@ type CfnService_ServiceConnectServiceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-ingressportoverride
 	//
 	IngressPortOverride *float64 `field:"optional" json:"ingressPortOverride" yaml:"ingressPortOverride"`
+	// A reference to an object that represents the configured timeouts for Service Connect.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-timeout
 	//
 	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
+	// A reference to an object that represents a Transport Layer Security (TLS) configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html#cfn-ecs-service-serviceconnectservice-tls
 	//
 	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`

@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Definition for type AWS::IVS::Stage.
+// The `AWS::IVS::Stage` resource specifies an  stage.
+//
+// A stage is a virtual space where participants can exchange video in real time. For more information, see [CreateStage](https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_CreateStage.html) in the *Amazon IVS Real-Time Streaming API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,8 +34,12 @@ type CfnStage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	// ID of the active session within the stage.
+	//
+	// For example: `st-a1b2c3d4e5f6g`.
 	AttrActiveSessionId() *string
-	// Stage ARN is automatically generated on creation and assigned as the unique identifier.
+	// The stage ARN.
+	//
+	// For example: `arn:aws:ivs:us-west-2:123456789012:stage/abcdABCDefgh`.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -28,6 +28,42 @@ func (d *jsiiProxy_Distribution) validateGrantCreateInvalidationParameters(ident
 	return nil
 }
 
+func (d *jsiiProxy_Distribution) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric401ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric403ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric404ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric502ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric503ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric504ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricCacheHitRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricOriginLatencyParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func validateDistribution_FromDistributionAttributesParameters(scope constructs.Construct, id *string, attrs *DistributionAttributes) error {
 	return nil
 }

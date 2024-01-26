@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// The schedule of the data source runs.
+// The details of the schedule of the data source runs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,6 +20,7 @@ type CfnDataSource_ScheduleConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-scheduleconfiguration.html#cfn-datazone-datasource-scheduleconfiguration-schedule
 	//
 	Schedule *string `field:"optional" json:"schedule" yaml:"schedule"`
+	// The timezone of the data source run.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-scheduleconfiguration.html#cfn-datazone-datasource-scheduleconfiguration-timezone
 	//
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`

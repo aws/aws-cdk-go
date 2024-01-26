@@ -25,8 +25,6 @@ type CfnSubnetCidrBlockProps struct {
 	//
 	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The IPv6 network range for the subnet, in CIDR notation.
-	//
-	// This parameter is required for an IPv6 only subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html#cfn-ec2-subnetcidrblock-ipv6cidrblock
 	//
 	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`

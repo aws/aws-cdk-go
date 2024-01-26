@@ -51,15 +51,20 @@ type CfnLocationS3Props struct {
 	// Default: - "STANDARD".
 	//
 	S3StorageClass *string `field:"optional" json:"s3StorageClass" yaml:"s3StorageClass"`
-	// A subdirectory in the Amazon S3 bucket.
+	// Specifies a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).
 	//
-	// This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
+	// > DataSync can't transfer objects with a prefix that begins with a slash ( `/` ) or includes `//` , `/./` , or `/../` patterns. For example:
+	// >
+	// > - `/photos`
+	// > - `photos//2006/January`
+	// > - `photos/./2006/February`
+	// > - `photos/../2006/March`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
 	//
 	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
-	// The key-value pair that represents the tag that you want to add to the location.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
 	//
-	// The value can be an empty string. We recommend using tags to name your resources.
+	// We recommend creating at least a name tag for your transfer location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

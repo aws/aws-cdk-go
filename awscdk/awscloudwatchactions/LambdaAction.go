@@ -36,7 +36,7 @@ type LambdaAction interface {
 	// Returns an alarm action configuration to use a Lambda action as an alarm action.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html
 	//
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for LambdaAction
@@ -71,8 +71,8 @@ func NewLambdaAction_Override(l LambdaAction, lambdaFunction interface{}) {
 	)
 }
 
-func (l *jsiiProxy_LambdaAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
-	if err := l.validateBindParameters(_scope, _alarm); err != nil {
+func (l *jsiiProxy_LambdaAction) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+	if err := l.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}
 	var returns *awscloudwatch.AlarmActionConfig
@@ -80,7 +80,7 @@ func (l *jsiiProxy_LambdaAction) Bind(_scope constructs.Construct, _alarm awsclo
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{_scope, _alarm},
+		[]interface{}{scope, alarm},
 		&returns,
 	)
 

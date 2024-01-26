@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// The recommendation to be updated as part of the UpdateDataSource action.
+// The recommendation configuration for the data source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -16,11 +16,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentprofile-environmentparameter.html
 //
 type CfnEnvironmentProfile_EnvironmentParameterProperty struct {
-	// The name of an environment profile parameter.
+	// The name specified in the environment parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentprofile-environmentparameter.html#cfn-datazone-environmentprofile-environmentparameter-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The value of an environment profile parameter.
+	// The value of the environment profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentprofile-environmentparameter.html#cfn-datazone-environmentprofile-environmentparameter-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

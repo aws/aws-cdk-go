@@ -34,19 +34,19 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html
 //
 type CfnSubscriptionTargetProps struct {
-	// The asset types that can be included in the subscription target.
+	// The asset types included in the subscription target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-applicableassettypes
 	//
 	ApplicableAssetTypes *[]*string `field:"required" json:"applicableAssetTypes" yaml:"applicableAssetTypes"`
-	// The authorized principals of the subscription target.
+	// The authorized principals included in the subscription target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-authorizedprincipals
 	//
 	AuthorizedPrincipals *[]*string `field:"required" json:"authorizedPrincipals" yaml:"authorizedPrincipals"`
-	// The ID of the Amazon DataZone domain in which subscription target would be created.
+	// The ID of the Amazon DataZone domain in which subscription target is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-domainidentifier
 	//
 	DomainIdentifier *string `field:"required" json:"domainIdentifier" yaml:"domainIdentifier"`
-	// The ID of the environment in which subscription target would be created.
+	// The ID of the environment in which subscription target is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-environmentidentifier
 	//
 	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`

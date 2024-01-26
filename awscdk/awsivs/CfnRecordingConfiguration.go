@@ -11,7 +11,7 @@ import (
 
 // The `AWS::IVS::RecordingConfiguration` resource specifies an  recording configuration.
 //
-// A recording configuration enables the recording of a channel’s live streams to a data store. Multiple channels can reference the same recording configuration. For more information, see [RecordingConfiguration](https://docs.aws.amazon.com/ivs/latest/APIReference/API_RecordingConfiguration.html) in the *Amazon Interactive Video Service API Reference* .
+// A recording configuration enables the recording of a channel’s live streams to a data store. Multiple channels can reference the same recording configuration. For more information, see [RecordingConfiguration](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_RecordingConfiguration.html) in the *Amazon IVS Low-Latency Streaming API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

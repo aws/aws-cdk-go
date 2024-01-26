@@ -1,6 +1,8 @@
 package awsdatazone
 
 
+// The configuration details of the AWS Glue data source.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -33,8 +33,15 @@ type FunctionProps struct {
 	// Default: - generated from the `id`.
 	//
 	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	// The Key Value Store to associate with this function.
+	//
+	// In order to associate a Key Value Store, the `runtime` must be
+	// `cloudfront-js-2.0` or newer.
+	// Default: - no key value store is associated.
+	//
+	KeyValueStore IKeyValueStore `field:"optional" json:"keyValueStore" yaml:"keyValueStore"`
 	// The runtime environment for the function.
-	// Default: FunctionRuntime.JS_1_0
+	// Default: FunctionRuntime.JS_1_0 (unless `keyValueStore` is specified, then `FunctionRuntime.JS_2_0`)
 	//
 	Runtime FunctionRuntime `field:"optional" json:"runtime" yaml:"runtime"`
 }

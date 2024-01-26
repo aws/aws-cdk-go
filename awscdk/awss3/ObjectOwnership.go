@@ -23,7 +23,10 @@ const (
 	// ACLs no longer affect permissions to data in the S3 bucket.
 	// The bucket uses policies to define access control.
 	ObjectOwnership_BUCKET_OWNER_ENFORCED ObjectOwnership = "BUCKET_OWNER_ENFORCED"
-	// Objects uploaded to the bucket change ownership to the bucket owner .
+	// The bucket owner will own the object if the object is uploaded with the bucket-owner-full-control canned ACL.
+	//
+	// Without this setting and
+	// canned ACL, the object is uploaded and remains owned by the uploading account.
 	ObjectOwnership_BUCKET_OWNER_PREFERRED ObjectOwnership = "BUCKET_OWNER_PREFERRED"
 	// The uploading account will own the object.
 	ObjectOwnership_OBJECT_WRITER ObjectOwnership = "OBJECT_WRITER"

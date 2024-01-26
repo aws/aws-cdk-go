@@ -51,7 +51,7 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html#cfn-datazone-domain-kmskeyidentifier
 	//
 	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
-	// The single-sign on configuration of the Amazon DataZone domain.
+	// The single sign-on details in Amazon DataZone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html#cfn-datazone-domain-singlesignon
 	//
 	SingleSignOn interface{} `field:"optional" json:"singleSignOn" yaml:"singleSignOn"`

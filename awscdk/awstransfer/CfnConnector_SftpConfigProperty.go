@@ -28,6 +28,16 @@ type CfnConnector_SftpConfigProperty struct {
 	//
 	// - For RSA keys, the `<key type>` string is `ssh-rsa` .
 	// - For ECDSA keys, the `<key type>` string is either `ecdsa-sha2-nistp256` , `ecdsa-sha2-nistp384` , or `ecdsa-sha2-nistp521` , depending on the size of the key you generated.
+	//
+	// Run this command to retrieve the SFTP server host key, where your SFTP server name is `ftp.host.com` .
+	//
+	// `ssh-keyscan ftp.host.com`
+	//
+	// This prints the public host key to standard output.
+	//
+	// `ftp.host.com ssh-rsa AAAAB3Nza...<long-string-for-public-key`
+	//
+	// Copy and paste this string into the `TrustedHostKeys` field for the `create-connector` command or into the *Trusted host keys* field in the console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-trustedhostkeys
 	//
 	TrustedHostKeys *[]*string `field:"optional" json:"trustedHostKeys" yaml:"trustedHostKeys"`

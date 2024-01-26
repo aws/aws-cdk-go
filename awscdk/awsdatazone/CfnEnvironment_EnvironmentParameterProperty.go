@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// The parameter details of an environment.
+// The parameter details of the environment.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environment-environmentparameter.html
 //
 type CfnEnvironment_EnvironmentParameterProperty struct {
-	// The name of an environment parameter.
+	// The name of the environment parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environment-environmentparameter.html#cfn-datazone-environment-environmentparameter-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The value of an environment parameter.
+	// The value of the environment parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environment-environmentparameter.html#cfn-datazone-environment-environmentparameter-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

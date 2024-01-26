@@ -235,7 +235,7 @@ type CfnInstance interface {
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
 	EbsOptimized() interface{}
 	SetEbsOptimized(val interface{})
-	// An elastic GPU to associate with the instance.
+	// Deprecated.
 	ElasticGpuSpecifications() interface{}
 	SetElasticGpuSpecifications(val interface{})
 	// An elastic inference accelerator to associate with the instance.

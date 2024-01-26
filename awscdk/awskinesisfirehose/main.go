@@ -49,6 +49,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "s3DestinationConfiguration", GoGetter: "S3DestinationConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "snowflakeDestinationConfiguration", GoGetter: "SnowflakeDestinationConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "splunkDestinationConfiguration", GoGetter: "SplunkDestinationConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -233,6 +234,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SerializerProperty",
 		reflect.TypeOf((*CfnDeliveryStream_SerializerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SnowflakeDestinationConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_SnowflakeDestinationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SnowflakeRetryOptionsProperty",
+		reflect.TypeOf((*CfnDeliveryStream_SnowflakeRetryOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SnowflakeRoleConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_SnowflakeRoleConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SnowflakeVpcConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_SnowflakeVpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SplunkBufferingHintsProperty",

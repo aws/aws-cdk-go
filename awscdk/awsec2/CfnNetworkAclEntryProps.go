@@ -55,7 +55,7 @@ type CfnNetworkAclEntryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-rulenumber
 	//
 	RuleNumber *float64 `field:"required" json:"ruleNumber" yaml:"ruleNumber"`
-	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.
+	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). You must specify an IPv4 CIDR block or an IPv6 CIDR block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-cidrblock
 	//
 	CidrBlock *string `field:"optional" json:"cidrBlock" yaml:"cidrBlock"`
@@ -67,19 +67,19 @@ type CfnNetworkAclEntryProps struct {
 	Egress interface{} `field:"optional" json:"egress" yaml:"egress"`
 	// The Internet Control Message Protocol (ICMP) code and type.
 	//
-	// Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter.
+	// Required if specifying 1 (ICMP) for the protocol parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-icmp
 	//
 	Icmp interface{} `field:"optional" json:"icmp" yaml:"icmp"`
 	// The IPv6 network range to allow or deny, in CIDR notation.
 	//
-	// Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.
+	// You must specify an IPv4 CIDR block or an IPv6 CIDR block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-ipv6cidrblock
 	//
 	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// The range of port numbers for the UDP/TCP protocol.
 	//
-	// Conditional required if specifying 6 (TCP) or 17 (UDP) for the protocol parameter.
+	// Required if specifying 6 (TCP) or 17 (UDP) for the protocol parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html#cfn-ec2-networkaclentry-portrange
 	//
 	PortRange interface{} `field:"optional" json:"portRange" yaml:"portRange"`

@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// The single-sign on configuration of the Amazon DataZone domain.
+// The single sign-on details in Amazon DataZone.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

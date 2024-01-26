@@ -10,7 +10,7 @@ package awselasticache
 //
 //   endpointProperty := &EndpointProperty{
 //   	Address: jsii.String("address"),
-//   	Port: jsii.Number(123),
+//   	Port: jsii.String("port"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-endpoint.html
@@ -23,6 +23,6 @@ type CfnServerlessCache_EndpointProperty struct {
 	// The port number that the cache engine is listening on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-endpoint.html#cfn-elasticache-serverlesscache-endpoint-port
 	//
-	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 }
 

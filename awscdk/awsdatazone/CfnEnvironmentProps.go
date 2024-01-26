@@ -30,31 +30,31 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html
 //
 type CfnEnvironmentProps struct {
-	// The identifier of the Amazon DataZone domain in which the environment would be created.
+	// The identifier of the Amazon DataZone domain in which the environment is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-domainidentifier
 	//
 	DomainIdentifier *string `field:"required" json:"domainIdentifier" yaml:"domainIdentifier"`
-	// The ID of the environment profile with which the Amazon DataZone environment would be created.
+	// The identifier of the environment profile that is used to create this Amazon DataZone environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier
 	//
 	EnvironmentProfileIdentifier *string `field:"required" json:"environmentProfileIdentifier" yaml:"environmentProfileIdentifier"`
-	// The name of the environment.
+	// The name of the Amazon DataZone environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ID of the Amazon DataZone project in which the environment would be created.
+	// The identifier of the Amazon DataZone project in which this environment is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-projectidentifier
 	//
 	ProjectIdentifier *string `field:"required" json:"projectIdentifier" yaml:"projectIdentifier"`
-	// The description of the Amazon DataZone environment.
+	// The description of the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The glossary terms that can be used in the Amazon DataZone environment.
+	// The glossary terms that can be used in this Amazon DataZone environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-glossaryterms
 	//
 	GlossaryTerms *[]*string `field:"optional" json:"glossaryTerms" yaml:"glossaryTerms"`
-	// The user parameters of the Amazon DataZone environment.
+	// The user parameters of this Amazon DataZone environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-userparameters
 	//
 	UserParameters interface{} `field:"optional" json:"userParameters" yaml:"userParameters"`

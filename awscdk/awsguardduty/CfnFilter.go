@@ -19,9 +19,6 @@ import (
 //   var criterion interface{}
 //
 //   cfnFilter := awscdk.Aws_guardduty.NewCfnFilter(this, jsii.String("MyCfnFilter"), &CfnFilterProps{
-//   	Action: jsii.String("action"),
-//   	Description: jsii.String("description"),
-//   	DetectorId: jsii.String("detectorId"),
 //   	FindingCriteria: &FindingCriteriaProperty{
 //   		Criterion: criterion,
 //   		ItemType: &ConditionProperty{
@@ -47,10 +44,13 @@ import (
 //   			},
 //   		},
 //   	},
-//   	Name: jsii.String("name"),
-//   	Rank: jsii.Number(123),
 //
 //   	// the properties below are optional
+//   	Action: jsii.String("action"),
+//   	Description: jsii.String("description"),
+//   	DetectorId: jsii.String("detectorId"),
+//   	Name: jsii.String("name"),
+//   	Rank: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -485,9 +485,6 @@ func NewCfnFilter_Override(c CfnFilter, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnFilter)SetAction(val *string) {
-	if err := j.validateSetActionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"action",
@@ -496,9 +493,6 @@ func (j *jsiiProxy_CfnFilter)SetAction(val *string) {
 }
 
 func (j *jsiiProxy_CfnFilter)SetDescription(val *string) {
-	if err := j.validateSetDescriptionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"description",
@@ -507,9 +501,6 @@ func (j *jsiiProxy_CfnFilter)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnFilter)SetDetectorId(val *string) {
-	if err := j.validateSetDetectorIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"detectorId",
@@ -529,9 +520,6 @@ func (j *jsiiProxy_CfnFilter)SetFindingCriteria(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnFilter)SetName(val *string) {
-	if err := j.validateSetNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -540,9 +528,6 @@ func (j *jsiiProxy_CfnFilter)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnFilter)SetRank(val *float64) {
-	if err := j.validateSetRankParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"rank",

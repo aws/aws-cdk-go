@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -91,6 +92,60 @@ type Distribution interface {
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant to create invalidations for this bucket to an IAM principal (Role/Group/User).
 	GrantCreateInvalidation(identity awsiam.IGrantable) awsiam.Grant
+	// Return the given named metric for this Distribution.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the percentage of all viewer requests for which the response's HTTP status code is 401.
+	//
+	// To obtain this metric, you need to set `publishAdditionalMetrics` to `true`.
+	// Default: - average over 5 minutes.
+	//
+	Metric401ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the percentage of all viewer requests for which the response's HTTP status code is 403.
+	//
+	// To obtain this metric, you need to set `publishAdditionalMetrics` to `true`.
+	// Default: - average over 5 minutes.
+	//
+	Metric403ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the percentage of all viewer requests for which the response's HTTP status code is 404.
+	//
+	// To obtain this metric, you need to set `publishAdditionalMetrics` to `true`.
+	// Default: - average over 5 minutes.
+	//
+	Metric404ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the percentage of all viewer requests for which the response's HTTP status code is 502.
+	//
+	// To obtain this metric, you need to set `publishAdditionalMetrics` to `true`.
+	// Default: - average over 5 minutes.
+	//
+	Metric502ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the percentage of all viewer requests for which the response's HTTP status code is 503.
+	//
+	// To obtain this metric, you need to set `publishAdditionalMetrics` to `true`.
+	// Default: - average over 5 minutes.
+	//
+	Metric503ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the percentage of all viewer requests for which the response's HTTP status code is 504.
+	//
+	// To obtain this metric, you need to set `publishAdditionalMetrics` to `true`.
+	// Default: - average over 5 minutes.
+	//
+	Metric504ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the percentage of all cacheable requests for which CloudFront served the content from its cache.
+	//
+	// HTTP POST and PUT requests, and errors, are not considered cacheable requests.
+	//
+	// To obtain this metric, you need to set `publishAdditionalMetrics` to `true`.
+	// Default: - average over 5 minutes.
+	//
+	MetricCacheHitRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the total time spent from when CloudFront receives a request to when it starts providing a response to the network (not the viewer), for requests that are served from the origin, not the CloudFront cache.
+	//
+	// This is also known as first byte latency, or time-to-first-byte.
+	//
+	// To obtain this metric, you need to set `publishAdditionalMetrics` to `true`.
+	// Default: - average over 5 minutes.
+	//
+	MetricOriginLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -389,6 +444,150 @@ func (d *jsiiProxy_Distribution) GrantCreateInvalidation(identity awsiam.IGranta
 		d,
 		"grantCreateInvalidation",
 		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) Metric401ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetric401ErrorRateParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric401ErrorRate",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) Metric403ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetric403ErrorRateParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric403ErrorRate",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) Metric404ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetric404ErrorRateParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric404ErrorRate",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) Metric502ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetric502ErrorRateParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric502ErrorRate",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) Metric503ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetric503ErrorRateParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric503ErrorRate",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) Metric504ErrorRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetric504ErrorRateParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metric504ErrorRate",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) MetricCacheHitRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricCacheHitRateParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metricCacheHitRate",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_Distribution) MetricOriginLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := d.validateMetricOriginLatencyParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		d,
+		"metricOriginLatency",
+		[]interface{}{props},
 		&returns,
 	)
 

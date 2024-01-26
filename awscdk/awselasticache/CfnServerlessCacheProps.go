@@ -29,14 +29,14 @@ import (
 //   	Description: jsii.String("description"),
 //   	Endpoint: &EndpointProperty{
 //   		Address: jsii.String("address"),
-//   		Port: jsii.Number(123),
+//   		Port: jsii.String("port"),
 //   	},
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MajorEngineVersion: jsii.String("majorEngineVersion"),
 //   	ReaderEndpoint: &EndpointProperty{
 //   		Address: jsii.String("address"),
-//   		Port: jsii.Number(123),
+//   		Port: jsii.String("port"),
 //   	},
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),

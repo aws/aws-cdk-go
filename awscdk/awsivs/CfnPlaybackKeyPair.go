@@ -11,7 +11,7 @@ import (
 
 // The `AWS::IVS::PlaybackKeyPair` resource specifies an  playback key pair.
 //
-// uses a public playback key to validate playback tokens that have been signed with the corresponding private key. For more information, see [Setting Up Private Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html) in the *Amazon Interactive Video Service User Guide* .
+// uses a public playback key to validate playback tokens that have been signed with the corresponding private key. For more information, see [Setting Up Private Channels](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/private-channels.html) in the *Amazon IVS Low-Latency Streaming User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

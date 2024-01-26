@@ -18,7 +18,7 @@ package awsec2
 type CfnNetworkAclEntry_IcmpProperty struct {
 	// The Internet Control Message Protocol (ICMP) code.
 	//
-	// You can use -1 to specify all ICMP codes for the given ICMP type. Requirement is conditional: Required if you specify 1 (ICMP) for the protocol parameter.
+	// You can use -1 to specify all ICMP codes for the given ICMP type. Required if you specify 1 (ICMP) for the protocol parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-code
 	//
 	Code *float64 `field:"optional" json:"code" yaml:"code"`

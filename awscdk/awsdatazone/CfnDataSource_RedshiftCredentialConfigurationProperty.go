@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// The ARN of a secret manager for an Amazon Redshift cluster.
+// The details of the credentials required to access an Amazon Redshift cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

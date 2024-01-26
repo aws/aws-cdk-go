@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
+// The `AWS::DataZone::Project` resource specifies an Amazon DataZone project.
+//
+// Projects enable a group of users to collaborate on various business use cases that involve publishing, discovering, subscribing to, and consuming data in the Amazon DataZone catalog. Project members consume assets from the Amazon DataZone catalog and produce new assets using one or more analytical workflows.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,13 +34,13 @@ import (
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The timestamp of when the project was created.
+	// The timestamp of when a project was created.
 	AttrCreatedAt() *string
 	// The Amazon DataZone user who created the project.
 	AttrCreatedBy() *string
-	// The identifier of the Amazon DataZone domain in which the project was created.
+	// The identifier of a Amazon DataZone domain where the project exists.
 	AttrDomainId() *string
-	// The ID of the Amazon DataZone project.
+	// The identifier of a project.
 	AttrId() *string
 	// The timestamp of when the project was last updated.
 	AttrLastUpdatedAt() *string
@@ -51,10 +53,10 @@ type CfnProject interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the Amazon DataZone project.
+	// The description of a project.
 	Description() *string
 	SetDescription(val *string)
-	// The ID of the Amazon DataZone domain in which this project is created.
+	// The identifier of a Amazon DataZone domain where the project exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
 	// The glossary terms that can be used in this Amazon DataZone project.
@@ -70,7 +72,7 @@ type CfnProject interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the Amazon DataZone project.
+	// The name of a project.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

@@ -104,7 +104,7 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The identifier of the Amazon DataZone project in which you want to add the data source.
+	// The identifier of the Amazon DataZone project in which you want to add this data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-projectidentifier
 	//
 	ProjectIdentifier *string `field:"required" json:"projectIdentifier" yaml:"projectIdentifier"`
@@ -112,13 +112,11 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// The metadata forms that are to be attached to the assets that this data source works with.
+	// The metadata forms attached to the assets that the data source works with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-assetformsinput
 	//
 	AssetFormsInput interface{} `field:"optional" json:"assetFormsInput" yaml:"assetFormsInput"`
-	// Specifies the configuration of the data source.
-	//
-	// It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+	// The configuration of the data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
@@ -134,7 +132,7 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-publishonimport
 	//
 	PublishOnImport interface{} `field:"optional" json:"publishOnImport" yaml:"publishOnImport"`
-	// The recommendation to be updated as part of the UpdateDataSource action.
+	// Specifies whether the business name generation is to be enabled for this data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-recommendation
 	//
 	Recommendation interface{} `field:"optional" json:"recommendation" yaml:"recommendation"`

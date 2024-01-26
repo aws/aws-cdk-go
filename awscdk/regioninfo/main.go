@@ -63,6 +63,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "partition", GoGetter: "Partition"},
 			_jsii_.MemberProperty{JsiiProperty: "s3StaticWebsiteEndpoint", GoGetter: "S3StaticWebsiteEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "s3StaticWebsiteHostedZoneId", GoGetter: "S3StaticWebsiteHostedZoneId"},
+			_jsii_.MemberProperty{JsiiProperty: "samlSignOnUrl", GoGetter: "SamlSignOnUrl"},
 			_jsii_.MemberMethod{JsiiMethod: "servicePrincipal", GoMethod: "ServicePrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcEndpointServiceNamePrefix", GoGetter: "VpcEndpointServiceNamePrefix"},
 		},

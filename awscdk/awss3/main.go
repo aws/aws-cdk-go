@@ -1293,6 +1293,14 @@ func init() {
 		reflect.TypeOf((*OnCloudTrailBucketEventOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_s3.PartitionDateSource",
+		reflect.TypeOf((*PartitionDateSource)(nil)).Elem(),
+		map[string]interface{}{
+			"EVENT_TIME": PartitionDateSource_EVENT_TIME,
+			"DELIVERY_TIME": PartitionDateSource_DELIVERY_TIME,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_s3.RedirectProtocol",
 		reflect.TypeOf((*RedirectProtocol)(nil)).Elem(),
 		map[string]interface{}{
@@ -1337,6 +1345,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.Tag",
 		reflect.TypeOf((*Tag)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_s3.TargetObjectKeyFormat",
+		reflect.TypeOf((*TargetObjectKeyFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_TargetObjectKeyFormat{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.TransferAccelerationUrlOptions",

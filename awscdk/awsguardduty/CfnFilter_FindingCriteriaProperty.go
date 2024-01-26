@@ -143,7 +143,6 @@ type CfnFilter_FindingCriteriaProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html#cfn-guardduty-filter-findingcriteria-criterion
 	//
 	Criterion interface{} `field:"optional" json:"criterion" yaml:"criterion"`
-	// Specifies the condition to be applied to a single field when filtering through findings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html#cfn-guardduty-filter-findingcriteria-itemtype
 	//
 	ItemType interface{} `field:"optional" json:"itemType" yaml:"itemType"`

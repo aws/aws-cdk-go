@@ -1,7 +1,7 @@
 package awsconnect
 
 
-// The value of the field.
+// Object for case field values.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

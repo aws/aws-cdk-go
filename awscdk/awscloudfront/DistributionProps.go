@@ -113,6 +113,12 @@ type DistributionProps struct {
 	// Default: PriceClass.PRICE_CLASS_ALL
 	//
 	PriceClass PriceClass `field:"optional" json:"priceClass" yaml:"priceClass"`
+	// Whether to enable additional CloudWatch metrics.
+	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html
+	//
+	// Default: false.
+	//
+	PublishAdditionalMetrics *bool `field:"optional" json:"publishAdditionalMetrics" yaml:"publishAdditionalMetrics"`
 	// The SSL method CloudFront will use for your distribution.
 	//
 	// Server Name Indication (SNI) - is an extension to the TLS computer networking protocol by which a client indicates

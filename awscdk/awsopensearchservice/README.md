@@ -367,6 +367,39 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 })
 ```
 
+## Suppress creating CloudWatch Logs resource policy
+
+When logging is enabled for the domain, the CloudWatch Logs resource policy is created by default.
+This resource policy is necessary for logging, but since only a maximum of 10 resource policies can be created per region,
+the maximum number of resource policies may be a problem when enabling logging for several domains.
+By setting the `suppressLogsResourcePolicy` option to true, you can suppress the creation of a CloudWatch Logs resource policy.
+
+If you set the `suppressLogsResourcePolicy` option to true, you must create a resource policy before deployment.
+Also, to avoid reaching this limit, consider reusing a broader policy that includes multiple log groups.
+
+```go
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
+	EnforceHttps: jsii.Boolean(true),
+	NodeToNodeEncryption: jsii.Boolean(true),
+	EncryptionAtRest: &EncryptionAtRestOptions{
+		Enabled: jsii.Boolean(true),
+	},
+	FineGrainedAccessControl: &AdvancedSecurityOptions{
+		MasterUserName: jsii.String("master-user"),
+	},
+	Logging: &LoggingOptions{
+		AuditLogEnabled: jsii.Boolean(true),
+		SlowSearchLogEnabled: jsii.Boolean(true),
+		AppLogEnabled: jsii.Boolean(true),
+		SlowIndexLogEnabled: jsii.Boolean(true),
+	},
+	SuppressLogsResourcePolicy: jsii.Boolean(true),
+})
+```
+
+> Visit [Monitoring OpenSearch logs with Amazon CloudWatch Logs](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createdomain-configure-slow-logs.html) for more details.
+
 ## UltraWarm
 
 UltraWarm nodes can be enabled to provide a cost-effective way to store large amounts of read-only data.

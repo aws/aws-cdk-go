@@ -39,6 +39,8 @@ type RegionInfo interface {
 	S3StaticWebsiteEndpoint() *string
 	// The hosted zone ID used by Route 53 to alias a S3 static website in this region (e.g: Z2O1EMRO9K5GLX).
 	S3StaticWebsiteHostedZoneId() *string
+	// SAML Sign On URL used by IAM SAML Principals.
+	SamlSignOnUrl() *string
 	// The prefix for VPC Endpoint Service names, cn.com.amazonaws.vpce for China regions, com.amazonaws.vpce otherwise.
 	VpcEndpointServiceNamePrefix() *string
 	// The ARN of the ADOT Lambda layer, for the given layer type, version and architecture.
@@ -173,6 +175,16 @@ func (j *jsiiProxy_RegionInfo) S3StaticWebsiteHostedZoneId() *string {
 	_jsii_.Get(
 		j,
 		"s3StaticWebsiteHostedZoneId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RegionInfo) SamlSignOnUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"samlSignOnUrl",
 		&returns,
 	)
 	return returns

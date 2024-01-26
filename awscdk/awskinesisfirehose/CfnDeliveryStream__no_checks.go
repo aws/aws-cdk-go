@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetS3DestinationConfigurationParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) validateSetSnowflakeDestinationConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) validateSetSplunkDestinationConfigurationParameters(val interface{}) error {
 	return nil
 }

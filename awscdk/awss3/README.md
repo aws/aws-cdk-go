@@ -423,6 +423,42 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 })
 ```
 
+You have two options for the log object key format.
+`Non-date-based partitioning` is the default log object key format and appears as follows:
+
+```txt
+[DestinationPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+```
+
+```go
+accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"))
+
+bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+	ServerAccessLogsBucket: accessLogsBucket,
+	ServerAccessLogsPrefix: jsii.String("logs"),
+	// You can use a simple prefix with `TargetObjectKeyFormat.simplePrefix()`, but it is the same even if you do not specify `targetObjectKeyFormat` property.
+	TargetObjectKeyFormat: s3.TargetObjectKeyFormat_SimplePrefix(),
+})
+```
+
+Another option is `Date-based partitioning`.
+If you choose this format, you can select either the event time or the delivery time of the log file as the date source used in the log format.
+This format appears as follows:
+
+```txt
+[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+```
+
+```go
+accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"))
+
+bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+	ServerAccessLogsBucket: accessLogsBucket,
+	ServerAccessLogsPrefix: jsii.String("logs"),
+	TargetObjectKeyFormat: s3.TargetObjectKeyFormat_PartitionedPrefix(s3.PartitionDateSource_EVENT_TIME),
+})
+```
+
 ### Allowing access log delivery using a Bucket Policy (recommended)
 
 When possible, it is recommended to use a bucket policy to grant access instead of

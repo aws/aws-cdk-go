@@ -7,19 +7,18 @@ import (
 // Configures log settings for the domain.
 //
 // Example:
-//   prodDomain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+//   domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 //   	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
-//   	Capacity: &CapacityConfig{
-//   		MasterNodes: jsii.Number(5),
-//   		DataNodes: jsii.Number(20),
+//   	EnforceHttps: jsii.Boolean(true),
+//   	NodeToNodeEncryption: jsii.Boolean(true),
+//   	EncryptionAtRest: &EncryptionAtRestOptions{
+//   		Enabled: jsii.Boolean(true),
 //   	},
-//   	Ebs: &EbsOptions{
-//   		VolumeSize: jsii.Number(20),
-//   	},
-//   	ZoneAwareness: &ZoneAwarenessConfig{
-//   		AvailabilityZoneCount: jsii.Number(3),
+//   	FineGrainedAccessControl: &AdvancedSecurityOptions{
+//   		MasterUserName: jsii.String("master-user"),
 //   	},
 //   	Logging: &LoggingOptions{
+//   		AuditLogEnabled: jsii.Boolean(true),
 //   		SlowSearchLogEnabled: jsii.Boolean(true),
 //   		AppLogEnabled: jsii.Boolean(true),
 //   		SlowIndexLogEnabled: jsii.Boolean(true),

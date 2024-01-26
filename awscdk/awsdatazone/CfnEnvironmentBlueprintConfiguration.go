@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type.
+// The configuration details of an environment blueprint.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,9 +41,15 @@ import (
 type CfnEnvironmentBlueprintConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The timestamp of when an environment blueprint was created.
 	AttrCreatedAt() *string
+	// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
 	AttrDomainId() *string
+	// The identifier of the environment blueprint.
+	//
+	// This identifier should be used when creating environment profiles.
 	AttrEnvironmentBlueprintId() *string
+	// The timestamp of when the environment blueprint was updated.
 	AttrUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -54,10 +60,13 @@ type CfnEnvironmentBlueprintConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	// The enabled AWS Regions specified in a blueprint configuration.
 	EnabledRegions() *[]*string
 	SetEnabledRegions(val *[]*string)
+	// The identifier of the environment blueprint.
 	EnvironmentBlueprintIdentifier() *string
 	SetEnvironmentBlueprintIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,10 +79,12 @@ type CfnEnvironmentBlueprintConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The ARN of the manage access role.
 	ManageAccessRoleArn() *string
 	SetManageAccessRoleArn(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The ARN of the provisioning role.
 	ProvisioningRoleArn() *string
 	SetProvisioningRoleArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -81,6 +92,7 @@ type CfnEnvironmentBlueprintConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The regional parameters of the environment blueprint.
 	RegionalParameters() interface{}
 	SetRegionalParameters(val interface{})
 	// The stack in which this element is defined.

@@ -23,6 +23,7 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	FileFormat: jsii.String("fileFormat"),
+//   	LanguageCode: jsii.String("languageCode"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -68,6 +69,10 @@ type CfnFaqProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-fileformat
 	//
 	FileFormat *string `field:"optional" json:"fileFormat" yaml:"fileFormat"`
+	// The code for a language.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-languagecode
+	//
+	LanguageCode *string `field:"optional" json:"languageCode" yaml:"languageCode"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

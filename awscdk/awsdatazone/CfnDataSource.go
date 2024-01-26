@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::DataZone::DataSource Resource Type.
+// The `AWS::DataZone::DataSource` resource specifies an Amazon DataZone data source that is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -102,35 +102,35 @@ import (
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The metadata forms that are to be attached to the assets that this data source works with.
+	// The metadata forms attached to the assets that the data source works with.
 	AssetFormsInput() interface{}
 	SetAssetFormsInput(val interface{})
 	// The timestamp of when the data source was created.
 	AttrCreatedAt() *string
-	// The ID of the Amazon DataZone domain where the data source is created.
+	// The ID of the Amazon DataZone domain in which the data source exists.
 	AttrDomainId() *string
-	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
+	// The ID of the environment in which the data source exists.
 	AttrEnvironmentId() *string
-	// The unique identifier of the data source.
+	// The identifier of the data source run.
 	AttrId() *string
-	// The number of assets created by the data source during its last run.
+	// The count of the assets created during the last data source run.
 	AttrLastRunAssetCount() awscdk.IResolvable
-	// The timestamp that specifies when the data source was last run.
+	// The timestamp of when the data source run was last performed.
 	AttrLastRunAt() *string
-	// The status of the last run of this data source.
+	// The status of the last data source run.
 	AttrLastRunStatus() *string
-	// The ID of the Amazon DataZone project to which the data source is added.
+	// The project ID included in the data source run activity.
 	AttrProjectId() *string
 	// The status of the data source.
 	AttrStatus() *string
-	// The timestamp of when this data source was updated.
+	// The timestamp of when the data source was updated.
 	AttrUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Specifies the configuration of the data source.
+	// The configuration of the data source.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -164,13 +164,13 @@ type CfnDataSource interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The identifier of the Amazon DataZone project in which you want to add the data source.
+	// The identifier of the Amazon DataZone project in which you want to add this data source.
 	ProjectIdentifier() *string
 	SetProjectIdentifier(val *string)
 	// Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.
 	PublishOnImport() interface{}
 	SetPublishOnImport(val interface{})
-	// The recommendation to be updated as part of the UpdateDataSource action.
+	// Specifies whether the business name generation is to be enabled for this data source.
 	Recommendation() interface{}
 	SetRecommendation(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

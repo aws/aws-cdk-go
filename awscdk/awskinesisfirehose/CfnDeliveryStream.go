@@ -106,6 +106,8 @@ type CfnDeliveryStream interface {
 	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 	S3DestinationConfiguration() interface{}
 	SetS3DestinationConfiguration(val interface{})
+	SnowflakeDestinationConfiguration() interface{}
+	SetSnowflakeDestinationConfiguration(val interface{})
 	// The configuration of a destination in Splunk for the delivery stream.
 	SplunkDestinationConfiguration() interface{}
 	SetSplunkDestinationConfiguration(val interface{})
@@ -465,6 +467,16 @@ func (j *jsiiProxy_CfnDeliveryStream) S3DestinationConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) SnowflakeDestinationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"snowflakeDestinationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) SplunkDestinationConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -675,6 +687,17 @@ func (j *jsiiProxy_CfnDeliveryStream)SetS3DestinationConfiguration(val interface
 	_jsii_.Set(
 		j,
 		"s3DestinationConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryStream)SetSnowflakeDestinationConfiguration(val interface{}) {
+	if err := j.validateSetSnowflakeDestinationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"snowflakeDestinationConfiguration",
 		val,
 	)
 }

@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -70,6 +71,82 @@ func (d *jsiiProxy_Distribution) validateGrantParameters(identity awsiam.IGranta
 func (d *jsiiProxy_Distribution) validateGrantCreateInvalidationParameters(identity awsiam.IGrantable) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+	if metricName == nil {
+		return fmt.Errorf("parameter metricName is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric401ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric403ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric404ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric502ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric503ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetric504ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricCacheHitRateParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricOriginLatencyParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil

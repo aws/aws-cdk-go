@@ -43,6 +43,7 @@ type CfnResource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Indicates whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
 	HybridAccessEnabled() interface{}
 	SetHybridAccessEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.

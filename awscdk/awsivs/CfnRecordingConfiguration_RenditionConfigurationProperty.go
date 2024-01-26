@@ -20,7 +20,7 @@ package awsivs
 type CfnRecordingConfiguration_RenditionConfigurationProperty struct {
 	// A list of which renditions are recorded for a stream, if `renditionSelection` is `CUSTOM` ;
 	//
-	// otherwise, this field is irrelevant. The selected renditions are recorded if they are available during the stream. If a selected rendition is unavailable, the best available rendition is recorded. For details on the resolution dimensions of each rendition, see [Auto-Record to Amazon S3](https://docs.aws.amazon.com//ivs/latest/userguide/record-to-s3.html) .
+	// otherwise, this field is irrelevant. The selected renditions are recorded if they are available during the stream. If a selected rendition is unavailable, the best available rendition is recorded. For details on the resolution dimensions of each rendition, see [Auto-Record to Amazon S3](https://docs.aws.amazon.com//ivs/latest/LowLatencyUserGuide/record-to-s3.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-renditionconfiguration.html#cfn-ivs-recordingconfiguration-renditionconfiguration-renditions
 	//
 	Renditions *[]*string `field:"optional" json:"renditions" yaml:"renditions"`

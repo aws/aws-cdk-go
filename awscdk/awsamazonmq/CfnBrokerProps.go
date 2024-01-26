@@ -26,6 +26,7 @@ package awsamazonmq
 //   			Groups: []*string{
 //   				jsii.String("groups"),
 //   			},
+//   			ReplicationUser: jsii.Boolean(false),
 //   		},
 //   	},
 //

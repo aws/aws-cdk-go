@@ -9,17 +9,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Adds an inbound rule to a security group.
+// Adds an inbound (ingress) rule to a security group.
 //
-// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR address range, or from the instances associated with the specified security group.
+// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a source security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html) .
 //
-// You must specify only one of the following properties: `CidrIp` , `CidrIpv6` , `SourcePrefixListId` , `SourceSecurityGroupId` , or `SourceSecurityGroupName` .
+// You must specify only one of the following sources: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully, but the rule is not added to the security group.
 //
-// You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify a port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
+// You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
 //
-// You must specify a source security group ( `SourcePrefixListId` , `SourceSecurityGroupId` , or `SourceSecurityGroupName` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ). If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.
-//
-// Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
+// Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

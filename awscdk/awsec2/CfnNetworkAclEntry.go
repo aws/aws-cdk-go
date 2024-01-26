@@ -52,7 +52,7 @@ type CfnNetworkAclEntry interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.
+	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). You must specify an IPv4 CIDR block or an IPv6 CIDR block.
 	CidrBlock() *string
 	SetCidrBlock(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

@@ -29,6 +29,9 @@ import (
 //   			"matchPrefixes": []*string{
 //   				jsii.String("bl"),
 //   			},
+//   			"matchSuffixes": []*string{
+//   				jsii.String("ue"),
+//   			},
 //   		}),
 //   		"size": sns.*subscriptionFilter_stringFilter(&StringConditions{
 //   			"denylist": []*string{

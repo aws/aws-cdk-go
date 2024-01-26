@@ -53,7 +53,7 @@ type CfnSubnetProps struct {
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is `false` .
 	//
-	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
+	// If you specify `AssignIpv6AddressOnCreation` , you must also specify an IPv6 CIDR block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-assignipv6addressoncreation
 	//
 	AssignIpv6AddressOnCreation interface{} `field:"optional" json:"assignIpv6AddressOnCreation" yaml:"assignIpv6AddressOnCreation"`
@@ -89,10 +89,11 @@ type CfnSubnetProps struct {
 	Ipv4NetmaskLength *float64 `field:"optional" json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
 	// The IPv6 CIDR block.
 	//
-	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
+	// If you specify `AssignIpv6AddressOnCreation` , you must also specify an IPv6 CIDR block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblock
 	//
 	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	// The IPv6 network ranges for the subnet, in CIDR notation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblocks
 	//
 	Ipv6CidrBlocks *[]*string `field:"optional" json:"ipv6CidrBlocks" yaml:"ipv6CidrBlocks"`

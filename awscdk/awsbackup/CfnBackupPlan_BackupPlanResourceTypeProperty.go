@@ -27,6 +27,7 @@ package awsbackup
 //   					Lifecycle: &LifecycleResourceTypeProperty{
 //   						DeleteAfterDays: jsii.Number(123),
 //   						MoveToColdStorageAfterDays: jsii.Number(123),
+//   						OptInToArchiveForSupportedResources: jsii.Boolean(false),
 //   					},
 //   				},
 //   			},
@@ -34,6 +35,7 @@ package awsbackup
 //   			Lifecycle: &LifecycleResourceTypeProperty{
 //   				DeleteAfterDays: jsii.Number(123),
 //   				MoveToColdStorageAfterDays: jsii.Number(123),
+//   				OptInToArchiveForSupportedResources: jsii.Boolean(false),
 //   			},
 //   			RecoveryPointTags: map[string]*string{
 //   				"recoveryPointTagsKey": jsii.String("recoveryPointTags"),

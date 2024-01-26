@@ -176,6 +176,10 @@ type BucketProps struct {
 	// Default: - No log file prefix.
 	//
 	ServerAccessLogsPrefix *string `field:"optional" json:"serverAccessLogsPrefix" yaml:"serverAccessLogsPrefix"`
+	// Optional key format for log objects.
+	// Default: - the default key format is: [DestinationPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString].
+	//
+	TargetObjectKeyFormat TargetObjectKeyFormat `field:"optional" json:"targetObjectKeyFormat" yaml:"targetObjectKeyFormat"`
 	// Whether this bucket should have transfer acceleration turned on or not.
 	// Default: false.
 	//

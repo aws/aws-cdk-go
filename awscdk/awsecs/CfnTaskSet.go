@@ -13,7 +13,7 @@ import (
 //
 // This is used when a service uses the `EXTERNAL` deployment controller type. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
-// You can create a maximum of 5 tasks sets for a deployment.
+// For information about the maximum number of task sets and otther quotas, see [Amazon ECS service quotas](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html) in the *Amazon Elastic Container Service Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

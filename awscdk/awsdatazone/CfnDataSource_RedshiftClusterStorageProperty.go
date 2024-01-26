@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// The name of an Amazon Redshift cluster.
+// The details of the Amazon Redshift cluster storage.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

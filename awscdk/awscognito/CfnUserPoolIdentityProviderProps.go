@@ -12,6 +12,7 @@ package awscognito
 //   var providerDetails interface{}
 //
 //   cfnUserPoolIdentityProviderProps := &CfnUserPoolIdentityProviderProps{
+//   	ProviderDetails: providerDetails,
 //   	ProviderName: jsii.String("providerName"),
 //   	ProviderType: jsii.String("providerType"),
 //   	UserPoolId: jsii.String("userPoolId"),
@@ -21,32 +22,11 @@ package awscognito
 //   	IdpIdentifiers: []*string{
 //   		jsii.String("idpIdentifiers"),
 //   	},
-//   	ProviderDetails: providerDetails,
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html
 //
 type CfnUserPoolIdentityProviderProps struct {
-	// The IdP name.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providername
-	//
-	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
-	// The IdP type.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providertype
-	//
-	ProviderType *string `field:"required" json:"providerType" yaml:"providerType"`
-	// The user pool ID.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-userpoolid
-	//
-	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
-	// A mapping of IdP attributes to standard and custom user pool attributes.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-attributemapping
-	//
-	AttributeMapping interface{} `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
-	// A list of IdP identifiers.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-idpidentifiers
-	//
-	IdpIdentifiers *[]*string `field:"optional" json:"idpIdentifiers" yaml:"idpIdentifiers"`
 	// The IdP details. The following list describes the provider detail keys for each IdP type.
 	//
 	// - For Google and Login with Amazon:
@@ -89,6 +69,26 @@ type CfnUserPoolIdentityProviderProps struct {
 	// - IDPSignout *optional*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providerdetails
 	//
-	ProviderDetails interface{} `field:"optional" json:"providerDetails" yaml:"providerDetails"`
+	ProviderDetails interface{} `field:"required" json:"providerDetails" yaml:"providerDetails"`
+	// The IdP name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providername
+	//
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
+	// The IdP type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providertype
+	//
+	ProviderType *string `field:"required" json:"providerType" yaml:"providerType"`
+	// The user pool ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-userpoolid
+	//
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
+	// A mapping of IdP attributes to standard and custom user pool attributes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-attributemapping
+	//
+	AttributeMapping interface{} `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
+	// A list of IdP identifiers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-idpidentifiers
+	//
+	IdpIdentifiers *[]*string `field:"optional" json:"idpIdentifiers" yaml:"idpIdentifiers"`
 }
 

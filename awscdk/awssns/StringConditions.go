@@ -25,6 +25,9 @@ package awssns
 //   			"matchPrefixes": []*string{
 //   				jsii.String("bl"),
 //   			},
+//   			"matchSuffixes": []*string{
+//   				jsii.String("ue"),
+//   			},
 //   		}),
 //   		"size": sns.*subscriptionFilter_stringFilter(&StringConditions{
 //   			"denylist": []*string{
@@ -56,5 +59,9 @@ type StringConditions struct {
 	// Default: - None.
 	//
 	MatchPrefixes *[]*string `field:"optional" json:"matchPrefixes" yaml:"matchPrefixes"`
+	// Matches values that end with the specified suffixes.
+	// Default: - None.
+	//
+	MatchSuffixes *[]*string `field:"optional" json:"matchSuffixes" yaml:"matchSuffixes"`
 }
 

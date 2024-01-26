@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Subscription targets enables one to access the data to which you have subscribed in your projects.
+// The `AWS::DataZone::SubscriptionTarget` resource specifies an Amazon DataZone subscription target.
+//
+// Subscription targets enable you to access the data to which you have subscribed in your projects. A subscription target specifies the location (for example, a database or a schema) and the required permissions (for example, an IAM role) that Amazon DataZone can use to establish a connection with the source data and to create the necessary grants so that members of the Amazon DataZone project can start querying the data to which they have subscribed.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,18 +46,18 @@ import (
 type CfnSubscriptionTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The asset types that can be included in the subscription target.
+	// The asset types included in the subscription target.
 	ApplicableAssetTypes() *[]*string
 	SetApplicableAssetTypes(val *[]*string)
 	// The timestamp of when the subscription target was created.
 	AttrCreatedAt() *string
 	// The Amazon DataZone user who created the subscription target.
 	AttrCreatedBy() *string
-	// The ID of the Amazon DataZone domain in which subscription target is created.
+	// The identifier of the Amazon DataZone domain in which the subscription target exists.
 	AttrDomainId() *string
-	// The ID of the environment in which subscription target is created.
+	// The identifier of the environment of the subscription target.
 	AttrEnvironmentId() *string
-	// The ID of the subscription target.
+	// The identifier of the subscription target.
 	AttrId() *string
 	// The identifier of the project specified in the subscription target.
 	AttrProjectId() *string
@@ -63,7 +65,7 @@ type CfnSubscriptionTarget interface {
 	AttrUpdatedAt() *string
 	// The Amazon DataZone user who updated the subscription target.
 	AttrUpdatedBy() *string
-	// The authorized principals of the subscription target.
+	// The authorized principals included in the subscription target.
 	AuthorizedPrincipals() *[]*string
 	SetAuthorizedPrincipals(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -75,10 +77,10 @@ type CfnSubscriptionTarget interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ID of the Amazon DataZone domain in which subscription target would be created.
+	// The ID of the Amazon DataZone domain in which subscription target is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	// The ID of the environment in which subscription target would be created.
+	// The ID of the environment in which subscription target is created.
 	EnvironmentIdentifier() *string
 	SetEnvironmentIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.

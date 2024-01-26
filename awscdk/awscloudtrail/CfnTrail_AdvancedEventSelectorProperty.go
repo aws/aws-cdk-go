@@ -1,18 +1,27 @@
 package awscloudtrail
 
 
-// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds.
+// Advanced event selectors let you create fine-grained selectors for CloudTrail management and data events.
 //
-// They help you control costs by logging only those events that are important to you. For more information about advanced event selectors, see [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide* .
-//
-// - `readOnly`
-// - `eventSource`
-// - `eventName`
-// - `eventCategory`
-// - `resources.type`
-// - `resources.ARN`
+// They help you control costs by logging only those events that are important to you. For more information about advanced event selectors, see [Logging management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide* .
 //
 // You cannot apply both event selectors and advanced event selectors to a trail.
+//
+// *Supported CloudTrail event record fields for management events*
+//
+// - `eventCategory` (required)
+// - `eventSource`
+// - `readOnly`
+//
+// *Supported CloudTrail event record fields for data events*
+//
+// - `eventCategory` (required)
+// - `resources.type` (required)
+// - `readOnly`
+// - `eventName`
+// - `resources.ARN`
+//
+// > For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS , the only supported field is `eventCategory` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
