@@ -62,7 +62,7 @@ type BasicStepScalingPolicyProps struct {
 	// `evaluationPeriods` is the N value.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
-	// Default: `evaluationPeriods`.
+	// Default: - Same as `evaluationPeriods`.
 	//
 	DatapointsToAlarm *float64 `field:"optional" json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.

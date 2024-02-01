@@ -45,6 +45,9 @@ type ProviderProps struct {
 	//
 	IsCompleteHandler awslambda.IFunction `field:"optional" json:"isCompleteHandler" yaml:"isCompleteHandler"`
 	// The Log Group used for logging of events emitted by the custom resource's lambda function.
+	//
+	// Providing a user-controlled log group was rolled out to commercial regions on 2023-11-16.
+	// If you are deploying to another type of region, please check regional availability first.
 	// Default: - a default log group created by AWS Lambda.
 	//
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
@@ -53,9 +56,11 @@ type ProviderProps struct {
 	// When
 	// updating this property, unsetting it doesn't remove the log retention policy.
 	// To remove the retention policy, set the value to `INFINITE`.
+	//
+	// This is a legacy API and we strongly recommend you migrate to `logGroup` if you can.
+	// `logGroup` allows you to create a fully customizable log group and instruct the Lambda function to send logs to it.
 	// Default: logs.RetentionDays.INFINITE
 	//
-	// Deprecated: Use logGroup for full control over the custom resource log group.
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// AWS KMS key used to encrypt provider lambda's environment variables.
 	// Default: -  AWS Lambda creates and uses an AWS managed customer master key (CMK).

@@ -23,6 +23,7 @@ import (
 //   	// the properties below are optional
 //   	CredentialsRole: role,
 //   	IntegrationMethod: jsii.String("integrationMethod"),
+//   	PassthroughBehavior: awscdk.*Aws_apigatewayv2.PassthroughBehavior_WHEN_NO_MATCH,
 //   	RequestParameters: map[string]*string{
 //   		"requestParametersKey": jsii.String("requestParameters"),
 //   	},
@@ -47,6 +48,13 @@ type WebSocketIntegrationProps struct {
 	// Default: - No HTTP method required.
 	//
 	IntegrationMethod *string `field:"optional" json:"integrationMethod" yaml:"integrationMethod"`
+	// Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource.
+	//
+	// There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and
+	// NEVER.
+	// Default: - No passthrough behavior required.
+	//
+	PassthroughBehavior PassthroughBehavior `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
 	// Specify request parameters as key-value pairs (string-to-string

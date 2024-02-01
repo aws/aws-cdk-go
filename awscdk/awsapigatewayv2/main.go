@@ -1616,6 +1616,15 @@ func init() {
 			return &jsiiProxy_ParameterMapping{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_apigatewayv2.PassthroughBehavior",
+		reflect.TypeOf((*PassthroughBehavior)(nil)).Elem(),
+		map[string]interface{}{
+			"WHEN_NO_MATCH": PassthroughBehavior_WHEN_NO_MATCH,
+			"NEVER": PassthroughBehavior_NEVER,
+			"WHEN_NO_TEMPLATES": PassthroughBehavior_WHEN_NO_TEMPLATES,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigatewayv2.PayloadFormatVersion",
 		reflect.TypeOf((*PayloadFormatVersion)(nil)).Elem(),

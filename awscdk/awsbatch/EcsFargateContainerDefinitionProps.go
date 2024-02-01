@@ -9,49 +9,16 @@ import (
 // Props to configure an EcsFargateContainerDefinition.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var containerImage containerImage
-//   var ecsVolume ecsVolume
-//   var linuxParameters linuxParameters
-//   var logDriver logDriver
-//   var role role
-//   var secret secret
-//   var size size
-//
-//   ecsFargateContainerDefinitionProps := &EcsFargateContainerDefinitionProps{
-//   	Cpu: jsii.Number(123),
-//   	Image: containerImage,
-//   	Memory: size,
-//
-//   	// the properties below are optional
-//   	AssignPublicIp: jsii.Boolean(false),
-//   	Command: []*string{
-//   		jsii.String("command"),
-//   	},
-//   	Environment: map[string]*string{
-//   		"environmentKey": jsii.String("environment"),
-//   	},
-//   	EphemeralStorageSize: size,
-//   	ExecutionRole: role,
-//   	FargatePlatformVersion: awscdk.Aws_ecs.FargatePlatformVersion_LATEST,
-//   	JobRole: role,
-//   	LinuxParameters: linuxParameters,
-//   	Logging: logDriver,
-//   	ReadonlyRootFilesystem: jsii.Boolean(false),
-//   	Secrets: map[string]*secret{
-//   		"secretsKey": secret,
-//   	},
-//   	User: jsii.String("user"),
-//   	Volumes: []*ecsVolume{
-//   		ecsVolume,
-//   	},
-//   }
+//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsFargateContainerDefinition(this, jsii.String("myFargateContainer"), &EcsFargateContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   		Cpu: jsii.Number(256),
+//   		EphemeralStorageSize: cdk.Size_Gibibytes(jsii.Number(100)),
+//   		FargateCpuArchitecture: ecs.CpuArchitecture_ARM64(),
+//   		FargateOperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
+//   	}),
+//   })
 //
 type EcsFargateContainerDefinitionProps struct {
 	// The number of vCPUs reserved for the container.
@@ -135,6 +102,14 @@ type EcsFargateContainerDefinitionProps struct {
 	// Default: - 20 GiB.
 	//
 	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
+	// The vCPU architecture of Fargate Runtime.
+	// Default: - X86_64.
+	//
+	FargateCpuArchitecture awsecs.CpuArchitecture `field:"optional" json:"fargateCpuArchitecture" yaml:"fargateCpuArchitecture"`
+	// The operating system for the compute environment.
+	// Default: - LINUX.
+	//
+	FargateOperatingSystemFamily awsecs.OperatingSystemFamily `field:"optional" json:"fargateOperatingSystemFamily" yaml:"fargateOperatingSystemFamily"`
 	// Which version of Fargate to use when running this container.
 	// Default: LATEST.
 	//

@@ -7467,6 +7467,7 @@ func init() {
 			"D3EN": InstanceClass_D3EN,
 			"STORAGE_COMPUTE_1": InstanceClass_STORAGE_COMPUTE_1,
 			"TRN1": InstanceClass_TRN1,
+			"TRN1N": InstanceClass_TRN1N,
 			"H1": InstanceClass_H1,
 			"IO3": InstanceClass_IO3,
 			"I3": InstanceClass_I3,

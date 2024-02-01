@@ -357,4 +357,17 @@ func init() {
 		"aws-cdk-lib.aws_sqs.QueueProps",
 		reflect.TypeOf((*QueueProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sqs.RedriveAllowPolicy",
+		reflect.TypeOf((*RedriveAllowPolicy)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_sqs.RedrivePermission",
+		reflect.TypeOf((*RedrivePermission)(nil)).Elem(),
+		map[string]interface{}{
+			"ALLOW_ALL": RedrivePermission_ALLOW_ALL,
+			"DENY_ALL": RedrivePermission_DENY_ALL,
+			"BY_QUEUE": RedrivePermission_BY_QUEUE,
+		},
+	)
 }

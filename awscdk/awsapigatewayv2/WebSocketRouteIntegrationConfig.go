@@ -21,6 +21,7 @@ import (
 //   	// the properties below are optional
 //   	CredentialsRole: role,
 //   	Method: jsii.String("method"),
+//   	PassthroughBehavior: awscdk.*Aws_apigatewayv2.PassthroughBehavior_WHEN_NO_MATCH,
 //   	RequestParameters: map[string]*string{
 //   		"requestParametersKey": jsii.String("requestParameters"),
 //   	},
@@ -43,6 +44,10 @@ type WebSocketRouteIntegrationConfig struct {
 	// Default: - No integration method.
 	//
 	Method *string `field:"optional" json:"method" yaml:"method"`
+	// Integration passthrough behaviors.
+	// Default: - No pass through bahavior.
+	//
+	PassthroughBehavior PassthroughBehavior `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// Request parameters.
 	// Default: - No request parameters provided.
 	//

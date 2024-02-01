@@ -503,6 +503,21 @@ jobDefn.Container.AddVolume(batch.EcsVolume_Efs(&EfsVolumeOptions{
 }))
 ```
 
+### Running an ECS workflow with Fargate container
+
+```go
+jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+	Container: batch.NewEcsFargateContainerDefinition(this, jsii.String("myFargateContainer"), &EcsFargateContainerDefinitionProps{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+		Cpu: jsii.Number(256),
+		EphemeralStorageSize: cdk.Size_Gibibytes(jsii.Number(100)),
+		FargateCpuArchitecture: ecs.CpuArchitecture_ARM64(),
+		FargateOperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
+	}),
+})
+```
+
 ### Secrets
 
 You can expose SecretsManager Secret ARNs or SSM Parameters to your container as environment variables.

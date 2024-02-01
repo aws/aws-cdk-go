@@ -183,6 +183,9 @@ type EdgeFunctionProps struct {
 	// However you cannot change the properties of this auto-created log group using the AWS CDK, e.g. you cannot set a different log retention.
 	//
 	// Use the `logGroup` property to create a fully customizable LogGroup ahead of time, and instruct the Lambda function to send logs to it.
+	//
+	// Providing a user-controlled log group was rolled out to commercial regions on 2023-11-16.
+	// If you are deploying to another type of region, please check regional availability first.
 	// Default: `/aws/lambda/${this.functionName}` - default log group created by Lambda
 	//
 	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
@@ -191,29 +194,38 @@ type EdgeFunctionProps struct {
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Default: logs.RetentionDays.INFINITE
 	//
-	// Deprecated: instead create a fully customizable log group with `logs.LogGroup` and use the `logGroup` property to instruct the Lambda function to send logs to it.
+	// This is a legacy API and we strongly recommend you move away from it if you can.
+	// Instead create a fully customizable log group with `logs.LogGroup` and use the `logGroup` property
+	// to instruct the Lambda function to send logs to it.
 	// Migrating from `logRetention` to `logGroup` will cause the name of the log group to change.
 	// Users and code and referencing the name verbatim will have to adjust.
 	//
 	// In AWS CDK code, you can access the log group name directly from the LogGroup construct:
 	// ```ts
+	// import * as logs from 'aws-cdk-lib/aws-logs';
+	//
 	// declare const myLogGroup: logs.LogGroup;
 	// myLogGroup.logGroupName;
 	// ```.
+	// Default: logs.RetentionDays.INFINITE
+	//
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
+	//
+	// This is a legacy API and we strongly recommend you migrate to `logGroup` if you can.
+	// `logGroup` allows you to create a fully customizable log group and instruct the Lambda function to send logs to it.
 	// Default: - Default AWS SDK retry options.
 	//
-	// Deprecated: instead use `logGroup` to create a fully customizable log group and instruct the Lambda function to send logs to it.
 	LogRetentionRetryOptions *awslambda.LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	//
+	// This is a legacy API and we strongly recommend you migrate to `logGroup` if you can.
+	// `logGroup` allows you to create a fully customizable log group and instruct the Lambda function to send logs to it.
 	// Default: - A new role is created.
 	//
-	// Deprecated: instead use `logGroup` to create a fully customizable log group and instruct the Lambda function to send logs to it.
 	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//

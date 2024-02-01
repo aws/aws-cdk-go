@@ -1825,8 +1825,11 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType",
 		reflect.TypeOf((*EmrCreateCluster_EbsBlockDeviceVolumeType)(nil)).Elem(),
 		map[string]interface{}{
+			"GP3": EmrCreateCluster_EbsBlockDeviceVolumeType_GP3,
 			"GP2": EmrCreateCluster_EbsBlockDeviceVolumeType_GP2,
 			"IO1": EmrCreateCluster_EbsBlockDeviceVolumeType_IO1,
+			"ST1": EmrCreateCluster_EbsBlockDeviceVolumeType_ST1,
+			"SC1": EmrCreateCluster_EbsBlockDeviceVolumeType_SC1,
 			"STANDARD": EmrCreateCluster_EbsBlockDeviceVolumeType_STANDARD,
 		},
 	)

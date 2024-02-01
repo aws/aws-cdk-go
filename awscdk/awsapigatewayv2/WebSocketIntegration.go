@@ -28,6 +28,7 @@ import (
 //   	// the properties below are optional
 //   	CredentialsRole: role,
 //   	IntegrationMethod: jsii.String("integrationMethod"),
+//   	PassthroughBehavior: awscdk.*Aws_apigatewayv2.PassthroughBehavior_WHEN_NO_MATCH,
 //   	RequestParameters: map[string]*string{
 //   		"requestParametersKey": jsii.String("requestParameters"),
 //   	},

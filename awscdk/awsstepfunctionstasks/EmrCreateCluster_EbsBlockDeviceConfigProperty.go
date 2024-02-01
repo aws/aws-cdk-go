@@ -14,7 +14,7 @@ package awsstepfunctionstasks
 //   ebsBlockDeviceConfigProperty := &EbsBlockDeviceConfigProperty{
 //   	VolumeSpecification: &VolumeSpecificationProperty{
 //   		VolumeSize: size,
-//   		VolumeType: awscdk.Aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType_GP2,
+//   		VolumeType: awscdk.Aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType_GP3,
 //
 //   		// the properties below are optional
 //   		Iops: jsii.Number(123),

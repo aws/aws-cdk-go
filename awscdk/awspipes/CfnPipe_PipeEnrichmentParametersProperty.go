@@ -4,24 +4,24 @@ package awspipes
 // The parameters required to set up enrichment on your pipe.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var sourceQueue queue
+//   var targetQueue queue
+//   var loggroup logGroup
 //
-//   pipeEnrichmentParametersProperty := &PipeEnrichmentParametersProperty{
-//   	HttpParameters: &PipeEnrichmentHttpParametersProperty{
-//   		HeaderParameters: map[string]*string{
-//   			"headerParametersKey": jsii.String("headerParameters"),
-//   		},
-//   		PathParameterValues: []*string{
-//   			jsii.String("pathParameterValues"),
-//   		},
-//   		QueryStringParameters: map[string]*string{
-//   			"queryStringParametersKey": jsii.String("queryStringParameters"),
-//   		},
+//
+//   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+//   	Source: NewSqsSource(sourceQueue),
+//   	Target: NewSqsTarget(targetQueue),
+//
+//   	LogLevel: pipes.LogLevel_TRACE,
+//   	LogIncludeExecutionData: []aLL{
+//   		pipes.IncludeExecutionData_*aLL,
 //   	},
-//   	InputTemplate: jsii.String("inputTemplate"),
-//   }
+//
+//   	LogDestinations: []iLogDestination{
+//   		NewCloudwatchDestination(loggroup),
+//   	},
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html
 //

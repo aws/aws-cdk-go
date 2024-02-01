@@ -23,6 +23,14 @@ type IEcsFargateContainerDefinition interface {
 	// Default: - 20 GiB.
 	//
 	EphemeralStorageSize() awscdk.Size
+	// The vCPU architecture of Fargate Runtime.
+	// Default: - X86_64.
+	//
+	FargateCpuArchitecture() awsecs.CpuArchitecture
+	// The operating system for the compute environment.
+	// Default: - LINUX.
+	//
+	FargateOperatingSystemFamily() awsecs.OperatingSystemFamily
 	// Which version of Fargate to use when running this container.
 	// Default: LATEST.
 	//
@@ -49,6 +57,26 @@ func (j *jsiiProxy_IEcsFargateContainerDefinition) EphemeralStorageSize() awscdk
 	_jsii_.Get(
 		j,
 		"ephemeralStorageSize",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEcsFargateContainerDefinition) FargateCpuArchitecture() awsecs.CpuArchitecture {
+	var returns awsecs.CpuArchitecture
+	_jsii_.Get(
+		j,
+		"fargateCpuArchitecture",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEcsFargateContainerDefinition) FargateOperatingSystemFamily() awsecs.OperatingSystemFamily {
+	var returns awsecs.OperatingSystemFamily
+	_jsii_.Get(
+		j,
+		"fargateOperatingSystemFamily",
 		&returns,
 	)
 	return returns

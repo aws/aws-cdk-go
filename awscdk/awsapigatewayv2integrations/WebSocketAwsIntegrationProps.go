@@ -1,6 +1,7 @@
 package awsapigatewayv2integrations
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
@@ -48,6 +49,13 @@ type WebSocketAwsIntegrationProps struct {
 	// Default: - No credential role provided.
 	//
 	CredentialsRole awsiam.IRole `field:"optional" json:"credentialsRole" yaml:"credentialsRole"`
+	// Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource.
+	//
+	// There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and
+	// NEVER.
+	// Default: - No passthrough behavior required.
+	//
+	PassthroughBehavior awsapigatewayv2.PassthroughBehavior `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
 	// Specify request parameters as key-value pairs (string-to-string

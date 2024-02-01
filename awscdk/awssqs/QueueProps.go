@@ -115,6 +115,10 @@ type QueueProps struct {
 	// Default: 0.
 	//
 	ReceiveMessageWaitTime awscdk.Duration `field:"optional" json:"receiveMessageWaitTime" yaml:"receiveMessageWaitTime"`
+	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues.
+	// Default: - All source queues can designate this queue as their dead-letter queue.
+	//
+	RedriveAllowPolicy *RedriveAllowPolicy `field:"optional" json:"redriveAllowPolicy" yaml:"redriveAllowPolicy"`
 	// Policy to apply when the queue is removed from the stack.
 	//
 	// Even though queues are technically stateful, their contents are transient and it

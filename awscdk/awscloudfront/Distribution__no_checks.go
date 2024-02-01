@@ -44,6 +44,10 @@ func (d *jsiiProxy_Distribution) validateMetric404ErrorRateParameters(props *aws
 	return nil
 }
 
+func (d *jsiiProxy_Distribution) validateMetric4xxErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func (d *jsiiProxy_Distribution) validateMetric502ErrorRateParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
@@ -56,11 +60,31 @@ func (d *jsiiProxy_Distribution) validateMetric504ErrorRateParameters(props *aws
 	return nil
 }
 
+func (d *jsiiProxy_Distribution) validateMetric5xxErrorRateParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricBytesDownloadedParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricBytesUploadedParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func (d *jsiiProxy_Distribution) validateMetricCacheHitRateParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
 
 func (d *jsiiProxy_Distribution) validateMetricOriginLatencyParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricRequestsParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (d *jsiiProxy_Distribution) validateMetricTotalErrorRateParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
 

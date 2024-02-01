@@ -4,13 +4,27 @@ package awspipes
 // Represents the Amazon CloudWatch Logs logging configuration settings for the pipe.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var sourceQueue queue
+//   var targetQueue queue
 //
-//   cloudwatchLogsLogDestinationProperty := &CloudwatchLogsLogDestinationProperty{
-//   	LogGroupArn: jsii.String("logGroupArn"),
-//   }
+//
+//   sourceFilter := pipes.NewFilter([]iFilterPattern{
+//   	pipes.FilterPattern_FromObject(map[string]interface{}{
+//   		"body": map[string][]*string{
+//   			// only forward events with customerType B2B or B2C
+//   			"customerType": []*string{
+//   				jsii.String("B2B"),
+//   				jsii.String("B2C"),
+//   			},
+//   		},
+//   	}),
+//   })
+//
+//   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+//   	Source: NewSqsSource(sourceQueue),
+//   	Target: NewSqsTarget(targetQueue),
+//   	Filter: sourceFilter,
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-cloudwatchlogslogdestination.html
 //

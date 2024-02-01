@@ -278,6 +278,8 @@ const (
 	InstanceClass_STORAGE_COMPUTE_1 InstanceClass = "STORAGE_COMPUTE_1"
 	// High performance computing powered by AWS Trainium.
 	InstanceClass_TRN1 InstanceClass = "TRN1"
+	// High performance computing powered by AWS Trainium.
+	InstanceClass_TRN1N InstanceClass = "TRN1N"
 	// Storage/compute balanced instances, 1st generation.
 	InstanceClass_H1 InstanceClass = "H1"
 	// I/O-optimized instances, 3rd generation.

@@ -14,48 +14,15 @@ import (
 // A container orchestrated by ECS that uses Fargate resources.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var containerImage containerImage
-//   var ecsVolume ecsVolume
-//   var linuxParameters linuxParameters
-//   var logDriver logDriver
-//   var role role
-//   var secret secret
-//   var size size
-//
-//   ecsFargateContainerDefinition := awscdk.Aws_batch.NewEcsFargateContainerDefinition(this, jsii.String("MyEcsFargateContainerDefinition"), &EcsFargateContainerDefinitionProps{
-//   	Cpu: jsii.Number(123),
-//   	Image: containerImage,
-//   	Memory: size,
-//
-//   	// the properties below are optional
-//   	AssignPublicIp: jsii.Boolean(false),
-//   	Command: []*string{
-//   		jsii.String("command"),
-//   	},
-//   	Environment: map[string]*string{
-//   		"environmentKey": jsii.String("environment"),
-//   	},
-//   	EphemeralStorageSize: size,
-//   	ExecutionRole: role,
-//   	FargatePlatformVersion: awscdk.Aws_ecs.FargatePlatformVersion_LATEST,
-//   	JobRole: role,
-//   	LinuxParameters: linuxParameters,
-//   	Logging: logDriver,
-//   	ReadonlyRootFilesystem: jsii.Boolean(false),
-//   	Secrets: map[string]*secret{
-//   		"secretsKey": secret,
-//   	},
-//   	User: jsii.String("user"),
-//   	Volumes: []*ecsVolume{
-//   		ecsVolume,
-//   	},
+//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsFargateContainerDefinition(this, jsii.String("myFargateContainer"), &EcsFargateContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   		Cpu: jsii.Number(256),
+//   		EphemeralStorageSize: cdk.Size_Gibibytes(jsii.Number(100)),
+//   		FargateCpuArchitecture: ecs.CpuArchitecture_ARM64(),
+//   		FargateOperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
+//   	}),
 //   })
 //
 type EcsFargateContainerDefinition interface {
@@ -83,6 +50,10 @@ type EcsFargateContainerDefinition interface {
 	EphemeralStorageSize() awscdk.Size
 	// The role used by Amazon ECS container and AWS Fargate agents to make AWS API calls on your behalf.
 	ExecutionRole() awsiam.IRole
+	// The vCPU architecture of Fargate Runtime.
+	FargateCpuArchitecture() awsecs.CpuArchitecture
+	// The operating system for the compute environment.
+	FargateOperatingSystemFamily() awsecs.OperatingSystemFamily
 	// Which version of Fargate to use when running this container.
 	FargatePlatformVersion() awsecs.FargatePlatformVersion
 	// The image that this container will run.
@@ -181,6 +152,26 @@ func (j *jsiiProxy_EcsFargateContainerDefinition) ExecutionRole() awsiam.IRole {
 	_jsii_.Get(
 		j,
 		"executionRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsFargateContainerDefinition) FargateCpuArchitecture() awsecs.CpuArchitecture {
+	var returns awsecs.CpuArchitecture
+	_jsii_.Get(
+		j,
+		"fargateCpuArchitecture",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsFargateContainerDefinition) FargateOperatingSystemFamily() awsecs.OperatingSystemFamily {
+	var returns awsecs.OperatingSystemFamily
+	_jsii_.Get(
+		j,
+		"fargateOperatingSystemFamily",
 		&returns,
 	)
 	return returns

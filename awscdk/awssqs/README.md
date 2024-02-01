@@ -85,3 +85,30 @@ the SQS manual. Note that FIFO queues are not available in all AWS regions.
 A queue can be made a FIFO queue by either setting `fifo: true`, giving it a name which ends
 in `".fifo"`, or by enabling a FIFO specific feature such as: content-based deduplication,
 deduplication scope or fifo throughput limit.
+
+## Dead letter source queues permission
+
+You can configure the permission settings for queues that can designate the created queue as their dead-letter queue using the `redriveAllowPolicy` attribute.
+
+By default, all queues within the same account and region are permitted as source queues.
+
+```go
+var sourceQueue iQueue
+
+
+// Only the sourceQueue can specify this queue as the dead-letter queue.
+queue1 := sqs.NewQueue(this, jsii.String("Queue2"), &QueueProps{
+	RedriveAllowPolicy: &RedriveAllowPolicy{
+		SourceQueues: []*iQueue{
+			sourceQueue,
+		},
+	},
+})
+
+// No source queues can specify this queue as the dead-letter queue.
+queue2 := sqs.NewQueue(this, jsii.String("Queue"), &QueueProps{
+	RedriveAllowPolicy: &RedriveAllowPolicy{
+		RedrivePermission: sqs.RedrivePermission_DENY_ALL,
+	},
+})
+```
