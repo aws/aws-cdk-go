@@ -145,6 +145,39 @@ func LinuxArmLambdaBuildImage_AMAZON_LINUX_2_RUBY_3_2() IBuildImage {
 	return returns
 }
 
+func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_CORRETTO_21() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		"AMAZON_LINUX_2023_CORRETTO_21",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_NODE_20() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		"AMAZON_LINUX_2023_NODE_20",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_PYTHON_3_12() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		"AMAZON_LINUX_2023_PYTHON_3_12",
+		&returns,
+	)
+	return returns
+}
+
 func (l *jsiiProxy_LinuxArmLambdaBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec {
 	if err := l.validateRunScriptBuildspecParameters(entrypoint); err != nil {
 		panic(err)

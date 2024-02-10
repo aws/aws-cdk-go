@@ -358,6 +358,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -405,6 +406,25 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions.Credentials",
 		reflect.TypeOf((*Credentials)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_stepfunctions.CsvHeaderLocation",
+		reflect.TypeOf((*CsvHeaderLocation)(nil)).Elem(),
+		map[string]interface{}{
+			"FIRST_ROW": CsvHeaderLocation_FIRST_ROW,
+			"GIVEN": CsvHeaderLocation_GIVEN,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.CsvHeaders",
+		reflect.TypeOf((*CsvHeaders)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "headerLocation", GoGetter: "HeaderLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "headers", GoGetter: "Headers"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CsvHeaders{}
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.CustomState",
 		reflect.TypeOf((*CustomState)(nil)).Elem(),
@@ -432,6 +452,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -477,6 +498,66 @@ func init() {
 		reflect.TypeOf((*DefinitionConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.DistributedMap",
+		reflect.TypeOf((*DistributedMap)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
+			_jsii_.MemberMethod{JsiiMethod: "addCatch", GoMethod: "AddCatch"},
+			_jsii_.MemberMethod{JsiiMethod: "addChoice", GoMethod: "AddChoice"},
+			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
+			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
+			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
+			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultChoice", GoGetter: "DefaultChoice"},
+			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
+			_jsii_.MemberMethod{JsiiMethod: "itemProcessor", GoMethod: "ItemProcessor"},
+			_jsii_.MemberProperty{JsiiProperty: "itemSelector", GoGetter: "ItemSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "itemsPath", GoGetter: "ItemsPath"},
+			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
+			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
+			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
+			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
+			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
+			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
+			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
+			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
+			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
+			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
+			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
+			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
+			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
+			_jsii_.MemberProperty{JsiiProperty: "stateName", GoGetter: "StateName"},
+			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
+			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DistributedMap{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_MapBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_INextable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.DistributedMapProps",
+		reflect.TypeOf((*DistributedMapProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.Errors",
 		reflect.TypeOf((*Errors)(nil)).Elem(),
 		nil, // no members
@@ -508,6 +589,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -591,6 +673,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_stepfunctions.IItemReader",
+		reflect.TypeOf((*IItemReader)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
+			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IItemReader{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_stepfunctions.INextable",
 		reflect.TypeOf((*INextable)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -649,6 +745,25 @@ func init() {
 			"WAIT_FOR_TASK_TOKEN": IntegrationPattern_WAIT_FOR_TASK_TOKEN,
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.ItemBatcher",
+		reflect.TypeOf((*ItemBatcher)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
+			_jsii_.MemberMethod{JsiiMethod: "validateItemBatcher", GoMethod: "ValidateItemBatcher"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ItemBatcher{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.ItemBatcherProps",
+		reflect.TypeOf((*ItemBatcherProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.ItemReaderProps",
+		reflect.TypeOf((*ItemReaderProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_stepfunctions.JitterType",
 		reflect.TypeOf((*JitterType)(nil)).Elem(),
@@ -698,6 +813,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
 			_jsii_.MemberMethod{JsiiMethod: "itemProcessor", GoMethod: "ItemProcessor"},
+			_jsii_.MemberProperty{JsiiProperty: "itemSelector", GoGetter: "ItemSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "itemsPath", GoGetter: "ItemsPath"},
 			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
 			_jsii_.MemberMethod{JsiiMethod: "iterator", GoMethod: "Iterator"},
 			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
@@ -708,6 +825,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -728,10 +846,67 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_Map{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_MapBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_INextable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.MapBase",
+		reflect.TypeOf((*MapBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
+			_jsii_.MemberMethod{JsiiMethod: "addChoice", GoMethod: "AddChoice"},
+			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
+			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
+			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
+			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultChoice", GoGetter: "DefaultChoice"},
+			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "itemSelector", GoGetter: "ItemSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "itemsPath", GoGetter: "ItemsPath"},
+			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
+			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
+			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
+			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
+			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
+			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
+			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
+			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
+			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
+			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
+			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
+			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
+			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
+			_jsii_.MemberProperty{JsiiProperty: "stateName", GoGetter: "StateName"},
+			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
+			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
+		},
+		func() interface{} {
+			j := jsiiProxy_MapBase{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_State)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_INextable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.MapBaseProps",
+		reflect.TypeOf((*MapBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.MapProps",
@@ -765,6 +940,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -819,6 +995,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -878,9 +1055,110 @@ func init() {
 			return &jsiiProxy_Result{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.ResultWriter",
+		reflect.TypeOf((*ResultWriter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "prefix", GoGetter: "Prefix"},
+			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ResultWriter{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.ResultWriterProps",
+		reflect.TypeOf((*ResultWriterProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.RetryProps",
 		reflect.TypeOf((*RetryProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.S3CsvItemReader",
+		reflect.TypeOf((*S3CsvItemReader)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "csvHeaders", GoGetter: "CsvHeaders"},
+			_jsii_.MemberProperty{JsiiProperty: "inputType", GoGetter: "InputType"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
+			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3CsvItemReader{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IItemReader)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.S3CsvItemReaderProps",
+		reflect.TypeOf((*S3CsvItemReaderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.S3FileItemReaderProps",
+		reflect.TypeOf((*S3FileItemReaderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.S3JsonItemReader",
+		reflect.TypeOf((*S3JsonItemReader)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "inputType", GoGetter: "InputType"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
+			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3JsonItemReader{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IItemReader)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.S3ManifestItemReader",
+		reflect.TypeOf((*S3ManifestItemReader)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "inputType", GoGetter: "InputType"},
+			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
+			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
+			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3ManifestItemReader{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IItemReader)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.S3ObjectsItemReader",
+		reflect.TypeOf((*S3ObjectsItemReader)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
+			_jsii_.MemberProperty{JsiiProperty: "prefix", GoGetter: "Prefix"},
+			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
+			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3ObjectsItemReader{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IItemReader)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.S3ObjectsItemReaderProps",
+		reflect.TypeOf((*S3ObjectsItemReaderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_stepfunctions.ServiceIntegrationPattern",
@@ -919,6 +1197,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -948,6 +1227,7 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions.StateGraph",
 		reflect.TypeOf((*StateGraph)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 			_jsii_.MemberProperty{JsiiProperty: "policyStatements", GoGetter: "PolicyStatements"},
 			_jsii_.MemberMethod{JsiiMethod: "registerPolicyStatement", GoMethod: "RegisterPolicyStatement"},
 			_jsii_.MemberMethod{JsiiMethod: "registerState", GoMethod: "RegisterState"},
@@ -1084,6 +1364,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1175,6 +1456,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1242,6 +1524,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},

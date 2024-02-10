@@ -62,7 +62,7 @@ glue.NewJob(this, jsii.String("PythonSparkStreamingJob"), &JobProps{
 	Executable: glue.JobExecutable_PythonStreaming(&PythonSparkJobExecutableProps{
 		GlueVersion: glue.GlueVersion_V4_0(),
 		PythonVersion: glue.PythonVersion_THREE,
-		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 	}),
 	Description: jsii.String("an example Python Streaming job"),
 })
@@ -100,7 +100,7 @@ glue.NewJob(this, jsii.String("RayJob"), &JobProps{
 		GlueVersion: glue.GlueVersion_V4_0(),
 		PythonVersion: glue.PythonVersion_THREE_NINE,
 		Runtime: glue.Runtime_RAY_TWO_FOUR(),
-		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 	}),
 	WorkerType: glue.WorkerType_Z_2X(),
 	WorkerCount: jsii.Number(2),
@@ -121,7 +121,7 @@ glue.NewJob(this, jsii.String("EnableSparkUI"), &JobProps{
 	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
 		GlueVersion: glue.GlueVersion_V3_0(),
 		PythonVersion: glue.PythonVersion_THREE,
-		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 	}),
 })
 ```

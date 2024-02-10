@@ -16,11 +16,45 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var formInputValuePropertyProperty_ formInputValuePropertyProperty
+//
 //   cfnForm := awscdk.Aws_amplifyuibuilder.NewCfnForm(this, jsii.String("MyCfnForm"), &CfnFormProps{
+//   	AppId: jsii.String("appId"),
+//   	Cta: &FormCTAProperty{
+//   		Cancel: &FormButtonProperty{
+//   			Children: jsii.String("children"),
+//   			Excluded: jsii.Boolean(false),
+//   			Position: &FieldPositionProperty{
+//   				Below: jsii.String("below"),
+//   				Fixed: jsii.String("fixed"),
+//   				RightOf: jsii.String("rightOf"),
+//   			},
+//   		},
+//   		Clear: &FormButtonProperty{
+//   			Children: jsii.String("children"),
+//   			Excluded: jsii.Boolean(false),
+//   			Position: &FieldPositionProperty{
+//   				Below: jsii.String("below"),
+//   				Fixed: jsii.String("fixed"),
+//   				RightOf: jsii.String("rightOf"),
+//   			},
+//   		},
+//   		Position: jsii.String("position"),
+//   		Submit: &FormButtonProperty{
+//   			Children: jsii.String("children"),
+//   			Excluded: jsii.Boolean(false),
+//   			Position: &FieldPositionProperty{
+//   				Below: jsii.String("below"),
+//   				Fixed: jsii.String("fixed"),
+//   				RightOf: jsii.String("rightOf"),
+//   			},
+//   		},
+//   	},
 //   	DataType: &FormDataTypeConfigProperty{
 //   		DataSourceType: jsii.String("dataSourceType"),
 //   		DataTypeName: jsii.String("dataTypeName"),
 //   	},
+//   	EnvironmentName: jsii.String("environmentName"),
 //   	Fields: map[string]interface{}{
 //   		"fieldsKey": &FieldConfigProperty{
 //   			"excluded": jsii.Boolean(false),
@@ -56,14 +90,42 @@ import (
 //   				"valueMappings": &ValueMappingsProperty{
 //   					"values": []interface{}{
 //   						&ValueMappingProperty{
-//   							"value": &FormInputValuePropertyProperty{
+//   							"value": &formInputValuePropertyProperty{
+//   								"bindingProperties": &FormInputValuePropertyBindingPropertiesProperty{
+//   									"property": jsii.String("property"),
+//
+//   									// the properties below are optional
+//   									"field": jsii.String("field"),
+//   								},
+//   								"concat": []interface{}{
+//   									formInputValuePropertyProperty_,
+//   								},
 //   								"value": jsii.String("value"),
 //   							},
 //
 //   							// the properties below are optional
-//   							"displayValue": &FormInputValuePropertyProperty{
+//   							"displayValue": &formInputValuePropertyProperty{
+//   								"bindingProperties": &FormInputValuePropertyBindingPropertiesProperty{
+//   									"property": jsii.String("property"),
+//
+//   									// the properties below are optional
+//   									"field": jsii.String("field"),
+//   								},
+//   								"concat": []interface{}{
+//   									formInputValuePropertyProperty_,
+//   								},
 //   								"value": jsii.String("value"),
 //   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					"bindingProperties": map[string]interface{}{
+//   						"bindingPropertiesKey": &FormInputBindingPropertiesValueProperty{
+//   							"bindingProperties": &FormInputBindingPropertiesValuePropertiesProperty{
+//   								"model": jsii.String("model"),
+//   							},
+//   							"type": jsii.String("type"),
 //   						},
 //   					},
 //   				},
@@ -91,6 +153,7 @@ import (
 //   		},
 //   	},
 //   	FormActionType: jsii.String("formActionType"),
+//   	LabelDecorator: jsii.String("labelDecorator"),
 //   	Name: jsii.String("name"),
 //   	SchemaVersion: jsii.String("schemaVersion"),
 //   	SectionalElements: map[string]interface{}{
@@ -123,41 +186,6 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	AppId: jsii.String("appId"),
-//   	Cta: &FormCTAProperty{
-//   		Cancel: &FormButtonProperty{
-//   			Children: jsii.String("children"),
-//   			Excluded: jsii.Boolean(false),
-//   			Position: &FieldPositionProperty{
-//   				Below: jsii.String("below"),
-//   				Fixed: jsii.String("fixed"),
-//   				RightOf: jsii.String("rightOf"),
-//   			},
-//   		},
-//   		Clear: &FormButtonProperty{
-//   			Children: jsii.String("children"),
-//   			Excluded: jsii.Boolean(false),
-//   			Position: &FieldPositionProperty{
-//   				Below: jsii.String("below"),
-//   				Fixed: jsii.String("fixed"),
-//   				RightOf: jsii.String("rightOf"),
-//   			},
-//   		},
-//   		Position: jsii.String("position"),
-//   		Submit: &FormButtonProperty{
-//   			Children: jsii.String("children"),
-//   			Excluded: jsii.Boolean(false),
-//   			Position: &FieldPositionProperty{
-//   				Below: jsii.String("below"),
-//   				Fixed: jsii.String("fixed"),
-//   				RightOf: jsii.String("rightOf"),
-//   			},
-//   		},
-//   	},
-//   	EnvironmentName: jsii.String("environmentName"),
-//   	LabelDecorator: jsii.String("labelDecorator"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -704,9 +732,6 @@ func (j *jsiiProxy_CfnForm)SetFields(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnForm)SetFormActionType(val *string) {
-	if err := j.validateSetFormActionTypeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"formActionType",
@@ -723,9 +748,6 @@ func (j *jsiiProxy_CfnForm)SetLabelDecorator(val *string) {
 }
 
 func (j *jsiiProxy_CfnForm)SetName(val *string) {
-	if err := j.validateSetNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -734,9 +756,6 @@ func (j *jsiiProxy_CfnForm)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnForm)SetSchemaVersion(val *string) {
-	if err := j.validateSetSchemaVersionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"schemaVersion",

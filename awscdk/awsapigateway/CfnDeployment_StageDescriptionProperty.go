@@ -70,6 +70,8 @@ type CfnDeployment_StageDescriptionProperty struct {
 	//
 	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
 	// Specifies whether a cache cluster is enabled for the stage.
+	//
+	// To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
 	//
 	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`

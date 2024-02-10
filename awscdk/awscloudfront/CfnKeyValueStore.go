@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The Key Value Store.
+// The key value store.
 //
-// Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The Key Value Store holds keys and their corresponding values.
+// Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,25 +34,24 @@ import (
 type CfnKeyValueStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) of the Key Value Store.
+	// The Amazon Resource Name (ARN) of the key value store.
 	AttrArn() *string
-	// The unique Id for the Key Value Store.
+	// The unique Id for the key value store.
 	AttrId() *string
-	// The status of the Key Value Store.
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// A comment for the Key Value Store.
+	// A comment for the key value store.
 	Comment() *string
 	SetComment(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The import source for the Key Value Store.
+	// The import source for the key value store.
 	ImportSource() interface{}
 	SetImportSource(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -65,7 +64,7 @@ type CfnKeyValueStore interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the Key Value Store.
+	// The name of the key value store.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

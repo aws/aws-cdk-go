@@ -36,6 +36,7 @@ package awsredshiftserverless
 //   		},
 //   	},
 //   	EnhancedVpcRouting: jsii.Boolean(false),
+//   	MaxCapacity: jsii.Number(123),
 //   	NamespaceName: jsii.String("namespaceName"),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
@@ -75,6 +76,9 @@ type CfnWorkgroup_WorkgroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-enhancedvpcrouting
 	//
 	EnhancedVpcRouting interface{} `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-maxcapacity
+	//
+	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The namespace the workgroup is associated with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-namespacename
 	//

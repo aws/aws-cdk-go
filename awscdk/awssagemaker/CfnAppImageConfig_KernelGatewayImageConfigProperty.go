@@ -33,7 +33,7 @@ type CfnAppImageConfig_KernelGatewayImageConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
 	//
 	KernelSpecs interface{} `field:"required" json:"kernelSpecs" yaml:"kernelSpecs"`
-	// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
+	// The Amazon Elastic File System storage configuration for a SageMaker image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
 	//
 	FileSystemConfig interface{} `field:"optional" json:"fileSystemConfig" yaml:"fileSystemConfig"`

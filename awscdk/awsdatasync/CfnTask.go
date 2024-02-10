@@ -168,7 +168,7 @@ type CfnTask interface {
 	// Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing the task.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// Specifies how you want to configure a task report, which provides detailed information about for your DataSync transfer.
+	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer.
 	TaskReportConfig() interface{}
 	SetTaskReportConfig(val interface{})
 	// Deprecated.

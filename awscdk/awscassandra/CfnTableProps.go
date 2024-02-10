@@ -21,6 +21,38 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoScalingSpecifications: &AutoScalingSpecificationProperty{
+//   		ReadCapacityAutoScaling: &AutoScalingSettingProperty{
+//   			AutoScalingDisabled: jsii.Boolean(false),
+//   			MaximumUnits: jsii.Number(123),
+//   			MinimumUnits: jsii.Number(123),
+//   			ScalingPolicy: &ScalingPolicyProperty{
+//   				TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
+//   					TargetValue: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					DisableScaleIn: jsii.Boolean(false),
+//   					ScaleInCooldown: jsii.Number(123),
+//   					ScaleOutCooldown: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		WriteCapacityAutoScaling: &AutoScalingSettingProperty{
+//   			AutoScalingDisabled: jsii.Boolean(false),
+//   			MaximumUnits: jsii.Number(123),
+//   			MinimumUnits: jsii.Number(123),
+//   			ScalingPolicy: &ScalingPolicyProperty{
+//   				TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
+//   					TargetValue: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					DisableScaleIn: jsii.Boolean(false),
+//   					ScaleInCooldown: jsii.Number(123),
+//   					ScaleOutCooldown: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	BillingMode: &BillingModeProperty{
 //   		Mode: jsii.String("mode"),
 //
@@ -56,6 +88,29 @@ import (
 //   			ColumnType: jsii.String("columnType"),
 //   		},
 //   	},
+//   	ReplicaSpecifications: []interface{}{
+//   		&ReplicaSpecificationProperty{
+//   			Region: jsii.String("region"),
+//
+//   			// the properties below are optional
+//   			ReadCapacityAutoScaling: &AutoScalingSettingProperty{
+//   				AutoScalingDisabled: jsii.Boolean(false),
+//   				MaximumUnits: jsii.Number(123),
+//   				MinimumUnits: jsii.Number(123),
+//   				ScalingPolicy: &ScalingPolicyProperty{
+//   					TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
+//   						TargetValue: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						DisableScaleIn: jsii.Boolean(false),
+//   						ScaleInCooldown: jsii.Number(123),
+//   						ScaleOutCooldown: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			ReadCapacityUnits: jsii.Number(123),
+//   		},
+//   	},
 //   	TableName: jsii.String("tableName"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -80,6 +135,10 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
 	//
 	PartitionKeyColumns interface{} `field:"required" json:"partitionKeyColumns" yaml:"partitionKeyColumns"`
+	// The optional auto scaling capacity settings for a table in provisioned capacity mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-autoscalingspecifications
+	//
+	AutoScalingSpecifications interface{} `field:"optional" json:"autoScalingSpecifications" yaml:"autoScalingSpecifications"`
 	// The billing mode for the table, which determines how you'll be charged for reads and writes:.
 	//
 	// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
@@ -113,7 +172,7 @@ type CfnTableProps struct {
 	DefaultTimeToLive *float64 `field:"optional" json:"defaultTimeToLive" yaml:"defaultTimeToLive"`
 	// The encryption at rest options for the table.
 	//
-	// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces.
+	// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
 	// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
 	//
 	// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
@@ -134,6 +193,16 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
 	//
 	RegularColumns interface{} `field:"optional" json:"regularColumns" yaml:"regularColumns"`
+	// The AWS Region specific settings of a multi-Region table.
+	//
+	// For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+	//
+	// - `region` : The Region where these settings are applied. (Required)
+	// - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+	// - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-replicaspecifications
+	//
+	ReplicaSpecifications interface{} `field:"optional" json:"replicaSpecifications" yaml:"replicaSpecifications"`
 	// The name of the table to be created.
 	//
 	// The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .

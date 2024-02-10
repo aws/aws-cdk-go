@@ -25,8 +25,12 @@ type CfnComponent interface {
 	// The unique ID of the Amplify app associated with the component.
 	AppId() *string
 	SetAppId(val *string)
+	// The time that the component was created.
+	AttrCreatedAt() *string
 	// The unique ID of the component.
 	AttrId() *string
+	// The time that the component was modified.
+	AttrModifiedAt() *string
 	// The information to connect a component's properties to data at runtime.
 	BindingProperties() interface{}
 	SetBindingProperties(val interface{})
@@ -255,11 +259,31 @@ func (j *jsiiProxy_CfnComponent) AppId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComponent) AttrCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComponent) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComponent) AttrModifiedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrModifiedAt",
 		&returns,
 	)
 	return returns
@@ -575,9 +599,6 @@ func (j *jsiiProxy_CfnComponent)SetCollectionProperties(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnComponent)SetComponentType(val *string) {
-	if err := j.validateSetComponentTypeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"componentType",
@@ -605,9 +626,6 @@ func (j *jsiiProxy_CfnComponent)SetEvents(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnComponent)SetName(val *string) {
-	if err := j.validateSetNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -616,9 +634,6 @@ func (j *jsiiProxy_CfnComponent)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnComponent)SetOverrides(val interface{}) {
-	if err := j.validateSetOverridesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"overrides",

@@ -80,6 +80,10 @@ func validateCfnPolicyTemplate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPolicyTemplate) validateSetPolicyStoreIdParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPolicyTemplate) validateSetStatementParameters(val *string) error {
 	return nil
 }

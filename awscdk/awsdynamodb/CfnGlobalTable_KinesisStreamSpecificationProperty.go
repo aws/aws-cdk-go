@@ -10,6 +10,9 @@ package awsdynamodb
 //
 //   kinesisStreamSpecificationProperty := &KinesisStreamSpecificationProperty{
 //   	StreamArn: jsii.String("streamArn"),
+//
+//   	// the properties below are optional
+//   	ApproximateCreationDateTimePrecision: jsii.String("approximateCreationDateTimePrecision"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-kinesisstreamspecification.html
@@ -19,5 +22,9 @@ type CfnGlobalTable_KinesisStreamSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-kinesisstreamspecification.html#cfn-dynamodb-globaltable-kinesisstreamspecification-streamarn
 	//
 	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
+	// The precision for the time and date that the stream was created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-kinesisstreamspecification.html#cfn-dynamodb-globaltable-kinesisstreamspecification-approximatecreationdatetimeprecision
+	//
+	ApproximateCreationDateTimePrecision *string `field:"optional" json:"approximateCreationDateTimePrecision" yaml:"approximateCreationDateTimePrecision"`
 }
 

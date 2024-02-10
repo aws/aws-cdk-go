@@ -119,6 +119,7 @@ package awsec2
 //   		LocalStorageTypes: []*string{
 //   			jsii.String("localStorageTypes"),
 //   		},
+//   		MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: jsii.Number(123),
 //   		MemoryGiBPerVCpu: &MemoryGiBPerVCpuProperty{
 //   			Max: jsii.Number(123),
 //   			Min: jsii.Number(123),

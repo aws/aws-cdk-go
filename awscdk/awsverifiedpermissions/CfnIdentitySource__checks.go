@@ -206,6 +206,14 @@ func (j *jsiiProxy_CfnIdentitySource) validateSetConfigurationParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnIdentitySource) validateSetPolicyStoreIdParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnIdentitySourceParameters(scope constructs.Construct, id *string, props *CfnIdentitySourceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -49,6 +49,7 @@ package awscodecommit
 //   }
 //
 //   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &PipelineProps{
+//   	CrossAccountKeys: jsii.Boolean(true),
 //   	Stages: []stageProps{
 //   		sourceStage,
 //   		prodStage,

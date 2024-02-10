@@ -59,13 +59,17 @@ type CfnNotificationRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
 	//
 	Resource *string `field:"required" json:"resource" yaml:"resource"`
-	// A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and AWS Chatbot clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targets
 	//
 	Targets interface{} `field:"required" json:"targets" yaml:"targets"`
+	// The name or email alias of the person who created the notification rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-createdby
 	//
 	CreatedBy *string `field:"optional" json:"createdBy" yaml:"createdBy"`
+	// The event type associated with this notification rule.
+	//
+	// For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-eventtypeid
 	//
 	EventTypeId *string `field:"optional" json:"eventTypeId" yaml:"eventTypeId"`
@@ -81,6 +85,7 @@ type CfnNotificationRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targetaddress
 	//
 	TargetAddress *string `field:"optional" json:"targetAddress" yaml:"targetAddress"`

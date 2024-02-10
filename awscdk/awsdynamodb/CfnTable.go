@@ -91,6 +91,9 @@ import (
 //   	},
 //   	KinesisStreamSpecification: &KinesisStreamSpecificationProperty{
 //   		StreamArn: jsii.String("streamArn"),
+//
+//   		// the properties below are optional
+//   		ApproximateCreationDateTimePrecision: jsii.String("approximateCreationDateTimePrecision"),
 //   	},
 //   	LocalSecondaryIndexes: []interface{}{
 //   		&LocalSecondaryIndexProperty{

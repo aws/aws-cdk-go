@@ -57,6 +57,8 @@ type AthenaStartQueryExecution interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -290,6 +292,16 @@ func (j *jsiiProxy_AthenaStartQueryExecution) ProcessorConfig() *awsstepfunction
 	return returns
 }
 
+func (j *jsiiProxy_AthenaStartQueryExecution) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_AthenaStartQueryExecution) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -419,6 +431,14 @@ func (j *jsiiProxy_AthenaStartQueryExecution)SetProcessorConfig(val *awsstepfunc
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

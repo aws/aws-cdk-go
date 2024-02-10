@@ -24,6 +24,7 @@ type CfnNotificationRule_TargetProperty struct {
 	//
 	// - Amazon Simple Notification Service topics are specified as `SNS` .
 	// - AWS Chatbot clients are specified as `AWSChatbotSlack` .
+	// - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
 	//
 	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`

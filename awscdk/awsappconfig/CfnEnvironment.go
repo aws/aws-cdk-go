@@ -56,6 +56,8 @@ type CfnEnvironment interface {
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The environment ID.
+	AttrEnvironmentId() *string
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -250,6 +252,16 @@ func (j *jsiiProxy_CfnEnvironment) ApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"applicationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) AttrEnvironmentId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEnvironmentId",
 		&returns,
 	)
 	return returns

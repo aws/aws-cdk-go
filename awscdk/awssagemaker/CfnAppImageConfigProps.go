@@ -15,6 +15,22 @@ import (
 //   	AppImageConfigName: jsii.String("appImageConfigName"),
 //
 //   	// the properties below are optional
+//   	JupyterLabAppImageConfig: &JupyterLabAppImageConfigProperty{
+//   		ContainerConfig: &ContainerConfigProperty{
+//   			ContainerArguments: []*string{
+//   				jsii.String("containerArguments"),
+//   			},
+//   			ContainerEntrypoint: []*string{
+//   				jsii.String("containerEntrypoint"),
+//   			},
+//   			ContainerEnvironmentVariables: []interface{}{
+//   				&CustomImageContainerEnvironmentVariableProperty{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	KernelGatewayImageConfig: &KernelGatewayImageConfigProperty{
 //   		KernelSpecs: []interface{}{
 //   			&KernelSpecProperty{
@@ -49,6 +65,10 @@ type CfnAppImageConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
 	//
 	AppImageConfigName *string `field:"required" json:"appImageConfigName" yaml:"appImageConfigName"`
+	// The configuration for the file system and the runtime, such as the environment variables and entry point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-jupyterlabappimageconfig
+	//
+	JupyterLabAppImageConfig interface{} `field:"optional" json:"jupyterLabAppImageConfig" yaml:"jupyterLabAppImageConfig"`
 	// The configuration for the file system and kernels in the SageMaker image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
 	//

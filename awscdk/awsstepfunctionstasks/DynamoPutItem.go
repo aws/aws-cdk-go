@@ -46,6 +46,8 @@ type DynamoPutItem interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -279,6 +281,16 @@ func (j *jsiiProxy_DynamoPutItem) ProcessorConfig() *awsstepfunctions.ProcessorC
 	return returns
 }
 
+func (j *jsiiProxy_DynamoPutItem) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DynamoPutItem) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -408,6 +420,14 @@ func (j *jsiiProxy_DynamoPutItem)SetProcessorConfig(val *awsstepfunctions.Proces
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_DynamoPutItem)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

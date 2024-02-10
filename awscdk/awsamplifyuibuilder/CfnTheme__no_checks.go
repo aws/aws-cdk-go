@@ -80,10 +80,6 @@ func validateCfnTheme_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnTheme) validateSetNameParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnTheme) validateSetOverridesParameters(val interface{}) error {
 	return nil
 }

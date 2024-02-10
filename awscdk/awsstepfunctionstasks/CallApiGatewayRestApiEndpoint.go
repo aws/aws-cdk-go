@@ -72,6 +72,8 @@ type CallApiGatewayRestApiEndpoint interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	StageName() *string
@@ -327,6 +329,16 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ProcessorConfig() *awsstepfunc
 	return returns
 }
 
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -466,6 +478,14 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint)SetProcessorConfig(val *awsstep
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

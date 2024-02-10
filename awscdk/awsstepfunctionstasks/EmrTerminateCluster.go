@@ -39,6 +39,8 @@ type EmrTerminateCluster interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -272,6 +274,16 @@ func (j *jsiiProxy_EmrTerminateCluster) ProcessorConfig() *awsstepfunctions.Proc
 	return returns
 }
 
+func (j *jsiiProxy_EmrTerminateCluster) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_EmrTerminateCluster) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -401,6 +413,14 @@ func (j *jsiiProxy_EmrTerminateCluster)SetProcessorConfig(val *awsstepfunctions.
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_EmrTerminateCluster)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

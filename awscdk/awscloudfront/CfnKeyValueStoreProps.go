@@ -22,15 +22,15 @@ package awscloudfront
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html
 //
 type CfnKeyValueStoreProps struct {
-	// The name of the Key Value Store.
+	// The name of the key value store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html#cfn-cloudfront-keyvaluestore-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// A comment for the Key Value Store.
+	// A comment for the key value store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html#cfn-cloudfront-keyvaluestore-comment
 	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
-	// The import source for the Key Value Store.
+	// The import source for the key value store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html#cfn-cloudfront-keyvaluestore-importsource
 	//
 	ImportSource interface{} `field:"optional" json:"importSource" yaml:"importSource"`

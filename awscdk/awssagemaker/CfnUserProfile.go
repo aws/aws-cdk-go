@@ -135,7 +135,7 @@ type CfnUserProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) of the user profile, such as `arn:aws:sagemaker:us-west-2:account-id:user-profile/my-user-profile` .
+	// The Amazon Resource Name (ARN) of the user profile, such as `arn:aws:sagemaker:region:account-id:user-profile/domain-id/user-profile-name` .
 	AttrUserProfileArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

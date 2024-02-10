@@ -49,7 +49,7 @@ type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The time that the device was created.
+	// The date and time that the device was created.
 	AttrCreatedAt() *string
 	// The ARN of the device.
 	//

@@ -13,6 +13,8 @@ package awsefs
 //   	OutOfInfrequentAccessPolicy: efs.OutOfInfrequentAccessPolicy_AFTER_1_ACCESS,
 //   	 // files are not transitioned back from (infrequent access) IA to primary storage by default
 //   	TransitionToArchivePolicy: efs.LifecyclePolicy_AFTER_14_DAYS,
+//   	 // files are not transitioned to Archive by default
+//   	ReplicationOverwriteProtection: efs.ReplicationOverwriteProtection_ENABLED,
 //   })
 //
 // See: https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes

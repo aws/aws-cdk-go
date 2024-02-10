@@ -640,7 +640,7 @@ type CfnDBClusterProps struct {
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// The `ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 	//
-	// This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, use `ServerlessV2ScalingConfiguration` property.
+	// This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the `ServerlessV2ScalingConfiguration` property.
 	//
 	// Valid for: Aurora DB clusters only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-scalingconfiguration
@@ -648,7 +648,7 @@ type CfnDBClusterProps struct {
 	ScalingConfiguration interface{} `field:"optional" json:"scalingConfiguration" yaml:"scalingConfiguration"`
 	// The `ServerlessV2ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster.
 	//
-	// This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use `ScalingConfiguration` property.
+	// This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, Use the `ScalingConfiguration` property.
 	//
 	// Valid for: Aurora DB clusters only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-serverlessv2scalingconfiguration

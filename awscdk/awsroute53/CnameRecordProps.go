@@ -67,6 +67,10 @@ type CnameRecordProps struct {
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The geographical origin for this record to return DNS records based on the user's location.
 	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`
+	// Whether to return multiple values, such as IP addresses for your web servers, in response to DNS queries.
+	// Default: false.
+	//
+	MultiValueAnswer *bool `field:"optional" json:"multiValueAnswer" yaml:"multiValueAnswer"`
 	// The subdomain name for this record. This should be relative to the zone root name.
 	//
 	// For example, if you want to create a record for acme.example.com, specify

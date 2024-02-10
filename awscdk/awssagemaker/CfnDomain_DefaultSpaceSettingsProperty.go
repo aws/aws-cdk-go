@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// A collection of settings that apply to spaces created in the Domain.
+// A collection of settings that apply to spaces created in the domain.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,7 +57,7 @@ type CfnDomain_DefaultSpaceSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-kernelgatewayappsettings
 	//
 	KernelGatewayAppSettings interface{} `field:"optional" json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
-	// The security group IDs for the Amazon Virtual Private Cloud that the space uses for communication.
+	// The security group IDs for the Amazon VPC that the space uses for communication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`

@@ -18,6 +18,7 @@ package awsamplifyuibuilder
 //   	},
 //   	Field: jsii.String("field"),
 //   	Operand: jsii.String("operand"),
+//   	OperandType: jsii.String("operandType"),
 //   	Operator: jsii.String("operator"),
 //   	Or: []interface{}{
 //   		predicateProperty_,
@@ -39,6 +40,10 @@ type CfnComponent_PredicateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operand
 	//
 	Operand *string `field:"optional" json:"operand" yaml:"operand"`
+	// The type of value to use when performing the evaluation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operandtype
+	//
+	OperandType *string `field:"optional" json:"operandType" yaml:"operandType"`
 	// The operator to use to perform the evaluation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-predicate.html#cfn-amplifyuibuilder-component-predicate-operator
 	//

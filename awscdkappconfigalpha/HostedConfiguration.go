@@ -91,7 +91,9 @@ type HostedConfiguration interface {
 	// Experimental.
 	AddExtension(extension IExtension)
 	// Deploys the configuration to the specified environment.
-	// Experimental.
+	// Deprecated: Use `deployTo` as a property instead. We do not recommend
+	// creating resources in multiple stacks. If you want to do this still,
+	// please take a look into https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_appconfig.CfnDeployment.html.
 	Deploy(environment IEnvironment)
 	// Experimental.
 	DeployConfigToEnvironments()

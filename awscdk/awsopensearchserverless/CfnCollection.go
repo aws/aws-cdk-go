@@ -93,7 +93,7 @@ type CfnCollection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Details about an OpenSearch Serverless collection.
+	// Indicates whether standby replicas should be used for a collection.
 	StandbyReplicas() *string
 	SetStandbyReplicas(val *string)
 	// Tag Manager which manages the tags for this resource.

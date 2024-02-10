@@ -19,6 +19,9 @@ package awsecs
 //   		jsii.String("command"),
 //   	},
 //   	Cpu: jsii.Number(123),
+//   	CredentialSpecs: []*string{
+//   		jsii.String("credentialSpecs"),
+//   	},
 //   	DependsOn: []interface{}{
 //   		&ContainerDependencyProperty{
 //   			Condition: jsii.String("condition"),
@@ -236,6 +239,27 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-cpu
 	//
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
+	// A list of ARNs in SSM or Amazon S3 to a credential spec ( `CredSpec` ) file that configures the container for Active Directory authentication.
+	//
+	// We recommend that you use this parameter instead of the `dockerSecurityOptions` . The maximum number of ARNs is 1.
+	//
+	// There are two formats for each ARN.
+	//
+	// - **credentialspecdomainless:MyARN** - You use `credentialspecdomainless:MyARN` to provide a `CredSpec` with an additional section for a secret in AWS Secrets Manager . You provide the login credentials to the domain in the secret.
+	//
+	// Each task that runs on any container instance can join different domains.
+	//
+	// You can use this format without joining the container instance to a domain.
+	// - **credentialspec:MyARN** - You use `credentialspec:MyARN` to provide a `CredSpec` for a single domain.
+	//
+	// You must join the container instance to the domain before you start any tasks that use this task definition.
+	//
+	// In both formats, replace `MyARN` with the ARN in SSM or Amazon S3.
+	//
+	// If you provide a `credentialspecdomainless:MyARN` , the `credspec` must provide a ARN in AWS Secrets Manager for a secret containing the username, password, and the domain to connect to. For better security, the instance isn't joined to the domain for domainless authentication. Other applications on the instance can't use the domainless credentials. You can use this parameter to run tasks on the same instance, even it the tasks need to join different domains. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-credentialspecs
+	//
+	CredentialSpecs *[]*string `field:"optional" json:"credentialSpecs" yaml:"credentialSpecs"`
 	// The dependencies defined for container startup and shutdown.
 	//
 	// A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
@@ -516,18 +540,6 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// A list of namespaced kernel parameters to set in the container.
 	//
 	// This parameter maps to `Sysctls` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--sysctl` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) . For example, you can configure `net.ipv4.tcp_keepalive_time` setting to maintain longer lived connections.
-	//
-	// We don't recommend that you specify network-related `systemControls` parameters for multiple containers in a single task that also uses either the `awsvpc` or `host` network mode. Doing this has the following disadvantages:
-	//
-	// - For tasks that use the `awsvpc` network mode including Fargate, if you set `systemControls` for any container, it applies to all containers in the task. If you set different `systemControls` for multiple containers in a single task, the container that's started last determines which `systemControls` take effect.
-	// - For tasks that use the `host` network mode, the network namespace `systemControls` aren't supported.
-	//
-	// If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode) .
-	//
-	// - For tasks that use the `host` IPC mode, IPC namespace `systemControls` aren't supported.
-	// - For tasks that use the `task` IPC mode, IPC namespace `systemControls` values apply to all containers within a task.
-	//
-	// > This parameter is not supported for Windows containers. > This parameter is only supported for tasks that are hosted on AWS Fargate if the tasks are using platform version `1.4.0` or later (Linux). This isn't supported for Windows containers on Fargate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
 	//
 	SystemControls interface{} `field:"optional" json:"systemControls" yaml:"systemControls"`

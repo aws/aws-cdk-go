@@ -28,6 +28,7 @@ import (
 //   		},
 //   	},
 //   	EnhancedVpcRouting: jsii.Boolean(false),
+//   	MaxCapacity: jsii.Number(123),
 //   	NamespaceName: jsii.String("namespaceName"),
 //   	Port: jsii.Number(123),
 //   	PubliclyAccessible: jsii.Boolean(false),
@@ -61,6 +62,7 @@ type CfnWorkgroup interface {
 	AttrWorkgroupEndpointPort() *float64
 	AttrWorkgroupEndpointVpcEndpoints() awscdk.IResolvable
 	AttrWorkgroupEnhancedVpcRouting() awscdk.IResolvable
+	AttrWorkgroupMaxCapacity() *float64
 	AttrWorkgroupNamespaceName() *string
 	AttrWorkgroupPubliclyAccessible() awscdk.IResolvable
 	AttrWorkgroupSecurityGroupIds() *[]*string
@@ -97,6 +99,9 @@ type CfnWorkgroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	MaxCapacity() *float64
+	SetMaxCapacity(val *float64)
 	// The namespace the workgroup is associated with.
 	NamespaceName() *string
 	SetNamespaceName(val *string)
@@ -368,6 +373,16 @@ func (j *jsiiProxy_CfnWorkgroup) AttrWorkgroupEnhancedVpcRouting() awscdk.IResol
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkgroup) AttrWorkgroupMaxCapacity() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrWorkgroupMaxCapacity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkgroup) AttrWorkgroupNamespaceName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -523,6 +538,16 @@ func (j *jsiiProxy_CfnWorkgroup) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkgroup) MaxCapacity() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxCapacity",
 		&returns,
 	)
 	return returns
@@ -712,6 +737,14 @@ func (j *jsiiProxy_CfnWorkgroup)SetEnhancedVpcRouting(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enhancedVpcRouting",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkgroup)SetMaxCapacity(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxCapacity",
 		val,
 	)
 }

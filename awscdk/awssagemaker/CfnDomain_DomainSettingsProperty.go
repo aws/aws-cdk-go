@@ -11,6 +11,12 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   domainSettingsProperty := &DomainSettingsProperty{
+//   	DockerSettings: &DockerSettingsProperty{
+//   		EnableDockerAccess: jsii.String("enableDockerAccess"),
+//   		VpcOnlyTrustedAccounts: []*string{
+//   			jsii.String("vpcOnlyTrustedAccounts"),
+//   		},
+//   	},
 //   	RStudioServerProDomainSettings: &RStudioServerProDomainSettingsProperty{
 //   		DomainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -32,6 +38,10 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html
 //
 type CfnDomain_DomainSettingsProperty struct {
+	// A collection of settings that configure the domain's Docker interaction.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-dockersettings
+	//
+	DockerSettings interface{} `field:"optional" json:"dockerSettings" yaml:"dockerSettings"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-rstudioserverprodomainsettings
 	//

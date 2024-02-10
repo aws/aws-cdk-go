@@ -80,10 +80,6 @@ func validateCfnUserPoolIdentityProvider_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnUserPoolIdentityProvider) validateSetProviderDetailsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnUserPoolIdentityProvider) validateSetProviderNameParameters(val *string) error {
 	return nil
 }

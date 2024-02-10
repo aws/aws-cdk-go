@@ -89,6 +89,7 @@ type CfnPartnerAccount interface {
 	// The Sidewalk account credentials.
 	Sidewalk() interface{}
 	SetSidewalk(val interface{})
+	// Information about a Sidewalk account.
 	SidewalkResponse() interface{}
 	SetSidewalkResponse(val interface{})
 	// Sidewalk update.

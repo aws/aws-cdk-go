@@ -103,6 +103,32 @@ fn.AddEventSource(awscdk.NewS3EventSource(bucket, &S3EventSourceProps{
 }))
 ```
 
+In the example above, `S3EventSource` is accepting `Bucket` type as parameter.
+However, Functions like `from_bucket_name` and `from_bucket_arn` will return `IBucket`
+and is not compliant with `S3EventSource`. If this is the case, please consider using
+`S3EventSourceV2` instead, this class accepts `IBucket`.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+var fn function
+
+
+bucket := s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("bucket-name"))
+
+fn.AddEventSource(awscdk.NewS3EventSourceV2(bucket, &S3EventSourceProps{
+	Events: []eventType{
+		s3.*eventType_OBJECT_CREATED,
+		s3.*eventType_OBJECT_REMOVED,
+	},
+	Filters: []notificationKeyFilter{
+		&notificationKeyFilter{
+			Prefix: jsii.String("subdir/"),
+		},
+	},
+}))
+```
+
 ## SNS
 
 You can write Lambda functions to process Amazon Simple Notification Service

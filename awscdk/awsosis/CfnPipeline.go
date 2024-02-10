@@ -79,7 +79,7 @@ type CfnPipeline interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Options to control how OpenSearch encrypts all data-at-rest.
+	// Options to control how OpenSearch encrypts buffer data.
 	EncryptionAtRestOptions() interface{}
 	SetEncryptionAtRestOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.

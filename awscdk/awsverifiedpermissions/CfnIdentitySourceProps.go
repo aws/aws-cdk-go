@@ -19,9 +19,9 @@ package awsverifiedpermissions
 //   			},
 //   		},
 //   	},
+//   	PolicyStoreId: jsii.String("policyStoreId"),
 //
 //   	// the properties below are optional
-//   	PolicyStoreId: jsii.String("policyStoreId"),
 //   	PrincipalEntityType: jsii.String("principalEntityType"),
 //   }
 //
@@ -43,7 +43,7 @@ type CfnIdentitySourceProps struct {
 	// Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#cfn-verifiedpermissions-identitysource-policystoreid
 	//
-	PolicyStoreId *string `field:"optional" json:"policyStoreId" yaml:"policyStoreId"`
+	PolicyStoreId *string `field:"required" json:"policyStoreId" yaml:"policyStoreId"`
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#cfn-verifiedpermissions-identitysource-principalentitytype
 	//

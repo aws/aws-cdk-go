@@ -14,9 +14,13 @@ package awsiotwireless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html
 //
 type CfnWirelessDevice_OtaaV10xProperty struct {
+	// The AppEUI value.
+	//
+	// You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
 	//
 	AppEui *string `field:"required" json:"appEui" yaml:"appEui"`
+	// The AppKey value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
 	//
 	AppKey *string `field:"required" json:"appKey" yaml:"appKey"`

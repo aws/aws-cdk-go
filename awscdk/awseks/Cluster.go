@@ -20,7 +20,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_28(),
+//   	Version: eks.KubernetesVersion_V1_29(),
 //   	DefaultCapacity: jsii.Number(0),
 //   })
 //

@@ -1,7 +1,9 @@
 package awsfis
 
 
-// Describes an action for an experiment template.
+// Specifies an action for an experiment template.
+//
+// For more information, see [Actions](https://docs.aws.amazon.com/fis/latest/userguide/actions.html) in the *AWS Fault Injection Service User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -122,7 +122,7 @@ type CfnFileSystem interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The Performance mode of the file system.
+	// The performance mode of the file system.
 	PerformanceMode() *string
 	SetPerformanceMode(val *string)
 	// The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating.

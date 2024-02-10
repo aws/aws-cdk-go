@@ -73,7 +73,7 @@ type CfnResponseHeadersPolicy_SecurityHeadersConfigProperty struct {
 	ReferrerPolicy interface{} `field:"optional" json:"referrerPolicy" yaml:"referrerPolicy"`
 	// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
 	//
-	// For more information about the `Strict-Transport-Security` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+	// For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html#cfn-cloudfront-responseheaderspolicy-securityheadersconfig-stricttransportsecurity
 	//
 	StrictTransportSecurity interface{} `field:"optional" json:"strictTransportSecurity" yaml:"strictTransportSecurity"`

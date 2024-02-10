@@ -16,10 +16,13 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var namespaceResourcePolicy interface{}
+//
 //   cfnNamespace := awscdk.Aws_redshiftserverless.NewCfnNamespace(this, jsii.String("MyCfnNamespace"), &CfnNamespaceProps{
 //   	NamespaceName: jsii.String("namespaceName"),
 //
 //   	// the properties below are optional
+//   	AdminPasswordSecretKmsKeyId: jsii.String("adminPasswordSecretKmsKeyId"),
 //   	AdminUsername: jsii.String("adminUsername"),
 //   	AdminUserPassword: jsii.String("adminUserPassword"),
 //   	DbName: jsii.String("dbName"),
@@ -33,6 +36,9 @@ import (
 //   	LogExports: []*string{
 //   		jsii.String("logExports"),
 //   	},
+//   	ManageAdminPassword: jsii.Boolean(false),
+//   	NamespaceResourcePolicy: namespaceResourcePolicy,
+//   	RedshiftIdcApplicationArn: jsii.String("redshiftIdcApplicationArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -47,6 +53,9 @@ type CfnNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
+	AdminPasswordSecretKmsKeyId() *string
+	SetAdminPasswordSecretKmsKeyId(val *string)
 	// The username of the administrator for the primary database created in the namespace.
 	AdminUsername() *string
 	SetAdminUsername(val *string)
@@ -106,11 +115,20 @@ type CfnNamespace interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials.
+	ManageAdminPassword() interface{}
+	SetManageAdminPassword(val interface{})
 	// The name of the namespace.
 	NamespaceName() *string
 	SetNamespaceName(val *string)
+	// The resource policy document that will be attached to the namespace.
+	NamespaceResourcePolicy() interface{}
+	SetNamespaceResourcePolicy(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// The ARN for the Redshift application that integrates with IAM Identity Center.
+	RedshiftIdcApplicationArn() *string
+	SetRedshiftIdcApplicationArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -270,6 +288,16 @@ type jsiiProxy_CfnNamespace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnNamespace) AdminPasswordSecretKmsKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"adminPasswordSecretKmsKeyId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnNamespace) AdminUsername() *string {
@@ -532,6 +560,16 @@ func (j *jsiiProxy_CfnNamespace) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNamespace) ManageAdminPassword() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"manageAdminPassword",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNamespace) NamespaceName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -542,11 +580,31 @@ func (j *jsiiProxy_CfnNamespace) NamespaceName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNamespace) NamespaceResourcePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"namespaceResourcePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNamespace) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNamespace) RedshiftIdcApplicationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"redshiftIdcApplicationArn",
 		&returns,
 	)
 	return returns
@@ -640,6 +698,14 @@ func NewCfnNamespace_Override(c CfnNamespace, scope constructs.Construct, id *st
 	)
 }
 
+func (j *jsiiProxy_CfnNamespace)SetAdminPasswordSecretKmsKeyId(val *string) {
+	_jsii_.Set(
+		j,
+		"adminPasswordSecretKmsKeyId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnNamespace)SetAdminUsername(val *string) {
 	_jsii_.Set(
 		j,
@@ -712,6 +778,17 @@ func (j *jsiiProxy_CfnNamespace)SetLogExports(val *[]*string) {
 	)
 }
 
+func (j *jsiiProxy_CfnNamespace)SetManageAdminPassword(val interface{}) {
+	if err := j.validateSetManageAdminPasswordParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"manageAdminPassword",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnNamespace)SetNamespaceName(val *string) {
 	if err := j.validateSetNamespaceNameParameters(val); err != nil {
 		panic(err)
@@ -719,6 +796,22 @@ func (j *jsiiProxy_CfnNamespace)SetNamespaceName(val *string) {
 	_jsii_.Set(
 		j,
 		"namespaceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNamespace)SetNamespaceResourcePolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"namespaceResourcePolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNamespace)SetRedshiftIdcApplicationArn(val *string) {
+	_jsii_.Set(
+		j,
+		"redshiftIdcApplicationArn",
 		val,
 	)
 }

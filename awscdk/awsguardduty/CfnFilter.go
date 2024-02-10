@@ -68,7 +68,6 @@ type CfnFilter interface {
 	// Specifies the action that is to be applied to the findings that match the filter.
 	Action() *string
 	SetAction(val *string)
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -271,16 +270,6 @@ func (j *jsiiProxy_CfnFilter) Action() *string {
 	_jsii_.Get(
 		j,
 		"action",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnFilter) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

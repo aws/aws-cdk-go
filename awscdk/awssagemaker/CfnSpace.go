@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a space used for real time collaboration in a Domain.
+// Creates a space used for real time collaboration in a domain.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,7 +21,38 @@ import (
 //   	SpaceName: jsii.String("spaceName"),
 //
 //   	// the properties below are optional
+//   	OwnershipSettings: &OwnershipSettingsProperty{
+//   		OwnerUserProfileName: jsii.String("ownerUserProfileName"),
+//   	},
+//   	SpaceDisplayName: jsii.String("spaceDisplayName"),
 //   	SpaceSettings: &SpaceSettingsProperty{
+//   		AppType: jsii.String("appType"),
+//   		CodeEditorAppSettings: &SpaceCodeEditorAppSettingsProperty{
+//   			DefaultResourceSpec: &ResourceSpecProperty{
+//   				InstanceType: jsii.String("instanceType"),
+//   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   		},
+//   		CustomFileSystems: []interface{}{
+//   			&CustomFileSystemProperty{
+//   				EfsFileSystem: &EFSFileSystemProperty{
+//   					FileSystemId: jsii.String("fileSystemId"),
+//   				},
+//   			},
+//   		},
+//   		JupyterLabAppSettings: &SpaceJupyterLabAppSettingsProperty{
+//   			CodeRepositories: []interface{}{
+//   				&CodeRepositoryProperty{
+//   					RepositoryUrl: jsii.String("repositoryUrl"),
+//   				},
+//   			},
+//   			DefaultResourceSpec: &ResourceSpecProperty{
+//   				InstanceType: jsii.String("instanceType"),
+//   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   		},
 //   		JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
@@ -45,6 +76,14 @@ import (
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
 //   		},
+//   		SpaceStorageSettings: &SpaceStorageSettingsProperty{
+//   			EbsStorageSettings: &EbsStorageSettingsProperty{
+//   				EbsVolumeSizeInGb: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	SpaceSharingSettings: &SpaceSharingSettingsProperty{
+//   		SharingType: jsii.String("sharingType"),
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -62,6 +101,16 @@ type CfnSpace interface {
 	awscdk.ITaggable
 	// The space's Amazon Resource Name (ARN).
 	AttrSpaceArn() *string
+	// Returns the URL of the space.
+	//
+	// If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+	//
+	// The following application types are supported:
+	//
+	// - Studio Classic: `&redirect=JupyterServer`
+	// - JupyterLab: `&redirect=JupyterLab`
+	// - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`.
+	AttrUrl() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -71,7 +120,7 @@ type CfnSpace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ID of the associated Domain.
+	// The ID of the associated domain.
 	DomainId() *string
 	SetDomainId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -86,17 +135,26 @@ type CfnSpace interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The collection of ownership settings for a space.
+	OwnershipSettings() interface{}
+	SetOwnershipSettings(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The name of the space that appears in the Studio UI.
+	SpaceDisplayName() *string
+	SetSpaceDisplayName(val *string)
 	// The name of the space.
 	SpaceName() *string
 	SetSpaceName(val *string)
 	// A collection of space settings.
 	SpaceSettings() interface{}
 	SetSpaceSettings(val interface{})
+	// A collection of space sharing settings.
+	SpaceSharingSettings() interface{}
+	SetSpaceSharingSettings(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -263,6 +321,16 @@ func (j *jsiiProxy_CfnSpace) AttrSpaceArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSpace) AttrUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUrl",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSpace) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -333,11 +401,31 @@ func (j *jsiiProxy_CfnSpace) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSpace) OwnershipSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ownershipSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSpace) Ref() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSpace) SpaceDisplayName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"spaceDisplayName",
 		&returns,
 	)
 	return returns
@@ -358,6 +446,16 @@ func (j *jsiiProxy_CfnSpace) SpaceSettings() interface{} {
 	_jsii_.Get(
 		j,
 		"spaceSettings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSpace) SpaceSharingSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"spaceSharingSettings",
 		&returns,
 	)
 	return returns
@@ -452,6 +550,25 @@ func (j *jsiiProxy_CfnSpace)SetDomainId(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnSpace)SetOwnershipSettings(val interface{}) {
+	if err := j.validateSetOwnershipSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ownershipSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSpace)SetSpaceDisplayName(val *string) {
+	_jsii_.Set(
+		j,
+		"spaceDisplayName",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSpace)SetSpaceName(val *string) {
 	if err := j.validateSetSpaceNameParameters(val); err != nil {
 		panic(err)
@@ -470,6 +587,17 @@ func (j *jsiiProxy_CfnSpace)SetSpaceSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spaceSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSpace)SetSpaceSharingSettings(val interface{}) {
+	if err := j.validateSetSpaceSharingSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"spaceSharingSettings",
 		val,
 	)
 }

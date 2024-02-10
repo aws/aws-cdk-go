@@ -4,10 +4,14 @@ package awscdkappconfigalpha
 // Properties for the Application construct.
 //
 // Example:
-//   appconfig.NewApplication(this, jsii.String("MyApplication"), &ApplicationProps{
-//   	ApplicationName: jsii.String("App1"),
-//   	Description: jsii.String("This is my application created through CDK."),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//
+//   applicationProps := &ApplicationProps{
+//   	ApplicationName: jsii.String("applicationName"),
+//   	Description: jsii.String("description"),
+//   }
 //
 // Experimental.
 type ApplicationProps struct {

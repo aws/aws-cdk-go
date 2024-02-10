@@ -11,7 +11,7 @@ import (
 
 // Creates a configuration for running a SageMaker image as a KernelGateway app.
 //
-// The configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the kernels in the image.
+// The configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the kernels in the image.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,6 +22,22 @@ import (
 //   	AppImageConfigName: jsii.String("appImageConfigName"),
 //
 //   	// the properties below are optional
+//   	JupyterLabAppImageConfig: &JupyterLabAppImageConfigProperty{
+//   		ContainerConfig: &ContainerConfigProperty{
+//   			ContainerArguments: []*string{
+//   				jsii.String("containerArguments"),
+//   			},
+//   			ContainerEntrypoint: []*string{
+//   				jsii.String("containerEntrypoint"),
+//   			},
+//   			ContainerEnvironmentVariables: []interface{}{
+//   				&CustomImageContainerEnvironmentVariableProperty{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	KernelGatewayImageConfig: &KernelGatewayImageConfigProperty{
 //   		KernelSpecs: []interface{}{
 //   			&KernelSpecProperty{
@@ -67,6 +83,9 @@ type CfnAppImageConfig interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The configuration for the file system and the runtime, such as the environment variables and entry point.
+	JupyterLabAppImageConfig() interface{}
+	SetJupyterLabAppImageConfig(val interface{})
 	// The configuration for the file system and kernels in the SageMaker image.
 	KernelGatewayImageConfig() interface{}
 	SetKernelGatewayImageConfig(val interface{})
@@ -303,6 +322,16 @@ func (j *jsiiProxy_CfnAppImageConfig) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAppImageConfig) JupyterLabAppImageConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"jupyterLabAppImageConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAppImageConfig) KernelGatewayImageConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -428,6 +457,17 @@ func (j *jsiiProxy_CfnAppImageConfig)SetAppImageConfigName(val *string) {
 	_jsii_.Set(
 		j,
 		"appImageConfigName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppImageConfig)SetJupyterLabAppImageConfig(val interface{}) {
+	if err := j.validateSetJupyterLabAppImageConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"jupyterLabAppImageConfig",
 		val,
 	)
 }

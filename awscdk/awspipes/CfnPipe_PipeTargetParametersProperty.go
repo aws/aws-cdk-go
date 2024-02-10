@@ -8,21 +8,16 @@ package awspipes
 // Example:
 //   var sourceQueue queue
 //   var targetQueue queue
-//   var loggroup logGroup
 //
+//
+//   pipeSource := sources.NewSqsSource(sourceQueue, &SqsSourceParameters{
+//   	BatchSize: jsii.Number(10),
+//   	MaximumBatchingWindow: cdk.Duration_Seconds(jsii.Number(10)),
+//   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue),
-//
-//   	LogLevel: pipes.LogLevel_TRACE,
-//   	LogIncludeExecutionData: []aLL{
-//   		pipes.IncludeExecutionData_*aLL,
-//   	},
-//
-//   	LogDestinations: []iLogDestination{
-//   		NewCloudwatchDestination(loggroup),
-//   	},
+//   	Source: pipeSource,
+//   	Target: NewSomeTarget(targetQueue),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html

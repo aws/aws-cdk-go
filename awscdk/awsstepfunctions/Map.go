@@ -40,7 +40,7 @@ import (
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html
 //
 type Map interface {
-	State
+	MapBase
 	INextable
 	Branches() *[]StateGraph
 	Comment() *string
@@ -51,6 +51,8 @@ type Map interface {
 	// Descriptive identifier for this chainable.
 	Id() *string
 	InputPath() *string
+	ItemSelector() *map[string]interface{}
+	ItemsPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
 	// The tree node.
@@ -61,6 +63,8 @@ type Map interface {
 	SetProcessor(val StateGraph)
 	ProcessorConfig() *ProcessorConfig
 	SetProcessorConfig(val *ProcessorConfig)
+	ProcessorMode() ProcessorMode
+	SetProcessorMode(val ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -138,7 +142,7 @@ type Map interface {
 
 // The jsii proxy struct for Map
 type jsiiProxy_Map struct {
-	jsiiProxy_State
+	jsiiProxy_MapBase
 	jsiiProxy_INextable
 }
 
@@ -202,6 +206,26 @@ func (j *jsiiProxy_Map) InputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Map) ItemSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"itemSelector",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Map) ItemsPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"itemsPath",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Map) Iteration() StateGraph {
 	var returns StateGraph
 	_jsii_.Get(
@@ -257,6 +281,16 @@ func (j *jsiiProxy_Map) ProcessorConfig() *ProcessorConfig {
 	_jsii_.Get(
 		j,
 		"processorConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Map) ProcessorMode() ProcessorMode {
+	var returns ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
 		&returns,
 	)
 	return returns
@@ -371,6 +405,14 @@ func (j *jsiiProxy_Map)SetProcessorConfig(val *ProcessorConfig) {
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_Map)SetProcessorMode(val ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

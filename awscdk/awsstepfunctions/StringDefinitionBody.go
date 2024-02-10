@@ -21,7 +21,7 @@ import (
 type StringDefinitionBody interface {
 	DefinitionBody
 	Body() *string
-	Bind(_scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, _sfnProps *StateMachineProps) *DefinitionConfig
+	Bind(_scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, _sfnProps *StateMachineProps, _graph StateGraph) *DefinitionConfig
 }
 
 // The jsii proxy struct for StringDefinitionBody
@@ -121,7 +121,7 @@ func StringDefinitionBody_FromString(definition *string) DefinitionBody {
 	return returns
 }
 
-func (s *jsiiProxy_StringDefinitionBody) Bind(_scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, _sfnProps *StateMachineProps) *DefinitionConfig {
+func (s *jsiiProxy_StringDefinitionBody) Bind(_scope constructs.Construct, _sfnPrincipal awsiam.IPrincipal, _sfnProps *StateMachineProps, _graph StateGraph) *DefinitionConfig {
 	if err := s.validateBindParameters(_scope, _sfnPrincipal, _sfnProps); err != nil {
 		panic(err)
 	}
@@ -130,7 +130,7 @@ func (s *jsiiProxy_StringDefinitionBody) Bind(_scope constructs.Construct, _sfnP
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, _sfnPrincipal, _sfnProps},
+		[]interface{}{_scope, _sfnPrincipal, _sfnProps, _graph},
 		&returns,
 	)
 

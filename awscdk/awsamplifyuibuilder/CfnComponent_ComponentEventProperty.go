@@ -14,6 +14,7 @@ package awsamplifyuibuilder
 //
 //   componentEventProperty := &ComponentEventProperty{
 //   	Action: jsii.String("action"),
+//   	BindingEvent: jsii.String("bindingEvent"),
 //   	Parameters: &ActionParametersProperty{
 //   		Anchor: &componentPropertyProperty{
 //   			BindingProperties: &ComponentPropertyBindingPropertiesProperty{
@@ -368,6 +369,12 @@ type CfnComponent_ComponentEventProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-action
 	//
 	Action *string `field:"optional" json:"action" yaml:"action"`
+	// Binds an event to an action on a component.
+	//
+	// When you specify a `bindingEvent` , the event is called when the action is performed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-bindingevent
+	//
+	BindingEvent *string `field:"optional" json:"bindingEvent" yaml:"bindingEvent"`
 	// Describes information about the action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentevent.html#cfn-amplifyuibuilder-component-componentevent-parameters
 	//

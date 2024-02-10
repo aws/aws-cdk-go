@@ -512,6 +512,16 @@ userpool.AddTrigger(cognito.UserPoolOperation_USER_MIGRATION(), lambda.NewFuncti
 }))
 ```
 
+Additionally, only the pre token generation Lambda trigger supports trigger events with lambda version V2.0:
+
+```go
+var userpool userPool
+var preTokenGenerationFn function
+
+
+userpool.AddTrigger(cognito.UserPoolOperation_PRE_TOKEN_GENERATION_CONFIG(), preTokenGenerationFn, cognito.LambdaVersion_V2_0)
+```
+
 The following table lists the set of triggers available, and their corresponding method to add it to the user pool.
 For more information on the function of these triggers and how to configure them, read [User Pool Workflows with
 Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).

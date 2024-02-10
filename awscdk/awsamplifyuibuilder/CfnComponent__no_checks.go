@@ -92,19 +92,7 @@ func (j *jsiiProxy_CfnComponent) validateSetCollectionPropertiesParameters(val i
 	return nil
 }
 
-func (j *jsiiProxy_CfnComponent) validateSetComponentTypeParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnComponent) validateSetEventsParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnComponent) validateSetNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnComponent) validateSetOverridesParameters(val interface{}) error {
 	return nil
 }
 

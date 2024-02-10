@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var environmentVariables interface{}
+//
 //   cfnGraphQLApi := awscdk.Aws_appsync.NewCfnGraphQLApi(this, jsii.String("MyCfnGraphQLApi"), &CfnGraphQLApiProps{
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   	Name: jsii.String("name"),
@@ -47,6 +49,7 @@ import (
 //   		},
 //   	},
 //   	ApiType: jsii.String("apiType"),
+//   	EnvironmentVariables: environmentVariables,
 //   	IntrospectionConfig: jsii.String("introspectionConfig"),
 //   	LambdaAuthorizerConfig: &LambdaAuthorizerConfigProperty{
 //   		AuthorizerResultTtlInSeconds: jsii.Number(123),
@@ -126,6 +129,8 @@ type CfnGraphQLApi interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	EnvironmentVariables() interface{}
+	SetEnvironmentVariables(val interface{})
 	// Sets the value of the GraphQL API to enable ( `ENABLED` ) or disable ( `DISABLED` ) introspection.
 	IntrospectionConfig() *string
 	SetIntrospectionConfig(val *string)
@@ -485,6 +490,16 @@ func (j *jsiiProxy_CfnGraphQLApi) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) EnvironmentVariables() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"environmentVariables",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) IntrospectionConfig() *string {
 	var returns *string
 	_jsii_.Get(
@@ -739,6 +754,14 @@ func (j *jsiiProxy_CfnGraphQLApi)SetAuthenticationType(val *string) {
 	_jsii_.Set(
 		j,
 		"authenticationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraphQLApi)SetEnvironmentVariables(val interface{}) {
+	_jsii_.Set(
+		j,
+		"environmentVariables",
 		val,
 	)
 }

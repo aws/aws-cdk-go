@@ -17,13 +17,14 @@ import (
 // https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-JobRun
 //
 // Example:
-//   tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
-//   	GlueJobName: jsii.String("my-glue-job"),
-//   	Arguments: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"key": jsii.String("value"),
-//   	}),
-//   	TaskTimeout: sfn.Timeout_Duration(awscdk.Duration_Minutes(jsii.Number(30))),
-//   	NotifyDelayAfter: awscdk.Duration_*Minutes(jsii.Number(5)),
+//   import glue "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//
+//   var submitGlue job
+//
+//
+//   submitJob := tasks.NewGlueStartJobRun(this, jsii.String("Submit Job"), &GlueStartJobRunProps{
+//   	GlueJobName: submitGlue.JobName,
+//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html
@@ -49,6 +50,8 @@ type GlueStartJobRun interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -282,6 +285,16 @@ func (j *jsiiProxy_GlueStartJobRun) ProcessorConfig() *awsstepfunctions.Processo
 	return returns
 }
 
+func (j *jsiiProxy_GlueStartJobRun) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_GlueStartJobRun) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -411,6 +424,14 @@ func (j *jsiiProxy_GlueStartJobRun)SetProcessorConfig(val *awsstepfunctions.Proc
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_GlueStartJobRun)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

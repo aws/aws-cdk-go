@@ -23,6 +23,7 @@ package awsamplifyuibuilder
 //   		},
 //   		Field: jsii.String("field"),
 //   		Operand: jsii.String("operand"),
+//   		OperandType: jsii.String("operandType"),
 //   		Operator: jsii.String("operator"),
 //   		Or: []interface{}{
 //   			predicateProperty_,

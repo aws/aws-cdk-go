@@ -189,6 +189,19 @@ route53.NewARecord(this, jsii.String("ARecordLatency1"), &ARecordProps{
 })
 ```
 
+To enable [multivalue answer routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-multivalue.html), use the `multivalueAnswer` parameter:
+
+```go
+var myZone hostedZone
+
+
+route53.NewARecord(this, jsii.String("ARecordMultiValue1"), &ARecordProps{
+	Zone: myZone,
+	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4")),
+	MultiValueAnswer: jsii.Boolean(true),
+})
+```
+
 To specify a unique identifier to differentiate among multiple resource record sets that have the same combination of name and type, use the `setIdentifier` parameter:
 
 ```go

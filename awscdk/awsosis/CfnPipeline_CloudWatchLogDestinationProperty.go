@@ -17,7 +17,7 @@ package awsosis
 type CfnPipeline_CloudWatchLogDestinationProperty struct {
 	// The name of the CloudWatch Logs group to send pipeline logs to.
 	//
-	// You can specify an existing log group or create a new one. For example, `/aws/OpenSearchService/IngestionService/my-pipeline` .
+	// You can specify an existing log group or create a new one. For example, `/aws/vendedlogs/OpenSearchService/pipelines` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html#cfn-osis-pipeline-cloudwatchlogdestination-loggroup
 	//
 	LogGroup *string `field:"required" json:"logGroup" yaml:"logGroup"`

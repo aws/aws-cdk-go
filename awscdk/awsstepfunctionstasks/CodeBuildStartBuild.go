@@ -65,6 +65,8 @@ type CodeBuildStartBuild interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -298,6 +300,16 @@ func (j *jsiiProxy_CodeBuildStartBuild) ProcessorConfig() *awsstepfunctions.Proc
 	return returns
 }
 
+func (j *jsiiProxy_CodeBuildStartBuild) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CodeBuildStartBuild) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -427,6 +439,14 @@ func (j *jsiiProxy_CodeBuildStartBuild)SetProcessorConfig(val *awsstepfunctions.
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CodeBuildStartBuild)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

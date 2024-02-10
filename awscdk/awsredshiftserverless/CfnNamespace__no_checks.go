@@ -80,6 +80,10 @@ func validateCfnNamespace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnNamespace) validateSetManageAdminPasswordParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnNamespace) validateSetNamespaceNameParameters(val *string) error {
 	return nil
 }

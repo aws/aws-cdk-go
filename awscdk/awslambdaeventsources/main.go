@@ -116,6 +116,18 @@ func init() {
 		reflect.TypeOf((*S3EventSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda_event_sources.S3EventSourceV2",
+		reflect.TypeOf((*S3EventSourceV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3EventSourceV2{}
+			_jsii_.InitJsiiProxy(&j.Type__awslambdaIEventSource)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda_event_sources.S3OnFailureDestination",
 		reflect.TypeOf((*S3OnFailureDestination)(nil)).Elem(),
 		[]_jsii_.Member{

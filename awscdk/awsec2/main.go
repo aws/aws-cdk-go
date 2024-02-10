@@ -570,6 +570,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clientCidrBlock", GoGetter: "ClientCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "clientConnectOptions", GoGetter: "ClientConnectOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "clientLoginBannerOptions", GoGetter: "ClientLoginBannerOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "clientRouteMonitoringOptions", GoGetter: "ClientRouteMonitoringOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "connectionLogOptions", GoGetter: "ConnectionLogOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -624,6 +625,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ClientLoginBannerOptionsProperty",
 		reflect.TypeOf((*CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ClientRouteMonitoringOptionsProperty",
+		reflect.TypeOf((*CfnClientVpnEndpoint_ClientRouteMonitoringOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnClientVpnEndpoint.ConnectionLogOptionsProperty",

@@ -8,13 +8,14 @@ import (
 // Properties for starting an AWS Glue job as a task.
 //
 // Example:
-//   tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
-//   	GlueJobName: jsii.String("my-glue-job"),
-//   	Arguments: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"key": jsii.String("value"),
-//   	}),
-//   	TaskTimeout: sfn.Timeout_Duration(awscdk.Duration_Minutes(jsii.Number(30))),
-//   	NotifyDelayAfter: awscdk.Duration_*Minutes(jsii.Number(5)),
+//   import glue "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//
+//   var submitGlue job
+//
+//
+//   submitJob := tasks.NewGlueStartJobRun(this, jsii.String("Submit Job"), &GlueStartJobRunProps{
+//   	GlueJobName: submitGlue.JobName,
+//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
 //   })
 //
 type GlueStartJobRunProps struct {
@@ -52,7 +53,9 @@ type GlueStartJobRunProps struct {
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
-	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
+	//
+	// Depending on the AWS Service, the Service Integration Pattern availability will vary.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-supported-services.html
 	//
 	// Default: - `IntegrationPattern.REQUEST_RESPONSE` for most tasks.
 	// `IntegrationPattern.RUN_JOB` for the following exceptions:

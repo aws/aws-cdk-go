@@ -99,6 +99,7 @@ type CfnUserPoolClient interface {
 	// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 	AnalyticsConfiguration() interface{}
 	SetAnalyticsConfiguration(val interface{})
+	// The ID of the app client, for example `1example23456789` .
 	AttrClientId() *string
 	AttrClientSecret() *string
 	AttrName() *string

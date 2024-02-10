@@ -6,7 +6,7 @@ package awscdkgameliftalpha
 // Example:
 //   gamelift.NewMatchmakingRuleSet(this, jsii.String("RuleSet"), &MatchmakingRuleSetProps{
 //   	MatchmakingRuleSetName: jsii.String("my-test-ruleset"),
-//   	Content: gamelift.RuleSetContent_FromJsonFile(path.join(__dirname, jsii.String("my-ruleset/ruleset.json"))),
+//   	Content: gamelift.RuleSetContent_FromJsonFile(path.join(__dirname, jsii.String("my-ruleset"), jsii.String("ruleset.json"))),
 //   })
 //
 // Experimental.

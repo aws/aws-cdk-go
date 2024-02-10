@@ -44,7 +44,7 @@ type CfnCollectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Details about an OpenSearch Serverless collection.
+	// Indicates whether standby replicas should be used for a collection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-standbyreplicas
 	//
 	StandbyReplicas *string `field:"optional" json:"standbyReplicas" yaml:"standbyReplicas"`

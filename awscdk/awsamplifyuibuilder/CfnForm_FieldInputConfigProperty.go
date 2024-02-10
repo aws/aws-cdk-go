@@ -8,6 +8,8 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var formInputValuePropertyProperty_ formInputValuePropertyProperty
+//
 //   fieldInputConfigProperty := &FieldInputConfigProperty{
 //   	Type: jsii.String("type"),
 //
@@ -40,14 +42,42 @@ package awsamplifyuibuilder
 //   	ValueMappings: &ValueMappingsProperty{
 //   		Values: []interface{}{
 //   			&ValueMappingProperty{
-//   				Value: &FormInputValuePropertyProperty{
+//   				Value: &formInputValuePropertyProperty{
+//   					BindingProperties: &FormInputValuePropertyBindingPropertiesProperty{
+//   						Property: jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						Field: jsii.String("field"),
+//   					},
+//   					Concat: []interface{}{
+//   						formInputValuePropertyProperty_,
+//   					},
 //   					Value: jsii.String("value"),
 //   				},
 //
 //   				// the properties below are optional
-//   				DisplayValue: &FormInputValuePropertyProperty{
+//   				DisplayValue: &formInputValuePropertyProperty{
+//   					BindingProperties: &FormInputValuePropertyBindingPropertiesProperty{
+//   						Property: jsii.String("property"),
+//
+//   						// the properties below are optional
+//   						Field: jsii.String("field"),
+//   					},
+//   					Concat: []interface{}{
+//   						formInputValuePropertyProperty_,
+//   					},
 //   					Value: jsii.String("value"),
 //   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		BindingProperties: map[string]interface{}{
+//   			"bindingPropertiesKey": &FormInputBindingPropertiesValueProperty{
+//   				"bindingProperties": &FormInputBindingPropertiesValuePropertiesProperty{
+//   					"model": jsii.String("model"),
+//   				},
+//   				"type": jsii.String("type"),
 //   			},
 //   		},
 //   	},

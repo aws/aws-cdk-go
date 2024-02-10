@@ -1137,6 +1137,14 @@ func init() {
 		reflect.TypeOf((*KeepOriginalAttrs)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cognito.LambdaVersion",
+		reflect.TypeOf((*LambdaVersion)(nil)).Elem(),
+		map[string]interface{}{
+			"V1_0": LambdaVersion_V1_0,
+			"V2_0": LambdaVersion_V2_0,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cognito.Mfa",
 		reflect.TypeOf((*Mfa)(nil)).Elem(),
 		map[string]interface{}{

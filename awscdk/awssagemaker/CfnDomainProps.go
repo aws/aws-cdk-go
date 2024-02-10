@@ -173,6 +173,12 @@ import (
 //   		},
 //   	},
 //   	DomainSettings: &DomainSettingsProperty{
+//   		DockerSettings: &DockerSettingsProperty{
+//   			EnableDockerAccess: jsii.String("enableDockerAccess"),
+//   			VpcOnlyTrustedAccounts: []*string{
+//   				jsii.String("vpcOnlyTrustedAccounts"),
+//   			},
+//   		},
 //   		RStudioServerProDomainSettings: &RStudioServerProDomainSettingsProperty{
 //   			DomainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -251,7 +257,7 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appsecuritygroupmanagement
 	//
 	AppSecurityGroupManagement *string `field:"optional" json:"appSecurityGroupManagement" yaml:"appSecurityGroupManagement"`
-	// A collection of settings that apply to spaces created in the Domain.
+	// A collection of settings that apply to spaces created in the domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultspacesettings
 	//
 	DefaultSpaceSettings interface{} `field:"optional" json:"defaultSpaceSettings" yaml:"defaultSpaceSettings"`

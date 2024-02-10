@@ -197,6 +197,11 @@ type PythonFunctionProps struct {
 	//
 	// Experimental.
 	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
+	// Sets the loggingFormat for the function.
+	// Default: LoggingFormat.TEXT
+	//
+	// Experimental.
+	LoggingFormat awslambda.LoggingFormat `field:"optional" json:"loggingFormat" yaml:"loggingFormat"`
 	// The log group the function sends logs to.
 	//
 	// By default, Lambda functions send logs to an automatically created default log group named /aws/lambda/\<function name\>.

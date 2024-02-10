@@ -19,11 +19,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPolicyTemplate := awscdk.Aws_verifiedpermissions.NewCfnPolicyTemplate(this, jsii.String("MyCfnPolicyTemplate"), &CfnPolicyTemplateProps{
+//   	PolicyStoreId: jsii.String("policyStoreId"),
 //   	Statement: jsii.String("statement"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	PolicyStoreId: jsii.String("policyStoreId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html
@@ -395,6 +395,9 @@ func (j *jsiiProxy_CfnPolicyTemplate)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnPolicyTemplate)SetPolicyStoreId(val *string) {
+	if err := j.validateSetPolicyStoreIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"policyStoreId",

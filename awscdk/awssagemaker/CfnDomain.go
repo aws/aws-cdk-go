@@ -11,7 +11,7 @@ import (
 
 // Creates a `Domain` .
 //
-// A domain consists of an associated Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can share notebook files and other artifacts with each other.
+// A domain consists of an associated Amazon Elastic File System volume, a list of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can share notebook files and other artifacts with each other.
 //
 // *EFS storage*
 //
@@ -21,7 +21,7 @@ import (
 //
 // *VPC configuration*
 //
-// All traffic between the domain and the EFS volume is through the specified VPC and subnets. For other traffic, you can specify the `AppNetworkAccessType` parameter. `AppNetworkAccessType` corresponds to the network access type that you choose when you onboard to the domain. The following options are available:
+// All traffic between the domain and the Amazon EFS volume is through the specified VPC and subnets. For other traffic, you can specify the `AppNetworkAccessType` parameter. `AppNetworkAccessType` corresponds to the network access type that you choose when you onboard to the domain. The following options are available:
 //
 // - `PublicInternetOnly` - Non-EFS traffic goes through a VPC managed by Amazon SageMaker, which allows internet access. This is the default value.
 // - `VpcOnly` - All traffic is through the specified VPC and subnets. Internet access is disabled by default. To allow internet access, you must specify a NAT gateway.
@@ -199,6 +199,12 @@ import (
 //   		},
 //   	},
 //   	DomainSettings: &DomainSettingsProperty{
+//   		DockerSettings: &DockerSettingsProperty{
+//   			EnableDockerAccess: jsii.String("enableDockerAccess"),
+//   			VpcOnlyTrustedAccounts: []*string{
+//   				jsii.String("vpcOnlyTrustedAccounts"),
+//   			},
+//   		},
 //   		RStudioServerProDomainSettings: &RStudioServerProDomainSettingsProperty{
 //   			DomainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -267,7 +273,7 @@ type CfnDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A collection of settings that apply to spaces created in the Domain.
+	// A collection of settings that apply to spaces created in the domain.
 	DefaultSpaceSettings() interface{}
 	SetDefaultSpaceSettings(val interface{})
 	// The default user settings.

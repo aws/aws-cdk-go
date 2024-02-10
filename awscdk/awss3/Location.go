@@ -14,7 +14,9 @@ package awss3
 //   // other resources that your Lambda needs, added to the lambdaStack...
 //
 //   pipelineStack := cdk.NewStack(app, jsii.String("PipelineStack"))
-//   pipeline := codepipeline.NewPipeline(pipelineStack, jsii.String("Pipeline"))
+//   pipeline := codepipeline.NewPipeline(pipelineStack, jsii.String("Pipeline"), &PipelineProps{
+//   	CrossAccountKeys: jsii.Boolean(true),
+//   })
 //
 //   // add the source code repository containing this code to your Pipeline,
 //   // and the source code of the Lambda Function, if they're separate

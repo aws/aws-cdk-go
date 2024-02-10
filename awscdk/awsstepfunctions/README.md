@@ -235,6 +235,7 @@ are supported:
 * [`Succeed`](#succeed)
 * [`Fail`](#fail)
 * [`Map`](#map)
+* [`Distributed Map`](#distributed-map)
 * [`Custom State`](#custom-state)
 
 An arbitrary JSON object (specified at execution start) is passed from state to
@@ -532,6 +533,59 @@ map.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")), &ProcessorConfig
 
 > Visit [Using Map state in Distributed mode to orchestrate large-scale parallel workloads](https://docs.aws.amazon.com/step-functions/latest/dg/use-dist-map-orchestrate-large-scale-parallel-workloads.html) for more details.
 
+### Distributed Map
+
+Step Functions provides a high-concurrency mode for the Map state known as Distributed mode. In this mode, the Map state can accept input from large-scale Amazon S3 data sources. For example, your input can be a JSON or CSV file stored in an Amazon S3 bucket, or a JSON array passed from a previous step in the workflow. A Map state set to Distributed is known as a Distributed Map state. In this mode, the Map state runs each iteration as a child workflow execution, which enables high concurrency of up to 10,000 parallel child workflow executions. Each child workflow execution has its own, separate execution history from that of the parent workflow.
+
+Use the Map state in Distributed mode when you need to orchestrate large-scale parallel workloads that meet any combination of the following conditions:
+
+* The size of your dataset exceeds 256 KB.
+* The workflow's execution event history exceeds 25,000 entries.
+* You need a concurrency of more than 40 parallel iterations.
+
+A `DistributedMap` state can be used to run a set of steps for each element of an input array with high concurrency.
+A `DistributedMap` state will execute the same steps for multiple entries of an array in the state input or from S3 objects.
+
+```go
+distributedMap := sfn.NewDistributedMap(this, jsii.String("Distributed Map State"), &DistributedMapProps{
+	MaxConcurrency: jsii.Number(1),
+	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
+})
+distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")))
+```
+
+Map states in Distributed mode support multiple sources for an array to iterate:
+
+* JSON array from the state input payload
+* objects in an S3 bucket and optional prefix
+* JSON array in a JSON file stored in S3
+* CSV file stored in S3
+* S3 inventory manifest stored in S3
+
+There are multiple classes that implement `IItemReader` that can be used to configure the iterator source.  These can be provided via the optional `itemReader` property.  The default behavior if `itemReader` is omitted is to use the input payload.
+
+Map states in Distributed mode also support writing results of the iterator to an S3 bucket and optional prefix.  Use a `ResultWriter` object provided via the optional `resultWriter` property to configure which S3 location iterator results will be written. The default behavior id `resultWriter` is omitted is to use the state output payload. However, if the iterator results are larger than the 256 kb limit for Step Functions payloads then the State Machine will fail.
+
+```go
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+
+
+// create a bucket
+bucket := s3.NewBucket(this, jsii.String("Bucket"))
+
+distributedMap := sfn.NewDistributedMap(this, jsii.String("Distributed Map State"), &DistributedMapProps{
+	ItemReader: sfn.NewS3JsonItemReader(&S3FileItemReaderProps{
+		Bucket: bucket,
+		Key: jsii.String("my-key.json"),
+	}),
+	ResultWriter: sfn.NewResultWriter(&ResultWriterProps{
+		Bucket: bucket,
+		Prefix: jsii.String("my-prefix"),
+	}),
+})
+distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")))
+```
+
 ### Custom State
 
 It's possible that the high-level constructs for the states or `stepfunctions-tasks` do not have
@@ -551,6 +605,10 @@ JSON-based object as the state definition.
 Custom states can be chained together with any of the other states to create your state machine
 definition. You will also need to provide any permissions that are required to the `role` that
 the State Machine uses.
+
+The Retry and Catch fields are available for error handling.
+You can configure the Retry field by defining it in the JSON object or by adding it using the `addRetry` method.
+However, the Catch field cannot be configured by defining it in the JSON object, so it must be added using the `addCatch` method.
 
 The following example uses the `DynamoDB` service integration to insert data into a DynamoDB table.
 
@@ -685,6 +743,23 @@ submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &LambdaInvok
 
 See [the AWS documentation](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-access-cross-acct-resources.html)
 to learn more about AWS Step Functions support for accessing resources in other AWS accounts.
+
+## Service Integration Patterns
+
+AWS Step functions integrate directly with other services, either through an optimised integration pattern, or through the AWS SDK.
+Therefore, it is possible to change the `integrationPattern` of services, to enable additional functionality of the said AWS Service:
+
+```go
+import glue "github.com/aws/aws-cdk-go/awscdkgluealpha"
+
+var submitGlue job
+
+
+submitJob := tasks.NewGlueStartJobRun(this, jsii.String("Submit Job"), &GlueStartJobRunProps{
+	GlueJobName: submitGlue.JobName,
+	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+})
+```
 
 ## State Machine Fragments
 

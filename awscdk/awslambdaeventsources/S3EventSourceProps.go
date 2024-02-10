@@ -5,13 +5,14 @@ import (
 )
 
 // Example:
-//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   var fn function
 //
-//   bucket := s3.NewBucket(this, jsii.String("Bucket"))
-//   fn.AddEventSource(eventsources.NewS3EventSource(bucket, &S3EventSourceProps{
+//
+//   bucket := s3.NewBucket(this, jsii.String("mybucket"))
+//
+//   fn.AddEventSource(awscdk.NewS3EventSource(bucket, &S3EventSourceProps{
 //   	Events: []eventType{
 //   		s3.*eventType_OBJECT_CREATED,
 //   		s3.*eventType_OBJECT_REMOVED,

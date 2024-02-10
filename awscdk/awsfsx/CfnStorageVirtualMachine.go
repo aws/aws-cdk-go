@@ -111,7 +111,7 @@ type CfnStorageVirtualMachine interface {
 	SetSvmAdminPassword(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An array of key-value pairs to apply to this resource.
+	// A list of `Tag` values, with a maximum of 50 elements.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

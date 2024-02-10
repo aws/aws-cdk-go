@@ -9,16 +9,20 @@ package awsverifiedpermissions
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPolicyTemplateProps := &CfnPolicyTemplateProps{
+//   	PolicyStoreId: jsii.String("policyStoreId"),
 //   	Statement: jsii.String("statement"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	PolicyStoreId: jsii.String("policyStoreId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html
 //
 type CfnPolicyTemplateProps struct {
+	// The unique identifier of the policy store that contains the template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-policystoreid
+	//
+	PolicyStoreId *string `field:"required" json:"policyStoreId" yaml:"policyStoreId"`
 	// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-statement
 	//
@@ -27,9 +31,5 @@ type CfnPolicyTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The unique identifier of the policy store that contains the template.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-policystoreid
-	//
-	PolicyStoreId *string `field:"optional" json:"policyStoreId" yaml:"policyStoreId"`
 }
 

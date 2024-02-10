@@ -74,6 +74,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingSpecifications", GoGetter: "AutoScalingSpecifications"},
 			_jsii_.MemberProperty{JsiiProperty: "billingMode", GoGetter: "BillingMode"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -99,6 +100,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "replicaSpecifications", GoGetter: "ReplicaSpecifications"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
@@ -116,6 +118,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cassandra.CfnTable.AutoScalingSettingProperty",
+		reflect.TypeOf((*CfnTable_AutoScalingSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cassandra.CfnTable.AutoScalingSpecificationProperty",
+		reflect.TypeOf((*CfnTable_AutoScalingSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cassandra.CfnTable.BillingModeProperty",
@@ -136,6 +146,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cassandra.CfnTable.ProvisionedThroughputProperty",
 		reflect.TypeOf((*CfnTable_ProvisionedThroughputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cassandra.CfnTable.ReplicaSpecificationProperty",
+		reflect.TypeOf((*CfnTable_ReplicaSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cassandra.CfnTable.ScalingPolicyProperty",
+		reflect.TypeOf((*CfnTable_ScalingPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cassandra.CfnTable.TargetTrackingScalingPolicyConfigurationProperty",
+		reflect.TypeOf((*CfnTable_TargetTrackingScalingPolicyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cassandra.CfnTableProps",

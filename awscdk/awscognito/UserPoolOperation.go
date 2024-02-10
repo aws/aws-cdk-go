@@ -177,6 +177,17 @@ func UserPoolOperation_PRE_TOKEN_GENERATION() UserPoolOperation {
 	return returns
 }
 
+func UserPoolOperation_PRE_TOKEN_GENERATION_CONFIG() UserPoolOperation {
+	_init_.Initialize()
+	var returns UserPoolOperation
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
+		"PRE_TOKEN_GENERATION_CONFIG",
+		&returns,
+	)
+	return returns
+}
+
 func UserPoolOperation_USER_MIGRATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation

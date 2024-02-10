@@ -11,7 +11,7 @@ import (
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_28(),
+//   	Version: eks.KubernetesVersion_V1_29(),
 //   	AlbController: &AlbControllerOptions{
 //   		Version: eks.AlbControllerVersion_V2_6_2(),
 //   	},

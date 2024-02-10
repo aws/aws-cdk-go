@@ -374,6 +374,14 @@ func init() {
 		reflect.TypeOf((*PosixUser)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_efs.ReplicationOverwriteProtection",
+		reflect.TypeOf((*ReplicationOverwriteProtection)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": ReplicationOverwriteProtection_ENABLED,
+			"DISABLED": ReplicationOverwriteProtection_DISABLED,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_efs.ThroughputMode",
 		reflect.TypeOf((*ThroughputMode)(nil)).Elem(),
 		map[string]interface{}{

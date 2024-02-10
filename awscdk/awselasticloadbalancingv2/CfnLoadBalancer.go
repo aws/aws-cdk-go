@@ -126,10 +126,10 @@ type CfnLoadBalancer interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The IDs of the public subnets.
+	// The IDs of the subnets.
 	SubnetMappings() interface{}
 	SetSubnetMappings(val interface{})
-	// The IDs of the public subnets.
+	// The IDs of the subnets.
 	Subnets() *[]*string
 	SetSubnets(val *[]*string)
 	// Tag Manager which manages the tags for this resource.

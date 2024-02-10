@@ -69,11 +69,11 @@ type CfnPipelineProps struct {
 	PipelineName *string `field:"required" json:"pipelineName" yaml:"pipelineName"`
 	// Options that specify the configuration of a persistent buffer.
 	//
-	// To configure how OpenSearch Ingestion encrypts this data, set the EncryptionAtRestOptions.
+	// To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-bufferoptions
 	//
 	BufferOptions interface{} `field:"optional" json:"bufferOptions" yaml:"bufferOptions"`
-	// Options to control how OpenSearch encrypts all data-at-rest.
+	// Options to control how OpenSearch encrypts buffer data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-encryptionatrestoptions
 	//
 	EncryptionAtRestOptions interface{} `field:"optional" json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`

@@ -33,6 +33,7 @@ type CfnUserPoolDomain interface {
 	awscdk.IInspectable
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	AttrCloudFrontDistribution() *string
+	// The resource ID.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

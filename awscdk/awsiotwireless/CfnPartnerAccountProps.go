@@ -53,6 +53,7 @@ type CfnPartnerAccountProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalk
 	//
 	Sidewalk interface{} `field:"optional" json:"sidewalk" yaml:"sidewalk"`
+	// Information about a Sidewalk account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html#cfn-iotwireless-partneraccount-sidewalkresponse
 	//
 	SidewalkResponse interface{} `field:"optional" json:"sidewalkResponse" yaml:"sidewalkResponse"`

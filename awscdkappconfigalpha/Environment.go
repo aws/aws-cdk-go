@@ -12,17 +12,17 @@ import (
 // An AWS AppConfig environment.
 //
 // Example:
-//   var application application
-//   var alarm alarm
-//   var compositeAlarm compositeAlarm
+//   app := appconfig.NewApplication(this, jsii.String("MyApp"))
+//   env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
+//   	Application: app,
+//   })
 //
-//
-//   appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
-//   	Application: Application,
-//   	Monitors: []monitor{
-//   		appconfig.*monitor_FromCloudWatchAlarm(alarm),
-//   		appconfig.*monitor_*FromCloudWatchAlarm(compositeAlarm),
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
+//   	Application: app,
+//   	DeployTo: []iEnvironment{
+//   		env,
 //   	},
+//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
 //   })
 //
 // See: https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-environment.html

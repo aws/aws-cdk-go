@@ -1711,6 +1711,14 @@ func init() {
 		"aws-cdk-lib.aws_lambda.LogRetentionRetryOptions",
 		reflect.TypeOf((*LogRetentionRetryOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.LoggingFormat",
+		reflect.TypeOf((*LoggingFormat)(nil)).Elem(),
+		map[string]interface{}{
+			"TEXT": LoggingFormat_TEXT,
+			"JSON": LoggingFormat_JSON,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.ParamsAndSecretsLayerVersion",
 		reflect.TypeOf((*ParamsAndSecretsLayerVersion)(nil)).Elem(),

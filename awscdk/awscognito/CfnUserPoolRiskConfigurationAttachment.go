@@ -97,6 +97,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
 	AccountTakeoverRiskConfiguration() interface{}
 	SetAccountTakeoverRiskConfiguration(val interface{})
+	// The resource ID.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

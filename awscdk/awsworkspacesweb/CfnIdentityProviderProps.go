@@ -56,7 +56,10 @@ type CfnIdentityProviderProps struct {
 	// - For SAML providers:
 	//
 	// - `MetadataFile` OR `MetadataURL`
-	// - `IDPSignout` *optional*.
+	// - `IDPSignout` (boolean) *optional*
+	// - `IDPInit` (boolean) *optional*
+	// - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+	// - `EncryptedResponses` (boolean) *optional*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html#cfn-workspacesweb-identityprovider-identityproviderdetails
 	//
 	IdentityProviderDetails interface{} `field:"required" json:"identityProviderDetails" yaml:"identityProviderDetails"`

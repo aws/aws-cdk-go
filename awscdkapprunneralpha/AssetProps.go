@@ -11,7 +11,7 @@ import (
 //
 //
 //   imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &DockerImageAssetProps{
-//   	Directory: path.join(__dirname, jsii.String("./docker.assets")),
+//   	Directory: path.join(__dirname, jsii.String("docker.assets")),
 //   })
 //   apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
 //   	Source: apprunner.Source_FromAsset(&AssetProps{

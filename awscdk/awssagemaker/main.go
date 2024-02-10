@@ -83,6 +83,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "jupyterLabAppImageConfig", GoGetter: "JupyterLabAppImageConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "kernelGatewayImageConfig", GoGetter: "KernelGatewayImageConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -111,8 +112,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig.ContainerConfigProperty",
+		reflect.TypeOf((*CfnAppImageConfig_ContainerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig.CustomImageContainerEnvironmentVariableProperty",
+		reflect.TypeOf((*CfnAppImageConfig_CustomImageContainerEnvironmentVariableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig.FileSystemConfigProperty",
 		reflect.TypeOf((*CfnAppImageConfig_FileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig.JupyterLabAppImageConfigProperty",
+		reflect.TypeOf((*CfnAppImageConfig_JupyterLabAppImageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnAppImageConfig.KernelGatewayImageConfigProperty",
@@ -525,6 +538,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.DefaultSpaceStorageSettingsProperty",
 		reflect.TypeOf((*CfnDomain_DefaultSpaceStorageSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.DockerSettingsProperty",
+		reflect.TypeOf((*CfnDomain_DockerSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.DomainSettingsProperty",
@@ -2502,6 +2519,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSpaceArn", GoGetter: "AttrSpaceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUrl", GoGetter: "AttrUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -2515,13 +2533,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ownershipSettings", GoGetter: "OwnershipSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "spaceDisplayName", GoGetter: "SpaceDisplayName"},
 			_jsii_.MemberProperty{JsiiProperty: "spaceName", GoGetter: "SpaceName"},
 			_jsii_.MemberProperty{JsiiProperty: "spaceSettings", GoGetter: "SpaceSettings"},
+			_jsii_.MemberProperty{JsiiProperty: "spaceSharingSettings", GoGetter: "SpaceSharingSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -2539,8 +2560,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.CodeRepositoryProperty",
+		reflect.TypeOf((*CfnSpace_CodeRepositoryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.CustomFileSystemProperty",
+		reflect.TypeOf((*CfnSpace_CustomFileSystemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.CustomImageProperty",
 		reflect.TypeOf((*CfnSpace_CustomImageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.EFSFileSystemProperty",
+		reflect.TypeOf((*CfnSpace_EFSFileSystemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.EbsStorageSettingsProperty",
+		reflect.TypeOf((*CfnSpace_EbsStorageSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.JupyterServerAppSettingsProperty",
@@ -2551,12 +2588,32 @@ func init() {
 		reflect.TypeOf((*CfnSpace_KernelGatewayAppSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.OwnershipSettingsProperty",
+		reflect.TypeOf((*CfnSpace_OwnershipSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.ResourceSpecProperty",
 		reflect.TypeOf((*CfnSpace_ResourceSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceCodeEditorAppSettingsProperty",
+		reflect.TypeOf((*CfnSpace_SpaceCodeEditorAppSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceJupyterLabAppSettingsProperty",
+		reflect.TypeOf((*CfnSpace_SpaceJupyterLabAppSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceSettingsProperty",
 		reflect.TypeOf((*CfnSpace_SpaceSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceSharingSettingsProperty",
+		reflect.TypeOf((*CfnSpace_SpaceSharingSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceStorageSettingsProperty",
+		reflect.TypeOf((*CfnSpace_SpaceStorageSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpaceProps",

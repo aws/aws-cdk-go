@@ -16,16 +16,53 @@
 
 This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
 
-Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy application configurations. A configuration is a collection of settings that influence the behavior of your application. You can use AWS AppConfig with applications hosted on Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS Lambda, containers, mobile applications, or IoT devices. To view examples of the types of configurations you can manage by using AWS AppConfig, see [Example configurations](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html#appconfig-creating-configuration-and-profile-examples).
+For a high level overview of what AWS AppConfig is and how it works, please take a look here:
+[What is AWS AppConfig?](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html)
+
+## Basic Hosted Configuration Use Case
+
+> The main way most AWS AppConfig users utilize the service is through hosted configuration, which involves storing
+> configuration data directly within AWS AppConfig.
+
+An example use case:
+
+```go
+app := appconfig.NewApplication(this, jsii.String("MyApp"))
+env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
+	Application: app,
+})
+
+appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
+	Application: app,
+	DeployTo: []iEnvironment{
+		env,
+	},
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
+})
+```
+
+This will create the application and environment for your configuration and then deploy your configuration to the
+specified environment.
+
+For more information about what these resources are: [Creating feature flags and free form configuration data in AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/creating-feature-flags-and-configuration-data.html).
+
+For more information about deploying configuration: [Deploying feature flags and configuration data in AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/deploying-feature-flags.html)
+
+---
+
+
+For an in-depth walkthrough of specific resources and how to use them, please take a look at the following sections.
 
 ## Application
 
-In AWS AppConfig, an application is simply an organizational construct like a folder. This organizational construct has a
-relationship with some unit of executable code. For example, you could create an application called MyMobileApp to organize and
-manage configuration data for a mobile application installed by your users. Configurations and environments are associated with
-the application.
+[AWS AppConfig Application Documentation](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-namespace.html)
 
-The name and description of an application are optional.
+In AWS AppConfig, an application is simply an organizational
+construct like a folder. Configurations and environments are
+associated with the application.
+
+When creating an application through CDK, the name and
+description of an application are optional.
 
 Create a simple application:
 
@@ -33,20 +70,36 @@ Create a simple application:
 appconfig.NewApplication(this, jsii.String("MyApplication"))
 ```
 
-Create an application with a name and description:
+## Environment
+
+[AWS AppConfig Environment Documentation](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-environment.html)
+
+Basic environment with monitors:
 
 ```go
-appconfig.NewApplication(this, jsii.String("MyApplication"), &ApplicationProps{
-	ApplicationName: jsii.String("App1"),
-	Description: jsii.String("This is my application created through CDK."),
+var application application
+var alarm alarm
+var compositeAlarm compositeAlarm
+
+
+appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
+	Application: Application,
+	Monitors: []monitor{
+		appconfig.*monitor_FromCloudWatchAlarm(alarm),
+		appconfig.*monitor_*FromCloudWatchAlarm(compositeAlarm),
+	},
 })
 ```
 
+Environment monitors also support L1 `CfnEnvironment.MonitorsProperty` constructs through the `fromCfnMonitorsProperty` method.
+However, this is not the recommended approach for CloudWatch alarms because a role will not be auto-generated if not provided.
+
 ## Deployment Strategy
 
+[AWS AppConfig Deployment Strategy Documentation](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html)
+
 A deployment strategy defines how a configuration will roll out. The roll out is defined by four parameters: deployment type,
-step percentage, deployment time, and bake time.
-See: https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html
+growth factor, deployment duration, and final bake time.
 
 Deployment strategy with predefined values:
 
@@ -68,13 +121,13 @@ appconfig.NewDeploymentStrategy(this, jsii.String("MyDeploymentStrategy"), &Depl
 })
 ```
 
-Importing a deployment strategy by ID:
+Referencing a deployment strategy by ID:
 
 ```go
 appconfig.DeploymentStrategy_FromDeploymentStrategyId(this, jsii.String("MyImportedDeploymentStrategy"), appconfig.DeploymentStrategyId_FromString(jsii.String("abc123")))
 ```
 
-Importing an AWS AppConfig predefined deployment strategy by ID:
+Referencing an AWS AppConfig predefined deployment strategy by ID:
 
 ```go
 appconfig.DeploymentStrategy_FromDeploymentStrategyId(this, jsii.String("MyImportedPredefinedDeploymentStrategy"), appconfig.DeploymentStrategyId_CANARY_10_PERCENT_20_MINUTES())
@@ -92,6 +145,23 @@ A hosted configuration represents configuration stored in the AWS AppConfig host
 takes in the configuration content and associated AWS AppConfig application. On construction of a hosted configuration, the
 configuration is deployed.
 
+You can define hosted configuration content using any of the following ConfigurationContent methods:
+
+* `fromFile` - Defines the hosted configuration content from a file (you can specify a relative path). The content type will
+  be determined by the file extension unless specified.
+
+```go
+var application application
+
+
+appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+	Application: Application,
+	Content: appconfig.ConfigurationContent_FromFile(jsii.String("config.json")),
+})
+```
+
+* `fromInlineText` - Defines the hosted configuration from inline text. The content type will be set as `text/plain`.
+
 ```go
 var application application
 
@@ -102,18 +172,46 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 })
 ```
 
-You can define hosted configuration content using any of the following ConfigurationContent methods:
+* `fromInlineJson` - Defines the hosted configuration from inline JSON. The content type will be set as `application/json` unless specified.
 
-* `fromFile` - Defines the hosted configuration content from a file (you can specify a relative path).
-* `fromInlineText` - Defines the hosted configuration from inline text.
-* `fromInlineJson` - Defines the hosted configuration from inline JSON.
-* `fromInlineYaml` - Defines the hosted configuration from inline YAML.
-* `fromInline` - Defines the hosted configuration from user-specified content types.
+```go
+var application application
+
+
+appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+	Application: Application,
+	Content: appconfig.ConfigurationContent_FromInlineJson(jsii.String("{}")),
+})
+```
+
+* `fromInlineYaml` - Defines the hosted configuration from inline YAML. The content type will be set as `application/x-yaml`.
+
+```go
+var application application
+
+
+appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+	Application: Application,
+	Content: appconfig.ConfigurationContent_FromInlineYaml(jsii.String("MyConfig: This is my content.")),
+})
+```
+
+* `fromInline` - Defines the hosted configuration from user-specified content types. The content type will be set as `application/octet-stream` unless specified.
+
+```go
+var application application
+
+
+appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+	Application: Application,
+	Content: appconfig.ConfigurationContent_FromInline(jsii.String("This is my configuration content.")),
+})
+```
 
 AWS AppConfig supports the following types of configuration profiles.
 
-* **Feature flag**: Use a feature flag configuration to turn on new features that require a timely deployment, such as a product launch or announcement.
-* **Freeform**: Use a freeform configuration to carefully introduce changes to your application.
+* **[Feature flag](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html)**: Use a feature flag configuration to turn on new features that require a timely deployment, such as a product launch or announcement.
+* **[Freeform](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html)**: Use a freeform configuration to carefully introduce changes to your application.
 
 A hosted configuration with type:
 
@@ -193,25 +291,18 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 })
 ```
 
-To deploy a configuration to an environment after initialization use the `deploy` method:
-
-```go
-var application application
-var env environment
-
-
-config := appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-	Application: Application,
-	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-})
-
-config.deploy(env)
-```
-
 ### SourcedConfiguration
 
-A sourced configuration represents configuration stored in an Amazon S3 bucket, AWS Secrets Manager secret, Systems Manager
-(SSM) Parameter Store parameter, SSM document, or AWS CodePipeline. A sourced configuration takes in the location source
+A sourced configuration represents configuration stored in any of the following:
+
+* Amazon S3 bucket
+* AWS Secrets Manager secret
+* Systems Manager
+* (SSM) Parameter Store parameter
+* SSM document
+* AWS CodePipeline.
+
+A sourced configuration takes in the location source
 construct and optionally a version number to deploy. On construction of a sourced configuration, the configuration is deployed
 only if a version number is specified.
 
@@ -366,54 +457,6 @@ appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &
 	}),
 })
 ```
-
-The `deployTo` parameter is used to specify which environments to deploy the configuration to. If this parameter is not
-specified, there will not be a deployment.
-
-A sourced configuration with `deployTo`:
-
-```go
-var application application
-var bucket bucket
-var env environment
-
-
-appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
-	Application: Application,
-	Location: appconfig.ConfigurationSource_FromBucket(bucket, jsii.String("path/to/file.json")),
-	DeployTo: []iEnvironment{
-		env,
-	},
-})
-```
-
-## Environment
-
-For each AWS AppConfig application, you define one or more environments. An environment is a logical deployment group of AWS
-AppConfig targets, such as applications in a Beta or Production environment. You can also define environments for application
-subcomponents such as the Web, Mobile, and Back-end components for your application. You can configure Amazon CloudWatch alarms
-for each environment. The system monitors alarms during a configuration deployment. If an alarm is triggered, the system rolls
-back the configuration.
-
-Basic environment with monitors:
-
-```go
-var application application
-var alarm alarm
-var compositeAlarm compositeAlarm
-
-
-appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
-	Application: Application,
-	Monitors: []monitor{
-		appconfig.*monitor_FromCloudWatchAlarm(alarm),
-		appconfig.*monitor_*FromCloudWatchAlarm(compositeAlarm),
-	},
-})
-```
-
-Environment monitors also support L1 CfnEnvironment.MonitorsProperty constructs. However, this is not the recommended approach
-for CloudWatch alarms because a role will not be auto-generated if not provided.
 
 ## Extension
 

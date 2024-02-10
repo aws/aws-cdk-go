@@ -11,10 +11,13 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var namespaceResourcePolicy interface{}
+//
 //   cfnNamespaceProps := &CfnNamespaceProps{
 //   	NamespaceName: jsii.String("namespaceName"),
 //
 //   	// the properties below are optional
+//   	AdminPasswordSecretKmsKeyId: jsii.String("adminPasswordSecretKmsKeyId"),
 //   	AdminUsername: jsii.String("adminUsername"),
 //   	AdminUserPassword: jsii.String("adminUserPassword"),
 //   	DbName: jsii.String("dbName"),
@@ -28,6 +31,9 @@ import (
 //   	LogExports: []*string{
 //   		jsii.String("logExports"),
 //   	},
+//   	ManageAdminPassword: jsii.Boolean(false),
+//   	NamespaceResourcePolicy: namespaceResourcePolicy,
+//   	RedshiftIdcApplicationArn: jsii.String("redshiftIdcApplicationArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -45,6 +51,12 @@ type CfnNamespaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-namespacename
 	//
 	NamespaceName *string `field:"required" json:"namespaceName" yaml:"namespaceName"`
+	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
+	//
+	// You can only use this parameter if manageAdminPassword is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-adminpasswordsecretkmskeyid
+	//
+	AdminPasswordSecretKmsKeyId *string `field:"optional" json:"adminPasswordSecretKmsKeyId" yaml:"adminPasswordSecretKmsKeyId"`
 	// The username of the administrator for the primary database created in the namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-adminusername
 	//
@@ -83,6 +95,20 @@ type CfnNamespaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-logexports
 	//
 	LogExports *[]*string `field:"optional" json:"logExports" yaml:"logExports"`
+	// If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials.
+	//
+	// You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-manageadminpassword
+	//
+	ManageAdminPassword interface{} `field:"optional" json:"manageAdminPassword" yaml:"manageAdminPassword"`
+	// The resource policy document that will be attached to the namespace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-namespaceresourcepolicy
+	//
+	NamespaceResourcePolicy interface{} `field:"optional" json:"namespaceResourcePolicy" yaml:"namespaceResourcePolicy"`
+	// The ARN for the Redshift application that integrates with IAM Identity Center.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-redshiftidcapplicationarn
+	//
+	RedshiftIdcApplicationArn *string `field:"optional" json:"redshiftIdcApplicationArn" yaml:"redshiftIdcApplicationArn"`
 	// The map of the key-value pairs used to tag the namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-tags
 	//

@@ -52,6 +52,8 @@ type LambdaInvoke interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -285,6 +287,16 @@ func (j *jsiiProxy_LambdaInvoke) ProcessorConfig() *awsstepfunctions.ProcessorCo
 	return returns
 }
 
+func (j *jsiiProxy_LambdaInvoke) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_LambdaInvoke) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -414,6 +426,14 @@ func (j *jsiiProxy_LambdaInvoke)SetProcessorConfig(val *awsstepfunctions.Process
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_LambdaInvoke)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

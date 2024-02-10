@@ -1,6 +1,8 @@
 package awsiotwireless
 
 
+// ABP device object for LoRaWAN specification v1.0.x.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +19,11 @@ package awsiotwireless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html
 //
 type CfnWirelessDevice_AbpV10xProperty struct {
+	// The DevAddr value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
 	//
 	DevAddr *string `field:"required" json:"devAddr" yaml:"devAddr"`
+	// Session keys for ABP v1.0.x.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
 	//
 	SessionKeys interface{} `field:"required" json:"sessionKeys" yaml:"sessionKeys"`

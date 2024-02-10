@@ -14,18 +14,21 @@ import (
 // A new Amazon SQS queue.
 //
 // Example:
-//   // An sqs queue for unsuccessful invocations of a lambda function
-//   import sqs "github.com/aws/aws-cdk-go/awscdk"
+//   payload := "test"
+//   messageGroupId := "id"
+//   queue := sqs.NewQueue(this, jsii.String("MyQueue"), &QueueProps{
+//   	Fifo: jsii.Boolean(true),
+//   	ContentBasedDeduplication: jsii.Boolean(true),
+//   })
 //
+//   target := targets.NewSqsSendMessage(queue, &SqsSendMessageProps{
+//   	Input: awscdkscheduleralpha.ScheduleTargetInput_FromText(payload),
+//   	MessageGroupId: jsii.String(MessageGroupId),
+//   })
 //
-//   deadLetterQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
-//
-//   myFn := lambda.NewFunction(this, jsii.String("Fn"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("// your code")),
-//   	// sqs queue for unsuccessful invocations
-//   	OnFailure: destinations.NewSqsDestination(deadLetterQueue),
+//   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
+//   	Target: Target,
 //   })
 //
 type Queue interface {

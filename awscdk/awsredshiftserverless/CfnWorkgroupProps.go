@@ -23,6 +23,7 @@ import (
 //   		},
 //   	},
 //   	EnhancedVpcRouting: jsii.Boolean(false),
+//   	MaxCapacity: jsii.Number(123),
 //   	NamespaceName: jsii.String("namespaceName"),
 //   	Port: jsii.Number(123),
 //   	PubliclyAccessible: jsii.Boolean(false),
@@ -63,6 +64,10 @@ type CfnWorkgroupProps struct {
 	// Default: - false.
 	//
 	EnhancedVpcRouting interface{} `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
+	// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-maxcapacity
+	//
+	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The namespace the workgroup is associated with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-namespacename
 	//

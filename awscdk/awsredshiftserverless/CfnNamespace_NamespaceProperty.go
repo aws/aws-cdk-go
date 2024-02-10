@@ -9,6 +9,8 @@ package awsredshiftserverless
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   namespaceProperty := &NamespaceProperty{
+//   	AdminPasswordSecretArn: jsii.String("adminPasswordSecretArn"),
+//   	AdminPasswordSecretKmsKeyId: jsii.String("adminPasswordSecretKmsKeyId"),
 //   	AdminUsername: jsii.String("adminUsername"),
 //   	CreationDate: jsii.String("creationDate"),
 //   	DbName: jsii.String("dbName"),
@@ -29,6 +31,12 @@ package awsredshiftserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html
 //
 type CfnNamespace_NamespaceProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-adminpasswordsecretarn
+	//
+	AdminPasswordSecretArn *string `field:"optional" json:"adminPasswordSecretArn" yaml:"adminPasswordSecretArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-adminpasswordsecretkmskeyid
+	//
+	AdminPasswordSecretKmsKeyId *string `field:"optional" json:"adminPasswordSecretKmsKeyId" yaml:"adminPasswordSecretKmsKeyId"`
 	// The username of the administrator for the first database created in the namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-adminusername
 	//

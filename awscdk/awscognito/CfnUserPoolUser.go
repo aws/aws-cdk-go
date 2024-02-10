@@ -53,7 +53,7 @@ type CfnUserPoolUser interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// A map of custom key-value pairs that you can provide as input for the custom workflow that is invoked by the *pre sign-up* trigger.
+	// A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 	ClientMetadata() interface{}
 	SetClientMetadata(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

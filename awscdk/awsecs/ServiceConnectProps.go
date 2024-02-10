@@ -6,29 +6,22 @@ package awsecs
 // Example:
 //   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var containerOptions containerDefinitionOptions
 //
 //
-//   container := taskDefinition.AddContainer(jsii.String("MyContainer"), containerOptions)
-//
-//   container.AddPortMappings(&PortMapping{
-//   	Name: jsii.String("api"),
-//   	ContainerPort: jsii.Number(8080),
-//   })
-//
-//   cluster.AddDefaultCloudMapNamespace(&CloudMapNamespaceOptions{
-//   	Name: jsii.String("local"),
-//   })
-//
-//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	ServiceConnectConfiguration: &ServiceConnectProps{
+//   		LogDriver: ecs.LogDrivers_AwsLogs(&AwsLogDriverProps{
+//   			StreamPrefix: jsii.String("sc-traffic"),
+//   		}),
 //   		Services: []serviceConnectService{
 //   			&serviceConnectService{
 //   				PortMappingName: jsii.String("api"),
-//   				DnsName: jsii.String("http-api"),
+//   				DnsName: jsii.String("customized-api"),
 //   				Port: jsii.Number(80),
+//   				IngressPortOverride: jsii.Number(20040),
+//   				DiscoveryName: jsii.String("custom"),
 //   			},
 //   		},
 //   	},

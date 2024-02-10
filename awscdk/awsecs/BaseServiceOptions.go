@@ -74,7 +74,9 @@ import (
 //   				// the properties below are optional
 //   				DiscoveryName: jsii.String("discoveryName"),
 //   				DnsName: jsii.String("dnsName"),
+//   				IdleTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   				IngressPortOverride: jsii.Number(123),
+//   				PerRequestTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   				Port: jsii.Number(123),
 //   			},
 //   		},

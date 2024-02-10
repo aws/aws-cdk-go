@@ -60,6 +60,8 @@ type SageMakerCreateTransformJob interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// The execution role for the Sagemaker transform job.
@@ -297,6 +299,16 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) ProcessorConfig() *awsstepfuncti
 	return returns
 }
 
+func (j *jsiiProxy_SageMakerCreateTransformJob) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_SageMakerCreateTransformJob) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -436,6 +448,14 @@ func (j *jsiiProxy_SageMakerCreateTransformJob)SetProcessorConfig(val *awsstepfu
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_SageMakerCreateTransformJob)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

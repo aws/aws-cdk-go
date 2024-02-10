@@ -174,14 +174,14 @@ lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
 	Code: lambda.NewInlineCode(jsii.String("foo")),
 	Handler: jsii.String("index.handler"),
 	Runtime: lambda.Runtime_NODEJS_18_X(),
-	LogFormat: lambda.LogFormat_JSON,
+	LoggingFormat: lambda.LoggingFormat_JSON,
 	SystemLogLevel: lambda.SystemLogLevel_INFO,
 	ApplicationLogLevel: lambda.ApplicationLogLevel_INFO,
 	LogGroup: logGroup,
 })
 ```
 
-To use `applicationLogLevel` and/or `systemLogLevel` you must set `logFormat` to `LogFormat.JSON`.
+To use `applicationLogLevel` and/or `systemLogLevel` you must set `loggingFormat` to `LoggingFormat.JSON`.
 
 ## Resource-based Policies
 

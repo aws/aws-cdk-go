@@ -7,10 +7,11 @@ import (
 // Properties for a new SNS topic.
 //
 // Example:
-//   topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
-//   	ContentBasedDeduplication: jsii.Boolean(true),
-//   	DisplayName: jsii.String("Customer subscription topic"),
+//   var role role
+//
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
 //   	Fifo: jsii.Boolean(true),
+//   	MessageRetentionPeriodInDays: jsii.Number(7),
 //   })
 //
 type TopicProps struct {
@@ -36,6 +37,14 @@ type TopicProps struct {
 	// Default: None.
 	//
 	MasterKey awskms.IKey `field:"optional" json:"masterKey" yaml:"masterKey"`
+	// The number of days Amazon SNS retains messages.
+	//
+	// It can only be set for FIFO topics.
+	// See: https://docs.aws.amazon.com/sns/latest/dg/fifo-message-archiving-replay.html
+	//
+	// Default: - do not archive messages.
+	//
+	MessageRetentionPeriodInDays *float64 `field:"optional" json:"messageRetentionPeriodInDays" yaml:"messageRetentionPeriodInDays"`
 	// A name for the topic.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique

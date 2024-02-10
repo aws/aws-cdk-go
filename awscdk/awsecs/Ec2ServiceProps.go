@@ -127,7 +127,7 @@ type Ec2ServiceProps struct {
 	//
 	// If true, the service scheduler deploys exactly one task on each container instance in your cluster.
 	//
-	// When you are using this strategy, do not specify a desired number of tasks orany task placement strategies.
+	// When you are using this strategy, do not specify a desired number of tasks or any task placement strategies.
 	// Default: false.
 	//
 	Daemon *bool `field:"optional" json:"daemon" yaml:"daemon"`

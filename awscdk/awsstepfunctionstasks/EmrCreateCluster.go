@@ -79,6 +79,8 @@ type EmrCreateCluster interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// The service role for the EMR Cluster.
@@ -336,6 +338,16 @@ func (j *jsiiProxy_EmrCreateCluster) ProcessorConfig() *awsstepfunctions.Process
 	return returns
 }
 
+func (j *jsiiProxy_EmrCreateCluster) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_EmrCreateCluster) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -475,6 +487,14 @@ func (j *jsiiProxy_EmrCreateCluster)SetProcessorConfig(val *awsstepfunctions.Pro
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_EmrCreateCluster)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

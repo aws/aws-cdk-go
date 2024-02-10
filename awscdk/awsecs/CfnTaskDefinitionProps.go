@@ -22,6 +22,9 @@ import (
 //   				jsii.String("command"),
 //   			},
 //   			Cpu: jsii.Number(123),
+//   			CredentialSpecs: []*string{
+//   				jsii.String("credentialSpecs"),
+//   			},
 //   			DependsOn: []interface{}{
 //   				&ContainerDependencyProperty{
 //   					Condition: jsii.String("condition"),

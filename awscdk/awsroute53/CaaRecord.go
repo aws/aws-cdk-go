@@ -33,6 +33,7 @@ import (
 //   	Comment: jsii.String("comment"),
 //   	DeleteExisting: jsii.Boolean(false),
 //   	GeoLocation: geoLocation,
+//   	MultiValueAnswer: jsii.Boolean(false),
 //   	RecordName: jsii.String("recordName"),
 //   	Region: jsii.String("region"),
 //   	SetIdentifier: jsii.String("setIdentifier"),

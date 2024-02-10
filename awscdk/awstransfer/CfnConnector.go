@@ -57,7 +57,7 @@ type CfnConnector interface {
 	SetAs2Config(val interface{})
 	// Specifies the unique Amazon Resource Name (ARN) for the connector.
 	AttrArn() *string
-	// A unique identifier for the connector.
+	// The service-assigned ID of the connector that is created.
 	AttrConnectorId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

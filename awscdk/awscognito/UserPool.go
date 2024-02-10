@@ -75,7 +75,7 @@ type UserPool interface {
 	// Add a lambda trigger to a user pool operation.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html
 	//
-	AddTrigger(operation UserPoolOperation, fn awslambda.IFunction)
+	AddTrigger(operation UserPoolOperation, fn awslambda.IFunction, lambdaVersion LambdaVersion)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -391,14 +391,14 @@ func (u *jsiiProxy_UserPool) AddResourceServer(id *string, options *UserPoolReso
 	return returns
 }
 
-func (u *jsiiProxy_UserPool) AddTrigger(operation UserPoolOperation, fn awslambda.IFunction) {
+func (u *jsiiProxy_UserPool) AddTrigger(operation UserPoolOperation, fn awslambda.IFunction, lambdaVersion LambdaVersion) {
 	if err := u.validateAddTriggerParameters(operation, fn); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		u,
 		"addTrigger",
-		[]interface{}{operation, fn},
+		[]interface{}{operation, fn, lambdaVersion},
 	)
 }
 

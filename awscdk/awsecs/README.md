@@ -1792,6 +1792,33 @@ customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &
 })
 ```
 
+To set a timeout for service connect, use `idleTimeout` and `perRequestTimeout`.
+
+**Note**: If `idleTimeout` is set to a time that is less than `perRequestTimeout`, the connection will close when
+the `idleTimeout` is reached and not the `perRequestTimeout`.
+
+```go
+var cluster cluster
+var taskDefinition taskDefinition
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	ServiceConnectConfiguration: &ServiceConnectProps{
+		Services: []serviceConnectService{
+			&serviceConnectService{
+				PortMappingName: jsii.String("api"),
+				IdleTimeout: awscdk.Duration_Minutes(jsii.Number(5)),
+				PerRequestTimeout: awscdk.Duration_*Minutes(jsii.Number(5)),
+			},
+		},
+	},
+})
+```
+
+> Visit [Amazon ECS support for configurable timeout for services running with Service Connect](https://aws.amazon.com/about-aws/whats-new/2024/01/amazon-ecs-configurable-timeout-service-connect/) for more details.
+
 ## ServiceManagedVolume
 
 Amazon ECS now supports the attachment of Amazon Elastic Block Store (EBS) volumes to ECS tasks,

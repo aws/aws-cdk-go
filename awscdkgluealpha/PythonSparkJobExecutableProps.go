@@ -8,7 +8,7 @@ package awscdkgluealpha
 //   	Executable: glue.JobExecutable_PythonStreaming(&PythonSparkJobExecutableProps{
 //   		GlueVersion: glue.GlueVersion_V4_0(),
 //   		PythonVersion: glue.PythonVersion_THREE,
-//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 //   	}),
 //   	Description: jsii.String("an example Python Streaming job"),
 //   })

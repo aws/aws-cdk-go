@@ -10,13 +10,32 @@ package awsamplifyuibuilder
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   formInputValuePropertyProperty := &FormInputValuePropertyProperty{
+//   var formInputValuePropertyProperty_ formInputValuePropertyProperty
+//
+//   formInputValuePropertyProperty := &formInputValuePropertyProperty{
+//   	BindingProperties: &FormInputValuePropertyBindingPropertiesProperty{
+//   		Property: jsii.String("property"),
+//
+//   		// the properties below are optional
+//   		Field: jsii.String("field"),
+//   	},
+//   	Concat: []interface{}{
+//   		formInputValuePropertyProperty_,
+//   	},
 //   	Value: jsii.String("value"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html
 //
 type CfnForm_FormInputValuePropertyProperty struct {
+	// The information to bind fields to data at runtime.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html#cfn-amplifyuibuilder-form-forminputvalueproperty-bindingproperties
+	//
+	BindingProperties interface{} `field:"optional" json:"bindingProperties" yaml:"bindingProperties"`
+	// A list of form properties to concatenate to create the value to assign to this field property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html#cfn-amplifyuibuilder-form-forminputvalueproperty-concat
+	//
+	Concat interface{} `field:"optional" json:"concat" yaml:"concat"`
 	// The value to assign to the input field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html#cfn-amplifyuibuilder-form-forminputvalueproperty-value
 	//

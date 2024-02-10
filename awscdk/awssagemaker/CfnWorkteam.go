@@ -115,6 +115,7 @@ type CfnWorkteam interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The name of the workforce.
 	WorkforceName() *string
 	SetWorkforceName(val *string)
 	// The name of the work team.

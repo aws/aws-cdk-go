@@ -39,9 +39,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	PolicyStoreId: jsii.String("policyStoreId"),
 //
 //   	// the properties below are optional
-//   	PolicyStoreId: jsii.String("policyStoreId"),
 //   	PrincipalEntityType: jsii.String("principalEntityType"),
 //   })
 //
@@ -473,6 +473,9 @@ func (j *jsiiProxy_CfnIdentitySource)SetConfiguration(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnIdentitySource)SetPolicyStoreId(val *string) {
+	if err := j.validateSetPolicyStoreIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"policyStoreId",

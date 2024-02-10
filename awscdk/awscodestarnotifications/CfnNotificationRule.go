@@ -11,7 +11,7 @@ import (
 
 // Creates a notification rule for a resource.
 //
-// The rule specifies the events you want notifications about and the targets (such as AWS Chatbot topics or AWS Chatbot clients configured for Slack) where you want to receive them.
+// The rule specifies the events you want notifications about and the targets (such as Amazon Simple Notification Service topics or AWS Chatbot clients configured for Slack) where you want to receive them.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,6 +55,7 @@ type CfnNotificationRule interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The name or email alias of the person who created the notification rule.
 	CreatedBy() *string
 	SetCreatedBy(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -64,6 +65,7 @@ type CfnNotificationRule interface {
 	// The level of detail to include in the notifications for this resource.
 	DetailType() *string
 	SetDetailType(val *string)
+	// The event type associated with this notification rule.
 	EventTypeId() *string
 	SetEventTypeId(val *string)
 	// A list of event types associated with this notification rule.
@@ -104,9 +106,10 @@ type CfnNotificationRule interface {
 	// A list of tags to apply to this notification rule.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
 	TargetAddress() *string
 	SetTargetAddress(val *string)
-	// A list of Amazon Resource Names (ARNs) of Amazon Simple Notification Service topics and AWS Chatbot clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
 	Targets() interface{}
 	SetTargets(val interface{})
 	// Deprecated.

@@ -80,6 +80,10 @@ func validateCfnTable_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetAutoScalingSpecificationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetBillingModeParameters(val interface{}) error {
 	return nil
 }
@@ -109,6 +113,10 @@ func (j *jsiiProxy_CfnTable) validateSetPointInTimeRecoveryEnabledParameters(val
 }
 
 func (j *jsiiProxy_CfnTable) validateSetRegularColumnsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTable) validateSetReplicaSpecificationsParameters(val interface{}) error {
 	return nil
 }
 

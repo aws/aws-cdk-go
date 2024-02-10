@@ -51,6 +51,8 @@ type StateGraph interface {
 	//
 	Timeout() awscdk.Duration
 	SetTimeout(val awscdk.Duration)
+	// Binds this StateGraph to the StateMachine it defines and updates state machine permissions.
+	Bind(stateMachine StateMachine)
 	// Register a Policy Statement used by states in this graph.
 	RegisterPolicyStatement(statement awsiam.PolicyStatement)
 	// Register a state as part of this graph.
@@ -135,6 +137,17 @@ func (j *jsiiProxy_StateGraph)SetTimeout(val awscdk.Duration) {
 		j,
 		"timeout",
 		val,
+	)
+}
+
+func (s *jsiiProxy_StateGraph) Bind(stateMachine StateMachine) {
+	if err := s.validateBindParameters(stateMachine); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"bind",
+		[]interface{}{stateMachine},
 	)
 }
 

@@ -118,7 +118,7 @@ type CfnEventSourceMapping interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// (Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
 	DestinationConfig() interface{}
 	SetDestinationConfig(val interface{})
 	// Specific configuration settings for a DocumentDB event source.

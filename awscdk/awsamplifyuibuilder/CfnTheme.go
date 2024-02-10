@@ -21,22 +21,9 @@ import (
 //   var themeValuesProperty_ themeValuesProperty
 //
 //   cfnTheme := awscdk.Aws_amplifyuibuilder.NewCfnTheme(this, jsii.String("MyCfnTheme"), &CfnThemeProps{
-//   	Name: jsii.String("name"),
-//   	Values: []interface{}{
-//   		&themeValuesProperty{
-//   			Key: jsii.String("key"),
-//   			Value: &ThemeValueProperty{
-//   				Children: []interface{}{
-//   					themeValuesProperty_,
-//   				},
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
-//
-//   	// the properties below are optional
 //   	AppId: jsii.String("appId"),
 //   	EnvironmentName: jsii.String("environmentName"),
+//   	Name: jsii.String("name"),
 //   	Overrides: []interface{}{
 //   		&themeValuesProperty{
 //   			Key: jsii.String("key"),
@@ -51,6 +38,17 @@ import (
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	Values: []interface{}{
+//   		&themeValuesProperty{
+//   			Key: jsii.String("key"),
+//   			Value: &ThemeValueProperty{
+//   				Children: []interface{}{
+//   					themeValuesProperty_,
+//   				},
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html
@@ -62,8 +60,12 @@ type CfnTheme interface {
 	// The unique ID for the Amplify app associated with the theme.
 	AppId() *string
 	SetAppId(val *string)
+	// The time that the theme was created.
+	AttrCreatedAt() *string
 	// The ID for the theme.
 	AttrId() *string
+	// The time that the theme was modified.
+	AttrModifiedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -268,11 +270,31 @@ func (j *jsiiProxy_CfnTheme) AppId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTheme) AttrCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTheme) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTheme) AttrModifiedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrModifiedAt",
 		&returns,
 	)
 	return returns
@@ -483,9 +505,6 @@ func (j *jsiiProxy_CfnTheme)SetEnvironmentName(val *string) {
 }
 
 func (j *jsiiProxy_CfnTheme)SetName(val *string) {
-	if err := j.validateSetNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"name",

@@ -21,9 +21,9 @@ type CfnEventStreamProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html#cfn-pinpoint-eventstream-applicationid
 	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
 	//
-	// For a Kinesis data stream, the ARN format is: `arn:aws:kinesis: region : account-id :stream/ stream_name`
+	// For a Kinesis Data Stream, the ARN format is: `arn:aws:kinesis: region : account-id :stream/ stream_name`
 	//
 	// For a Kinesis Data Firehose delivery stream, the ARN format is: `arn:aws:firehose: region : account-id :deliverystream/ stream_name`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html#cfn-pinpoint-eventstream-destinationstreamarn

@@ -73,6 +73,8 @@ type SageMakerCreateTrainingJob interface {
 	SetProcessor(val awsstepfunctions.StateGraph)
 	ProcessorConfig() *awsstepfunctions.ProcessorConfig
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
+	ProcessorMode() awsstepfunctions.ProcessorMode
+	SetProcessorMode(val awsstepfunctions.ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// The execution role for the Sagemaker training job.
@@ -334,6 +336,16 @@ func (j *jsiiProxy_SageMakerCreateTrainingJob) ProcessorConfig() *awsstepfunctio
 	return returns
 }
 
+func (j *jsiiProxy_SageMakerCreateTrainingJob) ProcessorMode() awsstepfunctions.ProcessorMode {
+	var returns awsstepfunctions.ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_SageMakerCreateTrainingJob) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -473,6 +485,14 @@ func (j *jsiiProxy_SageMakerCreateTrainingJob)SetProcessorConfig(val *awsstepfun
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_SageMakerCreateTrainingJob)SetProcessorMode(val awsstepfunctions.ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

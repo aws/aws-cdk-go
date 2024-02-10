@@ -187,6 +187,30 @@ func (j *jsiiProxy_CfnSpace) validateSetDomainIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSpace) validateSetOwnershipSettingsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnSpace_OwnershipSettingsProperty:
+		val := val.(*CfnSpace_OwnershipSettingsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnSpace_OwnershipSettingsProperty:
+		val_ := val.(CfnSpace_OwnershipSettingsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSpace_OwnershipSettingsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnSpace) validateSetSpaceNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -213,6 +237,30 @@ func (j *jsiiProxy_CfnSpace) validateSetSpaceSettingsParameters(val interface{})
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSpace_SpaceSettingsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnSpace) validateSetSpaceSharingSettingsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnSpace_SpaceSharingSettingsProperty:
+		val := val.(*CfnSpace_SpaceSharingSettingsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnSpace_SpaceSharingSettingsProperty:
+		val_ := val.(CfnSpace_SpaceSharingSettingsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSpace_SpaceSharingSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

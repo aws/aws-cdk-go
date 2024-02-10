@@ -9,7 +9,7 @@ package awscdkgluealpha
 //   		GlueVersion: glue.GlueVersion_V4_0(),
 //   		PythonVersion: glue.PythonVersion_THREE_NINE,
 //   		Runtime: glue.Runtime_RAY_TWO_FOUR(),
-//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script/hello_world.py"))),
+//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 //   	}),
 //   	WorkerType: glue.WorkerType_Z_2X(),
 //   	WorkerCount: jsii.Number(2),

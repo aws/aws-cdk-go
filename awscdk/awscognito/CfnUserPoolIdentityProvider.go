@@ -20,7 +20,6 @@ import (
 //   var providerDetails interface{}
 //
 //   cfnUserPoolIdentityProvider := awscdk.Aws_cognito.NewCfnUserPoolIdentityProvider(this, jsii.String("MyCfnUserPoolIdentityProvider"), &CfnUserPoolIdentityProviderProps{
-//   	ProviderDetails: providerDetails,
 //   	ProviderName: jsii.String("providerName"),
 //   	ProviderType: jsii.String("providerType"),
 //   	UserPoolId: jsii.String("userPoolId"),
@@ -30,6 +29,7 @@ import (
 //   	IdpIdentifiers: []*string{
 //   		jsii.String("idpIdentifiers"),
 //   	},
+//   	ProviderDetails: providerDetails,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html
@@ -40,6 +40,7 @@ type CfnUserPoolIdentityProvider interface {
 	// A mapping of IdP attributes to standard and custom user pool attributes.
 	AttributeMapping() interface{}
 	SetAttributeMapping(val interface{})
+	// The resource ID.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -65,9 +66,7 @@ type CfnUserPoolIdentityProvider interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The IdP details.
-	//
-	// The following list describes the provider detail keys for each IdP type.
+	// The scopes, URLs, and identifiers for your external identity provider.
 	ProviderDetails() interface{}
 	SetProviderDetails(val interface{})
 	// The IdP name.
@@ -449,9 +448,6 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider)SetIdpIdentifiers(val *[]*string)
 }
 
 func (j *jsiiProxy_CfnUserPoolIdentityProvider)SetProviderDetails(val interface{}) {
-	if err := j.validateSetProviderDetailsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"providerDetails",

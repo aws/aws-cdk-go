@@ -23,6 +23,8 @@ package awsecs
 //
 type CfnService_LoadBalancerProperty struct {
 	// The name of the container (as it appears in a container definition) to associate with the load balancer.
+	//
+	// You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
 	//
 	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`

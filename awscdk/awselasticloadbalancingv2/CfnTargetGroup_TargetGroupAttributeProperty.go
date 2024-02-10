@@ -55,6 +55,9 @@ type CfnTargetGroup_TargetGroupAttributeProperty struct {
 	// - `preserve_client_ip.enabled` - Indicates whether client IP preservation is enabled. The value is `true` or `false` . The default is disabled if the target group type is IP address and the target group protocol is TCP or TLS. Otherwise, the default is enabled. Client IP preservation cannot be disabled for UDP and TCP_UDP target groups.
 	// - `proxy_protocol_v2.enabled` - Indicates whether Proxy Protocol version 2 is enabled. The value is `true` or `false` . The default is `false` .
 	// - `target_health_state.unhealthy.connection_termination.enabled` - Indicates whether the load balancer terminates connections to unhealthy targets. The value is `true` or `false` . The default is `true` .
+	// - `target_health_state.unhealthy.draining_interval_seconds` - The amount of time for Elastic Load Balancing to wait before changing the state of an unhealthy target from `unhealthy.draining` to `unhealthy` . The range is 0-360000 seconds. The default value is 0 seconds.
+	//
+	// Note: This attribute can only be configured when `target_health_state.unhealthy.connection_termination.enabled` is `false` .
 	//
 	// The following attributes are supported only by Gateway Load Balancers:
 	//

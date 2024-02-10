@@ -229,7 +229,7 @@ type CfnFileSystemProps struct {
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Sets the storage capacity of the file system that you're creating.
 	//
-	// `StorageCapacity` is required if you are creating a new file system.
+	// `StorageCapacity` is required if you are creating a new file system. It is not required if you are creating a file system by restoring a backup.
 	//
 	// *FSx for Lustre file systems* - The amount of storage capacity that you can configure depends on the value that you set for `StorageType` and the Lustre `DeploymentType` , as follows:
 	//
@@ -257,9 +257,9 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags to associate with the file system.
 	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// For more information, see [Tagging your Amazon FSx resources](https://docs.aws.amazon.com/fsx/latest/LustreGuide/tag-resources.html) in the *Amazon FSx for Lustre User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -63,7 +63,9 @@ type AthenaStartQueryExecutionProps struct {
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
-	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
+	//
+	// Depending on the AWS Service, the Service Integration Pattern availability will vary.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-supported-services.html
 	//
 	// Default: - `IntegrationPattern.REQUEST_RESPONSE` for most tasks.
 	// `IntegrationPattern.RUN_JOB` for the following exceptions:

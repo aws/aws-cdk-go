@@ -28,6 +28,38 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoScalingSpecifications: &AutoScalingSpecificationProperty{
+//   		ReadCapacityAutoScaling: &AutoScalingSettingProperty{
+//   			AutoScalingDisabled: jsii.Boolean(false),
+//   			MaximumUnits: jsii.Number(123),
+//   			MinimumUnits: jsii.Number(123),
+//   			ScalingPolicy: &ScalingPolicyProperty{
+//   				TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
+//   					TargetValue: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					DisableScaleIn: jsii.Boolean(false),
+//   					ScaleInCooldown: jsii.Number(123),
+//   					ScaleOutCooldown: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		WriteCapacityAutoScaling: &AutoScalingSettingProperty{
+//   			AutoScalingDisabled: jsii.Boolean(false),
+//   			MaximumUnits: jsii.Number(123),
+//   			MinimumUnits: jsii.Number(123),
+//   			ScalingPolicy: &ScalingPolicyProperty{
+//   				TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
+//   					TargetValue: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					DisableScaleIn: jsii.Boolean(false),
+//   					ScaleInCooldown: jsii.Number(123),
+//   					ScaleOutCooldown: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	BillingMode: &BillingModeProperty{
 //   		Mode: jsii.String("mode"),
 //
@@ -63,6 +95,29 @@ import (
 //   			ColumnType: jsii.String("columnType"),
 //   		},
 //   	},
+//   	ReplicaSpecifications: []interface{}{
+//   		&ReplicaSpecificationProperty{
+//   			Region: jsii.String("region"),
+//
+//   			// the properties below are optional
+//   			ReadCapacityAutoScaling: &AutoScalingSettingProperty{
+//   				AutoScalingDisabled: jsii.Boolean(false),
+//   				MaximumUnits: jsii.Number(123),
+//   				MinimumUnits: jsii.Number(123),
+//   				ScalingPolicy: &ScalingPolicyProperty{
+//   					TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
+//   						TargetValue: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						DisableScaleIn: jsii.Boolean(false),
+//   						ScaleInCooldown: jsii.Number(123),
+//   						ScaleOutCooldown: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			ReadCapacityUnits: jsii.Number(123),
+//   		},
+//   	},
 //   	TableName: jsii.String("tableName"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -78,6 +133,9 @@ type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The optional auto scaling capacity settings for a table in provisioned capacity mode.
+	AutoScalingSpecifications() interface{}
+	SetAutoScalingSpecifications(val interface{})
 	// The billing mode for the table, which determines how you'll be charged for reads and writes:.
 	BillingMode() interface{}
 	SetBillingMode(val interface{})
@@ -131,6 +189,9 @@ type CfnTable interface {
 	// One or more columns that are not part of the primary key - that is, columns that are *not* defined as partition key columns or clustering key columns.
 	RegularColumns() interface{}
 	SetRegularColumns(val interface{})
+	// The AWS Region specific settings of a multi-Region table.
+	ReplicaSpecifications() interface{}
+	SetReplicaSpecifications(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -288,6 +349,16 @@ type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnTable) AutoScalingSpecifications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"autoScalingSpecifications",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTable) BillingMode() interface{} {
@@ -450,6 +521,16 @@ func (j *jsiiProxy_CfnTable) RegularColumns() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) ReplicaSpecifications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"replicaSpecifications",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -535,6 +616,17 @@ func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_cassandra.CfnTable",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetAutoScalingSpecifications(val interface{}) {
+	if err := j.validateSetAutoScalingSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"autoScalingSpecifications",
+		val,
 	)
 }
 
@@ -630,6 +722,17 @@ func (j *jsiiProxy_CfnTable)SetRegularColumns(val interface{}) {
 	_jsii_.Set(
 		j,
 		"regularColumns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetReplicaSpecifications(val interface{}) {
+	if err := j.validateSetReplicaSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"replicaSpecifications",
 		val,
 	)
 }

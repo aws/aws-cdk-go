@@ -92,18 +92,6 @@ func (j *jsiiProxy_CfnForm) validateSetFieldsParameters(val interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnForm) validateSetFormActionTypeParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnForm) validateSetNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnForm) validateSetSchemaVersionParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnForm) validateSetSectionalElementsParameters(val interface{}) error {
 	return nil
 }

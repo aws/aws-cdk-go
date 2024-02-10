@@ -8,6 +8,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
+func (s *jsiiProxy_StateGraph) validateBindParameters(stateMachine StateMachine) error {
+	if stateMachine == nil {
+		return fmt.Errorf("parameter stateMachine is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_StateGraph) validateRegisterPolicyStatementParameters(statement awsiam.PolicyStatement) error {
 	if statement == nil {
 		return fmt.Errorf("parameter statement is required, but nil was provided")

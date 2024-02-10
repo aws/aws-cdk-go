@@ -66,6 +66,7 @@ package awsamplifyuibuilder
 //   	Events: map[string]interface{}{
 //   		"eventsKey": &ComponentEventProperty{
 //   			"action": jsii.String("action"),
+//   			"bindingEvent": jsii.String("bindingEvent"),
 //   			"parameters": &ActionParametersProperty{
 //   				"anchor": &componentPropertyProperty{
 //   					"bindingProperties": &ComponentPropertyBindingPropertiesProperty{
@@ -413,6 +414,7 @@ package awsamplifyuibuilder
 //   			},
 //   		},
 //   	},
+//   	SourceId: jsii.String("sourceId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html
@@ -442,5 +444,9 @@ type CfnComponent_ComponentChildProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-events
 	//
 	Events interface{} `field:"optional" json:"events" yaml:"events"`
+	// The unique ID of the child component in its original source system, such as Figma.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentchild.html#cfn-amplifyuibuilder-component-componentchild-sourceid
+	//
+	SourceId *string `field:"optional" json:"sourceId" yaml:"sourceId"`
 }
 

@@ -51,6 +51,9 @@ package awsec2
 //   		// the properties below are optional
 //   		BannerText: jsii.String("bannerText"),
 //   	},
+//   	ClientRouteMonitoringOptions: &ClientRouteMonitoringOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	Description: jsii.String("description"),
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),
@@ -115,6 +118,9 @@ type CfnClientVpnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientloginbanneroptions
 	//
 	ClientLoginBannerOptions interface{} `field:"optional" json:"clientLoginBannerOptions" yaml:"clientLoginBannerOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-clientroutemonitoringoptions
+	//
+	ClientRouteMonitoringOptions interface{} `field:"optional" json:"clientRouteMonitoringOptions" yaml:"clientRouteMonitoringOptions"`
 	// A brief description of the Client VPN endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-description
 	//

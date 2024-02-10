@@ -91,6 +91,8 @@ type CustomState interface {
 	SetProcessor(val StateGraph)
 	ProcessorConfig() *ProcessorConfig
 	SetProcessorConfig(val *ProcessorConfig)
+	ProcessorMode() ProcessorMode
+	SetProcessorMode(val ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -284,6 +286,16 @@ func (j *jsiiProxy_CustomState) ProcessorConfig() *ProcessorConfig {
 	return returns
 }
 
+func (j *jsiiProxy_CustomState) ProcessorMode() ProcessorMode {
+	var returns ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CustomState) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -393,6 +405,14 @@ func (j *jsiiProxy_CustomState)SetProcessorConfig(val *ProcessorConfig) {
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CustomState)SetProcessorMode(val ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

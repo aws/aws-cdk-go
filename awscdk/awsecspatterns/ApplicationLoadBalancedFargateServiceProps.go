@@ -262,6 +262,10 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// Default: false.
 	//
 	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
+	// The health check command and associated configuration parameters for the container.
+	// Default: - Health check configuration from container.
+	//
+	HealthCheck *awsecs.HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.

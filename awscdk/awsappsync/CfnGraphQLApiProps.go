@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var environmentVariables interface{}
+//
 //   cfnGraphQLApiProps := &CfnGraphQLApiProps{
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   	Name: jsii.String("name"),
@@ -40,6 +42,7 @@ import (
 //   		},
 //   	},
 //   	ApiType: jsii.String("apiType"),
+//   	EnvironmentVariables: environmentVariables,
 //   	IntrospectionConfig: jsii.String("introspectionConfig"),
 //   	LambdaAuthorizerConfig: &LambdaAuthorizerConfigProperty{
 //   		AuthorizerResultTtlInSeconds: jsii.Number(123),
@@ -104,6 +107,9 @@ type CfnGraphQLApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-apitype
 	//
 	ApiType *string `field:"optional" json:"apiType" yaml:"apiType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-environmentvariables
+	//
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Sets the value of the GraphQL API to enable ( `ENABLED` ) or disable ( `DISABLED` ) introspection.
 	//
 	// If no value is provided, the introspection configuration will be set to `ENABLED` by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled.

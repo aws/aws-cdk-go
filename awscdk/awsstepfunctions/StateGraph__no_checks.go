@@ -4,6 +4,10 @@ package awsstepfunctions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_StateGraph) validateBindParameters(stateMachine StateMachine) error {
+	return nil
+}
+
 func (s *jsiiProxy_StateGraph) validateRegisterPolicyStatementParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }

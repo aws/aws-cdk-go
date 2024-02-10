@@ -204,9 +204,6 @@ func (j *jsiiProxy_CfnForm) validateSetCtaParameters(val interface{}) error {
 }
 
 func (j *jsiiProxy_CfnForm) validateSetDataTypeParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -231,9 +228,6 @@ func (j *jsiiProxy_CfnForm) validateSetDataTypeParameters(val interface{}) error
 }
 
 func (j *jsiiProxy_CfnForm) validateSetFieldsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -293,34 +287,7 @@ func (j *jsiiProxy_CfnForm) validateSetFieldsParameters(val interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnForm) validateSetFormActionTypeParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnForm) validateSetNameParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnForm) validateSetSchemaVersionParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnForm) validateSetSectionalElementsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -381,9 +348,6 @@ func (j *jsiiProxy_CfnForm) validateSetSectionalElementsParameters(val interface
 }
 
 func (j *jsiiProxy_CfnForm) validateSetStyleParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -416,9 +380,6 @@ func validateNewCfnFormParameters(scope constructs.Construct, id *string, props 
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

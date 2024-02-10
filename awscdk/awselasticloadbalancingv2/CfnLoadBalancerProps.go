@@ -88,7 +88,7 @@ type CfnLoadBalancerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
-	// The IDs of the public subnets.
+	// The IDs of the subnets.
 	//
 	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
 	//
@@ -104,7 +104,7 @@ type CfnLoadBalancerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmappings
 	//
 	SubnetMappings interface{} `field:"optional" json:"subnetMappings" yaml:"subnetMappings"`
-	// The IDs of the public subnets.
+	// The IDs of the subnets.
 	//
 	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	//

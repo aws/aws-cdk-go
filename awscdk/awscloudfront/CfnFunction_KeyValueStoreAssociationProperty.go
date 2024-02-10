@@ -1,7 +1,7 @@
 package awscloudfront
 
 
-// The Key Value Store association.
+// The key value store association.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awscloudfront
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html
 //
 type CfnFunction_KeyValueStoreAssociationProperty struct {
-	// The Amazon Resource Name (ARN) of the Key Value Store association.
+	// The Amazon Resource Name (ARN) of the key value store association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html#cfn-cloudfront-function-keyvaluestoreassociation-keyvaluestorearn
 	//
 	KeyValueStoreArn *string `field:"required" json:"keyValueStoreArn" yaml:"keyValueStoreArn"`

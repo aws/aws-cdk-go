@@ -257,7 +257,7 @@ type CfnFileSystem interface {
 	SetSubnetIds(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An array of key-value pairs to apply to this resource.
+	// The tags to associate with the file system.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -84,11 +84,19 @@ func (j *jsiiProxy_CfnSpace) validateSetDomainIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSpace) validateSetOwnershipSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSpace) validateSetSpaceNameParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnSpace) validateSetSpaceSettingsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnSpace) validateSetSpaceSharingSettingsParameters(val interface{}) error {
 	return nil
 }
 

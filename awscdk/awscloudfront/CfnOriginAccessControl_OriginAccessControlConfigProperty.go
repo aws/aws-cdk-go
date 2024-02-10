@@ -28,6 +28,8 @@ package awscloudfront
 //
 type CfnOriginAccessControl_OriginAccessControlConfigProperty struct {
 	// A name to identify the origin access control.
+	//
+	// You can specify up to 64 characters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html#cfn-cloudfront-originaccesscontrol-originaccesscontrolconfig-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`

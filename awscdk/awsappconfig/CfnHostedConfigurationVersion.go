@@ -45,6 +45,8 @@ type CfnHostedConfigurationVersion interface {
 	ApplicationId() *string
 	SetApplicationId(val *string)
 	AttrId() *string
+	// The configuration version.
+	AttrVersionNumber() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -254,6 +256,16 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHostedConfigurationVersion) AttrVersionNumber() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVersionNumber",
 		&returns,
 	)
 	return returns

@@ -60,14 +60,6 @@ type MapProps struct {
 	// Default: $.
 	//
 	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
-	// The JSON that you want to override your default iteration input (mutually exclusive  with `itemSelector`).
-	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-itemselector.html
-	//
-	// Default: $.
-	//
-	// Deprecated: Step Functions has deprecated the `parameters` field in favor of
-	// the new `itemSelector` field.
-	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
@@ -88,5 +80,13 @@ type MapProps struct {
 	// Default: - The construct ID will be used as state name.
 	//
 	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
+	// The JSON that you want to override your default iteration input (mutually exclusive  with `itemSelector`).
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-itemselector.html
+	//
+	// Default: $.
+	//
+	// Deprecated: Step Functions has deprecated the `parameters` field in favor of
+	// the new `itemSelector` field.
+	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

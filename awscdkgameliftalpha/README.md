@@ -99,7 +99,7 @@ match is made after 30 seconds, gradually relax the skill requirements.
 ```go
 gamelift.NewMatchmakingRuleSet(this, jsii.String("RuleSet"), &MatchmakingRuleSetProps{
 	MatchmakingRuleSetName: jsii.String("my-test-ruleset"),
-	Content: gamelift.RuleSetContent_FromJsonFile(path.join(__dirname, jsii.String("my-ruleset/ruleset.json"))),
+	Content: gamelift.RuleSetContent_FromJsonFile(path.join(__dirname, jsii.String("my-ruleset"), jsii.String("ruleset.json"))),
 })
 ```
 

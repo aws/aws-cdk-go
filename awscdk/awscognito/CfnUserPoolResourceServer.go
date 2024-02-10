@@ -37,6 +37,7 @@ import (
 type CfnUserPoolResourceServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The resource ID.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

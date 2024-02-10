@@ -25,12 +25,14 @@ package awsamplifyuibuilder
 //   			},
 //   			Field: jsii.String("field"),
 //   			Operand: jsii.String("operand"),
+//   			OperandType: jsii.String("operandType"),
 //   			Operator: jsii.String("operator"),
 //   			Or: []interface{}{
 //   				predicateProperty_,
 //   			},
 //   		},
 //   	},
+//   	SlotName: jsii.String("slotName"),
 //   	UserAttribute: jsii.String("userAttribute"),
 //   }
 //
@@ -61,6 +63,10 @@ type CfnComponent_ComponentBindingPropertiesValuePropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalueproperties.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalueproperties-predicates
 	//
 	Predicates interface{} `field:"optional" json:"predicates" yaml:"predicates"`
+	// The name of a component slot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalueproperties.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalueproperties-slotname
+	//
+	SlotName *string `field:"optional" json:"slotName" yaml:"slotName"`
 	// An authenticated user attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-component-componentbindingpropertiesvalueproperties.html#cfn-amplifyuibuilder-component-componentbindingpropertiesvalueproperties-userattribute
 	//

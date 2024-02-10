@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates or updates an aaccount-level data protection policy or subscription filter policy that applies to all log groups or a subset of log groups in the account.
+// Creates or updates an account-level data protection policy or subscription filter policy that applies to all log groups or a subset of log groups in the account.
 //
 // *Data protection policy*
 //

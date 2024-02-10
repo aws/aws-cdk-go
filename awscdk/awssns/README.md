@@ -287,3 +287,22 @@ topic.AddLoggingConfig(&LoggingConfig{
 ```
 
 Note that valid values for `successFeedbackSampleRate` are integer between 0-100.
+
+## Archive Policy
+
+Message archiving provides the ability to archive a single copy of all messages published to your topic.
+You can store published messages within your topic by enabling the message archive policy on the topic, which enables message archiving for all subscriptions linked to that topic.
+Messages can be archived for a minimum of one day to a maximum of 365 days.
+
+Example with a archive policy for SQS:
+
+```go
+var role role
+
+topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
+	Fifo: jsii.Boolean(true),
+	MessageRetentionPeriodInDays: jsii.Number(7),
+})
+```
+
+**Note**: The `messageRetentionPeriodInDays` property is only available for FIFO topics.

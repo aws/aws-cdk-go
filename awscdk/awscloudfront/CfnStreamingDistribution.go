@@ -64,9 +64,6 @@ type CfnStreamingDistribution interface {
 	awscdk.ITaggable
 	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 	AttrDomainName() *string
-	// The identifier for the RTMP distribution.
-	//
-	// For example: `EGTXBD79EXAMPLE` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

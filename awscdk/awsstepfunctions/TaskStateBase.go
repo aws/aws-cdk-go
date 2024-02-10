@@ -39,6 +39,8 @@ type TaskStateBase interface {
 	SetProcessor(val StateGraph)
 	ProcessorConfig() *ProcessorConfig
 	SetProcessorConfig(val *ProcessorConfig)
+	ProcessorMode() ProcessorMode
+	SetProcessorMode(val ProcessorMode)
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -273,6 +275,16 @@ func (j *jsiiProxy_TaskStateBase) ProcessorConfig() *ProcessorConfig {
 	return returns
 }
 
+func (j *jsiiProxy_TaskStateBase) ProcessorMode() ProcessorMode {
+	var returns ProcessorMode
+	_jsii_.Get(
+		j,
+		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TaskStateBase) ResultPath() *string {
 	var returns *string
 	_jsii_.Get(
@@ -385,6 +397,14 @@ func (j *jsiiProxy_TaskStateBase)SetProcessorConfig(val *ProcessorConfig) {
 	_jsii_.Set(
 		j,
 		"processorConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TaskStateBase)SetProcessorMode(val ProcessorMode) {
+	_jsii_.Set(
+		j,
+		"processorMode",
 		val,
 	)
 }

@@ -165,7 +165,7 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	ForwardedValues interface{} `field:"optional" json:"forwardedValues" yaml:"forwardedValues"`
 	// A list of CloudFront functions that are associated with this cache behavior.
 	//
-	// CloudFront functions must be published to the `LIVE` stage to associate them with a cache behavior.
+	// Your functions must be published to the `LIVE` stage to associate them with a cache behavior.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
 	//
 	FunctionAssociations interface{} `field:"optional" json:"functionAssociations" yaml:"functionAssociations"`

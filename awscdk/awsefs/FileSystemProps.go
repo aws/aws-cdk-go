@@ -85,6 +85,14 @@ type FileSystemProps struct {
 	// Default: RemovalPolicy.RETAIN
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// Whether to enable the filesystem's replication overwrite protection or not.
+	//
+	// Set false if you want to create a read-only filesystem for use as a replication destination.
+	// See: https://docs.aws.amazon.com/efs/latest/ug/replication-use-cases.html#replicate-existing-destination
+	//
+	// Default: ReplicationOverwriteProtection.ENABLED
+	//
+	ReplicationOverwriteProtection ReplicationOverwriteProtection `field:"optional" json:"replicationOverwriteProtection" yaml:"replicationOverwriteProtection"`
 	// Security Group to assign to this file system.
 	// Default: - creates new security group which allows all outbound traffic.
 	//
