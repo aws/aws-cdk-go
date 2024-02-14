@@ -218,6 +218,23 @@ identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityPr
 for _, record := range identity.DkimRecords {}
 ```
 
+#### Grants
+
+To grant a specific action to a principal use the `grant` method.
+For sending emails, `grantSendEmail` can be used instead:
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+var user user
+
+
+identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
+	Identity: ses.Identity_Domain(jsii.String("cdk.dev")),
+})
+
+identity.grantSendEmail(user)
+```
+
 ### Virtual Deliverability Manager (VDM)
 
 Virtual Deliverability Manager is an Amazon SES feature that helps you enhance email deliverability,

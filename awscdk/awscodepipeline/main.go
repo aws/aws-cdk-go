@@ -370,6 +370,14 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline.CustomActionRegistrationProps",
 		reflect.TypeOf((*CustomActionRegistrationProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.GitConfiguration",
+		reflect.TypeOf((*GitConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.GitPushFilter",
+		reflect.TypeOf((*GitPushFilter)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline.GlobalVariables",
 		reflect.TypeOf((*GlobalVariables)(nil)).Elem(),
@@ -436,6 +444,8 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addStage", GoMethod: "AddStage"},
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addTrigger", GoMethod: "AddTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addVariable", GoMethod: "AddVariable"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactBucket", GoGetter: "ArtifactBucket"},
 			_jsii_.MemberMethod{JsiiMethod: "bindAsNotificationRuleSource", GoMethod: "BindAsNotificationRuleSource"},
@@ -502,6 +512,21 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline.PipelineProps",
 		reflect.TypeOf((*PipelineProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codepipeline.PipelineType",
+		reflect.TypeOf((*PipelineType)(nil)).Elem(),
+		map[string]interface{}{
+			"V1": PipelineType_V1,
+			"V2": PipelineType_V2,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codepipeline.ProviderType",
+		reflect.TypeOf((*ProviderType)(nil)).Elem(),
+		map[string]interface{}{
+			"CODE_STAR_SOURCE_CONNECTION": ProviderType_CODE_STAR_SOURCE_CONNECTION,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.StageOptions",
 		reflect.TypeOf((*StageOptions)(nil)).Elem(),
@@ -513,5 +538,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.StageProps",
 		reflect.TypeOf((*StageProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline.Trigger",
+		reflect.TypeOf((*Trigger)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "sourceAction", GoGetter: "SourceAction"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Trigger{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.TriggerProps",
+		reflect.TypeOf((*TriggerProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline.Variable",
+		reflect.TypeOf((*Variable)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "reference", GoMethod: "Reference"},
+			_jsii_.MemberProperty{JsiiProperty: "variableName", GoGetter: "VariableName"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Variable{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.VariableProps",
+		reflect.TypeOf((*VariableProps)(nil)).Elem(),
 	)
 }

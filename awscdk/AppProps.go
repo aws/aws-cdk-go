@@ -4,9 +4,13 @@ package awscdk
 // Initialization props for apps.
 //
 // Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
 //   app := awscdk.NewApp(&AppProps{
 //   	DefaultStackSynthesizer: awscdkappstagingsynthesizeralpha.AppStagingSynthesizer_DefaultResources(&DefaultResourcesOptions{
 //   		AppId: jsii.String("my-app-id"),
+//   		StagingBucketEncryption: awscdk.BucketEncryption_S3_MANAGED,
 //   		DeploymentIdentities: *awscdkappstagingsynthesizeralpha.DeploymentIdentities_CliCredentials(),
 //   	}),
 //   })

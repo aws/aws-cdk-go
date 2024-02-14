@@ -99,8 +99,6 @@ type SourcedConfiguration interface {
 	Deploy(environment IEnvironment)
 	// Experimental.
 	DeployConfigToEnvironments()
-	// Experimental.
-	GetDeploymentHash(environment IEnvironment) *string
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the configuration profile.
 	// Experimental.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
@@ -431,22 +429,6 @@ func (s *jsiiProxy_SourcedConfiguration) DeployConfigToEnvironments() {
 		"deployConfigToEnvironments",
 		nil, // no parameters
 	)
-}
-
-func (s *jsiiProxy_SourcedConfiguration) GetDeploymentHash(environment IEnvironment) *string {
-	if err := s.validateGetDeploymentHashParameters(environment); err != nil {
-		panic(err)
-	}
-	var returns *string
-
-	_jsii_.Invoke(
-		s,
-		"getDeploymentHash",
-		[]interface{}{environment},
-		&returns,
-	)
-
-	return returns
 }
 
 func (s *jsiiProxy_SourcedConfiguration) On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) {

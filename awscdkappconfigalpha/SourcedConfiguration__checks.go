@@ -26,14 +26,6 @@ func (s *jsiiProxy_SourcedConfiguration) validateDeployParameters(environment IE
 	return nil
 }
 
-func (s *jsiiProxy_SourcedConfiguration) validateGetDeploymentHashParameters(environment IEnvironment) error {
-	if environment == nil {
-		return fmt.Errorf("parameter environment is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (s *jsiiProxy_SourcedConfiguration) validateOnParameters(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) error {
 	if actionPoint == "" {
 		return fmt.Errorf("parameter actionPoint is required, but nil was provided")

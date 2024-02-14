@@ -371,7 +371,16 @@ replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBuck
 
 ## Variables
 
-The library supports the CodePipeline Variables feature.
+Variables are key-value pairs that can be used to dynamically configure actions in your pipeline.
+
+There are two types of variables, Action-level variables and Pipeline-level variables. Action-level
+variables are produced when an action is executed. Pipeline-level variables are defined when the
+pipeline is created and resolved at pipeline run time. You specify the Pipeline-level variables
+when the pipeline is created, and you can provide values at the time of the pipeline execution.
+
+### Action-level variables
+
+The library supports action-level variables.
 Each action class that emits variables has a separate variables interface,
 accessed as a property of the action instance called `variables`.
 You instantiate the action class and assign it to a local variable;
@@ -420,11 +429,108 @@ NewOtherAction(&otherActionProps{
 })
 ```
 
+The following is an actual code example.
+
+```go
+var sourceAction s3SourceAction
+var sourceOutput artifact
+var deployBucket bucket
+
+
+codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+	Stages: []stageProps{
+		&stageProps{
+			StageName: jsii.String("Source"),
+			Actions: []iAction{
+				sourceAction,
+			},
+		},
+		&stageProps{
+			StageName: jsii.String("Deploy"),
+			Actions: []*iAction{
+				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+					ActionName: jsii.String("DeployAction"),
+					// can reference the variables
+					ObjectKey: fmt.Sprintf("%v.txt", sourceAction.variables.VersionId),
+					Input: sourceOutput,
+					Bucket: deployBucket,
+				}),
+			},
+		},
+	},
+})
+```
+
 Check the documentation of the `aws-cdk-lib/aws-codepipeline-actions`
 for details on how to use the variables for each action class.
 
 See the [CodePipeline documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-variables.html)
 for more details on how to use the variables feature.
+
+### Pipeline-level variables
+
+You can add one or more variables at the pipeline level. You can reference
+this value in the configuration of CodePipeline actions. You can add the
+variable names, default values, and descriptions when you create the pipeline.
+Variables are resolved at the time of execution.
+
+Note that using pipeline-level variables in any kind of Source action is not supported.
+Also, the variables can only be used with pipeline type V2.
+
+```go
+var sourceAction s3SourceAction
+var sourceOutput artifact
+var deployBucket bucket
+
+
+// Pipeline-level variable
+variable := codepipeline.NewVariable(&VariableProps{
+	VariableName: jsii.String("bucket-var"),
+	Description: jsii.String("description"),
+	DefaultValue: jsii.String("sample"),
+})
+
+codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+	PipelineType: codepipeline.PipelineType_V2,
+	Variables: []variable{
+		variable,
+	},
+	Stages: []stageProps{
+		&stageProps{
+			StageName: jsii.String("Source"),
+			Actions: []iAction{
+				sourceAction,
+			},
+		},
+		&stageProps{
+			StageName: jsii.String("Deploy"),
+			Actions: []*iAction{
+				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+					ActionName: jsii.String("DeployAction"),
+					// can reference the variables
+					ObjectKey: fmt.Sprintf("%v.txt", variable.Reference()),
+					Input: sourceOutput,
+					Bucket: deployBucket,
+				}),
+			},
+		},
+	},
+})
+```
+
+Or append a variable to an existing pipeline:
+
+```go
+var pipeline pipeline
+
+
+variable := codepipeline.NewVariable(&VariableProps{
+	VariableName: jsii.String("bucket-var"),
+	Description: jsii.String("description"),
+	DefaultValue: jsii.String("sample"),
+})
+pipeline.AddVariable(variable)
+```
 
 ## Events
 
@@ -491,3 +597,94 @@ target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel
 })
 rule := pipeline.notifyOnExecutionStateChange(jsii.String("NotifyOnExecutionStateChange"), target)
 ```
+
+## Trigger
+
+To trigger a pipeline with Git tags, specify the `triggers` property. When a Git tag is pushed,
+your pipeline starts. You can filter with glob patterns. The `tagsExcludes` takes priority over
+the `tagsIncludes`.
+
+The triggers can only be used with pipeline type V2.
+
+```go
+var sourceAction codeStarConnectionsSourceAction
+var buildAction codeBuildAction
+
+
+codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+	PipelineType: codepipeline.PipelineType_V2,
+	Stages: []stageProps{
+		&stageProps{
+			StageName: jsii.String("Source"),
+			Actions: []iAction{
+				sourceAction,
+			},
+		},
+		&stageProps{
+			StageName: jsii.String("Build"),
+			Actions: []*iAction{
+				buildAction,
+			},
+		},
+	},
+	Triggers: []triggerProps{
+		&triggerProps{
+			ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
+			GitConfiguration: &GitConfiguration{
+				SourceAction: *SourceAction,
+				PushFilter: []gitPushFilter{
+					&gitPushFilter{
+						TagsExcludes: []*string{
+							jsii.String("exclude1"),
+							jsii.String("exclude2"),
+						},
+						TagsIncludes: []*string{
+							jsii.String("include*"),
+						},
+					},
+				},
+			},
+		},
+	},
+})
+```
+
+Or append a trigger to an existing pipeline:
+
+```go
+var pipeline pipeline
+var sourceAction codeStarConnectionsSourceAction
+
+
+pipeline.AddTrigger(&TriggerProps{
+	ProviderType: codepipeline.ProviderType_CODE_STAR_SOURCE_CONNECTION,
+	GitConfiguration: &GitConfiguration{
+		SourceAction: *SourceAction,
+		PushFilter: []gitPushFilter{
+			&gitPushFilter{
+				TagsExcludes: []*string{
+					jsii.String("exclude1"),
+					jsii.String("exclude2"),
+				},
+				TagsIncludes: []*string{
+					jsii.String("include*"),
+				},
+			},
+		},
+	},
+})
+```
+
+## Migrating a pipeline type from V1 to V2
+
+To migrate your pipeline type from V1 to V2, you just need to update the `pipelineType` property to `PipelineType.V2`.
+This migration does not cause replacement of your pipeline.
+
+```go
+codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+	PipelineType: codepipeline.PipelineType_V2,
+})
+```
+
+See the [CodePipeline documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html)
+for more details on the differences between each type.

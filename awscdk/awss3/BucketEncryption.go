@@ -4,12 +4,16 @@ package awss3
 // What kind of server-side encryption to apply to this bucket.
 //
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("MyEncryptedBucket"), &BucketProps{
-//   	Encryption: s3.BucketEncryption_KMS,
-//   })
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // you can access the encryption key:
-//   assert(bucket.EncryptionKey instanceof kms.Key)
+//
+//   app := awscdk.NewApp(&AppProps{
+//   	DefaultStackSynthesizer: awscdkappstagingsynthesizeralpha.AppStagingSynthesizer_DefaultResources(&DefaultResourcesOptions{
+//   		AppId: jsii.String("my-app-id"),
+//   		StagingBucketEncryption: awscdk.BucketEncryption_S3_MANAGED,
+//   		DeploymentIdentities: *awscdkappstagingsynthesizeralpha.DeploymentIdentities_CliCredentials(),
+//   	}),
+//   })
 //
 type BucketEncryption string
 

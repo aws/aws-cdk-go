@@ -519,6 +519,102 @@ dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
 }))
 ```
 
+### Table Widget
+
+A `TableWidget` can display any number of metrics in tabular form.
+
+```go
+var dashboard dashboard
+var executionCountMetric metric
+
+
+dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
+	Title: jsii.String("Executions"),
+	Metrics: []iMetric{
+		executionCountMetric,
+	},
+}))
+```
+
+The `layout` property can be used to invert the rows and columns of the table.
+The default `cloudwatch.TableLayout.HORIZONTAL` means that metrics are shown in rows and datapoints in columns.
+`cloudwatch.TableLayout.VERTICAL` means that metrics are shown in columns and datapoints in rows.
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
+	// ...
+
+	Layout: cloudwatch.TableLayout_VERTICAL,
+}))
+```
+
+The `summary` property allows customizing the table to show summary columns (`columns` sub property),
+whether to make the summary columns sticky remaining in view while scrolling (`sticky` sub property),
+and to optionally only present summary columns (`hideNonSummaryColumns` sub property).
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
+	// ...
+
+	Summary: &TableSummaryProps{
+		Columns: []tableSummaryColumn{
+			cloudwatch.*tableSummaryColumn_AVERAGE,
+		},
+		HideNonSummaryColumns: jsii.Boolean(true),
+		Sticky: jsii.Boolean(true),
+	},
+}))
+```
+
+The `thresholds` property can be used to highlight cells with a color when the datapoint value falls within the threshold.
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
+	// ...
+
+	Thresholds: []tableThreshold{
+		cloudwatch.*tableThreshold_Above(jsii.Number(1000), cloudwatch.Color_RED()),
+		cloudwatch.*tableThreshold_Between(jsii.Number(500), jsii.Number(1000), cloudwatch.Color_ORANGE()),
+		cloudwatch.*tableThreshold_Below(jsii.Number(500), cloudwatch.Color_GREEN()),
+	},
+}))
+```
+
+The `showUnitsInLabel` property can be used to display what unit is associated with a metric in the label column.
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
+	// ...
+
+	ShowUnitsInLabel: jsii.Boolean(true),
+}))
+```
+
+The `fullPrecision` property can be used to show as many digits as can fit in a cell, before rounding.
+
+```go
+var dashboard dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewTableWidget(&TableWidgetProps{
+	// ...
+
+	FullPrecision: jsii.Boolean(true),
+}))
+```
+
 ### Gauge widget
 
 Gauge graph requires the max and min value of the left Y axis, if no value is informed the limits will be from 0 to 100.

@@ -9,23 +9,29 @@ import (
 //
 // Example:
 //   var dashboard dashboard
-//   var executionCountMetric metric
-//   var errorCountMetric metric
 //
 //
 //   dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
-//   	Title: jsii.String("Executions vs error rate"),
+//   	// ...
 //
-//   	Left: []iMetric{
-//   		executionCountMetric,
+//   	LeftAnnotations: []horizontalAnnotation{
+//   		&horizontalAnnotation{
+//   			Value: jsii.Number(1800),
+//   			Label: awscdk.Duration_Minutes(jsii.Number(30)).ToHumanString(),
+//   			Color: cloudwatch.Color_RED(),
+//   		},
+//   		&horizontalAnnotation{
+//   			Value: jsii.Number(3600),
+//   			Label: jsii.String("1 hour"),
+//   			Color: jsii.String("#2ca02c"),
+//   		},
 //   	},
-//
-//   	Right: []*iMetric{
-//   		errorCountMetric.With(&MetricOptions{
-//   			Statistic: cloudwatch.Stats_AVERAGE(),
-//   			Label: jsii.String("Error rate"),
-//   			Color: cloudwatch.Color_GREEN(),
-//   		}),
+//   	VerticalAnnotations: []verticalAnnotation{
+//   		&verticalAnnotation{
+//   			Date: jsii.String("2022-10-19T00:00:00Z"),
+//   			Label: jsii.String("Deployment"),
+//   			Color: cloudwatch.Color_RED(),
+//   		},
 //   	},
 //   }))
 //

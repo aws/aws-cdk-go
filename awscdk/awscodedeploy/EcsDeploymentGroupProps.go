@@ -67,6 +67,10 @@ type EcsDeploymentGroupProps struct {
 	// Default: An auto-generated name will be used.
 	//
 	DeploymentGroupName *string `field:"optional" json:"deploymentGroupName" yaml:"deploymentGroupName"`
+	// Whether to skip the step of checking CloudWatch alarms during the deployment process.
+	// Default: - false.
+	//
+	IgnoreAlarmConfiguration *bool `field:"optional" json:"ignoreAlarmConfiguration" yaml:"ignoreAlarmConfiguration"`
 	// Whether to continue a deployment even if fetching the alarm status from CloudWatch failed.
 	// Default: false.
 	//

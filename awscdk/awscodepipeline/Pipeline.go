@@ -87,6 +87,14 @@ type Pipeline interface {
 	AddStage(props *StageOptions) IStage
 	// Adds a statement to the pipeline role.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
+	// Adds a new Trigger to this Pipeline.
+	//
+	// Returns: the newly created trigger.
+	AddTrigger(props *TriggerProps) Trigger
+	// Adds a new Variable to this Pipeline.
+	//
+	// Returns: the newly created variable.
+	AddVariable(variable Variable) Variable
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -408,6 +416,38 @@ func (p *jsiiProxy_Pipeline) AddToRolePolicy(statement awsiam.PolicyStatement) {
 		"addToRolePolicy",
 		[]interface{}{statement},
 	)
+}
+
+func (p *jsiiProxy_Pipeline) AddTrigger(props *TriggerProps) Trigger {
+	if err := p.validateAddTriggerParameters(props); err != nil {
+		panic(err)
+	}
+	var returns Trigger
+
+	_jsii_.Invoke(
+		p,
+		"addTrigger",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_Pipeline) AddVariable(variable Variable) Variable {
+	if err := p.validateAddVariableParameters(variable); err != nil {
+		panic(err)
+	}
+	var returns Variable
+
+	_jsii_.Invoke(
+		p,
+		"addVariable",
+		[]interface{}{variable},
+		&returns,
+	)
+
+	return returns
 }
 
 func (p *jsiiProxy_Pipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

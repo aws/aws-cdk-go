@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -12,13 +13,15 @@ import (
 // An email identity.
 //
 // Example:
-//   var myHostedZone iPublicHostedZone
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var user user
 //
 //
 //   identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
-//   	Identity: ses.Identity_PublicHostedZone(myHostedZone),
-//   	MailFromDomain: jsii.String("mail.cdk.dev"),
+//   	Identity: ses.Identity_Domain(jsii.String("cdk.dev")),
 //   })
+//
+//   identity.grantSendEmail(user)
 //
 type EmailIdentity interface {
 	awscdk.Resource
@@ -37,6 +40,8 @@ type EmailIdentity interface {
 	DkimDnsTokenValue3() *string
 	// DKIM records for this identity.
 	DkimRecords() *[]*DkimRecord
+	// The ARN of the email identity.
+	EmailIdentityArn() *string
 	// The name of the email identity.
 	EmailIdentityName() *string
 	// The environment this resource belongs to.
@@ -84,6 +89,12 @@ type EmailIdentity interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Adds an IAM policy statement associated with this email identity to an IAM principal's policy.
+	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Permits an IAM principal the send email action.
+	//
+	// Actions: SendEmail, SendRawEmail.
+	GrantSendEmail(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -159,6 +170,16 @@ func (j *jsiiProxy_EmailIdentity) DkimRecords() *[]*DkimRecord {
 	_jsii_.Get(
 		j,
 		"dkimRecords",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) EmailIdentityArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"emailIdentityArn",
 		&returns,
 	)
 	return returns
@@ -384,6 +405,43 @@ func (e *jsiiProxy_EmailIdentity) GetResourceNameAttribute(nameAttr *string) *st
 		e,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EmailIdentity) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := e.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		e,
+		"grant",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EmailIdentity) GrantSendEmail(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := e.validateGrantSendEmailParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		e,
+		"grantSendEmail",
+		[]interface{}{grantee},
 		&returns,
 	)
 

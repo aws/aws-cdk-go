@@ -12,10 +12,6 @@ func (s *jsiiProxy_SourcedConfiguration) validateDeployParameters(environment IE
 	return nil
 }
 
-func (s *jsiiProxy_SourcedConfiguration) validateGetDeploymentHashParameters(environment IEnvironment) error {
-	return nil
-}
-
 func (s *jsiiProxy_SourcedConfiguration) validateOnParameters(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) error {
 	return nil
 }

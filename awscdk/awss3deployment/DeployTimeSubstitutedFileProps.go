@@ -11,11 +11,14 @@ import (
 //
 //   var myLambdaFunction function
 //   var destinationBucket bucket
+//   //(Optional) if provided, the resulting processed file would be uploaded to the destinationBucket under the destinationKey name.
+//   var destinationKey string
 //   var role role
 //
 //
 //   s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSubstitutedFileProps{
 //   	Source: jsii.String("my-file.yaml"),
+//   	DestinationKey: destinationKey,
 //   	DestinationBucket: destinationBucket,
 //   	Substitutions: map[string]*string{
 //   		"variableName": myLambdaFunction.functionName,
@@ -35,6 +38,10 @@ type DeployTimeSubstitutedFileProps struct {
 	// it must be written as: {{ xxxx }} to be recognized by the construct as a
 	// substitution.
 	Substitutions *map[string]*string `field:"required" json:"substitutions" yaml:"substitutions"`
+	// The object key in the destination bucket where the processed file would be written to.
+	// Default: - Fingerprint of the file content would be used as object key.
+	//
+	DestinationKey *string `field:"optional" json:"destinationKey" yaml:"destinationKey"`
 	// Execution role associated with this function.
 	// Default: - A role is automatically created.
 	//

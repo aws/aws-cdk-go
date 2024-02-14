@@ -16,11 +16,14 @@ import (
 //
 //   var myLambdaFunction function
 //   var destinationBucket bucket
+//   //(Optional) if provided, the resulting processed file would be uploaded to the destinationBucket under the destinationKey name.
+//   var destinationKey string
 //   var role role
 //
 //
 //   s3deploy.NewDeployTimeSubstitutedFile(this, jsii.String("MyFile"), &DeployTimeSubstitutedFileProps{
 //   	Source: jsii.String("my-file.yaml"),
+//   	DestinationKey: destinationKey,
 //   	DestinationBucket: destinationBucket,
 //   	Substitutions: map[string]*string{
 //   		"variableName": myLambdaFunction.functionName,

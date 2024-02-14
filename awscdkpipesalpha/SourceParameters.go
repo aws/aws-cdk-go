@@ -11,22 +11,15 @@ import (
 //   var targetQueue queue
 //
 //
-//   sourceFilter := pipes.NewFilter([]iFilterPattern{
-//   	pipes.FilterPattern_FromObject(map[string]interface{}{
-//   		"body": map[string][]*string{
-//   			// only forward events with customerType B2B or B2C
-//   			"customerType": []*string{
-//   				jsii.String("B2B"),
-//   				jsii.String("B2C"),
-//   			},
-//   		},
+//   pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
+//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+//   		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
 //   	}),
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue),
-//   	Filter: sourceFilter,
+//   	Source: NewSomeSource(sourceQueue),
+//   	Target: pipeTarget,
 //   })
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-source.html

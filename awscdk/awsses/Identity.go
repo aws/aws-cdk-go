@@ -10,13 +10,15 @@ import (
 // Identity.
 //
 // Example:
-//   var myHostedZone iPublicHostedZone
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var user user
 //
 //
 //   identity := ses.NewEmailIdentity(this, jsii.String("Identity"), &EmailIdentityProps{
-//   	Identity: ses.Identity_PublicHostedZone(myHostedZone),
-//   	MailFromDomain: jsii.String("mail.cdk.dev"),
+//   	Identity: ses.Identity_Domain(jsii.String("cdk.dev")),
 //   })
+//
+//   identity.grantSendEmail(user)
 //
 type Identity interface {
 	// The hosted zone associated with this identity.

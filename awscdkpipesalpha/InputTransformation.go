@@ -12,18 +12,15 @@ import (
 //   var targetQueue queue
 //
 //
-//   targetInputTransformation := pipes.inputTransformation_FromObject(map[string]interface{}{
-//   	"staticField": jsii.String("static value"),
-//   	"dynamicField": pipes.DynamicInput_fromEventPath(jsii.String("$.body.payload")),
-//   	"pipeVariable": pipes.DynamicInput_pipeName(),
+//   pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
+//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+//   		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
+//   	}),
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	PipeName: jsii.String("MyPipe"),
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue, map[string]*inputTransformation{
-//   		"inputTransformation": targetInputTransformation,
-//   	}),
+//   	Source: NewSomeSource(sourceQueue),
+//   	Target: pipeTarget,
 //   })
 //
 // Experimental.

@@ -64,6 +64,10 @@ type ServerDeploymentGroupProps struct {
 	// Default: - No additional EC2 instances will be added to the Deployment Group.
 	//
 	Ec2InstanceTags InstanceTagSet `field:"optional" json:"ec2InstanceTags" yaml:"ec2InstanceTags"`
+	// Whether to skip the step of checking CloudWatch alarms during the deployment process.
+	// Default: - false.
+	//
+	IgnoreAlarmConfiguration *bool `field:"optional" json:"ignoreAlarmConfiguration" yaml:"ignoreAlarmConfiguration"`
 	// Whether to continue a deployment even if fetching the alarm status from CloudWatch failed.
 	// Default: false.
 	//

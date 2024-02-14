@@ -14,21 +14,19 @@ import (
 // A new Amazon SQS queue.
 //
 // Example:
-//   payload := "test"
-//   messageGroupId := "id"
-//   queue := sqs.NewQueue(this, jsii.String("MyQueue"), &QueueProps{
-//   	Fifo: jsii.Boolean(true),
-//   	ContentBasedDeduplication: jsii.Boolean(true),
+//   var sourceQueue queue
+//   var targetQueue queue
+//
+//
+//   pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
+//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+//   		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
+//   	}),
 //   })
 //
-//   target := targets.NewSqsSendMessage(queue, &SqsSendMessageProps{
-//   	Input: awscdkscheduleralpha.ScheduleTargetInput_FromText(payload),
-//   	MessageGroupId: jsii.String(MessageGroupId),
-//   })
-//
-//   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
-//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
-//   	Target: Target,
+//   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+//   	Source: NewSomeSource(sourceQueue),
+//   	Target: pipeTarget,
 //   })
 //
 type Queue interface {

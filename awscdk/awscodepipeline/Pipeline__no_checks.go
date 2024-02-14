@@ -12,6 +12,14 @@ func (p *jsiiProxy_Pipeline) validateAddToRolePolicyParameters(statement awsiam.
 	return nil
 }
 
+func (p *jsiiProxy_Pipeline) validateAddTriggerParameters(props *TriggerProps) error {
+	return nil
+}
+
+func (p *jsiiProxy_Pipeline) validateAddVariableParameters(variable Variable) error {
+	return nil
+}
+
 func (p *jsiiProxy_Pipeline) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

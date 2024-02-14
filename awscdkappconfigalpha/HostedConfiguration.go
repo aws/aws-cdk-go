@@ -97,8 +97,6 @@ type HostedConfiguration interface {
 	Deploy(environment IEnvironment)
 	// Experimental.
 	DeployConfigToEnvironments()
-	// Experimental.
-	GetDeploymentHash(environment IEnvironment) *string
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the configuration profile.
 	// Experimental.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
@@ -449,22 +447,6 @@ func (h *jsiiProxy_HostedConfiguration) DeployConfigToEnvironments() {
 		"deployConfigToEnvironments",
 		nil, // no parameters
 	)
-}
-
-func (h *jsiiProxy_HostedConfiguration) GetDeploymentHash(environment IEnvironment) *string {
-	if err := h.validateGetDeploymentHashParameters(environment); err != nil {
-		panic(err)
-	}
-	var returns *string
-
-	_jsii_.Invoke(
-		h,
-		"getDeploymentHash",
-		[]interface{}{environment},
-		&returns,
-	)
-
-	return returns
 }
 
 func (h *jsiiProxy_HostedConfiguration) On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) {

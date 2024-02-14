@@ -16,6 +16,14 @@ func (e *jsiiProxy_EmailIdentity) validateGetResourceNameAttributeParameters(nam
 	return nil
 }
 
+func (e *jsiiProxy_EmailIdentity) validateGrantParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (e *jsiiProxy_EmailIdentity) validateGrantSendEmailParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func validateEmailIdentity_FromEmailIdentityNameParameters(scope constructs.Construct, id *string, emailIdentityName *string) error {
 	return nil
 }

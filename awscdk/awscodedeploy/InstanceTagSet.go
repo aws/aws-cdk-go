@@ -61,6 +61,9 @@ import (
 //   	// whether to ignore failure to fetch the status of alarms from CloudWatch
 //   	// default: false
 //   	IgnorePollAlarmsFailure: jsii.Boolean(false),
+//   	// whether to skip the step of checking CloudWatch alarms during the deployment process
+//   	// default: false
+//   	IgnoreAlarmConfiguration: jsii.Boolean(false),
 //   	// auto-rollback configuration
 //   	AutoRollback: &AutoRollbackConfig{
 //   		FailedDeployment: jsii.Boolean(true),

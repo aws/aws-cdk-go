@@ -12,26 +12,31 @@ import (
 // Deploys the sourceArtifact to Amazon S3.
 //
 // Example:
-//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   var sourceAction s3SourceAction
+//   var sourceOutput artifact
+//   var deployBucket bucket
 //
 //
-//   sourceOutput := codepipeline.NewArtifact()
-//   targetBucket := s3.NewBucket(this, jsii.String("MyBucket"))
-//   key := kms.NewKey(this, jsii.String("EnvVarEncryptKey"), &KeyProps{
-//   	Description: jsii.String("sample key"),
-//   })
-//
-//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-//   deployAction := codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
-//   	ActionName: jsii.String("S3Deploy"),
-//   	Bucket: targetBucket,
-//   	Input: sourceOutput,
-//   	EncryptionKey: key,
-//   })
-//   deployStage := pipeline.AddStage(&StageOptions{
-//   	StageName: jsii.String("Deploy"),
-//   	Actions: []iAction{
-//   		deployAction,
+//   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+//   	Stages: []stageProps{
+//   		&stageProps{
+//   			StageName: jsii.String("Source"),
+//   			Actions: []iAction{
+//   				sourceAction,
+//   			},
+//   		},
+//   		&stageProps{
+//   			StageName: jsii.String("Deploy"),
+//   			Actions: []*iAction{
+//   				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+//   					ActionName: jsii.String("DeployAction"),
+//   					// can reference the variables
+//   					ObjectKey: fmt.Sprintf("%v.txt", sourceAction.variables.VersionId),
+//   					Input: sourceOutput,
+//   					Bucket: deployBucket,
+//   				}),
+//   			},
+//   		},
 //   	},
 //   })
 //

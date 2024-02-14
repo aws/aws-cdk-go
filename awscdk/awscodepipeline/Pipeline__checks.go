@@ -33,6 +33,25 @@ func (p *jsiiProxy_Pipeline) validateAddToRolePolicyParameters(statement awsiam.
 	return nil
 }
 
+func (p *jsiiProxy_Pipeline) validateAddTriggerParameters(props *TriggerProps) error {
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (p *jsiiProxy_Pipeline) validateAddVariableParameters(variable Variable) error {
+	if variable == nil {
+		return fmt.Errorf("parameter variable is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_Pipeline) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -88,6 +88,12 @@ type PipelineProps struct {
 	// Default: - AWS CloudFormation generates an ID and uses that for the pipeline name.
 	//
 	PipelineName *string `field:"optional" json:"pipelineName" yaml:"pipelineName"`
+	// Type of the pipeline.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html
+	//
+	// Default: - PipelineType.V1
+	//
+	PipelineType PipelineType `field:"optional" json:"pipelineType" yaml:"pipelineType"`
 	// Indicates whether to rerun the AWS CodePipeline pipeline after you update it.
 	// Default: false.
 	//
@@ -106,5 +112,22 @@ type PipelineProps struct {
 	// Default: - None.
 	//
 	Stages *[]*StageProps `field:"optional" json:"stages" yaml:"stages"`
+	// The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.
+	//
+	// When a trigger configuration is specified, default change detection for repository
+	// and branch commits is disabled.
+	//
+	// `triggers` can only be used when `pipelineType` is set to `PipelineType.V2`.
+	// You can always add more triggers later by calling `Pipeline#addTrigger`.
+	// Default: - No triggers.
+	//
+	Triggers *[]*TriggerProps `field:"optional" json:"triggers" yaml:"triggers"`
+	// A list that defines the pipeline variables for a pipeline resource.
+	//
+	// `variables` can only be used when `pipelineType` is set to `PipelineType.V2`.
+	// You can always add more variables later by calling `Pipeline#addVariable`.
+	// Default: - No variables.
+	//
+	Variables *[]Variable `field:"optional" json:"variables" yaml:"variables"`
 }
 

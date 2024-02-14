@@ -1103,6 +1103,63 @@ func init() {
 			return &jsiiProxy_Stats{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudwatch.TableLayout",
+		reflect.TypeOf((*TableLayout)(nil)).Elem(),
+		map[string]interface{}{
+			"HORIZONTAL": TableLayout_HORIZONTAL,
+			"VERTICAL": TableLayout_VERTICAL,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudwatch.TableSummaryColumn",
+		reflect.TypeOf((*TableSummaryColumn)(nil)).Elem(),
+		map[string]interface{}{
+			"MINIMUM": TableSummaryColumn_MINIMUM,
+			"MAXIMUM": TableSummaryColumn_MAXIMUM,
+			"SUM": TableSummaryColumn_SUM,
+			"AVERAGE": TableSummaryColumn_AVERAGE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.TableSummaryProps",
+		reflect.TypeOf((*TableSummaryProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch.TableThreshold",
+		reflect.TypeOf((*TableThreshold)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TableThreshold{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch.TableWidget",
+		reflect.TypeOf((*TableWidget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addMetric", GoMethod: "AddMetric"},
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
+			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
+			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
+			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
+			_jsii_.MemberProperty{JsiiProperty: "warningsV2", GoGetter: "WarningsV2"},
+			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
+			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
+			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TableWidget{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ConcreteWidget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.TableWidgetProps",
+		reflect.TypeOf((*TableWidgetProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudwatch.TextWidget",
 		reflect.TypeOf((*TextWidget)(nil)).Elem(),
