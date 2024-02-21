@@ -71,9 +71,9 @@ type CfnCluster interface {
 	SetAclName(val *string)
 	// When you pass the logical ID of this resource to the intrinsic `Ref` function, Ref returns the ARN of the cluster , such as `arn:aws:memorydb:us-east-1:123456789012:cluster/my-cluster`.
 	AttrArn() *string
-	// The DNS address of the primary read-write node.
+	// The address of the cluster 's configuration endpoint.
 	AttrClusterEndpointAddress() *string
-	// The port number that the engine is listening on.
+	// The port used by the cluster configuration endpoint.
 	AttrClusterEndpointPort() *float64
 	// The status of the parameter group used by the cluster , for example `active` or `applying` .
 	AttrParameterGroupStatus() *string

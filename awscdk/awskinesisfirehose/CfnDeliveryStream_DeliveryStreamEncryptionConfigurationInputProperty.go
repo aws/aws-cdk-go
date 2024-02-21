@@ -30,7 +30,7 @@ type CfnDeliveryStream_DeliveryStreamEncryptionConfigurationInputProperty struct
 	KeyType *string `field:"required" json:"keyType" yaml:"keyType"`
 	// If you set `KeyType` to `CUSTOMER_MANAGED_CMK` , you must specify the Amazon Resource Name (ARN) of the CMK.
 	//
-	// If you set `KeyType` to `AWS _OWNED_CMK` , Kinesis Data Firehose uses a service-account CMK.
+	// If you set `KeyType` to `AWS _OWNED_CMK` , Firehose uses a service-account CMK.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
 	//
 	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`

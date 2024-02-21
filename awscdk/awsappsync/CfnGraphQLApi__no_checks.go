@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetAuthenticationTypeParameters(val *s
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) validateSetEnhancedMetricsConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) validateSetLambdaAuthorizerConfigParameters(val interface{}) error {
 	return nil
 }

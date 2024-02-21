@@ -130,17 +130,11 @@ type CfnReplicationGroup interface {
 	//
 	// The order of the addresses maps to the order of the ports from the `ReadEndPoint.Ports` attribute.
 	AttrReadEndPointAddresses() *string
-	// A string with a list of endpoints for the read-only replicas.
-	//
-	// The order of the addresses maps to the order of the ports from the `ReadEndPoint.Ports` attribute.
 	AttrReadEndPointAddressesList() *[]*string
 	// A string with a list of ports for the read-only replicas.
 	//
 	// The order of the ports maps to the order of the addresses from the `ReadEndPoint.Addresses` attribute.
 	AttrReadEndPointPorts() *string
-	// A string with a list of ports for the read-only replicas.
-	//
-	// The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
 	AttrReadEndPointPortsList() *[]*string
 	// The address of the reader endpoint.
 	AttrReaderEndPointAddress() *string

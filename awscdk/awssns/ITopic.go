@@ -20,7 +20,7 @@ type ITopic interface {
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
-	// will be automatically created upon the first call to `addToPolicy`. If
+	// will be automatically created upon the first call to `addToResourcePolicy`. If
 	// the topic is imported (`Topic.import`), then this is a no-op.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant topic publishing permissions to the given identity.

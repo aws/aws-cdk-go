@@ -53,9 +53,6 @@ type CfnDomainConfiguration interface {
 	AttrArn() *string
 	// The type of service delivered by the domain.
 	AttrDomainType() *string
-	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake.
-	//
-	// Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 	AttrServerCertificates() awscdk.IResolvable
 	// An object that specifies the authorization service for a domain.
 	AuthorizerConfig() interface{}
@@ -98,6 +95,7 @@ type CfnDomainConfiguration interface {
 	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake.
 	ServerCertificateArns() *[]*string
 	SetServerCertificateArns(val *[]*string)
+	// The server certificate configuration.
 	ServerCertificateConfig() interface{}
 	SetServerCertificateConfig(val interface{})
 	// The type of service delivered by the endpoint.

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnEnabledControl) validateSetParametersParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnabledControl) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEnabledControl) validateSetTargetIdentifierParameters(val *string) error {
 	return nil
 }

@@ -59,7 +59,7 @@ type CfnFuotaTask interface {
 	AttrFuotaTaskStatus() *string
 	// The ID of a FUOTA task.
 	AttrId() *string
-	// FUOTA task LoRaWAN start time.
+	// Start time of a FUOTA task.
 	AttrLoRaWanStartTime() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

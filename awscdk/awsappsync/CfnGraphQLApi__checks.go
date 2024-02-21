@@ -247,6 +247,30 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetAuthenticationTypeParameters(val *s
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) validateSetEnhancedMetricsConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnGraphQLApi_EnhancedMetricsConfigProperty:
+		val := val.(*CfnGraphQLApi_EnhancedMetricsConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnGraphQLApi_EnhancedMetricsConfigProperty:
+		val_ := val.(CfnGraphQLApi_EnhancedMetricsConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGraphQLApi_EnhancedMetricsConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) validateSetLambdaAuthorizerConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

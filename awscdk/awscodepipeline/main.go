@@ -173,6 +173,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "disableInboundStageTransitions", GoGetter: "DisableInboundStageTransitions"},
+			_jsii_.MemberProperty{JsiiProperty: "executionMode", GoGetter: "ExecutionMode"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -234,8 +235,20 @@ func init() {
 		reflect.TypeOf((*CfnPipeline_EncryptionKeyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.GitBranchFilterCriteriaProperty",
+		reflect.TypeOf((*CfnPipeline_GitBranchFilterCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.GitConfigurationProperty",
 		reflect.TypeOf((*CfnPipeline_GitConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.GitFilePathFilterCriteriaProperty",
+		reflect.TypeOf((*CfnPipeline_GitFilePathFilterCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.GitPullRequestFilterProperty",
+		reflect.TypeOf((*CfnPipeline_GitPullRequestFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.GitPushFilterProperty",

@@ -62,18 +62,28 @@ type CfnNamespace interface {
 	// The password of the administrator for the primary database created in the namespace.
 	AdminUserPassword() *string
 	SetAdminUserPassword(val *string)
-	// The collection of computing resources from which an endpoint is created.
 	AttrNamespace() awscdk.IResolvable
+	// The username of the administrator for the first database created in the namespace.
 	AttrNamespaceAdminUsername() *string
+	// The date of when the namespace was created.
 	AttrNamespaceCreationDate() *string
+	// The name of the first database created in the namespace.
 	AttrNamespaceDbName() *string
+	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 	AttrNamespaceDefaultIamRoleArn() *string
 	AttrNamespaceIamRoles() *[]*string
+	// The ID of the AWS Key Management Service key used to encrypt your data.
 	AttrNamespaceKmsKeyId() *string
 	AttrNamespaceLogExports() *[]*string
+	// The Amazon Resource Name (ARN) associated with a namespace.
 	AttrNamespaceNamespaceArn() *string
+	// The unique identifier of a namespace.
 	AttrNamespaceNamespaceId() *string
+	// The name of the namespace.
+	//
+	// Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com//redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
 	AttrNamespaceNamespaceName() *string
+	// The status of the namespace.
 	AttrNamespaceStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -121,7 +131,7 @@ type CfnNamespace interface {
 	// The name of the namespace.
 	NamespaceName() *string
 	SetNamespaceName(val *string)
-	// The resource policy document that will be attached to the namespace.
+	// The resource policy that will be attached to the namespace.
 	NamespaceResourcePolicy() interface{}
 	SetNamespaceResourcePolicy(val interface{})
 	// The tree node.

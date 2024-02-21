@@ -29,14 +29,14 @@ import (
 //
 // *Subscription filter policy*
 //
-// A subscription filter policy sets up a real-time feed of log events from CloudWatch Logs to other AWS services. Account-level subscription filter policies apply to both existing log groups and log groups that are created later in this account. Supported destinations are Kinesis Data Streams , Kinesis Data Firehose , and Lambda . When log events are sent to the receiving service, they are Base64 encoded and compressed with the GZIP format.
+// A subscription filter policy sets up a real-time feed of log events from CloudWatch Logs to other AWS services. Account-level subscription filter policies apply to both existing log groups and log groups that are created later in this account. Supported destinations are Kinesis Data Streams , Firehose , and Lambda . When log events are sent to the receiving service, they are Base64 encoded and compressed with the GZIP format.
 //
 // The following destinations are supported for subscription filters:
 //
 // - An Kinesis Data Streams data stream in the same account as the subscription policy, for same-account delivery.
-// - An Kinesis Data Firehose data stream in the same account as the subscription policy, for same-account delivery.
+// - An Firehose data stream in the same account as the subscription policy, for same-account delivery.
 // - A Lambda function in the same account as the subscription policy, for same-account delivery.
-// - A logical destination in a different account created with [PutDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html) , for cross-account delivery. Kinesis Data Streams and Kinesis Data Firehose are supported as logical destinations.
+// - A logical destination in a different account created with [PutDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html) , for cross-account delivery. Kinesis Data Streams and Firehose are supported as logical destinations.
 //
 // Each account can have one account-level subscription filter policy. If you are updating an existing filter, you must specify the correct name in `PolicyName` . To perform a `PutAccountPolicy` subscription filter operation for any destination except a Lambda function, you must also have the `iam:PassRole` permission.
 //

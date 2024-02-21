@@ -110,7 +110,13 @@ type CfnCluster interface {
 	AttrClusterNamespaceArn() *string
 	// A unique identifier for the maintenance window.
 	AttrDeferMaintenanceIdentifier() *string
+	// The connection endpoint for the Amazon Redshift cluster.
+	//
+	// For example: `examplecluster.cg034hpkmmjt.us-east-1.redshift.amazonaws.com` .
 	AttrEndpointAddress() *string
+	// The port number on which the Amazon Redshift cluster accepts connections.
+	//
+	// For example: `5439` .
 	AttrEndpointPort() *string
 	AttrId() *string
 	// The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.

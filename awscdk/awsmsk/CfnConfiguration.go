@@ -49,8 +49,11 @@ type CfnConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrArn() *string
+	// The time when the configuration was created.
 	AttrLatestRevisionCreationTime() *string
+	// The description of the configuration.
 	AttrLatestRevisionDescription() *string
+	// A string that uniquely identifies a revision of an MSK configuration.
 	AttrLatestRevisionRevision() *float64
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

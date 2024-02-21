@@ -27,6 +27,7 @@ package awsappsync
 //   	DataSourceName: jsii.String("dataSourceName"),
 //   	Kind: jsii.String("kind"),
 //   	MaxBatchSize: jsii.Number(123),
+//   	MetricsConfig: jsii.String("metricsConfig"),
 //   	PipelineConfig: &PipelineConfigProperty{
 //   		Functions: []*string{
 //   			jsii.String("functions"),
@@ -95,6 +96,12 @@ type CfnResolverProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-maxbatchsize
 	//
 	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
+	// Enables or disables enhanced resolver metrics for specified resolvers.
+	//
+	// Note that `MetricsConfig` won't be used unless the `resolverLevelMetricsBehavior` value is set to `PER_RESOLVER_METRICS` . If the `resolverLevelMetricsBehavior` is set to `FULL_REQUEST_RESOLVER_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-metricsconfig
+	//
+	MetricsConfig *string `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// Functions linked with the pipeline resolver.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-pipelineconfig
 	//

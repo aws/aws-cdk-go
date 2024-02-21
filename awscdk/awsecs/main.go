@@ -1065,6 +1065,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "containerName", GoGetter: "ContainerName"},
 			_jsii_.MemberProperty{JsiiProperty: "containerPort", GoGetter: "ContainerPort"},
 			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
+			_jsii_.MemberProperty{JsiiProperty: "credentialSpecs", GoGetter: "CredentialSpecs"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentFiles", GoGetter: "EnvironmentFiles"},
 			_jsii_.MemberProperty{JsiiProperty: "essential", GoGetter: "Essential"},
 			_jsii_.MemberMethod{JsiiMethod: "findPortMapping", GoMethod: "FindPortMapping"},
@@ -1143,6 +1144,22 @@ func init() {
 		"aws-cdk-lib.aws_ecs.CpuUtilizationScalingProps",
 		reflect.TypeOf((*CpuUtilizationScalingProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.CredentialSpec",
+		reflect.TypeOf((*CredentialSpec)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "fileLocation", GoGetter: "FileLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "prefixId", GoGetter: "PrefixId"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CredentialSpec{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CredentialSpecConfig",
+		reflect.TypeOf((*CredentialSpecConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.DeploymentAlarmConfig",
 		reflect.TypeOf((*DeploymentAlarmConfig)(nil)).Elem(),
@@ -1184,6 +1201,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.DockerVolumeConfiguration",
 		reflect.TypeOf((*DockerVolumeConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.DomainJoinedCredentialSpec",
+		reflect.TypeOf((*DomainJoinedCredentialSpec)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "fileLocation", GoGetter: "FileLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "prefixId", GoGetter: "PrefixId"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DomainJoinedCredentialSpec{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_CredentialSpec)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ecs.DomainlessCredentialSpec",
+		reflect.TypeOf((*DomainlessCredentialSpec)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "fileLocation", GoGetter: "FileLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "prefixId", GoGetter: "PrefixId"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DomainlessCredentialSpec{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_CredentialSpec)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.EBSTagSpecification",
@@ -1672,6 +1717,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "containerName", GoGetter: "ContainerName"},
 			_jsii_.MemberProperty{JsiiProperty: "containerPort", GoGetter: "ContainerPort"},
 			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
+			_jsii_.MemberProperty{JsiiProperty: "credentialSpecs", GoGetter: "CredentialSpecs"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentFiles", GoGetter: "EnvironmentFiles"},
 			_jsii_.MemberProperty{JsiiProperty: "essential", GoGetter: "Essential"},
 			_jsii_.MemberMethod{JsiiMethod: "findPortMapping", GoMethod: "FindPortMapping"},

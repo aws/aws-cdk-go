@@ -11,7 +11,7 @@ import (
 
 // This structure contains information about one *delivery destination* in your account.
 //
-// A delivery destination is an AWS resource that represents an AWS service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
+// A delivery destination is an AWS resource that represents an AWS service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Firehose delivery destinations.
 //
 // To configure logs delivery between a supported AWS service and a destination, you must do the following:
 //
@@ -50,7 +50,7 @@ type CfnDeliveryDestination interface {
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
 	AttrArn() *string
-	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
 	AttrDeliveryDestinationType() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

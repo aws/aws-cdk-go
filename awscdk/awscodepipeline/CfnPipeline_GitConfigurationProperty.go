@@ -14,8 +14,47 @@ package awscodepipeline
 //   	SourceActionName: jsii.String("sourceActionName"),
 //
 //   	// the properties below are optional
+//   	PullRequest: []interface{}{
+//   		&GitPullRequestFilterProperty{
+//   			Branches: &GitBranchFilterCriteriaProperty{
+//   				Excludes: []*string{
+//   					jsii.String("excludes"),
+//   				},
+//   				Includes: []*string{
+//   					jsii.String("includes"),
+//   				},
+//   			},
+//   			Events: []*string{
+//   				jsii.String("events"),
+//   			},
+//   			FilePaths: &GitFilePathFilterCriteriaProperty{
+//   				Excludes: []*string{
+//   					jsii.String("excludes"),
+//   				},
+//   				Includes: []*string{
+//   					jsii.String("includes"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Push: []interface{}{
 //   		&GitPushFilterProperty{
+//   			Branches: &GitBranchFilterCriteriaProperty{
+//   				Excludes: []*string{
+//   					jsii.String("excludes"),
+//   				},
+//   				Includes: []*string{
+//   					jsii.String("includes"),
+//   				},
+//   			},
+//   			FilePaths: &GitFilePathFilterCriteriaProperty{
+//   				Excludes: []*string{
+//   					jsii.String("excludes"),
+//   				},
+//   				Includes: []*string{
+//   					jsii.String("includes"),
+//   				},
+//   			},
 //   			Tags: &GitTagFilterCriteriaProperty{
 //   				Excludes: []*string{
 //   					jsii.String("excludes"),
@@ -39,9 +78,11 @@ type CfnPipeline_GitConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-sourceactionname
 	//
 	SourceActionName *string `field:"required" json:"sourceActionName" yaml:"sourceActionName"`
-	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details.
+	// The field where the repository event that will start the pipeline is specified as pull requests.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-pullrequest
 	//
-	// > Git tags is the only supported event type.
+	PullRequest interface{} `field:"optional" json:"pullRequest" yaml:"pullRequest"`
+	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html#cfn-codepipeline-pipeline-gitconfiguration-push
 	//
 	Push interface{} `field:"optional" json:"push" yaml:"push"`

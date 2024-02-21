@@ -71,9 +71,6 @@ type CfnHostedZone interface {
 	awscdk.ITaggable
 	// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 	AttrId() *string
-	// Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
-	//
-	// This attribute is not supported for private hosted zones.
 	AttrNameServers() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -24,19 +24,19 @@ package awsneptunegraph
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html
 //
 type CfnPrivateGraphEndpointProps struct {
-	// The auto-generated Graph Id assigned by the service.
+	// The unique identifier of the Neptune Analytics graph.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html#cfn-neptunegraph-privategraphendpoint-graphidentifier
 	//
 	GraphIdentifier *string `field:"required" json:"graphIdentifier" yaml:"graphIdentifier"`
-	// The VPC where you want the private graph endpoint to be created, ie, the graph will be reachable from within the VPC.
+	// The VPC in which the private graph endpoint needs to be created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html#cfn-neptunegraph-privategraphendpoint-vpcid
 	//
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
-	// The security group Ids associated with the VPC where you want the private graph endpoint to be created, ie, the graph will be reachable from within the VPC.
+	// Security groups to be attached to the private graph endpoint..
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html#cfn-neptunegraph-privategraphendpoint-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// The subnet Ids associated with the VPC where you want the private graph endpoint to be created, ie, the graph will be reachable from within the VPC.
+	// Subnets in which private graph endpoint ENIs are created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html#cfn-neptunegraph-privategraphendpoint-subnetids
 	//
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`

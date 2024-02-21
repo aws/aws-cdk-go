@@ -494,6 +494,14 @@ type CfnDataSource_DataSourceConfigurationProperty struct {
 	//
 	OneDriveConfiguration interface{} `field:"optional" json:"oneDriveConfiguration" yaml:"oneDriveConfiguration"`
 	// Provides the configuration information to connect to an Amazon S3 bucket as your data source.
+	//
+	// > Amazon Kendra now supports an upgraded Amazon S3 connector.
+	// >
+	// > You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+	// >
+	// > Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+	// >
+	// > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
 	//
 	S3Configuration interface{} `field:"optional" json:"s3Configuration" yaml:"s3Configuration"`

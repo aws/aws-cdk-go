@@ -105,21 +105,19 @@ type CfnInstance interface {
 	// An array of add-ons for the instance.
 	AddOns() interface{}
 	SetAddOns(val interface{})
-	// CPU count of the Instance.
+	// The number of vCPUs the instance has.
 	AttrHardwareCpuCount() *float64
-	// RAM Size of the Instance.
+	// The amount of RAM in GB on the instance (for example, `1.0` ).
 	AttrHardwareRamSizeInGb() *float64
 	// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	AttrInstanceArn() *string
 	// A Boolean value indicating whether the instance has a static IP assigned to it.
 	AttrIsStaticIp() awscdk.IResolvable
-	// The Availability Zone in which to create your instance.
-	//
-	// Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+	// The AWS Region and Availability Zone where the instance is located.
 	AttrLocationAvailabilityZone() *string
-	// The Region Name in which to create your instance.
+	// The AWS Region of the instance.
 	AttrLocationRegionName() *string
-	// GbPerMonthAllocated of the Instance.
+	// The amount of allocated monthly data transfer (in GB) for an instance.
 	AttrNetworkingMonthlyTransferGbPerMonthAllocated() *string
 	// The private IP address of the instance.
 	AttrPrivateIpAddress() *string
@@ -129,9 +127,9 @@ type CfnInstance interface {
 	AttrResourceType() *string
 	// The name of the SSH key pair used by the instance.
 	AttrSshKeyName() *string
-	// Status code of the Instance.
+	// The status code of the instance.
 	AttrStateCode() *float64
-	// Status code of the Instance.
+	// The state of the instance (for example, `running` or `pending` ).
 	AttrStateName() *string
 	// The support code of the instance.
 	//

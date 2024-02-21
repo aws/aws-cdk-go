@@ -12,25 +12,31 @@ import (
 // Schedule for scheduled scaling actions.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
-//   	MaxAzs: jsii.Number(1),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var resource someScalableResource
+//
+//
+//   capacity := resource.autoScaleCapacity(&caps{
+//   	minCapacity: jsii.Number(1),
+//   	maxCapacity: jsii.Number(50),
 //   })
-//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
-//   	Vpc: Vpc,
+//
+//   capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &scalingSchedule{
+//   	Schedule: appscaling.Schedule_Cron(&CronOptions{
+//   		Hour: jsii.String("8"),
+//   		Minute: jsii.String("0"),
+//   	}),
+//   	MinCapacity: jsii.Number(20),
+//   	TimeZone: awscdk.TimeZone_AMERICA_DENVER(),
 //   })
-//   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
-//   	Cluster: Cluster,
-//   	ScheduledFargateTaskImageOptions: &ScheduledFargateTaskImageOptions{
-//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   		MemoryLimitMiB: jsii.Number(512),
-//   	},
-//   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
-//   	Tags: []tag{
-//   		&tag{
-//   			Key: jsii.String("my-tag"),
-//   			Value: jsii.String("my-tag-value"),
-//   		},
-//   	},
+//
+//   capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedule{
+//   	Schedule: appscaling.Schedule_*Cron(&CronOptions{
+//   		Hour: jsii.String("20"),
+//   		Minute: jsii.String("0"),
+//   	}),
+//   	MinCapacity: jsii.Number(1),
+//   	TimeZone: awscdk.TimeZone_AMERICA_DENVER(),
 //   })
 //
 type Schedule interface {

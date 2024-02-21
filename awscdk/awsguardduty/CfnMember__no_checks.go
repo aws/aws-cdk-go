@@ -80,19 +80,11 @@ func validateCfnMember_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnMember) validateSetDetectorIdParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnMember) validateSetDisableEmailNotificationParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnMember) validateSetEmailParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnMember) validateSetMemberIdParameters(val *string) error {
 	return nil
 }
 

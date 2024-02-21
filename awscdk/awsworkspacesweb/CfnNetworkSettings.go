@@ -45,7 +45,6 @@ import (
 type CfnNetworkSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// A list of web portal ARNs that this network settings is associated with.
 	AttrAssociatedPortalArns() *[]*string
 	// The ARN of the network settings.
 	AttrNetworkSettingsArn() *string

@@ -1,7 +1,7 @@
 package awsneptunegraph
 
 
-// The vector search configuration.
+// The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsneptunegraph
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html
 //
 type CfnGraph_VectorSearchConfigurationProperty struct {
-	// The vector search dimension.
+	// The number of dimensions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html#cfn-neptunegraph-graph-vectorsearchconfiguration-vectorsearchdimension
 	//
 	VectorSearchDimension *float64 `field:"required" json:"vectorSearchDimension" yaml:"vectorSearchDimension"`

@@ -52,24 +52,36 @@ type CfnWorkgroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Returns the `Workgroup` value.
 	AttrWorkgroup() awscdk.IResolvable
+	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	AttrWorkgroupBaseCapacity() *float64
 	AttrWorkgroupConfigParameters() awscdk.IResolvable
+	// The creation date of the workgroup.
 	AttrWorkgroupCreationDate() *string
 	AttrWorkgroupEndpoint() awscdk.IResolvable
+	// The DNS address of the VPC endpoint.
 	AttrWorkgroupEndpointAddress() *string
+	// The custom port to use when connecting to a workgroup.
+	//
+	// Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 	AttrWorkgroupEndpointPort() *float64
 	AttrWorkgroupEndpointVpcEndpoints() awscdk.IResolvable
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	AttrWorkgroupEnhancedVpcRouting() awscdk.IResolvable
 	AttrWorkgroupMaxCapacity() *float64
+	// The namespace the workgroup is associated with.
 	AttrWorkgroupNamespaceName() *string
+	// A value that specifies whether the workgroup can be accessible from a public network.
 	AttrWorkgroupPubliclyAccessible() awscdk.IResolvable
 	AttrWorkgroupSecurityGroupIds() *[]*string
+	// The status of the workgroup.
 	AttrWorkgroupStatus() *string
 	AttrWorkgroupSubnetIds() *[]*string
+	// The Amazon Resource Name (ARN) that links to the workgroup.
 	AttrWorkgroupWorkgroupArn() *string
+	// The unique identifier of the workgroup.
 	AttrWorkgroupWorkgroupId() *string
+	// The name of the workgroup.
 	AttrWorkgroupWorkgroupName() *string
 	// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity() *float64

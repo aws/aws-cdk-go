@@ -179,6 +179,30 @@ func validateCfnOriginEndpointPolicy_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetChannelGroupNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetChannelNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetOriginEndpointNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetPolicyParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

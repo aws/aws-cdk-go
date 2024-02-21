@@ -67,7 +67,7 @@ type CfnTargetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target group.
+	// The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.
 	AttrLoadBalancerArns() *[]*string
 	// The Amazon Resource Name (ARN) of the target group.
 	AttrTargetGroupArn() *string

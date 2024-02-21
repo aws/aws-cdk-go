@@ -98,10 +98,15 @@ type CfnEnvironment interface {
 	AttrCeleryExecutorQueue() *string
 	// The VPC endpoint for the environment's Amazon RDS database.
 	AttrDatabaseVpcEndpointService() *string
+	// The ARN for the CloudWatch Logs group where the Apache Airflow DAG processing logs are published.
 	AttrLoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn() *string
+	// The ARN for the CloudWatch Logs group where the Apache Airflow Scheduler logs are published.
 	AttrLoggingConfigurationSchedulerLogsCloudWatchLogGroupArn() *string
+	// The ARN for the CloudWatch Logs group where the Apache Airflow task logs are published.
 	AttrLoggingConfigurationTaskLogsCloudWatchLogGroupArn() *string
+	// The ARN for the CloudWatch Logs group where the Apache Airflow Web server logs are published.
 	AttrLoggingConfigurationWebserverLogsCloudWatchLogGroupArn() *string
+	// The ARN for the CloudWatch Logs group where the Apache Airflow Worker logs are published.
 	AttrLoggingConfigurationWorkerLogsCloudWatchLogGroupArn() *string
 	// The URL of your Apache Airflow UI.
 	AttrWebserverUrl() *string

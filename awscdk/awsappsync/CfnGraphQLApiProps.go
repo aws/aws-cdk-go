@@ -42,6 +42,11 @@ import (
 //   		},
 //   	},
 //   	ApiType: jsii.String("apiType"),
+//   	EnhancedMetricsConfig: &EnhancedMetricsConfigProperty{
+//   		DataSourceLevelMetricsBehavior: jsii.String("dataSourceLevelMetricsBehavior"),
+//   		OperationLevelMetricsConfig: jsii.String("operationLevelMetricsConfig"),
+//   		ResolverLevelMetricsBehavior: jsii.String("resolverLevelMetricsBehavior"),
+//   	},
 //   	EnvironmentVariables: environmentVariables,
 //   	IntrospectionConfig: jsii.String("introspectionConfig"),
 //   	LambdaAuthorizerConfig: &LambdaAuthorizerConfigProperty{
@@ -107,6 +112,23 @@ type CfnGraphQLApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-apitype
 	//
 	ApiType *string `field:"optional" json:"apiType" yaml:"apiType"`
+	// Enables and controls the enhanced metrics feature.
+	//
+	// Enhanced metrics emit granular data on API usage and performance such as AppSync request and error counts, latency, and cache hits/misses. All enhanced metric data is sent to your CloudWatch account, and you can configure the types of data that will be sent.
+	//
+	// Enhanced metrics can be configured at the resolver, data source, and operation levels. For more information, see [Monitoring and logging](https://docs.aws.amazon.com//appsync/latest/devguide/monitoring.html#cw-metrics) in the *AWS AppSync User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-enhancedmetricsconfig
+	//
+	EnhancedMetricsConfig interface{} `field:"optional" json:"enhancedMetricsConfig" yaml:"enhancedMetricsConfig"`
+	// A map containing the list of resources with their properties and environment variables.
+	//
+	// For more information, see [Environmental variables](https://docs.aws.amazon.com/appsync/latest/devguide/environmental-variables.html) .
+	//
+	// *Pattern* : `^[A-Za-z]+\\w*$\\`
+	//
+	// *Minimum* : 2
+	//
+	// *Maximum* : 64.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-environmentvariables
 	//
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`

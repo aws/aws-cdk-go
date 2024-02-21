@@ -18,8 +18,47 @@ package awscodepipeline
 //   		SourceActionName: jsii.String("sourceActionName"),
 //
 //   		// the properties below are optional
+//   		PullRequest: []interface{}{
+//   			&GitPullRequestFilterProperty{
+//   				Branches: &GitBranchFilterCriteriaProperty{
+//   					Excludes: []*string{
+//   						jsii.String("excludes"),
+//   					},
+//   					Includes: []*string{
+//   						jsii.String("includes"),
+//   					},
+//   				},
+//   				Events: []*string{
+//   					jsii.String("events"),
+//   				},
+//   				FilePaths: &GitFilePathFilterCriteriaProperty{
+//   					Excludes: []*string{
+//   						jsii.String("excludes"),
+//   					},
+//   					Includes: []*string{
+//   						jsii.String("includes"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		Push: []interface{}{
 //   			&GitPushFilterProperty{
+//   				Branches: &GitBranchFilterCriteriaProperty{
+//   					Excludes: []*string{
+//   						jsii.String("excludes"),
+//   					},
+//   					Includes: []*string{
+//   						jsii.String("includes"),
+//   					},
+//   				},
+//   				FilePaths: &GitFilePathFilterCriteriaProperty{
+//   					Excludes: []*string{
+//   						jsii.String("excludes"),
+//   					},
+//   					Includes: []*string{
+//   						jsii.String("includes"),
+//   					},
+//   				},
 //   				Tags: &GitTagFilterCriteriaProperty{
 //   					Excludes: []*string{
 //   						jsii.String("excludes"),

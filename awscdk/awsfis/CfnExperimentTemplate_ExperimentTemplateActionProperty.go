@@ -37,7 +37,7 @@ type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The parameters for the action, if applicable.
+	// The parameters for the action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
@@ -45,7 +45,7 @@ type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
 	//
 	StartAfter *[]*string `field:"optional" json:"startAfter" yaml:"startAfter"`
-	// One or more targets for the action.
+	// The targets for the action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
 	//
 	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`

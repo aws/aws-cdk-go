@@ -41,6 +41,7 @@ import (
 //   	DataSourceName: jsii.String("dataSourceName"),
 //   	Kind: jsii.String("kind"),
 //   	MaxBatchSize: jsii.Number(123),
+//   	MetricsConfig: jsii.String("metricsConfig"),
 //   	PipelineConfig: &PipelineConfigProperty{
 //   		Functions: []*string{
 //   			jsii.String("functions"),
@@ -119,6 +120,9 @@ type CfnResolver interface {
 	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a `BatchInvoke` operation.
 	MaxBatchSize() *float64
 	SetMaxBatchSize(val *float64)
+	// Enables or disables enhanced resolver metrics for specified resolvers.
+	MetricsConfig() *string
+	SetMetricsConfig(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Functions linked with the pipeline resolver.
@@ -460,6 +464,16 @@ func (j *jsiiProxy_CfnResolver) MaxBatchSize() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResolver) MetricsConfig() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"metricsConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResolver) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -687,6 +701,14 @@ func (j *jsiiProxy_CfnResolver)SetMaxBatchSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"maxBatchSize",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResolver)SetMetricsConfig(val *string) {
+	_jsii_.Set(
+		j,
+		"metricsConfig",
 		val,
 	)
 }

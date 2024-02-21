@@ -47,7 +47,6 @@ type CfnTransitGatewayPeeringAttachment interface {
 	//
 	// Note that the `initiating` state has been deprecated.
 	AttrState() *string
-	// The status of the transit gateway peering attachment.
 	AttrStatus() awscdk.IResolvable
 	AttrStatusCode() *string
 	AttrStatusMessage() *string

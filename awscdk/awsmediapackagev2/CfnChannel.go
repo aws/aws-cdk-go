@@ -21,6 +21,8 @@ import (
 //   cfnChannel := awscdk.Aws_mediapackagev2.NewCfnChannel(this, jsii.String("MyCfnChannel"), &CfnChannelProps{
 //   	ChannelGroupName: jsii.String("channelGroupName"),
 //   	ChannelName: jsii.String("channelName"),
+//
+//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -39,7 +41,7 @@ type CfnChannel interface {
 	AttrArn() *string
 	// The timestamp of the ccreation of the channel.
 	AttrCreatedAt() *string
-	// The ingest endpoints associated with the channel.
+	// <p>The list of ingest endpoints.</p>.
 	AttrIngestEndpoints() awscdk.IResolvable
 	// The timestamp of the modification of the channel.
 	AttrModifiedAt() *string
@@ -440,6 +442,9 @@ func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string
 }
 
 func (j *jsiiProxy_CfnChannel)SetChannelGroupName(val *string) {
+	if err := j.validateSetChannelGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelGroupName",
@@ -448,6 +453,9 @@ func (j *jsiiProxy_CfnChannel)SetChannelGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnChannel)SetChannelName(val *string) {
+	if err := j.validateSetChannelNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelName",

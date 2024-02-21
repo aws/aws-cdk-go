@@ -62,6 +62,7 @@ import (
 //   	LambdaConfig: &LambdaConfigProperty{
 //   		LambdaFunctionArn: jsii.String("lambdaFunctionArn"),
 //   	},
+//   	MetricsConfig: jsii.String("metricsConfig"),
 //   	OpenSearchServiceConfig: &OpenSearchServiceConfigProperty{
 //   		AwsRegion: jsii.String("awsRegion"),
 //   		Endpoint: jsii.String("endpoint"),
@@ -134,6 +135,9 @@ type CfnDataSource interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Enables or disables enhanced data source metrics for specified data sources.
+	MetricsConfig() *string
+	SetMetricsConfig(val *string)
 	// Friendly name for you to identify your AppSync data source after creation.
 	Name() *string
 	SetName(val *string)
@@ -456,6 +460,16 @@ func (j *jsiiProxy_CfnDataSource) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) MetricsConfig() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"metricsConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -654,6 +668,14 @@ func (j *jsiiProxy_CfnDataSource)SetLambdaConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"lambdaConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource)SetMetricsConfig(val *string) {
+	_jsii_.Set(
+		j,
+		"metricsConfig",
 		val,
 	)
 }

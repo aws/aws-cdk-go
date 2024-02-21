@@ -17,11 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnOriginEndpoint := awscdk.Aws_mediapackagev2.NewCfnOriginEndpoint(this, jsii.String("MyCfnOriginEndpoint"), &CfnOriginEndpointProps{
-//   	ContainerType: jsii.String("containerType"),
-//
-//   	// the properties below are optional
 //   	ChannelGroupName: jsii.String("channelGroupName"),
 //   	ChannelName: jsii.String("channelName"),
+//   	OriginEndpointName: jsii.String("originEndpointName"),
+//
+//   	// the properties below are optional
+//   	ContainerType: jsii.String("containerType"),
 //   	Description: jsii.String("description"),
 //   	HlsManifests: []interface{}{
 //   		&HlsManifestConfigurationProperty{
@@ -63,7 +64,6 @@ import (
 //   			Url: jsii.String("url"),
 //   		},
 //   	},
-//   	OriginEndpointName: jsii.String("originEndpointName"),
 //   	Segment: &SegmentProperty{
 //   		Encryption: &EncryptionProperty{
 //   			EncryptionMethod: &EncryptionMethodProperty{
@@ -583,6 +583,9 @@ func NewCfnOriginEndpoint_Override(c CfnOriginEndpoint, scope constructs.Constru
 }
 
 func (j *jsiiProxy_CfnOriginEndpoint)SetChannelGroupName(val *string) {
+	if err := j.validateSetChannelGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelGroupName",
@@ -591,6 +594,9 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetChannelGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnOriginEndpoint)SetChannelName(val *string) {
+	if err := j.validateSetChannelNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelName",
@@ -599,9 +605,6 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetChannelName(val *string) {
 }
 
 func (j *jsiiProxy_CfnOriginEndpoint)SetContainerType(val *string) {
-	if err := j.validateSetContainerTypeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"containerType",
@@ -640,6 +643,9 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetLowLatencyHlsManifests(val interface{}) 
 }
 
 func (j *jsiiProxy_CfnOriginEndpoint)SetOriginEndpointName(val *string) {
+	if err := j.validateSetOriginEndpointNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"originEndpointName",

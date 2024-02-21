@@ -26,7 +26,7 @@ type CfnAlarmModel_FirehoseProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-firehose.html#cfn-iotevents-alarmmodel-firehose-deliverystreamname
 	//
 	DeliveryStreamName *string `field:"required" json:"deliveryStreamName" yaml:"deliveryStreamName"`
-	// You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery stream.
+	// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-firehose.html#cfn-iotevents-alarmmodel-firehose-payload
 	//
 	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`

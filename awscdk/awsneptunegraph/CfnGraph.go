@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
+// The `AWS ::NeptuneGraph::Graph` resource creates an  graph.
+//
+// is a memory-optimized graph database engine for analytics. For more information, see [](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html) .
+//
+// You can use `AWS ::NeptuneGraph::Graph.DeletionProtection` to help guard against unintended deletion of your graph.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,9 +48,13 @@ type CfnGraph interface {
 	//
 	// For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
 	AttrEndpoint() *string
-	// Graph resource ARN.
+	// The ARN of the graph.
+	//
+	// For example: `arn:aws:neptune-graph:us-east-1:111122223333:graph/g-12a3bcdef4`.
 	AttrGraphArn() *string
-	// The auto-generated id assigned by the service.
+	// The ID of the graph.
+	//
+	// For example: `g-12a3bcdef4`.
 	AttrGraphId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -57,10 +65,12 @@ type CfnGraph interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Value that indicates whether the Graph has deletion protection enabled.
+	// A value that indicates whether the graph has deletion protection enabled.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
-	// Contains a user-supplied name for the Graph.
+	// The graph name.
+	//
+	// For example: `my-graph-1` .
 	GraphName() *string
 	SetGraphName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -75,12 +85,12 @@ type CfnGraph interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Memory for the Graph.
+	// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
 	ProvisionedMemory() *float64
 	SetProvisionedMemory(val *float64)
-	// Specifies whether the Graph can be reached over the internet.
+	// Specifies whether or not the graph can be reachable over the internet.
 	//
-	// Access to all graphs requires IAM authentication.
+	// All access to graphs is IAM authenticated.
 	PublicConnectivity() interface{}
 	SetPublicConnectivity(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -88,16 +98,14 @@ type CfnGraph interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies the number of replicas you want when finished.
-	//
-	// All replicas will be provisioned in different availability zones.
+	// The number of replicas in other AZs.
 	ReplicaCount() *float64
 	SetReplicaCount(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags associated with this graph.
+	// Adds metadata tags to the new graph.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -113,7 +121,7 @@ type CfnGraph interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The vector search configuration.
+	// Specifies the number of dimensions for vector embeddings that will be loaded into the graph.
 	VectorSearchConfiguration() interface{}
 	SetVectorSearchConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

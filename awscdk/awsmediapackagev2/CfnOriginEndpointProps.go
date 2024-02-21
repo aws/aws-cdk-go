@@ -12,11 +12,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnOriginEndpointProps := &CfnOriginEndpointProps{
-//   	ContainerType: jsii.String("containerType"),
-//
-//   	// the properties below are optional
 //   	ChannelGroupName: jsii.String("channelGroupName"),
 //   	ChannelName: jsii.String("channelName"),
+//   	OriginEndpointName: jsii.String("originEndpointName"),
+//
+//   	// the properties below are optional
+//   	ContainerType: jsii.String("containerType"),
 //   	Description: jsii.String("description"),
 //   	HlsManifests: []interface{}{
 //   		&HlsManifestConfigurationProperty{
@@ -58,7 +59,6 @@ import (
 //   			Url: jsii.String("url"),
 //   		},
 //   	},
-//   	OriginEndpointName: jsii.String("originEndpointName"),
 //   	Segment: &SegmentProperty{
 //   		Encryption: &EncryptionProperty{
 //   			EncryptionMethod: &EncryptionMethodProperty{
@@ -105,18 +105,22 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html
 //
 type CfnOriginEndpointProps struct {
-	// The container type associated with the origin endpoint configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-containertype
-	//
-	ContainerType *string `field:"required" json:"containerType" yaml:"containerType"`
 	// The name of the channel group associated with the origin endpoint configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelgroupname
 	//
-	ChannelGroupName *string `field:"optional" json:"channelGroupName" yaml:"channelGroupName"`
+	ChannelGroupName *string `field:"required" json:"channelGroupName" yaml:"channelGroupName"`
 	// The channel name associated with the origin endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelname
 	//
-	ChannelName *string `field:"optional" json:"channelName" yaml:"channelName"`
+	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
+	// The name of the origin endpoint associated with the origin endpoint configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-originendpointname
+	//
+	OriginEndpointName *string `field:"required" json:"originEndpointName" yaml:"originEndpointName"`
+	// The container type associated with the origin endpoint configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-containertype
+	//
+	ContainerType *string `field:"optional" json:"containerType" yaml:"containerType"`
 	// The description associated with the origin endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-description
 	//
@@ -129,10 +133,6 @@ type CfnOriginEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifests
 	//
 	LowLatencyHlsManifests interface{} `field:"optional" json:"lowLatencyHlsManifests" yaml:"lowLatencyHlsManifests"`
-	// The name of the origin endpoint associated with the origin endpoint configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-originendpointname
-	//
-	OriginEndpointName *string `field:"optional" json:"originEndpointName" yaml:"originEndpointName"`
 	// The segment associated with the origin endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-segment
 	//

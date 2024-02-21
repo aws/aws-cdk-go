@@ -55,7 +55,7 @@ type CfnUserProps struct {
 	// Specifies the authentication mode to use. Below is an example of the possible JSON values:.
 	//
 	// ```
-	// { Type: <iam | no-password-required | password> Passwords: ["*****", "******"] // If Type is password.
+	// { Passwords: ["*****", "******"] // If Type is password.
 	// }
 	// ```.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-authenticationmode

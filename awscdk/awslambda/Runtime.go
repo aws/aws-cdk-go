@@ -177,6 +177,17 @@ func Runtime_DOTNET_6() Runtime {
 	return returns
 }
 
+func Runtime_DOTNET_8() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"DOTNET_8",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_DOTNET_CORE_1() Runtime {
 	_init_.Initialize()
 	var returns Runtime

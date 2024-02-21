@@ -45,9 +45,9 @@ type CfnCell interface {
 	awscdk.ITaggable
 	// The ARN of the cell.
 	AttrCellArn() *string
-	// The readiness scope for the cell, which can be the Amazon Resource Name (ARN) of a cell or the ARN of a recovery group.
+	// The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN.
 	//
-	// Although this is a list, it can currently have only one element.
+	// This is a list but currently can have only one element.
 	AttrParentReadinessScopes() *[]*string
 	// The name of the cell to create.
 	CellName() *string

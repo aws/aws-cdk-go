@@ -3,7 +3,13 @@ package awskendra
 
 // Provides the configuration information to connect to an Amazon S3 bucket.
 //
-// > `S3DataSourceConfiguration` is deprecated. Amazon VPC is not supported if you configure your Amazon S3 connector with this method. Use [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) to configure your Amazon S3 connector instead. See [Amazon S3 template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html#ds-s3-schema) for more details.
+// > Amazon Kendra now supports an upgraded Amazon S3 connector.
+// >
+// > You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+// >
+// > Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+// >
+// > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -50,32 +56,37 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
 	//
 	DocumentsMetadataConfiguration interface{} `field:"optional" json:"documentsMetadataConfiguration" yaml:"documentsMetadataConfiguration"`
-	// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for file names and file types that should not be indexed.
+	// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index.
 	//
-	// If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Examples of glob patterns include:
+	// If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 	//
 	// - `/myapp/config/*` - All files inside config directory
 	// - `/** /*.png` - All .png files in all directories
 	// - `/** /*.{png,ico,md}` - All .png, .ico or .md files in all directories
 	// - `/myapp/src/** /*.ts` - All .ts files inside src directory (and all its subdirectories)
 	// - `** /!(*.module).ts` - All .ts files but not .module.ts
-	// - **.png , *.jpg* will exclude all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
-	// - **internal** will exclude all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
-	// - *** /*internal** will exclude all internal-related files in a directory and its subdirectories.
+	// - **.png , *.jpg* excludes all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** excludes all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - *** /*internal** excludes all internal-related files in a directory and its subdirectories.
 	//
 	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
 	//
 	ExclusionPatterns *[]*string `field:"optional" json:"exclusionPatterns" yaml:"exclusionPatterns"`
-	// A list of glob patterns for documents that should be indexed.
+	// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index.
 	//
-	// If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed.
+	// If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 	//
-	// Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:
+	// - `/myapp/config/*` - All files inside config directory
+	// - `/** /*.png` - All .png files in all directories
+	// - `/** /*.{png,ico,md}` - All .png, .ico or .md files in all directories
+	// - `/myapp/src/** /*.ts` - All .ts files inside src directory (and all its subdirectories)
+	// - `** /!(*.module).ts` - All .ts files but not .module.ts
+	// - **.png , *.jpg* includes all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** includes all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - *** /*internal** includes all internal-related files in a directory and its subdirectories.
 	//
-	// - **.txt* will include all text files in a directory (files with the extension .txt).
-	// - *** /*.txt* will include all text files in a directory and its subdirectories.
-	// - **tax** will include all files in a directory that contain 'tax' in the file name, such as 'tax', 'taxes', 'income_tax'.
+	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
 	//
 	InclusionPatterns *[]*string `field:"optional" json:"inclusionPatterns" yaml:"inclusionPatterns"`

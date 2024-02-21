@@ -91,6 +91,7 @@ type CfnCrawler_TargetsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
 	//
 	DynamoDbTargets interface{} `field:"optional" json:"dynamoDbTargets" yaml:"dynamoDbTargets"`
+	// Specifies Apache Iceberg data store targets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-icebergtargets
 	//
 	IcebergTargets interface{} `field:"optional" json:"icebergTargets" yaml:"icebergTargets"`

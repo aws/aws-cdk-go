@@ -29,7 +29,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html
 //
 type CfnLandingZoneProps struct {
-	// The landing zone manifest JSON text file that specifies the landing zone configurations.
+	// The landing zone `manifest.yaml` text file that specifies the landing zone configurations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html#cfn-controltower-landingzone-manifest
 	//
 	Manifest interface{} `field:"required" json:"manifest" yaml:"manifest"`

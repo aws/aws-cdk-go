@@ -1,7 +1,7 @@
 package awsimagebuilder
 
 
-// The AMI exclusion rules for the policy detail.
+// Defines criteria for AMIs that are excluded from lifecycle actions.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,23 +28,23 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html
 //
 type CfnLifecyclePolicy_AmiExclusionRulesProperty struct {
-	// Use to apply lifecycle policy actions on whether the AMI is public.
+	// Configures whether public AMIs are excluded from the lifecycle action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html#cfn-imagebuilder-lifecyclepolicy-amiexclusionrules-ispublic
 	//
 	IsPublic interface{} `field:"optional" json:"isPublic" yaml:"isPublic"`
-	// The last launched time of a resource.
+	// Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html#cfn-imagebuilder-lifecyclepolicy-amiexclusionrules-lastlaunched
 	//
 	LastLaunched interface{} `field:"optional" json:"lastLaunched" yaml:"lastLaunched"`
-	// Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+	// Configures AWS Region s that are excluded from the lifecycle action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html#cfn-imagebuilder-lifecyclepolicy-amiexclusionrules-regions
 	//
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
-	// Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+	// Specifies AWS account s whose resources are excluded from the lifecycle action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html#cfn-imagebuilder-lifecyclepolicy-amiexclusionrules-sharedaccounts
 	//
 	SharedAccounts *[]*string `field:"optional" json:"sharedAccounts" yaml:"sharedAccounts"`
-	// The AMIs to select by tag.
+	// Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html#cfn-imagebuilder-lifecyclepolicy-amiexclusionrules-tagmap
 	//
 	TagMap interface{} `field:"optional" json:"tagMap" yaml:"tagMap"`

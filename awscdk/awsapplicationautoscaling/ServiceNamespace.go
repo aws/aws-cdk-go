@@ -10,7 +10,7 @@ package awsapplicationautoscaling
 //
 //
 //   handler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_7(),
+//   	Runtime: lambda.Runtime_PYTHON_3_12(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: Code,
 //

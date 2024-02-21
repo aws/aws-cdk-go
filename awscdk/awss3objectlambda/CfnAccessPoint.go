@@ -46,11 +46,14 @@ import (
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The alias of the Object Lambda Access Point.
 	AttrAlias() awscdk.IResolvable
-	// The status of the Object Lambda alias.
+	// The status of the Object Lambda Access Point alias.
+	//
+	// Valid Values: `PROVISIONING` | `READY` .
 	AttrAliasStatus() *string
-	// The value of the Object Lambda alias.
+	// The alias name value of the Object Lambda Access Point.
+	//
+	// For example: `myolap-1a4n8yjrb3kda96f67zwrwiiuse1a--ol-s3` .
 	AttrAliasValue() *string
 	// Specifies the ARN for the Object Lambda Access Point.
 	AttrArn() *string

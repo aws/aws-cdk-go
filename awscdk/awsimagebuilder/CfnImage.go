@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// An image build version.
+// Creates a new image.
 //
-// An image is a customized, secure, and up-to-date “golden” server image that is pre-installed and pre-configured with software and settings to meet specific IT standards.
+// This request will create a new image along with all of the configured output resources defined in the distribution configuration. You must specify exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -74,7 +74,7 @@ type CfnImage interface {
 	//
 	// Values are returned only for AMIs, and not for container images.
 	AttrImageId() *string
-	// Returns a list of URIs for container images created in the context Region.
+	// Returns the URI for a container image created in the context Region.
 	//
 	// Values are returned only for container images, and not for AMIs.
 	AttrImageUri() *string
@@ -85,32 +85,32 @@ type CfnImage interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline.
+	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn() *string
 	SetContainerRecipeArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the distribution configuration.
+	// The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.
 	DistributionConfigurationArn() *string
 	SetDistributionConfigurationArn(val *string)
-	// Indicates whether Image Builder collects additional information about the image, such as the operating system (OS) version and package list.
+	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled() interface{}
 	SetEnhancedImageMetadataEnabled(val interface{})
 	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to perform workflow actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
-	// The Amazon Resource Name (ARN) of the image recipe.
+	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn() *string
 	SetImageRecipeArn(val *string)
 	// Contains settings for vulnerability scans.
 	ImageScanningConfiguration() interface{}
 	SetImageScanningConfiguration(val interface{})
-	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
+	// The image tests configuration of the image.
 	ImageTestsConfiguration() interface{}
 	SetImageTestsConfiguration(val interface{})
-	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
+	// The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.
 	InfrastructureConfigurationArn() *string
 	SetInfrastructureConfigurationArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -152,7 +152,7 @@ type CfnImage interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Contains the build and test workflows that are associated with the image.
+	// Contains an array of workflow configuration objects.
 	Workflows() interface{}
 	SetWorkflows(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -21,6 +21,7 @@ Currently supported are:
   * [Run an ECS Task](#run-an-ecs-task)
 
     * [Tagging Tasks](#tagging-tasks)
+    * [Launch type for ECS Task](#launch-type-for-ecs-task)
     * [Assign public IP addresses to tasks](#assign-public-ip-addresses-to-tasks)
     * [Enable Amazon ECS Exec for ECS Task](#enable-amazon-ecs-exec-for-ecs-task)
 
@@ -405,6 +406,30 @@ targets.NewEcsTask(&EcsTaskProps{
 			Value: jsii.String("my-tag-value"),
 		},
 	},
+}))
+```
+
+### Launch type for ECS Task
+
+By default, if `isEc2Compatible` for the `taskDefinition` is true, the EC2 type is used as
+the launch type for the task, otherwise the FARGATE type.
+If you want to override the default launch type, you can set the `launchType` property.
+
+```go
+import ecs "github.com/aws/aws-cdk-go/awscdk"
+
+var cluster iCluster
+var taskDefinition taskDefinition
+
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	LaunchType: ecs.LaunchType_FARGATE,
 }))
 ```
 

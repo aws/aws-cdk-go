@@ -50,7 +50,6 @@ import (
 type CfnIdentitySource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// A structure that contains information about the configuration of the identity source.
 	AttrDetails() awscdk.IResolvable
 	AttrDetailsClientIds() *[]*string
 	AttrDetailsDiscoveryUrl() *string

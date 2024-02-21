@@ -4,12 +4,16 @@ package awslambda
 // The auth types for a function url.
 //
 // Example:
+//   // Can be a Function or an Alias
 //   var fn function
 //
 //
-//   fn.AddFunctionUrl(&FunctionUrlOptions{
+//   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
 //   	AuthType: lambda.FunctionUrlAuthType_NONE,
-//   	InvokeMode: lambda.InvokeMode_RESPONSE_STREAM,
+//   })
+//
+//   awscdk.NewCfnOutput(this, jsii.String("TheUrl"), &CfnOutputProps{
+//   	Value: fnUrl.Url,
 //   })
 //
 type FunctionUrlAuthType string

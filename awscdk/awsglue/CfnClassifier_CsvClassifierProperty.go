@@ -31,6 +31,7 @@ type CfnClassifier_CsvClassifierProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
 	//
 	AllowSingleColumn interface{} `field:"optional" json:"allowSingleColumn" yaml:"allowSingleColumn"`
+	// Indicates whether the CSV file contains custom data types.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containscustomdatatype
 	//
 	ContainsCustomDatatype *[]*string `field:"optional" json:"containsCustomDatatype" yaml:"containsCustomDatatype"`
@@ -44,7 +45,7 @@ type CfnClassifier_CsvClassifierProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
 	//
 	ContainsHeader *string `field:"optional" json:"containsHeader" yaml:"containsHeader"`
-	// Enables the custom datatype to be configured.
+	// Enables the configuration of custom data types.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-customdatatypeconfigured
 	//
 	CustomDatatypeConfigured interface{} `field:"optional" json:"customDatatypeConfigured" yaml:"customDatatypeConfigured"`

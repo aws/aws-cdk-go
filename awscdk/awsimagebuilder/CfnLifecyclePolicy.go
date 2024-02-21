@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The configuration details for a lifecycle policy resource.
+// Create a lifecycle policy resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -104,7 +104,7 @@ type CfnLifecyclePolicy interface {
 	// Optional description for the lifecycle policy.
 	Description() *string
 	SetDescription(val *string)
-	// The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to run the lifecycle policy.
+	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -117,12 +117,12 @@ type CfnLifecyclePolicy interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the lifecycle policy.
+	// The name of the lifecycle policy to create.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The configuration details for a lifecycle policy resource.
+	// Configuration details for the lifecycle policy rules.
 	PolicyDetails() interface{}
 	SetPolicyDetails(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -130,10 +130,10 @@ type CfnLifecyclePolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Resource selection criteria used to run the lifecycle policy.
+	// Selection criteria for the resources that the lifecycle policy applies to.
 	ResourceSelection() interface{}
 	SetResourceSelection(val interface{})
-	// The type of resources the lifecycle policy targets.
+	// The type of Image Builder resource that the lifecycle policy applies to.
 	ResourceType() *string
 	SetResourceType(val *string)
 	// The stack in which this element is defined.
@@ -143,7 +143,7 @@ type CfnLifecyclePolicy interface {
 	// Indicates whether the lifecycle policy resource is enabled.
 	Status() *string
 	SetStatus(val *string)
-	// To help manage your lifecycle policy resources, you can assign your own metadata to each resource in the form of tags.
+	// Tags to apply to the lifecycle policy resource.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

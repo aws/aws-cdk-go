@@ -18,6 +18,10 @@ package awssagemaker
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	StorageType: jsii.String("storageType"),
+//   	TtlDuration: &TtlDurationProperty{
+//   		Unit: jsii.String("unit"),
+//   		Value: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html
@@ -42,5 +46,9 @@ type CfnFeatureGroup_OnlineStoreConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
+	// TTL configuration of the feature group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-ttlduration
+	//
+	TtlDuration interface{} `field:"optional" json:"ttlDuration" yaml:"ttlDuration"`
 }
 

@@ -469,6 +469,7 @@ import (
 //   			},
 //   		},
 //   		TerminationProtected: jsii.Boolean(false),
+//   		UnhealthyNodeReplacement: jsii.Boolean(false),
 //   	},
 //   	JobFlowRole: jsii.String("jobFlowRole"),
 //   	Name: jsii.String("name"),

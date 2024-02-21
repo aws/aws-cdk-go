@@ -89,6 +89,7 @@ import (
 //   			StageName: jsii.String("stageName"),
 //   		},
 //   	},
+//   	ExecutionMode: jsii.String("executionMode"),
 //   	Name: jsii.String("name"),
 //   	PipelineType: jsii.String("pipelineType"),
 //   	RestartExecutionOnUpdate: jsii.Boolean(false),
@@ -107,8 +108,47 @@ import (
 //   				SourceActionName: jsii.String("sourceActionName"),
 //
 //   				// the properties below are optional
+//   				PullRequest: []interface{}{
+//   					&GitPullRequestFilterProperty{
+//   						Branches: &GitBranchFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
+//   						Events: []*string{
+//   							jsii.String("events"),
+//   						},
+//   						FilePaths: &GitFilePathFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Push: []interface{}{
 //   					&GitPushFilterProperty{
+//   						Branches: &GitBranchFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
+//   						FilePaths: &GitFilePathFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
 //   						Tags: &GitTagFilterCriteriaProperty{
 //   							Excludes: []*string{
 //   								jsii.String("excludes"),
@@ -162,6 +202,12 @@ type CfnPipelineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-disableinboundstagetransitions
 	//
 	DisableInboundStageTransitions interface{} `field:"optional" json:"disableInboundStageTransitions" yaml:"disableInboundStageTransitions"`
+	// The method that the pipeline will use to handle multiple executions.
+	//
+	// The default mode is SUPERSEDED.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-executionmode
+	//
+	ExecutionMode *string `field:"optional" json:"executionMode" yaml:"executionMode"`
 	// The name of the pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-name
 	//
@@ -173,7 +219,7 @@ type CfnPipelineProps struct {
 	//
 	// > Including V2 parameters, such as triggers on Git tags, in the pipeline JSON when creating or updating a pipeline will result in the pipeline having the V2 type of pipeline and the associated costs.
 	//
-	// For information about pricing for CodePipeline, see [Pricing](https://docs.aws.amazon.com/https://aws.amazon.com/codepipeline/pricing/) .
+	// For information about pricing for CodePipeline, see [Pricing](https://docs.aws.amazon.com/codepipeline/pricing/) .
 	//
 	// For information about which type of pipeline to choose, see [What type of pipeline is right for me?](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-pipelinetype

@@ -13,7 +13,7 @@ import (
 //
 // This document defines the actions that Systems Manager performs on your AWS resources.
 //
-// > This resource does not support CloudFormation drift detection.
+// > This resource does not support AWS CloudFormation drift detection.
 //
 // Example:
 //   var application application

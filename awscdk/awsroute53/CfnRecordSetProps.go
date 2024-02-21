@@ -31,6 +31,15 @@ package awsroute53
 //   		CountryCode: jsii.String("countryCode"),
 //   		SubdivisionCode: jsii.String("subdivisionCode"),
 //   	},
+//   	GeoProximityLocation: &GeoProximityLocationProperty{
+//   		AwsRegion: jsii.String("awsRegion"),
+//   		Bias: jsii.Number(123),
+//   		Coordinates: &CoordinatesProperty{
+//   			Latitude: jsii.String("latitude"),
+//   			Longitude: jsii.String("longitude"),
+//   		},
+//   		LocalZoneGroup: jsii.String("localZoneGroup"),
+//   	},
 //   	HealthCheckId: jsii.String("healthCheckId"),
 //   	HostedZoneId: jsii.String("hostedZoneId"),
 //   	HostedZoneName: jsii.String("hostedZoneName"),
@@ -152,6 +161,10 @@ type CfnRecordSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordset.html#cfn-route53-recordset-geolocation
 	//
 	GeoLocation interface{} `field:"optional" json:"geoLocation" yaml:"geoLocation"`
+	// *GeoproximityLocation resource record sets only:* A complex type that lets you control how Route 53 responds to DNS queries based on the geographic origin of the query and your resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordset.html#cfn-route53-recordset-geoproximitylocation
+	//
+	GeoProximityLocation interface{} `field:"optional" json:"geoProximityLocation" yaml:"geoProximityLocation"`
 	// If you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the `HealthCheckId` element and specify the ID of the applicable health check.
 	//
 	// Route 53 determines whether a resource record set is healthy based on one of the following:

@@ -3,6 +3,8 @@ package awselasticache
 
 // Represents the information required for client programs to connect to a cache node.
 //
+// This value is read-only.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

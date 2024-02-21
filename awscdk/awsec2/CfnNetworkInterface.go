@@ -82,9 +82,7 @@ type CfnNetworkInterface interface {
 	//
 	// For example, `10.0.0.192` .
 	AttrPrimaryPrivateIpAddress() *string
-	// The secondary private IP addresses of the network interface.
-	//
-	// For example, `["10.0.0.161", "10.0.0.162", "10.0.0.163"]` .
+	// Returns the secondary private IP addresses of the network interface.
 	AttrSecondaryPrivateIpAddresses() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

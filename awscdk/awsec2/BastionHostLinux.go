@@ -23,7 +23,7 @@ import (
 //   	Vpc: Vpc,
 //   	BlockDevices: []blockDevice{
 //   		&blockDevice{
-//   			DeviceName: jsii.String("EBSBastionHost"),
+//   			DeviceName: jsii.String("/dev/sdh"),
 //   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(10), &EbsDeviceOptions{
 //   				Encrypted: jsii.Boolean(true),
 //   			}),

@@ -33,49 +33,51 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html
 //
 type CfnGraphProps struct {
-	// Memory for the Graph.
+	// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+	//
+	// Min = 128.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-provisionedmemory
 	//
 	ProvisionedMemory *float64 `field:"required" json:"provisionedMemory" yaml:"provisionedMemory"`
-	// Value that indicates whether the Graph has deletion protection enabled.
+	// A value that indicates whether the graph has deletion protection enabled.
 	//
 	// The graph can't be deleted when deletion protection is enabled.
-	//
-	// _Default_: If not specified, the default value is true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-deletionprotection
 	//
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
-	// Contains a user-supplied name for the Graph.
+	// The graph name. For example: `my-graph-1` .
 	//
-	// If you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.
+	// The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
 	//
-	// _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	// If you don't specify a graph name, a unique graph name is generated for you using the prefix `graph-for` , followed by a combination of `Stack Name` and a `UUID` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-graphname
 	//
 	GraphName *string `field:"optional" json:"graphName" yaml:"graphName"`
-	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
+	// Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.
 	//
-	// When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.
+	// When the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the internet. When the graph isn't publicly available, you need to create a `PrivateGraphEndpoint` in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	//
-	// When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+	// Default: If not specified, the default value is false.
 	//
-	// _Default_: If not specified, the default value is false.
+	// > If enabling public connectivity for the first time, there will be a delay while it is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-publicconnectivity
 	//
 	PublicConnectivity interface{} `field:"optional" json:"publicConnectivity" yaml:"publicConnectivity"`
-	// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.
+	// The number of replicas in other AZs.
 	//
-	// Replica Count should always be less than or equal to 2.
-	//
-	// _Default_: If not specified, the default value is 1.
+	// Default: If not specified, the default value is 1.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-replicacount
 	//
 	ReplicaCount *float64 `field:"optional" json:"replicaCount" yaml:"replicaCount"`
-	// The tags associated with this graph.
+	// Adds metadata tags to the new graph.
+	//
+	// These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The vector search configuration.
+	// Specifies the number of dimensions for vector embeddings that will be loaded into the graph.
+	//
+	// The value is specified as `dimension=` value. Max = 65,535
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-vectorsearchconfiguration
 	//
 	VectorSearchConfiguration interface{} `field:"optional" json:"vectorSearchConfiguration" yaml:"vectorSearchConfiguration"`

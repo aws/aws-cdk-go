@@ -117,7 +117,7 @@ type CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty struct {
 	ClusterEndpoint *string `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
 	// Indicates the method for setting up document ID.
 	//
-	// The supported methods are Kinesis Data Firehose generated document ID and OpenSearch Service generated document ID.
+	// The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-documentidoptions
 	//
 	DocumentIdOptions interface{} `field:"optional" json:"documentIdOptions" yaml:"documentIdOptions"`

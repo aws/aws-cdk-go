@@ -26,7 +26,7 @@ type CfnMaintenanceWindowTask_MaintenanceWindowAutomationParametersProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
 	//
 	DocumentVersion *string `field:"optional" json:"documentVersion" yaml:"documentVersion"`
-	// The parameters for the AUTOMATION task.
+	// The parameters for the `AUTOMATION` type task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

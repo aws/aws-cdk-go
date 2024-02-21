@@ -8,6 +8,24 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront_origins.FunctionUrlOrigin",
+		reflect.TypeOf((*FunctionUrlOrigin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
+		},
+		func() interface{} {
+			j := jsiiProxy_FunctionUrlOrigin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscloudfrontOriginBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront_origins.FunctionUrlOriginProps",
+		reflect.TypeOf((*FunctionUrlOriginProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
 		reflect.TypeOf((*HttpOrigin)(nil)).Elem(),
 		[]_jsii_.Member{

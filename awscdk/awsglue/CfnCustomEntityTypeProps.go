@@ -40,6 +40,7 @@ type CfnCustomEntityTypeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html#cfn-glue-customentitytype-regexstring
 	//
 	RegexString *string `field:"optional" json:"regexString" yaml:"regexString"`
+	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html#cfn-glue-customentitytype-tags
 	//
 	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`

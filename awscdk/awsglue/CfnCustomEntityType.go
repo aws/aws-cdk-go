@@ -74,6 +74,7 @@ type CfnCustomEntityType interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
 	Tags() interface{}
 	SetTags(val interface{})
 	// Deprecated.

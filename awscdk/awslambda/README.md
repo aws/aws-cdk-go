@@ -1219,6 +1219,50 @@ fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 })
 ```
 
+## IPv6 support
+
+You can configure IPv6 connectivity for lambda function by setting `Ipv6AllowedForDualStack` to true.
+It allows Lambda functions to specify whether the IPv6 traffic should be allowed when using dual-stack VPCs.
+To access IPv6 network using Lambda, Dual-stack VPC is required. Using dual-stack VPC a function communicates with subnet over either of IPv4 or IPv6.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+natProvider := ec2.NatProvider_Gateway()
+
+// create dual-stack VPC
+vpc := ec2.NewVpc(this, jsii.String("DualStackVpc"), &VpcProps{
+	IpProtocol: ec2.IpProtocol_DUAL_STACK,
+	SubnetConfiguration: []subnetConfiguration{
+		&subnetConfiguration{
+			Name: jsii.String("Ipv6Public1"),
+			SubnetType: ec2.SubnetType_PUBLIC,
+		},
+		&subnetConfiguration{
+			Name: jsii.String("Ipv6Public2"),
+			SubnetType: ec2.SubnetType_PUBLIC,
+		},
+		&subnetConfiguration{
+			Name: jsii.String("Ipv6Private1"),
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+		},
+	},
+	NatGatewayProvider: natProvider,
+})
+
+natGatewayId := natProvider.ConfiguredGateways[0].GatewayId
+(vpc.PrivateSubnets[0].(privateSubnet)).AddIpv6Nat64Route(natGatewayId)
+
+fn := lambda.NewFunction(this, jsii.String("Lambda_with_IPv6_VPC"), &FunctionProps{
+	Code: lambda.NewInlineCode(jsii.String("def main(event, context): pass")),
+	Handler: jsii.String("index.main"),
+	Runtime: lambda.Runtime_PYTHON_3_9(),
+	Vpc: Vpc,
+	Ipv6AllowedForDualStack: jsii.Boolean(true),
+})
+```
+
 ## Ephemeral Storage
 
 You can configure ephemeral storage on a function to control the amount of storage it gets for reading

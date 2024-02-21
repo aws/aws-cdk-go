@@ -44,7 +44,6 @@ type CfnHostedConfigurationVersion interface {
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
-	AttrId() *string
 	// The configuration version.
 	AttrVersionNumber() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -246,16 +245,6 @@ func (j *jsiiProxy_CfnHostedConfigurationVersion) ApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"applicationId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnHostedConfigurationVersion) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

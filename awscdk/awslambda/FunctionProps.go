@@ -169,6 +169,12 @@ type FunctionProps struct {
 	// Default: - No Lambda Insights.
 	//
 	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
+	// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+	//
+	// Only used if 'vpc' is supplied.
+	// Default: false.
+	//
+	Ipv6AllowedForDualStack *bool `field:"optional" json:"ipv6AllowedForDualStack" yaml:"ipv6AllowedForDualStack"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in

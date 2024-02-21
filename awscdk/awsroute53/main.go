@@ -429,6 +429,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "failover", GoGetter: "Failover"},
 			_jsii_.MemberProperty{JsiiProperty: "geoLocation", GoGetter: "GeoLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "geoProximityLocation", GoGetter: "GeoProximityLocation"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "healthCheckId", GoGetter: "HealthCheckId"},
@@ -475,8 +476,16 @@ func init() {
 		reflect.TypeOf((*CfnRecordSet_CidrRoutingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.CfnRecordSet.CoordinatesProperty",
+		reflect.TypeOf((*CfnRecordSet_CoordinatesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.CfnRecordSet.GeoLocationProperty",
 		reflect.TypeOf((*CfnRecordSet_GeoLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.CfnRecordSet.GeoProximityLocationProperty",
+		reflect.TypeOf((*CfnRecordSet_GeoProximityLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",
@@ -534,8 +543,16 @@ func init() {
 		reflect.TypeOf((*CfnRecordSetGroup_CidrRoutingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.CfnRecordSetGroup.CoordinatesProperty",
+		reflect.TypeOf((*CfnRecordSetGroup_CoordinatesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.CfnRecordSetGroup.GeoLocationProperty",
 		reflect.TypeOf((*CfnRecordSetGroup_GeoLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.CfnRecordSetGroup.GeoProximityLocationProperty",
+		reflect.TypeOf((*CfnRecordSetGroup_GeoProximityLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.CfnRecordSetGroup.RecordSetProperty",

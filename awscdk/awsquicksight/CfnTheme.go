@@ -110,7 +110,6 @@ type CfnTheme interface {
 	AttrLastUpdatedTime() *string
 	// Theme type.
 	AttrType() *string
-	// The version of the theme.
 	AttrVersion() awscdk.IResolvable
 	AttrVersionArn() *string
 	AttrVersionBaseThemeId() *string

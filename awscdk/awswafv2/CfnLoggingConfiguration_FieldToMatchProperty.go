@@ -35,7 +35,6 @@ package awswafv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
 //
 type CfnLoggingConfiguration_FieldToMatchProperty struct {
-	// Redact the request body JSON.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
 	//
 	JsonBody interface{} `field:"optional" json:"jsonBody" yaml:"jsonBody"`

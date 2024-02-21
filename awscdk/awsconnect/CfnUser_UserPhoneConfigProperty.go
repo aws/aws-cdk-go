@@ -26,6 +26,8 @@ type CfnUser_UserPhoneConfigProperty struct {
 	PhoneType *string `field:"required" json:"phoneType" yaml:"phoneType"`
 	// The After Call Work (ACW) timeout setting, in seconds.
 	//
+	// This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+	//
 	// > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-aftercontactworktimelimit
 	//

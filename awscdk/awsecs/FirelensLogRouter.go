@@ -18,6 +18,7 @@ import (
 //
 //   var appProtocol appProtocol
 //   var containerImage containerImage
+//   var credentialSpec credentialSpec
 //   var environmentFile environmentFile
 //   var linuxParameters linuxParameters
 //   var logDriver logDriver
@@ -44,6 +45,9 @@ import (
 //   	},
 //   	ContainerName: jsii.String("containerName"),
 //   	Cpu: jsii.Number(123),
+//   	CredentialSpecs: []*credentialSpec{
+//   		credentialSpec,
+//   	},
 //   	DisableNetworking: jsii.Boolean(false),
 //   	DnsSearchDomains: []*string{
 //   		jsii.String("dnsSearchDomains"),
@@ -138,6 +142,8 @@ type FirelensLogRouter interface {
 	ContainerPort() *float64
 	// The number of cpu units reserved for the container.
 	Cpu() *float64
+	// The crdential specifications for this container.
+	CredentialSpecs() *[]*CredentialSpecConfig
 	// The environment files for this container.
 	EnvironmentFiles() *[]*EnvironmentFileConfig
 	// Specifies whether the container will be marked essential.
@@ -259,6 +265,16 @@ func (j *jsiiProxy_FirelensLogRouter) Cpu() *float64 {
 	_jsii_.Get(
 		j,
 		"cpu",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FirelensLogRouter) CredentialSpecs() *[]*CredentialSpecConfig {
+	var returns *[]*CredentialSpecConfig
+	_jsii_.Get(
+		j,
+		"credentialSpecs",
 		&returns,
 	)
 	return returns

@@ -1,7 +1,7 @@
 package awsimagebuilder
 
 
-// The resource selection for the lifecycle policy.
+// Resource selection criteria for the lifecycle policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,11 +23,11 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html
 //
 type CfnLifecyclePolicy_ResourceSelectionProperty struct {
-	// The recipes to select.
+	// A list of recipes that are used as selection criteria for the output images that the lifecycle policy applies to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html#cfn-imagebuilder-lifecyclepolicy-resourceselection-recipes
 	//
 	Recipes interface{} `field:"optional" json:"recipes" yaml:"recipes"`
-	// The Image Builder resources to select by tag.
+	// A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html#cfn-imagebuilder-lifecyclepolicy-resourceselection-tagmap
 	//
 	TagMap interface{} `field:"optional" json:"tagMap" yaml:"tagMap"`

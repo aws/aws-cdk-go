@@ -80,9 +80,9 @@ type CfnInferenceComponent interface {
 	AttrInferenceComponentStatus() *string
 	// The time when the inference component was last updated.
 	AttrLastModifiedTime() *string
-	// The number of copies for the inference component.
+	// The number of runtime copies of the model container that are currently deployed.
 	AttrRuntimeConfigCurrentCopyCount() *float64
-	// The number of copies for the inference component.
+	// The number of runtime copies of the model container that you requested to deploy with the inference component.
 	AttrRuntimeConfigDesiredCopyCount() *float64
 	AttrSpecificationContainerDeployedImage() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.

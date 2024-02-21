@@ -40,7 +40,7 @@ type CfnEventStream interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Stream or Amazon Data Firehose delivery stream that you want to publish event data to.
 	DestinationStreamArn() *string
 	SetDestinationStreamArn(val *string)
 	// The logical ID for this CloudFormation stack element.

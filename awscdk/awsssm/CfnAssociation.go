@@ -118,7 +118,7 @@ type CfnAssociation interface {
 	// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
 	OutputLocation() interface{}
 	SetOutputLocation(val interface{})
-	// Parameter values that the SSM document uses at runtime.
+	// The parameters for the runtime configuration of the document.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

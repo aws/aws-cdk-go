@@ -468,6 +468,7 @@ package awsemr
 //   		},
 //   	},
 //   	TerminationProtected: jsii.Boolean(false),
+//   	UnhealthyNodeReplacement: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html
@@ -565,5 +566,8 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-terminationprotected
 	//
 	TerminationProtected interface{} `field:"optional" json:"terminationProtected" yaml:"terminationProtected"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-unhealthynodereplacement
+	//
+	UnhealthyNodeReplacement interface{} `field:"optional" json:"unhealthyNodeReplacement" yaml:"unhealthyNodeReplacement"`
 }
 

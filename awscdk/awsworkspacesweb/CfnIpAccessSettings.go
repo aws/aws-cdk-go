@@ -51,7 +51,6 @@ type CfnIpAccessSettings interface {
 	// Additional encryption context of the IP access settings.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
-	// A list of web portal ARNs that this IP access settings resource is associated with.
 	AttrAssociatedPortalArns() *[]*string
 	// The creation date timestamp of the IP access settings.
 	AttrCreationDate() *string

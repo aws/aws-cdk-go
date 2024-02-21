@@ -104,7 +104,7 @@ type CfnContainerProps struct {
 	IsDisabled interface{} `field:"optional" json:"isDisabled" yaml:"isDisabled"`
 	// An object that describes the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry ( Amazon ECR ) private repositories.
 	//
-	// For more information, see [Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service](https://docs.aws.amazon.com/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access) in the *Amazon Lightsail Developer Guide* .
+	// For more information, see [Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-service-ecr-private-repo-access) in the *Amazon Lightsail Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html#cfn-lightsail-container-privateregistryaccess
 	//
 	PrivateRegistryAccess interface{} `field:"optional" json:"privateRegistryAccess" yaml:"privateRegistryAccess"`

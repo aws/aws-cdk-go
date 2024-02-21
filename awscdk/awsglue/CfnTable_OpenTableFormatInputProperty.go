@@ -1,7 +1,7 @@
 package awsglue
 
 
-// A structure representing an open format table.
+// Specifies an `OpenTableFormatInput` structure when creating an open format table.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

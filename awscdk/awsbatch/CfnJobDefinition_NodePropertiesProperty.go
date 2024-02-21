@@ -92,6 +92,9 @@ package awsbatch
 //   				},
 //   				Privileged: jsii.Boolean(false),
 //   				ReadonlyRootFilesystem: jsii.Boolean(false),
+//   				RepositoryCredentials: &RepositoryCredentialsProperty{
+//   					CredentialsParameter: jsii.String("credentialsParameter"),
+//   				},
 //   				ResourceRequirements: []interface{}{
 //   					&ResourceRequirementProperty{
 //   						Type: jsii.String("type"),

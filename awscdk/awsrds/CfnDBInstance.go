@@ -193,11 +193,15 @@ type CfnDBInstance interface {
 	//
 	// This setting is valid for RDS Custom only.
 	AttrDbSystemId() *string
-	// Specifies the DNS address of the DB instance.
+	// The connection endpoint for the database. For example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`.
+	//
+	// For Aurora Serverless DB clusters, the connection endpoint only applies to the DB cluster.
 	AttrEndpointAddress() *string
-	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+	// The ID that Amazon Route 53 assigns when you create a hosted zone.
 	AttrEndpointHostedZoneId() *string
-	// Specifies the port that the database engine is listening on.
+	// The port number on which the database accepts connections.
+	//
+	// For example: `3306`.
 	AttrEndpointPort() *string
 	// The Amazon Resource Name (ARN) of the secret.
 	AttrMasterUserSecretSecretArn() *string
@@ -440,12 +444,10 @@ type CfnDBInstance interface {
 	// An optional array of key-value pairs to apply to this DB instance.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The ARN from the key store with which to associate the instance for TDE encryption.
 	// Deprecated: this property has been deprecated.
 	TdeCredentialArn() *string
 	// Deprecated: this property has been deprecated.
 	SetTdeCredentialArn(val *string)
-	// The password for the given ARN from the key store in order to access the device.
 	// Deprecated: this property has been deprecated.
 	TdeCredentialPassword() *string
 	// Deprecated: this property has been deprecated.

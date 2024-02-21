@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Glue::TableOptimizer.
+// A resource that describes the AWS Glue resource for enabling compaction to improve read performance for open table formats.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,6 +33,7 @@ type CfnTableOptimizer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrId() *string
+	// The catalog ID of the table.
 	CatalogId() *string
 	SetCatalogId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -73,6 +74,7 @@ type CfnTableOptimizer interface {
 	SetTableName(val *string)
 	TableOptimizerConfiguration() interface{}
 	SetTableOptimizerConfiguration(val interface{})
+	// The type of table optimizer.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

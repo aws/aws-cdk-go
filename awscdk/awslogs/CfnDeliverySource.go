@@ -11,7 +11,7 @@ import (
 
 // This structure contains information about one *delivery source* in your account.
 //
-// A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+// A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Firehose.
 //
 // Only some AWS services support being configured as a delivery source. These services are listed as *Supported [V2 Permissions]* in the table at [Enabling logging from AWS services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html)
 //

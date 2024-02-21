@@ -152,11 +152,11 @@ type CfnDetector interface {
 	AttrCreatedTime() *string
 	// The name of the detector.
 	AttrDetectorVersionId() *string
-	// The ARN of the event type.
+	// The detector ARN.
 	AttrEventTypeArn() *string
-	// The time when the event type was created.
+	// Timestamp of when the detector was created.
 	AttrEventTypeCreatedTime() *string
-	// The time when the event type was last updated.
+	// Timestamp of when the detector was last updated.
 	AttrEventTypeLastUpdatedTime() *string
 	// Timestamp of when detector was last updated.
 	AttrLastUpdatedTime() *string

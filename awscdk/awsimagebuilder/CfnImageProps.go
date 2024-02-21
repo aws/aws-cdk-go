@@ -53,19 +53,21 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
 //
 type CfnImageProps struct {
-	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
+	// The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
 	//
 	InfrastructureConfigurationArn *string `field:"required" json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
-	// The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline.
+	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
 	//
 	ContainerRecipeArn *string `field:"optional" json:"containerRecipeArn" yaml:"containerRecipeArn"`
-	// The Amazon Resource Name (ARN) of the distribution configuration.
+	// The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
 	//
 	DistributionConfigurationArn *string `field:"optional" json:"distributionConfigurationArn" yaml:"distributionConfigurationArn"`
-	// Indicates whether Image Builder collects additional information about the image, such as the operating system (OS) version and package list.
+	// Collects additional information about the image being created, including the operating system (OS) version and package list.
+	//
+	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
 	//
 	EnhancedImageMetadataEnabled interface{} `field:"optional" json:"enhancedImageMetadataEnabled" yaml:"enhancedImageMetadataEnabled"`
@@ -73,7 +75,7 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-executionrole
 	//
 	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
-	// The Amazon Resource Name (ARN) of the image recipe.
+	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 	//
 	ImageRecipeArn *string `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
@@ -81,7 +83,7 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagescanningconfiguration
 	//
 	ImageScanningConfiguration interface{} `field:"optional" json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
-	// The configuration settings for your image test components, which includes a toggle that allows you to turn off tests, and a timeout setting.
+	// The image tests configuration of the image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
 	//
 	ImageTestsConfiguration interface{} `field:"optional" json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`
@@ -89,7 +91,7 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// Contains the build and test workflows that are associated with the image.
+	// Contains an array of workflow configuration objects.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-workflows
 	//
 	Workflows interface{} `field:"optional" json:"workflows" yaml:"workflows"`

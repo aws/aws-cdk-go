@@ -53,7 +53,7 @@ type CfnNamespaceProps struct {
 	NamespaceName *string `field:"required" json:"namespaceName" yaml:"namespaceName"`
 	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
 	//
-	// You can only use this parameter if manageAdminPassword is true.
+	// You can only use this parameter if `ManageAdminPassword` is `true` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-adminpasswordsecretkmskeyid
 	//
 	AdminPasswordSecretKmsKeyId *string `field:"optional" json:"adminPasswordSecretKmsKeyId" yaml:"adminPasswordSecretKmsKeyId"`
@@ -97,11 +97,11 @@ type CfnNamespaceProps struct {
 	LogExports *[]*string `field:"optional" json:"logExports" yaml:"logExports"`
 	// If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials.
 	//
-	// You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
+	// You can't use `AdminUserPassword` if `ManageAdminPassword` is true. If `ManageAdminPassword` is `false` or not set, Amazon Redshift uses `AdminUserPassword` for the admin user account's password.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-manageadminpassword
 	//
 	ManageAdminPassword interface{} `field:"optional" json:"manageAdminPassword" yaml:"manageAdminPassword"`
-	// The resource policy document that will be attached to the namespace.
+	// The resource policy that will be attached to the namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-namespaceresourcepolicy
 	//
 	NamespaceResourcePolicy interface{} `field:"optional" json:"namespaceResourcePolicy" yaml:"namespaceResourcePolicy"`

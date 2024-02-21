@@ -60,10 +60,10 @@ type CfnMissionProfile interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Amount of time in seconds after a contact ends that you’d like to receive a CloudWatch Event indicating the pass has finished.
+	// Amount of time in seconds after a contact ends that you’d like to receive a Ground Station Contact State Change indicating the pass has finished.
 	ContactPostPassDurationSeconds() *float64
 	SetContactPostPassDurationSeconds(val *float64)
-	// Amount of time in seconds prior to contact start that you'd like to receive a CloudWatch Event indicating an upcoming pass.
+	// Amount of time in seconds prior to contact start that you'd like to receive a Ground Station Contact State Change Event indicating an upcoming pass.
 	ContactPrePassDurationSeconds() *float64
 	SetContactPrePassDurationSeconds(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

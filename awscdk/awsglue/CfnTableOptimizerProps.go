@@ -22,6 +22,7 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html
 //
 type CfnTableOptimizerProps struct {
+	// The catalog ID of the table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html#cfn-glue-tableoptimizer-catalogid
 	//
 	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
@@ -40,6 +41,9 @@ type CfnTableOptimizerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration
 	//
 	TableOptimizerConfiguration interface{} `field:"required" json:"tableOptimizerConfiguration" yaml:"tableOptimizerConfiguration"`
+	// The type of table optimizer.
+	//
+	// Currently, the only valid value is compaction.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html#cfn-glue-tableoptimizer-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

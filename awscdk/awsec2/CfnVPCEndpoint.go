@@ -54,21 +54,9 @@ type CfnVPCEndpoint interface {
 	//
 	// For example: `Fri Sep 28 23:34:36 UTC 2018.`
 	AttrCreationTimestamp() *string
-	// (Interface endpoints) The DNS entries for the endpoint.
-	//
-	// Each entry is a combination of the hosted zone ID and the DNS name. The entries are ordered as follows: regional public DNS, zonal public DNS, private DNS, and wildcard DNS. This order is not enforced for AWS Marketplace services.
-	//
-	// The following is an example. In the first entry, the hosted zone ID is Z1HUB23UULQXV and the DNS name is vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com.
-	//
-	// ["Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com", "Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3-us-east-1a.ec2.us-east-1.vpce.amazonaws.com", "Z1C12344VYDITB0:ec2.us-east-1.amazonaws.com"]
-	//
-	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
 	AttrDnsEntries() *[]*string
 	// The ID of the VPC endpoint.
 	AttrId() *string
-	// (Interface endpoints) The network interface IDs.
-	//
-	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
 	AttrNetworkInterfaceIds() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

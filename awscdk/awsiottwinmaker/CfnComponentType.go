@@ -130,7 +130,6 @@ type CfnComponentType interface {
 	AttrIsAbstract() awscdk.IResolvable
 	// A boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run.
 	AttrIsSchemaInitialized() awscdk.IResolvable
-	// The component type status.
 	AttrStatus() awscdk.IResolvable
 	AttrStatusError() awscdk.IResolvable
 	AttrStatusErrorCode() *string

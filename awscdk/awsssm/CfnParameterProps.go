@@ -41,7 +41,7 @@ type CfnParameterProps struct {
 	Value *string `field:"required" json:"value" yaml:"value"`
 	// A regular expression used to validate the parameter value.
 	//
-	// For example, for String types with values restricted to numbers, you can specify the following: `AllowedPattern=^\d+$`.
+	// For example, for `String` types with values restricted to numbers, you can specify the following: `AllowedPattern=^\d+$`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern
 	//
 	AllowedPattern *string `field:"optional" json:"allowedPattern" yaml:"allowedPattern"`

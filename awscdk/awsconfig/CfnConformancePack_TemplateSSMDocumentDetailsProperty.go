@@ -22,7 +22,7 @@ package awsconfig
 type CfnConformancePack_TemplateSSMDocumentDetailsProperty struct {
 	// The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack.
 	//
-	// If you use the document name, AWS Config checks only your account and AWS Region for the SSM document. If you want to use an SSM document from another Region or account, you must provide the ARN.
+	// If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-templatessmdocumentdetails.html#cfn-config-conformancepack-templatessmdocumentdetails-documentname
 	//
 	DocumentName *string `field:"optional" json:"documentName" yaml:"documentName"`

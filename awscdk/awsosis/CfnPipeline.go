@@ -59,9 +59,7 @@ type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// A list of the ingestion endpoints for the pipeline that you can send data to.
-	//
-	// Currently, only a single ingestion endpoint is supported for a pipeline. For example, `my-pipeline-123456789012.us-east-1.osis.amazonaws.com` .
+	// A list of endpoints that can be used for ingesting data into a pipeline.
 	AttrIngestEndpointUrls() *[]*string
 	// The Amazon Resource Name (ARN) of the pipeline.
 	AttrPipelineArn() *string

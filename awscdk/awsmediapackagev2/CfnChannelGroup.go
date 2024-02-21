@@ -18,6 +18,8 @@ import (
 //
 //   cfnChannelGroup := awscdk.Aws_mediapackagev2.NewCfnChannelGroup(this, jsii.String("MyCfnChannelGroup"), &CfnChannelGroupProps{
 //   	ChannelGroupName: jsii.String("channelGroupName"),
+//
+//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -424,6 +426,9 @@ func NewCfnChannelGroup_Override(c CfnChannelGroup, scope constructs.Construct, 
 }
 
 func (j *jsiiProxy_CfnChannelGroup)SetChannelGroupName(val *string) {
+	if err := j.validateSetChannelGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelGroupName",

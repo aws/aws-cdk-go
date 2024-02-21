@@ -34,7 +34,7 @@ type CfnPipe_PipeLogConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html#cfn-pipes-pipe-pipelogconfiguration-cloudwatchlogslogdestination
 	//
 	CloudwatchLogsLogDestination interface{} `field:"optional" json:"cloudwatchLogsLogDestination" yaml:"cloudwatchLogsLogDestination"`
-	// The Amazon Kinesis Data Firehose logging configuration settings for the pipe.
+	// The Amazon Data Firehose logging configuration settings for the pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html#cfn-pipes-pipe-pipelogconfiguration-firehoselogdestination
 	//
 	FirehoseLogDestination interface{} `field:"optional" json:"firehoseLogDestination" yaml:"firehoseLogDestination"`

@@ -23,11 +23,11 @@ type CfnInferenceComponent_InferenceComponentRuntimeConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html#cfn-sagemaker-inferencecomponent-inferencecomponentruntimeconfig-copycount
 	//
 	CopyCount *float64 `field:"optional" json:"copyCount" yaml:"copyCount"`
-	// The number of copies for the inference component.
+	// The number of runtime copies of the model container that are currently deployed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html#cfn-sagemaker-inferencecomponent-inferencecomponentruntimeconfig-currentcopycount
 	//
 	CurrentCopyCount *float64 `field:"optional" json:"currentCopyCount" yaml:"currentCopyCount"`
-	// The number of copies for the inference component.
+	// The number of runtime copies of the model container that you requested to deploy with the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html#cfn-sagemaker-inferencecomponent-inferencecomponentruntimeconfig-desiredcopycount
 	//
 	DesiredCopyCount *float64 `field:"optional" json:"desiredCopyCount" yaml:"desiredCopyCount"`

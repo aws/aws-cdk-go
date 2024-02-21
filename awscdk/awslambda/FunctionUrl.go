@@ -15,14 +15,13 @@ import (
 // Example:
 //   // Can be a Function or an Alias
 //   var fn function
-//   var myRole role
 //
 //
-//   fnUrl := fn.AddFunctionUrl()
-//   fnUrl.GrantInvokeUrl(myRole)
+//   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
+//   	AuthType: lambda.FunctionUrlAuthType_NONE,
+//   })
 //
 //   awscdk.NewCfnOutput(this, jsii.String("TheUrl"), &CfnOutputProps{
-//   	// The .url attributes will return the unique Function URL
 //   	Value: fnUrl.Url,
 //   })
 //

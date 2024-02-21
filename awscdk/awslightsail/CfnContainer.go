@@ -92,7 +92,7 @@ type CfnContainer interface {
 	AttrContainerArn() *string
 	// The principle Amazon Resource Name (ARN) of the role.
 	AttrPrincipalArn() *string
-	// The Amazon Resource Name (ARN) of the role, if it is activated.
+	// The principle Amazon Resource Name (ARN) of the role.
 	AttrPrivateRegistryAccessEcrImagePullerRolePrincipalArn() *string
 	// The publicly accessible URL of the container service.
 	//

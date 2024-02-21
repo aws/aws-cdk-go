@@ -1,7 +1,7 @@
 package awsimagebuilder
 
 
-// The policy detail of the lifecycle policy.
+// The configuration details for a lifecycle policy resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,15 +55,15 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html
 //
 type CfnLifecyclePolicy_PolicyDetailProperty struct {
-	// The action of the policy detail.
+	// Configuration details for the policy action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html#cfn-imagebuilder-lifecyclepolicy-policydetail-action
 	//
 	Action interface{} `field:"required" json:"action" yaml:"action"`
-	// The filters to apply of the policy detail.
+	// Specifies the resources that the lifecycle policy applies to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html#cfn-imagebuilder-lifecyclepolicy-policydetail-filter
 	//
 	Filter interface{} `field:"required" json:"filter" yaml:"filter"`
-	// The exclusion rules to apply of the policy detail.
+	// Additional rules to specify resources that should be exempt from policy actions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html#cfn-imagebuilder-lifecyclepolicy-policydetail-exclusionrules
 	//
 	ExclusionRules interface{} `field:"optional" json:"exclusionRules" yaml:"exclusionRules"`

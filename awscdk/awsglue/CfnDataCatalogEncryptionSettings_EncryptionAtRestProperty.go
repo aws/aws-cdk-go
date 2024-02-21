@@ -10,6 +10,7 @@ package awsglue
 //
 //   encryptionAtRestProperty := &EncryptionAtRestProperty{
 //   	CatalogEncryptionMode: jsii.String("catalogEncryptionMode"),
+//   	CatalogEncryptionServiceRole: jsii.String("catalogEncryptionServiceRole"),
 //   	SseAwsKmsKeyId: jsii.String("sseAwsKmsKeyId"),
 //   }
 //
@@ -20,6 +21,9 @@ type CfnDataCatalogEncryptionSettings_EncryptionAtRestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode
 	//
 	CatalogEncryptionMode *string `field:"optional" json:"catalogEncryptionMode" yaml:"catalogEncryptionMode"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionservicerole
+	//
+	CatalogEncryptionServiceRole *string `field:"optional" json:"catalogEncryptionServiceRole" yaml:"catalogEncryptionServiceRole"`
 	// The ID of the AWS KMS key to use for encryption at rest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid
 	//

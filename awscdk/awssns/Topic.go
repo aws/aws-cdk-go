@@ -14,17 +14,18 @@ import (
 // A new SNS topic.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
-//   var stream deliveryStream
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("Topic"))
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
-//   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
-//   	Topic: Topic,
-//   	Endpoint: stream.DeliveryStreamArn,
-//   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
-//   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
+//   	Actions: []iAction{
+//   		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
+//   			MessageFormat: actions.SnsActionMessageFormat_JSON,
+//   		}),
+//   	},
 //   })
 //
 type Topic interface {
@@ -35,6 +36,9 @@ type Topic interface {
 	AutoCreatePolicy() *bool
 	// Enables content-based deduplication for FIFO topics.
 	ContentBasedDeduplication() *bool
+	// Adds a statement to enforce encryption of data in transit when publishing to the topic.
+	EnforceSSL() *bool
+	SetEnforceSSL(val *bool)
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -71,7 +75,7 @@ type Topic interface {
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
-	// will be automatically created upon the first call to `addToPolicy`. If
+	// will be automatically created upon the first call to `addToResourcePolicy`. If
 	// the topic is imported (`Topic.import`), then this is a no-op.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
@@ -86,6 +90,10 @@ type Topic interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Represents a notification target That allows SNS topic to associate with this rule target.
 	BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig
+	// Adds a statement to enforce encryption of data in transit when publishing to the topic.
+	//
+	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
+	CreateSSLPolicyDocument() awsiam.PolicyStatement
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -164,6 +172,16 @@ func (j *jsiiProxy_Topic) ContentBasedDeduplication() *bool {
 	_jsii_.Get(
 		j,
 		"contentBasedDeduplication",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Topic) EnforceSSL() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"enforceSSL",
 		&returns,
 	)
 	return returns
@@ -264,6 +282,14 @@ func NewTopic_Override(t Topic, scope constructs.Construct, id *string, props *T
 		"aws-cdk-lib.aws_sns.Topic",
 		[]interface{}{scope, id, props},
 		t,
+	)
+}
+
+func (j *jsiiProxy_Topic)SetEnforceSSL(val *bool) {
+	_jsii_.Set(
+		j,
+		"enforceSSL",
+		val,
 	)
 }
 
@@ -423,6 +449,19 @@ func (t *jsiiProxy_Topic) BindAsNotificationRuleTarget(_scope constructs.Constru
 		t,
 		"bindAsNotificationRuleTarget",
 		[]interface{}{_scope},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_Topic) CreateSSLPolicyDocument() awsiam.PolicyStatement {
+	var returns awsiam.PolicyStatement
+
+	_jsii_.Invoke(
+		t,
+		"createSSLPolicyDocument",
+		nil, // no parameters
 		&returns,
 	)
 

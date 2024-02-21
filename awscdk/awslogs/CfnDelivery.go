@@ -42,7 +42,7 @@ type CfnDelivery interface {
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery.
 	AttrArn() *string
-	// Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+	// Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Firehose.
 	AttrDeliveryDestinationType() *string
 	// The unique ID that identifies this delivery in your account.
 	AttrDeliveryId() *string

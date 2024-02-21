@@ -3,7 +3,7 @@ package awskinesisfirehose
 
 // The OpenX SerDe.
 //
-// Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
+// Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,7 +21,7 @@ package awskinesisfirehose
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html
 //
 type CfnDeliveryStream_OpenXJsonSerDeProperty struct {
-	// When set to `true` , which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
+	// When set to `true` , which is the default, Firehose converts JSON keys to lowercase before deserializing them.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive
 	//
 	CaseInsensitive interface{} `field:"optional" json:"caseInsensitive" yaml:"caseInsensitive"`
@@ -31,7 +31,7 @@ type CfnDeliveryStream_OpenXJsonSerDeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings
 	//
 	ColumnToJsonKeyMappings interface{} `field:"optional" json:"columnToJsonKeyMappings" yaml:"columnToJsonKeyMappings"`
-	// When set to `true` , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores.
+	// When set to `true` , specifies that the names of the keys include dots and that you want Firehose to replace them with underscores.
 	//
 	// This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option.
 	//

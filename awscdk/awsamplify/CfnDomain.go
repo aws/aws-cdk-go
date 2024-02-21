@@ -44,7 +44,6 @@ type CfnDomain interface {
 	SetAppId(val *string)
 	// ARN for the Domain Association.
 	AttrArn() *string
-	// Branch patterns for the automatically created subdomain.
 	AttrAutoSubDomainCreationPatterns() *[]*string
 	// The IAM service role for the subdomain.
 	AttrAutoSubDomainIamRole() *string

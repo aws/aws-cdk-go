@@ -56,6 +56,7 @@ type CfnMaster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The AWS account ID of the account designated as the GuardDuty administrator account.
 	MasterId() *string
 	SetMasterId(val *string)
 	// The tree node.

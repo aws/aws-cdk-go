@@ -44,7 +44,7 @@ type CfnScene interface {
 	AttrArn() *string
 	// The date and time when the scene was created.
 	AttrCreationDateTime() *string
-	// The generated scene metadata.
+	// A key-value pair of generated scene metadata for the scene.
 	AttrGeneratedSceneMetadata() awscdk.IResolvable
 	// The scene the update time.
 	AttrUpdateDateTime() *string

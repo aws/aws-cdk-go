@@ -59,9 +59,6 @@ type CfnResolverRule interface {
 	//
 	// This value isn't applicable when `RuleType` is `SYSTEM` .
 	AttrResolverRuleId() *string
-	// When the value of `RuleType` is `FORWARD` , the IP addresses that the outbound endpoint forwards DNS queries to, typically the IP addresses for DNS resolvers on your network.
-	//
-	// This value isn't applicable when `RuleType` is `SYSTEM` .
 	AttrTargetIps() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

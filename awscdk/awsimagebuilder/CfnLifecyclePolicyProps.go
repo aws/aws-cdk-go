@@ -80,25 +80,23 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html
 //
 type CfnLifecyclePolicyProps struct {
-	// The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to run the lifecycle policy.
-	//
-	// This is a custom role that you create.
+	// The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-executionrole
 	//
 	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
-	// The name of the lifecycle policy.
+	// The name of the lifecycle policy to create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The configuration details for a lifecycle policy resource.
+	// Configuration details for the lifecycle policy rules.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-policydetails
 	//
 	PolicyDetails interface{} `field:"required" json:"policyDetails" yaml:"policyDetails"`
-	// Resource selection criteria used to run the lifecycle policy.
+	// Selection criteria for the resources that the lifecycle policy applies to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-resourceselection
 	//
 	ResourceSelection interface{} `field:"required" json:"resourceSelection" yaml:"resourceSelection"`
-	// The type of resources the lifecycle policy targets.
+	// The type of Image Builder resource that the lifecycle policy applies to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-resourcetype
 	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
@@ -110,9 +108,7 @@ type CfnLifecyclePolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// To help manage your lifecycle policy resources, you can assign your own metadata to each resource in the form of tags.
-	//
-	// Each tag consists of a key and an optional value, both of which you define.
+	// Tags to apply to the lifecycle policy resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html#cfn-imagebuilder-lifecyclepolicy-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

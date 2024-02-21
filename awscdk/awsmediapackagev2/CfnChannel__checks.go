@@ -179,6 +179,22 @@ func validateCfnChannel_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetChannelGroupNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnChannel) validateSetChannelNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -198,6 +214,9 @@ func validateNewCfnChannelParameters(scope constructs.Construct, id *string, pro
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

@@ -85,7 +85,6 @@ type CfnStack interface {
 	//
 	// This will only be returned if the stack has been updated at least once.
 	AttrLastUpdateTime() *string
-	// Returns a list of output structures.
 	AttrOutputs() IResolvable
 	// For nested stacks--stacks created as resources for another stack--returns the stack ID of the direct parent of this stack.
 	//

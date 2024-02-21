@@ -55,6 +55,14 @@ type ContainerDefinitionOptions struct {
 	// Default: - No minimum CPU units reserved.
 	//
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
+	// A list of ARNs in SSM or Amazon S3 to a credential spec (`CredSpec`) file that configures the container for Active Directory authentication.
+	//
+	// We recommend that you use this parameter instead of the `dockerSecurityOptions`.
+	//
+	// Currently, only one credential spec is allowed per container definition.
+	// Default: - No credential specs.
+	//
+	CredentialSpecs *[]CredentialSpec `field:"optional" json:"credentialSpecs" yaml:"credentialSpecs"`
 	// Specifies whether networking is disabled within the container.
 	//
 	// When this parameter is true, networking is disabled within the container.

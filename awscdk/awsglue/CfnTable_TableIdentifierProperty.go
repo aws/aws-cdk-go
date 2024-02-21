@@ -30,7 +30,7 @@ type CfnTable_TableIdentifierProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Region of the target table.
+	// The Region of the table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`

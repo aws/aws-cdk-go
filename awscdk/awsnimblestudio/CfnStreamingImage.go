@@ -36,11 +36,11 @@ type CfnStreamingImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The encryption configuration.
+	// <p>TODO</p>.
 	AttrEncryptionConfiguration() awscdk.IResolvable
 	AttrEncryptionConfigurationKeyArn() *string
 	AttrEncryptionConfigurationKeyType() *string
-	// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
+	// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>.
 	AttrEulaIds() *[]*string
 	// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
 	AttrOwner() *string

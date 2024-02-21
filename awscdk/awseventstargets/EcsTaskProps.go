@@ -12,6 +12,7 @@ import (
 //
 // Example:
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster iCluster
 //   var taskDefinition taskDefinition
@@ -21,20 +22,14 @@ import (
 //   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
+//   rule.AddTarget(
+//   targets.NewEcsTask(&EcsTaskProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	TaskCount: jsii.Number(1),
-//   	ContainerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			ContainerName: jsii.String("TheContainer"),
-//   			Command: []*string{
-//   				jsii.String("echo"),
-//   				events.EventField_FromPath(jsii.String("$.detail.event")),
-//   			},
-//   		},
+//   	AssignPublicIp: jsii.Boolean(true),
+//   	SubnetSelection: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
-//   	EnableExecuteCommand: jsii.Boolean(true),
 //   }))
 //
 type EcsTaskProps struct {
@@ -81,6 +76,13 @@ type EcsTaskProps struct {
 	// Default: - false.
 	//
 	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
+	// Specifies the launch type on which your task is running.
+	//
+	// The launch type that you specify here
+	// must match one of the launch type (compatibilities) of the target task.
+	// Default: - 'EC2' if `isEc2Compatible` for the `taskDefinition` is true, otherwise 'FARGATE'.
+	//
+	LaunchType awsecs.LaunchType `field:"optional" json:"launchType" yaml:"launchType"`
 	// The platform version on which to run your task.
 	//
 	// Unless you have specific compatibility requirements, you don't need to specify this.

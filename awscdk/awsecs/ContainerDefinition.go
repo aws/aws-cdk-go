@@ -50,6 +50,8 @@ type ContainerDefinition interface {
 	ContainerPort() *float64
 	// The number of cpu units reserved for the container.
 	Cpu() *float64
+	// The crdential specifications for this container.
+	CredentialSpecs() *[]*CredentialSpecConfig
 	// The environment files for this container.
 	EnvironmentFiles() *[]*EnvironmentFileConfig
 	// Specifies whether the container will be marked essential.
@@ -169,6 +171,16 @@ func (j *jsiiProxy_ContainerDefinition) Cpu() *float64 {
 	_jsii_.Get(
 		j,
 		"cpu",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ContainerDefinition) CredentialSpecs() *[]*CredentialSpecConfig {
+	var returns *[]*CredentialSpecConfig
+	_jsii_.Get(
+		j,
+		"credentialSpecs",
 		&returns,
 	)
 	return returns

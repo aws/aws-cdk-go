@@ -69,7 +69,6 @@ type CfnUserSettings interface {
 	awscdk.IInspectable
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
-	// A list of web portal ARNs that this user settings resource is associated with.
 	AttrAssociatedPortalArns() *[]*string
 	// The ARN of the user settings.
 	AttrUserSettingsArn() *string

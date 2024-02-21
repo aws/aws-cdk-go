@@ -24,6 +24,7 @@ import (
 //
 //   	// the properties below are optional
 //   	AtRestEncryptionEnabled: jsii.Boolean(false),
+//   	HealthMetricsConfig: jsii.String("healthMetricsConfig"),
 //   	TransitEncryptionEnabled: jsii.Boolean(false),
 //   })
 //
@@ -51,6 +52,11 @@ type CfnApiCache interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Controls how cache health metrics will be emitted to CloudWatch.
+	//
+	// Cache health metrics include:.
+	HealthMetricsConfig() *string
+	SetHealthMetricsConfig(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -309,6 +315,16 @@ func (j *jsiiProxy_CfnApiCache) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApiCache) HealthMetricsConfig() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"healthMetricsConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApiCache) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -456,6 +472,14 @@ func (j *jsiiProxy_CfnApiCache)SetAtRestEncryptionEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"atRestEncryptionEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApiCache)SetHealthMetricsConfig(val *string) {
+	_jsii_.Set(
+		j,
+		"healthMetricsConfig",
 		val,
 	)
 }

@@ -13,6 +13,8 @@ import (
 //
 //   cfnChannelGroupProps := &CfnChannelGroupProps{
 //   	ChannelGroupName: jsii.String("channelGroupName"),
+//
+//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -28,7 +30,7 @@ type CfnChannelGroupProps struct {
 	// The name of the channel group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html#cfn-mediapackagev2-channelgroup-channelgroupname
 	//
-	ChannelGroupName *string `field:"optional" json:"channelGroupName" yaml:"channelGroupName"`
+	ChannelGroupName *string `field:"required" json:"channelGroupName" yaml:"channelGroupName"`
 	// The configuration for a MediaPackage V2 channel group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html#cfn-mediapackagev2-channelgroup-description
 	//

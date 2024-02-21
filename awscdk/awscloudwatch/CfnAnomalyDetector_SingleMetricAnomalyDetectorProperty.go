@@ -3,6 +3,8 @@ package awscloudwatch
 
 // Designates the CloudWatch metric and statistic that provides the time series the anomaly detector uses as input.
 //
+// If you have enabled unified cross-account observability, and this account is a monitoring account, the metric can be in the same account or a source account.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

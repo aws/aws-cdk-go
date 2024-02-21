@@ -3,6 +3,8 @@ package awsconnect
 
 // Contains information about the identity of a user.
 //
+// > For Amazon Connect instances that are created with the `EXISTING_DIRECTORY` identity management type, `FirstName` , `LastName` , and `Email` cannot be updated from within Amazon Connect because they are managed by the directory.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

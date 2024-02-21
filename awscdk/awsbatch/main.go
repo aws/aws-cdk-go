@@ -258,6 +258,10 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_PodPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.RepositoryCredentialsProperty",
+		reflect.TypeOf((*CfnJobDefinition_RepositoryCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.ResourceRequirementProperty",
 		reflect.TypeOf((*CfnJobDefinition_ResourceRequirementProperty)(nil)).Elem(),
 	)

@@ -27,7 +27,6 @@ type CfnAnalysis interface {
 	AttrArn() *string
 	// The time that the analysis was created.
 	AttrCreatedTime() *string
-	// The ARNs of the datasets of the analysis.
 	AttrDataSetArns() *[]*string
 	AttrErrors() awscdk.IResolvable
 	// The time that the analysis was last updated.

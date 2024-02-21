@@ -80,6 +80,10 @@ func validateCfnChannelGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannelGroup) validateSetChannelGroupNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannelGroup) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

@@ -10,7 +10,7 @@ package awssynthetics
 //   		Code: synthetics.Code_FromInline(jsii.String("/* Synthetics handler code")),
 //   	}),
 //   	Cleanup: synthetics.Cleanup_LAMBDA,
-//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_0(),
+//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
 //   })
 //
 type Cleanup string

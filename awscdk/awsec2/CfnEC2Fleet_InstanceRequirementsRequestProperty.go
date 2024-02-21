@@ -65,6 +65,7 @@ package awsec2
 //   	LocalStorageTypes: []*string{
 //   		jsii.String("localStorageTypes"),
 //   	},
+//   	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: jsii.Number(123),
 //   	MemoryGiBPerVCpu: &MemoryGiBPerVCpuRequestProperty{
 //   		Max: jsii.Number(123),
 //   		Min: jsii.Number(123),
@@ -253,6 +254,9 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-localstoragetypes
 	//
 	LocalStorageTypes *[]*string `field:"optional" json:"localStorageTypes" yaml:"localStorageTypes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-maxspotpriceaspercentageofoptimalondemandprice
+	//
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *float64 `field:"optional" json:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice" yaml:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
 	//
 	// Default: No minimum or maximum limits.

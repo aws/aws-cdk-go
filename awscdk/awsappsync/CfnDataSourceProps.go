@@ -52,6 +52,7 @@ package awsappsync
 //   	LambdaConfig: &LambdaConfigProperty{
 //   		LambdaFunctionArn: jsii.String("lambdaFunctionArn"),
 //   	},
+//   	MetricsConfig: jsii.String("metricsConfig"),
 //   	OpenSearchServiceConfig: &OpenSearchServiceConfigProperty{
 //   		AwsRegion: jsii.String("awsRegion"),
 //   		Endpoint: jsii.String("endpoint"),
@@ -125,6 +126,14 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig
 	//
 	LambdaConfig interface{} `field:"optional" json:"lambdaConfig" yaml:"lambdaConfig"`
+	// Enables or disables enhanced data source metrics for specified data sources.
+	//
+	// Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
+	//
+	// `MetricsConfig` can be `ENABLED` or `DISABLED` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-metricsconfig
+	//
+	MetricsConfig *string `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-opensearchserviceconfig
 	//

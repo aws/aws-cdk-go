@@ -80,6 +80,14 @@ func validateCfnChannelPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannelPolicy) validateSetChannelGroupNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnChannelPolicy) validateSetChannelNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannelPolicy) validateSetPolicyParameters(val interface{}) error {
 	return nil
 }

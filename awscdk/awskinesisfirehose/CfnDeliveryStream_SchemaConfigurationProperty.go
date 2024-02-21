@@ -1,7 +1,7 @@
 package awskinesisfirehose
 
 
-// Specifies the schema to which you want Kinesis Data Firehose to configure your data before it writes it to Amazon S3.
+// Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3.
 //
 // This parameter is required if `Enabled` is set to true.
 //
@@ -38,9 +38,9 @@ type CfnDeliveryStream_SchemaConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
-	// The role that Kinesis Data Firehose can use to access AWS Glue.
+	// The role that Firehose can use to access AWS Glue.
 	//
-	// This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+	// This role must be in the same account you use for Firehose. Cross-account roles aren't allowed.
 	//
 	// > If the `SchemaConfiguration` request parameter is used as part of invoking the `CreateDeliveryStream` API, then the `RoleARN` property is required and its value must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-rolearn
@@ -54,7 +54,7 @@ type CfnDeliveryStream_SchemaConfigurationProperty struct {
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// Specifies the table version for the output data schema.
 	//
-	// If you don't specify this version ID, or if you set it to `LATEST` , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+	// If you don't specify this version ID, or if you set it to `LATEST` , Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-versionid
 	//
 	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`

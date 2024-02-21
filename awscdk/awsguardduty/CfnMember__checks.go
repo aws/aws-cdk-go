@@ -179,14 +179,6 @@ func validateCfnMember_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnMember) validateSetDetectorIdParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnMember) validateSetDisableEmailNotificationParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -205,14 +197,6 @@ func (j *jsiiProxy_CfnMember) validateSetDisableEmailNotificationParameters(val 
 }
 
 func (j *jsiiProxy_CfnMember) validateSetEmailParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnMember) validateSetMemberIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}

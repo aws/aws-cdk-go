@@ -9,12 +9,12 @@ package awsguardduty
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnMemberProps := &CfnMemberProps{
-//   	DetectorId: jsii.String("detectorId"),
 //   	Email: jsii.String("email"),
-//   	MemberId: jsii.String("memberId"),
 //
 //   	// the properties below are optional
+//   	DetectorId: jsii.String("detectorId"),
 //   	DisableEmailNotification: jsii.Boolean(false),
+//   	MemberId: jsii.String("memberId"),
 //   	Message: jsii.String("message"),
 //   	Status: jsii.String("status"),
 //   }
@@ -22,21 +22,22 @@ package awsguardduty
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html
 //
 type CfnMemberProps struct {
-	// The ID of the detector associated with the GuardDuty service to add the member to.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-detectorid
-	//
-	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The email address associated with the member account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-email
 	//
 	Email *string `field:"required" json:"email" yaml:"email"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-memberid
+	// The ID of the detector associated with the GuardDuty service to add the member to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-detectorid
 	//
-	MemberId *string `field:"required" json:"memberId" yaml:"memberId"`
+	DetectorId *string `field:"optional" json:"detectorId" yaml:"detectorId"`
 	// Specifies whether or not to disable email notification for the member account that you invite.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-disableemailnotification
 	//
 	DisableEmailNotification interface{} `field:"optional" json:"disableEmailNotification" yaml:"disableEmailNotification"`
+	// The AWS account ID of the account to designate as a member.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-memberid
+	//
+	MemberId *string `field:"optional" json:"memberId" yaml:"memberId"`
 	// The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-message
 	//

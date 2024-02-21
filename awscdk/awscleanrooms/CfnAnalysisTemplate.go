@@ -71,7 +71,6 @@ type CfnAnalysisTemplate interface {
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
 	AttrMembershipArn() *string
-	// Returns the entire [schema object](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html) .
 	AttrSchema() awscdk.IResolvable
 	AttrSchemaReferencedTables() *[]*string
 	// Options for this resource, such as condition, update policy etc.

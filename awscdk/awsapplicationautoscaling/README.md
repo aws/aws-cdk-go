@@ -191,6 +191,7 @@ The following example scales the fleet out in the morning, and lets natural
 scaling take over at night:
 
 ```go
+import "github.com/aws/aws-cdk-go/awscdk"
 var resource someScalableResource
 
 
@@ -205,6 +206,7 @@ capacity.scaleOnSchedule(jsii.String("PrescaleInTheMorning"), &scalingSchedule{
 		Minute: jsii.String("0"),
 	}),
 	MinCapacity: jsii.Number(20),
+	TimeZone: awscdk.TimeZone_AMERICA_DENVER(),
 })
 
 capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedule{
@@ -213,6 +215,7 @@ capacity.scaleOnSchedule(jsii.String("AllowDownscalingAtNight"), &scalingSchedul
 		Minute: jsii.String("0"),
 	}),
 	MinCapacity: jsii.Number(1),
+	TimeZone: awscdk.TimeZone_AMERICA_DENVER(),
 })
 ```
 
@@ -227,7 +230,7 @@ var code code
 
 
 handler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_PYTHON_3_7(),
+	Runtime: lambda.Runtime_PYTHON_3_12(),
 	Handler: jsii.String("index.handler"),
 	Code: Code,
 

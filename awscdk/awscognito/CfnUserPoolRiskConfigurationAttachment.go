@@ -97,8 +97,6 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
 	AccountTakeoverRiskConfiguration() interface{}
 	SetAccountTakeoverRiskConfiguration(val interface{})
-	// The resource ID.
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -292,16 +290,6 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) AccountTakeoverRiskCo
 	_jsii_.Get(
 		j,
 		"accountTakeoverRiskConfiguration",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

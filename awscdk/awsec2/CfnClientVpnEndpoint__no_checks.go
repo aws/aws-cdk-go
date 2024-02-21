@@ -96,10 +96,6 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientLoginBannerOptionsPara
 	return nil
 }
 
-func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientRouteMonitoringOptionsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetConnectionLogOptionsParameters(val interface{}) error {
 	return nil
 }

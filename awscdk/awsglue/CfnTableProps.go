@@ -116,7 +116,7 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-tableinput
 	//
 	TableInput interface{} `field:"required" json:"tableInput" yaml:"tableInput"`
-	// A structure representing an open format table.
+	// Specifies an `OpenTableFormatInput` structure when creating an open format table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-opentableformatinput
 	//
 	OpenTableFormatInput interface{} `field:"optional" json:"openTableFormatInput" yaml:"openTableFormatInput"`

@@ -19,12 +19,10 @@ import (
 //   var policy interface{}
 //
 //   cfnOriginEndpointPolicy := awscdk.Aws_mediapackagev2.NewCfnOriginEndpointPolicy(this, jsii.String("MyCfnOriginEndpointPolicy"), &CfnOriginEndpointPolicyProps{
-//   	Policy: policy,
-//
-//   	// the properties below are optional
 //   	ChannelGroupName: jsii.String("channelGroupName"),
 //   	ChannelName: jsii.String("channelName"),
 //   	OriginEndpointName: jsii.String("originEndpointName"),
+//   	Policy: policy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html
@@ -389,6 +387,9 @@ func NewCfnOriginEndpointPolicy_Override(c CfnOriginEndpointPolicy, scope constr
 }
 
 func (j *jsiiProxy_CfnOriginEndpointPolicy)SetChannelGroupName(val *string) {
+	if err := j.validateSetChannelGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelGroupName",
@@ -397,6 +398,9 @@ func (j *jsiiProxy_CfnOriginEndpointPolicy)SetChannelGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnOriginEndpointPolicy)SetChannelName(val *string) {
+	if err := j.validateSetChannelNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelName",
@@ -405,6 +409,9 @@ func (j *jsiiProxy_CfnOriginEndpointPolicy)SetChannelName(val *string) {
 }
 
 func (j *jsiiProxy_CfnOriginEndpointPolicy)SetOriginEndpointName(val *string) {
+	if err := j.validateSetOriginEndpointNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"originEndpointName",

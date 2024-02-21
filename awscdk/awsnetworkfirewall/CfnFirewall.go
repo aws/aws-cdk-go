@@ -50,9 +50,6 @@ type CfnFirewall interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall.
-	//
-	// The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
 	AttrEndpointIds() *[]*string
 	// The Amazon Resource Name (ARN) of the `Firewall` .
 	AttrFirewallArn() *string

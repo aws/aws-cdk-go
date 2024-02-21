@@ -80,6 +80,18 @@ func validateCfnOriginEndpointPolicy_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetChannelGroupNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetChannelNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetOriginEndpointNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnOriginEndpointPolicy) validateSetPolicyParameters(val interface{}) error {
 	return nil
 }

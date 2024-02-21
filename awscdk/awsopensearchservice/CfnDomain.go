@@ -147,14 +147,14 @@ type CfnDomain interface {
 	// Specifies options for fine-grained access control and SAML authentication.
 	AdvancedSecurityOptions() interface{}
 	SetAdvancedSecurityOptions(val interface{})
+	// Date and time when the migration period will be disabled.
+	//
+	// Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 	AttrAdvancedSecurityOptionsAnonymousAuthDisableDate() *string
 	// The Amazon Resource Name (ARN) of the CloudFormation stack.
 	AttrArn() *string
 	// The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
 	AttrDomainEndpoint() *string
-	// The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints.
-	//
-	// Example `key, value` : `'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'` .
 	AttrDomainEndpoints() awscdk.IResolvable
 	// If `IPAddressType` to set to `dualstack` , a version 2 domain endpoint is provisioned.
 	//
@@ -164,7 +164,6 @@ type CfnDomain interface {
 	//
 	// For example, `123456789012/my-domain` .
 	AttrId() *string
-	// The current status of the service software for a domain.
 	AttrServiceSoftwareOptions() awscdk.IResolvable
 	AttrServiceSoftwareOptionsAutomatedUpdateDate() *string
 	AttrServiceSoftwareOptionsCancellable() awscdk.IResolvable

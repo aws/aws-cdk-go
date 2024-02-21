@@ -31,9 +31,11 @@ package awsredshiftserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html
 //
 type CfnNamespace_NamespaceProperty struct {
+	// The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-adminpasswordsecretarn
 	//
 	AdminPasswordSecretArn *string `field:"optional" json:"adminPasswordSecretArn" yaml:"adminPasswordSecretArn"`
+	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html#cfn-redshiftserverless-namespace-namespace-adminpasswordsecretkmskeyid
 	//
 	AdminPasswordSecretKmsKeyId *string `field:"optional" json:"adminPasswordSecretKmsKeyId" yaml:"adminPasswordSecretKmsKeyId"`

@@ -19,6 +19,14 @@ func (t *jsiiProxy_TopicPolicy) validateApplyRemovalPolicyParameters(policy awsc
 	return nil
 }
 
+func (t *jsiiProxy_TopicPolicy) validateCreateSSLPolicyDocumentParameters(topicArn *string) error {
+	if topicArn == nil {
+		return fmt.Errorf("parameter topicArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TopicPolicy) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

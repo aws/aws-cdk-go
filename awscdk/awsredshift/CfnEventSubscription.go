@@ -49,8 +49,6 @@ type CfnEventSubscription interface {
 	// The name of the Amazon Redshift event notification subscription.
 	AttrCustSubscriptionId() *string
 	// The list of Amazon Redshift event categories specified in the event notification subscription.
-	//
-	// Values: Configuration, Management, Monitoring, Security, Pending.
 	AttrEventCategoriesList() *[]*string
 	// A list of the sources that publish events to the Amazon Redshift event notification subscription.
 	AttrSourceIdsList() *[]*string

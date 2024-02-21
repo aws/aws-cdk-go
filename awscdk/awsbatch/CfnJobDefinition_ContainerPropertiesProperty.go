@@ -85,6 +85,9 @@ package awsbatch
 //   	},
 //   	Privileged: jsii.Boolean(false),
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
+//   	RepositoryCredentials: &RepositoryCredentialsProperty{
+//   		CredentialsParameter: jsii.String("credentialsParameter"),
+//   	},
 //   	ResourceRequirements: []interface{}{
 //   		&ResourceRequirementProperty{
 //   			Type: jsii.String("type"),
@@ -243,6 +246,10 @@ type CfnJobDefinition_ContainerPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem
 	//
 	ReadonlyRootFilesystem interface{} `field:"optional" json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
+	// The private repository authentication credentials to use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-repositorycredentials
+	//
+	RepositoryCredentials interface{} `field:"optional" json:"repositoryCredentials" yaml:"repositoryCredentials"`
 	// The type and amount of resources to assign to a container.
 	//
 	// The supported resources include `GPU` , `MEMORY` , and `VCPU` .

@@ -898,6 +898,10 @@ func init() {
 		reflect.TypeOf((*CfnFeatureGroup_ThroughputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroup.TtlDurationProperty",
+		reflect.TypeOf((*CfnFeatureGroup_TtlDurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnFeatureGroupProps",
 		reflect.TypeOf((*CfnFeatureGroupProps)(nil)).Elem(),
 	)

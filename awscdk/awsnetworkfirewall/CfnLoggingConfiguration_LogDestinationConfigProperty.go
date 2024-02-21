@@ -31,7 +31,7 @@ type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	// - For a CloudWatch log group, provide the name of the CloudWatch log group, with key `logGroup` . The following example specifies a log group named `alert-log-group` :
 	//
 	// `"LogDestination": { "logGroup": "alert-log-group" }`
-	// - For a Kinesis Data Firehose delivery stream, provide the name of the delivery stream, with key `deliveryStream` . The following example specifies a delivery stream named `alert-delivery-stream` :
+	// - For a Firehose delivery stream, provide the name of the delivery stream, with key `deliveryStream` . The following example specifies a delivery stream named `alert-delivery-stream` :
 	//
 	// `"LogDestination": { "deliveryStream": "alert-delivery-stream" }`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestination
@@ -39,7 +39,7 @@ type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	LogDestination interface{} `field:"required" json:"logDestination" yaml:"logDestination"`
 	// The type of storage destination to send these logs to.
 	//
-	// You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.
+	// You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestinationtype
 	//
 	LogDestinationType *string `field:"required" json:"logDestinationType" yaml:"logDestinationType"`

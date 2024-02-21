@@ -125,7 +125,7 @@ type CfnAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
 	//
 	OutputLocation interface{} `field:"optional" json:"outputLocation" yaml:"outputLocation"`
-	// Parameter values that the SSM document uses at runtime.
+	// The parameters for the runtime configuration of the document.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

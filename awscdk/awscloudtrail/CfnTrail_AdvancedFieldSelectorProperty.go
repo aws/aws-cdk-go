@@ -111,6 +111,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::SCN::Instance`
 	// - `AWS::SNS::PlatformEndpoint`
 	// - `AWS::SNS::Topic`
+	// - `AWS::SWF::Domain`
 	// - `AWS::SQS::Queue`
 	// - `AWS::SSMMessages::ControlChannel`
 	// - `AWS::ThinClient::Device`
@@ -323,6 +324,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::SNS::Topic` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sns:<region>:<account_ID>:<topic_name>`
+	//
+	// When `resources.type` equals `AWS::SWF::Domain` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:swf:<region>:<account_ID>:domain/<domain_name>`
 	//
 	// When `resources.type` equals `AWS::SQS::Queue` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

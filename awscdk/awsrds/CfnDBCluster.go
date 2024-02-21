@@ -149,16 +149,21 @@ type CfnDBCluster interface {
 	//
 	// This identifier is found in AWS CloudTrail log entries whenever the KMS key for the DB cluster is accessed.
 	AttrDbClusterResourceId() *string
-	// The connection endpoint for the primary instance of the DB cluster.
 	AttrEndpoint() awscdk.IResolvable
 	// The connection endpoint for the DB cluster.
+	//
+	// For example: `mystack-mydbcluster-123456789012.us-east-2.rds.amazonaws.com`
 	AttrEndpointAddress() *string
 	// The port number that will accept connections on this DB cluster.
+	//
+	// For example: `3306`.
 	AttrEndpointPort() *string
 	// The Amazon Resource Name (ARN) of the secret.
 	AttrMasterUserSecretSecretArn() *string
 	AttrReadEndpoint() awscdk.IResolvable
 	// The reader endpoint for the DB cluster.
+	//
+	// For example: `mystack-mydbcluster-ro-123456789012.us-east-2.rds.amazonaws.com`
 	AttrReadEndpointAddress() *string
 	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
 	AutoMinorVersionUpgrade() interface{}

@@ -11,7 +11,9 @@ import (
 
 // The `AWS::CodePipeline::Pipeline` resource creates a CodePipeline pipeline that describes how software changes go through a release process.
 //
-// For more information, see [What Is CodePipeline?](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) in the *AWS CodePipeline User Guide* .
+// For more information, see [What Is CodePipeline?](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) in the *CodePipeline User Guide* .
+//
+// For an example in YAML and JSON that contains the parameters in this reference, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#aws-resource-codepipeline-pipeline--examples) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -96,6 +98,7 @@ import (
 //   			StageName: jsii.String("stageName"),
 //   		},
 //   	},
+//   	ExecutionMode: jsii.String("executionMode"),
 //   	Name: jsii.String("name"),
 //   	PipelineType: jsii.String("pipelineType"),
 //   	RestartExecutionOnUpdate: jsii.Boolean(false),
@@ -114,8 +117,47 @@ import (
 //   				SourceActionName: jsii.String("sourceActionName"),
 //
 //   				// the properties below are optional
+//   				PullRequest: []interface{}{
+//   					&GitPullRequestFilterProperty{
+//   						Branches: &GitBranchFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
+//   						Events: []*string{
+//   							jsii.String("events"),
+//   						},
+//   						FilePaths: &GitFilePathFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Push: []interface{}{
 //   					&GitPushFilterProperty{
+//   						Branches: &GitBranchFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
+//   						FilePaths: &GitFilePathFilterCriteriaProperty{
+//   							Excludes: []*string{
+//   								jsii.String("excludes"),
+//   							},
+//   							Includes: []*string{
+//   								jsii.String("includes"),
+//   							},
+//   						},
 //   						Tags: &GitTagFilterCriteriaProperty{
 //   							Excludes: []*string{
 //   								jsii.String("excludes"),
@@ -169,6 +211,9 @@ type CfnPipeline interface {
 	// Represents the input of a `DisableStageTransition` action.
 	DisableInboundStageTransitions() interface{}
 	SetDisableInboundStageTransitions(val interface{})
+	// The method that the pipeline will use to handle multiple executions.
+	ExecutionMode() *string
+	SetExecutionMode(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -453,6 +498,16 @@ func (j *jsiiProxy_CfnPipeline) DisableInboundStageTransitions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipeline) ExecutionMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipeline) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -660,6 +715,14 @@ func (j *jsiiProxy_CfnPipeline)SetDisableInboundStageTransitions(val interface{}
 	_jsii_.Set(
 		j,
 		"disableInboundStageTransitions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipeline)SetExecutionMode(val *string) {
+	_jsii_.Set(
+		j,
+		"executionMode",
 		val,
 	)
 }

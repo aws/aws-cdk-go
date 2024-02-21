@@ -95,14 +95,14 @@ type CfnSubscriptionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-replaypolicy
 	//
 	ReplayPolicy interface{} `field:"optional" json:"replayPolicy" yaml:"replayPolicy"`
-	// This property applies only to Amazon Kinesis Data Firehose delivery stream subscriptions.
+	// This property applies only to Amazon Data Firehose delivery stream subscriptions.
 	//
 	// Specify the ARN of the IAM role that has the following:
 	//
-	// - Permission to write to the Amazon Kinesis Data Firehose delivery stream
+	// - Permission to write to the Amazon Data Firehose delivery stream
 	// - Amazon SNS listed as a trusted entity
 	//
-	// Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions. For more information, see [Fanout to Amazon Kinesis Data Firehose delivery streams](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html) in the *Amazon SNS Developer Guide.*
+	// Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see [Fanout to Amazon Data Firehose delivery streams](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html) in the *Amazon SNS Developer Guide.*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
 	//
 	SubscriptionRoleArn *string `field:"optional" json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`

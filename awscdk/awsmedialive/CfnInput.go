@@ -70,15 +70,9 @@ type CfnInput interface {
 	//
 	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:input:1234567. MediaLive creates this ARN when it creates the input.
 	AttrArn() *string
-	// For a push input, the the destination or destinations for the input.
-	//
-	// The destinations are the URLs of locations on MediaLive where the upstream system pushes the content to, for this input. MediaLive creates these addresses when it creates the input.
 	AttrDestinations() *[]*string
 	// The unique ID for the device.
 	AttrId() *string
-	// For a pull input, the source or sources for the input.
-	//
-	// The sources are the URLs of locations on the upstream system where MediaLive pulls the content from, for this input. You included these URLs in the create request.
 	AttrSources() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

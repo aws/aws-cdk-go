@@ -109,6 +109,7 @@ type CfnCanary interface {
 	// The location in Amazon S3 where Synthetics stores artifacts from the runs of this canary.
 	ArtifactS3Location() *string
 	SetArtifactS3Location(val *string)
+	// `Ref` returns the ARN of the Lambda layer where Synthetics stores the canary script code.
 	AttrCodeSourceLocationArn() *string
 	// The ID of the canary.
 	AttrId() *string

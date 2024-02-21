@@ -7,11 +7,10 @@ import (
 // Properties for a new SNS topic.
 //
 // Example:
-//   var role role
-//
-//   topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
+//   topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
+//   	ContentBasedDeduplication: jsii.Boolean(true),
+//   	DisplayName: jsii.String("Customer subscription topic"),
 //   	Fifo: jsii.Boolean(true),
-//   	MessageRetentionPeriodInDays: jsii.Number(7),
 //   })
 //
 type TopicProps struct {
@@ -23,6 +22,12 @@ type TopicProps struct {
 	// Default: None.
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
+	// Adds a statement to enforce encryption of data in transit when publishing to the topic.
+	//
+	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
+	// Default: false.
+	//
+	EnforceSSL *bool `field:"optional" json:"enforceSSL" yaml:"enforceSSL"`
 	// Set to true to create a FIFO topic.
 	// Default: None.
 	//

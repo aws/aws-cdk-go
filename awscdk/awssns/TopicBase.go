@@ -22,6 +22,9 @@ type TopicBase interface {
 	AutoCreatePolicy() *bool
 	// Enables content-based deduplication for FIFO topics.
 	ContentBasedDeduplication() *bool
+	// Adds a statement to enforce encryption of data in transit when publishing to the topic.
+	EnforceSSL() *bool
+	SetEnforceSSL(val *bool)
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -56,7 +59,7 @@ type TopicBase interface {
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
-	// will be automatically created upon the first call to `addToPolicy`. If
+	// will be automatically created upon the first call to `addToResourcePolicy`. If
 	// the topic is imported (`Topic.import`), then this is a no-op.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
@@ -71,6 +74,10 @@ type TopicBase interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Represents a notification target That allows SNS topic to associate with this rule target.
 	BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig
+	// Adds a statement to enforce encryption of data in transit when publishing to the topic.
+	//
+	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
+	CreateSSLPolicyDocument() awsiam.PolicyStatement
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -155,6 +162,16 @@ func (j *jsiiProxy_TopicBase) ContentBasedDeduplication() *bool {
 	return returns
 }
 
+func (j *jsiiProxy_TopicBase) EnforceSSL() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"enforceSSL",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TopicBase) Env() *awscdk.ResourceEnvironment {
 	var returns *awscdk.ResourceEnvironment
 	_jsii_.Get(
@@ -233,6 +250,14 @@ func NewTopicBase_Override(t TopicBase, scope constructs.Construct, id *string, 
 		"aws-cdk-lib.aws_sns.TopicBase",
 		[]interface{}{scope, id, props},
 		t,
+	)
+}
+
+func (j *jsiiProxy_TopicBase)SetEnforceSSL(val *bool) {
+	_jsii_.Set(
+		j,
+		"enforceSSL",
+		val,
 	)
 }
 
@@ -362,6 +387,19 @@ func (t *jsiiProxy_TopicBase) BindAsNotificationRuleTarget(_scope constructs.Con
 		t,
 		"bindAsNotificationRuleTarget",
 		[]interface{}{_scope},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TopicBase) CreateSSLPolicyDocument() awsiam.PolicyStatement {
+	var returns awsiam.PolicyStatement
+
+	_jsii_.Invoke(
+		t,
+		"createSSLPolicyDocument",
+		nil, // no parameters
 		&returns,
 	)
 

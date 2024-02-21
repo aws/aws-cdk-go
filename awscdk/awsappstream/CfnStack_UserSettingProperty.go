@@ -33,8 +33,6 @@ type CfnStack_UserSettingProperty struct {
 	//
 	// This defaults to 20,971,520 (20 MB) when unspecified and the permission is `ENABLED` . This can't be specified when the permission is `DISABLED` .
 	//
-	// This can only be specified for AlwaysOn and OnDemand fleets. The attribute is not supported on Elastic fleets.
-	//
 	// The value can be between 1 and 20,971,520 (20 MB).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-maximumlength
 	//

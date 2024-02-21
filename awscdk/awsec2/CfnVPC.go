@@ -50,9 +50,6 @@ type CfnVPC interface {
 	//
 	// For example, 10.0.0.0/16.
 	AttrCidrBlock() *string
-	// The association IDs of the IPv4 CIDR blocks for the VPC.
-	//
-	// For example, [ vpc-cidr-assoc-0280ab6b ].
 	AttrCidrBlockAssociations() *[]*string
 	// The ID of the default network ACL for the VPC.
 	//
@@ -62,9 +59,6 @@ type CfnVPC interface {
 	//
 	// For example, sg-b178e0d3.
 	AttrDefaultSecurityGroup() *string
-	// The IPv6 CIDR blocks for the VPC.
-	//
-	// For example, [ 2001:db8:1234:1a00::/56 ].
 	AttrIpv6CidrBlocks() *[]*string
 	// The ID of the VPC.
 	AttrVpcId() *string

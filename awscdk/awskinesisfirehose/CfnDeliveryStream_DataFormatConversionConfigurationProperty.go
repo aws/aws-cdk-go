@@ -73,13 +73,13 @@ type CfnDeliveryStream_DataFormatConversionConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON.
+	// Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON.
 	//
 	// This parameter is required if `Enabled` is set to true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
 	//
 	InputFormatConfiguration interface{} `field:"optional" json:"inputFormatConfiguration" yaml:"inputFormatConfiguration"`
-	// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format.
+	// Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format.
 	//
 	// This parameter is required if `Enabled` is set to true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration

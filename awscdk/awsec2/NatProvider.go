@@ -11,17 +11,17 @@ import (
 // instance.
 //
 // Example:
-//   // Configure the `natGatewayProvider` when defining a Vpc
-//   natGatewayProvider := ec2.NatProvider_Instance(&NatInstanceProps{
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
-//   })
+//   var instanceType instanceType
 //
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	NatGatewayProvider: NatGatewayProvider,
 //
-//   	// The 'natGateways' parameter now controls the number of NAT instances
-//   	NatGateways: jsii.Number(2),
+//   provider := ec2.NatProvider_Instance(&NatInstanceProps{
+//   	InstanceType: InstanceType,
+//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_OUTBOUND_ONLY,
 //   })
+//   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+//   	NatGatewayProvider: provider,
+//   })
+//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
 //
 type NatProvider interface {
 	// Return list of gateways spawned by the provider.

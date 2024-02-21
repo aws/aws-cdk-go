@@ -19,11 +19,9 @@ import (
 //   var policy interface{}
 //
 //   cfnChannelPolicy := awscdk.Aws_mediapackagev2.NewCfnChannelPolicy(this, jsii.String("MyCfnChannelPolicy"), &CfnChannelPolicyProps{
-//   	Policy: policy,
-//
-//   	// the properties below are optional
 //   	ChannelGroupName: jsii.String("channelGroupName"),
 //   	ChannelName: jsii.String("channelName"),
+//   	Policy: policy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html
@@ -375,6 +373,9 @@ func NewCfnChannelPolicy_Override(c CfnChannelPolicy, scope constructs.Construct
 }
 
 func (j *jsiiProxy_CfnChannelPolicy)SetChannelGroupName(val *string) {
+	if err := j.validateSetChannelGroupNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelGroupName",
@@ -383,6 +384,9 @@ func (j *jsiiProxy_CfnChannelPolicy)SetChannelGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnChannelPolicy)SetChannelName(val *string) {
+	if err := j.validateSetChannelNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"channelName",

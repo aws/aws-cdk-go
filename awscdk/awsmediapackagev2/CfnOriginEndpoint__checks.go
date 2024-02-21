@@ -179,7 +179,15 @@ func validateCfnOriginEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) validateSetContainerTypeParameters(val *string) error {
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetChannelGroupNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetChannelNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
@@ -302,6 +310,14 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetLowLatencyHlsManifestsParameter
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
 		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetOriginEndpointNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

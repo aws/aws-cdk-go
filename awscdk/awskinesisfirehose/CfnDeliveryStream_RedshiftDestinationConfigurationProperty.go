@@ -138,7 +138,7 @@ type CfnDeliveryStream_RedshiftDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration
 	//
 	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
-	// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift.
+	// The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
 	//
 	// Default value is 3600 (60 minutes).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions

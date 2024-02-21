@@ -51,13 +51,13 @@ type CfnWorkflow interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Contains the YAML document content for the workflow.
+	// Contains the UTF-8 encoded YAML document content for the workflow.
 	Data() *string
 	SetData(val *string)
-	// The description of the workflow.
+	// Describes the workflow.
 	Description() *string
 	SetDescription(val *string)
-	// The KMS key identifier used to encrypt the workflow resource.
+	// The ID of the KMS key that is used to encrypt this workflow resource.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,7 +70,7 @@ type CfnWorkflow interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the workflow resource.
+	// The name of the workflow to create.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,10 +84,10 @@ type CfnWorkflow interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags that apply to the workflow resource.
+	// Tags that apply to the workflow resource.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
-	// Specifies the image creation stage that the workflow applies to.
+	// The phase in the image build process for which the workflow resource is responsible.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -103,10 +103,12 @@ type CfnWorkflow interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The uri of the workflow.
+	// The `uri` of a YAML component document file.
 	Uri() *string
 	SetUri(val *string)
-	// The workflow resource version.
+	// The semantic version of this workflow resource.
+	//
+	// The semantic version syntax adheres to the following rules.
 	Version() *string
 	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

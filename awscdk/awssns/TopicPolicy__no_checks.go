@@ -8,6 +8,10 @@ func (t *jsiiProxy_TopicPolicy) validateApplyRemovalPolicyParameters(policy awsc
 	return nil
 }
 
+func (t *jsiiProxy_TopicPolicy) validateCreateSSLPolicyDocumentParameters(topicArn *string) error {
+	return nil
+}
+
 func (t *jsiiProxy_TopicPolicy) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

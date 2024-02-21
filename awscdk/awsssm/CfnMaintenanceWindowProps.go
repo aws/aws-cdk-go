@@ -75,7 +75,7 @@ type CfnMaintenanceWindowProps struct {
 	ScheduleTimezone *string `field:"optional" json:"scheduleTimezone" yaml:"scheduleTimezone"`
 	// The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active.
 	//
-	// StartDate allows you to delay activation of the Maintenance Window until the specified future date.
+	// `StartDate` allows you to delay activation of the maintenance window until the specified future date.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-startdate
 	//
 	StartDate *string `field:"optional" json:"startDate" yaml:"startDate"`

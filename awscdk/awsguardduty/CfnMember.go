@@ -19,12 +19,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnMember := awscdk.Aws_guardduty.NewCfnMember(this, jsii.String("MyCfnMember"), &CfnMemberProps{
-//   	DetectorId: jsii.String("detectorId"),
 //   	Email: jsii.String("email"),
-//   	MemberId: jsii.String("memberId"),
 //
 //   	// the properties below are optional
+//   	DetectorId: jsii.String("detectorId"),
 //   	DisableEmailNotification: jsii.Boolean(false),
+//   	MemberId: jsii.String("memberId"),
 //   	Message: jsii.String("message"),
 //   	Status: jsii.String("status"),
 //   })
@@ -62,6 +62,7 @@ type CfnMember interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The AWS account ID of the account to designate as a member.
 	MemberId() *string
 	SetMemberId(val *string)
 	// The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
@@ -416,9 +417,6 @@ func NewCfnMember_Override(c CfnMember, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnMember)SetDetectorId(val *string) {
-	if err := j.validateSetDetectorIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"detectorId",
@@ -449,9 +447,6 @@ func (j *jsiiProxy_CfnMember)SetEmail(val *string) {
 }
 
 func (j *jsiiProxy_CfnMember)SetMemberId(val *string) {
-	if err := j.validateSetMemberIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"memberId",

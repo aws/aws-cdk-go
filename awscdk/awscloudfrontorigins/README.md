@@ -150,3 +150,23 @@ cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps
 	},
 })
 ```
+
+## From a Lambda Function URL
+
+Lambda Function URLs enable direct invocation of Lambda functions via HTTP(S), without intermediaries. They can be set as CloudFront origins for streamlined function execution behind a CDN, leveraging caching and custom domains.
+
+```go
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+
+var fn function
+
+fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
+	AuthType: lambda.FunctionUrlAuthType_NONE,
+})
+
+cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewFunctionUrlOrigin(fnUrl),
+	},
+})
+```

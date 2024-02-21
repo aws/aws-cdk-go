@@ -11,27 +11,25 @@ package awsmediapackagev2
 //   var policy interface{}
 //
 //   cfnChannelPolicyProps := &CfnChannelPolicyProps{
-//   	Policy: policy,
-//
-//   	// the properties below are optional
 //   	ChannelGroupName: jsii.String("channelGroupName"),
 //   	ChannelName: jsii.String("channelName"),
+//   	Policy: policy,
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html
 //
 type CfnChannelPolicyProps struct {
+	// The name of the channel group associated with the channel policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html#cfn-mediapackagev2-channelpolicy-channelgroupname
+	//
+	ChannelGroupName *string `field:"required" json:"channelGroupName" yaml:"channelGroupName"`
+	// The name of the channel associated with the channel policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html#cfn-mediapackagev2-channelpolicy-channelname
+	//
+	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
 	// The policy associated with the channel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html#cfn-mediapackagev2-channelpolicy-policy
 	//
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
-	// The name of the channel group associated with the channel policy.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html#cfn-mediapackagev2-channelpolicy-channelgroupname
-	//
-	ChannelGroupName *string `field:"optional" json:"channelGroupName" yaml:"channelGroupName"`
-	// The name of the channel associated with the channel policy.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html#cfn-mediapackagev2-channelpolicy-channelname
-	//
-	ChannelName *string `field:"optional" json:"channelName" yaml:"channelName"`
 }
 

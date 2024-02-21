@@ -83,6 +83,8 @@ type CfnServerlessCacheProps struct {
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Represents the information required for client programs to connect to a cache node.
+	//
+	// This value is read-only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-endpoint
 	//
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
@@ -99,6 +101,8 @@ type CfnServerlessCacheProps struct {
 	//
 	MajorEngineVersion *string `field:"optional" json:"majorEngineVersion" yaml:"majorEngineVersion"`
 	// Represents the information required for client programs to connect to a cache node.
+	//
+	// This value is read-only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-readerendpoint
 	//
 	ReaderEndpoint interface{} `field:"optional" json:"readerEndpoint" yaml:"readerEndpoint"`

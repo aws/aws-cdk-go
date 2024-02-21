@@ -120,9 +120,6 @@ type CfnBroker interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The AMQP endpoints of each broker instance as a list of strings.
-	//
-	// `amqp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:5671`
 	AttrAmqpEndpoints() *[]*string
 	// The Amazon Resource Name (ARN) of the Amazon MQ broker.
 	//
@@ -140,25 +137,10 @@ type CfnBroker interface {
 	//
 	// The unique ID that Amazon MQ generates for the configuration.
 	AttrId() *string
-	// The IP addresses of each broker instance as a list of strings. Does not apply to RabbitMQ brokers.
-	//
-	// `['198.51.100.2', '203.0.113.9']`
 	AttrIpAddresses() *[]*string
-	// The MQTT endpoints of each broker instance as a list of strings.
-	//
-	// `mqtt+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:8883`
 	AttrMqttEndpoints() *[]*string
-	// The OpenWire endpoints of each broker instance as a list of strings.
-	//
-	// `ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61617`
 	AttrOpenWireEndpoints() *[]*string
-	// The STOMP endpoints of each broker instance as a list of strings.
-	//
-	// `stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614`
 	AttrStompEndpoints() *[]*string
-	// The WSS endpoints of each broker instance as a list of strings.
-	//
-	// `wss://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61619`
 	AttrWssEndpoints() *[]*string
 	// Optional.
 	AuthenticationStrategy() *string

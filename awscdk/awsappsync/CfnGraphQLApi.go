@@ -49,6 +49,11 @@ import (
 //   		},
 //   	},
 //   	ApiType: jsii.String("apiType"),
+//   	EnhancedMetricsConfig: &EnhancedMetricsConfigProperty{
+//   		DataSourceLevelMetricsBehavior: jsii.String("dataSourceLevelMetricsBehavior"),
+//   		OperationLevelMetricsConfig: jsii.String("operationLevelMetricsConfig"),
+//   		ResolverLevelMetricsBehavior: jsii.String("resolverLevelMetricsBehavior"),
+//   	},
 //   	EnvironmentVariables: environmentVariables,
 //   	IntrospectionConfig: jsii.String("introspectionConfig"),
 //   	LambdaAuthorizerConfig: &LambdaAuthorizerConfigProperty{
@@ -129,6 +134,10 @@ type CfnGraphQLApi interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Enables and controls the enhanced metrics feature.
+	EnhancedMetricsConfig() interface{}
+	SetEnhancedMetricsConfig(val interface{})
+	// A map containing the list of resources with their properties and environment variables.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
 	// Sets the value of the GraphQL API to enable ( `ENABLED` ) or disable ( `DISABLED` ) introspection.
@@ -490,6 +499,16 @@ func (j *jsiiProxy_CfnGraphQLApi) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) EnhancedMetricsConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enhancedMetricsConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) EnvironmentVariables() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -754,6 +773,17 @@ func (j *jsiiProxy_CfnGraphQLApi)SetAuthenticationType(val *string) {
 	_jsii_.Set(
 		j,
 		"authenticationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraphQLApi)SetEnhancedMetricsConfig(val interface{}) {
+	if err := j.validateSetEnhancedMetricsConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enhancedMetricsConfig",
 		val,
 	)
 }

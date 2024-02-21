@@ -48,7 +48,7 @@ type CfnEndpointAccess interface {
 	AttrVpcEndpointVpcEndpointId() *string
 	// The VPC identifier that the endpoint is associated.
 	AttrVpcEndpointVpcId() *string
-	// The security groups associated with the endpoint.
+	// A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
 	AttrVpcSecurityGroups() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

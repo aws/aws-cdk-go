@@ -25,23 +25,29 @@ import (
 //
 // Example:
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
-//   topicPolicy := sns.NewTopicPolicy(this, jsii.String("TopicPolicy"), &TopicPolicyProps{
-//   	Topics: []iTopic{
-//   		topic,
+//   policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   	AssignSids: jsii.Boolean(true),
+//   	Statements: []policyStatement{
+//   		iam.NewPolicyStatement(&PolicyStatementProps{
+//   			Actions: []*string{
+//   				jsii.String("sns:Subscribe"),
+//   			},
+//   			Principals: []iPrincipal{
+//   				iam.NewAnyPrincipal(),
+//   			},
+//   			Resources: []*string{
+//   				topic.TopicArn,
+//   			},
+//   		}),
 //   	},
 //   })
 //
-//   topicPolicy.Document.AddStatements(iam.NewPolicyStatement(&PolicyStatementProps{
-//   	Actions: []*string{
-//   		jsii.String("sns:Subscribe"),
+//   topicPolicy := sns.NewTopicPolicy(this, jsii.String("Policy"), &TopicPolicyProps{
+//   	Topics: []iTopic{
+//   		topic,
 //   	},
-//   	Principals: []iPrincipal{
-//   		iam.NewAnyPrincipal(),
-//   	},
-//   	Resources: []*string{
-//   		topic.TopicArn,
-//   	},
-//   }))
+//   	PolicyDocument: PolicyDocument,
+//   })
 //
 type TopicPolicy interface {
 	awscdk.Resource
@@ -78,6 +84,10 @@ type TopicPolicy interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Adds a statement to enforce encryption of data in transit when publishing to the topic.
+	//
+	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
+	CreateSSLPolicyDocument(topicArn *string) awsiam.PolicyStatement
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -261,6 +271,22 @@ func (t *jsiiProxy_TopicPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (t *jsiiProxy_TopicPolicy) CreateSSLPolicyDocument(topicArn *string) awsiam.PolicyStatement {
+	if err := t.validateCreateSSLPolicyDocumentParameters(topicArn); err != nil {
+		panic(err)
+	}
+	var returns awsiam.PolicyStatement
+
+	_jsii_.Invoke(
+		t,
+		"createSSLPolicyDocument",
+		[]interface{}{topicArn},
+		&returns,
+	)
+
+	return returns
 }
 
 func (t *jsiiProxy_TopicPolicy) GeneratePhysicalName() *string {

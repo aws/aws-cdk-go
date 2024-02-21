@@ -50,7 +50,7 @@ type CfnEndpoint interface {
 	AttrCreationTime() *string
 	// The ID of the endpoint.
 	AttrId() *string
-	// The network interface of the endpoint.
+	// The network interfaces of the endpoint.
 	AttrNetworkInterfaces() awscdk.IResolvable
 	// The status of the endpoint.
 	AttrStatus() *string

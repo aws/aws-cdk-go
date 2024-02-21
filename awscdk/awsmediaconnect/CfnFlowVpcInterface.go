@@ -39,7 +39,7 @@ import (
 type CfnFlowVpcInterface interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The IDs of the network interfaces that MediaConnect created in your account.
+	// IDs of the network interfaces created in customer's account by MediaConnect.
 	AttrNetworkInterfaceIds() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

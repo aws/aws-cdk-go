@@ -43,6 +43,15 @@ import (
 //   				CountryCode: jsii.String("countryCode"),
 //   				SubdivisionCode: jsii.String("subdivisionCode"),
 //   			},
+//   			GeoProximityLocation: &GeoProximityLocationProperty{
+//   				AwsRegion: jsii.String("awsRegion"),
+//   				Bias: jsii.Number(123),
+//   				Coordinates: &CoordinatesProperty{
+//   					Latitude: jsii.String("latitude"),
+//   					Longitude: jsii.String("longitude"),
+//   				},
+//   				LocalZoneGroup: jsii.String("localZoneGroup"),
+//   			},
 //   			HealthCheckId: jsii.String("healthCheckId"),
 //   			HostedZoneId: jsii.String("hostedZoneId"),
 //   			HostedZoneName: jsii.String("hostedZoneName"),
@@ -63,6 +72,7 @@ import (
 type CfnRecordSetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Specifies a coordinate of the east–west position of a geographic point on the surface of the Earth.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

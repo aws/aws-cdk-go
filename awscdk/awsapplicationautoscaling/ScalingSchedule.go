@@ -2,6 +2,8 @@ package awsapplicationautoscaling
 
 import (
 	"time"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 // A scheduled scaling action.
@@ -69,5 +71,9 @@ type ScalingSchedule struct {
 	// Default: The rule is activate immediately.
 	//
 	StartTime *time.Time `field:"optional" json:"startTime" yaml:"startTime"`
+	// The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
+	// Default: - UTC.
+	//
+	TimeZone awscdk.TimeZone `field:"optional" json:"timeZone" yaml:"timeZone"`
 }
 

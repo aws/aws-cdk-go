@@ -1,7 +1,7 @@
 package awsimagebuilder
 
 
-// The included resources of the policy detail.
+// Specifies how the lifecycle policy should apply actions to selected resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,15 +17,15 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html
 //
 type CfnLifecyclePolicy_IncludeResourcesProperty struct {
-	// Use to configure lifecycle actions on AMIs.
+	// Specifies whether the lifecycle action should apply to distributed AMIs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html#cfn-imagebuilder-lifecyclepolicy-includeresources-amis
 	//
 	Amis interface{} `field:"optional" json:"amis" yaml:"amis"`
-	// Use to configure lifecycle actions on containers.
+	// Specifies whether the lifecycle action should apply to distributed containers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html#cfn-imagebuilder-lifecyclepolicy-includeresources-containers
 	//
 	Containers interface{} `field:"optional" json:"containers" yaml:"containers"`
-	// Use to configure lifecycle actions on snapshots.
+	// Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html#cfn-imagebuilder-lifecyclepolicy-includeresources-snapshots
 	//
 	Snapshots interface{} `field:"optional" json:"snapshots" yaml:"snapshots"`

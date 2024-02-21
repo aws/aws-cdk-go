@@ -80,7 +80,11 @@ func validateCfnOriginEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnOriginEndpoint) validateSetContainerTypeParameters(val *string) error {
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetChannelGroupNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetChannelNameParameters(val *string) error {
 	return nil
 }
 
@@ -89,6 +93,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetHlsManifestsParameters(val inte
 }
 
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetLowLatencyHlsManifestsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetOriginEndpointNameParameters(val *string) error {
 	return nil
 }
 

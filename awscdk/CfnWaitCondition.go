@@ -36,13 +36,6 @@ import (
 type CfnWaitCondition interface {
 	CfnResource
 	IInspectable
-	// A JSON object that contains the `UniqueId` and `Data` values from the wait condition signal(s) for the specified wait condition.
-	//
-	// For more information about wait condition signals, see [Wait condition signal JSON format](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html#using-cfn-waitcondition-signaljson) .
-	//
-	// Example return value for a wait condition with 2 signals:
-	//
-	// `{ "Signal1" : "Step 1 complete." , "Signal2" : "Step 2 complete." }`
 	AttrData() IResolvable
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.

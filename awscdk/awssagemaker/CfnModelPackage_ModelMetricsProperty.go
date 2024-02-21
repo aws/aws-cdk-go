@@ -78,7 +78,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html
 //
 type CfnModelPackage_ModelMetricsProperty struct {
-	// Metrics that measure bais in a model.
+	// Metrics that measure bias in a model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html#cfn-sagemaker-modelpackage-modelmetrics-bias
 	//
 	Bias interface{} `field:"optional" json:"bias" yaml:"bias"`

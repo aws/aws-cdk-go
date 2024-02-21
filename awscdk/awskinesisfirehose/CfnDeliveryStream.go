@@ -106,6 +106,7 @@ type CfnDeliveryStream interface {
 	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 	S3DestinationConfiguration() interface{}
 	SetS3DestinationConfiguration(val interface{})
+	// Configure Snowflake destination.
 	SnowflakeDestinationConfiguration() interface{}
 	SetSnowflakeDestinationConfiguration(val interface{})
 	// The configuration of a destination in Splunk for the delivery stream.

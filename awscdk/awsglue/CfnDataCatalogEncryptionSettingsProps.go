@@ -17,6 +17,7 @@ package awsglue
 //   		},
 //   		EncryptionAtRest: &EncryptionAtRestProperty{
 //   			CatalogEncryptionMode: jsii.String("catalogEncryptionMode"),
+//   			CatalogEncryptionServiceRole: jsii.String("catalogEncryptionServiceRole"),
 //   			SseAwsKmsKeyId: jsii.String("sseAwsKmsKeyId"),
 //   		},
 //   	},

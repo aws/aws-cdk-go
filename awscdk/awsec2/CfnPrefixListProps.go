@@ -13,7 +13,6 @@ import (
 //
 //   cfnPrefixListProps := &CfnPrefixListProps{
 //   	AddressFamily: jsii.String("addressFamily"),
-//   	MaxEntries: jsii.Number(123),
 //   	PrefixListName: jsii.String("prefixListName"),
 //
 //   	// the properties below are optional
@@ -25,6 +24,7 @@ import (
 //   			Description: jsii.String("description"),
 //   		},
 //   	},
+//   	MaxEntries: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -42,10 +42,6 @@ type CfnPrefixListProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
 	//
 	AddressFamily *string `field:"required" json:"addressFamily" yaml:"addressFamily"`
-	// The maximum number of entries for the prefix list.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
-	//
-	MaxEntries *float64 `field:"required" json:"maxEntries" yaml:"maxEntries"`
 	// A name for the prefix list.
 	//
 	// Constraints: Up to 255 characters in length. The name cannot start with `com.amazonaws` .
@@ -56,6 +52,10 @@ type CfnPrefixListProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
 	//
 	Entries interface{} `field:"optional" json:"entries" yaml:"entries"`
+	// The maximum number of entries for the prefix list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+	//
+	MaxEntries *float64 `field:"optional" json:"maxEntries" yaml:"maxEntries"`
 	// The tags for the prefix list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
 	//

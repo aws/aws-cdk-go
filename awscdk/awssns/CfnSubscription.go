@@ -101,7 +101,7 @@ type CfnSubscription interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// This property applies only to Amazon Kinesis Data Firehose delivery stream subscriptions.
+	// This property applies only to Amazon Data Firehose delivery stream subscriptions.
 	SubscriptionRoleArn() *string
 	SetSubscriptionRoleArn(val *string)
 	// The ARN of the topic to subscribe to.

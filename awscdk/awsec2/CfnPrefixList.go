@@ -20,7 +20,6 @@ import (
 //
 //   cfnPrefixList := awscdk.Aws_ec2.NewCfnPrefixList(this, jsii.String("MyCfnPrefixList"), &CfnPrefixListProps{
 //   	AddressFamily: jsii.String("addressFamily"),
-//   	MaxEntries: jsii.Number(123),
 //   	PrefixListName: jsii.String("prefixListName"),
 //
 //   	// the properties below are optional
@@ -32,6 +31,7 @@ import (
 //   			Description: jsii.String("description"),
 //   		},
 //   	},
+//   	MaxEntries: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -507,9 +507,6 @@ func (j *jsiiProxy_CfnPrefixList)SetEntries(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnPrefixList)SetMaxEntries(val *float64) {
-	if err := j.validateSetMaxEntriesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"maxEntries",

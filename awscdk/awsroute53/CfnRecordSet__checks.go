@@ -251,6 +251,30 @@ func (j *jsiiProxy_CfnRecordSet) validateSetGeoLocationParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnRecordSet) validateSetGeoProximityLocationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnRecordSet_GeoProximityLocationProperty:
+		val := val.(*CfnRecordSet_GeoProximityLocationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnRecordSet_GeoProximityLocationProperty:
+		val_ := val.(CfnRecordSet_GeoProximityLocationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRecordSet_GeoProximityLocationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnRecordSet) validateSetMultiValueAnswerParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

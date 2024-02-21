@@ -21,7 +21,7 @@ package awssagemaker
 type CfnWorkteam_CognitoMemberDefinitionProperty struct {
 	// An identifier for an application client.
 	//
-	// You must create the app client ID using Amazon Cognito.
+	// You must create the app client ID using Amazon Cognito .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitoclientid
 	//
 	CognitoClientId *string `field:"required" json:"cognitoClientId" yaml:"cognitoClientId"`

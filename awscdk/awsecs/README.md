@@ -664,6 +664,50 @@ taskDefinition.AddContainer(jsii.String("windowsservercore"), &ContainerDefiniti
 })
 ```
 
+### Using Windows authentication with gMSA
+
+Amazon ECS supports Active Directory authentication for Linux containers through a special kind of service account called a group Managed Service Account (gMSA). For more details, please see the [product documentation on how to implement on Windows containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html), or this [blog post on how to implement on  Linux containers](https://aws.amazon.com/blogs/containers/using-windows-authentication-with-gmsa-on-linux-containers-on-amazon-ecs/).
+
+There are two types of CredentialSpecs, domained-join or domainless. Both types support creation from a S3 bucket, a SSM parameter, or by directly specifying a location for the file in the constructor.
+
+A domian-joined gMSA container looks like:
+
+```go
+// Make sure the task definition's execution role has permissions to read from the S3 bucket or SSM parameter where the CredSpec file is stored.
+var parameter iParameter
+var taskDefinition taskDefinition
+
+
+// Domain-joined gMSA container from a SSM parameter
+taskDefinition.AddContainer(jsii.String("gmsa-domain-joined-container"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	Cpu: jsii.Number(128),
+	MemoryLimitMiB: jsii.Number(256),
+	CredentialSpecs: []credentialSpec{
+		ecs.DomainJoinedCredentialSpec_FromSsmParameter(parameter),
+	},
+})
+```
+
+A domianless gMSA container looks like:
+
+```go
+// Make sure the task definition's execution role has permissions to read from the S3 bucket or SSM parameter where the CredSpec file is stored.
+var bucket bucket
+var taskDefinition taskDefinition
+
+
+// Domainless gMSA container from a S3 bucket object.
+taskDefinition.AddContainer(jsii.String("gmsa-domainless-container"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	Cpu: jsii.Number(128),
+	MemoryLimitMiB: jsii.Number(256),
+	CredentialSpecs: []credentialSpec{
+		ecs.DomainlessCredentialSpec_FromS3Bucket(bucket, jsii.String("credSpec")),
+	},
+})
+```
+
 ### Using Graviton2 with Fargate
 
 AWS Graviton2 supports AWS Fargate. For more details, please see this [blog post](https://aws.amazon.com/blogs/aws/announcing-aws-graviton2-support-for-aws-fargate-get-up-to-40-better-price-performance-for-your-serverless-containers/)

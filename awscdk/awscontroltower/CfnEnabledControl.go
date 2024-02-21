@@ -31,6 +31,12 @@ import (
 //   			Value: value,
 //   		},
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html
@@ -74,6 +80,9 @@ type CfnEnabledControl interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A set of tags to assign to the enabled control.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The ARN of the organizational unit.
 	TargetIdentifier() *string
 	SetTargetIdentifier(val *string)
@@ -323,6 +332,16 @@ func (j *jsiiProxy_CfnEnabledControl) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnabledControl) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnabledControl) TargetIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -399,6 +418,17 @@ func (j *jsiiProxy_CfnEnabledControl)SetParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"parameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnabledControl)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }
