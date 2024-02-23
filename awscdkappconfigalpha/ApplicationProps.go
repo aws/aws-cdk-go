@@ -13,17 +13,17 @@ package awscdkappconfigalpha
 //   	Description: jsii.String("description"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type ApplicationProps struct {
 	// The name of the application.
 	// Default: - A name is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// The description for the application.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

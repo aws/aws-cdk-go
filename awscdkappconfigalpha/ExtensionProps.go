@@ -4,31 +4,38 @@ package awscdkappconfigalpha
 // Properties for the Extension construct.
 //
 // Example:
-//   var fn function
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
 //
+//   var action action
+//   var parameter parameter
 //
-//   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
-//   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
-//   			},
-//   			EventDestination: appconfig.NewLambdaDestination(fn),
-//   		}),
+//   extensionProps := &ExtensionProps{
+//   	Actions: []*action{
+//   		action,
 //   	},
-//   })
 //
-// Experimental.
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	ExtensionName: jsii.String("extensionName"),
+//   	LatestVersionNumber: jsii.Number(123),
+//   	Parameters: []*parameter{
+//   		parameter,
+//   	},
+//   }
+//
+// Deprecated.
 type ExtensionProps struct {
 	// A description of the extension.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the extension.
 	// Default: - A name is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	ExtensionName *string `field:"optional" json:"extensionName" yaml:"extensionName"`
 	// The latest version number of the extension.
 	//
@@ -37,15 +44,15 @@ type ExtensionProps struct {
 	// enter 2 for this field.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	LatestVersionNumber *float64 `field:"optional" json:"latestVersionNumber" yaml:"latestVersionNumber"`
 	// The parameters accepted for the extension.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Parameters *[]Parameter `field:"optional" json:"parameters" yaml:"parameters"`
 	// The actions for the extension.
-	// Experimental.
+	// Deprecated.
 	Actions *[]Action `field:"required" json:"actions" yaml:"actions"`
 }
 

@@ -29,6 +29,7 @@ type LoggingOptions struct {
 	// Specify if Amazon OpenSearch Service application logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
+	// An explicit `false` is required when disabling it from `true`.
 	// Default: - false.
 	//
 	AppLogEnabled *bool `field:"optional" json:"appLogEnabled" yaml:"appLogEnabled"`
@@ -49,6 +50,7 @@ type LoggingOptions struct {
 	// Specify if slow index logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
+	// An explicit `false` is required when disabling it from `true`.
 	// Default: - false.
 	//
 	SlowIndexLogEnabled *bool `field:"optional" json:"slowIndexLogEnabled" yaml:"slowIndexLogEnabled"`
@@ -59,6 +61,7 @@ type LoggingOptions struct {
 	// Specify if slow search logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
+	// An explicit `false` is required when disabling it from `true`.
 	// Default: - false.
 	//
 	SlowSearchLogEnabled *bool `field:"optional" json:"slowSearchLogEnabled" yaml:"slowSearchLogEnabled"`

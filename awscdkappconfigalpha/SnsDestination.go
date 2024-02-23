@@ -11,31 +11,26 @@ import (
 // Use an Amazon SNS topic as an event destination.
 //
 // Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var topic topic
 //
+//   snsDestination := appconfig_alpha.NewSnsDestination(topic)
 //
-//   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
-//   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
-//   			},
-//   			EventDestination: appconfig.NewSnsDestination(topic),
-//   		}),
-//   	},
-//   })
-//
-// Experimental.
+// Deprecated.
 type SnsDestination interface {
 	IEventDestination
 	// The URI of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	ExtensionUri() *string
 	// The IAM policy document to invoke the event destination.
-	// Experimental.
+	// Deprecated.
 	PolicyDocument() awsiam.PolicyDocument
 	// The type of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	Type() SourceType
 }
 
@@ -75,7 +70,7 @@ func (j *jsiiProxy_SnsDestination) Type() SourceType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	_init_.Initialize()
 
@@ -93,7 +88,7 @@ func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 	_init_.Initialize()
 

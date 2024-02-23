@@ -4,38 +4,43 @@ package awscdkappconfigalpha
 // Properties for the Environment construct.
 //
 // Example:
-//   app := appconfig.NewApplication(this, jsii.String("MyApp"))
-//   env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
-//   	Application: app,
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
-//   	Application: app,
-//   	DeployTo: []iEnvironment{
-//   		env,
+//   var application application
+//   var monitor monitor
+//
+//   environmentProps := &EnvironmentProps{
+//   	Application: application,
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	EnvironmentName: jsii.String("environmentName"),
+//   	Monitors: []*monitor{
+//   		monitor,
 //   	},
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   })
+//   }
 //
-// Experimental.
+// Deprecated.
 type EnvironmentProps struct {
 	// The description of the environment.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the environment.
 	// Default: - A name is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
 	// The monitors for the environment.
 	// Default: - No monitors.
 	//
-	// Experimental.
+	// Deprecated.
 	Monitors *[]Monitor `field:"optional" json:"monitors" yaml:"monitors"`
 	// The application to be associated with the environment.
-	// Experimental.
+	// Deprecated.
 	Application IApplication `field:"required" json:"application" yaml:"application"`
 }
 

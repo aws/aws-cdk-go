@@ -4,32 +4,38 @@ package awscdkappconfigalpha
 // Properties for DeploymentStrategy.
 //
 // Example:
-//   appconfig.NewDeploymentStrategy(this, jsii.String("MyDeploymentStrategy"), &DeploymentStrategyProps{
-//   	RolloutStrategy: appconfig.RolloutStrategy_Linear(&RolloutStrategyProps{
-//   		GrowthFactor: jsii.Number(20),
-//   		DeploymentDuration: awscdk.Duration_Minutes(jsii.Number(30)),
-//   		FinalBakeTime: awscdk.Duration_*Minutes(jsii.Number(30)),
-//   	}),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
 //
-// Experimental.
+//   var rolloutStrategy rolloutStrategy
+//
+//   deploymentStrategyProps := &DeploymentStrategyProps{
+//   	RolloutStrategy: rolloutStrategy,
+//
+//   	// the properties below are optional
+//   	DeploymentStrategyName: jsii.String("deploymentStrategyName"),
+//   	Description: jsii.String("description"),
+//   }
+//
+// Deprecated.
 type DeploymentStrategyProps struct {
 	// The rollout strategy for the deployment strategy.
 	//
 	// You can use predefined deployment
 	// strategies, such as RolloutStrategy.ALL_AT_ONCE, RolloutStrategy.LINEAR_50_PERCENT_EVERY_30_SECONDS,
 	// or RolloutStrategy.CANARY_10_PERCENT_20_MINUTES.
-	// Experimental.
+	// Deprecated.
 	RolloutStrategy RolloutStrategy `field:"required" json:"rolloutStrategy" yaml:"rolloutStrategy"`
 	// A name for the deployment strategy.
 	// Default: - A name is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	DeploymentStrategyName *string `field:"optional" json:"deploymentStrategyName" yaml:"deploymentStrategyName"`
 	// A description of the deployment strategy.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

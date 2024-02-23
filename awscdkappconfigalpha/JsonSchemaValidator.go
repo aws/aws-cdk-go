@@ -8,27 +8,20 @@ import (
 // Defines a JSON Schema validator.
 //
 // Example:
-//   var application application
-//   var fn function
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
 //
+//   jsonSchemaValidator := appconfig_alpha.JsonSchemaValidator_FromFile(jsii.String("inputPath"))
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-//   	Application: Application,
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	Validators: []iValidator{
-//   		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
-//   		appconfig.LambdaValidator_FromFunction(fn),
-//   	},
-//   })
-//
-// Experimental.
+// Deprecated.
 type JsonSchemaValidator interface {
 	IValidator
 	// The content of the validator.
-	// Experimental.
+	// Deprecated.
 	Content() *string
 	// The type of validator.
-	// Experimental.
+	// Deprecated.
 	Type() ValidatorType
 }
 
@@ -58,7 +51,7 @@ func (j *jsiiProxy_JsonSchemaValidator) Type() ValidatorType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewJsonSchemaValidator_Override(j JsonSchemaValidator) {
 	_init_.Initialize()
 
@@ -70,7 +63,7 @@ func NewJsonSchemaValidator_Override(j JsonSchemaValidator) {
 }
 
 // Defines a JSON Schema validator from a file.
-// Experimental.
+// Deprecated.
 func JsonSchemaValidator_FromFile(inputPath *string) JsonSchemaValidator {
 	_init_.Initialize()
 
@@ -90,7 +83,7 @@ func JsonSchemaValidator_FromFile(inputPath *string) JsonSchemaValidator {
 }
 
 // Defines a JSON Schema validator from inline code.
-// Experimental.
+// Deprecated.
 func JsonSchemaValidator_FromInline(code *string) JsonSchemaValidator {
 	_init_.Initialize()
 

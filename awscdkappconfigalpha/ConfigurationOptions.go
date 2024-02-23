@@ -31,18 +31,18 @@ import (
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type ConfigurationOptions struct {
 	// The deployment key of the configuration.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	DeploymentKey awskms.IKey `field:"optional" json:"deploymentKey" yaml:"deploymentKey"`
 	// The deployment strategy for the configuration.
 	// Default: - A deployment strategy with the rollout strategy set to
 	// RolloutStrategy.CANARY_10_PERCENT_20_MINUTES
 	//
-	// Experimental.
+	// Deprecated.
 	DeploymentStrategy IDeploymentStrategy `field:"optional" json:"deploymentStrategy" yaml:"deploymentStrategy"`
 	// The list of environments to deploy the configuration to.
 	//
@@ -50,27 +50,27 @@ type ConfigurationOptions struct {
 	// deployment.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	DeployTo *[]IEnvironment `field:"optional" json:"deployTo" yaml:"deployTo"`
 	// The description of the configuration.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the configuration.
 	// Default: - A name is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The type of configuration.
 	// Default: ConfigurationType.FREEFORM
 	//
-	// Experimental.
+	// Deprecated.
 	Type ConfigurationType `field:"optional" json:"type" yaml:"type"`
 	// The validators for the configuration.
 	// Default: - No validators.
 	//
-	// Experimental.
+	// Deprecated.
 	Validators *[]IValidator `field:"optional" json:"validators" yaml:"validators"`
 }
 

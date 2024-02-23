@@ -8,14 +8,18 @@ import (
 // Defines the deployment strategy ID's of AWS AppConfig deployment strategies.
 //
 // Example:
-//   appconfig.DeploymentStrategy_FromDeploymentStrategyId(this, jsii.String("MyImportedDeploymentStrategy"), appconfig.DeploymentStrategyId_FromString(jsii.String("abc123")))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//
+//   deploymentStrategyId := appconfig_alpha.DeploymentStrategyId_ALL_AT_ONCE()
 //
 // See: https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html
 //
-// Experimental.
+// Deprecated.
 type DeploymentStrategyId interface {
 	// The deployment strategy ID.
-	// Experimental.
+	// Deprecated.
 	Id() *string
 }
 
@@ -35,7 +39,7 @@ func (j *jsiiProxy_DeploymentStrategyId) Id() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewDeploymentStrategyId_Override(d DeploymentStrategyId) {
 	_init_.Initialize()
 
@@ -47,7 +51,7 @@ func NewDeploymentStrategyId_Override(d DeploymentStrategyId) {
 }
 
 // Builds a deployment strategy ID from a string.
-// Experimental.
+// Deprecated.
 func DeploymentStrategyId_FromString(deploymentStrategyId *string) DeploymentStrategyId {
 	_init_.Initialize()
 

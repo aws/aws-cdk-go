@@ -10,27 +10,23 @@ import (
 // Use an Amazon EventBridge event bus as an event destination.
 //
 // Example:
-//   bus := events.EventBus_FromEventBusName(this, jsii.String("MyEventBus"), jsii.String("default"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
-//   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
-//   			},
-//   			EventDestination: appconfig.NewEventBridgeDestination(bus),
-//   		}),
-//   	},
-//   })
+//   var eventBus eventBus
 //
-// Experimental.
+//   eventBridgeDestination := appconfig_alpha.NewEventBridgeDestination(eventBus)
+//
+// Deprecated.
 type EventBridgeDestination interface {
 	IEventDestination
 	// The URI of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	ExtensionUri() *string
 	// The type of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	Type() SourceType
 }
 
@@ -60,7 +56,7 @@ func (j *jsiiProxy_EventBridgeDestination) Type() SourceType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewEventBridgeDestination(bus awsevents.IEventBus) EventBridgeDestination {
 	_init_.Initialize()
 
@@ -78,7 +74,7 @@ func NewEventBridgeDestination(bus awsevents.IEventBus) EventBridgeDestination {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewEventBridgeDestination_Override(e EventBridgeDestination, bus awsevents.IEventBus) {
 	_init_.Initialize()
 

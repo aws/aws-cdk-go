@@ -7,32 +7,32 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkappconfigalpha/v2/internal"
 )
 
-// Experimental.
+// Deprecated.
 type IDeploymentStrategy interface {
 	awscdk.IResource
 	// The deployment duration in minutes.
-	// Experimental.
+	// Deprecated.
 	DeploymentDurationInMinutes() *float64
 	// The Amazon Resource Name (ARN) of the deployment strategy.
-	// Experimental.
+	// Deprecated.
 	DeploymentStrategyArn() *string
 	// The ID of the deployment strategy.
-	// Experimental.
+	// Deprecated.
 	DeploymentStrategyId() *string
 	// The description of the deployment strategy.
-	// Experimental.
+	// Deprecated.
 	Description() *string
 	// The final bake time in minutes.
-	// Experimental.
+	// Deprecated.
 	FinalBakeTimeInMinutes() *float64
 	// The growth factor of the deployment strategy.
-	// Experimental.
+	// Deprecated.
 	GrowthFactor() *float64
 	// The growth type of the deployment strategy.
-	// Experimental.
+	// Deprecated.
 	GrowthType() GrowthType
 	// The name of the deployment strategy.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 }
 

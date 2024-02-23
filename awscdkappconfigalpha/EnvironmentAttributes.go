@@ -23,28 +23,28 @@ package awscdkappconfigalpha
 //   	Name: jsii.String("name"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type EnvironmentAttributes struct {
 	// The application associated with the environment.
-	// Experimental.
+	// Deprecated.
 	Application IApplication `field:"required" json:"application" yaml:"application"`
 	// The ID of the environment.
-	// Experimental.
+	// Deprecated.
 	EnvironmentId *string `field:"required" json:"environmentId" yaml:"environmentId"`
 	// The description of the environment.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The monitors for the environment.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Monitors *[]Monitor `field:"optional" json:"monitors" yaml:"monitors"`
 	// The name of the environment.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

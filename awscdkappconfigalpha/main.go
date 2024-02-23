@@ -1,4 +1,4 @@
-// An experimental construct library for AWS AppConfig.
+// This module is deprecated. All constructs are now available under aws-cdk-lib/aws-appconfig
 package awscdkappconfigalpha
 
 import (

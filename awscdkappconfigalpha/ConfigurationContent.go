@@ -8,22 +8,19 @@ import (
 // Defines the hosted configuration content.
 //
 // Example:
-//   var application application
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
 //
+//   configurationContent := appconfig_alpha.ConfigurationContent_FromFile(jsii.String("inputPath"), jsii.String("contentType"))
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-//   	Application: Application,
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
-//   })
-//
-// Experimental.
+// Deprecated.
 type ConfigurationContent interface {
 	// The configuration content.
-	// Experimental.
+	// Deprecated.
 	Content() *string
 	// The configuration content type.
-	// Experimental.
+	// Deprecated.
 	ContentType() *string
 }
 
@@ -53,7 +50,7 @@ func (j *jsiiProxy_ConfigurationContent) ContentType() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewConfigurationContent_Override(c ConfigurationContent) {
 	_init_.Initialize()
 
@@ -65,7 +62,7 @@ func NewConfigurationContent_Override(c ConfigurationContent) {
 }
 
 // Defines the hosted configuration content from a file.
-// Experimental.
+// Deprecated.
 func ConfigurationContent_FromFile(inputPath *string, contentType *string) ConfigurationContent {
 	_init_.Initialize()
 
@@ -85,7 +82,7 @@ func ConfigurationContent_FromFile(inputPath *string, contentType *string) Confi
 }
 
 // Defines the hosted configuration content from inline code.
-// Experimental.
+// Deprecated.
 func ConfigurationContent_FromInline(content *string, contentType *string) ConfigurationContent {
 	_init_.Initialize()
 
@@ -105,7 +102,7 @@ func ConfigurationContent_FromInline(content *string, contentType *string) Confi
 }
 
 // Defines the hosted configuration content as JSON from inline code.
-// Experimental.
+// Deprecated.
 func ConfigurationContent_FromInlineJson(content *string, contentType *string) ConfigurationContent {
 	_init_.Initialize()
 
@@ -125,7 +122,7 @@ func ConfigurationContent_FromInlineJson(content *string, contentType *string) C
 }
 
 // Defines the hosted configuration content as text from inline code.
-// Experimental.
+// Deprecated.
 func ConfigurationContent_FromInlineText(content *string) ConfigurationContent {
 	_init_.Initialize()
 
@@ -145,7 +142,7 @@ func ConfigurationContent_FromInlineText(content *string) ConfigurationContent {
 }
 
 // Defines the hosted configuration content as YAML from inline code.
-// Experimental.
+// Deprecated.
 func ConfigurationContent_FromInlineYaml(content *string) ConfigurationContent {
 	_init_.Initialize()
 

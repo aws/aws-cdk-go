@@ -7,32 +7,32 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkappconfigalpha/v2/internal"
 )
 
-// Experimental.
+// Deprecated.
 type IExtension interface {
 	awscdk.IResource
 	// The actions for the extension.
-	// Experimental.
+	// Deprecated.
 	Actions() *[]Action
 	// The description of the extension.
-	// Experimental.
+	// Deprecated.
 	Description() *string
 	// The Amazon Resource Name (ARN) of the extension.
-	// Experimental.
+	// Deprecated.
 	ExtensionArn() *string
 	// The ID of the extension.
-	// Experimental.
+	// Deprecated.
 	ExtensionId() *string
 	// The version number of the extension.
-	// Experimental.
+	// Deprecated.
 	ExtensionVersionNumber() *float64
 	// The latest version number of the extension.
-	// Experimental.
+	// Deprecated.
 	LatestVersionNumber() *float64
 	// The name of the extension.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 	// The parameters of the extension.
-	// Experimental.
+	// Deprecated.
 	Parameters() *[]Parameter
 }
 

@@ -13,118 +13,140 @@ import (
 // A sourced configuration represents configuration stored in an Amazon S3 bucket, AWS Secrets Manager secret, Systems Manager (SSM) Parameter Store parameter, SSM document, or AWS CodePipeline.
 //
 // Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var application application
-//   var bucket bucket
+//   var configurationSource configurationSource
+//   var deploymentStrategy deploymentStrategy
+//   var environment environment
+//   var key key
+//   var role role
+//   var validator iValidator
 //
+//   sourcedConfiguration := appconfig_alpha.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
+//   	Application: application,
+//   	Location: configurationSource,
 //
-//   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
-//   	Application: Application,
-//   	Location: appconfig.ConfigurationSource_FromBucket(bucket, jsii.String("path/to/file.json")),
-//   	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
-//   	Name: jsii.String("MyConfig"),
-//   	Description: jsii.String("This is my sourced configuration from CDK."),
+//   	// the properties below are optional
+//   	DeploymentKey: key,
+//   	DeploymentStrategy: deploymentStrategy,
+//   	DeployTo: []iEnvironment{
+//   		environment,
+//   	},
+//   	Description: jsii.String("description"),
+//   	Name: jsii.String("name"),
+//   	RetrievalRole: role,
+//   	Type: appconfig_alpha.ConfigurationType_FREEFORM,
+//   	Validators: []*iValidator{
+//   		validator,
+//   	},
+//   	VersionNumber: jsii.String("versionNumber"),
 //   })
 //
-// Experimental.
+// Deprecated.
 type SourcedConfiguration interface {
 	constructs.Construct
 	IConfiguration
 	IExtensible
 	// The application associated with the configuration.
-	// Experimental.
+	// Deprecated.
 	Application() IApplication
-	// Experimental.
+	// Deprecated.
 	ApplicationId() *string
-	// Experimental.
+	// Deprecated.
 	SetApplicationId(val *string)
 	// The Amazon Resource Name (ARN) of the configuration profile.
-	// Experimental.
+	// Deprecated.
 	ConfigurationProfileArn() *string
 	// The ID of the configuration profile.
-	// Experimental.
+	// Deprecated.
 	ConfigurationProfileId() *string
 	// The deployment key for the configuration.
-	// Experimental.
+	// Deprecated.
 	DeploymentKey() awskms.IKey
 	// The deployment strategy for the configuration.
-	// Experimental.
+	// Deprecated.
 	DeploymentStrategy() IDeploymentStrategy
 	// The environments to deploy to.
-	// Experimental.
+	// Deprecated.
 	DeployTo() *[]IEnvironment
 	// The description of the configuration.
-	// Experimental.
+	// Deprecated.
 	Description() *string
-	// Experimental.
+	// Deprecated.
 	Extensible() ExtensibleBase
-	// Experimental.
+	// Deprecated.
 	SetExtensible(val ExtensibleBase)
 	// The location where the configuration is stored.
-	// Experimental.
+	// Deprecated.
 	Location() ConfigurationSource
 	// The name of the configuration.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// The IAM role to retrieve the configuration.
-	// Experimental.
+	// Deprecated.
 	RetrievalRole() awsiam.IRole
 	// The key to decrypt the configuration if applicable.
 	//
 	// This key
 	// can be used when storing configuration in AWS Secrets Manager, Systems Manager Parameter Store,
 	// or Amazon S3.
-	// Experimental.
+	// Deprecated.
 	SourceKey() awskms.IKey
 	// The configuration type.
-	// Experimental.
+	// Deprecated.
 	Type() ConfigurationType
 	// The validators for the configuration.
-	// Experimental.
+	// Deprecated.
 	Validators() *[]IValidator
 	// The version number of the configuration to deploy.
-	// Experimental.
+	// Deprecated.
 	VersionNumber() *string
-	// Experimental.
+	// Deprecated.
 	AddExistingEnvironmentsToApplication()
 	// Adds an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	AddExtension(extension IExtension)
 	// Deploys the configuration to the specified environment.
 	// Deprecated: Use `deployTo` as a property instead. We do not recommend
 	// creating resources in multiple stacks. If you want to do this still,
 	// please take a look into https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_appconfig.CfnDeployment.html.
 	Deploy(environment IEnvironment)
-	// Experimental.
+	// Deprecated.
 	DeployConfigToEnvironments()
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_BAKING extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentBaking(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_COMPLETE extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentComplete(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_ROLLED_BACK extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentRolledBack(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_START extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentStart(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_STEP extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentStep(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds a PRE_CREATE_HOSTED_CONFIGURATION_VERSION extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	PreCreateHostedConfigurationVersion(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds a PRE_START_DEPLOYMENT extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	PreStartDeployment(eventDestination IEventDestination, options *ExtensionOptions)
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 }
 
@@ -306,7 +328,7 @@ func (j *jsiiProxy_SourcedConfiguration) VersionNumber() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewSourcedConfiguration(scope constructs.Construct, id *string, props *SourcedConfigurationProps) SourcedConfiguration {
 	_init_.Initialize()
 
@@ -324,7 +346,7 @@ func NewSourcedConfiguration(scope constructs.Construct, id *string, props *Sour
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewSourcedConfiguration_Override(s SourcedConfiguration, scope constructs.Construct, id *string, props *SourcedConfigurationProps) {
 	_init_.Initialize()
 
@@ -374,7 +396,7 @@ func (j *jsiiProxy_SourcedConfiguration)SetExtensible(val ExtensibleBase) {
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func SourcedConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

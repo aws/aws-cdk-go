@@ -10,27 +10,23 @@ import (
 // Defines an AWS Lambda validator.
 //
 // Example:
-//   var application application
-//   var fn function
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var function_ function
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-//   	Application: Application,
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	Validators: []iValidator{
-//   		appconfig.JsonSchemaValidator_FromFile(jsii.String("schema.json")),
-//   		appconfig.LambdaValidator_FromFunction(fn),
-//   	},
-//   })
+//   lambdaValidator := appconfig_alpha.LambdaValidator_FromFunction(function_)
 //
-// Experimental.
+// Deprecated.
 type LambdaValidator interface {
 	IValidator
 	// The content of the validator.
-	// Experimental.
+	// Deprecated.
 	Content() *string
 	// The type of validator.
-	// Experimental.
+	// Deprecated.
 	Type() ValidatorType
 }
 
@@ -60,7 +56,7 @@ func (j *jsiiProxy_LambdaValidator) Type() ValidatorType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewLambdaValidator_Override(l LambdaValidator) {
 	_init_.Initialize()
 
@@ -75,7 +71,7 @@ func NewLambdaValidator_Override(l LambdaValidator) {
 //
 // This will call
 // `addPermission` to your function to grant AWS AppConfig permissions.
-// Experimental.
+// Deprecated.
 func LambdaValidator_FromFunction(func_ awslambda.Function) LambdaValidator {
 	_init_.Initialize()
 

@@ -14,28 +14,27 @@ import (
 // Defines the integrated configuration sources.
 //
 // Example:
-//   var application application
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var bucket bucket
+//   var key key
 //
+//   configurationSource := appconfig_alpha.ConfigurationSource_FromBucket(bucket, jsii.String("objectKey"), key)
 //
-//   appconfig.NewSourcedConfiguration(this, jsii.String("MySourcedConfiguration"), &SourcedConfigurationProps{
-//   	Application: Application,
-//   	Location: appconfig.ConfigurationSource_FromBucket(bucket, jsii.String("path/to/file.json")),
-//   	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
-//   	Name: jsii.String("MyConfig"),
-//   	Description: jsii.String("This is my sourced configuration from CDK."),
-//   })
-//
-// Experimental.
+// Deprecated.
 type ConfigurationSource interface {
 	// The KMS Key that encrypts the configuration.
-	// Experimental.
+	// Deprecated.
 	Key() awskms.IKey
 	// The URI of the configuration source.
-	// Experimental.
+	// Deprecated.
 	LocationUri() *string
 	// The type of the configuration source.
-	// Experimental.
+	// Deprecated.
 	Type() ConfigurationSourceType
 }
 
@@ -75,7 +74,7 @@ func (j *jsiiProxy_ConfigurationSource) Type() ConfigurationSourceType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewConfigurationSource_Override(c ConfigurationSource) {
 	_init_.Initialize()
 
@@ -87,7 +86,7 @@ func NewConfigurationSource_Override(c ConfigurationSource) {
 }
 
 // Defines configuration content from an Amazon S3 bucket.
-// Experimental.
+// Deprecated.
 func ConfigurationSource_FromBucket(bucket awss3.IBucket, objectKey *string, key awskms.IKey) ConfigurationSource {
 	_init_.Initialize()
 
@@ -107,7 +106,7 @@ func ConfigurationSource_FromBucket(bucket awss3.IBucket, objectKey *string, key
 }
 
 // Defines configuration content from a Systems Manager (SSM) document.
-// Experimental.
+// Deprecated.
 func ConfigurationSource_FromCfnDocument(document awsssm.CfnDocument) ConfigurationSource {
 	_init_.Initialize()
 
@@ -127,7 +126,7 @@ func ConfigurationSource_FromCfnDocument(document awsssm.CfnDocument) Configurat
 }
 
 // Defines configuration content from a Systems Manager (SSM) Parameter Store parameter.
-// Experimental.
+// Deprecated.
 func ConfigurationSource_FromParameter(parameter awsssm.IParameter, key awskms.IKey) ConfigurationSource {
 	_init_.Initialize()
 
@@ -147,7 +146,7 @@ func ConfigurationSource_FromParameter(parameter awsssm.IParameter, key awskms.I
 }
 
 // Defines configuration content from AWS CodePipeline.
-// Experimental.
+// Deprecated.
 func ConfigurationSource_FromPipeline(pipeline awscodepipeline.IPipeline) ConfigurationSource {
 	_init_.Initialize()
 
@@ -167,7 +166,7 @@ func ConfigurationSource_FromPipeline(pipeline awscodepipeline.IPipeline) Config
 }
 
 // Defines configuration content from an AWS Secrets Manager secret.
-// Experimental.
+// Deprecated.
 func ConfigurationSource_FromSecret(secret awssecretsmanager.ISecret) ConfigurationSource {
 	_init_.Initialize()
 

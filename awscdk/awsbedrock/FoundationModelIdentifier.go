@@ -13,7 +13,7 @@ import (
 //
 //   bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_ANTHROPIC_CLAUDE_V2())
 //
-// See: https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids-arns.html
+// See: https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
 //
 type FoundationModelIdentifier interface {
 	// the model identifier.
@@ -236,6 +236,28 @@ func FoundationModelIdentifier_META_LLAMA_2_CHAT_70B_V1() FoundationModelIdentif
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"META_LLAMA_2_CHAT_70B_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_STABILITY_STABLE_DIFFUSION_XL_V0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"STABILITY_STABLE_DIFFUSION_XL_V0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_STABILITY_STABLE_DIFFUSION_XL_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"STABILITY_STABLE_DIFFUSION_XL_V1",
 		&returns,
 	)
 	return returns

@@ -1503,7 +1503,7 @@ cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &Server
 	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
 	CopyTagsToSnapshot: jsii.Boolean(true),
 	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
-	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
+	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql11")),
 	Vpc: Vpc,
 	Scaling: &ServerlessScalingOptions{
 		AutoPause: awscdk.Duration_Minutes(jsii.Number(10)),

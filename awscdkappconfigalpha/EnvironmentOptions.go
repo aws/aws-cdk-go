@@ -18,22 +18,22 @@ package awscdkappconfigalpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type EnvironmentOptions struct {
 	// The description of the environment.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the environment.
 	// Default: - A name is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	EnvironmentName *string `field:"optional" json:"environmentName" yaml:"environmentName"`
 	// The monitors for the environment.
 	// Default: - No monitors.
 	//
-	// Experimental.
+	// Deprecated.
 	Monitors *[]Monitor `field:"optional" json:"monitors" yaml:"monitors"`
 }
 

@@ -12,32 +12,28 @@ import (
 // Defines monitors that will be associated with an AWS AppConfig environment.
 //
 // Example:
-//   var application application
-//   var alarm alarm
-//   var compositeAlarm compositeAlarm
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
 //
-//
-//   appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
-//   	Application: Application,
-//   	Monitors: []monitor{
-//   		appconfig.*monitor_FromCloudWatchAlarm(alarm),
-//   		appconfig.*monitor_*FromCloudWatchAlarm(compositeAlarm),
-//   	},
+//   monitor := appconfig_alpha.Monitor_FromCfnMonitorsProperty(&MonitorsProperty{
+//   	AlarmArn: jsii.String("alarmArn"),
+//   	AlarmRoleArn: jsii.String("alarmRoleArn"),
 //   })
 //
-// Experimental.
+// Deprecated.
 type Monitor interface {
 	// The alarm ARN for AWS AppConfig to monitor.
-	// Experimental.
+	// Deprecated.
 	AlarmArn() *string
 	// The IAM role ARN for AWS AppConfig to view the alarm state.
-	// Experimental.
+	// Deprecated.
 	AlarmRoleArn() *string
 	// Indicates whether a CloudWatch alarm is a composite alarm.
-	// Experimental.
+	// Deprecated.
 	IsCompositeAlarm() *bool
 	// The type of monitor.
-	// Experimental.
+	// Deprecated.
 	MonitorType() MonitorType
 }
 
@@ -87,7 +83,7 @@ func (j *jsiiProxy_Monitor) MonitorType() MonitorType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewMonitor_Override(m Monitor) {
 	_init_.Initialize()
 
@@ -99,7 +95,7 @@ func NewMonitor_Override(m Monitor) {
 }
 
 // Creates a Monitor from a CfnEnvironment.MonitorsProperty construct.
-// Experimental.
+// Deprecated.
 func Monitor_FromCfnMonitorsProperty(monitorsProperty *awsappconfig.CfnEnvironment_MonitorsProperty) Monitor {
 	_init_.Initialize()
 
@@ -122,7 +118,7 @@ func Monitor_FromCfnMonitorsProperty(monitorsProperty *awsappconfig.CfnEnvironme
 //
 // If the alarm role is not specified, a role will
 // be generated.
-// Experimental.
+// Deprecated.
 func Monitor_FromCloudWatchAlarm(alarm awscloudwatch.IAlarm, alarmRole awsiam.IRole) Monitor {
 	_init_.Initialize()
 

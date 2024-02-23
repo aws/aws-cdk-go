@@ -11,31 +11,26 @@ import (
 // Use an Amazon SQS queue as an event destination.
 //
 // Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var queue queue
 //
+//   sqsDestination := appconfig_alpha.NewSqsDestination(queue)
 //
-//   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
-//   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
-//   			},
-//   			EventDestination: appconfig.NewSqsDestination(queue),
-//   		}),
-//   	},
-//   })
-//
-// Experimental.
+// Deprecated.
 type SqsDestination interface {
 	IEventDestination
 	// The URI of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	ExtensionUri() *string
 	// The IAM policy document to invoke the event destination.
-	// Experimental.
+	// Deprecated.
 	PolicyDocument() awsiam.PolicyDocument
 	// The type of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	Type() SourceType
 }
 
@@ -75,7 +70,7 @@ func (j *jsiiProxy_SqsDestination) Type() SourceType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	_init_.Initialize()
 
@@ -93,7 +88,7 @@ func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 	_init_.Initialize()
 

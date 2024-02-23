@@ -8,37 +8,25 @@ import (
 // Defines a parameter for an extension.
 //
 // Example:
-//   var fn function
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
 //
+//   parameter := appconfig_alpha.Parameter_NotRequired(jsii.String("name"), jsii.String("value"), jsii.String("description"))
 //
-//   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
-//   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
-//   			},
-//   			EventDestination: appconfig.NewLambdaDestination(fn),
-//   		}),
-//   	},
-//   	Parameters: []parameter{
-//   		appconfig.*parameter_Required(jsii.String("testParam"), jsii.String("true")),
-//   		appconfig.*parameter_NotRequired(jsii.String("testNotRequiredParam")),
-//   	},
-//   })
-//
-// Experimental.
+// Deprecated.
 type Parameter interface {
 	// The description of the parameter.
-	// Experimental.
+	// Deprecated.
 	Description() *string
 	// A boolean that indicates if the parameter is required or optional.
-	// Experimental.
+	// Deprecated.
 	IsRequired() *bool
 	// The name of the parameter.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 	// The value of the parameter.
-	// Experimental.
+	// Deprecated.
 	Value() *string
 }
 
@@ -89,7 +77,7 @@ func (j *jsiiProxy_Parameter) Value() *string {
 
 
 // An optional parameter for an extension.
-// Experimental.
+// Deprecated.
 func Parameter_NotRequired(name *string, value *string, description *string) Parameter {
 	_init_.Initialize()
 
@@ -109,7 +97,7 @@ func Parameter_NotRequired(name *string, value *string, description *string) Par
 }
 
 // A required parameter for an extension.
-// Experimental.
+// Deprecated.
 func Parameter_Required(name *string, value *string, description *string) Parameter {
 	_init_.Initialize()
 

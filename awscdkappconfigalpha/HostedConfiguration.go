@@ -12,117 +12,140 @@ import (
 // A hosted configuration represents configuration stored in the AWS AppConfig hosted configuration store.
 //
 // Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var application application
+//   var configurationContent configurationContent
+//   var deploymentStrategy deploymentStrategy
+//   var environment environment
+//   var key key
+//   var validator iValidator
 //
+//   hostedConfiguration := appconfig_alpha.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
+//   	Application: application,
+//   	Content: configurationContent,
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-//   	Application: Application,
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
+//   	// the properties below are optional
+//   	DeploymentKey: key,
+//   	DeploymentStrategy: deploymentStrategy,
+//   	DeployTo: []iEnvironment{
+//   		environment,
+//   	},
+//   	Description: jsii.String("description"),
+//   	LatestVersionNumber: jsii.Number(123),
+//   	Name: jsii.String("name"),
+//   	Type: appconfig_alpha.ConfigurationType_FREEFORM,
+//   	Validators: []*iValidator{
+//   		validator,
+//   	},
+//   	VersionLabel: jsii.String("versionLabel"),
 //   })
 //
-// Experimental.
+// Deprecated.
 type HostedConfiguration interface {
 	constructs.Construct
 	IConfiguration
 	IExtensible
 	// The application associated with the configuration.
-	// Experimental.
+	// Deprecated.
 	Application() IApplication
-	// Experimental.
+	// Deprecated.
 	ApplicationId() *string
-	// Experimental.
+	// Deprecated.
 	SetApplicationId(val *string)
 	// The Amazon Resource Name (ARN) of the configuration profile.
-	// Experimental.
+	// Deprecated.
 	ConfigurationProfileArn() *string
 	// The ID of the configuration profile.
-	// Experimental.
+	// Deprecated.
 	ConfigurationProfileId() *string
 	// The content of the hosted configuration.
-	// Experimental.
+	// Deprecated.
 	Content() *string
 	// The content type of the hosted configuration.
-	// Experimental.
+	// Deprecated.
 	ContentType() *string
 	// The deployment key for the configuration.
-	// Experimental.
+	// Deprecated.
 	DeploymentKey() awskms.IKey
 	// The deployment strategy for the configuration.
-	// Experimental.
+	// Deprecated.
 	DeploymentStrategy() IDeploymentStrategy
 	// The environments to deploy to.
-	// Experimental.
+	// Deprecated.
 	DeployTo() *[]IEnvironment
 	// The description of the configuration.
-	// Experimental.
+	// Deprecated.
 	Description() *string
-	// Experimental.
+	// Deprecated.
 	Extensible() ExtensibleBase
-	// Experimental.
+	// Deprecated.
 	SetExtensible(val ExtensibleBase)
 	// The Amazon Resource Name (ARN) of the hosted configuration version.
-	// Experimental.
+	// Deprecated.
 	HostedConfigurationVersionArn() *string
 	// The latest version number of the hosted configuration.
-	// Experimental.
+	// Deprecated.
 	LatestVersionNumber() *float64
 	// The name of the configuration.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// The configuration type.
-	// Experimental.
+	// Deprecated.
 	Type() ConfigurationType
 	// The validators for the configuration.
-	// Experimental.
+	// Deprecated.
 	Validators() *[]IValidator
 	// The version label of the hosted configuration.
-	// Experimental.
+	// Deprecated.
 	VersionLabel() *string
 	// The version number of the hosted configuration.
-	// Experimental.
+	// Deprecated.
 	VersionNumber() *string
-	// Experimental.
+	// Deprecated.
 	AddExistingEnvironmentsToApplication()
 	// Adds an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	AddExtension(extension IExtension)
 	// Deploys the configuration to the specified environment.
 	// Deprecated: Use `deployTo` as a property instead. We do not recommend
 	// creating resources in multiple stacks. If you want to do this still,
 	// please take a look into https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_appconfig.CfnDeployment.html.
 	Deploy(environment IEnvironment)
-	// Experimental.
+	// Deprecated.
 	DeployConfigToEnvironments()
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_BAKING extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentBaking(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_COMPLETE extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentComplete(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_ROLLED_BACK extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentRolledBack(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_START extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentStart(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_STEP extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentStep(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds a PRE_CREATE_HOSTED_CONFIGURATION_VERSION extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	PreCreateHostedConfigurationVersion(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds a PRE_START_DEPLOYMENT extension with the provided event destination and also creates an extension association to the configuration profile.
-	// Experimental.
+	// Deprecated.
 	PreStartDeployment(eventDestination IEventDestination, options *ExtensionOptions)
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 }
 
@@ -324,7 +347,7 @@ func (j *jsiiProxy_HostedConfiguration) VersionNumber() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewHostedConfiguration(scope constructs.Construct, id *string, props *HostedConfigurationProps) HostedConfiguration {
 	_init_.Initialize()
 
@@ -342,7 +365,7 @@ func NewHostedConfiguration(scope constructs.Construct, id *string, props *Hoste
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHostedConfiguration_Override(h HostedConfiguration, scope constructs.Construct, id *string, props *HostedConfigurationProps) {
 	_init_.Initialize()
 
@@ -392,7 +415,7 @@ func (j *jsiiProxy_HostedConfiguration)SetExtensible(val ExtensibleBase) {
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func HostedConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

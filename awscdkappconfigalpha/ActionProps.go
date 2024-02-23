@@ -7,37 +7,44 @@ import (
 // Properties for the Action construct.
 //
 // Example:
-//   var fn function
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var eventDestination iEventDestination
+//   var role role
 //
-//   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
-//   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
-//   			},
-//   			EventDestination: appconfig.NewLambdaDestination(fn),
-//   		}),
+//   actionProps := &ActionProps{
+//   	ActionPoints: []actionPoint{
+//   		appconfig_alpha.*actionPoint_PRE_CREATE_HOSTED_CONFIGURATION_VERSION,
 //   	},
-//   })
+//   	EventDestination: eventDestination,
 //
-// Experimental.
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	ExecutionRole: role,
+//   	InvokeWithoutExecutionRole: jsii.Boolean(false),
+//   	Name: jsii.String("name"),
+//   }
+//
+// Deprecated.
 type ActionProps struct {
 	// The action points that will trigger the extension action.
-	// Experimental.
+	// Deprecated.
 	ActionPoints *[]ActionPoint `field:"required" json:"actionPoints" yaml:"actionPoints"`
 	// The event destination for the action.
-	// Experimental.
+	// Deprecated.
 	EventDestination IEventDestination `field:"required" json:"eventDestination" yaml:"eventDestination"`
 	// The description for the action.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The execution role for the action.
 	// Default: - A role is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The flag that specifies whether or not to create the execution role.
 	//
@@ -46,12 +53,12 @@ type ActionProps struct {
 	// destination. If false, the execution role will be generated if not provided.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	InvokeWithoutExecutionRole *bool `field:"optional" json:"invokeWithoutExecutionRole" yaml:"invokeWithoutExecutionRole"`
 	// The name for the action.
 	// Default: - A name is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

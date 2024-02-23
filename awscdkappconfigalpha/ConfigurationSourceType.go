@@ -2,19 +2,19 @@ package awscdkappconfigalpha
 
 
 // The configuration source type.
-// Experimental.
+// Deprecated.
 type ConfigurationSourceType string
 
 const (
-	// Experimental.
+	// Deprecated.
 	ConfigurationSourceType_S3 ConfigurationSourceType = "S3"
-	// Experimental.
+	// Deprecated.
 	ConfigurationSourceType_SECRETS_MANAGER ConfigurationSourceType = "SECRETS_MANAGER"
-	// Experimental.
+	// Deprecated.
 	ConfigurationSourceType_SSM_PARAMETER ConfigurationSourceType = "SSM_PARAMETER"
-	// Experimental.
+	// Deprecated.
 	ConfigurationSourceType_SSM_DOCUMENT ConfigurationSourceType = "SSM_DOCUMENT"
-	// Experimental.
+	// Deprecated.
 	ConfigurationSourceType_CODE_PIPELINE ConfigurationSourceType = "CODE_PIPELINE"
 )
 

@@ -10,39 +10,46 @@ import (
 // Defines an action for an extension.
 //
 // Example:
-//   var fn function
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var eventDestination iEventDestination
+//   var role role
 //
-//   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
-//   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
-//   			},
-//   			EventDestination: appconfig.NewLambdaDestination(fn),
-//   		}),
+//   action := appconfig_alpha.NewAction(&ActionProps{
+//   	ActionPoints: []actionPoint{
+//   		appconfig_alpha.*actionPoint_PRE_CREATE_HOSTED_CONFIGURATION_VERSION,
 //   	},
+//   	EventDestination: eventDestination,
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	ExecutionRole: role,
+//   	InvokeWithoutExecutionRole: jsii.Boolean(false),
+//   	Name: jsii.String("name"),
 //   })
 //
-// Experimental.
+// Deprecated.
 type Action interface {
 	// The action points that will trigger the extension action.
-	// Experimental.
+	// Deprecated.
 	ActionPoints() *[]ActionPoint
 	// The description for the action.
-	// Experimental.
+	// Deprecated.
 	Description() *string
 	// The event destination for the action.
-	// Experimental.
+	// Deprecated.
 	EventDestination() IEventDestination
 	// The execution role for the action.
-	// Experimental.
+	// Deprecated.
 	ExecutionRole() awsiam.IRole
 	// The flag that specifies whether to create the execution role.
-	// Experimental.
+	// Deprecated.
 	InvokeWithoutExecutionRole() *bool
 	// The name for the action.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 }
 
@@ -112,7 +119,7 @@ func (j *jsiiProxy_Action) Name() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewAction(props *ActionProps) Action {
 	_init_.Initialize()
 
@@ -130,7 +137,7 @@ func NewAction(props *ActionProps) Action {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewAction_Override(a Action, props *ActionProps) {
 	_init_.Initialize()
 

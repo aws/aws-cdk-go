@@ -2,17 +2,17 @@ package awscdkappconfigalpha
 
 
 // Defines the source type for event destinations.
-// Experimental.
+// Deprecated.
 type SourceType string
 
 const (
-	// Experimental.
+	// Deprecated.
 	SourceType_LAMBDA SourceType = "LAMBDA"
-	// Experimental.
+	// Deprecated.
 	SourceType_SQS SourceType = "SQS"
-	// Experimental.
+	// Deprecated.
 	SourceType_SNS SourceType = "SNS"
-	// Experimental.
+	// Deprecated.
 	SourceType_EVENTS SourceType = "EVENTS"
 )
 

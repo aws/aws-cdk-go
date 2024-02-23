@@ -21,35 +21,35 @@ import (
 //
 //   extensibleBase := appconfig_alpha.NewExtensibleBase(this, jsii.String("resourceArn"), jsii.String("resourceName"))
 //
-// Experimental.
+// Deprecated.
 type ExtensibleBase interface {
 	IExtensible
 	// Adds an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	AddExtension(extension IExtension)
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_BAKING extension with the provided event destination and also creates an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentBaking(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_COMPLETE extension with the provided event destination and also creates an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentComplete(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_ROLLED_BACK extension with the provided event destination and also creates an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentRolledBack(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_START extension with the provided event destination and also creates an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentStart(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_STEP extension with the provided event destination and also creates an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentStep(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds a PRE_CREATE_HOSTED_CONFIGURATION_VERSION extension with the provided event destination and also creates an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	PreCreateHostedConfigurationVersion(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds a PRE_START_DEPLOYMENT extension with the provided event destination and also creates an extension association to the derived resource.
-	// Experimental.
+	// Deprecated.
 	PreStartDeployment(eventDestination IEventDestination, options *ExtensionOptions)
 }
 
@@ -58,7 +58,7 @@ type jsiiProxy_ExtensibleBase struct {
 	jsiiProxy_IExtensible
 }
 
-// Experimental.
+// Deprecated.
 func NewExtensibleBase(scope constructs.Construct, resourceArn *string, resourceName *string) ExtensibleBase {
 	_init_.Initialize()
 
@@ -76,7 +76,7 @@ func NewExtensibleBase(scope constructs.Construct, resourceArn *string, resource
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewExtensibleBase_Override(e ExtensibleBase, scope constructs.Construct, resourceArn *string, resourceName *string) {
 	_init_.Initialize()
 

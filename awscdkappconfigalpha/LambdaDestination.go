@@ -11,31 +11,26 @@ import (
 // Use an AWS Lambda function as an event destination.
 //
 // Example:
-//   var fn function
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var function_ function
 //
-//   appconfig.NewExtension(this, jsii.String("MyExtension"), &ExtensionProps{
-//   	Actions: []action{
-//   		appconfig.NewAction(&ActionProps{
-//   			ActionPoints: []actionPoint{
-//   				appconfig.*actionPoint_ON_DEPLOYMENT_START,
-//   			},
-//   			EventDestination: appconfig.NewLambdaDestination(fn),
-//   		}),
-//   	},
-//   })
+//   lambdaDestination := appconfig_alpha.NewLambdaDestination(function_)
 //
-// Experimental.
+// Deprecated.
 type LambdaDestination interface {
 	IEventDestination
 	// The URI of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	ExtensionUri() *string
 	// The IAM policy document to invoke the event destination.
-	// Experimental.
+	// Deprecated.
 	PolicyDocument() awsiam.PolicyDocument
 	// The type of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	Type() SourceType
 }
 
@@ -75,7 +70,7 @@ func (j *jsiiProxy_LambdaDestination) Type() SourceType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewLambdaDestination(func_ awslambda.IFunction) LambdaDestination {
 	_init_.Initialize()
 
@@ -93,7 +88,7 @@ func NewLambdaDestination(func_ awslambda.IFunction) LambdaDestination {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewLambdaDestination_Override(l LambdaDestination, func_ awslambda.IFunction) {
 	_init_.Initialize()
 

@@ -4,13 +4,13 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Experimental.
+// Deprecated.
 type IValidator interface {
 	// The content of the validator.
-	// Experimental.
+	// Deprecated.
 	Content() *string
 	// The type of validator.
-	// Experimental.
+	// Deprecated.
 	Type() ValidatorType
 }
 

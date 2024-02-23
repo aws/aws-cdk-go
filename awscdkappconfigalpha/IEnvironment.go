@@ -7,56 +7,56 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkappconfigalpha/v2/internal"
 )
 
-// Experimental.
+// Deprecated.
 type IEnvironment interface {
 	awscdk.IResource
 	// Adds an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	AddExtension(extension IExtension)
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_BAKING extension with the provided event destination and also creates an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentBaking(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_COMPLETE extension with the provided event destination and also creates an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentComplete(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_ROLLED_BACK extension with the provided event destination and also creates an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentRolledBack(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_START extension with the provided event destination and also creates an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentStart(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_STEP extension with the provided event destination and also creates an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	OnDeploymentStep(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds a PRE_CREATE_HOSTED_CONFIGURATION_VERSION extension with the provided event destination and also creates an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	PreCreateHostedConfigurationVersion(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds a PRE_START_DEPLOYMENT extension with the provided event destination and also creates an extension association to the environment.
-	// Experimental.
+	// Deprecated.
 	PreStartDeployment(eventDestination IEventDestination, options *ExtensionOptions)
 	// The application associated with the environment.
-	// Experimental.
+	// Deprecated.
 	Application() IApplication
 	// The ID of the application associated to the environment.
-	// Experimental.
+	// Deprecated.
 	ApplicationId() *string
 	// The description of the environment.
-	// Experimental.
+	// Deprecated.
 	Description() *string
 	// The Amazon Resource Name (ARN) of the environment.
-	// Experimental.
+	// Deprecated.
 	EnvironmentArn() *string
 	// The ID of the environment.
-	// Experimental.
+	// Deprecated.
 	EnvironmentId() *string
 	// The monitors for the environment.
-	// Experimental.
+	// Deprecated.
 	Monitors() *[]Monitor
 	// The name of the environment.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 }
 

@@ -7,16 +7,16 @@ import (
 )
 
 // Implemented by allowed extension event destinations.
-// Experimental.
+// Deprecated.
 type IEventDestination interface {
 	// The URI of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	ExtensionUri() *string
 	// The IAM policy document to invoke the event destination.
-	// Experimental.
+	// Deprecated.
 	PolicyDocument() awsiam.PolicyDocument
 	// The type of the extension event destination.
-	// Experimental.
+	// Deprecated.
 	Type() SourceType
 }
 

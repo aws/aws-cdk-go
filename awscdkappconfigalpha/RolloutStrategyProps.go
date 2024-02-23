@@ -7,35 +7,33 @@ import (
 // Properties for the Rollout Strategy.
 //
 // Example:
-//   var application application
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   rolloutStrategyProps := &RolloutStrategyProps{
+//   	DeploymentDuration: cdk.Duration_Minutes(jsii.Number(30)),
+//   	GrowthFactor: jsii.Number(123),
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-//   	Application: Application,
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	DeploymentStrategy: appconfig.NewDeploymentStrategy(this, jsii.String("MyDeploymentStrategy"), &DeploymentStrategyProps{
-//   		RolloutStrategy: appconfig.RolloutStrategy_Linear(&RolloutStrategyProps{
-//   			GrowthFactor: jsii.Number(15),
-//   			DeploymentDuration: awscdk.Duration_Minutes(jsii.Number(30)),
-//   			FinalBakeTime: awscdk.Duration_*Minutes(jsii.Number(15)),
-//   		}),
-//   	}),
-//   })
+//   	// the properties below are optional
+//   	FinalBakeTime: cdk.Duration_*Minutes(jsii.Number(30)),
+//   }
 //
-// Experimental.
+// Deprecated.
 type RolloutStrategyProps struct {
 	// The deployment duration of the deployment strategy.
 	//
 	// This defines
 	// the total amount of time for a deployment to last.
-	// Experimental.
+	// Deprecated.
 	DeploymentDuration awscdk.Duration `field:"required" json:"deploymentDuration" yaml:"deploymentDuration"`
 	// The growth factor of the deployment strategy.
 	//
 	// This defines
 	// the percentage of targets to receive a deployed configuration
 	// during each interval.
-	// Experimental.
+	// Deprecated.
 	GrowthFactor *float64 `field:"required" json:"growthFactor" yaml:"growthFactor"`
 	// The final bake time of the deployment strategy.
 	//
@@ -46,7 +44,7 @@ type RolloutStrategyProps struct {
 	// the deployment.
 	// Default: Duration.minutes(0)
 	//
-	// Experimental.
+	// Deprecated.
 	FinalBakeTime awscdk.Duration `field:"optional" json:"finalBakeTime" yaml:"finalBakeTime"`
 }
 

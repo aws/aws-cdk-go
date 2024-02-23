@@ -28,7 +28,7 @@ import (
 //   })
 //   myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &ServerlessClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
-//   	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql10")),
+//   	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql11")),
 //   	Vpc: Vpc,
 //   })
 //   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))

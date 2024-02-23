@@ -2,15 +2,15 @@ package awscdkappconfigalpha
 
 
 // The type of Monitor.
-// Experimental.
+// Deprecated.
 type MonitorType string
 
 const (
 	// A Monitor from a CloudWatch alarm.
-	// Experimental.
+	// Deprecated.
 	MonitorType_CLOUDWATCH MonitorType = "CLOUDWATCH"
 	// A Monitor from a CfnEnvironment.MonitorsProperty construct.
-	// Experimental.
+	// Deprecated.
 	MonitorType_CFN_MONITORS_PROPERTY MonitorType = "CFN_MONITORS_PROPERTY"
 )
 

@@ -8,38 +8,38 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Experimental.
+// Deprecated.
 type IConfiguration interface {
 	constructs.IConstruct
 	// The application associated with the configuration.
-	// Experimental.
+	// Deprecated.
 	Application() IApplication
 	// The ID of the configuration profile.
-	// Experimental.
+	// Deprecated.
 	ConfigurationProfileId() *string
 	// The deployment key for the configuration.
-	// Experimental.
+	// Deprecated.
 	DeploymentKey() awskms.IKey
 	// The deployment strategy for the configuration.
-	// Experimental.
+	// Deprecated.
 	DeploymentStrategy() IDeploymentStrategy
 	// The environments to deploy to.
-	// Experimental.
+	// Deprecated.
 	DeployTo() *[]IEnvironment
 	// The description of the configuration.
-	// Experimental.
+	// Deprecated.
 	Description() *string
 	// The name of the configuration.
-	// Experimental.
+	// Deprecated.
 	Name() *string
 	// The configuration type.
-	// Experimental.
+	// Deprecated.
 	Type() ConfigurationType
 	// The validators for the configuration.
-	// Experimental.
+	// Deprecated.
 	Validators() *[]IValidator
 	// The configuration version number.
-	// Experimental.
+	// Deprecated.
 	VersionNumber() *string
 }
 

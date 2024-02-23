@@ -19,17 +19,17 @@ package awscdkappconfigalpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type ExtensionOptions struct {
 	// A description of the extension.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the extension.
 	// Default: - A name is generated.
 	//
-	// Experimental.
+	// Deprecated.
 	ExtensionName *string `field:"optional" json:"extensionName" yaml:"extensionName"`
 	// The latest version number of the extension.
 	//
@@ -38,12 +38,12 @@ type ExtensionOptions struct {
 	// enter 2 for this field.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	LatestVersionNumber *float64 `field:"optional" json:"latestVersionNumber" yaml:"latestVersionNumber"`
 	// The parameters accepted for the extension.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Parameters *[]Parameter `field:"optional" json:"parameters" yaml:"parameters"`
 }
 

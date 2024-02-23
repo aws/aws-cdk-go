@@ -2,18 +2,7 @@ package awscdkappconfigalpha
 
 
 // The configuration type.
-//
-// Example:
-//   var application application
-//
-//
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-//   	Application: Application,
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
-//   })
-//
-// Experimental.
+// Deprecated.
 type ConfigurationType string
 
 const (
@@ -24,13 +13,13 @@ const (
 	// with AWS AppConfig.
 	// See: https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html
 	//
-	// Experimental.
+	// Deprecated.
 	ConfigurationType_FREEFORM ConfigurationType = "FREEFORM"
 	// Feature flag configuration profile.
 	//
 	// This configuration stores its data
 	// in the AWS AppConfig hosted configuration store and the URI is simply hosted.
-	// Experimental.
+	// Deprecated.
 	ConfigurationType_FEATURE_FLAGS ConfigurationType = "FEATURE_FLAGS"
 )
 

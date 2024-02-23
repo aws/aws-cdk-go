@@ -10,29 +10,27 @@ import (
 // Defines the rollout strategy for a deployment strategy and includes the growth factor, deployment duration, growth type, and optionally final bake time.
 //
 // Example:
-//   appconfig.NewDeploymentStrategy(this, jsii.String("MyDeploymentStrategy"), &DeploymentStrategyProps{
-//   	RolloutStrategy: appconfig.RolloutStrategy_Linear(&RolloutStrategyProps{
-//   		GrowthFactor: jsii.Number(20),
-//   		DeploymentDuration: awscdk.Duration_Minutes(jsii.Number(30)),
-//   		FinalBakeTime: awscdk.Duration_*Minutes(jsii.Number(30)),
-//   	}),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import appconfig_alpha "github.com/aws/aws-cdk-go/awscdkappconfigalpha"
+//
+//   rolloutStrategy := appconfig_alpha.RolloutStrategy_ALL_AT_ONCE()
 //
 // See: https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html
 //
-// Experimental.
+// Deprecated.
 type RolloutStrategy interface {
 	// The deployment duration of the rollout strategy.
-	// Experimental.
+	// Deprecated.
 	DeploymentDuration() awscdk.Duration
 	// The final bake time of the deployment strategy.
-	// Experimental.
+	// Deprecated.
 	FinalBakeTime() awscdk.Duration
 	// The growth factor of the rollout strategy.
-	// Experimental.
+	// Deprecated.
 	GrowthFactor() *float64
 	// The growth type of the rollout strategy.
-	// Experimental.
+	// Deprecated.
 	GrowthType() GrowthType
 }
 
@@ -82,7 +80,7 @@ func (j *jsiiProxy_RolloutStrategy) GrowthType() GrowthType {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewRolloutStrategy_Override(r RolloutStrategy) {
 	_init_.Initialize()
 
@@ -94,7 +92,7 @@ func NewRolloutStrategy_Override(r RolloutStrategy) {
 }
 
 // Build your own exponential rollout strategy.
-// Experimental.
+// Deprecated.
 func RolloutStrategy_Exponential(props *RolloutStrategyProps) RolloutStrategy {
 	_init_.Initialize()
 
@@ -114,7 +112,7 @@ func RolloutStrategy_Exponential(props *RolloutStrategyProps) RolloutStrategy {
 }
 
 // Build your own linear rollout strategy.
-// Experimental.
+// Deprecated.
 func RolloutStrategy_Linear(props *RolloutStrategyProps) RolloutStrategy {
 	_init_.Initialize()
 

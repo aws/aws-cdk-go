@@ -2,15 +2,15 @@ package awscdkappconfigalpha
 
 
 // The validator type.
-// Experimental.
+// Deprecated.
 type ValidatorType string
 
 const (
 	// JSON Scema validator.
-	// Experimental.
+	// Deprecated.
 	ValidatorType_JSON_SCHEMA ValidatorType = "JSON_SCHEMA"
 	// Validate using a Lambda function.
-	// Experimental.
+	// Deprecated.
 	ValidatorType_LAMBDA ValidatorType = "LAMBDA"
 )
 
