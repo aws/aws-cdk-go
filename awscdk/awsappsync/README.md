@@ -644,7 +644,7 @@ To make this easier, CDK provides `grant` API.
 Use the `grant` function for more granular authorization.
 
 ```go
-var api graphqlApi
+var api iGraphqlApi
 role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 })
@@ -671,7 +671,7 @@ These include:
 * grantSubscription (use to grant access to Subscription fields)
 
 ```go
-var api graphqlApi
+var api iGraphqlApi
 var role role
 
 
@@ -776,4 +776,21 @@ api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.schema.graphql"))),
 	IntrospectionConfig: appsync.IntrospectionConfig_DISABLED,
 })
+```
+
+## Environment Variables
+
+To use environment variables in resolvers, you can use the `environmentVariables` property and
+the `addEnvironmentVariable` method.
+
+```go
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("api"),
+	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.schema.graphql"))),
+	EnvironmentVariables: map[string]*string{
+		"EnvKey1": jsii.String("non-empty-1"),
+	},
+})
+
+api.AddEnvironmentVariable(jsii.String("EnvKey2"), jsii.String("non-empty-2"))
 ```

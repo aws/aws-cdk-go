@@ -15,6 +15,7 @@ import (
 //   	ResourceGroupName: jsii.String("resourceGroupName"),
 //
 //   	// the properties below are optional
+//   	AttachMissingPermission: jsii.Boolean(false),
 //   	AutoConfigurationEnabled: jsii.Boolean(false),
 //   	ComponentMonitoringSettings: []interface{}{
 //   		&ComponentMonitoringSettingProperty{
@@ -249,6 +250,10 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
 	//
 	ResourceGroupName *string `field:"required" json:"resourceGroupName" yaml:"resourceGroupName"`
+	// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-attachmissingpermission
+	//
+	AttachMissingPermission interface{} `field:"optional" json:"attachMissingPermission" yaml:"attachMissingPermission"`
 	// If set to `true` , the application components will be configured with the monitoring configuration recommended by Application Insights.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
 	//

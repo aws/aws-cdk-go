@@ -12,19 +12,18 @@ package awsec2
 // Example:
 //   var vpc vpc
 //
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
+//   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
+//   		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 //   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
-//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-//   	}),
-//   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
-//   	},
-//   	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
-//   	 // Optional - defaults to rds.InstanceUpdateBehaviour.BULK
+//   	// optional, defaults to m5.large
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("syscdk")),
+//   	 // Optional - will default to 'admin' username and generated password
 //   	Vpc: Vpc,
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	},
 //   })
 //
 type InstanceClass string

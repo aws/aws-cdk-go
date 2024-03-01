@@ -51,6 +51,18 @@ func (g *jsiiProxy_GraphqlApi) validateAddElasticsearchDataSourceParameters(id *
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApi) validateAddEnvironmentVariableParameters(key *string, value *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (g *jsiiProxy_GraphqlApi) validateAddEventBridgeDataSourceParameters(id *string, eventBus awsevents.IEventBus, options *DataSourceOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")

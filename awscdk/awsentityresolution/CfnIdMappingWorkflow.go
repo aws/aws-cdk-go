@@ -65,12 +65,15 @@ import (
 type CfnIdMappingWorkflow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The time of this IdMappingWorkflow got created.
 	AttrCreatedAt() *string
 	// The time of this IdMappingWorkflow got last updated at.
 	AttrUpdatedAt() *string
 	// The default IdMappingWorkflow arn.
 	AttrWorkflowArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -266,6 +269,7 @@ type CfnIdMappingWorkflow interface {
 type jsiiProxy_CfnIdMappingWorkflow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnIdMappingWorkflow) AttrCreatedAt() *string {
@@ -293,6 +297,16 @@ func (j *jsiiProxy_CfnIdMappingWorkflow) AttrWorkflowArn() *string {
 	_jsii_.Get(
 		j,
 		"attrWorkflowArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdMappingWorkflow) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

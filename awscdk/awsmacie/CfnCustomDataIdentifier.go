@@ -51,10 +51,13 @@ import (
 type CfnCustomDataIdentifier interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the custom data identifier.
 	AttrArn() *string
 	// The unique identifier for the custom data identifier.
 	AttrId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -254,6 +257,7 @@ type CfnCustomDataIdentifier interface {
 type jsiiProxy_CfnCustomDataIdentifier struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCustomDataIdentifier) AttrArn() *string {
@@ -271,6 +275,16 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomDataIdentifier) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

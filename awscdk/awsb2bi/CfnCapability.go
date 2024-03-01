@@ -61,6 +61,7 @@ import (
 type CfnCapability interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 	AttrCapabilityArn() *string
 	// Returns a system-assigned unique identifier for the capability.
@@ -69,6 +70,8 @@ type CfnCapability interface {
 	AttrCreatedAt() *string
 	// Returns a timestamp that identifies the most recent date and time that the capability was modified.
 	AttrModifiedAt() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -258,6 +261,7 @@ type CfnCapability interface {
 type jsiiProxy_CfnCapability struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCapability) AttrCapabilityArn() *string {
@@ -295,6 +299,16 @@ func (j *jsiiProxy_CfnCapability) AttrModifiedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrModifiedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapability) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

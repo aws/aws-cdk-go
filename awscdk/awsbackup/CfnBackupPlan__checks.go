@@ -206,23 +206,6 @@ func (j *jsiiProxy_CfnBackupPlan) validateSetBackupPlanParameters(val interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnBackupPlan) validateSetBackupPlanTagsParameters(val interface{}) error {
-	switch val.(type) {
-	case awscdk.IResolvable:
-		// ok
-	case *map[string]*string:
-		// ok
-	case map[string]*string:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]*string; received %#v (a %T)", val, val)
-		}
-	}
-
-	return nil
-}
-
 func validateNewCfnBackupPlanParameters(scope constructs.Construct, id *string, props *CfnBackupPlanProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

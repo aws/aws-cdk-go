@@ -53,6 +53,7 @@ import (
 type CfnBackupVault interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// A resource-based policy that is used to manage access permissions on the target backup vault.
 	AccessPolicy() interface{}
 	SetAccessPolicy(val interface{})
@@ -68,8 +69,10 @@ type CfnBackupVault interface {
 	BackupVaultName() *string
 	SetBackupVaultName(val *string)
 	// Metadata that you can assign to help organize the resources that you create.
-	BackupVaultTags() interface{}
-	SetBackupVaultTags(val interface{})
+	BackupVaultTags() *map[string]*string
+	SetBackupVaultTags(val *map[string]*string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -253,6 +256,7 @@ type CfnBackupVault interface {
 type jsiiProxy_CfnBackupVault struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnBackupVault) AccessPolicy() interface{} {
@@ -295,11 +299,21 @@ func (j *jsiiProxy_CfnBackupVault) BackupVaultName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupVault) BackupVaultTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnBackupVault) BackupVaultTags() *map[string]*string {
+	var returns *map[string]*string
 	_jsii_.Get(
 		j,
 		"backupVaultTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBackupVault) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -482,10 +496,7 @@ func (j *jsiiProxy_CfnBackupVault)SetBackupVaultName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBackupVault)SetBackupVaultTags(val interface{}) {
-	if err := j.validateSetBackupVaultTagsParameters(val); err != nil {
-		panic(err)
-	}
+func (j *jsiiProxy_CfnBackupVault)SetBackupVaultTags(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"backupVaultTags",

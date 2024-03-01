@@ -57,8 +57,11 @@ import (
 type CfnReplicationConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the Replication Config.
 	AttrReplicationConfigArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -263,6 +266,7 @@ type CfnReplicationConfig interface {
 type jsiiProxy_CfnReplicationConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnReplicationConfig) AttrReplicationConfigArn() *string {
@@ -270,6 +274,16 @@ func (j *jsiiProxy_CfnReplicationConfig) AttrReplicationConfigArn() *string {
 	_jsii_.Get(
 		j,
 		"attrReplicationConfigArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationConfig) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

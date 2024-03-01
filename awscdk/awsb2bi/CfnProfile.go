@@ -39,6 +39,7 @@ import (
 type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Returns the timestamp for creation date and time of the profile.
 	AttrCreatedAt() *string
 	// Returns the name of the logging group.
@@ -51,6 +52,8 @@ type CfnProfile interface {
 	// Returns the name for the business associated with this profile.
 	BusinessName() *string
 	SetBusinessName(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -238,6 +241,7 @@ type CfnProfile interface {
 type jsiiProxy_CfnProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnProfile) AttrCreatedAt() *string {
@@ -295,6 +299,16 @@ func (j *jsiiProxy_CfnProfile) BusinessName() *string {
 	_jsii_.Get(
 		j,
 		"businessName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProfile) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

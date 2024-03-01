@@ -83,12 +83,15 @@ import (
 type CfnTLSInspectionConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the TLS inspection configuration.
 	AttrTlsInspectionConfigurationArn() *string
 	// A unique identifier for the TLS inspection configuration.
 	//
 	// This ID is returned in the responses to create and list commands. You provide it to operations such as update and delete.
 	AttrTlsInspectionConfigurationId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -275,6 +278,7 @@ type CfnTLSInspectionConfiguration interface {
 type jsiiProxy_CfnTLSInspectionConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTLSInspectionConfiguration) AttrTlsInspectionConfigurationArn() *string {
@@ -292,6 +296,16 @@ func (j *jsiiProxy_CfnTLSInspectionConfiguration) AttrTlsInspectionConfiguration
 	_jsii_.Get(
 		j,
 		"attrTlsInspectionConfigurationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTLSInspectionConfiguration) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

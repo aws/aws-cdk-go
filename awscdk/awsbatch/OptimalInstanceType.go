@@ -24,6 +24,8 @@ type OptimalInstanceType interface {
 	awsec2.InstanceType
 	// The instance's CPU architecture.
 	Architecture() awsec2.InstanceArchitecture
+	// Return whether this instance type is a burstable instance type.
+	IsBurstable() *bool
 	SameInstanceClassAs(other awsec2.InstanceType) *bool
 	// Return the instance type as a dotted string.
 	ToString() *string
@@ -87,6 +89,19 @@ func OptimalInstanceType_Of(instanceClass awsec2.InstanceClass, instanceSize aws
 		"aws-cdk-lib.aws_batch.OptimalInstanceType",
 		"of",
 		[]interface{}{instanceClass, instanceSize},
+		&returns,
+	)
+
+	return returns
+}
+
+func (o *jsiiProxy_OptimalInstanceType) IsBurstable() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		o,
+		"isBurstable",
+		nil, // no parameters
 		&returns,
 	)
 

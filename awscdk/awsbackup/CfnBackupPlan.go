@@ -79,6 +79,7 @@ import (
 type CfnBackupPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 	//
 	// for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
@@ -93,8 +94,10 @@ type CfnBackupPlan interface {
 	BackupPlan() interface{}
 	SetBackupPlan(val interface{})
 	// To help organize your resources, you can assign your own metadata to the resources that you create.
-	BackupPlanTags() interface{}
-	SetBackupPlanTags(val interface{})
+	BackupPlanTags() *map[string]*string
+	SetBackupPlanTags(val *map[string]*string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -269,6 +272,7 @@ type CfnBackupPlan interface {
 type jsiiProxy_CfnBackupPlan struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnBackupPlan) AttrBackupPlanArn() *string {
@@ -311,11 +315,21 @@ func (j *jsiiProxy_CfnBackupPlan) BackupPlan() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupPlan) BackupPlanTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnBackupPlan) BackupPlanTags() *map[string]*string {
+	var returns *map[string]*string
 	_jsii_.Get(
 		j,
 		"backupPlanTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBackupPlan) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -460,10 +474,7 @@ func (j *jsiiProxy_CfnBackupPlan)SetBackupPlan(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnBackupPlan)SetBackupPlanTags(val interface{}) {
-	if err := j.validateSetBackupPlanTagsParameters(val); err != nil {
-		panic(err)
-	}
+func (j *jsiiProxy_CfnBackupPlan)SetBackupPlanTags(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"backupPlanTags",

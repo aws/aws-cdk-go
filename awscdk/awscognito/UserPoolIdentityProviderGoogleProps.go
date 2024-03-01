@@ -42,7 +42,7 @@ type UserPoolIdentityProviderGoogleProps struct {
 	// Default: none.
 	//
 	ClientSecretValue awscdk.SecretValue `field:"optional" json:"clientSecretValue" yaml:"clientSecretValue"`
-	// The list of google permissions to obtain for getting access to the google profile.
+	// The list of Google permissions to obtain for getting access to the Google profile.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in
 	//
 	// Default: [ profile ].

@@ -8,16 +8,13 @@ import (
 // NAT provider which uses NAT Instances.
 //
 // Example:
-//   // Configure the `natGatewayProvider` when defining a Vpc
-//   natGatewayProvider := ec2.NatProvider_Instance(&NatInstanceProps{
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
+//   natInstanceProvider := ec2.NatProvider_Instance(&NatInstanceProps{
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T4G, ec2.InstanceSize_LARGE),
+//   	MachineImage: ec2.NewAmazonLinuxImage(),
+//   	CreditSpecification: ec2.CpuCredits_UNLIMITED,
 //   })
-//
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	NatGatewayProvider: NatGatewayProvider,
-//
-//   	// The 'natGateways' parameter now controls the number of NAT instances
-//   	NatGateways: jsii.Number(2),
+//   ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+//   	NatGatewayProvider: natInstanceProvider,
 //   })
 //
 type NatInstanceProvider interface {

@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
@@ -195,6 +196,42 @@ func (g *jsiiProxy_GraphqlApiBase) validateGetResourceArnAttributeParameters(arn
 func (g *jsiiProxy_GraphqlApiBase) validateGetResourceNameAttributeParameters(nameAttr *string) error {
 	if nameAttr == nil {
 		return fmt.Errorf("parameter nameAttr is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApiBase) validateGrantParameters(grantee awsiam.IGrantable, resources IamResource) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	if resources == nil {
+		return fmt.Errorf("parameter resources is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApiBase) validateGrantMutationParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApiBase) validateGrantQueryParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApiBase) validateGrantSubscriptionParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil

@@ -8,7 +8,7 @@ import (
 // A class used to generate resource arns for AppSync.
 //
 // Example:
-//   var api graphqlApi
+//   var api iGraphqlApi
 //   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
 //   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   })
@@ -17,7 +17,7 @@ import (
 //
 type IamResource interface {
 	// Return the Resource ARN.
-	ResourceArns(api GraphqlApi) *[]*string
+	ResourceArns(api GraphqlApiBase) *[]*string
 }
 
 // The jsii proxy struct for IamResource
@@ -86,7 +86,7 @@ func IamResource_OfType(type_ *string, fields ...*string) IamResource {
 	return returns
 }
 
-func (i *jsiiProxy_IamResource) ResourceArns(api GraphqlApi) *[]*string {
+func (i *jsiiProxy_IamResource) ResourceArns(api GraphqlApiBase) *[]*string {
 	if err := i.validateResourceArnsParameters(api); err != nil {
 		panic(err)
 	}

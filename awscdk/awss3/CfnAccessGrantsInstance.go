@@ -36,12 +36,15 @@ import (
 type CfnAccessGrantsInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the S3 Access Grants instance.
 	AttrAccessGrantsInstanceArn() *string
 	// The ID of the S3 Access Grants instance.
 	//
 	// The ID is `default` . You can have one S3 Access Grants instance per Region per account.
 	AttrAccessGrantsInstanceId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -222,6 +225,7 @@ type CfnAccessGrantsInstance interface {
 type jsiiProxy_CfnAccessGrantsInstance struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAccessGrantsInstance) AttrAccessGrantsInstanceArn() *string {
@@ -239,6 +243,16 @@ func (j *jsiiProxy_CfnAccessGrantsInstance) AttrAccessGrantsInstanceId() *string
 	_jsii_.Get(
 		j,
 		"attrAccessGrantsInstanceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccessGrantsInstance) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

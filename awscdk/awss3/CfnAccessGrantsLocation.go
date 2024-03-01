@@ -43,12 +43,15 @@ import (
 type CfnAccessGrantsLocation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the location you are registering.
 	AttrAccessGrantsLocationArn() *string
 	// The ID of the registered location to which you are granting access.
 	//
 	// S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID `default` to the default location `s3://` and assigns an auto-generated ID to other locations that you register.
 	AttrAccessGrantsLocationId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -232,6 +235,7 @@ type CfnAccessGrantsLocation interface {
 type jsiiProxy_CfnAccessGrantsLocation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAccessGrantsLocation) AttrAccessGrantsLocationArn() *string {
@@ -249,6 +253,16 @@ func (j *jsiiProxy_CfnAccessGrantsLocation) AttrAccessGrantsLocationId() *string
 	_jsii_.Get(
 		j,
 		"attrAccessGrantsLocationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccessGrantsLocation) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

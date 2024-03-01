@@ -52,6 +52,7 @@ import (
 type CfnAccessGrant interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The configuration options of the grant location.
 	AccessGrantsLocationConfiguration() interface{}
 	SetAccessGrantsLocationConfiguration(val interface{})
@@ -71,6 +72,8 @@ type CfnAccessGrant interface {
 	//
 	// It is the result of appending the `Subprefix` to the location scope.
 	AttrGrantScope() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -257,6 +260,7 @@ type CfnAccessGrant interface {
 type jsiiProxy_CfnAccessGrant struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAccessGrant) AccessGrantsLocationConfiguration() interface{} {
@@ -314,6 +318,16 @@ func (j *jsiiProxy_CfnAccessGrant) AttrGrantScope() *string {
 	_jsii_.Get(
 		j,
 		"attrGrantScope",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccessGrant) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

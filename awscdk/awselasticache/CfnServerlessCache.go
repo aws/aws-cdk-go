@@ -67,6 +67,7 @@ import (
 type CfnServerlessCache interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the serverless cache.
 	AttrArn() *string
 	// When the serverless cache was created.
@@ -88,6 +89,8 @@ type CfnServerlessCache interface {
 	// The cache usage limit for the serverless cache.
 	CacheUsageLimits() interface{}
 	SetCacheUsageLimits(val interface{})
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -307,6 +310,7 @@ type CfnServerlessCache interface {
 type jsiiProxy_CfnServerlessCache struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnServerlessCache) AttrArn() *string {
@@ -394,6 +398,16 @@ func (j *jsiiProxy_CfnServerlessCache) CacheUsageLimits() interface{} {
 	_jsii_.Get(
 		j,
 		"cacheUsageLimits",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServerlessCache) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

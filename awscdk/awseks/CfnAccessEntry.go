@@ -56,11 +56,14 @@ import (
 type CfnAccessEntry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The access policies to associate to the access entry.
 	AccessPolicies() interface{}
 	SetAccessPolicies(val interface{})
 	// The ARN of the access entry.
 	AttrAccessEntryArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -255,6 +258,7 @@ type CfnAccessEntry interface {
 type jsiiProxy_CfnAccessEntry struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAccessEntry) AccessPolicies() interface{} {
@@ -272,6 +276,16 @@ func (j *jsiiProxy_CfnAccessEntry) AttrAccessEntryArn() *string {
 	_jsii_.Get(
 		j,
 		"attrAccessEntryArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccessEntry) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

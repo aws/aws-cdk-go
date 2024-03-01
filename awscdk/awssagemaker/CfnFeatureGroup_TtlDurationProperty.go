@@ -1,7 +1,9 @@
 package awssagemaker
 
 
-// TTL configuration of the feature group.
+// Time to live duration, where the record is hard deleted after the expiration time is reached;
+//
+// `ExpiresAt` = `EventTime` + `TtlDuration` . For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +18,11 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html
 //
 type CfnFeatureGroup_TtlDurationProperty struct {
-	// Unit of ttl configuration.
+	// `TtlDuration` time unit.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html#cfn-sagemaker-featuregroup-ttlduration-unit
 	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
-	// Value of ttl configuration.
+	// `TtlDuration` time value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html#cfn-sagemaker-featuregroup-ttlduration-value
 	//
 	Value *float64 `field:"optional" json:"value" yaml:"value"`

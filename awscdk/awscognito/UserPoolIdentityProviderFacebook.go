@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Represents a identity provider that integrates with 'Facebook Login'.
+// Represents an identity provider that integrates with Facebook Login.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

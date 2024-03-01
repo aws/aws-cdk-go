@@ -46,8 +46,8 @@ package awsdatapipeline
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
-//   	PipelineTags: []interface{}{
-//   		&PipelineTagProperty{
+//   	PipelineTags: []pipelineTagProperty{
+//   		&pipelineTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -90,6 +90,6 @@ type CfnPipelineProps struct {
 	// For more information, see [Controlling Access to Pipelines and Resources](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html) in the *AWS Data Pipeline Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelinetags
 	//
-	PipelineTags interface{} `field:"optional" json:"pipelineTags" yaml:"pipelineTags"`
+	PipelineTags *[]*CfnPipeline_PipelineTagProperty `field:"optional" json:"pipelineTags" yaml:"pipelineTags"`
 }
 

@@ -61,6 +61,8 @@ type CfnDashboard interface {
 	SetDashboardPublishOptions(val interface{})
 	Definition() interface{}
 	SetDefinition(val interface{})
+	LinkEntities() *[]*string
+	SetLinkEntities(val *[]*string)
 	// A structure that contains the link sharing configurations that you want to apply overrides to.
 	LinkSharingConfiguration() interface{}
 	SetLinkSharingConfiguration(val interface{})
@@ -488,6 +490,16 @@ func (j *jsiiProxy_CfnDashboard) Definition() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDashboard) LinkEntities() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"linkEntities",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDashboard) LinkSharingConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -716,6 +728,14 @@ func (j *jsiiProxy_CfnDashboard)SetDefinition(val interface{}) {
 	_jsii_.Set(
 		j,
 		"definition",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDashboard)SetLinkEntities(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"linkEntities",
 		val,
 	)
 }

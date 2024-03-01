@@ -12,6 +12,10 @@ func (g *jsiiProxy_GraphqlApi) validateAddElasticsearchDataSourceParameters(id *
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApi) validateAddEnvironmentVariableParameters(key *string, value *string) error {
+	return nil
+}
+
 func (g *jsiiProxy_GraphqlApi) validateAddEventBridgeDataSourceParameters(id *string, eventBus awsevents.IEventBus, options *DataSourceOptions) error {
 	return nil
 }

@@ -17,6 +17,8 @@ import (
 type DatabaseClusterBase interface {
 	awscdk.Resource
 	IDatabaseCluster
+	// The ARN of the cluster.
+	ClusterArn() *string
 	// The endpoint to use for read/write operations.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
@@ -154,6 +156,16 @@ type DatabaseClusterBase interface {
 type jsiiProxy_DatabaseClusterBase struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IDatabaseCluster
+}
+
+func (j *jsiiProxy_DatabaseClusterBase) ClusterArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_DatabaseClusterBase) ClusterEndpoint() Endpoint {

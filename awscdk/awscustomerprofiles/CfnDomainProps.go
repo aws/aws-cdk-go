@@ -12,12 +12,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDomainProps := &CfnDomainProps{
+//   	DefaultExpirationDays: jsii.Number(123),
 //   	DomainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
 //   	DeadLetterQueueUrl: jsii.String("deadLetterQueueUrl"),
 //   	DefaultEncryptionKey: jsii.String("defaultEncryptionKey"),
-//   	DefaultExpirationDays: jsii.Number(123),
 //   	Matching: &MatchingProperty{
 //   		Enabled: jsii.Boolean(false),
 //
@@ -108,6 +108,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html
 //
 type CfnDomainProps struct {
+	// The default number of days until the data within the domain expires.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
+	//
+	DefaultExpirationDays *float64 `field:"required" json:"defaultExpirationDays" yaml:"defaultExpirationDays"`
 	// The unique name of the domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
 	//
@@ -124,10 +128,6 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
 	//
 	DefaultEncryptionKey *string `field:"optional" json:"defaultEncryptionKey" yaml:"defaultEncryptionKey"`
-	// The default number of days until the data within the domain expires.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
-	//
-	DefaultExpirationDays *float64 `field:"optional" json:"defaultExpirationDays" yaml:"defaultExpirationDays"`
 	// The process of matching duplicate profiles.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-matching
 	//

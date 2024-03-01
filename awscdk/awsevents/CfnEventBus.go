@@ -41,11 +41,14 @@ import (
 type CfnEventBus interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the event bus, such as `arn:aws:events:us-east-2:123456789012:event-bus/aws.partner/PartnerName/acct1/repo1` .
 	AttrArn() *string
 	// The name of the event bus, such as `PartnerName/acct1/repo1` .
 	AttrName() *string
 	AttrPolicy() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -232,6 +235,7 @@ type CfnEventBus interface {
 type jsiiProxy_CfnEventBus struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnEventBus) AttrArn() *string {
@@ -259,6 +263,16 @@ func (j *jsiiProxy_CfnEventBus) AttrPolicy() *string {
 	_jsii_.Get(
 		j,
 		"attrPolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventBus) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

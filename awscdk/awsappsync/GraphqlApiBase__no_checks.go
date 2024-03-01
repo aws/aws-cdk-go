@@ -56,6 +56,22 @@ func (g *jsiiProxy_GraphqlApiBase) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApiBase) validateGrantParameters(grantee awsiam.IGrantable, resources IamResource) error {
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApiBase) validateGrantMutationParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApiBase) validateGrantQueryParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (g *jsiiProxy_GraphqlApiBase) validateGrantSubscriptionParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func validateGraphqlApiBase_IsConstructParameters(x interface{}) error {
 	return nil
 }

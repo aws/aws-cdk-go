@@ -41,6 +41,7 @@ import (
 type CfnPartnership interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Returns a timestamp for creation date and time of the partnership.
 	AttrCreatedAt() *string
 	// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
@@ -54,6 +55,8 @@ type CfnPartnership interface {
 	// Returns one or more capabilities associated with this partnership.
 	Capabilities() *[]*string
 	SetCapabilities(val *[]*string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -241,6 +244,7 @@ type CfnPartnership interface {
 type jsiiProxy_CfnPartnership struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnPartnership) AttrCreatedAt() *string {
@@ -298,6 +302,16 @@ func (j *jsiiProxy_CfnPartnership) Capabilities() *[]*string {
 	_jsii_.Get(
 		j,
 		"capabilities",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPartnership) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

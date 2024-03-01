@@ -1460,6 +1460,7 @@ func init() {
 		reflect.TypeOf((*OptimalInstanceType)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "architecture", GoGetter: "Architecture"},
+			_jsii_.MemberMethod{JsiiMethod: "isBurstable", GoMethod: "IsBurstable"},
 			_jsii_.MemberMethod{JsiiMethod: "sameInstanceClassAs", GoMethod: "SameInstanceClassAs"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},

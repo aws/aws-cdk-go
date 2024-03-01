@@ -37,6 +37,7 @@ import (
 type CfnBrowserSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Additional encryption context of the browser settings.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
@@ -46,6 +47,8 @@ type CfnBrowserSettings interface {
 	// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
 	BrowserPolicy() *string
 	SetBrowserPolicy(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -226,6 +229,7 @@ type CfnBrowserSettings interface {
 type jsiiProxy_CfnBrowserSettings struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnBrowserSettings) AdditionalEncryptionContext() interface{} {
@@ -263,6 +267,16 @@ func (j *jsiiProxy_CfnBrowserSettings) BrowserPolicy() *string {
 	_jsii_.Get(
 		j,
 		"browserPolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBrowserSettings) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

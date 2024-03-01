@@ -40,6 +40,7 @@ import (
 type CfnRouteCalculator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the route calculator resource.
 	//
 	// Use the ARN when you specify a resource across all AWS .
@@ -59,6 +60,8 @@ type CfnRouteCalculator interface {
 	// The name of the route calculator resource.
 	CalculatorName() *string
 	SetCalculatorName(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -247,6 +250,7 @@ type CfnRouteCalculator interface {
 type jsiiProxy_CfnRouteCalculator struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnRouteCalculator) AttrArn() *string {
@@ -294,6 +298,16 @@ func (j *jsiiProxy_CfnRouteCalculator) CalculatorName() *string {
 	_jsii_.Get(
 		j,
 		"calculatorName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouteCalculator) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

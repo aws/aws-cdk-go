@@ -80,6 +80,10 @@ func validateCfnApplication_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetAttachMissingPermissionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetAutoConfigurationEnabledParameters(val interface{}) error {
 	return nil
 }

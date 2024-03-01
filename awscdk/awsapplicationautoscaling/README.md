@@ -269,3 +269,20 @@ shardsScalableTarget.ScaleToTrackMetric(jsii.String("ElastiCacheRedisShardsCPUUt
 	PredefinedMetric: appscaling.PredefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION,
 })
 ```
+
+### SageMaker variant provisioned concurrency utilization with target value
+
+```go
+target := appscaling.NewScalableTarget(this, jsii.String("SageMakerVariantScalableTarget"), &ScalableTargetProps{
+	ServiceNamespace: appscaling.ServiceNamespace_SAGEMAKER,
+	ScalableDimension: jsii.String("sagemaker:variant:DesiredProvisionedConcurrency"),
+	MinCapacity: jsii.Number(2),
+	MaxCapacity: jsii.Number(10),
+	ResourceId: jsii.String("endpoint/MyEndpoint/variant/MyVariant"),
+})
+
+target.ScaleToTrackMetric(jsii.String("SageMakerVariantProvisionedConcurrencyUtilization"), &BasicTargetTrackingScalingPolicyProps{
+	TargetValue: jsii.Number(0.9),
+	PredefinedMetric: appscaling.PredefinedMetric_SAGEMAKER_VARIANT_PROVISIONED_CONCURRENCY_UTILIZATION,
+})
+```

@@ -51,7 +51,7 @@ type CfnEnabledControlProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html#cfn-controltower-enabledcontrol-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
-	// A set of tags to assign to the enabled control.
+	// Tags to be applied to the enabled control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html#cfn-controltower-enabledcontrol-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

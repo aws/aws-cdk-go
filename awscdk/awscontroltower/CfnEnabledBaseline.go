@@ -43,6 +43,7 @@ import (
 type CfnEnabledBaseline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the `EnabledBaseline` resource.
 	AttrEnabledBaselineIdentifier() *string
 	// The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
@@ -51,6 +52,8 @@ type CfnEnabledBaseline interface {
 	// The enabled version of the `Baseline` .
 	BaselineVersion() *string
 	SetBaselineVersion(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -234,6 +237,7 @@ type CfnEnabledBaseline interface {
 type jsiiProxy_CfnEnabledBaseline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnEnabledBaseline) AttrEnabledBaselineIdentifier() *string {
@@ -261,6 +265,16 @@ func (j *jsiiProxy_CfnEnabledBaseline) BaselineVersion() *string {
 	_jsii_.Get(
 		j,
 		"baselineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnabledBaseline) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

@@ -46,6 +46,7 @@ import (
 type CfnPortal interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The additional encryption context of the portal.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
@@ -73,6 +74,8 @@ type CfnPortal interface {
 	// The ARN of the browser settings that is associated with this web portal.
 	BrowserSettingsArn() *string
 	SetBrowserSettingsArn(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -271,6 +274,7 @@ type CfnPortal interface {
 type jsiiProxy_CfnPortal struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnPortal) AdditionalEncryptionContext() interface{} {
@@ -378,6 +382,16 @@ func (j *jsiiProxy_CfnPortal) BrowserSettingsArn() *string {
 	_jsii_.Get(
 		j,
 		"browserSettingsArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPortal) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

@@ -108,6 +108,7 @@ import (
 type CfnConfiguredTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
 	AllowedColumns() *[]*string
 	SetAllowedColumns(val *[]*string)
@@ -125,6 +126,8 @@ type CfnConfiguredTable interface {
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`.
 	AttrConfiguredTableIdentifier() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -311,6 +314,7 @@ type CfnConfiguredTable interface {
 type jsiiProxy_CfnConfiguredTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnConfiguredTable) AllowedColumns() *[]*string {
@@ -358,6 +362,16 @@ func (j *jsiiProxy_CfnConfiguredTable) AttrConfiguredTableIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"attrConfiguredTableIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfiguredTable) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

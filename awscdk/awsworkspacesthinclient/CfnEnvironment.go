@@ -52,6 +52,7 @@ import (
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The activation code to register a device to the environment.
 	AttrActivationCode() *string
 	// The Amazon Resource Name (ARN) of the environment.
@@ -72,6 +73,8 @@ type CfnEnvironment interface {
 	AttrSoftwareSetComplianceStatus() *string
 	// The timestamp of when the device was updated.
 	AttrUpdatedAt() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -273,6 +276,7 @@ type CfnEnvironment interface {
 type jsiiProxy_CfnEnvironment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnEnvironment) AttrActivationCode() *string {
@@ -370,6 +374,16 @@ func (j *jsiiProxy_CfnEnvironment) AttrUpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

@@ -37,9 +37,12 @@ import (
 type CfnTrustStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	AttrAssociatedPortalArns() *[]*string
 	// The ARN of the trust store.
 	AttrTrustStoreArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// A list of CA certificates to be added to the trust store.
 	CertificateList() *[]*string
 	SetCertificateList(val *[]*string)
@@ -220,6 +223,7 @@ type CfnTrustStore interface {
 type jsiiProxy_CfnTrustStore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTrustStore) AttrAssociatedPortalArns() *[]*string {
@@ -237,6 +241,16 @@ func (j *jsiiProxy_CfnTrustStore) AttrTrustStoreArn() *string {
 	_jsii_.Get(
 		j,
 		"attrTrustStoreArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrustStore) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

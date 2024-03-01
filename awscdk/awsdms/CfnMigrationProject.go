@@ -60,8 +60,11 @@ import (
 type CfnMigrationProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN string that uniquely identifies the migration project.
 	AttrMigrationProjectArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -274,6 +277,7 @@ type CfnMigrationProject interface {
 type jsiiProxy_CfnMigrationProject struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnMigrationProject) AttrMigrationProjectArn() *string {
@@ -281,6 +285,16 @@ func (j *jsiiProxy_CfnMigrationProject) AttrMigrationProjectArn() *string {
 	_jsii_.Get(
 		j,
 		"attrMigrationProjectArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMigrationProject) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

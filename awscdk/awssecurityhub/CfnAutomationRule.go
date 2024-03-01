@@ -308,6 +308,7 @@ import (
 type CfnAutomationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 	Actions() interface{}
 	SetActions(val interface{})
@@ -327,6 +328,8 @@ type CfnAutomationRule interface {
 	//
 	// Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
 	AttrUpdatedAt() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -522,6 +525,7 @@ type CfnAutomationRule interface {
 type jsiiProxy_CfnAutomationRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAutomationRule) Actions() interface{} {
@@ -569,6 +573,16 @@ func (j *jsiiProxy_CfnAutomationRule) AttrUpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutomationRule) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

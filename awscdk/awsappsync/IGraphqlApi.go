@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
@@ -41,6 +42,14 @@ type IGraphqlApi interface {
 	AddSchemaDependency(construct awscdk.CfnResource) *bool
 	// creates a new resolver for this datasource and API using the given properties.
 	CreateResolver(id *string, props *ExtendedResolverProps) Resolver
+	// Adds an IAM policy statement associated with this GraphQLApi to an IAM principal's policy.
+	Grant(grantee awsiam.IGrantable, resources IamResource, actions ...*string) awsiam.Grant
+	// Adds an IAM policy statement for Mutation access to this GraphQLApi to an IAM principal's policy.
+	GrantMutation(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant
+	// Adds an IAM policy statement for Query access to this GraphQLApi to an IAM principal's policy.
+	GrantQuery(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant
+	// Adds an IAM policy statement for Subscription access to this GraphQLApi to an IAM principal's policy.
+	GrantSubscription(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant
 	// an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	ApiId() *string
 	// the ARN of the API.
@@ -206,6 +215,90 @@ func (i *jsiiProxy_IGraphqlApi) CreateResolver(id *string, props *ExtendedResolv
 		i,
 		"createResolver",
 		[]interface{}{id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGraphqlApi) Grant(grantee awsiam.IGrantable, resources IamResource, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee, resources); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee, resources}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grant",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGraphqlApi) GrantMutation(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant {
+	if err := i.validateGrantMutationParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range fields {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantMutation",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGraphqlApi) GrantQuery(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant {
+	if err := i.validateGrantQueryParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range fields {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantQuery",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGraphqlApi) GrantSubscription(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant {
+	if err := i.validateGrantSubscriptionParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range fields {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantSubscription",
+		args,
 		&returns,
 	)
 

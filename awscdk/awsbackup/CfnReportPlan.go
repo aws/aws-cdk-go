@@ -32,8 +32,8 @@ import (
 //   	// the properties below are optional
 //   	ReportPlanDescription: jsii.String("reportPlanDescription"),
 //   	ReportPlanName: jsii.String("reportPlanName"),
-//   	ReportPlanTags: []interface{}{
-//   		&CfnTag{
+//   	ReportPlanTags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -45,8 +45,11 @@ import (
 type CfnReportPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of your report plan.
 	AttrReportPlanArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -83,8 +86,8 @@ type CfnReportPlan interface {
 	ReportPlanName() *string
 	SetReportPlanName(val *string)
 	// A list of tags to tag your report plan.
-	ReportPlanTags() interface{}
-	SetReportPlanTags(val interface{})
+	ReportPlanTags() *[]*awscdk.CfnTag
+	SetReportPlanTags(val *[]*awscdk.CfnTag)
 	// Identifies the report template for the report.
 	//
 	// Reports are built using a report template. The report templates are:.
@@ -238,6 +241,7 @@ type CfnReportPlan interface {
 type jsiiProxy_CfnReportPlan struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnReportPlan) AttrReportPlanArn() *string {
@@ -245,6 +249,16 @@ func (j *jsiiProxy_CfnReportPlan) AttrReportPlanArn() *string {
 	_jsii_.Get(
 		j,
 		"attrReportPlanArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReportPlan) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -350,8 +364,8 @@ func (j *jsiiProxy_CfnReportPlan) ReportPlanName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnReportPlan) ReportPlanTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnReportPlan) ReportPlanTags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"reportPlanTags",
@@ -455,7 +469,7 @@ func (j *jsiiProxy_CfnReportPlan)SetReportPlanName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnReportPlan)SetReportPlanTags(val interface{}) {
+func (j *jsiiProxy_CfnReportPlan)SetReportPlanTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetReportPlanTagsParameters(val); err != nil {
 		panic(err)
 	}

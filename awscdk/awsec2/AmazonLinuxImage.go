@@ -17,37 +17,22 @@ import (
 // The AMI ID is selected using the values published to the SSM parameter store.
 //
 // Example:
-//   sg := ec2.SecurityGroup_FromSecurityGroupId(this, jsii.String("FsxSecurityGroup"), jsii.String("{SECURITY-GROUP-ID}"))
-//   fs := fsx.LustreFileSystem_FromLustreFileSystemAttributes(this, jsii.String("FsxLustreFileSystem"), &FileSystemAttributes{
-//   	DnsName: jsii.String("{FILE-SYSTEM-DNS-NAME}"),
-//   	FileSystemId: jsii.String("{FILE-SYSTEM-ID}"),
-//   	SecurityGroup: sg,
+//   var vpc iVpc
+//
+//   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
+//   	Vpc: Vpc,
+//   	InternetFacing: jsii.Boolean(true),
 //   })
 //
-//   vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("Vpc"), &VpcAttributes{
-//   	AvailabilityZones: []*string{
-//   		jsii.String("us-west-2a"),
-//   		jsii.String("us-west-2b"),
-//   	},
-//   	PublicSubnetIds: []*string{
-//   		jsii.String("{US-WEST-2A-SUBNET-ID}"),
-//   		jsii.String("{US-WEST-2B-SUBNET-ID}"),
-//   	},
-//   	VpcId: jsii.String("{VPC-ID}"),
-//   })
-//
-//   inst := ec2.NewInstance(this, jsii.String("inst"), &InstanceProps{
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T2, ec2.InstanceSize_LARGE),
+//   // instance to add as the target for load balancer.
+//   instance := ec2.NewInstance(this, jsii.String("targetInstance"), &InstanceProps{
+//   	Vpc: vpc,
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
 //   	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
 //   		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
 //   	}),
-//   	Vpc: Vpc,
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PUBLIC,
-//   	},
 //   })
-//
-//   fs.Connections.AllowDefaultPortFrom(inst)
+//   lb.AddTarget(elb.NewInstanceTarget(instance))
 //
 type AmazonLinuxImage interface {
 	GenericSSMParameterImage

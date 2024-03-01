@@ -44,6 +44,9 @@ import (
 type CfnEnabledControl interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -80,7 +83,7 @@ type CfnEnabledControl interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A set of tags to assign to the enabled control.
+	// Tags to be applied to the enabled control.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// The ARN of the organizational unit.
@@ -230,6 +233,17 @@ type CfnEnabledControl interface {
 type jsiiProxy_CfnEnabledControl struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnEnabledControl) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnEnabledControl) CfnOptions() awscdk.ICfnResourceOptions {

@@ -107,6 +107,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAccessEntryArn", GoGetter: "AttrAccessEntryArn"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -140,6 +141,7 @@ func init() {
 			j := jsiiProxy_CfnAccessEntry{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)
@@ -547,6 +549,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAssociationArn", GoGetter: "AttrAssociationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAssociationId", GoGetter: "AttrAssociationId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -579,6 +582,7 @@ func init() {
 			j := jsiiProxy_CfnPodIdentityAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)
@@ -1115,6 +1119,8 @@ func init() {
 			"WINDOWS_CORE_2022_X86_64": NodegroupAmiType_WINDOWS_CORE_2022_X86_64,
 			"WINDOWS_FULL_2019_X86_64": NodegroupAmiType_WINDOWS_FULL_2019_X86_64,
 			"WINDOWS_FULL_2022_X86_64": NodegroupAmiType_WINDOWS_FULL_2022_X86_64,
+			"AL2023_X86_64_STANDARD": NodegroupAmiType_AL2023_X86_64_STANDARD,
+			"AL2023_ARM_64_STANDARD": NodegroupAmiType_AL2023_ARM_64_STANDARD,
 		},
 	)
 	_jsii_.RegisterStruct(

@@ -122,7 +122,7 @@ import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 myKeyAlias := kms.Alias_FromAliasName(this, jsii.String("myKey"), jsii.String("alias/aws/s3"))
 trail := cloudtrail.NewTrail(this, jsii.String("myCloudTrail"), &TrailProps{
 	SendToCloudWatchLogs: jsii.Boolean(true),
-	KmsKey: myKeyAlias,
+	EncryptionKey: myKeyAlias,
 })
 ```
 

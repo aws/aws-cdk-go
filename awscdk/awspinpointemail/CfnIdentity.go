@@ -47,6 +47,7 @@ import (
 type CfnIdentity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	AttrId() *string
 	// The host name for the first token that you have to add to the DNS configuration for your domain.
 	//
@@ -62,6 +63,8 @@ type CfnIdentity interface {
 	AttrIdentityDnsRecordValue2() *string
 	// The record value for the third token that you have to add to the DNS configuration for your domain.
 	AttrIdentityDnsRecordValue3() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -251,6 +254,7 @@ type CfnIdentity interface {
 type jsiiProxy_CfnIdentity struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnIdentity) AttrId() *string {
@@ -318,6 +322,16 @@ func (j *jsiiProxy_CfnIdentity) AttrIdentityDnsRecordValue3() *string {
 	_jsii_.Get(
 		j,
 		"attrIdentityDnsRecordValue3",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdentity) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

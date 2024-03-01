@@ -43,11 +43,14 @@ import (
 type CfnProtectionGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 	Aggregation() *string
 	SetAggregation(val *string)
 	// The ARN (Amazon Resource Name) of the new protection group.
 	AttrProtectionGroupArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -237,6 +240,7 @@ type CfnProtectionGroup interface {
 type jsiiProxy_CfnProtectionGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnProtectionGroup) Aggregation() *string {
@@ -254,6 +258,16 @@ func (j *jsiiProxy_CfnProtectionGroup) AttrProtectionGroupArn() *string {
 	_jsii_.Get(
 		j,
 		"attrProtectionGroupArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProtectionGroup) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

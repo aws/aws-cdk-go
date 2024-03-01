@@ -36,12 +36,15 @@ import (
 type CfnRepositoryLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The name of the external provider where your third-party code repository is configured.
 	AttrProviderType() *string
 	// A unique Amazon Resource Name (ARN) to designate the repository link.
 	AttrRepositoryLinkArn() *string
 	// A UUID that uniquely identifies the RepositoryLink.
 	AttrRepositoryLinkId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -231,6 +234,7 @@ type CfnRepositoryLink interface {
 type jsiiProxy_CfnRepositoryLink struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnRepositoryLink) AttrProviderType() *string {
@@ -258,6 +262,16 @@ func (j *jsiiProxy_CfnRepositoryLink) AttrRepositoryLinkId() *string {
 	_jsii_.Get(
 		j,
 		"attrRepositoryLinkId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRepositoryLink) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

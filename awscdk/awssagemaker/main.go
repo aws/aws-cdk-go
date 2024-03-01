@@ -1040,6 +1040,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrRuntimeConfigCurrentCopyCount", GoGetter: "AttrRuntimeConfigCurrentCopyCount"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRuntimeConfigDesiredCopyCount", GoGetter: "AttrRuntimeConfigDesiredCopyCount"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSpecificationContainerDeployedImage", GoGetter: "AttrSpecificationContainerDeployedImage"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -1074,6 +1075,7 @@ func init() {
 			j := jsiiProxy_CfnInferenceComponent{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

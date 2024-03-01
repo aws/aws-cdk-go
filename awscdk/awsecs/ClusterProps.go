@@ -7,43 +7,43 @@ import (
 // The properties used to define an ECS cluster.
 //
 // Example:
-//   vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
-//   	IsDefault: jsii.Boolean(true),
-//   })
+//   var vpc vpc
 //
-//   cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &ClusterProps{
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
 //
-//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
-//   	MemoryMiB: jsii.String("512"),
-//   	Cpu: jsii.String("256"),
-//   	Compatibility: ecs.Compatibility_FARGATE,
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   	Vpc: Vpc,
+//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(),
+//   	MinCapacity: jsii.Number(0),
+//   	MaxCapacity: jsii.Number(100),
 //   })
 //
-//   containerDefinition := taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
-//   	MemoryLimitMiB: jsii.Number(256),
+//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
+//   	AutoScalingGroup: AutoScalingGroup,
+//   	InstanceWarmupPeriod: jsii.Number(300),
+//   })
+//   cluster.AddAsgCapacityProvider(capacityProvider)
+//
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	MemoryReservationMiB: jsii.Number(256),
 //   })
 //
-//   runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &EcsRunTaskProps{
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	AssignPublicIp: jsii.Boolean(true),
-//   	ContainerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			ContainerDefinition: *ContainerDefinition,
-//   			Environment: []taskEnvironmentVariable{
-//   				&taskEnvironmentVariable{
-//   					Name: jsii.String("SOME_KEY"),
-//   					Value: sfn.JsonPath_StringAt(jsii.String("$.SomeKey")),
-//   				},
-//   			},
+//   	CapacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			CapacityProvider: capacityProvider.CapacityProviderName,
+//   			Weight: jsii.Number(1),
 //   		},
 //   	},
-//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
-//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
 type ClusterProps struct {

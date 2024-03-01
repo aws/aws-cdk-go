@@ -63,6 +63,7 @@ import (
 type CfnDBProxy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) representing the target group.
 	AttrDbProxyArn() *string
 	// The writer endpoint for the RDS DB instance or Aurora DB cluster.
@@ -72,6 +73,8 @@ type CfnDBProxy interface {
 	// The authorization mechanism that the proxy uses.
 	Auth() interface{}
 	SetAuth(val interface{})
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -273,6 +276,7 @@ type CfnDBProxy interface {
 type jsiiProxy_CfnDBProxy struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDBProxy) AttrDbProxyArn() *string {
@@ -310,6 +314,16 @@ func (j *jsiiProxy_CfnDBProxy) Auth() interface{} {
 	_jsii_.Get(
 		j,
 		"auth",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBProxy) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

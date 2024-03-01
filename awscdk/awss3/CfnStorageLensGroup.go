@@ -101,8 +101,11 @@ import (
 type CfnStorageLensGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN for the Amazon S3 Storage Lens Group.
 	AttrStorageLensGroupArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -286,6 +289,7 @@ type CfnStorageLensGroup interface {
 type jsiiProxy_CfnStorageLensGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnStorageLensGroup) AttrStorageLensGroupArn() *string {
@@ -293,6 +297,16 @@ func (j *jsiiProxy_CfnStorageLensGroup) AttrStorageLensGroupArn() *string {
 	_jsii_.Get(
 		j,
 		"attrStorageLensGroupArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStorageLensGroup) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

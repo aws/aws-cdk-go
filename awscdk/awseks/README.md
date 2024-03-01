@@ -17,6 +17,7 @@ In addition, the library also supports defining Kubernetes resource manifests wi
       * [Node Groups with IPv6 Support](#node-groups-with-ipv6-support)
       * [Spot Instances Support](#spot-instances-support)
       * [Launch Template Support](#launch-template-support)
+    * [Update clusters](#update-clusters)
     * [Fargate profiles](#fargate-profiles)
     * [Self-managed nodes](#self-managed-nodes)
 
@@ -397,6 +398,36 @@ You may specify one `instanceType` in the launch template or multiple `instanceT
 
 Graviton 2 instance types are supported including `c6g`, `m6g`, `r6g` and `t4g`.
 Graviton 3 instance types are supported including `c7g`.
+
+### Update clusters
+
+When you rename the cluster name and redeploy the stack, the cluster replacement will be triggered and
+the existing one will be deleted after the new one is provisioned. As the cluster resource ARN has been changed,
+the cluster resource handler would not be able to delete the old one as the resource ARN in the IAM policy
+has been changed. As a workaround, you need to add a temporary policy to the cluster admin role for
+successful replacement. Consider this example if you are renaming the cluster from `foo` to `bar`:
+
+```go
+cluster := eks.NewCluster(this, jsii.String("cluster-to-rename"), &ClusterProps{
+	ClusterName: jsii.String("foo"),
+	 // rename this to 'bar'
+	Version: eks.KubernetesVersion_V1_29(),
+})
+
+// allow the cluster admin role to delete the cluster 'foo'
+cluster.AdminRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("eks:DeleteCluster"),
+	},
+	Resources: []*string{
+		awscdk.*stack_Of(this).FormatArn(&ArnComponents{
+			Service: jsii.String("eks"),
+			Resource: jsii.String("cluster"),
+			ResourceName: jsii.String("foo"),
+		}),
+	},
+}))
+```
 
 ### Fargate profiles
 

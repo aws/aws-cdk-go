@@ -1,5 +1,8 @@
 package awsbackup
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnReportPlan`.
 //
@@ -18,8 +21,8 @@ package awsbackup
 //   	// the properties below are optional
 //   	ReportPlanDescription: jsii.String("reportPlanDescription"),
 //   	ReportPlanName: jsii.String("reportPlanName"),
-//   	ReportPlanTags: []interface{}{
-//   		&CfnTag{
+//   	ReportPlanTags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -54,6 +57,6 @@ type CfnReportPlanProps struct {
 	// A list of tags to tag your report plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportplantags
 	//
-	ReportPlanTags interface{} `field:"optional" json:"reportPlanTags" yaml:"reportPlanTags"`
+	ReportPlanTags *[]*awscdk.CfnTag `field:"optional" json:"reportPlanTags" yaml:"reportPlanTags"`
 }
 

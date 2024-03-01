@@ -47,6 +47,7 @@ import (
 type CfnSchemaMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The time of this SchemaMapping got created.
 	AttrCreatedAt() *string
 	// The boolean value that indicates whether or not a SchemaMapping has MatchingWorkflows that are associated with.
@@ -55,6 +56,8 @@ type CfnSchemaMapping interface {
 	AttrSchemaArn() *string
 	// The time of this SchemaMapping got last updated at.
 	AttrUpdatedAt() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -241,6 +244,7 @@ type CfnSchemaMapping interface {
 type jsiiProxy_CfnSchemaMapping struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnSchemaMapping) AttrCreatedAt() *string {
@@ -278,6 +282,16 @@ func (j *jsiiProxy_CfnSchemaMapping) AttrUpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSchemaMapping) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

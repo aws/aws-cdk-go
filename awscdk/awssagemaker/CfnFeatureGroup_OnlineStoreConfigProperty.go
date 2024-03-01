@@ -46,7 +46,9 @@ type CfnFeatureGroup_OnlineStoreConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
-	// TTL configuration of the feature group.
+	// Time to live duration, where the record is hard deleted after the expiration time is reached;
+	//
+	// `ExpiresAt` = `EventTime` + `TtlDuration` . For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html#cfn-sagemaker-featuregroup-onlinestoreconfig-ttlduration
 	//
 	TtlDuration interface{} `field:"optional" json:"ttlDuration" yaml:"ttlDuration"`

@@ -20,6 +20,7 @@ import (
 //   	ResourceGroupName: jsii.String("resourceGroupName"),
 //
 //   	// the properties below are optional
+//   	AttachMissingPermission: jsii.Boolean(false),
 //   	AutoConfigurationEnabled: jsii.Boolean(false),
 //   	ComponentMonitoringSettings: []interface{}{
 //   		&ComponentMonitoringSettingProperty{
@@ -253,6 +254,9 @@ type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.
+	AttachMissingPermission() interface{}
+	SetAttachMissingPermission(val interface{})
 	// Returns the Amazon Resource Name (ARN) of the application, such as `arn:aws:applicationinsights:us-east-1:123456789012:application/resource-group/my_resource_group` .
 	AttrApplicationArn() *string
 	// If set to `true` , the application components will be configured with the monitoring configuration recommended by Application Insights.
@@ -462,6 +466,16 @@ type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnApplication) AttachMissingPermission() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"attachMissingPermission",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnApplication) AttrApplicationArn() *string {
@@ -709,6 +723,17 @@ func NewCfnApplication_Override(c CfnApplication, scope constructs.Construct, id
 		"aws-cdk-lib.aws_applicationinsights.CfnApplication",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetAttachMissingPermission(val interface{}) {
+	if err := j.validateSetAttachMissingPermissionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"attachMissingPermission",
+		val,
 	)
 }
 

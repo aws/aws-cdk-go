@@ -44,6 +44,7 @@ import (
 type CfnMap interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
 	//
 	// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`.
@@ -59,6 +60,8 @@ type CfnMap interface {
 	AttrMapArn() *string
 	// The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	AttrUpdateTime() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -250,6 +253,7 @@ type CfnMap interface {
 type jsiiProxy_CfnMap struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnMap) AttrArn() *string {
@@ -297,6 +301,16 @@ func (j *jsiiProxy_CfnMap) AttrUpdateTime() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdateTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMap) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

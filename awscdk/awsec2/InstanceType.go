@@ -13,24 +13,25 @@ import (
 // Example:
 //   var vpc vpc
 //
+//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{
 //   		Username: jsii.String("myuser"),
-//   		 // NOTE: 'admin' is reserved by DocumentDB
-//   		ExcludeCharacters: jsii.String("\"@/:"),
-//   		 // optional, defaults to the set "\"@/" and is also used for eventually created rotations
-//   		SecretName: jsii.String("/myapp/mydocdb/masteruser"),
 //   	},
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
 //   	VpcSubnets: &SubnetSelection{
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
+//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+//   	InstanceRemovalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   })
 //
 type InstanceType interface {
 	// The instance's CPU architecture.
 	Architecture() InstanceArchitecture
+	// Return whether this instance type is a burstable instance type.
+	IsBurstable() *bool
 	SameInstanceClassAs(other InstanceType) *bool
 	// Return the instance type as a dotted string.
 	ToString() *string
@@ -97,6 +98,19 @@ func InstanceType_Of(instanceClass InstanceClass, instanceSize InstanceSize) Ins
 		"aws-cdk-lib.aws_ec2.InstanceType",
 		"of",
 		[]interface{}{instanceClass, instanceSize},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_InstanceType) IsBurstable() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		i,
+		"isBurstable",
+		nil, // no parameters
 		&returns,
 	)
 

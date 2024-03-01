@@ -38,8 +38,11 @@ import (
 type CfnConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	AttrConnectorArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// The Amazon Resource Name (ARN) of the certificate authority being used.
 	CertificateAuthorityArn() *string
 	SetCertificateAuthorityArn(val *string)
@@ -226,6 +229,7 @@ type CfnConnector interface {
 type jsiiProxy_CfnConnector struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnConnector) AttrConnectorArn() *string {
@@ -233,6 +237,16 @@ func (j *jsiiProxy_CfnConnector) AttrConnectorArn() *string {
 	_jsii_.Get(
 		j,
 		"attrConnectorArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnector) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

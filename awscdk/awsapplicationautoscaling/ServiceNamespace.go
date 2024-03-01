@@ -4,32 +4,17 @@ package awsapplicationautoscaling
 // The service that supports Application AutoScaling.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var code code
-//
-//
-//   handler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_12(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: Code,
-//
-//   	ReservedConcurrentExecutions: jsii.Number(2),
+//   shardsScalableTarget := appscaling.NewScalableTarget(this, jsii.String("ElastiCacheRedisShardsScalableTarget"), &ScalableTargetProps{
+//   	ServiceNamespace: appscaling.ServiceNamespace_ELASTICACHE,
+//   	ScalableDimension: jsii.String("elasticache:replication-group:NodeGroups"),
+//   	MinCapacity: jsii.Number(2),
+//   	MaxCapacity: jsii.Number(10),
+//   	ResourceId: jsii.String("replication-group/main-cluster"),
 //   })
 //
-//   fnVer := handler.currentVersion
-//
-//   target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &ScalableTargetProps{
-//   	ServiceNamespace: appscaling.ServiceNamespace_LAMBDA,
-//   	MaxCapacity: jsii.Number(100),
-//   	MinCapacity: jsii.Number(10),
-//   	ResourceId: fmt.Sprintf("function:%v:%v", handler.FunctionName, fnVer.Version),
-//   	ScalableDimension: jsii.String("lambda:function:ProvisionedConcurrency"),
-//   })
-//
-//   target.ScaleToTrackMetric(jsii.String("PceTracking"), &BasicTargetTrackingScalingPolicyProps{
-//   	TargetValue: jsii.Number(0.9),
-//   	PredefinedMetric: appscaling.PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION,
+//   shardsScalableTarget.ScaleToTrackMetric(jsii.String("ElastiCacheRedisShardsCPUUtilization"), &BasicTargetTrackingScalingPolicyProps{
+//   	TargetValue: jsii.Number(20),
+//   	PredefinedMetric: appscaling.PredefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION,
 //   })
 //
 type ServiceNamespace string

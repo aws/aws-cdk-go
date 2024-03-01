@@ -2,6 +2,50 @@ package awsapigatewayv2
 
 
 // Supported integration subtypes.
+//
+// Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import sfn "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var stateMachine stateMachine
+//   var httpApi httpApi
+//
+//
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/start"),
+//   	Methods: []httpMethod{
+//   		apigwv2.*httpMethod_POST,
+//   	},
+//   	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StartExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
+//   		StateMachine: *StateMachine,
+//   		Subtype: apigwv2.HttpIntegrationSubtype_STEPFUNCTIONS_START_EXECUTION,
+//   	}),
+//   })
+//
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/start-sync"),
+//   	Methods: []*httpMethod{
+//   		apigwv2.*httpMethod_POST,
+//   	},
+//   	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StartSyncExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
+//   		StateMachine: *StateMachine,
+//   		Subtype: apigwv2.HttpIntegrationSubtype_STEPFUNCTIONS_START_SYNC_EXECUTION,
+//   	}),
+//   })
+//
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/stop"),
+//   	Methods: []*httpMethod{
+//   		apigwv2.*httpMethod_POST,
+//   	},
+//   	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StopExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
+//   		StateMachine: *StateMachine,
+//   		Subtype: apigwv2.HttpIntegrationSubtype_STEPFUNCTIONS_STOP_EXECUTION,
+//   		// For the `STOP_EXECUTION` subtype, it is necessary to specify the `executionArn`.
+//   		ParameterMapping: apigwv2.NewParameterMapping().Custom(jsii.String("ExecutionArn"), jsii.String("$request.querystring.executionArn")),
+//   	}),
+//   })
+//
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html
 //
 type HttpIntegrationSubtype string

@@ -35,12 +35,15 @@ import (
 type CfnTrafficDistributionGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Describes whether this is the default traffic distribution group.
 	AttrIsDefault() awscdk.IResolvable
 	// The status of the traffic distribution group.
 	AttrStatus() *string
 	// The Amazon Resource Name (ARN) of the traffic distribution group.
 	AttrTrafficDistributionGroupArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -227,6 +230,7 @@ type CfnTrafficDistributionGroup interface {
 type jsiiProxy_CfnTrafficDistributionGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTrafficDistributionGroup) AttrIsDefault() awscdk.IResolvable {
@@ -254,6 +258,16 @@ func (j *jsiiProxy_CfnTrafficDistributionGroup) AttrTrafficDistributionGroupArn(
 	_jsii_.Get(
 		j,
 		"attrTrafficDistributionGroupArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrafficDistributionGroup) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

@@ -44,6 +44,7 @@ import (
 type CfnGraph interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The connection endpoint for the graph.
 	//
 	// For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
@@ -56,6 +57,8 @@ type CfnGraph interface {
 	//
 	// For example: `g-12a3bcdef4`.
 	AttrGraphId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -255,6 +258,7 @@ type CfnGraph interface {
 type jsiiProxy_CfnGraph struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnGraph) AttrEndpoint() *string {
@@ -282,6 +286,16 @@ func (j *jsiiProxy_CfnGraph) AttrGraphId() *string {
 	_jsii_.Get(
 		j,
 		"attrGraphId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraph) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

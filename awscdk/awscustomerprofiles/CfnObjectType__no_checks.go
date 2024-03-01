@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnObjectType) validateSetAllowProfileCreationParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnObjectType) validateSetDescriptionParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnObjectType) validateSetDomainNameParameters(val *string) error {
 	return nil
 }
@@ -93,6 +97,10 @@ func (j *jsiiProxy_CfnObjectType) validateSetFieldsParameters(val interface{}) e
 }
 
 func (j *jsiiProxy_CfnObjectType) validateSetKeysParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnObjectType) validateSetObjectTypeNameParameters(val *string) error {
 	return nil
 }
 

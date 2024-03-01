@@ -4,32 +4,17 @@ package awsapplicationautoscaling
 // One of the predefined autoscaling metrics.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var code code
-//
-//
-//   handler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_12(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: Code,
-//
-//   	ReservedConcurrentExecutions: jsii.Number(2),
+//   shardsScalableTarget := appscaling.NewScalableTarget(this, jsii.String("ElastiCacheRedisShardsScalableTarget"), &ScalableTargetProps{
+//   	ServiceNamespace: appscaling.ServiceNamespace_ELASTICACHE,
+//   	ScalableDimension: jsii.String("elasticache:replication-group:NodeGroups"),
+//   	MinCapacity: jsii.Number(2),
+//   	MaxCapacity: jsii.Number(10),
+//   	ResourceId: jsii.String("replication-group/main-cluster"),
 //   })
 //
-//   fnVer := handler.currentVersion
-//
-//   target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &ScalableTargetProps{
-//   	ServiceNamespace: appscaling.ServiceNamespace_LAMBDA,
-//   	MaxCapacity: jsii.Number(100),
-//   	MinCapacity: jsii.Number(10),
-//   	ResourceId: fmt.Sprintf("function:%v:%v", handler.FunctionName, fnVer.Version),
-//   	ScalableDimension: jsii.String("lambda:function:ProvisionedConcurrency"),
-//   })
-//
-//   target.ScaleToTrackMetric(jsii.String("PceTracking"), &BasicTargetTrackingScalingPolicyProps{
-//   	TargetValue: jsii.Number(0.9),
-//   	PredefinedMetric: appscaling.PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION,
+//   shardsScalableTarget.ScaleToTrackMetric(jsii.String("ElastiCacheRedisShardsCPUUtilization"), &BasicTargetTrackingScalingPolicyProps{
+//   	TargetValue: jsii.Number(20),
+//   	PredefinedMetric: appscaling.PredefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION,
 //   })
 //
 type PredefinedMetric string
@@ -88,6 +73,14 @@ const (
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
 	PredefinedMetric_SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE PredefinedMetric = "SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE"
+	// SAGEMAKER_VARIANT_PROVISIONED_CONCURRENCY_UTILIZATION.
+	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
+	//
+	PredefinedMetric_SAGEMAKER_VARIANT_PROVISIONED_CONCURRENCY_UTILIZATION PredefinedMetric = "SAGEMAKER_VARIANT_PROVISIONED_CONCURRENCY_UTILIZATION"
+	// SAGEMAKER_INFERENCE_COMPONENT_INVOCATIONS_PER_COPY.
+	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
+	//
+	PredefinedMetric_SAGEMAKER_INFERENCE_COMPONENT_INVOCATIONS_PER_COPY PredefinedMetric = "SAGEMAKER_INFERENCE_COMPONENT_INVOCATIONS_PER_COPY"
 	// ECS_SERVICE_AVERAGE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
@@ -104,17 +97,21 @@ const (
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
 	PredefinedMetric_KAFKA_BROKER_STORAGE_UTILIZATION PredefinedMetric = "KAFKA_BROKER_STORAGE_UTILIZATION"
-	// ELASTIC_CACHE_PRIMARY_ENGINE_CPU_UTILIZATION.
+	// ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
 	PredefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION PredefinedMetric = "ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION"
-	// ELASTIC_CACHE_REPLICA_ENGINE_CPU_UTILIZATION.
+	// ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
 	PredefinedMetric_ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION PredefinedMetric = "ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION"
-	// ELASTIC_CACHE_REPLICA_ENGINE_CPU_UTILIZATION.
+	// ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE.
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
 	PredefinedMetric_ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE PredefinedMetric = "ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE"
+	// ELASTICACHE_DATABASE_CAPACITY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE.
+	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
+	//
+	PredefinedMetric_ELASTICACHE_DATABASE_CAPACITY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE PredefinedMetric = "ELASTICACHE_DATABASE_CAPACITY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE"
 )
 

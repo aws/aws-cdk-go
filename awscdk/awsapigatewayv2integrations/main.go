@@ -92,6 +92,23 @@ func init() {
 		reflect.TypeOf((*HttpServiceDiscoveryIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpStepFunctionsIntegration",
+		reflect.TypeOf((*HttpStepFunctionsIntegration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "completeBind", GoMethod: "CompleteBind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_HttpStepFunctionsIntegration{}
+			_jsii_.InitJsiiProxy(&j.Type__awsapigatewayv2HttpRouteIntegration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpStepFunctionsIntegrationProps",
+		reflect.TypeOf((*HttpStepFunctionsIntegrationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpUrlIntegration",
 		reflect.TypeOf((*HttpUrlIntegration)(nil)).Elem(),
 		[]_jsii_.Member{

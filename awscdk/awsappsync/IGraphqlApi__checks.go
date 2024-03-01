@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
@@ -163,6 +164,42 @@ func (i *jsiiProxy_IGraphqlApi) validateCreateResolverParameters(id *string, pro
 	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IGraphqlApi) validateGrantParameters(grantee awsiam.IGrantable, resources IamResource) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	if resources == nil {
+		return fmt.Errorf("parameter resources is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IGraphqlApi) validateGrantMutationParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IGraphqlApi) validateGrantQueryParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IGraphqlApi) validateGrantSubscriptionParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil

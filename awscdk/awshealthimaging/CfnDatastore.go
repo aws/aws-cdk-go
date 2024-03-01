@@ -29,6 +29,7 @@ import (
 type CfnDatastore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The timestamp when the data store was created.
 	AttrCreatedAt() *string
 	// The Amazon Resource Name (ARN) for the data store.
@@ -39,6 +40,8 @@ type CfnDatastore interface {
 	AttrDatastoreStatus() *string
 	// The timestamp when the data store was last updated.
 	AttrUpdatedAt() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -222,6 +225,7 @@ type CfnDatastore interface {
 type jsiiProxy_CfnDatastore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDatastore) AttrCreatedAt() *string {
@@ -269,6 +273,16 @@ func (j *jsiiProxy_CfnDatastore) AttrUpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDatastore) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

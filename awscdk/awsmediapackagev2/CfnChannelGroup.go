@@ -34,6 +34,7 @@ import (
 type CfnChannelGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the channel group.
 	AttrArn() *string
 	// The timestamp of the creation of the channel group.
@@ -42,6 +43,8 @@ type CfnChannelGroup interface {
 	AttrEgressDomain() *string
 	// The timestamp of the modification of the channel group.
 	AttrModifiedAt() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -225,6 +228,7 @@ type CfnChannelGroup interface {
 type jsiiProxy_CfnChannelGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnChannelGroup) AttrArn() *string {
@@ -262,6 +266,16 @@ func (j *jsiiProxy_CfnChannelGroup) AttrModifiedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrModifiedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannelGroup) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

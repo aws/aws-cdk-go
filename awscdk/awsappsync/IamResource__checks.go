@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func (i *jsiiProxy_IamResource) validateResourceArnsParameters(api GraphqlApi) error {
+func (i *jsiiProxy_IamResource) validateResourceArnsParameters(api GraphqlApiBase) error {
 	if api == nil {
 		return fmt.Errorf("parameter api is required, but nil was provided")
 	}

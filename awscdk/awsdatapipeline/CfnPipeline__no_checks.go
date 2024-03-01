@@ -100,7 +100,7 @@ func (j *jsiiProxy_CfnPipeline) validateSetPipelineObjectsParameters(val interfa
 	return nil
 }
 
-func (j *jsiiProxy_CfnPipeline) validateSetPipelineTagsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnPipeline) validateSetPipelineTagsParameters(val *[]*CfnPipeline_PipelineTagProperty) error {
 	return nil
 }
 

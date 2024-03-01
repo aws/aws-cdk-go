@@ -34,11 +34,14 @@ import (
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the compute fleet.
 	AttrArn() *string
 	// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
 	BaseCapacity() *float64
 	SetBaseCapacity(val *float64)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -227,6 +230,7 @@ type CfnFleet interface {
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFleet) AttrArn() *string {
@@ -244,6 +248,16 @@ func (j *jsiiProxy_CfnFleet) BaseCapacity() *float64 {
 	_jsii_.Get(
 		j,
 		"baseCapacity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

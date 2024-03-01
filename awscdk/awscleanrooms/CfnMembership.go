@@ -53,6 +53,7 @@ import (
 type CfnMembership interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Returns the Amazon Resource Name (ARN) of the specified membership.
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
@@ -69,6 +70,8 @@ type CfnMembership interface {
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`.
 	AttrMembershipIdentifier() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -258,6 +261,7 @@ type CfnMembership interface {
 type jsiiProxy_CfnMembership struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnMembership) AttrArn() *string {
@@ -295,6 +299,16 @@ func (j *jsiiProxy_CfnMembership) AttrMembershipIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"attrMembershipIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMembership) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

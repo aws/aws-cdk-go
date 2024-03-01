@@ -11,17 +11,14 @@ import (
 // instance.
 //
 // Example:
-//   var instanceType instanceType
-//
-//
-//   provider := ec2.NatProvider_Instance(&NatInstanceProps{
-//   	InstanceType: InstanceType,
-//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_OUTBOUND_ONLY,
+//   natInstanceProvider := ec2.NatProvider_Instance(&NatInstanceProps{
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T4G, ec2.InstanceSize_LARGE),
+//   	MachineImage: ec2.NewAmazonLinuxImage(),
+//   	CreditSpecification: ec2.CpuCredits_UNLIMITED,
 //   })
-//   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
-//   	NatGatewayProvider: provider,
+//   ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+//   	NatGatewayProvider: natInstanceProvider,
 //   })
-//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
 //
 type NatProvider interface {
 	// Return list of gateways spawned by the provider.

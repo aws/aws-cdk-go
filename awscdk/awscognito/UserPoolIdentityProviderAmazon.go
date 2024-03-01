@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Represents a identity provider that integrates with 'Login with Amazon'.
+// Represents an identity provider that integrates with Login with Amazon.
 //
 // Example:
 //   pool := cognito.NewUserPool(this, jsii.String("Pool"))

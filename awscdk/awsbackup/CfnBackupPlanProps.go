@@ -74,6 +74,6 @@ type CfnBackupPlanProps struct {
 	// Each tag is a key-value pair. The specified tags are assigned to all backups created with this plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
 	//
-	BackupPlanTags interface{} `field:"optional" json:"backupPlanTags" yaml:"backupPlanTags"`
+	BackupPlanTags *map[string]*string `field:"optional" json:"backupPlanTags" yaml:"backupPlanTags"`
 }
 

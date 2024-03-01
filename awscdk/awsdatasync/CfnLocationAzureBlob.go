@@ -47,6 +47,7 @@ import (
 type CfnLocationAzureBlob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
@@ -69,6 +70,8 @@ type CfnLocationAzureBlob interface {
 	// Specifies the type of blob that you want your objects or files to be when transferring them into Azure Blob Storage.
 	AzureBlobType() *string
 	SetAzureBlobType(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -249,6 +252,7 @@ type CfnLocationAzureBlob interface {
 type jsiiProxy_CfnLocationAzureBlob struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnLocationAzureBlob) AgentArns() *[]*string {
@@ -326,6 +330,16 @@ func (j *jsiiProxy_CfnLocationAzureBlob) AzureBlobType() *string {
 	_jsii_.Get(
 		j,
 		"azureBlobType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationAzureBlob) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

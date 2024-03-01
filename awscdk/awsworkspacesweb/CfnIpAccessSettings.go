@@ -48,6 +48,7 @@ import (
 type CfnIpAccessSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Additional encryption context of the IP access settings.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
@@ -56,6 +57,8 @@ type CfnIpAccessSettings interface {
 	AttrCreationDate() *string
 	// The ARN of the IP access settings resource.
 	AttrIpAccessSettingsArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -245,6 +248,7 @@ type CfnIpAccessSettings interface {
 type jsiiProxy_CfnIpAccessSettings struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnIpAccessSettings) AdditionalEncryptionContext() interface{} {
@@ -282,6 +286,16 @@ func (j *jsiiProxy_CfnIpAccessSettings) AttrIpAccessSettingsArn() *string {
 	_jsii_.Get(
 		j,
 		"attrIpAccessSettingsArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIpAccessSettings) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

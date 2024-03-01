@@ -56,6 +56,7 @@ import (
 type CfnFindingsFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The action to perform on findings that match the filter criteria ( `FindingCriteria` ).
 	//
 	// Valid values are:.
@@ -66,6 +67,8 @@ type CfnFindingsFilter interface {
 	AttrFindingsFilterListItems() awscdk.IResolvable
 	// The unique identifier for the findings filter.
 	AttrId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -259,6 +262,7 @@ type CfnFindingsFilter interface {
 type jsiiProxy_CfnFindingsFilter struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFindingsFilter) Action() *string {
@@ -296,6 +300,16 @@ func (j *jsiiProxy_CfnFindingsFilter) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFindingsFilter) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

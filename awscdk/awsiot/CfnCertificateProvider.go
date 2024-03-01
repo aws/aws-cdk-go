@@ -39,6 +39,7 @@ import (
 type CfnCertificateProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// A list of the operations that the certificate provider will use to generate certificates.
 	AccountDefaultForOperations() *[]*string
 	SetAccountDefaultForOperations(val *[]*string)
@@ -50,6 +51,8 @@ type CfnCertificateProvider interface {
 	//
 	// `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`.
 	AttrArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// The name of the certificate provider.
 	CertificateProviderName() *string
 	SetCertificateProviderName(val *string)
@@ -233,6 +236,7 @@ type CfnCertificateProvider interface {
 type jsiiProxy_CfnCertificateProvider struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCertificateProvider) AccountDefaultForOperations() *[]*string {
@@ -250,6 +254,16 @@ func (j *jsiiProxy_CfnCertificateProvider) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCertificateProvider) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

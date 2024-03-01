@@ -61,6 +61,7 @@ import (
 type CfnConfigurationProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
@@ -70,6 +71,8 @@ type CfnConfigurationProfile interface {
 	//
 	// This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
 	AttrKmsKeyArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -270,6 +273,7 @@ type CfnConfigurationProfile interface {
 type jsiiProxy_CfnConfigurationProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnConfigurationProfile) ApplicationId() *string {
@@ -297,6 +301,16 @@ func (j *jsiiProxy_CfnConfigurationProfile) AttrKmsKeyArn() *string {
 	_jsii_.Get(
 		j,
 		"attrKmsKeyArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationProfile) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

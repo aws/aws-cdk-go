@@ -38,6 +38,7 @@ import (
 type CfnLandingZone interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the landing zone.
 	AttrArn() *string
 	// The drift status of the landing zone.
@@ -50,6 +51,8 @@ type CfnLandingZone interface {
 	//
 	// One of `ACTIVE` , `PROCESSING` , `FAILED` .
 	AttrStatus() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -233,6 +236,7 @@ type CfnLandingZone interface {
 type jsiiProxy_CfnLandingZone struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnLandingZone) AttrArn() *string {
@@ -280,6 +284,16 @@ func (j *jsiiProxy_CfnLandingZone) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLandingZone) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

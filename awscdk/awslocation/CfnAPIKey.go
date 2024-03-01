@@ -51,6 +51,7 @@ import (
 type CfnAPIKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the resource.
 	//
 	// Used when you need to specify a resource across all AWS .
@@ -63,6 +64,8 @@ type CfnAPIKey interface {
 	AttrKeyArn() *string
 	// The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	AttrUpdateTime() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -261,6 +264,7 @@ type CfnAPIKey interface {
 type jsiiProxy_CfnAPIKey struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAPIKey) AttrArn() *string {
@@ -298,6 +302,16 @@ func (j *jsiiProxy_CfnAPIKey) AttrUpdateTime() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdateTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAPIKey) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

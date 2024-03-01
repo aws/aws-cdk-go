@@ -44,5 +44,9 @@ const (
 	NodegroupAmiType_WINDOWS_FULL_2019_X86_64 NodegroupAmiType = "WINDOWS_FULL_2019_X86_64"
 	// Windows Full 2022 (x86-64).
 	NodegroupAmiType_WINDOWS_FULL_2022_X86_64 NodegroupAmiType = "WINDOWS_FULL_2022_X86_64"
+	// Amazon Linux 2023 (x86-64).
+	NodegroupAmiType_AL2023_X86_64_STANDARD NodegroupAmiType = "AL2023_X86_64_STANDARD"
+	// Amazon Linux 2023 (ARM-64).
+	NodegroupAmiType_AL2023_ARM_64_STANDARD NodegroupAmiType = "AL2023_ARM_64_STANDARD"
 )
 

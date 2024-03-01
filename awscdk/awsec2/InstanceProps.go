@@ -63,6 +63,12 @@ type InstanceProps struct {
 	// Default: - Uses the block device mapping of the AMI.
 	//
 	BlockDevices *[]*BlockDevice `field:"optional" json:"blockDevices" yaml:"blockDevices"`
+	// Specifying the CPU credit type for burstable EC2 instance types (T2, T3, T3a, etc).
+	//
+	// The unlimited CPU credit option is not supported for T3 instances with a dedicated host.
+	// Default: - T2 instances are standard, while T3, T4g, and T3a instances are unlimited.
+	//
+	CreditSpecification CpuCredits `field:"optional" json:"creditSpecification" yaml:"creditSpecification"`
 	// Whether "Detailed Monitoring" is enabled for this instance Keep in mind that Detailed Monitoring results in extra charges.
 	// See: http://aws.amazon.com/cloudwatch/pricing/
 	//

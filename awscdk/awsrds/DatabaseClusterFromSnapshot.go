@@ -33,6 +33,8 @@ type DatabaseClusterFromSnapshot interface {
 	//
 	// Each export value will create a separate log group.
 	CloudwatchLogGroups() *map[string]awslogs.ILogGroup
+	// The ARN of the cluster.
+	ClusterArn() *string
 	// The endpoint to use for read/write operations.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
@@ -211,6 +213,16 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) CloudwatchLogGroups() *map[strin
 	_jsii_.Get(
 		j,
 		"cloudwatchLogGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) ClusterArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterArn",
 		&returns,
 	)
 	return returns

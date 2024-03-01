@@ -127,13 +127,11 @@ type CfnFunction interface {
 	SetArchitectures(val *[]*string)
 	// The Amazon Resource Name (ARN) of the function.
 	AttrArn() *string
-	// The function's SnapStart Response.
-	//
-	// When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 	AttrSnapStartResponse() awscdk.IResolvable
-	// Applying SnapStart setting on function resource type.
+	// When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
 	AttrSnapStartResponseApplyOn() *string
-	// Indicates whether SnapStart is activated for the specified function version.
+	// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
 	AttrSnapStartResponseOptimizationStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

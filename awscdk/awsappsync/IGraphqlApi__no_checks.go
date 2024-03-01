@@ -44,3 +44,19 @@ func (i *jsiiProxy_IGraphqlApi) validateCreateResolverParameters(id *string, pro
 	return nil
 }
 
+func (i *jsiiProxy_IGraphqlApi) validateGrantParameters(grantee awsiam.IGrantable, resources IamResource) error {
+	return nil
+}
+
+func (i *jsiiProxy_IGraphqlApi) validateGrantMutationParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (i *jsiiProxy_IGraphqlApi) validateGrantQueryParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (i *jsiiProxy_IGraphqlApi) validateGrantSubscriptionParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+

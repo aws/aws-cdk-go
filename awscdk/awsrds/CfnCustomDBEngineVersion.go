@@ -40,8 +40,11 @@ import (
 type CfnCustomDBEngineVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the custom engine version.
 	AttrDbEngineVersionArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -243,6 +246,7 @@ type CfnCustomDBEngineVersion interface {
 type jsiiProxy_CfnCustomDBEngineVersion struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCustomDBEngineVersion) AttrDbEngineVersionArn() *string {
@@ -250,6 +254,16 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) AttrDbEngineVersionArn() *string {
 	_jsii_.Get(
 		j,
 		"attrDbEngineVersionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomDBEngineVersion) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

@@ -16,6 +16,7 @@ import (
 //
 //   fargateServiceBaseProps := &FargateServiceBaseProps{
 //   	Cpu: jsii.Number(123),
+//   	EphemeralStorageGiB: jsii.Number(123),
 //   	MemoryLimitMiB: jsii.Number(123),
 //   	PlatformVersion: awscdk.Aws_ecs.FargatePlatformVersion_LATEST,
 //   	RuntimePlatform: &RuntimePlatform{
@@ -48,6 +49,14 @@ type FargateServiceBaseProps struct {
 	// Default: 256.
 	//
 	Cpu *float64 `field:"optional" json:"cpu" yaml:"cpu"`
+	// The amount (in GiB) of ephemeral storage to be allocated to the task.
+	//
+	// The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	//
+	// Only supported in Fargate platform version 1.4.0 or later.
+	// Default: Undefined, in which case, the task will receive 20GiB ephemeral storage.
+	//
+	EphemeralStorageGiB *float64 `field:"optional" json:"ephemeralStorageGiB" yaml:"ephemeralStorageGiB"`
 	// The amount (in MiB) of memory used by the task.
 	//
 	// This field is required and you must use one of the following values, which determines your range of valid values

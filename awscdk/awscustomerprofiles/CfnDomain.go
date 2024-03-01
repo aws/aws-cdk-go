@@ -17,12 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDomain := awscdk.Aws_customerprofiles.NewCfnDomain(this, jsii.String("MyCfnDomain"), &CfnDomainProps{
+//   	DefaultExpirationDays: jsii.Number(123),
 //   	DomainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
 //   	DeadLetterQueueUrl: jsii.String("deadLetterQueueUrl"),
 //   	DefaultEncryptionKey: jsii.String("defaultEncryptionKey"),
-//   	DefaultExpirationDays: jsii.Number(123),
 //   	Matching: &MatchingProperty{
 //   		Enabled: jsii.Boolean(false),
 //
@@ -589,6 +589,9 @@ func (j *jsiiProxy_CfnDomain)SetDefaultEncryptionKey(val *string) {
 }
 
 func (j *jsiiProxy_CfnDomain)SetDefaultExpirationDays(val *float64) {
+	if err := j.validateSetDefaultExpirationDaysParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"defaultExpirationDays",

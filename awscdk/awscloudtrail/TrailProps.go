@@ -81,6 +81,12 @@ type TrailProps struct {
 	// Default: ReadWriteType.ALL
 	//
 	ManagementEvents ReadWriteType `field:"optional" json:"managementEvents" yaml:"managementEvents"`
+	// The orgId.
+	//
+	// Required when `isOrganizationTrail` is set to true to attach the necessary permissions.
+	// Default: - No orgId.
+	//
+	OrgId *string `field:"optional" json:"orgId" yaml:"orgId"`
 	// An Amazon S3 object key prefix that precedes the name of all log files.
 	// Default: - No prefix.
 	//

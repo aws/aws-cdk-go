@@ -40,12 +40,15 @@ import (
 type CfnDelivery interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery.
 	AttrArn() *string
 	// Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Firehose.
 	AttrDeliveryDestinationType() *string
 	// The unique ID that identifies this delivery in your account.
 	AttrDeliveryId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -229,6 +232,7 @@ type CfnDelivery interface {
 type jsiiProxy_CfnDelivery struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDelivery) AttrArn() *string {
@@ -256,6 +260,16 @@ func (j *jsiiProxy_CfnDelivery) AttrDeliveryId() *string {
 	_jsii_.Get(
 		j,
 		"attrDeliveryId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDelivery) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

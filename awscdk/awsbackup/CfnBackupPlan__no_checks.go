@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnBackupPlan) validateSetBackupPlanParameters(val interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnBackupPlan) validateSetBackupPlanTagsParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnBackupPlanParameters(scope constructs.Construct, id *string, props *CfnBackupPlanProps) error {
 	return nil
 }

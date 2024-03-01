@@ -39,6 +39,7 @@ import (
 type CfnIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
@@ -46,6 +47,8 @@ type CfnIntegration interface {
 	AttrCreateTime() *string
 	// The ARN of the integration.
 	AttrIntegrationArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -235,6 +238,7 @@ type CfnIntegration interface {
 type jsiiProxy_CfnIntegration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnIntegration) AdditionalEncryptionContext() interface{} {
@@ -262,6 +266,16 @@ func (j *jsiiProxy_CfnIntegration) AttrIntegrationArn() *string {
 	_jsii_.Get(
 		j,
 		"attrIntegrationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIntegration) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

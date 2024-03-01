@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Represents a identity provider that integrates with 'Google'.
+// Represents an identity provider that integrates with Google.
 //
 // Example:
 //   userpool := cognito.NewUserPool(this, jsii.String("Pool"))

@@ -67,6 +67,7 @@ import (
 type CfnProtection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The automatic application layer DDoS mitigation settings for the protection.
 	ApplicationLayerAutomaticResponseConfiguration() interface{}
 	SetApplicationLayerAutomaticResponseConfiguration(val interface{})
@@ -74,6 +75,8 @@ type CfnProtection interface {
 	AttrProtectionArn() *string
 	// The ID of the new protection.
 	AttrProtectionId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -262,6 +265,7 @@ type CfnProtection interface {
 type jsiiProxy_CfnProtection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnProtection) ApplicationLayerAutomaticResponseConfiguration() interface{} {
@@ -289,6 +293,16 @@ func (j *jsiiProxy_CfnProtection) AttrProtectionId() *string {
 	_jsii_.Get(
 		j,
 		"attrProtectionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProtection) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

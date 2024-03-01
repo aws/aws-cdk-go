@@ -46,8 +46,11 @@ import (
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The application ID.
 	AttrApplicationId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -231,6 +234,7 @@ type CfnApplication interface {
 type jsiiProxy_CfnApplication struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnApplication) AttrApplicationId() *string {
@@ -238,6 +242,16 @@ func (j *jsiiProxy_CfnApplication) AttrApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"attrApplicationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

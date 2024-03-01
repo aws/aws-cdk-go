@@ -48,6 +48,7 @@ import (
 type CfnAnalysisTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The parameters of the analysis template.
 	AnalysisParameters() interface{}
 	SetAnalysisParameters(val interface{})
@@ -73,6 +74,8 @@ type CfnAnalysisTemplate interface {
 	AttrMembershipArn() *string
 	AttrSchema() awscdk.IResolvable
 	AttrSchemaReferencedTables() *[]*string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -265,6 +268,7 @@ type CfnAnalysisTemplate interface {
 type jsiiProxy_CfnAnalysisTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAnalysisTemplate) AnalysisParameters() interface{} {
@@ -342,6 +346,16 @@ func (j *jsiiProxy_CfnAnalysisTemplate) AttrSchemaReferencedTables() *[]*string 
 	_jsii_.Get(
 		j,
 		"attrSchemaReferencedTables",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAnalysisTemplate) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

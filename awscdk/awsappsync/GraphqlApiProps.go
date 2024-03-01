@@ -38,6 +38,17 @@ type GraphqlApiProps struct {
 	// Default: - no domain name.
 	//
 	DomainName *DomainOptions `field:"optional" json:"domainName" yaml:"domainName"`
+	// A map containing the list of resources with their properties and environment variables.
+	//
+	// There are a few rules you must follow when creating keys and values:
+	//   - Keys must begin with a letter.
+	//   - Keys must be between 2 and 64 characters long.
+	//   - Keys can only contain letters, numbers, and the underscore character (_).
+	//   - Values can be up to 512 characters long.
+	//   - You can configure up to 50 key-value pairs in a GraphQL API.
+	// Default: - No environment variables.
+	//
+	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// A value indicating whether the API to enable (ENABLED) or disable (DISABLED) introspection.
 	// Default: IntrospectionConfig.ENABLED
 	//

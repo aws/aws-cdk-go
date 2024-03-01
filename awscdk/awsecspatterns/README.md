@@ -1226,3 +1226,37 @@ scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("S
 	},
 })
 ```
+
+### Use custom ephemeral storage for ECS Fargate tasks
+
+You can pass a custom ephemeral storage (21GiB - 200GiB) to ECS Fargate tasks on Fargate Platform Version 1.4.0 or later.
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+	MaxAzs: jsii.Number(2),
+	RestrictDefaultSecurityGroup: jsii.Boolean(false),
+})
+cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &ClusterProps{
+	Vpc: Vpc,
+})
+
+applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("ALBFargateServiceWithCustomEphemeralStorage"), &ApplicationLoadBalancedFargateServiceProps{
+	Cluster: Cluster,
+	MemoryLimitMiB: jsii.Number(1024),
+	Cpu: jsii.Number(512),
+	EphemeralStorageGiB: jsii.Number(21),
+	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+})
+
+networkLoadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("NLBFargateServiceWithCustomEphemeralStorage"), &NetworkLoadBalancedFargateServiceProps{
+	Cluster: Cluster,
+	MemoryLimitMiB: jsii.Number(1024),
+	Cpu: jsii.Number(512),
+	EphemeralStorageGiB: jsii.Number(200),
+	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
+		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+})
+```

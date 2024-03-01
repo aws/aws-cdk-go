@@ -70,6 +70,7 @@ import (
 type CfnInferenceComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The time when the inference component was created.
 	AttrCreationTime() *string
 	// The failure reason if the inference component is in a failed state.
@@ -85,6 +86,8 @@ type CfnInferenceComponent interface {
 	// The number of runtime copies of the model container that you requested to deploy with the inference component.
 	AttrRuntimeConfigDesiredCopyCount() *float64
 	AttrSpecificationContainerDeployedImage() awscdk.IResolvable
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -280,6 +283,7 @@ type CfnInferenceComponent interface {
 type jsiiProxy_CfnInferenceComponent struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnInferenceComponent) AttrCreationTime() *string {
@@ -357,6 +361,16 @@ func (j *jsiiProxy_CfnInferenceComponent) AttrSpecificationContainerDeployedImag
 	_jsii_.Get(
 		j,
 		"attrSpecificationContainerDeployedImage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInferenceComponent) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

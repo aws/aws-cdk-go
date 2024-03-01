@@ -77,6 +77,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrProviderType", GoGetter: "AttrProviderType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRepositoryLinkArn", GoGetter: "AttrRepositoryLinkArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRepositoryLinkId", GoGetter: "AttrRepositoryLinkId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -109,6 +110,7 @@ func init() {
 			j := jsiiProxy_CfnRepositoryLink{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

@@ -42,6 +42,7 @@ import (
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the Amazon DataZone domain.
 	AttrArn() *string
 	// A timestamp of when a Amazon DataZone domain was created.
@@ -56,6 +57,8 @@ type CfnDomain interface {
 	AttrPortalUrl() *string
 	// The status of the Amazon DataZone domain.
 	AttrStatus() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -248,6 +251,7 @@ type CfnDomain interface {
 type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDomain) AttrArn() *string {
@@ -315,6 +319,16 @@ func (j *jsiiProxy_CfnDomain) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

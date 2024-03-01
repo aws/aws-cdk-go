@@ -56,6 +56,7 @@ import (
 type CfnAppBlockBuilder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The access endpoints of the app block builder.
 	AccessEndpoints() interface{}
 	SetAccessEndpoints(val interface{})
@@ -66,6 +67,8 @@ type CfnAppBlockBuilder interface {
 	AttrArn() *string
 	// The time when the app block builder was created.
 	AttrCreatedTime() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -267,6 +270,7 @@ type CfnAppBlockBuilder interface {
 type jsiiProxy_CfnAppBlockBuilder struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAppBlockBuilder) AccessEndpoints() interface{} {
@@ -304,6 +308,16 @@ func (j *jsiiProxy_CfnAppBlockBuilder) AttrCreatedTime() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAppBlockBuilder) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

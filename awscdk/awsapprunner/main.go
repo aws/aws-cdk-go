@@ -23,6 +23,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAutoScalingConfigurationRevision", GoGetter: "AttrAutoScalingConfigurationRevision"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLatest", GoGetter: "AttrLatest"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationName", GoGetter: "AutoScalingConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -54,6 +55,7 @@ func init() {
 			j := jsiiProxy_CfnAutoScalingConfiguration{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

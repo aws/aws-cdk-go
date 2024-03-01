@@ -35,6 +35,9 @@ type CfnDashboardProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-definition
 	//
 	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-linkentities
+	//
+	LinkEntities *[]*string `field:"optional" json:"linkEntities" yaml:"linkEntities"`
 	// A structure that contains the link sharing configurations that you want to apply overrides to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-linksharingconfiguration
 	//

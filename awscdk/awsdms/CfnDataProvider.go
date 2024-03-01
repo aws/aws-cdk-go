@@ -46,10 +46,13 @@ import (
 type CfnDataProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) string that uniquely identifies the data provider.
 	AttrDataProviderArn() *string
 	// The time the data provider was created.
 	AttrDataProviderCreationTime() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -245,6 +248,7 @@ type CfnDataProvider interface {
 type jsiiProxy_CfnDataProvider struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDataProvider) AttrDataProviderArn() *string {
@@ -262,6 +266,16 @@ func (j *jsiiProxy_CfnDataProvider) AttrDataProviderCreationTime() *string {
 	_jsii_.Get(
 		j,
 		"attrDataProviderCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataProvider) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

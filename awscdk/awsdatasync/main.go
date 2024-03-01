@@ -83,6 +83,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "azureBlobContainerUrl", GoGetter: "AzureBlobContainerUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "azureBlobSasConfiguration", GoGetter: "AzureBlobSasConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "azureBlobType", GoGetter: "AzureBlobType"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -112,6 +113,7 @@ func init() {
 			j := jsiiProxy_CfnLocationAzureBlob{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

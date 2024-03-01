@@ -44,6 +44,7 @@ import (
 type CfnSoftwarePackageVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Error reason for a package version failure during creation or update.
 	AttrErrorReason() *string
 	Attributes() interface{}
@@ -54,6 +55,8 @@ type CfnSoftwarePackageVersion interface {
 	//
 	// For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
 	AttrStatus() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -237,6 +240,7 @@ type CfnSoftwarePackageVersion interface {
 type jsiiProxy_CfnSoftwarePackageVersion struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnSoftwarePackageVersion) AttrErrorReason() *string {
@@ -274,6 +278,16 @@ func (j *jsiiProxy_CfnSoftwarePackageVersion) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSoftwarePackageVersion) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

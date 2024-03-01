@@ -58,11 +58,14 @@ import (
 type CfnRoutingProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Whether agents with this routing profile will have their routing order calculated based on *time since their last inbound contact* or *longest idle time* .
 	AgentAvailabilityTimer() *string
 	SetAgentAvailabilityTimer(val *string)
 	// The Amazon Resource Name (ARN) of the routing profile.
 	AttrRoutingProfileArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -258,6 +261,7 @@ type CfnRoutingProfile interface {
 type jsiiProxy_CfnRoutingProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnRoutingProfile) AgentAvailabilityTimer() *string {
@@ -275,6 +279,16 @@ func (j *jsiiProxy_CfnRoutingProfile) AttrRoutingProfileArn() *string {
 	_jsii_.Get(
 		j,
 		"attrRoutingProfileArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRoutingProfile) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

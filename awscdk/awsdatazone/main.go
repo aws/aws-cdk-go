@@ -142,6 +142,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrManagedAccountId", GoGetter: "AttrManagedAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPortalUrl", GoGetter: "AttrPortalUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -175,6 +176,7 @@ func init() {
 			j := jsiiProxy_CfnDomain{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

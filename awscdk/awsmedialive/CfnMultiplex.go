@@ -51,6 +51,7 @@ import (
 type CfnMultiplex interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The unique arn of the multiplex.
 	AttrArn() *string
 	// The unique id of the multiplex.
@@ -64,6 +65,8 @@ type CfnMultiplex interface {
 	// A list of availability zones for the multiplex.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -250,6 +253,7 @@ type CfnMultiplex interface {
 type jsiiProxy_CfnMultiplex struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnMultiplex) AttrArn() *string {
@@ -307,6 +311,16 @@ func (j *jsiiProxy_CfnMultiplex) AvailabilityZones() *[]*string {
 	_jsii_.Get(
 		j,
 		"availabilityZones",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMultiplex) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

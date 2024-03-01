@@ -48,6 +48,7 @@ import (
 type CfnDeliverySource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 	AttrArn() *string
 	// This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source.
@@ -56,6 +57,8 @@ type CfnDeliverySource interface {
 	AttrResourceArns() *[]*string
 	// The AWS service that is sending logs.
 	AttrService() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -242,6 +245,7 @@ type CfnDeliverySource interface {
 type jsiiProxy_CfnDeliverySource struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDeliverySource) AttrArn() *string {
@@ -269,6 +273,16 @@ func (j *jsiiProxy_CfnDeliverySource) AttrService() *string {
 	_jsii_.Get(
 		j,
 		"attrService",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeliverySource) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

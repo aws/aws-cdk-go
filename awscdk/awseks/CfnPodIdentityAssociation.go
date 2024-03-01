@@ -36,10 +36,13 @@ import (
 type CfnPodIdentityAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the association.
 	AttrAssociationArn() *string
 	// The ID of the association.
 	AttrAssociationId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -229,6 +232,7 @@ type CfnPodIdentityAssociation interface {
 type jsiiProxy_CfnPodIdentityAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnPodIdentityAssociation) AttrAssociationArn() *string {
@@ -246,6 +250,16 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) AttrAssociationId() *string {
 	_jsii_.Get(
 		j,
 		"attrAssociationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPodIdentityAssociation) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

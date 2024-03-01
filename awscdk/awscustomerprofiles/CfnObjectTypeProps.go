@@ -12,11 +12,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnObjectTypeProps := &CfnObjectTypeProps{
+//   	Description: jsii.String("description"),
 //   	DomainName: jsii.String("domainName"),
+//   	ObjectTypeName: jsii.String("objectTypeName"),
 //
 //   	// the properties below are optional
 //   	AllowProfileCreation: jsii.Boolean(false),
-//   	Description: jsii.String("description"),
 //   	EncryptionKey: jsii.String("encryptionKey"),
 //   	ExpirationDays: jsii.Number(123),
 //   	Fields: []interface{}{
@@ -44,7 +45,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	ObjectTypeName: jsii.String("objectTypeName"),
 //   	SourceLastUpdatedTimestampFormat: jsii.String("sourceLastUpdatedTimestampFormat"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -58,20 +58,24 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html
 //
 type CfnObjectTypeProps struct {
+	// The description of the profile object type mapping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+	//
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// The unique name of the domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
 	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
+	// The name of the profile object type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+	//
+	ObjectTypeName *string `field:"required" json:"objectTypeName" yaml:"objectTypeName"`
 	// Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type.
 	//
 	// The default is `FALSE` . If the AllowProfileCreation flag is set to `FALSE` , then the service tries to fetch a standard profile and associate this object with the profile. If it is set to `TRUE` , and if no match is found, then the service creates a new standard profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
 	//
 	AllowProfileCreation interface{} `field:"optional" json:"allowProfileCreation" yaml:"allowProfileCreation"`
-	// The description of the profile object type mapping.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
-	//
-	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The customer-provided key to encrypt the profile object that will be created in this profile object type mapping.
 	//
 	// If not specified the system will use the encryption key of the domain.
@@ -90,10 +94,6 @@ type CfnObjectTypeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
 	//
 	Keys interface{} `field:"optional" json:"keys" yaml:"keys"`
-	// The name of the profile object type.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
-	//
-	ObjectTypeName *string `field:"optional" json:"objectTypeName" yaml:"objectTypeName"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-sourcelastupdatedtimestampformat
 	//

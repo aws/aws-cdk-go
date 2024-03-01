@@ -40,6 +40,7 @@ import (
 type CfnTracker interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the tracker resource.
 	//
 	// Used when you need to specify a resource across all AWS .
@@ -56,6 +57,8 @@ type CfnTracker interface {
 	AttrTrackerArn() *string
 	// The timestamp for when the tracker resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	AttrUpdateTime() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -257,6 +260,7 @@ type CfnTracker interface {
 type jsiiProxy_CfnTracker struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTracker) AttrArn() *string {
@@ -294,6 +298,16 @@ func (j *jsiiProxy_CfnTracker) AttrUpdateTime() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdateTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTracker) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

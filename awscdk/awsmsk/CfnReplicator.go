@@ -85,8 +85,11 @@ import (
 type CfnReplicator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Amazon Resource Name (ARN) for the created replicator.
 	AttrReplicatorArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -282,6 +285,7 @@ type CfnReplicator interface {
 type jsiiProxy_CfnReplicator struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnReplicator) AttrReplicatorArn() *string {
@@ -289,6 +293,16 @@ func (j *jsiiProxy_CfnReplicator) AttrReplicatorArn() *string {
 	_jsii_.Get(
 		j,
 		"attrReplicatorArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicator) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

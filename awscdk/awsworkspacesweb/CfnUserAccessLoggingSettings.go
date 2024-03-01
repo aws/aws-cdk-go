@@ -39,9 +39,12 @@ import (
 type CfnUserAccessLoggingSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	AttrAssociatedPortalArns() *[]*string
 	// The ARN of the user access logging settings.
 	AttrUserAccessLoggingSettingsArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -222,6 +225,7 @@ type CfnUserAccessLoggingSettings interface {
 type jsiiProxy_CfnUserAccessLoggingSettings struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnUserAccessLoggingSettings) AttrAssociatedPortalArns() *[]*string {
@@ -239,6 +243,16 @@ func (j *jsiiProxy_CfnUserAccessLoggingSettings) AttrUserAccessLoggingSettingsAr
 	_jsii_.Get(
 		j,
 		"attrUserAccessLoggingSettingsArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserAccessLoggingSettings) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

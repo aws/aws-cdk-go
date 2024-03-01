@@ -9,10 +9,15 @@ package awscdk
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   exportValueOptions := &ExportValueOptions{
+//   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   }
 //
 type ExportValueOptions struct {
+	// The description of the outputs.
+	// Default: - No description.
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the export to create.
 	// Default: - A name is automatically chosen.
 	//

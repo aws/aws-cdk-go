@@ -88,6 +88,8 @@ type GraphqlApi interface {
 	// add a new elasticsearch data source to this API.
 	// Deprecated: - use `addOpenSearchDataSource`.
 	AddElasticsearchDataSource(id *string, domain awselasticsearch.IDomain, options *DataSourceOptions) ElasticsearchDataSource
+	// Add an environment variable to the construct.
+	AddEnvironmentVariable(key *string, value *string)
 	// Add an EventBridge data source to this api.
 	AddEventBridgeDataSource(id *string, eventBus awsevents.IEventBus, options *DataSourceOptions) EventBridgeDataSource
 	// add a new http data source to this API.
@@ -428,6 +430,17 @@ func (g *jsiiProxy_GraphqlApi) AddElasticsearchDataSource(id *string, domain aws
 	)
 
 	return returns
+}
+
+func (g *jsiiProxy_GraphqlApi) AddEnvironmentVariable(key *string, value *string) {
+	if err := g.validateAddEnvironmentVariableParameters(key, value); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		g,
+		"addEnvironmentVariable",
+		[]interface{}{key, value},
+	)
 }
 
 func (g *jsiiProxy_GraphqlApi) AddEventBridgeDataSource(id *string, eventBus awsevents.IEventBus, options *DataSourceOptions) EventBridgeDataSource {

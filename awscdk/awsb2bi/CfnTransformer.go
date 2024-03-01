@@ -46,6 +46,7 @@ import (
 type CfnTransformer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Returns a timestamp indicating when the transformer was created.
 	//
 	// For example, `2023-07-20T19:58:44.624Z` .
@@ -54,6 +55,8 @@ type CfnTransformer interface {
 	AttrTransformerArn() *string
 	// The system-assigned unique identifier for the transformer.
 	AttrTransformerId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -252,6 +255,7 @@ type CfnTransformer interface {
 type jsiiProxy_CfnTransformer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTransformer) AttrCreatedAt() *string {
@@ -279,6 +283,16 @@ func (j *jsiiProxy_CfnTransformer) AttrTransformerId() *string {
 	_jsii_.Get(
 		j,
 		"attrTransformerId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransformer) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

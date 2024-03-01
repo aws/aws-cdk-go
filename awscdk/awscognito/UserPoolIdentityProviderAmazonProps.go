@@ -27,11 +27,11 @@ type UserPoolIdentityProviderAmazonProps struct {
 	// Default: - no attribute mapping.
 	//
 	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
-	// The client id recognized by 'Login with Amazon' APIs.
+	// The client id recognized by Login with Amazon APIs.
 	// See: https://developer.amazon.com/docs/login-with-amazon/security-profile.html#client-identifier
 	//
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
-	// The client secret to be accompanied with clientId for 'Login with Amazon' APIs to authenticate the client.
+	// The client secret to be accompanied with clientId for Login with Amazon APIs to authenticate the client.
 	// See: https://developer.amazon.com/docs/login-with-amazon/security-profile.html#client-identifier
 	//
 	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`

@@ -35,6 +35,7 @@ import (
 type CfnEventStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The timestamp of when the export was created.
 	AttrCreatedAt() *string
 	// Details regarding the Kinesis stream.
@@ -45,6 +46,8 @@ type CfnEventStream interface {
 	AttrEventStreamArn() *string
 	// The operational state of destination stream for export.
 	AttrState() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -231,6 +234,7 @@ type CfnEventStream interface {
 type jsiiProxy_CfnEventStream struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnEventStream) AttrCreatedAt() *string {
@@ -288,6 +292,16 @@ func (j *jsiiProxy_CfnEventStream) AttrState() *string {
 	_jsii_.Get(
 		j,
 		"attrState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventStream) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

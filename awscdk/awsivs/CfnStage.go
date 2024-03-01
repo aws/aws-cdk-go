@@ -33,6 +33,7 @@ import (
 type CfnStage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// ID of the active session within the stage.
 	//
 	// For example: `st-a1b2c3d4e5f6g`.
@@ -41,6 +42,8 @@ type CfnStage interface {
 	//
 	// For example: `arn:aws:ivs:us-west-2:123456789012:stage/abcdABCDefgh`.
 	AttrArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -221,6 +224,7 @@ type CfnStage interface {
 type jsiiProxy_CfnStage struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnStage) AttrActiveSessionId() *string {
@@ -238,6 +242,16 @@ func (j *jsiiProxy_CfnStage) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStage) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

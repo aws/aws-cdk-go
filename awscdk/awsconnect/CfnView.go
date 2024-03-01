@@ -41,6 +41,7 @@ import (
 type CfnView interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// A list of actions possible from the view.
 	Actions() *[]*string
 	SetActions(val *[]*string)
@@ -54,6 +55,8 @@ type CfnView interface {
 	AttrViewContentSha256() *string
 	// The identifier of the view.
 	AttrViewId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -243,6 +246,7 @@ type CfnView interface {
 type jsiiProxy_CfnView struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnView) Actions() *[]*string {
@@ -280,6 +284,16 @@ func (j *jsiiProxy_CfnView) AttrViewId() *string {
 	_jsii_.Get(
 		j,
 		"attrViewId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnView) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

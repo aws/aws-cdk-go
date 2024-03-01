@@ -84,7 +84,7 @@ func (j *jsiiProxy_CfnFramework) validateSetFrameworkControlsParameters(val inte
 	return nil
 }
 
-func (j *jsiiProxy_CfnFramework) validateSetFrameworkTagsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnFramework) validateSetFrameworkTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

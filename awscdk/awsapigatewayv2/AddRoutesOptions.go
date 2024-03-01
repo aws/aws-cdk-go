@@ -5,24 +5,28 @@ package awsapigatewayv2
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // This function handles your auth logic
-//   var authHandler function
+//   var bookStoreDefaultFn function
 //
 //
-//   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
-//   	ResponseTypes: []httpLambdaResponseType{
-//   		awscdk.HttpLambdaResponseType_SIMPLE,
-//   	},
-//   })
+//   getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
+//   bookStoreDefaultIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), bookStoreDefaultFn)
 //
-//   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
+//   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
-//   api.AddRoutes(&AddRoutesOptions{
-//   	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+//   httpApi.AddRoutes(&AddRoutesOptions{
 //   	Path: jsii.String("/books"),
-//   	Authorizer: Authorizer,
+//   	Methods: []httpMethod{
+//   		apigwv2.*httpMethod_GET,
+//   	},
+//   	Integration: getBooksIntegration,
+//   })
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/books"),
+//   	Methods: []*httpMethod{
+//   		apigwv2.*httpMethod_ANY,
+//   	},
+//   	Integration: bookStoreDefaultIntegration,
 //   })
 //
 type AddRoutesOptions struct {

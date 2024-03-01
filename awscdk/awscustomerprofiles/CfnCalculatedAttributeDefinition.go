@@ -56,6 +56,7 @@ import (
 type CfnCalculatedAttributeDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The timestamp of when the calculated attribute definition was created.
 	AttrCreatedAt() *string
 	// Mathematical expression and a list of attribute items specified in that expression.
@@ -66,6 +67,8 @@ type CfnCalculatedAttributeDefinition interface {
 	// The name of an attribute defined in a profile object type.
 	CalculatedAttributeName() *string
 	SetCalculatedAttributeName(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -258,6 +261,7 @@ type CfnCalculatedAttributeDefinition interface {
 type jsiiProxy_CfnCalculatedAttributeDefinition struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCalculatedAttributeDefinition) AttrCreatedAt() *string {
@@ -295,6 +299,16 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) CalculatedAttributeName() *
 	_jsii_.Get(
 		j,
 		"calculatedAttributeName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

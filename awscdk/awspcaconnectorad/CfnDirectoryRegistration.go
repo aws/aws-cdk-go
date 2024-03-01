@@ -30,8 +30,11 @@ import (
 type CfnDirectoryRegistration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	AttrDirectoryRegistrationArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -212,6 +215,7 @@ type CfnDirectoryRegistration interface {
 type jsiiProxy_CfnDirectoryRegistration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDirectoryRegistration) AttrDirectoryRegistrationArn() *string {
@@ -219,6 +223,16 @@ func (j *jsiiProxy_CfnDirectoryRegistration) AttrDirectoryRegistrationArn() *str
 	_jsii_.Get(
 		j,
 		"attrDirectoryRegistrationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectoryRegistration) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

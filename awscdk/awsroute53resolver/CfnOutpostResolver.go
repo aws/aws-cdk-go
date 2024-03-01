@@ -36,6 +36,7 @@ import (
 type CfnOutpostResolver interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN (Amazon Resource Name) for the Resolver on an Outpost.
 	AttrArn() *string
 	// The date and time that the Outpost Resolver was created, in Unix time format and Coordinated Universal Time (UTC).
@@ -54,6 +55,8 @@ type CfnOutpostResolver interface {
 	AttrStatus() *string
 	// A detailed description of the Resolver.
 	AttrStatusMessage() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -243,6 +246,7 @@ type CfnOutpostResolver interface {
 type jsiiProxy_CfnOutpostResolver struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnOutpostResolver) AttrArn() *string {
@@ -310,6 +314,16 @@ func (j *jsiiProxy_CfnOutpostResolver) AttrStatusMessage() *string {
 	_jsii_.Get(
 		j,
 		"attrStatusMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOutpostResolver) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

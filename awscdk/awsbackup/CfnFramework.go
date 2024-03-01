@@ -41,8 +41,8 @@ import (
 //   	// the properties below are optional
 //   	FrameworkDescription: jsii.String("frameworkDescription"),
 //   	FrameworkName: jsii.String("frameworkName"),
-//   	FrameworkTags: []interface{}{
-//   		&CfnTag{
+//   	FrameworkTags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -54,6 +54,7 @@ import (
 type CfnFramework interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The UTC time when you created your framework.
 	AttrCreationTime() *string
 	// Depolyment status refers to whether your framework has completed deployment.
@@ -66,6 +67,8 @@ type CfnFramework interface {
 	//
 	// This status is `Active` when you turn on all resources the framework evaluates. For other statuses and steps to correct them, see [Framework compliance status](https://docs.aws.amazon.com/aws-backup/latest/devguide/viewing-frameworks.html) in the *Developer Guide* .
 	AttrFrameworkStatus() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -85,8 +88,8 @@ type CfnFramework interface {
 	FrameworkName() *string
 	SetFrameworkName(val *string)
 	// A list of tags with which to tag your framework.
-	FrameworkTags() interface{}
-	SetFrameworkTags(val interface{})
+	FrameworkTags() *[]*awscdk.CfnTag
+	SetFrameworkTags(val *[]*awscdk.CfnTag)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -252,6 +255,7 @@ type CfnFramework interface {
 type jsiiProxy_CfnFramework struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFramework) AttrCreationTime() *string {
@@ -289,6 +293,16 @@ func (j *jsiiProxy_CfnFramework) AttrFrameworkStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrFrameworkStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFramework) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -364,8 +378,8 @@ func (j *jsiiProxy_CfnFramework) FrameworkName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFramework) FrameworkTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnFramework) FrameworkTags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"frameworkTags",
@@ -489,7 +503,7 @@ func (j *jsiiProxy_CfnFramework)SetFrameworkName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnFramework)SetFrameworkTags(val interface{}) {
+func (j *jsiiProxy_CfnFramework)SetFrameworkTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetFrameworkTagsParameters(val); err != nil {
 		panic(err)
 	}

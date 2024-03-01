@@ -47,11 +47,14 @@ import (
 type CfnSecurityProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags() interface{}
 	SetAllowedAccessControlTags(val interface{})
 	// The Amazon Resource Name (ARN) of the security profile.
 	AttrSecurityProfileArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -244,6 +247,7 @@ type CfnSecurityProfile interface {
 type jsiiProxy_CfnSecurityProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnSecurityProfile) AllowedAccessControlTags() interface{} {
@@ -261,6 +265,16 @@ func (j *jsiiProxy_CfnSecurityProfile) AttrSecurityProfileArn() *string {
 	_jsii_.Get(
 		j,
 		"attrSecurityProfileArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityProfile) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

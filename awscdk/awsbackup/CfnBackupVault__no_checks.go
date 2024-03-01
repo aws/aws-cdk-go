@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnBackupVault) validateSetBackupVaultNameParameters(val *str
 	return nil
 }
 
-func (j *jsiiProxy_CfnBackupVault) validateSetBackupVaultTagsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnBackupVault) validateSetLockConfigurationParameters(val interface{}) error {
 	return nil
 }

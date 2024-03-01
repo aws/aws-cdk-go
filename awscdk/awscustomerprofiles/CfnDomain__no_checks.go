@@ -80,6 +80,10 @@ func validateCfnDomain_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetDefaultExpirationDaysParameters(val *float64) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetDomainNameParameters(val *string) error {
 	return nil
 }

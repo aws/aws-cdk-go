@@ -71,6 +71,8 @@ type AsgCapacityProviderProps struct {
 	// If a name is specified,
 	// it cannot start with `aws`, `ecs`, or `fargate`. If no name is specified,
 	// a default name in the CFNStackName-CFNResourceName-RandomString format is used.
+	// If the stack name starts with `aws`, `ecs`, or `fargate`, a unique resource name
+	// is generated that starts with `cp-`.
 	// Default: CloudFormation-generated name.
 	//
 	CapacityProviderName *string `field:"optional" json:"capacityProviderName" yaml:"capacityProviderName"`

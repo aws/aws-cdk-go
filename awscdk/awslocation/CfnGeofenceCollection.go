@@ -37,6 +37,7 @@ import (
 type CfnGeofenceCollection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) for the geofence collection resource.
 	//
 	// Used when you need to specify a resource across all AWS .
@@ -53,6 +54,8 @@ type CfnGeofenceCollection interface {
 	AttrCreateTime() *string
 	// The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	AttrUpdateTime() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -247,6 +250,7 @@ type CfnGeofenceCollection interface {
 type jsiiProxy_CfnGeofenceCollection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnGeofenceCollection) AttrArn() *string {
@@ -284,6 +288,16 @@ func (j *jsiiProxy_CfnGeofenceCollection) AttrUpdateTime() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdateTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGeofenceCollection) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

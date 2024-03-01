@@ -11,18 +11,18 @@ package awsec2
 // Example:
 //   var vpc vpc
 //
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
-//   	}),
-//   	Instances: jsii.Number(2),
-//   	InstanceProps: &InstanceProps{
-//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-//   		VpcSubnets: &SubnetSelection{
-//   			SubnetType: ec2.SubnetType_PUBLIC,
-//   		},
-//   		Vpc: *Vpc,
+//
+//   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	MasterUser: &Login{
+//   		Username: jsii.String("myuser"),
 //   	},
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PUBLIC,
+//   	},
+//   	Vpc: Vpc,
+//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+//   	InstanceRemovalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   })
 //
 type SubnetSelection struct {

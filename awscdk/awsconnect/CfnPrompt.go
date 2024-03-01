@@ -36,8 +36,11 @@ import (
 type CfnPrompt interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the prompt.
 	AttrPromptArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -227,6 +230,7 @@ type CfnPrompt interface {
 type jsiiProxy_CfnPrompt struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnPrompt) AttrPromptArn() *string {
@@ -234,6 +238,16 @@ func (j *jsiiProxy_CfnPrompt) AttrPromptArn() *string {
 	_jsii_.Get(
 		j,
 		"attrPromptArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPrompt) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

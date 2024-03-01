@@ -84,7 +84,7 @@ func (j *jsiiProxy_CfnReportPlan) validateSetReportDeliveryChannelParameters(val
 	return nil
 }
 
-func (j *jsiiProxy_CfnReportPlan) validateSetReportPlanTagsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnReportPlan) validateSetReportPlanTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

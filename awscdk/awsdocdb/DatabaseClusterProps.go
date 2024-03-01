@@ -13,6 +13,7 @@ import (
 // Example:
 //   var vpc vpc
 //
+//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{
 //   		Username: jsii.String("myuser"),
@@ -22,7 +23,7 @@ import (
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
-//   	DeletionProtection: jsii.Boolean(true),
+//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
 //   })
 //
 type DatabaseClusterProps struct {
@@ -98,6 +99,14 @@ type DatabaseClusterProps struct {
 	// identifier is automatically generated.
 	//
 	InstanceIdentifierBase *string `field:"optional" json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
+	// The removal policy to apply to the cluster's instances.
+	//
+	// Cannot be set to `SNAPSHOT`.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+	//
+	// Default: - `RemovalPolicy.DESTROY` when `removalPolicy` is set to `SNAPSHOT`, `removalPolicy` otherwise.
+	//
+	InstanceRemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"instanceRemovalPolicy" yaml:"instanceRemovalPolicy"`
 	// Number of DocDB compute instances.
 	// Default: 1.
 	//
@@ -130,6 +139,11 @@ type DatabaseClusterProps struct {
 	// This
 	// removal policy also applies to the implicit security group created for the
 	// cluster if one is not supplied as a parameter.
+	//
+	// When set to `SNAPSHOT`, the removal policy for the instances and the security group
+	// will default to `DESTROY` as those resources do not support the policy.
+	//
+	// Use the `instanceRemovalPolicy` and `securityGroupRemovalPolicy` to change the behavior.
 	// Default: - Retain cluster.
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
@@ -137,6 +151,14 @@ type DatabaseClusterProps struct {
 	// Default: a new security group is created.
 	//
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
+	// The removal policy to apply to the cluster's security group.
+	//
+	// Cannot be set to `SNAPSHOT`.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
+	//
+	// Default: - `RemovalPolicy.DESTROY` when `removalPolicy` is set to `SNAPSHOT`, `removalPolicy` otherwise.
+	//
+	SecurityGroupRemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"securityGroupRemovalPolicy" yaml:"securityGroupRemovalPolicy"`
 	// Whether to enable storage encryption.
 	// Default: true.
 	//

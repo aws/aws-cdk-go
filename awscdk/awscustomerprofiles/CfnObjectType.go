@@ -17,11 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnObjectType := awscdk.Aws_customerprofiles.NewCfnObjectType(this, jsii.String("MyCfnObjectType"), &CfnObjectTypeProps{
+//   	Description: jsii.String("description"),
 //   	DomainName: jsii.String("domainName"),
+//   	ObjectTypeName: jsii.String("objectTypeName"),
 //
 //   	// the properties below are optional
 //   	AllowProfileCreation: jsii.Boolean(false),
-//   	Description: jsii.String("description"),
 //   	EncryptionKey: jsii.String("encryptionKey"),
 //   	ExpirationDays: jsii.Number(123),
 //   	Fields: []interface{}{
@@ -49,7 +50,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	ObjectTypeName: jsii.String("objectTypeName"),
 //   	SourceLastUpdatedTimestampFormat: jsii.String("sourceLastUpdatedTimestampFormat"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -562,6 +562,9 @@ func (j *jsiiProxy_CfnObjectType)SetAllowProfileCreation(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnObjectType)SetDescription(val *string) {
+	if err := j.validateSetDescriptionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"description",
@@ -619,6 +622,9 @@ func (j *jsiiProxy_CfnObjectType)SetKeys(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnObjectType)SetObjectTypeName(val *string) {
+	if err := j.validateSetObjectTypeNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"objectTypeName",

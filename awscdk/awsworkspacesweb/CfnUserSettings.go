@@ -67,11 +67,14 @@ import (
 type CfnUserSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
 	AttrAssociatedPortalArns() *[]*string
 	// The ARN of the user settings.
 	AttrUserSettingsArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -275,6 +278,7 @@ type CfnUserSettings interface {
 type jsiiProxy_CfnUserSettings struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnUserSettings) AdditionalEncryptionContext() interface{} {
@@ -302,6 +306,16 @@ func (j *jsiiProxy_CfnUserSettings) AttrUserSettingsArn() *string {
 	_jsii_.Get(
 		j,
 		"attrUserSettingsArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserSettings) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

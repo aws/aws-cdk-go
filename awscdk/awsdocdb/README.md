@@ -197,3 +197,73 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 	EnablePerformanceInsights: jsii.Boolean(true),
 })
 ```
+
+## Removal Policy
+
+This resource supports the snapshot removal policy.
+To specify it use the `removalPolicy` property:
+
+```go
+var vpc vpc
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+	Vpc: Vpc,
+	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+})
+```
+
+**Note**: A `RemovalPolicy.DESTROY` removal policy will be applied to the
+cluster's instances and security group by default as they don't support the snapshot
+removal policy.
+
+> Visit [DeletionPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) for more details.
+
+To specify a custom removal policy for the cluster's instances, use the
+`instanceRemovalPolicy` property:
+
+```go
+var vpc vpc
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+	Vpc: Vpc,
+	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+	InstanceRemovalPolicy: awscdk.RemovalPolicy_RETAIN,
+})
+```
+
+To specify a custom removal policy for the cluster's security group, use the
+`securityGroupRemovalPolicy` property:
+
+```go
+var vpc vpc
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+	Vpc: Vpc,
+	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+	SecurityGroupRemovalPolicy: awscdk.RemovalPolicy_RETAIN,
+})
+```

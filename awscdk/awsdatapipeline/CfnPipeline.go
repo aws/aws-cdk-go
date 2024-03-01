@@ -67,8 +67,8 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
-//   	PipelineTags: []interface{}{
-//   		&PipelineTagProperty{
+//   	PipelineTags: []pipelineTagProperty{
+//   		&pipelineTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -80,12 +80,15 @@ import (
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Indicates whether to validate and start the pipeline or stop an active pipeline.
 	Activate() interface{}
 	SetActivate(val interface{})
 	AttrId() *string
 	// The ID of the pipeline.
 	AttrPipelineId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -123,8 +126,8 @@ type CfnPipeline interface {
 	PipelineObjects() interface{}
 	SetPipelineObjects(val interface{})
 	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions.
-	PipelineTags() interface{}
-	SetPipelineTags(val interface{})
+	PipelineTags() *[]*CfnPipeline_PipelineTagProperty
+	SetPipelineTags(val *[]*CfnPipeline_PipelineTagProperty)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -278,6 +281,7 @@ type CfnPipeline interface {
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnPipeline) Activate() interface{} {
@@ -305,6 +309,16 @@ func (j *jsiiProxy_CfnPipeline) AttrPipelineId() *string {
 	_jsii_.Get(
 		j,
 		"attrPipelineId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipeline) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -420,8 +434,8 @@ func (j *jsiiProxy_CfnPipeline) PipelineObjects() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) PipelineTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnPipeline) PipelineTags() *[]*CfnPipeline_PipelineTagProperty {
+	var returns *[]*CfnPipeline_PipelineTagProperty
 	_jsii_.Get(
 		j,
 		"pipelineTags",
@@ -561,7 +575,7 @@ func (j *jsiiProxy_CfnPipeline)SetPipelineObjects(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnPipeline)SetPipelineTags(val interface{}) {
+func (j *jsiiProxy_CfnPipeline)SetPipelineTags(val *[]*CfnPipeline_PipelineTagProperty) {
 	if err := j.validateSetPipelineTagsParameters(val); err != nil {
 		panic(err)
 	}

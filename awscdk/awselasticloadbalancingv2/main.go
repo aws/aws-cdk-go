@@ -789,6 +789,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "caCertificatesBundleS3Bucket", GoGetter: "CaCertificatesBundleS3Bucket"},
 			_jsii_.MemberProperty{JsiiProperty: "caCertificatesBundleS3Key", GoGetter: "CaCertificatesBundleS3Key"},
 			_jsii_.MemberProperty{JsiiProperty: "caCertificatesBundleS3ObjectVersion", GoGetter: "CaCertificatesBundleS3ObjectVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -818,6 +819,7 @@ func init() {
 			j := jsiiProxy_CfnTrustStore{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

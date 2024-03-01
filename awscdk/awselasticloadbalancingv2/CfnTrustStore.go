@@ -36,6 +36,7 @@ import (
 type CfnTrustStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The number of ca certificates in the trust store.
 	AttrNumberOfCaCertificates() *float64
 	// The current status of the trust store.
@@ -51,6 +52,8 @@ type CfnTrustStore interface {
 	// The Amazon S3 object version for the ca certificates bundle.
 	CaCertificatesBundleS3ObjectVersion() *string
 	SetCaCertificatesBundleS3ObjectVersion(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -231,6 +234,7 @@ type CfnTrustStore interface {
 type jsiiProxy_CfnTrustStore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTrustStore) AttrNumberOfCaCertificates() *float64 {
@@ -288,6 +292,16 @@ func (j *jsiiProxy_CfnTrustStore) CaCertificatesBundleS3ObjectVersion() *string 
 	_jsii_.Get(
 		j,
 		"caCertificatesBundleS3ObjectVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrustStore) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

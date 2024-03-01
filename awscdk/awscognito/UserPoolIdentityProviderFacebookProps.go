@@ -54,7 +54,7 @@ type UserPoolIdentityProviderFacebookProps struct {
 	AttributeMapping *AttributeMapping `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
 	// The client id recognized by Facebook APIs.
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
-	// The client secret to be accompanied with clientUd for Facebook to authenticate the client.
+	// The client secret to be accompanied with clientId for Facebook to authenticate the client.
 	// See: https://developers.facebook.com/docs/facebook-login/security#appsecret
 	//
 	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
@@ -62,7 +62,7 @@ type UserPoolIdentityProviderFacebookProps struct {
 	// Default: - to the oldest version supported by Facebook.
 	//
 	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
-	// The list of facebook permissions to obtain for getting access to the Facebook profile.
+	// The list of Facebook permissions to obtain for getting access to the Facebook profile.
 	// See: https://developers.facebook.com/docs/facebook-login/permissions
 	//
 	// Default: [ public_profile ].

@@ -66,6 +66,7 @@ import (
 type CfnCollaboration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
@@ -74,6 +75,8 @@ type CfnCollaboration interface {
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
 	AttrCollaborationIdentifier() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -275,6 +278,7 @@ type CfnCollaboration interface {
 type jsiiProxy_CfnCollaboration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCollaboration) AttrArn() *string {
@@ -292,6 +296,16 @@ func (j *jsiiProxy_CfnCollaboration) AttrCollaborationIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"attrCollaborationIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCollaboration) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

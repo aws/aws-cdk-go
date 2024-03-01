@@ -52,7 +52,7 @@ type CfnBackupVaultProps struct {
 	// Each tag is a key-value pair.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
 	//
-	BackupVaultTags interface{} `field:"optional" json:"backupVaultTags" yaml:"backupVaultTags"`
+	BackupVaultTags *map[string]*string `field:"optional" json:"backupVaultTags" yaml:"backupVaultTags"`
 	// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management;
 	//
 	// for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.

@@ -73,6 +73,64 @@ httpApi.AddRoutes(&AddRoutesOptions{
 })
 ```
 
+### StepFunctions Integration
+
+Step Functions integrations enable integrating an HTTP API route with AWS Step Functions.
+This allows the HTTP API to start state machine executions synchronously or asynchronously, or to stop executions.
+
+When a client invokes the route configured with a Step Functions integration, the API Gateway service interacts with the specified state machine according to the integration subtype (e.g., starts a new execution, synchronously starts an execution, or stops an execution) and returns the response to the client.
+
+The following code configures a Step Functions integrations:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import sfn "github.com/aws/aws-cdk-go/awscdk"
+
+var stateMachine stateMachine
+var httpApi httpApi
+
+
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/start"),
+	Methods: []httpMethod{
+		apigwv2.*httpMethod_POST,
+	},
+	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StartExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
+		StateMachine: *StateMachine,
+		Subtype: apigwv2.HttpIntegrationSubtype_STEPFUNCTIONS_START_EXECUTION,
+	}),
+})
+
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/start-sync"),
+	Methods: []*httpMethod{
+		apigwv2.*httpMethod_POST,
+	},
+	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StartSyncExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
+		StateMachine: *StateMachine,
+		Subtype: apigwv2.HttpIntegrationSubtype_STEPFUNCTIONS_START_SYNC_EXECUTION,
+	}),
+})
+
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/stop"),
+	Methods: []*httpMethod{
+		apigwv2.*httpMethod_POST,
+	},
+	Integration: awscdk.NewHttpStepFunctionsIntegration(jsii.String("StopExecutionIntegration"), &HttpStepFunctionsIntegrationProps{
+		StateMachine: *StateMachine,
+		Subtype: apigwv2.HttpIntegrationSubtype_STEPFUNCTIONS_STOP_EXECUTION,
+		// For the `STOP_EXECUTION` subtype, it is necessary to specify the `executionArn`.
+		ParameterMapping: apigwv2.NewParameterMapping().Custom(jsii.String("ExecutionArn"), jsii.String("$request.querystring.executionArn")),
+	}),
+})
+```
+
+**Note**:
+
+* The `executionArn` parameter is required for the `STOP_EXECUTION` subtype. It is necessary to specify the `executionArn` in the `parameterMapping` property of the `HttpStepFunctionsIntegration` object.
+* `START_SYNC_EXECUTION` subtype is only supported for EXPRESS type state machine.
+
 ### Private Integration
 
 Private integrations enable integrating an HTTP API route with private resources in a VPC, such as Application Load Balancers or

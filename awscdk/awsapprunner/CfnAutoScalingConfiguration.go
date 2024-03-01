@@ -44,6 +44,7 @@ import (
 type CfnAutoScalingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of this auto scaling configuration.
 	AttrAutoScalingConfigurationArn() *string
 	// The revision of this auto scaling configuration.
@@ -57,6 +58,8 @@ type CfnAutoScalingConfiguration interface {
 	// The customer-provided auto scaling configuration name.
 	AutoScalingConfigurationName() *string
 	SetAutoScalingConfigurationName(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -243,6 +246,7 @@ type CfnAutoScalingConfiguration interface {
 type jsiiProxy_CfnAutoScalingConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAutoScalingConfiguration) AttrAutoScalingConfigurationArn() *string {
@@ -280,6 +284,16 @@ func (j *jsiiProxy_CfnAutoScalingConfiguration) AutoScalingConfigurationName() *
 	_jsii_.Get(
 		j,
 		"autoScalingConfigurationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingConfiguration) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns

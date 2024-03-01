@@ -1,5 +1,8 @@
 package awsbackup
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnFramework`.
 //
@@ -29,8 +32,8 @@ package awsbackup
 //   	// the properties below are optional
 //   	FrameworkDescription: jsii.String("frameworkDescription"),
 //   	FrameworkName: jsii.String("frameworkName"),
-//   	FrameworkTags: []interface{}{
-//   		&CfnTag{
+//   	FrameworkTags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -59,6 +62,6 @@ type CfnFrameworkProps struct {
 	// A list of tags with which to tag your framework.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html#cfn-backup-framework-frameworktags
 	//
-	FrameworkTags interface{} `field:"optional" json:"frameworkTags" yaml:"frameworkTags"`
+	FrameworkTags *[]*awscdk.CfnTag `field:"optional" json:"frameworkTags" yaml:"frameworkTags"`
 }
 

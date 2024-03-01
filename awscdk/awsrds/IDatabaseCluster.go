@@ -79,6 +79,8 @@ type IDatabaseCluster interface {
 	//
 	// Average over 5 minutes.
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The ARN of the database cluster.
+	ClusterArn() *string
 	// The endpoint to use for read/write operations.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
@@ -399,6 +401,16 @@ func (i *jsiiProxy_IDatabaseCluster) AsSecretAttachmentTarget() *awssecretsmanag
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseCluster) ClusterArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterArn",
+		&returns,
+	)
 	return returns
 }
 
