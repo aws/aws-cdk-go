@@ -11,10 +11,17 @@ package awsiotsitewise
 //   expressionVariableProperty := &ExpressionVariableProperty{
 //   	Name: jsii.String("name"),
 //   	Value: &VariableValueProperty{
-//   		PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   		// the properties below are optional
+//   		HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   		HierarchyId: jsii.String("hierarchyId"),
 //   		HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   		PropertyExternalId: jsii.String("propertyExternalId"),
+//   		PropertyId: jsii.String("propertyId"),
+//   		PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   		PropertyPath: []interface{}{
+//   			&PropertyPathDefinitionProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
 //   	},
 //   }
 //

@@ -63,7 +63,7 @@ type CfnDocumentProps struct {
 	Attachments interface{} `field:"optional" json:"attachments" yaml:"attachments"`
 	// Specify the document format for the request.
 	//
-	// JSON is the default format.
+	// `JSON` is the default format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
 	//
 	// Default: - "JSON".

@@ -10,7 +10,6 @@ package awsiotsitewise
 //
 //   assetModelPropertyProperty := &AssetModelPropertyProperty{
 //   	DataType: jsii.String("dataType"),
-//   	LogicalId: jsii.String("logicalId"),
 //   	Name: jsii.String("name"),
 //   	Type: &PropertyTypeProperty{
 //   		TypeName: jsii.String("typeName"),
@@ -25,10 +24,17 @@ package awsiotsitewise
 //   				&ExpressionVariableProperty{
 //   					Name: jsii.String("name"),
 //   					Value: &VariableValueProperty{
-//   						PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   						// the properties below are optional
+//   						HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   						HierarchyId: jsii.String("hierarchyId"),
 //   						HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   						PropertyExternalId: jsii.String("propertyExternalId"),
+//   						PropertyId: jsii.String("propertyId"),
+//   						PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   						PropertyPath: []interface{}{
+//   							&PropertyPathDefinitionProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
 //   					},
 //   				},
 //   			},
@@ -47,10 +53,17 @@ package awsiotsitewise
 //   				&ExpressionVariableProperty{
 //   					Name: jsii.String("name"),
 //   					Value: &VariableValueProperty{
-//   						PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   						// the properties below are optional
+//   						HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   						HierarchyId: jsii.String("hierarchyId"),
 //   						HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   						PropertyExternalId: jsii.String("propertyExternalId"),
+//   						PropertyId: jsii.String("propertyId"),
+//   						PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   						PropertyPath: []interface{}{
+//   							&PropertyPathDefinitionProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
 //   					},
 //   				},
 //   			},
@@ -59,6 +72,9 @@ package awsiotsitewise
 //
 //   	// the properties below are optional
 //   	DataTypeSpec: jsii.String("dataTypeSpec"),
+//   	ExternalId: jsii.String("externalId"),
+//   	Id: jsii.String("id"),
+//   	LogicalId: jsii.String("logicalId"),
 //   	Unit: jsii.String("unit"),
 //   }
 //
@@ -71,12 +87,6 @@ type CfnAssetModel_AssetModelPropertyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
 	//
 	DataType *string `field:"required" json:"dataType" yaml:"dataType"`
-	// The `LogicalID` of the asset model property.
-	//
-	// The maximum length is 256 characters, with the pattern `[^\\u0000-\\u001F\\u007F]+` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
-	//
-	LogicalId *string `field:"required" json:"logicalId" yaml:"logicalId"`
 	// The name of the asset model property.
 	//
 	// The maximum length is 256 characters with the pattern `[^\u0000-\u001F\u007F]+` .
@@ -93,6 +103,20 @@ type CfnAssetModel_AssetModelPropertyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
 	//
 	DataTypeSpec *string `field:"optional" json:"dataTypeSpec" yaml:"dataTypeSpec"`
+	// The External ID of the Asset Model Property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-externalid
+	//
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
+	// The ID of the Asset Model Property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-id
+	//
+	Id *string `field:"optional" json:"id" yaml:"id"`
+	// The `LogicalID` of the asset model property.
+	//
+	// The maximum length is 256 characters, with the pattern `[^\\u0000-\\u001F\\u007F]+` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
+	//
+	LogicalId *string `field:"optional" json:"logicalId" yaml:"logicalId"`
 	// The unit of the asset model property, such as `Newtons` or `RPM` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
 	//

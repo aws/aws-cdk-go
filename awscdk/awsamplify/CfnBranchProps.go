@@ -56,14 +56,10 @@ type CfnBranchProps struct {
 	//
 	AppId *string `field:"required" json:"appId" yaml:"appId"`
 	// The name for the branch.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	//
-	// *Pattern:* (?s).+
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
 	//
 	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
-	// The backend environment for an Amplify app.
+	// Specifies the backend for a `Branch` of an Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-backend
 	//
 	Backend interface{} `field:"optional" json:"backend" yaml:"backend"`
@@ -74,18 +70,10 @@ type CfnBranchProps struct {
 	//
 	BasicAuthConfig interface{} `field:"optional" json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for the branch.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
-	//
-	// *Pattern:* (?s).+
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
 	//
 	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// The description for the branch that is part of an Amplify app.
-	//
-	// *Length Constraints:* Maximum length of 1000.
-	//
-	// *Pattern:* (?s).*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -126,16 +114,10 @@ type CfnBranchProps struct {
 	// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Hosting deletes this environment when the pull request is closed.
 	//
 	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
-	//
-	// *Length Constraints:* Maximum length of 20.
-	//
-	// *Pattern:* (?s).*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
 	//
 	PullRequestEnvironmentName *string `field:"optional" json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Describes the current stage for the branch.
-	//
-	// *Valid Values:* PRODUCTION | BETA | DEVELOPMENT | EXPERIMENTAL | PULL_REQUEST.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
 	//
 	Stage *string `field:"optional" json:"stage" yaml:"stage"`

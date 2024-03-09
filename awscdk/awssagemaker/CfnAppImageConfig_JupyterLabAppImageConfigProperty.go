@@ -3,6 +3,8 @@ package awssagemaker
 
 // The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
 //
+// The `FileSystemConfig` object is not supported.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

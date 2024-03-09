@@ -17,9 +17,9 @@ package awsssmincidents
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html
 //
 type CfnResponsePlan_ChatChannelProperty struct {
-	// The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident.
+	// The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident.
 	//
-	// You can also make updates to the incident through the chat channel by using the SNS topics.
+	// You can also make updates to the incident through the chat channel by using the Amazon SNS topics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
 	//
 	ChatbotSns *[]*string `field:"optional" json:"chatbotSns" yaml:"chatbotSns"`

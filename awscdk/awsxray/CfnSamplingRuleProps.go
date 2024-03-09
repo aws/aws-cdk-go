@@ -1,5 +1,8 @@
 package awsxray
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnSamplingRule`.
 //
@@ -7,8 +10,6 @@ package awsxray
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var tags interface{}
 //
 //   cfnSamplingRuleProps := &CfnSamplingRuleProps{
 //   	RuleName: jsii.String("ruleName"),
@@ -70,8 +71,11 @@ package awsxray
 //   		ServiceType: jsii.String("serviceType"),
 //   		UrlPath: jsii.String("urlPath"),
 //   	},
-//   	Tags: []interface{}{
-//   		tags,
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -100,6 +104,6 @@ type CfnSamplingRuleProps struct {
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
 	//
-	Tags *[]interface{} `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

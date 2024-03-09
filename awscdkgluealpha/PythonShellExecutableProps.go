@@ -31,7 +31,8 @@ type PythonShellExecutableProps struct {
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	//
 	// Only individual files are supported, directories are not supported.
-	// See:  `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	// Equivalent to a job parameter `--extra-files`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: [] - no extra files are copied to the working directory.
 	//
@@ -40,7 +41,8 @@ type PythonShellExecutableProps struct {
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
 	//
 	// Only individual files are supported, directories are not supported.
-	// See:  `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	// Equivalent to a job parameter `--extra-py-files`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: - no extra python files and argument is not set.
 	//

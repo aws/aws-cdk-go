@@ -53,6 +53,7 @@ type TargetGroupBase interface {
 	SetAttribute(key *string, value *string)
 	// Returns a string representation of this construct.
 	ToString() *string
+	ValidateHealthCheck() *[]*string
 	ValidateTargetGroup() *[]*string
 }
 
@@ -286,6 +287,19 @@ func (t *jsiiProxy_TargetGroupBase) ToString() *string {
 	_jsii_.Invoke(
 		t,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TargetGroupBase) ValidateHealthCheck() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validateHealthCheck",
 		nil, // no parameters
 		&returns,
 	)

@@ -21,10 +21,10 @@ import (
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional
+//   			ComposedAssetModelId: jsii.String("composedAssetModelId"),
 //   			CompositeModelProperties: []interface{}{
 //   				&AssetModelPropertyProperty{
 //   					DataType: jsii.String("dataType"),
-//   					LogicalId: jsii.String("logicalId"),
 //   					Name: jsii.String("name"),
 //   					Type: &PropertyTypeProperty{
 //   						TypeName: jsii.String("typeName"),
@@ -39,10 +39,17 @@ import (
 //   								&ExpressionVariableProperty{
 //   									Name: jsii.String("name"),
 //   									Value: &VariableValueProperty{
-//   										PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   										// the properties below are optional
+//   										HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   										HierarchyId: jsii.String("hierarchyId"),
 //   										HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   										PropertyExternalId: jsii.String("propertyExternalId"),
+//   										PropertyId: jsii.String("propertyId"),
+//   										PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   										PropertyPath: []interface{}{
+//   											&PropertyPathDefinitionProperty{
+//   												Name: jsii.String("name"),
+//   											},
+//   										},
 //   									},
 //   								},
 //   							},
@@ -61,10 +68,17 @@ import (
 //   								&ExpressionVariableProperty{
 //   									Name: jsii.String("name"),
 //   									Value: &VariableValueProperty{
-//   										PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   										// the properties below are optional
+//   										HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   										HierarchyId: jsii.String("hierarchyId"),
 //   										HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   										PropertyExternalId: jsii.String("propertyExternalId"),
+//   										PropertyId: jsii.String("propertyId"),
+//   										PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   										PropertyPath: []interface{}{
+//   											&PropertyPathDefinitionProperty{
+//   												Name: jsii.String("name"),
+//   											},
+//   										},
 //   									},
 //   								},
 //   							},
@@ -73,24 +87,37 @@ import (
 //
 //   					// the properties below are optional
 //   					DataTypeSpec: jsii.String("dataTypeSpec"),
+//   					ExternalId: jsii.String("externalId"),
+//   					Id: jsii.String("id"),
+//   					LogicalId: jsii.String("logicalId"),
 //   					Unit: jsii.String("unit"),
 //   				},
 //   			},
 //   			Description: jsii.String("description"),
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
+//   			ParentAssetModelCompositeModelExternalId: jsii.String("parentAssetModelCompositeModelExternalId"),
+//   			Path: []*string{
+//   				jsii.String("path"),
+//   			},
 //   		},
 //   	},
 //   	AssetModelDescription: jsii.String("assetModelDescription"),
+//   	AssetModelExternalId: jsii.String("assetModelExternalId"),
 //   	AssetModelHierarchies: []interface{}{
 //   		&AssetModelHierarchyProperty{
 //   			ChildAssetModelId: jsii.String("childAssetModelId"),
-//   			LogicalId: jsii.String("logicalId"),
 //   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
+//   			LogicalId: jsii.String("logicalId"),
 //   		},
 //   	},
 //   	AssetModelProperties: []interface{}{
 //   		&AssetModelPropertyProperty{
 //   			DataType: jsii.String("dataType"),
-//   			LogicalId: jsii.String("logicalId"),
 //   			Name: jsii.String("name"),
 //   			Type: &PropertyTypeProperty{
 //   				TypeName: jsii.String("typeName"),
@@ -105,10 +132,17 @@ import (
 //   						&ExpressionVariableProperty{
 //   							Name: jsii.String("name"),
 //   							Value: &VariableValueProperty{
-//   								PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   								// the properties below are optional
+//   								HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   								HierarchyId: jsii.String("hierarchyId"),
 //   								HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   								PropertyExternalId: jsii.String("propertyExternalId"),
+//   								PropertyId: jsii.String("propertyId"),
+//   								PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   								PropertyPath: []interface{}{
+//   									&PropertyPathDefinitionProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
 //   							},
 //   						},
 //   					},
@@ -127,10 +161,17 @@ import (
 //   						&ExpressionVariableProperty{
 //   							Name: jsii.String("name"),
 //   							Value: &VariableValueProperty{
-//   								PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   								// the properties below are optional
+//   								HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   								HierarchyId: jsii.String("hierarchyId"),
 //   								HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   								PropertyExternalId: jsii.String("propertyExternalId"),
+//   								PropertyId: jsii.String("propertyId"),
+//   								PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   								PropertyPath: []interface{}{
+//   									&PropertyPathDefinitionProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
 //   							},
 //   						},
 //   					},
@@ -139,9 +180,13 @@ import (
 //
 //   			// the properties below are optional
 //   			DataTypeSpec: jsii.String("dataTypeSpec"),
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
+//   			LogicalId: jsii.String("logicalId"),
 //   			Unit: jsii.String("unit"),
 //   		},
 //   	},
+//   	AssetModelType: jsii.String("assetModelType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -169,6 +214,10 @@ type CfnAssetModelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
 	//
 	AssetModelDescription *string `field:"optional" json:"assetModelDescription" yaml:"assetModelDescription"`
+	// The external ID of the asset model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelexternalid
+	//
+	AssetModelExternalId *string `field:"optional" json:"assetModelExternalId" yaml:"assetModelExternalId"`
 	// The hierarchy definitions of the asset model.
 	//
 	// Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. For more information, see [Defining relationships between assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
@@ -185,6 +234,10 @@ type CfnAssetModelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
 	//
 	AssetModelProperties interface{} `field:"optional" json:"assetModelProperties" yaml:"assetModelProperties"`
+	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeltype
+	//
+	AssetModelType *string `field:"optional" json:"assetModelType" yaml:"assetModelType"`
 	// A list of key-value pairs that contain metadata for the asset.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .

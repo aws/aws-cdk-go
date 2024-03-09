@@ -1,7 +1,7 @@
 package awsbatch
 
 
-// An object that represents the properties of the node range for a multi-node parallel job.
+// This is an object that represents the properties of the node range for a multi-node parallel job.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

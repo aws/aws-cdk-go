@@ -252,6 +252,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateHealthCheck", GoMethod: "ValidateHealthCheck"},
 			_jsii_.MemberMethod{JsiiMethod: "validateTargetGroup", GoMethod: "ValidateTargetGroup"},
 		},
 		func() interface{} {
@@ -1415,6 +1416,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateHealthCheck", GoMethod: "ValidateHealthCheck"},
 			_jsii_.MemberMethod{JsiiMethod: "validateTargetGroup", GoMethod: "ValidateTargetGroup"},
 		},
 		func() interface{} {
@@ -1507,6 +1509,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateHealthCheck", GoMethod: "ValidateHealthCheck"},
 			_jsii_.MemberMethod{JsiiMethod: "validateTargetGroup", GoMethod: "ValidateTargetGroup"},
 		},
 		func() interface{} {

@@ -18,8 +18,8 @@ import (
 //
 //   cfnDedicatedIpPool := awscdk.Aws_pinpointemail.NewCfnDedicatedIpPool(this, jsii.String("MyCfnDedicatedIpPool"), &CfnDedicatedIpPoolProps{
 //   	PoolName: jsii.String("poolName"),
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -69,8 +69,8 @@ type CfnDedicatedIpPool interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An object that defines the tags (keys and values) that you want to associate with the dedicated IP pool.
-	Tags() *[]*CfnDedicatedIpPool_TagsProperty
-	SetTags(val *[]*CfnDedicatedIpPool_TagsProperty)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -328,8 +328,8 @@ func (j *jsiiProxy_CfnDedicatedIpPool) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDedicatedIpPool) Tags() *[]*CfnDedicatedIpPool_TagsProperty {
-	var returns *[]*CfnDedicatedIpPool_TagsProperty
+func (j *jsiiProxy_CfnDedicatedIpPool) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -394,7 +394,7 @@ func (j *jsiiProxy_CfnDedicatedIpPool)SetPoolName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDedicatedIpPool)SetTags(val *[]*CfnDedicatedIpPool_TagsProperty) {
+func (j *jsiiProxy_CfnDedicatedIpPool)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}

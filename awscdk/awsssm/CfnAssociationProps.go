@@ -143,7 +143,7 @@ type CfnAssociationProps struct {
 	//
 	// You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
 	//
-	// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the PutComplianceItems API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the PutComplianceItems API action.
+	// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
 	//
 	// By default, all associations use `AUTO` mode.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
@@ -151,7 +151,7 @@ type CfnAssociationProps struct {
 	SyncCompliance *string `field:"optional" json:"syncCompliance" yaml:"syncCompliance"`
 	// The targets for the association.
 	//
-	// You must specify the `InstanceId` or `Targets` property. You can target all instances in an AWS account by specifying the `InstanceIds` key with a value of `*` . To view a JSON and a YAML example that targets all instances, see "Create an association for all managed instances in an AWS account " on the Examples page.
+	// You must specify the `InstanceId` or `Targets` property. You can target all instances in an AWS account by specifyingt he `InstanceIds` key with a value of `*` . To view a JSON and a YAML example that targets all instances, see the "Create an association for all managed instances in an AWS account " later in this page.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
 	//
 	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`

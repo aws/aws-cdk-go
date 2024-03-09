@@ -133,10 +133,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appconfig.CfnApplication.TagsProperty",
-		reflect.TypeOf((*CfnApplication_TagsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appconfig.CfnApplicationProps",
 		reflect.TypeOf((*CfnApplicationProps)(nil)).Elem(),
 	)
@@ -194,10 +190,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appconfig.CfnConfigurationProfile.TagsProperty",
-		reflect.TypeOf((*CfnConfigurationProfile_TagsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appconfig.CfnConfigurationProfile.ValidatorsProperty",
@@ -261,10 +253,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appconfig.CfnDeployment.TagsProperty",
-		reflect.TypeOf((*CfnDeployment_TagsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appconfig.CfnDeploymentProps",
 		reflect.TypeOf((*CfnDeploymentProps)(nil)).Elem(),
 	)
@@ -320,10 +308,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appconfig.CfnDeploymentStrategy.TagsProperty",
-		reflect.TypeOf((*CfnDeploymentStrategy_TagsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appconfig.CfnDeploymentStrategyProps",
@@ -386,10 +370,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appconfig.CfnEnvironment.MonitorsProperty",
 		reflect.TypeOf((*CfnEnvironment_MonitorsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_appconfig.CfnEnvironment.TagsProperty",
-		reflect.TypeOf((*CfnEnvironment_TagsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appconfig.CfnEnvironmentProps",

@@ -62,6 +62,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "snapshotCopyConfigurations", GoGetter: "SnapshotCopyConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -81,6 +82,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_redshiftserverless.CfnNamespace.NamespaceProperty",
 		reflect.TypeOf((*CfnNamespace_NamespaceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_redshiftserverless.CfnNamespace.SnapshotCopyConfigurationProperty",
+		reflect.TypeOf((*CfnNamespace_SnapshotCopyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_redshiftserverless.CfnNamespaceProps",

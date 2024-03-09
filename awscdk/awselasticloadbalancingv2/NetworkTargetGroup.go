@@ -98,6 +98,7 @@ type NetworkTargetGroup interface {
 	SetAttribute(key *string, value *string)
 	// Returns a string representation of this construct.
 	ToString() *string
+	ValidateHealthCheck() *[]*string
 	ValidateTargetGroup() *[]*string
 }
 
@@ -433,6 +434,19 @@ func (n *jsiiProxy_NetworkTargetGroup) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NetworkTargetGroup) ValidateHealthCheck() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"validateHealthCheck",
 		nil, // no parameters
 		&returns,
 	)

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) validateSetDeviceIndexParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment) validateSetEnaSrdSpecificationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnNetworkInterfaceAttachment) validateSetInstanceIdParameters(val *string) error {
 	return nil
 }

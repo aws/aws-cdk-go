@@ -390,10 +390,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events.CfnEventBus.TagEntryProperty",
-		reflect.TypeOf((*CfnEventBus_TagEntryProperty)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events.CfnEventBusPolicy",
 		reflect.TypeOf((*CfnEventBusPolicy)(nil)).Elem(),

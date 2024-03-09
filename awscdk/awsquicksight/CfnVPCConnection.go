@@ -51,6 +51,7 @@ type CfnVPCConnection interface {
 	AttrCreatedTime() *string
 	// The time that the VPC connection was last updated.
 	AttrLastUpdatedTime() *string
+	// A list of network interfaces.
 	AttrNetworkInterfaces() awscdk.IResolvable
 	// The HTTP status of the request.
 	AttrStatus() *string

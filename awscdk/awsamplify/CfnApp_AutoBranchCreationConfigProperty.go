@@ -45,8 +45,6 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	//
 	BasicAuthConfig interface{} `field:"optional" json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for the autocreated branch.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
 	//
 	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
@@ -91,10 +89,6 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	// If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
 	//
 	// For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
-	//
-	// *Length Constraints:* Maximum length of 20.
-	//
-	// *Pattern:* (?s).*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
 	//
 	PullRequestEnvironmentName *string `field:"optional" json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`

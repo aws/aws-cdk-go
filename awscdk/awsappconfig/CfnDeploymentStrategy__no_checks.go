@@ -96,7 +96,7 @@ func (j *jsiiProxy_CfnDeploymentStrategy) validateSetReplicateToParameters(val *
 	return nil
 }
 
-func (j *jsiiProxy_CfnDeploymentStrategy) validateSetTagsParameters(val *[]*CfnDeploymentStrategy_TagsProperty) error {
+func (j *jsiiProxy_CfnDeploymentStrategy) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

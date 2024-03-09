@@ -19,18 +19,10 @@ package awsamplify
 //
 type CfnBranch_EnvironmentVariableProperty struct {
 	// The environment variable name.
-	//
-	// *Length Constraints:* Maximum length of 255.
-	//
-	// *Pattern:* (?s).*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The environment variable value.
-	//
-	// *Length Constraints:* Maximum length of 5500.
-	//
-	// *Pattern:* (?s).*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-value
 	//
 	Value *string `field:"required" json:"value" yaml:"value"`

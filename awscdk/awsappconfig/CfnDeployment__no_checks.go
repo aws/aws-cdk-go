@@ -100,7 +100,7 @@ func (j *jsiiProxy_CfnDeployment) validateSetEnvironmentIdParameters(val *string
 	return nil
 }
 
-func (j *jsiiProxy_CfnDeployment) validateSetTagsParameters(val *[]*CfnDeployment_TagsProperty) error {
+func (j *jsiiProxy_CfnDeployment) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

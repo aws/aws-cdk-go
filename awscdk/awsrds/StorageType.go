@@ -50,9 +50,13 @@ const (
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
 	StorageType_GP3 StorageType = "GP3"
-	// Provisioned IOPS (SSD).
+	// Provisioned IOPS SSD (io1).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS
 	//
 	StorageType_IO1 StorageType = "IO1"
+	// Provisioned IOPS SSD (io2).
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS
+	//
+	StorageType_IO2 StorageType = "IO2"
 )
 

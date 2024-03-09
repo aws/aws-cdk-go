@@ -1,5 +1,8 @@
 package awspinpointemail
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnConfigurationSet`.
 //
@@ -21,8 +24,8 @@ package awspinpointemail
 //   	SendingOptions: &SendingOptionsProperty{
 //   		SendingEnabled: jsii.Boolean(false),
 //   	},
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -54,7 +57,7 @@ type CfnConfigurationSetProps struct {
 	// An object that defines the tags (keys and values) that you want to associate with the configuration set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-tags
 	//
-	Tags *[]*CfnConfigurationSet_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html#cfn-pinpointemail-configurationset-trackingoptions
 	//

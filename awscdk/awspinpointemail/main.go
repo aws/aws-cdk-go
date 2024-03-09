@@ -71,10 +71,6 @@ func init() {
 		reflect.TypeOf((*CfnConfigurationSet_SendingOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pinpointemail.CfnConfigurationSet.TagsProperty",
-		reflect.TypeOf((*CfnConfigurationSet_TagsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpointemail.CfnConfigurationSet.TrackingOptionsProperty",
 		reflect.TypeOf((*CfnConfigurationSet_TrackingOptionsProperty)(nil)).Elem(),
 	)
@@ -204,10 +200,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pinpointemail.CfnDedicatedIpPool.TagsProperty",
-		reflect.TypeOf((*CfnDedicatedIpPool_TagsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpointemail.CfnDedicatedIpPoolProps",
 		reflect.TypeOf((*CfnDedicatedIpPoolProps)(nil)).Elem(),
 	)
@@ -270,10 +262,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpointemail.CfnIdentity.MailFromAttributesProperty",
 		reflect.TypeOf((*CfnIdentity_MailFromAttributesProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_pinpointemail.CfnIdentity.TagsProperty",
-		reflect.TypeOf((*CfnIdentity_TagsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pinpointemail.CfnIdentityProps",

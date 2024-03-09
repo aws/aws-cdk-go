@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnTaskSet) validateSetServiceRegistriesParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskSet) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskSet) validateSetTaskDefinitionParameters(val *string) error {
 	return nil
 }

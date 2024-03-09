@@ -96,7 +96,7 @@ func (j *jsiiProxy_CfnIdentity) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnIdentity) validateSetTagsParameters(val *[]*CfnIdentity_TagsProperty) error {
+func (j *jsiiProxy_CfnIdentity) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

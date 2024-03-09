@@ -47,7 +47,7 @@ type CfnSimpleAD interface {
 	AttrAlias() *string
 	// The unique identifier for a directory.
 	AttrDirectoryId() *string
-	// The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
+	// The IP addresses of the DNS servers for the directory, such as `[ "172.31.3.154", "172.31.63.203" ]` .
 	AttrDnsIpAddresses() *[]*string
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.

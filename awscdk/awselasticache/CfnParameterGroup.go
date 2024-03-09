@@ -40,8 +40,6 @@ type CfnParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// A user-specified name for the cache parameter group.
-	AttrCacheParameterGroupName() *string
 	AttrId() *string
 	// The name of the cache parameter group family that this cache parameter group is compatible with.
 	CacheParameterGroupFamily() *string
@@ -232,16 +230,6 @@ type jsiiProxy_CfnParameterGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
-}
-
-func (j *jsiiProxy_CfnParameterGroup) AttrCacheParameterGroupName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrCacheParameterGroupName",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnParameterGroup) AttrId() *string {

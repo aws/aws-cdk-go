@@ -40,8 +40,8 @@ import (
 //   			AlarmRoleArn: jsii.String("alarmRoleArn"),
 //   		},
 //   	},
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -101,8 +101,8 @@ type CfnEnvironment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Metadata to assign to the environment.
-	Tags() *[]*CfnEnvironment_TagsProperty
-	SetTags(val *[]*CfnEnvironment_TagsProperty)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -390,8 +390,8 @@ func (j *jsiiProxy_CfnEnvironment) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Tags() *[]*CfnEnvironment_TagsProperty {
-	var returns *[]*CfnEnvironment_TagsProperty
+func (j *jsiiProxy_CfnEnvironment) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -489,7 +489,7 @@ func (j *jsiiProxy_CfnEnvironment)SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnEnvironment)SetTags(val *[]*CfnEnvironment_TagsProperty) {
+func (j *jsiiProxy_CfnEnvironment)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}

@@ -32,25 +32,26 @@ type PythonRayExecutableProps struct {
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	//
 	// Only individual files are supported, directories are not supported.
-	// See:  `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	// Equivalent to a job parameter `--extra-files`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: [] - no extra files are copied to the working directory.
 	//
 	// Experimental.
 	ExtraFiles *[]Code `field:"optional" json:"extraFiles" yaml:"extraFiles"`
-	// Additional Python files that AWS Glue adds to the Python path before executing your script.
-	//
-	// Only individual files are supported, directories are not supported.
-	// See:  `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
-	//
-	// Default: - no extra python files and argument is not set.
-	//
-	// Experimental.
-	ExtraPythonFiles *[]Code `field:"optional" json:"extraPythonFiles" yaml:"extraPythonFiles"`
 	// Runtime.
 	//
 	// It is required for Ray jobs.
 	// Experimental.
 	Runtime Runtime `field:"optional" json:"runtime" yaml:"runtime"`
+	// Additional Python modules that AWS Glue adds to the Python path before executing your script.
+	//
+	// Equivalent to a job parameter `--s3-py-modules`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html
+	//
+	// Default: - no extra python files and argument is not set.
+	//
+	// Experimental.
+	S3PythonModules *[]Code `field:"optional" json:"s3PythonModules" yaml:"s3PythonModules"`
 }
 

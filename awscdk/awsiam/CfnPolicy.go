@@ -53,7 +53,6 @@ import (
 type CfnPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The provider-assigned unique ID for this resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

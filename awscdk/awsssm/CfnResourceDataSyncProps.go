@@ -64,9 +64,9 @@ type CfnResourceDataSyncProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
 	//
 	BucketRegion *string `field:"optional" json:"bucketRegion" yaml:"bucketRegion"`
-	// The ARN of an encryption key for a destination in Amazon S3 .
+	// The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 .
 	//
-	// You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same Region as the destination Amazon S3 bucket.
+	// You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`

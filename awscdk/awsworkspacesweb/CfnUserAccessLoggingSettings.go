@@ -40,6 +40,7 @@ type CfnUserAccessLoggingSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// A list of web portal ARNs that this user access logging settings is associated with.
 	AttrAssociatedPortalArns() *[]*string
 	// The ARN of the user access logging settings.
 	AttrUserAccessLoggingSettingsArn() *string

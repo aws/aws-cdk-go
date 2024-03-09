@@ -219,7 +219,7 @@ func (j *jsiiProxy_CfnDeployment) validateSetEnvironmentIdParameters(val *string
 	return nil
 }
 
-func (j *jsiiProxy_CfnDeployment) validateSetTagsParameters(val *[]*CfnDeployment_TagsProperty) error {
+func (j *jsiiProxy_CfnDeployment) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err

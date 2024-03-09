@@ -247,7 +247,7 @@ type CfnDBInstance interface {
 	// The identifier of the DB cluster that the instance will belong to.
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
-	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
+	// The identifier for the Multi-AZ DB cluster snapshot to restore from.
 	DbClusterSnapshotIdentifier() *string
 	SetDbClusterSnapshotIdentifier(val *string)
 	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.

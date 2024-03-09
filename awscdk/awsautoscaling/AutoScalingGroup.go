@@ -25,15 +25,22 @@ import (
 // the Vpc default strategy if not specified.
 //
 // Example:
-//   var cluster cluster
-//   var asg autoScalingGroup
+//   var vpc vpc
+//   var instanceType instanceType
+//   var machineImage iMachineImage
 //
-//   importedCluster := eks.cluster_FromClusterAttributes(this, jsii.String("ImportedCluster"), &ClusterAttributes{
-//   	ClusterName: cluster.ClusterName,
-//   	ClusterSecurityGroupId: cluster.ClusterSecurityGroupId,
-//   })
 //
-//   importedCluster.ConnectAutoScalingGroupCapacity(asg, &AutoScalingGroupOptions{
+//   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   	Vpc: Vpc,
+//   	InstanceType: InstanceType,
+//   	MachineImage: MachineImage,
+//
+//   	// ...
+//
+//   	Init: ec2.CloudFormationInit_FromElements(ec2.InitFile_FromString(jsii.String("/etc/my_instance"), jsii.String("This got written during instance startup"))),
+//   	Signals: autoscaling.Signals_WaitForAll(&SignalsOptions{
+//   		Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
+//   	}),
 //   })
 //
 type AutoScalingGroup interface {

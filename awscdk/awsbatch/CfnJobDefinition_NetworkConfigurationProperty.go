@@ -3,7 +3,7 @@ package awsbatch
 
 // The network configuration for jobs that are running on Fargate resources.
 //
-// Jobs that are running on EC2 resources must not specify this parameter.
+// Jobs that are running on Amazon EC2 resources must not specify this parameter.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

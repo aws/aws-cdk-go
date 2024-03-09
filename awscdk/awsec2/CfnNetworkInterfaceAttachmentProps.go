@@ -15,6 +15,12 @@ package awsec2
 //
 //   	// the properties below are optional
 //   	DeleteOnTermination: jsii.Boolean(false),
+//   	EnaSrdSpecification: &EnaSrdSpecificationProperty{
+//   		EnaSrdEnabled: jsii.Boolean(false),
+//   		EnaSrdUdpSpecification: &EnaSrdUdpSpecificationProperty{
+//   			EnaSrdUdpEnabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html
@@ -42,5 +48,9 @@ type CfnNetworkInterfaceAttachmentProps struct {
 	// Default: - true.
 	//
 	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	// Configures ENA Express for the network interface that this action attaches to the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-enasrdspecification
+	//
+	EnaSrdSpecification interface{} `field:"optional" json:"enaSrdSpecification" yaml:"enaSrdSpecification"`
 }
 

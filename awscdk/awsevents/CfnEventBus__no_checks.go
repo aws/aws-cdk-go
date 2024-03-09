@@ -84,7 +84,7 @@ func (j *jsiiProxy_CfnEventBus) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnEventBus) validateSetTagsParameters(val *[]*CfnEventBus_TagEntryProperty) error {
+func (j *jsiiProxy_CfnEventBus) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

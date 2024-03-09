@@ -12,35 +12,69 @@ import (
 // An image that will be built from a local directory with a Dockerfile.
 //
 // Example:
-//   import "github.com/aws/constructs-go/constructs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
-//   import ecs "github.com/aws/aws-cdk-go/awscdk"
-//   import ecsPatterns "github.com/aws/aws-cdk-go/awscdk"
-//   import cxapi "github.com/aws/aws-cdk-go/awscdk"
-//   import path "github.com/aws-samples/dummy/path"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   type myStack struct {
-//   	stack
-//   }
+//   var networkMode networkMode
+//   var platform platform
 //
-//   func newMyStack(scope construct, id *string) *myStack {
-//   	this := &myStack{}
-//   	newStack_Override(this, scope, id)
+//   assetImage := awscdk.Aws_ecs.AssetImage_FromAsset(jsii.String("directory"), &AssetImageProps{
+//   	AssetName: jsii.String("assetName"),
+//   	BuildArgs: map[string]*string{
+//   		"buildArgsKey": jsii.String("buildArgs"),
+//   	},
+//   	BuildSecrets: map[string]*string{
+//   		"buildSecretsKey": jsii.String("buildSecrets"),
+//   	},
+//   	BuildSsh: jsii.String("buildSsh"),
+//   	CacheDisabled: jsii.Boolean(false),
+//   	CacheFrom: []dockerCacheOption{
+//   		&dockerCacheOption{
+//   			Type: jsii.String("type"),
 //
-//   	this.Node.SetContext(cxapi.eCS_REMOVE_DEFAULT_DESIRED_COUNT, jsii.Boolean(true))
+//   			// the properties below are optional
+//   			Params: map[string]*string{
+//   				"paramsKey": jsii.String("params"),
+//   			},
+//   		},
+//   	},
+//   	CacheTo: &dockerCacheOption{
+//   		Type: jsii.String("type"),
 //
-//   	vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
-//   		MaxAzs: jsii.Number(2),
-//   	})
-//
-//   	ecsPatterns.NewQueueProcessingFargateService(this, jsii.String("QueueProcessingService"), &QueueProcessingFargateServiceProps{
-//   		Vpc: Vpc,
-//   		MemoryLimitMiB: jsii.Number(512),
-//   		Image: ecs.NewAssetImage(path.join(__dirname, jsii.String(".."), jsii.String("sqs-reader"))),
-//   	})
-//   	return this
-//   }
+//   		// the properties below are optional
+//   		Params: map[string]*string{
+//   			"paramsKey": jsii.String("params"),
+//   		},
+//   	},
+//   	Exclude: []*string{
+//   		jsii.String("exclude"),
+//   	},
+//   	ExtraHash: jsii.String("extraHash"),
+//   	File: jsii.String("file"),
+//   	FollowSymlinks: cdk.SymlinkFollowMode_NEVER,
+//   	IgnoreMode: cdk.IgnoreMode_GLOB,
+//   	Invalidation: &DockerImageAssetInvalidationOptions{
+//   		BuildArgs: jsii.Boolean(false),
+//   		BuildSecrets: jsii.Boolean(false),
+//   		BuildSsh: jsii.Boolean(false),
+//   		ExtraHash: jsii.Boolean(false),
+//   		File: jsii.Boolean(false),
+//   		NetworkMode: jsii.Boolean(false),
+//   		Outputs: jsii.Boolean(false),
+//   		Platform: jsii.Boolean(false),
+//   		RepositoryName: jsii.Boolean(false),
+//   		Target: jsii.Boolean(false),
+//   	},
+//   	NetworkMode: networkMode,
+//   	Outputs: []*string{
+//   		jsii.String("outputs"),
+//   	},
+//   	Platform: platform,
+//   	Target: jsii.String("target"),
+//   })
 //
 type AssetImage interface {
 	ContainerImage

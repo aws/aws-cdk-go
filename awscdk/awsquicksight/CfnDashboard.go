@@ -61,6 +61,7 @@ type CfnDashboard interface {
 	SetDashboardPublishOptions(val interface{})
 	Definition() interface{}
 	SetDefinition(val interface{})
+	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 	LinkEntities() *[]*string
 	SetLinkEntities(val *[]*string)
 	// A structure that contains the link sharing configurations that you want to apply overrides to.

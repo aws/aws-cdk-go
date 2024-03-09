@@ -67,6 +67,7 @@ import (
 //   	TerminationPolicies: []terminationPolicy{
 //   		awscdk.*Aws_autoscaling.*terminationPolicy_ALLOCATION_STRATEGY,
 //   	},
+//   	TerminationPolicyCustomLambdaFunctionArn: jsii.String("terminationPolicyCustomLambdaFunctionArn"),
 //   	UpdatePolicy: updatePolicy,
 //   	VpcSubnets: &SubnetSelection{
 //   		AvailabilityZones: []*string{
@@ -281,6 +282,15 @@ type CommonAutoScalingGroupProps struct {
 	// Default: - `TerminationPolicy.DEFAULT`
 	//
 	TerminationPolicies *[]TerminationPolicy `field:"optional" json:"terminationPolicies" yaml:"terminationPolicies"`
+	// A lambda function Arn that can be used as a custom termination policy to select the instances to terminate.
+	//
+	// This property must be specified if the TerminationPolicy.CUSTOM_LAMBDA_FUNCTION
+	// is used.
+	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/lambda-custom-termination-policy.html
+	//
+	// Default: - No lambda function Arn will be supplied.
+	//
+	TerminationPolicyCustomLambdaFunctionArn *string `field:"optional" json:"terminationPolicyCustomLambdaFunctionArn" yaml:"terminationPolicyCustomLambdaFunctionArn"`
 	// What to do when an AutoScalingGroup's instance configuration is changed.
 	//
 	// This is applied when any of the settings on the ASG are changed that

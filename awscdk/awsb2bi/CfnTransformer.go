@@ -51,6 +51,7 @@ type CfnTransformer interface {
 	//
 	// For example, `2023-07-20T19:58:44.624Z` .
 	AttrCreatedAt() *string
+	AttrModifiedAt() *string
 	// Returns an Amazon Resource Name (ARN) for a specific transformer.
 	AttrTransformerArn() *string
 	// The system-assigned unique identifier for the transformer.
@@ -263,6 +264,16 @@ func (j *jsiiProxy_CfnTransformer) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransformer) AttrModifiedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrModifiedAt",
 		&returns,
 	)
 	return returns

@@ -47,9 +47,13 @@ type CfnAccelerator interface {
 	AttrDnsName() *string
 	// The DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
 	AttrDualStackDnsName() *string
-	// The IPv4 addresses assigned to the accelerator.
+	// The array of IPv4 addresses in the IP address set.
+	//
+	// An IP address set can have a maximum of two IP addresses.
 	AttrIpv4Addresses() *[]*string
-	// The IPv6 addresses assigned if the accelerator is dualstack.
+	// The array of IPv6 addresses in the IP address set.
+	//
+	// An IP address set can have a maximum of two IP addresses.
 	AttrIpv6Addresses() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

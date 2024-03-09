@@ -1,5 +1,8 @@
 package awsecs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnTaskSet`.
 //
@@ -47,6 +50,12 @@ package awsecs
 //   			ContainerPort: jsii.Number(123),
 //   			Port: jsii.Number(123),
 //   			RegistryArn: jsii.String("registryArn"),
+//   		},
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
 //   		},
 //   	},
 //   }
@@ -108,5 +117,19 @@ type CfnTaskSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
 	//
 	ServiceRegistries interface{} `field:"optional" json:"serviceRegistries" yaml:"serviceRegistries"`
+	// The metadata that you apply to the task set to help you categorize and organize them.
+	//
+	// Each tag consists of a key and an optional value. You define both.
+	//
+	// The following basic restrictions apply to tags:
+	//
+	// - Maximum number of tags per resource - 50
+	// - For each resource, each tag key must be unique, and each tag key can have only one value.
+	// - Maximum key length - 128 Unicode characters in UTF-8
+	// - Maximum value length - 256 Unicode characters in UTF-8
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : /
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

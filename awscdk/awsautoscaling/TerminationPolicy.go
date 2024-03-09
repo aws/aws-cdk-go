@@ -7,6 +7,7 @@ package awsautoscaling
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
+//   var arn string
 //
 //
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -17,9 +18,13 @@ package awsautoscaling
 //   	// ...
 //
 //   	TerminationPolicies: []terminationPolicy{
+//   		autoscaling.*terminationPolicy_CUSTOM_LAMBDA_FUNCTION,
 //   		autoscaling.*terminationPolicy_OLDEST_INSTANCE,
 //   		autoscaling.*terminationPolicy_DEFAULT,
 //   	},
+//
+//   	//terminationPolicyCustomLambdaFunctionArn property must be specified if the TerminationPolicy.CUSTOM_LAMBDA_FUNCTION is used
+//   	TerminationPolicyCustomLambdaFunctionArn: arn,
 //   })
 //
 type TerminationPolicy string
@@ -39,5 +44,15 @@ const (
 	TerminationPolicy_OLDEST_LAUNCH_CONFIGURATION TerminationPolicy = "OLDEST_LAUNCH_CONFIGURATION"
 	// Terminate instances that have the oldest launch template.
 	TerminationPolicy_OLDEST_LAUNCH_TEMPLATE TerminationPolicy = "OLDEST_LAUNCH_TEMPLATE"
+	// Terminate instances using custom termination policy with lambda.
+	//
+	// If this is
+	// specified, you must also supply a value of lambda arn in the terminationPolicyCustomLambdaFunctionArn property.
+	//
+	// If there are multiple termination policies specified, the custom termination policy with lambda
+	// must be specified first in the order.
+	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/lambda-custom-termination-policy.html#lambda-custom-termination-policy-limitations
+	//
+	TerminationPolicy_CUSTOM_LAMBDA_FUNCTION TerminationPolicy = "CUSTOM_LAMBDA_FUNCTION"
 )
 

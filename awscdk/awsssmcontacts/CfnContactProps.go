@@ -47,7 +47,7 @@ type CfnContactProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-displayname
 	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
-	// Refers to the type of contact:.
+	// The type of contact.
 	//
 	// - `PERSONAL` : A single, individual contact.
 	// - `ESCALATION` : An escalation plan.

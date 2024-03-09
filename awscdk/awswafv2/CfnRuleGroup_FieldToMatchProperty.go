@@ -1,9 +1,9 @@
 package awswafv2
 
 
-// The part of the web request that you want AWS WAF to inspect.
+// Specifies a web request component to be used in a rule match statement or in a logging configuration.
 //
-// Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
+// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
 //
 // Example JSON for a `QueryString` field to match:
 //
@@ -11,7 +11,11 @@ package awswafv2
 //
 // Example JSON for a `Method` field to match specification:
 //
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`.
+// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
+// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
+//
+// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
+// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

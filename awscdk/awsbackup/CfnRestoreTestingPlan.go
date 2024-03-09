@@ -105,6 +105,7 @@ type CfnRestoreTestingPlan interface {
 	// Defaults to 24 hours.
 	StartWindowHours() *float64
 	SetStartWindowHours(val *float64)
+	// Optional tags to include.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

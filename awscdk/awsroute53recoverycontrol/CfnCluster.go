@@ -38,7 +38,9 @@ type CfnCluster interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the cluster.
 	AttrClusterArn() *string
-	// Endpoints for the cluster.
+	// An array of endpoints for the cluster.
+	//
+	// You specify one of these endpoints when you want to set or retrieve a routing control state in the cluster.
 	AttrClusterEndpoints() awscdk.IResolvable
 	// The deployment status of the cluster.
 	//

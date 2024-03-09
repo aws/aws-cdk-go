@@ -20,6 +20,10 @@ func validateNatInstanceProvider_InstanceParameters(props *NatInstanceProps) err
 	return nil
 }
 
+func validateNatInstanceProvider_InstanceV2Parameters(props *NatInstanceProps) error {
+	return nil
+}
+
 func validateNewNatInstanceProviderParameters(props *NatInstanceProps) error {
 	return nil
 }

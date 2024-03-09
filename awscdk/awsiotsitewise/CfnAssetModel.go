@@ -28,10 +28,10 @@ import (
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional
+//   			ComposedAssetModelId: jsii.String("composedAssetModelId"),
 //   			CompositeModelProperties: []interface{}{
 //   				&AssetModelPropertyProperty{
 //   					DataType: jsii.String("dataType"),
-//   					LogicalId: jsii.String("logicalId"),
 //   					Name: jsii.String("name"),
 //   					Type: &PropertyTypeProperty{
 //   						TypeName: jsii.String("typeName"),
@@ -46,10 +46,17 @@ import (
 //   								&ExpressionVariableProperty{
 //   									Name: jsii.String("name"),
 //   									Value: &VariableValueProperty{
-//   										PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   										// the properties below are optional
+//   										HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   										HierarchyId: jsii.String("hierarchyId"),
 //   										HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   										PropertyExternalId: jsii.String("propertyExternalId"),
+//   										PropertyId: jsii.String("propertyId"),
+//   										PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   										PropertyPath: []interface{}{
+//   											&PropertyPathDefinitionProperty{
+//   												Name: jsii.String("name"),
+//   											},
+//   										},
 //   									},
 //   								},
 //   							},
@@ -68,10 +75,17 @@ import (
 //   								&ExpressionVariableProperty{
 //   									Name: jsii.String("name"),
 //   									Value: &VariableValueProperty{
-//   										PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   										// the properties below are optional
+//   										HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   										HierarchyId: jsii.String("hierarchyId"),
 //   										HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   										PropertyExternalId: jsii.String("propertyExternalId"),
+//   										PropertyId: jsii.String("propertyId"),
+//   										PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   										PropertyPath: []interface{}{
+//   											&PropertyPathDefinitionProperty{
+//   												Name: jsii.String("name"),
+//   											},
+//   										},
 //   									},
 //   								},
 //   							},
@@ -80,24 +94,37 @@ import (
 //
 //   					// the properties below are optional
 //   					DataTypeSpec: jsii.String("dataTypeSpec"),
+//   					ExternalId: jsii.String("externalId"),
+//   					Id: jsii.String("id"),
+//   					LogicalId: jsii.String("logicalId"),
 //   					Unit: jsii.String("unit"),
 //   				},
 //   			},
 //   			Description: jsii.String("description"),
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
+//   			ParentAssetModelCompositeModelExternalId: jsii.String("parentAssetModelCompositeModelExternalId"),
+//   			Path: []*string{
+//   				jsii.String("path"),
+//   			},
 //   		},
 //   	},
 //   	AssetModelDescription: jsii.String("assetModelDescription"),
+//   	AssetModelExternalId: jsii.String("assetModelExternalId"),
 //   	AssetModelHierarchies: []interface{}{
 //   		&AssetModelHierarchyProperty{
 //   			ChildAssetModelId: jsii.String("childAssetModelId"),
-//   			LogicalId: jsii.String("logicalId"),
 //   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
+//   			LogicalId: jsii.String("logicalId"),
 //   		},
 //   	},
 //   	AssetModelProperties: []interface{}{
 //   		&AssetModelPropertyProperty{
 //   			DataType: jsii.String("dataType"),
-//   			LogicalId: jsii.String("logicalId"),
 //   			Name: jsii.String("name"),
 //   			Type: &PropertyTypeProperty{
 //   				TypeName: jsii.String("typeName"),
@@ -112,10 +139,17 @@ import (
 //   						&ExpressionVariableProperty{
 //   							Name: jsii.String("name"),
 //   							Value: &VariableValueProperty{
-//   								PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   								// the properties below are optional
+//   								HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   								HierarchyId: jsii.String("hierarchyId"),
 //   								HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   								PropertyExternalId: jsii.String("propertyExternalId"),
+//   								PropertyId: jsii.String("propertyId"),
+//   								PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   								PropertyPath: []interface{}{
+//   									&PropertyPathDefinitionProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
 //   							},
 //   						},
 //   					},
@@ -134,10 +168,17 @@ import (
 //   						&ExpressionVariableProperty{
 //   							Name: jsii.String("name"),
 //   							Value: &VariableValueProperty{
-//   								PropertyLogicalId: jsii.String("propertyLogicalId"),
-//
-//   								// the properties below are optional
+//   								HierarchyExternalId: jsii.String("hierarchyExternalId"),
+//   								HierarchyId: jsii.String("hierarchyId"),
 //   								HierarchyLogicalId: jsii.String("hierarchyLogicalId"),
+//   								PropertyExternalId: jsii.String("propertyExternalId"),
+//   								PropertyId: jsii.String("propertyId"),
+//   								PropertyLogicalId: jsii.String("propertyLogicalId"),
+//   								PropertyPath: []interface{}{
+//   									&PropertyPathDefinitionProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
 //   							},
 //   						},
 //   					},
@@ -146,9 +187,13 @@ import (
 //
 //   			// the properties below are optional
 //   			DataTypeSpec: jsii.String("dataTypeSpec"),
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
+//   			LogicalId: jsii.String("logicalId"),
 //   			Unit: jsii.String("unit"),
 //   		},
 //   	},
+//   	AssetModelType: jsii.String("assetModelType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -169,6 +214,9 @@ type CfnAssetModel interface {
 	// A description for the asset model.
 	AssetModelDescription() *string
 	SetAssetModelDescription(val *string)
+	// The external ID of the asset model.
+	AssetModelExternalId() *string
+	SetAssetModelExternalId(val *string)
 	// The hierarchy definitions of the asset model.
 	AssetModelHierarchies() interface{}
 	SetAssetModelHierarchies(val interface{})
@@ -178,6 +226,9 @@ type CfnAssetModel interface {
 	// The property definitions of the asset model.
 	AssetModelProperties() interface{}
 	SetAssetModelProperties(val interface{})
+	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL).
+	AssetModelType() *string
+	SetAssetModelType(val *string)
 	// The ARN of the asset model, which has the following format.
 	AttrAssetModelArn() *string
 	// The ID of the asset model.
@@ -384,6 +435,16 @@ func (j *jsiiProxy_CfnAssetModel) AssetModelDescription() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssetModel) AssetModelExternalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assetModelExternalId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssetModel) AssetModelHierarchies() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -409,6 +470,16 @@ func (j *jsiiProxy_CfnAssetModel) AssetModelProperties() interface{} {
 	_jsii_.Get(
 		j,
 		"assetModelProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssetModel) AssetModelType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assetModelType",
 		&returns,
 	)
 	return returns
@@ -601,6 +672,14 @@ func (j *jsiiProxy_CfnAssetModel)SetAssetModelDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnAssetModel)SetAssetModelExternalId(val *string) {
+	_jsii_.Set(
+		j,
+		"assetModelExternalId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnAssetModel)SetAssetModelHierarchies(val interface{}) {
 	if err := j.validateSetAssetModelHierarchiesParameters(val); err != nil {
 		panic(err)
@@ -630,6 +709,14 @@ func (j *jsiiProxy_CfnAssetModel)SetAssetModelProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"assetModelProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssetModel)SetAssetModelType(val *string) {
+	_jsii_.Set(
+		j,
+		"assetModelType",
 		val,
 	)
 }

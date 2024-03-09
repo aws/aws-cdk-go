@@ -37,7 +37,7 @@ type CfnTrustStoreRevocation interface {
 	awscdk.IInspectable
 	// The revocation ID of the revocation file.
 	AttrRevocationId() *float64
-	// The data associated with a trust store revocation.
+	// Information about the revocation file in the trust store.
 	AttrTrustStoreRevocations() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -92,7 +92,7 @@ type CfnContact interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Refers to the type of contact:.
+	// The type of contact.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::APS::Workspace` type specifies an Amazon Managed Service for Prometheus ( Amazon Managed Service for Prometheus ) workspace.
-//
-// A *workspace* is a logical and isolated Prometheus server dedicated to Prometheus resources such as metrics. You can have one or more workspaces in each Region in your account.
+// An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,23 +37,23 @@ type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The alert manager definition for the workspace, as a string.
+	// The alert manager definition, a YAML configuration for the alert manager in your Amazon Managed Service for Prometheus workspace.
 	AlertManagerDefinition() *string
 	SetAlertManagerDefinition(val *string)
-	// An alias that you assign to this workspace to help you identify it.
+	// The alias that is assigned to this workspace to help identify it.
 	Alias() *string
 	SetAlias(val *string)
 	// The ARN of the workspace.
 	//
-	// For example: `arn:aws:aps:us-west-2:123456789012:workspace/ws-EXAMPLE-3687-4ac9-853c-EXAMPLEe8f` .
+	// For example, `arn:aws:aps:<region>:123456789012:workspace/ws-example1-1234-abcd-5678-ef90abcd1234` .
 	AttrArn() *string
-	// The Prometheus endpoint attribute of the workspace.
+	// The Prometheus endpoint available for this workspace.
 	//
-	// This is the endpoint prefix without the remote_write or query API appended. For example: `https://aps-workspaces.us-west-2.amazonaws.com/workspaces/ws-EXAMPLE-3687-4ac9-853c-EXAMPLEe8f/` .
+	// For example, `https://aps-workspaces.<region>.amazonaws.com/workspaces/ws-example1-1234-abcd-5678-ef90abcd1234/api/v1/` .
 	AttrPrometheusEndpoint() *string
-	// The workspace ID.
+	// The unique ID for the workspace.
 	//
-	// For example: `ws-EXAMPLE-3687-4ac9-853c-EXAMPLEe8f` .
+	// For example, `ws-example1-1234-abcd-5678-ef90abcd1234` .
 	AttrWorkspaceId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -66,10 +64,10 @@ type CfnWorkspace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// KMS Key ARN used to encrypt and decrypt AMP workspace data.
+	// (optional) The ARN for a customer managed AWS KMS key to use for encrypting data within your workspace.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
-	// The LoggingConfiguration attribute is used to set the logging configuration for the workspace.
+	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -95,7 +93,7 @@ type CfnWorkspace interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of tag keys and values to associate with the workspace.
+	// The list of tag keys and values that are associated with the workspace.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

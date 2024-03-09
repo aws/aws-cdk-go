@@ -22,8 +22,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnSamplingRule := awscdk.Aws_xray.NewCfnSamplingRule(this, jsii.String("MyCfnSamplingRule"), &CfnSamplingRuleProps{
 //   	RuleName: jsii.String("ruleName"),
 //   	SamplingRule: &SamplingRuleProperty{
@@ -84,8 +82,11 @@ import (
 //   		ServiceType: jsii.String("serviceType"),
 //   		UrlPath: jsii.String("urlPath"),
 //   	},
-//   	Tags: []interface{}{
-//   		tags,
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   })
 //
@@ -146,8 +147,8 @@ type CfnSamplingRule interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
-	Tags() *[]interface{}
-	SetTags(val *[]interface{})
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -435,8 +436,8 @@ func (j *jsiiProxy_CfnSamplingRule) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSamplingRule) Tags() *[]interface{} {
-	var returns *[]interface{}
+func (j *jsiiProxy_CfnSamplingRule) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -534,7 +535,10 @@ func (j *jsiiProxy_CfnSamplingRule)SetSamplingRuleUpdate(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnSamplingRule)SetTags(val *[]interface{}) {
+func (j *jsiiProxy_CfnSamplingRule)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tags",

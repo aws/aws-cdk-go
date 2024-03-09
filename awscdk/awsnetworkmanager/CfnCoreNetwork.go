@@ -44,11 +44,11 @@ type CfnCoreNetwork interface {
 	AttrCoreNetworkId() *string
 	// The timestamp when the core network was created.
 	AttrCreatedAt() *string
-	// The edges within a core network.
+	// The edges.
 	AttrEdges() awscdk.IResolvable
 	// Owner of the core network.
 	AttrOwnerAccount() *string
-	// The segments within a core network.
+	// The segments.
 	AttrSegments() awscdk.IResolvable
 	// The current state of the core network.
 	//

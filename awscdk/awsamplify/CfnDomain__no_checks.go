@@ -84,6 +84,14 @@ func (j *jsiiProxy_CfnDomain) validateSetAppIdParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetCertificateParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetCertificateSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetDomainNameParameters(val *string) error {
 	return nil
 }

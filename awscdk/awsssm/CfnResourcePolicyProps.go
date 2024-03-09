@@ -22,7 +22,7 @@ type CfnResourcePolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcepolicy.html#cfn-ssm-resourcepolicy-policy
 	//
 	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
-	// Amazon Resource Name (ARN) of the resource to which you want to attach a policy.
+	// The Amazon Resource Name (ARN) of the resource to which you want to attach a policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcepolicy.html#cfn-ssm-resourcepolicy-resourcearn
 	//
 	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`

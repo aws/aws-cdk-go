@@ -30,6 +30,9 @@ type CfnChannel interface {
 	//
 	// This is used in an output group or an output.
 	AttrId() *string
+	// The inputs that are attached to this channel.
+	//
+	// The inputs are identified by their IDs (not by their names or their ARNs).
 	AttrInputs() *[]*string
 	// Specification of CDI inputs for this channel.
 	CdiInputSpecification() interface{}

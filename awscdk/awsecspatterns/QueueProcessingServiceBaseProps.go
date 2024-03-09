@@ -186,7 +186,7 @@ type QueueProcessingServiceBaseProps struct {
 	//
 	MaxReceiveCount *float64 `field:"optional" json:"maxReceiveCount" yaml:"maxReceiveCount"`
 	// Maximum capacity to scale to.
-	// Default: - If the feature flag, ECS_REMOVE_DEFAULT_DESIRED_COUNT is false, the default is (desiredTaskCount * 2); if true, the default is 2.
+	// Default: 2.
 	//
 	MaxScalingCapacity *float64 `field:"optional" json:"maxScalingCapacity" yaml:"maxScalingCapacity"`
 	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
@@ -194,7 +194,7 @@ type QueueProcessingServiceBaseProps struct {
 	//
 	MinHealthyPercent *float64 `field:"optional" json:"minHealthyPercent" yaml:"minHealthyPercent"`
 	// Minimum capacity to scale to.
-	// Default: - If the feature flag, ECS_REMOVE_DEFAULT_DESIRED_COUNT is false, the default is the desiredTaskCount; if true, the default is 1.
+	// Default: 1.
 	//
 	MinScalingCapacity *float64 `field:"optional" json:"minScalingCapacity" yaml:"minScalingCapacity"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.

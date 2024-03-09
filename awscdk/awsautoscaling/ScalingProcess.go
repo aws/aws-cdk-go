@@ -12,5 +12,6 @@ const (
 	ScalingProcess_ALARM_NOTIFICATION ScalingProcess = "ALARM_NOTIFICATION"
 	ScalingProcess_SCHEDULED_ACTIONS ScalingProcess = "SCHEDULED_ACTIONS"
 	ScalingProcess_ADD_TO_LOAD_BALANCER ScalingProcess = "ADD_TO_LOAD_BALANCER"
+	ScalingProcess_INSTANCE_REFRESH ScalingProcess = "INSTANCE_REFRESH"
 )
 

@@ -1,5 +1,8 @@
 package awspinpointemail
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnIdentity`.
 //
@@ -18,8 +21,8 @@ package awspinpointemail
 //   		BehaviorOnMxFailure: jsii.String("behaviorOnMxFailure"),
 //   		MailFromDomain: jsii.String("mailFromDomain"),
 //   	},
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -56,6 +59,6 @@ type CfnIdentityProps struct {
 	// An object that defines the tags (keys and values) that you want to associate with the email identity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html#cfn-pinpointemail-identity-tags
 	//
-	Tags *[]*CfnIdentity_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -1,7 +1,7 @@
 package awsssmincidents
 
 
-// The `SsmAutomation` property type specifies details about the Systems Manager automation document that will be used as a runbook during an incident.
+// The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,7 +44,7 @@ type CfnResponsePlan_SsmAutomationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// The automation document's version to use when running.
+	// The version of the runbook to use when running.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
 	//
 	DocumentVersion *string `field:"optional" json:"documentVersion" yaml:"documentVersion"`
@@ -52,7 +52,7 @@ type CfnResponsePlan_SsmAutomationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-dynamicparameters
 	//
 	DynamicParameters interface{} `field:"optional" json:"dynamicParameters" yaml:"dynamicParameters"`
-	// The key-value pair parameters to use when running the automation document.
+	// The key-value pair parameters to use when running the runbook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`

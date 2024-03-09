@@ -170,6 +170,17 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
 })
 ```
 
+Includes AWS SDK in the bundle asset by setting `bundleAwsSDK` to `true`. This will be essentially exclude sdk from the external
+module and not be resolved to the Lambda provided sdk.
+
+```go
+nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+	Bundling: &BundlingOptions{
+		BundleAwsSDK: jsii.Boolean(true),
+	},
+})
+```
+
 ### Install modules
 
 By default, all node modules referenced in your Lambda code will be bundled by `esbuild`.

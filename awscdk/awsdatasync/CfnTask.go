@@ -99,9 +99,9 @@ type CfnTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Names (ARNs) of the destination ENIs (Elastic Network Interfaces) that were created for your subnet.
+	// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
 	AttrDestinationNetworkInterfaceArns() *[]*string
-	// The Amazon Resource Names (ARNs) of the source ENIs (Elastic Network Interfaces) that were created for your subnet.
+	// The ARNs of the source ENIs that were created for your subnet.
 	AttrSourceNetworkInterfaceArns() *[]*string
 	// The status of the task that was described.
 	AttrStatus() *string

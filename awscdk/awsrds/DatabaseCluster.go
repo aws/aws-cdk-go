@@ -56,6 +56,8 @@ type DatabaseCluster interface {
 	ClusterResourceIdentifier() *string
 	// Access to the network connections.
 	Connections() awsec2.Connections
+	EnableDataApi() *bool
+	SetEnableDataApi(val *bool)
 	// The engine for this Cluster.
 	//
 	// Never undefined.
@@ -140,6 +142,8 @@ type DatabaseCluster interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the Cluster.
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
+	// Grant the given identity to access the Data API.
+	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBCluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This value is represented as a percentage.
@@ -282,6 +286,16 @@ func (j *jsiiProxy_DatabaseCluster) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseCluster) EnableDataApi() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"enableDataApi",
 		&returns,
 	)
 	return returns
@@ -492,6 +506,14 @@ func NewDatabaseCluster_Override(d DatabaseCluster, scope constructs.Construct, 
 		"aws-cdk-lib.aws_rds.DatabaseCluster",
 		[]interface{}{scope, id, props},
 		d,
+	)
+}
+
+func (j *jsiiProxy_DatabaseCluster)SetEnableDataApi(val *bool) {
+	_jsii_.Set(
+		j,
+		"enableDataApi",
+		val,
 	)
 }
 
@@ -722,6 +744,22 @@ func (d *jsiiProxy_DatabaseCluster) GrantConnect(grantee awsiam.IGrantable, dbUs
 		d,
 		"grantConnect",
 		[]interface{}{grantee, dbUser},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DatabaseCluster) GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := d.validateGrantDataApiAccessParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		d,
+		"grantDataApiAccess",
+		[]interface{}{grantee},
 		&returns,
 	)
 

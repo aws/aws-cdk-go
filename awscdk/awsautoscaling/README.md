@@ -594,10 +594,22 @@ to determine which instances it terminates first during scale-in events. You
 can specify one or more termination policies with the `terminationPolicies`
 property:
 
+[Custom termination policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lambda-custom-termination-policy.html) with lambda
+can be used to determine which instances to terminate based on custom logic.
+The custom termination policy can be specified using `TerminationPolicy.CUSTOM_LAMBDA_FUNCTION`. If this is
+specified, you must also supply a value of lambda arn in the `terminationPolicyCustomLambdaFunctionArn` property and
+attach necessary [permission](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lambda-custom-termination-policy.html#lambda-custom-termination-policy-create-function)
+to invoke the lambda function.
+
+If there are multiple termination policies specified,
+custom termination policy with lambda `TerminationPolicy.CUSTOM_LAMBDA_FUNCTION`
+must be specified first.
+
 ```go
 var vpc vpc
 var instanceType instanceType
 var machineImage iMachineImage
+var arn string
 
 
 autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
@@ -608,9 +620,13 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 	// ...
 
 	TerminationPolicies: []terminationPolicy{
+		autoscaling.*terminationPolicy_CUSTOM_LAMBDA_FUNCTION,
 		autoscaling.*terminationPolicy_OLDEST_INSTANCE,
 		autoscaling.*terminationPolicy_DEFAULT,
 	},
+
+	//terminationPolicyCustomLambdaFunctionArn property must be specified if the TerminationPolicy.CUSTOM_LAMBDA_FUNCTION is used
+	TerminationPolicyCustomLambdaFunctionArn: arn,
 })
 ```
 

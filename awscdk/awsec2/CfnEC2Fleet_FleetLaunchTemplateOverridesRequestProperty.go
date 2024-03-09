@@ -150,6 +150,8 @@ type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	//
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The number of units provided by the specified instance type.
+	//
+	// > When specifying weights, the price used in the `lowest-price` and `price-capacity-optimized` allocation strategies is per *unit* hour (where the instance price is divided by the specified weight). However, if all the specified weights are above the requested `TargetCapacity` , resulting in only 1 instance being launched, the price used is per *instance* hour.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-weightedcapacity
 	//
 	WeightedCapacity *float64 `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`

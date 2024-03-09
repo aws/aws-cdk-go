@@ -189,6 +189,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrStatusReason", GoGetter: "AttrStatusReason"},
 			_jsii_.MemberProperty{JsiiProperty: "autoSubDomainCreationPatterns", GoGetter: "AutoSubDomainCreationPatterns"},
 			_jsii_.MemberProperty{JsiiProperty: "autoSubDomainIamRole", GoGetter: "AutoSubDomainIamRole"},
+			_jsii_.MemberProperty{JsiiProperty: "certificate", GoGetter: "Certificate"},
+			_jsii_.MemberProperty{JsiiProperty: "certificateSettings", GoGetter: "CertificateSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -213,6 +215,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "updateStatus", GoGetter: "UpdateStatus"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -221,6 +224,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_amplify.CfnDomain.CertificateProperty",
+		reflect.TypeOf((*CfnDomain_CertificateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_amplify.CfnDomain.CertificateSettingsProperty",
+		reflect.TypeOf((*CfnDomain_CertificateSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_amplify.CfnDomain.SubDomainSettingProperty",

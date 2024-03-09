@@ -33,6 +33,9 @@ package awscdkgluealpha
 //   	},
 //   	PythonVersion: glue_alpha.PythonVersion_TWO,
 //   	Runtime: runtime,
+//   	S3PythonModules: []*code{
+//   		code,
+//   	},
 //   }
 //
 // Experimental.
@@ -43,7 +46,9 @@ type JobExecutableConfig struct {
 	// Experimental.
 	GlueVersion GlueVersion `field:"required" json:"glueVersion" yaml:"glueVersion"`
 	// The language of the job (Scala or Python).
-	// See:  `--job-language` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Equivalent to a job parameter `--job-language`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
 	Language JobLanguage `field:"required" json:"language" yaml:"language"`
@@ -56,35 +61,42 @@ type JobExecutableConfig struct {
 	// The Scala class that serves as the entry point for the job.
 	//
 	// This applies only if your the job langauage is Scala.
-	// See:  `--class` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	// Equivalent to a job parameter `--class`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: - no scala className specified.
 	//
 	// Experimental.
 	ClassName *string `field:"optional" json:"className" yaml:"className"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
-	// See:  `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Equivalent to a job parameter `--extra-files`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: - no extra files specified.
 	//
 	// Experimental.
 	ExtraFiles *[]Code `field:"optional" json:"extraFiles" yaml:"extraFiles"`
-	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script.
-	// See:  `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script. Equivalent to a job parameter `--extra-jars`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: - no extra jars specified.
 	//
 	// Experimental.
 	ExtraJars *[]Code `field:"optional" json:"extraJars" yaml:"extraJars"`
 	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
-	// See:  `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Equivalent to a job parameter `--user-jars-first`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: - extra jars are not prioritized.
 	//
 	// Experimental.
 	ExtraJarsFirst *bool `field:"optional" json:"extraJarsFirst" yaml:"extraJarsFirst"`
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
-	// See:  `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Equivalent to a job parameter `--extra-py-files`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: - no extra python files specified.
 	//
@@ -100,5 +112,14 @@ type JobExecutableConfig struct {
 	//
 	// Experimental.
 	Runtime Runtime `field:"optional" json:"runtime" yaml:"runtime"`
+	// Additional Python modules that AWS Glue adds to the Python path before executing your script.
+	//
+	// Equivalent to a job parameter `--s3-py-modules`.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html
+	//
+	// Default: - no extra python files specified.
+	//
+	// Experimental.
+	S3PythonModules *[]Code `field:"optional" json:"s3PythonModules" yaml:"s3PythonModules"`
 }
 

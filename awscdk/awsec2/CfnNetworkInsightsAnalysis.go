@@ -43,8 +43,13 @@ type CfnNetworkInsightsAnalysis interface {
 	// The member accounts that contain resources that the path can traverse.
 	AdditionalAccounts() *[]*string
 	SetAdditionalAccounts(val *[]*string)
+	// Potential intermediate components.
 	AttrAlternatePathHints() awscdk.IResolvable
+	// The explanations.
+	//
+	// For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
 	AttrExplanations() awscdk.IResolvable
+	// The components in the path from source to destination.
 	AttrForwardPathComponents() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) of the network insights analysis.
 	AttrNetworkInsightsAnalysisArn() *string
@@ -52,6 +57,7 @@ type CfnNetworkInsightsAnalysis interface {
 	AttrNetworkInsightsAnalysisId() *string
 	// Indicates whether the destination is reachable from the source.
 	AttrNetworkPathFound() awscdk.IResolvable
+	// The components in the path from destination to source.
 	AttrReturnPathComponents() awscdk.IResolvable
 	// The time the analysis started.
 	AttrStartDate() *string
@@ -59,6 +65,7 @@ type CfnNetworkInsightsAnalysis interface {
 	AttrStatus() *string
 	// The status message, if the status is `failed` .
 	AttrStatusMessage() *string
+	// The IDs of potential intermediate accounts.
 	AttrSuggestedAccounts() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

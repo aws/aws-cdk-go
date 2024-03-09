@@ -41,6 +41,7 @@ type CfnBrowserSettings interface {
 	// Additional encryption context of the browser settings.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
+	// A list of web portal ARNs that the browser settings resource is associated with.
 	AttrAssociatedPortalArns() *[]*string
 	// The ARN of the browser settings.
 	AttrBrowserSettingsArn() *string

@@ -1,5 +1,8 @@
 package awspinpointemail
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnDedicatedIpPool`.
 //
@@ -10,8 +13,8 @@ package awspinpointemail
 //
 //   cfnDedicatedIpPoolProps := &CfnDedicatedIpPoolProps{
 //   	PoolName: jsii.String("poolName"),
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -28,6 +31,6 @@ type CfnDedicatedIpPoolProps struct {
 	// An object that defines the tags (keys and values) that you want to associate with the dedicated IP pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html#cfn-pinpointemail-dedicatedippool-tags
 	//
-	Tags *[]*CfnDedicatedIpPool_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

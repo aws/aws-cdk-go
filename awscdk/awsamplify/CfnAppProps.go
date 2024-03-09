@@ -80,11 +80,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
 //
 type CfnAppProps struct {
-	// The name for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	//
-	// *Pattern:* (?s).+
+	// The name of the Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -97,8 +93,6 @@ type CfnAppProps struct {
 	// You must specify either `AccessToken` or `OauthToken` when you create a new app.
 	//
 	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
 	//
 	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
@@ -113,18 +107,10 @@ type CfnAppProps struct {
 	//
 	BasicAuthConfig interface{} `field:"optional" json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
-	//
-	// *Pattern:* (?s).+
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
 	//
 	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// The custom HTTP headers for an Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 0. Maximum length of 25000.
-	//
-	// *Pattern:* (?s).*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
 	//
 	CustomHeaders *string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
@@ -132,11 +118,7 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
 	//
 	CustomRules interface{} `field:"optional" json:"customRules" yaml:"customRules"`
-	// The description for an Amplify app.
-	//
-	// *Length Constraints:* Maximum length of 1000.
-	//
-	// *Pattern:* (?s).*
+	// The description of the Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -150,11 +132,7 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
 	//
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
-	// The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) of the Amplify app.
-	//
-	// *Length Constraints:* Minimum length of 0. Maximum length of 1000.
-	//
-	// *Pattern:* (?s).*
+	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
 	//
 	IamServiceRole *string `field:"optional" json:"iamServiceRole" yaml:"iamServiceRole"`
@@ -167,10 +145,6 @@ type CfnAppProps struct {
 	// You must specify either `OauthToken` or `AccessToken` when you create a new app.
 	//
 	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
-	//
-	// *Length Constraints:* Maximum length of 1000.
-	//
-	// *Pattern:* (?s).*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
 	//
 	OauthToken *string `field:"optional" json:"oauthToken" yaml:"oauthToken"`
@@ -180,9 +154,7 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-platform
 	//
 	Platform *string `field:"optional" json:"platform" yaml:"platform"`
-	// The repository for an Amplify app.
-	//
-	// *Pattern:* (?s).*
+	// The Git repository for the Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
 	//
 	Repository *string `field:"optional" json:"repository" yaml:"repository"`

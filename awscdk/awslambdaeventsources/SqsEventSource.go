@@ -12,16 +12,13 @@ import (
 // Use an Amazon SQS queue as an event source for AWS Lambda.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
+//   import sqs "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
 //
-//   queue := sqs.NewQueue(this, jsii.String("MyQueue"))
-//   eventSource := awscdk.NewSqsEventSource(queue)
-//   fn.AddEventSource(eventSource)
-//
-//   eventSourceId := eventSource.eventSourceMappingId
-//   eventSourceMappingArn := eventSource.eventSourceMappingArn
+//   queue := sqs.NewQueue(this, jsii.String("Queue"))
+//   fn.AddEventSource(eventsources.NewSqsEventSource(queue))
 //
 type SqsEventSource interface {
 	awslambda.IEventSource

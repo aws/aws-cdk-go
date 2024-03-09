@@ -38,8 +38,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	FinalBakeTimeInMinutes: jsii.Number(123),
 //   	GrowthType: jsii.String("growthType"),
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -109,8 +109,8 @@ type CfnDeploymentStrategy interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Assigns metadata to an AWS AppConfig resource.
-	Tags() *[]*CfnDeploymentStrategy_TagsProperty
-	SetTags(val *[]*CfnDeploymentStrategy_TagsProperty)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -428,8 +428,8 @@ func (j *jsiiProxy_CfnDeploymentStrategy) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeploymentStrategy) Tags() *[]*CfnDeploymentStrategy_TagsProperty {
-	var returns *[]*CfnDeploymentStrategy_TagsProperty
+func (j *jsiiProxy_CfnDeploymentStrategy) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -554,7 +554,7 @@ func (j *jsiiProxy_CfnDeploymentStrategy)SetReplicateTo(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDeploymentStrategy)SetTags(val *[]*CfnDeploymentStrategy_TagsProperty) {
+func (j *jsiiProxy_CfnDeploymentStrategy)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}

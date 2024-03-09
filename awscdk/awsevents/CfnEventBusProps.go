@@ -1,5 +1,8 @@
 package awsevents
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnEventBus`.
 //
@@ -16,8 +19,8 @@ package awsevents
 //   	// the properties below are optional
 //   	EventSourceName: jsii.String("eventSourceName"),
 //   	Policy: policy,
-//   	Tags: []tagEntryProperty{
-//   		&tagEntryProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -46,6 +49,6 @@ type CfnEventBusProps struct {
 	// Tags to associate with the event bus.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-tags
 	//
-	Tags *[]*CfnEventBus_TagEntryProperty `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

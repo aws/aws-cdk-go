@@ -157,8 +157,7 @@ type ApplicationLoadBalancedServiceBaseProps struct {
 	// The desired number of instantiations of the task definition to keep running on the service.
 	//
 	// The minimum value is 1.
-	// Default: - If the feature flag, ECS_REMOVE_DEFAULT_DESIRED_COUNT is false, the default is 1;
-	// if true, the default is 1 for all new services and uses the existing services desired count
+	// Default: - The default is 1 for all new services and uses the existing service's desired count
 	// when updating an existing service.
 	//
 	DesiredCount *float64 `field:"optional" json:"desiredCount" yaml:"desiredCount"`

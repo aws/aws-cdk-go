@@ -23,6 +23,7 @@ package awskinesisfirehose
 //   		LogStreamName: jsii.String("logStreamName"),
 //   	},
 //   	CompressionFormat: jsii.String("compressionFormat"),
+//   	CustomTimeZone: jsii.String("customTimeZone"),
 //   	DataFormatConversionConfiguration: &DataFormatConversionConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		InputFormatConfiguration: &InputFormatConfigurationProperty{
@@ -89,6 +90,7 @@ package awskinesisfirehose
 //   		NoEncryptionConfig: jsii.String("noEncryptionConfig"),
 //   	},
 //   	ErrorOutputPrefix: jsii.String("errorOutputPrefix"),
+//   	FileExtension: jsii.String("fileExtension"),
 //   	Prefix: jsii.String("prefix"),
 //   	ProcessingConfiguration: &ProcessingConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
@@ -162,6 +164,12 @@ type CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat
 	//
 	CompressionFormat *string `field:"optional" json:"compressionFormat" yaml:"compressionFormat"`
+	// The time zone you prefer.
+	//
+	// UTC is the default.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-customtimezone
+	//
+	CustomTimeZone *string `field:"optional" json:"customTimeZone" yaml:"customTimeZone"`
 	// The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
 	//
@@ -182,6 +190,12 @@ type CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
 	//
 	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
+	// Specify a file extension.
+	//
+	// It will override the default file extension.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-fileextension
+	//
+	FileExtension *string `field:"optional" json:"fileExtension" yaml:"fileExtension"`
 	// The `YYYY/MM/DD/HH` time format prefix is automatically used for delivered Amazon S3 files.
 	//
 	// For more information, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .

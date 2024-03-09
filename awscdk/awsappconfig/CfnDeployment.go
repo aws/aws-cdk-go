@@ -40,8 +40,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -109,8 +109,8 @@ type CfnDeployment interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Metadata to assign to the deployment.
-	Tags() *[]*CfnDeployment_TagsProperty
-	SetTags(val *[]*CfnDeployment_TagsProperty)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -428,8 +428,8 @@ func (j *jsiiProxy_CfnDeployment) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeployment) Tags() *[]*CfnDeployment_TagsProperty {
-	var returns *[]*CfnDeployment_TagsProperty
+func (j *jsiiProxy_CfnDeployment) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -557,7 +557,7 @@ func (j *jsiiProxy_CfnDeployment)SetKmsKeyIdentifier(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDeployment)SetTags(val *[]*CfnDeployment_TagsProperty) {
+func (j *jsiiProxy_CfnDeployment)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}

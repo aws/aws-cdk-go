@@ -383,6 +383,15 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline.CustomActionRegistrationProps",
 		reflect.TypeOf((*CustomActionRegistrationProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codepipeline.ExecutionMode",
+		reflect.TypeOf((*ExecutionMode)(nil)).Elem(),
+		map[string]interface{}{
+			"QUEUED": ExecutionMode_QUEUED,
+			"SUPERSEDED": ExecutionMode_SUPERSEDED,
+			"PARALLEL": ExecutionMode_PARALLEL,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.GitConfiguration",
 		reflect.TypeOf((*GitConfiguration)(nil)).Elem(),

@@ -411,6 +411,46 @@ task := tasks.NewCodeBuildStartBuild(this, jsii.String("Task"), &CodeBuildStartB
 })
 ```
 
+### StartBuildBatch
+
+[StartBuildBatch](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuildBatch.html) starts a batch CodeBuild for a project by project name.
+It is necessary to enable the batch build feature in the CodeBuild project.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+	ProjectName: jsii.String("MyTestProject"),
+	BuildSpec: codebuild.BuildSpec_FromObjectToYaml(map[string]interface{}{
+		"version": jsii.Number(0.2),
+		"batch": map[string][]map[string]*string{
+			"build-list": []map[string]*string{
+				map[string]*string{
+					"identifier": jsii.String("id"),
+					"buildspec": jsii.String("version: 0.2\nphases:\n  build:\n    commands:\n      - echo \"Hello, from small!\""),
+				},
+			},
+		},
+	}),
+})
+project.EnableBatchBuilds()
+
+task := tasks.NewCodeBuildStartBuildBatch(this, jsii.String("buildBatchTask"), &CodeBuildStartBuildBatchProps{
+	Project: Project,
+	IntegrationPattern: sfn.IntegrationPattern_REQUEST_RESPONSE,
+	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
+		"test": &buildEnvironmentVariable{
+			"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
+			"value": jsii.String("testValue"),
+		},
+	},
+})
+```
+
+**Note**: `enableBatchBuilds()` will do nothing for imported projects.
+If you are using an imported project, you must ensure that the project is already configured for batch builds.
+
 ## DynamoDB
 
 You can call DynamoDB APIs from a `Task` state.

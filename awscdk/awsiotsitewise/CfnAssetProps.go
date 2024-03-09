@@ -17,18 +17,23 @@ import (
 //
 //   	// the properties below are optional
 //   	AssetDescription: jsii.String("assetDescription"),
+//   	AssetExternalId: jsii.String("assetExternalId"),
 //   	AssetHierarchies: []interface{}{
 //   		&AssetHierarchyProperty{
 //   			ChildAssetId: jsii.String("childAssetId"),
+//
+//   			// the properties below are optional
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
 //   			LogicalId: jsii.String("logicalId"),
 //   		},
 //   	},
 //   	AssetProperties: []interface{}{
 //   		&AssetPropertyProperty{
-//   			LogicalId: jsii.String("logicalId"),
-//
-//   			// the properties below are optional
 //   			Alias: jsii.String("alias"),
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
+//   			LogicalId: jsii.String("logicalId"),
 //   			NotificationState: jsii.String("notificationState"),
 //   			Unit: jsii.String("unit"),
 //   		},
@@ -60,6 +65,10 @@ type CfnAssetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetdescription
 	//
 	AssetDescription *string `field:"optional" json:"assetDescription" yaml:"assetDescription"`
+	// The External ID of the asset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetexternalid
+	//
+	AssetExternalId *string `field:"optional" json:"assetExternalId" yaml:"assetExternalId"`
 	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
 	//
 	// A hierarchy specifies allowed parent/child asset relationships.

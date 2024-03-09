@@ -49,6 +49,7 @@ import (
 //   		ServiceProfileId: jsii.String("serviceProfileId"),
 //   	},
 //   	Name: jsii.String("name"),
+//   	Positioning: jsii.String("positioning"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -91,6 +92,10 @@ type CfnWirelessDeviceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-positioning
+	//
+	Positioning *string `field:"optional" json:"positioning" yaml:"positioning"`
 	// The tags are an array of key-value pairs to attach to the specified resource.
 	//
 	// Tags can have a minimum of 0 and a maximum of 50 items.

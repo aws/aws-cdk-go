@@ -11,14 +11,17 @@ import (
 // instance.
 //
 // Example:
-//   natInstanceProvider := ec2.NatProvider_Instance(&NatInstanceProps{
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T4G, ec2.InstanceSize_LARGE),
-//   	MachineImage: ec2.NewAmazonLinuxImage(),
-//   	CreditSpecification: ec2.CpuCredits_UNLIMITED,
+//   var instanceType instanceType
+//
+//
+//   provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
+//   	InstanceType: InstanceType,
+//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_OUTBOUND_ONLY,
 //   })
-//   ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
-//   	NatGatewayProvider: natInstanceProvider,
+//   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+//   	NatGatewayProvider: provider,
 //   })
+//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
 //
 type NatProvider interface {
 	// Return list of gateways spawned by the provider.
@@ -91,6 +94,8 @@ func NatProvider_Gateway(props *NatGatewayProps) NatProvider {
 // your own NatProvider based on AutoScaling groups if you need that.
 // See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html
 //
+// Deprecated: use instanceV2. 'instance' is deprecated since NatInstanceProvider
+// uses a instance image that has reached EOL on Dec 31 2023.
 func NatProvider_Instance(props *NatInstanceProps) NatInstanceProvider {
 	_init_.Initialize()
 
@@ -102,6 +107,33 @@ func NatProvider_Instance(props *NatInstanceProps) NatInstanceProvider {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.NatProvider",
 		"instance",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use NAT instances to provide NAT services for your VPC.
+//
+// NAT instances are managed by you, but in return allow more configuration.
+//
+// Be aware that instances created using this provider will not be
+// automatically replaced if they are stopped for any reason. You should implement
+// your own NatProvider based on AutoScaling groups if you need that.
+// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html
+//
+func NatProvider_InstanceV2(props *NatInstanceProps) NatInstanceProviderV2 {
+	_init_.Initialize()
+
+	if err := validateNatProvider_InstanceV2Parameters(props); err != nil {
+		panic(err)
+	}
+	var returns NatInstanceProviderV2
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.NatProvider",
+		"instanceV2",
 		[]interface{}{props},
 		&returns,
 	)

@@ -187,7 +187,7 @@ func (j *jsiiProxy_CfnEventBus) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnEventBus) validateSetTagsParameters(val *[]*CfnEventBus_TagEntryProperty) error {
+func (j *jsiiProxy_CfnEventBus) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err

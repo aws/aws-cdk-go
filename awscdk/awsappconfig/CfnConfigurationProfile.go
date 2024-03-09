@@ -41,8 +41,8 @@ import (
 //   	Description: jsii.String("description"),
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	RetrievalRoleArn: jsii.String("retrievalRoleArn"),
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -121,8 +121,8 @@ type CfnConfigurationProfile interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Metadata to assign to the configuration profile.
-	Tags() *[]*CfnConfigurationProfile_TagsProperty
-	SetTags(val *[]*CfnConfigurationProfile_TagsProperty)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The type of configurations contained in the profile.
 	Type() *string
 	SetType(val *string)
@@ -446,8 +446,8 @@ func (j *jsiiProxy_CfnConfigurationProfile) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationProfile) Tags() *[]*CfnConfigurationProfile_TagsProperty {
-	var returns *[]*CfnConfigurationProfile_TagsProperty
+func (j *jsiiProxy_CfnConfigurationProfile) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -581,7 +581,7 @@ func (j *jsiiProxy_CfnConfigurationProfile)SetRetrievalRoleArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnConfigurationProfile)SetTags(val *[]*CfnConfigurationProfile_TagsProperty) {
+func (j *jsiiProxy_CfnConfigurationProfile)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}

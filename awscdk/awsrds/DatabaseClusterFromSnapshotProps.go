@@ -106,6 +106,10 @@ type DatabaseClusterFromSnapshotProps struct {
 	// Default: - If `DatabaseClusterBaseProps.domain` is specified, a role with the `AmazonRDSDirectoryServiceAccess` policy is automatically created.
 	//
 	DomainRole awsiam.IRole `field:"optional" json:"domainRole" yaml:"domainRole"`
+	// Whether to enable the Data API for the cluster.
+	// Default: - false.
+	//
+	EnableDataApi *bool `field:"optional" json:"enableDataApi" yaml:"enableDataApi"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	// Default: false.
 	//

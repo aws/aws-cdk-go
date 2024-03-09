@@ -1,7 +1,7 @@
 package awsssmincidents
 
 
-// The `ReplicationRegion` property type specifies the Region and KMS key to add to the replication set.
+// The `ReplicationRegion` property type specifies the Region and AWS Key Management Service key to add to the replication set.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

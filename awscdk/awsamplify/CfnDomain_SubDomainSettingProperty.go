@@ -25,10 +25,6 @@ type CfnDomain_SubDomainSettingProperty struct {
 	//
 	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
 	// The prefix setting for the subdomain.
-	//
-	// *Length Constraints:* Maximum length of 255.
-	//
-	// *Pattern:* (?s).*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
 	//
 	Prefix *string `field:"required" json:"prefix" yaml:"prefix"`

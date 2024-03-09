@@ -21,7 +21,7 @@ import (
 //   var instanceType instanceType
 //
 //
-//   provider := ec2.NatProvider_Instance(&NatInstanceProps{
+//   provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
 //   	InstanceType: InstanceType,
 //   	DefaultAllowedTraffic: ec2.NatTrafficDirection_OUTBOUND_ONLY,
 //   })

@@ -25,6 +25,12 @@ import (
 //
 //   	// the properties below are optional
 //   	DeleteOnTermination: jsii.Boolean(false),
+//   	EnaSrdSpecification: &EnaSrdSpecificationProperty{
+//   		EnaSrdEnabled: jsii.Boolean(false),
+//   		EnaSrdUdpSpecification: &EnaSrdUdpSpecificationProperty{
+//   			EnaSrdUdpEnabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html
@@ -49,6 +55,9 @@ type CfnNetworkInterfaceAttachment interface {
 	// The network interface's position in the attachment order.
 	DeviceIndex() *string
 	SetDeviceIndex(val *string)
+	// Configures ENA Express for the network interface that this action attaches to the instance.
+	EnaSrdSpecification() interface{}
+	SetEnaSrdSpecification(val interface{})
 	// The ID of the instance to which you will attach the ENI.
 	InstanceId() *string
 	SetInstanceId(val *string)
@@ -292,6 +301,16 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment) DeviceIndex() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment) EnaSrdSpecification() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enaSrdSpecification",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNetworkInterfaceAttachment) InstanceId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -418,6 +437,17 @@ func (j *jsiiProxy_CfnNetworkInterfaceAttachment)SetDeviceIndex(val *string) {
 	_jsii_.Set(
 		j,
 		"deviceIndex",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNetworkInterfaceAttachment)SetEnaSrdSpecification(val interface{}) {
+	if err := j.validateSetEnaSrdSpecificationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enaSrdSpecification",
 		val,
 	)
 }

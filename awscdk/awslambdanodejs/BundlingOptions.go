@@ -84,6 +84,12 @@ type BundlingOptions struct {
 	// Default: - no build arguments are passed.
 	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Includes AWS SDK in the bundle asset.
+	// Default: - false
+	// if `true` the `aws-sdk` will be included in the asset bundle and not be
+	// resolved to the Lambda provided sdk.
+	//
+	BundleAwsSDK *bool `field:"optional" json:"bundleAwsSDK" yaml:"bundleAwsSDK"`
 	// Which option to use to copy the source files to the docker container and output files back.
 	// Default: - BundlingFileAccess.BIND_MOUNT
 	//
@@ -143,8 +149,7 @@ type BundlingOptions struct {
 	//
 	EsbuildVersion *string `field:"optional" json:"esbuildVersion" yaml:"esbuildVersion"`
 	// A list of modules that should be considered as externals (already available in the runtime).
-	// Default: - ['aws-sdk'] if the runtime is <= Node.js 16.x, ['@aws-sdk/*'] if Node.js 18.x,
-	// [] if using a variable runtime version such as NODEJS_LATEST.
+	// Default: - no replacements are made.
 	//
 	ExternalModules *[]*string `field:"optional" json:"externalModules" yaml:"externalModules"`
 	// Use this to insert an arbitrary string at the end of generated JavaScript files.

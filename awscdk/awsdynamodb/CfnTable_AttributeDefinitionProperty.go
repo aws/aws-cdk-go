@@ -1,7 +1,7 @@
 package awsdynamodb
 
 
-// Represents an attribute for describing the key schema for the table and indexes.
+// Represents an attribute for describing the schema for the table and indexes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

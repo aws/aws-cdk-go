@@ -84,7 +84,7 @@ func (j *jsiiProxy_CfnApplication) validateSetNameParameters(val *string) error 
 	return nil
 }
 
-func (j *jsiiProxy_CfnApplication) validateSetTagsParameters(val *[]*CfnApplication_TagsProperty) error {
+func (j *jsiiProxy_CfnApplication) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

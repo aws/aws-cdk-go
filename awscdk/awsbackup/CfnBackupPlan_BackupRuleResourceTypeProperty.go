@@ -81,6 +81,9 @@ type CfnBackupPlan_BackupRuleResourceTypeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
 	//
 	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
+	// This is the timezone in which the schedule expression is set.
+	//
+	// By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpressiontimezone
 	//
 	ScheduleExpressionTimezone *string `field:"optional" json:"scheduleExpressionTimezone" yaml:"scheduleExpressionTimezone"`

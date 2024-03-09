@@ -54,6 +54,7 @@ import (
 //   		ServiceProfileId: jsii.String("serviceProfileId"),
 //   	},
 //   	Name: jsii.String("name"),
+//   	Positioning: jsii.String("positioning"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -113,6 +114,9 @@ type CfnWirelessDevice interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+	Positioning() *string
+	SetPositioning(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -420,6 +424,16 @@ func (j *jsiiProxy_CfnWirelessDevice) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWirelessDevice) Positioning() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"positioning",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWirelessDevice) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -570,6 +584,14 @@ func (j *jsiiProxy_CfnWirelessDevice)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWirelessDevice)SetPositioning(val *string) {
+	_jsii_.Set(
+		j,
+		"positioning",
 		val,
 	)
 }

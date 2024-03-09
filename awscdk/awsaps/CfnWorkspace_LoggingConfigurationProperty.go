@@ -1,7 +1,7 @@
 package awsaps
 
 
-// The LoggingConfiguration attribute sets the logging configuration for the workspace.
+// Contains information about the logging configuration for the workspace.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,9 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html
 //
 type CfnWorkspace_LoggingConfigurationProperty struct {
-	// The Amazon Resource Name (ARN) of the CloudWatch log group the logs are emitted to.
+	// The ARN of the CloudWatch log group to which the vended log data will be published.
+	//
+	// This log group must exist prior to calling this operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html#cfn-aps-workspace-loggingconfiguration-loggrouparn
 	//
 	LogGroupArn *string `field:"optional" json:"logGroupArn" yaml:"logGroupArn"`

@@ -11,7 +11,7 @@ import (
 
 // The `AWS::SSM::Document` resource creates a Systems Manager (SSM) document in AWS Systems Manager .
 //
-// This document defines the actions that Systems Manager performs on your AWS resources.
+// This document d efines the actions that Systems Manager performs on your AWS resources.
 //
 // > This resource does not support AWS CloudFormation drift detection.
 //

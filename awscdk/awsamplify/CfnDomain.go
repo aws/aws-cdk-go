@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
+// Specifies the AWS::Amplify::Domain resource that enables you to connect a custom domain to your app.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,7 +31,17 @@ import (
 //   		jsii.String("autoSubDomainCreationPatterns"),
 //   	},
 //   	AutoSubDomainIamRole: jsii.String("autoSubDomainIamRole"),
+//   	Certificate: &CertificateProperty{
+//   		CertificateArn: jsii.String("certificateArn"),
+//   		CertificateType: jsii.String("certificateType"),
+//   		CertificateVerificationDnsRecord: jsii.String("certificateVerificationDnsRecord"),
+//   	},
+//   	CertificateSettings: &CertificateSettingsProperty{
+//   		CertificateType: jsii.String("certificateType"),
+//   		CustomCertificateArn: jsii.String("customCertificateArn"),
+//   	},
 //   	EnableAutoSubDomain: jsii.Boolean(false),
+//   	UpdateStatus: jsii.String("updateStatus"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
@@ -44,6 +54,7 @@ type CfnDomain interface {
 	SetAppId(val *string)
 	// ARN for the Domain Association.
 	AttrArn() *string
+	// Branch patterns for the automatically created subdomain.
 	AttrAutoSubDomainCreationPatterns() *[]*string
 	// The IAM service role for the subdomain.
 	AttrAutoSubDomainIamRole() *string
@@ -60,9 +71,15 @@ type CfnDomain interface {
 	// Sets the branch patterns for automatic subdomain creation.
 	AutoSubDomainCreationPatterns() *[]*string
 	SetAutoSubDomainCreationPatterns(val *[]*string)
-	// The required AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
+	// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
 	AutoSubDomainIamRole() *string
 	SetAutoSubDomainIamRole(val *string)
+	// Describes the SSL/TLS certificate for the domain association.
+	Certificate() interface{}
+	SetCertificate(val interface{})
+	// The type of SSL/TLS certificate to use for your custom domain.
+	CertificateSettings() interface{}
+	SetCertificateSettings(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -115,6 +132,9 @@ type CfnDomain interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The status of the domain update operation that is currently in progress.
+	UpdateStatus() *string
+	SetUpdateStatus(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -358,6 +378,26 @@ func (j *jsiiProxy_CfnDomain) AutoSubDomainIamRole() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) Certificate() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"certificate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) CertificateSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"certificateSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -488,6 +528,16 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) UpdateStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"updateStatus",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
@@ -543,6 +593,28 @@ func (j *jsiiProxy_CfnDomain)SetAutoSubDomainIamRole(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDomain)SetCertificate(val interface{}) {
+	if err := j.validateSetCertificateParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"certificate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetCertificateSettings(val interface{}) {
+	if err := j.validateSetCertificateSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"certificateSettings",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDomain)SetDomainName(val *string) {
 	if err := j.validateSetDomainNameParameters(val); err != nil {
 		panic(err)
@@ -572,6 +644,14 @@ func (j *jsiiProxy_CfnDomain)SetSubDomainSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"subDomainSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetUpdateStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"updateStatus",
 		val,
 	)
 }

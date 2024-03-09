@@ -39,6 +39,15 @@ import (
 //   	ManageAdminPassword: jsii.Boolean(false),
 //   	NamespaceResourcePolicy: namespaceResourcePolicy,
 //   	RedshiftIdcApplicationArn: jsii.String("redshiftIdcApplicationArn"),
+//   	SnapshotCopyConfigurations: []interface{}{
+//   		&SnapshotCopyConfigurationProperty{
+//   			DestinationRegion: jsii.String("destinationRegion"),
+//
+//   			// the properties below are optional
+//   			DestinationKmsKeyId: jsii.String("destinationKmsKeyId"),
+//   			SnapshotRetentionPeriod: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -71,9 +80,13 @@ type CfnNamespace interface {
 	AttrNamespaceDbName() *string
 	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 	AttrNamespaceDefaultIamRoleArn() *string
+	// A list of IAM roles to associate with the namespace.
 	AttrNamespaceIamRoles() *[]*string
 	// The ID of the AWS Key Management Service key used to encrypt your data.
 	AttrNamespaceKmsKeyId() *string
+	// The types of logs the namespace can export.
+	//
+	// Available export types are `User log` , `Connection log` , and `User activity log` .
 	AttrNamespaceLogExports() *[]*string
 	// The Amazon Resource Name (ARN) associated with a namespace.
 	AttrNamespaceNamespaceArn() *string
@@ -144,6 +157,9 @@ type CfnNamespace interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The snapshot copy configurations for the namespace.
+	SnapshotCopyConfigurations() interface{}
+	SetSnapshotCopyConfigurations(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -630,6 +646,16 @@ func (j *jsiiProxy_CfnNamespace) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNamespace) SnapshotCopyConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"snapshotCopyConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNamespace) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -822,6 +848,17 @@ func (j *jsiiProxy_CfnNamespace)SetRedshiftIdcApplicationArn(val *string) {
 	_jsii_.Set(
 		j,
 		"redshiftIdcApplicationArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNamespace)SetSnapshotCopyConfigurations(val interface{}) {
+	if err := j.validateSetSnapshotCopyConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"snapshotCopyConfigurations",
 		val,
 	)
 }

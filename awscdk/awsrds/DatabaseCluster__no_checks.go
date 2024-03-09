@@ -32,6 +32,10 @@ func (d *jsiiProxy_DatabaseCluster) validateGrantConnectParameters(grantee awsia
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseCluster) validateGrantDataApiAccessParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseCluster) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

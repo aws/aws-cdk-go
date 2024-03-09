@@ -675,6 +675,19 @@ pipeline.AddTrigger(&TriggerProps{
 })
 ```
 
+## Execution mode
+
+To control the concurrency behavior when multiple executions of a pipeline are started, you can use the `executionMode` property.
+
+The execution mode can only be used with pipeline type V2.
+
+```go
+codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+	PipelineType: codepipeline.PipelineType_V2,
+	ExecutionMode: codepipeline.ExecutionMode_PARALLEL,
+})
+```
+
 ## Migrating a pipeline type from V1 to V2
 
 To migrate your pipeline type from V1 to V2, you just need to update the `pipelineType` property to `PipelineType.V2`.

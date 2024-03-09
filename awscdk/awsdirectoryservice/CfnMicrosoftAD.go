@@ -44,6 +44,7 @@ type CfnMicrosoftAD interface {
 	//
 	// For example: `d-12373a053a` or `alias4-mydirectory-12345abcgmzsk` (if you have the `CreateAlias` property set to true).
 	AttrAlias() *string
+	// The IP addresses of the DNS servers for the directory, such as `[ "192.0.2.1", "192.0.2.2" ]` .
 	AttrDnsIpAddresses() *[]*string
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.

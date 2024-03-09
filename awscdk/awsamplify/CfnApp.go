@@ -125,7 +125,7 @@ type CfnApp interface {
 	// The custom rewrite and redirect rules for an Amplify app.
 	CustomRules() interface{}
 	SetCustomRules(val interface{})
-	// The description for an Amplify app.
+	// The description of the Amplify app.
 	Description() *string
 	SetDescription(val *string)
 	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
@@ -134,7 +134,7 @@ type CfnApp interface {
 	// The environment variables map for an Amplify app.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
-	// The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) of the Amplify app.
+	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	IamServiceRole() *string
 	SetIamServiceRole(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -147,7 +147,7 @@ type CfnApp interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name for an Amplify app.
+	// The name of the Amplify app.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -163,7 +163,7 @@ type CfnApp interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The repository for an Amplify app.
+	// The Git repository for the Amplify app.
 	Repository() *string
 	SetRepository(val *string)
 	// The stack in which this element is defined.

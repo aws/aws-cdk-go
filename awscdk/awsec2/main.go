@@ -3147,6 +3147,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "deleteOnTermination", GoGetter: "DeleteOnTermination"},
 			_jsii_.MemberProperty{JsiiProperty: "deviceIndex", GoGetter: "DeviceIndex"},
+			_jsii_.MemberProperty{JsiiProperty: "enaSrdSpecification", GoGetter: "EnaSrdSpecification"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -3174,6 +3175,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterfaceAttachment.EnaSrdSpecificationProperty",
+		reflect.TypeOf((*CfnNetworkInterfaceAttachment_EnaSrdSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnNetworkInterfaceAttachment.EnaSrdUdpSpecificationProperty",
+		reflect.TypeOf((*CfnNetworkInterfaceAttachment_EnaSrdUdpSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnNetworkInterfaceAttachmentProps",
@@ -7991,6 +8000,23 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_NatInstanceProvider{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_NatProvider)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.NatInstanceProviderV2",
+		reflect.TypeOf((*NatInstanceProviderV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configuredGateways", GoGetter: "ConfiguredGateways"},
+			_jsii_.MemberMethod{JsiiMethod: "configureNat", GoMethod: "ConfigureNat"},
+			_jsii_.MemberMethod{JsiiMethod: "configureSubnet", GoMethod: "ConfigureSubnet"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "securityGroup", GoGetter: "SecurityGroup"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NatInstanceProviderV2{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_NatProvider)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConnectable)
 			return &j

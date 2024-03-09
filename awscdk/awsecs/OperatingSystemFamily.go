@@ -31,6 +31,8 @@ import (
 //   })
 //
 type OperatingSystemFamily interface {
+	// Returns true if the operating system family is Windows.
+	IsWindows() *bool
 }
 
 // The jsii proxy struct for OperatingSystemFamily
@@ -144,6 +146,19 @@ func OperatingSystemFamily_WINDOWS_SERVER_20H2_CORE() OperatingSystemFamily {
 		"WINDOWS_SERVER_20H2_CORE",
 		&returns,
 	)
+	return returns
+}
+
+func (o *jsiiProxy_OperatingSystemFamily) IsWindows() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		o,
+		"isWindows",
+		nil, // no parameters
+		&returns,
+	)
+
 	return returns
 }
 

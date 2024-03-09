@@ -24,18 +24,23 @@ import (
 //
 //   	// the properties below are optional
 //   	AssetDescription: jsii.String("assetDescription"),
+//   	AssetExternalId: jsii.String("assetExternalId"),
 //   	AssetHierarchies: []interface{}{
 //   		&AssetHierarchyProperty{
 //   			ChildAssetId: jsii.String("childAssetId"),
+//
+//   			// the properties below are optional
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
 //   			LogicalId: jsii.String("logicalId"),
 //   		},
 //   	},
 //   	AssetProperties: []interface{}{
 //   		&AssetPropertyProperty{
-//   			LogicalId: jsii.String("logicalId"),
-//
-//   			// the properties below are optional
 //   			Alias: jsii.String("alias"),
+//   			ExternalId: jsii.String("externalId"),
+//   			Id: jsii.String("id"),
+//   			LogicalId: jsii.String("logicalId"),
 //   			NotificationState: jsii.String("notificationState"),
 //   			Unit: jsii.String("unit"),
 //   		},
@@ -57,6 +62,9 @@ type CfnAsset interface {
 	// A description for the asset.
 	AssetDescription() *string
 	SetAssetDescription(val *string)
+	// The External ID of the asset.
+	AssetExternalId() *string
+	SetAssetExternalId(val *string)
 	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
 	AssetHierarchies() interface{}
 	SetAssetHierarchies(val interface{})
@@ -260,6 +268,16 @@ func (j *jsiiProxy_CfnAsset) AssetDescription() *string {
 	_jsii_.Get(
 		j,
 		"assetDescription",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAsset) AssetExternalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assetExternalId",
 		&returns,
 	)
 	return returns
@@ -477,6 +495,14 @@ func (j *jsiiProxy_CfnAsset)SetAssetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"assetDescription",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAsset)SetAssetExternalId(val *string) {
+	_jsii_.Set(
+		j,
+		"assetExternalId",
 		val,
 	)
 }

@@ -1552,32 +1552,33 @@ rds.NewServerlessClusterFromSnapshot(this, jsii.String("Cluster"), &ServerlessCl
 
 ### Data API
 
-You can access your Aurora Serverless DB cluster using the built-in Data API. The Data API doesn't require a persistent connection to the DB cluster. Instead, it provides a secure HTTP endpoint and integration with AWS SDKs.
+You can access your Aurora DB cluster using the built-in Data API. The Data API doesn't require a persistent connection to the DB cluster. Instead, it provides a secure HTTP endpoint and integration with AWS SDKs.
 
 The following example shows granting Data API access to a Lamba function.
 
 ```go
 var vpc vpc
+var fn function
 
-var code code
 
-
-cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
+// Create a serverless V1 cluster
+serverlessV1Cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
 	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
 	Vpc: Vpc,
 	 // this parameter is optional for serverless Clusters
 	EnableDataApi: jsii.Boolean(true),
 })
-fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-	Runtime: lambda.Runtime_NODEJS_LATEST(),
-	Handler: jsii.String("index.handler"),
-	Code: Code,
-	Environment: map[string]*string{
-		"CLUSTER_ARN": cluster.clusterArn,
-		"SECRET_ARN": cluster.secret.secretArn,
-	},
+serverlessV1Cluster.grantDataApiAccess(fn)
+
+// Create an Aurora cluster
+cluster := rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
+	Vpc: Vpc,
+	EnableDataApi: jsii.Boolean(true),
 })
-cluster.grantDataApiAccess(fn)
+cluster.GrantDataApiAccess(fn)
+// It is necessary to grant the function access to the secret associated with the cluster for `DatabaseCluster`.
+cluster.Secret.GrantRead(fn)
 ```
 
 **Note**: To invoke the Data API, the resource will need to read the secret associated with the cluster.
@@ -1591,3 +1592,24 @@ The `vpc` parameter is optional.
 If not provided, the cluster will be created in the default VPC of the account and region.
 As this VPC is not deployed with AWS CDK, you can't configure the `vpcSubnets`, `subnetGroup` or `securityGroups` of the Aurora Serverless Cluster.
 If you want to provide one of `vpcSubnets`, `subnetGroup` or `securityGroups` parameter, please provide a `vpc`.
+
+### Preferred Maintenance Window
+
+When creating an RDS cluster, it is possible to (optionally) specify a preferred maintenance window for the cluster as well as the instances under the cluster.
+See [AWS docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance) for more information regarding maintenance windows.
+
+The following code snippet shows an example of setting the cluster's maintenance window to 22:15-22:45 (UTC) on Saturdays, but setting the instances' maintenance window
+to 23:15-23:45 on Sundays
+
+```go
+var vpc vpc
+
+rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA(),
+	InstanceProps: &InstanceProps{
+		Vpc: vpc,
+		PreferredMaintenanceWindow: jsii.String("Sun:23:15-Sun:23:45"),
+	},
+	PreferredMaintenanceWindow: jsii.String("Sat:22:15-Sat:22:45"),
+})
+```

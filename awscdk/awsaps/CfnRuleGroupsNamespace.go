@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::APS::RuleGroupsNamespace` resource creates or updates a rule groups namespace within a Amazon Managed Service for Prometheus workspace.
+// The definition of a rule groups namespace in an Amazon Managed Service for Prometheus workspace.
 //
-// For more information, see [Recording rules and alerting rules](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html) .
+// A rule groups namespace is associated with exactly one rules file. A workspace can have multiple rule groups namespaces. For more information about rules files, seee [Creating a rules file](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html) , in the *Amazon Managed Service for Prometheus User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,9 +38,9 @@ type CfnRuleGroupsNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The ARN of the rules group namespace.
+	// The ARN of the rule groups namespace.
 	//
-	// For example, `arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/ws-EXAMPLE-3687-4ac9-853c-EXAMPLEe8f/amp=rules`.
+	// For example, `arn:aws:aps:<region>:123456789012:rulegroupsnamespace/ws-example1-1234-abcd-5678-ef90abcd1234/rulesfile1` .
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -51,7 +51,7 @@ type CfnRuleGroupsNamespace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The rules definition file for this namespace.
+	// The rules file used in the namespace.
 	Data() *string
 	SetData(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,7 +80,7 @@ type CfnRuleGroupsNamespace interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of key and value pairs for the workspace resources.
+	// The list of tag keys and values that are associated with the rule groups namespace.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -96,7 +96,7 @@ type CfnRuleGroupsNamespace interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ARN of the workspace that contains this rule groups namespace.
+	// An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
 	Workspace() *string
 	SetWorkspace(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

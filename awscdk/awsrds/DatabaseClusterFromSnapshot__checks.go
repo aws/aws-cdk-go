@@ -94,6 +94,14 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateGrantConnectParameters(g
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateGrantDataApiAccessParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	if metricName == nil {
 		return fmt.Errorf("parameter metricName is required, but nil was provided")

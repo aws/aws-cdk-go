@@ -99,6 +99,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assetDescription", GoGetter: "AssetDescription"},
+			_jsii_.MemberProperty{JsiiProperty: "assetExternalId", GoGetter: "AssetExternalId"},
 			_jsii_.MemberProperty{JsiiProperty: "assetHierarchies", GoGetter: "AssetHierarchies"},
 			_jsii_.MemberProperty{JsiiProperty: "assetModelId", GoGetter: "AssetModelId"},
 			_jsii_.MemberProperty{JsiiProperty: "assetName", GoGetter: "AssetName"},
@@ -160,9 +161,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assetModelCompositeModels", GoGetter: "AssetModelCompositeModels"},
 			_jsii_.MemberProperty{JsiiProperty: "assetModelDescription", GoGetter: "AssetModelDescription"},
+			_jsii_.MemberProperty{JsiiProperty: "assetModelExternalId", GoGetter: "AssetModelExternalId"},
 			_jsii_.MemberProperty{JsiiProperty: "assetModelHierarchies", GoGetter: "AssetModelHierarchies"},
 			_jsii_.MemberProperty{JsiiProperty: "assetModelName", GoGetter: "AssetModelName"},
 			_jsii_.MemberProperty{JsiiProperty: "assetModelProperties", GoGetter: "AssetModelProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "assetModelType", GoGetter: "AssetModelType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAssetModelArn", GoGetter: "AttrAssetModelArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAssetModelId", GoGetter: "AttrAssetModelId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -225,6 +228,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel.MetricWindowProperty",
 		reflect.TypeOf((*CfnAssetModel_MetricWindowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel.PropertyPathDefinitionProperty",
+		reflect.TypeOf((*CfnAssetModel_PropertyPathDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotsitewise.CfnAssetModel.PropertyTypeProperty",

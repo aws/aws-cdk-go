@@ -61,6 +61,12 @@ import (
 //   			RegistryArn: jsii.String("registryArn"),
 //   		},
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
@@ -68,8 +74,11 @@ import (
 type CfnTaskSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ID of the task set.
 	AttrId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -127,6 +136,9 @@ type CfnTaskSet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The metadata that you apply to the task set to help you categorize and organize them.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The task definition for the tasks in the task set to use.
 	TaskDefinition() *string
 	SetTaskDefinition(val *string)
@@ -274,6 +286,7 @@ type CfnTaskSet interface {
 type jsiiProxy_CfnTaskSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTaskSet) AttrId() *string {
@@ -281,6 +294,16 @@ func (j *jsiiProxy_CfnTaskSet) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTaskSet) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -456,6 +479,16 @@ func (j *jsiiProxy_CfnTaskSet) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTaskSet) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTaskSet) TaskDefinition() *string {
 	var returns *string
 	_jsii_.Get(
@@ -600,6 +633,17 @@ func (j *jsiiProxy_CfnTaskSet)SetServiceRegistries(val interface{}) {
 	_jsii_.Set(
 		j,
 		"serviceRegistries",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskSet)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -34,6 +34,7 @@ import (
 //   			LogStreamName: jsii.String("logStreamName"),
 //   		},
 //   		CompressionFormat: jsii.String("compressionFormat"),
+//   		CustomTimeZone: jsii.String("customTimeZone"),
 //   		DataFormatConversionConfiguration: &DataFormatConversionConfigurationProperty{
 //   			Enabled: jsii.Boolean(false),
 //   			InputFormatConfiguration: &InputFormatConfigurationProperty{
@@ -100,6 +101,7 @@ import (
 //   			NoEncryptionConfig: jsii.String("noEncryptionConfig"),
 //   		},
 //   		ErrorOutputPrefix: jsii.String("errorOutputPrefix"),
+//   		FileExtension: jsii.String("fileExtension"),
 //   		Prefix: jsii.String("prefix"),
 //   		ProcessingConfiguration: &ProcessingConfigurationProperty{
 //   			Enabled: jsii.Boolean(false),

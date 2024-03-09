@@ -68,14 +68,19 @@ type CfnWorkgroup interface {
 	AttrWorkgroupEndpointVpcEndpoints() awscdk.IResolvable
 	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	AttrWorkgroupEnhancedVpcRouting() awscdk.IResolvable
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries.
+	//
+	// The max capacity is specified in RPUs.
 	AttrWorkgroupMaxCapacity() *float64
 	// The namespace the workgroup is associated with.
 	AttrWorkgroupNamespaceName() *string
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	AttrWorkgroupPubliclyAccessible() awscdk.IResolvable
+	// An array of security group IDs to associate with the workgroup.
 	AttrWorkgroupSecurityGroupIds() *[]*string
 	// The status of the workgroup.
 	AttrWorkgroupStatus() *string
+	// An array of subnet IDs the workgroup is associated with.
 	AttrWorkgroupSubnetIds() *[]*string
 	// The Amazon Resource Name (ARN) that links to the workgroup.
 	AttrWorkgroupWorkgroupArn() *string
@@ -111,7 +116,7 @@ type CfnWorkgroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries.
 	MaxCapacity() *float64
 	SetMaxCapacity(val *float64)
 	// The namespace the workgroup is associated with.

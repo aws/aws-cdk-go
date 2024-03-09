@@ -42,7 +42,7 @@ type CfnChannel interface {
 	AttrArn() *string
 	// The timestamp of the ccreation of the channel.
 	AttrCreatedAt() *string
-	// <p>The list of ingest endpoints.</p>.
+	// The ingest endpoints associated with the channel.
 	AttrIngestEndpoints() awscdk.IResolvable
 	// The timestamp of the modification of the channel.
 	AttrModifiedAt() *string

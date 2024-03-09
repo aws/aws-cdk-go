@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnGroup) validateSetInsightsConfigurationParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnGroup) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGroupParameters(scope constructs.Construct, id *string, props *CfnGroupProps) error {
 	return nil
 }

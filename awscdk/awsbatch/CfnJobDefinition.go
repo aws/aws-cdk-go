@@ -393,14 +393,14 @@ type CfnJobDefinition interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// An object with various properties specific to Amazon ECS based jobs.
+	// An object with properties specific to Amazon ECS-based jobs.
 	ContainerProperties() interface{}
 	SetContainerProperties(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// An object with various properties that are specific to Amazon EKS based jobs.
+	// An object with properties that are specific to Amazon EKS-based jobs.
 	EksProperties() interface{}
 	SetEksProperties(val interface{})
 	// The name of the job definition.
@@ -418,7 +418,7 @@ type CfnJobDefinition interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// An object with various properties that are specific to multi-node parallel jobs.
+	// An object with properties that are specific to multi-node parallel jobs.
 	NodeProperties() interface{}
 	SetNodeProperties(val interface{})
 	// Default parameters or parameter substitution placeholders that are set in the job definition.

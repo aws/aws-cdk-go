@@ -31,8 +31,8 @@ import (
 //   	SendingOptions: &SendingOptionsProperty{
 //   		SendingEnabled: jsii.Boolean(false),
 //   	},
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -94,8 +94,8 @@ type CfnConfigurationSet interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An object that defines the tags (keys and values) that you want to associate with the configuration set.
-	Tags() *[]*CfnConfigurationSet_TagsProperty
-	SetTags(val *[]*CfnConfigurationSet_TagsProperty)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions() interface{}
 	SetTrackingOptions(val interface{})
@@ -386,8 +386,8 @@ func (j *jsiiProxy_CfnConfigurationSet) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationSet) Tags() *[]*CfnConfigurationSet_TagsProperty {
-	var returns *[]*CfnConfigurationSet_TagsProperty
+func (j *jsiiProxy_CfnConfigurationSet) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -498,7 +498,7 @@ func (j *jsiiProxy_CfnConfigurationSet)SetSendingOptions(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnConfigurationSet)SetTags(val *[]*CfnConfigurationSet_TagsProperty) {
+func (j *jsiiProxy_CfnConfigurationSet)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}

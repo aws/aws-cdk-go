@@ -18,8 +18,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnGroup := awscdk.Aws_xray.NewCfnGroup(this, jsii.String("MyCfnGroup"), &CfnGroupProps{
 //   	GroupName: jsii.String("groupName"),
 //
@@ -29,8 +27,11 @@ import (
 //   		InsightsEnabled: jsii.Boolean(false),
 //   		NotificationsEnabled: jsii.Boolean(false),
 //   	},
-//   	Tags: []interface{}{
-//   		tags,
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   })
 //
@@ -84,8 +85,8 @@ type CfnGroup interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An array of key-value pairs to apply to this resource.
-	Tags() *[]interface{}
-	SetTags(val *[]interface{})
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -363,8 +364,8 @@ func (j *jsiiProxy_CfnGroup) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGroup) Tags() *[]interface{} {
-	var returns *[]interface{}
+func (j *jsiiProxy_CfnGroup) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -451,7 +452,10 @@ func (j *jsiiProxy_CfnGroup)SetInsightsConfiguration(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnGroup)SetTags(val *[]interface{}) {
+func (j *jsiiProxy_CfnGroup)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tags",

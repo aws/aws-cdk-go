@@ -76,6 +76,7 @@ type CfnLoadBalancer interface {
 	//
 	// For example, `my-load-balancer` .
 	AttrLoadBalancerName() *string
+	// The IDs of the security groups for the load balancer.
 	AttrSecurityGroups() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -378,19 +378,22 @@ type CfnJobDefinitionProps struct {
 	//
 	// For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
 	//
+	// - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+	// - If the value is `multinode` , then `nodeProperties` is required.
+	//
 	// > If the job is run on Fargate resources, then `multinode` isn't supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// An object with various properties specific to Amazon ECS based jobs.
+	// An object with properties specific to Amazon ECS-based jobs.
 	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
+	// When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-containerproperties
 	//
 	ContainerProperties interface{} `field:"optional" json:"containerProperties" yaml:"containerProperties"`
-	// An object with various properties that are specific to Amazon EKS based jobs.
+	// An object with properties that are specific to Amazon EKS-based jobs.
 	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
+	// When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-eksproperties
 	//
 	EksProperties interface{} `field:"optional" json:"eksProperties" yaml:"eksProperties"`
@@ -398,9 +401,9 @@ type CfnJobDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-jobdefinitionname
 	//
 	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
-	// An object with various properties that are specific to multi-node parallel jobs.
+	// An object with properties that are specific to multi-node parallel jobs.
 	//
-	// Valid values are `containerProperties` , `eksProperties` , and `nodeProperties` . Only one can be specified.
+	// When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
 	//
 	// > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-nodeproperties

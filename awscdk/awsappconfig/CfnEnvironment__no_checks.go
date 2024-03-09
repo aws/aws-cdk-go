@@ -92,7 +92,7 @@ func (j *jsiiProxy_CfnEnvironment) validateSetNameParameters(val *string) error 
 	return nil
 }
 
-func (j *jsiiProxy_CfnEnvironment) validateSetTagsParameters(val *[]*CfnEnvironment_TagsProperty) error {
+func (j *jsiiProxy_CfnEnvironment) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

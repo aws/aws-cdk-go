@@ -64,7 +64,9 @@ type CfnWorkgroupProps struct {
 	// Default: - false.
 	//
 	EnhancedVpcRouting interface{} `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
-	// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries.
+	//
+	// The max capacity is specified in RPUs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-maxcapacity
 	//
 	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`

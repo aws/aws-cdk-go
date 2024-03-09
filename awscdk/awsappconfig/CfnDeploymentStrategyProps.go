@@ -1,5 +1,8 @@
 package awsappconfig
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnDeploymentStrategy`.
 //
@@ -18,8 +21,8 @@ package awsappconfig
 //   	Description: jsii.String("description"),
 //   	FinalBakeTimeInMinutes: jsii.Number(123),
 //   	GrowthType: jsii.String("growthType"),
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -76,6 +79,6 @@ type CfnDeploymentStrategyProps struct {
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define. You can specify a maximum of 50 tags for a resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html#cfn-appconfig-deploymentstrategy-tags
 	//
-	Tags *[]*CfnDeploymentStrategy_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -28,8 +28,8 @@ import (
 //   	// the properties below are optional
 //   	EventSourceName: jsii.String("eventSourceName"),
 //   	Policy: policy,
-//   	Tags: []tagEntryProperty{
-//   		&tagEntryProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -89,8 +89,8 @@ type CfnEventBus interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// Tags to associate with the event bus.
-	Tags() *[]*CfnEventBus_TagEntryProperty
-	SetTags(val *[]*CfnEventBus_TagEntryProperty)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -388,8 +388,8 @@ func (j *jsiiProxy_CfnEventBus) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventBus) Tags() *[]*CfnEventBus_TagEntryProperty {
-	var returns *[]*CfnEventBus_TagEntryProperty
+func (j *jsiiProxy_CfnEventBus) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -473,7 +473,7 @@ func (j *jsiiProxy_CfnEventBus)SetPolicy(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnEventBus)SetTags(val *[]*CfnEventBus_TagEntryProperty) {
+func (j *jsiiProxy_CfnEventBus)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}

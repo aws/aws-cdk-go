@@ -38,6 +38,7 @@ type CfnTrustStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// A list of web portal ARNs that this trust store is associated with.
 	AttrAssociatedPortalArns() *[]*string
 	// The ARN of the trust store.
 	AttrTrustStoreArn() *string

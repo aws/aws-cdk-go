@@ -84,6 +84,10 @@ type PipelineProps struct {
 	// Default: - false (key rotation is disabled).
 	//
 	EnableKeyRotation *bool `field:"optional" json:"enableKeyRotation" yaml:"enableKeyRotation"`
+	// The method that the pipeline will use to handle multiple executions.
+	// Default: - ExecutionMode.SUPERSEDED
+	//
+	ExecutionMode ExecutionMode `field:"optional" json:"executionMode" yaml:"executionMode"`
 	// Name of the pipeline.
 	// Default: - AWS CloudFormation generates an ID and uses that for the pipeline name.
 	//

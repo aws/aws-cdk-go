@@ -951,6 +951,7 @@ func init() {
 			"ALARM_NOTIFICATION": ScalingProcess_ALARM_NOTIFICATION,
 			"SCHEDULED_ACTIONS": ScalingProcess_SCHEDULED_ACTIONS,
 			"ADD_TO_LOAD_BALANCER": ScalingProcess_ADD_TO_LOAD_BALANCER,
+			"INSTANCE_REFRESH": ScalingProcess_INSTANCE_REFRESH,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1082,6 +1083,7 @@ func init() {
 			"OLDEST_INSTANCE": TerminationPolicy_OLDEST_INSTANCE,
 			"OLDEST_LAUNCH_CONFIGURATION": TerminationPolicy_OLDEST_LAUNCH_CONFIGURATION,
 			"OLDEST_LAUNCH_TEMPLATE": TerminationPolicy_OLDEST_LAUNCH_TEMPLATE,
+			"CUSTOM_LAMBDA_FUNCTION": TerminationPolicy_CUSTOM_LAMBDA_FUNCTION,
 		},
 	)
 	_jsii_.RegisterClass(

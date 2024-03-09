@@ -35,9 +35,19 @@ type DistributedMapProps struct {
 	// MaxConcurrency.
 	//
 	// An upper bound on the number of iterations you want running at once.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-inline.html#map-state-inline-additional-fields
+	//
 	// Default: - full concurrency.
 	//
 	MaxConcurrency *float64 `field:"optional" json:"maxConcurrency" yaml:"maxConcurrency"`
+	// MaxConcurrencyPath.
+	//
+	// A JsonPath that specifies the maximum concurrency dynamically from the state input.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-inline.html#map-state-inline-additional-fields
+	//
+	// Default: - full concurrency.
+	//
+	MaxConcurrencyPath *string `field:"optional" json:"maxConcurrencyPath" yaml:"maxConcurrencyPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective

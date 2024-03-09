@@ -16,8 +16,9 @@ import (
 //
 //   rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
 //   	LogEvent: targets.LogGroupTargetInput_FromObject(&LogGroupTargetInputOptions{
-//   		Timestamp: events.EventField_FromPath(jsii.String("$.time")),
-//   		Message: events.EventField_*FromPath(jsii.String("$.detail-type")),
+//   		Message: jSON.stringify(map[string]*string{
+//   			"CustomField": jsii.String("CustomValue"),
+//   		}),
 //   	}),
 //   }))
 //
@@ -51,6 +52,10 @@ type LogGroupProps struct {
 	//
 	// Deprecated: use logEvent instead.
 	Event awsevents.RuleTargetInput `field:"optional" json:"event" yaml:"event"`
+	// Whether the custom resource created wll default to install latest AWS SDK.
+	// Default: - install latest AWS SDK.
+	//
+	InstallLatestAwsSdk *bool `field:"optional" json:"installLatestAwsSdk" yaml:"installLatestAwsSdk"`
 	// The event to send to the CloudWatch LogGroup.
 	//
 	// This will be the event logged into the CloudWatch LogGroup.

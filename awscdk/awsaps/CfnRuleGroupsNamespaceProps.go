@@ -28,21 +28,21 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html
 //
 type CfnRuleGroupsNamespaceProps struct {
-	// The rules definition file for this namespace.
+	// The rules file used in the namespace.
+	//
+	// For more details about the rules file, see [Creating a rules file](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-ruler-rulesfile.html) in the *Amazon Managed Service for Prometheus User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-data
 	//
 	Data *string `field:"required" json:"data" yaml:"data"`
 	// The name of the rule groups namespace.
-	//
-	// This property is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ARN of the workspace that contains this rule groups namespace.
+	// An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-workspace
 	//
 	Workspace *string `field:"required" json:"workspace" yaml:"workspace"`
-	// A list of key and value pairs for the workspace resources.
+	// The list of tag keys and values that are associated with the rule groups namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

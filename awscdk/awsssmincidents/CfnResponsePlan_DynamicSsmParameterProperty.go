@@ -1,7 +1,7 @@
 package awsssmincidents
 
 
-// When you add a runbook to a response plan, you can specify the parameters the runbook should use at runtime.
+// When you add a runbook to a response plan, you can specify the parameters for the runbook to use at runtime.
 //
 // Response plans support parameters with both static and dynamic values. For static values, you enter the value when you define the parameter in the response plan. For dynamic values, the system determines the correct parameter value by collecting information from the incident. Incident Manager supports the following dynamic parameters:
 //

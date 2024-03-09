@@ -34,8 +34,8 @@ import (
 //   		BehaviorOnMxFailure: jsii.String("behaviorOnMxFailure"),
 //   		MailFromDomain: jsii.String("mailFromDomain"),
 //   	},
-//   	Tags: []tagsProperty{
-//   		&tagsProperty{
+//   	Tags: []cfnTag{
+//   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
@@ -108,8 +108,8 @@ type CfnIdentity interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// An object that defines the tags (keys and values) that you want to associate with the email identity.
-	Tags() *[]*CfnIdentity_TagsProperty
-	SetTags(val *[]*CfnIdentity_TagsProperty)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -457,8 +457,8 @@ func (j *jsiiProxy_CfnIdentity) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentity) Tags() *[]*CfnIdentity_TagsProperty {
-	var returns *[]*CfnIdentity_TagsProperty
+func (j *jsiiProxy_CfnIdentity) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"tags",
@@ -559,7 +559,7 @@ func (j *jsiiProxy_CfnIdentity)SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnIdentity)SetTags(val *[]*CfnIdentity_TagsProperty) {
+func (j *jsiiProxy_CfnIdentity)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
 	}
