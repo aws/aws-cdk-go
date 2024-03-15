@@ -13,14 +13,17 @@ import (
 // A Fargate service running on an ECS cluster fronted by a network load balancer.
 //
 // Example:
-//   var cluster cluster
+//   var vpc vpc
+//   var securityGroup securityGroup
 //
-//   loadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
-//   	Cluster: Cluster,
-//   	MemoryLimitMiB: jsii.Number(1024),
-//   	Cpu: jsii.Number(512),
+//   queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
+//   	Vpc: Vpc,
+//   	MemoryLimitMiB: jsii.Number(512),
 //   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	SecurityGroups: []iSecurityGroup{
+//   		securityGroup,
 //   	},
 //   })
 //

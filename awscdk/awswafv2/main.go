@@ -359,6 +359,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_ImmunityTimePropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.JA3FingerprintProperty",
+		reflect.TypeOf((*CfnRuleGroup_JA3FingerprintProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.JsonBodyProperty",
 		reflect.TypeOf((*CfnRuleGroup_JsonBodyProperty)(nil)).Elem(),
 	)
@@ -653,6 +657,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.ImmunityTimePropertyProperty",
 		reflect.TypeOf((*CfnWebACL_ImmunityTimePropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.JA3FingerprintProperty",
+		reflect.TypeOf((*CfnWebACL_JA3FingerprintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.JsonBodyProperty",

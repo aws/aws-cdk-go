@@ -79,6 +79,17 @@ func KafkaVersion_V1_1_1() KafkaVersion {
 	return returns
 }
 
+func KafkaVersion_V2_1_0() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V2_1_0",
+		&returns,
+	)
+	return returns
+}
+
 func KafkaVersion_V2_2_1() KafkaVersion {
 	_init_.Initialize()
 	var returns KafkaVersion
@@ -96,6 +107,17 @@ func KafkaVersion_V2_3_1() KafkaVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-msk-alpha.KafkaVersion",
 		"V2_3_1",
+		&returns,
+	)
+	return returns
+}
+
+func KafkaVersion_V2_4_1() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V2_4_1",
 		&returns,
 	)
 	return returns
@@ -294,6 +316,17 @@ func KafkaVersion_V3_5_1() KafkaVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-msk-alpha.KafkaVersion",
 		"V3_5_1",
+		&returns,
+	)
+	return returns
+}
+
+func KafkaVersion_V3_6_0() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V3_6_0",
 		&returns,
 	)
 	return returns

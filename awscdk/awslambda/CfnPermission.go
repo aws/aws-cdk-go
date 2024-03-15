@@ -58,7 +58,7 @@ type CfnPermission interface {
 	// For Alexa Smart Home functions, a token that the invoker must supply.
 	EventSourceToken() *string
 	SetEventSourceToken(val *string)
-	// The name of the Lambda function, version, or alias.
+	// The name or ARN of the Lambda function, version, or alias.
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// The type of authentication that your function URL uses.

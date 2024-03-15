@@ -58,6 +58,7 @@ type CfnWirelessDeviceImportTask interface {
 	AttrOnboardedImportedDevicesCount() *float64
 	// The summary information of count of wireless devices that are waiting in the queue to be onboarded to the import task.
 	AttrPendingImportedDevicesCount() *float64
+	// List of Sidewalk devices that are added to the import task.
 	AttrSidewalkDeviceCreationFileList() *[]*string
 	// The status of a wireless device import task.
 	//

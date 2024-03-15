@@ -26,6 +26,7 @@ package awsec2
 //   	DestinationPrefixListId: jsii.String("destinationPrefixListId"),
 //   	DestinationSecurityGroupId: jsii.String("destinationSecurityGroupId"),
 //   	FromPort: jsii.Number(123),
+//   	SourceSecurityGroupId: jsii.String("sourceSecurityGroupId"),
 //   	ToPort: jsii.Number(123),
 //   }
 //
@@ -80,6 +81,9 @@ type CfnSecurityGroup_EgressProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-egress.html#cfn-ec2-securitygroup-egress-fromport
 	//
 	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-egress.html#cfn-ec2-securitygroup-egress-sourcesecuritygroupid
+	//
+	SourceSecurityGroupId *string `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
 	// If the protocol is TCP or UDP, this is the end of the port range.
 	//
 	// If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).

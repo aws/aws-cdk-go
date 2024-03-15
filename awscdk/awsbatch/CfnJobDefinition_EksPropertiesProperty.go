@@ -57,10 +57,52 @@ package awsbatch
 //   		},
 //   		DnsPolicy: jsii.String("dnsPolicy"),
 //   		HostNetwork: jsii.Boolean(false),
+//   		InitContainers: []interface{}{
+//   			&EksContainerProperty{
+//   				Image: jsii.String("image"),
+//
+//   				// the properties below are optional
+//   				Args: []*string{
+//   					jsii.String("args"),
+//   				},
+//   				Command: []*string{
+//   					jsii.String("command"),
+//   				},
+//   				Env: []interface{}{
+//   					&EksContainerEnvironmentVariableProperty{
+//   						Name: jsii.String("name"),
+//
+//   						// the properties below are optional
+//   						Value: jsii.String("value"),
+//   					},
+//   				},
+//   				ImagePullPolicy: jsii.String("imagePullPolicy"),
+//   				Name: jsii.String("name"),
+//   				Resources: &ResourcesProperty{
+//   					Limits: limits,
+//   					Requests: requests,
+//   				},
+//   				SecurityContext: &SecurityContextProperty{
+//   					Privileged: jsii.Boolean(false),
+//   					ReadOnlyRootFilesystem: jsii.Boolean(false),
+//   					RunAsGroup: jsii.Number(123),
+//   					RunAsNonRoot: jsii.Boolean(false),
+//   					RunAsUser: jsii.Number(123),
+//   				},
+//   				VolumeMounts: []interface{}{
+//   					&EksContainerVolumeMountProperty{
+//   						MountPath: jsii.String("mountPath"),
+//   						Name: jsii.String("name"),
+//   						ReadOnly: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		Metadata: &MetadataProperty{
 //   			Labels: labels,
 //   		},
 //   		ServiceAccountName: jsii.String("serviceAccountName"),
+//   		ShareProcessNamespace: jsii.Boolean(false),
 //   		Volumes: []interface{}{
 //   			&EksVolumeProperty{
 //   				Name: jsii.String("name"),

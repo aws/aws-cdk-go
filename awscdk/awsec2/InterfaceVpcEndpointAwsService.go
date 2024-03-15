@@ -242,6 +242,28 @@ func InterfaceVpcEndpointAwsService_APP_SYNC() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_APPCONFIG() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"APPCONFIG",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_APPCONFIGDATA() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"APPCONFIGDATA",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_APPLICATION_AUTOSCALING() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

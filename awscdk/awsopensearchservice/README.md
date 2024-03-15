@@ -415,6 +415,22 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 })
 ```
 
+## Cold storage
+
+Cold storage can be enabled on the domain. You must enable UltraWarm storage to enable cold storage.
+
+```go
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
+	Capacity: &CapacityConfig{
+		MasterNodes: jsii.Number(2),
+		WarmNodes: jsii.Number(2),
+		WarmInstanceType: jsii.String("ultrawarm1.medium.search"),
+	},
+	ColdStorageEnabled: jsii.Boolean(true),
+})
+```
+
 ## Custom endpoint
 
 Custom endpoints can be configured to reach the domain under a custom domain name.

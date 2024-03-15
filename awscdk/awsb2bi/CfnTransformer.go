@@ -31,7 +31,6 @@ import (
 //   	Status: jsii.String("status"),
 //
 //   	// the properties below are optional
-//   	ModifiedAt: jsii.String("modifiedAt"),
 //   	SampleDocument: jsii.String("sampleDocument"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -51,6 +50,7 @@ type CfnTransformer interface {
 	//
 	// For example, `2023-07-20T19:58:44.624Z` .
 	AttrCreatedAt() *string
+	// Returns a timestamp representing the date and time for the most recent change for the transformer object.
 	AttrModifiedAt() *string
 	// Returns an Amazon Resource Name (ARN) for a specific transformer.
 	AttrTransformerArn() *string
@@ -86,9 +86,6 @@ type CfnTransformer interface {
 	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
 	MappingTemplate() *string
 	SetMappingTemplate(val *string)
-	// Returns a timestamp representing the date and time for the most recent change for the transformer object.
-	ModifiedAt() *string
-	SetModifiedAt(val *string)
 	// Returns the descriptive name for the transformer.
 	Name() *string
 	SetName(val *string)
@@ -389,16 +386,6 @@ func (j *jsiiProxy_CfnTransformer) MappingTemplate() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransformer) ModifiedAt() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"modifiedAt",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnTransformer) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -546,14 +533,6 @@ func (j *jsiiProxy_CfnTransformer)SetMappingTemplate(val *string) {
 	_jsii_.Set(
 		j,
 		"mappingTemplate",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnTransformer)SetModifiedAt(val *string) {
-	_jsii_.Set(
-		j,
-		"modifiedAt",
 		val,
 	)
 }

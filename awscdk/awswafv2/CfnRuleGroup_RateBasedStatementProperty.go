@@ -122,6 +122,7 @@ package awswafv2
 //   			},
 //   		},
 //   	},
+//   	EvaluationWindowSec: jsii.Number(123),
 //   	ForwardedIpConfig: &ForwardedIPConfigurationProperty{
 //   		FallbackBehavior: jsii.String("fallbackBehavior"),
 //   		HeaderName: jsii.String("headerName"),
@@ -163,6 +164,9 @@ package awswafv2
 //   					},
 //   					MatchScope: jsii.String("matchScope"),
 //   					OversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				Ja3Fingerprint: &JA3FingerprintProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
 //   				},
 //   				JsonBody: &JsonBodyProperty{
 //   					MatchPattern: &JsonMatchPatternProperty{
@@ -259,6 +263,9 @@ package awswafv2
 //   					MatchScope: jsii.String("matchScope"),
 //   					OversizeHandling: jsii.String("oversizeHandling"),
 //   				},
+//   				Ja3Fingerprint: &JA3FingerprintProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				JsonBody: &JsonBodyProperty{
 //   					MatchPattern: &JsonMatchPatternProperty{
 //   						All: all,
@@ -319,6 +326,9 @@ package awswafv2
 //   					MatchScope: jsii.String("matchScope"),
 //   					OversizeHandling: jsii.String("oversizeHandling"),
 //   				},
+//   				Ja3Fingerprint: &JA3FingerprintProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				JsonBody: &JsonBodyProperty{
 //   					MatchPattern: &JsonMatchPatternProperty{
 //   						All: all,
@@ -378,6 +388,9 @@ package awswafv2
 //   					MatchScope: jsii.String("matchScope"),
 //   					OversizeHandling: jsii.String("oversizeHandling"),
 //   				},
+//   				Ja3Fingerprint: &JA3FingerprintProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
+//   				},
 //   				JsonBody: &JsonBodyProperty{
 //   					MatchPattern: &JsonMatchPatternProperty{
 //   						All: all,
@@ -436,6 +449,9 @@ package awswafv2
 //   					},
 //   					MatchScope: jsii.String("matchScope"),
 //   					OversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				Ja3Fingerprint: &JA3FingerprintProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
 //   				},
 //   				JsonBody: &JsonBodyProperty{
 //   					MatchPattern: &JsonMatchPatternProperty{
@@ -497,6 +513,9 @@ package awswafv2
 //   					},
 //   					MatchScope: jsii.String("matchScope"),
 //   					OversizeHandling: jsii.String("oversizeHandling"),
+//   				},
+//   				Ja3Fingerprint: &JA3FingerprintProperty{
+//   					FallbackBehavior: jsii.String("fallbackBehavior"),
 //   				},
 //   				JsonBody: &JsonBodyProperty{
 //   					MatchPattern: &JsonMatchPatternProperty{
@@ -568,6 +587,9 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-customkeys
 	//
 	CustomKeys interface{} `field:"optional" json:"customKeys" yaml:"customKeys"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-evaluationwindowsec
+	//
+	EvaluationWindowSec *float64 `field:"optional" json:"evaluationWindowSec" yaml:"evaluationWindowSec"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin.
 	//
 	// Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.

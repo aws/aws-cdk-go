@@ -49,6 +49,14 @@ type DomainProps struct {
 	// Default: - Cognito not used for authentication to OpenSearch Dashboards.
 	//
 	CognitoDashboardsAuth *CognitoOptions `field:"optional" json:"cognitoDashboardsAuth" yaml:"cognitoDashboardsAuth"`
+	// Whether to enable or disable cold storage on the domain.
+	//
+	// You must enable UltraWarm storage to enable cold storage.
+	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html
+	//
+	// Default: - undefined.
+	//
+	ColdStorageEnabled *bool `field:"optional" json:"coldStorageEnabled" yaml:"coldStorageEnabled"`
 	// To configure a custom domain configure these options.
 	//
 	// If you specify a Route53 hosted zone it will create a CNAME record and use DNS validation for the certificate.

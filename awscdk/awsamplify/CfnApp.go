@@ -131,7 +131,7 @@ type CfnApp interface {
 	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion() interface{}
 	SetEnableBranchAutoDeletion(val interface{})
-	// The environment variables map for an Amplify app.
+	// The environment variables for the Amplify app.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
 	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.

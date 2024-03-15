@@ -11,14 +11,17 @@ import (
 // The properties for the NetworkLoadBalancedFargateService service.
 //
 // Example:
-//   var cluster cluster
+//   var vpc vpc
+//   var securityGroup securityGroup
 //
-//   loadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
-//   	Cluster: Cluster,
-//   	MemoryLimitMiB: jsii.Number(1024),
-//   	Cpu: jsii.Number(512),
+//   queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
+//   	Vpc: Vpc,
+//   	MemoryLimitMiB: jsii.Number(512),
 //   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	SecurityGroups: []iSecurityGroup{
+//   		securityGroup,
 //   	},
 //   })
 //
@@ -209,6 +212,12 @@ type NetworkLoadBalancedFargateServiceProps struct {
 	// Default: false.
 	//
 	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
+	// The security groups to associate with the service.
+	//
+	// If you do not specify a security group, a new security group is created.
+	// Default: - A new security group is created.
+	//
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The subnets to associate with the service.
 	// Default: - Public subnets if `assignPublicIp` is set, otherwise the first available one of Private, Isolated, Public, in that order.
 	//

@@ -1,7 +1,7 @@
 package awsiotsitewise
 
 
-// Describes an asset hierarchy that contains a `childAssetId` and `hierarchyLogicalId` .
+// Describes an asset hierarchy that contains a hierarchy's name and ID.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,9 +32,9 @@ type CfnAsset_AssetHierarchyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-id
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
-	// The `LogicalID` of the hierarchy. This ID is a `hierarchyLogicalId` .
+	// The ID of the hierarchy.
 	//
-	// The maximum length is 256 characters, with the pattern `[^\u0000-\u001F\u007F]+` .
+	// This ID is a `hierarchyId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
 	//
 	LogicalId *string `field:"optional" json:"logicalId" yaml:"logicalId"`

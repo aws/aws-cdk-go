@@ -55,13 +55,11 @@ type CfnAssetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
 	//
 	AssetModelId *string `field:"required" json:"assetModelId" yaml:"assetModelId"`
-	// A unique, friendly name for the asset.
-	//
-	// The maximum length is 256 characters with the pattern `[^\u0000-\u001F\u007F]+` .
+	// A friendly name for the asset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
 	//
 	AssetName *string `field:"required" json:"assetName" yaml:"assetName"`
-	// A description for the asset.
+	// The ID of the asset, in UUID format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetdescription
 	//
 	AssetDescription *string `field:"optional" json:"assetDescription" yaml:"assetDescription"`
@@ -69,7 +67,7 @@ type CfnAssetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetexternalid
 	//
 	AssetExternalId *string `field:"optional" json:"assetExternalId" yaml:"assetExternalId"`
-	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
+	// A list of asset hierarchies that each contain a `hierarchyId` .
 	//
 	// A hierarchy specifies allowed parent/child asset relationships.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies

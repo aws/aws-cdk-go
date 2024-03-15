@@ -331,7 +331,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// Default: - "".
 	//
 	DefaultRootObject *string `field:"optional" json:"defaultRootObject" yaml:"defaultRootObject"`
-	// (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CloudFront .
+	// (Optional) Specify the HTTP version(s) that you want viewers to use to communicate with CloudFront .
 	//
 	// The default value for new distributions is `http1.1` .
 	//

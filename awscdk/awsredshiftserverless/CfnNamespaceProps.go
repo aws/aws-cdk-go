@@ -34,15 +34,6 @@ import (
 //   	ManageAdminPassword: jsii.Boolean(false),
 //   	NamespaceResourcePolicy: namespaceResourcePolicy,
 //   	RedshiftIdcApplicationArn: jsii.String("redshiftIdcApplicationArn"),
-//   	SnapshotCopyConfigurations: []interface{}{
-//   		&SnapshotCopyConfigurationProperty{
-//   			DestinationRegion: jsii.String("destinationRegion"),
-//
-//   			// the properties below are optional
-//   			DestinationKmsKeyId: jsii.String("destinationKmsKeyId"),
-//   			SnapshotRetentionPeriod: jsii.Number(123),
-//   		},
-//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -118,10 +109,6 @@ type CfnNamespaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-redshiftidcapplicationarn
 	//
 	RedshiftIdcApplicationArn *string `field:"optional" json:"redshiftIdcApplicationArn" yaml:"redshiftIdcApplicationArn"`
-	// The snapshot copy configurations for the namespace.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-snapshotcopyconfigurations
-	//
-	SnapshotCopyConfigurations interface{} `field:"optional" json:"snapshotCopyConfigurations" yaml:"snapshotCopyConfigurations"`
 	// The map of the key-value pairs used to tag the namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-tags
 	//

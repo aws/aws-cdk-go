@@ -122,6 +122,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "containerProperties", GoGetter: "ContainerProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "ecsProperties", GoGetter: "EcsProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "eksProperties", GoGetter: "EksProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -172,6 +173,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.DeviceProperty",
 		reflect.TypeOf((*CfnJobDefinition_DeviceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.EcsPropertiesProperty",
+		reflect.TypeOf((*CfnJobDefinition_EcsPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.EcsTaskPropertiesProperty",
+		reflect.TypeOf((*CfnJobDefinition_EcsTaskPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.EfsVolumeConfigurationProperty",
@@ -284,6 +293,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.SecurityContextProperty",
 		reflect.TypeOf((*CfnJobDefinition_SecurityContextProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.TaskContainerDependencyProperty",
+		reflect.TypeOf((*CfnJobDefinition_TaskContainerDependencyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.TaskContainerPropertiesProperty",
+		reflect.TypeOf((*CfnJobDefinition_TaskContainerPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.TimeoutProperty",

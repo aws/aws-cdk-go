@@ -13,6 +13,11 @@ import (
 //
 // You create assets from asset models. With asset models, you can easily create assets of the same type that have standardized definitions. Each asset created from a model inherits the asset model's property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html) in the *AWS IoT SiteWise User Guide* .
 //
+// You can create two types of asset models, `ASSET_MODEL` or `COMPONENT_MODEL` .
+//
+// - *ASSET_MODEL* – (default) An asset model that you can use to create assets. Can't be included as a component in another asset model.
+// - *COMPONENT_MODEL* – A reusable component that you can include in the composite models of other asset models. You can't create assets directly from this type of asset model.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -208,7 +213,7 @@ type CfnAssetModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The composite asset models that are part of this asset model.
+	// The composite models that are part of this asset model.
 	AssetModelCompositeModels() interface{}
 	SetAssetModelCompositeModels(val interface{})
 	// A description for the asset model.

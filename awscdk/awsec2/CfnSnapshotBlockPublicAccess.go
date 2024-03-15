@@ -11,7 +11,7 @@ import (
 
 // Specifies the state of the *block public access for snapshots* setting for the Region.
 //
-// For more information, see [Block public access for snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html) .
+// For more information, see [Block public access for snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

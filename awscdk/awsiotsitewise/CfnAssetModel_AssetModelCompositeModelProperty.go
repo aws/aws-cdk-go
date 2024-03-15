@@ -3,36 +3,7 @@ package awsiotsitewise
 
 // Contains information about a composite model in an asset model.
 //
-// This object contains the asset property definitions that you define in the composite model. You can use composite asset models to define alarms on this asset model.
-//
-// If you use the `AssetModelCompositeModel` property to create an alarm, you must use the following information to define three asset model properties:
-//
-// - Use an asset model property to specify the alarm type.
-//
-// - The name must be `AWS/ALARM_TYPE` .
-// - The data type must be `STRING` .
-// - For the `Type` property, the type name must be `Attribute` and the default value must be `IOT_EVENTS` .
-// - Use an asset model property to specify the alarm source.
-//
-// - The name must be `AWS/ALARM_SOURCE` .
-// - The data type must be `STRING` .
-// - For the `Type` property, the type name must be `Attribute` and the default value must be the ARN of the alarm model that you created in AWS IoT Events .
-//
-// > For the ARN of the alarm model, you can use the `Fn::Sub` intrinsic function to substitute the `AWS::Partition` , `AWS::Region` , and `AWS::AccountId` variables in an input string with values that you specify.
-// >
-// > For example, `Fn::Sub: "arn:${AWS::Partition}:iotevents:${AWS::Region}:${AWS::AccountId}:alarmModel/TestAlarmModel"` .
-// >
-// > Replace `TestAlarmModel` with the name of your alarm model.
-// >
-// > For more information about using the `Fn::Sub` intrinsic function, see [Fn::Sub](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html) .
-// - Use an asset model property to specify the state of the alarm.
-//
-// - The name must be `AWS/ALARM_STATE` .
-// - The data type must be `STRUCT` .
-// - The `DataTypeSpec` value must be `AWS/ALARM_STATE` .
-// - For the `Type` property, the type name must be `Measurement` .
-//
-// At the bottom of this page, we provide a YAML example that you can modify to create an alarm.
+// This object contains the asset property definitions that you define in the composite model.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

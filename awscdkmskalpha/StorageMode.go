@@ -10,7 +10,7 @@ package awscdkmskalpha
 //
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 //   	ClusterName: jsii.String("myCluster"),
-//   	KafkaVersion: msk.KafkaVersion_V2_8_2_TIERED(),
+//   	KafkaVersion: msk.KafkaVersion_V3_6_0(),
 //   	Vpc: Vpc,
 //   	StorageMode: msk.StorageMode_TIERED,
 //   })

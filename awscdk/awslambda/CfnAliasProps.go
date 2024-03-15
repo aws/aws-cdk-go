@@ -31,7 +31,7 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
 //
 type CfnAliasProps struct {
-	// The name of the Lambda function.
+	// The name or ARN of the Lambda function.
 	//
 	// **Name formats** - *Function name* - `MyFunction` .
 	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .

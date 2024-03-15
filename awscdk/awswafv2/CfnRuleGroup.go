@@ -109,6 +109,9 @@ import (
 //   							MatchScope: jsii.String("matchScope"),
 //   							OversizeHandling: jsii.String("oversizeHandling"),
 //   						},
+//   						Ja3Fingerprint: &JA3FingerprintProperty{
+//   							FallbackBehavior: jsii.String("fallbackBehavior"),
+//   						},
 //   						JsonBody: &JsonBodyProperty{
 //   							MatchPattern: &JsonMatchPatternProperty{
 //   								All: all,
@@ -229,6 +232,7 @@ import (
 //   							},
 //   						},
 //   					},
+//   					EvaluationWindowSec: jsii.Number(123),
 //   					ForwardedIpConfig: &ForwardedIPConfigurationProperty{
 //   						FallbackBehavior: jsii.String("fallbackBehavior"),
 //   						HeaderName: jsii.String("headerName"),
@@ -266,6 +270,9 @@ import (
 //   							},
 //   							MatchScope: jsii.String("matchScope"),
 //   							OversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						Ja3Fingerprint: &JA3FingerprintProperty{
+//   							FallbackBehavior: jsii.String("fallbackBehavior"),
 //   						},
 //   						JsonBody: &JsonBodyProperty{
 //   							MatchPattern: &JsonMatchPatternProperty{
@@ -327,6 +334,9 @@ import (
 //   							MatchScope: jsii.String("matchScope"),
 //   							OversizeHandling: jsii.String("oversizeHandling"),
 //   						},
+//   						Ja3Fingerprint: &JA3FingerprintProperty{
+//   							FallbackBehavior: jsii.String("fallbackBehavior"),
+//   						},
 //   						JsonBody: &JsonBodyProperty{
 //   							MatchPattern: &JsonMatchPatternProperty{
 //   								All: all,
@@ -386,6 +396,9 @@ import (
 //   							MatchScope: jsii.String("matchScope"),
 //   							OversizeHandling: jsii.String("oversizeHandling"),
 //   						},
+//   						Ja3Fingerprint: &JA3FingerprintProperty{
+//   							FallbackBehavior: jsii.String("fallbackBehavior"),
+//   						},
 //   						JsonBody: &JsonBodyProperty{
 //   							MatchPattern: &JsonMatchPatternProperty{
 //   								All: all,
@@ -444,6 +457,9 @@ import (
 //   							},
 //   							MatchScope: jsii.String("matchScope"),
 //   							OversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						Ja3Fingerprint: &JA3FingerprintProperty{
+//   							FallbackBehavior: jsii.String("fallbackBehavior"),
 //   						},
 //   						JsonBody: &JsonBodyProperty{
 //   							MatchPattern: &JsonMatchPatternProperty{
@@ -505,6 +521,9 @@ import (
 //   							},
 //   							MatchScope: jsii.String("matchScope"),
 //   							OversizeHandling: jsii.String("oversizeHandling"),
+//   						},
+//   						Ja3Fingerprint: &JA3FingerprintProperty{
+//   							FallbackBehavior: jsii.String("fallbackBehavior"),
 //   						},
 //   						JsonBody: &JsonBodyProperty{
 //   							MatchPattern: &JsonMatchPatternProperty{

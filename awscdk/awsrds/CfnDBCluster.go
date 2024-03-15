@@ -165,6 +165,12 @@ type CfnDBCluster interface {
 	//
 	// For example: `mystack-mydbcluster-ro-123456789012.us-east-2.rds.amazonaws.com`
 	AttrReadEndpointAddress() *string
+	// The storage throughput for the DB cluster.
+	//
+	// The throughput is automatically set based on the IOPS that you provision, and is not configurable.
+	//
+	// This setting is only for non-Aurora Multi-AZ DB clusters.
+	AttrStorageThroughput() *float64
 	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
@@ -229,7 +235,9 @@ type CfnDBCluster interface {
 	// Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database).
 	EnableGlobalWriteForwarding() interface{}
 	SetEnableGlobalWriteForwarding(val interface{})
-	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster.
+	// Specifies whether to enable the HTTP endpoint for the DB cluster.
+	//
+	// By default, the HTTP endpoint isn't enabled.
 	EnableHttpEndpoint() interface{}
 	SetEnableHttpEndpoint(val interface{})
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
@@ -603,6 +611,16 @@ func (j *jsiiProxy_CfnDBCluster) AttrReadEndpointAddress() *string {
 	_jsii_.Get(
 		j,
 		"attrReadEndpointAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) AttrStorageThroughput() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrStorageThroughput",
 		&returns,
 	)
 	return returns

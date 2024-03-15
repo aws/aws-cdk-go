@@ -3,7 +3,7 @@ package awsiotsitewise
 
 // Contains an asset attribute property.
 //
-// For more information, see [Defining data properties](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
+// For more information, see [Attributes](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

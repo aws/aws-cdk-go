@@ -40,6 +40,7 @@ import (
 //   			DestinationPrefixListId: jsii.String("destinationPrefixListId"),
 //   			DestinationSecurityGroupId: jsii.String("destinationSecurityGroupId"),
 //   			FromPort: jsii.Number(123),
+//   			SourceSecurityGroupId: jsii.String("sourceSecurityGroupId"),
 //   			ToPort: jsii.Number(123),
 //   		},
 //   	},
@@ -76,6 +77,7 @@ type CfnSecurityGroup interface {
 	awscdk.ITaggable
 	// The group ID of the specified security group, such as `sg-94b3a1f6` .
 	AttrGroupId() *string
+	// The group name or group ID depending on whether the SG is created in default or specific VPC.
 	AttrId() *string
 	// The physical ID of the VPC.
 	//

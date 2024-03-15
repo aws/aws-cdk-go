@@ -250,7 +250,7 @@ type CfnDBInstance interface {
 	// The identifier for the Multi-AZ DB cluster snapshot to restore from.
 	DbClusterSnapshotIdentifier() *string
 	SetDbClusterSnapshotIdentifier(val *string)
-	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
+	// The compute and memory capacity of the DB instance, for example `db.m5.large` . Not all DB instance classes are available in all AWS Regions , or for all database engines. For the full list of DB instance classes, and availability for your engine, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide* or [Aurora DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html) in the *Amazon Aurora User Guide* .
 	DbInstanceClass() *string
 	SetDbInstanceClass(val *string)
 	// A name for the DB instance.
@@ -436,7 +436,7 @@ type CfnDBInstance interface {
 	// This setting applies only to the `gp3` storage type.
 	StorageThroughput() *float64
 	SetStorageThroughput(val *float64)
-	// Specifies the storage type to be associated with the DB instance.
+	// The storage type to associate with the DB instance.
 	StorageType() *string
 	SetStorageType(val *string)
 	// Tag Manager which manages the tags for this resource.

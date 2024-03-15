@@ -135,7 +135,7 @@ type CfnEventSourceMapping interface {
 	// An object that defines the filter criteria that determine whether Lambda should process an event.
 	FilterCriteria() interface{}
 	SetFilterCriteria(val interface{})
-	// The name of the Lambda function.
+	// The name or ARN of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// (Streams and SQS) A list of current response type enums applied to the event source mapping.

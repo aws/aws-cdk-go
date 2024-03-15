@@ -1,7 +1,7 @@
 package awsecs
 
 
-// The `NetworkConfiguration` property specifies an object representing the network configuration for a task or service.
+// The network configuration for a task or service.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

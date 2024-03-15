@@ -151,7 +151,14 @@ type CfnAssociationProps struct {
 	SyncCompliance *string `field:"optional" json:"syncCompliance" yaml:"syncCompliance"`
 	// The targets for the association.
 	//
-	// You must specify the `InstanceId` or `Targets` property. You can target all instances in an AWS account by specifyingt he `InstanceIds` key with a value of `*` . To view a JSON and a YAML example that targets all instances, see the "Create an association for all managed instances in an AWS account " later in this page.
+	// You must specify the `InstanceId` or `Targets` property. You can target all instances in an AWS account by specifying t he `InstanceIds` key with a value of `*` .
+	//
+	// Supported formats include the following.
+	//
+	// - `Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>,<instance-id-3>`
+	// - `Key=tag-key,Values=<my-tag-key-1>,<my-tag-key-2>`
+	//
+	// To view a JSON and a YAML example that targets all instances, see "Create an association for all managed instances in an AWS account " on the Examples page.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
 	//
 	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`

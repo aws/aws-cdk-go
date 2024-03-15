@@ -61,8 +61,8 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	// If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 	//
 	// - `/myapp/config/*` - All files inside config directory
-	// - `/** /*.png` - All .png files in all directories
-	// - `/** /*.{png,ico,md}` - All .png, .ico or .md files in all directories
+	// - `** /*.png` - All .png files in all directories
+	// - `** /*.{png, ico, md}` - All .png, .ico or .md files in all directories
 	// - `/myapp/src/** /*.ts` - All .ts files inside src directory (and all its subdirectories)
 	// - `** /!(*.module).ts` - All .ts files but not .module.ts
 	// - **.png , *.jpg* excludes all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
@@ -78,8 +78,8 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	// If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 	//
 	// - `/myapp/config/*` - All files inside config directory
-	// - `/** /*.png` - All .png files in all directories
-	// - `/** /*.{png,ico,md}` - All .png, .ico or .md files in all directories
+	// - `** /*.png` - All .png files in all directories
+	// - `** /*.{png, ico, md}` - All .png, .ico or .md files in all directories
 	// - `/myapp/src/** /*.ts` - All .ts files inside src directory (and all its subdirectories)
 	// - `** /!(*.module).ts` - All .ts files but not .module.ts
 	// - **.png , *.jpg* includes all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).

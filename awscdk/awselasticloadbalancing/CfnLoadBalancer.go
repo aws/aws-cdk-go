@@ -11,8 +11,6 @@ import (
 
 // Specifies a Classic Load Balancer.
 //
-// You can specify the `AvailabilityZones` or `Subnets` property, but not both.
-//
 // If this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the VPC-gateway attachment.
 //
 // Example:
@@ -140,9 +138,7 @@ type CfnLoadBalancer interface {
 	AttrSourceSecurityGroupGroupName() *string
 	// The owner of the source security group.
 	AttrSourceSecurityGroupOwnerAlias() *string
-	// The Availability Zones for the load balancer.
-	//
-	// For load balancers in a VPC, specify `Subnets` instead.
+	// The Availability Zones for a load balancer in a default VPC.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.

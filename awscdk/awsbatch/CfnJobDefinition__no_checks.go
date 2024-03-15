@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetContainerPropertiesParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnJobDefinition) validateSetEcsPropertiesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnJobDefinition) validateSetEksPropertiesParameters(val interface{}) error {
 	return nil
 }

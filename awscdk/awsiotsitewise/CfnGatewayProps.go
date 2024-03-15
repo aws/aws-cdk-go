@@ -43,8 +43,6 @@ import (
 //
 type CfnGatewayProps struct {
 	// A unique, friendly name for the gateway.
-	//
-	// The maximum length is 256 characters with the pattern `[^\u0000-\u001F\u007F]+` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
 	//
 	GatewayName *string `field:"required" json:"gatewayName" yaml:"gatewayName"`

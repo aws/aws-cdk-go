@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The Amazon Simple Storage (Amazon S3) location and and security configuration for `OfflineStore` .
+// The Amazon Simple Storage (Amazon S3) location and security configuration for `OfflineStore` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

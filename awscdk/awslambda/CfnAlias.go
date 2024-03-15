@@ -56,7 +56,7 @@ type CfnAlias interface {
 	// A description of the alias.
 	Description() *string
 	SetDescription(val *string)
-	// The name of the Lambda function.
+	// The name or ARN of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// The function version that the alias invokes.

@@ -11,6 +11,7 @@ package awsopensearchservice
 //   		WarmNodes: jsii.Number(2),
 //   		WarmInstanceType: jsii.String("ultrawarm1.medium.search"),
 //   	},
+//   	ColdStorageEnabled: jsii.Boolean(true),
 //   })
 //
 type CapacityConfig struct {

@@ -1,7 +1,7 @@
 package awsiotsitewise
 
 
-// Contains a property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+// Contains a property type, which can be one of `attribute` , `measurement` , `metric` , or `transform` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -76,25 +76,19 @@ type CfnAssetModel_PropertyTypeProperty struct {
 	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// Specifies an asset attribute property.
 	//
-	// An attribute generally contains static information, such as the serial number of an [industrial IoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
-	//
-	// This is required if the `TypeName` is `Attribute` and has a `DefaultValue` .
+	// An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
 	//
 	Attribute interface{} `field:"optional" json:"attribute" yaml:"attribute"`
 	// Specifies an asset metric property.
 	//
 	// A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
-	//
-	// This is required if the `TypeName` is `Metric` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
 	//
 	Metric interface{} `field:"optional" json:"metric" yaml:"metric"`
 	// Specifies an asset transform property.
 	//
 	// A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
-	//
-	// This is required if the `TypeName` is `Transform` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
 	//
 	Transform interface{} `field:"optional" json:"transform" yaml:"transform"`

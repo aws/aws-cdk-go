@@ -1141,6 +1141,8 @@ tasks.NewEventBridgePutEvents(this, jsii.String("Send an event to EventBridge"),
 
 Step Functions supports [AWS Glue](https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html) through the service integration pattern.
 
+### StartJobRun
+
 You can call the [`StartJobRun`](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-StartJobRun) API from a `Task` state.
 
 ```go
@@ -1151,6 +1153,29 @@ tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
 	}),
 	TaskTimeout: sfn.Timeout_Duration(awscdk.Duration_Minutes(jsii.Number(30))),
 	NotifyDelayAfter: awscdk.Duration_*Minutes(jsii.Number(5)),
+})
+```
+
+### StartCrawlerRun
+
+You can call the [`StartCrawler`](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-StartCrawler) API from a `Task` state through AWS SDK service integrations.
+
+```go
+import glue "github.com/aws/aws-cdk-go/awscdk"
+
+var myCrawler cfnCrawler
+
+
+// You can get the crawler name from `crawler.ref`
+// You can get the crawler name from `crawler.ref`
+tasks.NewGlueStartCrawlerRun(this, jsii.String("Task1"), &GlueStartCrawlerRunProps{
+	CrawlerName: myCrawler.ref,
+})
+
+// Of course, you can also specify the crawler name directly.
+// Of course, you can also specify the crawler name directly.
+tasks.NewGlueStartCrawlerRun(this, jsii.String("Task2"), &GlueStartCrawlerRunProps{
+	CrawlerName: jsii.String("my-crawler-job"),
 })
 ```
 

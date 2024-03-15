@@ -566,6 +566,7 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-terminationprotected
 	//
 	TerminationProtected interface{} `field:"optional" json:"terminationProtected" yaml:"terminationProtected"`
+	// Indicates whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-unhealthynodereplacement
 	//
 	UnhealthyNodeReplacement interface{} `field:"optional" json:"unhealthyNodeReplacement" yaml:"unhealthyNodeReplacement"`

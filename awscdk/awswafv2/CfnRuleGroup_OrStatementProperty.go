@@ -63,6 +63,9 @@ package awswafv2
 //   						MatchScope: jsii.String("matchScope"),
 //   						OversizeHandling: jsii.String("oversizeHandling"),
 //   					},
+//   					Ja3Fingerprint: &JA3FingerprintProperty{
+//   						FallbackBehavior: jsii.String("fallbackBehavior"),
+//   					},
 //   					JsonBody: &JsonBodyProperty{
 //   						MatchPattern: &JsonMatchPatternProperty{
 //   							All: all,
@@ -179,6 +182,7 @@ package awswafv2
 //   						},
 //   					},
 //   				},
+//   				EvaluationWindowSec: jsii.Number(123),
 //   				ForwardedIpConfig: &ForwardedIPConfigurationProperty{
 //   					FallbackBehavior: jsii.String("fallbackBehavior"),
 //   					HeaderName: jsii.String("headerName"),
@@ -216,6 +220,9 @@ package awswafv2
 //   						},
 //   						MatchScope: jsii.String("matchScope"),
 //   						OversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					Ja3Fingerprint: &JA3FingerprintProperty{
+//   						FallbackBehavior: jsii.String("fallbackBehavior"),
 //   					},
 //   					JsonBody: &JsonBodyProperty{
 //   						MatchPattern: &JsonMatchPatternProperty{
@@ -277,6 +284,9 @@ package awswafv2
 //   						MatchScope: jsii.String("matchScope"),
 //   						OversizeHandling: jsii.String("oversizeHandling"),
 //   					},
+//   					Ja3Fingerprint: &JA3FingerprintProperty{
+//   						FallbackBehavior: jsii.String("fallbackBehavior"),
+//   					},
 //   					JsonBody: &JsonBodyProperty{
 //   						MatchPattern: &JsonMatchPatternProperty{
 //   							All: all,
@@ -336,6 +346,9 @@ package awswafv2
 //   						MatchScope: jsii.String("matchScope"),
 //   						OversizeHandling: jsii.String("oversizeHandling"),
 //   					},
+//   					Ja3Fingerprint: &JA3FingerprintProperty{
+//   						FallbackBehavior: jsii.String("fallbackBehavior"),
+//   					},
 //   					JsonBody: &JsonBodyProperty{
 //   						MatchPattern: &JsonMatchPatternProperty{
 //   							All: all,
@@ -394,6 +407,9 @@ package awswafv2
 //   						},
 //   						MatchScope: jsii.String("matchScope"),
 //   						OversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					Ja3Fingerprint: &JA3FingerprintProperty{
+//   						FallbackBehavior: jsii.String("fallbackBehavior"),
 //   					},
 //   					JsonBody: &JsonBodyProperty{
 //   						MatchPattern: &JsonMatchPatternProperty{
@@ -455,6 +471,9 @@ package awswafv2
 //   						},
 //   						MatchScope: jsii.String("matchScope"),
 //   						OversizeHandling: jsii.String("oversizeHandling"),
+//   					},
+//   					Ja3Fingerprint: &JA3FingerprintProperty{
+//   						FallbackBehavior: jsii.String("fallbackBehavior"),
 //   					},
 //   					JsonBody: &JsonBodyProperty{
 //   						MatchPattern: &JsonMatchPatternProperty{

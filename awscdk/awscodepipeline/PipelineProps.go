@@ -95,7 +95,8 @@ type PipelineProps struct {
 	// Type of the pipeline.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html
 	//
-	// Default: - PipelineType.V1
+	// Default: - PipelineType.V2 if the feature flag `CODEPIPELINE_DEFAULT_PIPELINE_TYPE_TO_V2`
+	// is true, PipelineType.V1 otherwise
 	//
 	PipelineType PipelineType `field:"optional" json:"pipelineType" yaml:"pipelineType"`
 	// Indicates whether to rerun the AWS CodePipeline pipeline after you update it.

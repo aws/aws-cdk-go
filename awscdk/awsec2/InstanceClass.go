@@ -485,6 +485,18 @@ const (
 	InstanceClass_MACINTOSH1_INTEL InstanceClass = "MACINTOSH1_INTEL"
 	// Macintosh instances built on Apple Mac mini computers, 1st generation with Intel procesors.
 	InstanceClass_MAC1 InstanceClass = "MAC1"
+	// Macintosh instances built on Apple Mac mini 2020 computers, 2nd generation with Apple silicon M1 processors.
+	InstanceClass_MACINTOSH2_M1 InstanceClass = "MACINTOSH2_M1"
+	// Macintosh instances built on Apple Mac mini 2020 computers, 2nd generation with Apple silicon M1 processors.
+	InstanceClass_MAC2 InstanceClass = "MAC2"
+	// Macintosh instances built on Apple Mac mini 2023 computers, 2nd generation with Apple silicon M2 processors.
+	InstanceClass_MACINTOSH2_M2 InstanceClass = "MACINTOSH2_M2"
+	// Macintosh instances built on Apple Mac mini 2023 computers, 2nd generation with Apple silicon M2 processors.
+	InstanceClass_MAC2_M2 InstanceClass = "MAC2_M2"
+	// Macintosh instances built on Apple Mac mini 2023 computers, 2nd generation with Apple silicon M2 Pro processors.
+	InstanceClass_MACINTOSH2_M2_PRO InstanceClass = "MACINTOSH2_M2_PRO"
+	// Macintosh instances built on Apple Mac mini 2023 computers, 2nd generation with Apple silicon M2 Pro processors.
+	InstanceClass_MAC2_M2PRO InstanceClass = "MAC2_M2PRO"
 	// Multi-stream video transcoding instances for resolutions up to 4K UHD, 1st generation.
 	InstanceClass_VIDEO_TRANSCODING1 InstanceClass = "VIDEO_TRANSCODING1"
 	// Multi-stream video transcoding instances for resolutions up to 4K UHD, 1st generation.
@@ -493,6 +505,18 @@ const (
 	InstanceClass_HIGH_PERFORMANCE_COMPUTING6_AMD InstanceClass = "HIGH_PERFORMANCE_COMPUTING6_AMD"
 	// High performance computing based on AMD EPYC, 6th generation.
 	InstanceClass_HPC6A InstanceClass = "HPC6A"
+	// High performance computing with local NVME drive based on 6th generation with Intel Xeon Scalable processors (3rd generation processors code named Ice Lake), 6th generation.
+	InstanceClass_HIGH_PERFORMANCE_COMPUTING6_INTEL_NVME_DRIVE InstanceClass = "HIGH_PERFORMANCE_COMPUTING6_INTEL_NVME_DRIVE"
+	// High performance computing with local NVME drive based on 6th generation with Intel Xeon Scalable processors (3rd generation processors code named Ice Lake), 6th generation.
+	InstanceClass_HPC6ID InstanceClass = "HPC6ID"
+	// High performance computing based on AMD EPYC, 7th generation.
+	InstanceClass_HIGH_PERFORMANCE_COMPUTING7_AMD InstanceClass = "HIGH_PERFORMANCE_COMPUTING7_AMD"
+	// High performance computing based on AMD EPYC, 7th generation.
+	InstanceClass_HPC7A InstanceClass = "HPC7A"
+	// High performance computing based on Graviton, 7th generation.
+	InstanceClass_HIGH_PERFORMANCE_COMPUTING7_GRAVITON InstanceClass = "HIGH_PERFORMANCE_COMPUTING7_GRAVITON"
+	// High performance computing based on Graviton, 7th generation.
+	InstanceClass_HPC7G InstanceClass = "HPC7G"
 	// Deep learning instances powered by Gaudi accelerators from Habana Labs (an Intel company), 1st generation.
 	InstanceClass_DEEP_LEARNING1 InstanceClass = "DEEP_LEARNING1"
 	// Deep learning instances powered by Gaudi accelerators from Habana Labs (an Intel company), 1st generation.

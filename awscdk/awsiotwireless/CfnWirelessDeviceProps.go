@@ -92,7 +92,7 @@ type CfnWirelessDeviceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+	// FPort values for the GNSS, Stream, and ClockSync functions of the positioning information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-positioning
 	//
 	Positioning *string `field:"optional" json:"positioning" yaml:"positioning"`

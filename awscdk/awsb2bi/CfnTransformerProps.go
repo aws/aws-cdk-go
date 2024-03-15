@@ -24,7 +24,6 @@ import (
 //   	Status: jsii.String("status"),
 //
 //   	// the properties below are optional
-//   	ModifiedAt: jsii.String("modifiedAt"),
 //   	SampleDocument: jsii.String("sampleDocument"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -61,10 +60,6 @@ type CfnTransformerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-status
 	//
 	Status *string `field:"required" json:"status" yaml:"status"`
-	// Returns a timestamp representing the date and time for the most recent change for the transformer object.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-modifiedat
-	//
-	ModifiedAt *string `field:"optional" json:"modifiedAt" yaml:"modifiedAt"`
 	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-sampledocument
 	//

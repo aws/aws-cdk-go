@@ -60,6 +60,7 @@ type CfnVPCCidrBlock interface {
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
 	AmazonProvidedIpv6CidrBlock() interface{}
 	SetAmazonProvidedIpv6CidrBlock(val interface{})
+	// The Id of the VPC associated CIDR Block.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

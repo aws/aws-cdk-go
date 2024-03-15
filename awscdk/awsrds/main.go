@@ -167,6 +167,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrMasterUserSecretSecretArn", GoGetter: "AttrMasterUserSecretSecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadEndpoint", GoGetter: "AttrReadEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadEndpointAddress", GoGetter: "AttrReadEndpointAddress"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStorageThroughput", GoGetter: "AttrStorageThroughput"},
 			_jsii_.MemberProperty{JsiiProperty: "autoMinorVersionUpgrade", GoGetter: "AutoMinorVersionUpgrade"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "backtrackWindow", GoGetter: "BacktrackWindow"},

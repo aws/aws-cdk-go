@@ -14,372 +14,7 @@ import (
 // For more information, see [Job Definitions](https://docs.aws.amazon.com/batch/latest/userguide/job_definitions.html) in the ** .
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var labels interface{}
-//   var limits interface{}
-//   var options interface{}
-//   var parameters interface{}
-//   var requests interface{}
-//   var tags interface{}
-//
-//   cfnJobDefinition := awscdk.Aws_batch.NewCfnJobDefinition(this, jsii.String("MyCfnJobDefinition"), &CfnJobDefinitionProps{
-//   	Type: jsii.String("type"),
-//
-//   	// the properties below are optional
-//   	ContainerProperties: &ContainerPropertiesProperty{
-//   		Image: jsii.String("image"),
-//
-//   		// the properties below are optional
-//   		Command: []*string{
-//   			jsii.String("command"),
-//   		},
-//   		Environment: []interface{}{
-//   			&EnvironmentProperty{
-//   				Name: jsii.String("name"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   		EphemeralStorage: &EphemeralStorageProperty{
-//   			SizeInGiB: jsii.Number(123),
-//   		},
-//   		ExecutionRoleArn: jsii.String("executionRoleArn"),
-//   		FargatePlatformConfiguration: &FargatePlatformConfigurationProperty{
-//   			PlatformVersion: jsii.String("platformVersion"),
-//   		},
-//   		InstanceType: jsii.String("instanceType"),
-//   		JobRoleArn: jsii.String("jobRoleArn"),
-//   		LinuxParameters: &LinuxParametersProperty{
-//   			Devices: []interface{}{
-//   				&DeviceProperty{
-//   					ContainerPath: jsii.String("containerPath"),
-//   					HostPath: jsii.String("hostPath"),
-//   					Permissions: []*string{
-//   						jsii.String("permissions"),
-//   					},
-//   				},
-//   			},
-//   			InitProcessEnabled: jsii.Boolean(false),
-//   			MaxSwap: jsii.Number(123),
-//   			SharedMemorySize: jsii.Number(123),
-//   			Swappiness: jsii.Number(123),
-//   			Tmpfs: []interface{}{
-//   				&TmpfsProperty{
-//   					ContainerPath: jsii.String("containerPath"),
-//   					Size: jsii.Number(123),
-//
-//   					// the properties below are optional
-//   					MountOptions: []*string{
-//   						jsii.String("mountOptions"),
-//   					},
-//   				},
-//   			},
-//   		},
-//   		LogConfiguration: &LogConfigurationProperty{
-//   			LogDriver: jsii.String("logDriver"),
-//
-//   			// the properties below are optional
-//   			Options: options,
-//   			SecretOptions: []interface{}{
-//   				&SecretProperty{
-//   					Name: jsii.String("name"),
-//   					ValueFrom: jsii.String("valueFrom"),
-//   				},
-//   			},
-//   		},
-//   		Memory: jsii.Number(123),
-//   		MountPoints: []interface{}{
-//   			&MountPointsProperty{
-//   				ContainerPath: jsii.String("containerPath"),
-//   				ReadOnly: jsii.Boolean(false),
-//   				SourceVolume: jsii.String("sourceVolume"),
-//   			},
-//   		},
-//   		NetworkConfiguration: &NetworkConfigurationProperty{
-//   			AssignPublicIp: jsii.String("assignPublicIp"),
-//   		},
-//   		Privileged: jsii.Boolean(false),
-//   		ReadonlyRootFilesystem: jsii.Boolean(false),
-//   		RepositoryCredentials: &RepositoryCredentialsProperty{
-//   			CredentialsParameter: jsii.String("credentialsParameter"),
-//   		},
-//   		ResourceRequirements: []interface{}{
-//   			&ResourceRequirementProperty{
-//   				Type: jsii.String("type"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   		RuntimePlatform: &RuntimePlatformProperty{
-//   			CpuArchitecture: jsii.String("cpuArchitecture"),
-//   			OperatingSystemFamily: jsii.String("operatingSystemFamily"),
-//   		},
-//   		Secrets: []interface{}{
-//   			&SecretProperty{
-//   				Name: jsii.String("name"),
-//   				ValueFrom: jsii.String("valueFrom"),
-//   			},
-//   		},
-//   		Ulimits: []interface{}{
-//   			&UlimitProperty{
-//   				HardLimit: jsii.Number(123),
-//   				Name: jsii.String("name"),
-//   				SoftLimit: jsii.Number(123),
-//   			},
-//   		},
-//   		User: jsii.String("user"),
-//   		Vcpus: jsii.Number(123),
-//   		Volumes: []interface{}{
-//   			&VolumesProperty{
-//   				EfsVolumeConfiguration: &EfsVolumeConfigurationProperty{
-//   					FileSystemId: jsii.String("fileSystemId"),
-//
-//   					// the properties below are optional
-//   					AuthorizationConfig: &AuthorizationConfigProperty{
-//   						AccessPointId: jsii.String("accessPointId"),
-//   						Iam: jsii.String("iam"),
-//   					},
-//   					RootDirectory: jsii.String("rootDirectory"),
-//   					TransitEncryption: jsii.String("transitEncryption"),
-//   					TransitEncryptionPort: jsii.Number(123),
-//   				},
-//   				Host: &VolumesHostProperty{
-//   					SourcePath: jsii.String("sourcePath"),
-//   				},
-//   				Name: jsii.String("name"),
-//   			},
-//   		},
-//   	},
-//   	EksProperties: &EksPropertiesProperty{
-//   		PodProperties: &PodPropertiesProperty{
-//   			Containers: []interface{}{
-//   				&EksContainerProperty{
-//   					Image: jsii.String("image"),
-//
-//   					// the properties below are optional
-//   					Args: []*string{
-//   						jsii.String("args"),
-//   					},
-//   					Command: []*string{
-//   						jsii.String("command"),
-//   					},
-//   					Env: []interface{}{
-//   						&EksContainerEnvironmentVariableProperty{
-//   							Name: jsii.String("name"),
-//
-//   							// the properties below are optional
-//   							Value: jsii.String("value"),
-//   						},
-//   					},
-//   					ImagePullPolicy: jsii.String("imagePullPolicy"),
-//   					Name: jsii.String("name"),
-//   					Resources: &ResourcesProperty{
-//   						Limits: limits,
-//   						Requests: requests,
-//   					},
-//   					SecurityContext: &SecurityContextProperty{
-//   						Privileged: jsii.Boolean(false),
-//   						ReadOnlyRootFilesystem: jsii.Boolean(false),
-//   						RunAsGroup: jsii.Number(123),
-//   						RunAsNonRoot: jsii.Boolean(false),
-//   						RunAsUser: jsii.Number(123),
-//   					},
-//   					VolumeMounts: []interface{}{
-//   						&EksContainerVolumeMountProperty{
-//   							MountPath: jsii.String("mountPath"),
-//   							Name: jsii.String("name"),
-//   							ReadOnly: jsii.Boolean(false),
-//   						},
-//   					},
-//   				},
-//   			},
-//   			DnsPolicy: jsii.String("dnsPolicy"),
-//   			HostNetwork: jsii.Boolean(false),
-//   			Metadata: &MetadataProperty{
-//   				Labels: labels,
-//   			},
-//   			ServiceAccountName: jsii.String("serviceAccountName"),
-//   			Volumes: []interface{}{
-//   				&EksVolumeProperty{
-//   					Name: jsii.String("name"),
-//
-//   					// the properties below are optional
-//   					EmptyDir: &EmptyDirProperty{
-//   						Medium: jsii.String("medium"),
-//   						SizeLimit: jsii.String("sizeLimit"),
-//   					},
-//   					HostPath: &HostPathProperty{
-//   						Path: jsii.String("path"),
-//   					},
-//   					Secret: &EksSecretProperty{
-//   						SecretName: jsii.String("secretName"),
-//
-//   						// the properties below are optional
-//   						Optional: jsii.Boolean(false),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
-//   	JobDefinitionName: jsii.String("jobDefinitionName"),
-//   	NodeProperties: &NodePropertiesProperty{
-//   		MainNode: jsii.Number(123),
-//   		NodeRangeProperties: []interface{}{
-//   			&NodeRangePropertyProperty{
-//   				TargetNodes: jsii.String("targetNodes"),
-//
-//   				// the properties below are optional
-//   				Container: &ContainerPropertiesProperty{
-//   					Image: jsii.String("image"),
-//
-//   					// the properties below are optional
-//   					Command: []*string{
-//   						jsii.String("command"),
-//   					},
-//   					Environment: []interface{}{
-//   						&EnvironmentProperty{
-//   							Name: jsii.String("name"),
-//   							Value: jsii.String("value"),
-//   						},
-//   					},
-//   					EphemeralStorage: &EphemeralStorageProperty{
-//   						SizeInGiB: jsii.Number(123),
-//   					},
-//   					ExecutionRoleArn: jsii.String("executionRoleArn"),
-//   					FargatePlatformConfiguration: &FargatePlatformConfigurationProperty{
-//   						PlatformVersion: jsii.String("platformVersion"),
-//   					},
-//   					InstanceType: jsii.String("instanceType"),
-//   					JobRoleArn: jsii.String("jobRoleArn"),
-//   					LinuxParameters: &LinuxParametersProperty{
-//   						Devices: []interface{}{
-//   							&DeviceProperty{
-//   								ContainerPath: jsii.String("containerPath"),
-//   								HostPath: jsii.String("hostPath"),
-//   								Permissions: []*string{
-//   									jsii.String("permissions"),
-//   								},
-//   							},
-//   						},
-//   						InitProcessEnabled: jsii.Boolean(false),
-//   						MaxSwap: jsii.Number(123),
-//   						SharedMemorySize: jsii.Number(123),
-//   						Swappiness: jsii.Number(123),
-//   						Tmpfs: []interface{}{
-//   							&TmpfsProperty{
-//   								ContainerPath: jsii.String("containerPath"),
-//   								Size: jsii.Number(123),
-//
-//   								// the properties below are optional
-//   								MountOptions: []*string{
-//   									jsii.String("mountOptions"),
-//   								},
-//   							},
-//   						},
-//   					},
-//   					LogConfiguration: &LogConfigurationProperty{
-//   						LogDriver: jsii.String("logDriver"),
-//
-//   						// the properties below are optional
-//   						Options: options,
-//   						SecretOptions: []interface{}{
-//   							&SecretProperty{
-//   								Name: jsii.String("name"),
-//   								ValueFrom: jsii.String("valueFrom"),
-//   							},
-//   						},
-//   					},
-//   					Memory: jsii.Number(123),
-//   					MountPoints: []interface{}{
-//   						&MountPointsProperty{
-//   							ContainerPath: jsii.String("containerPath"),
-//   							ReadOnly: jsii.Boolean(false),
-//   							SourceVolume: jsii.String("sourceVolume"),
-//   						},
-//   					},
-//   					NetworkConfiguration: &NetworkConfigurationProperty{
-//   						AssignPublicIp: jsii.String("assignPublicIp"),
-//   					},
-//   					Privileged: jsii.Boolean(false),
-//   					ReadonlyRootFilesystem: jsii.Boolean(false),
-//   					RepositoryCredentials: &RepositoryCredentialsProperty{
-//   						CredentialsParameter: jsii.String("credentialsParameter"),
-//   					},
-//   					ResourceRequirements: []interface{}{
-//   						&ResourceRequirementProperty{
-//   							Type: jsii.String("type"),
-//   							Value: jsii.String("value"),
-//   						},
-//   					},
-//   					RuntimePlatform: &RuntimePlatformProperty{
-//   						CpuArchitecture: jsii.String("cpuArchitecture"),
-//   						OperatingSystemFamily: jsii.String("operatingSystemFamily"),
-//   					},
-//   					Secrets: []interface{}{
-//   						&SecretProperty{
-//   							Name: jsii.String("name"),
-//   							ValueFrom: jsii.String("valueFrom"),
-//   						},
-//   					},
-//   					Ulimits: []interface{}{
-//   						&UlimitProperty{
-//   							HardLimit: jsii.Number(123),
-//   							Name: jsii.String("name"),
-//   							SoftLimit: jsii.Number(123),
-//   						},
-//   					},
-//   					User: jsii.String("user"),
-//   					Vcpus: jsii.Number(123),
-//   					Volumes: []interface{}{
-//   						&VolumesProperty{
-//   							EfsVolumeConfiguration: &EfsVolumeConfigurationProperty{
-//   								FileSystemId: jsii.String("fileSystemId"),
-//
-//   								// the properties below are optional
-//   								AuthorizationConfig: &AuthorizationConfigProperty{
-//   									AccessPointId: jsii.String("accessPointId"),
-//   									Iam: jsii.String("iam"),
-//   								},
-//   								RootDirectory: jsii.String("rootDirectory"),
-//   								TransitEncryption: jsii.String("transitEncryption"),
-//   								TransitEncryptionPort: jsii.Number(123),
-//   							},
-//   							Host: &VolumesHostProperty{
-//   								SourcePath: jsii.String("sourcePath"),
-//   							},
-//   							Name: jsii.String("name"),
-//   						},
-//   					},
-//   				},
-//   			},
-//   		},
-//   		NumNodes: jsii.Number(123),
-//   	},
-//   	Parameters: parameters,
-//   	PlatformCapabilities: []*string{
-//   		jsii.String("platformCapabilities"),
-//   	},
-//   	PropagateTags: jsii.Boolean(false),
-//   	RetryStrategy: &RetryStrategyProperty{
-//   		Attempts: jsii.Number(123),
-//   		EvaluateOnExit: []interface{}{
-//   			&EvaluateOnExitProperty{
-//   				Action: jsii.String("action"),
-//
-//   				// the properties below are optional
-//   				OnExitCode: jsii.String("onExitCode"),
-//   				OnReason: jsii.String("onReason"),
-//   				OnStatusReason: jsii.String("onStatusReason"),
-//   			},
-//   		},
-//   	},
-//   	SchedulingPriority: jsii.Number(123),
-//   	Tags: tags,
-//   	Timeout: &TimeoutProperty{
-//   		AttemptDurationSeconds: jsii.Number(123),
-//   	},
-//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html
 //
@@ -400,6 +35,8 @@ type CfnJobDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	EcsProperties() interface{}
+	SetEcsProperties(val interface{})
 	// An object with properties that are specific to Amazon EKS-based jobs.
 	EksProperties() interface{}
 	SetEksProperties(val interface{})
@@ -663,6 +300,16 @@ func (j *jsiiProxy_CfnJobDefinition) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobDefinition) EcsProperties() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ecsProperties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobDefinition) EksProperties() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -878,6 +525,17 @@ func (j *jsiiProxy_CfnJobDefinition)SetContainerProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"containerProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobDefinition)SetEcsProperties(val interface{}) {
+	if err := j.validateSetEcsPropertiesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ecsProperties",
 		val,
 	)
 }

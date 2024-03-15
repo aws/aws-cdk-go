@@ -383,7 +383,10 @@ type CfnClusterProps struct {
 	//
 	// Default: `5439`
 	//
-	// Valid Values: `1150-65535`.
+	// Valid Values:
+	//
+	// - For clusters with ra3 nodes - Select a port within the ranges `5431-5455` or `8191-8215` . (If you have an existing cluster with ra3 nodes, it isn't required that you change the port to these ranges.)
+	// - For clusters with ds2 or dc2 nodes - Select a port within the range `1150-65535` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`

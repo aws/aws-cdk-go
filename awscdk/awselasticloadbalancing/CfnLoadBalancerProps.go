@@ -123,7 +123,9 @@ type CfnLoadBalancerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html#cfn-elasticloadbalancing-loadbalancer-appcookiestickinesspolicy
 	//
 	AppCookieStickinessPolicy interface{} `field:"optional" json:"appCookieStickinessPolicy" yaml:"appCookieStickinessPolicy"`
-	// The Availability Zones for the load balancer. For load balancers in a VPC, specify `Subnets` instead.
+	// The Availability Zones for a load balancer in a default VPC.
+	//
+	// For a load balancer in a nondefault VPC, specify `Subnets` instead.
 	//
 	// Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html#cfn-elasticloadbalancing-loadbalancer-availabilityzones

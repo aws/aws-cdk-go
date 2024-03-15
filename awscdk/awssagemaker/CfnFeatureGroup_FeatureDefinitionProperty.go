@@ -21,6 +21,11 @@ type CfnFeatureGroup_FeatureDefinitionProperty struct {
 	// The name of a feature.
 	//
 	// The type must be a string. `FeatureName` cannot be any of the following: `is_deleted` , `write_time` , `api_invocation_time` .
+	//
+	// The name:
+	//
+	// - Must start and end with an alphanumeric character.
+	// - Can only include alphanumeric characters, underscores, and hyphens. Spaces are not allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
 	//
 	FeatureName *string `field:"required" json:"featureName" yaml:"featureName"`

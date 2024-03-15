@@ -1,7 +1,7 @@
 package awsiotsitewise
 
 
-// The `Project` property type specifies the AWS IoT SiteWise Monitor project for an [AWS::IoTSiteWise::AccessPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html) .
+// Identifies a specific AWS IoT SiteWise Monitor project.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

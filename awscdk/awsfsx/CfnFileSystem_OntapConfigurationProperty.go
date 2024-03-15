@@ -71,11 +71,11 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	FsxAdminPassword *string `field:"optional" json:"fsxAdminPassword" yaml:"fsxAdminPassword"`
 	// Specifies how many high-availability (HA) pairs of file servers will power your file system.
 	//
-	// Scale-up file systems are powered by 1 HA pair. The default value is 1. FSx for ONTAP scale-out file system are powered by up to six HA pairs. The value of this property affects the values of `StorageCapacity` , `Iops` , and `ThroughputCapacity` . For more information, see [High-availability (HA) pairs](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/HA-pairs.html) in the FSx for ONTAP user guide.
+	// Scale-up file systems are powered by 1 HA pair. The default value is 1. FSx for ONTAP scale-out file systems are powered by up to 12 HA pairs. The value of this property affects the values of `StorageCapacity` , `Iops` , and `ThroughputCapacity` . For more information, see [High-availability (HA) pairs](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/HA-pairs.html) in the FSx for ONTAP user guide.
 	//
 	// Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
 	//
-	// - The value of `HAPairs` is less than 1 or greater than 6.
+	// - The value of `HAPairs` is less than 1 or greater than 12.
 	// - The value of `HAPairs` is greater than 1 and the value of `DeploymentType` is `SINGLE_AZ_1` or `MULTI_AZ_1` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-hapairs
 	//
@@ -117,7 +117,7 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	// Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
 	//
 	// - The value of `ThroughputCapacity` and `ThroughputCapacityPerHAPair` are not the same value for file systems with one HA pair.
-	// - The value of deployment type is `SINGLE_AZ_2` and `ThroughputCapacity` / `ThroughputCapacityPerHAPair` is a valid HA pair (a value between 2 and 6).
+	// - The value of deployment type is `SINGLE_AZ_2` and `ThroughputCapacity` / `ThroughputCapacityPerHAPair` is a valid HA pair (a value between 2 and 12).
 	// - The value of `ThroughputCapacityPerHAPair` is not a valid value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html#cfn-fsx-filesystem-ontapconfiguration-throughputcapacityperhapair
 	//

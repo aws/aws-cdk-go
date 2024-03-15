@@ -329,9 +329,7 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclustersnapshotidentifier
 	//
 	DbClusterSnapshotIdentifier *string `field:"optional" json:"dbClusterSnapshotIdentifier" yaml:"dbClusterSnapshotIdentifier"`
-	// The compute and memory capacity of the DB instance, for example, `db.m4.large` . Not all DB instance classes are available in all AWS Regions, or for all database engines.
-	//
-	// For the full list of DB instance classes, and availability for your engine, see [DB Instance Class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide.* For more information about DB instance class pricing and AWS Region support for DB instance classes, see [Amazon RDS Pricing](https://docs.aws.amazon.com/rds/pricing/) .
+	// The compute and memory capacity of the DB instance, for example `db.m5.large` . Not all DB instance classes are available in all AWS Regions , or for all database engines. For the full list of DB instance classes, and availability for your engine, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide* or [Aurora DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html) in the *Amazon Aurora User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbinstanceclass
 	//
 	DbInstanceClass *string `field:"optional" json:"dbInstanceClass" yaml:"dbInstanceClass"`
@@ -1119,21 +1117,15 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storagethroughput
 	//
 	StorageThroughput *float64 `field:"optional" json:"storageThroughput" yaml:"storageThroughput"`
-	// Specifies the storage type to be associated with the DB instance.
+	// The storage type to associate with the DB instance.
 	//
-	// Valid values: `gp2 | gp3 | io1 | standard`
+	// If you specify `io1` , `io2` , or `gp3` , you must also include a value for the `Iops` parameter.
 	//
-	// The `standard` value is also known as magnetic.
+	// This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
 	//
-	// If you specify `io1` or `gp3` , you must also include a value for the `Iops` parameter.
+	// Valid Values: `gp2 | gp3 | io1 | io2 | standard`
 	//
-	// Default: `io1` if the `Iops` parameter is specified, otherwise `gp2`
-	//
-	// For more information, see [Amazon RDS DB Instance Storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html) in the *Amazon RDS User Guide* .
-	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. Aurora data is stored in the cluster volume, which is a single, virtual volume that uses solid state drives (SSDs).
+	// Default: `io1` , if the `Iops` parameter is specified. Otherwise, `gp2` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`

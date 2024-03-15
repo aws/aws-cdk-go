@@ -87,9 +87,9 @@ type CfnInferenceExperiment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name (ARN) of the inference experiment.
+	// The ARN for your inference experiment.
 	AttrArn() *string
-	// The timestamp at which you created the inference experiment.
+	// The timestamp at which the inference experiment was created.
 	AttrCreationTime() *string
 	// The metadata of the endpoint on which the inference experiment ran.
 	AttrEndpointMetadata() awscdk.IResolvable
@@ -98,7 +98,16 @@ type CfnInferenceExperiment interface {
 	AttrEndpointMetadataEndpointStatus() *string
 	// The timestamp at which you last modified the inference experiment.
 	AttrLastModifiedTime() *string
-	// The status of the inference experiment.
+	// The status of the inference experiment. The following are the possible statuses for an inference experiment:.
+	//
+	// - `Creating` - Amazon SageMaker is creating your experiment.
+	// - `Created` - Amazon SageMaker has finished the creation of your experiment and will begin the experiment at the scheduled time.
+	// - `Updating` - When you make changes to your experiment, your experiment shows as updating.
+	// - `Starting` - Amazon SageMaker is beginning your experiment.
+	// - `Running` - Your experiment is in progress.
+	// - `Stopping` - Amazon SageMaker is stopping your experiment.
+	// - `Completed` - Your experiment has completed.
+	// - `Cancelled` - When you conclude your experiment early using the [StopInferenceExperiment](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html) API, or if any operation fails with an unexpected error, it shows as cancelled.
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

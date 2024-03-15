@@ -93,6 +93,8 @@ type CfnIntegrationProps struct {
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies the integration's HTTP method type.
+	//
+	// For WebSocket APIs, if you use a Lambda integration, you must set the integration method to `POST` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationmethod
 	//
 	IntegrationMethod *string `field:"optional" json:"integrationMethod" yaml:"integrationMethod"`

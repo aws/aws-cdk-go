@@ -218,7 +218,8 @@ You can configure an MSK cluster storage mode using the `storageMode` property.
 Tiered storage is a low-cost storage tier for Amazon MSK that scales to virtually unlimited storage,
 making it cost-effective to build streaming data applications.
 
-> Visit [Tiered storage](https://docs.aws.amazon.com/msk/latest/developerguide/msk-tiered-storage.html) for more details.
+> Visit [Tiered storage](https://docs.aws.amazon.com/msk/latest/developerguide/msk-tiered-storage.html)
+> to see the list of compatible Kafka versions and for more details.
 
 ```go
 var vpc vpc
@@ -227,7 +228,7 @@ var bucket iBucket
 
 cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 	ClusterName: jsii.String("myCluster"),
-	KafkaVersion: msk.KafkaVersion_V2_8_2_TIERED(),
+	KafkaVersion: msk.KafkaVersion_V3_6_0(),
 	Vpc: Vpc,
 	StorageMode: msk.StorageMode_TIERED,
 })

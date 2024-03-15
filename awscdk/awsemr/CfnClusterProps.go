@@ -602,6 +602,8 @@ type CfnClusterProps struct {
 	//
 	JobFlowRole *string `field:"required" json:"jobFlowRole" yaml:"jobFlowRole"`
 	// The name of the cluster.
+	//
+	// This parameter can't contain the characters <, >, $, |, or ` (backtick).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`

@@ -275,3 +275,20 @@ construct, the construct automatically defaults the value of this property to fa
   }
 }
 ```
+
+* `@aws-cdk/aws-codepipeline:defaultPipelineTypeToV2`
+
+Enables Pipeline to set the default pipeline type to V2.
+
+When this feature flag is enabled, and the `pipelineType` property is not provided in a `Pipeline`
+construct, the construct automatically defaults the value of this property to `PipelineType.V2`.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-codepipeline:defaultPipelineTypeToV2": true
+  }
+}
+```

@@ -74,7 +74,7 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
-	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide* .
+	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
 	//
 	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`

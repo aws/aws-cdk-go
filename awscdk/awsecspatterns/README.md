@@ -1205,3 +1205,21 @@ networkLoadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateSe
 	},
 })
 ```
+
+### Set securityGroups for NetworkLoadBalancedFargateService
+
+```go
+var vpc vpc
+var securityGroup securityGroup
+
+queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
+	Vpc: Vpc,
+	MemoryLimitMiB: jsii.Number(512),
+	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+	SecurityGroups: []iSecurityGroup{
+		securityGroup,
+	},
+})
+```

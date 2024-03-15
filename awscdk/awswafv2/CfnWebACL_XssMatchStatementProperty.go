@@ -50,6 +50,9 @@ package awswafv2
 //   			MatchScope: jsii.String("matchScope"),
 //   			OversizeHandling: jsii.String("oversizeHandling"),
 //   		},
+//   		Ja3Fingerprint: &JA3FingerprintProperty{
+//   			FallbackBehavior: jsii.String("fallbackBehavior"),
+//   		},
 //   		JsonBody: &JsonBodyProperty{
 //   			MatchPattern: &JsonMatchPatternProperty{
 //   				All: all,

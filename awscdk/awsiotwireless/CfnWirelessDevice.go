@@ -114,7 +114,7 @@ type CfnWirelessDevice interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+	// FPort values for the GNSS, Stream, and ClockSync functions of the positioning information.
 	Positioning() *string
 	SetPositioning(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

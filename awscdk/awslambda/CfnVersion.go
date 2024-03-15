@@ -57,7 +57,7 @@ type CfnVersion interface {
 	// A description for the version to override the description in the function configuration.
 	Description() *string
 	SetDescription(val *string)
-	// The name of the Lambda function.
+	// The name or ARN of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
 	// The logical ID for this CloudFormation stack element.

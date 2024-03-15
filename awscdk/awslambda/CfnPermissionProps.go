@@ -30,7 +30,7 @@ type CfnPermissionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-action
 	//
 	Action *string `field:"required" json:"action" yaml:"action"`
-	// The name of the Lambda function, version, or alias.
+	// The name or ARN of the Lambda function, version, or alias.
 	//
 	// **Name formats** - *Function name* – `my-function` (name-only), `my-function:v1` (with alias).
 	// - *Function ARN* – `arn:aws:lambda:us-west-2:123456789012:function:my-function` .

@@ -59,19 +59,19 @@ type CfnAsset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// A description for the asset.
+	// The ID of the asset, in UUID format.
 	AssetDescription() *string
 	SetAssetDescription(val *string)
 	// The External ID of the asset.
 	AssetExternalId() *string
 	SetAssetExternalId(val *string)
-	// A list of asset hierarchies that each contain a `hierarchyLogicalId` .
+	// A list of asset hierarchies that each contain a `hierarchyId` .
 	AssetHierarchies() interface{}
 	SetAssetHierarchies(val interface{})
 	// The ID of the asset model from which to create the asset.
 	AssetModelId() *string
 	SetAssetModelId(val *string)
-	// A unique, friendly name for the asset.
+	// A friendly name for the asset.
 	AssetName() *string
 	SetAssetName(val *string)
 	// The list of asset properties for the asset.

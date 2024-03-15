@@ -35,7 +35,7 @@ type CfnAssetModel_VariableValueProperty struct {
 	HierarchyId *string `field:"optional" json:"hierarchyId" yaml:"hierarchyId"`
 	// The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
 	//
-	// You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
+	// You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchylogicalid
 	//
 	HierarchyLogicalId *string `field:"optional" json:"hierarchyLogicalId" yaml:"hierarchyLogicalId"`
@@ -47,7 +47,7 @@ type CfnAssetModel_VariableValueProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertyid
 	//
 	PropertyId *string `field:"optional" json:"propertyId" yaml:"propertyId"`
-	// The `LogicalID` of the property to use as the variable.
+	// The `LogicalID` of the property that is being referenced.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertylogicalid
 	//
 	PropertyLogicalId *string `field:"optional" json:"propertyLogicalId" yaml:"propertyLogicalId"`

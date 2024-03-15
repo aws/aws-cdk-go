@@ -294,15 +294,18 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableglobalwriteforwarding
 	//
 	EnableGlobalWriteForwarding interface{} `field:"optional" json:"enableGlobalWriteForwarding" yaml:"enableGlobalWriteForwarding"`
-	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster.
+	// Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.
 	//
-	// By default, the HTTP endpoint is disabled.
+	// When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.
 	//
-	// When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
+	// RDS Data API is supported with the following DB clusters:
 	//
-	// For more information, see [Using the Data API for Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide* .
+	// - Aurora PostgreSQL Serverless v2 and provisioned
+	// - Aurora PostgreSQL and Aurora MySQL Serverless v1
 	//
-	// Valid for: Aurora DB clusters only.
+	// For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide* .
+	//
+	// Valid for Cluster Type: Aurora DB clusters only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablehttpendpoint
 	//
 	EnableHttpEndpoint interface{} `field:"optional" json:"enableHttpEndpoint" yaml:"enableHttpEndpoint"`
@@ -723,7 +726,7 @@ type CfnDBClusterProps struct {
 	// Valid Values:
 	//
 	// - Aurora DB clusters - `aurora | aurora-iopt1`
-	// - Multi-AZ DB clusters - `io1`
+	// - Multi-AZ DB clusters - `io1 | io2 | gp3`
 	//
 	// Default:
 	//

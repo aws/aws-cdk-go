@@ -79,8 +79,6 @@ type CfnAlarmProps struct {
 	// The arithmetic operation to use when comparing the specified statistic and threshold.
 	//
 	// The specified statistic value is used as the first operand.
-	//
-	// You can specify the following values: `GreaterThanThreshold` , `GreaterThanOrEqualToThreshold` , `LessThanThreshold` , or `LessThanOrEqualToThreshold` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-comparisonoperator
 	//
 	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`

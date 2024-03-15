@@ -61,6 +61,9 @@ package awswafv2
 //   		MatchScope: jsii.String("matchScope"),
 //   		OversizeHandling: jsii.String("oversizeHandling"),
 //   	},
+//   	Ja3Fingerprint: &JA3FingerprintProperty{
+//   		FallbackBehavior: jsii.String("fallbackBehavior"),
+//   	},
 //   	JsonBody: &JsonBodyProperty{
 //   		MatchPattern: &JsonMatchPatternProperty{
 //   			All: all,
@@ -114,6 +117,18 @@ type CfnWebACL_FieldToMatchProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-headers
 	//
 	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
+	// Match against the request's JA3 fingerprint.
+	//
+	// The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
+	//
+	// > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
+	//
+	// You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
+	//
+	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-ja3fingerprint
+	//
+	Ja3Fingerprint interface{} `field:"optional" json:"ja3Fingerprint" yaml:"ja3Fingerprint"`
 	// Inspect the request body as JSON.
 	//
 	// The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.

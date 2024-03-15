@@ -56,10 +56,52 @@ package awsbatch
 //   	},
 //   	DnsPolicy: jsii.String("dnsPolicy"),
 //   	HostNetwork: jsii.Boolean(false),
+//   	InitContainers: []interface{}{
+//   		&EksContainerProperty{
+//   			Image: jsii.String("image"),
+//
+//   			// the properties below are optional
+//   			Args: []*string{
+//   				jsii.String("args"),
+//   			},
+//   			Command: []*string{
+//   				jsii.String("command"),
+//   			},
+//   			Env: []interface{}{
+//   				&EksContainerEnvironmentVariableProperty{
+//   					Name: jsii.String("name"),
+//
+//   					// the properties below are optional
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			ImagePullPolicy: jsii.String("imagePullPolicy"),
+//   			Name: jsii.String("name"),
+//   			Resources: &ResourcesProperty{
+//   				Limits: limits,
+//   				Requests: requests,
+//   			},
+//   			SecurityContext: &SecurityContextProperty{
+//   				Privileged: jsii.Boolean(false),
+//   				ReadOnlyRootFilesystem: jsii.Boolean(false),
+//   				RunAsGroup: jsii.Number(123),
+//   				RunAsNonRoot: jsii.Boolean(false),
+//   				RunAsUser: jsii.Number(123),
+//   			},
+//   			VolumeMounts: []interface{}{
+//   				&EksContainerVolumeMountProperty{
+//   					MountPath: jsii.String("mountPath"),
+//   					Name: jsii.String("name"),
+//   					ReadOnly: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Metadata: &MetadataProperty{
 //   		Labels: labels,
 //   	},
 //   	ServiceAccountName: jsii.String("serviceAccountName"),
+//   	ShareProcessNamespace: jsii.Boolean(false),
 //   	Volumes: []interface{}{
 //   		&EksVolumeProperty{
 //   			Name: jsii.String("name"),
@@ -103,6 +145,9 @@ type CfnJobDefinition_PodPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-hostnetwork
 	//
 	HostNetwork interface{} `field:"optional" json:"hostNetwork" yaml:"hostNetwork"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-initcontainers
+	//
+	InitContainers interface{} `field:"optional" json:"initContainers" yaml:"initContainers"`
 	// Metadata about the Kubernetes pod.
 	//
 	// For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
@@ -115,6 +160,9 @@ type CfnJobDefinition_PodPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-serviceaccountname
 	//
 	ServiceAccountName *string `field:"optional" json:"serviceAccountName" yaml:"serviceAccountName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-shareprocessnamespace
+	//
+	ShareProcessNamespace interface{} `field:"optional" json:"shareProcessNamespace" yaml:"shareProcessNamespace"`
 	// Specifies the volumes for a job definition that uses Amazon EKS resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-volumes
 	//

@@ -1,7 +1,7 @@
 package awsiotsitewise
 
 
-// The `Portal` property type specifies the AWS IoT SiteWise Monitor portal for an [AWS::IoTSiteWise::AccessPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html) .
+// Identifies an AWS IoT SiteWise Monitor portal.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

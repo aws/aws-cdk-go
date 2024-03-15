@@ -82,18 +82,14 @@ package awsiotsitewise
 //
 type CfnAssetModel_AssetModelPropertyProperty struct {
 	// The data type of the asset model property.
-	//
-	// The value can be `STRING` , `INTEGER` , `DOUBLE` , `BOOLEAN` , or `STRUCT` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
 	//
 	DataType *string `field:"required" json:"dataType" yaml:"dataType"`
 	// The name of the asset model property.
-	//
-	// The maximum length is 256 characters with the pattern `[^\u0000-\u001F\u007F]+` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Contains a property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+	// Contains a property type, which can be one of `attribute` , `measurement` , `metric` , or `transform` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
 	//
 	Type interface{} `field:"required" json:"type" yaml:"type"`
@@ -112,8 +108,6 @@ type CfnAssetModel_AssetModelPropertyProperty struct {
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The `LogicalID` of the asset model property.
-	//
-	// The maximum length is 256 characters, with the pattern `[^\\u0000-\\u001F\\u007F]+` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
 	//
 	LogicalId *string `field:"optional" json:"logicalId" yaml:"logicalId"`
