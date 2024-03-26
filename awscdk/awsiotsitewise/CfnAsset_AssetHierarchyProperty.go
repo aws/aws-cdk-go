@@ -24,11 +24,15 @@ type CfnAsset_AssetHierarchyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
 	//
 	ChildAssetId *string `field:"required" json:"childAssetId" yaml:"childAssetId"`
-	// String-friendly customer provided external ID.
+	// The external ID of the hierarchy, if it has one.
+	//
+	// When you update an asset hierarchy, you may assign an external ID if it doesn't already have one. You can't change the external ID of an asset hierarchy that already has one. For more information, see [Using external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids) in the *AWS IoT SiteWise User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-externalid
 	//
 	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
-	// Customer provided actual UUID for property.
+	// The ID of the hierarchy. This ID is a `hierarchyId` .
+	//
+	// > This is a return value and can't be set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-id
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`

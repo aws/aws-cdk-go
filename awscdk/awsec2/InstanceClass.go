@@ -115,6 +115,8 @@ const (
 	InstanceClass_R5A InstanceClass = "R5A"
 	// Memory optimized instances based on AMD EPYC with local NVME drive, 5th generation.
 	InstanceClass_MEMORY5_AMD_NVME_DRIVE InstanceClass = "MEMORY5_AMD_NVME_DRIVE"
+	// Memory optimized instances based on AMD EPYC with local NVME drive, 5th generation.
+	InstanceClass_R5AD InstanceClass = "R5AD"
 	// High memory instances (3TB) based on Intel Xeon Platinum 8176M (Skylake) processors, 1st generation.
 	InstanceClass_HIGH_MEMORY_3TB_1 InstanceClass = "HIGH_MEMORY_3TB_1"
 	// High memory instances (3TB) based on Intel Xeon Platinum 8176M (Skylake) processors, 1st generation.
@@ -139,8 +141,6 @@ const (
 	InstanceClass_HIGH_MEMORY_24TB_1 InstanceClass = "HIGH_MEMORY_24TB_1"
 	// High memory instances (24TB) based on Intel Xeon Scalable (Cascade Lake) processors, 1st generation.
 	InstanceClass_U_24TB1 InstanceClass = "U_24TB1"
-	// Memory optimized instances based on AMD EPYC with local NVME drive, 5th generation.
-	InstanceClass_R5AD InstanceClass = "R5AD"
 	// Memory optimized instances that are also EBS-optimized, 5th generation.
 	InstanceClass_MEMORY5_EBS_OPTIMIZED InstanceClass = "MEMORY5_EBS_OPTIMIZED"
 	// Memory optimized instances that are also EBS-optimized, 5th generation.
@@ -275,12 +275,16 @@ const (
 	InstanceClass_D3EN InstanceClass = "D3EN"
 	// Storage/compute balanced instances, 1st generation.
 	InstanceClass_STORAGE_COMPUTE_1 InstanceClass = "STORAGE_COMPUTE_1"
-	// High performance computing powered by AWS Trainium.
-	InstanceClass_TRN1 InstanceClass = "TRN1"
-	// High performance computing powered by AWS Trainium.
-	InstanceClass_TRN1N InstanceClass = "TRN1N"
 	// Storage/compute balanced instances, 1st generation.
 	InstanceClass_H1 InstanceClass = "H1"
+	// High performance computing powered by AWS Trainium.
+	InstanceClass_TRAINING_ACCELERATOR1 InstanceClass = "TRAINING_ACCELERATOR1"
+	// High performance computing powered by AWS Trainium.
+	InstanceClass_TRN1 InstanceClass = "TRN1"
+	// Network-optimized high performance computing powered by AWS Trainium.
+	InstanceClass_TRAINING_ACCELERATOR1_ENHANCED_NETWORK InstanceClass = "TRAINING_ACCELERATOR1_ENHANCED_NETWORK"
+	// Network-optimized high performance computing powered by AWS Trainium.
+	InstanceClass_TRN1N InstanceClass = "TRN1N"
 	// I/O-optimized instances, 3rd generation.
 	InstanceClass_IO3 InstanceClass = "IO3"
 	// I/O-optimized instances, 3rd generation.
@@ -327,7 +331,7 @@ const (
 	InstanceClass_X1 InstanceClass = "X1"
 	// Memory-intensive instances, extended, 1st generation.
 	InstanceClass_MEMORY_INTENSIVE_1_EXTENDED InstanceClass = "MEMORY_INTENSIVE_1_EXTENDED"
-	// Memory-intensive instances, 1st generation.
+	// Memory-intensive instances, extended, 1st generation.
 	InstanceClass_X1E InstanceClass = "X1E"
 	// Memory-intensive instances, 2nd generation with Graviton2 processors.
 	//
@@ -389,11 +393,11 @@ const (
 	InstanceClass_PARALLEL2 InstanceClass = "PARALLEL2"
 	// Parallel-processing optimized instances, 2nd generation.
 	InstanceClass_P2 InstanceClass = "P2"
-	// Parallel-processing optimized instances, 3nd generation.
+	// Parallel-processing optimized instances, 3rd generation.
 	InstanceClass_PARALLEL3 InstanceClass = "PARALLEL3"
 	// Parallel-processing optimized instances, 3rd generation.
 	InstanceClass_P3 InstanceClass = "P3"
-	// Parallel-processing optimized instances with local NVME drive for high performance computing, 3nd generation.
+	// Parallel-processing optimized instances with local NVME drive for high performance computing, 3rd generation.
 	InstanceClass_PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE"
 	// Parallel-processing optimized instances with local NVME drive for high performance computing, 3rd generation.
 	InstanceClass_P3DN InstanceClass = "P3DN"
@@ -521,5 +525,9 @@ const (
 	InstanceClass_DEEP_LEARNING1 InstanceClass = "DEEP_LEARNING1"
 	// Deep learning instances powered by Gaudi accelerators from Habana Labs (an Intel company), 1st generation.
 	InstanceClass_DL1 InstanceClass = "DL1"
+	// Deep learning instances powered by Qualcomm AI 100 Standard accelerators, 2nd generation.
+	InstanceClass_DEEP_LEARNING2_QUALCOMM InstanceClass = "DEEP_LEARNING2_QUALCOMM"
+	// Deep learning instances powered by Qualcomm AI 100 Standard accelerators, 2nd generation.
+	InstanceClass_DL2Q InstanceClass = "DL2Q"
 )
 

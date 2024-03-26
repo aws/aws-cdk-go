@@ -60,6 +60,9 @@ import (
 //   				CopyAccessControlListsForTopics: jsii.Boolean(false),
 //   				CopyTopicConfigurations: jsii.Boolean(false),
 //   				DetectAndCopyNewTopics: jsii.Boolean(false),
+//   				StartingPosition: &ReplicationStartingPositionProperty{
+//   					Type: jsii.String("type"),
+//   				},
 //   				TopicsToExclude: []*string{
 //   					jsii.String("topicsToExclude"),
 //   				},

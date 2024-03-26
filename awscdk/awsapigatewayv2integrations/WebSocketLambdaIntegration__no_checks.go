@@ -8,7 +8,7 @@ func (w *jsiiProxy_WebSocketLambdaIntegration) validateBindParameters(options *a
 	return nil
 }
 
-func validateNewWebSocketLambdaIntegrationParameters(id *string, handler awslambda.IFunction) error {
+func validateNewWebSocketLambdaIntegrationParameters(id *string, handler awslambda.IFunction, props *WebSocketLambdaIntegrationProps) error {
 	return nil
 }
 

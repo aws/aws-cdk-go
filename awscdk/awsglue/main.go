@@ -156,6 +156,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "lakeFormationConfiguration", GoGetter: "LakeFormationConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -208,6 +209,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnCrawler.JdbcTargetProperty",
 		reflect.TypeOf((*CfnCrawler_JdbcTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnCrawler.LakeFormationConfigurationProperty",
+		reflect.TypeOf((*CfnCrawler_LakeFormationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnCrawler.MongoDBTargetProperty",

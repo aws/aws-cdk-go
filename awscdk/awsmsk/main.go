@@ -422,6 +422,10 @@ func init() {
 		reflect.TypeOf((*CfnReplicator_ReplicationInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.ReplicationStartingPositionProperty",
+		reflect.TypeOf((*CfnReplicator_ReplicationStartingPositionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.TopicReplicationProperty",
 		reflect.TypeOf((*CfnReplicator_TopicReplicationProperty)(nil)).Elem(),
 	)

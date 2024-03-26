@@ -40,6 +40,7 @@ import (
 //   		},
 //   		PerformanceScoreThreshold: jsii.Number(123),
 //   	},
+//   	IncludeLinkedAccounts: jsii.Boolean(false),
 //   	InternetMeasurementsLogDelivery: &InternetMeasurementsLogDeliveryProperty{
 //   		S3Config: &S3ConfigProperty{
 //   			BucketName: jsii.String("bucketName"),
@@ -47,6 +48,7 @@ import (
 //   			LogDeliveryStatus: jsii.String("logDeliveryStatus"),
 //   		},
 //   	},
+//   	LinkedAccountId: jsii.String("linkedAccountId"),
 //   	MaxCityNetworksToMonitor: jsii.Number(123),
 //   	Resources: []*string{
 //   		jsii.String("resources"),
@@ -97,9 +99,13 @@ type CfnMonitor interface {
 	// A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
 	HealthEventsConfig() interface{}
 	SetHealthEventsConfig(val interface{})
+	IncludeLinkedAccounts() interface{}
+	SetIncludeLinkedAccounts(val interface{})
 	// Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket.
 	InternetMeasurementsLogDelivery() interface{}
 	SetInternetMeasurementsLogDelivery(val interface{})
+	LinkedAccountId() *string
+	SetLinkedAccountId(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -394,11 +400,31 @@ func (j *jsiiProxy_CfnMonitor) HealthEventsConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMonitor) IncludeLinkedAccounts() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"includeLinkedAccounts",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMonitor) InternetMeasurementsLogDelivery() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"internetMeasurementsLogDelivery",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMonitor) LinkedAccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"linkedAccountId",
 		&returns,
 	)
 	return returns
@@ -593,6 +619,17 @@ func (j *jsiiProxy_CfnMonitor)SetHealthEventsConfig(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnMonitor)SetIncludeLinkedAccounts(val interface{}) {
+	if err := j.validateSetIncludeLinkedAccountsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"includeLinkedAccounts",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnMonitor)SetInternetMeasurementsLogDelivery(val interface{}) {
 	if err := j.validateSetInternetMeasurementsLogDeliveryParameters(val); err != nil {
 		panic(err)
@@ -600,6 +637,14 @@ func (j *jsiiProxy_CfnMonitor)SetInternetMeasurementsLogDelivery(val interface{}
 	_jsii_.Set(
 		j,
 		"internetMeasurementsLogDelivery",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMonitor)SetLinkedAccountId(val *string) {
+	_jsii_.Set(
+		j,
+		"linkedAccountId",
 		val,
 	)
 }

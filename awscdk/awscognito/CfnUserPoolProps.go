@@ -164,7 +164,8 @@ type CfnUserPoolProps struct {
 	AutoVerifiedAttributes *[]*string `field:"optional" json:"autoVerifiedAttributes" yaml:"autoVerifiedAttributes"`
 	// When active, `DeletionProtection` prevents accidental deletion of your user pool.
 	//
-	// Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.
+	// Before you can delete a user pool that you have protected against deletion, you
+	// must deactivate this feature.
 	//
 	// When you try to delete a protected user pool in a `DeleteUserPool` API request, Amazon Cognito returns an `InvalidParameterException` error. To delete a protected user pool, send a new `DeleteUserPool` request after you deactivate deletion protection in an `UpdateUserPool` API request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-deletionprotection

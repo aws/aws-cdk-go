@@ -29,6 +29,7 @@ import (
 //   		},
 //   		PerformanceScoreThreshold: jsii.Number(123),
 //   	},
+//   	IncludeLinkedAccounts: jsii.Boolean(false),
 //   	InternetMeasurementsLogDelivery: &InternetMeasurementsLogDeliveryProperty{
 //   		S3Config: &S3ConfigProperty{
 //   			BucketName: jsii.String("bucketName"),
@@ -36,6 +37,7 @@ import (
 //   			LogDeliveryStatus: jsii.String("logDeliveryStatus"),
 //   		},
 //   	},
+//   	LinkedAccountId: jsii.String("linkedAccountId"),
 //   	MaxCityNetworksToMonitor: jsii.Number(123),
 //   	Resources: []*string{
 //   		jsii.String("resources"),
@@ -79,12 +81,18 @@ type CfnMonitorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-healtheventsconfig
 	//
 	HealthEventsConfig interface{} `field:"optional" json:"healthEventsConfig" yaml:"healthEventsConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-includelinkedaccounts
+	//
+	IncludeLinkedAccounts interface{} `field:"optional" json:"includeLinkedAccounts" yaml:"includeLinkedAccounts"`
 	// Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket.
 	//
 	// Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-internetmeasurementslogdelivery
 	//
 	InternetMeasurementsLogDelivery interface{} `field:"optional" json:"internetMeasurementsLogDelivery" yaml:"internetMeasurementsLogDelivery"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html#cfn-internetmonitor-monitor-linkedaccountid
+	//
+	LinkedAccountId *string `field:"optional" json:"linkedAccountId" yaml:"linkedAccountId"`
 	// The maximum number of city-networks to monitor for your resources.
 	//
 	// A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.

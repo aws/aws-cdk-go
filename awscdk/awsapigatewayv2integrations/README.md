@@ -336,3 +336,6 @@ webSocketApi.AddRoute(jsii.String("$connect"), &WebSocketRouteOptions{
 	}),
 })
 ```
+
+You can also set additional properties to change the behavior of your integration, such as `contentHandling`.
+See [Working with binary media types for WebSocket APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-develop-binary-media-types.html).

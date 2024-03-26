@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policyDocument interface{}
+//
 //   replicaSpecificationProperty := &ReplicaSpecificationProperty{
 //   	Region: jsii.String("region"),
 //
@@ -74,6 +76,14 @@ import (
 //   		},
 //   		ReadCapacityUnits: jsii.Number(123),
 //   	},
+//   	ReplicaStreamSpecification: &ReplicaStreamSpecificationProperty{
+//   		ResourcePolicy: &ResourcePolicyProperty{
+//   			PolicyDocument: policyDocument,
+//   		},
+//   	},
+//   	ResourcePolicy: &ResourcePolicyProperty{
+//   		PolicyDocument: policyDocument,
+//   	},
 //   	SseSpecification: &ReplicaSSESpecificationProperty{
 //   		KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
 //   	},
@@ -123,6 +133,18 @@ type CfnGlobalTable_ReplicaSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
 	//
 	ReadProvisionedThroughputSettings interface{} `field:"optional" json:"readProvisionedThroughputSettings" yaml:"readProvisionedThroughputSettings"`
+	// Represents the DynamoDB Streams configuration for a global table replica.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-replicastreamspecification
+	//
+	ReplicaStreamSpecification interface{} `field:"optional" json:"replicaStreamSpecification" yaml:"replicaStreamSpecification"`
+	// A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table.
+	//
+	// Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	//
+	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-resourcepolicy
+	//
+	ResourcePolicy interface{} `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
 	// Allows you to specify a customer-managed key for the replica.
 	//
 	// When using customer-managed keys for server-side encryption, this property must have a value in all replicas.

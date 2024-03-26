@@ -44,7 +44,8 @@ type PolicyProps struct {
 	// creating invalid--and hence undeployable--CloudFormation templates.
 	//
 	// In cases where you know the policy must be created and it is actually
-	// an error if no statements have been added to it, you can set this to `true`.
+	// an error if no statements have been added to it or it remains unattached to
+	// an IAM identity, you can set this to `true`.
 	// Default: false.
 	//
 	Force *bool `field:"optional" json:"force" yaml:"force"`

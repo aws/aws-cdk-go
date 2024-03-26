@@ -26,6 +26,7 @@ import (
 //
 //   			// the properties below are optional
 //   			"description": jsii.String("description"),
+//   			"dynamic": jsii.Boolean(false),
 //   		},
 //   	},
 //   	Tags: []cfnTag{

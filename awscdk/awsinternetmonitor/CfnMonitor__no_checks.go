@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnMonitor) validateSetHealthEventsConfigParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnMonitor) validateSetIncludeLinkedAccountsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMonitor) validateSetInternetMeasurementsLogDeliveryParameters(val interface{}) error {
 	return nil
 }

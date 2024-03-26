@@ -38,29 +38,29 @@ type jsiiProxy_WebSocketLambdaIntegration struct {
 	internal.Type__awsapigatewayv2WebSocketRouteIntegration
 }
 
-func NewWebSocketLambdaIntegration(id *string, handler awslambda.IFunction) WebSocketLambdaIntegration {
+func NewWebSocketLambdaIntegration(id *string, handler awslambda.IFunction, props *WebSocketLambdaIntegrationProps) WebSocketLambdaIntegration {
 	_init_.Initialize()
 
-	if err := validateNewWebSocketLambdaIntegrationParameters(id, handler); err != nil {
+	if err := validateNewWebSocketLambdaIntegrationParameters(id, handler, props); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_WebSocketLambdaIntegration{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketLambdaIntegration",
-		[]interface{}{id, handler},
+		[]interface{}{id, handler, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewWebSocketLambdaIntegration_Override(w WebSocketLambdaIntegration, id *string, handler awslambda.IFunction) {
+func NewWebSocketLambdaIntegration_Override(w WebSocketLambdaIntegration, id *string, handler awslambda.IFunction, props *WebSocketLambdaIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketLambdaIntegration",
-		[]interface{}{id, handler},
+		[]interface{}{id, handler, props},
 		w,
 	)
 }

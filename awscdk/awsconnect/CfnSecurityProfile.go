@@ -21,13 +21,25 @@ import (
 //   	SecurityProfileName: jsii.String("securityProfileName"),
 //
 //   	// the properties below are optional
+//   	AllowedAccessControlHierarchyGroupId: jsii.String("allowedAccessControlHierarchyGroupId"),
 //   	AllowedAccessControlTags: []interface{}{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Applications: []interface{}{
+//   		&ApplicationProperty{
+//   			ApplicationPermissions: []*string{
+//   				jsii.String("applicationPermissions"),
+//   			},
+//   			Namespace: jsii.String("namespace"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
+//   	HierarchyRestrictedResources: []*string{
+//   		jsii.String("hierarchyRestrictedResources"),
+//   	},
 //   	Permissions: []*string{
 //   		jsii.String("permissions"),
 //   	},
@@ -48,9 +60,19 @@ type CfnSecurityProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+	AllowedAccessControlHierarchyGroupId() *string
+	SetAllowedAccessControlHierarchyGroupId(val *string)
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags() interface{}
 	SetAllowedAccessControlTags(val interface{})
+	// A list of third-party applications that the security profile will give access to.
+	Applications() interface{}
+	SetApplications(val interface{})
+	// The AWS Region where this resource was last modified.
+	AttrLastModifiedRegion() *string
+	// The timestamp when this resource was last modified.
+	AttrLastModifiedTime() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) of the security profile.
 	AttrSecurityProfileArn() *string
 	// Tag Manager which manages the tags for this resource.
@@ -67,6 +89,9 @@ type CfnSecurityProfile interface {
 	// The description of the security profile.
 	Description() *string
 	SetDescription(val *string)
+	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+	HierarchyRestrictedResources() *[]*string
+	SetHierarchyRestrictedResources(val *[]*string)
 	// The identifier of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -250,11 +275,51 @@ type jsiiProxy_CfnSecurityProfile struct {
 	internal.Type__awscdkITaggableV2
 }
 
+func (j *jsiiProxy_CfnSecurityProfile) AllowedAccessControlHierarchyGroupId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"allowedAccessControlHierarchyGroupId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecurityProfile) AllowedAccessControlTags() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"allowedAccessControlTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityProfile) Applications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"applications",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityProfile) AttrLastModifiedRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastModifiedRegion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityProfile) AttrLastModifiedTime() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLastModifiedTime",
 		&returns,
 	)
 	return returns
@@ -325,6 +390,16 @@ func (j *jsiiProxy_CfnSecurityProfile) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityProfile) HierarchyRestrictedResources() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"hierarchyRestrictedResources",
 		&returns,
 	)
 	return returns
@@ -468,6 +543,14 @@ func NewCfnSecurityProfile_Override(c CfnSecurityProfile, scope constructs.Const
 	)
 }
 
+func (j *jsiiProxy_CfnSecurityProfile)SetAllowedAccessControlHierarchyGroupId(val *string) {
+	_jsii_.Set(
+		j,
+		"allowedAccessControlHierarchyGroupId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSecurityProfile)SetAllowedAccessControlTags(val interface{}) {
 	if err := j.validateSetAllowedAccessControlTagsParameters(val); err != nil {
 		panic(err)
@@ -479,10 +562,29 @@ func (j *jsiiProxy_CfnSecurityProfile)SetAllowedAccessControlTags(val interface{
 	)
 }
 
+func (j *jsiiProxy_CfnSecurityProfile)SetApplications(val interface{}) {
+	if err := j.validateSetApplicationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"applications",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSecurityProfile)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecurityProfile)SetHierarchyRestrictedResources(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"hierarchyRestrictedResources",
 		val,
 	)
 }

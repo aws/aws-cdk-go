@@ -231,7 +231,7 @@ type CfnAssetModel interface {
 	// The property definitions of the asset model.
 	AssetModelProperties() interface{}
 	SetAssetModelProperties(val interface{})
-	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL).
+	// The type of asset model.
 	AssetModelType() *string
 	SetAssetModelType(val *string)
 	// The ARN of the asset model, which has the following format.

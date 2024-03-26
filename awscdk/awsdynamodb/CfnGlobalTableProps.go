@@ -8,6 +8,8 @@ package awsdynamodb
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policyDocument interface{}
+//
 //   cfnGlobalTableProps := &CfnGlobalTableProps{
 //   	AttributeDefinitions: []interface{}{
 //   		&AttributeDefinitionProperty{
@@ -84,6 +86,14 @@ package awsdynamodb
 //   					SeedCapacity: jsii.Number(123),
 //   				},
 //   				ReadCapacityUnits: jsii.Number(123),
+//   			},
+//   			ReplicaStreamSpecification: &ReplicaStreamSpecificationProperty{
+//   				ResourcePolicy: &ResourcePolicyProperty{
+//   					PolicyDocument: policyDocument,
+//   				},
+//   			},
+//   			ResourcePolicy: &ResourcePolicyProperty{
+//   				PolicyDocument: policyDocument,
 //   			},
 //   			SseSpecification: &ReplicaSSESpecificationProperty{
 //   				KmsMasterKeyId: jsii.String("kmsMasterKeyId"),

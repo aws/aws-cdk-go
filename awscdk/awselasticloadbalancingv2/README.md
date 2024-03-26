@@ -214,7 +214,7 @@ If you do not provide any options for this method, it redirects HTTP port 80 to 
 By default all ingress traffic will be allowed on the source port. If you want to be more selective with your
 ingress rules then set `open: false` and use the listener's `connections` object to selectively grant access to the listener.
 
-### Load Balancer attributes
+### Application Load Balancer attributes
 
 You can modify attributes of Application Load Balancers:
 
@@ -242,6 +242,15 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 
 	// The type of IP addresses to use.
 	IpAddressType: elbv2.IpAddressType_IPV4,
+
+	// The duration of client keep-alive connections
+	ClientKeepAlive: awscdk.Duration_*Seconds(jsii.Number(500)),
+
+	// Whether cross-zone load balancing is enabled.
+	CrossZoneEnabled: jsii.Boolean(true),
+
+	// Whether the load balancer blocks traffic through the Internet Gateway (IGW).
+	DenyAllIgwTraffic: jsii.Boolean(false),
 })
 ```
 
@@ -284,6 +293,22 @@ listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
 })
 ```
 
+### Enforce security group inbound rules on PrivateLink traffic for a Network Load Balancer
+
+You can indicate whether to evaluate inbound security group rules for traffic
+sent to a Network Load Balancer through AWS PrivateLink.
+The evaluation is enabled by default.
+
+```go
+var vpc vpc
+
+
+nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: jsii.Boolean(true),
+})
+```
+
 One thing to keep in mind is that network load balancers do not have security
 groups, and no automatic security group configuration is done for you. You will
 have to configure the security groups of the target yourself to allow traffic by
@@ -309,6 +334,30 @@ lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancer
 ```
 
 You cannot add UDP or TCP_UDP listeners to a dualstack Network Load Balancer.
+
+### Network Load Balancer attributes
+
+You can modify attributes of Network Load Balancers:
+
+```go
+var vpc vpc
+
+
+lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	// Whether deletion protection is enabled.
+	DeletionProtection: jsii.Boolean(true),
+
+	// Whether cross-zone load balancing is enabled.
+	CrossZoneEnabled: jsii.Boolean(true),
+
+	// Whether the load balancer blocks traffic through the Internet Gateway (IGW).
+	DenyAllIgwTraffic: jsii.Boolean(false),
+
+	// Indicates how traffic is distributed among the load balancer Availability Zones.
+	ClientRoutingPolicy: elbv2.ClientRoutingPolicy_AVAILABILITY_ZONE_AFFINITY,
+})
+```
 
 ## Targets and Target Groups
 
@@ -363,6 +412,27 @@ tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &ApplicationTar
 	Port: jsii.Number(80),
 	StickinessCookieDuration: awscdk.Duration_*Minutes(jsii.Number(5)),
 	StickinessCookieName: jsii.String("MyDeliciousCookie"),
+	Vpc: Vpc,
+})
+```
+
+### Slow start mode for your Application Load Balancer
+
+By default, a target starts to receive its full share of requests as soon as it is registered with a target group and passes an initial health check. Using slow start mode gives targets time to warm up before the load balancer sends them a full share of requests.
+
+After you enable slow start for a target group, its targets enter slow start mode when they are considered healthy by the target group. A target in slow start mode exits slow start mode when the configured slow start duration period elapses or the target becomes unhealthy. The load balancer linearly increases the number of requests that it can send to a target in slow start mode. After a healthy target exits slow start mode, the load balancer can send it a full share of requests.
+
+The allowed range is 30-900 seconds (15 minutes). The default is 0 seconds (disabled).
+
+```go
+var vpc vpc
+
+
+// Target group with slow start mode enabled
+tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{
+	TargetType: elbv2.TargetType_INSTANCE,
+	SlowStart: awscdk.Duration_Seconds(jsii.Number(60)),
+	Port: jsii.Number(80),
 	Vpc: Vpc,
 })
 ```

@@ -53,7 +53,9 @@ type CfnRestoreTestingSelectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-protectedresourcetype
 	//
 	ProtectedResourceType *string `field:"required" json:"protectedResourceType" yaml:"protectedResourceType"`
-	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan.
+	// Unique string that is the name of the restore testing plan.
+	//
+	// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-restoretestingplanname
 	//
 	RestoreTestingPlanName *string `field:"required" json:"restoreTestingPlanName" yaml:"restoreTestingPlanName"`

@@ -19,7 +19,7 @@ import (
 // - For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS topic in the `Uri` field.
 // - For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS message queue in the `Uri` field.
 //
-// For more information about extensions, see [Working with AWS AppConfig extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html) in the *AWS AppConfig User Guide* .
+// For more information about extensions, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html) in the *AWS AppConfig User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,6 +41,7 @@ import (
 //
 //   			// the properties below are optional
 //   			"description": jsii.String("description"),
+//   			"dynamic": jsii.Boolean(false),
 //   		},
 //   	},
 //   	Tags: []cfnTag{

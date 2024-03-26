@@ -82,7 +82,7 @@ type CfnNetworkInterfaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-enableprimaryipv6
 	//
 	EnablePrimaryIpv6 interface{} `field:"optional" json:"enablePrimaryIpv6" yaml:"enablePrimaryIpv6"`
-	// The security group IDs associated with this network interface.
+	// The IDs of the security groups associated with this network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-groupset
 	//
 	GroupSet *[]*string `field:"optional" json:"groupSet" yaml:"groupSet"`
@@ -104,7 +104,7 @@ type CfnNetworkInterfaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv4prefixes
 	//
 	Ipv4Prefixes interface{} `field:"optional" json:"ipv4Prefixes" yaml:"ipv4Prefixes"`
-	// The number of IPv6 addresses to assign to a network interface.
+	// The number of IPv6 addresses to assign to the network interface.
 	//
 	// Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the `Ipv6Addresses` property and don't specify this property.
 	//
@@ -112,7 +112,7 @@ type CfnNetworkInterfaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv6addresscount
 	//
 	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
-	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface.
+	// The IPv6 addresses from the IPv6 CIDR block range of your subnet to assign to the network interface.
 	//
 	// If you're specifying a number of IPv6 addresses, use the `Ipv6AddressCount` property and don't specify this property.
 	//
@@ -132,13 +132,13 @@ type CfnNetworkInterfaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-ipv6prefixes
 	//
 	Ipv6Prefixes interface{} `field:"optional" json:"ipv6Prefixes" yaml:"ipv6Prefixes"`
-	// Assigns a single private IP address to the network interface, which is used as the primary private IP address.
+	// The private IPv4 address to assign to the network interface as the primary private IP address.
 	//
-	// If you want to specify multiple private IP address, use the `PrivateIpAddresses` property.
+	// If you want to specify multiple private IP addresses, use the `PrivateIpAddresses` property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-privateipaddress
 	//
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
-	// Assigns private IP addresses to the network interface.
+	// The private IPv4 addresses to assign to the network interface.
 	//
 	// You can specify a primary private IP address by setting the value of the `Primary` property to `true` in the `PrivateIpAddressSpecification` property. If you want EC2 to automatically assign private IP addresses, use the `SecondaryPrivateIpAddressCount` property and do not specify this property.
 	//
@@ -160,7 +160,7 @@ type CfnNetworkInterfaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-sourcedestcheck
 	//
 	SourceDestCheck interface{} `field:"optional" json:"sourceDestCheck" yaml:"sourceDestCheck"`
-	// An arbitrary set of tags (key-value pairs) for this network interface.
+	// The tags to apply to the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

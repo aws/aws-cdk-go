@@ -35,6 +35,7 @@ type CfnJobDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
 	EcsProperties() interface{}
 	SetEcsProperties(val interface{})
 	// An object with properties that are specific to Amazon EKS-based jobs.

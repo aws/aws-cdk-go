@@ -559,6 +559,30 @@ func (j *jsiiProxy_CfnTable) validateSetProvisionedThroughputParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetResourcePolicyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTable_ResourcePolicyProperty:
+		val := val.(*CfnTable_ResourcePolicyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTable_ResourcePolicyProperty:
+		val_ := val.(CfnTable_ResourcePolicyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTable_ResourcePolicyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetSseSpecificationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

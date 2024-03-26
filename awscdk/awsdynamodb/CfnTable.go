@@ -22,6 +22,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policyDocument interface{}
+//
 //   cfnTable := awscdk.Aws_dynamodb.NewCfnTable(this, jsii.String("MyCfnTable"), &CfnTableProps{
 //   	KeySchema: []interface{}{
 //   		&KeySchemaProperty{
@@ -119,6 +121,9 @@ import (
 //   		ReadCapacityUnits: jsii.Number(123),
 //   		WriteCapacityUnits: jsii.Number(123),
 //   	},
+//   	ResourcePolicy: &ResourcePolicyProperty{
+//   		PolicyDocument: policyDocument,
+//   	},
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),
 //
@@ -128,6 +133,11 @@ import (
 //   	},
 //   	StreamSpecification: &StreamSpecificationProperty{
 //   		StreamViewType: jsii.String("streamViewType"),
+//
+//   		// the properties below are optional
+//   		ResourcePolicy: &ResourcePolicyProperty{
+//   			PolicyDocument: policyDocument,
+//   		},
 //   	},
 //   	TableClass: jsii.String("tableClass"),
 //   	TableName: jsii.String("tableName"),
@@ -218,6 +228,9 @@ type CfnTable interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// A resource-based policy document that contains permissions to add to the specified table.
+	ResourcePolicy() interface{}
+	SetResourcePolicy(val interface{})
 	// Specifies the settings to enable server-side encryption.
 	SseSpecification() interface{}
 	SetSseSpecification(val interface{})
@@ -589,6 +602,16 @@ func (j *jsiiProxy_CfnTable) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) ResourcePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourcePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) SseSpecification() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -831,6 +854,17 @@ func (j *jsiiProxy_CfnTable)SetProvisionedThroughput(val interface{}) {
 	_jsii_.Set(
 		j,
 		"provisionedThroughput",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetResourcePolicy(val interface{}) {
+	if err := j.validateSetResourcePolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resourcePolicy",
 		val,
 	)
 }

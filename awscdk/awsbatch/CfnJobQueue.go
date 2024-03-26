@@ -29,6 +29,14 @@ import (
 //
 //   	// the properties below are optional
 //   	JobQueueName: jsii.String("jobQueueName"),
+//   	JobStateTimeLimitActions: []interface{}{
+//   		&JobStateTimeLimitActionProperty{
+//   			Action: jsii.String("action"),
+//   			MaxTimeSeconds: jsii.Number(123),
+//   			Reason: jsii.String("reason"),
+//   			State: jsii.String("state"),
+//   		},
+//   	},
 //   	SchedulingPolicyArn: jsii.String("schedulingPolicyArn"),
 //   	State: jsii.String("state"),
 //   	Tags: map[string]*string{
@@ -59,6 +67,9 @@ type CfnJobQueue interface {
 	// The name of the job queue.
 	JobQueueName() *string
 	SetJobQueueName(val *string)
+	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times.
+	JobStateTimeLimitActions() interface{}
+	SetJobStateTimeLimitActions(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -311,6 +322,16 @@ func (j *jsiiProxy_CfnJobQueue) JobQueueName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobQueue) JobStateTimeLimitActions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"jobStateTimeLimitActions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobQueue) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -464,6 +485,17 @@ func (j *jsiiProxy_CfnJobQueue)SetJobQueueName(val *string) {
 	_jsii_.Set(
 		j,
 		"jobQueueName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobQueue)SetJobStateTimeLimitActions(val interface{}) {
+	if err := j.validateSetJobStateTimeLimitActionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"jobStateTimeLimitActions",
 		val,
 	)
 }

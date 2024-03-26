@@ -18,12 +18,14 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   lambdaInvokeFunction := integ_tests_alpha.NewLambdaInvokeFunction(this, jsii.String("MyLambdaInvokeFunction"), &LambdaInvokeFunctionProps{
 //   	FunctionName: jsii.String("functionName"),
 //
 //   	// the properties below are optional
 //   	InvocationType: integ_tests_alpha.InvocationType_EVENT,
+//   	LogRetention: awscdk.Aws_logs.RetentionDays_ONE_DAY,
 //   	LogType: integ_tests_alpha.LogType_NONE,
 //   	Payload: jsii.String("payload"),
 //   })

@@ -82,6 +82,8 @@ type CfnManagedPolicyProps struct {
 	// > You cannot use an asterisk (*) in the path name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-path
 	//
+	// Default: - "/".
+	//
 	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The name (friendly name, not ARN) of the role to attach the policy to.
 	//

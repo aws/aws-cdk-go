@@ -169,7 +169,15 @@ func Duration_Minutes(amount *float64) Duration {
 
 // Parse a period formatted according to the ISO 8601 standard.
 //
+// Days are the largest ISO duration supported, i.e.,
+// weeks, months, and years are not supported.
+//
 // Returns: the parsed `Duration`.
+//
+// Example:
+//   // This represents 1 day, 2 hours, 3 minutes, 4 seconds, and 567 milliseconds.
+//   "P1DT2H3M4.567S"
+//
 // See: https://www.iso.org/standard/70907.html
 //
 func Duration_Parse(duration *string) Duration {

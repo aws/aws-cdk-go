@@ -11,6 +11,7 @@ package awscloudwatch
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   singleMetricAnomalyDetectorProperty := &SingleMetricAnomalyDetectorProperty{
+//   	AccountId: jsii.String("accountId"),
 //   	Dimensions: []interface{}{
 //   		&DimensionProperty{
 //   			Name: jsii.String("name"),
@@ -25,6 +26,9 @@ package awscloudwatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html
 //
 type CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-accountid
+	//
+	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
 	// The metric dimensions to create the anomaly detection model for.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-dimensions
 	//

@@ -13,7 +13,7 @@ import (
 //
 // An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a source security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html) .
 //
-// You must specify only one of the following sources: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully, but the rule is not added to the security group.
+// You must specify exactly one of the following sources: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.
 //
 // You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
 //

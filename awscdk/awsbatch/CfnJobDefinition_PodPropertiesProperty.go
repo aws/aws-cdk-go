@@ -145,6 +145,11 @@ type CfnJobDefinition_PodPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-hostnetwork
 	//
 	HostNetwork interface{} `field:"optional" json:"hostNetwork" yaml:"hostNetwork"`
+	// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts.
+	//
+	// These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+	//
+	// > This object is limited to 10 elements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-initcontainers
 	//
 	InitContainers interface{} `field:"optional" json:"initContainers" yaml:"initContainers"`
@@ -160,6 +165,9 @@ type CfnJobDefinition_PodPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-serviceaccountname
 	//
 	ServiceAccountName *string `field:"optional" json:"serviceAccountName" yaml:"serviceAccountName"`
+	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+	//
+	// For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-shareprocessnamespace
 	//
 	ShareProcessNamespace interface{} `field:"optional" json:"shareProcessNamespace" yaml:"shareProcessNamespace"`

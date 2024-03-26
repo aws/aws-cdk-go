@@ -114,3 +114,14 @@ func GatewayVpcEndpointAwsService_S3() GatewayVpcEndpointAwsService {
 	return returns
 }
 
+func GatewayVpcEndpointAwsService_S3_EXPRESS() GatewayVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns GatewayVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.GatewayVpcEndpointAwsService",
+		"S3_EXPRESS",
+		&returns,
+	)
+	return returns
+}
+

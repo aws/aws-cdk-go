@@ -1,7 +1,7 @@
 package awsiotsitewise
 
 
-// The definition for property path which is used to reference properties in transforms/metrics.
+// Represents one level between a composite model and the root of the asset model.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsiotsitewise
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html
 //
 type CfnAssetModel_PropertyPathDefinitionProperty struct {
-	// The name of the property.
+	// The name of the path segment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html#cfn-iotsitewise-assetmodel-propertypathdefinition-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`

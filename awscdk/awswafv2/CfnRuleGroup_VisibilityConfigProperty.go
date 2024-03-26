@@ -35,6 +35,8 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 	// Indicates whether AWS WAF should store a sampling of the web requests that match the rules.
 	//
 	// You can view the sampled requests through the AWS WAF console.
+	//
+	// > Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
 	//
 	SampledRequestsEnabled interface{} `field:"required" json:"sampledRequestsEnabled" yaml:"sampledRequestsEnabled"`

@@ -36,9 +36,17 @@ import (
 //   	InputSourceConfig: []interface{}{
 //   		&IdMappingWorkflowInputSourceProperty{
 //   			InputSourceArn: jsii.String("inputSourceArn"),
+//
+//   			// the properties below are optional
 //   			SchemaArn: jsii.String("schemaArn"),
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
+//   	RoleArn: jsii.String("roleArn"),
+//   	WorkflowName: jsii.String("workflowName"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	OutputSourceConfig: []interface{}{
 //   		&IdMappingWorkflowOutputSourceProperty{
 //   			OutputS3Path: jsii.String("outputS3Path"),
@@ -47,11 +55,6 @@ import (
 //   			KmsArn: jsii.String("kmsArn"),
 //   		},
 //   	},
-//   	RoleArn: jsii.String("roleArn"),
-//   	WorkflowName: jsii.String("workflowName"),
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),

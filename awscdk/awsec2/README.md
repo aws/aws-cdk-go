@@ -1258,6 +1258,23 @@ ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &VpcEndpointServ
 })
 ```
 
+You can also include a service principal in the `allowedPrincipals` property by specifying it as a parameter to the  `ArnPrincipal` constructor.
+The resulting VPC endpoint will have an allowlisted principal of type `Service`, instead of `Arn` for that item in the list.
+
+```go
+var networkLoadBalancer networkLoadBalancer
+
+
+ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &VpcEndpointServiceProps{
+	VpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
+		networkLoadBalancer,
+	},
+	AllowedPrincipals: []arnPrincipal{
+		iam.NewArnPrincipal(jsii.String("ec2.amazonaws.com")),
+	},
+})
+```
+
 Endpoint services support private DNS, which makes it easier for clients to connect to your service by automatically setting up DNS in their VPC.
 You can enable private DNS on an endpoint service like so:
 

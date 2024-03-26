@@ -63,7 +63,9 @@ type CfnAssetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetdescription
 	//
 	AssetDescription *string `field:"optional" json:"assetDescription" yaml:"assetDescription"`
-	// The External ID of the asset.
+	// The external ID of the asset model composite model.
+	//
+	// For more information, see [Using external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids) in the *AWS IoT SiteWise User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetexternalid
 	//
 	AssetExternalId *string `field:"optional" json:"assetExternalId" yaml:"assetExternalId"`

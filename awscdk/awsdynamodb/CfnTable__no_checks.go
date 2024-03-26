@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnTable) validateSetProvisionedThroughputParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetResourcePolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetSseSpecificationParameters(val interface{}) error {
 	return nil
 }

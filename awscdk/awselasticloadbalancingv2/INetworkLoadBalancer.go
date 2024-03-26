@@ -18,6 +18,10 @@ type INetworkLoadBalancer interface {
 	//
 	// Returns: The newly created listener.
 	AddListener(id *string, props *BaseNetworkListenerProps) NetworkListener
+	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink.
+	// Default: on.
+	//
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string
 	// The type of IP addresses to use.
 	// Default: IpAddressType.IPV4
 	//
@@ -62,6 +66,16 @@ func (i *jsiiProxy_INetworkLoadBalancer) ApplyRemovalPolicy(policy awscdk.Remova
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (j *jsiiProxy_INetworkLoadBalancer) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_INetworkLoadBalancer) IpAddressType() IpAddressType {

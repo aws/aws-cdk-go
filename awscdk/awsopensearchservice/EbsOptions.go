@@ -7,8 +7,7 @@ import (
 // The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon OpenSearch Service domain.
 //
 // For more information, see
-// [Amazon EBS]
-// (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
+// [Amazon EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
 // in the Amazon Elastic Compute Cloud Developer Guide.
 //
 // Example:
@@ -47,8 +46,7 @@ type EbsOptions struct {
 	// The minimum and
 	// maximum size of an EBS volume depends on the EBS volume type and the
 	// instance type to which it is attached.  For  valid values, see
-	// [EBS volume size limits]
-	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource)
+	// [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource)
 	// in the Amazon OpenSearch Service Developer Guide.
 	// Default: 10.
 	//

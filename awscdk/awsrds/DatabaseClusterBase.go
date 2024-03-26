@@ -60,6 +60,8 @@ type DatabaseClusterBase interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// Secret in SecretsManager to store the database cluster user credentials.
+	Secret() awssecretsmanager.ISecret
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Add a new db proxy to this cluster.
@@ -287,6 +289,16 @@ func (j *jsiiProxy_DatabaseClusterBase) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterBase) Secret() awssecretsmanager.ISecret {
+	var returns awssecretsmanager.ISecret
+	_jsii_.Get(
+		j,
+		"secret",
 		&returns,
 	)
 	return returns

@@ -887,6 +887,15 @@ func init() {
 		reflect.TypeOf((*CfnTrustStoreRevocationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ClientRoutingPolicy",
+		reflect.TypeOf((*ClientRoutingPolicy)(nil)).Elem(),
+		map[string]interface{}{
+			"AVAILABILITY_ZONE_AFFINITY": ClientRoutingPolicy_AVAILABILITY_ZONE_AFFINITY,
+			"PARTIAL_AVAILABILITY_ZONE_AFFINITY": ClientRoutingPolicy_PARTIAL_AVAILABILITY_ZONE_AFFINITY,
+			"ANY_AVAILABILITY_ZONE": ClientRoutingPolicy_ANY_AVAILABILITY_ZONE,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.DesyncMitigationMode",
 		reflect.TypeOf((*DesyncMitigationMode)(nil)).Elem(),
 		map[string]interface{}{
@@ -1132,6 +1141,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addListener", GoMethod: "AddListener"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", GoGetter: "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
@@ -1340,6 +1350,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addSecurityGroup", GoMethod: "AddSecurityGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", GoGetter: "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},

@@ -99,11 +99,15 @@ type CfnAssetModel_AssetModelPropertyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
 	//
 	DataTypeSpec *string `field:"optional" json:"dataTypeSpec" yaml:"dataTypeSpec"`
-	// The External ID of the Asset Model Property.
+	// The external ID of the asset property.
+	//
+	// For more information, see [Using external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids) in the *AWS IoT SiteWise User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-externalid
 	//
 	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
-	// The ID of the Asset Model Property.
+	// The ID of the property.
+	//
+	// > This is a return value and can't be set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-id
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`

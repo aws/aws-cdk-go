@@ -89,7 +89,7 @@ type CfnRestoreTestingPlan interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// This is the restore testing plan name.
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan.
 	RestoreTestingPlanName() *string
 	SetRestoreTestingPlanName(val *string)
 	// A CRON expression in specified timezone when a restore testing plan is executed.

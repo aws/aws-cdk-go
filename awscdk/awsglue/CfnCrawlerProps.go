@@ -88,6 +88,10 @@ package awsglue
 //   	CrawlerSecurityConfiguration: jsii.String("crawlerSecurityConfiguration"),
 //   	DatabaseName: jsii.String("databaseName"),
 //   	Description: jsii.String("description"),
+//   	LakeFormationConfiguration: &LakeFormationConfigurationProperty{
+//   		AccountId: jsii.String("accountId"),
+//   		UseLakeFormationCredentials: jsii.Boolean(false),
+//   	},
 //   	Name: jsii.String("name"),
 //   	RecrawlPolicy: &RecrawlPolicyProperty{
 //   		RecrawlBehavior: jsii.String("recrawlBehavior"),
@@ -136,6 +140,9 @@ type CfnCrawlerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-lakeformationconfiguration
+	//
+	LakeFormationConfiguration interface{} `field:"optional" json:"lakeFormationConfiguration" yaml:"lakeFormationConfiguration"`
 	// The name of the crawler.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-name
 	//

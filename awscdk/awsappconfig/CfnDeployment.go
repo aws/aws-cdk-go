@@ -39,6 +39,13 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	DynamicExtensionParameters: []interface{}{
+//   		&DynamicExtensionParametersProperty{
+//   			ExtensionReference: jsii.String("extensionReference"),
+//   			ParameterName: jsii.String("parameterName"),
+//   			ParameterValue: jsii.String("parameterValue"),
+//   		},
+//   	},
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -81,6 +88,9 @@ type CfnDeployment interface {
 	// A description of the deployment.
 	Description() *string
 	SetDescription(val *string)
+	// The parameters accepted by the extension.
+	DynamicExtensionParameters() interface{}
+	SetDynamicExtensionParameters(val interface{})
 	// The environment ID.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
@@ -368,6 +378,16 @@ func (j *jsiiProxy_CfnDeployment) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeployment) DynamicExtensionParameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dynamicExtensionParameters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeployment) EnvironmentId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -534,6 +554,17 @@ func (j *jsiiProxy_CfnDeployment)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeployment)SetDynamicExtensionParameters(val interface{}) {
+	if err := j.validateSetDynamicExtensionParametersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dynamicExtensionParameters",
 		val,
 	)
 }

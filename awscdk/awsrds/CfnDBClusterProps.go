@@ -334,16 +334,14 @@ type CfnDBClusterProps struct {
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The DB engine mode of the DB cluster, either `provisioned` or `serverless` .
 	//
-	// The `serverless` engine mode only supports Aurora Serverless v1.
+	// The `serverless` engine mode only applies for Aurora Serverless v1 DB clusters.
 	//
-	// Limitations and requirements apply to some DB engine modes. For more information, see the following sections in the *Amazon Aurora User Guide* :
+	// For information about limitations and requirements for Serverless DB clusters, see the following sections in the *Amazon Aurora User Guide* :
 	//
 	// - [Limitations of Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations)
 	// - [Requirements for Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html)
-	// - [Limitations of parallel query](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations)
-	// - [Limitations of Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations)
 	//
-	// Valid for: Aurora DB clusters only.
+	// Valid for Cluster Type: Aurora DB clusters only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginemode
 	//
 	EngineMode *string `field:"optional" json:"engineMode" yaml:"engineMode"`

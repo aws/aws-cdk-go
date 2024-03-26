@@ -64,12 +64,10 @@ type CfnFlowLog interface {
 	// The ARN of the IAM role that allows the service to publish flow logs across accounts.
 	DeliverCrossAccountRole() *string
 	SetDeliverCrossAccountRole(val *string)
-	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
+	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs to the log destination.
 	DeliverLogsPermissionArn() *string
 	SetDeliverLogsPermissionArn(val *string)
 	// The destination options.
-	//
-	// The following options are supported:.
 	DestinationOptions() interface{}
 	SetDestinationOptions(val interface{})
 	// The destination for the flow log data.

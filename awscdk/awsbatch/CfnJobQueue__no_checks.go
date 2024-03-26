@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnJobQueue) validateSetComputeEnvironmentOrderParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnJobQueue) validateSetJobStateTimeLimitActionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnJobQueue) validateSetPriorityParameters(val *float64) error {
 	return nil
 }

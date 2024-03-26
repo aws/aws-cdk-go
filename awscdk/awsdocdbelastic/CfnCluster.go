@@ -25,8 +25,11 @@ import (
 //
 //   	// the properties below are optional
 //   	AdminUserPassword: jsii.String("adminUserPassword"),
+//   	BackupRetentionPeriod: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   	ShardInstanceCount: jsii.Number(123),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -59,6 +62,8 @@ type CfnCluster interface {
 	// The authentication type used to determine where to fetch the password used for accessing the elastic cluster.
 	AuthType() *string
 	SetAuthType(val *string)
+	BackupRetentionPeriod() *float64
+	SetBackupRetentionPeriod(val *float64)
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -88,6 +93,8 @@ type CfnCluster interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	PreferredBackupWindow() *string
+	SetPreferredBackupWindow(val *string)
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow() *string
 	SetPreferredMaintenanceWindow(val *string)
@@ -102,6 +109,8 @@ type CfnCluster interface {
 	// The number of shards assigned to the elastic cluster.
 	ShardCount() *float64
 	SetShardCount(val *float64)
+	ShardInstanceCount() *float64
+	SetShardInstanceCount(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -314,6 +323,16 @@ func (j *jsiiProxy_CfnCluster) AuthType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) BackupRetentionPeriod() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"backupRetentionPeriod",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -394,6 +413,16 @@ func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) PreferredBackupWindow() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"preferredBackupWindow",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) PreferredMaintenanceWindow() *string {
 	var returns *string
 	_jsii_.Get(
@@ -429,6 +458,16 @@ func (j *jsiiProxy_CfnCluster) ShardCount() *float64 {
 	_jsii_.Get(
 		j,
 		"shardCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) ShardInstanceCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"shardInstanceCount",
 		&returns,
 	)
 	return returns
@@ -562,6 +601,14 @@ func (j *jsiiProxy_CfnCluster)SetAuthType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster)SetBackupRetentionPeriod(val *float64) {
+	_jsii_.Set(
+		j,
+		"backupRetentionPeriod",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster)SetClusterName(val *string) {
 	if err := j.validateSetClusterNameParameters(val); err != nil {
 		panic(err)
@@ -577,6 +624,14 @@ func (j *jsiiProxy_CfnCluster)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetPreferredBackupWindow(val *string) {
+	_jsii_.Set(
+		j,
+		"preferredBackupWindow",
 		val,
 	)
 }
@@ -607,6 +662,14 @@ func (j *jsiiProxy_CfnCluster)SetShardCount(val *float64) {
 	_jsii_.Set(
 		j,
 		"shardCount",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetShardInstanceCount(val *float64) {
+	_jsii_.Set(
+		j,
+		"shardInstanceCount",
 		val,
 	)
 }

@@ -2,6 +2,7 @@ package awsrds
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
 
 // Properties that describe an existing cluster instance.
@@ -11,8 +12,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clusterEngine iClusterEngine
+//   var secret secret
 //   var securityGroup securityGroup
 //
 //   databaseClusterAttributes := &DatabaseClusterAttributes{
@@ -30,6 +33,7 @@ import (
 //   	},
 //   	Port: jsii.Number(123),
 //   	ReaderEndpointAddress: jsii.String("readerEndpointAddress"),
+//   	Secret: secret,
 //   	SecurityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
@@ -68,6 +72,10 @@ type DatabaseClusterAttributes struct {
 	// Default: - no reader address.
 	//
 	ReaderEndpointAddress *string `field:"optional" json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
+	// The secret attached to the database cluster.
+	// Default: - the imported Cluster's secret is unknown.
+	//
+	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 	// The security groups of the database cluster.
 	// Default: - no security groups.
 	//

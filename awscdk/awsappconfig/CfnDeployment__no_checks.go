@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDeployment) validateSetDeploymentStrategyIdParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeployment) validateSetDynamicExtensionParametersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeployment) validateSetEnvironmentIdParameters(val *string) error {
 	return nil
 }

@@ -52,7 +52,10 @@ type CfnConnector_As2ConfigProperty struct {
 	Compression *string `field:"optional" json:"compression" yaml:"compression"`
 	// The algorithm that is used to encrypt the file.
 	//
-	// > You can only specify `NONE` if the URL for your connector uses HTTPS. This ensures that no traffic is sent in clear text.
+	// Note the following:
+	//
+	// - Do not use the `DES_EDE3_CBC` algorithm unless you must support a legacy client that requires it, as it is a weak encryption algorithm.
+	// - You can only specify `NONE` if the URL for your connector uses HTTPS. Using HTTPS ensures that no traffic is sent in clear text.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html#cfn-transfer-connector-as2config-encryptionalgorithm
 	//
 	EncryptionAlgorithm *string `field:"optional" json:"encryptionAlgorithm" yaml:"encryptionAlgorithm"`

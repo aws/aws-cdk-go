@@ -26,11 +26,15 @@ type CfnAsset_AssetPropertyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
 	//
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
-	// String-friendly customer provided external ID.
+	// The external ID of the property.
+	//
+	// For more information, see [Using external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids) in the *AWS IoT SiteWise User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-externalid
 	//
 	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
-	// Customer provided actual UUID for property.
+	// The ID of the asset property.
+	//
+	// > This is a return value and can't be set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-id
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`

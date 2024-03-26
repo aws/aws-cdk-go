@@ -28,6 +28,7 @@ import (
 //   	// the properties below are optional
 //   	ConfigurationSet: jsii.String("configurationSet"),
 //   	Enabled: jsii.Boolean(false),
+//   	OrchestrationSendingRoleArn: jsii.String("orchestrationSendingRoleArn"),
 //   	RoleArn: jsii.String("roleArn"),
 //   })
 //
@@ -76,6 +77,8 @@ type CfnEmailChannel interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	OrchestrationSendingRoleArn() *string
+	SetOrchestrationSendingRoleArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -354,6 +357,16 @@ func (j *jsiiProxy_CfnEmailChannel) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEmailChannel) OrchestrationSendingRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"orchestrationSendingRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEmailChannel) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -480,6 +493,14 @@ func (j *jsiiProxy_CfnEmailChannel)SetIdentity(val *string) {
 	_jsii_.Set(
 		j,
 		"identity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEmailChannel)SetOrchestrationSendingRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"orchestrationSendingRoleArn",
 		val,
 	)
 }

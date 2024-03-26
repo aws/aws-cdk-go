@@ -310,7 +310,7 @@ type CfnDBInstance interface {
 	// The connection endpoint for the DB instance.
 	Endpoint() interface{}
 	SetEndpoint(val interface{})
-	// The name of the database engine that you want to use for this DB instance.
+	// The name of the database engine to use for this DB instance.
 	Engine() *string
 	SetEngine(val *string)
 	// The version number of the database engine to use.

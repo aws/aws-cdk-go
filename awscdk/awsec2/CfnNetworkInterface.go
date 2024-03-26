@@ -75,8 +75,6 @@ type CfnNetworkInterface interface {
 	// The ID of the network interface.
 	AttrId() *string
 	// The primary IPv6 address of the network interface.
-	//
-	// When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached.
 	AttrPrimaryIpv6Address() *string
 	// The primary private IP address of the network interface.
 	//
@@ -86,6 +84,8 @@ type CfnNetworkInterface interface {
 	//
 	// For example, `["10.0.0.161", "10.0.0.162", "10.0.0.163"]` .
 	AttrSecondaryPrivateIpAddresses() *[]*string
+	// The ID of the VPC.
+	AttrVpcId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -104,7 +104,7 @@ type CfnNetworkInterface interface {
 	// If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have the option to assign a primary IPv6 IP address.
 	EnablePrimaryIpv6() interface{}
 	SetEnablePrimaryIpv6(val interface{})
-	// The security group IDs associated with this network interface.
+	// The IDs of the security groups associated with this network interface.
 	GroupSet() *[]*string
 	SetGroupSet(val *[]*string)
 	// The type of network interface.
@@ -116,10 +116,10 @@ type CfnNetworkInterface interface {
 	// The IPv4 delegated prefixes that are assigned to the network interface.
 	Ipv4Prefixes() interface{}
 	SetIpv4Prefixes(val interface{})
-	// The number of IPv6 addresses to assign to a network interface.
+	// The number of IPv6 addresses to assign to the network interface.
 	Ipv6AddressCount() *float64
 	SetIpv6AddressCount(val *float64)
-	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface.
+	// The IPv6 addresses from the IPv6 CIDR block range of your subnet to assign to the network interface.
 	Ipv6Addresses() interface{}
 	SetIpv6Addresses(val interface{})
 	// The number of IPv6 prefixes to be automatically assigned to the network interface.
@@ -140,10 +140,10 @@ type CfnNetworkInterface interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Assigns a single private IP address to the network interface, which is used as the primary private IP address.
+	// The private IPv4 address to assign to the network interface as the primary private IP address.
 	PrivateIpAddress() *string
 	SetPrivateIpAddress(val *string)
-	// Assigns private IP addresses to the network interface.
+	// The private IPv4 addresses to assign to the network interface.
 	PrivateIpAddresses() interface{}
 	SetPrivateIpAddresses(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -166,7 +166,7 @@ type CfnNetworkInterface interface {
 	SetSubnetId(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An arbitrary set of tags (key-value pairs) for this network interface.
+	// The tags to apply to the network interface.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -351,6 +351,16 @@ func (j *jsiiProxy_CfnNetworkInterface) AttrSecondaryPrivateIpAddresses() *[]*st
 	_jsii_.Get(
 		j,
 		"attrSecondaryPrivateIpAddresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) AttrVpcId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcId",
 		&returns,
 	)
 	return returns

@@ -19,6 +19,14 @@ package awsbatch
 //
 //   	// the properties below are optional
 //   	JobQueueName: jsii.String("jobQueueName"),
+//   	JobStateTimeLimitActions: []interface{}{
+//   		&JobStateTimeLimitActionProperty{
+//   			Action: jsii.String("action"),
+//   			MaxTimeSeconds: jsii.Number(123),
+//   			Reason: jsii.String("reason"),
+//   			State: jsii.String("state"),
+//   		},
+//   	},
 //   	SchedulingPolicyArn: jsii.String("schedulingPolicyArn"),
 //   	State: jsii.String("state"),
 //   	Tags: map[string]*string{
@@ -49,6 +57,12 @@ type CfnJobQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobqueuename
 	//
 	JobQueueName *string `field:"optional" json:"jobQueueName" yaml:"jobQueueName"`
+	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times.
+	//
+	// AWS Batch will perform each action after `maxTimeSeconds` has passed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobstatetimelimitactions
+	//
+	JobStateTimeLimitActions interface{} `field:"optional" json:"jobStateTimeLimitActions" yaml:"jobStateTimeLimitActions"`
 	// The Amazon Resource Name (ARN) of the scheduling policy.
 	//
 	// The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .

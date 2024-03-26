@@ -1579,8 +1579,6 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseCluster
 	EnableDataApi: jsii.Boolean(true),
 })
 cluster.GrantDataApiAccess(fn)
-// It is necessary to grant the function access to the secret associated with the cluster for `DatabaseCluster`.
-cluster.Secret.GrantRead(fn)
 ```
 
 **Note**: To invoke the Data API, the resource will need to read the secret associated with the cluster.

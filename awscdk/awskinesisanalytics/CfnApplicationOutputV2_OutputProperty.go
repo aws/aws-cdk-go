@@ -1,7 +1,7 @@
 package awskinesisanalytics
 
 
-// Describes a SQL-based Managed Service for Apache Flink application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
+// Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
 //
 // The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
 //

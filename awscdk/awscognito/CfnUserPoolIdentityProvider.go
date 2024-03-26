@@ -66,9 +66,7 @@ type CfnUserPoolIdentityProvider interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The IdP details.
-	//
-	// The following list describes the provider detail keys for each IdP type.
+	// The scopes, URLs, and identifiers for your external identity provider.
 	ProviderDetails() interface{}
 	SetProviderDetails(val interface{})
 	// The IdP name.

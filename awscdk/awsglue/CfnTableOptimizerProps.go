@@ -38,6 +38,7 @@ type CfnTableOptimizerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html#cfn-glue-tableoptimizer-tablename
 	//
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
+	// Specifies configuration details of a table optimizer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration
 	//
 	TableOptimizerConfiguration interface{} `field:"required" json:"tableOptimizerConfiguration" yaml:"tableOptimizerConfiguration"`

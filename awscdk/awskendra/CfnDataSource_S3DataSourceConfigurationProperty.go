@@ -60,14 +60,14 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	//
 	// If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 	//
-	// - `/myapp/config/*` - All files inside config directory
-	// - `** /*.png` - All .png files in all directories
-	// - `** /*.{png, ico, md}` - All .png, .ico or .md files in all directories
-	// - `/myapp/src/** /*.ts` - All .ts files inside src directory (and all its subdirectories)
-	// - `** /!(*.module).ts` - All .ts files but not .module.ts
-	// - **.png , *.jpg* excludes all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
-	// - **internal** excludes all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
-	// - *** /*internal** excludes all internal-related files in a directory and its subdirectories.
+	// - * /myapp/config/** —All files inside config directory.
+	// - *** /*.png* —All .png files in all directories.
+	// - *** /*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+	// - * /myapp/src/** /*.ts* —All .ts files inside src directory (and all its subdirectories).
+	// - *** /!(*.module).ts* —All .ts files but not .module.ts
+	// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - *** /*internal** —All internal-related files in a directory and its subdirectories.
 	//
 	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
@@ -77,14 +77,14 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	//
 	// If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
 	//
-	// - `/myapp/config/*` - All files inside config directory
-	// - `** /*.png` - All .png files in all directories
-	// - `** /*.{png, ico, md}` - All .png, .ico or .md files in all directories
-	// - `/myapp/src/** /*.ts` - All .ts files inside src directory (and all its subdirectories)
-	// - `** /!(*.module).ts` - All .ts files but not .module.ts
-	// - **.png , *.jpg* includes all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
-	// - **internal** includes all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
-	// - *** /*internal** includes all internal-related files in a directory and its subdirectories.
+	// - * /myapp/config/** —All files inside config directory.
+	// - *** /*.png* —All .png files in all directories.
+	// - *** /*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+	// - * /myapp/src/** /*.ts* —All .ts files inside src directory (and all its subdirectories).
+	// - *** /!(*.module).ts* —All .ts files but not .module.ts
+	// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - *** /*internal** —All internal-related files in a directory and its subdirectories.
 	//
 	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns

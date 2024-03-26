@@ -10,7 +10,10 @@ package awsentityresolution
 //
 //   idMappingWorkflowInputSourceProperty := &IdMappingWorkflowInputSourceProperty{
 //   	InputSourceArn: jsii.String("inputSourceArn"),
+//
+//   	// the properties below are optional
 //   	SchemaArn: jsii.String("schemaArn"),
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html
@@ -23,6 +26,9 @@ type CfnIdMappingWorkflow_IdMappingWorkflowInputSourceProperty struct {
 	// The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-schemaarn
 	//
-	SchemaArn *string `field:"required" json:"schemaArn" yaml:"schemaArn"`
+	SchemaArn *string `field:"optional" json:"schemaArn" yaml:"schemaArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

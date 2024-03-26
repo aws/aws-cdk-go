@@ -15,6 +15,9 @@ package awsmsk
 //   	CopyAccessControlListsForTopics: jsii.Boolean(false),
 //   	CopyTopicConfigurations: jsii.Boolean(false),
 //   	DetectAndCopyNewTopics: jsii.Boolean(false),
+//   	StartingPosition: &ReplicationStartingPositionProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   	TopicsToExclude: []*string{
 //   		jsii.String("topicsToExclude"),
 //   	},
@@ -39,6 +42,10 @@ type CfnReplicator_TopicReplicationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-detectandcopynewtopics
 	//
 	DetectAndCopyNewTopics interface{} `field:"optional" json:"detectAndCopyNewTopics" yaml:"detectAndCopyNewTopics"`
+	// Configuration for specifying the position in the topics to start replicating from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-startingposition
+	//
+	StartingPosition interface{} `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 	// List of regular expression patterns indicating the topics that should not be replicated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-topicstoexclude
 	//

@@ -289,9 +289,15 @@ type CfnJobDefinition_NodeRangePropertyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-container
 	//
 	Container interface{} `field:"optional" json:"container" yaml:"container"`
+	// This is an object that represents the properties of the node range for a multi-node parallel job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-ecsproperties
 	//
 	EcsProperties interface{} `field:"optional" json:"ecsProperties" yaml:"ecsProperties"`
+	// The instance types of the underlying host infrastructure of a multi-node parallel job.
+	//
+	// > This parameter isn't applicable to jobs that are running on Fargate resources.
+	// >
+	// > In addition, this list object is currently limited to one element.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-instancetypes
 	//
 	InstanceTypes *[]*string `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`

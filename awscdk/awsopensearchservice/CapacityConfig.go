@@ -23,7 +23,7 @@ type CapacityConfig struct {
 	// Default: - 1.
 	//
 	DataNodes *float64 `field:"optional" json:"dataNodes" yaml:"dataNodes"`
-	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search`. For valid values, see [Supported Instance Types] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) in the Amazon OpenSearch Service Developer Guide.
+	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search`. For valid values, see [Supported Instance Types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) in the Amazon OpenSearch Service Developer Guide.
 	// Default: - r5.large.search
 	//
 	MasterNodeInstanceType *string `field:"optional" json:"masterNodeInstanceType" yaml:"masterNodeInstanceType"`
@@ -33,12 +33,12 @@ type CapacityConfig struct {
 	MasterNodes *float64 `field:"optional" json:"masterNodes" yaml:"masterNodes"`
 	// Indicates whether Multi-AZ with Standby deployment option is enabled.
 	//
-	// For more information, see [Multi-AZ with Standby]
-	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby)
+	// For more information, see [Multi-AZ with
+	// Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby)
 	// Default: - no multi-az with standby.
 	//
 	MultiAzWithStandbyEnabled *bool `field:"optional" json:"multiAzWithStandbyEnabled" yaml:"multiAzWithStandbyEnabled"`
-	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.search`. For valid values, see [UltraWarm Storage Limits] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#limits-ultrawarm) in the Amazon OpenSearch Service Developer Guide.
+	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.search`. For valid values, see [UltraWarm Storage Limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#limits-ultrawarm) in the Amazon OpenSearch Service Developer Guide.
 	// Default: - ultrawarm1.medium.search
 	//
 	WarmInstanceType *string `field:"optional" json:"warmInstanceType" yaml:"warmInstanceType"`

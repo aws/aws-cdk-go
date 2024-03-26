@@ -7,35 +7,39 @@ import (
 // Properties for a network load balancer.
 //
 // Example:
-//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
 //   })
-//   link := apigateway.NewVpcLink(this, jsii.String("link"), &VpcLinkProps{
-//   	Targets: []iNetworkLoadBalancer{
-//   		nlb,
-//   	},
+//   listener := lb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   listener.AddTargets(jsii.String("target"), &AddNetworkTargetsProps{
+//   	Port: jsii.Number(80),
 //   })
 //
-//   integration := apigateway.NewIntegration(&IntegrationProps{
-//   	Type: apigateway.IntegrationType_HTTP_PROXY,
-//   	IntegrationHttpMethod: jsii.String("ANY"),
-//   	Options: &IntegrationOptions{
-//   		ConnectionType: apigateway.ConnectionType_VPC_LINK,
-//   		VpcLink: link,
-//   	},
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 type NetworkLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// Indicates whether cross-zone load balancing is enabled.
+	// Default: - false for Network Load Balancers and true for Application Load Balancers.
+	//
+	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
 	// Indicates whether deletion protection is enabled.
 	// Default: false.
 	//
 	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
+	// Indicates whether the load balancer blocks traffic through the Internet Gateway (IGW).
+	// Default: - false for internet-facing load balancers and true for internal load balancers.
+	//
+	DenyAllIgwTraffic *bool `field:"optional" json:"denyAllIgwTraffic" yaml:"denyAllIgwTraffic"`
 	// Whether the load balancer has an internet-routable address.
 	// Default: false.
 	//
@@ -48,10 +52,16 @@ type NetworkLoadBalancerProps struct {
 	// Default: - the Vpc default strategy.
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
-	// Indicates whether cross-zone load balancing is enabled.
-	// Default: false.
+	// The AZ affinity routing policy.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity
 	//
-	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
+	// Default: - AZ affinity is disabled.
+	//
+	ClientRoutingPolicy ClientRoutingPolicy `field:"optional" json:"clientRoutingPolicy" yaml:"clientRoutingPolicy"`
+	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink.
+	// Default: true.
+	//
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *bool `field:"optional" json:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic" yaml:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// The type of IP addresses to use.
 	//
 	// If you want to add a UDP or TCP_UDP listener to the load balancer,

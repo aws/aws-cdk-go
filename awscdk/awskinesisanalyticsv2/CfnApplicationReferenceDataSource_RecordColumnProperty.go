@@ -1,7 +1,7 @@
 package awskinesisanalyticsv2
 
 
-// For a SQL-based Managed Service for Apache Flink application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+// For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
 //
 // Also used to describe the format of the reference data source.
 //

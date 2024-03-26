@@ -29,6 +29,20 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	ManifestConfig: &ManifestConfigProperty{
+//   		Source: &SourceProperty{
+//   			S3: &ManifestConfigSourceS3Property{
+//   				BucketAccessRoleArn: jsii.String("bucketAccessRoleArn"),
+//   				ManifestObjectPath: jsii.String("manifestObjectPath"),
+//   				ManifestObjectVersionId: jsii.String("manifestObjectVersionId"),
+//   				S3BucketArn: jsii.String("s3BucketArn"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		Action: jsii.String("action"),
+//   		Format: jsii.String("format"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Options: &OptionsProperty{
 //   		Atime: jsii.String("atime"),
@@ -117,6 +131,12 @@ type CfnTaskProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
 	//
 	Includes interface{} `field:"optional" json:"includes" yaml:"includes"`
+	// The configuration of the manifest that lists the files or objects to transfer.
+	//
+	// For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-manifestconfig
+	//
+	ManifestConfig interface{} `field:"optional" json:"manifestConfig" yaml:"manifestConfig"`
 	// The name of a task.
 	//
 	// This value is a text reference that is used to identify the task in the console.

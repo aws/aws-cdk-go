@@ -18,7 +18,7 @@ import (
 //
 //   flinkApp := flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
 //   	Code: flink.ApplicationCode_FromAsset(path.join(__dirname, jsii.String("code-asset"))),
-//   	Runtime: flink.Runtime_FLINK_1_11(),
+//   	Runtime: flink.Runtime_FLINK_1_18(),
 //   })
 //
 //   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
@@ -100,6 +100,17 @@ func Runtime_FLINK_1_15() Runtime {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-kinesisanalytics-flink-alpha.Runtime",
 		"FLINK_1_15",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_FLINK_1_18() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-kinesisanalytics-flink-alpha.Runtime",
+		"FLINK_1_18",
 		&returns,
 	)
 	return returns

@@ -16,6 +16,7 @@ import (
 //   	DomainNameServers: []*string{
 //   		jsii.String("domainNameServers"),
 //   	},
+//   	Ipv6AddressPreferredLeaseTime: jsii.Number(123),
 //   	NetbiosNameServers: []*string{
 //   		jsii.String("netbiosNameServers"),
 //   	},
@@ -46,6 +47,12 @@ type CfnDHCPOptionsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
 	//
 	DomainNameServers *[]*string `field:"optional" json:"domainNameServers" yaml:"domainNameServers"`
+	// A value (in seconds, minutes, hours, or years) for how frequently a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
+	//
+	// Acceptable values are between 140 and 2147483647 seconds (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ipv6addresspreferredleasetime
+	//
+	Ipv6AddressPreferredLeaseTime *float64 `field:"optional" json:"ipv6AddressPreferredLeaseTime" yaml:"ipv6AddressPreferredLeaseTime"`
 	// The IPv4 addresses of up to four NetBIOS name servers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
 	//

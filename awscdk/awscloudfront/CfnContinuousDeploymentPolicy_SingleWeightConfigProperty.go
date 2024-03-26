@@ -21,7 +21,7 @@ package awscloudfront
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightconfig.html
 //
 type CfnContinuousDeploymentPolicy_SingleWeightConfigProperty struct {
-	// The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and .15.
+	// The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightconfig.html#cfn-cloudfront-continuousdeploymentpolicy-singleweightconfig-weight
 	//
 	Weight *float64 `field:"required" json:"weight" yaml:"weight"`

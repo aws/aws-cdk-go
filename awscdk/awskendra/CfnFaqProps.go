@@ -70,6 +70,8 @@ type CfnFaqProps struct {
 	//
 	FileFormat *string `field:"optional" json:"fileFormat" yaml:"fileFormat"`
 	// The code for a language.
+	//
+	// This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-languagecode
 	//
 	LanguageCode *string `field:"optional" json:"languageCode" yaml:"languageCode"`

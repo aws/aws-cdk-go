@@ -169,6 +169,14 @@ func init() {
 		reflect.TypeOf((*CfnGlobalTable_ReplicaSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.ReplicaStreamSpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTable_ReplicaStreamSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.ResourcePolicyProperty",
+		reflect.TypeOf((*CfnGlobalTable_ResourcePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.SSESpecificationProperty",
 		reflect.TypeOf((*CfnGlobalTable_SSESpecificationProperty)(nil)).Elem(),
 	)
@@ -233,6 +241,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sseSpecification", GoGetter: "SseSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -302,6 +311,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnTable.ProvisionedThroughputProperty",
 		reflect.TypeOf((*CfnTable_ProvisionedThroughputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnTable.ResourcePolicyProperty",
+		reflect.TypeOf((*CfnTable_ResourcePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnTable.S3BucketSourceProperty",

@@ -67,6 +67,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policyDocument interface{}
+//
 //   cfnGlobalTable := awscdk.Aws_dynamodb.NewCfnGlobalTable(this, jsii.String("MyCfnGlobalTable"), &CfnGlobalTableProps{
 //   	AttributeDefinitions: []interface{}{
 //   		&AttributeDefinitionProperty{
@@ -143,6 +145,14 @@ import (
 //   					SeedCapacity: jsii.Number(123),
 //   				},
 //   				ReadCapacityUnits: jsii.Number(123),
+//   			},
+//   			ReplicaStreamSpecification: &ReplicaStreamSpecificationProperty{
+//   				ResourcePolicy: &ResourcePolicyProperty{
+//   					PolicyDocument: policyDocument,
+//   				},
+//   			},
+//   			ResourcePolicy: &ResourcePolicyProperty{
+//   				PolicyDocument: policyDocument,
 //   			},
 //   			SseSpecification: &ReplicaSSESpecificationProperty{
 //   				KmsMasterKeyId: jsii.String("kmsMasterKeyId"),

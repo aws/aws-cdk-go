@@ -111,17 +111,25 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::SCN::Instance`
 	// - `AWS::SNS::PlatformEndpoint`
 	// - `AWS::SNS::Topic`
-	// - `AWS::SWF::Domain`
 	// - `AWS::SQS::Queue`
+	// - `AWS::SSM::ManagedNode`
 	// - `AWS::SSMMessages::ControlChannel`
+	// - `AWS::SWF::Domain`
 	// - `AWS::ThinClient::Device`
 	// - `AWS::ThinClient::Environment`
 	// - `AWS::Timestream::Database`
 	// - `AWS::Timestream::Table`
 	// - `AWS::VerifiedPermissions::PolicyStore`
+	// - `AWS::XRay::Trace`
 	//
 	// You can have only one `resources.type` ﬁeld per selector. To log data events on more than one resource type, add another selector.
-	// - *`resources.ARN`* - You can use any operator with `resources.ARN` , but if you use `Equals` or `NotEquals` , the value must exactly match the ARN of a valid resource of the type you've speciﬁed in the template as the value of resources.type. For example, if resources.type equals `AWS::S3::Object` , the ARN must be in one of the following formats. To log all data events for all objects in a specific S3 bucket, use the `StartsWith` operator, and include only the bucket ARN as the matching value.
+	// - *`resources.ARN`* - You can use any operator with `resources.ARN` , but if you use `Equals` or `NotEquals` , the value must exactly match the ARN of a valid resource of the type you've speciﬁed in the template as the value of resources.type.
+	//
+	// > You can't use the `resources.ARN` field to filter resource types that do not have ARNs.
+	//
+	// The `resources.ARN` field can be set one of the following.
+	//
+	// If resources.type equals `AWS::S3::Object` , the ARN must be in one of the following formats. To log all data events for all objects in a specific S3 bucket, use the `StartsWith` operator, and include only the bucket ARN as the matching value.
 	//
 	// The trailing slash is intentional; do not exclude it. Replace the text between less than and greater than symbols (<>) with resource-specific information.
 	//
@@ -325,17 +333,22 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:sns:<region>:<account_ID>:<topic_name>`
 	//
-	// When `resources.type` equals `AWS::SWF::Domain` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
-	//
-	// - `arn:<partition>:swf:<region>:<account_ID>:domain/<domain_name>`
-	//
 	// When `resources.type` equals `AWS::SQS::Queue` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:sqs:<region>:<account_ID>:<queue_name>`
 	//
+	// When `resources.type` equals `AWS::SSM::ManagedNode` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in one of the following formats:
+	//
+	// - `arn:<partition>:ssm:<region>:<account_ID>:managed-instance/<instance_ID>`
+	// - `arn:<partition>:ec2:<region>:<account_ID>:instance/<instance_ID>`
+	//
 	// When `resources.type` equals `AWS::SSMMessages::ControlChannel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID>`
+	//
+	// When `resources.type` equals `AWS::SWF::Domain` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:swf:<region>:<account_ID>:domain/<domain_name>`
 	//
 	// When `resources.type` equals `AWS::ThinClient::Device` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

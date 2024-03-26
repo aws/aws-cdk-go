@@ -48,7 +48,9 @@ type CfnRestoreTestingPlanProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-recoverypointselection
 	//
 	RecoveryPointSelection interface{} `field:"required" json:"recoveryPointSelection" yaml:"recoveryPointSelection"`
-	// This is the restore testing plan name.
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan.
+	//
+	// This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-restoretestingplanname
 	//
 	RestoreTestingPlanName *string `field:"required" json:"restoreTestingPlanName" yaml:"restoreTestingPlanName"`

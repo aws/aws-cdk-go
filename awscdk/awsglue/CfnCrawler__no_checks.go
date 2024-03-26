@@ -80,6 +80,10 @@ func validateCfnCrawler_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCrawler) validateSetLakeFormationConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCrawler) validateSetRecrawlPolicyParameters(val interface{}) error {
 	return nil
 }

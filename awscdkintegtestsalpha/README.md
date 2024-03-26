@@ -503,6 +503,31 @@ invoke.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interfa
 }))
 ```
 
+The above example will by default create a CloudWatch log group that's never
+expired. If you want to configure it with custom log retention days, you need
+to specify the `logRetention` property.
+
+```go
+import logs "github.com/aws/aws-cdk-go/awscdk"
+
+var lambdaFunction iFunction
+var app app
+
+
+stack := awscdk.NewStack(app, jsii.String("cdk-integ-lambda-bundling"))
+
+integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+	TestCases: []stack{
+		stack,
+	},
+})
+
+invoke := integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
+	FunctionName: lambdaFunction.FunctionName,
+	LogRetention: logs.RetentionDays_ONE_WEEK,
+})
+```
+
 #### Make an AWS API Call
 
 In this example there is a StepFunctions state machine that is executed

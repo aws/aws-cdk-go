@@ -24,7 +24,7 @@ package awsecs
 type CfnTaskDefinition_EphemeralStorageProperty struct {
 	// The total amount, in GiB, of ephemeral storage to set for the task.
 	//
-	// The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	// The minimum supported value is `20` GiB and the maximum supported value is `200` GiB.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
 	//
 	SizeInGiB *float64 `field:"optional" json:"sizeInGiB" yaml:"sizeInGiB"`

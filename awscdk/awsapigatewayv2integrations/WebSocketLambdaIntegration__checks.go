@@ -22,13 +22,17 @@ func (w *jsiiProxy_WebSocketLambdaIntegration) validateBindParameters(options *a
 	return nil
 }
 
-func validateNewWebSocketLambdaIntegrationParameters(id *string, handler awslambda.IFunction) error {
+func validateNewWebSocketLambdaIntegrationParameters(id *string, handler awslambda.IFunction, props *WebSocketLambdaIntegrationProps) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
 	if handler == nil {
 		return fmt.Errorf("parameter handler is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil

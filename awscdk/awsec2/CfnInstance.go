@@ -186,12 +186,10 @@ type CfnInstance interface {
 	// Indicates whether the instance is associated with a dedicated host.
 	Affinity() *string
 	SetAffinity(val *string)
-	// The Availability Zone where the specified instance is launched. For example: `us-east-1b` .
-	//
-	// You can retrieve a list of all Availability Zones for a Region by using the [Fn::GetAZs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getavailabilityzones.html) intrinsic function.
 	AttrAvailabilityZone() *string
-	// The ID of the instance.
 	AttrId() *string
+	// The ID of the instance.
+	AttrInstanceId() *string
 	// The private DNS name of the specified instance.
 	//
 	// For example: `ip-10-24-34-0.ec2.internal` .
@@ -208,6 +206,8 @@ type CfnInstance interface {
 	//
 	// For example: `192.0.2.0` .
 	AttrPublicIp() *string
+	// The ID of the VPC in which the instance is running.
+	AttrVpcId() *string
 	// The Availability Zone of the instance.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
@@ -549,6 +549,16 @@ func (j *jsiiProxy_CfnInstance) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInstance) AttrInstanceId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInstanceId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstance) AttrPrivateDnsName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -584,6 +594,16 @@ func (j *jsiiProxy_CfnInstance) AttrPublicIp() *string {
 	_jsii_.Get(
 		j,
 		"attrPublicIp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) AttrVpcId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcId",
 		&returns,
 	)
 	return returns

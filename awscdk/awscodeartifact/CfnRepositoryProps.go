@@ -55,6 +55,8 @@ type CfnRepositoryProps struct {
 	//
 	DomainOwner *string `field:"optional" json:"domainOwner" yaml:"domainOwner"`
 	// An array of external connections associated with the repository.
+	//
+	// For more information, see [Supported external connection repositories](https://docs.aws.amazon.com/codeartifact/latest/ug/external-connection.html#supported-public-repositories) in the *CodeArtifact user guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
 	//
 	ExternalConnections *[]*string `field:"optional" json:"externalConnections" yaml:"externalConnections"`

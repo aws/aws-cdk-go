@@ -59,7 +59,7 @@ type CfnLoggingConfigurationProps struct {
 	//
 	// Redaction applies only to the component that's specified in the rule's `FieldToMatch` setting, so the `SingleHeader` redaction doesn't apply to rules that use the `Headers` `FieldToMatch` .
 	//
-	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
+	// > You can specify only the following fields for redaction: `UriPath` , `QueryString` , `SingleHeader` , and `Method` . > This setting has no impact on request sampling. With request sampling, the only way to exclude fields is by disabling sampling in the web ACL visibility configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
 	//
 	RedactedFields interface{} `field:"optional" json:"redactedFields" yaml:"redactedFields"`

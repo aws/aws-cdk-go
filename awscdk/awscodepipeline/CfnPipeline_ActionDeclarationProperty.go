@@ -3,8 +3,6 @@ package awscodepipeline
 
 // Represents information about an action declaration.
 //
-// > Documentation for the `timeoutInMinutes` parameter in the `ActionDeclaration` is not yet available for CloudFormation and CDK resources in CodePipeline. For more information about the configurable timeout for manual approval actions, see the [ActionDeclaration](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ActionDeclaration.html) in the CodePipeline API Reference.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,6 +35,7 @@ package awscodepipeline
 //   	Region: jsii.String("region"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	RunOrder: jsii.Number(123),
+//   	TimeoutInMinutes: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html
@@ -96,5 +95,9 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-runorder
 	//
 	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
+	// A timeout duration in minutes that can be applied against the ActionType’s default timeout value specified in [Quotas for AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/limits.html) . This attribute is available only to the manual approval ActionType.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-timeoutinminutes
+	//
+	TimeoutInMinutes *float64 `field:"optional" json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 

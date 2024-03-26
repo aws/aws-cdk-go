@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policyDocument interface{}
+//
 //   cfnTableProps := &CfnTableProps{
 //   	KeySchema: []interface{}{
 //   		&KeySchemaProperty{
@@ -108,6 +110,9 @@ import (
 //   		ReadCapacityUnits: jsii.Number(123),
 //   		WriteCapacityUnits: jsii.Number(123),
 //   	},
+//   	ResourcePolicy: &ResourcePolicyProperty{
+//   		PolicyDocument: policyDocument,
+//   	},
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),
 //
@@ -117,6 +122,11 @@ import (
 //   	},
 //   	StreamSpecification: &StreamSpecificationProperty{
 //   		StreamViewType: jsii.String("streamViewType"),
+//
+//   		// the properties below are optional
+//   		ResourcePolicy: &ResourcePolicyProperty{
+//   			PolicyDocument: policyDocument,
+//   		},
 //   	},
 //   	TableClass: jsii.String("tableClass"),
 //   	TableName: jsii.String("tableName"),
@@ -213,6 +223,14 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
 	//
 	ProvisionedThroughput interface{} `field:"optional" json:"provisionedThroughput" yaml:"provisionedThroughput"`
+	// A resource-based policy document that contains permissions to add to the specified table.
+	//
+	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+	//
+	// When you attach a resource-based policy while creating a table, the policy creation is *strongly consistent* . For information about the considerations that you should keep in mind while attaching a resource-based policy, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-resourcepolicy
+	//
+	ResourcePolicy interface{} `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
 	// Specifies the settings to enable server-side encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification
 	//

@@ -1,6 +1,8 @@
 package awsbatch
 
 
+// An object that contains the properties for the Amazon ECS resources of a job.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -147,6 +149,9 @@ package awsbatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html
 //
 type CfnJobDefinition_EcsPropertiesProperty struct {
+	// An object that contains the properties for the Amazon ECS task definition of a job.
+	//
+	// > This object is currently limited to one element.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html#cfn-batch-jobdefinition-ecsproperties-taskproperties
 	//
 	TaskProperties interface{} `field:"required" json:"taskProperties" yaml:"taskProperties"`

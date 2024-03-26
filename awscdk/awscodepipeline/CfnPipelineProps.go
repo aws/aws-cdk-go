@@ -43,6 +43,7 @@ import (
 //   					Region: jsii.String("region"),
 //   					RoleArn: jsii.String("roleArn"),
 //   					RunOrder: jsii.Number(123),
+//   					TimeoutInMinutes: jsii.Number(123),
 //   				},
 //   			},
 //   			Name: jsii.String("name"),

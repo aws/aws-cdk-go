@@ -849,6 +849,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "includes", GoGetter: "Includes"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "manifestConfig", GoGetter: "ManifestConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -892,6 +893,14 @@ func init() {
 		reflect.TypeOf((*CfnTask_FilterRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.ManifestConfigProperty",
+		reflect.TypeOf((*CfnTask_ManifestConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.ManifestConfigSourceS3Property",
+		reflect.TypeOf((*CfnTask_ManifestConfigSourceS3Property)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnTask.OptionsProperty",
 		reflect.TypeOf((*CfnTask_OptionsProperty)(nil)).Elem(),
 	)
@@ -906,6 +915,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnTask.SkippedProperty",
 		reflect.TypeOf((*CfnTask_SkippedProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnTask.SourceProperty",
+		reflect.TypeOf((*CfnTask_SourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnTask.TaskReportConfigProperty",

@@ -72,6 +72,7 @@ type CfnTableOptimizer interface {
 	// The table name.
 	TableName() *string
 	SetTableName(val *string)
+	// Specifies configuration details of a table optimizer.
 	TableOptimizerConfiguration() interface{}
 	SetTableOptimizerConfiguration(val interface{})
 	// The type of table optimizer.

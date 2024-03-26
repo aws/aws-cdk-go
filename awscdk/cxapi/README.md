@@ -292,3 +292,20 @@ construct, the construct automatically defaults the value of this property to `P
   }
 }
 ```
+
+* `@aws-cdk/aws-kms:reduceCrossAccountRegionPolicyScope`
+
+Reduce resource scope of the IAM Policy created from KMS key grant to granting key only.
+
+When this feature flag is enabled and calling KMS key grant method, the created IAM policy will reduce the resource scope from
+'*' to this specific granting KMS key.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-kms:reduceCrossAccountRegionPolicyScope": true
+  }
+}
+```

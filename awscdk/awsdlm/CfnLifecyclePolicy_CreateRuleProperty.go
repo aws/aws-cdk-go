@@ -38,7 +38,7 @@ package awsdlm
 type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// The schedule, as a Cron expression.
 	//
-	// The schedule interval must be between 1 hour and 1 year. For more information, see [Cron expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions) in the *Amazon CloudWatch User Guide* .
+	// The schedule interval must be between 1 hour and 1 year. For more information, see the [Cron expressions reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html) in the *Amazon EventBridge User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-cronexpression
 	//
 	CronExpression *string `field:"optional" json:"cronExpression" yaml:"cronExpression"`

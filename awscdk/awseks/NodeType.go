@@ -11,5 +11,7 @@ const (
 	NodeType_GPU NodeType = "GPU"
 	// Inferentia instances.
 	NodeType_INFERENTIA NodeType = "INFERENTIA"
+	// Trainium instances.
+	NodeType_TRAINIUM NodeType = "TRAINIUM"
 )
 

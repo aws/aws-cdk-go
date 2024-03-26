@@ -27,6 +27,8 @@ type CfnInstance_HibernationOptionsProperty struct {
 	// Default: `false`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
 	//
+	// Default: - false.
+	//
 	Configured interface{} `field:"optional" json:"configured" yaml:"configured"`
 }
 

@@ -23,6 +23,7 @@ import (
 //   	DomainNameServers: []*string{
 //   		jsii.String("domainNameServers"),
 //   	},
+//   	Ipv6AddressPreferredLeaseTime: jsii.Number(123),
 //   	NetbiosNameServers: []*string{
 //   		jsii.String("netbiosNameServers"),
 //   	},
@@ -61,6 +62,9 @@ type CfnDHCPOptions interface {
 	// The IPv4 addresses of up to four domain name servers, or `AmazonProvidedDNS` .
 	DomainNameServers() *[]*string
 	SetDomainNameServers(val *[]*string)
+	// A value (in seconds, minutes, hours, or years) for how frequently a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
+	Ipv6AddressPreferredLeaseTime() *float64
+	SetIpv6AddressPreferredLeaseTime(val *float64)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -313,6 +317,16 @@ func (j *jsiiProxy_CfnDHCPOptions) DomainNameServers() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDHCPOptions) Ipv6AddressPreferredLeaseTime() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ipv6AddressPreferredLeaseTime",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDHCPOptions) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -463,6 +477,14 @@ func (j *jsiiProxy_CfnDHCPOptions)SetDomainNameServers(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"domainNameServers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDHCPOptions)SetIpv6AddressPreferredLeaseTime(val *float64) {
+	_jsii_.Set(
+		j,
+		"ipv6AddressPreferredLeaseTime",
 		val,
 	)
 }

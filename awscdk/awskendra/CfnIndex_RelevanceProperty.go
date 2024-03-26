@@ -36,7 +36,7 @@ type CfnIndex_RelevanceProperty struct {
 	Duration *string `field:"optional" json:"duration" yaml:"duration"`
 	// Indicates that this field determines how "fresh" a document is.
 	//
-	// For example, if document 1 was created on November 5, and document 2 was created on October 31, document 1 is "fresher" than document 2. You can only set the `Freshness` field on one `DATE` type field. Only applies to `DATE` fields.
+	// For example, if document 1 was created on November 5, and document 2 was created on October 31, document 1 is "fresher" than document 2. Only applies to `DATE` fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-freshness
 	//
 	Freshness interface{} `field:"optional" json:"freshness" yaml:"freshness"`
@@ -52,7 +52,7 @@ type CfnIndex_RelevanceProperty struct {
 	//
 	// When the `RankOrder` field is `DESCENDING` , lower numbers are better. For example, in a task tracking application, a priority 1 task is more important than a priority 5 task.
 	//
-	// Only applies to `LONG` and `DOUBLE` fields.
+	// Only applies to `LONG` fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-rankorder
 	//
 	RankOrder *string `field:"optional" json:"rankOrder" yaml:"rankOrder"`

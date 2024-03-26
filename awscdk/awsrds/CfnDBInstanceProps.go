@@ -636,11 +636,13 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-endpoint
 	//
 	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
-	// The name of the database engine that you want to use for this DB instance.
+	// The name of the database engine to use for this DB instance.
 	//
 	// Not every database engine is available in every AWS Region.
 	//
-	// > When you are creating a DB instance, the `Engine` property is required.
+	// This property is required when creating a DB instance.
+	//
+	// > You can change the architecture of an Oracle database from the non-container database (CDB) architecture to the CDB architecture by updating the `Engine` value in your templates from `oracle-ee` or `oracle-ee-cdb` to `oracle-se2-cdb` . Converting to the CDB architecture requires an interruption.
 	//
 	// Valid Values:
 	//

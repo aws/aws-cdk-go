@@ -62,7 +62,7 @@ type CfnAsset interface {
 	// The ID of the asset, in UUID format.
 	AssetDescription() *string
 	SetAssetDescription(val *string)
-	// The External ID of the asset.
+	// The external ID of the asset model composite model.
 	AssetExternalId() *string
 	SetAssetExternalId(val *string)
 	// A list of asset hierarchies that each contain a `hierarchyId` .

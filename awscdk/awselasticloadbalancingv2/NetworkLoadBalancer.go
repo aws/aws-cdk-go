@@ -15,26 +15,22 @@ import (
 // Define a new network load balancer.
 //
 // Example:
-//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
 //   })
-//   link := apigateway.NewVpcLink(this, jsii.String("link"), &VpcLinkProps{
-//   	Targets: []iNetworkLoadBalancer{
-//   		nlb,
-//   	},
+//   listener := lb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   listener.AddTargets(jsii.String("target"), &AddNetworkTargetsProps{
+//   	Port: jsii.Number(80),
 //   })
 //
-//   integration := apigateway.NewIntegration(&IntegrationProps{
-//   	Type: apigateway.IntegrationType_HTTP_PROXY,
-//   	IntegrationHttpMethod: jsii.String("ANY"),
-//   	Options: &IntegrationOptions{
-//   		ConnectionType: apigateway.ConnectionType_VPC_LINK,
-//   		VpcLink: link,
-//   	},
+//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
+//   	DefaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 type NetworkLoadBalancer interface {
@@ -42,6 +38,8 @@ type NetworkLoadBalancer interface {
 	INetworkLoadBalancer
 	// The network connections associated with this resource.
 	Connections() awsec2.Connections
+	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink.
+	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -200,6 +198,16 @@ func (j *jsiiProxy_NetworkLoadBalancer) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkLoadBalancer) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
 		&returns,
 	)
 	return returns

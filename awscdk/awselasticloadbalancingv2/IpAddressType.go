@@ -27,6 +27,15 @@ package awselasticloadbalancingv2
 //
 //   	// The type of IP addresses to use.
 //   	IpAddressType: elbv2.IpAddressType_IPV4,
+//
+//   	// The duration of client keep-alive connections
+//   	ClientKeepAlive: awscdk.Duration_*Seconds(jsii.Number(500)),
+//
+//   	// Whether cross-zone load balancing is enabled.
+//   	CrossZoneEnabled: jsii.Boolean(true),
+//
+//   	// Whether the load balancer blocks traffic through the Internet Gateway (IGW).
+//   	DenyAllIgwTraffic: jsii.Boolean(false),
 //   })
 //
 type IpAddressType string

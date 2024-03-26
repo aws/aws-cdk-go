@@ -153,6 +153,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketLambdaIntegrationProps",
+		reflect.TypeOf((*WebSocketLambdaIntegrationProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketMockIntegration",
 		reflect.TypeOf((*WebSocketMockIntegration)(nil)).Elem(),

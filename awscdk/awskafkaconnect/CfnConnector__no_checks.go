@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnConnector) validateSetServiceExecutionRoleArnParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnector) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnector) validateSetWorkerConfigurationParameters(val interface{}) error {
 	return nil
 }

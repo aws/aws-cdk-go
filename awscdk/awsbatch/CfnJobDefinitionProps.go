@@ -26,6 +26,7 @@ type CfnJobDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-containerproperties
 	//
 	ContainerProperties interface{} `field:"optional" json:"containerProperties" yaml:"containerProperties"`
+	// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-ecsproperties
 	//
 	EcsProperties interface{} `field:"optional" json:"ecsProperties" yaml:"ecsProperties"`

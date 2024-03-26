@@ -72,6 +72,7 @@ import (
 //   	MetricName: jsii.String("metricName"),
 //   	Namespace: jsii.String("namespace"),
 //   	SingleMetricAnomalyDetector: &SingleMetricAnomalyDetectorProperty{
+//   		AccountId: jsii.String("accountId"),
 //   		Dimensions: []interface{}{
 //   			&DimensionProperty{
 //   				Name: jsii.String("name"),

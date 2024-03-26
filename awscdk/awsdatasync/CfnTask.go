@@ -36,6 +36,20 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	ManifestConfig: &ManifestConfigProperty{
+//   		Source: &SourceProperty{
+//   			S3: &ManifestConfigSourceS3Property{
+//   				BucketAccessRoleArn: jsii.String("bucketAccessRoleArn"),
+//   				ManifestObjectPath: jsii.String("manifestObjectPath"),
+//   				ManifestObjectVersionId: jsii.String("manifestObjectVersionId"),
+//   				S3BucketArn: jsii.String("s3BucketArn"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		Action: jsii.String("action"),
+//   		Format: jsii.String("format"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Options: &OptionsProperty{
 //   		Atime: jsii.String("atime"),
@@ -138,6 +152,9 @@ type CfnTask interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The configuration of the manifest that lists the files or objects to transfer.
+	ManifestConfig() interface{}
+	SetManifestConfig(val interface{})
 	// The name of a task.
 	Name() *string
 	SetName(val *string)
@@ -448,6 +465,16 @@ func (j *jsiiProxy_CfnTask) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTask) ManifestConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"manifestConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTask) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -633,6 +660,17 @@ func (j *jsiiProxy_CfnTask)SetIncludes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"includes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTask)SetManifestConfig(val interface{}) {
+	if err := j.validateSetManifestConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"manifestConfig",
 		val,
 	)
 }

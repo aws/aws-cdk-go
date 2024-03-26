@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnTask) validateSetIncludesParameters(val interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnTask) validateSetManifestConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTask) validateSetOptionsParameters(val interface{}) error {
 	return nil
 }

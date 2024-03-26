@@ -1,6 +1,7 @@
 package awsapigatewayv2
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
@@ -9,6 +10,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -19,6 +21,7 @@ import (
 //   	Uri: jsii.String("uri"),
 //
 //   	// the properties below are optional
+//   	ContentHandling: awscdk.*Aws_apigatewayv2.ContentHandling_CONVERT_TO_BINARY,
 //   	CredentialsRole: role,
 //   	Method: jsii.String("method"),
 //   	PassthroughBehavior: awscdk.*Aws_apigatewayv2.PassthroughBehavior_WHEN_NO_MATCH,
@@ -29,6 +32,7 @@ import (
 //   		"requestTemplatesKey": jsii.String("requestTemplates"),
 //   	},
 //   	TemplateSelectionExpression: jsii.String("templateSelectionExpression"),
+//   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   }
 //
 type WebSocketRouteIntegrationConfig struct {
@@ -36,6 +40,11 @@ type WebSocketRouteIntegrationConfig struct {
 	Type WebSocketIntegrationType `field:"required" json:"type" yaml:"type"`
 	// Integration URI.
 	Uri *string `field:"required" json:"uri" yaml:"uri"`
+	// Specifies how to handle response payload content type conversions.
+	// Default: - The response payload will be passed through from the integration response to
+	// the route response or method response without modification.
+	//
+	ContentHandling ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// Credentials role.
 	// Default: - No role provided.
 	//
@@ -60,5 +69,11 @@ type WebSocketRouteIntegrationConfig struct {
 	// Default: - No template selection expression.
 	//
 	TemplateSelectionExpression *string `field:"optional" json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
+	// The maximum amount of time an integration will run before it returns without a response.
+	//
+	// Must be between 50 milliseconds and 29 seconds.
+	// Default: Duration.seconds(29)
+	//
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

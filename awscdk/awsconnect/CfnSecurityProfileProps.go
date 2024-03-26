@@ -16,13 +16,25 @@ import (
 //   	SecurityProfileName: jsii.String("securityProfileName"),
 //
 //   	// the properties below are optional
+//   	AllowedAccessControlHierarchyGroupId: jsii.String("allowedAccessControlHierarchyGroupId"),
 //   	AllowedAccessControlTags: []interface{}{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Applications: []interface{}{
+//   		&ApplicationProperty{
+//   			ApplicationPermissions: []*string{
+//   				jsii.String("applicationPermissions"),
+//   			},
+//   			Namespace: jsii.String("namespace"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
+//   	HierarchyRestrictedResources: []*string{
+//   		jsii.String("hierarchyRestrictedResources"),
+//   	},
 //   	Permissions: []*string{
 //   		jsii.String("permissions"),
 //   	},
@@ -48,14 +60,28 @@ type CfnSecurityProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-securityprofilename
 	//
 	SecurityProfileName *string `field:"required" json:"securityProfileName" yaml:"securityProfileName"`
+	// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-allowedaccesscontrolhierarchygroupid
+	//
+	AllowedAccessControlHierarchyGroupId *string `field:"optional" json:"allowedAccessControlHierarchyGroupId" yaml:"allowedAccessControlHierarchyGroupId"`
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-allowedaccesscontroltags
 	//
 	AllowedAccessControlTags interface{} `field:"optional" json:"allowedAccessControlTags" yaml:"allowedAccessControlTags"`
+	// A list of third-party applications that the security profile will give access to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-applications
+	//
+	Applications interface{} `field:"optional" json:"applications" yaml:"applications"`
 	// The description of the security profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+	//
+	// Following are acceptable ResourceNames: `User` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-hierarchyrestrictedresources
+	//
+	HierarchyRestrictedResources *[]*string `field:"optional" json:"hierarchyRestrictedResources" yaml:"hierarchyRestrictedResources"`
 	// Permissions assigned to the security profile.
 	//
 	// For a list of valid permissions, see [List of security profile permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html) .

@@ -98,6 +98,10 @@ import (
 //   	CrawlerSecurityConfiguration: jsii.String("crawlerSecurityConfiguration"),
 //   	DatabaseName: jsii.String("databaseName"),
 //   	Description: jsii.String("description"),
+//   	LakeFormationConfiguration: &LakeFormationConfigurationProperty{
+//   		AccountId: jsii.String("accountId"),
+//   		UseLakeFormationCredentials: jsii.Boolean(false),
+//   	},
 //   	Name: jsii.String("name"),
 //   	RecrawlPolicy: &RecrawlPolicyProperty{
 //   		RecrawlBehavior: jsii.String("recrawlBehavior"),
@@ -144,6 +148,8 @@ type CfnCrawler interface {
 	// A description of the crawler.
 	Description() *string
 	SetDescription(val *string)
+	LakeFormationConfiguration() interface{}
+	SetLakeFormationConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -438,6 +444,16 @@ func (j *jsiiProxy_CfnCrawler) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCrawler) LakeFormationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"lakeFormationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCrawler) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -652,6 +668,17 @@ func (j *jsiiProxy_CfnCrawler)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCrawler)SetLakeFormationConfiguration(val interface{}) {
+	if err := j.validateSetLakeFormationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"lakeFormationConfiguration",
 		val,
 	)
 }

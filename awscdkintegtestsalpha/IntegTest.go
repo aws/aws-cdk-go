@@ -14,19 +14,24 @@ import (
 // instance of this class.
 //
 // Example:
-//   var myCustomResource customResource
-//   var stack stack
+//   var lambdaFunction iFunction
 //   var app app
 //
 //
-//   integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
-//   	TestCases: []*stack{
+//   stack := awscdk.NewStack(app, jsii.String("cdk-integ-lambda-bundling"))
+//
+//   integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+//   	TestCases: []stack{
 //   		stack,
 //   	},
 //   })
-//   integ.Assertions.Expect(jsii.String("CustomAssertion"), awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
-//   	"foo": jsii.String("bar"),
-//   }), awscdkintegtestsalpha.ActualResult_FromCustomResource(myCustomResource, jsii.String("data")))
+//
+//   invoke := integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
+//   	FunctionName: lambdaFunction.FunctionName,
+//   })
+//   invoke.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
+//   	"Payload": jsii.String("200"),
+//   }))
 //
 // Experimental.
 type IntegTest interface {

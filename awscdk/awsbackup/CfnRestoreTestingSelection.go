@@ -105,7 +105,7 @@ type CfnRestoreTestingSelection interface {
 	// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` .
 	RestoreMetadataOverrides() interface{}
 	SetRestoreMetadataOverrides(val interface{})
-	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan.
+	// Unique string that is the name of the restore testing plan.
 	RestoreTestingPlanName() *string
 	SetRestoreTestingPlanName(val *string)
 	// This is the unique name of the restore testing selection that belongs to the related restore testing plan.

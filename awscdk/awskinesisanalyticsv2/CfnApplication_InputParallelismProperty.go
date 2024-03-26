@@ -1,7 +1,7 @@
 package awskinesisanalyticsv2
 
 
-// For a SQL-based Managed Service for Apache Flink application, describes the number of in-application streams to create for a given streaming source.
+// For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

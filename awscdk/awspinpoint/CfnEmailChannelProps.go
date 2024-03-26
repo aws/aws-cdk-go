@@ -16,6 +16,7 @@ package awspinpoint
 //   	// the properties below are optional
 //   	ConfigurationSet: jsii.String("configurationSet"),
 //   	Enabled: jsii.Boolean(false),
+//   	OrchestrationSendingRoleArn: jsii.String("orchestrationSendingRoleArn"),
 //   	RoleArn: jsii.String("roleArn"),
 //   }
 //
@@ -42,6 +43,9 @@ type CfnEmailChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-orchestrationsendingrolearn
+	//
+	OrchestrationSendingRoleArn *string `field:"optional" json:"orchestrationSendingRoleArn" yaml:"orchestrationSendingRoleArn"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html#cfn-pinpoint-emailchannel-rolearn
 	//

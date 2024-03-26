@@ -57,6 +57,18 @@ type GraphqlApiProps struct {
 	// Default: - None.
 	//
 	LogConfig *LogConfig `field:"optional" json:"logConfig" yaml:"logConfig"`
+	// A number indicating the maximum depth resolvers should be accepted when handling queries.
+	//
+	// Value must be withing range of 0 to 75.
+	// Default: - The default value is 0 (or unspecified) which indicates no maximum depth.
+	//
+	QueryDepthLimit *float64 `field:"optional" json:"queryDepthLimit" yaml:"queryDepthLimit"`
+	// A number indicating the maximum number of resolvers that should be accepted when handling queries.
+	//
+	// Value must be withing range of 0 to 10000.
+	// Default: - The default value is 0 (or unspecified), which will set the limit to 10000.
+	//
+	ResolverCountLimit *float64 `field:"optional" json:"resolverCountLimit" yaml:"resolverCountLimit"`
 	// GraphQL schema definition. Specify how you want to define your schema.
 	//
 	// SchemaFile.fromAsset(filePath: string) allows schema definition through schema.graphql file

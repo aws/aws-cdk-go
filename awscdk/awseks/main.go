@@ -1077,6 +1077,7 @@ func init() {
 			"STANDARD": NodeType_STANDARD,
 			"GPU": NodeType_GPU,
 			"INFERENTIA": NodeType_INFERENTIA,
+			"TRAINIUM": NodeType_TRAINIUM,
 		},
 	)
 	_jsii_.RegisterClass(

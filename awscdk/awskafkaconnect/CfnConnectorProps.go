@@ -1,5 +1,8 @@
 package awskafkaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnConnector`.
 //
@@ -87,6 +90,12 @@ package awskafkaconnect
 //   			},
 //   		},
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	WorkerConfiguration: &WorkerConfigurationProperty{
 //   		Revision: jsii.Number(123),
 //   		WorkerConfigurationArn: jsii.String("workerConfigurationArn"),
@@ -146,6 +155,10 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-logdelivery
 	//
 	LogDelivery interface{} `field:"optional" json:"logDelivery" yaml:"logDelivery"`
+	// A collection of tags associated with a resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The worker configurations that are in use with the connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-workerconfiguration
 	//

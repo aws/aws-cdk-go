@@ -36,10 +36,18 @@ import (
 type ApplicationLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// Indicates whether cross-zone load balancing is enabled.
+	// Default: - false for Network Load Balancers and true for Application Load Balancers.
+	//
+	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
 	// Indicates whether deletion protection is enabled.
 	// Default: false.
 	//
 	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
+	// Indicates whether the load balancer blocks traffic through the Internet Gateway (IGW).
+	// Default: - false for internet-facing load balancers and true for internal load balancers.
+	//
+	DenyAllIgwTraffic *bool `field:"optional" json:"denyAllIgwTraffic" yaml:"denyAllIgwTraffic"`
 	// Whether the load balancer has an internet-routable address.
 	// Default: false.
 	//
@@ -52,6 +60,12 @@ type ApplicationLoadBalancerProps struct {
 	// Default: - the Vpc default strategy.
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
+	// The client keep alive duration.
+	//
+	// The valid range is 60 to 604800 seconds (1 minute to 7 days).
+	// Default: - Duration.seconds(3600)
+	//
+	ClientKeepAlive awscdk.Duration `field:"optional" json:"clientKeepAlive" yaml:"clientKeepAlive"`
 	// Determines how the load balancer handles requests that might pose a security risk to your application.
 	// Default: DesyncMitigationMode.DEFENSIVE
 	//

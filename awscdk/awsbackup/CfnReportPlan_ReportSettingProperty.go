@@ -36,6 +36,8 @@ type CfnReportPlan_ReportSettingProperty struct {
 	//
 	ReportTemplate *string `field:"required" json:"reportTemplate" yaml:"reportTemplate"`
 	// These are the accounts to be included in the report.
+	//
+	// Use string value of `ROOT` to include all organizational units.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-accounts
 	//
 	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`
@@ -48,6 +50,8 @@ type CfnReportPlan_ReportSettingProperty struct {
 	//
 	OrganizationUnits *[]*string `field:"optional" json:"organizationUnits" yaml:"organizationUnits"`
 	// These are the Regions to be included in the report.
+	//
+	// Use the wildcard as the string value to include all Regions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html#cfn-backup-reportplan-reportsetting-regions
 	//
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`

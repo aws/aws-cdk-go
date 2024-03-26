@@ -20,6 +20,13 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	DynamicExtensionParameters: []interface{}{
+//   		&DynamicExtensionParametersProperty{
+//   			ExtensionReference: jsii.String("extensionReference"),
+//   			ParameterName: jsii.String("parameterName"),
+//   			ParameterValue: jsii.String("parameterValue"),
+//   		},
+//   	},
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -58,6 +65,12 @@ type CfnDeploymentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The parameters accepted by the extension.
+	//
+	// You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-dynamicextensionparameters
+	//
+	DynamicExtensionParameters interface{} `field:"optional" json:"dynamicExtensionParameters" yaml:"dynamicExtensionParameters"`
 	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-kmskeyidentifier
 	//

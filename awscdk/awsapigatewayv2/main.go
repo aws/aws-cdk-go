@@ -852,6 +852,14 @@ func init() {
 		reflect.TypeOf((*CfnVpcLinkProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_apigatewayv2.ContentHandling",
+		reflect.TypeOf((*ContentHandling)(nil)).Elem(),
+		map[string]interface{}{
+			"CONVERT_TO_BINARY": ContentHandling_CONVERT_TO_BINARY,
+			"CONVERT_TO_TEXT": ContentHandling_CONVERT_TO_TEXT,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_apigatewayv2.CorsHttpMethod",
 		reflect.TypeOf((*CorsHttpMethod)(nil)).Elem(),
 		map[string]interface{}{

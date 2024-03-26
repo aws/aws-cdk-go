@@ -20,7 +20,9 @@ import (
 //   	Vpc: vpc,
 //
 //   	// the properties below are optional
+//   	CrossZoneEnabled: jsii.Boolean(false),
 //   	DeletionProtection: jsii.Boolean(false),
+//   	DenyAllIgwTraffic: jsii.Boolean(false),
 //   	InternetFacing: jsii.Boolean(false),
 //   	LoadBalancerName: jsii.String("loadBalancerName"),
 //   	VpcSubnets: &SubnetSelection{
@@ -42,10 +44,18 @@ import (
 type BaseLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// Indicates whether cross-zone load balancing is enabled.
+	// Default: - false for Network Load Balancers and true for Application Load Balancers.
+	//
+	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
 	// Indicates whether deletion protection is enabled.
 	// Default: false.
 	//
 	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
+	// Indicates whether the load balancer blocks traffic through the Internet Gateway (IGW).
+	// Default: - false for internet-facing load balancers and true for internal load balancers.
+	//
+	DenyAllIgwTraffic *bool `field:"optional" json:"denyAllIgwTraffic" yaml:"denyAllIgwTraffic"`
 	// Whether the load balancer has an internet-routable address.
 	// Default: false.
 	//

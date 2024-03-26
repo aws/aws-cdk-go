@@ -1,11 +1,12 @@
 package awsapigatewayv2integrations
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
-// Props for AWS type integration for an HTTP Api.
+// Props for AWS type integration for a WebSocket Api.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -45,6 +46,11 @@ type WebSocketAwsIntegrationProps struct {
 	IntegrationMethod *string `field:"required" json:"integrationMethod" yaml:"integrationMethod"`
 	// Integration URI.
 	IntegrationUri *string `field:"required" json:"integrationUri" yaml:"integrationUri"`
+	// Specifies how to handle response payload content type conversions.
+	// Default: - The response payload will be passed through from the integration response to
+	// the route response or method response without modification.
+	//
+	ContentHandling awsapigatewayv2.ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// Specifies the credentials role required for the integration.
 	// Default: - No credential role provided.
 	//
@@ -75,5 +81,11 @@ type WebSocketAwsIntegrationProps struct {
 	// Default: - No template selection expression provided.
 	//
 	TemplateSelectionExpression *string `field:"optional" json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
+	// The maximum amount of time an integration will run before it returns without a response.
+	//
+	// Must be between 50 milliseconds and 29 seconds.
+	// Default: Duration.seconds(29)
+	//
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

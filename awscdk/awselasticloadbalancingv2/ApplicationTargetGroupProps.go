@@ -11,20 +11,15 @@ import (
 //   var vpc vpc
 //
 //
-//   // Target group with duration-based stickiness with load-balancer generated cookie
-//   tg1 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG1"), &ApplicationTargetGroupProps{
-//   	TargetType: elbv2.TargetType_INSTANCE,
-//   	Port: jsii.Number(80),
-//   	StickinessCookieDuration: awscdk.Duration_Minutes(jsii.Number(5)),
-//   	Vpc: Vpc,
-//   })
-//
-//   // Target group with application-based stickiness
-//   tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &ApplicationTargetGroupProps{
-//   	TargetType: elbv2.TargetType_INSTANCE,
-//   	Port: jsii.Number(80),
-//   	StickinessCookieDuration: awscdk.Duration_*Minutes(jsii.Number(5)),
-//   	StickinessCookieName: jsii.String("MyDeliciousCookie"),
+//   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{
+//   	TargetType: elbv2.TargetType_IP,
+//   	Port: jsii.Number(50051),
+//   	Protocol: elbv2.ApplicationProtocol_HTTP,
+//   	ProtocolVersion: elbv2.ApplicationProtocolVersion_GRPC,
+//   	HealthCheck: &HealthCheck{
+//   		Enabled: jsii.Boolean(true),
+//   		HealthyGrpcCodes: jsii.String("0-99"),
+//   	},
 //   	Vpc: Vpc,
 //   })
 //

@@ -1,5 +1,8 @@
 package awscdkintegtestsalpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+)
 
 // Options to pass to the Lambda invokeFunction API call.
 //
@@ -33,6 +36,11 @@ type LambdaInvokeFunctionProps struct {
 	//
 	// Experimental.
 	InvocationType InvocationType `field:"optional" json:"invocationType" yaml:"invocationType"`
+	// How long, in days, the log contents will be retained.
+	// Default: - no retention days specified.
+	//
+	// Experimental.
+	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// Whether to return the logs as part of the response.
 	// Default: LogType.NONE
 	//
