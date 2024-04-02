@@ -335,6 +335,37 @@ route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &Cros
 })
 ```
 
+Delegating the hosted zone requires assuming a role in the parent hosted zone's account.
+In order for the assumed credentials to be valid, the resource must assume the role using
+an STS endpoint in a region where both the subdomain's account and the parent's account
+are opted-in. By default, this region is determined automatically, but if you need to
+change the region used for the AssumeRole call, specify `assumeRoleRegion`:
+
+```go
+subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &PublicHostedZoneProps{
+	ZoneName: jsii.String("sub.someexample.com"),
+})
+
+// import the delegation role by constructing the roleArn
+delegationRoleArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
+	Region: jsii.String(""),
+	 // IAM is global in each partition
+	Service: jsii.String("iam"),
+	Account: jsii.String("parent-account-id"),
+	Resource: jsii.String("role"),
+	ResourceName: jsii.String("MyDelegationRole"),
+})
+delegationRole := iam.Role_FromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
+
+route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &CrossAccountZoneDelegationRecordProps{
+	DelegatedZone: subZone,
+	ParentHostedZoneName: jsii.String("someexample.com"),
+	 // or you can use parentHostedZoneId
+	DelegationRole: DelegationRole,
+	AssumeRoleRegion: jsii.String("us-east-1"),
+})
+```
+
 ### Add Trailing Dot to Domain Names
 
 In order to continue managing existing domain names with trailing dots using CDK, you can set `addTrailingDot: false` to prevent the Construct from adding a dot at the end of the domain name.

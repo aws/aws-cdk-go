@@ -43,7 +43,7 @@ type CfnMatchingWorkflow_ResolutionTechniquesProperty struct {
 	ProviderProperties interface{} `field:"optional" json:"providerProperties" yaml:"providerProperties"`
 	// The type of matching.
 	//
-	// There are two types of matching: `RULE_MATCHING` and `ML_MATCHING` .
+	// There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-resolutiontype
 	//
 	ResolutionType *string `field:"optional" json:"resolutionType" yaml:"resolutionType"`

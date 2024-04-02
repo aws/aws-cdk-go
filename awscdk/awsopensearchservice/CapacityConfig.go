@@ -35,7 +35,8 @@ type CapacityConfig struct {
 	//
 	// For more information, see [Multi-AZ with
 	// Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby)
-	// Default: - no multi-az with standby.
+	// Default: - multi-az with standby if the feature flag `ENABLE_OPENSEARCH_MULTIAZ_WITH_STANDBY`
+	// is true, no multi-az with standby otherwise.
 	//
 	MultiAzWithStandbyEnabled *bool `field:"optional" json:"multiAzWithStandbyEnabled" yaml:"multiAzWithStandbyEnabled"`
 	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.search`. For valid values, see [UltraWarm Storage Limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#limits-ultrawarm) in the Amazon OpenSearch Service Developer Guide.

@@ -7,7 +7,9 @@ package awsrds
 //
 // If you have an Aurora cluster, you must set the `ScalingConfigurationInfo` attribute before you add a DB instance that uses the `db.serverless` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide* .
 //
-// This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, Use the `ScalingConfiguration` property.
+// This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the `ScalingConfiguration` property.
+//
+// Valid for: Aurora Serverless v2 DB clusters.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

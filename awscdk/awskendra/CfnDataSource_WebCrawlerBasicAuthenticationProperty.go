@@ -17,7 +17,9 @@ package awskendra
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerbasicauthentication.html
 //
 type CfnDataSource_WebCrawlerBasicAuthenticationProperty struct {
-	// Your secret ARN, which you can create in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html).
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret.
+	//
+	// You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
 	//
 	// You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerbasicauthentication.html#cfn-kendra-datasource-webcrawlerbasicauthentication-credentials

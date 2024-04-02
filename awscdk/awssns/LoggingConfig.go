@@ -6,8 +6,6 @@ import (
 
 // A logging configuration for delivery status of messages sent from SNS topic to subscribed endpoints.
 //
-// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html.
-//
 // Example:
 //   var role role
 //
@@ -19,6 +17,8 @@ import (
 //   	SuccessFeedbackRole: role,
 //   	SuccessFeedbackSampleRate: jsii.Number(50),
 //   })
+//
+// See: https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html.
 //
 type LoggingConfig struct {
 	// Indicates one of the supported protocols for the SNS topic.

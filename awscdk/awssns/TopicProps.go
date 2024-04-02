@@ -23,8 +23,8 @@ type TopicProps struct {
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// Adds a statement to enforce encryption of data in transit when publishing to the topic.
+	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
 	//
-	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
 	// Default: false.
 	//
 	EnforceSSL *bool `field:"optional" json:"enforceSSL" yaml:"enforceSSL"`
@@ -33,8 +33,8 @@ type TopicProps struct {
 	//
 	Fifo *bool `field:"optional" json:"fifo" yaml:"fifo"`
 	// The list of delivery status logging configurations for the topic.
+	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html.
 	//
-	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html.
 	// Default: None.
 	//
 	LoggingConfigs *[]*LoggingConfig `field:"optional" json:"loggingConfigs" yaml:"loggingConfigs"`
@@ -50,6 +50,12 @@ type TopicProps struct {
 	// Default: - do not archive messages.
 	//
 	MessageRetentionPeriodInDays *float64 `field:"optional" json:"messageRetentionPeriodInDays" yaml:"messageRetentionPeriodInDays"`
+	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html.
+	//
+	// Default: 1.
+	//
+	SignatureVersion *string `field:"optional" json:"signatureVersion" yaml:"signatureVersion"`
 	// A name for the topic.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique

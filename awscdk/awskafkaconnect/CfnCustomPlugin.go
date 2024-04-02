@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// An example resource schema demonstrating some basic constructs and validation rules.
+// Creates a custom plugin using the specified properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,7 +45,7 @@ type CfnCustomPlugin interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the custom plugin to use.
+	// The Amazon Resource Name (ARN) of the custom plugin.
 	AttrCustomPluginArn() *string
 	// Details about the custom plugin file.
 	AttrFileDescription() awscdk.IResolvable
@@ -58,17 +58,17 @@ type CfnCustomPlugin interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The type of the plugin file.
+	// The format of the plugin file.
 	ContentType() *string
 	SetContentType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A summary description of the custom plugin.
+	// The description of the custom plugin.
 	Description() *string
 	SetDescription(val *string)
-	// Information about the location of a custom plugin.
+	// Information about the location of the custom plugin.
 	Location() interface{}
 	SetLocation(val interface{})
 	// The logical ID for this CloudFormation stack element.

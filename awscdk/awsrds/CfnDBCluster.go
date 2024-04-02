@@ -331,10 +331,10 @@ type CfnDBCluster interface {
 	// You can specify one of the following values:.
 	RestoreType() *string
 	SetRestoreType(val *string)
-	// The `ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+	// The scaling configuration of an Aurora Serverless v1 DB cluster.
 	ScalingConfiguration() interface{}
 	SetScalingConfiguration(val interface{})
-	// The `ServerlessV2ScalingConfiguration` property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster.
+	// The scaling configuration of an Aurora Serverless V2 DB cluster.
 	ServerlessV2ScalingConfiguration() interface{}
 	SetServerlessV2ScalingConfiguration(val interface{})
 	// The identifier for the DB snapshot or DB cluster snapshot to restore from.

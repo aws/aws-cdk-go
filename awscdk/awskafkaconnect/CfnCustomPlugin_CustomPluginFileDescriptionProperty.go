@@ -1,7 +1,7 @@
 package awskafkaconnect
 
 
-// Details about the custom plugin file.
+// Details about a custom plugin file.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

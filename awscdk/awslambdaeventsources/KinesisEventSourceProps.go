@@ -59,8 +59,12 @@ type KinesisEventSourceProps struct {
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
-	// * Maximum value of 7 days.
-	// Default: - the retention period configured on the stream.
+	// * Maximum value of 7 days
+	//
+	// The default value is -1, which sets the maximum age to infinite.
+	// When the value is set to infinite, Lambda never discards old records.
+	// Record are valid until it expires in the event source.
+	// Default: -1.
 	//
 	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
@@ -82,7 +86,11 @@ type KinesisEventSourceProps struct {
 	//
 	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	// Default: - retry until the record expires.
+	//
+	// The default value is -1, which sets the maximum number of retries to infinite.
+	// When MaximumRetryAttempts is infinite, Lambda retries failed records until
+	// the record expires in the event source.
+	// Default: -1.
 	//
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.

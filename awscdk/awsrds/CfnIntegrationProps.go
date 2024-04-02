@@ -19,6 +19,8 @@ import (
 //   	AdditionalEncryptionContext: map[string]*string{
 //   		"additionalEncryptionContextKey": jsii.String("additionalEncryptionContext"),
 //   	},
+//   	DataFilter: jsii.String("dataFilter"),
+//   	Description: jsii.String("description"),
 //   	IntegrationName: jsii.String("integrationName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	Tags: []cfnTag{
@@ -48,6 +50,16 @@ type CfnIntegrationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-additionalencryptioncontext
 	//
 	AdditionalEncryptionContext interface{} `field:"optional" json:"additionalEncryptionContext" yaml:"additionalEncryptionContext"`
+	// Data filters for the integration.
+	//
+	// These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-datafilter
+	//
+	DataFilter *string `field:"optional" json:"dataFilter" yaml:"dataFilter"`
+	// A description of the integration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html#cfn-rds-integration-integrationname
 	//

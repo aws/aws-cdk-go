@@ -26,8 +26,7 @@ type CfnNodeProps struct {
 	//
 	// Ethereum public networks have the following `NetworkId` s:
 	//
-	// - `n-ethereum-mainnet`
-	// - `n-ethereum-goerli`.
+	// - `n-ethereum-mainnet`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html#cfn-managedblockchain-node-networkid
 	//
 	NetworkId *string `field:"required" json:"networkId" yaml:"networkId"`

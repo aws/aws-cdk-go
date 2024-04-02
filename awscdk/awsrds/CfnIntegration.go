@@ -24,6 +24,8 @@ import (
 //   	AdditionalEncryptionContext: map[string]*string{
 //   		"additionalEncryptionContextKey": jsii.String("additionalEncryptionContext"),
 //   	},
+//   	DataFilter: jsii.String("dataFilter"),
+//   	Description: jsii.String("description"),
 //   	IntegrationName: jsii.String("integrationName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	Tags: []cfnTag{
@@ -58,6 +60,12 @@ type CfnIntegration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Data filters for the integration.
+	DataFilter() *string
+	SetDataFilter(val *string)
+	// A description of the integration.
+	Description() *string
+	SetDescription(val *string)
 	// The name of the integration.
 	IntegrationName() *string
 	SetIntegrationName(val *string)
@@ -321,6 +329,26 @@ func (j *jsiiProxy_CfnIntegration) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIntegration) DataFilter() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dataFilter",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIntegration) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIntegration) IntegrationName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -466,6 +494,22 @@ func (j *jsiiProxy_CfnIntegration)SetAdditionalEncryptionContext(val interface{}
 	_jsii_.Set(
 		j,
 		"additionalEncryptionContext",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegration)SetDataFilter(val *string) {
+	_jsii_.Set(
+		j,
+		"dataFilter",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegration)SetDescription(val *string) {
+	_jsii_.Set(
+		j,
+		"description",
 		val,
 	)
 }

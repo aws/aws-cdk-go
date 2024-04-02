@@ -51,6 +51,13 @@ package awscleanrooms
 //   			AllowedAnalysisProviders: []*string{
 //   				jsii.String("allowedAnalysisProviders"),
 //   			},
+//   			DifferentialPrivacy: &DifferentialPrivacyProperty{
+//   				Columns: []interface{}{
+//   					&DifferentialPrivacyColumnProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   		List: &AnalysisRuleListProperty{
 //   			JoinColumns: []*string{

@@ -26,7 +26,7 @@ package awsoam
 type CfnLinkProps struct {
 	// An array of strings that define which types of data that the source account shares with the monitoring account.
 	//
-	// Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application` .
+	// Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html#cfn-oam-link-resourcetypes
 	//
 	ResourceTypes *[]*string `field:"required" json:"resourceTypes" yaml:"resourceTypes"`

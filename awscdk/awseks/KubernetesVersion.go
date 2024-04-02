@@ -19,7 +19,6 @@ import (
 //   	},
 //   	MinSize: jsii.Number(4),
 //   	DiskSize: jsii.Number(100),
-//   	AmiType: eks.NodegroupAmiType_AL2_X86_64_GPU,
 //   })
 //
 // See: https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar

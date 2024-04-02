@@ -102,6 +102,8 @@ type CfnAssetModel_AssetModelPropertyProperty struct {
 	// The external ID of the asset property.
 	//
 	// For more information, see [Using external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids) in the *AWS IoT SiteWise User Guide* .
+	//
+	// > One of `ExternalId` or `LogicalId` must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-externalid
 	//
 	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
@@ -112,6 +114,8 @@ type CfnAssetModel_AssetModelPropertyProperty struct {
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The `LogicalID` of the asset model property.
+	//
+	// > One of `ExternalId` or `LogicalId` must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
 	//
 	LogicalId *string `field:"optional" json:"logicalId" yaml:"logicalId"`

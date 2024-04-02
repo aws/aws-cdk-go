@@ -15,6 +15,10 @@ package awscodestarconnections
 //   	ResourceName: jsii.String("resourceName"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	SyncType: jsii.String("syncType"),
+//
+//   	// the properties below are optional
+//   	PublishDeploymentStatus: jsii.String("publishDeploymentStatus"),
+//   	TriggerResourceUpdateOn: jsii.String("triggerResourceUpdateOn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html
@@ -46,5 +50,13 @@ type CfnSyncConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-synctype
 	//
 	SyncType *string `field:"required" json:"syncType" yaml:"syncType"`
+	// Whether to enable or disable publishing of deployment status to source providers.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-publishdeploymentstatus
+	//
+	PublishDeploymentStatus *string `field:"optional" json:"publishDeploymentStatus" yaml:"publishDeploymentStatus"`
+	// When to trigger Git sync to begin the stack update.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html#cfn-codestarconnections-syncconfiguration-triggerresourceupdateon
+	//
+	TriggerResourceUpdateOn *string `field:"optional" json:"triggerResourceUpdateOn" yaml:"triggerResourceUpdateOn"`
 }
 

@@ -103,6 +103,9 @@ type CfnSubnet interface {
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
 	EnableDns64() interface{}
 	SetEnableDns64(val interface{})
+	// Indicates the device position for local network interfaces in this subnet.
+	EnableLniAtDeviceIndex() *float64
+	SetEnableLniAtDeviceIndex(val *float64)
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId() *string
 	SetIpv4IpamPoolId(val *string)
@@ -481,6 +484,16 @@ func (j *jsiiProxy_CfnSubnet) EnableDns64() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubnet) EnableLniAtDeviceIndex() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"enableLniAtDeviceIndex",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubnet) Ipv4IpamPoolId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -741,6 +754,14 @@ func (j *jsiiProxy_CfnSubnet)SetEnableDns64(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enableDns64",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubnet)SetEnableLniAtDeviceIndex(val *float64) {
+	_jsii_.Set(
+		j,
+		"enableLniAtDeviceIndex",
 		val,
 	)
 }

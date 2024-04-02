@@ -18,6 +18,19 @@ topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
 })
 ```
 
+Add an SNS Topic to your stack with a specified signature version, which corresponds
+to the hashing algorithm used while creating the signature of the notifications,
+subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+
+The default signature version is `1` (`SHA1`).
+SNS also supports signature version `2` (`SHA256`).
+
+```go
+topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
+	SignatureVersion: jsii.String("2"),
+})
+```
+
 Note that FIFO topics require a topic name to be provided. The required `.fifo` suffix will be automatically generated and added to the topic name if it is not explicitly provided.
 
 ## Subscriptions
@@ -346,11 +359,9 @@ Message archiving provides the ability to archive a single copy of all messages 
 You can store published messages within your topic by enabling the message archive policy on the topic, which enables message archiving for all subscriptions linked to that topic.
 Messages can be archived for a minimum of one day to a maximum of 365 days.
 
-Example with a archive policy for SQS:
+Example with an archive policy:
 
 ```go
-var role role
-
 topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
 	Fifo: jsii.Boolean(true),
 	MessageRetentionPeriodInDays: jsii.Number(7),

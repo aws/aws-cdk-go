@@ -46,6 +46,8 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	//
 	// You can later remove these artifacts.
 	//
+	// The default value is `true` .
+	//
 	// If this value is set to `N` , you don't have to create tables or triggers on the source database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-captureddls
 	//
@@ -55,6 +57,8 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	//
 	DatabaseMode *string `field:"optional" json:"databaseMode" yaml:"databaseMode"`
 	// The schema in which the operational DDL database artifacts are created.
+	//
+	// The default value is `public` .
 	//
 	// Example: `ddlArtifactsSchema=xyzddlschema;`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-ddlartifactsschema
@@ -68,6 +72,8 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	ExecuteTimeout *float64 `field:"optional" json:"executeTimeout" yaml:"executeTimeout"`
 	// When set to `true` , this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize` .
 	//
+	// The default value is `false` .
+	//
 	// If task is set to Limited LOB mode and this option is set to true, the task fails instead of truncating the LOB data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-failtasksonlobtruncation
 	//
@@ -75,30 +81,42 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	// The write-ahead log (WAL) heartbeat feature mimics a dummy transaction.
 	//
 	// By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source. This heartbeat keeps `restart_lsn` moving and prevents storage full scenarios.
+	//
+	// The default value is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-heartbeatenable
 	//
 	HeartbeatEnable interface{} `field:"optional" json:"heartbeatEnable" yaml:"heartbeatEnable"`
 	// Sets the WAL heartbeat frequency (in minutes).
+	//
+	// The default value is 5 minutes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-heartbeatfrequency
 	//
 	HeartbeatFrequency *float64 `field:"optional" json:"heartbeatFrequency" yaml:"heartbeatFrequency"`
 	// Sets the schema in which the heartbeat artifacts are created.
+	//
+	// The default value is `public` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-heartbeatschema
 	//
 	HeartbeatSchema *string `field:"optional" json:"heartbeatSchema" yaml:"heartbeatSchema"`
 	// When true, lets PostgreSQL migrate the boolean type as boolean.
 	//
 	// By default, PostgreSQL migrates booleans as `varchar(5)` . You must set this setting on both the source and target endpoints for it to take effect.
+	//
+	// The default value is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-mapbooleanasboolean
 	//
 	MapBooleanAsBoolean interface{} `field:"optional" json:"mapBooleanAsBoolean" yaml:"mapBooleanAsBoolean"`
 	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+	//
+	// The default value is 32,768 KB (32 MB).
 	//
 	// Example: `maxFileSize=512`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-maxfilesize
 	//
 	MaxFileSize *float64 `field:"optional" json:"maxFileSize" yaml:"maxFileSize"`
 	// Specifies the plugin to use to create a replication slot.
+	//
+	// The default value is `pglogical` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-pluginname
 	//
 	PluginName *string `field:"optional" json:"pluginName" yaml:"pluginName"`

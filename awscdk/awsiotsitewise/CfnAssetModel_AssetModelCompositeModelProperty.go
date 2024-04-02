@@ -118,12 +118,16 @@ type CfnAssetModel_AssetModelCompositeModelProperty struct {
 	//
 	CompositeModelProperties interface{} `field:"optional" json:"compositeModelProperties" yaml:"compositeModelProperties"`
 	// The description of the composite model.
+	//
+	// > If the composite model is a `component-model-based` composite model, the description is inherited from the `COMPONENT_MODEL` asset model and cannot be changed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The external ID of a composite model on this asset model.
 	//
 	// For more information, see [Using external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids) in the *AWS IoT SiteWise User Guide* .
+	//
+	// > One of `ExternalId` or `Path` must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-externalid
 	//
 	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
@@ -133,17 +137,17 @@ type CfnAssetModel_AssetModelCompositeModelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-id
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
-	// The external ID of the parent asset model.
+	// The external ID of the parent composite model.
 	//
 	// For more information, see [Using external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids) in the *AWS IoT SiteWise User Guide* .
-	//
-	// > If `ParentCompositeModelExternalId` is specified, this value overrides the value of `ExternalId` , if both are included.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-parentassetmodelcompositemodelexternalid
 	//
 	ParentAssetModelCompositeModelExternalId *string `field:"optional" json:"parentAssetModelCompositeModelExternalId" yaml:"parentAssetModelCompositeModelExternalId"`
 	// The structured path to the property from the root of the asset using property names.
 	//
 	// Path is used as the ID if the asset model is a derived composite model.
+	//
+	// > One of `ExternalId` or `Path` must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-path
 	//
 	Path *[]*string `field:"optional" json:"path" yaml:"path"`

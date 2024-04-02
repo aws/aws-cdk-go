@@ -24,7 +24,6 @@ import (
 //   	},
 //   	Vpc: Vpc,
 //   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
-//   	InstanceRemovalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   })
 //
 type InstanceType interface {

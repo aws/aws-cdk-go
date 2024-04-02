@@ -32,6 +32,8 @@ type CfnAssetModel_AssetModelHierarchyProperty struct {
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The external ID (if any) provided in the [CreateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html) or [UpdateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html) operation. You can assign an external ID by specifying this value as part of a call to [UpdateAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html) . However, you can't change the external ID if one is already assigned. For more information, see [Using external IDs](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids) in the *AWS IoT SiteWise User Guide* .
+	//
+	// > One of `ExternalId` or `LogicalId` must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-externalid
 	//
 	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
@@ -44,9 +46,9 @@ type CfnAssetModel_AssetModelHierarchyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-id
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
-	// The `LogicalID` of the asset model hierarchy.
+	// The `LogicalID` of the asset model hierarchy. This ID is a `hierarchyLogicalId` .
 	//
-	// This ID is a `hierarchyLogicalId` .
+	// > One of `ExternalId` or `LogicalId` must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-logicalid
 	//
 	LogicalId *string `field:"optional" json:"logicalId" yaml:"logicalId"`

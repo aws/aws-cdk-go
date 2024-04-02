@@ -205,7 +205,6 @@ cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions
 	},
 	MinSize: jsii.Number(4),
 	DiskSize: jsii.Number(100),
-	AmiType: eks.NodegroupAmiType_AL2_X86_64_GPU,
 })
 ```
 
@@ -225,6 +224,31 @@ cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions
 			Value: jsii.String("bar"),
 		},
 	},
+})
+```
+
+To define the type of the AMI for the node group, you may explicitly define `amiType` according to your requirements, supported amiType could be found [HERE](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_eks.NodegroupAmiType.html).
+
+```go
+var cluster cluster
+
+
+// X86_64 based AMI managed node group
+cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+	InstanceTypes: []instanceType{
+		ec2.NewInstanceType(jsii.String("m5.large")),
+	},
+	 // NOTE: if amiType is x86_64-based image, the instance types here must be x86_64-based.
+	AmiType: eks.NodegroupAmiType_AL2023_X86_64_STANDARD,
+})
+
+// ARM_64 based AMI managed node group
+cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+	InstanceTypes: []*instanceType{
+		ec2.NewInstanceType(jsii.String("m6g.medium")),
+	},
+	 // NOTE: if amiType is ARM-based image, the instance types here must be ARM-based.
+	AmiType: eks.NodegroupAmiType_AL2023_ARM_64_STANDARD,
 })
 ```
 

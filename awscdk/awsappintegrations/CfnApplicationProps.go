@@ -36,11 +36,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html
 //
 type CfnApplicationProps struct {
-	// Application source config.
+	// The configuration for where the application should be loaded from.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-applicationsourceconfig
 	//
 	ApplicationSourceConfig interface{} `field:"required" json:"applicationSourceConfig" yaml:"applicationSourceConfig"`
-	// The application description.
+	// The description of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-description
 	//
 	Description *string `field:"required" json:"description" yaml:"description"`
@@ -52,7 +52,9 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-namespace
 	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
-	// The tags (keys and values) associated with the application.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

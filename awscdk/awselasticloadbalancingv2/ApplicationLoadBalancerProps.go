@@ -8,29 +8,36 @@ import (
 // Properties for defining an Application Load Balancer.
 //
 // Example:
-//   var cluster cluster
-//   var taskDefinition taskDefinition
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var asg autoScalingGroup
 //   var vpc vpc
 //
-//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   })
 //
+//   // Create the load balancer in a VPC. 'internetFacing' is 'false'
+//   // by default, which creates an internal load balancer.
 //   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
 //   	Vpc: Vpc,
 //   	InternetFacing: jsii.Boolean(true),
 //   })
+//
+//   // Add a listener and open up the load balancer's security group
+//   // to the world.
 //   listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
 //   	Port: jsii.Number(80),
+//
+//   	// 'open: true' is the default, you can leave it out if you want. Set it
+//   	// to 'false' and use `listener.connections` if you want to be selective
+//   	// about who can access the load balancer.
+//   	Open: jsii.Boolean(true),
 //   })
-//   service.RegisterLoadBalancerTargets(&EcsTarget{
-//   	ContainerName: jsii.String("web"),
-//   	ContainerPort: jsii.Number(80),
-//   	NewTargetGroupId: jsii.String("ECS"),
-//   	Listener: ecs.ListenerConfig_ApplicationListener(listener, &AddApplicationTargetsProps{
-//   		Protocol: elbv2.ApplicationProtocol_HTTPS,
-//   	}),
+//
+//   // Create an AutoScaling group and add it as a load balancing
+//   // target to the listener.
+//   listener.AddTargets(jsii.String("ApplicationFleet"), &AddApplicationTargetsProps{
+//   	Port: jsii.Number(8080),
+//   	Targets: []iApplicationLoadBalancerTarget{
+//   		asg,
+//   	},
 //   })
 //
 type ApplicationLoadBalancerProps struct {

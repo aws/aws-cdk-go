@@ -256,6 +256,25 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 
 For more information, see [Load balancer attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes)
 
+### Setting up Access Log Bucket on Application Load Balancer
+
+The only server-side encryption option that's supported is Amazon S3-managed keys (SSE-S3). For more information
+Documentation: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html
+
+```go
+var vpc vpc
+
+
+bucket := s3.NewBucket(this, jsii.String("ALBAccessLogsBucket"), &BucketProps{
+	Encryption: s3.BucketEncryption_S3_MANAGED,
+})
+
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+})
+lb.LogAccessLogs(bucket)
+```
+
 ## Defining a Network Load Balancer
 
 Network Load Balancers are defined in a similar way to Application Load

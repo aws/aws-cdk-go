@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The configuration of the workers, which are the processes that run the connector logic.
+// Creates a worker configuration using the specified properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,9 +36,9 @@ type CfnWorkerConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The description of a revision of the worker configuration.
+	// The revision of the worker configuration.
 	AttrRevision() *float64
-	// The Amazon Resource Name (ARN) of the custom configuration.
+	// The Amazon Resource Name (ARN) of the worker configuration.
 	AttrWorkerConfigurationArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -51,7 +51,7 @@ type CfnWorkerConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A summary description of the worker configuration.
+	// The description of a worker configuration.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -69,7 +69,7 @@ type CfnWorkerConfiguration interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Base64 encoded contents of connect-distributed.properties file.
+	// Base64 encoded contents of the connect-distributed.properties file.
 	PropertiesFileContent() *string
 	SetPropertiesFileContent(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

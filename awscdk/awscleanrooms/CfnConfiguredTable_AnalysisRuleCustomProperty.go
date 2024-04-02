@@ -19,6 +19,13 @@ package awscleanrooms
 //   	AllowedAnalysisProviders: []*string{
 //   		jsii.String("allowedAnalysisProviders"),
 //   	},
+//   	DifferentialPrivacy: &DifferentialPrivacyProperty{
+//   		Columns: []interface{}{
+//   			&DifferentialPrivacyColumnProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html
@@ -34,5 +41,9 @@ type CfnConfiguredTable_AnalysisRuleCustomProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-allowedanalysisproviders
 	//
 	AllowedAnalysisProviders *[]*string `field:"optional" json:"allowedAnalysisProviders" yaml:"allowedAnalysisProviders"`
+	// The differential privacy configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-differentialprivacy
+	//
+	DifferentialPrivacy interface{} `field:"optional" json:"differentialPrivacy" yaml:"differentialPrivacy"`
 }
 

@@ -3,7 +3,7 @@ package awskinesisfirehose
 
 // A serializer to use for converting data to the Parquet format before storing it in Amazon S3.
 //
-// For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+// For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

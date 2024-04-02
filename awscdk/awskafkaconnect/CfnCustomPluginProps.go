@@ -37,11 +37,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html
 //
 type CfnCustomPluginProps struct {
-	// The type of the plugin file.
+	// The format of the plugin file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-contenttype
 	//
 	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
-	// Information about the location of a custom plugin.
+	// Information about the location of the custom plugin.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-location
 	//
 	Location interface{} `field:"required" json:"location" yaml:"location"`
@@ -49,7 +49,7 @@ type CfnCustomPluginProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// A summary description of the custom plugin.
+	// The description of the custom plugin.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html#cfn-kafkaconnect-customplugin-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

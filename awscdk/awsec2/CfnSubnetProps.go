@@ -22,6 +22,7 @@ import (
 //   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	CidrBlock: jsii.String("cidrBlock"),
 //   	EnableDns64: jsii.Boolean(false),
+//   	EnableLniAtDeviceIndex: jsii.Number(123),
 //   	Ipv4IpamPoolId: jsii.String("ipv4IpamPoolId"),
 //   	Ipv4NetmaskLength: jsii.Number(123),
 //   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
@@ -79,6 +80,12 @@ type CfnSubnetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-enabledns64
 	//
 	EnableDns64 interface{} `field:"optional" json:"enableDns64" yaml:"enableDns64"`
+	// Indicates the device position for local network interfaces in this subnet.
+	//
+	// For example, `1` indicates local network interfaces in this subnet are the secondary network interface (eth1).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-enablelniatdeviceindex
+	//
+	EnableLniAtDeviceIndex *float64 `field:"optional" json:"enableLniAtDeviceIndex" yaml:"enableLniAtDeviceIndex"`
 	// An IPv4 IPAM pool ID for the subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv4ipampoolid
 	//

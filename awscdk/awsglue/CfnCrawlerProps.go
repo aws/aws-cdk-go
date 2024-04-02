@@ -140,6 +140,7 @@ type CfnCrawlerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-lakeformationconfiguration
 	//
 	LakeFormationConfiguration interface{} `field:"optional" json:"lakeFormationConfiguration" yaml:"lakeFormationConfiguration"`

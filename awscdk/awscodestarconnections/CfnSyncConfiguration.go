@@ -23,6 +23,10 @@ import (
 //   	ResourceName: jsii.String("resourceName"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	SyncType: jsii.String("syncType"),
+//
+//   	// the properties below are optional
+//   	PublishDeploymentStatus: jsii.String("publishDeploymentStatus"),
+//   	TriggerResourceUpdateOn: jsii.String("triggerResourceUpdateOn"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html
@@ -63,6 +67,9 @@ type CfnSyncConfiguration interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Whether to enable or disable publishing of deployment status to source providers.
+	PublishDeploymentStatus() *string
+	SetPublishDeploymentStatus(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -84,6 +91,9 @@ type CfnSyncConfiguration interface {
 	// The type of sync for a specific sync configuration.
 	SyncType() *string
 	SetSyncType(val *string)
+	// When to trigger Git sync to begin the stack update.
+	TriggerResourceUpdateOn() *string
+	SetTriggerResourceUpdateOn(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -340,6 +350,16 @@ func (j *jsiiProxy_CfnSyncConfiguration) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSyncConfiguration) PublishDeploymentStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"publishDeploymentStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSyncConfiguration) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -395,6 +415,16 @@ func (j *jsiiProxy_CfnSyncConfiguration) SyncType() *string {
 	_jsii_.Get(
 		j,
 		"syncType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSyncConfiguration) TriggerResourceUpdateOn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"triggerResourceUpdateOn",
 		&returns,
 	)
 	return returns
@@ -470,6 +500,14 @@ func (j *jsiiProxy_CfnSyncConfiguration)SetConfigFile(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnSyncConfiguration)SetPublishDeploymentStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"publishDeploymentStatus",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnSyncConfiguration)SetRepositoryLinkId(val *string) {
 	if err := j.validateSetRepositoryLinkIdParameters(val); err != nil {
 		panic(err)
@@ -510,6 +548,14 @@ func (j *jsiiProxy_CfnSyncConfiguration)SetSyncType(val *string) {
 	_jsii_.Set(
 		j,
 		"syncType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSyncConfiguration)SetTriggerResourceUpdateOn(val *string) {
+	_jsii_.Set(
+		j,
+		"triggerResourceUpdateOn",
 		val,
 	)
 }

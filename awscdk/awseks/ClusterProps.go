@@ -11,18 +11,16 @@ import (
 // Common configuration props for EKS clusters.
 //
 // Example:
-//   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+//   // or
+//   var vpc vpc
+//   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
+//   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
 //   	Version: eks.KubernetesVersion_V1_29(),
-//   	DefaultCapacity: jsii.Number(0),
 //   })
-//
-//   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
-//   	InstanceTypes: []instanceType{
-//   		ec2.NewInstanceType(jsii.String("m5.large")),
-//   	},
-//   	MinSize: jsii.Number(4),
-//   	DiskSize: jsii.Number(100),
-//   	AmiType: eks.NodegroupAmiType_AL2_X86_64_GPU,
+//   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
+//   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
+//   	Vpc: Vpc,
+//   	ClusterName: jsii.String("cluster-name"),
 //   })
 //
 type ClusterProps struct {

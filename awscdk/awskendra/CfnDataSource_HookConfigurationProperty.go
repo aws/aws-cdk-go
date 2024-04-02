@@ -36,9 +36,9 @@ package awskendra
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html
 //
 type CfnDataSource_HookConfigurationProperty struct {
-	// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion.
+	// The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion.
 	//
-	// For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+	// For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-lambdaarn
 	//
 	LambdaArn *string `field:"required" json:"lambdaArn" yaml:"lambdaArn"`

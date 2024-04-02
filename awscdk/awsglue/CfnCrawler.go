@@ -148,6 +148,7 @@ type CfnCrawler interface {
 	// A description of the crawler.
 	Description() *string
 	SetDescription(val *string)
+	// Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
 	LakeFormationConfiguration() interface{}
 	SetLakeFormationConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

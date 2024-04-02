@@ -62,6 +62,7 @@ type CfnCluster interface {
 	// The authentication type used to determine where to fetch the password used for accessing the elastic cluster.
 	AuthType() *string
 	SetAuthType(val *string)
+	// The number of days for which automatic snapshots are retained.
 	BackupRetentionPeriod() *float64
 	SetBackupRetentionPeriod(val *float64)
 	// Options for this resource, such as condition, update policy etc.
@@ -93,6 +94,7 @@ type CfnCluster interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
 	PreferredBackupWindow() *string
 	SetPreferredBackupWindow(val *string)
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -109,6 +111,7 @@ type CfnCluster interface {
 	// The number of shards assigned to the elastic cluster.
 	ShardCount() *float64
 	SetShardCount(val *float64)
+	// The number of replica instances applying to all shards in the cluster.
 	ShardInstanceCount() *float64
 	SetShardInstanceCount(val *float64)
 	// The stack in which this element is defined.

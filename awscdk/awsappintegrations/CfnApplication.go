@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS:AppIntegrations::Application.
+// Creates and persists an Application resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,7 +44,7 @@ type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Application source config.
+	// The configuration for where the application should be loaded from.
 	ApplicationSourceConfig() interface{}
 	SetApplicationSourceConfig(val interface{})
 	// The Amazon Resource Name (ARN) of the Application.
@@ -62,7 +62,7 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The application description.
+	// The description of the application.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -92,7 +92,7 @@ type CfnApplication interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags (keys and values) associated with the application.
+	// The tags used to organize, track, or control access for this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

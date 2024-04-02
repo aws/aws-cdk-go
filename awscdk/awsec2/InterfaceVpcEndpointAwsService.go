@@ -105,29 +105,29 @@ func (j *jsiiProxy_InterfaceVpcEndpointAwsService) ShortName() *string {
 }
 
 
-func NewInterfaceVpcEndpointAwsService(name *string, prefix *string, port *float64) InterfaceVpcEndpointAwsService {
+func NewInterfaceVpcEndpointAwsService(name *string, prefix *string, port *float64, props *InterfaceVpcEndpointAwsServiceProps) InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 
-	if err := validateNewInterfaceVpcEndpointAwsServiceParameters(name); err != nil {
+	if err := validateNewInterfaceVpcEndpointAwsServiceParameters(name, props); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_InterfaceVpcEndpointAwsService{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
-		[]interface{}{name, prefix, port},
+		[]interface{}{name, prefix, port, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewInterfaceVpcEndpointAwsService_Override(i InterfaceVpcEndpointAwsService, name *string, prefix *string, port *float64) {
+func NewInterfaceVpcEndpointAwsService_Override(i InterfaceVpcEndpointAwsService, name *string, prefix *string, port *float64, props *InterfaceVpcEndpointAwsServiceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
-		[]interface{}{name, prefix, port},
+		[]interface{}{name, prefix, port, props},
 		i,
 	)
 }
@@ -754,6 +754,17 @@ func InterfaceVpcEndpointAwsService_CODEBUILD_FIPS() InterfaceVpcEndpointAwsServ
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"CODEBUILD_FIPS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_CODECATALYST() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"CODECATALYST",
 		&returns,
 	)
 	return returns

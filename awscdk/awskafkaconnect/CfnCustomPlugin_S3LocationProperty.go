@@ -1,7 +1,7 @@
 package awskafkaconnect
 
 
-// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+// The location of an object in Amazon S3.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

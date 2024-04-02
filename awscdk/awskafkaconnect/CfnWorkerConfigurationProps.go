@@ -32,11 +32,11 @@ type CfnWorkerConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html#cfn-kafkaconnect-workerconfiguration-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Base64 encoded contents of connect-distributed.properties file.
+	// Base64 encoded contents of the connect-distributed.properties file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html#cfn-kafkaconnect-workerconfiguration-propertiesfilecontent
 	//
 	PropertiesFileContent *string `field:"required" json:"propertiesFileContent" yaml:"propertiesFileContent"`
-	// A summary description of the worker configuration.
+	// The description of a worker configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html#cfn-kafkaconnect-workerconfiguration-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

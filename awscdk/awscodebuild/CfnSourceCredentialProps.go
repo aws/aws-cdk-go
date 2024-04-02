@@ -22,13 +22,13 @@ package awscodebuild
 type CfnSourceCredentialProps struct {
 	// The type of authentication used by the credentials.
 	//
-	// Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
+	// Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, or CODECONNECTIONS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html#cfn-codebuild-sourcecredential-authtype
 	//
 	AuthType *string `field:"required" json:"authType" yaml:"authType"`
 	// The type of source provider.
 	//
-	// The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
+	// The valid options are GITHUB, GITHUB_ENTERPRISE, GITLAB, GITLAB_SELF_MANAGED, or BITBUCKET.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html#cfn-codebuild-sourcecredential-servertype
 	//
 	ServerType *string `field:"required" json:"serverType" yaml:"serverType"`

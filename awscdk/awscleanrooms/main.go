@@ -242,6 +242,14 @@ func init() {
 		reflect.TypeOf((*CfnConfiguredTable_ConfiguredTableAnalysisRulePolicyV1Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.DifferentialPrivacyColumnProperty",
+		reflect.TypeOf((*CfnConfiguredTable_DifferentialPrivacyColumnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.DifferentialPrivacyProperty",
+		reflect.TypeOf((*CfnConfiguredTable_DifferentialPrivacyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.GlueTableReferenceProperty",
 		reflect.TypeOf((*CfnConfiguredTable_GlueTableReferenceProperty)(nil)).Elem(),
 	)

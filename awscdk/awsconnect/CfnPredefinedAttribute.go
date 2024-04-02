@@ -31,6 +31,10 @@ import (
 type CfnPredefinedAttribute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Last modified region.
+	AttrLastModifiedRegion() *string
+	// Last modified time.
+	AttrLastModifiedTime() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -214,6 +218,26 @@ type CfnPredefinedAttribute interface {
 type jsiiProxy_CfnPredefinedAttribute struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnPredefinedAttribute) AttrLastModifiedRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastModifiedRegion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPredefinedAttribute) AttrLastModifiedTime() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLastModifiedTime",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnPredefinedAttribute) CfnOptions() awscdk.ICfnResourceOptions {
