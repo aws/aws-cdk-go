@@ -90,7 +90,7 @@ type ApplicationTargetGroupProps struct {
 	//
 	// After this period, the cookie is considered stale. The minimum value is
 	// 1 second and the maximum value is 7 days (604800 seconds).
-	// Default: Duration.days(1)
+	// Default: - Stickiness is disabled.
 	//
 	StickinessCookieDuration awscdk.Duration `field:"optional" json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
 	// The name of an application-based stickiness cookie.

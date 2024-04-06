@@ -414,6 +414,41 @@ iam.NewRole(this, jsii.String("Role"), &RoleProps{
 })
 ```
 
+### Granting a principal permission to assume a role
+
+A principal can be granted permission to assume a role using `grantAssumeRole`.
+
+Note that this does not apply to service principals or account principals as they must be added to the role trust policy via `assumeRolePolicy`.
+
+```go
+user := iam.NewUser(this, jsii.String("user"))
+role := iam.NewRole(this, jsii.String("role"), &RoleProps{
+	AssumedBy: iam.NewAccountPrincipal(this.Account),
+})
+
+role.GrantAssumeRole(user)
+```
+
+### Granting service and account principals permission to assume a role
+
+Service principals and account principals can be granted permission to assume a role using `assumeRolePolicy` which modifies the role trust policy.
+
+```go
+role := iam.NewRole(this, jsii.String("role"), &RoleProps{
+	AssumedBy: iam.NewAccountPrincipal(this.Account),
+})
+
+role.AssumeRolePolicy.AddStatements(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("sts:AssumeRole"),
+	},
+	Principals: []iPrincipal{
+		iam.NewAccountPrincipal(jsii.String("123456789")),
+		iam.NewServicePrincipal(jsii.String("beep-boop.amazonaws.com")),
+	},
+}))
+```
+
 ## Parsing JSON Policy Documents
 
 The `PolicyDocument.fromJson` and `PolicyStatement.fromJson` static methods can be used to parse JSON objects. For example:

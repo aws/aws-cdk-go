@@ -7,26 +7,16 @@ import (
 // Properties for defining an IAM Role.
 //
 // Example:
-//   // Option 3: Create a new role that allows the account root principal to assume. Add this role in the `system:masters` and witch to this role from the AWS console.
-//   var cluster cluster
-//
-//
-//   consoleReadOnlyRole := iam.NewRole(this, jsii.String("ConsoleReadOnlyRole"), &RoleProps{
-//   	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+//   var definition iChainable
+//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   })
-//   consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-//   	Actions: []*string{
-//   		jsii.String("eks:AccessKubernetesApi"),
-//   		jsii.String("eks:Describe*"),
-//   		jsii.String("eks:List*"),
-//   	},
-//   	Resources: []*string{
-//   		cluster.ClusterArn,
-//   	},
-//   }))
+//   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+//   	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
+//   })
 //
-//   // Add this role to system:masters RBAC group
-//   cluster.awsAuth.AddMastersRole(consoleReadOnlyRole)
+//   // Give role permission to get execution history of ALL executions for the state machine
+//   stateMachine.grantExecution(role, jsii.String("states:GetExecutionHistory"))
 //
 type RoleProps struct {
 	// The IAM principal (i.e. `new ServicePrincipal('sns.amazonaws.com')`) which can assume this role.

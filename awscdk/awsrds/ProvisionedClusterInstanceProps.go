@@ -123,6 +123,15 @@ type ProvisionedClusterInstanceProps struct {
 	// Default: 7.
 	//
 	PerformanceInsightRetention PerformanceInsightRetention `field:"optional" json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
+	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
+	//
+	// Example: 'Sun:23:45-Mon:00:15'.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
+	//
+	// Default: - 30-minute window selected at random from an 8-hour block of time for
+	// each AWS Region, occurring on a random day of the week.
+	//
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// Indicates whether the DB instance is an internet-facing instance.
 	//
 	// If not specified,

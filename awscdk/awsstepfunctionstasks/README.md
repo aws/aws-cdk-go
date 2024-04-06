@@ -658,6 +658,36 @@ runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &EcsRunTaskProps
 })
 ```
 
+#### ECS enable Exec
+
+By setting the property [`enableExecuteCommand`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-enableExecuteCommand) to `true`, you can enable the [ECS Exec feature](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html) for the task for either Fargate or EC2 launch types.
+
+```go
+vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
+	IsDefault: jsii.Boolean(true),
+})
+cluster := ecs.NewCluster(this, jsii.String("ECSCluster"), &ClusterProps{
+	Vpc: Vpc,
+})
+
+taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
+	Compatibility: ecs.Compatibility_EC2,
+})
+
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
+	MemoryLimitMiB: jsii.Number(256),
+})
+
+runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
+	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	LaunchTarget: tasks.NewEcsEc2LaunchTarget(),
+	EnableExecuteCommand: jsii.Boolean(true),
+})
+```
+
 ## EMR
 
 Step Functions supports Amazon EMR through the service integration pattern.

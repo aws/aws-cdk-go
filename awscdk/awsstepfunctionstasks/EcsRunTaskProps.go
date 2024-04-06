@@ -14,39 +14,38 @@ import (
 //   	IsDefault: jsii.Boolean(true),
 //   })
 //
-//   cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &ClusterProps{
+//   cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &ClusterProps{
 //   	Vpc: Vpc,
-//   })
-//   cluster.AddCapacity(jsii.String("DefaultAutoScalingGroup"), &AddCapacityOptions{
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PUBLIC,
-//   	},
 //   })
 //
 //   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
-//   	Compatibility: ecs.Compatibility_EC2,
+//   	MemoryMiB: jsii.String("512"),
+//   	Cpu: jsii.String("256"),
+//   	Compatibility: ecs.Compatibility_FARGATE,
 //   })
 //
-//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+//   containerDefinition := taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
 //   	MemoryLimitMiB: jsii.Number(256),
 //   })
 //
-//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &EcsRunTaskProps{
 //   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	LaunchTarget: tasks.NewEcsEc2LaunchTarget(&EcsEc2LaunchTargetOptions{
-//   		PlacementStrategies: []placementStrategy{
-//   			ecs.*placementStrategy_SpreadAcrossInstances(),
-//   			ecs.*placementStrategy_PackedByCpu(),
-//   			ecs.*placementStrategy_Randomly(),
+//   	AssignPublicIp: jsii.Boolean(true),
+//   	ContainerOverrides: []containerOverride{
+//   		&containerOverride{
+//   			ContainerDefinition: *ContainerDefinition,
+//   			Environment: []taskEnvironmentVariable{
+//   				&taskEnvironmentVariable{
+//   					Name: jsii.String("SOME_KEY"),
+//   					Value: sfn.JsonPath_StringAt(jsii.String("$.SomeKey")),
+//   				},
+//   			},
 //   		},
-//   		PlacementConstraints: []placementConstraint{
-//   			ecs.*placementConstraint_MemberOf(jsii.String("blieptuut")),
-//   		},
-//   	}),
+//   	},
+//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
 //   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
@@ -157,6 +156,12 @@ type EcsRunTaskProps struct {
 	// Default: - No overrides.
 	//
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
+	// Whether ECS Exec should be enabled.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-enableExecuteCommand
+	//
+	// Default: false.
+	//
+	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//
 	// An error will be received if you specify the SERVICE option when running a task.
@@ -165,7 +170,7 @@ type EcsRunTaskProps struct {
 	// Default: - No tags are propagated.
 	//
 	PropagatedTagSource awsecs.PropagatedTagSource `field:"optional" json:"propagatedTagSource" yaml:"propagatedTagSource"`
-	// The revision number of ECS task definiton family.
+	// The revision number of ECS task definition family.
 	// Default: - '$latest'.
 	//
 	RevisionNumber *float64 `field:"optional" json:"revisionNumber" yaml:"revisionNumber"`

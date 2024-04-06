@@ -1613,3 +1613,18 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterPro
 	PreferredMaintenanceWindow: jsii.String("Sat:22:15-Sat:22:45"),
 })
 ```
+
+You can also set the preferred maintenance window via reader and writer props:
+
+```go
+var vpc vpc
+
+rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA(),
+	Vpc: vpc,
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("WriterInstance"), &ProvisionedClusterInstanceProps{
+		PreferredMaintenanceWindow: jsii.String("Sat:22:15-Sat:22:45"),
+	}),
+	PreferredMaintenanceWindow: jsii.String("Sat:22:15-Sat:22:45"),
+})
+```

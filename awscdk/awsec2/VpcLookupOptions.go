@@ -7,38 +7,28 @@ package awsec2
 // non-default VPC, otherwise an error is raised.
 //
 // Example:
-//   // create a cloud9 ec2 environment in a new VPC
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
-//   	MaxAzs: jsii.Number(3),
-//   })
-//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env"), &Ec2EnvironmentProps{
-//   	Vpc: Vpc,
-//   	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
-//   })
-//
-//   // or create the cloud9 environment in the default VPC with specific instanceType
-//   defaultVpc := ec2.Vpc_FromLookup(this, jsii.String("DefaultVPC"), &VpcLookupOptions{
+//   vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
 //   	IsDefault: jsii.Boolean(true),
 //   })
-//   cloud9.NewEc2Environment(this, jsii.String("Cloud9Env2"), &Ec2EnvironmentProps{
-//   	Vpc: defaultVpc,
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t3.large")),
-//   	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
-//   })
-//
-//   // or specify in a different subnetSelection
-//   c9env := cloud9.NewEc2Environment(this, jsii.String("Cloud9Env3"), &Ec2EnvironmentProps{
+//   cluster := ecs.NewCluster(this, jsii.String("ECSCluster"), &ClusterProps{
 //   	Vpc: Vpc,
-//   	SubnetSelection: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-//   	},
-//   	ImageId: cloud9.ImageId_AMAZON_LINUX_2,
 //   })
 //
-//   // print the Cloud9 IDE URL in the output
-//   // print the Cloud9 IDE URL in the output
-//   awscdk.NewCfnOutput(this, jsii.String("URL"), &CfnOutputProps{
-//   	Value: c9env.IdeUrl,
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
+//   	Compatibility: ecs.Compatibility_EC2,
+//   })
+//
+//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
+//   	MemoryLimitMiB: jsii.Number(256),
+//   })
+//
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
+//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	LaunchTarget: tasks.NewEcsEc2LaunchTarget(),
+//   	EnableExecuteCommand: jsii.Boolean(true),
 //   })
 //
 type VpcLookupOptions struct {
