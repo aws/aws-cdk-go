@@ -92,6 +92,8 @@ func (j *jsiiProxy_ExpectedResult)SetResult(val *string) {
 //   	},
 //   })
 //
+// See: https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions.Match.html#static-arraywbrwithpattern
+//
 // Experimental.
 func ExpectedResult_ArrayWith(expected *[]interface{}) ExpectedResult {
 	_init_.Initialize()
@@ -135,6 +137,8 @@ func ExpectedResult_ArrayWith(expected *[]interface{}) ExpectedResult {
 //   	"stringParam": jsii.String("hello"),
 //   })
 //
+// See: https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions.Match.html#static-exactpattern
+//
 // Experimental.
 func ExpectedResult_Exact(expected interface{}) ExpectedResult {
 	_init_.Initialize()
@@ -162,11 +166,20 @@ func ExpectedResult_Exact(expected interface{}) ExpectedResult {
 //   	"stringParam": jsii.String("hello"),
 //   	"numberParam": jsii.Number(3),
 //   	"booleanParam": jsii.Boolean(true),
+//   	"objectParam": map[string]*string{
+//   		"prop1": jsii.String("value"),
+//   		"prop2": jsii.String("value"),
+//   	},
 //   }
 //   // pass
 //   awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
 //   	"stringParam": jsii.String("hello"),
+//   	"objectParam": map[string]*string{
+//   		"prop1": jsii.String("value"),
+//   	},
 //   })
+//
+// See: https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions.Match.html#static-objectwbrlikepattern
 //
 // Experimental.
 func ExpectedResult_ObjectLike(expected *map[string]interface{}) ExpectedResult {
@@ -195,6 +208,8 @@ func ExpectedResult_ObjectLike(expected *map[string]interface{}) ExpectedResult 
 //
 //   // pass
 //   awscdkintegtestsalpha.ExpectedResult_StringLikeRegexp(jsii.String("value"))
+//
+// See: https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions.Match.html#static-stringwbrlikewbrregexppattern
 //
 // Experimental.
 func ExpectedResult_StringLikeRegexp(expected *string) ExpectedResult {

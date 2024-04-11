@@ -35,6 +35,14 @@ func validateS3ImportSource_FromBucketParameters(bucket awss3.IBucket, key *stri
 	return nil
 }
 
+func validateS3ImportSource_FromInlineParameters(data *string) error {
+	if data == nil {
+		return fmt.Errorf("parameter data is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewS3ImportSourceParameters(bucket awss3.IBucket, key *string) error {
 	if bucket == nil {
 		return fmt.Errorf("parameter bucket is required, but nil was provided")

@@ -449,6 +449,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sns.TopicAttributes",
+		reflect.TypeOf((*TopicAttributes)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sns.TopicBase",
 		reflect.TypeOf((*TopicBase)(nil)).Elem(),

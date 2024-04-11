@@ -93,6 +93,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.assertions.Tags",
+		reflect.TypeOf((*Tags)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "all", GoMethod: "All"},
+			_jsii_.MemberMethod{JsiiMethod: "hasNone", GoMethod: "HasNone"},
+			_jsii_.MemberMethod{JsiiMethod: "hasValues", GoMethod: "HasValues"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Tags{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.assertions.Template",
 		reflect.TypeOf((*Template)(nil)).Elem(),
 		[]_jsii_.Member{

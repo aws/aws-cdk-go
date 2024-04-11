@@ -35,3 +35,11 @@ func validateImportSource_FromBucketParameters(bucket awss3.IBucket, key *string
 	return nil
 }
 
+func validateImportSource_FromInlineParameters(data *string) error {
+	if data == nil {
+		return fmt.Errorf("parameter data is required, but nil was provided")
+	}
+
+	return nil
+}
+

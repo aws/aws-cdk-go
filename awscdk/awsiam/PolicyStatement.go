@@ -8,28 +8,27 @@ import (
 // Represents a statement in an IAM policy document.
 //
 // Example:
-//   crossAccountRoleArn := "arn:aws:iam::OTHERACCOUNT:role/CrossAccountRoleName" // arn of role deployed in separate account
+//   var destinationBucket bucket
 //
-//   callRegion := "us-west-1" // sdk call to be made in specified region (optional)
 //
-//    // sdk call to be made in specified region (optional)
-//   cr.NewAwsCustomResource(this, jsii.String("CrossAccount"), &AwsCustomResourceProps{
-//   	OnCreate: &AwsSdkCall{
-//   		AssumedRoleArn: crossAccountRoleArn,
-//   		Region: callRegion,
-//   		 // optional
-//   		Service: jsii.String("sts"),
-//   		Action: jsii.String("GetCallerIdentity"),
-//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
+//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
+//   	Sources: []iSource{
+//   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("source-files"))),
 //   	},
-//   	Policy: cr.AwsCustomResourcePolicy_FromStatements([]policyStatement{
-//   		iam.*policyStatement_FromJson(map[string]*string{
-//   			"Effect": jsii.String("Allow"),
-//   			"Action": jsii.String("sts:AssumeRole"),
-//   			"Resource": crossAccountRoleArn,
-//   		}),
-//   	}),
+//   	DestinationBucket: DestinationBucket,
 //   })
+//
+//   deployment.HandlerRole.AddToPolicy(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Actions: []*string{
+//   		jsii.String("kms:Decrypt"),
+//   		jsii.String("kms:DescribeKey"),
+//   	},
+//   	Effect: iam.Effect_ALLOW,
+//   	Resources: []*string{
+//   		jsii.String("<encryption key ARN>"),
+//   	},
+//   }))
 //
 type PolicyStatement interface {
 	// The Actions added to this statement.

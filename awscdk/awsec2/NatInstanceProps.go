@@ -4,14 +4,17 @@ package awsec2
 // Properties for a NAT instance.
 //
 // Example:
-//   natInstanceProvider := ec2.NatProvider_Instance(&NatInstanceProps{
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T4G, ec2.InstanceSize_LARGE),
-//   	MachineImage: ec2.NewAmazonLinuxImage(),
-//   	CreditSpecification: ec2.CpuCredits_UNLIMITED,
+//   var instanceType instanceType
+//
+//
+//   provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
+//   	InstanceType: InstanceType,
+//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_OUTBOUND_ONLY,
 //   })
-//   ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
-//   	NatGatewayProvider: natInstanceProvider,
+//   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+//   	NatGatewayProvider: provider,
 //   })
+//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
 //
 type NatInstanceProps struct {
 	// Instance type of the NAT instance.
@@ -64,5 +67,11 @@ type NatInstanceProps struct {
 	// Default: - A new security group will be created.
 	//
 	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
+	// Custom user data to run on the NAT instances.
+	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#create-nat-ami
+	//
+	// Default: UserData.forLinux().addCommands(...NatInstanceProviderV2.DEFAULT_USER_DATA_COMMANDS);  - Appropriate user data commands to initialize and configure the NAT instances
+	//
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 

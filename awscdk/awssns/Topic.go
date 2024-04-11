@@ -312,6 +312,25 @@ func Topic_FromTopicArn(scope constructs.Construct, id *string, topicArn *string
 	return returns
 }
 
+// Import an existing SNS topic provided a topic attributes.
+func Topic_FromTopicAttributes(scope constructs.Construct, id *string, attrs *TopicAttributes) ITopic {
+	_init_.Initialize()
+
+	if err := validateTopic_FromTopicAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns ITopic
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_sns.Topic",
+		"fromTopicAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

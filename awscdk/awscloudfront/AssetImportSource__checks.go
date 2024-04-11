@@ -35,6 +35,14 @@ func validateAssetImportSource_FromBucketParameters(bucket awss3.IBucket, key *s
 	return nil
 }
 
+func validateAssetImportSource_FromInlineParameters(data *string) error {
+	if data == nil {
+		return fmt.Errorf("parameter data is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewAssetImportSourceParameters(path *string, options *awss3assets.AssetOptions) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")

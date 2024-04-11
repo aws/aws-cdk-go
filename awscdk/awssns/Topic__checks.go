@@ -187,6 +187,25 @@ func validateTopic_FromTopicArnParameters(scope constructs.Construct, id *string
 	return nil
 }
 
+func validateTopic_FromTopicAttributesParameters(scope constructs.Construct, id *string, attrs *TopicAttributes) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if attrs == nil {
+		return fmt.Errorf("parameter attrs is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateTopic_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

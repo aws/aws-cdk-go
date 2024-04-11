@@ -13,29 +13,17 @@ import (
 // Defines a KMS key.
 //
 // Example:
-//   var vpc vpc
+//   var destinationBucket bucket
 //
-//   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   	Version: rds.PostgresEngineVersion_VER_15_2(),
+//   sourceBucket := s3.bucket_FromBucketAttributes(this, jsii.String("SourceBucket"), &BucketAttributes{
+//   	BucketArn: jsii.String("arn:aws:s3:::my-source-bucket-name"),
+//   	EncryptionKey: kms.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>")),
 //   })
-//   myKey := kms.NewKey(this, jsii.String("MyKey"))
-//
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &DatabaseInstanceProps{
-//   	Engine: Engine,
-//   	Vpc: Vpc,
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres"), &CredentialsBaseOptions{
-//   		SecretName: jsii.String("my-cool-name"),
-//   		EncryptionKey: myKey,
-//   		ExcludeCharacters: jsii.String("!&*^#@()"),
-//   		ReplicaRegions: []replicaRegion{
-//   			&replicaRegion{
-//   				Region: jsii.String("eu-west-1"),
-//   			},
-//   			&replicaRegion{
-//   				Region: jsii.String("eu-west-2"),
-//   			},
-//   		},
-//   	}),
+//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
+//   	Sources: []iSource{
+//   		s3deploy.Source_Bucket(sourceBucket, jsii.String("source.zip")),
+//   	},
+//   	DestinationBucket: DestinationBucket,
 //   })
 //
 type Key interface {

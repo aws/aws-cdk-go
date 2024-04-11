@@ -15,10 +15,59 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
+//   var dockerImage dockerImage
+//   var grantable iGrantable
+//   var localBundling iLocalBundling
 //
-//   s3ImportSource := awscdk.Aws_cloudfront.NewS3ImportSource(bucket, jsii.String("key"))
+//   s3ImportSource := awscdk.Aws_cloudfront.S3ImportSource_FromAsset(jsii.String("path"), &AssetOptions{
+//   	AssetHash: jsii.String("assetHash"),
+//   	AssetHashType: cdk.AssetHashType_SOURCE,
+//   	Bundling: &BundlingOptions{
+//   		Image: dockerImage,
+//
+//   		// the properties below are optional
+//   		BundlingFileAccess: cdk.BundlingFileAccess_VOLUME_COPY,
+//   		Command: []*string{
+//   			jsii.String("command"),
+//   		},
+//   		Entrypoint: []*string{
+//   			jsii.String("entrypoint"),
+//   		},
+//   		Environment: map[string]*string{
+//   			"environmentKey": jsii.String("environment"),
+//   		},
+//   		Local: localBundling,
+//   		Network: jsii.String("network"),
+//   		OutputType: cdk.BundlingOutput_ARCHIVED,
+//   		Platform: jsii.String("platform"),
+//   		SecurityOpt: jsii.String("securityOpt"),
+//   		User: jsii.String("user"),
+//   		Volumes: []dockerVolume{
+//   			&dockerVolume{
+//   				ContainerPath: jsii.String("containerPath"),
+//   				HostPath: jsii.String("hostPath"),
+//
+//   				// the properties below are optional
+//   				Consistency: cdk.DockerVolumeConsistency_CONSISTENT,
+//   			},
+//   		},
+//   		VolumesFrom: []*string{
+//   			jsii.String("volumesFrom"),
+//   		},
+//   		WorkingDirectory: jsii.String("workingDirectory"),
+//   	},
+//   	DeployTime: jsii.Boolean(false),
+//   	Exclude: []*string{
+//   		jsii.String("exclude"),
+//   	},
+//   	FollowSymlinks: cdk.SymlinkFollowMode_NEVER,
+//   	IgnoreMode: cdk.IgnoreMode_GLOB,
+//   	Readers: []*iGrantable{
+//   		grantable,
+//   	},
+//   })
 //
 type S3ImportSource interface {
 	ImportSource
@@ -113,6 +162,25 @@ func S3ImportSource_FromBucket(bucket awss3.IBucket, key *string) ImportSource {
 		"aws-cdk-lib.aws_cloudfront.S3ImportSource",
 		"fromBucket",
 		[]interface{}{bucket, key},
+		&returns,
+	)
+
+	return returns
+}
+
+// An import source that uses an inline string.
+func S3ImportSource_FromInline(data *string) ImportSource {
+	_init_.Initialize()
+
+	if err := validateS3ImportSource_FromInlineParameters(data); err != nil {
+		panic(err)
+	}
+	var returns ImportSource
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.S3ImportSource",
+		"fromInline",
+		[]interface{}{data},
 		&returns,
 	)
 

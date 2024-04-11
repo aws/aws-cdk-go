@@ -21,7 +21,7 @@ import (
 //   var grantable iGrantable
 //   var localBundling iLocalBundling
 //
-//   assetImportSource := awscdk.Aws_cloudfront.NewAssetImportSource(jsii.String("path"), &AssetOptions{
+//   assetImportSource := awscdk.Aws_cloudfront.AssetImportSource_FromAsset(jsii.String("path"), &AssetOptions{
 //   	AssetHash: jsii.String("assetHash"),
 //   	AssetHashType: cdk.AssetHashType_SOURCE,
 //   	Bundling: &BundlingOptions{
@@ -150,6 +150,25 @@ func AssetImportSource_FromBucket(bucket awss3.IBucket, key *string) ImportSourc
 		"aws-cdk-lib.aws_cloudfront.AssetImportSource",
 		"fromBucket",
 		[]interface{}{bucket, key},
+		&returns,
+	)
+
+	return returns
+}
+
+// An import source that uses an inline string.
+func AssetImportSource_FromInline(data *string) ImportSource {
+	_init_.Initialize()
+
+	if err := validateAssetImportSource_FromInlineParameters(data); err != nil {
+		panic(err)
+	}
+	var returns ImportSource
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.AssetImportSource",
+		"fromInline",
+		[]interface{}{data},
 		&returns,
 	)
 

@@ -80,6 +80,10 @@ func validateTopic_FromTopicArnParameters(scope constructs.Construct, id *string
 	return nil
 }
 
+func validateTopic_FromTopicAttributesParameters(scope constructs.Construct, id *string, attrs *TopicAttributes) error {
+	return nil
+}
+
 func validateTopic_IsConstructParameters(x interface{}) error {
 	return nil
 }

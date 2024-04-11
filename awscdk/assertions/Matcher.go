@@ -14,25 +14,30 @@ import (
 //   //     "MyBar": {
 //   //       "Type": "Foo::Bar",
 //   //       "Properties": {
-//   //         "Fred": ["Flob", "Cat"]
+//   //         "Fred": {
+//   //           "Wobble": ["Flob", "Flib"],
+//   //         }
 //   //       }
 //   //     }
 //   //   }
 //   // }
 //
 //   // The following will NOT throw an assertion error
-//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-//   	"Fred": awscdk.Match_arrayWith([]interface{}{
-//   		jsii.String("Flob"),
-//   	}),
+//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string][]matcher{
+//   	"Fred": map[string][]matcher{
+//   		"Wobble": []matcher{
+//   			awscdk.Match_anyValue(),
+//   			awscdk.Match_anyValue(),
+//   		},
+//   	},
 //   })
 //
 //   // The following will throw an assertion error
-//   template.HasResourceProperties(jsii.String("Foo::Bar"), awscdk.Match_ObjectLike(map[string]interface{}{
-//   	"Fred": awscdk.Match_arrayWith([]interface{}{
-//   		jsii.String("Wobble"),
-//   	}),
-//   }))
+//   template.HasResourceProperties(jsii.String("Foo::Bar"), map[string]map[string]matcher{
+//   	"Fred": map[string]matcher{
+//   		"Wimble": awscdk.Match_anyValue(),
+//   	},
+//   })
 //
 type Matcher interface {
 	// A name for the matcher.

@@ -1526,6 +1526,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.InlineImportSource",
+		reflect.TypeOf((*InlineImportSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "data", GoGetter: "Data"},
+		},
+		func() interface{} {
+			j := jsiiProxy_InlineImportSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ImportSource)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.KeyGroup",
 		reflect.TypeOf((*KeyGroup)(nil)).Elem(),
 		[]_jsii_.Member{

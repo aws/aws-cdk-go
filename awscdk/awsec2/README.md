@@ -201,6 +201,12 @@ The construct will automatically selects the latest version of Amazon Linux 2023
 If you prefer to use a custom AMI, use `machineImage: MachineImage.genericLinux({ ... })` and configure the right AMI ID for the
 regions you want to deploy to.
 
+> **Warning**
+> The NAT instances created using this method will be **unmonitored**.
+> They are not part of an Auto Scaling Group,
+> and if they become unavailable or are terminated for any reason,
+> will not be restarted or replaced.
+
 By default, the NAT instances will route all traffic. To control what traffic
 gets routed, pass a custom value for `defaultAllowedTraffic` and access the
 `NatInstanceProvider.connections` member after having passed the NAT provider to
@@ -220,6 +226,33 @@ ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
 ```
 
+You can also customize the characteristics of your NAT instances, as well as their initialization scripts:
+
+```go
+var bucket bucket
+
+
+userData := ec2.UserData_ForLinux()
+userData.AddCommands(
+(SpreadElement ...ec2.NatInstanceProviderV2.DEFAULT_USER_DATA_COMMANDS
+		ec2.NatInstanceProviderV2_DEFAULT_USER_DATA_COMMANDS()), jsii.String("echo \"hello world!\" > hello.txt"),
+fmt.Sprintf("aws s3 cp hello.txt s3://%v", bucket.BucketName))
+
+provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
+	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
+	CreditSpecification: ec2.CpuCredits_UNLIMITED,
+})
+
+ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+	NatGatewayProvider: provider,
+	NatGateways: jsii.Number(2),
+})
+
+for _, gateway := range provider.gatewayInstances {
+	bucket.GrantWrite(gateway)
+}
+```
+
 ```go
 // Configure the `natGatewayProvider` when defining a Vpc
 natGatewayProvider := ec2.NatProvider_Instance(&NatInstanceProps{
@@ -234,7 +267,7 @@ vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
 })
 ```
 
-The construct will use the AWS official NAT instance AMI, which has already
+The V1 `NatProvider.instance` construct will use the AWS official NAT instance AMI, which has already
 reached EOL on Dec 31, 2023. For more information, see the following blog post:
 [Amazon Linux AMI end of life](https://aws.amazon.com/blogs/aws/update-on-amazon-linux-ami-end-of-life/).
 

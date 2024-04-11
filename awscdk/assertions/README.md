@@ -643,3 +643,57 @@ For example, the following assertion works as well:
 ```go
 awscdk.Annotations_FromStack(stack).HasError(jsii.String("/Default/Foo"), awscdk.Match_StringLikeRegexp(jsii.String(".*Foo::Bar.*")))
 ```
+
+## Asserting Stack tags
+
+Tags applied to a `Stack` are not part of the rendered template: instead, they
+are included as properties in the Cloud Assembly Manifest. To test that stacks
+are tagged as expected, simple assertions can be written.
+
+Given the following setup:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+app := awscdk.NewApp()
+stack := awscdk.NewStack(app, jsii.String("MyStack"), &StackProps{
+	Tags: map[string]*string{
+		"tag-name": jsii.String("tag-value"),
+	},
+})
+```
+
+It is possible to test against these values:
+
+```go
+tags := awscdk.Tags_FromStack(stack)
+
+// using a default 'objectLike' Matcher
+tags.HasValues(map[string]*string{
+	"tag-name": jsii.String("tag-value"),
+})
+
+// ... with Matchers embedded
+tags.HasValues(map[string]matcher{
+	"tag-name": awscdk.Match_stringLikeRegexp(jsii.String("value")),
+})
+
+// or another object Matcher at the top level
+tags.HasValues(awscdk.Match_ObjectEquals(map[string]interface{}{
+	"tag-name": awscdk.Match_anyValue(),
+}))
+```
+
+When tags are not defined on the stack, it is represented as an empty object
+rather than `undefined`. To make this more obvious, there is a `hasNone()`
+method that can be used in place of `Match.exactly({})`. If `Match.absent()` is
+passed, an error will result.
+
+```go
+// no tags present
+awscdk.Tags_FromStack(stack).HasNone()
+
+// don't use absent() at the top level, it won't work
+expect(() => { Tags.fromStack(stack).hasValues(Match.absent()); }).toThrow(/will never match/i)
+```

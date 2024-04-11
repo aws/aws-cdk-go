@@ -1561,4 +1561,13 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.WeightedTargetGroup",
 		reflect.TypeOf((*WeightedTargetGroup)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.XffHeaderProcessingMode",
+		reflect.TypeOf((*XffHeaderProcessingMode)(nil)).Elem(),
+		map[string]interface{}{
+			"APPEND": XffHeaderProcessingMode_APPEND,
+			"PRESERVE": XffHeaderProcessingMode_PRESERVE,
+			"REMOVE": XffHeaderProcessingMode_REMOVE,
+		},
+	)
 }

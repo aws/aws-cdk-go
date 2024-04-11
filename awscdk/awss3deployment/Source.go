@@ -68,6 +68,31 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 // Uses a .zip file stored in an S3 bucket as the source for the destination bucket contents.
 //
 // Make sure you trust the producer of the archive.
+//
+// If the `bucket` parameter is an "out-of-app" reference "imported" via static methods such
+// as `s3.Bucket.fromBucketName`, be cautious about the bucket's encryption key. In general,
+// CDK does not query for additional properties of imported constructs at synthesis time.
+// For example, for a bucket created from `s3.Bucket.fromBucketName`, CDK does not know
+// its `IBucket.encryptionKey` property, and therefore will NOT give KMS permissions to the
+// Lambda execution role of the `BucketDeployment` construct. If you want the
+// `kms:Decrypt` and `kms:DescribeKey` permissions on the bucket's encryption key
+// to be added automatically, reference the imported bucket via `s3.Bucket.fromBucketAttributes`
+// and pass in the `encryptionKey` attribute explicitly.
+//
+// Example:
+//   var destinationBucket bucket
+//
+//   sourceBucket := s3.bucket_FromBucketAttributes(this, jsii.String("SourceBucket"), &BucketAttributes{
+//   	BucketArn: jsii.String("arn:aws:s3:::my-source-bucket-name"),
+//   	EncryptionKey: kms.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>")),
+//   })
+//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
+//   	Sources: []iSource{
+//   		s3deploy.Source_Bucket(sourceBucket, jsii.String("source.zip")),
+//   	},
+//   	DestinationBucket: DestinationBucket,
+//   })
+//
 func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	_init_.Initialize()
 

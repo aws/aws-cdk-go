@@ -40,6 +40,8 @@ import (
 //   	},
 //   })
 //
+// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes
+//
 type ApplicationLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
@@ -93,9 +95,34 @@ type ApplicationLoadBalancerProps struct {
 	// Default: IpAddressType.IPV4
 	//
 	IpAddressType IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// Indicates whether the Application Load Balancer should preserve the host header in the HTTP request and send it to the target without any change.
+	// Default: false.
+	//
+	PreserveHostHeader *bool `field:"optional" json:"preserveHostHeader" yaml:"preserveHostHeader"`
+	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer.
+	// Default: false.
+	//
+	PreserveXffClientPort *bool `field:"optional" json:"preserveXffClientPort" yaml:"preserveXffClientPort"`
 	// Security group to associate with this load balancer.
 	// Default: A security group is created.
 	//
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
+	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF.
+	// Default: false.
+	//
+	WafFailOpen *bool `field:"optional" json:"wafFailOpen" yaml:"wafFailOpen"`
+	// Indicates whether the two headers (x-amzn-tls-version and x-amzn-tls-cipher-suite), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target.
+	//
+	// The x-amzn-tls-version header has information about the TLS protocol version negotiated with the client,
+	// and the x-amzn-tls-cipher-suite header has information about the cipher suite negotiated with the client.
+	//
+	// Both headers are in OpenSSL format.
+	// Default: false.
+	//
+	XAmznTlsVersionAndCipherSuiteHeaders *bool `field:"optional" json:"xAmznTlsVersionAndCipherSuiteHeaders" yaml:"xAmznTlsVersionAndCipherSuiteHeaders"`
+	// Enables you to modify, preserve, or remove the X-Forwarded-For header in the HTTP request before the Application Load Balancer sends the request to the target.
+	// Default: XffHeaderProcessingMode.APPEND
+	//
+	XffHeaderProcessingMode XffHeaderProcessingMode `field:"optional" json:"xffHeaderProcessingMode" yaml:"xffHeaderProcessingMode"`
 }
 

@@ -12,6 +12,10 @@ func validateAssetImportSource_FromBucketParameters(bucket awss3.IBucket, key *s
 	return nil
 }
 
+func validateAssetImportSource_FromInlineParameters(data *string) error {
+	return nil
+}
+
 func validateNewAssetImportSourceParameters(path *string, options *awss3assets.AssetOptions) error {
 	return nil
 }

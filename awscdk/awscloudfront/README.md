@@ -622,13 +622,29 @@ To create an empty Key Value Store:
 store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"))
 ```
 
-To also include an initial set of value, the `source` property can be specified. For the
-structure of this file, see [Creating a file of key value pairs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create-s3-kvp.html).
+To also include an initial set of values, the `source` property can be specified, either from a
+local file or an inline string. For the structure of this file, see [Creating a file of key value pairs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create-s3-kvp.html).
 
 ```go
-store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"), &KeyValueStoreProps{
-	KeyValueStoreName: jsii.String("KeyValueStore"),
+storeAsset := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStoreAsset"), &KeyValueStoreProps{
+	KeyValueStoreName: jsii.String("KeyValueStoreAsset"),
 	Source: cloudfront.ImportSource_FromAsset(jsii.String("path-to-data.json")),
+})
+
+storeInline := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStoreInline"), &KeyValueStoreProps{
+	KeyValueStoreName: jsii.String("KeyValueStoreInline"),
+	Source: cloudfront.ImportSource_FromInline(jSON.stringify(map[string][]map[string]*string{
+		"data": []map[string]*string{
+			map[string]*string{
+				"key": jsii.String("key1"),
+				"value": jsii.String("value1"),
+			},
+			map[string]*string{
+				"key": jsii.String("key2"),
+				"value": jsii.String("value2"),
+			},
+		},
+	})),
 })
 ```
 

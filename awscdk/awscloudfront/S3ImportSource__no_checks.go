@@ -12,6 +12,10 @@ func validateS3ImportSource_FromBucketParameters(bucket awss3.IBucket, key *stri
 	return nil
 }
 
+func validateS3ImportSource_FromInlineParameters(data *string) error {
+	return nil
+}
+
 func validateNewS3ImportSourceParameters(bucket awss3.IBucket, key *string) error {
 	return nil
 }

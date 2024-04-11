@@ -36,6 +36,21 @@ package awselasticloadbalancingv2
 //
 //   	// Whether the load balancer blocks traffic through the Internet Gateway (IGW).
 //   	DenyAllIgwTraffic: jsii.Boolean(false),
+//
+//   	// Whether to preserve host header in the request to the target
+//   	PreserveHostHeader: jsii.Boolean(true),
+//
+//   	// Whether to add the TLS information header to the request
+//   	XAmznTlsVersionAndCipherSuiteHeaders: jsii.Boolean(true),
+//
+//   	// Whether the X-Forwarded-For header should preserve the source port
+//   	PreserveXffClientPort: jsii.Boolean(true),
+//
+//   	// The processing mode for X-Forwarded-For headers
+//   	XffHeaderProcessingMode: elbv2.XffHeaderProcessingMode_APPEND,
+//
+//   	// Whether to allow a load balancer to route requests to targets if it is unable to forward the request to AWS WAF.
+//   	WafFailOpen: jsii.Boolean(true),
 //   })
 //
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#desync-mitigation-mode

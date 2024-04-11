@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11,7 +12,6 @@ import (
 // `DeployTimeSubstitutedFile` is an extension of `BucketDeployment` that allows users to upload individual files and specify to make substitutions in the file.
 //
 // Example:
-//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myLambdaFunction function
@@ -44,6 +44,8 @@ type DeployTimeSubstitutedFile interface {
 	// If sequenced access to the original destination bucket is required, you may add a dependency
 	// on the bucket deployment instead: `otherResource.node.addDependency(deployment)`
 	DeployedBucket() awss3.IBucket
+	// Execution role of the Lambda function behind the custom CloudFormation resource of type `Custom::CDKBucketDeployment`.
+	HandlerRole() awsiam.IRole
 	// The tree node.
 	Node() constructs.Node
 	ObjectKey() *string
@@ -94,6 +96,16 @@ func (j *jsiiProxy_DeployTimeSubstitutedFile) DeployedBucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"deployedBucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeployTimeSubstitutedFile) HandlerRole() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"handlerRole",
 		&returns,
 	)
 	return returns

@@ -4,9 +4,25 @@ package awscloudfront
 // The properties to create a Key Value Store.
 //
 // Example:
-//   store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"), &KeyValueStoreProps{
-//   	KeyValueStoreName: jsii.String("KeyValueStore"),
+//   storeAsset := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStoreAsset"), &KeyValueStoreProps{
+//   	KeyValueStoreName: jsii.String("KeyValueStoreAsset"),
 //   	Source: cloudfront.ImportSource_FromAsset(jsii.String("path-to-data.json")),
+//   })
+//
+//   storeInline := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStoreInline"), &KeyValueStoreProps{
+//   	KeyValueStoreName: jsii.String("KeyValueStoreInline"),
+//   	Source: cloudfront.ImportSource_FromInline(jSON.stringify(map[string][]map[string]*string{
+//   		"data": []map[string]*string{
+//   			map[string]*string{
+//   				"key": jsii.String("key1"),
+//   				"value": jsii.String("value1"),
+//   			},
+//   			map[string]*string{
+//   				"key": jsii.String("key2"),
+//   				"value": jsii.String("value2"),
+//   			},
+//   		},
+//   	})),
 //   })
 //
 type KeyValueStoreProps struct {

@@ -12,3 +12,7 @@ func validateImportSource_FromBucketParameters(bucket awss3.IBucket, key *string
 	return nil
 }
 
+func validateImportSource_FromInlineParameters(data *string) error {
+	return nil
+}
+

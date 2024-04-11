@@ -29,6 +29,8 @@ type NatInstanceProviderV2 interface {
 	ConfiguredGateways() *[]*GatewayConfig
 	// Manage the Security Groups associated with the NAT instances.
 	Connections() Connections
+	// Array of gateway instances spawned by the provider after internal configuration.
+	GatewayInstances() *[]Instance
 	// The Security Group associated with the NAT instances.
 	SecurityGroup() ISecurityGroup
 	// Called by the VPC to configure NAT.
@@ -62,6 +64,16 @@ func (j *jsiiProxy_NatInstanceProviderV2) Connections() Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NatInstanceProviderV2) GatewayInstances() *[]Instance {
+	var returns *[]Instance
+	_jsii_.Get(
+		j,
+		"gatewayInstances",
 		&returns,
 	)
 	return returns
@@ -181,6 +193,17 @@ func NatInstanceProviderV2_InstanceV2(props *NatInstanceProps) NatInstanceProvid
 		&returns,
 	)
 
+	return returns
+}
+
+func NatInstanceProviderV2_DEFAULT_USER_DATA_COMMANDS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.NatInstanceProviderV2",
+		"DEFAULT_USER_DATA_COMMANDS",
+		&returns,
+	)
 	return returns
 }
 

@@ -281,11 +281,11 @@ crossAccountRole := iam.NewRole(this, jsii.String("CrossAccountRole"), &RoleProp
 					},
 				}),
 				iam.NewPolicyStatement(&PolicyStatementProps{
-					"sid": jsii.String("GetHostedZoneAndChangeResourceRecordSet"),
+					"sid": jsii.String("GetHostedZoneAndChangeResourceRecordSets"),
 					"effect": iam.Effect_ALLOW,
 					"actions": []*string{
 						jsii.String("route53:GetHostedZone"),
-						jsii.String("route53:ChangeResourceRecordSet"),
+						jsii.String("route53:ChangeResourceRecordSets"),
 					},
 					// This example assumes the RecordSet subdomain.somexample.com
 					// is contained in the HostedZone

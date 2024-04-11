@@ -6,7 +6,6 @@ import (
 )
 
 // Example:
-//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myLambdaFunction function

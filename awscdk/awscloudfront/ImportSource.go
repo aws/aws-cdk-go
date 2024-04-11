@@ -11,9 +11,25 @@ import (
 // The data to be imported to the key value store.
 //
 // Example:
-//   store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"), &KeyValueStoreProps{
-//   	KeyValueStoreName: jsii.String("KeyValueStore"),
+//   storeAsset := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStoreAsset"), &KeyValueStoreProps{
+//   	KeyValueStoreName: jsii.String("KeyValueStoreAsset"),
 //   	Source: cloudfront.ImportSource_FromAsset(jsii.String("path-to-data.json")),
+//   })
+//
+//   storeInline := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStoreInline"), &KeyValueStoreProps{
+//   	KeyValueStoreName: jsii.String("KeyValueStoreInline"),
+//   	Source: cloudfront.ImportSource_FromInline(jSON.stringify(map[string][]map[string]*string{
+//   		"data": []map[string]*string{
+//   			map[string]*string{
+//   				"key": jsii.String("key1"),
+//   				"value": jsii.String("value1"),
+//   			},
+//   			map[string]*string{
+//   				"key": jsii.String("key2"),
+//   				"value": jsii.String("value2"),
+//   			},
+//   		},
+//   	})),
 //   })
 //
 type ImportSource interface {
@@ -66,6 +82,25 @@ func ImportSource_FromBucket(bucket awss3.IBucket, key *string) ImportSource {
 		"aws-cdk-lib.aws_cloudfront.ImportSource",
 		"fromBucket",
 		[]interface{}{bucket, key},
+		&returns,
+	)
+
+	return returns
+}
+
+// An import source that uses an inline string.
+func ImportSource_FromInline(data *string) ImportSource {
+	_init_.Initialize()
+
+	if err := validateImportSource_FromInlineParameters(data); err != nil {
+		panic(err)
+	}
+	var returns ImportSource
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.ImportSource",
+		"fromInline",
+		[]interface{}{data},
 		&returns,
 	)
 
