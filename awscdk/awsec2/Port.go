@@ -18,7 +18,7 @@ import (
 //   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 //   	NatGatewayProvider: provider,
 //   })
-//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
+//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_HTTP())
 //
 type Port interface {
 	// Whether the rule containing this port range can be inlined into a securitygroup or not.
@@ -312,6 +312,193 @@ func Port_UdpRange(startPort *float64, endPort *float64) Port {
 		&returns,
 	)
 
+	return returns
+}
+
+func Port_DNS_TCP() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"DNS_TCP",
+		&returns,
+	)
+	return returns
+}
+
+func Port_DNS_UDP() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"DNS_UDP",
+		&returns,
+	)
+	return returns
+}
+
+func Port_HTTP() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"HTTP",
+		&returns,
+	)
+	return returns
+}
+
+func Port_HTTPS() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"HTTPS",
+		&returns,
+	)
+	return returns
+}
+
+func Port_IMAP() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"IMAP",
+		&returns,
+	)
+	return returns
+}
+
+func Port_IMAPS() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"IMAPS",
+		&returns,
+	)
+	return returns
+}
+
+func Port_LDAP() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"LDAP",
+		&returns,
+	)
+	return returns
+}
+
+func Port_MSSQL() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"MSSQL",
+		&returns,
+	)
+	return returns
+}
+
+func Port_MYSQL_AURORA() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"MYSQL_AURORA",
+		&returns,
+	)
+	return returns
+}
+
+func Port_NFS() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"NFS",
+		&returns,
+	)
+	return returns
+}
+
+func Port_POP3() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"POP3",
+		&returns,
+	)
+	return returns
+}
+
+func Port_POP3S() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"POP3S",
+		&returns,
+	)
+	return returns
+}
+
+func Port_POSTGRES() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"POSTGRES",
+		&returns,
+	)
+	return returns
+}
+
+func Port_RDP() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"RDP",
+		&returns,
+	)
+	return returns
+}
+
+func Port_SMB() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"SMB",
+		&returns,
+	)
+	return returns
+}
+
+func Port_SMTP() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"SMTP",
+		&returns,
+	)
+	return returns
+}
+
+func Port_SSH() Port {
+	_init_.Initialize()
+	var returns Port
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.Port",
+		"SSH",
+		&returns,
+	)
 	return returns
 }
 

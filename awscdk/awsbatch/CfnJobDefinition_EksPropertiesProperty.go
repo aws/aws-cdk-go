@@ -40,6 +40,7 @@ package awsbatch
 //   					Requests: requests,
 //   				},
 //   				SecurityContext: &SecurityContextProperty{
+//   					AllowPrivilegeEscalation: jsii.Boolean(false),
 //   					Privileged: jsii.Boolean(false),
 //   					ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   					RunAsGroup: jsii.Number(123),
@@ -57,6 +58,11 @@ package awsbatch
 //   		},
 //   		DnsPolicy: jsii.String("dnsPolicy"),
 //   		HostNetwork: jsii.Boolean(false),
+//   		ImagePullSecrets: []interface{}{
+//   			&ImagePullSecretProperty{
+//   				Name: jsii.String("name"),
+//   			},
+//   		},
 //   		InitContainers: []interface{}{
 //   			&EksContainerProperty{
 //   				Image: jsii.String("image"),
@@ -83,6 +89,7 @@ package awsbatch
 //   					Requests: requests,
 //   				},
 //   				SecurityContext: &SecurityContextProperty{
+//   					AllowPrivilegeEscalation: jsii.Boolean(false),
 //   					Privileged: jsii.Boolean(false),
 //   					ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   					RunAsGroup: jsii.Number(123),

@@ -1,5 +1,8 @@
 package awscloudwatch
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnAlarm`.
 //
@@ -67,6 +70,12 @@ package awscloudwatch
 //   	},
 //   	Period: jsii.Number(123),
 //   	Statistic: jsii.String("statistic"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Threshold: jsii.Number(123),
 //   	ThresholdMetricId: jsii.String("thresholdMetricId"),
 //   	TreatMissingData: jsii.String("treatMissingData"),
@@ -196,6 +205,14 @@ type CfnAlarmProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-statistic
 	//
 	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
+	// A list of key-value pairs to associate with the alarm.
+	//
+	// You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The value to compare with the specified statistic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-threshold
 	//

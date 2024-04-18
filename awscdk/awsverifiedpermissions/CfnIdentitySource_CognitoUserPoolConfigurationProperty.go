@@ -15,6 +15,9 @@ package awsverifiedpermissions
 //   	ClientIds: []*string{
 //   		jsii.String("clientIds"),
 //   	},
+//   	GroupConfiguration: &CognitoGroupConfigurationProperty{
+//   		GroupEntityType: jsii.String("groupEntityType"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html
@@ -30,5 +33,9 @@ type CfnIdentitySource_CognitoUserPoolConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-clientids
 	//
 	ClientIds *[]*string `field:"optional" json:"clientIds" yaml:"clientIds"`
+	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html#cfn-verifiedpermissions-identitysource-cognitouserpoolconfiguration-groupconfiguration
+	//
+	GroupConfiguration interface{} `field:"optional" json:"groupConfiguration" yaml:"groupConfiguration"`
 }
 

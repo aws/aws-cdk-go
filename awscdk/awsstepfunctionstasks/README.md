@@ -1234,6 +1234,38 @@ tasks.NewGlueDataBrewStartJobRun(this, jsii.String("Task"), &GlueDataBrewStartJo
 })
 ```
 
+## Invoke HTTP API
+
+Step Functions supports [calling third-party APIs](https://docs.aws.amazon.com/step-functions/latest/dg/connect-third-party-apis.html) with credentials managed by Amazon EventBridge [Connections](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_Connection.html).
+
+The following snippet creates a new API destination connection, and uses it to make a POST request to the specified URL. The endpoint response is available at the `$.ResponseBody` path.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+connection := events.NewConnection(this, jsii.String("Connection"), &ConnectionProps{
+	Authorization: events.Authorization_Basic(jsii.String("username"), awscdk.SecretValue_UnsafePlainText(jsii.String("password"))),
+})
+
+tasks.NewHttpInvoke(this, jsii.String("Invoke HTTP API"), &HttpInvokeProps{
+	ApiRoot: jsii.String("https://api.example.com"),
+	ApiEndpoint: sfn.TaskInput_FromText(jsii.String("https://api.example.com/path/to/resource")),
+	Body: sfn.TaskInput_FromObject(map[string]interface{}{
+		"foo": jsii.String("bar"),
+	}),
+	Connection: Connection,
+	Headers: sfn.TaskInput_*FromObject(map[string]interface{}{
+		"Content-Type": jsii.String("application/json"),
+	}),
+	Method: sfn.TaskInput_*FromText(jsii.String("POST")),
+	QueryStringParameters: sfn.TaskInput_*FromObject(map[string]interface{}{
+		"id": jsii.String("123"),
+	}),
+	UrlEncodingFormat: tasks.URLEncodingFormat_BRACKETS,
+})
+```
+
 ## Lambda
 
 Step Functions supports [AWS Lambda](https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html) through the service integration pattern.

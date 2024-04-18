@@ -217,11 +217,7 @@ type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-monitoring
 	//
 	Monitoring interface{} `field:"optional" json:"monitoring" yaml:"monitoring"`
-	// One or more network interfaces.
-	//
-	// If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
-	//
-	// > `SpotFleetLaunchSpecification` currently does not support Elastic Fabric Adapter (EFA). To specify an EFA, you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html) .
+	// The network interfaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-networkinterfaces
 	//
 	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
@@ -236,6 +232,8 @@ type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	//
 	RamdiskId *string `field:"optional" json:"ramdiskId" yaml:"ramdiskId"`
 	// The security groups.
+	//
+	// If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-securitygroups
 	//
 	SecurityGroups interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
@@ -250,6 +248,8 @@ type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	// The IDs of the subnets in which to launch the instances.
 	//
 	// To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+	//
+	// If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
 	//
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`

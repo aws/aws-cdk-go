@@ -146,6 +146,26 @@ func (i *jsiiProxy_IGraphqlApi) validateAddRdsDataSourceParameters(id *string, s
 	return nil
 }
 
+func (i *jsiiProxy_IGraphqlApi) validateAddRdsDataSourceV2Parameters(id *string, serverlessCluster awsrds.IDatabaseCluster, secretStore awssecretsmanager.ISecret, options *DataSourceOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if serverlessCluster == nil {
+		return fmt.Errorf("parameter serverlessCluster is required, but nil was provided")
+	}
+
+	if secretStore == nil {
+		return fmt.Errorf("parameter secretStore is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IGraphqlApi) validateAddSchemaDependencyParameters(construct awscdk.CfnResource) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")

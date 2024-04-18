@@ -204,7 +204,7 @@ type CfnServerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-s3storageoptions
 	//
 	S3StorageOptions interface{} `field:"optional" json:"s3StorageOptions" yaml:"s3StorageOptions"`
-	// Specifies the name of the security policy that is attached to the server.
+	// Specifies the name of the security policy for the server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
 	//
 	SecurityPolicyName *string `field:"optional" json:"securityPolicyName" yaml:"securityPolicyName"`

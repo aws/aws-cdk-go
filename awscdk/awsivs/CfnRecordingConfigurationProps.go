@@ -46,7 +46,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
 //
 type CfnRecordingConfigurationProps struct {
-	// A destination configuration contains information about where recorded video will be stored.
+	// A destination configuration describes an S3 bucket where recorded video will be stored.
 	//
 	// See the DestinationConfiguration property type for more information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration

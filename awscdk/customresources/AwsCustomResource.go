@@ -19,25 +19,24 @@ import (
 // You can specify exactly which calls are invoked for the 'CREATE', 'UPDATE' and 'DELETE' life cycle events.
 //
 // Example:
-//   getParameter := cr.NewAwsCustomResource(this, jsii.String("AssociateVPCWithHostedZone"), &AwsCustomResourceProps{
-//   	OnCreate: &AwsSdkCall{
-//   		AssumedRoleArn: jsii.String("arn:aws:iam::OTHERACCOUNT:role/CrossAccount/ManageHostedZoneConnections"),
-//   		Service: jsii.String("Route53"),
-//   		Action: jsii.String("AssociateVPCWithHostedZone"),
+//   getParameter := cr.NewAwsCustomResource(this, jsii.String("GetParameter"), &AwsCustomResourceProps{
+//   	OnUpdate: &AwsSdkCall{
+//   		 // will also be called for a CREATE event
+//   		Service: jsii.String("SSM"),
+//   		Action: jsii.String("GetParameter"),
 //   		Parameters: map[string]interface{}{
-//   			"HostedZoneId": jsii.String("hz-123"),
-//   			"VPC": map[string]*string{
-//   				"VPCId": jsii.String("vpc-123"),
-//   				"VPCRegion": jsii.String("region-for-vpc"),
-//   			},
+//   			"Name": jsii.String("my-parameter"),
+//   			"WithDecryption": jsii.Boolean(true),
 //   		},
-//   		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("${vpcStack.SharedVpc.VpcId}-${vpcStack.Region}-${PrivateHostedZone.HostedZoneId}")),
+//   		PhysicalResourceId: cr.PhysicalResourceId_Of(date.now().toString()),
 //   	},
-//   	//Will ignore any resource and use the assumedRoleArn as resource and 'sts:AssumeRole' for service:action
 //   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
 //   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
 //   	}),
 //   })
+//
+//   // Use the value in another construct with
+//   getParameter.GetResponseField(jsii.String("Parameter.Value"))
 //
 type AwsCustomResource interface {
 	constructs.Construct

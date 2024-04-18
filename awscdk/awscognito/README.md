@@ -625,6 +625,32 @@ provider := cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("Google"
 })
 ```
 
+Using SAML identity provider is possible to use SAML metadata file content or SAML metadata file url.
+
+```go
+userpool := cognito.NewUserPool(this, jsii.String("Pool"))
+
+// specify the metadata as a file content
+// specify the metadata as a file content
+cognito.NewUserPoolIdentityProviderSaml(this, jsii.String("userpoolIdpFile"), &UserPoolIdentityProviderSamlProps{
+	UserPool: userpool,
+	Metadata: cognito.UserPoolIdentityProviderSamlMetadata_File(jsii.String("my-file-contents")),
+	// Whether to require encrypted SAML assertions from IdP
+	EncryptedResponses: jsii.Boolean(true),
+	// The signing algorithm for the SAML requests
+	RequestSigningAlgorithm: cognito.SigningAlgorithm_RSA_SHA256,
+	// Enable IdP initiated SAML auth flow
+	IdpInitiated: jsii.Boolean(true),
+})
+
+// specify the metadata as a URL
+// specify the metadata as a URL
+cognito.NewUserPoolIdentityProviderSaml(this, jsii.String("userpoolidpUrl"), &UserPoolIdentityProviderSamlProps{
+	UserPool: userpool,
+	Metadata: cognito.UserPoolIdentityProviderSamlMetadata_Url(jsii.String("https://my-metadata-url.com")),
+})
+```
+
 Attribute mapping allows mapping attributes provided by the third-party identity providers to [standard and custom
 attributes](#Attributes) of the user pool. Learn more about [Specifying Identity Provider Attribute Mappings for Your
 User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html).

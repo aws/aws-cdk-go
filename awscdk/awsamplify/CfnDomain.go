@@ -31,17 +31,11 @@ import (
 //   		jsii.String("autoSubDomainCreationPatterns"),
 //   	},
 //   	AutoSubDomainIamRole: jsii.String("autoSubDomainIamRole"),
-//   	Certificate: &CertificateProperty{
-//   		CertificateArn: jsii.String("certificateArn"),
-//   		CertificateType: jsii.String("certificateType"),
-//   		CertificateVerificationDnsRecord: jsii.String("certificateVerificationDnsRecord"),
-//   	},
 //   	CertificateSettings: &CertificateSettingsProperty{
 //   		CertificateType: jsii.String("certificateType"),
 //   		CustomCertificateArn: jsii.String("customCertificateArn"),
 //   	},
 //   	EnableAutoSubDomain: jsii.Boolean(false),
-//   	UpdateStatus: jsii.String("updateStatus"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
@@ -58,6 +52,7 @@ type CfnDomain interface {
 	AttrAutoSubDomainCreationPatterns() *[]*string
 	// The IAM service role for the subdomain.
 	AttrAutoSubDomainIamRole() *string
+	AttrCertificate() awscdk.IResolvable
 	// DNS Record for certificate verification.
 	AttrCertificateRecord() *string
 	// Name of the domain.
@@ -68,15 +63,24 @@ type CfnDomain interface {
 	AttrEnableAutoSubDomain() awscdk.IResolvable
 	// Reason for the current status of the domain.
 	AttrStatusReason() *string
+	// The status of the domain update operation that is currently in progress.
+	//
+	// The following list describes the valid update states.
+	//
+	// - **REQUESTING_CERTIFICATE** - The certificate is in the process of being updated.
+	// - **PENDING_VERIFICATION** - Indicates that an Amplify managed certificate is in the process of being verified. This occurs during the creation of a custom domain or when a custom domain is updated to use a managed certificate.
+	// - **IMPORTING_CUSTOM_CERTIFICATE** - Indicates that an Amplify custom certificate is in the process of being imported. This occurs during the creation of a custom domain or when a custom domain is updated to use a custom certificate.
+	// - **PENDING_DEPLOYMENT** - Indicates that the subdomain or certificate changes are being propagated.
+	// - **AWAITING_APP_CNAME** - Amplify is waiting for CNAME records corresponding to subdomains to be propagated. If your custom domain is on Route 53, Amplify handles this for you automatically. For more information about custom domains, see [Setting up custom domains](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html) in the *Amplify Hosting User Guide* .
+	// - **UPDATE_COMPLETE** - The certificate has been associated with a domain.
+	// - **UPDATE_FAILED** - The certificate has failed to be provisioned or associated, and there is no existing active certificate to roll back to.
+	AttrUpdateStatus() *string
 	// Sets the branch patterns for automatic subdomain creation.
 	AutoSubDomainCreationPatterns() *[]*string
 	SetAutoSubDomainCreationPatterns(val *[]*string)
 	// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
 	AutoSubDomainIamRole() *string
 	SetAutoSubDomainIamRole(val *string)
-	// Describes the SSL/TLS certificate for the domain association.
-	Certificate() interface{}
-	SetCertificate(val interface{})
 	// The type of SSL/TLS certificate to use for your custom domain.
 	CertificateSettings() interface{}
 	SetCertificateSettings(val interface{})
@@ -132,9 +136,6 @@ type CfnDomain interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The status of the domain update operation that is currently in progress.
-	UpdateStatus() *string
-	SetUpdateStatus(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -308,6 +309,16 @@ func (j *jsiiProxy_CfnDomain) AttrAutoSubDomainIamRole() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) AttrCertificate() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrCertificate",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) AttrCertificateRecord() *string {
 	var returns *string
 	_jsii_.Get(
@@ -358,6 +369,16 @@ func (j *jsiiProxy_CfnDomain) AttrStatusReason() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) AttrUpdateStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUpdateStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) AutoSubDomainCreationPatterns() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -373,16 +394,6 @@ func (j *jsiiProxy_CfnDomain) AutoSubDomainIamRole() *string {
 	_jsii_.Get(
 		j,
 		"autoSubDomainIamRole",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnDomain) Certificate() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"certificate",
 		&returns,
 	)
 	return returns
@@ -528,16 +539,6 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) UpdateStatus() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"updateStatus",
-		&returns,
-	)
-	return returns
-}
-
 
 func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
@@ -593,17 +594,6 @@ func (j *jsiiProxy_CfnDomain)SetAutoSubDomainIamRole(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDomain)SetCertificate(val interface{}) {
-	if err := j.validateSetCertificateParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"certificate",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnDomain)SetCertificateSettings(val interface{}) {
 	if err := j.validateSetCertificateSettingsParameters(val); err != nil {
 		panic(err)
@@ -644,14 +634,6 @@ func (j *jsiiProxy_CfnDomain)SetSubDomainSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"subDomainSettings",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDomain)SetUpdateStatus(val *string) {
-	_jsii_.Set(
-		j,
-		"updateStatus",
 		val,
 	)
 }

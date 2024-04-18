@@ -230,19 +230,15 @@ type CfnInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-ebsoptimized
 	//
 	EbsOptimized interface{} `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
-	// Deprecated.
+	// An elastic GPU to associate with the instance.
 	//
-	// > Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+	// > Amazon Elastic Graphics reached end of life on January 8, 2024.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications
 	//
 	ElasticGpuSpecifications interface{} `field:"optional" json:"elasticGpuSpecifications" yaml:"elasticGpuSpecifications"`
 	// An elastic inference accelerator to associate with the instance.
 	//
-	// Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-	//
-	// You cannot specify accelerators from different generations in the same request.
-	//
-	// > Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
+	// > Amazon Elastic Inference (EI) is no longer available to new customers. For more information, see [Amazon Elastic Inference FAQs](https://docs.aws.amazon.com/machine-learning/elastic-inference/faqs/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
 	//
 	ElasticInferenceAccelerators interface{} `field:"optional" json:"elasticInferenceAccelerators" yaml:"elasticInferenceAccelerators"`
@@ -408,7 +404,7 @@ type CfnInstanceProps struct {
 	SsmAssociations interface{} `field:"optional" json:"ssmAssociations" yaml:"ssmAssociations"`
 	// The ID of the subnet to launch the instance into.
 	//
-	// If you specify a network interface, you must specify any subnets as part of the network interface.
+	// If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-subnetid
 	//
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`

@@ -68,7 +68,7 @@ type CfnBackupVault interface {
 	// The name of a logical container where backups are stored.
 	BackupVaultName() *string
 	SetBackupVaultName(val *string)
-	// Metadata that you can assign to help organize the resources that you create.
+	// Metadata that you can assign to help organize your backup vaults.
 	BackupVaultTags() *map[string]*string
 	SetBackupVaultTags(val *map[string]*string)
 	// Tag Manager which manages the tags for this resource.

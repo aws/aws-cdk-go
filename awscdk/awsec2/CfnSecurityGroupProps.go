@@ -27,7 +27,6 @@ import (
 //   			DestinationPrefixListId: jsii.String("destinationPrefixListId"),
 //   			DestinationSecurityGroupId: jsii.String("destinationSecurityGroupId"),
 //   			FromPort: jsii.Number(123),
-//   			SourceSecurityGroupId: jsii.String("sourceSecurityGroupId"),
 //   			ToPort: jsii.Number(123),
 //   		},
 //   	},

@@ -60,7 +60,7 @@ type DatabaseClusterBase interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
-	// Secret in SecretsManager to store the database cluster user credentials.
+	// The secret attached to this cluster.
 	Secret() awssecretsmanager.ISecret
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack

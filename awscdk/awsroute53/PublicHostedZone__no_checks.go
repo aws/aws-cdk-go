@@ -16,6 +16,10 @@ func (p *jsiiProxy_PublicHostedZone) validateApplyRemovalPolicyParameters(policy
 	return nil
 }
 
+func (p *jsiiProxy_PublicHostedZone) validateEnableDnssecParameters(options *ZoneSigningOptions) error {
+	return nil
+}
+
 func (p *jsiiProxy_PublicHostedZone) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

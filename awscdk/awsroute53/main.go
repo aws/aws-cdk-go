@@ -668,6 +668,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addVpc", GoMethod: "AddVpc"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "enableDnssec", GoMethod: "EnableDnssec"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -733,6 +734,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_route53.IKeySigningKey",
+		reflect.TypeOf((*IKeySigningKey)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZone", GoGetter: "HostedZone"},
+			_jsii_.MemberProperty{JsiiProperty: "keySigningKeyId", GoGetter: "KeySigningKeyId"},
+			_jsii_.MemberProperty{JsiiProperty: "keySigningKeyName", GoGetter: "KeySigningKeyName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IKeySigningKey{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_route53.IPrivateHostedZone",
 		reflect.TypeOf((*IPrivateHostedZone)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -786,6 +805,46 @@ func init() {
 			j := jsiiProxy_IRecordSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.KeySigningKey",
+		reflect.TypeOf((*KeySigningKey)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "hostedZone", GoGetter: "HostedZone"},
+			_jsii_.MemberProperty{JsiiProperty: "keySigningKeyId", GoGetter: "KeySigningKeyId"},
+			_jsii_.MemberProperty{JsiiProperty: "keySigningKeyName", GoGetter: "KeySigningKeyName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_KeySigningKey{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKeySigningKey)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.KeySigningKeyAttributes",
+		reflect.TypeOf((*KeySigningKeyAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.KeySigningKeyProps",
+		reflect.TypeOf((*KeySigningKeyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_route53.KeySigningKeyStatus",
+		reflect.TypeOf((*KeySigningKeyStatus)(nil)).Elem(),
+		map[string]interface{}{
+			"ACTIVE": KeySigningKeyStatus_ACTIVE,
+			"INACTIVE": KeySigningKeyStatus_INACTIVE,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -848,6 +907,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addVpc", GoMethod: "AddVpc"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "enableDnssec", GoMethod: "EnableDnssec"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -882,6 +942,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVpc", GoMethod: "AddVpc"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "crossAccountZoneDelegationRole", GoGetter: "CrossAccountZoneDelegationRole"},
+			_jsii_.MemberMethod{JsiiMethod: "enableDnssec", GoMethod: "EnableDnssec"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1072,5 +1133,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.ZoneDelegationRecordProps",
 		reflect.TypeOf((*ZoneDelegationRecordProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.ZoneSigningOptions",
+		reflect.TypeOf((*ZoneSigningOptions)(nil)).Elem(),
 	)
 }

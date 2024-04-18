@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object containing `InputSourceARN` and `SchemaName` .
+// An object containing `InputSourceARN` , `SchemaName` , and `Type` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,6 +27,11 @@ type CfnIdMappingWorkflow_IdMappingWorkflowInputSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-schemaarn
 	//
 	SchemaArn *string `field:"optional" json:"schemaArn" yaml:"schemaArn"`
+	// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+	//
+	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+	//
+	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

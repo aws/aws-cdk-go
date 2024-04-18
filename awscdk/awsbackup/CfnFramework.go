@@ -87,7 +87,7 @@ type CfnFramework interface {
 	// The unique name of a framework.
 	FrameworkName() *string
 	SetFrameworkName(val *string)
-	// A list of tags with which to tag your framework.
+	// The tags to add your framework.
 	FrameworkTags() *[]*awscdk.CfnTag
 	SetFrameworkTags(val *[]*awscdk.CfnTag)
 	// The logical ID for this CloudFormation stack element.

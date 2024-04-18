@@ -38,7 +38,7 @@ type CfnRuleGroupsNamespaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
+	// The ID of the workspace to add the rule groups namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html#cfn-aps-rulegroupsnamespace-workspace
 	//
 	Workspace *string `field:"required" json:"workspace" yaml:"workspace"`

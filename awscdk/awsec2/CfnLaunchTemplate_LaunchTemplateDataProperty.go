@@ -158,7 +158,6 @@ package awsec2
 //   	},
 //   	MaintenanceOptions: &MaintenanceOptionsProperty{
 //   		AutoRecovery: jsii.String("autoRecovery"),
-//   		RebootMigration: jsii.String("rebootMigration"),
 //   	},
 //   	MetadataOptions: &MetadataOptionsProperty{
 //   		HttpEndpoint: jsii.String("httpEndpoint"),
@@ -420,9 +419,7 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring
 	//
 	Monitoring interface{} `field:"optional" json:"monitoring" yaml:"monitoring"`
-	// One or more network interfaces.
-	//
-	// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+	// The network interfaces for the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces
 	//
 	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
@@ -445,12 +442,14 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	// The IDs of the security groups.
 	//
 	// You can specify the IDs of existing security groups and references to resources created by the stack template.
+	//
+	// If you specify a network interface, you must specify any security groups as part of the network interface instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// One or more security group names.
+	// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
 	//
-	// For a nondefault VPC, you must use security group IDs instead.
+	// If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`

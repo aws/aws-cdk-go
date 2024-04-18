@@ -47,23 +47,23 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html
 //
 type CfnScraperProps struct {
-	// Scraper metrics destination.
+	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-destination
 	//
 	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
-	// Scraper configuration.
+	// The configuration in use by the scraper.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-scrapeconfiguration
 	//
 	ScrapeConfiguration interface{} `field:"required" json:"scrapeConfiguration" yaml:"scrapeConfiguration"`
-	// Scraper metrics source.
+	// The Amazon EKS cluster from which the scraper collects metrics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-source
 	//
 	Source interface{} `field:"required" json:"source" yaml:"source"`
-	// Scraper alias.
+	// An optional user-assigned scraper alias.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-alias
 	//
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
-	// An array of key-value pairs to apply to this resource.
+	// (Optional) The list of tag keys and values associated with the scraper.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

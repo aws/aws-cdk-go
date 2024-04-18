@@ -15,6 +15,22 @@ import (
 //   	AppImageConfigName: jsii.String("appImageConfigName"),
 //
 //   	// the properties below are optional
+//   	CodeEditorAppImageConfig: &CodeEditorAppImageConfigProperty{
+//   		ContainerConfig: &ContainerConfigProperty{
+//   			ContainerArguments: []*string{
+//   				jsii.String("containerArguments"),
+//   			},
+//   			ContainerEntrypoint: []*string{
+//   				jsii.String("containerEntrypoint"),
+//   			},
+//   			ContainerEnvironmentVariables: []interface{}{
+//   				&CustomImageContainerEnvironmentVariableProperty{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	JupyterLabAppImageConfig: &JupyterLabAppImageConfigProperty{
 //   		ContainerConfig: &ContainerConfigProperty{
 //   			ContainerArguments: []*string{
@@ -65,6 +81,10 @@ type CfnAppImageConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
 	//
 	AppImageConfigName *string `field:"required" json:"appImageConfigName" yaml:"appImageConfigName"`
+	// The configuration for the file system and the runtime, such as the environment variables and entry point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-codeeditorappimageconfig
+	//
+	CodeEditorAppImageConfig interface{} `field:"optional" json:"codeEditorAppImageConfig" yaml:"codeEditorAppImageConfig"`
 	// The configuration for the file system and the runtime, such as the environment variables and entry point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-jupyterlabappimageconfig
 	//

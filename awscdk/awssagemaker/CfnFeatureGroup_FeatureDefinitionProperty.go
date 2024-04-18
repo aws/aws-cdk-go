@@ -24,7 +24,7 @@ type CfnFeatureGroup_FeatureDefinitionProperty struct {
 	//
 	// The name:
 	//
-	// - Must start and end with an alphanumeric character.
+	// - Must start with an alphanumeric character.
 	// - Can only include alphanumeric characters, underscores, and hyphens. Spaces are not allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
 	//

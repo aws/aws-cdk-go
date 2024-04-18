@@ -6,7 +6,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
 
-// Properties for an AppSync RDS datasource.
+// Properties for an AppSync RDS datasource Aurora Serverless V1.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

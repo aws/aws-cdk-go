@@ -99,11 +99,13 @@ type CfnMonitor interface {
 	// A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
 	HealthEventsConfig() interface{}
 	SetHealthEventsConfig(val interface{})
+	// A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor.
 	IncludeLinkedAccounts() interface{}
 	SetIncludeLinkedAccounts(val interface{})
 	// Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket.
 	InternetMeasurementsLogDelivery() interface{}
 	SetInternetMeasurementsLogDelivery(val interface{})
+	// The account ID for an account that you've set up cross-account sharing for in Internet Monitor.
 	LinkedAccountId() *string
 	SetLinkedAccountId(val *string)
 	// The logical ID for this CloudFormation stack element.

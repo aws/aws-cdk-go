@@ -39,6 +39,7 @@ package awsbatch
 //   				Requests: requests,
 //   			},
 //   			SecurityContext: &SecurityContextProperty{
+//   				AllowPrivilegeEscalation: jsii.Boolean(false),
 //   				Privileged: jsii.Boolean(false),
 //   				ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   				RunAsGroup: jsii.Number(123),
@@ -56,6 +57,11 @@ package awsbatch
 //   	},
 //   	DnsPolicy: jsii.String("dnsPolicy"),
 //   	HostNetwork: jsii.Boolean(false),
+//   	ImagePullSecrets: []interface{}{
+//   		&ImagePullSecretProperty{
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	InitContainers: []interface{}{
 //   		&EksContainerProperty{
 //   			Image: jsii.String("image"),
@@ -82,6 +88,7 @@ package awsbatch
 //   				Requests: requests,
 //   			},
 //   			SecurityContext: &SecurityContextProperty{
+//   				AllowPrivilegeEscalation: jsii.Boolean(false),
 //   				Privileged: jsii.Boolean(false),
 //   				ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   				RunAsGroup: jsii.Number(123),
@@ -145,6 +152,9 @@ type CfnJobDefinition_PodPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-hostnetwork
 	//
 	HostNetwork interface{} `field:"optional" json:"hostNetwork" yaml:"hostNetwork"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-imagepullsecrets
+	//
+	ImagePullSecrets interface{} `field:"optional" json:"imagePullSecrets" yaml:"imagePullSecrets"`
 	// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts.
 	//
 	// These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .

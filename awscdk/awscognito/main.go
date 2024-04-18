@@ -1243,6 +1243,13 @@ func init() {
 		"aws-cdk-lib.aws_cognito.SignInUrlOptions",
 		reflect.TypeOf((*SignInUrlOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cognito.SigningAlgorithm",
+		reflect.TypeOf((*SigningAlgorithm)(nil)).Elem(),
+		map[string]interface{}{
+			"RSA_SHA256": SigningAlgorithm_RSA_SHA256,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.StandardAttribute",
 		reflect.TypeOf((*StandardAttribute)(nil)).Elem(),

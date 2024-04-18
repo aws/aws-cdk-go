@@ -65,9 +65,7 @@ type CfnDeploymentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The parameters accepted by the extension.
-	//
-	// You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+	// A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html#cfn-appconfig-deployment-dynamicextensionparameters
 	//
 	DynamicExtensionParameters interface{} `field:"optional" json:"dynamicExtensionParameters" yaml:"dynamicExtensionParameters"`

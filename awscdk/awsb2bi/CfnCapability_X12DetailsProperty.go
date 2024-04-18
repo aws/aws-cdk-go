@@ -21,8 +21,6 @@ type CfnCapability_X12DetailsProperty struct {
 	//
 	TransactionSet *string `field:"optional" json:"transactionSet" yaml:"transactionSet"`
 	// Returns the version to use for the specified X12 transaction set.
-	//
-	// Supported versions are `4010` , `4030` , and `5010` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-x12details.html#cfn-b2bi-capability-x12details-version
 	//
 	Version *string `field:"optional" json:"version" yaml:"version"`

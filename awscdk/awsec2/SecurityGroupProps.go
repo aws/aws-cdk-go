@@ -5,19 +5,15 @@ package awsec2
 //   var vpc vpc
 //
 //
-//   securityGroup1 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup1"), &SecurityGroupProps{
+//   mySecurityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
 //   	Vpc: Vpc,
 //   })
-//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+//   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 //   	Vpc: Vpc,
-//   	InternetFacing: jsii.Boolean(true),
-//   	SecurityGroup: securityGroup1,
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE2, ec2.InstanceSize_MICRO),
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
+//   	SecurityGroup: mySecurityGroup,
 //   })
-//
-//   securityGroup2 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup2"), &SecurityGroupProps{
-//   	Vpc: Vpc,
-//   })
-//   lb.AddSecurityGroup(securityGroup2)
 //
 type SecurityGroupProps struct {
 	// The VPC in which to create the security group.

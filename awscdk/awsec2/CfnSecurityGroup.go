@@ -13,7 +13,7 @@ import (
 //
 // To create a security group, use the [VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid) property to specify the VPC for which to create the security group.
 //
-// If you do not specify an egress rule, we add egress rules that allow IPv4 and IPv6 traffic on all ports and protocols to any destination. We do not add these rules if you specify your own egress rules. If you later remove your egress rules, we restore the default egress rules.
+// If you do not specify an egress rule, we add egress rules that allow IPv4 and IPv6 traffic on all ports and protocols to any destination. We do not add these rules if you specify your own egress rules.
 //
 // This type supports updates. For more information about updating stacks, see [AWS CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html) .
 //
@@ -40,7 +40,6 @@ import (
 //   			DestinationPrefixListId: jsii.String("destinationPrefixListId"),
 //   			DestinationSecurityGroupId: jsii.String("destinationSecurityGroupId"),
 //   			FromPort: jsii.Number(123),
-//   			SourceSecurityGroupId: jsii.String("sourceSecurityGroupId"),
 //   			ToPort: jsii.Number(123),
 //   		},
 //   	},

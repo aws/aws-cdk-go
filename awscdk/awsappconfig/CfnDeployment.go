@@ -20,7 +20,7 @@ import (
 // - Create an application
 // - Create an environment
 // - Create a configuration profile
-// - Create a deployment strategy
+// - Choose a pre-defined deployment strategy or create your own
 // - Deploy the configuration
 //
 // For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
@@ -88,7 +88,7 @@ type CfnDeployment interface {
 	// A description of the deployment.
 	Description() *string
 	SetDescription(val *string)
-	// The parameters accepted by the extension.
+	// A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
 	DynamicExtensionParameters() interface{}
 	SetDynamicExtensionParameters(val interface{})
 	// The environment ID.

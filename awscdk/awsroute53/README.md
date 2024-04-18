@@ -377,6 +377,48 @@ route53.NewPublicHostedZone(this, jsii.String("HostedZone"), &PublicHostedZonePr
 })
 ```
 
+## Enabling DNSSEC
+
+DNSSEC can be enabled for Hosted Zones. For detailed information, see
+[Configuring DNSSEC signing in Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
+
+Enabling DNSSEC requires an asymmetric KMS Customer-Managed Key using the `ECC_NIST_P256` key spec.
+Additionally, that KMS key must be in `us-east-1`.
+
+```go
+kmsKey := kms.NewKey(this, jsii.String("KmsCMK"), &KeyProps{
+	KeySpec: kms.KeySpec_ECC_NIST_P256,
+	KeyUsage: kms.KeyUsage_SIGN_VERIFY,
+})
+hostedZone := route53.NewHostedZone(this, jsii.String("HostedZone"), &HostedZoneProps{
+	ZoneName: jsii.String("example.com"),
+})
+// Enable DNSSEC signing for the zone
+hostedZone.EnableDnssec(&ZoneSigningOptions{
+	KmsKey: KmsKey,
+})
+```
+
+The necessary permissions for Route 53 to use the key will automatically be added when using
+this configuration. If it is necessary to create a key signing key manually, that can be done
+using the `KeySigningKey` construct:
+
+```go
+var hostedZone hostedZone
+var kmsKey key
+
+route53.NewKeySigningKey(this, jsii.String("KeySigningKey"), &KeySigningKeyProps{
+	HostedZone: HostedZone,
+	KmsKey: KmsKey,
+	KeySigningKeyName: jsii.String("ksk"),
+	Status: route53.KeySigningKeyStatus_ACTIVE,
+})
+```
+
+When directly constructing the `KeySigningKey` resource, enabling DNSSEC signing for the hosted
+zone will be need to be done explicitly (either using the `CfnDNSSEC` construct or via another
+means).
+
 ## Imports
 
 If you don't know the ID of the Hosted Zone to import, you can use the

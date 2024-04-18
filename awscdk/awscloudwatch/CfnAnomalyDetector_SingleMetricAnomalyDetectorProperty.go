@@ -26,6 +26,9 @@ package awscloudwatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html
 //
 type CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty struct {
+	// If the CloudWatch metric that provides the time series that the anomaly detector uses as input is in another account, specify that account ID here.
+	//
+	// If you omit this parameter, the current account is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html#cfn-cloudwatch-anomalydetector-singlemetricanomalydetector-accountid
 	//
 	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`

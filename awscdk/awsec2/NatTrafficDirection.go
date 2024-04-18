@@ -4,17 +4,22 @@ package awsec2
 // Direction of traffic to allow all by default.
 //
 // Example:
-//   var instanceType instanceType
-//
-//
-//   provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
-//   	InstanceType: InstanceType,
-//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_OUTBOUND_ONLY,
+//   natGatewayProvider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
+//   	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
+//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_NONE,
 //   })
-//   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
-//   	NatGatewayProvider: provider,
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+//   	NatGatewayProvider: NatGatewayProvider,
 //   })
-//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
+//
+//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+//   	Vpc: Vpc,
+//   	AllowAllOutbound: jsii.Boolean(false),
+//   })
+//   securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)))
+//   for _, gatewayInstance := range natGatewayProvider.gatewayInstances {
+//   	gatewayInstance.AddSecurityGroup(securityGroup)
+//   }
 //
 type NatTrafficDirection string
 

@@ -1,17 +1,7 @@
 package awsappconfig
 
 
-// An action defines the tasks that the extension performs during the AWS AppConfig workflow.
-//
-// Each action includes an action point such as `ON_CREATE_HOSTED_CONFIGURATION` , `PRE_DEPLOYMENT` , or `ON_DEPLOYMENT` . Each action also includes a name, a URI to an AWS Lambda function, and an Amazon Resource Name (ARN) for an AWS Identity and Access Management assume role. You specify the name, URI, and ARN for each *action point* defined in the extension. You can specify the following actions for an extension:
-//
-// - `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`
-// - `PRE_START_DEPLOYMENT`
-// - `ON_DEPLOYMENT_START`
-// - `ON_DEPLOYMENT_STEP`
-// - `ON_DEPLOYMENT_BAKING`
-// - `ON_DEPLOYMENT_COMPLETE`
-// - `ON_DEPLOYMENT_ROLLED_BACK`.
+// The actions defined in the extension.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,7 +30,7 @@ type CfnExtension_ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-extension-action.html#cfn-appconfig-extension-action-uri
 	//
 	Uri *string `field:"required" json:"uri" yaml:"uri"`
-	// Information about the action.
+	// Information about actions defined in the extension.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-extension-action.html#cfn-appconfig-extension-action-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

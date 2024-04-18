@@ -223,10 +223,11 @@ provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
 ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 	NatGatewayProvider: provider,
 })
-provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
+provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_HTTP())
 ```
 
-You can also customize the characteristics of your NAT instances, as well as their initialization scripts:
+You can also customize the characteristics of your NAT instances, including their security group,
+as well as their initialization scripts:
 
 ```go
 var bucket bucket
@@ -241,15 +242,21 @@ fmt.Sprintf("aws s3 cp hello.txt s3://%v", bucket.BucketName))
 provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
 	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
 	CreditSpecification: ec2.CpuCredits_UNLIMITED,
+	DefaultAllowedTraffic: ec2.NatTrafficDirection_NONE,
 })
 
-ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 	NatGatewayProvider: provider,
 	NatGateways: jsii.Number(2),
 })
 
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)))
 for _, gateway := range provider.gatewayInstances {
 	bucket.GrantWrite(gateway)
+	gateway.AddSecurityGroup(securityGroup)
 }
 ```
 
@@ -282,7 +289,7 @@ provider := ec2.NatProvider_Instance(&NatInstanceProps{
 ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 	NatGatewayProvider: provider,
 })
-provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
+provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_HTTP())
 ```
 
 ### Ip Address Management
@@ -826,13 +833,13 @@ var dbFleet autoScalingGroup
 
 
 // Allow connections from anywhere
-loadBalancer.Connections.AllowFromAnyIpv4(ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow inbound HTTPS"))
+loadBalancer.Connections.AllowFromAnyIpv4(ec2.Port_HTTPS(), jsii.String("Allow inbound HTTPS"))
 
 // The same, but an explicit IP address
-loadBalancer.Connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/32")), ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow inbound HTTPS"))
+loadBalancer.Connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/32")), ec2.Port_HTTPS(), jsii.String("Allow inbound HTTPS"))
 
 // Allow connection between AutoScalingGroups
-appFleet.connections.AllowTo(dbFleet, ec2.Port_Tcp(jsii.Number(443)), jsii.String("App can call database"))
+appFleet.connections.AllowTo(dbFleet, ec2.Port_HTTPS(), jsii.String("App can call database"))
 ```
 
 ### Connection Peers
@@ -850,7 +857,7 @@ peer = ec2.Peer_AnyIpv4()
 peer = ec2.Peer_Ipv6(jsii.String("::0/0"))
 peer = ec2.Peer_AnyIpv6()
 peer = ec2.Peer_PrefixList(jsii.String("pl-12345"))
-appFleet.connections.AllowTo(peer, ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow outbound HTTPS"))
+appFleet.connections.AllowTo(peer, ec2.Port_HTTPS(), jsii.String("Allow outbound HTTPS"))
 ```
 
 Any object that has a security group can itself be used as a connection peer:
@@ -862,9 +869,9 @@ var appFleet autoScalingGroup
 
 
 // These automatically create appropriate ingress and egress rules in both security groups
-fleet1.connections.AllowTo(fleet2, ec2.Port_Tcp(jsii.Number(80)), jsii.String("Allow between fleets"))
+fleet1.connections.AllowTo(fleet2, ec2.Port_HTTP(), jsii.String("Allow between fleets"))
 
-appFleet.connections.AllowFromAnyIpv4(ec2.Port_Tcp(jsii.Number(80)), jsii.String("Allow from load balancer"))
+appFleet.connections.AllowFromAnyIpv4(ec2.Port_HTTP(), jsii.String("Allow from load balancer"))
 ```
 
 ### Port Ranges
@@ -874,6 +881,7 @@ the connection specifier:
 
 ```go
 ec2.Port_Tcp(jsii.Number(80))
+ec2.Port_HTTPS()
 ec2.Port_TcpRange(jsii.Number(60000), jsii.Number(65535))
 ec2.Port_AllTcp()
 ec2.Port_AllIcmp()
@@ -928,7 +936,7 @@ mySecurityGroupWithoutInlineRules := ec2.NewSecurityGroup(this, jsii.String("Sec
 	DisableInlineRules: jsii.Boolean(true),
 })
 //This will add the rule as an external cloud formation construct
-mySecurityGroupWithoutInlineRules.AddIngressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(22)), jsii.String("allow ssh access from the world"))
+mySecurityGroupWithoutInlineRules.AddIngressRule(ec2.Peer_AnyIpv4(), ec2.Port_SSH(), jsii.String("allow ssh access from the world"))
 ```
 
 ### Importing an existing security group

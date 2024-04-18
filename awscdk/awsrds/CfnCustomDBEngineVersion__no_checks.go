@@ -80,10 +80,6 @@ func validateCfnCustomDBEngineVersion_IsConstructParameters(x interface{}) error
 	return nil
 }
 
-func (j *jsiiProxy_CfnCustomDBEngineVersion) validateSetDatabaseInstallationFilesS3BucketNameParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCustomDBEngineVersion) validateSetEngineParameters(val *string) error {
 	return nil
 }
@@ -93,6 +89,10 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) validateSetEngineVersionParameters(
 }
 
 func (j *jsiiProxy_CfnCustomDBEngineVersion) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCustomDBEngineVersion) validateSetUseAwsProvidedLatestImageParameters(val interface{}) error {
 	return nil
 }
 

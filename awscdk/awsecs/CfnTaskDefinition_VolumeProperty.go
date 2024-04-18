@@ -35,6 +35,16 @@ package awsecs
 //   		TransitEncryption: jsii.String("transitEncryption"),
 //   		TransitEncryptionPort: jsii.Number(123),
 //   	},
+//   	FSxWindowsFileServerVolumeConfiguration: &FSxWindowsFileServerVolumeConfigurationProperty{
+//   		FileSystemId: jsii.String("fileSystemId"),
+//   		RootDirectory: jsii.String("rootDirectory"),
+//
+//   		// the properties below are optional
+//   		AuthorizationConfig: &FSxAuthorizationConfigProperty{
+//   			CredentialsParameter: jsii.String("credentialsParameter"),
+//   			Domain: jsii.String("domain"),
+//   		},
+//   	},
 //   	Host: &HostVolumePropertiesProperty{
 //   		SourcePath: jsii.String("sourcePath"),
 //   	},
@@ -64,6 +74,10 @@ type CfnTaskDefinition_VolumeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
 	//
 	EfsVolumeConfiguration interface{} `field:"optional" json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
+	// This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-fsxwindowsfileservervolumeconfiguration
+	//
+	FSxWindowsFileServerVolumeConfiguration interface{} `field:"optional" json:"fSxWindowsFileServerVolumeConfiguration" yaml:"fSxWindowsFileServerVolumeConfiguration"`
 	// This parameter is specified when you use bind mount host volumes.
 	//
 	// The contents of the `host` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the `host` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.

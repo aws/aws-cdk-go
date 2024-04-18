@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnAlarm) validateSetMetricsParameters(val interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnAlarm) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnAlarmParameters(scope constructs.Construct, id *string, props *CfnAlarmProps) error {
 	return nil
 }

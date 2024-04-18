@@ -22,6 +22,7 @@ import (
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	CertificateArn: jsii.String("certificateArn"),
 //   	DeviceName: jsii.String("deviceName"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -42,6 +43,9 @@ type CfnCustomerGateway interface {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	BgpAsn() *float64
 	SetBgpAsn(val *float64)
+	// The Amazon Resource Name (ARN) for the customer gateway certificate.
+	CertificateArn() *string
+	SetCertificateArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -253,6 +257,16 @@ func (j *jsiiProxy_CfnCustomerGateway) BgpAsn() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomerGateway) CertificateArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"certificateArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomerGateway) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -438,6 +452,14 @@ func (j *jsiiProxy_CfnCustomerGateway)SetBgpAsn(val *float64) {
 	_jsii_.Set(
 		j,
 		"bgpAsn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomerGateway)SetCertificateArn(val *string) {
+	_jsii_.Set(
+		j,
+		"certificateArn",
 		val,
 	)
 }

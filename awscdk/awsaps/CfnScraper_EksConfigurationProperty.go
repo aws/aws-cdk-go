@@ -1,7 +1,7 @@
 package awsaps
 
 
-// Configuration for EKS metrics source.
+// The `EksConfiguration` structure describes the connection to the Amazon EKS cluster from which a scraper collects metrics.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,15 +23,15 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html
 //
 type CfnScraper_EksConfigurationProperty struct {
-	// ARN of an EKS cluster.
+	// ARN of the Amazon EKS cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html#cfn-aps-scraper-eksconfiguration-clusterarn
 	//
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
-	// List of subnet IDs.
+	// A list of subnet IDs for the Amazon EKS cluster VPC configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html#cfn-aps-scraper-eksconfiguration-subnetids
 	//
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
-	// List of security group IDs.
+	// A list of the security group IDs for the Amazon EKS cluster VPC configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html#cfn-aps-scraper-eksconfiguration-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`

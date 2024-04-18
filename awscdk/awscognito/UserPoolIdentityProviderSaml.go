@@ -12,46 +12,26 @@ import (
 // Represents an identity provider that integrates with SAML.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   userpool := cognito.NewUserPool(this, jsii.String("Pool"))
 //
-//   var providerAttribute providerAttribute
-//   var userPool userPool
-//   var userPoolIdentityProviderSamlMetadata userPoolIdentityProviderSamlMetadata
+//   // specify the metadata as a file content
+//   // specify the metadata as a file content
+//   cognito.NewUserPoolIdentityProviderSaml(this, jsii.String("userpoolIdpFile"), &UserPoolIdentityProviderSamlProps{
+//   	UserPool: userpool,
+//   	Metadata: cognito.UserPoolIdentityProviderSamlMetadata_File(jsii.String("my-file-contents")),
+//   	// Whether to require encrypted SAML assertions from IdP
+//   	EncryptedResponses: jsii.Boolean(true),
+//   	// The signing algorithm for the SAML requests
+//   	RequestSigningAlgorithm: cognito.SigningAlgorithm_RSA_SHA256,
+//   	// Enable IdP initiated SAML auth flow
+//   	IdpInitiated: jsii.Boolean(true),
+//   })
 //
-//   userPoolIdentityProviderSaml := awscdk.Aws_cognito.NewUserPoolIdentityProviderSaml(this, jsii.String("MyUserPoolIdentityProviderSaml"), &UserPoolIdentityProviderSamlProps{
-//   	Metadata: userPoolIdentityProviderSamlMetadata,
-//   	UserPool: userPool,
-//
-//   	// the properties below are optional
-//   	AttributeMapping: &AttributeMapping{
-//   		Address: providerAttribute,
-//   		Birthdate: providerAttribute,
-//   		Custom: map[string]*providerAttribute{
-//   			"customKey": providerAttribute,
-//   		},
-//   		Email: providerAttribute,
-//   		FamilyName: providerAttribute,
-//   		Fullname: providerAttribute,
-//   		Gender: providerAttribute,
-//   		GivenName: providerAttribute,
-//   		LastUpdateTime: providerAttribute,
-//   		Locale: providerAttribute,
-//   		MiddleName: providerAttribute,
-//   		Nickname: providerAttribute,
-//   		PhoneNumber: providerAttribute,
-//   		PreferredUsername: providerAttribute,
-//   		ProfilePage: providerAttribute,
-//   		ProfilePicture: providerAttribute,
-//   		Timezone: providerAttribute,
-//   		Website: providerAttribute,
-//   	},
-//   	Identifiers: []*string{
-//   		jsii.String("identifiers"),
-//   	},
-//   	IdpSignout: jsii.Boolean(false),
-//   	Name: jsii.String("name"),
+//   // specify the metadata as a URL
+//   // specify the metadata as a URL
+//   cognito.NewUserPoolIdentityProviderSaml(this, jsii.String("userpoolidpUrl"), &UserPoolIdentityProviderSamlProps{
+//   	UserPool: userpool,
+//   	Metadata: cognito.UserPoolIdentityProviderSamlMetadata_Url(jsii.String("https://my-metadata-url.com")),
 //   })
 //
 type UserPoolIdentityProviderSaml interface {

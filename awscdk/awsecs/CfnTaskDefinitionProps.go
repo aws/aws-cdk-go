@@ -272,6 +272,16 @@ import (
 //   				TransitEncryption: jsii.String("transitEncryption"),
 //   				TransitEncryptionPort: jsii.Number(123),
 //   			},
+//   			FSxWindowsFileServerVolumeConfiguration: &FSxWindowsFileServerVolumeConfigurationProperty{
+//   				FileSystemId: jsii.String("fileSystemId"),
+//   				RootDirectory: jsii.String("rootDirectory"),
+//
+//   				// the properties below are optional
+//   				AuthorizationConfig: &FSxAuthorizationConfigProperty{
+//   					CredentialsParameter: jsii.String("credentialsParameter"),
+//   					Domain: jsii.String("domain"),
+//   				},
+//   			},
 //   			Host: &HostVolumePropertiesProperty{
 //   				SourcePath: jsii.String("sourcePath"),
 //   			},

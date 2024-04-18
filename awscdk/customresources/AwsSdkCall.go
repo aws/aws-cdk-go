@@ -66,6 +66,18 @@ type AwsSdkCall struct {
 	// Default: - do not catch errors.
 	//
 	IgnoreErrorCodesMatching *string `field:"optional" json:"ignoreErrorCodesMatching" yaml:"ignoreErrorCodesMatching"`
+	// A property used to configure logging during lambda function execution.
+	//
+	// Note: The default Logging configuration is all. This configuration will enable logging on all logged data
+	// in the lambda handler. This includes:
+	//  - The event object that is received by the lambda handler
+	//  - The response received after making a API call
+	//  - The response object that the lambda handler will return
+	//  - SDK versioning information
+	// - Caught and uncaught errors.
+	// Default: Logging.all()
+	//
+	Logging Logging `field:"optional" json:"logging" yaml:"logging"`
 	// Restrict the data returned by the custom resource to specific paths in the API response.
 	//
 	// Use this to limit the data returned by the custom

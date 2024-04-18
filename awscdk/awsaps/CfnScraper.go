@@ -9,7 +9,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::APS::Scraper.
+// A scraper is a fully-managed agentless collector that discovers and pulls metrics automatically.
+//
+// A scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS cluster, and sends them to your Amazon Managed Service for Prometheus workspace. Scrapers are flexible. You can configure the scraper to control what metrics are collected, the frequency of collection, what transformations are applied to the metrics, and more.
+//
+// An IAM role will be created for you that Amazon Managed Service for Prometheus uses to access the metrics in your cluster. You must configure this role with a policy that allows it to scrape metrics from your cluster. For more information, see [Configuring your Amazon EKS cluster](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup) in the *Amazon Managed Service for Prometheus User Guide* .
+//
+// The `scrapeConfiguration` parameter contains the YAML configuration for the scraper.
+//
+// > For more information about collectors, including what metrics are collected, and how to configure the scraper, see [Using an AWS managed collector](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html) in the *Amazon Managed Service for Prometheus User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,14 +63,20 @@ type CfnScraper interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Scraper alias.
+	// An optional user-assigned scraper alias.
 	Alias() *string
 	SetAlias(val *string)
-	// Scraper ARN.
+	// The Amazon Resource Name (ARN) of the scraper.
+	//
+	// For example, `arn:aws:aps:<region>:123456798012:scraper/s-example1-1234-abcd-5678-ef9012abcd34` .
 	AttrArn() *string
-	// IAM role ARN for the scraper.
+	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover and collect metrics on your behalf.
+	//
+	// For example, `arn:aws:iam::123456789012:role/service-role/AmazonGrafanaServiceRole-12example` .
 	AttrRoleArn() *string
-	// Required to identify a specific scraper.
+	// The ID of the scraper.
+	//
+	// For example, `s-example1-1234-abcd-5678-ef9012abcd34` .
 	AttrScraperId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -75,7 +89,7 @@ type CfnScraper interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Scraper metrics destination.
+	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
 	Destination() interface{}
 	SetDestination(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -95,17 +109,17 @@ type CfnScraper interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Scraper configuration.
+	// The configuration in use by the scraper.
 	ScrapeConfiguration() interface{}
 	SetScrapeConfiguration(val interface{})
-	// Scraper metrics source.
+	// The Amazon EKS cluster from which the scraper collects metrics.
 	Source() interface{}
 	SetSource(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// (Optional) The list of tag keys and values associated with the scraper.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

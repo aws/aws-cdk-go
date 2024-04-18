@@ -59,7 +59,7 @@ type CfnFrameworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html#cfn-backup-framework-frameworkname
 	//
 	FrameworkName *string `field:"optional" json:"frameworkName" yaml:"frameworkName"`
-	// A list of tags with which to tag your framework.
+	// The tags to add your framework.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html#cfn-backup-framework-frameworktags
 	//
 	FrameworkTags *[]*awscdk.CfnTag `field:"optional" json:"frameworkTags" yaml:"frameworkTags"`

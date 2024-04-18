@@ -49,6 +49,8 @@ type CfnVpcConnectorProps struct {
 	// A list of metadata items that you can associate with your VPC connector resource.
 	//
 	// A tag is a key-value pair.
+	//
+	// > A `VpcConnector` is immutable, so you cannot update its tags. To change the tags, replace the resource. To replace a `VpcConnector` , you must provide a new combination of security groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

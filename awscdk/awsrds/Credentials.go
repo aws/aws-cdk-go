@@ -23,16 +23,22 @@ import (
 //   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
 //
 //   // Create the serverless cluster, provide all values needed to customise the database.
-//   cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &ServerlessClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
-//   	Vpc: Vpc,
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("AuroraClusterV2"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AuroraPostgres(&AuroraPostgresClusterEngineProps{
+//   		Version: rds.AuroraPostgresEngineVersion_VER_15_5(),
+//   	}),
 //   	Credentials: map[string]*string{
 //   		"username": jsii.String("clusteradmin"),
 //   	},
 //   	ClusterIdentifier: jsii.String("db-endpoint-test"),
+//   	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
+//   	ServerlessV2MinCapacity: jsii.Number(2),
+//   	ServerlessV2MaxCapacity: jsii.Number(10),
+//   	Vpc: Vpc,
 //   	DefaultDatabaseName: jsii.String("demos"),
+//   	EnableDataApi: jsii.Boolean(true),
 //   })
-//   rdsDS := api.AddRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+//   rdsDS := api.AddRdsDataSourceV2(jsii.String("rds"), cluster, secret, jsii.String("demos"))
 //
 //   // Set up a resolver for an RDS query.
 //   rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps{

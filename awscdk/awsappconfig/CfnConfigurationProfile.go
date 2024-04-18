@@ -22,7 +22,7 @@ import (
 // - Create an application
 // - Create an environment
 // - Create a configuration profile
-// - Create a deployment strategy
+// - Choose a pre-defined deployment strategy or create your own
 // - Deploy the configuration
 //
 // For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
@@ -69,7 +69,7 @@ type CfnConfigurationProfile interface {
 	AttrConfigurationProfileId() *string
 	// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store.
 	//
-	// This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+	// This attribute is only used for `hosted` configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
 	AttrKmsKeyArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager

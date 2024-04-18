@@ -17,6 +17,9 @@ package awsverifiedpermissions
 //   			ClientIds: []*string{
 //   				jsii.String("clientIds"),
 //   			},
+//   			GroupConfiguration: &CognitoGroupConfigurationProperty{
+//   				GroupEntityType: jsii.String("groupEntityType"),
+//   			},
 //   		},
 //   	},
 //   	PolicyStoreId: jsii.String("policyStoreId"),
@@ -28,13 +31,7 @@ package awsverifiedpermissions
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html
 //
 type CfnIdentitySourceProps struct {
-	// Contains configuration information used when creating a new identity source.
-	//
-	// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-	// >
-	// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
-	//
-	// This data type is used as a request parameter for the [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) operation.
+	// Contains configuration information about an identity source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#cfn-verifiedpermissions-identitysource-configuration
 	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`

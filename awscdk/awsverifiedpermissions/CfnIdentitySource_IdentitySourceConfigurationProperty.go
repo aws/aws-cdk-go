@@ -20,6 +20,9 @@ package awsverifiedpermissions
 //   		ClientIds: []*string{
 //   			jsii.String("clientIds"),
 //   		},
+//   		GroupConfiguration: &CognitoGroupConfigurationProperty{
+//   			GroupEntityType: jsii.String("groupEntityType"),
+//   		},
 //   	},
 //   }
 //

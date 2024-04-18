@@ -96,7 +96,7 @@ type CfnRuleGroupsNamespace interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// An Amazon Managed Service for Prometheus workspace is a logical and isolated Prometheus server dedicated to ingesting, storing, and querying your Prometheus-compatible metrics.
+	// The ID of the workspace to add the rule groups namespace.
 	Workspace() *string
 	SetWorkspace(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

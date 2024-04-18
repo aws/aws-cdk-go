@@ -38,8 +38,8 @@ type CfnDatasetProps struct {
 	// - Interactions
 	// - Items
 	// - Users
-	// - Actions
-	// - Action_Interactions.
+	//
+	// > You can't use CloudFormation to create an Action Interactions or Actions dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasettype
 	//
 	DatasetType *string `field:"required" json:"datasetType" yaml:"datasetType"`

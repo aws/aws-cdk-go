@@ -18,8 +18,8 @@ import (
 // - Item interactions
 // - Items
 // - Users
-// - Action interactions
-// - Actions
+// - Action interactions (you can't use CloudFormation to create an Action interactions dataset)
+// - Actions (you can't use CloudFormation to create an Actions dataset)
 //
 // Each dataset type has an associated schema with required field types. Only the `Item interactions` dataset is required in order to train a model (also referred to as creating a solution).
 //

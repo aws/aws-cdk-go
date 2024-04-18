@@ -79,6 +79,12 @@ import (
 //   	},
 //   	Period: jsii.Number(123),
 //   	Statistic: jsii.String("statistic"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Threshold: jsii.Number(123),
 //   	ThresholdMetricId: jsii.String("thresholdMetricId"),
 //   	TreatMissingData: jsii.String("treatMissingData"),
@@ -90,6 +96,7 @@ import (
 type CfnAlarm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Indicates whether actions should be executed during any changes to the alarm state.
 	ActionsEnabled() interface{}
 	SetActionsEnabled(val interface{})
@@ -104,6 +111,8 @@ type CfnAlarm interface {
 	SetAlarmName(val *string)
 	// The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
 	AttrArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -177,6 +186,9 @@ type CfnAlarm interface {
 	// For percentile statistics, use `ExtendedStatistic` .
 	Statistic() *string
 	SetStatistic(val *string)
+	// A list of key-value pairs to associate with the alarm.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The value to compare with the specified statistic.
 	Threshold() *float64
 	SetThreshold(val *float64)
@@ -333,6 +345,7 @@ type CfnAlarm interface {
 type jsiiProxy_CfnAlarm struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAlarm) ActionsEnabled() interface{} {
@@ -380,6 +393,16 @@ func (j *jsiiProxy_CfnAlarm) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAlarm) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -590,6 +613,16 @@ func (j *jsiiProxy_CfnAlarm) Statistic() *string {
 	_jsii_.Get(
 		j,
 		"statistic",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAlarm) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -830,6 +863,17 @@ func (j *jsiiProxy_CfnAlarm)SetStatistic(val *string) {
 	_jsii_.Set(
 		j,
 		"statistic",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAlarm)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

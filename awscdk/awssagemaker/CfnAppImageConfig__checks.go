@@ -187,6 +187,30 @@ func (j *jsiiProxy_CfnAppImageConfig) validateSetAppImageConfigNameParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppImageConfig) validateSetCodeEditorAppImageConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAppImageConfig_CodeEditorAppImageConfigProperty:
+		val := val.(*CfnAppImageConfig_CodeEditorAppImageConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAppImageConfig_CodeEditorAppImageConfigProperty:
+		val_ := val.(CfnAppImageConfig_CodeEditorAppImageConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAppImageConfig_CodeEditorAppImageConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAppImageConfig) validateSetJupyterLabAppImageConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

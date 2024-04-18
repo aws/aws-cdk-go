@@ -12,15 +12,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCustomDBEngineVersionProps := &CfnCustomDBEngineVersionProps{
-//   	DatabaseInstallationFilesS3BucketName: jsii.String("databaseInstallationFilesS3BucketName"),
 //   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //
 //   	// the properties below are optional
+//   	DatabaseInstallationFilesS3BucketName: jsii.String("databaseInstallationFilesS3BucketName"),
 //   	DatabaseInstallationFilesS3Prefix: jsii.String("databaseInstallationFilesS3Prefix"),
 //   	Description: jsii.String("description"),
+//   	ImageId: jsii.String("imageId"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	Manifest: jsii.String("manifest"),
+//   	SourceCustomDbEngineVersionIdentifier: jsii.String("sourceCustomDbEngineVersionIdentifier"),
 //   	Status: jsii.String("status"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -28,17 +30,12 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseAwsProvidedLatestImage: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html
 //
 type CfnCustomDBEngineVersionProps struct {
-	// The name of an Amazon S3 bucket that contains database installation files for your CEV.
-	//
-	// For example, a valid bucket name is `my-custom-installation-files` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-databaseinstallationfiless3bucketname
-	//
-	DatabaseInstallationFilesS3BucketName *string `field:"required" json:"databaseInstallationFilesS3BucketName" yaml:"databaseInstallationFilesS3BucketName"`
 	// The database engine to use for your custom engine version (CEV).
 	//
 	// Valid values:
@@ -58,6 +55,12 @@ type CfnCustomDBEngineVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-engineversion
 	//
 	EngineVersion *string `field:"required" json:"engineVersion" yaml:"engineVersion"`
+	// The name of an Amazon S3 bucket that contains database installation files for your CEV.
+	//
+	// For example, a valid bucket name is `my-custom-installation-files` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-databaseinstallationfiless3bucketname
+	//
+	DatabaseInstallationFilesS3BucketName *string `field:"optional" json:"databaseInstallationFilesS3BucketName" yaml:"databaseInstallationFilesS3BucketName"`
 	// The Amazon S3 directory that contains the database installation files for your CEV.
 	//
 	// For example, a valid bucket name is `123456789012/cev1` . If this setting isn't specified, no prefix is assumed.
@@ -68,6 +71,10 @@ type CfnCustomDBEngineVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// A value that indicates the ID of the AMI.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-imageid
+	//
+	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// The AWS KMS key identifier for an encrypted CEV.
 	//
 	// A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
@@ -92,6 +99,12 @@ type CfnCustomDBEngineVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-manifest
 	//
 	Manifest *string `field:"optional" json:"manifest" yaml:"manifest"`
+	// The ARN of a CEV to use as a source for creating a new CEV.
+	//
+	// You can specify a different Amazon Machine Imagine (AMI) by using either `Source` or `UseAwsProvidedLatestImage` . You can't specify a different JSON manifest when you specify `SourceCustomDbEngineVersionIdentifier` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-sourcecustomdbengineversionidentifier
+	//
+	SourceCustomDbEngineVersionIdentifier *string `field:"optional" json:"sourceCustomDbEngineVersionIdentifier" yaml:"sourceCustomDbEngineVersionIdentifier"`
 	// A value that indicates the status of a custom engine version (CEV).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-status
 	//
@@ -104,5 +117,11 @@ type CfnCustomDBEngineVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV.
+	//
+	// If you specify `UseAwsProvidedLatestImage` , you can't also specify `ImageId` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-useawsprovidedlatestimage
+	//
+	UseAwsProvidedLatestImage interface{} `field:"optional" json:"useAwsProvidedLatestImage" yaml:"useAwsProvidedLatestImage"`
 }
 

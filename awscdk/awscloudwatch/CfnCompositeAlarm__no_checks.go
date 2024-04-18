@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCompositeAlarm) validateSetAlarmRuleParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnCompositeAlarm) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCompositeAlarmParameters(scope constructs.Construct, id *string, props *CfnCompositeAlarmProps) error {
 	return nil
 }

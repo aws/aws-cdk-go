@@ -369,3 +369,20 @@ topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
 ```
 
 **Note**: The `messageRetentionPeriodInDays` property is only available for FIFO topics.
+
+## TracingConfig
+
+Tracing mode of an Amazon SNS topic.
+
+If PassThrough, the topic passes trace headers received from the Amazon SNS publisher to its subscription.
+If set to Active, Amazon SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
+
+The default TracingConfig is `TracingConfig.PASS_THROUGH`.
+
+Example with a tracingConfig set to Active:
+
+```go
+topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
+	TracingConfig: sns.TracingConfig_ACTIVE,
+})
+```

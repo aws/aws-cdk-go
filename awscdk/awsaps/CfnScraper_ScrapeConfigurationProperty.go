@@ -1,7 +1,9 @@
 package awsaps
 
 
-// Scraper configuration.
+// A scrape configuration for a scraper, base 64 encoded.
+//
+// For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +17,7 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapeconfiguration.html
 //
 type CfnScraper_ScrapeConfigurationProperty struct {
-	// Prometheus compatible scrape configuration in base64 encoded blob format.
+	// The base 64 encoded scrape configuration file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapeconfiguration.html#cfn-aps-scraper-scrapeconfiguration-configurationblob
 	//
 	ConfigurationBlob *string `field:"required" json:"configurationBlob" yaml:"configurationBlob"`

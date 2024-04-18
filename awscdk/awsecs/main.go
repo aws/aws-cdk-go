@@ -801,6 +801,14 @@ func init() {
 		reflect.TypeOf((*CfnTaskDefinition_EphemeralStorageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.FSxAuthorizationConfigProperty",
+		reflect.TypeOf((*CfnTaskDefinition_FSxAuthorizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.FSxWindowsFileServerVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnTaskDefinition_FSxWindowsFileServerVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.FirelensConfigurationProperty",
 		reflect.TypeOf((*CfnTaskDefinition_FirelensConfigurationProperty)(nil)).Elem(),
 	)

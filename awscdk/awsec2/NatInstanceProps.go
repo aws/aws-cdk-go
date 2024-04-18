@@ -14,7 +14,7 @@ package awsec2
 //   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 //   	NatGatewayProvider: provider,
 //   })
-//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
+//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_HTTP())
 //
 type NatInstanceProps struct {
 	// Instance type of the NAT instance.
@@ -64,8 +64,32 @@ type NatInstanceProps struct {
 	//
 	MachineImage IMachineImage `field:"optional" json:"machineImage" yaml:"machineImage"`
 	// Security Group for NAT instances.
+	//
+	// Example:
+	//   natGatewayProvider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
+	//   	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
+	//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_NONE,
+	//   })
+	//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+	//   	NatGatewayProvider: NatGatewayProvider,
+	//   })
+	//
+	//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	//   	Vpc: Vpc,
+	//   	AllowAllOutbound: jsii.Boolean(false),
+	//   })
+	//   securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)))
+	//   for _, gatewayInstance := range natGatewayProvider.gatewayInstances {
+	//   	gatewayInstance.AddSecurityGroup(securityGroup)
+	//   }
+	//
 	// Default: - A new security group will be created.
 	//
+	// Deprecated: - Cannot create a new security group before the VPC is created,
+	// and cannot create the VPC without the NAT provider.
+	// Set {@link defaultAllowedTraffic } to {@link NatTrafficDirection.NONE }
+	// and use {@link NatInstanceProviderV2.gatewayInstances } to retrieve
+	// the instances on the fly and add security groups.
 	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Custom user data to run on the NAT instances.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#create-nat-ami

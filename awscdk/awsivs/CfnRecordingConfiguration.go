@@ -73,7 +73,7 @@ type CfnRecordingConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A destination configuration contains information about where recorded video will be stored.
+	// A destination configuration describes an S3 bucket where recorded video will be stored.
 	DestinationConfiguration() interface{}
 	SetDestinationConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -17,6 +17,7 @@ import (
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	CertificateArn: jsii.String("certificateArn"),
 //   	DeviceName: jsii.String("deviceName"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -47,6 +48,10 @@ type CfnCustomerGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The Amazon Resource Name (ARN) for the customer gateway certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-certificatearn
+	//
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 	// The name of customer gateway device.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-devicename
 	//

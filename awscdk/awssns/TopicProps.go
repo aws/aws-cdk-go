@@ -7,10 +7,8 @@ import (
 // Properties for a new SNS topic.
 //
 // Example:
-//   topic := sns.NewTopic(this, jsii.String("Topic"), &TopicProps{
-//   	ContentBasedDeduplication: jsii.Boolean(true),
-//   	DisplayName: jsii.String("Customer subscription topic"),
-//   	Fifo: jsii.Boolean(true),
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
+//   	TracingConfig: sns.TracingConfig_ACTIVE,
 //   })
 //
 type TopicProps struct {
@@ -64,5 +62,11 @@ type TopicProps struct {
 	// Default: Generated name.
 	//
 	TopicName *string `field:"optional" json:"topicName" yaml:"topicName"`
+	// Tracing mode of an Amazon SNS topic.
+	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-active-tracing.html
+	//
+	// Default: TracingConfig.PASS_THROUGH
+	//
+	TracingConfig TracingConfig `field:"optional" json:"tracingConfig" yaml:"tracingConfig"`
 }
 

@@ -21,7 +21,7 @@ import (
 //   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
 //   	NatGatewayProvider: provider,
 //   })
-//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
+//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_HTTP())
 //
 type NatProvider interface {
 	// Return list of gateways spawned by the provider.

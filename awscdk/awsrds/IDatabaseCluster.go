@@ -21,6 +21,8 @@ type IDatabaseCluster interface {
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Grant the given identity connection access to the Cluster.
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
+	// Grant the given identity to access to the Data API.
+	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBCluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
@@ -134,6 +136,22 @@ func (i *jsiiProxy_IDatabaseCluster) GrantConnect(grantee awsiam.IGrantable, dbU
 		i,
 		"grantConnect",
 		[]interface{}{grantee, dbUser},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IDatabaseCluster) GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantDataApiAccessParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantDataApiAccess",
+		[]interface{}{grantee},
 		&returns,
 	)
 

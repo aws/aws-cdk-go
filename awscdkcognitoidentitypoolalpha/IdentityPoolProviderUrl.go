@@ -3,22 +3,21 @@ package awscdkcognitoidentitypoolalpha
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
 )
 
 // Keys for Login Providers - correspond to client id's of respective federation identity providers.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 //
-//   var userPool userPool
 //
 //   awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 //   	IdentityPoolName: jsii.String("myidentitypool"),
 //   	RoleMappings: []identityPoolRoleMapping{
 //   		&identityPoolRoleMapping{
-//   			MappingKey: jsii.String("cognito"),
-//   			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_UserPool(userPool.UserPoolProviderUrl),
+//   			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_Custom(jsii.String("my-custom-provider.com")),
 //   			UseToken: jsii.Boolean(true),
 //   		},
 //   	},
@@ -151,10 +150,10 @@ func IdentityPoolProviderUrl_Saml(url *string) IdentityPoolProviderUrl {
 
 // User Pool Provider Url.
 // Experimental.
-func IdentityPoolProviderUrl_UserPool(url *string) IdentityPoolProviderUrl {
+func IdentityPoolProviderUrl_UserPool(userPool awscognito.UserPool, userPoolClient awscognito.UserPoolClient) IdentityPoolProviderUrl {
 	_init_.Initialize()
 
-	if err := validateIdentityPoolProviderUrl_UserPoolParameters(url); err != nil {
+	if err := validateIdentityPoolProviderUrl_UserPoolParameters(userPool, userPoolClient); err != nil {
 		panic(err)
 	}
 	var returns IdentityPoolProviderUrl
@@ -162,7 +161,7 @@ func IdentityPoolProviderUrl_UserPool(url *string) IdentityPoolProviderUrl {
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolProviderUrl",
 		"userPool",
-		[]interface{}{url},
+		[]interface{}{userPool, userPoolClient},
 		&returns,
 	)
 

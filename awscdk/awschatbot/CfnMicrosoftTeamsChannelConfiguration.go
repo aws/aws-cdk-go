@@ -93,7 +93,7 @@ type CfnMicrosoftTeamsChannelConfiguration interface {
 	// The ID of the Microsoft Team authorized with AWS Chatbot .
 	TeamId() *string
 	SetTeamId(val *string)
-	// The id of the Microsoft Teams channel.
+	// The ID of the Microsoft Teams channel.
 	TeamsChannelId() *string
 	SetTeamsChannelId(val *string)
 	// The ID of the Microsoft Teams tenant.

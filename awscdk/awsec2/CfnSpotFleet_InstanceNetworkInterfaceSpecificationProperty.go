@@ -101,8 +101,6 @@ type CfnSpotFleet_InstanceNetworkInterfaceSpecificationProperty struct {
 	//
 	SecondaryPrivateIpAddressCount *float64 `field:"optional" json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
 	// The ID of the subnet associated with the network interface.
-	//
-	// Applies only if creating a network interface when launching an instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
 	//
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`

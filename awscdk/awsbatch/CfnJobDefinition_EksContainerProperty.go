@@ -38,6 +38,7 @@ package awsbatch
 //   		Requests: requests,
 //   	},
 //   	SecurityContext: &SecurityContextProperty{
+//   		AllowPrivilegeEscalation: jsii.Boolean(false),
 //   		Privileged: jsii.Boolean(false),
 //   		ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   		RunAsGroup: jsii.Number(123),

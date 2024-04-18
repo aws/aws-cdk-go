@@ -39,5 +39,16 @@ type AddApplicationActionProps struct {
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// Action to perform.
 	Action ListenerAction `field:"required" json:"action" yaml:"action"`
+	// `ListenerRule`s have a `Rule` suffix on their logicalId by default. This allows you to remove that suffix.
+	//
+	// Legacy behavior of the `addTargetGroups()` convenience method did not include the `Rule` suffix on the logicalId of the generated `ListenerRule`.
+	// At some point, increasing complexity of requirements can require users to switch from the `addTargetGroups()` method
+	// to the `addAction()` method.
+	// When migrating `ListenerRule`s deployed by a legacy version of `addTargetGroups()`,
+	// you will need to enable this flag to avoid changing the logicalId of your resource.
+	// Otherwise Cfn will attempt to replace the `ListenerRule` and fail.
+	// Default: - use standard logicalId with the `Rule` suffix.
+	//
+	RemoveSuffix *bool `field:"optional" json:"removeSuffix" yaml:"removeSuffix"`
 }
 

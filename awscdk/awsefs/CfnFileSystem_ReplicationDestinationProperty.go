@@ -18,7 +18,7 @@ package awsefs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html
 //
 type CfnFileSystem_ReplicationDestinationProperty struct {
-	// The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
+	// For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
 	//
 	// Use the format `us-east-1a` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide* .
 	//

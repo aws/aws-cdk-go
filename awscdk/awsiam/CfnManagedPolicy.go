@@ -61,7 +61,6 @@ type CfnManagedPolicy interface {
 	//
 	// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
 	AttrPermissionsBoundaryUsageCount() *float64
-	// Amazon Resource Name (ARN) of the managed policy.
 	AttrPolicyArn() *string
 	// The stable and unique string identifying the policy.
 	//

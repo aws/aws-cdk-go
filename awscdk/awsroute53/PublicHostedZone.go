@@ -92,6 +92,11 @@ type PublicHostedZone interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Enable DNSSEC for this hosted zone.
+	//
+	// This will create a key signing key with the given options and enable DNSSEC signing
+	// for the hosted zone.
+	EnableDnssec(options *ZoneSigningOptions) IKeySigningKey
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -461,6 +466,22 @@ func (p *jsiiProxy_PublicHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPol
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (p *jsiiProxy_PublicHostedZone) EnableDnssec(options *ZoneSigningOptions) IKeySigningKey {
+	if err := p.validateEnableDnssecParameters(options); err != nil {
+		panic(err)
+	}
+	var returns IKeySigningKey
+
+	_jsii_.Invoke(
+		p,
+		"enableDnssec",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (p *jsiiProxy_PublicHostedZone) GeneratePhysicalName() *string {

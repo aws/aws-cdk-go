@@ -529,4 +529,12 @@ func init() {
 		"aws-cdk-lib.aws_sns.TopicSubscriptionConfig",
 		reflect.TypeOf((*TopicSubscriptionConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_sns.TracingConfig",
+		reflect.TypeOf((*TracingConfig)(nil)).Elem(),
+		map[string]interface{}{
+			"PASS_THROUGH": TracingConfig_PASS_THROUGH,
+			"ACTIVE": TracingConfig_ACTIVE,
+		},
+	)
 }

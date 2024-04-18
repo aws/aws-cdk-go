@@ -224,11 +224,14 @@ type CfnDBClusterProps struct {
 	//
 	// > When you apply a parameter group using the `DBInstanceParameterGroupName` parameter, the DB cluster isn't rebooted automatically. Also, parameter changes are applied immediately rather than during the next maintenance window.
 	//
+	// Valid for Cluster Type: Aurora DB clusters only
+	//
 	// Default: The existing name setting
 	//
 	// Constraints:
 	//
 	// - The DB parameter group must be in the same DB parameter group family as this DB cluster.
+	// - The `DBInstanceParameterGroupName` parameter is valid in combination with the `AllowMajorVersionUpgrade` parameter for a major version upgrade only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbinstanceparametergroupname
 	//
 	DbInstanceParameterGroupName *string `field:"optional" json:"dbInstanceParameterGroupName" yaml:"dbInstanceParameterGroupName"`
@@ -334,7 +337,7 @@ type CfnDBClusterProps struct {
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The DB engine mode of the DB cluster, either `provisioned` or `serverless` .
 	//
-	// The `serverless` engine mode only applies for Aurora Serverless v1 DB clusters.
+	// The `serverless` engine mode only applies for Aurora Serverless v1 DB clusters. Aurora Serverless v2 DB clusters use the `provisioned` engine mode.
 	//
 	// For information about limitations and requirements for Serverless DB clusters, see the following sections in the *Amazon Aurora User Guide* :
 	//

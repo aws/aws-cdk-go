@@ -29,6 +29,17 @@ func (h *jsiiProxy_HostedZone) validateApplyRemovalPolicyParameters(policy awscd
 	return nil
 }
 
+func (h *jsiiProxy_HostedZone) validateEnableDnssecParameters(options *ZoneSigningOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (h *jsiiProxy_HostedZone) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

@@ -18,7 +18,7 @@ import (
 // - Create an application
 // - Create an environment
 // - Create a configuration profile
-// - Create a deployment strategy
+// - Choose a pre-defined deployment strategy or create your own
 // - Deploy the configuration
 //
 // For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .

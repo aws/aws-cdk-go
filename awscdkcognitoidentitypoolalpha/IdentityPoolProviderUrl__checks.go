@@ -4,6 +4,8 @@ package awscdkcognitoidentitypoolalpha
 
 import (
 	"fmt"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
 )
 
 func validateIdentityPoolProviderUrl_CustomParameters(url *string) error {
@@ -30,9 +32,13 @@ func validateIdentityPoolProviderUrl_SamlParameters(url *string) error {
 	return nil
 }
 
-func validateIdentityPoolProviderUrl_UserPoolParameters(url *string) error {
-	if url == nil {
-		return fmt.Errorf("parameter url is required, but nil was provided")
+func validateIdentityPoolProviderUrl_UserPoolParameters(userPool awscognito.UserPool, userPoolClient awscognito.UserPoolClient) error {
+	if userPool == nil {
+		return fmt.Errorf("parameter userPool is required, but nil was provided")
+	}
+
+	if userPoolClient == nil {
+		return fmt.Errorf("parameter userPoolClient is required, but nil was provided")
 	}
 
 	return nil

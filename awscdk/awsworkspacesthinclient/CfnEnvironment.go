@@ -87,10 +87,10 @@ type CfnEnvironment interface {
 	// The ID of the software set to apply.
 	DesiredSoftwareSetId() *string
 	SetDesiredSoftwareSetId(val *string)
-	// The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces , WorkSpaces Web, or AppStream 2.0 .
+	// The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
 	DesktopArn() *string
 	SetDesktopArn(val *string)
-	// The URL for the identity provider login (only for environments that use AppStream 2.0 ).
+	// The URL for the identity provider login (only for environments that use AppStream 2.0).
 	DesktopEndpoint() *string
 	SetDesktopEndpoint(val *string)
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.

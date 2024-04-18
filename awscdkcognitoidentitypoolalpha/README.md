@@ -359,7 +359,7 @@ awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool
 })
 ```
 
-For identity providers that don't have static Urls, a custom Url or User Pool Client Url can be supplied:
+For identity providers that don't have static Urls, a custom Url can be supplied:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
@@ -368,10 +368,6 @@ import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
 	RoleMappings: []identityPoolRoleMapping{
-		&identityPoolRoleMapping{
-			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_UserPool(jsii.String("cognito-idp.my-idp-region.amazonaws.com/my-idp-region_abcdefghi:app_client_id")),
-			UseToken: jsii.Boolean(true),
-		},
 		&identityPoolRoleMapping{
 			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_Custom(jsii.String("my-custom-provider.com")),
 			UseToken: jsii.Boolean(true),
@@ -389,13 +385,14 @@ import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
 
 var userPool userPool
+var userPoolClient userPoolClient
 
 awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
 	IdentityPoolName: jsii.String("myidentitypool"),
 	RoleMappings: []identityPoolRoleMapping{
 		&identityPoolRoleMapping{
 			MappingKey: jsii.String("cognito"),
-			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_UserPool(userPool.UserPoolProviderUrl),
+			ProviderUrl: awscdkcognitoidentitypoolalpha.IdentityPoolProviderUrl_UserPool(userPool, userPoolClient),
 			UseToken: jsii.Boolean(true),
 		},
 	},

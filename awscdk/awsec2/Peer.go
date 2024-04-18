@@ -18,17 +18,16 @@ import (
 // directly, as it already implements `IPeer`.
 //
 // Example:
-//   var instanceType instanceType
+//   var vpc vpc
 //
+//   cluster := msk.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+//   	ClusterName: jsii.String("myCluster"),
+//   	KafkaVersion: msk.KafkaVersion_V2_8_1(),
+//   	Vpc: Vpc,
+//   })
 //
-//   provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
-//   	InstanceType: InstanceType,
-//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_OUTBOUND_ONLY,
-//   })
-//   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
-//   	NatGatewayProvider: provider,
-//   })
-//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(80)))
+//   cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(2181)))
+//   cluster.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_Tcp(jsii.Number(9094)))
 //
 type Peer interface {
 }

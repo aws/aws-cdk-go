@@ -8,24 +8,65 @@ import (
 // MappingTemplates for AppSync resolvers.
 //
 // Example:
-//   import events "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
-//   	Name: jsii.String("EventBridgeApi"),
-//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
+//   // Build a data source for AppSync to access the database.
+//   var api graphqlApi
+//   // Create username and password secret for DB Cluster
+//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &DatabaseSecretProps{
+//   	Username: jsii.String("clusteradmin"),
 //   })
 //
-//   bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{
+//   // The VPC to place the cluster in
+//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
+//
+//   // Create the serverless cluster, provide all values needed to customise the database.
+//   cluster := rds.NewServerlessCluster(this, jsii.String("AuroraCluster"), &ServerlessClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
+//   	Vpc: Vpc,
+//   	Credentials: map[string]*string{
+//   		"username": jsii.String("clusteradmin"),
+//   	},
+//   	ClusterIdentifier: jsii.String("db-endpoint-test"),
+//   	DefaultDatabaseName: jsii.String("demos"),
+//   })
+//   rdsDS := api.AddRdsDataSource(jsii.String("rds"), cluster, secret, jsii.String("demos"))
+//
+//   // Set up a resolver for an RDS query.
+//   rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps{
+//   	TypeName: jsii.String("Query"),
+//   	FieldName: jsii.String("getDemosRds"),
+//   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jsii.String(`
+//   	  {
+//   	    "version": "2018-05-29",
+//   	    "statements": [
+//   	      "SELECT * FROM demos"
+//   	    ]
+//   	  }
+//   	  `)),
+//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
+//   	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
+//   	  `)),
 //   })
 //
-//   dataSource := api.AddEventBridgeDataSource(jsii.String("NoneDS"), bus)
-//
-//   dataSource.CreateResolver(jsii.String("EventResolver"), &BaseResolverProps{
+//   // Set up a resolver for an RDS mutation.
+//   rdsDS.CreateResolver(jsii.String("MutationAddDemoRdsResolver"), &BaseResolverProps{
 //   	TypeName: jsii.String("Mutation"),
-//   	FieldName: jsii.String("emitEvent"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
+//   	FieldName: jsii.String("addDemoRds"),
+//   	RequestMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
+//   	  {
+//   	    "version": "2018-05-29",
+//   	    "statements": [
+//   	      "INSERT INTO demos VALUES (:id, :version)",
+//   	      "SELECT * WHERE id = :id"
+//   	    ],
+//   	    "variableMap": {
+//   	      ":id": $util.toJson($util.autoId()),
+//   	      ":version": $util.toJson($ctx.args.version)
+//   	    }
+//   	  }
+//   	  `)),
+//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
+//   	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])
+//   	  `)),
 //   })
 //
 type MappingTemplate interface {

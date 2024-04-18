@@ -10,11 +10,15 @@ package awselasticache
 //
 //   cacheUsageLimitsProperty := &CacheUsageLimitsProperty{
 //   	DataStorage: &DataStorageProperty{
-//   		Maximum: jsii.Number(123),
 //   		Unit: jsii.String("unit"),
+//
+//   		// the properties below are optional
+//   		Maximum: jsii.Number(123),
+//   		Minimum: jsii.Number(123),
 //   	},
 //   	EcpuPerSecond: &ECPUPerSecondProperty{
 //   		Maximum: jsii.Number(123),
+//   		Minimum: jsii.Number(123),
 //   	},
 //   }
 //

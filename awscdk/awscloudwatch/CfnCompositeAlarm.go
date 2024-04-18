@@ -17,8 +17,6 @@ import (
 //
 // Using composite alarms can reduce alarm noise. You can create multiple metric alarms, and also create a composite alarm and set up alerts only for the composite alarm. For example, you could create a composite alarm that goes into ALARM state only when more than one of the underlying metric alarms are in ALARM state.
 //
-// Currently, the only alarm actions that can be taken by composite alarms are notifying SNS topics.
-//
 // When this operation creates an alarm, the alarm state is immediately set to INSUFFICIENT_DATA. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed. For a composite alarm, this initial time after creation is the only time that the alarm can be in INSUFFICIENT_DATA state.
 //
 // When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
@@ -47,6 +45,12 @@ import (
 //   	OkActions: []*string{
 //   		jsii.String("okActions"),
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
@@ -54,6 +58,7 @@ import (
 type CfnCompositeAlarm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm.
 	ActionsEnabled() interface{}
 	SetActionsEnabled(val interface{})
@@ -80,6 +85,8 @@ type CfnCompositeAlarm interface {
 	SetAlarmRule(val *string)
 	// The ARN of the composite alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm/CompositeAlarmName` .
 	AttrArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -116,6 +123,9 @@ type CfnCompositeAlarm interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of key-value pairs to associate with the alarm.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,6 +270,7 @@ type CfnCompositeAlarm interface {
 type jsiiProxy_CfnCompositeAlarm struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCompositeAlarm) ActionsEnabled() interface{} {
@@ -347,6 +358,16 @@ func (j *jsiiProxy_CfnCompositeAlarm) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCompositeAlarm) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -447,6 +468,16 @@ func (j *jsiiProxy_CfnCompositeAlarm) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCompositeAlarm) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -582,6 +613,17 @@ func (j *jsiiProxy_CfnCompositeAlarm)SetOkActions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"okActions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCompositeAlarm)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

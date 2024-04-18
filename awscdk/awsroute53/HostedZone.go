@@ -14,14 +14,16 @@ import (
 // Container for records, and records contain information about how to route traffic for a specific domain, such as example.com and its subdomains (acme.example.com, zenith.example.com).
 //
 // Example:
-//   myHostedZone := route53.NewHostedZone(this, jsii.String("HostedZone"), &HostedZoneProps{
+//   kmsKey := kms.NewKey(this, jsii.String("KmsCMK"), &KeyProps{
+//   	KeySpec: kms.KeySpec_ECC_NIST_P256,
+//   	KeyUsage: kms.KeyUsage_SIGN_VERIFY,
+//   })
+//   hostedZone := route53.NewHostedZone(this, jsii.String("HostedZone"), &HostedZoneProps{
 //   	ZoneName: jsii.String("example.com"),
 //   })
-//   acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-//   	DomainName: jsii.String("hello.example.com"),
-//   	CertificateName: jsii.String("Hello World Service"),
-//   	 // Optionally provide an certificate name
-//   	Validation: acm.CertificateValidation_FromDns(myHostedZone),
+//   // Enable DNSSEC signing for the zone
+//   hostedZone.EnableDnssec(&ZoneSigningOptions{
+//   	KmsKey: KmsKey,
 //   })
 //
 type HostedZone interface {
@@ -72,6 +74,11 @@ type HostedZone interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Enable DNSSEC for this hosted zone.
+	//
+	// This will create a key signing key with the given options and enable DNSSEC signing
+	// for the hosted zone.
+	EnableDnssec(options *ZoneSigningOptions) IKeySigningKey
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -377,6 +384,22 @@ func (h *jsiiProxy_HostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (h *jsiiProxy_HostedZone) EnableDnssec(options *ZoneSigningOptions) IKeySigningKey {
+	if err := h.validateEnableDnssecParameters(options); err != nil {
+		panic(err)
+	}
+	var returns IKeySigningKey
+
+	_jsii_.Invoke(
+		h,
+		"enableDnssec",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (h *jsiiProxy_HostedZone) GeneratePhysicalName() *string {

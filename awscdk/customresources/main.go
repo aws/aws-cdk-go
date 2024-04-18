@@ -44,6 +44,18 @@ func init() {
 		reflect.TypeOf((*AwsSdkCall)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.custom_resources.Logging",
+		reflect.TypeOf((*Logging)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Logging{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.custom_resources.LoggingProps",
+		reflect.TypeOf((*LoggingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.custom_resources.PhysicalResourceId",
 		reflect.TypeOf((*PhysicalResourceId)(nil)).Elem(),
 		[]_jsii_.Member{

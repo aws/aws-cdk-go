@@ -59,6 +59,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource.CognitoGroupConfigurationProperty",
+		reflect.TypeOf((*CfnIdentitySource_CognitoGroupConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource.CognitoUserPoolConfigurationProperty",
 		reflect.TypeOf((*CfnIdentitySource_CognitoUserPoolConfigurationProperty)(nil)).Elem(),
 	)

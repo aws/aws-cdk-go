@@ -235,6 +235,10 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_HostPathProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.ImagePullSecretProperty",
+		reflect.TypeOf((*CfnJobDefinition_ImagePullSecretProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.LinuxParametersProperty",
 		reflect.TypeOf((*CfnJobDefinition_LinuxParametersProperty)(nil)).Elem(),
 	)

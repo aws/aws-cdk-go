@@ -1,7 +1,7 @@
 package awsaps
 
 
-// Configuration for Amazon Managed Prometheus metrics destination.
+// The `AmpConfiguration` structure defines the Amazon Managed Service for Prometheus instance a scraper should send metrics to.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-ampconfiguration.html
 //
 type CfnScraper_AmpConfigurationProperty struct {
-	// ARN of an Amazon Managed Prometheus workspace.
+	// ARN of the Amazon Managed Service for Prometheus workspace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-ampconfiguration.html#cfn-aps-scraper-ampconfiguration-workspacearn
 	//
 	WorkspaceArn *string `field:"required" json:"workspaceArn" yaml:"workspaceArn"`

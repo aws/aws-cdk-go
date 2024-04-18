@@ -1,7 +1,7 @@
 package awsaps
 
 
-// Scraper metrics source.
+// The source of collected metrics for a scraper.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,7 +25,7 @@ package awsaps
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html
 //
 type CfnScraper_SourceProperty struct {
-	// Configuration for EKS metrics source.
+	// The Amazon EKS cluster from which a scraper collects metrics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html#cfn-aps-scraper-source-eksconfiguration
 	//
 	EksConfiguration interface{} `field:"required" json:"eksConfiguration" yaml:"eksConfiguration"`

@@ -7,6 +7,7 @@ package awsbatch
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   securityContextProperty := &SecurityContextProperty{
+//   	AllowPrivilegeEscalation: jsii.Boolean(false),
 //   	Privileged: jsii.Boolean(false),
 //   	ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   	RunAsGroup: jsii.Number(123),
@@ -17,6 +18,9 @@ package awsbatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html
 //
 type CfnJobDefinition_SecurityContextProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html#cfn-batch-jobdefinition-securitycontext-allowprivilegeescalation
+	//
+	AllowPrivilegeEscalation interface{} `field:"optional" json:"allowPrivilegeEscalation" yaml:"allowPrivilegeEscalation"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-securitycontext.html#cfn-batch-jobdefinition-securitycontext-privileged
 	//
 	Privileged interface{} `field:"optional" json:"privileged" yaml:"privileged"`

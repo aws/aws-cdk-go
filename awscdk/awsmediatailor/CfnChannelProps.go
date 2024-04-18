@@ -36,6 +36,9 @@ import (
 //   	PlaybackMode: jsii.String("playbackMode"),
 //
 //   	// the properties below are optional
+//   	Audiences: []*string{
+//   		jsii.String("audiences"),
+//   	},
 //   	FillerSlate: &SlateSourceProperty{
 //   		SourceLocationName: jsii.String("sourceLocationName"),
 //   		VodSourceName: jsii.String("vodSourceName"),
@@ -76,6 +79,10 @@ type CfnChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-playbackmode
 	//
 	PlaybackMode *string `field:"required" json:"playbackMode" yaml:"playbackMode"`
+	// The list of audiences defined in channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html#cfn-mediatailor-channel-audiences
+	//
+	Audiences *[]*string `field:"optional" json:"audiences" yaml:"audiences"`
 	// The slate used to fill gaps between programs in the schedule.
 	//
 	// You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .

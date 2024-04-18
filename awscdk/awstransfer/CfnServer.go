@@ -166,7 +166,7 @@ type CfnServer interface {
 	// This is disabled by default.
 	S3StorageOptions() interface{}
 	SetS3StorageOptions(val interface{})
-	// Specifies the name of the security policy that is attached to the server.
+	// Specifies the name of the security policy for the server.
 	SecurityPolicyName() *string
 	SetSecurityPolicyName(val *string)
 	// The stack in which this element is defined.

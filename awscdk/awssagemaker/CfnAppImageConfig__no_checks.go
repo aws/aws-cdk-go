@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnAppImageConfig) validateSetAppImageConfigNameParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppImageConfig) validateSetCodeEditorAppImageConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAppImageConfig) validateSetJupyterLabAppImageConfigParameters(val interface{}) error {
 	return nil
 }

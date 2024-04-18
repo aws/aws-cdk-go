@@ -187,7 +187,6 @@ type CfnInstance interface {
 	Affinity() *string
 	SetAffinity(val *string)
 	AttrAvailabilityZone() *string
-	AttrId() *string
 	// The ID of the instance.
 	AttrInstanceId() *string
 	// The private DNS name of the specified instance.
@@ -235,7 +234,7 @@ type CfnInstance interface {
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
 	EbsOptimized() interface{}
 	SetEbsOptimized(val interface{})
-	// Deprecated.
+	// An elastic GPU to associate with the instance.
 	ElasticGpuSpecifications() interface{}
 	SetElasticGpuSpecifications(val interface{})
 	// An elastic inference accelerator to associate with the instance.
@@ -534,16 +533,6 @@ func (j *jsiiProxy_CfnInstance) AttrAvailabilityZone() *string {
 	_jsii_.Get(
 		j,
 		"attrAvailabilityZone",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnInstance) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

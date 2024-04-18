@@ -36,6 +36,10 @@ func (g *jsiiProxy_GraphqlApiBase) validateAddRdsDataSourceParameters(id *string
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApiBase) validateAddRdsDataSourceV2Parameters(id *string, serverlessCluster awsrds.IDatabaseCluster, secretStore awssecretsmanager.ISecret, options *DataSourceOptions) error {
+	return nil
+}
+
 func (g *jsiiProxy_GraphqlApiBase) validateAddSchemaDependencyParameters(construct awscdk.CfnResource) error {
 	return nil
 }

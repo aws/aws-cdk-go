@@ -38,6 +38,8 @@ type IGraphqlApi interface {
 	AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *DataSourceOptions) OpenSearchDataSource
 	// add a new Rds data source to this API.
 	AddRdsDataSource(id *string, serverlessCluster awsrds.IServerlessCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource
+	// add a new Rds Serverless V2 data source to this API.
+	AddRdsDataSourceV2(id *string, serverlessCluster awsrds.IDatabaseCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource
 	// Add schema dependency if not imported.
 	AddSchemaDependency(construct awscdk.CfnResource) *bool
 	// creates a new resolver for this datasource and API using the given properties.
@@ -182,6 +184,22 @@ func (i *jsiiProxy_IGraphqlApi) AddRdsDataSource(id *string, serverlessCluster a
 	_jsii_.Invoke(
 		i,
 		"addRdsDataSource",
+		[]interface{}{id, serverlessCluster, secretStore, databaseName, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGraphqlApi) AddRdsDataSourceV2(id *string, serverlessCluster awsrds.IDatabaseCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource {
+	if err := i.validateAddRdsDataSourceV2Parameters(id, serverlessCluster, secretStore, options); err != nil {
+		panic(err)
+	}
+	var returns RdsDataSource
+
+	_jsii_.Invoke(
+		i,
+		"addRdsDataSourceV2",
 		[]interface{}{id, serverlessCluster, secretStore, databaseName, options},
 		&returns,
 	)

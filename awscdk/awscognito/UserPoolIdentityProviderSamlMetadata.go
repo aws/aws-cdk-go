@@ -8,11 +8,27 @@ import (
 // Metadata for a SAML user pool identity provider.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   userpool := cognito.NewUserPool(this, jsii.String("Pool"))
 //
-//   userPoolIdentityProviderSamlMetadata := awscdk.Aws_cognito.UserPoolIdentityProviderSamlMetadata_File(jsii.String("fileContent"))
+//   // specify the metadata as a file content
+//   // specify the metadata as a file content
+//   cognito.NewUserPoolIdentityProviderSaml(this, jsii.String("userpoolIdpFile"), &UserPoolIdentityProviderSamlProps{
+//   	UserPool: userpool,
+//   	Metadata: cognito.UserPoolIdentityProviderSamlMetadata_File(jsii.String("my-file-contents")),
+//   	// Whether to require encrypted SAML assertions from IdP
+//   	EncryptedResponses: jsii.Boolean(true),
+//   	// The signing algorithm for the SAML requests
+//   	RequestSigningAlgorithm: cognito.SigningAlgorithm_RSA_SHA256,
+//   	// Enable IdP initiated SAML auth flow
+//   	IdpInitiated: jsii.Boolean(true),
+//   })
+//
+//   // specify the metadata as a URL
+//   // specify the metadata as a URL
+//   cognito.NewUserPoolIdentityProviderSaml(this, jsii.String("userpoolidpUrl"), &UserPoolIdentityProviderSamlProps{
+//   	UserPool: userpool,
+//   	Metadata: cognito.UserPoolIdentityProviderSamlMetadata_Url(jsii.String("https://my-metadata-url.com")),
+//   })
 //
 type UserPoolIdentityProviderSamlMetadata interface {
 	// A URL hosting SAML metadata, or the content of a file containing SAML metadata.

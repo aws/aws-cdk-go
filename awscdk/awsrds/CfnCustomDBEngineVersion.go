@@ -17,15 +17,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCustomDBEngineVersion := awscdk.Aws_rds.NewCfnCustomDBEngineVersion(this, jsii.String("MyCfnCustomDBEngineVersion"), &CfnCustomDBEngineVersionProps{
-//   	DatabaseInstallationFilesS3BucketName: jsii.String("databaseInstallationFilesS3BucketName"),
 //   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //
 //   	// the properties below are optional
+//   	DatabaseInstallationFilesS3BucketName: jsii.String("databaseInstallationFilesS3BucketName"),
 //   	DatabaseInstallationFilesS3Prefix: jsii.String("databaseInstallationFilesS3Prefix"),
 //   	Description: jsii.String("description"),
+//   	ImageId: jsii.String("imageId"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	Manifest: jsii.String("manifest"),
+//   	SourceCustomDbEngineVersionIdentifier: jsii.String("sourceCustomDbEngineVersionIdentifier"),
 //   	Status: jsii.String("status"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -33,6 +35,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseAwsProvidedLatestImage: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html
@@ -69,6 +72,9 @@ type CfnCustomDBEngineVersion interface {
 	// The name of your CEV.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	// A value that indicates the ID of the AMI.
+	ImageId() *string
+	SetImageId(val *string)
 	// The AWS KMS key identifier for an encrypted CEV.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -92,6 +98,9 @@ type CfnCustomDBEngineVersion interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The ARN of a CEV to use as a source for creating a new CEV.
+	SourceCustomDbEngineVersionIdentifier() *string
+	SetSourceCustomDbEngineVersionIdentifier(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -115,6 +124,9 @@ type CfnCustomDBEngineVersion interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV.
+	UseAwsProvidedLatestImage() interface{}
+	SetUseAwsProvidedLatestImage(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -359,6 +371,16 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) EngineVersion() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomDBEngineVersion) ImageId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"imageId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomDBEngineVersion) KmsKeyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -404,6 +426,16 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomDBEngineVersion) SourceCustomDbEngineVersionIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceCustomDbEngineVersionIdentifier",
 		&returns,
 	)
 	return returns
@@ -459,6 +491,16 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) UpdatedProperties() *map[string]int
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomDBEngineVersion) UseAwsProvidedLatestImage() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"useAwsProvidedLatestImage",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnCustomDBEngineVersion(scope constructs.Construct, id *string, props *CfnCustomDBEngineVersionProps) CfnCustomDBEngineVersion {
 	_init_.Initialize()
@@ -488,9 +530,6 @@ func NewCfnCustomDBEngineVersion_Override(c CfnCustomDBEngineVersion, scope cons
 }
 
 func (j *jsiiProxy_CfnCustomDBEngineVersion)SetDatabaseInstallationFilesS3BucketName(val *string) {
-	if err := j.validateSetDatabaseInstallationFilesS3BucketNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"databaseInstallationFilesS3BucketName",
@@ -536,6 +575,14 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion)SetEngineVersion(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnCustomDBEngineVersion)SetImageId(val *string) {
+	_jsii_.Set(
+		j,
+		"imageId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCustomDBEngineVersion)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
@@ -548,6 +595,14 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion)SetManifest(val *string) {
 	_jsii_.Set(
 		j,
 		"manifest",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomDBEngineVersion)SetSourceCustomDbEngineVersionIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceCustomDbEngineVersionIdentifier",
 		val,
 	)
 }
@@ -567,6 +622,17 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomDBEngineVersion)SetUseAwsProvidedLatestImage(val interface{}) {
+	if err := j.validateSetUseAwsProvidedLatestImageParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"useAwsProvidedLatestImage",
 		val,
 	)
 }

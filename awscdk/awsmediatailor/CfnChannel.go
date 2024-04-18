@@ -43,6 +43,9 @@ import (
 //   	PlaybackMode: jsii.String("playbackMode"),
 //
 //   	// the properties below are optional
+//   	Audiences: []*string{
+//   		jsii.String("audiences"),
+//   	},
 //   	FillerSlate: &SlateSourceProperty{
 //   		SourceLocationName: jsii.String("sourceLocationName"),
 //   		VodSourceName: jsii.String("vodSourceName"),
@@ -72,6 +75,9 @@ type CfnChannel interface {
 	awscdk.ITaggableV2
 	// <p>The ARN of the channel.</p>.
 	AttrArn() *string
+	// The list of audiences defined in channel.
+	Audiences() *[]*string
+	SetAudiences(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -280,6 +286,16 @@ func (j *jsiiProxy_CfnChannel) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) Audiences() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"audiences",
 		&returns,
 	)
 	return returns
@@ -500,6 +516,14 @@ func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_mediatailor.CfnChannel",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetAudiences(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"audiences",
+		val,
 	)
 }
 
