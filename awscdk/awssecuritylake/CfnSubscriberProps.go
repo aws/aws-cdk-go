@@ -47,15 +47,19 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html
 //
 type CfnSubscriberProps struct {
-	// The Amazon S3 or AWS Lake Formation access type.
+	// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+	//
+	// Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-accesstypes
 	//
 	AccessTypes *[]*string `field:"required" json:"accessTypes" yaml:"accessTypes"`
-	// The ARN for the data lake.
+	// The Amazon Resource Name (ARN) used to create the data lake.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-datalakearn
 	//
 	DataLakeArn *string `field:"required" json:"dataLakeArn" yaml:"dataLakeArn"`
-	// The supported AWS services from which logs and events are collected.
+	// Amazon Security Lake supports log and event collection for natively supported AWS services .
+	//
+	// For more information, see the [Amazon Security Lake User Guide](https://docs.aws.amazon.com//security-lake/latest/userguide/source-management.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-sources
 	//
 	Sources interface{} `field:"required" json:"sources" yaml:"sources"`
@@ -63,11 +67,13 @@ type CfnSubscriberProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-subscriberidentity
 	//
 	SubscriberIdentity interface{} `field:"required" json:"subscriberIdentity" yaml:"subscriberIdentity"`
-	// The name of your Security Lake subscriber account.
+	// The name of your Amazon Security Lake subscriber account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-subscribername
 	//
 	SubscriberName *string `field:"required" json:"subscriberName" yaml:"subscriberName"`
-	// The description for your subscriber account in Security Lake.
+	// The subscriber descriptions for a subscriber account.
+	//
+	// The description for a subscriber includes `subscriberName` , `accountID` , `externalID` , and `subscriberId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-subscriberdescription
 	//
 	SubscriberDescription *string `field:"optional" json:"subscriberDescription" yaml:"subscriberDescription"`

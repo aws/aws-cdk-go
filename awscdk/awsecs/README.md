@@ -383,6 +383,23 @@ fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef
 })
 ```
 
+To specify the process namespace to use for the containers in the task, use the `pidMode` property:
+
+```go
+fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+	RuntimePlatform: &RuntimePlatform{
+		OperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
+		CpuArchitecture: ecs.CpuArchitecture_ARM64(),
+	},
+	MemoryLimitMiB: jsii.Number(512),
+	Cpu: jsii.Number(256),
+	PidMode: ecs.PidMode_HOST,
+})
+```
+
+**Note:** `pidMode` is only supported for tasks that are hosted on AWS Fargate if the tasks are using platform version 1.4.0
+or later (Linux). This isn't supported for Windows containers on Fargate.
+
 To add containers to a task definition, call `addContainer()`:
 
 ```go
@@ -634,6 +651,25 @@ taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOption
 		},
 	},
 })
+```
+
+## Docker labels
+
+You can add labels to the container with the `dockerLabels` property or with the `addDockerLabel` method:
+
+```go
+var taskDefinition taskDefinition
+
+
+container := taskDefinition.AddContainer(jsii.String("cont"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryLimitMiB: jsii.Number(1024),
+	DockerLabels: map[string]*string{
+		"foo": jsii.String("bar"),
+	},
+})
+
+container.AddDockerLabel(jsii.String("label"), jsii.String("value"))
 ```
 
 ### Using Windows containers on Fargate

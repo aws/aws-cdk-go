@@ -82,6 +82,45 @@ This is to prevent deployment failures due to cross-AZ configurations.
 
 ⚠️ When `oneZone` is enabled, `vpcSubnets` cannot be specified.
 
+### Replicating file systems
+
+You can create a replica of your EFS file system in the AWS Region of your preference.
+
+```go
+var vpc vpc
+
+
+// auto generate a regional replication destination file system
+// auto generate a regional replication destination file system
+efs.NewFileSystem(this, jsii.String("RegionalReplicationFileSystem"), &FileSystemProps{
+	Vpc: Vpc,
+	ReplicationConfiguration: efs.ReplicationConfiguration_RegionalFileSystem(jsii.String("us-west-2")),
+})
+
+// auto generate a one zone replication destination file system
+// auto generate a one zone replication destination file system
+efs.NewFileSystem(this, jsii.String("OneZoneReplicationFileSystem"), &FileSystemProps{
+	Vpc: Vpc,
+	ReplicationConfiguration: efs.ReplicationConfiguration_OneZoneFileSystem(jsii.String("us-east-1"), jsii.String("us-east-1a")),
+})
+
+destinationFileSystem := efs.NewFileSystem(this, jsii.String("DestinationFileSystem"), &FileSystemProps{
+	Vpc: Vpc,
+	// set as the read-only file system for use as a replication destination
+	ReplicationOverwriteProtection: efs.ReplicationOverwriteProtection_DISABLED,
+})
+// specify the replication destination file system
+// specify the replication destination file system
+efs.NewFileSystem(this, jsii.String("ReplicationFileSystem"), &FileSystemProps{
+	Vpc: Vpc,
+	ReplicationConfiguration: efs.ReplicationConfiguration_ExistingFileSystem(destinationFileSystem),
+})
+```
+
+**Note**: EFS now supports only one replication destination and thus allows specifying just one `replicationConfiguration` for each file system.
+
+> Visit [Replicating file systems](https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html) for more details.
+
 ### IAM to control file system data access
 
 You can use both IAM identity policies and resource policies to control client access to Amazon EFS resources in a way that is scalable and optimized for cloud environments. Using IAM, you can permit clients to perform specific actions on a file system, including read-only, write, and root access.

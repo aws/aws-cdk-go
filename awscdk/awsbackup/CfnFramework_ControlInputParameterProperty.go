@@ -1,7 +1,7 @@
 package awsbackup
 
 
-// A list of parameters for a control.
+// The parameters for a control.
 //
 // A control can have zero, one, or more than one parameter. An example of a control with two parameters is: "backup plan frequency is at least `daily` and the retention period is at least `1 year` ". The first parameter is `daily` . The second parameter is `1 year` .
 //

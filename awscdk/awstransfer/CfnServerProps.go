@@ -105,6 +105,8 @@ type CfnServerProps struct {
 	//
 	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
 	// Specifies the domain of the storage system that is used for file transfers.
+	//
+	// There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`

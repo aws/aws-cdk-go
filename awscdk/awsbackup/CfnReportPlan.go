@@ -85,7 +85,7 @@ type CfnReportPlan interface {
 	// The unique name of the report plan.
 	ReportPlanName() *string
 	SetReportPlanName(val *string)
-	// A list of tags to tag your report plan.
+	// The tags to assign to your report plan.
 	ReportPlanTags() *[]*awscdk.CfnTag
 	SetReportPlanTags(val *[]*awscdk.CfnTag)
 	// Identifies the report template for the report.

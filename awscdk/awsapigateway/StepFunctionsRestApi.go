@@ -455,6 +455,25 @@ func StepFunctionsRestApi_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+// Return whether the given object is a `RestApi`.
+func StepFunctionsRestApi_IsRestApi(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateStepFunctionsRestApi_IsRestApiParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApi",
+		"isRestApi",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_StepFunctionsRestApi) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
 	if err := s.validateAddApiKeyParameters(id, options); err != nil {
 		panic(err)

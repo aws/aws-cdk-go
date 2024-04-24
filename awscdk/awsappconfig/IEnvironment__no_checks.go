@@ -4,6 +4,10 @@ package awsappconfig
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (i *jsiiProxy_IEnvironment) validateAddDeploymentParameters(configuration IConfiguration) error {
+	return nil
+}
+
 func (i *jsiiProxy_IEnvironment) validateAddExtensionParameters(extension IExtension) error {
 	return nil
 }

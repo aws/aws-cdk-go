@@ -15,6 +15,8 @@ import (
 //   	ApplicationSourceConfig: &ApplicationSourceConfigProperty{
 //   		ExternalUrlConfig: &ExternalUrlConfigProperty{
 //   			AccessUrl: jsii.String("accessUrl"),
+//
+//   			// the properties below are optional
 //   			ApprovedOrigins: []*string{
 //   				jsii.String("approvedOrigins"),
 //   			},
@@ -25,6 +27,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Namespace: jsii.String("namespace"),
+//   	Permissions: []*string{
+//   		jsii.String("permissions"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -52,6 +57,10 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-namespace
 	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
+	// The configuration of events or requests that the application has access to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-permissions
+	//
+	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
 	// The tags used to organize, track, or control access for this resource.
 	//
 	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.

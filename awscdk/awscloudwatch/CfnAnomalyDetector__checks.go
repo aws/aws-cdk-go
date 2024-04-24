@@ -263,6 +263,30 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetDimensionsParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnomalyDetector) validateSetMetricCharacteristicsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAnomalyDetector_MetricCharacteristicsProperty:
+		val := val.(*CfnAnomalyDetector_MetricCharacteristicsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAnomalyDetector_MetricCharacteristicsProperty:
+		val_ := val.(CfnAnomalyDetector_MetricCharacteristicsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAnomalyDetector_MetricCharacteristicsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAnomalyDetector) validateSetMetricMathAnomalyDetectorParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

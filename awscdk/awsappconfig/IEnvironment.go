@@ -9,6 +9,16 @@ import (
 
 type IEnvironment interface {
 	awscdk.IResource
+	// Creates a deployment of the supplied configuration to this environment.
+	//
+	// Note that you can only deploy one configuration at a time to an environment.
+	// However, you can deploy one configuration each to different environments at the same time.
+	// If more than one deployment is requested for this environment, they will occur in the same order they were provided.
+	AddDeployment(configuration IConfiguration)
+	// Creates a deployment for each of the supplied configurations to this environment.
+	//
+	// These configurations will be deployed in the same order as the input array.
+	AddDeployments(configurations ...IConfiguration)
 	// Adds an extension association to the environment.
 	AddExtension(extension IExtension)
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the environment.
@@ -46,6 +56,30 @@ type IEnvironment interface {
 // The jsii proxy for IEnvironment
 type jsiiProxy_IEnvironment struct {
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IEnvironment) AddDeployment(configuration IConfiguration) {
+	if err := i.validateAddDeploymentParameters(configuration); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"addDeployment",
+		[]interface{}{configuration},
+	)
+}
+
+func (i *jsiiProxy_IEnvironment) AddDeployments(configurations ...IConfiguration) {
+	args := []interface{}{}
+	for _, a := range configurations {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		i,
+		"addDeployments",
+		args,
+	)
 }
 
 func (i *jsiiProxy_IEnvironment) AddExtension(extension IExtension) {

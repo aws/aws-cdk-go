@@ -190,6 +190,8 @@ type FirelensLogRouter interface {
 	VolumesFrom() *[]*VolumeFrom
 	// This method adds one or more container dependencies to the container.
 	AddContainerDependencies(containerDependencies ...*ContainerDependency)
+	// This method adds a Docker label to the container.
+	AddDockerLabel(name *string, value *string)
 	// This method adds an environment variable to the container.
 	AddEnvironment(name *string, value *string)
 	// This method adds one or more resources to the container.
@@ -529,6 +531,17 @@ func (f *jsiiProxy_FirelensLogRouter) AddContainerDependencies(containerDependen
 		f,
 		"addContainerDependencies",
 		args,
+	)
+}
+
+func (f *jsiiProxy_FirelensLogRouter) AddDockerLabel(name *string, value *string) {
+	if err := f.validateAddDockerLabelParameters(name, value); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"addDockerLabel",
+		[]interface{}{name, value},
 	)
 }
 

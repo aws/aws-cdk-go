@@ -20,6 +20,8 @@ import (
 //   	ApplicationSourceConfig: &ApplicationSourceConfigProperty{
 //   		ExternalUrlConfig: &ExternalUrlConfigProperty{
 //   			AccessUrl: jsii.String("accessUrl"),
+//
+//   			// the properties below are optional
 //   			ApprovedOrigins: []*string{
 //   				jsii.String("approvedOrigins"),
 //   			},
@@ -30,6 +32,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Namespace: jsii.String("namespace"),
+//   	Permissions: []*string{
+//   		jsii.String("permissions"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -83,6 +88,9 @@ type CfnApplication interface {
 	SetNamespace(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The configuration of events or requests that the application has access to.
+	Permissions() *[]*string
+	SetPermissions(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -372,6 +380,16 @@ func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) Permissions() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"permissions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -487,6 +505,14 @@ func (j *jsiiProxy_CfnApplication)SetNamespace(val *string) {
 	_jsii_.Set(
 		j,
 		"namespace",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetPermissions(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"permissions",
 		val,
 	)
 }

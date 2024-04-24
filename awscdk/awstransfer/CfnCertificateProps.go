@@ -36,7 +36,11 @@ type CfnCertificateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-certificate.html#cfn-transfer-certificate-certificate
 	//
 	Certificate *string `field:"required" json:"certificate" yaml:"certificate"`
-	// Specifies whether this certificate is used for signing or encryption.
+	// Specifies how this certificate is used. It can be used in the following ways:.
+	//
+	// - `SIGNING` : For signing AS2 messages
+	// - `ENCRYPTION` : For encrypting AS2 messages
+	// - `TLS` : For securing AS2 communications sent over HTTPS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-certificate.html#cfn-transfer-certificate-usage
 	//
 	Usage *string `field:"required" json:"usage" yaml:"usage"`

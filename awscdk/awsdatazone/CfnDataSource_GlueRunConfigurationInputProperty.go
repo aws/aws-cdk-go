@@ -25,6 +25,7 @@ package awsdatazone
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoImportDataQualityResult: jsii.Boolean(false),
 //   	DataAccessRole: jsii.String("dataAccessRole"),
 //   }
 //
@@ -35,6 +36,10 @@ type CfnDataSource_GlueRunConfigurationInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-relationalfilterconfigurations
 	//
 	RelationalFilterConfigurations interface{} `field:"required" json:"relationalFilterConfigurations" yaml:"relationalFilterConfigurations"`
+	// Specifies whether to automatically import data quality metrics as part of the data source run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-autoimportdataqualityresult
+	//
+	AutoImportDataQualityResult interface{} `field:"optional" json:"autoImportDataQualityResult" yaml:"autoImportDataQualityResult"`
 	// The data access role included in the configuration details of the AWS Glue data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-dataaccessrole
 	//

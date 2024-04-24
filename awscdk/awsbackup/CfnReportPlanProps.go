@@ -54,7 +54,7 @@ type CfnReportPlanProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportplanname
 	//
 	ReportPlanName *string `field:"optional" json:"reportPlanName" yaml:"reportPlanName"`
-	// A list of tags to tag your report plan.
+	// The tags to assign to your report plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html#cfn-backup-reportplan-reportplantags
 	//
 	ReportPlanTags *[]*awscdk.CfnTag `field:"optional" json:"reportPlanTags" yaml:"reportPlanTags"`

@@ -133,4 +133,20 @@ func init() {
 		"aws-cdk-lib.aws_ses_actions.StopProps",
 		reflect.TypeOf((*StopProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses_actions.WorkMail",
+		reflect.TypeOf((*WorkMail)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WorkMail{}
+			_jsii_.InitJsiiProxy(&j.Type__awssesIReceiptRuleAction)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses_actions.WorkMailProps",
+		reflect.TypeOf((*WorkMailProps)(nil)).Elem(),
+	)
 }

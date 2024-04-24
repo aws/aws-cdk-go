@@ -80,6 +80,10 @@ func validateCfnLink_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLink) validateSetLinkConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLink) validateSetResourceTypesParameters(val *[]*string) error {
 	return nil
 }

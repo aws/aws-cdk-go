@@ -8,6 +8,14 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+func (i *jsiiProxy_IEnvironment) validateAddDeploymentParameters(configuration IConfiguration) error {
+	if configuration == nil {
+		return fmt.Errorf("parameter configuration is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IEnvironment) validateAddExtensionParameters(extension IExtension) error {
 	if extension == nil {
 		return fmt.Errorf("parameter extension is required, but nil was provided")

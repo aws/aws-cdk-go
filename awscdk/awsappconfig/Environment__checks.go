@@ -11,6 +11,14 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (e *jsiiProxy_Environment) validateAddDeploymentParameters(configuration IConfiguration) error {
+	if configuration == nil {
+		return fmt.Errorf("parameter configuration is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_Environment) validateAddExtensionParameters(extension IExtension) error {
 	if extension == nil {
 		return fmt.Errorf("parameter extension is required, but nil was provided")
@@ -204,6 +212,14 @@ func validateEnvironment_IsOwnedResourceParameters(construct constructs.IConstru
 func validateEnvironment_IsResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_Environment) validateSetDeploymentQueueParameters(val *[]CfnDeployment) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

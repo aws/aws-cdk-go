@@ -8,7 +8,7 @@ func (a *jsiiProxy_ApiGateway) validateBindParameters(rule awsevents.IRule) erro
 	return nil
 }
 
-func validateNewApiGatewayParameters(restApi awsapigateway.RestApi, props *ApiGatewayProps) error {
+func validateNewApiGatewayParameters(restApi awsapigateway.IRestApi, props *ApiGatewayProps) error {
 	return nil
 }
 

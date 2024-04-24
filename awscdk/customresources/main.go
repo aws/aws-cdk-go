@@ -43,6 +43,10 @@ func init() {
 		"aws-cdk-lib.custom_resources.AwsSdkCall",
 		reflect.TypeOf((*AwsSdkCall)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.custom_resources.LogOptions",
+		reflect.TypeOf((*LogOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.custom_resources.Logging",
 		reflect.TypeOf((*Logging)(nil)).Elem(),
@@ -104,5 +108,24 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.custom_resources.SdkCallsPolicyOptions",
 		reflect.TypeOf((*SdkCallsPolicyOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.custom_resources.WaiterStateMachine",
+		reflect.TypeOf((*WaiterStateMachine)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "grantStartExecution", GoMethod: "GrantStartExecution"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stateMachineArn", GoGetter: "StateMachineArn"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WaiterStateMachine{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.custom_resources.WaiterStateMachineProps",
+		reflect.TypeOf((*WaiterStateMachineProps)(nil)).Elem(),
 	)
 }

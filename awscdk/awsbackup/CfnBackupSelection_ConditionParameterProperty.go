@@ -3,6 +3,8 @@ package awsbackup
 
 // Includes information about tags you define to assign tagged resources to a backup plan.
 //
+// Include the prefix `aws:ResourceTag` in your tags. For example, `"aws:ResourceTag/TagKey1": "Value1"` .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

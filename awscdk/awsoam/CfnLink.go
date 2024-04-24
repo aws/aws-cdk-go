@@ -32,6 +32,14 @@ import (
 //
 //   	// the properties below are optional
 //   	LabelTemplate: jsii.String("labelTemplate"),
+//   	LinkConfiguration: &LinkConfigurationProperty{
+//   		LogGroupConfiguration: &LinkFilterProperty{
+//   			Filter: jsii.String("filter"),
+//   		},
+//   		MetricConfiguration: &LinkFilterProperty{
+//   			Filter: jsii.String("filter"),
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -63,6 +71,8 @@ type CfnLink interface {
 	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate() *string
 	SetLabelTemplate(val *string)
+	LinkConfiguration() interface{}
+	SetLinkConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -312,6 +322,16 @@ func (j *jsiiProxy_CfnLink) LabelTemplate() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLink) LinkConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"linkConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLink) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -444,6 +464,17 @@ func (j *jsiiProxy_CfnLink)SetLabelTemplate(val *string) {
 	_jsii_.Set(
 		j,
 		"labelTemplate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLink)SetLinkConfiguration(val interface{}) {
+	if err := j.validateSetLinkConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"linkConfiguration",
 		val,
 	)
 }

@@ -79,7 +79,10 @@ type CfnDocumentProps struct {
 	// >
 	// > - `aws`
 	// > - `amazon`
-	// > - `amzn`.
+	// > - `amzn`
+	// > - `AWSEC2`
+	// > - `AWSConfigRemediation`
+	// > - `AWSSupport`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

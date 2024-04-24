@@ -653,10 +653,13 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.Environment",
 		reflect.TypeOf((*Environment)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeployment", GoMethod: "AddDeployment"},
+			_jsii_.MemberMethod{JsiiMethod: "addDeployments", GoMethod: "AddDeployments"},
 			_jsii_.MemberMethod{JsiiMethod: "addExtension", GoMethod: "AddExtension"},
 			_jsii_.MemberProperty{JsiiProperty: "application", GoGetter: "Application"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationId", GoGetter: "ApplicationId"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentQueue", GoGetter: "DeploymentQueue"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentArn", GoGetter: "EnvironmentArn"},
@@ -916,6 +919,8 @@ func init() {
 		"aws-cdk-lib.aws_appconfig.IEnvironment",
 		reflect.TypeOf((*IEnvironment)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeployment", GoMethod: "AddDeployment"},
+			_jsii_.MemberMethod{JsiiMethod: "addDeployments", GoMethod: "AddDeployments"},
 			_jsii_.MemberMethod{JsiiMethod: "addExtension", GoMethod: "AddExtension"},
 			_jsii_.MemberProperty{JsiiProperty: "application", GoGetter: "Application"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationId", GoGetter: "ApplicationId"},

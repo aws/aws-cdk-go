@@ -51,6 +51,9 @@ import (
 //
 type ApiGateway interface {
 	awsevents.IRuleTarget
+	// Returns the target IRestApi.
+	IRestApi() awsapigateway.IRestApi
+	// Deprecated: Use the `iRestApi` getter instead.
 	RestApi() awsapigateway.RestApi
 	// Returns a RuleTarget that can be used to trigger this API Gateway REST APIs as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
@@ -61,6 +64,16 @@ type ApiGateway interface {
 // The jsii proxy struct for ApiGateway
 type jsiiProxy_ApiGateway struct {
 	internal.Type__awseventsIRuleTarget
+}
+
+func (j *jsiiProxy_ApiGateway) IRestApi() awsapigateway.IRestApi {
+	var returns awsapigateway.IRestApi
+	_jsii_.Get(
+		j,
+		"iRestApi",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ApiGateway) RestApi() awsapigateway.RestApi {
@@ -74,7 +87,7 @@ func (j *jsiiProxy_ApiGateway) RestApi() awsapigateway.RestApi {
 }
 
 
-func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGateway {
+func NewApiGateway(restApi awsapigateway.IRestApi, props *ApiGatewayProps) ApiGateway {
 	_init_.Initialize()
 
 	if err := validateNewApiGatewayParameters(restApi, props); err != nil {
@@ -91,7 +104,7 @@ func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGat
 	return &j
 }
 
-func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.RestApi, props *ApiGatewayProps) {
+func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.IRestApi, props *ApiGatewayProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

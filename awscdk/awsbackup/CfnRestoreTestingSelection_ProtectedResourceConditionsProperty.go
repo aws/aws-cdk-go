@@ -1,7 +1,7 @@
 package awsbackup
 
 
-// A list of conditions that you define for resources in your restore testing plan using tags.
+// The conditions that you define for resources in your restore testing plan using tags.
 //
 // For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
 //

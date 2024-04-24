@@ -254,6 +254,14 @@ func validateRestApi_IsResourceParameters(construct constructs.IConstruct) error
 	return nil
 }
 
+func validateRestApi_IsRestApiParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_RestApi) validateSetDeploymentStageParameters(val Stage) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

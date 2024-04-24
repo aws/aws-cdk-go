@@ -17,11 +17,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnTransitGatewayRoute := awscdk.Aws_ec2.NewCfnTransitGatewayRoute(this, jsii.String("MyCfnTransitGatewayRoute"), &CfnTransitGatewayRouteProps{
+//   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	TransitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
 //
 //   	// the properties below are optional
 //   	Blackhole: jsii.Boolean(false),
-//   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	TransitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
 //   })
 //
@@ -409,6 +409,9 @@ func (j *jsiiProxy_CfnTransitGatewayRoute)SetBlackhole(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTransitGatewayRoute)SetDestinationCidrBlock(val *string) {
+	if err := j.validateSetDestinationCidrBlockParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"destinationCidrBlock",

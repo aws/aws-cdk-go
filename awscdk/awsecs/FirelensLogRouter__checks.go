@@ -21,6 +21,18 @@ func (f *jsiiProxy_FirelensLogRouter) validateAddContainerDependenciesParameters
 	return nil
 }
 
+func (f *jsiiProxy_FirelensLogRouter) validateAddDockerLabelParameters(name *string, value *string) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FirelensLogRouter) validateAddEnvironmentParameters(name *string, value *string) error {
 	if name == nil {
 		return fmt.Errorf("parameter name is required, but nil was provided")

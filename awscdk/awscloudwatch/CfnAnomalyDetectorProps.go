@@ -24,6 +24,9 @@ package awscloudwatch
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	MetricCharacteristics: &MetricCharacteristicsProperty{
+//   		PeriodicSpikes: jsii.Boolean(false),
+//   	},
 //   	MetricMathAnomalyDetector: &MetricMathAnomalyDetectorProperty{
 //   		MetricDataQueries: []interface{}{
 //   			&MetricDataQueryProperty{
@@ -87,6 +90,12 @@ type CfnAnomalyDetectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-dimensions
 	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
+	// Use this object to include parameters to provide information about your metric to CloudWatch to help it build more accurate anomaly detection models.
+	//
+	// Currently, it includes the `PeriodicSpikes` parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metriccharacteristics
+	//
+	MetricCharacteristics interface{} `field:"optional" json:"metricCharacteristics" yaml:"metricCharacteristics"`
 	// The CloudWatch metric math expression for this anomaly detector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html#cfn-cloudwatch-anomalydetector-metricmathanomalydetector
 	//

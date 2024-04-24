@@ -126,7 +126,9 @@ type CfnCertificate interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Specifies whether this certificate is used for signing or encryption.
+	// Specifies how this certificate is used.
+	//
+	// It can be used in the following ways:.
 	Usage() *string
 	SetUsage(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

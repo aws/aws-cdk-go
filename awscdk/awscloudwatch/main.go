@@ -260,6 +260,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "metricCharacteristics", GoGetter: "MetricCharacteristics"},
 			_jsii_.MemberProperty{JsiiProperty: "metricMathAnomalyDetector", GoGetter: "MetricMathAnomalyDetector"},
 			_jsii_.MemberProperty{JsiiProperty: "metricName", GoGetter: "MetricName"},
 			_jsii_.MemberProperty{JsiiProperty: "namespace", GoGetter: "Namespace"},
@@ -294,6 +295,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.DimensionProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_DimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.MetricCharacteristicsProperty",
+		reflect.TypeOf((*CfnAnomalyDetector_MetricCharacteristicsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnAnomalyDetector.MetricDataQueryProperty",

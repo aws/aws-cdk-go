@@ -258,8 +258,7 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 })
 ```
 
-The `deployTo` parameter is used to specify which environments to deploy the configuration to. If this parameter is not
-specified, there will not be a deployment.
+The `deployTo` parameter is used to specify which environments to deploy the configuration to.
 
 A hosted configuration with `deployTo`:
 
@@ -276,6 +275,102 @@ appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &Ho
 	},
 })
 ```
+
+When more than one configuration is set to deploy to the same environment, the
+deployments will occur one at a time. This is done to satisfy
+[AppConfig's constraint](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-deploying.html):
+
+> [!NOTE]
+> You can only deploy one configuration at a time to an environment.
+> However, you can deploy one configuration each to different environments at the same time.
+
+The deployment order matches the order in which the configurations are declared.
+
+```go
+app := appconfig.NewApplication(this, jsii.String("MyApp"))
+env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
+	Application: app,
+})
+
+appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
+	Application: app,
+	DeployTo: []iEnvironment{
+		env,
+	},
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my first configuration content.")),
+})
+
+appconfig.NewHostedConfiguration(this, jsii.String("MySecondHostedConfig"), &HostedConfigurationProps{
+	Application: app,
+	DeployTo: []*iEnvironment{
+		env,
+	},
+	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my second configuration content.")),
+})
+```
+
+If an application would benefit from a deployment order that differs from the
+declared order, you can defer the decision by using `IEnvironment.addDeployment`
+rather than the `deployTo` property.
+In this example, `firstConfig` will be deployed before `secondConfig`.
+
+```go
+app := appconfig.NewApplication(this, jsii.String("MyApp"))
+env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
+	Application: app,
+})
+
+secondConfig := appconfig.NewHostedConfiguration(this, jsii.String("MySecondHostedConfig"), &HostedConfigurationProps{
+	Application: app,
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my second configuration content.")),
+})
+
+firstConfig := appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
+	Application: app,
+	DeployTo: []iEnvironment{
+		env,
+	},
+	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my first configuration content.")),
+})
+
+env.addDeployment(secondConfig)
+```
+
+Alternatively, you can defer multiple deployments in favor of
+`IEnvironment.addDeployments`, which allows you to declare multiple
+configurations in the order they will be deployed.
+In this example the deployment order will be
+`firstConfig`, then `secondConfig`, and finally `thirdConfig`.
+
+```go
+app := appconfig.NewApplication(this, jsii.String("MyApp"))
+env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
+	Application: app,
+})
+
+secondConfig := appconfig.NewHostedConfiguration(this, jsii.String("MySecondHostedConfig"), &HostedConfigurationProps{
+	Application: app,
+	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my second configuration content.")),
+})
+
+thirdConfig := appconfig.NewHostedConfiguration(this, jsii.String("MyThirdHostedConfig"), &HostedConfigurationProps{
+	Application: app,
+	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my third configuration content.")),
+})
+
+firstConfig := appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
+	Application: app,
+	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my first configuration content.")),
+})
+
+env.addDeployments(firstConfig, secondConfig, thirdConfig)
+```
+
+Any mix of `deployTo`, `addDeployment`, and `addDeployments` is permitted.
+The declaration order will be respected regardless of the approach used.
+
+> [!IMPORTANT]
+> If none of these options are utilized, there will not be any deployments.
 
 ### SourcedConfiguration
 

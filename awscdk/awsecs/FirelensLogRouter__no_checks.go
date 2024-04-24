@@ -8,6 +8,10 @@ func (f *jsiiProxy_FirelensLogRouter) validateAddContainerDependenciesParameters
 	return nil
 }
 
+func (f *jsiiProxy_FirelensLogRouter) validateAddDockerLabelParameters(name *string, value *string) error {
+	return nil
+}
+
 func (f *jsiiProxy_FirelensLogRouter) validateAddEnvironmentParameters(name *string, value *string) error {
 	return nil
 }

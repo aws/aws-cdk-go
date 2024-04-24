@@ -146,7 +146,9 @@ type TaskDefinitionProps struct {
 	NetworkMode NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
-	// Not supported in Fargate and Windows containers.
+	// Only supported for tasks that are hosted on AWS Fargate if the tasks
+	// are using platform version 1.4.0 or later (Linux).
+	// Not supported in Windows containers.
 	// Default: - PidMode used by the task is not specified.
 	//
 	PidMode PidMode `field:"optional" json:"pidMode" yaml:"pidMode"`

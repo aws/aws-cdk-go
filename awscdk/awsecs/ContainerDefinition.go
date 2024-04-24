@@ -96,6 +96,8 @@ type ContainerDefinition interface {
 	VolumesFrom() *[]*VolumeFrom
 	// This method adds one or more container dependencies to the container.
 	AddContainerDependencies(containerDependencies ...*ContainerDependency)
+	// This method adds a Docker label to the container.
+	AddDockerLabel(name *string, value *string)
 	// This method adds an environment variable to the container.
 	AddEnvironment(name *string, value *string)
 	// This method adds one or more resources to the container.
@@ -425,6 +427,17 @@ func (c *jsiiProxy_ContainerDefinition) AddContainerDependencies(containerDepend
 		c,
 		"addContainerDependencies",
 		args,
+	)
+}
+
+func (c *jsiiProxy_ContainerDefinition) AddDockerLabel(name *string, value *string) {
+	if err := c.validateAddDockerLabelParameters(name, value); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addDockerLabel",
+		[]interface{}{name, value},
 	)
 }
 

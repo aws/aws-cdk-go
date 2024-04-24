@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::SecurityLake::AwsLogSource.
+// Adds a natively supported AWS service as an AWS source.
+//
+// Enables source types for member accounts in required AWS Regions, based on the parameters you specify. You can choose any source type in any Region for either accounts that are part of a trusted organization or standalone accounts. Once you add an AWS service as a source, Security Lake starts collecting logs and events from it.
+//
+// > If you want to create multiple sources using `AWS::SecurityLake::AwsLogSource` , you must use the `DependsOn` attribute to create the sources sequentially. With the `DependsOn` attribute you can specify that the creation of a specific `AWSLogSource` follows another. When you add a `DependsOn` attribute to a resource, that resource is created only after the creation of the resource specified in the `DependsOn` attribute. For an example, see [Add AWS log sources](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-awslogsource.html#aws-resource-securitylake-awslogsource--examples) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,7 +36,7 @@ import (
 type CfnAwsLogSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// AWS account where you want to collect logs from.
+	// Specify the AWS account information where you want to enable Security Lake.
 	Accounts() *[]*string
 	SetAccounts(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -44,7 +48,7 @@ type CfnAwsLogSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ARN for the data lake.
+	// The Amazon Resource Name (ARN) used to create the data lake.
 	DataLakeArn() *string
 	SetDataLakeArn(val *string)
 	// The logical ID for this CloudFormation stack element.

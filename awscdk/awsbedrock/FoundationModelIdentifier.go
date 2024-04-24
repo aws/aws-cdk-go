@@ -263,12 +263,78 @@ func FoundationModelIdentifier_AMAZON_TITAN_TG1_LARGE() FoundationModelIdentifie
 	return returns
 }
 
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_HAIKU_20240307_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_HAIKU_20240307_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_HAIKU_20240307_V1_0_200K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_HAIKU_20240307_V1_0_200K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_HAIKU_20240307_V1_0_48K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_HAIKU_20240307_V1_0_48K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_SONNET_20240229_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"ANTHROPIC_CLAUDE_3_SONNET_20240229_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_SONNET_20240229_V1_0_200K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_SONNET_20240229_V1_0_200K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_SONNET_20240229_V1_0_28K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_SONNET_20240229_V1_0_28K",
 		&returns,
 	)
 	return returns

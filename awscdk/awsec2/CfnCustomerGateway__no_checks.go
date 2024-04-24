@@ -80,10 +80,6 @@ func validateCfnCustomerGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnCustomerGateway) validateSetBgpAsnParameters(val *float64) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCustomerGateway) validateSetIpAddressParameters(val *string) error {
 	return nil
 }

@@ -24,6 +24,7 @@ import (
 //   	MultiRegion: jsii.Boolean(false),
 //   	Origin: jsii.String("origin"),
 //   	PendingWindowInDays: jsii.Number(123),
+//   	RotationPeriodInDays: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -200,6 +201,14 @@ type CfnKeyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	//
 	PendingWindowInDays *float64 `field:"optional" json:"pendingWindowInDays" yaml:"pendingWindowInDays"`
+	// The number of days between each automatic rotation.
+	//
+	// The default value is 365 days.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-rotationperiodindays
+	//
+	// Default: - 365.
+	//
+	RotationPeriodInDays *float64 `field:"optional" json:"rotationPeriodInDays" yaml:"rotationPeriodInDays"`
 	// Assigns one or more tags to the replica key.
 	//
 	// > Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [ABAC for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *AWS Key Management Service Developer Guide* .

@@ -17,25 +17,15 @@ import (
 // public endpoint.
 //
 // Example:
-//   destinationBucket := s3.NewBucket(this, jsii.String("Bucket"))
-//   deliveryStreamRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("firehose.amazonaws.com")),
+//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
+//   	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
+//   	Definition: stepfunctions.Chain_Start(stepfunctions.NewPass(this, jsii.String("Pass"))),
 //   })
 //
-//   stream := firehose.NewCfnDeliveryStream(this, jsii.String("MyStream"), &CfnDeliveryStreamProps{
-//   	DeliveryStreamName: jsii.String("amazon-apigateway-delivery-stream"),
-//   	S3DestinationConfiguration: &S3DestinationConfigurationProperty{
-//   		BucketArn: destinationBucket.BucketArn,
-//   		RoleArn: deliveryStreamRole.RoleArn,
-//   	},
+//   api := apigateway.NewRestApi(this, jsii.String("Api"), &RestApiProps{
+//   	RestApiName: jsii.String("MyApi"),
 //   })
-//
-//   api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
-//   	DeployOptions: &StageOptions{
-//   		AccessLogDestination: apigateway.NewFirehoseLogDestination(stream),
-//   		AccessLogFormat: apigateway.AccessLogFormat_JsonWithStandardFields(),
-//   	},
-//   })
+//   api.Root.AddMethod(jsii.String("GET"), apigateway.StepFunctionsIntegration_StartExecution(stateMachine))
 //
 type RestApi interface {
 	RestApiBase
@@ -466,6 +456,25 @@ func RestApi_IsResource(construct constructs.IConstruct) *bool {
 		"aws-cdk-lib.aws_apigateway.RestApi",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a `RestApi`.
+func RestApi_IsRestApi(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateRestApi_IsRestApiParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.RestApi",
+		"isRestApi",
+		[]interface{}{x},
 		&returns,
 	)
 

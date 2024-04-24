@@ -7,26 +7,14 @@ import (
 // The properties for a task definition.
 //
 // Example:
-//   // Create a Task Definition for the Windows container to start
-//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+//   fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
 //   	RuntimePlatform: &RuntimePlatform{
-//   		OperatingSystemFamily: ecs.OperatingSystemFamily_WINDOWS_SERVER_2019_CORE(),
-//   		CpuArchitecture: ecs.CpuArchitecture_X86_64(),
+//   		OperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
+//   		CpuArchitecture: ecs.CpuArchitecture_ARM64(),
 //   	},
-//   	Cpu: jsii.Number(1024),
-//   	MemoryLimitMiB: jsii.Number(2048),
-//   })
-//
-//   taskDefinition.AddContainer(jsii.String("windowsservercore"), &ContainerDefinitionOptions{
-//   	Logging: ecs.LogDriver_AwsLogs(&AwsLogDriverProps{
-//   		StreamPrefix: jsii.String("win-iis-on-fargate"),
-//   	}),
-//   	PortMappings: []portMapping{
-//   		&portMapping{
-//   			ContainerPort: jsii.Number(80),
-//   		},
-//   	},
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
+//   	MemoryLimitMiB: jsii.Number(512),
+//   	Cpu: jsii.Number(256),
+//   	PidMode: ecs.PidMode_HOST,
 //   })
 //
 type FargateTaskDefinitionProps struct {
@@ -108,6 +96,14 @@ type FargateTaskDefinitionProps struct {
 	// Default: 512.
 	//
 	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
+	// The process namespace to use for the containers in the task.
+	//
+	// Only supported for tasks that are hosted on AWS Fargate if the tasks
+	// are using platform version 1.4.0 or later (Linux).
+	// Not supported in Windows containers.
+	// Default: - PidMode used by the task is not specified.
+	//
+	PidMode PidMode `field:"optional" json:"pidMode" yaml:"pidMode"`
 	// The operating system that your task definitions are running on.
 	//
 	// A runtimePlatform is supported only for tasks using the Fargate launch type.

@@ -12,13 +12,17 @@ import (
 // A hosted configuration represents configuration stored in the AWS AppConfig hosted configuration store.
 //
 // Example:
-//   var application application
+//   app := appconfig.NewApplication(this, jsii.String("MyApp"))
+//   env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
+//   	Application: app,
+//   })
 //
-//
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-//   	Application: Application,
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
+//   	Application: app,
+//   	DeployTo: []iEnvironment{
+//   		env,
+//   	},
 //   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
 //   })
 //
 type HostedConfiguration interface {

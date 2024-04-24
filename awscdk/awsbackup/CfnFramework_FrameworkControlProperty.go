@@ -34,7 +34,7 @@ type CfnFramework_FrameworkControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlname
 	//
 	ControlName *string `field:"required" json:"controlName" yaml:"controlName"`
-	// A list of `ParameterName` and `ParameterValue` pairs.
+	// The name/value pairs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html#cfn-backup-framework-frameworkcontrol-controlinputparameters
 	//
 	ControlInputParameters interface{} `field:"optional" json:"controlInputParameters" yaml:"controlInputParameters"`

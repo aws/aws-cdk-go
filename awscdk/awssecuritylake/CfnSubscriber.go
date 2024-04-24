@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::SecurityLake::Subscriber.
+// Creates a subscriber for accounts that are already enabled in Amazon Security Lake.
+//
+// You can create a subscriber with access to data in the current AWS Region.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -55,13 +57,18 @@ type CfnSubscriber interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon S3 or AWS Lake Formation access type.
+	// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
 	AccessTypes() *[]*string
 	SetAccessTypes(val *[]*string)
+	// The Amazon Resource Name (ARN) of the Amazon Security Lake subscriber.
 	AttrResourceShareArn() *string
+	// The ARN name of the Amazon Security Lake subscriber.
 	AttrResourceShareName() *string
+	// The Amazon Resource Name (ARN) of the S3 bucket.
 	AttrS3BucketArn() *string
+	// The Amazon Resource Name (ARN) of the Security Lake subscriber.
 	AttrSubscriberArn() *string
+	// The Amazon Resource Name (ARN) of the role used to create the Security Lake subscriber.
 	AttrSubscriberRoleArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -74,7 +81,7 @@ type CfnSubscriber interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ARN for the data lake.
+	// The Amazon Resource Name (ARN) used to create the data lake.
 	DataLakeArn() *string
 	SetDataLakeArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -94,20 +101,20 @@ type CfnSubscriber interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The supported AWS services from which logs and events are collected.
+	// Amazon Security Lake supports log and event collection for natively supported AWS services .
 	Sources() interface{}
 	SetSources(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The description for your subscriber account in Security Lake.
+	// The subscriber descriptions for a subscriber account.
 	SubscriberDescription() *string
 	SetSubscriberDescription(val *string)
 	// The AWS identity used to access your data.
 	SubscriberIdentity() interface{}
 	SetSubscriberIdentity(val interface{})
-	// The name of your Security Lake subscriber account.
+	// The name of your Amazon Security Lake subscriber account.
 	SubscriberName() *string
 	SetSubscriberName(val *string)
 	// An array of objects, one for each tag to associate with the subscriber.

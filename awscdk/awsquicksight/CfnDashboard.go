@@ -30,6 +30,7 @@ type CfnDashboard interface {
 	AttrLastPublishedTime() *string
 	// The time that the dashboard was last updated.
 	AttrLastUpdatedTime() *string
+	// <p>Dashboard version.</p>.
 	AttrVersion() awscdk.IResolvable
 	AttrVersionArn() *string
 	AttrVersionCreatedTime() *string

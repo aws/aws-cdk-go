@@ -94,6 +94,12 @@ type FargateTaskDefinition interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// The process namespace to use for the containers in the task.
+	//
+	// Only supported for tasks that are hosted on AWS Fargate if the tasks
+	// are using platform version 1.4.0 or later (Linux).
+	// Not supported in Windows containers.
+	PidMode() PidMode
 	// Whether this task definition has at least a container that references a specific JSON field of a secret stored in Secrets Manager.
 	ReferencesSecretJsonField() *bool
 	// The stack in which this resource is defined.
@@ -305,6 +311,16 @@ func (j *jsiiProxy_FargateTaskDefinition) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateTaskDefinition) PidMode() PidMode {
+	var returns PidMode
+	_jsii_.Get(
+		j,
+		"pidMode",
 		&returns,
 	)
 	return returns

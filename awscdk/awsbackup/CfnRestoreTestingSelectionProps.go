@@ -59,7 +59,7 @@ type CfnRestoreTestingSelectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-restoretestingplanname
 	//
 	RestoreTestingPlanName *string `field:"required" json:"restoreTestingPlanName" yaml:"restoreTestingPlanName"`
-	// This is the unique name of the restore testing selection that belongs to the related restore testing plan.
+	// The unique name of the restore testing selection that belongs to the related restore testing plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html#cfn-backup-restoretestingselection-restoretestingselectionname
 	//
 	RestoreTestingSelectionName *string `field:"required" json:"restoreTestingSelectionName" yaml:"restoreTestingSelectionName"`

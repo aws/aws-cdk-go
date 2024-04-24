@@ -108,7 +108,7 @@ type CfnRestoreTestingSelection interface {
 	// Unique string that is the name of the restore testing plan.
 	RestoreTestingPlanName() *string
 	SetRestoreTestingPlanName(val *string)
-	// This is the unique name of the restore testing selection that belongs to the related restore testing plan.
+	// The unique name of the restore testing selection that belongs to the related restore testing plan.
 	RestoreTestingSelectionName() *string
 	SetRestoreTestingSelectionName(val *string)
 	// The stack in which this element is defined.

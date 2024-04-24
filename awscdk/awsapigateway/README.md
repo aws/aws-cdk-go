@@ -437,6 +437,11 @@ func newDeployStack(scope construct, props deployStackProps) *deployStack {
 NewRootStack(awscdk.NewApp())
 ```
 
+> **Warning:** In the code above, an API Gateway deployment is created during the initial CDK deployment.
+> However, if there are changes to the resources in subsequent CDK deployments, a new API Gateway deployment is not
+> automatically created. As a result, the latest state of the resources is not reflected. To ensure the latest state
+> of the resources is reflected, a manual deployment of the API Gateway is required after the CDK deployment.
+
 ## Integration Targets
 
 Methods are associated with backend integrations, which are invoked when this

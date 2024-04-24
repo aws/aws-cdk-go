@@ -53,7 +53,10 @@ type SourcedConfigurationOptions struct {
 	// The list of environments to deploy the configuration to.
 	//
 	// If this parameter is not specified, then there will be no
-	// deployment.
+	// deployment created alongside this configuration.
+	//
+	// Deployments can be added later using the `IEnvironment.addDeployment` or
+	// `IEnvironment.addDeployments` methods.
 	// Default: - None.
 	//
 	DeployTo *[]IEnvironment `field:"optional" json:"deployTo" yaml:"deployTo"`

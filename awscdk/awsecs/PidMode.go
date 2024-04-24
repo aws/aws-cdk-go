@@ -2,6 +2,18 @@ package awsecs
 
 
 // The process namespace to use for the containers in the task.
+//
+// Example:
+//   fargateTaskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
+//   	RuntimePlatform: &RuntimePlatform{
+//   		OperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
+//   		CpuArchitecture: ecs.CpuArchitecture_ARM64(),
+//   	},
+//   	MemoryLimitMiB: jsii.Number(512),
+//   	Cpu: jsii.Number(256),
+//   	PidMode: ecs.PidMode_HOST,
+//   })
+//
 type PidMode string
 
 const (

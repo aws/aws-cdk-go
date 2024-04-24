@@ -12,11 +12,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCustomerGatewayProps := &CfnCustomerGatewayProps{
-//   	BgpAsn: jsii.Number(123),
 //   	IpAddress: jsii.String("ipAddress"),
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	BgpAsn: jsii.Number(123),
+//   	BgpAsnExtended: jsii.Number(123),
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	DeviceName: jsii.String("deviceName"),
 //   	Tags: []cfnTag{
@@ -30,14 +31,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html
 //
 type CfnCustomerGatewayProps struct {
-	// For devices that support BGP, the customer gateway's BGP ASN.
-	//
-	// Default: 65000.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn
-	//
-	// Default: - 65000.
-	//
-	BgpAsn *float64 `field:"required" json:"bgpAsn" yaml:"bgpAsn"`
 	// IPv4 address for the customer gateway device's outside interface.
 	//
 	// The address must be static.
@@ -48,6 +41,17 @@ type CfnCustomerGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// For devices that support BGP, the customer gateway's BGP ASN.
+	//
+	// Default: 65000.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn
+	//
+	// Default: - 65000.
+	//
+	BgpAsn *float64 `field:"optional" json:"bgpAsn" yaml:"bgpAsn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasnextended
+	//
+	BgpAsnExtended *float64 `field:"optional" json:"bgpAsnExtended" yaml:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-certificatearn
 	//

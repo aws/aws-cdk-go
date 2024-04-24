@@ -65,7 +65,7 @@ type Ec2TaskDefinitionProps struct {
 	NetworkMode NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
-	// Not supported in Fargate and Windows containers.
+	// Not supported in Windows containers.
 	// Default: - PidMode used by the task is not specified.
 	//
 	PidMode PidMode `field:"optional" json:"pidMode" yaml:"pidMode"`

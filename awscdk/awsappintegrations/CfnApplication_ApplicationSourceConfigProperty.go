@@ -11,6 +11,8 @@ package awsappintegrations
 //   applicationSourceConfigProperty := &ApplicationSourceConfigProperty{
 //   	ExternalUrlConfig: &ExternalUrlConfigProperty{
 //   		AccessUrl: jsii.String("accessUrl"),
+//
+//   		// the properties below are optional
 //   		ApprovedOrigins: []*string{
 //   			jsii.String("approvedOrigins"),
 //   		},

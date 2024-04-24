@@ -9,11 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// This is the first of two steps to create a restore testing plan;
+// Creates a restore testing plan.
 //
-// once this request is successful, finish the procedure with request CreateRestoreTestingSelection.
-//
-// You must include the parameter RestoreTestingPlan. You may optionally include CreatorRequestId and Tags.
+// The first of two steps to create a restore testing plan. After this request is successful, finish the procedure using CreateRestoreTestingSelection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

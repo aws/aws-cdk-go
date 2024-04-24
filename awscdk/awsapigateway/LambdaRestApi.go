@@ -469,6 +469,25 @@ func LambdaRestApi_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+// Return whether the given object is a `RestApi`.
+func LambdaRestApi_IsRestApi(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateLambdaRestApi_IsRestApiParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.LambdaRestApi",
+		"isRestApi",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 func (l *jsiiProxy_LambdaRestApi) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
 	if err := l.validateAddApiKeyParameters(id, options); err != nil {
 		panic(err)

@@ -47,9 +47,7 @@ type CfnBackupVaultProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
 	//
 	AccessPolicy interface{} `field:"optional" json:"accessPolicy" yaml:"accessPolicy"`
-	// Metadata that you can assign to help organize your backup vaults.
-	//
-	// Each tag is a key-value pair.
+	// The tags to assign to the backup vault.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
 	//
 	BackupVaultTags *map[string]*string `field:"optional" json:"backupVaultTags" yaml:"backupVaultTags"`

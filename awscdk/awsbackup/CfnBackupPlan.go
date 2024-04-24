@@ -93,7 +93,7 @@ type CfnBackupPlan interface {
 	// Uniquely identifies the backup plan to be associated with the selection of resources.
 	BackupPlan() interface{}
 	SetBackupPlan(val interface{})
-	// To help organize your resources, you can assign your own metadata to the resources that you create.
+	// The tags to assign to the backup plan.
 	BackupPlanTags() *map[string]*string
 	SetBackupPlanTags(val *map[string]*string)
 	// Tag Manager which manages the tags for this resource.

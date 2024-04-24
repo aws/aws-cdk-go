@@ -257,6 +257,10 @@ func init() {
 		"aws-cdk-lib.aws_efs.CfnMountTargetProps",
 		reflect.TypeOf((*CfnMountTargetProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_efs.ExistingFileSystemProps",
+		reflect.TypeOf((*ExistingFileSystemProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_efs.FileSystem",
 		reflect.TypeOf((*FileSystem)(nil)).Elem(),
@@ -354,6 +358,10 @@ func init() {
 			"AFTER_365_DAYS": LifecyclePolicy_AFTER_365_DAYS,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_efs.OneZoneFileSystemProps",
+		reflect.TypeOf((*OneZoneFileSystemProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_efs.OutOfInfrequentAccessPolicy",
 		reflect.TypeOf((*OutOfInfrequentAccessPolicy)(nil)).Elem(),
@@ -372,6 +380,27 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_efs.PosixUser",
 		reflect.TypeOf((*PosixUser)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_efs.RegionalFileSystemProps",
+		reflect.TypeOf((*RegionalFileSystemProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_efs.ReplicationConfiguration",
+		reflect.TypeOf((*ReplicationConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
+			_jsii_.MemberProperty{JsiiProperty: "destinationFileSystem", GoGetter: "DestinationFileSystem"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ReplicationConfiguration{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_efs.ReplicationConfigurationProps",
+		reflect.TypeOf((*ReplicationConfigurationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_efs.ReplicationOverwriteProtection",

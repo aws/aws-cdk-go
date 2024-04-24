@@ -17,12 +17,20 @@ import (
 //   	Application: app,
 //   })
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
 //   	Application: app,
 //   	DeployTo: []iEnvironment{
 //   		env,
 //   	},
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
+//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my first configuration content.")),
+//   })
+//
+//   appconfig.NewHostedConfiguration(this, jsii.String("MySecondHostedConfig"), &HostedConfigurationProps{
+//   	Application: app,
+//   	DeployTo: []*iEnvironment{
+//   		env,
+//   	},
+//   	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my second configuration content.")),
 //   })
 //
 // See: https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-environment.html
@@ -35,6 +43,8 @@ type Environment interface {
 	Application() IApplication
 	// The ID of the environment.
 	ApplicationId() *string
+	DeploymentQueue() *[]CfnDeployment
+	SetDeploymentQueue(val *[]CfnDeployment)
 	// The description of the environment.
 	Description() *string
 	// The environment this resource belongs to.
@@ -68,6 +78,16 @@ type Environment interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Creates a deployment of the supplied configuration to this environment.
+	//
+	// Note that you can only deploy one configuration at a time to an environment.
+	// However, you can deploy one configuration each to different environments at the same time.
+	// If more than one deployment is requested for this environment, they will occur in the same order they were provided.
+	AddDeployment(configuration IConfiguration)
+	// Creates a deployment for each of the supplied configurations to this environment.
+	//
+	// These configurations will be deployed in the same order as the input array.
+	AddDeployments(configurations ...IConfiguration)
 	// Adds an extension association to the environment.
 	AddExtension(extension IExtension)
 	// Apply the given removal policy to this resource.
@@ -136,6 +156,16 @@ func (j *jsiiProxy_Environment) ApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"applicationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Environment) DeploymentQueue() *[]CfnDeployment {
+	var returns *[]CfnDeployment
+	_jsii_.Get(
+		j,
+		"deploymentQueue",
 		&returns,
 	)
 	return returns
@@ -269,6 +299,17 @@ func NewEnvironment_Override(e Environment, scope constructs.Construct, id *stri
 	)
 }
 
+func (j *jsiiProxy_Environment)SetDeploymentQueue(val *[]CfnDeployment) {
+	if err := j.validateSetDeploymentQueueParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deploymentQueue",
+		val,
+	)
+}
+
 func (j *jsiiProxy_Environment)SetExtensible(val ExtensibleBase) {
 	if err := j.validateSetExtensibleParameters(val); err != nil {
 		panic(err)
@@ -389,6 +430,30 @@ func Environment_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (e *jsiiProxy_Environment) AddDeployment(configuration IConfiguration) {
+	if err := e.validateAddDeploymentParameters(configuration); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"addDeployment",
+		[]interface{}{configuration},
+	)
+}
+
+func (e *jsiiProxy_Environment) AddDeployments(configurations ...IConfiguration) {
+	args := []interface{}{}
+	for _, a := range configurations {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		e,
+		"addDeployments",
+		args,
+	)
 }
 
 func (e *jsiiProxy_Environment) AddExtension(extension IExtension) {

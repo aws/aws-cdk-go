@@ -25,7 +25,7 @@ type CfnReportPlan_ReportDeliveryChannelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportdeliverychannel.html#cfn-backup-reportplan-reportdeliverychannel-s3bucketname
 	//
 	S3BucketName *string `field:"required" json:"s3BucketName" yaml:"s3BucketName"`
-	// A list of the format of your reports: `CSV` , `JSON` , or both.
+	// The format of your reports: `CSV` , `JSON` , or both.
 	//
 	// If not specified, the default format is `CSV` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportdeliverychannel.html#cfn-backup-reportplan-reportdeliverychannel-formats

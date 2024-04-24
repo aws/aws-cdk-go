@@ -46,9 +46,7 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	//
 	// You can later remove these artifacts.
 	//
-	// The default value is `true` .
-	//
-	// If this value is set to `N` , you don't have to create tables or triggers on the source database.
+	// If this value is set to `True` , you don't have to create tables or triggers on the source database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html#cfn-dms-endpoint-postgresqlsettings-captureddls
 	//
 	CaptureDdls interface{} `field:"optional" json:"captureDdls" yaml:"captureDdls"`

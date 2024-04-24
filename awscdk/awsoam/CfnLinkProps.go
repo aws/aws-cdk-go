@@ -16,6 +16,14 @@ package awsoam
 //
 //   	// the properties below are optional
 //   	LabelTemplate: jsii.String("labelTemplate"),
+//   	LinkConfiguration: &LinkConfigurationProperty{
+//   		LogGroupConfiguration: &LinkFilterProperty{
+//   			Filter: jsii.String("filter"),
+//   		},
+//   		MetricConfiguration: &LinkFilterProperty{
+//   			Filter: jsii.String("filter"),
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -46,6 +54,9 @@ type CfnLinkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html#cfn-oam-link-labeltemplate
 	//
 	LabelTemplate *string `field:"optional" json:"labelTemplate" yaml:"labelTemplate"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html#cfn-oam-link-linkconfiguration
+	//
+	LinkConfiguration interface{} `field:"optional" json:"linkConfiguration" yaml:"linkConfiguration"`
 	// An array of key-value pairs to apply to the link.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

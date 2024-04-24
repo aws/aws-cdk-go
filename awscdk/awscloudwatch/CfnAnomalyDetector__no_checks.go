@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnAnomalyDetector) validateSetDimensionsParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnAnomalyDetector) validateSetMetricCharacteristicsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAnomalyDetector) validateSetMetricMathAnomalyDetectorParameters(val interface{}) error {
 	return nil
 }

@@ -30,6 +30,7 @@ type CfnTemplate interface {
 	AttrCreatedTime() *string
 	// The time this template was last updated.
 	AttrLastUpdatedTime() *string
+	// <p>A version of a template.</p>.
 	AttrVersion() awscdk.IResolvable
 	AttrVersionCreatedTime() *string
 	AttrVersionDataSetConfigurations() awscdk.IResolvable

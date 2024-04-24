@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnTransitGatewayRoute) validateSetBlackholeParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRoute) validateSetDestinationCidrBlockParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRoute) validateSetTransitGatewayRouteTableIdParameters(val *string) error {
 	return nil
 }

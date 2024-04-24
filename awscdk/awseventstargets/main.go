@@ -28,6 +28,7 @@ func init() {
 		reflect.TypeOf((*ApiGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "iRestApi", GoGetter: "IRestApi"},
 			_jsii_.MemberProperty{JsiiProperty: "restApi", GoGetter: "RestApi"},
 		},
 		func() interface{} {

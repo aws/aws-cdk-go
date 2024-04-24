@@ -29,6 +29,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "labelTemplate", GoGetter: "LabelTemplate"},
+			_jsii_.MemberProperty{JsiiProperty: "linkConfiguration", GoGetter: "LinkConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -56,6 +57,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_oam.CfnLink.LinkConfigurationProperty",
+		reflect.TypeOf((*CfnLink_LinkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_oam.CfnLink.LinkFilterProperty",
+		reflect.TypeOf((*CfnLink_LinkFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_oam.CfnLinkProps",

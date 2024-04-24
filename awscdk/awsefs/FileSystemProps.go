@@ -85,6 +85,10 @@ type FileSystemProps struct {
 	// Default: RemovalPolicy.RETAIN
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// Replication configuration for the file system.
+	// Default: - no replication.
+	//
+	ReplicationConfiguration ReplicationConfiguration `field:"optional" json:"replicationConfiguration" yaml:"replicationConfiguration"`
 	// Whether to enable the filesystem's replication overwrite protection or not.
 	//
 	// Set false if you want to create a read-only filesystem for use as a replication destination.

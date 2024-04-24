@@ -17,11 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCustomerGateway := awscdk.Aws_ec2.NewCfnCustomerGateway(this, jsii.String("MyCfnCustomerGateway"), &CfnCustomerGatewayProps{
-//   	BgpAsn: jsii.Number(123),
 //   	IpAddress: jsii.String("ipAddress"),
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	BgpAsn: jsii.Number(123),
+//   	BgpAsnExtended: jsii.Number(123),
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	DeviceName: jsii.String("deviceName"),
 //   	Tags: []cfnTag{
@@ -43,6 +44,8 @@ type CfnCustomerGateway interface {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	BgpAsn() *float64
 	SetBgpAsn(val *float64)
+	BgpAsnExtended() *float64
+	SetBgpAsnExtended(val *float64)
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn() *string
 	SetCertificateArn(val *string)
@@ -257,6 +260,16 @@ func (j *jsiiProxy_CfnCustomerGateway) BgpAsn() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomerGateway) BgpAsnExtended() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"bgpAsnExtended",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomerGateway) CertificateArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -446,12 +459,17 @@ func NewCfnCustomerGateway_Override(c CfnCustomerGateway, scope constructs.Const
 }
 
 func (j *jsiiProxy_CfnCustomerGateway)SetBgpAsn(val *float64) {
-	if err := j.validateSetBgpAsnParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"bgpAsn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomerGateway)SetBgpAsnExtended(val *float64) {
+	_jsii_.Set(
+		j,
+		"bgpAsnExtended",
 		val,
 	)
 }

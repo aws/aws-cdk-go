@@ -7,13 +7,17 @@ import (
 // Properties for HostedConfiguration.
 //
 // Example:
-//   var application application
+//   app := appconfig.NewApplication(this, jsii.String("MyApp"))
+//   env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
+//   	Application: app,
+//   })
 //
-//
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfiguration"), &HostedConfigurationProps{
-//   	Application: Application,
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
+//   	Application: app,
+//   	DeployTo: []iEnvironment{
+//   		env,
+//   	},
 //   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
-//   	Type: appconfig.ConfigurationType_FEATURE_FLAGS,
 //   })
 //
 type HostedConfigurationProps struct {
@@ -29,7 +33,10 @@ type HostedConfigurationProps struct {
 	// The list of environments to deploy the configuration to.
 	//
 	// If this parameter is not specified, then there will be no
-	// deployment.
+	// deployment created alongside this configuration.
+	//
+	// Deployments can be added later using the `IEnvironment.addDeployment` or
+	// `IEnvironment.addDeployments` methods.
 	// Default: - None.
 	//
 	DeployTo *[]IEnvironment `field:"optional" json:"deployTo" yaml:"deployTo"`

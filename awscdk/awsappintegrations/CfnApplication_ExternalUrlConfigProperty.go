@@ -10,6 +10,8 @@ package awsappintegrations
 //
 //   externalUrlConfigProperty := &ExternalUrlConfigProperty{
 //   	AccessUrl: jsii.String("accessUrl"),
+//
+//   	// the properties below are optional
 //   	ApprovedOrigins: []*string{
 //   		jsii.String("approvedOrigins"),
 //   	},
@@ -25,6 +27,6 @@ type CfnApplication_ExternalUrlConfigProperty struct {
 	// Additional URLs to allow list if different than the access URL.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-externalurlconfig.html#cfn-appintegrations-application-externalurlconfig-approvedorigins
 	//
-	ApprovedOrigins *[]*string `field:"required" json:"approvedOrigins" yaml:"approvedOrigins"`
+	ApprovedOrigins *[]*string `field:"optional" json:"approvedOrigins" yaml:"approvedOrigins"`
 }
 

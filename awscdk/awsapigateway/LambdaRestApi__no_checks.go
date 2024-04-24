@@ -92,6 +92,10 @@ func validateLambdaRestApi_IsResourceParameters(construct constructs.IConstruct)
 	return nil
 }
 
+func validateLambdaRestApi_IsRestApiParameters(x interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_LambdaRestApi) validateSetDeploymentStageParameters(val Stage) error {
 	return nil
 }

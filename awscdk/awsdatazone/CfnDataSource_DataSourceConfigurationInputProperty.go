@@ -26,6 +26,7 @@ package awsdatazone
 //   		},
 //
 //   		// the properties below are optional
+//   		AutoImportDataQualityResult: jsii.Boolean(false),
 //   		DataAccessRole: jsii.String("dataAccessRole"),
 //   	},
 //   	RedshiftRunConfiguration: &RedshiftRunConfigurationInputProperty{

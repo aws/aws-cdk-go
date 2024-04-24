@@ -8,6 +8,10 @@ func (c *jsiiProxy_ContainerDefinition) validateAddContainerDependenciesParamete
 	return nil
 }
 
+func (c *jsiiProxy_ContainerDefinition) validateAddDockerLabelParameters(name *string, value *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_ContainerDefinition) validateAddEnvironmentParameters(name *string, value *string) error {
 	return nil
 }

@@ -71,9 +71,7 @@ type CfnBackupPlan_BackupRuleResourceTypeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
 	//
 	Lifecycle interface{} `field:"optional" json:"lifecycle" yaml:"lifecycle"`
-	// To help organize your resources, you can assign your own metadata to the resources that you create.
-	//
-	// Each tag is a key-value pair.
+	// The tags to assign to the resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
 	//
 	RecoveryPointTags interface{} `field:"optional" json:"recoveryPointTags" yaml:"recoveryPointTags"`

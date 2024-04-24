@@ -36,6 +36,9 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	MetricCharacteristics: &MetricCharacteristicsProperty{
+//   		PeriodicSpikes: jsii.Boolean(false),
+//   	},
 //   	MetricMathAnomalyDetector: &MetricMathAnomalyDetectorProperty{
 //   		MetricDataQueries: []interface{}{
 //   			&MetricDataQueryProperty{
@@ -117,6 +120,9 @@ type CfnAnomalyDetector interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Use this object to include parameters to provide information about your metric to CloudWatch to help it build more accurate anomaly detection models.
+	MetricCharacteristics() interface{}
+	SetMetricCharacteristics(val interface{})
 	// The CloudWatch metric math expression for this anomaly detector.
 	MetricMathAnomalyDetector() interface{}
 	SetMetricMathAnomalyDetector(val interface{})
@@ -369,6 +375,16 @@ func (j *jsiiProxy_CfnAnomalyDetector) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnomalyDetector) MetricCharacteristics() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"metricCharacteristics",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnomalyDetector) MetricMathAnomalyDetector() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -515,6 +531,17 @@ func (j *jsiiProxy_CfnAnomalyDetector)SetDimensions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"dimensions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnomalyDetector)SetMetricCharacteristics(val interface{}) {
+	if err := j.validateSetMetricCharacteristicsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"metricCharacteristics",
 		val,
 	)
 }
