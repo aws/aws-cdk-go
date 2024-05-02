@@ -1,58 +1,50 @@
 package awscodecommit
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+)
 
 // Example:
-//   // Source stage: read from repository
-//   repo := codecommit.NewRepository(stack, jsii.String("TemplateRepo"), &RepositoryProps{
-//   	RepositoryName: jsii.String("template-repo"),
+//   var project pipelineProject
+//
+//   repository := codecommit.NewRepository(this, jsii.String("MyRepository"), &RepositoryProps{
+//   	RepositoryName: jsii.String("MyRepository"),
 //   })
-//   sourceOutput := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
-//   source := cpactions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
-//   	ActionName: jsii.String("Source"),
-//   	Repository: repo,
+//   project := codebuild.NewPipelineProject(this, jsii.String("MyProject"))
+//
+//   sourceOutput := codepipeline.NewArtifact()
+//   sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
+//   	ActionName: jsii.String("CodeCommit"),
+//   	Repository: Repository,
 //   	Output: sourceOutput,
-//   	Trigger: cpactions.CodeCommitTrigger_POLL,
 //   })
-//   sourceStage := map[string]interface{}{
-//   	"stageName": jsii.String("Source"),
-//   	"actions": []CodeCommitSourceAction{
-//   		source,
+//   buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+//   	ActionName: jsii.String("CodeBuild"),
+//   	Project: Project,
+//   	Input: sourceOutput,
+//   	Outputs: []artifact{
+//   		codepipeline.NewArtifact(),
 //   	},
-//   }
+//   	 // optional
+//   	ExecuteBatchBuild: jsii.Boolean(true),
+//   	 // optional, defaults to false
+//   	CombineBatchBuildArtifacts: jsii.Boolean(true),
+//   })
 //
-//   // Deployment stage: create and deploy changeset with manual approval
-//   stackName := "OurStack"
-//   changeSetName := "StagedChangeSet"
-//
-//   prodStage := map[string]interface{}{
-//   	"stageName": jsii.String("Deploy"),
-//   	"actions": []interface{}{
-//   		cpactions.NewCloudFormationCreateReplaceChangeSetAction(&CloudFormationCreateReplaceChangeSetActionProps{
-//   			"actionName": jsii.String("PrepareChanges"),
-//   			"stackName": jsii.String(stackName),
-//   			"changeSetName": jsii.String(changeSetName),
-//   			"adminPermissions": jsii.Boolean(true),
-//   			"templatePath": sourceOutput.atPath(jsii.String("template.yaml")),
-//   			"runOrder": jsii.Number(1),
-//   		}),
-//   		cpactions.NewManualApprovalAction(&ManualApprovalActionProps{
-//   			"actionName": jsii.String("ApproveChanges"),
-//   			"runOrder": jsii.Number(2),
-//   		}),
-//   		cpactions.NewCloudFormationExecuteChangeSetAction(&CloudFormationExecuteChangeSetActionProps{
-//   			"actionName": jsii.String("ExecuteChanges"),
-//   			"stackName": jsii.String(stackName),
-//   			"changeSetName": jsii.String(changeSetName),
-//   			"runOrder": jsii.Number(3),
-//   		}),
-//   	},
-//   }
-//
-//   codepipeline.NewPipeline(stack, jsii.String("Pipeline"), &PipelineProps{
-//   	CrossAccountKeys: jsii.Boolean(true),
+//   codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
 //   	Stages: []stageProps{
-//   		sourceStage,
-//   		prodStage,
+//   		&stageProps{
+//   			StageName: jsii.String("Source"),
+//   			Actions: []iAction{
+//   				sourceAction,
+//   			},
+//   		},
+//   		&stageProps{
+//   			StageName: jsii.String("Build"),
+//   			Actions: []*iAction{
+//   				buildAction,
+//   			},
+//   		},
 //   	},
 //   })
 //
@@ -72,5 +64,9 @@ type RepositoryProps struct {
 	// Default: - No description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The customer managed key used to encrypt and decrypt the data in repository.
+	// Default: - Use an AWS managed key.
+	//
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

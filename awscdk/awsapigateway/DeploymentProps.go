@@ -46,5 +46,11 @@ type DeploymentProps struct {
 	// Default: false.
 	//
 	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
+	// The name of the stage the API Gateway deployment deploys to.
+	// Default: - No stage name. If the `stageName` property is set but a stage with the
+	// corresponding name does not exist, a new stage resource will be created with the
+	// provided stage name.
+	//
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 

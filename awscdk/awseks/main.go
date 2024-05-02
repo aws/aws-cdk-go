@@ -823,6 +823,7 @@ func init() {
 		"aws-cdk-lib.aws_eks.HelmChart",
 		reflect.TypeOf((*HelmChart)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "atomic", GoGetter: "Atomic"},
 			_jsii_.MemberProperty{JsiiProperty: "chart", GoGetter: "Chart"},
 			_jsii_.MemberProperty{JsiiProperty: "chartAsset", GoGetter: "ChartAsset"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},

@@ -31,6 +31,21 @@ import (
 //   		CertificateType: jsii.String("certificateType"),
 //   	},
 //   	ComputeType: jsii.String("computeType"),
+//   	ContainerGroupsConfiguration: &ContainerGroupsConfigurationProperty{
+//   		ConnectionPortRange: &ConnectionPortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   		ContainerGroupDefinitionNames: []*string{
+//   			jsii.String("containerGroupDefinitionNames"),
+//   		},
+//
+//   		// the properties below are optional
+//   		ContainerGroupsPerInstance: &ContainerGroupsPerInstanceProperty{
+//   			DesiredReplicaContainerGroupsPerInstance: jsii.Number(123),
+//   			MaxReplicaContainerGroupsPerInstance: jsii.Number(123),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DesiredEc2Instances: jsii.Number(123),
 //   	Ec2InboundPermissions: []interface{}{
@@ -121,6 +136,8 @@ type CfnFleet interface {
 	// Current resource capacity settings in a specified fleet or location.
 	ApplyCapacity() *string
 	SetApplyCapacity(val *string)
+	// GameLift calculates the maximum number of replica container groups it can launch per instance based on instance properties such as CPU, memory, and connection ports.
+	AttrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance() *float64
 	// A unique identifier for the fleet.
 	AttrFleetId() *string
 	// A unique identifier for a build to be deployed on the new fleet.
@@ -137,6 +154,9 @@ type CfnFleet interface {
 	// The type of compute resource used to host your game servers.
 	ComputeType() *string
 	SetComputeType(val *string)
+	// Specifies container groups that this instance will hold.
+	ContainerGroupsConfiguration() interface{}
+	SetContainerGroupsConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -400,6 +420,16 @@ func (j *jsiiProxy_CfnFleet) ApplyCapacity() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) AttrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) AttrFleetId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -465,6 +495,16 @@ func (j *jsiiProxy_CfnFleet) ComputeType() *string {
 	_jsii_.Get(
 		j,
 		"computeType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) ContainerGroupsConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"containerGroupsConfiguration",
 		&returns,
 	)
 	return returns
@@ -830,6 +870,17 @@ func (j *jsiiProxy_CfnFleet)SetComputeType(val *string) {
 	_jsii_.Set(
 		j,
 		"computeType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetContainerGroupsConfiguration(val interface{}) {
+	if err := j.validateSetContainerGroupsConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"containerGroupsConfiguration",
 		val,
 	)
 }

@@ -45,13 +45,13 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterslidercontrol.html
 //
 type CfnDashboard_ParameterSliderControlProperty struct {
-	// The smaller value that is displayed at the left of the slider.
+	// The larger value that is displayed at the right of the slider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterslidercontrol.html#cfn-quicksight-dashboard-parameterslidercontrol-maximumvalue
 	//
 	// Default: - 0.
 	//
 	MaximumValue *float64 `field:"required" json:"maximumValue" yaml:"maximumValue"`
-	// The larger value that is displayed at the right of the slider.
+	// The smaller value that is displayed at the left of the slider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterslidercontrol.html#cfn-quicksight-dashboard-parameterslidercontrol-minimumvalue
 	//
 	// Default: - 0.

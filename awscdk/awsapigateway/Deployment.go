@@ -94,6 +94,8 @@ type Deployment interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The stage of the API gateway deployment.
+	StageName() *string
 	// Adds a component to the hash that determines this Deployment resource's logical ID.
 	//
 	// This should be called by constructs of the API Gateway model that want to
@@ -188,6 +190,16 @@ func (j *jsiiProxy_Deployment) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Deployment) StageName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stageName",
 		&returns,
 	)
 	return returns

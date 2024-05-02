@@ -662,8 +662,8 @@ establish trust between an OIDC-compatible IdP and your AWS account. This is
 useful when creating a mobile app or web application that requires access to AWS
 resources, but you don't want to create custom sign-in code or manage your own
 user identities. For more information about this scenario, see [About Web
-Identity Federation] and the relevant documentation in the [Amazon Cognito
-Identity Pools Developer Guide].
+Identity Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html) and the relevant documentation in the [Amazon Cognito
+Identity Pools Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/open-id.html).
 
 The following examples defines an OpenID Connect provider. Two client IDs
 (audiences) are will be able to send authentication requests to

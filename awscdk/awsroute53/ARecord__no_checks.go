@@ -16,6 +16,10 @@ func (a *jsiiProxy_ARecord) validateGetResourceNameAttributeParameters(nameAttr 
 	return nil
 }
 
+func validateARecord_FromARecordAttributesParameters(scope constructs.Construct, id *string, attrs *ARecordAttrs) error {
+	return nil
+}
+
 func validateARecord_IsConstructParameters(x interface{}) error {
 	return nil
 }

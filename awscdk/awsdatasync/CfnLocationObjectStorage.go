@@ -88,7 +88,7 @@ type CfnLocationObjectStorage interface {
 	// Specifies the secret key (for example, a password) if credentials are required to authenticate with the object storage server.
 	SecretKey() *string
 	SetSecretKey(val *string)
-	// Specifies a file with the certificates that are used to sign the object storage server's certificate (for example, `file:///home/user/.ssh/storage_sys_certificate.pem` ). The file you specify must include the following:.
+	// Specifies a certificate chain for DataSync to authenticate with your object storage system if the system uses a private or self-signed certificate authority (CA).
 	ServerCertificate() *string
 	SetServerCertificate(val *string)
 	// Specifies the domain name or IP address of the object storage server.

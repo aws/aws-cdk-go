@@ -203,6 +203,14 @@ func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) validateSetPracticeRunConfigu
 	return nil
 }
 
+func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) validateSetResourceIdentifierParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnZonalAutoshiftConfigurationParameters(scope constructs.Construct, id *string, props *CfnZonalAutoshiftConfigurationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -212,6 +220,9 @@ func validateNewCfnZonalAutoshiftConfigurationParameters(scope constructs.Constr
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

@@ -36,6 +36,16 @@ type SystemdConfigFileOptions struct {
 	// Default: - No description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Loads environment variables from files when the process is running.
+	//
+	// Must use absolute paths.
+	// Default: - No environment files.
+	//
+	EnvironmentFiles *[]*string `field:"optional" json:"environmentFiles" yaml:"environmentFiles"`
+	// Environment variables to load when the process is running.
+	// Default: - No environment variables set.
+	//
+	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The group to execute the process under.
 	// Default: root.
 	//

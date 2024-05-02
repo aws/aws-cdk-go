@@ -10,6 +10,8 @@ package awsacmpca
 //
 //   ocspConfigurationProperty := &OcspConfigurationProperty{
 //   	Enabled: jsii.Boolean(false),
+//
+//   	// the properties below are optional
 //   	OcspCustomCname: jsii.String("ocspCustomCname"),
 //   }
 //
@@ -19,7 +21,7 @@ type CfnCertificateAuthority_OcspConfigurationProperty struct {
 	// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
 	//
-	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP).
 	//
 	// A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.

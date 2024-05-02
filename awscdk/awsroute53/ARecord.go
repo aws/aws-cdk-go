@@ -158,6 +158,30 @@ func NewARecord_Override(a ARecord, scope constructs.Construct, id *string, prop
 	)
 }
 
+// Creates new A record of type alias with target set to an existing A Record DNS.
+//
+// Use when the target A record is created outside of CDK
+// For records created as part of CDK use.
+//
+// Returns: AWS::Route53::RecordSet of type A with target alias set to existing A record.
+func ARecord_FromARecordAttributes(scope constructs.Construct, id *string, attrs *ARecordAttrs) ARecord {
+	_init_.Initialize()
+
+	if err := validateARecord_FromARecordAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns ARecord
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_route53.ARecord",
+		"fromARecordAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

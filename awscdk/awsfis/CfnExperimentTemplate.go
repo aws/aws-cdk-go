@@ -107,6 +107,7 @@ type CfnExperimentTemplate interface {
 	// The actions for the experiment.
 	Actions() interface{}
 	SetActions(val interface{})
+	// The ID of the experiment template.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

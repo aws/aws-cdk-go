@@ -32,6 +32,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.ApiDestinationAttributes",
+		reflect.TypeOf((*ApiDestinationAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.ApiDestinationProps",
 		reflect.TypeOf((*ApiDestinationProps)(nil)).Elem(),
 	)

@@ -8,9 +8,7 @@ package awsec2
 // - The ID or the name of the launch template, but not both.
 // - The version of the launch template.
 //
-// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-//
-// For example launch templates, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) for `AWS::EC2::LaunchTemplate` .
+// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* . For example launch templates, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) for `AWS::EC2::LaunchTemplate` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,21 +26,21 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html
 //
 type CfnInstance_LaunchTemplateSpecificationProperty struct {
-	// The version number of the launch template.
+	// The version number of the launch template. You must specify this property.
 	//
-	// Specifying `$Latest` or `$Default` for the template version number is not supported. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt) .
+	// To specify the default version of the template, use the `Fn::GetAtt` intrinsic function to retrieve the `DefaultVersionNumber` attribute of the launch template. To specify the latest version of the template, use `Fn::GetAtt` to retrieve the `LatestVersionNumber` attribute. For more information, see [AWS::EC2:LaunchTemplate return values for Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version
 	//
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// The ID of the launch template.
 	//
-	// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
+	// You must specify either the launch template ID or the launch template name, but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplateid
 	//
 	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the launch template.
 	//
-	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.
+	// You must specify either the launch template ID or the launch template name, but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplatename
 	//
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`

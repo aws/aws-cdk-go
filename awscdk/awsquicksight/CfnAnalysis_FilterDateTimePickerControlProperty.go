@@ -58,10 +58,10 @@ type CfnAnalysis_FilterDateTimePickerControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdatetimepickercontrol.html#cfn-quicksight-analysis-filterdatetimepickercontrol-displayoptions
 	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
-	// The date time picker type of a `FilterDateTimePickerControl` . Choose one of the following options:.
+	// The type of the `FilterDropDownControl` . Choose one of the following options:.
 	//
-	// - `SINGLE_VALUED` : The filter condition is a fixed date.
-	// - `DATE_RANGE` : The filter condition is a date time range.
+	// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
+	// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdatetimepickercontrol.html#cfn-quicksight-analysis-filterdatetimepickercontrol-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

@@ -29,6 +29,7 @@ import (
 //   	// the properties below are optional
 //   	As2Config: as2Config,
 //   	LoggingRole: jsii.String("loggingRole"),
+//   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{
 //   		TrustedHostKeys: []*string{
 //   			jsii.String("trustedHostKeys"),
@@ -59,6 +60,10 @@ type CfnConnector interface {
 	AttrArn() *string
 	// The service-assigned ID of the connector that is created.
 	AttrConnectorId() *string
+	// The list of egress IP addresses of this connector.
+	//
+	// These IP addresses are assigned automatically when you create the connector.
+	AttrServiceManagedEgressIpAddresses() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -88,6 +93,9 @@ type CfnConnector interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Security policy for SFTP Connector.
+	SecurityPolicyName() *string
+	SetSecurityPolicyName(val *string)
 	// A structure that contains the parameters for an SFTP connector object.
 	SftpConfig() interface{}
 	SetSftpConfig(val interface{})
@@ -290,6 +298,16 @@ func (j *jsiiProxy_CfnConnector) AttrConnectorId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnector) AttrServiceManagedEgressIpAddresses() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrServiceManagedEgressIpAddresses",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnector) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -365,6 +383,16 @@ func (j *jsiiProxy_CfnConnector) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnector) SecurityPolicyName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"securityPolicyName",
 		&returns,
 	)
 	return returns
@@ -491,6 +519,14 @@ func (j *jsiiProxy_CfnConnector)SetLoggingRole(val *string) {
 	_jsii_.Set(
 		j,
 		"loggingRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnector)SetSecurityPolicyName(val *string) {
+	_jsii_.Set(
+		j,
+		"securityPolicyName",
 		val,
 	)
 }

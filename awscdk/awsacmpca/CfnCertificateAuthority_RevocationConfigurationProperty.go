@@ -17,17 +17,21 @@ package awsacmpca
 //
 //   revocationConfigurationProperty := &RevocationConfigurationProperty{
 //   	CrlConfiguration: &CrlConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
 //   		CrlDistributionPointExtensionConfiguration: &CrlDistributionPointExtensionConfigurationProperty{
 //   			OmitExtension: jsii.Boolean(false),
 //   		},
 //   		CustomCname: jsii.String("customCname"),
-//   		Enabled: jsii.Boolean(false),
 //   		ExpirationInDays: jsii.Number(123),
 //   		S3BucketName: jsii.String("s3BucketName"),
 //   		S3ObjectAcl: jsii.String("s3ObjectAcl"),
 //   	},
 //   	OcspConfiguration: &OcspConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
 //   		OcspCustomCname: jsii.String("ocspCustomCname"),
 //   	},
 //   }

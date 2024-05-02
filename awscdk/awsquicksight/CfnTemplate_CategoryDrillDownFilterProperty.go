@@ -1,7 +1,7 @@
 package awsquicksight
 
 
-// The numeric equality type drill down filter.
+// The category drill down filter.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

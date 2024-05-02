@@ -21,6 +21,13 @@ import (
 //   })
 //
 type HelmChartOptions struct {
+	// Whether or not Helm should treat this operation as atomic;
+	//
+	// if set, upgrade process rolls back changes
+	// made in case of failed upgrade. The --wait flag will be set automatically if --atomic is used.
+	// Default: false.
+	//
+	Atomic *bool `field:"optional" json:"atomic" yaml:"atomic"`
 	// The name of the chart.
 	//
 	// Either this or `chartAsset` must be specified.

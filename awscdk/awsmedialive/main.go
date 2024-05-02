@@ -219,6 +219,14 @@ func init() {
 		reflect.TypeOf((*CfnChannel_CdiInputSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.CmafIngestGroupSettingsProperty",
+		reflect.TypeOf((*CfnChannel_CmafIngestGroupSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.CmafIngestOutputSettingsProperty",
+		reflect.TypeOf((*CfnChannel_CmafIngestOutputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.ColorCorrectionProperty",
 		reflect.TypeOf((*CfnChannel_ColorCorrectionProperty)(nil)).Elem(),
 	)

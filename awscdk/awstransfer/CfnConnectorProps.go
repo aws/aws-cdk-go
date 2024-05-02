@@ -20,6 +20,7 @@ import (
 //   	// the properties below are optional
 //   	As2Config: as2Config,
 //   	LoggingRole: jsii.String("loggingRole"),
+//   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{
 //   		TrustedHostKeys: []*string{
 //   			jsii.String("trustedHostKeys"),
@@ -67,6 +68,10 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-loggingrole
 	//
 	LoggingRole *string `field:"optional" json:"loggingRole" yaml:"loggingRole"`
+	// Security policy for SFTP Connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-securitypolicyname
+	//
+	SecurityPolicyName *string `field:"optional" json:"securityPolicyName" yaml:"securityPolicyName"`
 	// A structure that contains the parameters for an SFTP connector object.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-sftpconfig
 	//

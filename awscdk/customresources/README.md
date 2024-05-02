@@ -143,7 +143,7 @@ If `onEvent` throws an error, the framework will submit a "FAILED" response to
 AWS CloudFormation.
 
 The input event includes the following fields derived from the [Custom Resource
-Provider Request]:
+Provider Request](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-requests.html#crpg-ref-request-fields):
 
 | Field                   | Type   | Description                                                                                                                                         |
 | ----------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -559,7 +559,7 @@ In both the cases, you will get a synth time error if you attempt to use it in c
 
 ### Customizing the Lambda function implementing the custom resource
 
-Use the `role`, `timeout`, `logGroup`, `functionName` and `removalPolicy` properties to customize
+Use the `role`, `timeout`, `memorySize`, `logGroup`, `functionName` and `removalPolicy` properties to customize
 the Lambda function implementing the custom resource:
 
 ```go
@@ -570,6 +570,8 @@ cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps
 	 // must be assumable by the `lambda.amazonaws.com` service principal
 	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
 	 // defaults to 2 minutes
+	MemorySize: jsii.Number(1025),
+	 // defaults to 512 if installLatestAwsSdk is true
 	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
 		Retention: logs.RetentionDays_ONE_DAY,
 	}),

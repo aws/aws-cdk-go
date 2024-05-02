@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetRoleArnParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnKnowledgeBase) validateSetStorageConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnKnowledgeBaseParameters(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) error {
 	return nil
 }

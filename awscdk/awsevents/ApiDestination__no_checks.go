@@ -16,6 +16,10 @@ func (a *jsiiProxy_ApiDestination) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
+func validateApiDestination_FromApiDestinationAttributesParameters(scope constructs.Construct, id *string, attrs *ApiDestinationAttributes) error {
+	return nil
+}
+
 func validateApiDestination_IsConstructParameters(x interface{}) error {
 	return nil
 }

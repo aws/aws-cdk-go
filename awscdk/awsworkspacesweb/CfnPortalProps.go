@@ -19,7 +19,9 @@ import (
 //   	BrowserSettingsArn: jsii.String("browserSettingsArn"),
 //   	CustomerManagedKey: jsii.String("customerManagedKey"),
 //   	DisplayName: jsii.String("displayName"),
+//   	InstanceType: jsii.String("instanceType"),
 //   	IpAccessSettingsArn: jsii.String("ipAccessSettingsArn"),
+//   	MaxConcurrentSessions: jsii.Number(123),
 //   	NetworkSettingsArn: jsii.String("networkSettingsArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -69,10 +71,18 @@ type CfnPortalProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
+	// The type and resources of the underlying instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-instancetype
+	//
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The ARN of the IP access settings that is associated with the web portal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-ipaccesssettingsarn
 	//
 	IpAccessSettingsArn *string `field:"optional" json:"ipAccessSettingsArn" yaml:"ipAccessSettingsArn"`
+	// The maximum number of concurrent sessions for the portal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-maxconcurrentsessions
+	//
+	MaxConcurrentSessions *float64 `field:"optional" json:"maxConcurrentSessions" yaml:"maxConcurrentSessions"`
 	// The ARN of the network settings that is associated with the web portal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-networksettingsarn
 	//

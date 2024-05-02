@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) validateSetPracticeRunConfigu
 	return nil
 }
 
+func (j *jsiiProxy_CfnZonalAutoshiftConfiguration) validateSetResourceIdentifierParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnZonalAutoshiftConfigurationParameters(scope constructs.Construct, id *string, props *CfnZonalAutoshiftConfigurationProps) error {
 	return nil
 }

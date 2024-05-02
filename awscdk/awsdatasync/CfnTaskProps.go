@@ -63,6 +63,7 @@ import (
 //   	},
 //   	Schedule: &TaskScheduleProperty{
 //   		ScheduleExpression: jsii.String("scheduleExpression"),
+//   		Status: jsii.String("status"),
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{

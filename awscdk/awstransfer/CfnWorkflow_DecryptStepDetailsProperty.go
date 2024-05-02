@@ -27,10 +27,12 @@ package awstransfer
 //   			Key: jsii.String("key"),
 //   		},
 //   	},
+//   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
 //   	Name: jsii.String("name"),
 //   	OverwriteExisting: jsii.String("overwriteExisting"),
 //   	SourceFileLocation: jsii.String("sourceFileLocation"),
-//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html
@@ -46,7 +48,13 @@ type CfnWorkflow_DecryptStepDetailsProperty struct {
 	// > The system resolves `UploadDate` to a date format of *YYYY-MM-DD* , based on the date the file is uploaded in UTC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-destinationfilelocation
 	//
-	DestinationFileLocation interface{} `field:"optional" json:"destinationFileLocation" yaml:"destinationFileLocation"`
+	DestinationFileLocation interface{} `field:"required" json:"destinationFileLocation" yaml:"destinationFileLocation"`
+	// The type of encryption used.
+	//
+	// Currently, this value must be `PGP` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-type
+	//
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The name of the step, used as an identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-name
 	//
@@ -67,11 +75,5 @@ type CfnWorkflow_DecryptStepDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-sourcefilelocation
 	//
 	SourceFileLocation *string `field:"optional" json:"sourceFileLocation" yaml:"sourceFileLocation"`
-	// The type of encryption used.
-	//
-	// Currently, this value must be `PGP` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html#cfn-transfer-workflow-decryptstepdetails-type
-	//
-	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

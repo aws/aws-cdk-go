@@ -227,6 +227,30 @@ func (j *jsiiProxy_CfnFleet) validateSetCertificateConfigurationParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetContainerGroupsConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFleet_ContainerGroupsConfigurationProperty:
+		val := val.(*CfnFleet_ContainerGroupsConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFleet_ContainerGroupsConfigurationProperty:
+		val_ := val.(CfnFleet_ContainerGroupsConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFleet_ContainerGroupsConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetEc2InboundPermissionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

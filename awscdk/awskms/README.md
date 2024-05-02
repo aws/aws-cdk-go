@@ -5,6 +5,7 @@ Define a KMS key:
 ```go
 kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
 	EnableKeyRotation: jsii.Boolean(true),
+	RotationPeriod: awscdk.Duration_Days(jsii.Number(180)),
 })
 ```
 

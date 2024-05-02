@@ -105,5 +105,9 @@ type KeyProps struct {
 	// Default: RemovalPolicy.Retain
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// The period between each automatic rotation.
+	// Default: - set by CFN to 365 days.
+	//
+	RotationPeriod awscdk.Duration `field:"optional" json:"rotationPeriod" yaml:"rotationPeriod"`
 }
 

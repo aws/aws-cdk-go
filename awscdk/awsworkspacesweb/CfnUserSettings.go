@@ -68,6 +68,7 @@ type CfnUserSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The additional encryption context of the user settings.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
 	// A list of web portal ARNs that this user settings resource is associated with.
@@ -91,6 +92,7 @@ type CfnUserSettings interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The customer managed key used to encrypt sensitive information in the user settings.
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
 	// The amount of time that a streaming session remains active after users disconnect.

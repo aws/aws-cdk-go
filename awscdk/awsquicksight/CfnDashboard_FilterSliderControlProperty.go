@@ -50,13 +50,13 @@ type CfnDashboard_FilterSliderControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterslidercontrol.html#cfn-quicksight-dashboard-filterslidercontrol-filtercontrolid
 	//
 	FilterControlId *string `field:"required" json:"filterControlId" yaml:"filterControlId"`
-	// The smaller value that is displayed at the left of the slider.
+	// The larger value that is displayed at the right of the slider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterslidercontrol.html#cfn-quicksight-dashboard-filterslidercontrol-maximumvalue
 	//
 	// Default: - 0.
 	//
 	MaximumValue *float64 `field:"required" json:"maximumValue" yaml:"maximumValue"`
-	// The larger value that is displayed at the right of the slider.
+	// The smaller value that is displayed at the left of the slider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterslidercontrol.html#cfn-quicksight-dashboard-filterslidercontrol-minimumvalue
 	//
 	// Default: - 0.
@@ -80,7 +80,7 @@ type CfnDashboard_FilterSliderControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filterslidercontrol.html#cfn-quicksight-dashboard-filterslidercontrol-displayoptions
 	//
 	DisplayOptions interface{} `field:"optional" json:"displayOptions" yaml:"displayOptions"`
-	// The type of `FilterSliderControl` . Choose one of the following options:.
+	// The type of the `FilterSliderControl` . Choose one of the following options:.
 	//
 	// - `SINGLE_POINT` : Filter against(equals) a single data point.
 	// - `RANGE` : Filter data that is in a specified range.

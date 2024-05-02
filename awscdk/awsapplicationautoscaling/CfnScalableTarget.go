@@ -56,9 +56,6 @@ import (
 type CfnScalableTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// This value can be returned by using the Ref function.
-	//
-	// Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

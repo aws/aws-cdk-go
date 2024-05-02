@@ -55,7 +55,7 @@ type CfnCrossAccountAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the attachment.
+	// The Amazon Resource Name (ARN) of the cross-account attachment.
 	AttrAttachmentArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -78,12 +78,12 @@ type CfnCrossAccountAttachment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The Friendly identifier of the attachment.
+	// The name of the cross-account attachment.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Principals to share the resources with.
+	// The principals included in the cross-account attachment.
 	Principals() *[]*string
 	SetPrincipals(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -91,13 +91,14 @@ type CfnCrossAccountAttachment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Resources shared using the attachment.
+	// The resources included in the cross-account attachment.
 	Resources() interface{}
 	SetResources(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Add tags for a cross-account attachment.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

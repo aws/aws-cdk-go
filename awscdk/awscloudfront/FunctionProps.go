@@ -25,6 +25,10 @@ package awscloudfront
 type FunctionProps struct {
 	// The source code of the function.
 	Code FunctionCode `field:"required" json:"code" yaml:"code"`
+	// A flag that determines whether to automatically publish the function to the LIVE stage when it’s created.
+	// Default: - true.
+	//
+	AutoPublish *bool `field:"optional" json:"autoPublish" yaml:"autoPublish"`
 	// A comment to describe the function.
 	// Default: - same as `functionName`.
 	//

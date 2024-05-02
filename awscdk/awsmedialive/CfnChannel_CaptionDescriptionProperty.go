@@ -12,6 +12,9 @@ package awsmedialive
 //
 //   captionDescriptionProperty := &CaptionDescriptionProperty{
 //   	Accessibility: jsii.String("accessibility"),
+//   	CaptionDashRoles: []*string{
+//   		jsii.String("captionDashRoles"),
+//   	},
 //   	CaptionSelectorName: jsii.String("captionSelectorName"),
 //   	DestinationSettings: &CaptionDestinationSettingsProperty{
 //   		AribDestinationSettings: &AribDestinationSettingsProperty{
@@ -89,6 +92,7 @@ package awsmedialive
 //   			StyleControl: jsii.String("styleControl"),
 //   		},
 //   	},
+//   	DvbDashAccessibility: jsii.String("dvbDashAccessibility"),
 //   	LanguageCode: jsii.String("languageCode"),
 //   	LanguageDescription: jsii.String("languageDescription"),
 //   	Name: jsii.String("name"),
@@ -100,6 +104,9 @@ type CfnChannel_CaptionDescriptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-accessibility
 	//
 	Accessibility *string `field:"optional" json:"accessibility" yaml:"accessibility"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-captiondashroles
+	//
+	CaptionDashRoles *[]*string `field:"optional" json:"captionDashRoles" yaml:"captionDashRoles"`
 	// Specifies which input captions selector to use as a captions source when generating output captions.
 	//
 	// This field should match a captionSelector name.
@@ -110,6 +117,9 @@ type CfnChannel_CaptionDescriptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-destinationsettings
 	//
 	DestinationSettings interface{} `field:"optional" json:"destinationSettings" yaml:"destinationSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html#cfn-medialive-channel-captiondescription-dvbdashaccessibility
+	//
+	DvbDashAccessibility *string `field:"optional" json:"dvbDashAccessibility" yaml:"dvbDashAccessibility"`
 	// An ISO 639-2 three-digit code.
 	//
 	// For more information, see http://www.loc.gov/standards/iso639-2/.

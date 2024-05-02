@@ -535,6 +535,26 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_DecimalValueWhenUnsetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultDateTimePickerControlOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultDateTimePickerControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultFilterControlConfigurationProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultFilterControlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultFilterControlOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultFilterControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultFilterDropDownControlOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultFilterDropDownControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultFilterListControlOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultFilterListControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultFreeFormLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_DefaultFreeFormLayoutConfigurationProperty)(nil)).Elem(),
 	)
@@ -555,8 +575,24 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_DefaultPaginatedLayoutConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultRelativeDateTimeControlOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultRelativeDateTimeControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultSectionBasedLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_DefaultSectionBasedLayoutConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultSliderControlOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultSliderControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultTextAreaControlOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultTextAreaControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DefaultTextFieldControlOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_DefaultTextFieldControlOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DestinationParameterValueConfigurationProperty",
@@ -661,6 +697,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.FilterControlProperty",
 		reflect.TypeOf((*CfnAnalysis_FilterControlProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.FilterCrossSheetControlProperty",
+		reflect.TypeOf((*CfnAnalysis_FilterCrossSheetControlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.FilterDateTimePickerControlProperty",
@@ -1903,12 +1943,20 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_WaterfallChartAggregatedFieldWellsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.WaterfallChartColorConfigurationProperty",
+		reflect.TypeOf((*CfnAnalysis_WaterfallChartColorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.WaterfallChartConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_WaterfallChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.WaterfallChartFieldWellsProperty",
 		reflect.TypeOf((*CfnAnalysis_WaterfallChartFieldWellsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.WaterfallChartGroupColorConfigurationProperty",
+		reflect.TypeOf((*CfnAnalysis_WaterfallChartGroupColorConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.WaterfallChartOptionsProperty",
@@ -2524,6 +2572,26 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_DecimalValueWhenUnsetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultDateTimePickerControlOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultDateTimePickerControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultFilterControlConfigurationProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultFilterControlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultFilterControlOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultFilterControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultFilterDropDownControlOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultFilterDropDownControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultFilterListControlOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultFilterListControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultFreeFormLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_DefaultFreeFormLayoutConfigurationProperty)(nil)).Elem(),
 	)
@@ -2544,8 +2612,24 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_DefaultPaginatedLayoutConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultRelativeDateTimeControlOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultRelativeDateTimeControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultSectionBasedLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_DefaultSectionBasedLayoutConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultSliderControlOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultSliderControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultTextAreaControlOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultTextAreaControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DefaultTextFieldControlOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_DefaultTextFieldControlOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DestinationParameterValueConfigurationProperty",
@@ -2662,6 +2746,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.FilterControlProperty",
 		reflect.TypeOf((*CfnDashboard_FilterControlProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.FilterCrossSheetControlProperty",
+		reflect.TypeOf((*CfnDashboard_FilterCrossSheetControlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.FilterDateTimePickerControlProperty",
@@ -3924,12 +4012,20 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_WaterfallChartAggregatedFieldWellsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.WaterfallChartColorConfigurationProperty",
+		reflect.TypeOf((*CfnDashboard_WaterfallChartColorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.WaterfallChartConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_WaterfallChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.WaterfallChartFieldWellsProperty",
 		reflect.TypeOf((*CfnDashboard_WaterfallChartFieldWellsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.WaterfallChartGroupColorConfigurationProperty",
+		reflect.TypeOf((*CfnDashboard_WaterfallChartGroupColorConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.WaterfallChartOptionsProperty",
@@ -4994,6 +5090,26 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_DecimalValueWhenUnsetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultDateTimePickerControlOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultDateTimePickerControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultFilterControlConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultFilterControlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultFilterControlOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultFilterControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultFilterDropDownControlOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultFilterDropDownControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultFilterListControlOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultFilterListControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultFreeFormLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_DefaultFreeFormLayoutConfigurationProperty)(nil)).Elem(),
 	)
@@ -5014,8 +5130,24 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_DefaultPaginatedLayoutConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultRelativeDateTimeControlOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultRelativeDateTimeControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultSectionBasedLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_DefaultSectionBasedLayoutConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultSliderControlOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultSliderControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultTextAreaControlOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultTextAreaControlOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DefaultTextFieldControlOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_DefaultTextFieldControlOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.DestinationParameterValueConfigurationProperty",
@@ -5120,6 +5252,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.FilterControlProperty",
 		reflect.TypeOf((*CfnTemplate_FilterControlProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.FilterCrossSheetControlProperty",
+		reflect.TypeOf((*CfnTemplate_FilterCrossSheetControlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.FilterDateTimePickerControlProperty",
@@ -6374,12 +6510,20 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_WaterfallChartAggregatedFieldWellsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.WaterfallChartColorConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_WaterfallChartColorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.WaterfallChartConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_WaterfallChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.WaterfallChartFieldWellsProperty",
 		reflect.TypeOf((*CfnTemplate_WaterfallChartFieldWellsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.WaterfallChartGroupColorConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_WaterfallChartGroupColorConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.WaterfallChartOptionsProperty",

@@ -29,6 +29,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.ARecordAttrs",
+		reflect.TypeOf((*ARecordAttrs)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.ARecordProps",
 		reflect.TypeOf((*ARecordProps)(nil)).Elem(),
 	)

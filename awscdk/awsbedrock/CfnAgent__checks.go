@@ -365,6 +365,23 @@ func (j *jsiiProxy_CfnAgent) validateSetSkipResourceInUseCheckOnDeleteParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgent) validateSetTestAliasTagsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *map[string]*string:
+		// ok
+	case map[string]*string:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]*string; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnAgentParameters(scope constructs.Construct, id *string, props *CfnAgentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -80,6 +80,9 @@ package awsmedialive
 //   		Extension: jsii.String("extension"),
 //   		NameModifier: jsii.String("nameModifier"),
 //   	},
+//   	CmafIngestOutputSettings: &CmafIngestOutputSettingsProperty{
+//   		NameModifier: jsii.String("nameModifier"),
+//   	},
 //   	FrameCaptureOutputSettings: &FrameCaptureOutputSettingsProperty{
 //   		NameModifier: jsii.String("nameModifier"),
 //   	},
@@ -233,6 +236,9 @@ type CfnChannel_OutputSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-archiveoutputsettings
 	//
 	ArchiveOutputSettings interface{} `field:"optional" json:"archiveOutputSettings" yaml:"archiveOutputSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-cmafingestoutputsettings
+	//
+	CmafIngestOutputSettings interface{} `field:"optional" json:"cmafIngestOutputSettings" yaml:"cmafIngestOutputSettings"`
 	// The settings for a frame capture output.
 	//
 	// The parent of this entity is OutputGroupSettings.

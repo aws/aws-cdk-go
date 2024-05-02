@@ -28,7 +28,9 @@ import (
 //   	BrowserSettingsArn: jsii.String("browserSettingsArn"),
 //   	CustomerManagedKey: jsii.String("customerManagedKey"),
 //   	DisplayName: jsii.String("displayName"),
+//   	InstanceType: jsii.String("instanceType"),
 //   	IpAccessSettingsArn: jsii.String("ipAccessSettingsArn"),
+//   	MaxConcurrentSessions: jsii.Number(123),
 //   	NetworkSettingsArn: jsii.String("networkSettingsArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -91,6 +93,9 @@ type CfnPortal interface {
 	// The name of the web portal.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	// The type and resources of the underlying instance.
+	InstanceType() *string
+	SetInstanceType(val *string)
 	// The ARN of the IP access settings that is associated with the web portal.
 	IpAccessSettingsArn() *string
 	SetIpAccessSettingsArn(val *string)
@@ -104,6 +109,9 @@ type CfnPortal interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The maximum number of concurrent sessions for the portal.
+	MaxConcurrentSessions() *float64
+	SetMaxConcurrentSessions(val *float64)
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn() *string
 	SetNetworkSettingsArn(val *string)
@@ -457,6 +465,16 @@ func (j *jsiiProxy_CfnPortal) DisplayName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortal) InstanceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"instanceType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortal) IpAccessSettingsArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -472,6 +490,16 @@ func (j *jsiiProxy_CfnPortal) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPortal) MaxConcurrentSessions() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxConcurrentSessions",
 		&returns,
 	)
 	return returns
@@ -648,10 +676,26 @@ func (j *jsiiProxy_CfnPortal)SetDisplayName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnPortal)SetInstanceType(val *string) {
+	_jsii_.Set(
+		j,
+		"instanceType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnPortal)SetIpAccessSettingsArn(val *string) {
 	_jsii_.Set(
 		j,
 		"ipAccessSettingsArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPortal)SetMaxConcurrentSessions(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxConcurrentSessions",
 		val,
 	)
 }

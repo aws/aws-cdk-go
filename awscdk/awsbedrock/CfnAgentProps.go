@@ -76,6 +76,9 @@ package awsbedrock
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	TestAliasTags: map[string]*string{
+//   		"testAliasTagsKey": jsii.String("testAliasTags"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html
@@ -148,5 +151,9 @@ type CfnAgentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+	// A map of tag keys and values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-testaliastags
+	//
+	TestAliasTags interface{} `field:"optional" json:"testAliasTags" yaml:"testAliasTags"`
 }
 

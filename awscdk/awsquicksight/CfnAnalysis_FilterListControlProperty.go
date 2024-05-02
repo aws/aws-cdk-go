@@ -89,7 +89,7 @@ type CfnAnalysis_FilterListControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterlistcontrol.html#cfn-quicksight-analysis-filterlistcontrol-selectablevalues
 	//
 	SelectableValues interface{} `field:"optional" json:"selectableValues" yaml:"selectableValues"`
-	// The type of `FilterListControl` . Choose one of the following options:.
+	// The type of the `FilterListControl` . Choose one of the following options:.
 	//
 	// - `MULTI_SELECT` : The user can select multiple entries from the list.
 	// - `SINGLE_SELECT` : The user can select a single entry from the list.

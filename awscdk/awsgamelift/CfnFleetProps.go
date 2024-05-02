@@ -21,6 +21,21 @@ package awsgamelift
 //   		CertificateType: jsii.String("certificateType"),
 //   	},
 //   	ComputeType: jsii.String("computeType"),
+//   	ContainerGroupsConfiguration: &ContainerGroupsConfigurationProperty{
+//   		ConnectionPortRange: &ConnectionPortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   		ContainerGroupDefinitionNames: []*string{
+//   			jsii.String("containerGroupDefinitionNames"),
+//   		},
+//
+//   		// the properties below are optional
+//   		ContainerGroupsPerInstance: &ContainerGroupsPerInstanceProperty{
+//   			DesiredReplicaContainerGroupsPerInstance: jsii.Number(123),
+//   			MaxReplicaContainerGroupsPerInstance: jsii.Number(123),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DesiredEc2Instances: jsii.Number(123),
 //   	Ec2InboundPermissions: []interface{}{
@@ -145,6 +160,12 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-computetype
 	//
 	ComputeType *string `field:"optional" json:"computeType" yaml:"computeType"`
+	// Specifies container groups that this instance will hold.
+	//
+	// You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-containergroupsconfiguration
+	//
+	ContainerGroupsConfiguration interface{} `field:"optional" json:"containerGroupsConfiguration" yaml:"containerGroupsConfiguration"`
 	// A description for the fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
 	//

@@ -66,6 +66,10 @@ type AwsCustomResourceProps struct {
 	// Default: logs.RetentionDays.INFINITE
 	//
 	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
+	// The memory size for the singleton Lambda function implementing this custom resource.
+	// Default: 512 mega in case if installLatestAwsSdk is false.
+	//
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// The AWS SDK call to make when the resource is created.
 	// Default: - the call when the resource is updated.
 	//

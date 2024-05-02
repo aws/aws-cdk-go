@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnAgent) validateSetSkipResourceInUseCheckOnDeleteParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgent) validateSetTestAliasTagsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnAgentParameters(scope constructs.Construct, id *string, props *CfnAgentProps) error {
 	return nil
 }

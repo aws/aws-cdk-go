@@ -9,6 +9,9 @@ package awsarczonalshift
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnZonalAutoshiftConfigurationProps := &CfnZonalAutoshiftConfigurationProps{
+//   	ResourceIdentifier: jsii.String("resourceIdentifier"),
+//
+//   	// the properties below are optional
 //   	PracticeRunConfiguration: &PracticeRunConfigurationProperty{
 //   		OutcomeAlarms: []interface{}{
 //   			&ControlConditionProperty{
@@ -31,13 +34,20 @@ package awsarczonalshift
 //   			},
 //   		},
 //   	},
-//   	ResourceIdentifier: jsii.String("resourceIdentifier"),
 //   	ZonalAutoshiftStatus: jsii.String("zonalAutoshiftStatus"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html
 //
 type CfnZonalAutoshiftConfigurationProps struct {
+	// The identifier for the resource that AWS shifts traffic for.
+	//
+	// The identifier is the Amazon Resource Name (ARN) for the resource.
+	//
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-resourceidentifier
+	//
+	ResourceIdentifier *string `field:"required" json:"resourceIdentifier" yaml:"resourceIdentifier"`
 	// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
 	//
 	// When a resource has a practice run configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.
@@ -48,14 +58,6 @@ type CfnZonalAutoshiftConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration
 	//
 	PracticeRunConfiguration interface{} `field:"optional" json:"practiceRunConfiguration" yaml:"practiceRunConfiguration"`
-	// The identifier for the resource that AWS shifts traffic for.
-	//
-	// The identifier is the Amazon Resource Name (ARN) for the resource.
-	//
-	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html#cfn-arczonalshift-zonalautoshiftconfiguration-resourceidentifier
-	//
-	ResourceIdentifier *string `field:"optional" json:"resourceIdentifier" yaml:"resourceIdentifier"`
 	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery.
 	//
 	// Traffic is also shifted away for the required weekly practice runs.

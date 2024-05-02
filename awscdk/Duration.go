@@ -20,6 +20,8 @@ import (
 //   	 // must be assumable by the `lambda.amazonaws.com` service principal
 //   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
 //   	 // defaults to 2 minutes
+//   	MemorySize: jsii.Number(1025),
+//   	 // defaults to 512 if installLatestAwsSdk is true
 //   	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
 //   		Retention: logs.RetentionDays_ONE_DAY,
 //   	}),

@@ -28,7 +28,6 @@ import (
 type CfnTransitGatewayRouteTablePropagation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -209,16 +208,6 @@ type CfnTransitGatewayRouteTablePropagation interface {
 type jsiiProxy_CfnTransitGatewayRouteTablePropagation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnTransitGatewayRouteTablePropagation) CfnOptions() awscdk.ICfnResourceOptions {

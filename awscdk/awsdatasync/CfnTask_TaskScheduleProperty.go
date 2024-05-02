@@ -12,6 +12,7 @@ package awsdatasync
 //
 //   taskScheduleProperty := &TaskScheduleProperty{
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
+//   	Status: jsii.String("status"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html
@@ -20,6 +21,10 @@ type CfnTask_TaskScheduleProperty struct {
 	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression
 	//
-	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
+	// Specifies status of a schedule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-status
+	//
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

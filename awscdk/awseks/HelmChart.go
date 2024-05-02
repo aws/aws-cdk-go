@@ -28,6 +28,7 @@ import (
 //
 type HelmChart interface {
 	constructs.Construct
+	Atomic() *bool
 	Chart() *string
 	ChartAsset() awss3assets.Asset
 	// The tree node.
@@ -41,6 +42,16 @@ type HelmChart interface {
 // The jsii proxy struct for HelmChart
 type jsiiProxy_HelmChart struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_HelmChart) Atomic() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"atomic",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_HelmChart) Chart() *string {

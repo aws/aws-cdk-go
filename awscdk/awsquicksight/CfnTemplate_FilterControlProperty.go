@@ -11,6 +11,23 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   filterControlProperty := &FilterControlProperty{
+//   	CrossSheet: &FilterCrossSheetControlProperty{
+//   		FilterControlId: jsii.String("filterControlId"),
+//   		SourceFilterId: jsii.String("sourceFilterId"),
+//
+//   		// the properties below are optional
+//   		CascadingControlConfiguration: &CascadingControlConfigurationProperty{
+//   			SourceControls: []interface{}{
+//   				&CascadingControlSourceProperty{
+//   					ColumnToMatch: &ColumnIdentifierProperty{
+//   						ColumnName: jsii.String("columnName"),
+//   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					},
+//   					SourceSheetControlId: jsii.String("sourceSheetControlId"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	DateTimePicker: &FilterDateTimePickerControlProperty{
 //   		FilterControlId: jsii.String("filterControlId"),
 //   		SourceFilterId: jsii.String("sourceFilterId"),
@@ -269,6 +286,12 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtercontrol.html
 //
 type CfnTemplate_FilterControlProperty struct {
+	// A control from a filter that is scoped across more than one sheet.
+	//
+	// This represents your filter control on a sheet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtercontrol.html#cfn-quicksight-template-filtercontrol-crosssheet
+	//
+	CrossSheet interface{} `field:"optional" json:"crossSheet" yaml:"crossSheet"`
 	// A control from a date filter that is used to specify date and time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtercontrol.html#cfn-quicksight-template-filtercontrol-datetimepicker
 	//

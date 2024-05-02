@@ -11,6 +11,9 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   audioDescriptionProperty := &AudioDescriptionProperty{
+//   	AudioDashRoles: []*string{
+//   		jsii.String("audioDashRoles"),
+//   	},
 //   	AudioNormalizationSettings: &AudioNormalizationSettingsProperty{
 //   		Algorithm: jsii.String("algorithm"),
 //   		AlgorithmControl: jsii.String("algorithmControl"),
@@ -100,6 +103,7 @@ package awsmedialive
 //   			SampleRate: jsii.Number(123),
 //   		},
 //   	},
+//   	DvbDashAccessibility: jsii.String("dvbDashAccessibility"),
 //   	LanguageCode: jsii.String("languageCode"),
 //   	LanguageCodeControl: jsii.String("languageCodeControl"),
 //   	Name: jsii.String("name"),
@@ -124,6 +128,9 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html
 //
 type CfnChannel_AudioDescriptionProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audiodashroles
+	//
+	AudioDashRoles *[]*string `field:"optional" json:"audioDashRoles" yaml:"audioDashRoles"`
 	// The advanced audio normalization settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-audionormalizationsettings
 	//
@@ -152,6 +159,9 @@ type CfnChannel_AudioDescriptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-codecsettings
 	//
 	CodecSettings interface{} `field:"optional" json:"codecSettings" yaml:"codecSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html#cfn-medialive-channel-audiodescription-dvbdashaccessibility
+	//
+	DvbDashAccessibility *string `field:"optional" json:"dvbDashAccessibility" yaml:"dvbDashAccessibility"`
 	// Indicates the language of the audio output track.
 	//
 	// Used only if languageControlMode is useConfigured, or there is no ISO 639 language code specified in the input.

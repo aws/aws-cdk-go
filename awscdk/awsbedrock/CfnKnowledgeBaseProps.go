@@ -17,6 +17,43 @@ package awsbedrock
 //   	},
 //   	Name: jsii.String("name"),
 //   	RoleArn: jsii.String("roleArn"),
+//   	StorageConfiguration: &StorageConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		OpensearchServerlessConfiguration: &OpenSearchServerlessConfigurationProperty{
+//   			CollectionArn: jsii.String("collectionArn"),
+//   			FieldMapping: &OpenSearchServerlessFieldMappingProperty{
+//   				MetadataField: jsii.String("metadataField"),
+//   				TextField: jsii.String("textField"),
+//   				VectorField: jsii.String("vectorField"),
+//   			},
+//   			VectorIndexName: jsii.String("vectorIndexName"),
+//   		},
+//   		PineconeConfiguration: &PineconeConfigurationProperty{
+//   			ConnectionString: jsii.String("connectionString"),
+//   			CredentialsSecretArn: jsii.String("credentialsSecretArn"),
+//   			FieldMapping: &PineconeFieldMappingProperty{
+//   				MetadataField: jsii.String("metadataField"),
+//   				TextField: jsii.String("textField"),
+//   			},
+//
+//   			// the properties below are optional
+//   			Namespace: jsii.String("namespace"),
+//   		},
+//   		RdsConfiguration: &RdsConfigurationProperty{
+//   			CredentialsSecretArn: jsii.String("credentialsSecretArn"),
+//   			DatabaseName: jsii.String("databaseName"),
+//   			FieldMapping: &RdsFieldMappingProperty{
+//   				MetadataField: jsii.String("metadataField"),
+//   				PrimaryKeyField: jsii.String("primaryKeyField"),
+//   				TextField: jsii.String("textField"),
+//   				VectorField: jsii.String("vectorField"),
+//   			},
+//   			ResourceArn: jsii.String("resourceArn"),
+//   			TableName: jsii.String("tableName"),
+//   		},
+//   	},
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
@@ -40,6 +77,10 @@ type CfnKnowledgeBaseProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	// Contains details about the storage configuration of the knowledge base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-storageconfiguration
+	//
+	StorageConfiguration interface{} `field:"required" json:"storageConfiguration" yaml:"storageConfiguration"`
 	// The description of the knowledge base.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-description
 	//

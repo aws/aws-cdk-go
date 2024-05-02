@@ -440,7 +440,7 @@ NewRootStack(awscdk.NewApp())
 > **Warning:** In the code above, an API Gateway deployment is created during the initial CDK deployment.
 > However, if there are changes to the resources in subsequent CDK deployments, a new API Gateway deployment is not
 > automatically created. As a result, the latest state of the resources is not reflected. To ensure the latest state
-> of the resources is reflected, a manual deployment of the API Gateway is required after the CDK deployment.
+> of the resources is reflected, a manual deployment of the API Gateway is required after the CDK deployment. See [Controlled triggering of deployments](#controlled-triggering-of-deployments) for more info.
 
 ## Integration Targets
 
@@ -1237,7 +1237,7 @@ Instructions for configuring your trust store can be found [here](https://aws.am
 By default, the `RestApi` construct will automatically create an API Gateway
 [Deployment](https://docs.aws.amazon.com/apigateway/api-reference/resource/deployment/) and a "prod" [Stage](https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/) which represent the API configuration you
 defined in your CDK app. This means that when you deploy your app, your API will
-be have open access from the internet via the stage URL.
+have open access from the internet via the stage URL.
 
 The URL of your API can be obtained from the attribute `restApi.url`, and is
 also exported as an `Output` from your stack, so it's printed when you `cdk deploy` your app:
@@ -1294,6 +1294,72 @@ import cdk "github.com/aws/aws-cdk-go/awscdk"
 api := apigateway.NewRestApi(this, jsii.String("books"), &RestApiProps{
 	CloudWatchRole: jsii.Boolean(true),
 	CloudWatchRoleRemovalPolicy: cdk.RemovalPolicy_DESTROY,
+})
+```
+
+### Deploying to an existing stage
+
+#### Using RestApi
+
+If you want to use an existing stage to deploy your `RestApi`, first set `{ deploy: false }` so the construct doesn't automatically create new `Deployment` and `Stage` resources.  Then you can manually define a `apigateway.Deployment` resource and specify the stage name for your existing stage using the `stageName` property.
+
+Note that as long as the deployment's logical ID doesn't change, it will represent the snapshot in time when the resource was created. To ensure your deployment reflects changes to the `RestApi` model, see [Controlled triggering of deployments](#controlled-triggering-of-deployments).
+
+```go
+restApi := apigateway.NewRestApi(this, jsii.String("my-rest-api"), &RestApiProps{
+	Deploy: jsii.Boolean(false),
+})
+
+// Use `stageName` to deploy to an existing stage
+deployment := apigateway.NewDeployment(this, jsii.String("my-deployment"), &DeploymentProps{
+	Api: restApi,
+	StageName: jsii.String("dev"),
+	RetainDeployments: jsii.Boolean(true),
+})
+```
+
+#### Using SpecRestApi
+
+If you want to use an existing stage to deploy your `SpecRestApi`, first set `{ deploy: false }` so the construct doesn't automatically create new `Deployment` and `Stage` resources. Then you can manually define a `apigateway.Deployment` resource and specify the stage name for your existing stage using the `stageName` property.
+
+To automatically create a new deployment that reflects the latest API changes, you can use the `addToLogicalId()` method and pass in your OpenAPI definition.
+
+```go
+myApiDefinition := apigateway.ApiDefinition_FromAsset(jsii.String("path-to-file.json"))
+specRestApi := apigateway.NewSpecRestApi(this, jsii.String("my-specrest-api"), &SpecRestApiProps{
+	Deploy: jsii.Boolean(false),
+	ApiDefinition: myApiDefinition,
+})
+
+// Use `stageName` to deploy to an existing stage
+deployment := apigateway.NewDeployment(this, jsii.String("my-deployment"), &DeploymentProps{
+	Api: specRestApi,
+	StageName: jsii.String("dev"),
+	RetainDeployments: jsii.Boolean(true),
+})
+
+// Trigger a new deployment on OpenAPI definition updates
+deployment.AddToLogicalId(myApiDefinition)
+```
+
+> Note: If the `stageName` property is set but a stage with the corresponding name does not exist, a new stage resource will be created with the provided stage name.
+
+> Note: If you update the `stageName` property, you should be triggering a new deployment (i.e. with an updated logical ID and API changes). Otherwise, an error will occur during deployment.
+
+### Controlled triggering of deployments
+
+By default, the `RestApi` construct deploys changes immediately. If you want to
+control when deployments happen, set `{ deploy: false }` and create a `Deployment` construct yourself. Add a revision counter to the construct ID, and update it in your source code whenever you want to trigger a new deployment:
+
+```go
+restApi := apigateway.NewRestApi(this, jsii.String("my-api"), &RestApiProps{
+	Deploy: jsii.Boolean(false),
+})
+
+deploymentRevision := 5 // Bump this counter to trigger a new deployment
+ // Bump this counter to trigger a new deployment
+apigateway.NewDeployment(this, fmt.Sprintf("Deployment%v", deploymentRevision), &DeploymentProps{
+	Api: restApi,
 })
 ```
 

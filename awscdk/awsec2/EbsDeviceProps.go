@@ -43,7 +43,8 @@ type EbsDeviceProps struct {
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
-	// Default: `EbsDeviceVolumeType.GP2`
+	// Default: `EbsDeviceVolumeType.GENERAL_PURPOSE_SSD` or `EbsDeviceVolumeType.GENERAL_PURPOSE_SSD_GP3` if
+	// `@aws-cdk/aws-ec2:ebsDefaultGp3Volume` is enabled.
 	//
 	VolumeType EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 	// The volume size, in Gibibytes (GiB).

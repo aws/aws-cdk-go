@@ -44,11 +44,13 @@ package awsacmpca
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   crlConfigurationProperty := &CrlConfigurationProperty{
+//   	Enabled: jsii.Boolean(false),
+//
+//   	// the properties below are optional
 //   	CrlDistributionPointExtensionConfiguration: &CrlDistributionPointExtensionConfigurationProperty{
 //   		OmitExtension: jsii.Boolean(false),
 //   	},
 //   	CustomCname: jsii.String("customCname"),
-//   	Enabled: jsii.Boolean(false),
 //   	ExpirationInDays: jsii.Number(123),
 //   	S3BucketName: jsii.String("s3BucketName"),
 //   	S3ObjectAcl: jsii.String("s3ObjectAcl"),
@@ -57,6 +59,12 @@ package awsacmpca
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
 //
 type CfnCertificateAuthority_CrlConfigurationProperty struct {
+	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+	//
+	// You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
+	//
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA.
 	//
 	// If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
@@ -71,12 +79,6 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
 	//
 	CustomCname *string `field:"optional" json:"customCname" yaml:"customCname"`
-	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
-	//
-	// You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
-	//
-	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Validity period of the CRL in days.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
 	//

@@ -22,6 +22,16 @@ package awsmedialive
 //   		},
 //   		RolloverInterval: jsii.Number(123),
 //   	},
+//   	CmafIngestGroupSettings: &CmafIngestGroupSettingsProperty{
+//   		Destination: &OutputLocationRefProperty{
+//   			DestinationRefId: jsii.String("destinationRefId"),
+//   		},
+//   		NielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   		Scte35Type: jsii.String("scte35Type"),
+//   		SegmentLength: jsii.Number(123),
+//   		SegmentLengthUnits: jsii.String("segmentLengthUnits"),
+//   		SendDelayMs: jsii.Number(123),
+//   	},
 //   	FrameCaptureGroupSettings: &FrameCaptureGroupSettingsProperty{
 //   		Destination: &OutputLocationRefProperty{
 //   			DestinationRefId: jsii.String("destinationRefId"),
@@ -187,6 +197,9 @@ type CfnChannel_OutputGroupSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-archivegroupsettings
 	//
 	ArchiveGroupSettings interface{} `field:"optional" json:"archiveGroupSettings" yaml:"archiveGroupSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-cmafingestgroupsettings
+	//
+	CmafIngestGroupSettings interface{} `field:"optional" json:"cmafIngestGroupSettings" yaml:"cmafIngestGroupSettings"`
 	// The configuration of a frame capture output group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-framecapturegroupsettings
 	//

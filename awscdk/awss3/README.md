@@ -283,7 +283,7 @@ myCrossRegionBucket := s3.Bucket_FromBucketAttributes(this, jsii.String("CrossRe
 
 The Amazon S3 notification feature enables you to receive notifications when
 certain events happen in your bucket as described under [S3 Bucket
-Notifications] of the S3 Developer Guide.
+Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) of the S3 Developer Guide.
 
 To subscribe for bucket notifications, use the `bucket.addEventNotification` method. The
 `bucket.addObjectCreatedNotification` and `bucket.addObjectRemovedNotification` can also be used for

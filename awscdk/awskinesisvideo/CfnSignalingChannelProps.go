@@ -26,7 +26,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html
 //
 type CfnSignalingChannelProps struct {
-	// The period of time a signaling channel retains undelivered messages before they are discarded.
+	// The period of time (in seconds) a signaling channel retains undelivered messages before they are discarded.
+	//
+	// Use `API_UpdateSignalingChannel` to update this value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html#cfn-kinesisvideo-signalingchannel-messagettlseconds
 	//
 	MessageTtlSeconds *float64 `field:"optional" json:"messageTtlSeconds" yaml:"messageTtlSeconds"`

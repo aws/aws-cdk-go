@@ -88,6 +88,9 @@ package awsmedialive
 //   			Extension: jsii.String("extension"),
 //   			NameModifier: jsii.String("nameModifier"),
 //   		},
+//   		CmafIngestOutputSettings: &CmafIngestOutputSettingsProperty{
+//   			NameModifier: jsii.String("nameModifier"),
+//   		},
 //   		FrameCaptureOutputSettings: &FrameCaptureOutputSettingsProperty{
 //   			NameModifier: jsii.String("nameModifier"),
 //   		},

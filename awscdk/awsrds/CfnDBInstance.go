@@ -59,6 +59,7 @@ import (
 //   			RoleArn: jsii.String("roleArn"),
 //   		},
 //   	},
+//   	AutomaticBackupReplicationKmsKeyId: jsii.String("automaticBackupReplicationKmsKeyId"),
 //   	AutomaticBackupReplicationRegion: jsii.String("automaticBackupReplicationRegion"),
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
@@ -205,6 +206,8 @@ type CfnDBInstance interface {
 	AttrEndpointPort() *string
 	// The Amazon Resource Name (ARN) of the secret.
 	AttrMasterUserSecretSecretArn() *string
+	AutomaticBackupReplicationKmsKeyId() *string
+	SetAutomaticBackupReplicationKmsKeyId(val *string)
 	// The destination region for the backup replication of the DB instance.
 	AutomaticBackupReplicationRegion() *string
 	SetAutomaticBackupReplicationRegion(val *string)
@@ -726,6 +729,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrMasterUserSecretSecretArn() *string {
 	_jsii_.Get(
 		j,
 		"attrMasterUserSecretSecretArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AutomaticBackupReplicationKmsKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"automaticBackupReplicationKmsKeyId",
 		&returns,
 	)
 	return returns
@@ -1625,6 +1638,14 @@ func (j *jsiiProxy_CfnDBInstance)SetAssociatedRoles(val interface{}) {
 	_jsii_.Set(
 		j,
 		"associatedRoles",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetAutomaticBackupReplicationKmsKeyId(val *string) {
+	_jsii_.Set(
+		j,
+		"automaticBackupReplicationKmsKeyId",
 		val,
 	)
 }

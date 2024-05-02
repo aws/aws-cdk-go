@@ -40,6 +40,43 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	RoleArn: jsii.String("roleArn"),
+//   	StorageConfiguration: &StorageConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		OpensearchServerlessConfiguration: &OpenSearchServerlessConfigurationProperty{
+//   			CollectionArn: jsii.String("collectionArn"),
+//   			FieldMapping: &OpenSearchServerlessFieldMappingProperty{
+//   				MetadataField: jsii.String("metadataField"),
+//   				TextField: jsii.String("textField"),
+//   				VectorField: jsii.String("vectorField"),
+//   			},
+//   			VectorIndexName: jsii.String("vectorIndexName"),
+//   		},
+//   		PineconeConfiguration: &PineconeConfigurationProperty{
+//   			ConnectionString: jsii.String("connectionString"),
+//   			CredentialsSecretArn: jsii.String("credentialsSecretArn"),
+//   			FieldMapping: &PineconeFieldMappingProperty{
+//   				MetadataField: jsii.String("metadataField"),
+//   				TextField: jsii.String("textField"),
+//   			},
+//
+//   			// the properties below are optional
+//   			Namespace: jsii.String("namespace"),
+//   		},
+//   		RdsConfiguration: &RdsConfigurationProperty{
+//   			CredentialsSecretArn: jsii.String("credentialsSecretArn"),
+//   			DatabaseName: jsii.String("databaseName"),
+//   			FieldMapping: &RdsFieldMappingProperty{
+//   				MetadataField: jsii.String("metadataField"),
+//   				PrimaryKeyField: jsii.String("primaryKeyField"),
+//   				TextField: jsii.String("textField"),
+//   				VectorField: jsii.String("vectorField"),
+//   			},
+//   			ResourceArn: jsii.String("resourceArn"),
+//   			TableName: jsii.String("tableName"),
+//   		},
+//   	},
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
@@ -110,6 +147,9 @@ type CfnKnowledgeBase interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Contains details about the storage configuration of the knowledge base.
+	StorageConfiguration() interface{}
+	SetStorageConfiguration(val interface{})
 	// Metadata that you can assign to a resource as key-value pairs.
 	//
 	// For more information, see the following resources:.
@@ -452,6 +492,16 @@ func (j *jsiiProxy_CfnKnowledgeBase) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKnowledgeBase) StorageConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"storageConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKnowledgeBase) Tags() *map[string]*string {
 	var returns *map[string]*string
 	_jsii_.Get(
@@ -547,6 +597,17 @@ func (j *jsiiProxy_CfnKnowledgeBase)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKnowledgeBase)SetStorageConfiguration(val interface{}) {
+	if err := j.validateSetStorageConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"storageConfiguration",
 		val,
 	)
 }

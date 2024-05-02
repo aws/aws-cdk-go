@@ -12,63 +12,21 @@ import (
 // OpenAPI specification from a local file.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var dockerImage dockerImage
-//   var grantable iGrantable
-//   var localBundling iLocalBundling
-//
-//   assetApiDefinition := awscdk.Aws_apigateway.NewAssetApiDefinition(jsii.String("path"), &AssetOptions{
-//   	AssetHash: jsii.String("assetHash"),
-//   	AssetHashType: cdk.AssetHashType_SOURCE,
-//   	Bundling: &BundlingOptions{
-//   		Image: dockerImage,
-//
-//   		// the properties below are optional
-//   		BundlingFileAccess: cdk.BundlingFileAccess_VOLUME_COPY,
-//   		Command: []*string{
-//   			jsii.String("command"),
-//   		},
-//   		Entrypoint: []*string{
-//   			jsii.String("entrypoint"),
-//   		},
-//   		Environment: map[string]*string{
-//   			"environmentKey": jsii.String("environment"),
-//   		},
-//   		Local: localBundling,
-//   		Network: jsii.String("network"),
-//   		OutputType: cdk.BundlingOutput_ARCHIVED,
-//   		Platform: jsii.String("platform"),
-//   		SecurityOpt: jsii.String("securityOpt"),
-//   		User: jsii.String("user"),
-//   		Volumes: []dockerVolume{
-//   			&dockerVolume{
-//   				ContainerPath: jsii.String("containerPath"),
-//   				HostPath: jsii.String("hostPath"),
-//
-//   				// the properties below are optional
-//   				Consistency: cdk.DockerVolumeConsistency_CONSISTENT,
-//   			},
-//   		},
-//   		VolumesFrom: []*string{
-//   			jsii.String("volumesFrom"),
-//   		},
-//   		WorkingDirectory: jsii.String("workingDirectory"),
-//   	},
-//   	DeployTime: jsii.Boolean(false),
-//   	Exclude: []*string{
-//   		jsii.String("exclude"),
-//   	},
-//   	FollowSymlinks: cdk.SymlinkFollowMode_NEVER,
-//   	IgnoreMode: cdk.IgnoreMode_GLOB,
-//   	Readers: []*iGrantable{
-//   		grantable,
-//   	},
+//   myApiDefinition := apigateway.ApiDefinition_FromAsset(jsii.String("path-to-file.json"))
+//   specRestApi := apigateway.NewSpecRestApi(this, jsii.String("my-specrest-api"), &SpecRestApiProps{
+//   	Deploy: jsii.Boolean(false),
+//   	ApiDefinition: myApiDefinition,
 //   })
+//
+//   // Use `stageName` to deploy to an existing stage
+//   deployment := apigateway.NewDeployment(this, jsii.String("my-deployment"), &DeploymentProps{
+//   	Api: specRestApi,
+//   	StageName: jsii.String("dev"),
+//   	RetainDeployments: jsii.Boolean(true),
+//   })
+//
+//   // Trigger a new deployment on OpenAPI definition updates
+//   deployment.AddToLogicalId(myApiDefinition)
 //
 type AssetApiDefinition interface {
 	ApiDefinition

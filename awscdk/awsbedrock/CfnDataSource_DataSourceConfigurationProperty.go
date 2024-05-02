@@ -13,6 +13,7 @@ package awsbedrock
 //   		BucketArn: jsii.String("bucketArn"),
 //
 //   		// the properties below are optional
+//   		BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
 //   		InclusionPrefixes: []*string{
 //   			jsii.String("inclusionPrefixes"),
 //   		},

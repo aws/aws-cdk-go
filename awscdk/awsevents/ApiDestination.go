@@ -192,6 +192,25 @@ func NewApiDestination_Override(a ApiDestination, scope constructs.Construct, id
 	)
 }
 
+// Create an Api Destination construct from an existing Api Destination ARN.
+func ApiDestination_FromApiDestinationAttributes(scope constructs.Construct, id *string, attrs *ApiDestinationAttributes) ApiDestination {
+	_init_.Initialize()
+
+	if err := validateApiDestination_FromApiDestinationAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns ApiDestination
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.ApiDestination",
+		"fromApiDestinationAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

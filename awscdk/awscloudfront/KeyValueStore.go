@@ -12,12 +12,25 @@ import (
 // A CloudFront Key Value Store.
 //
 // Example:
-//   store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"))
-//   cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
-//   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
-//   	// Note that JS_2_0 must be used for Key Value Store support
-//   	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
-//   	KeyValueStore: store,
+//   storeAsset := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStoreAsset"), &KeyValueStoreProps{
+//   	KeyValueStoreName: jsii.String("KeyValueStoreAsset"),
+//   	Source: cloudfront.ImportSource_FromAsset(jsii.String("path-to-data.json")),
+//   })
+//
+//   storeInline := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStoreInline"), &KeyValueStoreProps{
+//   	KeyValueStoreName: jsii.String("KeyValueStoreInline"),
+//   	Source: cloudfront.ImportSource_FromInline(jSON.stringify(map[string][]map[string]*string{
+//   		"data": []map[string]*string{
+//   			map[string]*string{
+//   				"key": jsii.String("key1"),
+//   				"value": jsii.String("value1"),
+//   			},
+//   			map[string]*string{
+//   				"key": jsii.String("key2"),
+//   				"value": jsii.String("value2"),
+//   			},
+//   		},
+//   	})),
 //   })
 //
 type KeyValueStore interface {

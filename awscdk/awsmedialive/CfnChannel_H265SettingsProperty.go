@@ -48,6 +48,8 @@ package awsmedialive
 //   	LookAheadRateControl: jsii.String("lookAheadRateControl"),
 //   	MaxBitrate: jsii.Number(123),
 //   	MinIInterval: jsii.Number(123),
+//   	MvOverPictureBoundaries: jsii.String("mvOverPictureBoundaries"),
+//   	MvTemporalPredictor: jsii.String("mvTemporalPredictor"),
 //   	ParDenominator: jsii.Number(123),
 //   	ParNumerator: jsii.Number(123),
 //   	Profile: jsii.String("profile"),
@@ -57,12 +59,16 @@ package awsmedialive
 //   	SceneChangeDetect: jsii.String("sceneChangeDetect"),
 //   	Slices: jsii.Number(123),
 //   	Tier: jsii.String("tier"),
+//   	TileHeight: jsii.Number(123),
+//   	TilePadding: jsii.String("tilePadding"),
+//   	TileWidth: jsii.Number(123),
 //   	TimecodeBurninSettings: &TimecodeBurninSettingsProperty{
 //   		FontSize: jsii.String("fontSize"),
 //   		Position: jsii.String("position"),
 //   		Prefix: jsii.String("prefix"),
 //   	},
 //   	TimecodeInsertion: jsii.String("timecodeInsertion"),
+//   	TreeblockSize: jsii.String("treeblockSize"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html
@@ -163,6 +169,12 @@ type CfnChannel_H265SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-miniinterval
 	//
 	MinIInterval *float64 `field:"optional" json:"minIInterval" yaml:"minIInterval"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-mvoverpictureboundaries
+	//
+	MvOverPictureBoundaries *string `field:"optional" json:"mvOverPictureBoundaries" yaml:"mvOverPictureBoundaries"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-mvtemporalpredictor
+	//
+	MvTemporalPredictor *string `field:"optional" json:"mvTemporalPredictor" yaml:"mvTemporalPredictor"`
 	// Pixel Aspect Ratio denominator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-pardenominator
 	//
@@ -213,6 +225,15 @@ type CfnChannel_H265SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-tier
 	//
 	Tier *string `field:"optional" json:"tier" yaml:"tier"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-tileheight
+	//
+	TileHeight *float64 `field:"optional" json:"tileHeight" yaml:"tileHeight"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-tilepadding
+	//
+	TilePadding *string `field:"optional" json:"tilePadding" yaml:"tilePadding"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-tilewidth
+	//
+	TileWidth *float64 `field:"optional" json:"tileWidth" yaml:"tileWidth"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-timecodeburninsettings
 	//
 	TimecodeBurninSettings interface{} `field:"optional" json:"timecodeBurninSettings" yaml:"timecodeBurninSettings"`
@@ -223,5 +244,8 @@ type CfnChannel_H265SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-timecodeinsertion
 	//
 	TimecodeInsertion *string `field:"optional" json:"timecodeInsertion" yaml:"timecodeInsertion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-treeblocksize
+	//
+	TreeblockSize *string `field:"optional" json:"treeblockSize" yaml:"treeblockSize"`
 }
 

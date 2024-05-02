@@ -75,6 +75,14 @@ type InstanceProps struct {
 	// Default: - false.
 	//
 	DetailedMonitoring *bool `field:"optional" json:"detailedMonitoring" yaml:"detailedMonitoring"`
+	// Indicates whether the instance is optimized for Amazon EBS I/O.
+	//
+	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance.
+	// This optimization isn't available with all instance types.
+	// Additional usage charges apply when using an EBS-optimized instance.
+	// Default: false.
+	//
+	EbsOptimized *bool `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 	// Apply the given CloudFormation Init configuration to the instance at startup.
 	// Default: - no CloudFormation init.
 	//

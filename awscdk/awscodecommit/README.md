@@ -41,6 +41,26 @@ repo := codecommit.NewRepository(this, jsii.String("Repository"), &RepositoryPro
 })
 ```
 
+## Use a customer managed key
+
+CodeCommit repositories are automatically encrypted with an AWS managed key. To use
+a customer managed key, specify the `kmsKey` property.
+
+For more information, see
+[AWS Key Management Service and encryption for AWS CodeCommit repositories](https://docs.aws.amazon.com/cdk/latest/guide/reference.html#versioning).
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+var kmsKey iKey
+
+
+repo := codecommit.NewRepository(this, jsii.String("Repository"), &RepositoryProps{
+	RepositoryName: jsii.String("MyRepositoryName"),
+	KmsKey: KmsKey,
+})
+```
+
 ## Events
 
 CodeCommit repositories emit Amazon CloudWatch events for certain activities.

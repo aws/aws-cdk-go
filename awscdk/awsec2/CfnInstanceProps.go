@@ -318,9 +318,9 @@ type CfnInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-keyname
 	//
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
-	// The launch template to use to launch the instances.
+	// The launch template.
 	//
-	// Any parameters that you specify in the AWS CloudFormation template override the same parameters in the launch template. You can specify either the name or ID of a launch template, but not both.
+	// Any additional parameters that you specify for the new instance overwrite the corresponding parameters included in the launch template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-launchtemplate
 	//
 	LaunchTemplate interface{} `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`

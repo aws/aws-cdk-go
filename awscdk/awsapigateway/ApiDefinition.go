@@ -12,15 +12,21 @@ import (
 // Represents an OpenAPI definition asset.
 //
 // Example:
-//   var integration integration
-//
-//
-//   api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &SpecRestApiProps{
-//   	ApiDefinition: apigateway.ApiDefinition_FromAsset(jsii.String("path-to-file.json")),
+//   myApiDefinition := apigateway.ApiDefinition_FromAsset(jsii.String("path-to-file.json"))
+//   specRestApi := apigateway.NewSpecRestApi(this, jsii.String("my-specrest-api"), &SpecRestApiProps{
+//   	Deploy: jsii.Boolean(false),
+//   	ApiDefinition: myApiDefinition,
 //   })
 //
-//   booksResource := api.Root.AddResource(jsii.String("books"))
-//   booksResource.AddMethod(jsii.String("GET"), integration)
+//   // Use `stageName` to deploy to an existing stage
+//   deployment := apigateway.NewDeployment(this, jsii.String("my-deployment"), &DeploymentProps{
+//   	Api: specRestApi,
+//   	StageName: jsii.String("dev"),
+//   	RetainDeployments: jsii.Boolean(true),
+//   })
+//
+//   // Trigger a new deployment on OpenAPI definition updates
+//   deployment.AddToLogicalId(myApiDefinition)
 //
 type ApiDefinition interface {
 	// Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.

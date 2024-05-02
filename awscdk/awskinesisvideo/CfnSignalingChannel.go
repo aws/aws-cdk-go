@@ -57,7 +57,7 @@ type CfnSignalingChannel interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The period of time a signaling channel retains undelivered messages before they are discarded.
+	// The period of time (in seconds) a signaling channel retains undelivered messages before they are discarded.
 	MessageTtlSeconds() *float64
 	SetMessageTtlSeconds(val *float64)
 	// A name for the signaling channel that you are creating.

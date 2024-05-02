@@ -280,7 +280,7 @@ type CfnInstance interface {
 	// You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html) .
 	KeyName() *string
 	SetKeyName(val *string)
-	// The launch template to use to launch the instances.
+	// The launch template.
 	LaunchTemplate() interface{}
 	SetLaunchTemplate(val interface{})
 	// The license configurations.

@@ -39,10 +39,12 @@ import (
 //   						Key: jsii.String("key"),
 //   					},
 //   				},
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
 //   				Name: jsii.String("name"),
 //   				OverwriteExisting: jsii.String("overwriteExisting"),
 //   				SourceFileLocation: jsii.String("sourceFileLocation"),
-//   				Type: jsii.String("type"),
 //   			},
 //   			DeleteStepDetails: deleteStepDetails,
 //   			TagStepDetails: tagStepDetails,
@@ -67,10 +69,12 @@ import (
 //   						Key: jsii.String("key"),
 //   					},
 //   				},
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
 //   				Name: jsii.String("name"),
 //   				OverwriteExisting: jsii.String("overwriteExisting"),
 //   				SourceFileLocation: jsii.String("sourceFileLocation"),
-//   				Type: jsii.String("type"),
 //   			},
 //   			DeleteStepDetails: deleteStepDetails,
 //   			TagStepDetails: tagStepDetails,

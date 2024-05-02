@@ -32,6 +32,7 @@ import (
 //   			BucketArn: jsii.String("bucketArn"),
 //
 //   			// the properties below are optional
+//   			BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
 //   			InclusionPrefixes: []*string{
 //   				jsii.String("inclusionPrefixes"),
 //   			},
@@ -42,6 +43,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DataDeletionPolicy: jsii.String("dataDeletionPolicy"),
 //   	Description: jsii.String("description"),
 //   	ServerSideEncryptionConfiguration: &ServerSideEncryptionConfigurationProperty{
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
@@ -73,6 +75,8 @@ type CfnDataSource interface {
 	// - Available – The data source has been created and is ready for ingestion into the knowledge base.
 	// - Deleting – The data source is being deleted.
 	AttrDataSourceStatus() *string
+	// The details of the failure reasons related to the data source.
+	AttrFailureReasons() *[]*string
 	// The time at which the data source was last updated.
 	AttrUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -84,6 +88,9 @@ type CfnDataSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The deletion policy for the data source.
+	DataDeletionPolicy() *string
+	SetDataDeletionPolicy(val *string)
 	// Contains details about how the data source is stored.
 	DataSourceConfiguration() interface{}
 	SetDataSourceConfiguration(val interface{})
@@ -299,6 +306,16 @@ func (j *jsiiProxy_CfnDataSource) AttrDataSourceStatus() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) AttrFailureReasons() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrFailureReasons",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) AttrUpdatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -344,6 +361,16 @@ func (j *jsiiProxy_CfnDataSource) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) DataDeletionPolicy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dataDeletionPolicy",
 		&returns,
 	)
 	return returns
@@ -494,6 +521,14 @@ func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *
 		"aws-cdk-lib.aws_bedrock.CfnDataSource",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource)SetDataDeletionPolicy(val *string) {
+	_jsii_.Set(
+		j,
+		"dataDeletionPolicy",
+		val,
 	)
 }
 

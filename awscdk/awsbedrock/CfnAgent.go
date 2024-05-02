@@ -92,6 +92,9 @@ import (
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	TestAliasTags: map[string]*string{
+//   		"testAliasTagsKey": jsii.String("testAliasTags"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html
@@ -199,6 +202,9 @@ type CfnAgent interface {
 	// For more information, see the following resources:.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
+	// A map of tag keys and values.
+	TestAliasTags() interface{}
+	SetTestAliasTags(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -656,6 +662,16 @@ func (j *jsiiProxy_CfnAgent) Tags() *map[string]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgent) TestAliasTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"testAliasTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgent) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -822,6 +838,17 @@ func (j *jsiiProxy_CfnAgent)SetTags(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAgent)SetTestAliasTags(val interface{}) {
+	if err := j.validateSetTestAliasTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"testAliasTags",
 		val,
 	)
 }

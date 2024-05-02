@@ -1692,6 +1692,25 @@ ec2.CloudFormationInit_FromElements(ec2.InitFile_FromString(jsii.String("/etc/ng
 }))
 ```
 
+You can use the `environmentVariables` or `environmentFiles` parameters to specify environment variables
+for your services:
+
+```go
+ec2.NewInitConfig([]initElement{
+	ec2.InitFile_FromString(jsii.String("/myvars.env"), jsii.String("VAR_FROM_FILE=\"VAR_FROM_FILE\"")),
+	ec2.InitService_SystemdConfigFile(jsii.String("myapp"), &SystemdConfigFileOptions{
+		Command: jsii.String("/usr/bin/python3 -m http.server 8080"),
+		Cwd: jsii.String("/var/www/html"),
+		EnvironmentVariables: map[string]*string{
+			"MY_VAR": jsii.String("MY_VAR"),
+		},
+		EnvironmentFiles: []*string{
+			jsii.String("/myvars.env"),
+		},
+	}),
+})
+```
+
 ### Bastion Hosts
 
 A bastion host functions as an instance used to access servers and resources in a VPC without open up the complete VPC on a network level.
@@ -1795,6 +1814,32 @@ ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 				Encrypted: jsii.Boolean(true),
 				KmsKey: kmsKey,
 			}),
+		},
+	},
+})
+```
+
+#### EBS Optimized Instances
+
+An Amazon EBS–optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O. This optimization provides the best performance for your EBS volumes by minimizing contention between Amazon EBS I/O and other traffic from your instance.
+
+Depending on the instance type, this features is enabled by default while others require explicit activation. Please refer to the [documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) for details.
+
+```go
+var vpc vpc
+var instanceType instanceType
+var machineImage iMachineImage
+
+
+ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
+	EbsOptimized: jsii.Boolean(true),
+	BlockDevices: []blockDevice{
+		&blockDevice{
+			DeviceName: jsii.String("/dev/xvda"),
+			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(8)),
 		},
 	},
 })

@@ -1,0 +1,244 @@
+package awsquicksight
+
+
+// The option that corresponds to the control type of the filter.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   defaultFilterControlOptionsProperty := &DefaultFilterControlOptionsProperty{
+//   	DefaultDateTimePickerOptions: &DefaultDateTimePickerControlOptionsProperty{
+//   		DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
+//   			DateTimeFormat: jsii.String("dateTimeFormat"),
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			TitleOptions: &LabelOptionsProperty{
+//   				CustomLabel: jsii.String("customLabel"),
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontSize: &FontSizeProperty{
+//   						Relative: jsii.String("relative"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   		},
+//   		Type: jsii.String("type"),
+//   	},
+//   	DefaultDropdownOptions: &DefaultFilterDropDownControlOptionsProperty{
+//   		DisplayOptions: &DropDownControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			SelectAllOptions: &ListControlSelectAllOptionsProperty{
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			TitleOptions: &LabelOptionsProperty{
+//   				CustomLabel: jsii.String("customLabel"),
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontSize: &FontSizeProperty{
+//   						Relative: jsii.String("relative"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   		},
+//   		SelectableValues: &FilterSelectableValuesProperty{
+//   			Values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   		Type: jsii.String("type"),
+//   	},
+//   	DefaultListOptions: &DefaultFilterListControlOptionsProperty{
+//   		DisplayOptions: &ListControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			SearchOptions: &ListControlSearchOptionsProperty{
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			SelectAllOptions: &ListControlSelectAllOptionsProperty{
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			TitleOptions: &LabelOptionsProperty{
+//   				CustomLabel: jsii.String("customLabel"),
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontSize: &FontSizeProperty{
+//   						Relative: jsii.String("relative"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   		},
+//   		SelectableValues: &FilterSelectableValuesProperty{
+//   			Values: []*string{
+//   				jsii.String("values"),
+//   			},
+//   		},
+//   		Type: jsii.String("type"),
+//   	},
+//   	DefaultRelativeDateTimeOptions: &DefaultRelativeDateTimeControlOptionsProperty{
+//   		DisplayOptions: &RelativeDateTimeControlDisplayOptionsProperty{
+//   			DateTimeFormat: jsii.String("dateTimeFormat"),
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			TitleOptions: &LabelOptionsProperty{
+//   				CustomLabel: jsii.String("customLabel"),
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontSize: &FontSizeProperty{
+//   						Relative: jsii.String("relative"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   		},
+//   	},
+//   	DefaultSliderOptions: &DefaultSliderControlOptionsProperty{
+//   		MaximumValue: jsii.Number(123),
+//   		MinimumValue: jsii.Number(123),
+//   		StepSize: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		DisplayOptions: &SliderControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			TitleOptions: &LabelOptionsProperty{
+//   				CustomLabel: jsii.String("customLabel"),
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontSize: &FontSizeProperty{
+//   						Relative: jsii.String("relative"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   		},
+//   		Type: jsii.String("type"),
+//   	},
+//   	DefaultTextAreaOptions: &DefaultTextAreaControlOptionsProperty{
+//   		Delimiter: jsii.String("delimiter"),
+//   		DisplayOptions: &TextAreaControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			PlaceholderOptions: &TextControlPlaceholderOptionsProperty{
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			TitleOptions: &LabelOptionsProperty{
+//   				CustomLabel: jsii.String("customLabel"),
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontSize: &FontSizeProperty{
+//   						Relative: jsii.String("relative"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   		},
+//   	},
+//   	DefaultTextFieldOptions: &DefaultTextFieldControlOptionsProperty{
+//   		DisplayOptions: &TextFieldControlDisplayOptionsProperty{
+//   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   				InfoIconText: jsii.String("infoIconText"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			PlaceholderOptions: &TextControlPlaceholderOptionsProperty{
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			TitleOptions: &LabelOptionsProperty{
+//   				CustomLabel: jsii.String("customLabel"),
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontSize: &FontSizeProperty{
+//   						Relative: jsii.String("relative"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html
+//
+type CfnTemplate_DefaultFilterControlOptionsProperty struct {
+	// The default options that correspond to the filter control type of a `DateTimePicker` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html#cfn-quicksight-template-defaultfiltercontroloptions-defaultdatetimepickeroptions
+	//
+	DefaultDateTimePickerOptions interface{} `field:"optional" json:"defaultDateTimePickerOptions" yaml:"defaultDateTimePickerOptions"`
+	// The default options that correspond to the `Dropdown` filter control type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html#cfn-quicksight-template-defaultfiltercontroloptions-defaultdropdownoptions
+	//
+	DefaultDropdownOptions interface{} `field:"optional" json:"defaultDropdownOptions" yaml:"defaultDropdownOptions"`
+	// The default options that correspond to the `List` filter control type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html#cfn-quicksight-template-defaultfiltercontroloptions-defaultlistoptions
+	//
+	DefaultListOptions interface{} `field:"optional" json:"defaultListOptions" yaml:"defaultListOptions"`
+	// The default options that correspond to the `RelativeDateTime` filter control type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html#cfn-quicksight-template-defaultfiltercontroloptions-defaultrelativedatetimeoptions
+	//
+	DefaultRelativeDateTimeOptions interface{} `field:"optional" json:"defaultRelativeDateTimeOptions" yaml:"defaultRelativeDateTimeOptions"`
+	// The default options that correspond to the `Slider` filter control type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html#cfn-quicksight-template-defaultfiltercontroloptions-defaultslideroptions
+	//
+	DefaultSliderOptions interface{} `field:"optional" json:"defaultSliderOptions" yaml:"defaultSliderOptions"`
+	// The default options that correspond to the `TextArea` filter control type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html#cfn-quicksight-template-defaultfiltercontroloptions-defaulttextareaoptions
+	//
+	DefaultTextAreaOptions interface{} `field:"optional" json:"defaultTextAreaOptions" yaml:"defaultTextAreaOptions"`
+	// The default options that correspond to the `TextField` filter control type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html#cfn-quicksight-template-defaultfiltercontroloptions-defaulttextfieldoptions
+	//
+	DefaultTextFieldOptions interface{} `field:"optional" json:"defaultTextFieldOptions" yaml:"defaultTextFieldOptions"`
+}
+

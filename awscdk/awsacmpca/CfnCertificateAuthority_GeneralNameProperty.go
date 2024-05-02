@@ -33,8 +33,10 @@ package awsacmpca
 //   	},
 //   	DnsName: jsii.String("dnsName"),
 //   	EdiPartyName: &EdiPartyNameProperty{
-//   		NameAssigner: jsii.String("nameAssigner"),
 //   		PartyName: jsii.String("partyName"),
+//
+//   		// the properties below are optional
+//   		NameAssigner: jsii.String("nameAssigner"),
 //   	},
 //   	IpAddress: jsii.String("ipAddress"),
 //   	OtherName: &OtherNameProperty{

@@ -24,6 +24,16 @@ package awsmedialive
 //   			},
 //   			RolloverInterval: jsii.Number(123),
 //   		},
+//   		CmafIngestGroupSettings: &CmafIngestGroupSettingsProperty{
+//   			Destination: &OutputLocationRefProperty{
+//   				DestinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   			NielsenId3Behavior: jsii.String("nielsenId3Behavior"),
+//   			Scte35Type: jsii.String("scte35Type"),
+//   			SegmentLength: jsii.Number(123),
+//   			SegmentLengthUnits: jsii.String("segmentLengthUnits"),
+//   			SendDelayMs: jsii.Number(123),
+//   		},
 //   		FrameCaptureGroupSettings: &FrameCaptureGroupSettingsProperty{
 //   			Destination: &OutputLocationRefProperty{
 //   				DestinationRefId: jsii.String("destinationRefId"),
@@ -256,6 +266,9 @@ package awsmedialive
 //   						},
 //   					},
 //   					Extension: jsii.String("extension"),
+//   					NameModifier: jsii.String("nameModifier"),
+//   				},
+//   				CmafIngestOutputSettings: &CmafIngestOutputSettingsProperty{
 //   					NameModifier: jsii.String("nameModifier"),
 //   				},
 //   				FrameCaptureOutputSettings: &FrameCaptureOutputSettingsProperty{

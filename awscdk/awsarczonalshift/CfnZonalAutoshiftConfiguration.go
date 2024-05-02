@@ -21,6 +21,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnZonalAutoshiftConfiguration := awscdk.Aws_arczonalshift.NewCfnZonalAutoshiftConfiguration(this, jsii.String("MyCfnZonalAutoshiftConfiguration"), &CfnZonalAutoshiftConfigurationProps{
+//   	ResourceIdentifier: jsii.String("resourceIdentifier"),
+//
+//   	// the properties below are optional
 //   	PracticeRunConfiguration: &PracticeRunConfigurationProperty{
 //   		OutcomeAlarms: []interface{}{
 //   			&ControlConditionProperty{
@@ -43,7 +46,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	ResourceIdentifier: jsii.String("resourceIdentifier"),
 //   	ZonalAutoshiftStatus: jsii.String("zonalAutoshiftStatus"),
 //   })
 //
@@ -407,6 +409,9 @@ func (j *jsiiProxy_CfnZonalAutoshiftConfiguration)SetPracticeRunConfiguration(va
 }
 
 func (j *jsiiProxy_CfnZonalAutoshiftConfiguration)SetResourceIdentifier(val *string) {
+	if err := j.validateSetResourceIdentifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"resourceIdentifier",

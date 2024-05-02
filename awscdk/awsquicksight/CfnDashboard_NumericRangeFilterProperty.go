@@ -31,6 +31,209 @@ package awsquicksight
 //   			SimpleNumericalAggregation: jsii.String("simpleNumericalAggregation"),
 //   		},
 //   	},
+//   	DefaultFilterControlConfiguration: &DefaultFilterControlConfigurationProperty{
+//   		ControlOptions: &DefaultFilterControlOptionsProperty{
+//   			DefaultDateTimePickerOptions: &DefaultDateTimePickerControlOptionsProperty{
+//   				DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
+//   					DateTimeFormat: jsii.String("dateTimeFormat"),
+//   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   						InfoIconText: jsii.String("infoIconText"),
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					TitleOptions: &LabelOptionsProperty{
+//   						CustomLabel: jsii.String("customLabel"),
+//   						FontConfiguration: &FontConfigurationProperty{
+//   							FontColor: jsii.String("fontColor"),
+//   							FontDecoration: jsii.String("fontDecoration"),
+//   							FontSize: &FontSizeProperty{
+//   								Relative: jsii.String("relative"),
+//   							},
+//   							FontStyle: jsii.String("fontStyle"),
+//   							FontWeight: &FontWeightProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   			DefaultDropdownOptions: &DefaultFilterDropDownControlOptionsProperty{
+//   				DisplayOptions: &DropDownControlDisplayOptionsProperty{
+//   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   						InfoIconText: jsii.String("infoIconText"),
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					SelectAllOptions: &ListControlSelectAllOptionsProperty{
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					TitleOptions: &LabelOptionsProperty{
+//   						CustomLabel: jsii.String("customLabel"),
+//   						FontConfiguration: &FontConfigurationProperty{
+//   							FontColor: jsii.String("fontColor"),
+//   							FontDecoration: jsii.String("fontDecoration"),
+//   							FontSize: &FontSizeProperty{
+//   								Relative: jsii.String("relative"),
+//   							},
+//   							FontStyle: jsii.String("fontStyle"),
+//   							FontWeight: &FontWeightProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   				},
+//   				SelectableValues: &FilterSelectableValuesProperty{
+//   					Values: []*string{
+//   						jsii.String("values"),
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   			DefaultListOptions: &DefaultFilterListControlOptionsProperty{
+//   				DisplayOptions: &ListControlDisplayOptionsProperty{
+//   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   						InfoIconText: jsii.String("infoIconText"),
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					SearchOptions: &ListControlSearchOptionsProperty{
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					SelectAllOptions: &ListControlSelectAllOptionsProperty{
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					TitleOptions: &LabelOptionsProperty{
+//   						CustomLabel: jsii.String("customLabel"),
+//   						FontConfiguration: &FontConfigurationProperty{
+//   							FontColor: jsii.String("fontColor"),
+//   							FontDecoration: jsii.String("fontDecoration"),
+//   							FontSize: &FontSizeProperty{
+//   								Relative: jsii.String("relative"),
+//   							},
+//   							FontStyle: jsii.String("fontStyle"),
+//   							FontWeight: &FontWeightProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   				},
+//   				SelectableValues: &FilterSelectableValuesProperty{
+//   					Values: []*string{
+//   						jsii.String("values"),
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   			DefaultRelativeDateTimeOptions: &DefaultRelativeDateTimeControlOptionsProperty{
+//   				DisplayOptions: &RelativeDateTimeControlDisplayOptionsProperty{
+//   					DateTimeFormat: jsii.String("dateTimeFormat"),
+//   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   						InfoIconText: jsii.String("infoIconText"),
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					TitleOptions: &LabelOptionsProperty{
+//   						CustomLabel: jsii.String("customLabel"),
+//   						FontConfiguration: &FontConfigurationProperty{
+//   							FontColor: jsii.String("fontColor"),
+//   							FontDecoration: jsii.String("fontDecoration"),
+//   							FontSize: &FontSizeProperty{
+//   								Relative: jsii.String("relative"),
+//   							},
+//   							FontStyle: jsii.String("fontStyle"),
+//   							FontWeight: &FontWeightProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   				},
+//   			},
+//   			DefaultSliderOptions: &DefaultSliderControlOptionsProperty{
+//   				MaximumValue: jsii.Number(123),
+//   				MinimumValue: jsii.Number(123),
+//   				StepSize: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				DisplayOptions: &SliderControlDisplayOptionsProperty{
+//   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   						InfoIconText: jsii.String("infoIconText"),
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					TitleOptions: &LabelOptionsProperty{
+//   						CustomLabel: jsii.String("customLabel"),
+//   						FontConfiguration: &FontConfigurationProperty{
+//   							FontColor: jsii.String("fontColor"),
+//   							FontDecoration: jsii.String("fontDecoration"),
+//   							FontSize: &FontSizeProperty{
+//   								Relative: jsii.String("relative"),
+//   							},
+//   							FontStyle: jsii.String("fontStyle"),
+//   							FontWeight: &FontWeightProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   			DefaultTextAreaOptions: &DefaultTextAreaControlOptionsProperty{
+//   				Delimiter: jsii.String("delimiter"),
+//   				DisplayOptions: &TextAreaControlDisplayOptionsProperty{
+//   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   						InfoIconText: jsii.String("infoIconText"),
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					PlaceholderOptions: &TextControlPlaceholderOptionsProperty{
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					TitleOptions: &LabelOptionsProperty{
+//   						CustomLabel: jsii.String("customLabel"),
+//   						FontConfiguration: &FontConfigurationProperty{
+//   							FontColor: jsii.String("fontColor"),
+//   							FontDecoration: jsii.String("fontDecoration"),
+//   							FontSize: &FontSizeProperty{
+//   								Relative: jsii.String("relative"),
+//   							},
+//   							FontStyle: jsii.String("fontStyle"),
+//   							FontWeight: &FontWeightProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   				},
+//   			},
+//   			DefaultTextFieldOptions: &DefaultTextFieldControlOptionsProperty{
+//   				DisplayOptions: &TextFieldControlDisplayOptionsProperty{
+//   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
+//   						InfoIconText: jsii.String("infoIconText"),
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					PlaceholderOptions: &TextControlPlaceholderOptionsProperty{
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   					TitleOptions: &LabelOptionsProperty{
+//   						CustomLabel: jsii.String("customLabel"),
+//   						FontConfiguration: &FontConfigurationProperty{
+//   							FontColor: jsii.String("fontColor"),
+//   							FontDecoration: jsii.String("fontDecoration"),
+//   							FontSize: &FontSizeProperty{
+//   								Relative: jsii.String("relative"),
+//   							},
+//   							FontStyle: jsii.String("fontStyle"),
+//   							FontWeight: &FontWeightProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Visibility: jsii.String("visibility"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		Title: jsii.String("title"),
+//   	},
 //   	IncludeMaximum: jsii.Boolean(false),
 //   	IncludeMinimum: jsii.Boolean(false),
 //   	RangeMaximum: &NumericRangeFilterValueProperty{
@@ -67,6 +270,12 @@ type CfnDashboard_NumericRangeFilterProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericrangefilter.html#cfn-quicksight-dashboard-numericrangefilter-aggregationfunction
 	//
 	AggregationFunction interface{} `field:"optional" json:"aggregationFunction" yaml:"aggregationFunction"`
+	// The default configurations for the associated controls.
+	//
+	// This applies only for filters that are scoped to multiple sheets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericrangefilter.html#cfn-quicksight-dashboard-numericrangefilter-defaultfiltercontrolconfiguration
+	//
+	DefaultFilterControlConfiguration interface{} `field:"optional" json:"defaultFilterControlConfiguration" yaml:"defaultFilterControlConfiguration"`
 	// Determines whether the maximum value in the filter value range should be included in the filtered results.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericrangefilter.html#cfn-quicksight-dashboard-numericrangefilter-includemaximum
 	//

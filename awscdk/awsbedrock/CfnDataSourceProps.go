@@ -14,6 +14,7 @@ package awsbedrock
 //   			BucketArn: jsii.String("bucketArn"),
 //
 //   			// the properties below are optional
+//   			BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
 //   			InclusionPrefixes: []*string{
 //   				jsii.String("inclusionPrefixes"),
 //   			},
@@ -24,6 +25,7 @@ package awsbedrock
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DataDeletionPolicy: jsii.String("dataDeletionPolicy"),
 //   	Description: jsii.String("description"),
 //   	ServerSideEncryptionConfiguration: &ServerSideEncryptionConfigurationProperty{
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
@@ -56,6 +58,10 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The deletion policy for the data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-datadeletionpolicy
+	//
+	DataDeletionPolicy *string `field:"optional" json:"dataDeletionPolicy" yaml:"dataDeletionPolicy"`
 	// The description of the data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-description
 	//
