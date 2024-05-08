@@ -7,10 +7,10 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 )
 
-// Virtual Deliverablity Manager (VDM) attributes.
+// Virtual Deliverability Manager (VDM) attributes.
 type IVdmAttributes interface {
 	awscdk.IResource
-	// The name of the resource behind the Virtual Deliverablity Manager attributes.
+	// The name of the resource behind the Virtual Deliverability Manager attributes.
 	VdmAttributesName() *string
 }
 

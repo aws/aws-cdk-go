@@ -40,6 +40,9 @@ package awsdynamodb
 //   					ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
 //   						Enabled: jsii.Boolean(false),
 //   					},
+//   					ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   						MaxReadRequestUnits: jsii.Number(123),
+//   					},
 //   					ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
 //   						ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
 //   							MaxCapacity: jsii.Number(123),
@@ -68,6 +71,9 @@ package awsdynamodb
 //   			},
 //   			PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
 //   				PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//   			},
+//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
 //   			},
 //   			ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
 //   				ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
@@ -127,6 +133,9 @@ package awsdynamodb
 //   			},
 //
 //   			// the properties below are optional
+//   			WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
+//   				MaxWriteRequestUnits: jsii.Number(123),
+//   			},
 //   			WriteProvisionedThroughputSettings: &WriteProvisionedThroughputSettingsProperty{
 //   				WriteCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
 //   					MaxCapacity: jsii.Number(123),
@@ -178,6 +187,9 @@ package awsdynamodb
 //
 //   		// the properties below are optional
 //   		AttributeName: jsii.String("attributeName"),
+//   	},
+//   	WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
+//   		MaxWriteRequestUnits: jsii.Number(123),
 //   	},
 //   	WriteProvisionedThroughputSettings: &WriteProvisionedThroughputSettingsProperty{
 //   		WriteCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
@@ -272,6 +284,9 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
 	//
 	TimeToLiveSpecification interface{} `field:"optional" json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings
+	//
+	WriteOnDemandThroughputSettings interface{} `field:"optional" json:"writeOnDemandThroughputSettings" yaml:"writeOnDemandThroughputSettings"`
 	// Specifies an auto scaling policy for write capacity.
 	//
 	// This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .

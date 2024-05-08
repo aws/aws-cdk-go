@@ -759,7 +759,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCustomerGatewayId", GoGetter: "AttrCustomerGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "bgpAsn", GoGetter: "BgpAsn"},
-			_jsii_.MemberProperty{JsiiProperty: "bgpAsnExtended", GoGetter: "BgpAsnExtended"},
 			_jsii_.MemberProperty{JsiiProperty: "certificateArn", GoGetter: "CertificateArn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -1819,6 +1818,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrPrivateIp", GoGetter: "AttrPrivateIp"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPublicDnsName", GoGetter: "AttrPublicDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPublicIp", GoGetter: "AttrPublicIp"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVpcId", GoGetter: "AttrVpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "blockDeviceMappings", GoGetter: "BlockDeviceMappings"},
@@ -1957,6 +1957,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnInstance.SsmAssociationProperty",
 		reflect.TypeOf((*CfnInstance_SsmAssociationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnInstance.StateProperty",
+		reflect.TypeOf((*CfnInstance_StateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnInstance.VolumeProperty",

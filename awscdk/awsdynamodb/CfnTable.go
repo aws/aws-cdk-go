@@ -64,6 +64,10 @@ import (
 //   			ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
 //   				Enabled: jsii.Boolean(false),
 //   			},
+//   			OnDemandThroughput: &OnDemandThroughputProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
+//   				MaxWriteRequestUnits: jsii.Number(123),
+//   			},
 //   			ProvisionedThroughput: &ProvisionedThroughputProperty{
 //   				ReadCapacityUnits: jsii.Number(123),
 //   				WriteCapacityUnits: jsii.Number(123),
@@ -113,6 +117,10 @@ import (
 //   				ProjectionType: jsii.String("projectionType"),
 //   			},
 //   		},
+//   	},
+//   	OnDemandThroughput: &OnDemandThroughputProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   		MaxWriteRequestUnits: jsii.Number(123),
 //   	},
 //   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
 //   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
@@ -217,6 +225,8 @@ type CfnTable interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	OnDemandThroughput() interface{}
+	SetOnDemandThroughput(val interface{})
 	// The settings used to enable point in time recovery.
 	PointInTimeRecoverySpecification() interface{}
 	SetPointInTimeRecoverySpecification(val interface{})
@@ -572,6 +582,16 @@ func (j *jsiiProxy_CfnTable) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) OnDemandThroughput() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"onDemandThroughput",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) PointInTimeRecoverySpecification() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -832,6 +852,17 @@ func (j *jsiiProxy_CfnTable)SetLocalSecondaryIndexes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"localSecondaryIndexes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetOnDemandThroughput(val interface{}) {
+	if err := j.validateSetOnDemandThroughputParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"onDemandThroughput",
 		val,
 	)
 }

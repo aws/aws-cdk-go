@@ -9,7 +9,22 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::PaymentCryptography::Alias Resource Type.
+// Creates an *alias* , or a friendly name, for an AWS Payment Cryptography key.
+//
+// You can use an alias to identify a key in the console and when you call cryptographic operations such as [EncryptData](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_EncryptData.html) or [DecryptData](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_DecryptData.html) .
+//
+// You can associate the alias with any key in the same AWS Region . Each alias is associated with only one key at a time, but a key can have multiple aliases. You can't create an alias without a key. The alias must be unique in the account and AWS Region , but you can create another alias with the same name in a different AWS Region .
+//
+// To change the key that's associated with the alias, call [UpdateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html) . To delete the alias, call [DeleteAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html) . These operations don't affect the underlying key. To get the alias that you created, call [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html) .
+//
+// *Cross-account use* : This operation can't be used across different AWS accounts.
+//
+// *Related operations:*
+//
+// - [DeleteAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html)
+// - [GetAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html)
+// - [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html)
+// - [UpdateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,6 +43,9 @@ import (
 type CfnAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// A friendly name that you can use to refer to a key.
+	//
+	// The value must begin with `alias/` .
 	AliasName() *string
 	SetAliasName(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -39,6 +57,7 @@ type CfnAlias interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The `KeyARN` of the key associated with the alias.
 	KeyArn() *string
 	SetKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -17,6 +17,7 @@ type CfnTemplate_WaterfallChartConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartconfiguration.html#cfn-quicksight-template-waterfallchartconfiguration-categoryaxislabeloptions
 	//
 	CategoryAxisLabelOptions interface{} `field:"optional" json:"categoryAxisLabelOptions" yaml:"categoryAxisLabelOptions"`
+	// The color configuration of a waterfall visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartconfiguration.html#cfn-quicksight-template-waterfallchartconfiguration-colorconfiguration
 	//
 	ColorConfiguration interface{} `field:"optional" json:"colorConfiguration" yaml:"colorConfiguration"`

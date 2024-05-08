@@ -127,7 +127,7 @@ type CfnTask interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor and log events in the task.
+	// Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring your task.
 	CloudWatchLogGroupArn() *string
 	SetCloudWatchLogGroupArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -137,10 +137,10 @@ type CfnTask interface {
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
 	DestinationLocationArn() *string
 	SetDestinationLocationArn(val *string)
-	// Specifies a list of filter rules that exclude specific data during your transfer.
+	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer.
 	Excludes() interface{}
 	SetExcludes(val interface{})
-	// Specifies a list of filter rules that include specific data during your transfer.
+	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer.
 	Includes() interface{}
 	SetIncludes(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -153,17 +153,15 @@ type CfnTask interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The configuration of the manifest that lists the files or objects to transfer.
+	// The configuration of the manifest that lists the files or objects that you want DataSync to transfer.
 	ManifestConfig() interface{}
 	SetManifestConfig(val interface{})
-	// The name of a task.
+	// Specifies the name of your task.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the configuration options for a task.
-	//
-	// Some options include preserving file or object metadata and verifying data integrity.
+	// Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -171,10 +169,10 @@ type CfnTask interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies a schedule used to periodically transfer files from a source to a destination location.
+	// Specifies a schedule for when you want your task to run.
 	Schedule() interface{}
 	SetSchedule(val interface{})
-	// The Amazon Resource Name (ARN) of the source location for the task.
+	// Specifies the ARN of your transfer's source location.
 	SourceLocationArn() *string
 	SetSourceLocationArn(val *string)
 	// The stack in which this element is defined.
@@ -183,7 +181,7 @@ type CfnTask interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing the task.
+	// Specifies the tags that you want to apply to your task.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer.

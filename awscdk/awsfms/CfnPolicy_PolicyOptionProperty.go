@@ -1,7 +1,7 @@
 package awsfms
 
 
-// Contains the AWS Network Firewall firewall policy options to configure the policy's deployment model and third-party firewall policy settings.
+// Contains the settings to configure a network ACL policy, a AWS Network Firewall firewall policy deployment model, or a third-party firewall policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

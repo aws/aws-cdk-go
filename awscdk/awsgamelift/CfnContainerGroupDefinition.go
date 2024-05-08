@@ -9,7 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.
+// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
+//
+// The properties that describe a container group resource. Container group definition properties can't be updated. To change a property, create a new container group definition.
+//
+// *Used with:* `CreateContainerGroupDefinition`
+//
+// *Returned by:* `DescribeContainerGroupDefinition` , `ListContainerGroupDefinitions`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -92,11 +98,11 @@ type CfnContainerGroupDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to an Amazon GameLift `ContainerGroupDefinition` resource. It uniquely identifies the resource across all AWS Regions. Format is `arn:aws:gamelift:<region>::containergroupdefinition/[container group definition name]` .
 	AttrContainerGroupDefinitionArn() *string
 	// A time stamp indicating when this data object was created.
 	//
-	// Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+	// Format is a number expressed in Unix time as milliseconds (for example `"1469498468.057"` ).
 	AttrCreationTime() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -105,7 +111,7 @@ type CfnContainerGroupDefinition interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// A collection of container definitions that define the containers in this group.
+	// The set of container definitions that are included in the container group.
 	ContainerDefinitions() interface{}
 	SetContainerDefinitions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -122,12 +128,12 @@ type CfnContainerGroupDefinition interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A descriptive label for the container group definition.
+	// A descriptive identifier for the container group definition.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The operating system of the container group.
+	// The platform required for all containers in the container group definition.
 	OperatingSystem() *string
 	SetOperatingSystem(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -135,7 +141,7 @@ type CfnContainerGroupDefinition interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies whether the container group includes replica or daemon containers.
+	// The method for deploying the container group across fleet instances.
 	SchedulingStrategy() *string
 	SetSchedulingStrategy(val *string)
 	// The stack in which this element is defined.
@@ -145,10 +151,10 @@ type CfnContainerGroupDefinition interface {
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The maximum number of CPU units reserved for this container group.
+	// The amount of CPU units on a fleet instance to allocate for the container group.
 	TotalCpuLimit() *float64
 	SetTotalCpuLimit(val *float64)
-	// The maximum amount of memory (in MiB) to allocate for this container group.
+	// The amount of memory (in MiB) on a fleet instance to allocate for the container group.
 	TotalMemoryLimit() *float64
 	SetTotalMemoryLimit(val *float64)
 	// Deprecated.

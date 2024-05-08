@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Route53Profiles::Profile.
+// A complex type that includes settings for a Route 53 Profile.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,11 +34,11 @@ type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the resolver profile.
+	// The Amazon Resource Name (ARN) of the Profile.
 	AttrArn() *string
-	// The id of the creator request.
+	// The `ClientToken` value that was assigned when the Profile was created.
 	AttrClientToken() *string
-	// The ID of the profile.
+	// ID of the Profile.
 	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -61,7 +61,7 @@ type CfnProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the profile.
+	// Name of the Profile.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -75,7 +75,7 @@ type CfnProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// A list of the tag keys and values that you want to associate with the profile.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

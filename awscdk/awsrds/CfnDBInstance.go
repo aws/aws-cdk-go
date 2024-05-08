@@ -206,6 +206,7 @@ type CfnDBInstance interface {
 	AttrEndpointPort() *string
 	// The Amazon Resource Name (ARN) of the secret.
 	AttrMasterUserSecretSecretArn() *string
+	// The AWS KMS key identifier for encryption of the replicated automated backups.
 	AutomaticBackupReplicationKmsKeyId() *string
 	SetAutomaticBackupReplicationKmsKeyId(val *string)
 	// The destination region for the backup replication of the DB instance.

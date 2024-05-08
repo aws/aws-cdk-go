@@ -31,24 +31,33 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html
 //
 type CfnWebExperienceProps struct {
+	// The identifier of the Amazon Q Business web experience.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-applicationid
 	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
+	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// Determines whether sample prompts are enabled in the web experience for an end user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-samplepromptscontrolmode
 	//
 	SamplePromptsControlMode *string `field:"optional" json:"samplePromptsControlMode" yaml:"samplePromptsControlMode"`
+	// A subtitle to personalize your Amazon Q Business web experience.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-subtitle
 	//
 	Subtitle *string `field:"optional" json:"subtitle" yaml:"subtitle"`
+	// A list of key-value pairs that identify or categorize your Amazon Q Business web experience.
+	//
+	// You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + -
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The title for your Amazon Q Business web experience.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-title
 	//
 	Title *string `field:"optional" json:"title" yaml:"title"`
+	// A message in an Amazon Q Business web experience.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-welcomemessage
 	//
 	WelcomeMessage *string `field:"optional" json:"welcomeMessage" yaml:"welcomeMessage"`

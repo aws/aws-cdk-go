@@ -26,11 +26,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html
 //
 type CfnProfileProps struct {
-	// The name of the profile.
+	// Name of the Profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html#cfn-route53profiles-profile-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of the tag keys and values that you want to associate with the profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html#cfn-route53profiles-profile-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

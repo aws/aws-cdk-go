@@ -71,6 +71,7 @@ type CfnLink interface {
 	// Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate() *string
 	SetLabelTemplate(val *string)
+	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 	LinkConfiguration() interface{}
 	SetLinkConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

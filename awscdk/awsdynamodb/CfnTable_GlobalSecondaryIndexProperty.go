@@ -27,6 +27,10 @@ package awsdynamodb
 //   	ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	OnDemandThroughput: &OnDemandThroughputProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   		MaxWriteRequestUnits: jsii.Number(123),
+//   	},
 //   	ProvisionedThroughput: &ProvisionedThroughputProperty{
 //   		ReadCapacityUnits: jsii.Number(123),
 //   		WriteCapacityUnits: jsii.Number(123),
@@ -60,6 +64,9 @@ type CfnTable_GlobalSecondaryIndexProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-contributorinsightsspecification
 	//
 	ContributorInsightsSpecification interface{} `field:"optional" json:"contributorInsightsSpecification" yaml:"contributorInsightsSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-ondemandthroughput
+	//
+	OnDemandThroughput interface{} `field:"optional" json:"onDemandThroughput" yaml:"onDemandThroughput"`
 	// Represents the provisioned throughput settings for the specified global secondary index.
 	//
 	// For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide* .

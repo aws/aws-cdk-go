@@ -1,6 +1,10 @@
 package awspaymentcryptography
 
 
+// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+//
+// This data is immutable after the key is created.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,15 +30,21 @@ package awspaymentcryptography
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html
 //
 type CfnKey_KeyAttributesProperty struct {
+	// The key algorithm to be use during creation of an AWS Payment Cryptography key.
+	//
+	// For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html#cfn-paymentcryptography-key-keyattributes-keyalgorithm
 	//
 	KeyAlgorithm *string `field:"required" json:"keyAlgorithm" yaml:"keyAlgorithm"`
+	// The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html#cfn-paymentcryptography-key-keyattributes-keyclass
 	//
 	KeyClass *string `field:"required" json:"keyClass" yaml:"keyClass"`
+	// The list of cryptographic operations that you can perform using the key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html#cfn-paymentcryptography-key-keyattributes-keymodesofuse
 	//
 	KeyModesOfUse interface{} `field:"required" json:"keyModesOfUse" yaml:"keyModesOfUse"`
+	// The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html#cfn-paymentcryptography-key-keyattributes-keyusage
 	//
 	KeyUsage *string `field:"required" json:"keyUsage" yaml:"keyUsage"`

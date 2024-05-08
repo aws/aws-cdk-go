@@ -107,7 +107,7 @@ type CfnKey interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The number of days between each automatic rotation.
+	// Specifies a custom period of time between each rotation date.
 	RotationPeriodInDays() *float64
 	SetRotationPeriodInDays(val *float64)
 	// The stack in which this element is defined.

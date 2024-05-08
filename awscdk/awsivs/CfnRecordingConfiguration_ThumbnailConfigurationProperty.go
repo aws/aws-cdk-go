@@ -47,9 +47,7 @@ type CfnRecordingConfiguration_ThumbnailConfigurationProperty struct {
 	//
 	// > Setting a value for `TargetIntervalSeconds` does not guarantee that thumbnails are generated at the specified interval. For thumbnails to be generated at the `TargetIntervalSeconds` interval, the `IDR/Keyframe` value for the input video must be less than the `TargetIntervalSeconds` value. See [Amazon IVS Streaming Configuration](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/streaming-config.html) for information on setting `IDR/Keyframe` to the recommended value in video-encoder settings.
 	//
-	// *Default* : 60
-	//
-	// *Valid Range* : Minumum value of 1. Maximum value of 60.
+	// *Default* : 60.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-targetintervalseconds
 	//
 	// Default: - 60.

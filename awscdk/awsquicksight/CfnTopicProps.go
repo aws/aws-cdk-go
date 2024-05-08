@@ -65,6 +65,7 @@ package awsquicksight
 //   							UseGrouping: jsii.Boolean(false),
 //   						},
 //   					},
+//   					DisableIndexing: jsii.Boolean(false),
 //   					IsIncludedInTopic: jsii.Boolean(false),
 //   					NeverAggregateInFilter: jsii.Boolean(false),
 //   					NonAdditive: jsii.Boolean(false),
@@ -139,6 +140,7 @@ package awsquicksight
 //   							UseGrouping: jsii.Boolean(false),
 //   						},
 //   					},
+//   					DisableIndexing: jsii.Boolean(false),
 //   					IsIncludedInTopic: jsii.Boolean(false),
 //   					NeverAggregateInFilter: jsii.Boolean(false),
 //   					NonAdditive: jsii.Boolean(false),
@@ -298,7 +300,7 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-topicid
 	//
 	TopicId *string `field:"optional" json:"topicId" yaml:"topicId"`
-	// The user experience version of a topic.
+	// The user experience version of the topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-userexperienceversion
 	//
 	UserExperienceVersion *string `field:"optional" json:"userExperienceVersion" yaml:"userExperienceVersion"`

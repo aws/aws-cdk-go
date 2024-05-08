@@ -77,6 +77,7 @@ type CfnEmailChannel interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES .
 	OrchestrationSendingRoleArn() *string
 	SetOrchestrationSendingRoleArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

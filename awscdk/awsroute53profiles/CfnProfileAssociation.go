@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Route53Profiles::ProfileAssociation.
+// An association between a Route 53 Profile and a VPC.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,10 +37,10 @@ type CfnProfileAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the  profile association.
+	// The Amazon Resource Name (ARN) of the profile association to a VPC.
 	Arn() *string
 	SetArn(val *string)
-	// Primary Identifier for  Profile Association.
+	// ID of the Profile association.
 	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -63,12 +63,12 @@ type CfnProfileAssociation interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of an association between a  Profile and a VPC.
+	// Name of the Profile association.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The ID of the  profile that you associated with the resource that is specified by ResourceId.
+	// ID of the Profile.
 	ProfileId() *string
 	SetProfileId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -76,7 +76,7 @@ type CfnProfileAssociation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The resource that you associated the  profile with.
+	// The Amazon Resource Name (ARN) of the VPC.
 	ResourceId() *string
 	SetResourceId(val *string)
 	// The stack in which this element is defined.

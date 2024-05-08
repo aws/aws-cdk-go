@@ -57,6 +57,7 @@ package awsquicksight
 //   			UseGrouping: jsii.Boolean(false),
 //   		},
 //   	},
+//   	DisableIndexing: jsii.Boolean(false),
 //   	IsIncludedInTopic: jsii.Boolean(false),
 //   	NeverAggregateInFilter: jsii.Boolean(false),
 //   	NonAdditive: jsii.Boolean(false),
@@ -130,6 +131,9 @@ type CfnTopic_TopicCalculatedFieldProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html#cfn-quicksight-topic-topiccalculatedfield-defaultformatting
 	//
 	DefaultFormatting interface{} `field:"optional" json:"defaultFormatting" yaml:"defaultFormatting"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html#cfn-quicksight-topic-topiccalculatedfield-disableindexing
+	//
+	DisableIndexing interface{} `field:"optional" json:"disableIndexing" yaml:"disableIndexing"`
 	// A boolean value that indicates if a calculated field is included in the topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html#cfn-quicksight-topic-topiccalculatedfield-isincludedintopic
 	//

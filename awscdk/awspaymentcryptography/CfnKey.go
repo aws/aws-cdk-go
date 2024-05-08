@@ -9,7 +9,23 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::PaymentCryptography::Key Resource Type.
+// Creates an AWS Payment Cryptography key, a logical representation of a cryptographic key, that is unique in your account and AWS Region .
+//
+// You use keys for cryptographic functions such as encryption and decryption.
+//
+// In addition to the key material used in cryptographic operations, an AWS Payment Cryptography key includes metadata such as the key ARN, key usage, key origin, creation date, description, and key state.
+//
+// When you create a key, you specify both immutable and mutable data about the key. The immutable data contains key attributes that define the scope and cryptographic operations that you can perform using the key, for example key class (example: `SYMMETRIC_KEY` ), key algorithm (example: `TDES_2KEY` ), key usage (example: `TR31_P0_PIN_ENCRYPTION_KEY` ) and key modes of use (example: `Encrypt` ). For information about valid combinations of key attributes, see [Understanding key attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html) in the *AWS Payment Cryptography User Guide* . The mutable data contained within a key includes usage timestamp and key deletion timestamp and can be modified after creation.
+//
+// AWS Payment Cryptography binds key attributes to keys using key blocks when you store or export them. AWS Payment Cryptography stores the key contents wrapped and never stores or transmits them in the clear.
+//
+// *Cross-account use* : This operation can't be used across different AWS accounts.
+//
+// *Related operations:*
+//
+// - [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html)
+// - [GetKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetKey.html)
+// - [ListKeys](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListKeys.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -53,9 +69,11 @@ type CfnKey interface {
 	awscdk.IInspectable
 	awscdk.ITaggableV2
 	AttrKeyIdentifier() *string
-	// Defines the source of a key.
+	// The source of the key material.
+	//
+	// For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
 	AttrKeyOrigin() *string
-	// Defines the state of a key.
+	// The state of key that is being created or deleted.
 	AttrKeyState() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -68,12 +86,16 @@ type CfnKey interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Specifies whether the key is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
+	// Specifies whether the key is exportable.
 	Exportable() interface{}
 	SetExportable(val interface{})
+	// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
 	KeyAttributes() interface{}
 	SetKeyAttributes(val interface{})
+	// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
 	KeyCheckValueAlgorithm() *string
 	SetKeyCheckValueAlgorithm(val *string)
 	// The logical ID for this CloudFormation stack element.

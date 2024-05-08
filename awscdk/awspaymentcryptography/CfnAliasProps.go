@@ -18,9 +18,13 @@ package awspaymentcryptography
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-alias.html
 //
 type CfnAliasProps struct {
+	// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+	//
+	// > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-alias.html#cfn-paymentcryptography-alias-aliasname
 	//
 	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
+	// The `KeyARN` of the key associated with the alias.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-alias.html#cfn-paymentcryptography-alias-keyarn
 	//
 	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`

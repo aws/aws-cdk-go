@@ -93,7 +93,7 @@ type CfnConnector interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Security policy for SFTP Connector.
+	// The text name of the security policy for the specified connector.
 	SecurityPolicyName() *string
 	SetSecurityPolicyName(val *string)
 	// A structure that contains the parameters for an SFTP connector object.

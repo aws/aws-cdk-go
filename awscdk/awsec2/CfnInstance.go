@@ -205,6 +205,8 @@ type CfnInstance interface {
 	//
 	// For example: `192.0.2.0` .
 	AttrPublicIp() *string
+	// The current state of the instance.
+	AttrState() awscdk.IResolvable
 	// The ID of the VPC in which the instance is running.
 	AttrVpcId() *string
 	// The Availability Zone of the instance.
@@ -583,6 +585,16 @@ func (j *jsiiProxy_CfnInstance) AttrPublicIp() *string {
 	_jsii_.Get(
 		j,
 		"attrPublicIp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) AttrState() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrState",
 		&returns,
 	)
 	return returns

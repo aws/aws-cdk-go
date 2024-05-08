@@ -139,7 +139,7 @@ type CfnPolicy interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The definition of the AWS Network Firewall firewall policy.
+	// Your description of the AWS Firewall Manager policy.
 	PolicyDescription() *string
 	SetPolicyDescription(val *string)
 	// The name of the AWS Firewall Manager policy.

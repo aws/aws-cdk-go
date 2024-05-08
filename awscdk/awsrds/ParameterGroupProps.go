@@ -105,6 +105,10 @@ type ParameterGroupProps struct {
 	// Default: a CDK generated description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of this parameter group.
+	// Default: - CloudFormation-generated name.
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The parameters in this parameter group.
 	// Default: - None.
 	//

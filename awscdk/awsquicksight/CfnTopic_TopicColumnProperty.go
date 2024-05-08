@@ -57,6 +57,7 @@ package awsquicksight
 //   			UseGrouping: jsii.Boolean(false),
 //   		},
 //   	},
+//   	DisableIndexing: jsii.Boolean(false),
 //   	IsIncludedInTopic: jsii.Boolean(false),
 //   	NeverAggregateInFilter: jsii.Boolean(false),
 //   	NonAdditive: jsii.Boolean(false),
@@ -128,6 +129,9 @@ type CfnTopic_TopicColumnProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-defaultformatting
 	//
 	DefaultFormatting interface{} `field:"optional" json:"defaultFormatting" yaml:"defaultFormatting"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-disableindexing
+	//
+	DisableIndexing interface{} `field:"optional" json:"disableIndexing" yaml:"disableIndexing"`
 	// A Boolean value that indicates whether the column is included in the query results.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-isincludedintopic
 	//

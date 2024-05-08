@@ -73,6 +73,7 @@ import (
 //   							UseGrouping: jsii.Boolean(false),
 //   						},
 //   					},
+//   					DisableIndexing: jsii.Boolean(false),
 //   					IsIncludedInTopic: jsii.Boolean(false),
 //   					NeverAggregateInFilter: jsii.Boolean(false),
 //   					NonAdditive: jsii.Boolean(false),
@@ -147,6 +148,7 @@ import (
 //   							UseGrouping: jsii.Boolean(false),
 //   						},
 //   					},
+//   					DisableIndexing: jsii.Boolean(false),
 //   					IsIncludedInTopic: jsii.Boolean(false),
 //   					NeverAggregateInFilter: jsii.Boolean(false),
 //   					NonAdditive: jsii.Boolean(false),
@@ -346,7 +348,7 @@ type CfnTopic interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user experience version of a topic.
+	// The user experience version of the topic.
 	UserExperienceVersion() *string
 	SetUserExperienceVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

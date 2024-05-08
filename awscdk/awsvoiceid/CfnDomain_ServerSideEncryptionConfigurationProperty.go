@@ -17,7 +17,7 @@ package awsvoiceid
 type CfnDomain_ServerSideEncryptionConfigurationProperty struct {
 	// The identifier of the KMS key to use to encrypt data stored by Voice ID.
 	//
-	// Voice ID doesn't support asymmetric customer managed keys .
+	// Voice ID doesn't support asymmetric customer managed keys.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-voiceid-domain-serversideencryptionconfiguration.html#cfn-voiceid-domain-serversideencryptionconfiguration-kmskeyid
 	//
 	KmsKeyId *string `field:"required" json:"kmsKeyId" yaml:"kmsKeyId"`

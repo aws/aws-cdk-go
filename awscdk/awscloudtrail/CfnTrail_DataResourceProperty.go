@@ -1,9 +1,17 @@
 package awscloudtrail
 
 
-// The Amazon S3 buckets, AWS Lambda functions, or Amazon DynamoDB tables that you specify in your event selectors for your trail to log data events.
+// Data events provide information about the resource operations performed on or within a resource itself.
 //
-// Data events provide information about the resource operations performed on or within a resource itself. These are also known as data plane operations. You can specify up to 250 data resources for a trail.
+// These are also known as data plane operations. You can specify up to 250 data resources for a trail.
+//
+// Configure the `DataResource` to specify the resource type and resource ARNs for which you want to log data events.
+//
+// You can specify the following resource types in your event selectors for your trail:
+//
+// - `AWS::DynamoDB::Table`
+// - `AWS::Lambda::Function`
+// - `AWS::S3::Object`
 //
 // > The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors for the trail.
 // >
@@ -51,7 +59,7 @@ type CfnTrail_DataResourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
+	// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified resource type.
 	//
 	// - To log data events for all objects in all S3 buckets in your AWS account , specify the prefix as `arn:aws:s3` .
 	//

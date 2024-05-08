@@ -68,7 +68,7 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-loggingrole
 	//
 	LoggingRole *string `field:"optional" json:"loggingRole" yaml:"loggingRole"`
-	// Security policy for SFTP Connector.
+	// The text name of the security policy for the specified connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-securitypolicyname
 	//
 	SecurityPolicyName *string `field:"optional" json:"securityPolicyName" yaml:"securityPolicyName"`

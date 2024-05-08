@@ -13,17 +13,19 @@ import (
 // Define an ECR repository.
 //
 // Example:
-//   import ecr "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
-//   	Source: apprunner.Source_FromEcr(&EcrProps{
-//   		ImageConfiguration: &ImageConfiguration{
-//   			Port: jsii.Number(80),
-//   		},
-//   		Repository: ecr.Repository_FromRepositoryName(this, jsii.String("NginxRepository"), jsii.String("nginx")),
-//   		TagOrDigest: jsii.String("latest"),
-//   	}),
+//   repo := ecr.NewRepository(this, jsii.String("Repo"))
+//   lambdaHandler := lambda.NewFunction(this, jsii.String("LambdaFunction"), &FunctionProps{
+//   	Runtime: lambda.Runtime_PYTHON_3_12(),
+//   	Code: lambda.Code_FromInline(jsii.String("# dummy func")),
+//   	Handler: jsii.String("index.handler"),
+//   })
+//
+//   repo.OnEvent(jsii.String("OnEventTargetLambda"), &OnEventOptions{
+//   	Target: awscdk.NewLambdaFunction(lambdaHandler),
 //   })
 //
 type Repository interface {

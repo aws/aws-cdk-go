@@ -236,3 +236,24 @@ repository.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 	},
 }))
 ```
+
+## CloudWatch event rules
+
+You can publish repository events to a CloudWatch event rule with `onEvent`:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+repo := ecr.NewRepository(this, jsii.String("Repo"))
+lambdaHandler := lambda.NewFunction(this, jsii.String("LambdaFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Code: lambda.Code_FromInline(jsii.String("# dummy func")),
+	Handler: jsii.String("index.handler"),
+})
+
+repo.OnEvent(jsii.String("OnEventTargetLambda"), &OnEventOptions{
+	Target: awscdk.NewLambdaFunction(lambdaHandler),
+})
+```

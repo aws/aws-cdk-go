@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Route53Profiles::ProfileResourceAssociation.
+// The association between a Route 53 Profile and resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,9 +30,9 @@ import (
 type CfnProfileResourceAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// Primary Identifier for  Profile Resource Association.
+	// ID of the Profile resource association.
 	AttrId() *string
-	// The type of the resource associated to the  Profile.
+	// Resource type, such as a private hosted zone, or DNS Firewall rule group.
 	AttrResourceType() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -53,12 +53,12 @@ type CfnProfileResourceAssociation interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of an association between the  Profile and resource.
+	// Name of the Profile resource association.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The ID of the  profile that you associated the resource to that is specified by ResourceArn.
+	// Profile ID of the Profile that the resources are associated with.
 	ProfileId() *string
 	SetProfileId(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -66,10 +66,10 @@ type CfnProfileResourceAssociation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The arn of the resource that you associated to the  Profile.
+	// The Amazon Resource Name (ARN) of the resource association.
 	ResourceArn() *string
 	SetResourceArn(val *string)
-	// A JSON-formatted string with key-value pairs specifying the properties of the associated resource.
+	// If the DNS resource is a DNS Firewall rule group, this indicates the priority.
 	ResourceProperties() *string
 	SetResourceProperties(val *string)
 	// The stack in which this element is defined.

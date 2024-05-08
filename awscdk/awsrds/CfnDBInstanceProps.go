@@ -209,6 +209,9 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-associatedroles
 	//
 	AssociatedRoles interface{} `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
+	// The AWS KMS key identifier for encryption of the replicated automated backups.
+	//
+	// The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region , for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationkmskeyid
 	//
 	AutomaticBackupReplicationKmsKeyId *string `field:"optional" json:"automaticBackupReplicationKmsKeyId" yaml:"automaticBackupReplicationKmsKeyId"`
@@ -1147,7 +1150,7 @@ type CfnDBInstanceProps struct {
 	TdeCredentialPassword *string `field:"optional" json:"tdeCredentialPassword" yaml:"tdeCredentialPassword"`
 	// The time zone of the DB instance.
 	//
-	// The time zone parameter is currently supported only by [Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) .
+	// The time zone parameter is currently supported only by [RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-time-zone) and [RDS for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-timezone
 	//
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`

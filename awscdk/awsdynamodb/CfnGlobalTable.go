@@ -99,6 +99,9 @@ import (
 //   					ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
 //   						Enabled: jsii.Boolean(false),
 //   					},
+//   					ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   						MaxReadRequestUnits: jsii.Number(123),
+//   					},
 //   					ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
 //   						ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
 //   							MaxCapacity: jsii.Number(123),
@@ -127,6 +130,9 @@ import (
 //   			},
 //   			PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
 //   				PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//   			},
+//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
 //   			},
 //   			ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
 //   				ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
@@ -186,6 +192,9 @@ import (
 //   			},
 //
 //   			// the properties below are optional
+//   			WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
+//   				MaxWriteRequestUnits: jsii.Number(123),
+//   			},
 //   			WriteProvisionedThroughputSettings: &WriteProvisionedThroughputSettingsProperty{
 //   				WriteCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
 //   					MaxCapacity: jsii.Number(123),
@@ -237,6 +246,9 @@ import (
 //
 //   		// the properties below are optional
 //   		AttributeName: jsii.String("attributeName"),
+//   	},
+//   	WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
+//   		MaxWriteRequestUnits: jsii.Number(123),
 //   	},
 //   	WriteProvisionedThroughputSettings: &WriteProvisionedThroughputSettingsProperty{
 //   		WriteCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
@@ -349,6 +361,8 @@ type CfnGlobalTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	WriteOnDemandThroughputSettings() interface{}
+	SetWriteOnDemandThroughputSettings(val interface{})
 	// Specifies an auto scaling policy for write capacity.
 	WriteProvisionedThroughputSettings() interface{}
 	SetWriteProvisionedThroughputSettings(val interface{})
@@ -715,6 +729,16 @@ func (j *jsiiProxy_CfnGlobalTable) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalTable) WriteOnDemandThroughputSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"writeOnDemandThroughputSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalTable) WriteProvisionedThroughputSettings() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -853,6 +877,17 @@ func (j *jsiiProxy_CfnGlobalTable)SetTimeToLiveSpecification(val interface{}) {
 	_jsii_.Set(
 		j,
 		"timeToLiveSpecification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalTable)SetWriteOnDemandThroughputSettings(val interface{}) {
+	if err := j.validateSetWriteOnDemandThroughputSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"writeOnDemandThroughputSettings",
 		val,
 	)
 }

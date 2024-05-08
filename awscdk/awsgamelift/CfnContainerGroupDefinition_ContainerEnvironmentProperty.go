@@ -1,7 +1,11 @@
 package awsgamelift
 
 
+// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
+//
 // An environment variable to set inside a container, in the form of a key-value pair.
+//
+// *Related data type:* `ContainerDefinition$Environment`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

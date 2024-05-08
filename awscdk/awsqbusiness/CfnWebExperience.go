@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::QBusiness::WebExperience Resource Type.
+// Creates an Amazon Q Business web experience.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,13 +39,22 @@ type CfnWebExperience interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The identifier of the Amazon Q Business web experience.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The Unix timestamp when the Amazon Q Business application was last updated.
 	AttrCreatedAt() *string
+	// The endpoint URLs for your Amazon Q Business web experience.
+	//
+	// The URLs are unique and fully hosted by AWS .
 	AttrDefaultEndpoint() *string
+	// The status of your Amazon Q Business web experience.
 	AttrStatus() *string
+	// The Unix timestamp when your Amazon Q Business web experience was updated.
 	AttrUpdatedAt() *string
+	// The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
 	AttrWebExperienceArn() *string
+	// The identifier of your Amazon Q Business web experience.
 	AttrWebExperienceId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -75,18 +84,23 @@ type CfnWebExperience interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode() *string
 	SetSamplePromptsControlMode(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A subtitle to personalize your Amazon Q Business web experience.
 	Subtitle() *string
 	SetSubtitle(val *string)
+	// A list of key-value pairs that identify or categorize your Amazon Q Business web experience.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The title for your Amazon Q Business web experience.
 	Title() *string
 	SetTitle(val *string)
 	// Deprecated.
@@ -102,6 +116,7 @@ type CfnWebExperience interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// A message in an Amazon Q Business web experience.
 	WelcomeMessage() *string
 	SetWelcomeMessage(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

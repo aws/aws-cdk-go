@@ -1,7 +1,7 @@
 package awsgamelift
 
 
-// Amazon GameLift Anywhere configuration options for your Anywhere fleets.
+// Amazon GameLift configuration options for your Anywhere fleets.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

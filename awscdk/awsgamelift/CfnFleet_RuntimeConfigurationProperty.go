@@ -35,13 +35,13 @@ type CfnFleet_RuntimeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
 	//
 	GameSessionActivationTimeoutSeconds *float64 `field:"optional" json:"gameSessionActivationTimeoutSeconds" yaml:"gameSessionActivationTimeoutSeconds"`
-	// The number of game sessions in status `ACTIVATING` to allow on an instance.
+	// The number of game sessions in status `ACTIVATING` to allow on an instance or container.
 	//
 	// This setting limits the instance resources that can be used for new game activations at any one time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
 	//
 	MaxConcurrentGameSessionActivations *float64 `field:"optional" json:"maxConcurrentGameSessionActivations" yaml:"maxConcurrentGameSessionActivations"`
-	// A collection of server process configurations that identify what server processes to run on each instance in a fleet.
+	// A collection of server process configurations that identify what server processes to run on fleet computes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
 	//
 	ServerProcesses interface{} `field:"optional" json:"serverProcesses" yaml:"serverProcesses"`

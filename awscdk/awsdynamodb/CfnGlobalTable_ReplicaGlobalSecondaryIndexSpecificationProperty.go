@@ -15,6 +15,9 @@ package awsdynamodb
 //   	ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   	},
 //   	ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
 //   		ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
 //   			MaxCapacity: jsii.Number(123),
@@ -50,6 +53,9 @@ type CfnGlobalTable_ReplicaGlobalSecondaryIndexSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-contributorinsightsspecification
 	//
 	ContributorInsightsSpecification interface{} `field:"optional" json:"contributorInsightsSpecification" yaml:"contributorInsightsSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readondemandthroughputsettings
+	//
+	ReadOnDemandThroughputSettings interface{} `field:"optional" json:"readOnDemandThroughputSettings" yaml:"readOnDemandThroughputSettings"`
 	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readprovisionedthroughputsettings
 	//

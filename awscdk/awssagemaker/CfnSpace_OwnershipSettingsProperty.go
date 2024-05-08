@@ -15,7 +15,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html
 //
 type CfnSpace_OwnershipSettingsProperty struct {
-	// The user profile who is the owner of the private space.
+	// The user profile who is the owner of the space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html#cfn-sagemaker-space-ownershipsettings-owneruserprofilename
 	//
 	OwnerUserProfileName *string `field:"required" json:"ownerUserProfileName" yaml:"ownerUserProfileName"`

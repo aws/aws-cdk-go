@@ -107,6 +107,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "writeOnDemandThroughputSettings", GoGetter: "WriteOnDemandThroughputSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "writeProvisionedThroughputSettings", GoGetter: "WriteProvisionedThroughputSettings"},
 		},
 		func() interface{} {
@@ -153,6 +154,10 @@ func init() {
 		reflect.TypeOf((*CfnGlobalTable_ProjectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.ReadOnDemandThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTable_ReadOnDemandThroughputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.ReadProvisionedThroughputSettingsProperty",
 		reflect.TypeOf((*CfnGlobalTable_ReadProvisionedThroughputSettingsProperty)(nil)).Elem(),
 	)
@@ -191,6 +196,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.TimeToLiveSpecificationProperty",
 		reflect.TypeOf((*CfnGlobalTable_TimeToLiveSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.WriteOnDemandThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTable_WriteOnDemandThroughputSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.WriteProvisionedThroughputSettingsProperty",
@@ -234,6 +243,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberProperty{JsiiProperty: "onDemandThroughput", GoGetter: "OnDemandThroughput"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "pointInTimeRecoverySpecification", GoGetter: "PointInTimeRecoverySpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "provisionedThroughput", GoGetter: "ProvisionedThroughput"},
@@ -299,6 +309,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnTable.LocalSecondaryIndexProperty",
 		reflect.TypeOf((*CfnTable_LocalSecondaryIndexProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnTable.OnDemandThroughputProperty",
+		reflect.TypeOf((*CfnTable_OnDemandThroughputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnTable.PointInTimeRecoverySpecificationProperty",

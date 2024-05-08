@@ -201,7 +201,7 @@ type CfnDomain_UserSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
 	//
 	SharingSettings interface{} `field:"optional" json:"sharingSettings" yaml:"sharingSettings"`
-	// The storage settings for a private space.
+	// The storage settings for a space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-spacestoragesettings
 	//
 	SpaceStorageSettings interface{} `field:"optional" json:"spaceStorageSettings" yaml:"spaceStorageSettings"`

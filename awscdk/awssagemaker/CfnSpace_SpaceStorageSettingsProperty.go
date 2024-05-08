@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The storage settings for a private space.
+// The storage settings for a space.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacestoragesettings.html
 //
 type CfnSpace_SpaceStorageSettingsProperty struct {
-	// A collection of EBS storage settings for a private space.
+	// A collection of EBS storage settings for a space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacestoragesettings.html#cfn-sagemaker-space-spacestoragesettings-ebsstoragesettings
 	//
 	EbsStorageSettings interface{} `field:"optional" json:"ebsStorageSettings" yaml:"ebsStorageSettings"`

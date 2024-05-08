@@ -1,9 +1,11 @@
 package awsgamelift
 
 
-// Specifies container groups that this instance will hold.
+// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
 //
-// You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
+// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+//
+// *Used with:* `CreateFleet`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,13 +31,19 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsconfiguration.html
 //
 type CfnFleet_ContainerGroupsConfigurationProperty struct {
-	// Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+	// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
+	//
+	// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
+	//
+	// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+	//
+	// As a best practice, double the minimum number of connection ports.
+	//
+	// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsconfiguration.html#cfn-gamelift-fleet-containergroupsconfiguration-connectionportrange
 	//
 	ConnectionPortRange interface{} `field:"required" json:"connectionPortRange" yaml:"connectionPortRange"`
-	// The names of the container group definitions that will be created in an instance.
-	//
-	// You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
+	// The list of container group definition names to deploy to a new container fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsconfiguration.html#cfn-gamelift-fleet-containergroupsconfiguration-containergroupdefinitionnames
 	//
 	ContainerGroupDefinitionNames *[]*string `field:"required" json:"containerGroupDefinitionNames" yaml:"containerGroupDefinitionNames"`

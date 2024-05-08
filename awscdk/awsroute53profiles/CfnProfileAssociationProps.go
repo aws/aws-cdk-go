@@ -29,19 +29,19 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html
 //
 type CfnProfileAssociationProps struct {
-	// The name of an association between a  Profile and a VPC.
+	// Name of the Profile association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ID of the  profile that you associated with the resource that is specified by ResourceId.
+	// ID of the Profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-profileid
 	//
 	ProfileId *string `field:"required" json:"profileId" yaml:"profileId"`
-	// The resource that you associated the  profile with.
+	// The Amazon Resource Name (ARN) of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-resourceid
 	//
 	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
-	// The Amazon Resource Name (ARN) of the  profile association.
+	// The Amazon Resource Name (ARN) of the profile association to a VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-arn
 	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`

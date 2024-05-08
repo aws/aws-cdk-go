@@ -119,7 +119,7 @@ type CfnPolicy_SecurityServicePolicyDataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html#cfn-fms-policy-securityservicepolicydata-managedservicedata
 	//
 	ManagedServiceData *string `field:"optional" json:"managedServiceData" yaml:"managedServiceData"`
-	// Contains the Network Firewall firewall policy options to configure a centralized deployment model.
+	// Contains the settings to configure a network ACL policy, a AWS Network Firewall firewall policy deployment model, or a third-party firewall policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html#cfn-fms-policy-securityservicepolicydata-policyoption
 	//
 	PolicyOption interface{} `field:"optional" json:"policyOption" yaml:"policyOption"`

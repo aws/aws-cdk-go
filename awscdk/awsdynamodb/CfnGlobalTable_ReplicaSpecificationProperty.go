@@ -29,6 +29,9 @@ import (
 //   			ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
 //   				Enabled: jsii.Boolean(false),
 //   			},
+//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
+//   			},
 //   			ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
 //   				ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
 //   					MaxCapacity: jsii.Number(123),
@@ -57,6 +60,9 @@ import (
 //   	},
 //   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
 //   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//   	},
+//   	ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
 //   	},
 //   	ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
 //   		ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
@@ -129,6 +135,9 @@ type CfnGlobalTable_ReplicaSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
 	//
 	PointInTimeRecoverySpecification interface{} `field:"optional" json:"pointInTimeRecoverySpecification" yaml:"pointInTimeRecoverySpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readondemandthroughputsettings
+	//
+	ReadOnDemandThroughputSettings interface{} `field:"optional" json:"readOnDemandThroughputSettings" yaml:"readOnDemandThroughputSettings"`
 	// Defines read capacity settings for the replica table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
 	//

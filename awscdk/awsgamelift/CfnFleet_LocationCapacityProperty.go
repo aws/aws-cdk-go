@@ -1,13 +1,11 @@
 package awsgamelift
 
 
-// Current resource capacity settings in a specified fleet or location.
+// Current resource capacity settings for managed EC2 fleets and container fleets.
 //
-// The location value might refer to a fleet's remote location or its home Region.
+// For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 //
-// *Related actions*
-//
-// [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) | [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) | [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
+// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

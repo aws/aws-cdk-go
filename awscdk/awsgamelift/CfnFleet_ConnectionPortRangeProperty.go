@@ -1,7 +1,11 @@
 package awsgamelift
 
 
-// Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+// *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*.
+//
+// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+//
+// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,13 +20,13 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-connectionportrange.html
 //
 type CfnFleet_ConnectionPortRangeProperty struct {
-	// A starting value for a range of allowed port numbers.
+	// Starting value for the port range.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-connectionportrange.html#cfn-gamelift-fleet-connectionportrange-fromport
 	//
 	FromPort *float64 `field:"required" json:"fromPort" yaml:"fromPort"`
-	// An ending value for a range of allowed port numbers.
+	// Ending value for the port.
 	//
-	// Port numbers are end-inclusive. This value must be higher than FromPort.
+	// Port numbers are end-inclusive. This value must be equal to or greater than `FromPort` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-connectionportrange.html#cfn-gamelift-fleet-connectionportrange-toport
 	//
 	ToPort *float64 `field:"required" json:"toPort" yaml:"toPort"`

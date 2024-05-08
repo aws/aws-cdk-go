@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::QBusiness::Index Resource Type.
+// Creates an Amazon Q Business index.
+//
+// To determine if index creation has completed, check the `Status` field returned from a call to `DescribeIndex` . The `Status` field is set to `ACTIVE` when the index is ready to use.
+//
+// Once the index is active, you can index your documents using the [`BatchPutDocument`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html) API or the [`CreateDataSource`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) API.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,14 +51,23 @@ type CfnIndex interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The identifier of the Amazon Q Business application using the index.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The Unix timestamp when the index was created.
 	AttrCreatedAt() *string
+	// The Amazon Resource Name (ARN) of an Amazon Q Business index.
 	AttrIndexArn() *string
+	// The identifier for the index.
 	AttrIndexId() *string
 	AttrIndexStatistics() awscdk.IResolvable
+	// The current status of the index.
+	//
+	// When the status is `ACTIVE` , the index is ready.
 	AttrStatus() *string
+	// The Unix timestamp when the index was last updated.
 	AttrUpdatedAt() *string
+	// The capacity units you want to provision for your index.
 	CapacityConfiguration() interface{}
 	SetCapacityConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -68,10 +81,13 @@ type CfnIndex interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A description for the Amazon Q Business index.
 	Description() *string
 	SetDescription(val *string)
+	// The name of the index.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	// Configuration information for document attributes.
 	DocumentAttributeConfigurations() interface{}
 	SetDocumentAttributeConfigurations(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -95,8 +111,10 @@ type CfnIndex interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of key-value pairs that identify or categorize the index.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The index type that's suitable for your needs.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

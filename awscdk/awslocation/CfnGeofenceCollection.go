@@ -90,6 +90,7 @@ type CfnGeofenceCollection interface {
 	PricingPlan() *string
 	// Deprecated: this property has been deprecated.
 	SetPricingPlan(val *string)
+	// This shape is deprecated since 2022-02-01: Deprecated.
 	// Deprecated: this property has been deprecated.
 	PricingPlanDataSource() *string
 	// Deprecated: this property has been deprecated.

@@ -17,7 +17,6 @@ import (
 //
 //   	// the properties below are optional
 //   	BgpAsn: jsii.Number(123),
-//   	BgpAsnExtended: jsii.Number(123),
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	DeviceName: jsii.String("deviceName"),
 //   	Tags: []cfnTag{
@@ -49,9 +48,6 @@ type CfnCustomerGatewayProps struct {
 	// Default: - 65000.
 	//
 	BgpAsn *float64 `field:"optional" json:"bgpAsn" yaml:"bgpAsn"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasnextended
-	//
-	BgpAsnExtended *float64 `field:"optional" json:"bgpAsnExtended" yaml:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-certificatearn
 	//

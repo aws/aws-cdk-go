@@ -1,9 +1,9 @@
 package awsbedrock
 
 
-// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` .
+// Specifications about the inference parameters that were provided alongside the prompt.
 //
-// For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+// These are specified in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) object that was set when the agent was created or updated. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,7 +23,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html
 //
 type CfnAgent_InferenceConfigurationProperty struct {
-	// The maximum number of tokens to allow in the generated response.
+	// The maximum number of tokens allowed in the generated response.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html#cfn-bedrock-agent-inferenceconfiguration-maximumlength
 	//
 	MaximumLength *float64 `field:"optional" json:"maximumLength" yaml:"maximumLength"`

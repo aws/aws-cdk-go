@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnTable) validateSetLocalSecondaryIndexesParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetOnDemandThroughputParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetPointInTimeRecoverySpecificationParameters(val interface{}) error {
 	return nil
 }

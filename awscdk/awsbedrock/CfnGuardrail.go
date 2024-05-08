@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Bedrock::Guardrail Resource Type.
+// Creates a guardrail to block topics and to implement safeguards for your generative AI applications.
+//
+// You can configure denied topics to disallow undesirable topics and content filters to block harmful content in model inputs and responses. For more information, see [Guardrails for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) in the *Amazon Bedrock User Guide*
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -91,26 +93,28 @@ type CfnGuardrail interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Time Stamp.
+	// The date and time at which the guardrail was created.
 	AttrCreatedAt() *string
 	// List of failure recommendations.
 	AttrFailureRecommendations() *[]*string
-	// Arn representation for the guardrail.
+	// The Amazon Resource Name (ARN) of the guardrail.
+	//
+	// This a the primary identifier for the guardrail.
 	AttrGuardrailArn() *string
-	// Unique id for the guardrail.
+	// The unique identifier of the guardrail.
 	AttrGuardrailId() *string
 	// Status of the guardrail.
 	AttrStatus() *string
 	// List of status reasons.
 	AttrStatusReasons() *[]*string
-	// Time Stamp.
+	// The date and time at which the guardrail was last updated.
 	AttrUpdatedAt() *string
-	// Guardrail version.
+	// The version of the guardrail.
 	AttrVersion() *string
-	// Messaging for when violations are detected in text.
+	// The message to return when the guardrail blocks a prompt.
 	BlockedInputMessaging() *string
 	SetBlockedInputMessaging(val *string)
-	// Messaging for when violations are detected in text.
+	// The message to return when the guardrail blocks a model response.
 	BlockedOutputsMessaging() *string
 	SetBlockedOutputsMessaging(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -127,10 +131,10 @@ type CfnGuardrail interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Description of the guardrail or its version.
+	// A description of the guardrail.
 	Description() *string
 	SetDescription(val *string)
-	// The KMS key with which the guardrail was encrypted at rest.
+	// The ARN of the AWS KMS key used to encrypt the guardrail.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -143,7 +147,7 @@ type CfnGuardrail interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Name of the guardrail.
+	// The name of the guardrail.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -160,7 +164,9 @@ type CfnGuardrail interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// List of Tags.
+	// Metadata that you can assign to a guardrail as key-value pairs.
+	//
+	// For more information, see the following resources:.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Topic policy config for a guardrail.

@@ -13,6 +13,7 @@ package awsrds
 //   	Engine: rds.DatabaseInstanceEngine_SqlServerEe(&SqlServerEeInstanceEngineProps{
 //   		Version: rds.SqlServerEngineVersion_VER_11(),
 //   	}),
+//   	Name: jsii.String("my-parameter-group"),
 //   	Parameters: map[string]*string{
 //   		"locks": jsii.String("100"),
 //   	},

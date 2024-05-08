@@ -133,10 +133,10 @@ type CfnFleet interface {
 	// Amazon GameLift Anywhere configuration options.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
-	// Current resource capacity settings in a specified fleet or location.
+	// Current resource capacity settings for managed EC2 fleets and container fleets.
 	ApplyCapacity() *string
 	SetApplyCapacity(val *string)
-	// GameLift calculates the maximum number of replica container groups it can launch per instance based on instance properties such as CPU, memory, and connection ports.
+	// The maximum possible number of replica container groups that each fleet instance can have.
 	AttrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance() *float64
 	// A unique identifier for the fleet.
 	AttrFleetId() *string
@@ -154,7 +154,7 @@ type CfnFleet interface {
 	// The type of compute resource used to host your game servers.
 	ComputeType() *string
 	SetComputeType(val *string)
-	// Specifies container groups that this instance will hold.
+	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
 	ContainerGroupsConfiguration() interface{}
 	SetContainerGroupsConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -167,10 +167,10 @@ type CfnFleet interface {
 	// The number of EC2 instances that you want this fleet to host.
 	DesiredEc2Instances() *float64
 	SetDesiredEc2Instances(val *float64)
-	// The allowed IP address ranges and port settings that allow inbound traffic to access game sessions on this fleet.
+	// The IP address ranges and port settings that allow inbound traffic to access game server processes and other processes on this fleet.
 	Ec2InboundPermissions() interface{}
 	SetEc2InboundPermissions(val interface{})
-	// The Amazon GameLift-supported Amazon EC2 instance type to use for all fleet instances.
+	// The Amazon GameLift-supported Amazon EC2 instance type to use with EC2 and container fleets.
 	Ec2InstanceType() *string
 	SetEc2InstanceType(val *string)
 	// Indicates whether to use On-Demand or Spot instances for this fleet.

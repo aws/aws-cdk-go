@@ -26,6 +26,9 @@ package awsdynamodb
 //   	},
 //
 //   	// the properties below are optional
+//   	WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
+//   		MaxWriteRequestUnits: jsii.Number(123),
+//   	},
 //   	WriteProvisionedThroughputSettings: &WriteProvisionedThroughputSettingsProperty{
 //   		WriteCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
 //   			MaxCapacity: jsii.Number(123),
@@ -68,6 +71,9 @@ type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
 	//
 	Projection interface{} `field:"required" json:"projection" yaml:"projection"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeondemandthroughputsettings
+	//
+	WriteOnDemandThroughputSettings interface{} `field:"optional" json:"writeOnDemandThroughputSettings" yaml:"writeOnDemandThroughputSettings"`
 	// Defines write capacity settings for the global secondary index.
 	//
 	// You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.

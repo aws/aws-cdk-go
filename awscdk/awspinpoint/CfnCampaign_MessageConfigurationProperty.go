@@ -197,7 +197,7 @@ type CfnCampaign_MessageConfigurationProperty struct {
 	DefaultMessage interface{} `field:"optional" json:"defaultMessage" yaml:"defaultMessage"`
 	// The message that the campaign sends through the email channel. If specified, this message overrides the default message.
 	//
-	// > The maximum email message size is 200KB. You can use email templates to send larger email messages.
+	// > The maximum email message size is 200 KB. You can use email templates to send larger email messages.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html#cfn-pinpoint-campaign-messageconfiguration-emailmessage
 	//
 	EmailMessage interface{} `field:"optional" json:"emailMessage" yaml:"emailMessage"`

@@ -1,7 +1,7 @@
 package awsses
 
 
-// Properties for the Virtual Deliverablity Manager (VDM) attributes.
+// Properties for the Virtual Deliverability Manager (VDM) attributes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

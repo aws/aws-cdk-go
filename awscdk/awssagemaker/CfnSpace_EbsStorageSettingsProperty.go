@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// A collection of EBS storage settings that applies to private spaces.
+// A collection of EBS storage settings that apply to both private and shared spaces.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html
 //
 type CfnSpace_EbsStorageSettingsProperty struct {
-	// The size of an EBS storage volume for a private space.
+	// The size of an EBS storage volume for a space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html#cfn-sagemaker-space-ebsstoragesettings-ebsvolumesizeingb
 	//
 	EbsVolumeSizeInGb *float64 `field:"required" json:"ebsVolumeSizeInGb" yaml:"ebsVolumeSizeInGb"`

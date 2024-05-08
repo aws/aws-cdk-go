@@ -75,7 +75,7 @@ type CfnDataSource interface {
 	// - Available – The data source has been created and is ready for ingestion into the knowledge base.
 	// - Deleting – The data source is being deleted.
 	AttrDataSourceStatus() *string
-	// The details of the failure reasons related to the data source.
+	// The detailed reasons on the failure to delete a data source.
 	AttrFailureReasons() *[]*string
 	// The time at which the data source was last updated.
 	AttrUpdatedAt() *string
@@ -88,7 +88,7 @@ type CfnDataSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The deletion policy for the data source.
+	// The data deletion policy for a data source.
 	DataDeletionPolicy() *string
 	SetDataDeletionPolicy(val *string)
 	// Contains details about how the data source is stored.

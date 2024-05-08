@@ -226,7 +226,7 @@ type CfnPolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
 	//
 	IncludeMap interface{} `field:"optional" json:"includeMap" yaml:"includeMap"`
-	// The definition of the AWS Network Firewall firewall policy.
+	// Your description of the AWS Firewall Manager policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policydescription
 	//
 	PolicyDescription *string `field:"optional" json:"policyDescription" yaml:"policyDescription"`

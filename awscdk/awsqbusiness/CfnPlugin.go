@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::QBusiness::Plugin Resource Type.
+// Information about an Amazon Q Business plugin and its configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -62,13 +62,22 @@ type CfnPlugin interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The identifier of the application that will contain the plugin.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The current status of a plugin.
+	//
+	// A plugin is modified asynchronously.
 	AttrBuildStatus() *string
+	// The timestamp for when the plugin was created.
 	AttrCreatedAt() *string
+	// The Amazon Resource Name (ARN) of a plugin.
 	AttrPluginArn() *string
+	// The identifier of the plugin.
 	AttrPluginId() *string
+	// The timestamp for when the plugin was last updated.
 	AttrUpdatedAt() *string
+	// Authentication configuration information for an Amazon Q Business plugin.
 	AuthConfiguration() interface{}
 	SetAuthConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -82,8 +91,10 @@ type CfnPlugin interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Configuration information required to create a custom plugin.
 	CustomPluginConfiguration() interface{}
 	SetCustomPluginConfiguration(val interface{})
+	// The name of the plugin.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -103,16 +114,20 @@ type CfnPlugin interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The plugin server URL used for configuration.
 	ServerUrl() *string
 	SetServerUrl(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The current status of the plugin.
 	State() *string
 	SetState(val *string)
+	// A list of key-value pairs that identify or categorize the data source connector.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The type of the plugin.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

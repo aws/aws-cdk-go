@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::QBusiness::Retriever Resource Type.
+// Adds a retriever to your Amazon Q Business application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,12 +45,18 @@ type CfnRetriever interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The identifier of the Amazon Q Business application using the retriever.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The Unix timestamp when the retriever was created.
 	AttrCreatedAt() *string
+	// The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
 	AttrRetrieverArn() *string
+	// The identifier of the retriever used by your Amazon Q Business application.
 	AttrRetrieverId() *string
+	// The status of your retriever.
 	AttrStatus() *string
+	// The Unix timestamp when the retriever was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -59,12 +65,14 @@ type CfnRetriever interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Provides information on how the retriever used for your Amazon Q Business application is configured.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The name of your retriever.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -84,14 +92,17 @@ type CfnRetriever interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of key-value pairs that identify or categorize the retriever.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The type of your retriever.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

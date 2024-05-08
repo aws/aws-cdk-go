@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::QBusiness::Application Resource Type.
+// Creates an Amazon Q Business application.
+//
+// > There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro are also available in Amazon Q Business Lite. For information on what's included in Amazon Q Business Lite and what's included in Amazon Q Business Pro, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers) . You must use the Amazon Q Business console to assign subscription tiers to users.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,13 +45,22 @@ type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// Configuration information for the file upload during chat feature.
 	AttachmentsConfiguration() interface{}
 	SetAttachmentsConfiguration(val interface{})
+	// The Amazon Resource Name (ARN) of the Amazon Q Business application.
 	AttrApplicationArn() *string
+	// The identifier for the Amazon Q Business application.
 	AttrApplicationId() *string
+	// The Unix timestamp when the Amazon Q Business application was created.
 	AttrCreatedAt() *string
+	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
 	AttrIdentityCenterApplicationArn() *string
+	// The status of the Amazon Q Business application.
+	//
+	// The application is ready to use when the status is `ACTIVE` .
 	AttrStatus() *string
+	// The Unix timestamp when the Amazon Q Business application was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -62,12 +73,16 @@ type CfnApplication interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A description for the Amazon Q Business application.
 	Description() *string
 	SetDescription(val *string)
+	// The name of the Amazon Q Business application.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
 	IdentityCenterInstanceArn() *string
 	SetIdentityCenterInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -87,12 +102,14 @@ type CfnApplication interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of key-value pairs that identify or categorize your Amazon Q Business application.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -53,6 +53,10 @@ import (
 //   			ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
 //   				Enabled: jsii.Boolean(false),
 //   			},
+//   			OnDemandThroughput: &OnDemandThroughputProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
+//   				MaxWriteRequestUnits: jsii.Number(123),
+//   			},
 //   			ProvisionedThroughput: &ProvisionedThroughputProperty{
 //   				ReadCapacityUnits: jsii.Number(123),
 //   				WriteCapacityUnits: jsii.Number(123),
@@ -102,6 +106,10 @@ import (
 //   				ProjectionType: jsii.String("projectionType"),
 //   			},
 //   		},
+//   	},
+//   	OnDemandThroughput: &OnDemandThroughputProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   		MaxWriteRequestUnits: jsii.Number(123),
 //   	},
 //   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
 //   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
@@ -211,6 +219,9 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-localsecondaryindexes
 	//
 	LocalSecondaryIndexes interface{} `field:"optional" json:"localSecondaryIndexes" yaml:"localSecondaryIndexes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ondemandthroughput
+	//
+	OnDemandThroughput interface{} `field:"optional" json:"onDemandThroughput" yaml:"onDemandThroughput"`
 	// The settings used to enable point in time recovery.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-pointintimerecoveryspecification
 	//

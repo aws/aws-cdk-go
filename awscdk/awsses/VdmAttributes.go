@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Virtual Deliverablity Manager (VDM) attributes.
+// Virtual Deliverability Manager (VDM) attributes.
 //
 // Example:
 //   // Enables engagement tracking and optimized shared delivery by default
@@ -40,9 +40,9 @@ type VdmAttributes interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	// The name of the resource behind the Virtual Deliverablity Manager attributes.
+	// The name of the resource behind the Virtual Deliverability Manager attributes.
 	VdmAttributesName() *string
-	// Resource ID for the Virtual Deliverablity Manager attributes.
+	// Resource ID for the Virtual Deliverability Manager attributes.
 	VdmAttributesResourceId() *string
 	// Apply the given removal policy to this resource.
 	//
@@ -166,7 +166,7 @@ func NewVdmAttributes_Override(v VdmAttributes, scope constructs.Construct, id *
 	)
 }
 
-// Use an existing Virtual Deliverablity Manager attributes resource.
+// Use an existing Virtual Deliverability Manager attributes resource.
 func VdmAttributes_FromVdmAttributesName(scope constructs.Construct, id *string, vdmAttributesName *string) IVdmAttributes {
 	_init_.Initialize()
 

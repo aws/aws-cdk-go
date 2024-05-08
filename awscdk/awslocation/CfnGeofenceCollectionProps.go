@@ -52,6 +52,9 @@ type CfnGeofenceCollectionProps struct {
 	//
 	// Deprecated: this property has been deprecated.
 	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
+	// This shape is deprecated since 2022-02-01: Deprecated.
+	//
+	// No longer allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
 	//
 	// Deprecated: this property has been deprecated.

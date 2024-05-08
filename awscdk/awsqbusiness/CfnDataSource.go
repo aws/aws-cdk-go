@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::QBusiness::DataSource Resource Type.
+// Creates a data source connector for an Amazon Q Business application.
+//
+// `CreateDataSource` is a synchronous operation. The operation returns 200 if the data source was successfully created. Otherwise, an exception is raised.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -123,13 +125,20 @@ type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The identifier of the Amazon Q Business application the data source will be attached to.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The Unix timestamp when the Amazon Q Business data source was created.
 	AttrCreatedAt() *string
+	// The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
 	AttrDataSourceArn() *string
+	// The identifier of the Amazon Q Business data source.
 	AttrDataSourceId() *string
+	// The status of the Amazon Q Business data source.
 	AttrStatus() *string
+	// The type of the Amazon Q Business data source.
 	AttrType() *string
+	// The Unix timestamp when the Amazon Q Business data source was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -138,18 +147,23 @@ type CfnDataSource interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Configuration information to connect to your data source repository.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A description for the data source connector.
 	Description() *string
 	SetDescription(val *string)
+	// The name of the Amazon Q Business data source.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	// Provides the configuration information for altering document metadata and content during the document ingestion process.
 	DocumentEnrichmentConfiguration() interface{}
 	SetDocumentEnrichmentConfiguration(val interface{})
+	// The identifier of the index the data source is attached to.
 	IndexId() *string
 	SetIndexId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -169,14 +183,17 @@ type CfnDataSource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index.
 	SyncSchedule() *string
 	SetSyncSchedule(val *string)
+	// A list of key-value pairs that identify or categorize the data source connector.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -192,6 +209,7 @@ type CfnDataSource interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source.
 	VpcConfiguration() interface{}
 	SetVpcConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

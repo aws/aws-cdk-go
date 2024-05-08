@@ -45,6 +45,8 @@ type CfnPolicyStatementProps struct {
 	//
 	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 	// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+	//
+	// > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html#cfn-entityresolution-policystatement-effect
 	//
 	Effect *string `field:"optional" json:"effect" yaml:"effect"`

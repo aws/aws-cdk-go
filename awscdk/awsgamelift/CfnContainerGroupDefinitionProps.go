@@ -84,29 +84,46 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html
 //
 type CfnContainerGroupDefinitionProps struct {
-	// A collection of container definitions that define the containers in this group.
+	// The set of container definitions that are included in the container group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-containerdefinitions
 	//
 	ContainerDefinitions interface{} `field:"required" json:"containerDefinitions" yaml:"containerDefinitions"`
-	// A descriptive label for the container group definition.
+	// A descriptive identifier for the container group definition.
+	//
+	// The name value is unique in an AWS Region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The operating system of the container group.
+	// The platform required for all containers in the container group definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-operatingsystem
 	//
 	OperatingSystem *string `field:"required" json:"operatingSystem" yaml:"operatingSystem"`
-	// The maximum number of CPU units reserved for this container group.
+	// The amount of CPU units on a fleet instance to allocate for the container group.
 	//
-	// The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
+	// All containers in the group share these resources. This property is an integer value in CPU units (1 vCPU is equal to 1024 CPU units).
+	//
+	// You can set additional limits for each `ContainerDefinition` in the group. If individual containers have limits, this value must be equal to or greater than the sum of all container-specific CPU limits in the group.
+	//
+	// For more details on memory allocation, see the [Container fleet design guide](https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-design-fleet) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalcpulimit
 	//
 	TotalCpuLimit *float64 `field:"required" json:"totalCpuLimit" yaml:"totalCpuLimit"`
-	// The maximum amount of memory (in MiB) to allocate for this container group.
+	// The amount of memory (in MiB) on a fleet instance to allocate for the container group.
+	//
+	// All containers in the group share these resources.
+	//
+	// You can set additional limits for each `ContainerDefinition` in the group. If individual containers have limits, this value must meet the following requirements:
+	//
+	// - Equal to or greater than the sum of all container-specific soft memory limits in the group.
+	// - Equal to or greater than any container-specific hard limits in the group.
+	//
+	// For more details on memory allocation, see the [Container fleet design guide](https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-design-fleet) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimit
 	//
 	TotalMemoryLimit *float64 `field:"required" json:"totalMemoryLimit" yaml:"totalMemoryLimit"`
-	// Specifies whether the container group includes replica or daemon containers.
+	// The method for deploying the container group across fleet instances.
+	//
+	// A replica container group might have multiple copies on each fleet instance. A daemon container group maintains only one copy per fleet instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-schedulingstrategy
 	//
 	SchedulingStrategy *string `field:"optional" json:"schedulingStrategy" yaml:"schedulingStrategy"`
