@@ -1033,6 +1033,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantMutation", GoMethod: "GrantMutation"},
 			_jsii_.MemberMethod{JsiiMethod: "grantQuery", GoMethod: "GrantQuery"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSubscription", GoMethod: "GrantSubscription"},
+			_jsii_.MemberProperty{JsiiProperty: "graphQLEndpointArn", GoGetter: "GraphQLEndpointArn"},
 			_jsii_.MemberProperty{JsiiProperty: "graphqlUrl", GoGetter: "GraphqlUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "modes", GoGetter: "Modes"},
@@ -1042,6 +1043,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "schema", GoGetter: "Schema"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "visibility", GoGetter: "Visibility"},
 		},
 		func() interface{} {
 			j := jsiiProxy_GraphqlApi{}
@@ -1079,10 +1081,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantMutation", GoMethod: "GrantMutation"},
 			_jsii_.MemberMethod{JsiiMethod: "grantQuery", GoMethod: "GrantQuery"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSubscription", GoMethod: "GrantSubscription"},
+			_jsii_.MemberProperty{JsiiProperty: "graphQLEndpointArn", GoGetter: "GraphQLEndpointArn"},
+			_jsii_.MemberProperty{JsiiProperty: "modes", GoGetter: "Modes"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "visibility", GoGetter: "Visibility"},
 		},
 		func() interface{} {
 			j := jsiiProxy_GraphqlApiBase{}
@@ -1163,8 +1168,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantMutation", GoMethod: "GrantMutation"},
 			_jsii_.MemberMethod{JsiiMethod: "grantQuery", GoMethod: "GrantQuery"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSubscription", GoMethod: "GrantSubscription"},
+			_jsii_.MemberProperty{JsiiProperty: "graphQLEndpointArn", GoGetter: "GraphQLEndpointArn"},
+			_jsii_.MemberProperty{JsiiProperty: "modes", GoGetter: "Modes"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "visibility", GoGetter: "Visibility"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IGraphqlApi{}

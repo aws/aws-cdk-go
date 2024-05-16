@@ -613,13 +613,12 @@ Additionally, you can load the function's code from a file using the `FunctionCo
 
 If you set `autoPublish` to false, the function will not be automatically published to the LIVE stage when it’s created.
 
-``ts
-new cloudfront.Function(this, 'Function', {
-code: cloudfront.FunctionCode.fromInline('function handler(event) { return event.request }'),
-runtime: cloudfront.FunctionRuntime.JS_2_0,
-autoPublish: false
-});
-
+```go
+cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
+	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
+	AutoPublish: jsii.Boolean(false),
+})
 ```
 
 ### Key Value Store
@@ -629,8 +628,8 @@ by default.
 
 To create an empty Key Value Store:
 
-```ts
-const store = new cloudfront.KeyValueStore(this, 'KeyValueStore');
+```go
+store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"))
 ```
 
 To also include an initial set of values, the `source` property can be specified, either from a

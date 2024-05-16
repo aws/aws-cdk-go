@@ -31,7 +31,7 @@ import (
 //
 type ResultConfiguration struct {
 	// Encryption option used if enabled in S3.
-	// Default: - SSE_S3 encrpytion is enabled with default encryption key.
+	// Default: - SSE_S3 encryption is enabled with default encryption key.
 	//
 	EncryptionConfiguration *EncryptionConfiguration `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// S3 path of query results.

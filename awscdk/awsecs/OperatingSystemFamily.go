@@ -31,7 +31,9 @@ import (
 //   })
 //
 type OperatingSystemFamily interface {
-	// Returns true if the operating system family is Windows.
+	// Indicates whether the operating system family is Linux.
+	IsLinux() *bool
+	// Indicates whether the operating system family is Windows.
 	IsWindows() *bool
 }
 
@@ -146,6 +148,19 @@ func OperatingSystemFamily_WINDOWS_SERVER_20H2_CORE() OperatingSystemFamily {
 		"WINDOWS_SERVER_20H2_CORE",
 		&returns,
 	)
+	return returns
+}
+
+func (o *jsiiProxy_OperatingSystemFamily) IsLinux() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		o,
+		"isLinux",
+		nil, // no parameters
+		&returns,
+	)
+
 	return returns
 }
 

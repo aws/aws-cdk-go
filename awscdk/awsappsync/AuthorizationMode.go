@@ -4,51 +4,29 @@ package awsappsync
 // Interface to specify default or additional authorization(s).
 //
 // Example:
-//   api := appsync.NewGraphqlApi(this, jsii.String("Api"), &GraphqlApiProps{
-//   	Name: jsii.String("demo"),
-//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("schema.graphql"))),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+//   	Name: jsii.String("api"),
+//   	Definition: appsync.Definition_FromFile(jsii.String("schema.graphql")),
 //   	AuthorizationConfig: &AuthorizationConfig{
 //   		DefaultAuthorization: &AuthorizationMode{
 //   			AuthorizationType: appsync.AuthorizationType_IAM,
 //   		},
 //   	},
-//   	XrayEnabled: jsii.Boolean(true),
 //   })
 //
-//   demoTable := dynamodb.NewTable(this, jsii.String("DemoTable"), &TableProps{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("id"),
-//   		Type: dynamodb.AttributeType_STRING,
-//   	},
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   demoDS := api.AddDynamoDbDataSource(jsii.String("demoDataSource"), demoTable)
-//
-//   // Resolver for the Query "getDemos" that scans the DynamoDb table and returns the entire list.
-//   // Resolver Mapping Template Reference:
-//   // https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html
-//   demoDS.CreateResolver(jsii.String("QueryGetDemosResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Query"),
-//   	FieldName: jsii.String("getDemos"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_DynamoDbScanTable(),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_DynamoDbResultList(),
-//   })
-//
-//   // Resolver for the Mutation "addDemo" that puts the item into the DynamoDb table.
-//   demoDS.CreateResolver(jsii.String("MutationAddDemoResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Mutation"),
-//   	FieldName: jsii.String("addDemo"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_DynamoDbPutItem(appsync.PrimaryKey_Partition(jsii.String("id")).Auto(), appsync.Values_Projecting(jsii.String("input"))),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_DynamoDbResultItem(),
-//   })
-//
-//   //To enable DynamoDB read consistency with the `MappingTemplate`:
-//   demoDS.CreateResolver(jsii.String("QueryGetDemosConsistentResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Query"),
-//   	FieldName: jsii.String("getDemosConsistent"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_*DynamoDbScanTable(jsii.Boolean(true)),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*DynamoDbResultList(),
-//   })
+//   rule.AddTarget(targets.NewAppSync(api, &AppSyncGraphQLApiProps{
+//   	GraphQLOperation: jsii.String("mutation Publish($message: String!){ publish(message: $message) { message } }"),
+//   	Variables: events.RuleTargetInput_FromObject(map[string]*string{
+//   		"message": jsii.String("hello world"),
+//   	}),
+//   }))
 //
 type AuthorizationMode struct {
 	// One of possible four values AppSync supports.

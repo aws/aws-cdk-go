@@ -54,6 +54,12 @@ type GitConfiguration struct {
 	// Since the provider for `sourceAction` must be `CodeStarSourceConnection`, you can use
 	// `CodeStarConnectionsSourceAction` construct in `aws-codepipeline-actions` module.
 	SourceAction IAction `field:"required" json:"sourceAction" yaml:"sourceAction"`
+	// The field where the repository event that will start the pipeline is specified as pull requests.
+	//
+	// The length must be less than or equal to 3.
+	// Default: - no filter.
+	//
+	PullRequestFilter *[]*GitPullRequestFilter `field:"optional" json:"pullRequestFilter" yaml:"pullRequestFilter"`
 	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details.
 	//
 	// Git tags is the only supported event type.

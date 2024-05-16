@@ -22,6 +22,7 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 		SubnetType: ec2.SubnetType_PUBLIC,
 	},
 	Vpc: Vpc,
+	CopyTagsToSnapshot: jsii.Boolean(true),
 })
 ```
 
@@ -265,5 +266,26 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 	Vpc: Vpc,
 	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
 	SecurityGroupRemovalPolicy: awscdk.RemovalPolicy_RETAIN,
+})
+```
+
+## CA certificate
+
+Use the `caCertificate` property to specify the [CA certificate](https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html) to use for all instances inside the cluster:
+
+```go
+var vpc vpc
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+	Vpc: Vpc,
+	CaCertificate: docdb.CaCertificate_RDS_CA_RSA4096_G1(),
 })
 ```

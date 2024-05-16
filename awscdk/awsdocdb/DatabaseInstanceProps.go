@@ -3,6 +3,7 @@ package awsdocdb
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 )
 
 // Construction properties for a DatabaseInstanceNew.
@@ -13,7 +14,9 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var caCertificate caCertificate
 //   var databaseCluster databaseCluster
 //   var instanceType instanceType
 //
@@ -24,6 +27,7 @@ import (
 //   	// the properties below are optional
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	CaCertificate: caCertificate,
 //   	DbInstanceName: jsii.String("dbInstanceName"),
 //   	EnablePerformanceInsights: jsii.Boolean(false),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
@@ -43,6 +47,14 @@ type DatabaseInstanceProps struct {
 	// Default: - no preference.
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// The identifier of the CA certificate for this DB instance.
+	//
+	// Specifying or updating this property triggers a reboot.
+	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html
+	//
+	// Default: - DocumentDB will choose a certificate authority.
+	//
+	CaCertificate awsrds.CaCertificate `field:"optional" json:"caCertificate" yaml:"caCertificate"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation

@@ -61,6 +61,8 @@ type GraphqlApi interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The GraphQL endpoint ARN.
+	GraphQLEndpointArn() *string
 	// the URL of the endpoint created by AppSync.
 	GraphqlUrl() *string
 	// the CloudWatch Log Group for this API.
@@ -83,6 +85,8 @@ type GraphqlApi interface {
 	Schema() ISchema
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// the visibility of the API.
+	Visibility() Visibility
 	// add a new DynamoDB data source to this API.
 	AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *DataSourceOptions) DynamoDbDataSource
 	// add a new elasticsearch data source to this API.
@@ -202,6 +206,16 @@ func (j *jsiiProxy_GraphqlApi) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_GraphqlApi) GraphQLEndpointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"graphQLEndpointArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_GraphqlApi) GraphqlUrl() *string {
 	var returns *string
 	_jsii_.Get(
@@ -277,6 +291,16 @@ func (j *jsiiProxy_GraphqlApi) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GraphqlApi) Visibility() Visibility {
+	var returns Visibility
+	_jsii_.Get(
+		j,
+		"visibility",
 		&returns,
 	)
 	return returns

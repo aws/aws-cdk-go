@@ -22,6 +22,9 @@ import (
 //   	Arn: jsii.String("arn"),
 //
 //   	// the properties below are optional
+//   	AppSyncParameters: &AppSyncParametersProperty{
+//   		GraphQlOperation: jsii.String("graphQlOperation"),
+//   	},
 //   	BatchParameters: &BatchParametersProperty{
 //   		JobDefinition: jsii.String("jobDefinition"),
 //   		JobName: jsii.String("jobName"),
@@ -129,6 +132,10 @@ import (
 type RuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the target.
 	Arn *string `field:"required" json:"arn" yaml:"arn"`
+	// Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
+	// Default: - None.
+	//
+	AppSyncParameters *CfnRule_AppSyncParametersProperty `field:"optional" json:"appSyncParameters" yaml:"appSyncParameters"`
 	// Parameters used when the rule invokes Amazon AWS Batch Job/Queue.
 	// Default: no parameters set.
 	//

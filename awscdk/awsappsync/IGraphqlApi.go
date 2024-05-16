@@ -56,6 +56,12 @@ type IGraphqlApi interface {
 	ApiId() *string
 	// the ARN of the API.
 	Arn() *string
+	// The GraphQL endpoint ARN.
+	GraphQLEndpointArn() *string
+	// The Authorization Types for this GraphQL Api.
+	Modes() *[]AuthorizationType
+	// the visibility of the API.
+	Visibility() Visibility
 }
 
 // The jsii proxy for IGraphqlApi
@@ -338,6 +344,36 @@ func (j *jsiiProxy_IGraphqlApi) Arn() *string {
 	_jsii_.Get(
 		j,
 		"arn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGraphqlApi) GraphQLEndpointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"graphQLEndpointArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGraphqlApi) Modes() *[]AuthorizationType {
+	var returns *[]AuthorizationType
+	_jsii_.Get(
+		j,
+		"modes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGraphqlApi) Visibility() Visibility {
+	var returns Visibility
+	_jsii_.Get(
+		j,
+		"visibility",
 		&returns,
 	)
 	return returns

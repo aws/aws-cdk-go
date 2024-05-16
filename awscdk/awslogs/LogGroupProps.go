@@ -43,7 +43,7 @@ type LogGroupProps struct {
 	//
 	DataProtectionPolicy DataProtectionPolicy `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
 	// The KMS customer managed key to encrypt the log group with.
-	// Default: Server-side encrpytion managed by the CloudWatch Logs service.
+	// Default: Server-side encryption managed by the CloudWatch Logs service.
 	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS.

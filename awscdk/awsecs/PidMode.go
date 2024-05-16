@@ -11,7 +11,7 @@ package awsecs
 //   	},
 //   	MemoryLimitMiB: jsii.Number(512),
 //   	Cpu: jsii.Number(256),
-//   	PidMode: ecs.PidMode_HOST,
+//   	PidMode: ecs.PidMode_TASK,
 //   })
 //
 type PidMode string

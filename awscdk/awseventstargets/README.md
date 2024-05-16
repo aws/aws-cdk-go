@@ -17,6 +17,7 @@ Currently supported are:
   * [Queue a Batch job](#queue-a-batch-job)
   * [Invoke an API Gateway REST API](#invoke-an-api-gateway-rest-api)
   * [Invoke an API Destination](#invoke-an-api-destination)
+  * [Invoke an AppSync GraphQL API](#invoke-an-appsync-graphql-api)
   * [Put an event on an EventBridge bus](#put-an-event-on-an-eventbridge-bus)
   * [Run an ECS Task](#run-an-ecs-task)
 
@@ -387,6 +388,75 @@ rule := events.NewRule(this, jsii.String("OtherRule"), &RuleProps{
 		targets.NewApiDestination(destination),
 	},
 })
+```
+
+## Invoke an AppSync GraphQL API
+
+Use the `AppSync` target to trigger an AppSync GraphQL API. You need to
+create an `AppSync.GraphqlApi` configured with `AWS_IAM` authorization mode.
+
+The code snippet below creates an AppSync GraphQL API target that is invoked every hour, calling the `publish` mutation.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("api"),
+	Definition: appsync.Definition_FromFile(jsii.String("schema.graphql")),
+	AuthorizationConfig: &AuthorizationConfig{
+		DefaultAuthorization: &AuthorizationMode{
+			AuthorizationType: appsync.AuthorizationType_IAM,
+		},
+	},
+})
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+rule.AddTarget(targets.NewAppSync(api, &AppSyncGraphQLApiProps{
+	GraphQLOperation: jsii.String("mutation Publish($message: String!){ publish(message: $message) { message } }"),
+	Variables: events.RuleTargetInput_FromObject(map[string]*string{
+		"message": jsii.String("hello world"),
+	}),
+}))
+```
+
+You can pass an existing role with the proper permissions to be used for the target when the rule is triggered. The code snippet below uses an existing role and grants permissions to use the publish Mutation on the GraphQL API.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+api := appsync.GraphqlApi_FromGraphqlApiAttributes(this, jsii.String("ImportedAPI"), &GraphqlApiAttributes{
+	GraphqlApiId: jsii.String("<api-id>"),
+	GraphqlApiArn: jsii.String("<api-arn>"),
+	GraphQLEndpointArn: jsii.String("<api-endpoint-arn>"),
+	Visibility: appsync.Visibility_GLOBAL,
+	Modes: []authorizationType{
+		appsync.*authorizationType_IAM,
+	},
+})
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Minutes(jsii.Number(1))),
+})
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("events.amazonaws.com")),
+})
+
+// allow EventBridge to use the `publish` mutation
+api.GrantMutation(role, jsii.String("publish"))
+
+rule.AddTarget(targets.NewAppSync(api, &AppSyncGraphQLApiProps{
+	GraphQLOperation: jsii.String("mutation Publish($message: String!){ publish(message: $message) { message } }"),
+	Variables: events.RuleTargetInput_FromObject(map[string]*string{
+		"message": jsii.String("hello world"),
+	}),
+	EventRole: role,
+}))
 ```
 
 ## Put an event on an EventBridge bus

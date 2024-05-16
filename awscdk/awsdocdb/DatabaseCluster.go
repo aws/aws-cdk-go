@@ -26,7 +26,7 @@ import (
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
-//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+//   	CaCertificate: docdb.CaCertificate_RDS_CA_RSA4096_G1(),
 //   })
 //
 type DatabaseCluster interface {

@@ -9,30 +9,27 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//
+//   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+//   	Name: jsii.String("api"),
+//   	Definition: appsync.Definition_FromFile(jsii.String("schema.graphql")),
+//   	AuthorizationConfig: &AuthorizationConfig{
+//   		DefaultAuthorization: &AuthorizationMode{
+//   			AuthorizationType: appsync.AuthorizationType_IAM,
+//   		},
+//   	},
+//   })
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(1))),
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
-//
-//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("events.amazonaws.com")),
-//   })
-//   stateMachine := sfn.NewStateMachine(this, jsii.String("SM"), &StateMachineProps{
-//   	Definition: sfn.NewWait(this, jsii.String("Hello"), &WaitProps{
-//   		Time: sfn.WaitTime_Duration(awscdk.Duration_Seconds(jsii.Number(10))),
+//   rule.AddTarget(targets.NewAppSync(api, &AppSyncGraphQLApiProps{
+//   	GraphQLOperation: jsii.String("mutation Publish($message: String!){ publish(message: $message) { message } }"),
+//   	Variables: events.RuleTargetInput_FromObject(map[string]*string{
+//   		"message": jsii.String("hello world"),
 //   	}),
-//   })
-//
-//   rule.AddTarget(targets.NewSfnStateMachine(stateMachine, &SfnStateMachineProps{
-//   	Input: events.RuleTargetInput_FromObject(map[string]*string{
-//   		"SomeParam": jsii.String("SomeValue"),
-//   	}),
-//   	DeadLetterQueue: dlq,
-//   	Role: role,
 //   }))
 //
 type RuleTargetInput interface {

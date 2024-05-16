@@ -39,6 +39,11 @@ type BucketProps struct {
 	// switching this to `false` in a CDK version *before* `1.126.0` will lead to
 	// all objects in the bucket being deleted. Be sure to update your bucket resources
 	// by deploying with CDK version `1.126.0` or later **before** switching this value to `false`.
+	//
+	// Setting `autoDeleteObjects` to true on a bucket will add `s3:PutBucketPolicy` to the
+	// bucket policy. This is because during bucket deletion, the custom resource provider
+	// needs to update the bucket policy by adding a deny policy for `s3:PutObject` to
+	// prevent race conditions with external bucket writers.
 	// Default: false.
 	//
 	AutoDeleteObjects *bool `field:"optional" json:"autoDeleteObjects" yaml:"autoDeleteObjects"`

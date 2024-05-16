@@ -2217,6 +2217,7 @@ func init() {
 		"aws-cdk-lib.aws_ecs.OperatingSystemFamily",
 		reflect.TypeOf((*OperatingSystemFamily)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "isLinux", GoMethod: "IsLinux"},
 			_jsii_.MemberMethod{JsiiMethod: "isWindows", GoMethod: "IsWindows"},
 		},
 		func() interface{} {

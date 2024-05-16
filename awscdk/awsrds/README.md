@@ -352,7 +352,7 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 	}),
 	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-		CaCertificate: rds.CaCertificate_RDS_CA_RDS2048_G1(),
+		CaCertificate: rds.CaCertificate_RDS_CA_RSA2048_G1(),
 	}),
 	Readers: []iClusterInstance{
 		rds.ClusterInstance_ServerlessV2(jsii.String("reader"), &ServerlessV2ClusterInstanceProps{
@@ -780,7 +780,7 @@ rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 		Version: rds.MysqlEngineVersion_VER_8_0_30(),
 	}),
 	Vpc: Vpc,
-	CaCertificate: rds.CaCertificate_RDS_CA_RDS2048_G1(),
+	CaCertificate: rds.CaCertificate_RDS_CA_RSA2048_G1(),
 })
 ```
 

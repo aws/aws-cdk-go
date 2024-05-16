@@ -658,6 +658,34 @@ cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &Cluste
 cluster.AddIamRole(role)
 ```
 
+## Multi-AZ
+
+Amazon Redshift supports [multiple Availability Zones (Multi-AZ) deployments]((https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-multi-az.html)) for provisioned RA3 clusters.
+By using Multi-AZ deployments, your Amazon Redshift data warehouse can continue operating in failure scenarios when an unexpected event happens in an Availability Zone.
+
+To create a Multi-AZ cluster, set the `multiAz` property to `true` when creating the cluster.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+var vpc ec2.IVpc
+
+
+redshift.NewCluster(stack, jsii.String("Cluster"), map[string]interface{}{
+	"masterUser": map[string]*string{
+		"masterUsername": jsii.String("admin"),
+	},
+	"vpc": vpc,
+	 // 3 AZs are required for Multi-AZ
+	"nodeType": redshift.NodeType_RA3_XLPLUS,
+	 // must be RA3 node type
+	"clusterType": redshift.ClusterType_MULTI_NODE,
+	 // must be MULTI_NODE
+	"numberOfNodes": jsii.Number(2),
+	 // must be 2 or more
+	"multiAz": jsii.Boolean(true),
+})
+```
+
 ## Resizing
 
 As your data warehousing needs change, it's possible to resize your Redshift cluster. If the cluster was deployed via CDK,

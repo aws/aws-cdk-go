@@ -22,6 +22,25 @@ import (
 //   		SourceAction: action,
 //
 //   		// the properties below are optional
+//   		PullRequestFilter: []gitPullRequestFilter{
+//   			&gitPullRequestFilter{
+//   				BranchesExcludes: []*string{
+//   					jsii.String("branchesExcludes"),
+//   				},
+//   				BranchesIncludes: []*string{
+//   					jsii.String("branchesIncludes"),
+//   				},
+//   				Events: []gitPullRequestEvent{
+//   					awscdk.*Aws_codepipeline.*gitPullRequestEvent_OPEN,
+//   				},
+//   				FilePathsExcludes: []*string{
+//   					jsii.String("filePathsExcludes"),
+//   				},
+//   				FilePathsIncludes: []*string{
+//   					jsii.String("filePathsIncludes"),
+//   				},
+//   			},
+//   		},
 //   		PushFilter: []gitPushFilter{
 //   			&gitPushFilter{
 //   				TagsExcludes: []*string{

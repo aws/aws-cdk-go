@@ -894,3 +894,28 @@ api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 
 api.AddEnvironmentVariable(jsii.String("EnvKey2"), jsii.String("non-empty-2"))
 ```
+
+## Configure an EventBridge target that invokes an AppSync GraphQL API
+
+Configuring the target relies on the `graphQLEndpointArn` property.
+
+Use the `AppSync` event target to trigger an AppSync GraphQL API. You need to
+create an `AppSync.GraphqlApi` configured with `AWS_IAM` authorization mode.
+
+The code snippet below creates a AppSync GraphQL API target that is invoked, calling the `publish` mutation.
+
+```go
+import events "github.com/aws/aws-cdk-go/awscdk"
+import targets "github.com/aws/aws-cdk-go/awscdk"
+
+var rule rule
+var api graphqlApi
+
+
+rule.AddTarget(targets.NewAppSync(api, &AppSyncGraphQLApiProps{
+	GraphQLOperation: jsii.String("mutation Publish($message: String!){ publish(message: $message) { message } }"),
+	Variables: events.RuleTargetInput_FromObject(map[string]*string{
+		"message": jsii.String("hello world"),
+	}),
+}))
+```

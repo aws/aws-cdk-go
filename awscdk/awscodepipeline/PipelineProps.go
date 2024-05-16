@@ -6,33 +6,23 @@ import (
 )
 
 // Example:
-//   var project pipelineProject
+//   var sourceAction s3SourceAction
+//   var sourceOutput artifact
+//   var deployBucket bucket
 //
-//   repository := codecommit.NewRepository(this, jsii.String("MyRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("MyRepository"),
-//   })
-//   project := codebuild.NewPipelineProject(this, jsii.String("MyProject"))
 //
-//   sourceOutput := codepipeline.NewArtifact()
-//   sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSourceActionProps{
-//   	ActionName: jsii.String("CodeCommit"),
-//   	Repository: Repository,
-//   	Output: sourceOutput,
+//   // Pipeline-level variable
+//   variable := codepipeline.NewVariable(&VariableProps{
+//   	VariableName: jsii.String("bucket-var"),
+//   	Description: jsii.String("description"),
+//   	DefaultValue: jsii.String("sample"),
 //   })
-//   buildAction := codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
-//   	ActionName: jsii.String("CodeBuild"),
-//   	Project: Project,
-//   	Input: sourceOutput,
-//   	Outputs: []artifact{
-//   		codepipeline.NewArtifact(),
+//
+//   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+//   	PipelineType: codepipeline.PipelineType_V2,
+//   	Variables: []variable{
+//   		variable,
 //   	},
-//   	 // optional
-//   	ExecuteBatchBuild: jsii.Boolean(true),
-//   	 // optional, defaults to false
-//   	CombineBatchBuildArtifacts: jsii.Boolean(true),
-//   })
-//
-//   codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &PipelineProps{
 //   	Stages: []stageProps{
 //   		&stageProps{
 //   			StageName: jsii.String("Source"),
@@ -41,9 +31,15 @@ import (
 //   			},
 //   		},
 //   		&stageProps{
-//   			StageName: jsii.String("Build"),
+//   			StageName: jsii.String("Deploy"),
 //   			Actions: []*iAction{
-//   				buildAction,
+//   				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+//   					ActionName: jsii.String("DeployAction"),
+//   					// can reference the variables
+//   					ObjectKey: fmt.Sprintf("%v.txt", variable.Reference()),
+//   					Input: sourceOutput,
+//   					Bucket: deployBucket,
+//   				}),
 //   			},
 //   		},
 //   	},

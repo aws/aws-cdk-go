@@ -35,6 +35,7 @@ type StepScalingActionProps struct {
 	// Period after a scaling completes before another scaling activity can start.
 	// Default: The default cooldown configured on the AutoScalingGroup.
 	//
+	// Deprecated: cooldown is not valid with step scaling action.
 	Cooldown awscdk.Duration `field:"optional" json:"cooldown" yaml:"cooldown"`
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
 	// Default: Same as the cooldown.

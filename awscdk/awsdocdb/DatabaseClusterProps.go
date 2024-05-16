@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 )
 
 // Properties for a new database cluster.
@@ -23,7 +24,7 @@ import (
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
-//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
+//   	CaCertificate: docdb.CaCertificate_RDS_CA_RSA4096_G1(),
 //   })
 //
 type DatabaseClusterProps struct {
@@ -43,6 +44,14 @@ type DatabaseClusterProps struct {
 	// 8-hour block of time for each AWS Region, occurring on a random day of the week.
 	//
 	Backup *BackupProps `field:"optional" json:"backup" yaml:"backup"`
+	// The identifier of the CA certificate used for the instances.
+	//
+	// Specifying or updating this property triggers a reboot.
+	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html
+	//
+	// Default: - DocumentDB will choose a certificate authority.
+	//
+	CaCertificate awsrds.CaCertificate `field:"optional" json:"caCertificate" yaml:"caCertificate"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
@@ -55,6 +64,10 @@ type DatabaseClusterProps struct {
 	// Default: - a new role is created.
 	//
 	CloudWatchLogsRetentionRole awsiam.IRole `field:"optional" json:"cloudWatchLogsRetentionRole" yaml:"cloudWatchLogsRetentionRole"`
+	// Whether to copy tags to the snapshot when a snapshot is created.
+	// Default: - false.
+	//
+	CopyTagsToSnapshot *bool `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// An optional identifier for the cluster.
 	// Default: - A name is automatically generated.
 	//

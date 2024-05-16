@@ -54,7 +54,7 @@ type CustomDataIdentifier interface {
 	//
 	// This cannot share the same name as a managed data identifier.
 	Name() *string
-	// - the regular expresssion to detect and mask log events for.
+	// - the regular expression to detect and mask log events for.
 	Regex() *string
 	// String representation of a CustomDataIdentifier.
 	//

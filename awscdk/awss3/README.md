@@ -641,6 +641,8 @@ as it does not contain any objects.
 To override this and force all objects to get deleted during bucket deletion,
 enable the`autoDeleteObjects` option.
 
+When `autoDeleteObjects` is enabled, `s3:PutBucketPolicy` is added to the bucket policy. This is done to allow the custom resource this feature is built on to add a deny policy for `s3:PutObject` to the bucket policy when a delete stack event occurs. Adding this deny policy prevents new objects from being written to the bucket. Doing this prevents race conditions with external bucket writers during the deletion process.
+
 ```go
 bucket := s3.NewBucket(this, jsii.String("MyTempFileBucket"), &BucketProps{
 	RemovalPolicy: cdk.RemovalPolicy_DESTROY,

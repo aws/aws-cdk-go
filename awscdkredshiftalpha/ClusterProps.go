@@ -96,6 +96,11 @@ type ClusterProps struct {
 	//
 	// Experimental.
 	LoggingProperties *LoggingProperties `field:"optional" json:"loggingProperties" yaml:"loggingProperties"`
+	// Indicating whether Amazon Redshift should deploy the cluster in two Availability Zones.
+	// Default: - false.
+	//
+	// Experimental.
+	MultiAz *bool `field:"optional" json:"multiAz" yaml:"multiAz"`
 	// The node type to be provisioned for the cluster.
 	// Default: `NodeType.DC2_LARGE`
 	//

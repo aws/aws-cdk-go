@@ -75,7 +75,7 @@ logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
 logGroup.grantWrite(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
 ```
 
-Similarily, read permissions can be granted to the log group as follows.
+Similarly, read permissions can be granted to the log group as follows.
 
 ```go
 logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))

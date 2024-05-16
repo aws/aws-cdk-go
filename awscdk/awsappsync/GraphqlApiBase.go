@@ -34,6 +34,10 @@ type GraphqlApiBase interface {
 	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
+	// The GraphQL endpoint ARN.
+	GraphQLEndpointArn() *string
+	// The Authorization Types for this GraphQL Api.
+	Modes() *[]AuthorizationType
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -46,6 +50,8 @@ type GraphqlApiBase interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// The visibility of the API.
+	Visibility() Visibility
 	// add a new DynamoDB data source to this API.
 	AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *DataSourceOptions) DynamoDbDataSource
 	// add a new elasticsearch data source to this API.
@@ -144,6 +150,26 @@ func (j *jsiiProxy_GraphqlApiBase) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_GraphqlApiBase) GraphQLEndpointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"graphQLEndpointArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GraphqlApiBase) Modes() *[]AuthorizationType {
+	var returns *[]AuthorizationType
+	_jsii_.Get(
+		j,
+		"modes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_GraphqlApiBase) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -169,6 +195,16 @@ func (j *jsiiProxy_GraphqlApiBase) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GraphqlApiBase) Visibility() Visibility {
+	var returns Visibility
+	_jsii_.Get(
+		j,
+		"visibility",
 		&returns,
 	)
 	return returns

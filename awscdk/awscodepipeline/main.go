@@ -396,6 +396,19 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline.GitConfiguration",
 		reflect.TypeOf((*GitConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codepipeline.GitPullRequestEvent",
+		reflect.TypeOf((*GitPullRequestEvent)(nil)).Elem(),
+		map[string]interface{}{
+			"OPEN": GitPullRequestEvent_OPEN,
+			"UPDATED": GitPullRequestEvent_UPDATED,
+			"CLOSED": GitPullRequestEvent_CLOSED,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.GitPullRequestFilter",
+		reflect.TypeOf((*GitPullRequestFilter)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.GitPushFilter",
 		reflect.TypeOf((*GitPushFilter)(nil)).Elem(),

@@ -42,6 +42,22 @@ func init() {
 		reflect.TypeOf((*ApiGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events_targets.AppSync",
+		reflect.TypeOf((*AppSync)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSync{}
+			_jsii_.InitJsiiProxy(&j.Type__awseventsIRuleTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events_targets.AppSyncGraphQLApiProps",
+		reflect.TypeOf((*AppSyncGraphQLApiProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events_targets.AwsApi",
 		reflect.TypeOf((*AwsApi)(nil)).Elem(),
 		[]_jsii_.Member{

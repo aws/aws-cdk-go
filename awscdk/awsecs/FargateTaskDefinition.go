@@ -97,8 +97,10 @@ type FargateTaskDefinition interface {
 	// The process namespace to use for the containers in the task.
 	//
 	// Only supported for tasks that are hosted on AWS Fargate if the tasks
-	// are using platform version 1.4.0 or later (Linux).
-	// Not supported in Windows containers.
+	// are using platform version 1.4.0 or later (Linux). Not supported in
+	// Windows containers. If pidMode is specified for a Fargate task,
+	// then runtimePlatform.operatingSystemFamily must also be specified.  For more
+	// information, see [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_pidmode).
 	PidMode() PidMode
 	// Whether this task definition has at least a container that references a specific JSON field of a secret stored in Secrets Manager.
 	ReferencesSecretJsonField() *bool

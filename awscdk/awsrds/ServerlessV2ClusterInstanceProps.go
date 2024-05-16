@@ -14,7 +14,7 @@ import (
 //   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
 //   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-//   		CaCertificate: rds.CaCertificate_RDS_CA_RDS2048_G1(),
+//   		CaCertificate: rds.CaCertificate_RDS_CA_RSA2048_G1(),
 //   	}),
 //   	Readers: []iClusterInstance{
 //   		rds.ClusterInstance_ServerlessV2(jsii.String("reader"), &ServerlessV2ClusterInstanceProps{

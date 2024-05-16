@@ -14,7 +14,7 @@ import (
 //   	},
 //   	MemoryLimitMiB: jsii.Number(512),
 //   	Cpu: jsii.Number(256),
-//   	PidMode: ecs.PidMode_HOST,
+//   	PidMode: ecs.PidMode_TASK,
 //   })
 //
 type FargateTaskDefinitionProps struct {
@@ -99,8 +99,11 @@ type FargateTaskDefinitionProps struct {
 	// The process namespace to use for the containers in the task.
 	//
 	// Only supported for tasks that are hosted on AWS Fargate if the tasks
-	// are using platform version 1.4.0 or later (Linux).
-	// Not supported in Windows containers.
+	// are using platform version 1.4.0 or later (Linux).  Only the TASK option
+	// is supported for Linux-based Fargate containers. Not supported in
+	// Windows containers. If pidMode is specified for a Fargate task, then
+	// runtimePlatform.operatingSystemFamily must also be specified.  For more
+	// information, see [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_pidmode).
 	// Default: - PidMode used by the task is not specified.
 	//
 	PidMode PidMode `field:"optional" json:"pidMode" yaml:"pidMode"`

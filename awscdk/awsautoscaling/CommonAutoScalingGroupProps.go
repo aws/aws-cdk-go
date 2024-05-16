@@ -21,6 +21,7 @@ import (
 //   var blockDeviceVolume blockDeviceVolume
 //   var groupMetrics groupMetrics
 //   var healthCheck healthCheck
+//   var keyPair keyPair
 //   var scalingEvents scalingEvents
 //   var signals signals
 //   var subnet subnet
@@ -49,6 +50,7 @@ import (
 //   	IgnoreUnmodifiedSizeProperties: jsii.Boolean(false),
 //   	InstanceMonitoring: awscdk.Aws_autoscaling.Monitoring_BASIC,
 //   	KeyName: jsii.String("keyName"),
+//   	KeyPair: keyPair,
 //   	MaxCapacity: jsii.Number(123),
 //   	MaxInstanceLifetime: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	MinCapacity: jsii.Number(123),
@@ -187,10 +189,23 @@ type CommonAutoScalingGroupProps struct {
 	InstanceMonitoring Monitoring `field:"optional" json:"instanceMonitoring" yaml:"instanceMonitoring"`
 	// Name of SSH keypair to grant access to instances.
 	//
-	// `launchTemplate` and `mixedInstancesPolicy` must not be specified when this property is specified.
+	// `launchTemplate` and `mixedInstancesPolicy` must not be specified when this property is specified
+	//
+	// You can either specify `keyPair` or `keyName`, not both.
 	// Default: - No SSH access will be possible.
 	//
+	// Deprecated: - Use `keyPair` instead - https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2-readme.html#using-an-existing-ec2-key-pair
 	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
+	// The SSH keypair to grant access to the instance.
+	//
+	// Feature flag `AUTOSCALING_GENERATE_LAUNCH_TEMPLATE` must be enabled to use this property.
+	//
+	// `launchTemplate` and `mixedInstancesPolicy` must not be specified when this property is specified.
+	//
+	// You can either specify `keyPair` or `keyName`, not both.
+	// Default: - No SSH access will be possible.
+	//
+	KeyPair awsec2.IKeyPair `field:"optional" json:"keyPair" yaml:"keyPair"`
 	// Maximum number of instances in the fleet.
 	// Default: desiredCapacity.
 	//

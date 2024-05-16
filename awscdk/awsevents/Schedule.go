@@ -22,20 +22,17 @@ import (
 //   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	TaskCount: jsii.Number(1),
-//   	ContainerOverrides: []containerOverride{
-//   		&containerOverride{
-//   			ContainerName: jsii.String("TheContainer"),
-//   			Command: []*string{
-//   				jsii.String("echo"),
-//   				events.EventField_FromPath(jsii.String("$.detail.event")),
-//   			},
+//   rule.AddTarget(
+//   targets.NewEcsTask(&EcsTaskProps{
+//   	Cluster: cluster,
+//   	TaskDefinition: taskDefinition,
+//   	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
+//   	Tags: []tag{
+//   		&tag{
+//   			Key: jsii.String("my-tag"),
+//   			Value: jsii.String("my-tag-value"),
 //   		},
 //   	},
-//   	EnableExecuteCommand: jsii.Boolean(true),
 //   }))
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html

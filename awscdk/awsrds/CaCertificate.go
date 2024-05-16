@@ -11,12 +11,16 @@ import (
 //   var vpc vpc
 //
 //
-//   rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-//   		Version: rds.MysqlEngineVersion_VER_8_0_30(),
-//   	}),
+//   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	MasterUser: &Login{
+//   		Username: jsii.String("myuser"),
+//   	},
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PUBLIC,
+//   	},
 //   	Vpc: Vpc,
-//   	CaCertificate: rds.CaCertificate_Of(jsii.String("future-rds-ca")),
+//   	CaCertificate: docdb.CaCertificate_RDS_CA_RSA4096_G1(),
 //   })
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html
@@ -89,6 +93,28 @@ func CaCertificate_RDS_CA_RDS4096_G1() CaCertificate {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.CaCertificate",
 		"RDS_CA_RDS4096_G1",
+		&returns,
+	)
+	return returns
+}
+
+func CaCertificate_RDS_CA_RSA2048_G1() CaCertificate {
+	_init_.Initialize()
+	var returns CaCertificate
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.CaCertificate",
+		"RDS_CA_RSA2048_G1",
+		&returns,
+	)
+	return returns
+}
+
+func CaCertificate_RDS_CA_RSA4096_G1() CaCertificate {
+	_init_.Initialize()
+	var returns CaCertificate
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.CaCertificate",
+		"RDS_CA_RSA4096_G1",
 		&returns,
 	)
 	return returns

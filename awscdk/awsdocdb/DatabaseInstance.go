@@ -17,7 +17,9 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var caCertificate caCertificate
 //   var databaseCluster databaseCluster
 //   var instanceType instanceType
 //
@@ -28,6 +30,7 @@ import (
 //   	// the properties below are optional
 //   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	CaCertificate: caCertificate,
 //   	DbInstanceName: jsii.String("dbInstanceName"),
 //   	EnablePerformanceInsights: jsii.Boolean(false),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),

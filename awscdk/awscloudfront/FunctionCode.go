@@ -8,22 +8,12 @@ import (
 // Represents the function's source code.
 //
 // Example:
-//   var s3Bucket bucket
-//   // Add a cloudfront Function to a Distribution
-//   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
+//   store := cloudfront.NewKeyValueStore(this, jsii.String("KeyValueStore"))
+//   cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
 //   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+//   	// Note that JS_2_0 must be used for Key Value Store support
 //   	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
-//   })
-//   cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewS3Origin(s3Bucket),
-//   		FunctionAssociations: []functionAssociation{
-//   			&functionAssociation{
-//   				Function: cfFunction,
-//   				EventType: cloudfront.FunctionEventType_VIEWER_REQUEST,
-//   			},
-//   		},
-//   	},
+//   	KeyValueStore: store,
 //   })
 //
 type FunctionCode interface {

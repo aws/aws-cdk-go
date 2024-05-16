@@ -51,6 +51,13 @@ type ProductStackProps struct {
 	// Default: - No Bucket provided and Assets will not be supported.
 	//
 	AssetBucket awss3.IBucket `field:"optional" json:"assetBucket" yaml:"assetBucket"`
+	// The amount of memory (in MiB) to allocate to the AWS Lambda function which replicates the files from the CDK bucket to the destination bucket.
+	//
+	// If you are deploying large files, you will need to increase this number
+	// accordingly.
+	// Default: 128.
+	//
+	MemoryLimit *float64 `field:"optional" json:"memoryLimit" yaml:"memoryLimit"`
 	// A ServerSideEncryption can be enabled to encrypt assets that are put into assetBucket.
 	// Default: - No encryption is used.
 	//

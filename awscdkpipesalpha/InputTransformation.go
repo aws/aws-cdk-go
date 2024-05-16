@@ -9,13 +9,14 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetQueue queue
+//   var targetStateMachine iStateMachine
 //
 //
-//   pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
+//   pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
 //   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-//   		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
+//   		"body": jsii.String("<$.body>"),
 //   	}),
+//   	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
