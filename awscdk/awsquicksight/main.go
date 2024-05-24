@@ -4322,6 +4322,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_TransformOperationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.UntagColumnOperationProperty",
+		reflect.TypeOf((*CfnDataSet_UntagColumnOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.UploadSettingsProperty",
 		reflect.TypeOf((*CfnDataSet_UploadSettingsProperty)(nil)).Elem(),
 	)
@@ -4430,6 +4434,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_DatabricksParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSource.IdentityCenterConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_IdentityCenterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSource.ManifestFileLocationProperty",
 		reflect.TypeOf((*CfnDataSource_ManifestFileLocationProperty)(nil)).Elem(),
 	)
@@ -4456,6 +4464,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSource.RdsParametersProperty",
 		reflect.TypeOf((*CfnDataSource_RdsParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSource.RedshiftIAMParametersProperty",
+		reflect.TypeOf((*CfnDataSource_RedshiftIAMParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSource.RedshiftParametersProperty",

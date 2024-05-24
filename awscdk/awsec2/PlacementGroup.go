@@ -15,15 +15,18 @@ import (
 // where your instances are provisioned.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var instanceType instanceType
 //
-//   placementGroup := awscdk.Aws_ec2.NewPlacementGroup(this, jsii.String("MyPlacementGroup"), &PlacementGroupProps{
-//   	Partitions: jsii.Number(123),
-//   	PlacementGroupName: jsii.String("placementGroupName"),
-//   	SpreadLevel: awscdk.*Aws_ec2.PlacementGroupSpreadLevel_HOST,
-//   	Strategy: awscdk.*Aws_ec2.PlacementGroupStrategy_CLUSTER,
+//
+//   pg := ec2.NewPlacementGroup(this, jsii.String("test-pg"), &PlacementGroupProps{
+//   	Strategy: ec2.PlacementGroupStrategy_SPREAD,
+//   })
+//
+//   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+//   	Vpc: Vpc,
+//   	InstanceType: InstanceType,
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+//   	PlacementGroup: pg,
 //   })
 //
 type PlacementGroup interface {

@@ -129,6 +129,7 @@ type CfnTopic_TopicColumnProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-defaultformatting
 	//
 	DefaultFormatting interface{} `field:"optional" json:"defaultFormatting" yaml:"defaultFormatting"`
+	// A Boolean value that indicates whether the column shows in the autocomplete functionality.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html#cfn-quicksight-topic-topiccolumn-disableindexing
 	//
 	DisableIndexing interface{} `field:"optional" json:"disableIndexing" yaml:"disableIndexing"`

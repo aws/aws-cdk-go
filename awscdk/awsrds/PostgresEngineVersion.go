@@ -11,7 +11,7 @@ import (
 //   var vpc vpc
 //
 //   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   	Version: rds.PostgresEngineVersion_VER_15_2(),
+//   	Version: rds.PostgresEngineVersion_VER_16_3(),
 //   })
 //   myKey := kms.NewKey(this, jsii.String("MyKey"))
 //
@@ -1158,6 +1158,17 @@ func PostgresEngineVersion_VER_16_2() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
 		"VER_16_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_16_3() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"VER_16_3",
 		&returns,
 	)
 	return returns

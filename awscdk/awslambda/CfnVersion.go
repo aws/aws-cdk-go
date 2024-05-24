@@ -16,12 +16,15 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policy interface{}
+//
 //   cfnVersion := awscdk.Aws_lambda.NewCfnVersion(this, jsii.String("MyCfnVersion"), &CfnVersionProps{
 //   	FunctionName: jsii.String("functionName"),
 //
 //   	// the properties below are optional
 //   	CodeSha256: jsii.String("codeSha256"),
 //   	Description: jsii.String("description"),
+//   	Policy: policy,
 //   	ProvisionedConcurrencyConfig: &ProvisionedConcurrencyConfigurationProperty{
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),
 //   	},
@@ -72,6 +75,9 @@ type CfnVersion interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The resource policy of your function.
+	Policy() interface{}
+	SetPolicy(val interface{})
 	// Specifies a provisioned concurrency configuration for a function's version.
 	ProvisionedConcurrencyConfig() interface{}
 	SetProvisionedConcurrencyConfig(val interface{})
@@ -343,6 +349,16 @@ func (j *jsiiProxy_CfnVersion) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVersion) Policy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"policy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVersion) ProvisionedConcurrencyConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -454,6 +470,14 @@ func (j *jsiiProxy_CfnVersion)SetFunctionName(val *string) {
 	_jsii_.Set(
 		j,
 		"functionName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVersion)SetPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"policy",
 		val,
 	)
 }

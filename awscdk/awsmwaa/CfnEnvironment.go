@@ -57,7 +57,9 @@ import (
 //   			LogLevel: jsii.String("logLevel"),
 //   		},
 //   	},
+//   	MaxWebservers: jsii.Number(123),
 //   	MaxWorkers: jsii.Number(123),
+//   	MinWebservers: jsii.Number(123),
 //   	MinWorkers: jsii.Number(123),
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
 //   		SecurityGroupIds: []*string{
@@ -149,9 +151,15 @@ type CfnEnvironment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Maximum webserver compute units.
+	MaxWebservers() *float64
+	SetMaxWebservers(val *float64)
 	// The maximum number of workers that you want to run in your environment.
 	MaxWorkers() *float64
 	SetMaxWorkers(val *float64)
+	// Minimum webserver compute units.
+	MinWebservers() *float64
+	SetMinWebservers(val *float64)
 	// The minimum number of workers that you want to run in your environment.
 	MinWorkers() *float64
 	SetMinWorkers(val *float64)
@@ -590,11 +598,31 @@ func (j *jsiiProxy_CfnEnvironment) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) MaxWebservers() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maxWebservers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) MaxWorkers() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
 		"maxWorkers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) MinWebservers() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"minWebservers",
 		&returns,
 	)
 	return returns
@@ -895,10 +923,26 @@ func (j *jsiiProxy_CfnEnvironment)SetLoggingConfiguration(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnEnvironment)SetMaxWebservers(val *float64) {
+	_jsii_.Set(
+		j,
+		"maxWebservers",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEnvironment)SetMaxWorkers(val *float64) {
 	_jsii_.Set(
 		j,
 		"maxWorkers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetMinWebservers(val *float64) {
+	_jsii_.Set(
+		j,
+		"minWebservers",
 		val,
 	)
 }

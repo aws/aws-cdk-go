@@ -1114,6 +1114,8 @@ type CfnInsight_AwsSecurityFindingFiltersProperty struct {
 	SeverityLabel interface{} `field:"optional" json:"severityLabel" yaml:"severityLabel"`
 	// Deprecated. The normalized severity of a finding. Instead of providing `Normalized` , provide `Label` .
 	//
+	// The value of `Normalized` can be an integer between `0` and `100` .
+	//
 	// If you provide `Label` and do not provide `Normalized` , then `Normalized` is set automatically as follows.
 	//
 	// - `INFORMATIONAL` - 0

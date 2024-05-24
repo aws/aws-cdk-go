@@ -34,6 +34,7 @@ import (
 //
 //   			// the properties below are optional
 //   			ActionGroupExecutor: &ActionGroupExecutorProperty{
+//   				CustomControl: jsii.String("customControl"),
 //   				Lambda: jsii.String("lambda"),
 //   			},
 //   			ActionGroupState: jsii.String("actionGroupState"),
@@ -45,6 +46,25 @@ import (
 //   				},
 //   			},
 //   			Description: jsii.String("description"),
+//   			FunctionSchema: &FunctionSchemaProperty{
+//   				Functions: []interface{}{
+//   					&FunctionProperty{
+//   						Name: jsii.String("name"),
+//
+//   						// the properties below are optional
+//   						Description: jsii.String("description"),
+//   						Parameters: map[string]interface{}{
+//   							"parametersKey": &ParameterDetailProperty{
+//   								"type": jsii.String("type"),
+//
+//   								// the properties below are optional
+//   								"description": jsii.String("description"),
+//   								"required": jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
 //   			ParentActionGroupSignature: jsii.String("parentActionGroupSignature"),
 //   			SkipResourceInUseCheckOnDelete: jsii.Boolean(false),
 //   		},
@@ -202,7 +222,9 @@ type CfnAgent interface {
 	// For more information, see the following resources:.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
-	// A map of tag keys and values.
+	// Metadata that you can assign to a resource as key-value pairs.
+	//
+	// For more information, see the following resources:.
 	TestAliasTags() interface{}
 	SetTestAliasTags(val interface{})
 	// Deprecated.

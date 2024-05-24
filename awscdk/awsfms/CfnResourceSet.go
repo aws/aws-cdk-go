@@ -41,7 +41,9 @@ type CfnResourceSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// A Base62 ID.
+	// A unique identifier for the resource set.
+	//
+	// This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -71,6 +71,9 @@ type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
 	//
 	Projection interface{} `field:"required" json:"projection" yaml:"projection"`
+	// Sets the write request settings for a global table or a global secondary index.
+	//
+	// You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeondemandthroughputsettings
 	//
 	WriteOnDemandThroughputSettings interface{} `field:"optional" json:"writeOnDemandThroughputSettings" yaml:"writeOnDemandThroughputSettings"`

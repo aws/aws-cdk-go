@@ -71,6 +71,12 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
+//   	UntagColumnOperation: &UntagColumnOperationProperty{
+//   		ColumnName: jsii.String("columnName"),
+//   		TagNames: []*string{
+//   			jsii.String("tagNames"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html
@@ -90,7 +96,7 @@ type CfnDataSet_TransformOperationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
 	//
 	FilterOperation interface{} `field:"optional" json:"filterOperation" yaml:"filterOperation"`
-	// <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>.
+	// <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-overridedatasetparameteroperation
 	//
 	OverrideDatasetParameterOperation interface{} `field:"optional" json:"overrideDatasetParameterOperation" yaml:"overrideDatasetParameterOperation"`
@@ -108,5 +114,9 @@ type CfnDataSet_TransformOperationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation
 	//
 	TagColumnOperation interface{} `field:"optional" json:"tagColumnOperation" yaml:"tagColumnOperation"`
+	// <p>A transform operation that removes tags associated with a column.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-untagcolumnoperation
+	//
+	UntagColumnOperation interface{} `field:"optional" json:"untagColumnOperation" yaml:"untagColumnOperation"`
 }
 

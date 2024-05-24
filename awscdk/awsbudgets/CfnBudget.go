@@ -80,6 +80,14 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ResourceTags: []interface{}{
+//   		&ResourceTagProperty{
+//   			Key: jsii.String("key"),
+//
+//   			// the properties below are optional
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html
@@ -120,6 +128,9 @@ type CfnBudget interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// An optional list of tags to associate with the specified budget.
+	ResourceTags() interface{}
+	SetResourceTags(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -370,6 +381,16 @@ func (j *jsiiProxy_CfnBudget) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBudget) ResourceTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourceTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBudget) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -446,6 +467,17 @@ func (j *jsiiProxy_CfnBudget)SetNotificationsWithSubscribers(val interface{}) {
 	_jsii_.Set(
 		j,
 		"notificationsWithSubscribers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudget)SetResourceTags(val interface{}) {
+	if err := j.validateSetResourceTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resourceTags",
 		val,
 	)
 }

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnBudget) validateSetNotificationsWithSubscribersParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnBudget) validateSetResourceTagsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnBudgetParameters(scope constructs.Construct, id *string, props *CfnBudgetProps) error {
 	return nil
 }

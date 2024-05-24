@@ -43,7 +43,7 @@ type CfnGroup interface {
 	// A string containing the description of the group.
 	Description() *string
 	SetDescription(val *string)
-	// A string containing the name of the group.
+	// The display name value for the group.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	// The globally unique identifier for the identity store.

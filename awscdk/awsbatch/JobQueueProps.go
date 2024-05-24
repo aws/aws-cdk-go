@@ -57,6 +57,10 @@ type JobQueueProps struct {
 	// Default: - no name.
 	//
 	JobQueueName *string `field:"optional" json:"jobQueueName" yaml:"jobQueueName"`
+	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times.
+	// Default: - no actions.
+	//
+	JobStateTimeLimitActions *[]*JobStateTimeLimitAction `field:"optional" json:"jobStateTimeLimitActions" yaml:"jobStateTimeLimitActions"`
 	// The priority of the job queue.
 	//
 	// Job queues with a higher priority are evaluated first when associated with the same compute environment.

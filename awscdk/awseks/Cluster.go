@@ -19,16 +19,18 @@ import (
 // The user is still required to create the worker nodes.
 //
 // Example:
-//   // or
-//   var vpc vpc
-//   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
-//   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-//   	Version: eks.KubernetesVersion_V1_29(),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   myEksCluster := eks.NewCluster(this, jsii.String("my sample cluster"), &ClusterProps{
+//   	Version: eks.KubernetesVersion_V1_18(),
+//   	ClusterName: jsii.String("myEksCluster"),
 //   })
-//   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
-//   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
-//   	Vpc: Vpc,
-//   	ClusterName: jsii.String("cluster-name"),
+//
+//   tasks.NewEksCall(this, jsii.String("Call a EKS Endpoint"), &EksCallProps{
+//   	Cluster: myEksCluster,
+//   	HttpMethod: tasks.HttpMethods_GET,
+//   	HttpPath: jsii.String("/api/v1/namespaces/default/pods"),
 //   })
 //
 type Cluster interface {

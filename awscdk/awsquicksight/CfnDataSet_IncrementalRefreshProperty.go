@@ -22,6 +22,6 @@ type CfnDataSet_IncrementalRefreshProperty struct {
 	// The lookback window setup for an incremental refresh configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-incrementalrefresh.html#cfn-quicksight-dataset-incrementalrefresh-lookbackwindow
 	//
-	LookbackWindow interface{} `field:"optional" json:"lookbackWindow" yaml:"lookbackWindow"`
+	LookbackWindow interface{} `field:"required" json:"lookbackWindow" yaml:"lookbackWindow"`
 }
 

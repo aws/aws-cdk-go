@@ -251,6 +251,25 @@ lowPriorityQueue.AddComputeEnvironment(sharedComputeEnv, jsii.Number(1))
 highPriorityQueue.AddComputeEnvironment(sharedComputeEnv, jsii.Number(1))
 ```
 
+### React to jobs stuck in RUNNABLE state
+
+You can react to jobs stuck in RUNNABLE state by setting a `jobStateTimeLimitActions` in `JobQueue`.
+Specifies actions that AWS Batch will take after the job has remained at the head of the queue in the
+specified state for longer than the specified time.
+
+```go
+batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
+	JobStateTimeLimitActions: []jobStateTimeLimitAction{
+		&jobStateTimeLimitAction{
+			Action: batch.JobStateTimeLimitActionsAction_CANCEL,
+			MaxTime: cdk.Duration_Minutes(jsii.Number(10)),
+			Reason: batch.JobStateTimeLimitActionsReason_INSUFFICIENT_INSTANCE_CAPACITY,
+			State: batch.JobStateTimeLimitActionsState_RUNNABLE,
+		},
+	},
+})
+```
+
 ### Fairshare Scheduling
 
 Batch `JobQueue`s execute Jobs submitted to them in FIFO order unless you specify a `SchedulingPolicy`.

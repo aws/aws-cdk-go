@@ -442,6 +442,7 @@ cluster := eks.NewCluster(this, jsii.String("cluster-to-rename"), &ClusterProps{
 cluster.AdminRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 	Actions: []*string{
 		jsii.String("eks:DeleteCluster"),
+		jsii.String("eks:DescribeCluster"),
 	},
 	Resources: []*string{
 		awscdk.*stack_Of(this).FormatArn(&ArnComponents{

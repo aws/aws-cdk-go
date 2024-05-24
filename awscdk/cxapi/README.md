@@ -342,3 +342,19 @@ When this featuer flag is enabled, the default volume type of the EBS volume wil
   }
 }
 ```
+
+* `@aws-cdk/aws-ecs:removeDefaultDeploymentAlarm`
+
+When enabled, remove default deployment alarm settings.
+
+When this featuer flag is enabled, remove the default deployment alarm settings when creating a AWS ECS service.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-ec2:ebsDefaultGp3Volume": true
+  }
+}
+```

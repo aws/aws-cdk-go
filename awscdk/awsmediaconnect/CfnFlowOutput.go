@@ -37,6 +37,29 @@ import (
 //   		KeyType: jsii.String("keyType"),
 //   	},
 //   	MaxLatency: jsii.Number(123),
+//   	MediaStreamOutputConfigurations: []interface{}{
+//   		&MediaStreamOutputConfigurationProperty{
+//   			EncodingName: jsii.String("encodingName"),
+//   			MediaStreamName: jsii.String("mediaStreamName"),
+//
+//   			// the properties below are optional
+//   			DestinationConfigurations: []interface{}{
+//   				&DestinationConfigurationProperty{
+//   					DestinationIp: jsii.String("destinationIp"),
+//   					DestinationPort: jsii.Number(123),
+//   					Interface: &InterfaceProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   			EncodingParameters: &EncodingParametersProperty{
+//   				CompressionFactor: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				EncoderProfile: jsii.String("encoderProfile"),
+//   			},
+//   		},
+//   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Port: jsii.Number(123),
@@ -92,6 +115,9 @@ type CfnFlowOutput interface {
 	// The maximum latency in milliseconds.
 	MaxLatency() *float64
 	SetMaxLatency(val *float64)
+	// The definition for each media stream that is associated with the output.
+	MediaStreamOutputConfigurations() interface{}
+	SetMediaStreamOutputConfigurations(val interface{})
 	// The minimum latency in milliseconds for SRT-based streams.
 	MinLatency() *float64
 	SetMinLatency(val *float64)
@@ -393,6 +419,16 @@ func (j *jsiiProxy_CfnFlowOutput) MaxLatency() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowOutput) MediaStreamOutputConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"mediaStreamOutputConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowOutput) MinLatency() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -601,6 +637,17 @@ func (j *jsiiProxy_CfnFlowOutput)SetMaxLatency(val *float64) {
 	_jsii_.Set(
 		j,
 		"maxLatency",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetMediaStreamOutputConfigurations(val interface{}) {
+	if err := j.validateSetMediaStreamOutputConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"mediaStreamOutputConfigurations",
 		val,
 	)
 }

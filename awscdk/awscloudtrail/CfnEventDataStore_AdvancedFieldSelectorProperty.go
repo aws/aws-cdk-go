@@ -95,6 +95,7 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::MedicalImaging::Datastore`
 	// - `AWS::NeptuneGraph::Graph`
 	// - `AWS::PCAConnectorAD::Connector`
+	// - `AWS::QApps:QApp`
 	// - `AWS::QBusiness::Application`
 	// - `AWS::QBusiness::DataSource`
 	// - `AWS::QBusiness::Index`
@@ -267,6 +268,10 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::PCAConnectorAD::Connector` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID>`
+	//
+	// When `resources.type` equals `AWS::QApps:QApp` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:qapps:<region>:<account_ID>:application/<application_UUID>/qapp/<qapp_UUID>`
 	//
 	// When `resources.type` equals `AWS::QBusiness::Application` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

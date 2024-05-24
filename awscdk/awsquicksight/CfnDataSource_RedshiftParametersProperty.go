@@ -16,6 +16,19 @@ package awsquicksight
 //   	// the properties below are optional
 //   	ClusterId: jsii.String("clusterId"),
 //   	Host: jsii.String("host"),
+//   	IamParameters: &RedshiftIAMParametersProperty{
+//   		RoleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		AutoCreateDatabaseUser: jsii.Boolean(false),
+//   		DatabaseGroups: []*string{
+//   			jsii.String("databaseGroups"),
+//   		},
+//   		DatabaseUser: jsii.String("databaseUser"),
+//   	},
+//   	IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   		EnableIdentityPropagation: jsii.Boolean(false),
+//   	},
 //   	Port: jsii.Number(123),
 //   }
 //
@@ -38,10 +51,26 @@ type CfnDataSource_RedshiftParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
 	//
 	Host *string `field:"optional" json:"host" yaml:"host"`
+	// <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API.
+	//
+	// For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+	//                <code>GetClusterCredentials</code>
+	//             </a>.</p>
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-iamparameters
+	//
+	IamParameters interface{} `field:"optional" json:"iamParameters" yaml:"iamParameters"`
+	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+	//
+	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-identitycenterconfiguration
+	//
+	IdentityCenterConfiguration interface{} `field:"optional" json:"identityCenterConfiguration" yaml:"identityCenterConfiguration"`
 	// Port.
 	//
 	// This field can be blank if the `ClusterId` is provided.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
+	//
+	// Default: - 0.
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }

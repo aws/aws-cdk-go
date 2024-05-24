@@ -11,7 +11,7 @@ import (
 
 // Running `PutPermission` permits the specified AWS account or AWS organization to put events to the specified *event bus* .
 //
-// Amazon EventBridge (CloudWatch Events) rules in your account are triggered by these events arriving to an event bus in your account.
+// Amazon EventBridge rules in your account are triggered by these events arriving to an event bus in your account.
 //
 // For another account to send events to your account, that external account must have an EventBridge rule with your account's event bus as a target.
 //

@@ -55,6 +55,12 @@ package awsbudgets
 //
 //   	// the properties below are optional
 //   	ApprovalModel: jsii.String("approvalModel"),
+//   	ResourceTags: []resourceTagProperty{
+//   		&resourceTagProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
@@ -98,5 +104,11 @@ type CfnBudgetsActionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
 	//
 	ApprovalModel *string `field:"optional" json:"approvalModel" yaml:"approvalModel"`
+	// An optional list of tags to associate with the specified budget action.
+	//
+	// Each tag consists of a key and a value, and each key must be unique for the resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-resourcetags
+	//
+	ResourceTags *[]*CfnBudgetsAction_ResourceTagProperty `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 

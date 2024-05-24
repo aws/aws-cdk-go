@@ -229,6 +229,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEgressIp", GoGetter: "AttrEgressIp"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFlowArn", GoGetter: "AttrFlowArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFlowAvailabilityZone", GoGetter: "AttrFlowAvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceIngestIp", GoGetter: "AttrSourceIngestIp"},
@@ -243,6 +244,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "maintenance", GoGetter: "Maintenance"},
+			_jsii_.MemberProperty{JsiiProperty: "mediaStreams", GoGetter: "MediaStreams"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -260,6 +263,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcInterfaces", GoGetter: "VpcInterfaces"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnFlow{}
@@ -277,8 +281,36 @@ func init() {
 		reflect.TypeOf((*CfnFlow_FailoverConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.FmtpProperty",
+		reflect.TypeOf((*CfnFlow_FmtpProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.GatewayBridgeSourceProperty",
 		reflect.TypeOf((*CfnFlow_GatewayBridgeSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.InputConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_InputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.InterfaceProperty",
+		reflect.TypeOf((*CfnFlow_InterfaceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.MaintenanceProperty",
+		reflect.TypeOf((*CfnFlow_MaintenanceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.MediaStreamAttributesProperty",
+		reflect.TypeOf((*CfnFlow_MediaStreamAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.MediaStreamProperty",
+		reflect.TypeOf((*CfnFlow_MediaStreamProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.MediaStreamSourceConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_MediaStreamSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.SourcePriorityProperty",
@@ -291,6 +323,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.VpcInterfaceAttachmentProperty",
 		reflect.TypeOf((*CfnFlow_VpcInterfaceAttachmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.VpcInterfaceProperty",
+		reflect.TypeOf((*CfnFlow_VpcInterfaceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowEntitlement",
@@ -377,6 +413,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maxLatency", GoGetter: "MaxLatency"},
+			_jsii_.MemberProperty{JsiiProperty: "mediaStreamOutputConfigurations", GoGetter: "MediaStreamOutputConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "minLatency", GoGetter: "MinLatency"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -408,8 +445,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.DestinationConfigurationProperty",
+		reflect.TypeOf((*CfnFlowOutput_DestinationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.EncodingParametersProperty",
+		reflect.TypeOf((*CfnFlowOutput_EncodingParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.EncryptionProperty",
 		reflect.TypeOf((*CfnFlowOutput_EncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.InterfaceProperty",
+		reflect.TypeOf((*CfnFlowOutput_InterfaceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.MediaStreamOutputConfigurationProperty",
+		reflect.TypeOf((*CfnFlowOutput_MediaStreamOutputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.VpcInterfaceAttachmentProperty",

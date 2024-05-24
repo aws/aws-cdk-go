@@ -1,7 +1,7 @@
 package awsecs
 
 
-// An object that represents the AWS Private Certificate Authority certificate.
+// The certificate root authority that secures your service.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

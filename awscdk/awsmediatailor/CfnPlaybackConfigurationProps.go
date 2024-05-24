@@ -20,6 +20,7 @@ import (
 //
 //   	// the properties below are optional
 //   	AvailSuppression: &AvailSuppressionProperty{
+//   		FillPolicy: jsii.String("fillPolicy"),
 //   		Mode: jsii.String("mode"),
 //   		Value: jsii.String("value"),
 //   	},

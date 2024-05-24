@@ -528,6 +528,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrHardwareCpuCount", GoGetter: "AttrHardwareCpuCount"},
 			_jsii_.MemberProperty{JsiiProperty: "attrHardwareRamSizeInGb", GoGetter: "AttrHardwareRamSizeInGb"},
 			_jsii_.MemberProperty{JsiiProperty: "attrInstanceArn", GoGetter: "AttrInstanceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIpv6Addresses", GoGetter: "AttrIpv6Addresses"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIsStaticIp", GoGetter: "AttrIsStaticIp"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationAvailabilityZone", GoGetter: "AttrLocationAvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationRegionName", GoGetter: "AttrLocationRegionName"},

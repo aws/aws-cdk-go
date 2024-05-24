@@ -46,6 +46,14 @@ type UserPoolClientProps struct {
 	// Default: false.
 	//
 	DisableOAuth *bool `field:"optional" json:"disableOAuth" yaml:"disableOAuth"`
+	// Enable the propagation of additional user context data.
+	//
+	// You can only activate enablePropagateAdditionalUserContextData in an app client that has a client secret.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint
+	//
+	// Default: false for new user pool clients.
+	//
+	EnablePropagateAdditionalUserContextData *bool `field:"optional" json:"enablePropagateAdditionalUserContextData" yaml:"enablePropagateAdditionalUserContextData"`
 	// Enable token revocation for this client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html#enable-token-revocation
 	//

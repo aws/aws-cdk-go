@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Contains details about the Lambda function containing the business logic that is carried out upon invoking the action.
+// Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -9,15 +9,20 @@ package awsbedrock
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   actionGroupExecutorProperty := &ActionGroupExecutorProperty{
+//   	CustomControl: jsii.String("customControl"),
 //   	Lambda: jsii.String("lambda"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-actiongroupexecutor.html
 //
 type CfnAgent_ActionGroupExecutorProperty struct {
+	// To return the action group invocation results directly in the `InvokeAgent` response, specify `RETURN_CONTROL` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-actiongroupexecutor.html#cfn-bedrock-agent-actiongroupexecutor-customcontrol
+	//
+	CustomControl *string `field:"optional" json:"customControl" yaml:"customControl"`
 	// The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-actiongroupexecutor.html#cfn-bedrock-agent-actiongroupexecutor-lambda
 	//
-	Lambda *string `field:"required" json:"lambda" yaml:"lambda"`
+	Lambda *string `field:"optional" json:"lambda" yaml:"lambda"`
 }
 

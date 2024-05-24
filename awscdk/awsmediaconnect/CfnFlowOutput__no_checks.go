@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetFlowArnParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowOutput) validateSetMediaStreamOutputConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowOutput) validateSetProtocolParameters(val *string) error {
 	return nil
 }

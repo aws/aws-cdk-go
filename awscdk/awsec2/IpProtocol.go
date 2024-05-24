@@ -4,24 +4,31 @@ package awsec2
 // The types of IP addresses provisioned in the VPC.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   // The VPC and subnet must have associated IPv6 CIDR blocks.
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
 //   	IpProtocol: ec2.IpProtocol_DUAL_STACK,
+//   })
+//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
+//   	Vpc: Vpc,
+//   })
 //
-//   	SubnetConfiguration: []subnetConfiguration{
-//   		&subnetConfiguration{
-//   			// general properties
-//   			Name: jsii.String("Public"),
-//   			SubnetType: ec2.SubnetType_PUBLIC,
-//   			Reserved: jsii.Boolean(false),
-//
-//   			// IPv4 specific properties
-//   			MapPublicIpOnLaunch: jsii.Boolean(true),
-//   			CidrMask: jsii.Number(24),
-//
-//   			// new IPv6 specific property
-//   			Ipv6AssignAddressOnCreation: jsii.Boolean(true),
-//   		},
+//   networkLoadbalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("NlbFargateService"), &NetworkLoadBalancedFargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
+//   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+//   })
+//
+//   networkLoadbalancedEc2Service := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsii.String("NlbEc2Service"), &NetworkLoadBalancedEc2ServiceProps{
+//   	Cluster: Cluster,
+//   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
+//   		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 //   })
 //
 type IpProtocol string

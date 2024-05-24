@@ -39,7 +39,7 @@ package awsbackup
 type CfnBackupVaultProps struct {
 	// The name of a logical container where backups are stored.
 	//
-	// Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
+	// Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
 	//
 	BackupVaultName *string `field:"required" json:"backupVaultName" yaml:"backupVaultName"`

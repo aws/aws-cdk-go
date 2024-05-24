@@ -9,7 +9,7 @@ package awsrds
 //   var vpc vpc
 //
 //   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   	Version: rds.PostgresEngineVersion_VER_15_2(),
+//   	Version: rds.PostgresEngineVersion_VER_16_3(),
 //   })
 //   myKey := kms.NewKey(this, jsii.String("MyKey"))
 //

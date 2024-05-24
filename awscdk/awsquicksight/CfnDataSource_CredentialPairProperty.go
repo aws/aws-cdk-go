@@ -75,6 +75,19 @@ package awsquicksight
 //   				// the properties below are optional
 //   				ClusterId: jsii.String("clusterId"),
 //   				Host: jsii.String("host"),
+//   				IamParameters: &RedshiftIAMParametersProperty{
+//   					RoleArn: jsii.String("roleArn"),
+//
+//   					// the properties below are optional
+//   					AutoCreateDatabaseUser: jsii.Boolean(false),
+//   					DatabaseGroups: []*string{
+//   						jsii.String("databaseGroups"),
+//   					},
+//   					DatabaseUser: jsii.String("databaseUser"),
+//   				},
+//   				IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   					EnableIdentityPropagation: jsii.Boolean(false),
+//   				},
 //   				Port: jsii.Number(123),
 //   			},
 //   			S3Parameters: &S3ParametersProperty{

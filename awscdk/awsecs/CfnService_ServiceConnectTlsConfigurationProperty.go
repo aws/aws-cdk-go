@@ -1,7 +1,7 @@
 package awsecs
 
 
-// An object that represents the configuration for Service Connect TLS.
+// The key that encrypts and decrypts your resources for Service Connect TLS.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

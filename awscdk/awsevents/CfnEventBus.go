@@ -26,7 +26,12 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DeadLetterConfig: &DeadLetterConfigProperty{
+//   		Arn: jsii.String("arn"),
+//   	},
+//   	Description: jsii.String("description"),
 //   	EventSourceName: jsii.String("eventSourceName"),
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Policy: policy,
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -58,9 +63,18 @@ type CfnEventBus interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Dead Letter Queue for the event bus.
+	DeadLetterConfig() interface{}
+	SetDeadLetterConfig(val interface{})
+	// The description of the event bus.
+	Description() *string
+	SetDescription(val *string)
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName() *string
 	SetEventSourceName(val *string)
+	// Kms Key Identifier used to encrypt events at rest in the event bus.
+	KmsKeyIdentifier() *string
+	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -318,11 +332,41 @@ func (j *jsiiProxy_CfnEventBus) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventBus) DeadLetterConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deadLetterConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventBus) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventBus) EventSourceName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"eventSourceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventBus) KmsKeyIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyIdentifier",
 		&returns,
 	)
 	return returns
@@ -446,10 +490,37 @@ func NewCfnEventBus_Override(c CfnEventBus, scope constructs.Construct, id *stri
 	)
 }
 
+func (j *jsiiProxy_CfnEventBus)SetDeadLetterConfig(val interface{}) {
+	if err := j.validateSetDeadLetterConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deadLetterConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventBus)SetDescription(val *string) {
+	_jsii_.Set(
+		j,
+		"description",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEventBus)SetEventSourceName(val *string) {
 	_jsii_.Set(
 		j,
 		"eventSourceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventBus)SetKmsKeyIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyIdentifier",
 		val,
 	)
 }

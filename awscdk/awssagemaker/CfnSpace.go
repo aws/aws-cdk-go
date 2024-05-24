@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a space used for real time collaboration in a domain.
+// Creates a private space or a space used for real time collaboration in a domain.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

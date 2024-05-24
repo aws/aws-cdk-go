@@ -49,6 +49,9 @@ package awscodepipeline
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
+//   	OnFailure: &FailureConditionsProperty{
+//   		Result: jsii.String("result"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html
@@ -66,5 +69,8 @@ type CfnPipeline_StageDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-blockers
 	//
 	Blockers interface{} `field:"optional" json:"blockers" yaml:"blockers"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onfailure
+	//
+	OnFailure interface{} `field:"optional" json:"onFailure" yaml:"onFailure"`
 }
 

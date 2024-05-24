@@ -652,6 +652,28 @@ The created policy will adjust to the report group type. If no type is specified
 For more information on the test reports feature,
 see the [AWS CodeBuild documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/test-reporting.html).
 
+### Report group deletion
+
+When a report group is removed from a stack (or the stack is deleted), the report
+group will be removed according to its removal policy (which by default will
+simply orphan the report group and leave it in your AWS account). If the removal
+policy is set to `RemovalPolicy.DESTROY`, the report group will be deleted as long
+as it does not contain any reports.
+
+To override this and force all reports to get deleted during report group deletion,
+enable the `deleteReports` option as well as setting the removal policy to
+`RemovalPolicy.DESTROY`.
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+reportGroup := codebuild.NewReportGroup(this, jsii.String("ReportGroup"), &ReportGroupProps{
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	DeleteReports: jsii.Boolean(true),
+})
+```
+
 ## Events
 
 CodeBuild projects can be used either as a source for events or be triggered

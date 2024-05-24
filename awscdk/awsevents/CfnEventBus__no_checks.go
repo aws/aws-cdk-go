@@ -80,6 +80,10 @@ func validateCfnEventBus_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventBus) validateSetDeadLetterConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventBus) validateSetNameParameters(val *string) error {
 	return nil
 }

@@ -11,19 +11,24 @@ import (
 
 // An AWS Firewall Manager policy.
 //
+// A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple policy types across accounts, you can create multiple policies. You can create more than one policy for each type.
+//
+// If you add a new account to an organization that you created with AWS Organizations , Firewall Manager automatically applies the policy to the resources in that account that are within scope of the policy.
+//
+// Policies require some setup to use. For more information, see the sections on prerequisites and getting started under [Firewall Manager prerequisites](https://docs.aws.amazon.com/waf/latest/developerguide/fms-prereq.html) .
+//
 // Firewall Manager provides the following types of policies:
 //
-// - An AWS Shield Advanced policy, which applies Shield Advanced protection to specified accounts and resources.
-// - An AWS WAF policy (type WAFV2), which defines rule groups to run first in the corresponding AWS WAF web ACL and rule groups to run last in the web ACL.
-// - An AWS WAF Classic policy, which defines a rule group. AWS WAF Classic doesn't support rule groups in Amazon CloudFront , so, to create AWS WAF Classic policies through CloudFront , you first need to create your rule groups outside of CloudFront .
-// - A security group policy, which manages VPC security groups across your AWS organization.
-// - An AWS Network Firewall policy, which provides firewall rules to filter network traffic in specified Amazon VPCs.
-// - A DNS Firewall policy, which provides Amazon Route 53 Resolver DNS Firewall rules to filter DNS queries for specified Amazon VPCs.
-// - A third-party firewall policy, which manages a third-party firewall service.
+// - *AWS WAF policy* - This policy applies AWS WAF web ACL protections to specified accounts and resources.
+// - *Shield Advanced policy* - This policy applies Shield Advanced protection to specified accounts and resources.
+// - *Security Groups policy* - This type of policy gives you control over security groups that are in use throughout your organization in AWS Organizations and lets you enforce a baseline set of rules across your organization.
+// - *Network ACL policy* - This type of policy gives you control over the network ACLs that are in use throughout your organization in AWS Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization.
+// - *Network Firewall policy* - This policy applies Network Firewall protection to your organization's VPCs.
+// - *DNS Firewall policy* - This policy applies Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs.
+// - *Third-party firewall policy* - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the AWS Marketplace console at [AWS Marketplace](https://docs.aws.amazon.com/marketplace) .
 //
-// Each policy is specific to one of the types. If you want to enforce more than one policy type across accounts, create multiple policies. You can create multiple policies for each type.
-//
-// These policies require some setup to use. For more information, see the sections on prerequisites and getting started under [AWS Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-prereq.html) .
+// - *Palo Alto Networks Cloud NGFW policy* - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.
+// - *Fortigate CNF policy* - This policy applies Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

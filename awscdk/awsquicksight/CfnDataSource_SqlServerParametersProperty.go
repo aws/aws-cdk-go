@@ -28,6 +28,8 @@ type CfnDataSource_SqlServerParametersProperty struct {
 	// Port.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port
 	//
+	// Default: - 0.
+	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 

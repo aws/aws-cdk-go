@@ -8,12 +8,15 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policy interface{}
+//
 //   cfnVersionProps := &CfnVersionProps{
 //   	FunctionName: jsii.String("functionName"),
 //
 //   	// the properties below are optional
 //   	CodeSha256: jsii.String("codeSha256"),
 //   	Description: jsii.String("description"),
+//   	Policy: policy,
 //   	ProvisionedConcurrencyConfig: &ProvisionedConcurrencyConfigurationProperty{
 //   		ProvisionedConcurrentExecutions: jsii.Number(123),
 //   	},
@@ -50,6 +53,10 @@ type CfnVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The resource policy of your function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-policy
+	//
+	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
 	// Specifies a provisioned concurrency configuration for a function's version.
 	//
 	// Updates are not supported for this property.

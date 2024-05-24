@@ -59,7 +59,6 @@ import (
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
 //   	ManageMasterPassword: jsii.Boolean(false),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
-//   	MasterPasswordSecretKmsKeyId: jsii.String("masterPasswordSecretKmsKeyId"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MultiAz: jsii.Boolean(false),
 //   	NamespaceResourcePolicy: namespaceResourcePolicy,
@@ -327,12 +326,6 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
 	//
 	ManualSnapshotRetentionPeriod *float64 `field:"optional" json:"manualSnapshotRetentionPeriod" yaml:"manualSnapshotRetentionPeriod"`
-	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
-	//
-	// You can only use this parameter if `ManageMasterPassword` is true.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterpasswordsecretkmskeyid
-	//
-	MasterPasswordSecretKmsKeyId *string `field:"optional" json:"masterPasswordSecretKmsKeyId" yaml:"masterPasswordSecretKmsKeyId"`
 	// The password associated with the admin user account for the cluster that is being created.
 	//
 	// You can't use `MasterUserPassword` if `ManageMasterPassword` is `true` .

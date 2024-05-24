@@ -28,6 +28,8 @@ type CfnDataSource_TeradataParametersProperty struct {
 	// Port.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port
 	//
+	// Default: - 0.
+	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 

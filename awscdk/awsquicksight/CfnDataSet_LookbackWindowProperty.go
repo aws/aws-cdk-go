@@ -20,16 +20,18 @@ type CfnDataSet_LookbackWindowProperty struct {
 	// The name of the lookback window column.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-columnname
 	//
-	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
+	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// The lookback window column size.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-size
 	//
-	Size *float64 `field:"optional" json:"size" yaml:"size"`
+	// Default: - 0.
+	//
+	Size *float64 `field:"required" json:"size" yaml:"size"`
 	// The size unit that is used for the lookback window column.
 	//
 	// Valid values for this structure are `HOUR` , `DAY` , and `WEEK` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html#cfn-quicksight-dataset-lookbackwindow-sizeunit
 	//
-	SizeUnit *string `field:"optional" json:"sizeUnit" yaml:"sizeUnit"`
+	SizeUnit *string `field:"required" json:"sizeUnit" yaml:"sizeUnit"`
 }
 

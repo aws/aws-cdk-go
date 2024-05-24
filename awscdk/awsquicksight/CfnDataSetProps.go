@@ -205,6 +205,12 @@ import (
 //   							},
 //   						},
 //   					},
+//   					"untagColumnOperation": &UntagColumnOperationProperty{
+//   						"columnName": jsii.String("columnName"),
+//   						"tagNames": []*string{
+//   							jsii.String("tagNames"),
+//   						},
+//   					},
 //   				},
 //   			},
 //   		},

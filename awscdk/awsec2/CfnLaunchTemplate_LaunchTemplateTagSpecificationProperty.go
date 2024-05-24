@@ -28,7 +28,7 @@ import (
 type CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty struct {
 	// The type of resource.
 	//
-	// To tag the launch template, `ResourceType` must be `launch-template` .
+	// To tag a launch template, `ResourceType` must be `launch-template` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-resourcetype
 	//
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`

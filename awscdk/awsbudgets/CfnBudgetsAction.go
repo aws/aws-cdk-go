@@ -65,6 +65,12 @@ import (
 //
 //   	// the properties below are optional
 //   	ApprovalModel: jsii.String("approvalModel"),
+//   	ResourceTags: []resourceTagProperty{
+//   		&resourceTagProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
@@ -72,6 +78,7 @@ import (
 type CfnBudgetsAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The trigger threshold of the action.
 	ActionThreshold() interface{}
 	SetActionThreshold(val interface{})
@@ -86,6 +93,8 @@ type CfnBudgetsAction interface {
 	// A string that represents the budget name.
 	BudgetName() *string
 	SetBudgetName(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -121,6 +130,9 @@ type CfnBudgetsAction interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// An optional list of tags to associate with the specified budget action.
+	ResourceTags() *[]*CfnBudgetsAction_ResourceTagProperty
+	SetResourceTags(val *[]*CfnBudgetsAction_ResourceTagProperty)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -272,6 +284,7 @@ type CfnBudgetsAction interface {
 type jsiiProxy_CfnBudgetsAction struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnBudgetsAction) ActionThreshold() interface{} {
@@ -319,6 +332,16 @@ func (j *jsiiProxy_CfnBudgetsAction) BudgetName() *string {
 	_jsii_.Get(
 		j,
 		"budgetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -419,6 +442,16 @@ func (j *jsiiProxy_CfnBudgetsAction) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) ResourceTags() *[]*CfnBudgetsAction_ResourceTagProperty {
+	var returns *[]*CfnBudgetsAction_ResourceTagProperty
+	_jsii_.Get(
+		j,
+		"resourceTags",
 		&returns,
 	)
 	return returns
@@ -562,6 +595,17 @@ func (j *jsiiProxy_CfnBudgetsAction)SetNotificationType(val *string) {
 	_jsii_.Set(
 		j,
 		"notificationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction)SetResourceTags(val *[]*CfnBudgetsAction_ResourceTagProperty) {
+	if err := j.validateSetResourceTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resourceTags",
 		val,
 	)
 }

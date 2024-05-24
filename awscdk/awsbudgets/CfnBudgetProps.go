@@ -70,6 +70,14 @@ package awsbudgets
 //   			},
 //   		},
 //   	},
+//   	ResourceTags: []interface{}{
+//   		&ResourceTagProperty{
+//   			Key: jsii.String("key"),
+//
+//   			// the properties below are optional
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html
@@ -85,5 +93,11 @@ type CfnBudgetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-notificationswithsubscribers
 	//
 	NotificationsWithSubscribers interface{} `field:"optional" json:"notificationsWithSubscribers" yaml:"notificationsWithSubscribers"`
+	// An optional list of tags to associate with the specified budget.
+	//
+	// Each tag consists of a key and a value, and each key must be unique for the resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-resourcetags
+	//
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 

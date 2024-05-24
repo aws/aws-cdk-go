@@ -42,7 +42,7 @@ type CfnPipe_PipeTargetRedshiftDataParametersProperty struct {
 	DbUser *string `field:"optional" json:"dbUser" yaml:"dbUser"`
 	// The name or ARN of the secret that enables access to the database.
 	//
-	// Required when authenticating using Secrets Manager .
+	// Required when authenticating using Secrets Manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html#cfn-pipes-pipe-pipetargetredshiftdataparameters-secretmanagerarn
 	//
 	SecretManagerArn *string `field:"optional" json:"secretManagerArn" yaml:"secretManagerArn"`

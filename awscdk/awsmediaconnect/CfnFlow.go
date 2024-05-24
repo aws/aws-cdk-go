@@ -48,6 +48,23 @@ import (
 //   		IngestPort: jsii.Number(123),
 //   		MaxBitrate: jsii.Number(123),
 //   		MaxLatency: jsii.Number(123),
+//   		MaxSyncBuffer: jsii.Number(123),
+//   		MediaStreamSourceConfigurations: []interface{}{
+//   			&MediaStreamSourceConfigurationProperty{
+//   				EncodingName: jsii.String("encodingName"),
+//   				MediaStreamName: jsii.String("mediaStreamName"),
+//
+//   				// the properties below are optional
+//   				InputConfigurations: []interface{}{
+//   					&InputConfigurationProperty{
+//   						InputPort: jsii.Number(123),
+//   						Interface: &InterfaceProperty{
+//   							Name: jsii.String("name"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
 //   		MinLatency: jsii.Number(123),
 //   		Name: jsii.String("name"),
 //   		Protocol: jsii.String("protocol"),
@@ -64,6 +81,35 @@ import (
 //
 //   	// the properties below are optional
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	Maintenance: &MaintenanceProperty{
+//   		MaintenanceDay: jsii.String("maintenanceDay"),
+//   		MaintenanceStartHour: jsii.String("maintenanceStartHour"),
+//   	},
+//   	MediaStreams: []interface{}{
+//   		&MediaStreamProperty{
+//   			MediaStreamId: jsii.Number(123),
+//   			MediaStreamName: jsii.String("mediaStreamName"),
+//   			MediaStreamType: jsii.String("mediaStreamType"),
+//
+//   			// the properties below are optional
+//   			Attributes: &MediaStreamAttributesProperty{
+//   				Fmtp: &FmtpProperty{
+//   					ChannelOrder: jsii.String("channelOrder"),
+//   					Colorimetry: jsii.String("colorimetry"),
+//   					ExactFramerate: jsii.String("exactFramerate"),
+//   					Par: jsii.String("par"),
+//   					Range: jsii.String("range"),
+//   					ScanMode: jsii.String("scanMode"),
+//   					Tcs: jsii.String("tcs"),
+//   				},
+//   				Lang: jsii.String("lang"),
+//   			},
+//   			ClockRate: jsii.Number(123),
+//   			Description: jsii.String("description"),
+//   			Fmt: jsii.Number(123),
+//   			VideoFormat: jsii.String("videoFormat"),
+//   		},
+//   	},
 //   	SourceFailoverConfig: &FailoverConfigProperty{
 //   		FailoverMode: jsii.String("failoverMode"),
 //   		RecoveryWindow: jsii.Number(123),
@@ -72,6 +118,22 @@ import (
 //   		},
 //   		State: jsii.String("state"),
 //   	},
+//   	VpcInterfaces: []interface{}{
+//   		&VpcInterfaceProperty{
+//   			Name: jsii.String("name"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetId: jsii.String("subnetId"),
+//
+//   			// the properties below are optional
+//   			NetworkInterfaceIds: []*string{
+//   				jsii.String("networkInterfaceIds"),
+//   			},
+//   			NetworkInterfaceType: jsii.String("networkInterfaceType"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html
@@ -79,6 +141,8 @@ import (
 type CfnFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The outgoing IP address that MediaConnect uses to send video from the flow.
+	AttrEgressIp() *string
 	// The Amazon Resource Name (ARN) of the flow.
 	AttrFlowArn() *string
 	// The Availability Zone that the flow was created in.
@@ -115,6 +179,12 @@ type CfnFlow interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The maintenance settings you want to use for the flow.
+	Maintenance() interface{}
+	SetMaintenance(val interface{})
+	// The media streams associated with the flow.
+	MediaStreams() interface{}
+	SetMediaStreams(val interface{})
 	// The name of the flow.
 	Name() *string
 	SetName(val *string)
@@ -148,6 +218,9 @@ type CfnFlow interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The VPC interfaces that you added to this flow.
+	VpcInterfaces() interface{}
+	SetVpcInterfaces(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -281,6 +354,16 @@ type jsiiProxy_CfnFlow struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnFlow) AttrEgressIp() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEgressIp",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlow) AttrFlowArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -391,6 +474,26 @@ func (j *jsiiProxy_CfnFlow) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlow) Maintenance() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"maintenance",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) MediaStreams() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"mediaStreams",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlow) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -471,6 +574,16 @@ func (j *jsiiProxy_CfnFlow) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlow) VpcInterfaces() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcInterfaces",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnFlow(scope constructs.Construct, id *string, props *CfnFlowProps) CfnFlow {
 	_init_.Initialize()
@@ -507,6 +620,28 @@ func (j *jsiiProxy_CfnFlow)SetAvailabilityZone(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFlow)SetMaintenance(val interface{}) {
+	if err := j.validateSetMaintenanceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"maintenance",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlow)SetMediaStreams(val interface{}) {
+	if err := j.validateSetMediaStreamsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"mediaStreams",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFlow)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -536,6 +671,17 @@ func (j *jsiiProxy_CfnFlow)SetSourceFailoverConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceFailoverConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlow)SetVpcInterfaces(val interface{}) {
+	if err := j.validateSetVpcInterfacesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vpcInterfaces",
 		val,
 	)
 }

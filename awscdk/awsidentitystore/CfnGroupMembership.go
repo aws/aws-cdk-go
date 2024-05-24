@@ -40,7 +40,7 @@ type CfnGroupMembership interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The unique identifier for a group in the identity store.
+	// The identifier for a group in the identity store.
 	GroupId() *string
 	SetGroupId(val *string)
 	// The globally unique identifier for the identity store.

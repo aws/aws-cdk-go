@@ -28,6 +28,8 @@ type CfnDataSource_MariaDbParametersProperty struct {
 	// Port.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port
 	//
+	// Default: - 0.
+	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 

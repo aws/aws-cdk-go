@@ -13,6 +13,9 @@ package awsquicksight
 //   		jsii.String("actions"),
 //   	},
 //   	Principal: jsii.String("principal"),
+//
+//   	// the properties below are optional
+//   	Resource: jsii.String("resource"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html
@@ -30,5 +33,8 @@ type CfnDataSource_ResourcePermissionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-principal
 	//
 	Principal *string `field:"required" json:"principal" yaml:"principal"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-resource
+	//
+	Resource *string `field:"optional" json:"resource" yaml:"resource"`
 }
 

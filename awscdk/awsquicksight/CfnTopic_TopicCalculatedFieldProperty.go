@@ -131,6 +131,7 @@ type CfnTopic_TopicCalculatedFieldProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html#cfn-quicksight-topic-topiccalculatedfield-defaultformatting
 	//
 	DefaultFormatting interface{} `field:"optional" json:"defaultFormatting" yaml:"defaultFormatting"`
+	// A Boolean value that indicates if a calculated field is visible in the autocomplete.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html#cfn-quicksight-topic-topiccalculatedfield-disableindexing
 	//
 	DisableIndexing interface{} `field:"optional" json:"disableIndexing" yaml:"disableIndexing"`

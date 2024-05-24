@@ -25,9 +25,11 @@ import (
 //   	Message: ruleTargetInput,
 //   })
 //
+// Deprecated: Use KinesisFirehoseStreamV2.
 type KinesisFirehoseStream interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Firehose Stream as a result from a Event Bridge event.
+	// Deprecated: Use KinesisFirehoseStreamV2.
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
 
@@ -36,6 +38,7 @@ type jsiiProxy_KinesisFirehoseStream struct {
 	internal.Type__awseventsIRuleTarget
 }
 
+// Deprecated: Use KinesisFirehoseStreamV2.
 func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props *KinesisFirehoseStreamProps) KinesisFirehoseStream {
 	_init_.Initialize()
 
@@ -53,6 +56,7 @@ func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props
 	return &j
 }
 
+// Deprecated: Use KinesisFirehoseStreamV2.
 func NewKinesisFirehoseStream_Override(k KinesisFirehoseStream, stream awskinesisfirehose.CfnDeliveryStream, props *KinesisFirehoseStreamProps) {
 	_init_.Initialize()
 

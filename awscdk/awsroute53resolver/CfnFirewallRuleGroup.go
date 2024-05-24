@@ -30,6 +30,7 @@ import (
 //   			BlockOverrideDomain: jsii.String("blockOverrideDomain"),
 //   			BlockOverrideTtl: jsii.Number(123),
 //   			BlockResponse: jsii.String("blockResponse"),
+//   			FirewallDomainRedirectionAction: jsii.String("firewallDomainRedirectionAction"),
 //   			Qtype: jsii.String("qtype"),
 //   		},
 //   	},

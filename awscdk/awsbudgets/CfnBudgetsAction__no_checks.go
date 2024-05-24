@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnBudgetsAction) validateSetNotificationTypeParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnBudgetsAction) validateSetResourceTagsParameters(val *[]*CfnBudgetsAction_ResourceTagProperty) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBudgetsAction) validateSetSubscribersParameters(val interface{}) error {
 	return nil
 }

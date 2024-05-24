@@ -94,6 +94,12 @@ package awsquicksight
 //   					},
 //   				},
 //   			},
+//   			UntagColumnOperation: &UntagColumnOperationProperty{
+//   				ColumnName: jsii.String("columnName"),
+//   				TagNames: []*string{
+//   					jsii.String("tagNames"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   }

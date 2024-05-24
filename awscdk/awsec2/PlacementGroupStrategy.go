@@ -2,6 +2,22 @@ package awsec2
 
 
 // Which strategy to use when launching instances.
+//
+// Example:
+//   var instanceType instanceType
+//
+//
+//   pg := ec2.NewPlacementGroup(this, jsii.String("test-pg"), &PlacementGroupProps{
+//   	Strategy: ec2.PlacementGroupStrategy_SPREAD,
+//   })
+//
+//   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+//   	Vpc: Vpc,
+//   	InstanceType: InstanceType,
+//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+//   	PlacementGroup: pg,
+//   })
+//
 type PlacementGroupStrategy string
 
 const (

@@ -84,6 +84,15 @@ type NetworkLoadBalancedFargateServiceProps struct {
 	// Default: - defaults to 60 seconds if at least one load balancer is in-use and it is not already set.
 	//
 	HealthCheckGracePeriod awscdk.Duration `field:"optional" json:"healthCheckGracePeriod" yaml:"healthCheckGracePeriod"`
+	// The type of IP addresses to use.
+	//
+	// If you want to add a UDP or TCP_UDP listener to the load balancer,
+	// you must choose IPv4.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-ip-address-type.html
+	//
+	// Default: IpAddressType.IPV4
+	//
+	IpAddressType awselasticloadbalancingv2.IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Listener port of the network load balancer that will serve traffic to the service.
 	// Default: 80.
 	//

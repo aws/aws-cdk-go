@@ -24,6 +24,6 @@ type CfnDataSet_RefreshConfigurationProperty struct {
 	// The incremental refresh for the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshconfiguration.html#cfn-quicksight-dataset-refreshconfiguration-incrementalrefresh
 	//
-	IncrementalRefresh interface{} `field:"optional" json:"incrementalRefresh" yaml:"incrementalRefresh"`
+	IncrementalRefresh interface{} `field:"required" json:"incrementalRefresh" yaml:"incrementalRefresh"`
 }
 

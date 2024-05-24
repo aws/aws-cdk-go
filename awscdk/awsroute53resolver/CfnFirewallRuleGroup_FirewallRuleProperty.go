@@ -18,6 +18,7 @@ package awsroute53resolver
 //   	BlockOverrideDomain: jsii.String("blockOverrideDomain"),
 //   	BlockOverrideTtl: jsii.Number(123),
 //   	BlockResponse: jsii.String("blockResponse"),
+//   	FirewallDomainRedirectionAction: jsii.String("firewallDomainRedirectionAction"),
 //   	Qtype: jsii.String("qtype"),
 //   }
 //
@@ -73,6 +74,14 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockresponse
 	//
 	BlockResponse *string `field:"optional" json:"blockResponse" yaml:"blockResponse"`
+	// How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME, or DNAME.
+	//
+	// `Inspect_Redirection_Domain` (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be added to the domain list.
+	//
+	// `Trust_Redirection_Domain` inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to the domain list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainredirectionaction
+	//
+	FirewallDomainRedirectionAction *string `field:"optional" json:"firewallDomainRedirectionAction" yaml:"firewallDomainRedirectionAction"`
 	// The DNS query type you want the rule to evaluate. Allowed values are;
 	//
 	// - A: Returns an IPv4 address.

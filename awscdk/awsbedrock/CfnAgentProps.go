@@ -18,6 +18,7 @@ package awsbedrock
 //
 //   			// the properties below are optional
 //   			ActionGroupExecutor: &ActionGroupExecutorProperty{
+//   				CustomControl: jsii.String("customControl"),
 //   				Lambda: jsii.String("lambda"),
 //   			},
 //   			ActionGroupState: jsii.String("actionGroupState"),
@@ -29,6 +30,25 @@ package awsbedrock
 //   				},
 //   			},
 //   			Description: jsii.String("description"),
+//   			FunctionSchema: &FunctionSchemaProperty{
+//   				Functions: []interface{}{
+//   					&FunctionProperty{
+//   						Name: jsii.String("name"),
+//
+//   						// the properties below are optional
+//   						Description: jsii.String("description"),
+//   						Parameters: map[string]interface{}{
+//   							"parametersKey": &ParameterDetailProperty{
+//   								"type": jsii.String("type"),
+//
+//   								// the properties below are optional
+//   								"description": jsii.String("description"),
+//   								"required": jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
 //   			ParentActionGroupSignature: jsii.String("parentActionGroupSignature"),
 //   			SkipResourceInUseCheckOnDelete: jsii.Boolean(false),
 //   		},
@@ -151,7 +171,10 @@ type CfnAgentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// A map of tag keys and values.
+	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:.
+	//
+	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+	// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-testaliastags
 	//
 	TestAliasTags interface{} `field:"optional" json:"testAliasTags" yaml:"testAliasTags"`

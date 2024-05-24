@@ -64,6 +64,9 @@ import (
 //   					Type: jsii.String("type"),
 //   				},
 //   			},
+//   			OnFailure: &FailureConditionsProperty{
+//   				Result: jsii.String("result"),
+//   			},
 //   		},
 //   	},
 //

@@ -1,7 +1,9 @@
 package awsamplify
 
 
-// Describes the backend properties associated with an Amplify `Branch` .
+// Describes the backend associated with an Amplify `Branch` .
+//
+// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

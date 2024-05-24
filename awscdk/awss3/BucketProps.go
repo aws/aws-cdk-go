@@ -61,7 +61,7 @@ type BucketProps struct {
 	//   attendant cost implications of that).
 	// - If enabled, S3 will use its own time-limited key instead.
 	//
-	// Only relevant, when Encryption is set to `BucketEncryption.KMS` or `BucketEncryption.KMS_MANAGED`.
+	// Only relevant, when Encryption is not set to `BucketEncryption.UNENCRYPTED`.
 	// Default: - false.
 	//
 	BucketKeyEnabled *bool `field:"optional" json:"bucketKeyEnabled" yaml:"bucketKeyEnabled"`

@@ -28,6 +28,8 @@ type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
 	// The port that Amazon Aurora PostgreSQL is listening on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
 	//
+	// Default: - 0.
+	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 

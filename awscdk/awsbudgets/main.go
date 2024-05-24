@@ -38,6 +38,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceTags", GoGetter: "ResourceTags"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -77,6 +78,10 @@ func init() {
 		reflect.TypeOf((*CfnBudget_NotificationWithSubscribersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_budgets.CfnBudget.ResourceTagProperty",
+		reflect.TypeOf((*CfnBudget_ResourceTagProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_budgets.CfnBudget.SpendProperty",
 		reflect.TypeOf((*CfnBudget_SpendProperty)(nil)).Elem(),
 	)
@@ -109,6 +114,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "approvalModel", GoGetter: "ApprovalModel"},
 			_jsii_.MemberProperty{JsiiProperty: "attrActionId", GoGetter: "AttrActionId"},
 			_jsii_.MemberProperty{JsiiProperty: "budgetName", GoGetter: "BudgetName"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -128,6 +134,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceTags", GoGetter: "ResourceTags"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subscribers", GoGetter: "Subscribers"},
@@ -140,6 +147,7 @@ func init() {
 			j := jsiiProxy_CfnBudgetsAction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)
@@ -154,6 +162,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_budgets.CfnBudgetsAction.IamActionDefinitionProperty",
 		reflect.TypeOf((*CfnBudgetsAction_IamActionDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_budgets.CfnBudgetsAction.ResourceTagProperty",
+		reflect.TypeOf((*CfnBudgetsAction_ResourceTagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_budgets.CfnBudgetsAction.ScpActionDefinitionProperty",

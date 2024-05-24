@@ -18,6 +18,8 @@ type CfnDataSource_SslPropertiesProperty struct {
 	// A Boolean option to control whether SSL should be disabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
 	//
+	// Default: - false.
+	//
 	DisableSsl interface{} `field:"optional" json:"disableSsl" yaml:"disableSsl"`
 }
 

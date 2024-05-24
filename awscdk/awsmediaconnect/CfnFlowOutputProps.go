@@ -27,6 +27,29 @@ package awsmediaconnect
 //   		KeyType: jsii.String("keyType"),
 //   	},
 //   	MaxLatency: jsii.Number(123),
+//   	MediaStreamOutputConfigurations: []interface{}{
+//   		&MediaStreamOutputConfigurationProperty{
+//   			EncodingName: jsii.String("encodingName"),
+//   			MediaStreamName: jsii.String("mediaStreamName"),
+//
+//   			// the properties below are optional
+//   			DestinationConfigurations: []interface{}{
+//   				&DestinationConfigurationProperty{
+//   					DestinationIp: jsii.String("destinationIp"),
+//   					DestinationPort: jsii.Number(123),
+//   					Interface: &InterfaceProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   			EncodingParameters: &EncodingParametersProperty{
+//   				CompressionFactor: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				EncoderProfile: jsii.String("encoderProfile"),
+//   			},
+//   		},
+//   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Port: jsii.Number(123),
@@ -75,6 +98,10 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
 	//
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`
+	// The definition for each media stream that is associated with the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-mediastreamoutputconfigurations
+	//
+	MediaStreamOutputConfigurations interface{} `field:"optional" json:"mediaStreamOutputConfigurations" yaml:"mediaStreamOutputConfigurations"`
 	// The minimum latency in milliseconds for SRT-based streams.
 	//
 	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.

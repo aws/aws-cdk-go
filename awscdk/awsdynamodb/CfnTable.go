@@ -225,6 +225,7 @@ type CfnTable interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Sets the maximum number of read and write units for the specified on-demand table.
 	OnDemandThroughput() interface{}
 	SetOnDemandThroughput(val interface{})
 	// The settings used to enable point in time recovery.

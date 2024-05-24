@@ -17,6 +17,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDataSource := awscdk.Aws_quicksight.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &CfnDataSourceProps{
+//   	Name: jsii.String("name"),
+//   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
 //   	AlternateDataSourceParameters: []interface{}{
 //   		&DataSourceParametersProperty{
 //   			AmazonElasticsearchParameters: &AmazonElasticsearchParametersProperty{
@@ -79,6 +83,19 @@ import (
 //   				// the properties below are optional
 //   				ClusterId: jsii.String("clusterId"),
 //   				Host: jsii.String("host"),
+//   				IamParameters: &RedshiftIAMParametersProperty{
+//   					RoleArn: jsii.String("roleArn"),
+//
+//   					// the properties below are optional
+//   					AutoCreateDatabaseUser: jsii.Boolean(false),
+//   					DatabaseGroups: []*string{
+//   						jsii.String("databaseGroups"),
+//   					},
+//   					DatabaseUser: jsii.String("databaseUser"),
+//   				},
+//   				IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   					EnableIdentityPropagation: jsii.Boolean(false),
+//   				},
 //   				Port: jsii.Number(123),
 //   			},
 //   			S3Parameters: &S3ParametersProperty{
@@ -194,6 +211,19 @@ import (
 //   						// the properties below are optional
 //   						ClusterId: jsii.String("clusterId"),
 //   						Host: jsii.String("host"),
+//   						IamParameters: &RedshiftIAMParametersProperty{
+//   							RoleArn: jsii.String("roleArn"),
+//
+//   							// the properties below are optional
+//   							AutoCreateDatabaseUser: jsii.Boolean(false),
+//   							DatabaseGroups: []*string{
+//   								jsii.String("databaseGroups"),
+//   							},
+//   							DatabaseUser: jsii.String("databaseUser"),
+//   						},
+//   						IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   							EnableIdentityPropagation: jsii.Boolean(false),
+//   						},
 //   						Port: jsii.Number(123),
 //   					},
 //   					S3Parameters: &S3ParametersProperty{
@@ -304,6 +334,19 @@ import (
 //   			// the properties below are optional
 //   			ClusterId: jsii.String("clusterId"),
 //   			Host: jsii.String("host"),
+//   			IamParameters: &RedshiftIAMParametersProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				AutoCreateDatabaseUser: jsii.Boolean(false),
+//   				DatabaseGroups: []*string{
+//   					jsii.String("databaseGroups"),
+//   				},
+//   				DatabaseUser: jsii.String("databaseUser"),
+//   			},
+//   			IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   				EnableIdentityPropagation: jsii.Boolean(false),
+//   			},
 //   			Port: jsii.Number(123),
 //   		},
 //   		S3Parameters: &S3ParametersProperty{
@@ -352,13 +395,15 @@ import (
 //   		Message: jsii.String("message"),
 //   		Type: jsii.String("type"),
 //   	},
-//   	Name: jsii.String("name"),
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{
 //   			Actions: []*string{
 //   				jsii.String("actions"),
 //   			},
 //   			Principal: jsii.String("principal"),
+//
+//   			// the properties below are optional
+//   			Resource: jsii.String("resource"),
 //   		},
 //   	},
 //   	SslProperties: &SslPropertiesProperty{
@@ -370,7 +415,6 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	Type: jsii.String("type"),
 //   	VpcConnectionProperties: &VpcConnectionPropertiesProperty{
 //   		VpcConnectionArn: jsii.String("vpcConnectionArn"),
 //   	},
@@ -966,6 +1010,9 @@ func (j *jsiiProxy_CfnDataSource)SetErrorInfo(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnDataSource)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -1007,6 +1054,9 @@ func (j *jsiiProxy_CfnDataSource)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnDataSource)SetType(val *string) {
+	if err := j.validateSetTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"type",

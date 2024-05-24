@@ -28,6 +28,8 @@ type CfnDataSource_TrinoParametersProperty struct {
 	// The port for the Trino data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-trinoparameters.html#cfn-quicksight-datasource-trinoparameters-port
 	//
+	// Default: - 0.
+	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 

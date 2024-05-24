@@ -66,7 +66,6 @@ import (
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
 //   	ManageMasterPassword: jsii.Boolean(false),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
-//   	MasterPasswordSecretKmsKeyId: jsii.String("masterPasswordSecretKmsKeyId"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MultiAz: jsii.Boolean(false),
 //   	NamespaceResourcePolicy: namespaceResourcePolicy,
@@ -229,9 +228,6 @@ type CfnCluster interface {
 	// The default number of days to retain a manual snapshot.
 	ManualSnapshotRetentionPeriod() *float64
 	SetManualSnapshotRetentionPeriod(val *float64)
-	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
-	MasterPasswordSecretKmsKeyId() *string
-	SetMasterPasswordSecretKmsKeyId(val *string)
 	// The user name associated with the admin user account for the cluster that is being created.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
@@ -872,16 +868,6 @@ func (j *jsiiProxy_CfnCluster) ManualSnapshotRetentionPeriod() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) MasterPasswordSecretKmsKeyId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"masterPasswordSecretKmsKeyId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnCluster) MasterUsername() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1447,14 +1433,6 @@ func (j *jsiiProxy_CfnCluster)SetManualSnapshotRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"manualSnapshotRetentionPeriod",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnCluster)SetMasterPasswordSecretKmsKeyId(val *string) {
-	_jsii_.Set(
-		j,
-		"masterPasswordSecretKmsKeyId",
 		val,
 	)
 }

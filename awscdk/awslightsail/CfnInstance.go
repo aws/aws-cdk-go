@@ -111,6 +111,8 @@ type CfnInstance interface {
 	AttrHardwareRamSizeInGb() *float64
 	// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	AttrInstanceArn() *string
+	// IPv6 addresses of the instance.
+	AttrIpv6Addresses() *[]*string
 	// A Boolean value indicating whether the instance has a static IP assigned to it.
 	AttrIsStaticIp() awscdk.IResolvable
 	// The AWS Region and Availability Zone where the instance is located.
@@ -384,6 +386,16 @@ func (j *jsiiProxy_CfnInstance) AttrInstanceArn() *string {
 	_jsii_.Get(
 		j,
 		"attrInstanceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstance) AttrIpv6Addresses() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrIpv6Addresses",
 		&returns,
 	)
 	return returns

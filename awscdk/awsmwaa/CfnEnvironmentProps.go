@@ -49,7 +49,9 @@ package awsmwaa
 //   			LogLevel: jsii.String("logLevel"),
 //   		},
 //   	},
+//   	MaxWebservers: jsii.Number(123),
 //   	MaxWorkers: jsii.Number(123),
+//   	MinWebservers: jsii.Number(123),
 //   	MinWorkers: jsii.Number(123),
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
 //   		SecurityGroupIds: []*string{
@@ -129,12 +131,20 @@ type CfnEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
 	//
 	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
+	// Maximum webserver compute units.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxwebservers
+	//
+	MaxWebservers *float64 `field:"optional" json:"maxWebservers" yaml:"maxWebservers"`
 	// The maximum number of workers that you want to run in your environment.
 	//
 	// MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
 	//
 	MaxWorkers *float64 `field:"optional" json:"maxWorkers" yaml:"maxWorkers"`
+	// Minimum webserver compute units.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minwebservers
+	//
+	MinWebservers *float64 `field:"optional" json:"minWebservers" yaml:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment.
 	//
 	// MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .

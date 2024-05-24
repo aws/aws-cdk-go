@@ -12,6 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDataSourceProps := &CfnDataSourceProps{
+//   	Name: jsii.String("name"),
+//   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
 //   	AlternateDataSourceParameters: []interface{}{
 //   		&DataSourceParametersProperty{
 //   			AmazonElasticsearchParameters: &AmazonElasticsearchParametersProperty{
@@ -74,6 +78,19 @@ import (
 //   				// the properties below are optional
 //   				ClusterId: jsii.String("clusterId"),
 //   				Host: jsii.String("host"),
+//   				IamParameters: &RedshiftIAMParametersProperty{
+//   					RoleArn: jsii.String("roleArn"),
+//
+//   					// the properties below are optional
+//   					AutoCreateDatabaseUser: jsii.Boolean(false),
+//   					DatabaseGroups: []*string{
+//   						jsii.String("databaseGroups"),
+//   					},
+//   					DatabaseUser: jsii.String("databaseUser"),
+//   				},
+//   				IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   					EnableIdentityPropagation: jsii.Boolean(false),
+//   				},
 //   				Port: jsii.Number(123),
 //   			},
 //   			S3Parameters: &S3ParametersProperty{
@@ -189,6 +206,19 @@ import (
 //   						// the properties below are optional
 //   						ClusterId: jsii.String("clusterId"),
 //   						Host: jsii.String("host"),
+//   						IamParameters: &RedshiftIAMParametersProperty{
+//   							RoleArn: jsii.String("roleArn"),
+//
+//   							// the properties below are optional
+//   							AutoCreateDatabaseUser: jsii.Boolean(false),
+//   							DatabaseGroups: []*string{
+//   								jsii.String("databaseGroups"),
+//   							},
+//   							DatabaseUser: jsii.String("databaseUser"),
+//   						},
+//   						IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   							EnableIdentityPropagation: jsii.Boolean(false),
+//   						},
 //   						Port: jsii.Number(123),
 //   					},
 //   					S3Parameters: &S3ParametersProperty{
@@ -299,6 +329,19 @@ import (
 //   			// the properties below are optional
 //   			ClusterId: jsii.String("clusterId"),
 //   			Host: jsii.String("host"),
+//   			IamParameters: &RedshiftIAMParametersProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				AutoCreateDatabaseUser: jsii.Boolean(false),
+//   				DatabaseGroups: []*string{
+//   					jsii.String("databaseGroups"),
+//   				},
+//   				DatabaseUser: jsii.String("databaseUser"),
+//   			},
+//   			IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   				EnableIdentityPropagation: jsii.Boolean(false),
+//   			},
 //   			Port: jsii.Number(123),
 //   		},
 //   		S3Parameters: &S3ParametersProperty{
@@ -347,13 +390,15 @@ import (
 //   		Message: jsii.String("message"),
 //   		Type: jsii.String("type"),
 //   	},
-//   	Name: jsii.String("name"),
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{
 //   			Actions: []*string{
 //   				jsii.String("actions"),
 //   			},
 //   			Principal: jsii.String("principal"),
+//
+//   			// the properties below are optional
+//   			Resource: jsii.String("resource"),
 //   		},
 //   	},
 //   	SslProperties: &SslPropertiesProperty{
@@ -365,7 +410,6 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	Type: jsii.String("type"),
 //   	VpcConnectionProperties: &VpcConnectionPropertiesProperty{
 //   		VpcConnectionArn: jsii.String("vpcConnectionArn"),
 //   	},
@@ -374,6 +418,16 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html
 //
 type CfnDataSourceProps struct {
+	// A display name for the data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
+	//
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+	//
+	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
+	//
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A set of alternate data source parameters that you want to share for the credentials stored with this data source.
 	//
 	// The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the `DataSourceParameters` structure that's in the request with the structures in the `AlternateDataSourceParameters` allow list. If the structures are an exact match, the request is allowed to use the credentials from this existing data source. If the `AlternateDataSourceParameters` list is null, the `Credentials` originally used with this `DataSourceParameters` are automatically allowed.
@@ -404,10 +458,6 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
 	//
 	ErrorInfo interface{} `field:"optional" json:"errorInfo" yaml:"errorInfo"`
-	// A display name for the data source.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
-	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of resource permissions on the data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
 	//
@@ -420,12 +470,6 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
-	//
-	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-	//
-	Type *string `field:"optional" json:"type" yaml:"type"`
 	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
 	//

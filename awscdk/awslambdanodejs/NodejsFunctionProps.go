@@ -331,13 +331,21 @@ type NodejsFunctionProps struct {
 	// Default: - the Vpc default strategy if not specified.
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
-	// Whether to automatically reuse TCP connections when working with the AWS SDK for JavaScript.
+	// The `AWS_NODEJS_CONNECTION_REUSE_ENABLED` environment variable does not exist in the AWS SDK for JavaScript v3.
+	//
+	// This prop will be deprecated when the Lambda Node16 runtime is deprecated on June 12, 2024.
+	// See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy
+	//
+	// Info for Node 16 runtimes / SDK v2 users:
+	//
+	// Whether to automatically reuse TCP connections when working with the AWS
+	// SDK for JavaScript v2.
 	//
 	// This sets the `AWS_NODEJS_CONNECTION_REUSE_ENABLED` environment variable
 	// to `1`.
-	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-reusing-connections.html
+	// See: https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/node-reusing-connections.html
 	//
-	// Default: true.
+	// Default: - false (obsolete) for runtimes >= Node 18, true for runtimes <= Node 16.
 	//
 	AwsSdkConnectionReuse *bool `field:"optional" json:"awsSdkConnectionReuse" yaml:"awsSdkConnectionReuse"`
 	// Bundling options.

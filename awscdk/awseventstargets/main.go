@@ -174,6 +174,23 @@ func init() {
 		"aws-cdk-lib.aws_events_targets.EventBusProps",
 		reflect.TypeOf((*EventBusProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_events_targets.IDeliveryStream",
+		reflect.TypeOf((*IDeliveryStream)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamArn", GoGetter: "DeliveryStreamArn"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamName", GoGetter: "DeliveryStreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDeliveryStream{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",
 		reflect.TypeOf((*KinesisFirehoseStream)(nil)).Elem(),
@@ -189,6 +206,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStreamProps",
 		reflect.TypeOf((*KinesisFirehoseStreamProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStreamV2",
+		reflect.TypeOf((*KinesisFirehoseStreamV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_KinesisFirehoseStreamV2{}
+			_jsii_.InitJsiiProxy(&j.Type__awseventsIRuleTarget)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events_targets.KinesisStream",

@@ -64,7 +64,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "maintenanceTrackName", GoGetter: "MaintenanceTrackName"},
 			_jsii_.MemberProperty{JsiiProperty: "manageMasterPassword", GoGetter: "ManageMasterPassword"},
 			_jsii_.MemberProperty{JsiiProperty: "manualSnapshotRetentionPeriod", GoGetter: "ManualSnapshotRetentionPeriod"},
-			_jsii_.MemberProperty{JsiiProperty: "masterPasswordSecretKmsKeyId", GoGetter: "MasterPasswordSecretKmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUsername", GoGetter: "MasterUsername"},
 			_jsii_.MemberProperty{JsiiProperty: "masterUserPassword", GoGetter: "MasterUserPassword"},
 			_jsii_.MemberProperty{JsiiProperty: "multiAz", GoGetter: "MultiAz"},

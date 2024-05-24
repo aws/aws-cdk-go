@@ -19,6 +19,8 @@ import (
 // - Use CloudFormation to create a VPC interface to add to this flow. This can also be done as part of the previous step.
 // - After CloudFormation has created the flow and the VPC interface, update the source to point to the VPC interface that you created.
 //
+// > The previous steps must be undone before the CloudFormation stack can be deleted. Because the source is manually updated in step 3, CloudFormation is not aware of this change. The source must be returned to a standard source before CloudFormation stack deletion.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

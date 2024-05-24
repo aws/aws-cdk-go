@@ -1305,6 +1305,33 @@ func init() {
 		"aws-cdk-lib.aws_batch.JobQueueProps",
 		reflect.TypeOf((*JobQueueProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.JobStateTimeLimitAction",
+		reflect.TypeOf((*JobStateTimeLimitAction)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_batch.JobStateTimeLimitActionsAction",
+		reflect.TypeOf((*JobStateTimeLimitActionsAction)(nil)).Elem(),
+		map[string]interface{}{
+			"CANCEL": JobStateTimeLimitActionsAction_CANCEL,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_batch.JobStateTimeLimitActionsReason",
+		reflect.TypeOf((*JobStateTimeLimitActionsReason)(nil)).Elem(),
+		map[string]interface{}{
+			"INSUFFICIENT_INSTANCE_CAPACITY": JobStateTimeLimitActionsReason_INSUFFICIENT_INSTANCE_CAPACITY,
+			"COMPUTE_ENVIRONMENT_MAX_RESOURCE": JobStateTimeLimitActionsReason_COMPUTE_ENVIRONMENT_MAX_RESOURCE,
+			"JOB_RESOURCE_REQUIREMENT": JobStateTimeLimitActionsReason_JOB_RESOURCE_REQUIREMENT,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_batch.JobStateTimeLimitActionsState",
+		reflect.TypeOf((*JobStateTimeLimitActionsState)(nil)).Elem(),
+		map[string]interface{}{
+			"RUNNABLE": JobStateTimeLimitActionsState_RUNNABLE,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_batch.LinuxParameters",
 		reflect.TypeOf((*LinuxParameters)(nil)).Elem(),

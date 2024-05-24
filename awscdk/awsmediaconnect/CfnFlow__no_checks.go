@@ -80,6 +80,14 @@ func validateCfnFlow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlow) validateSetMaintenanceParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFlow) validateSetMediaStreamsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlow) validateSetNameParameters(val *string) error {
 	return nil
 }
@@ -89,6 +97,10 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceParameters(val interface{}) error {
 }
 
 func (j *jsiiProxy_CfnFlow) validateSetSourceFailoverConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFlow) validateSetVpcInterfacesParameters(val interface{}) error {
 	return nil
 }
 

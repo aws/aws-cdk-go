@@ -73,6 +73,9 @@ type CfnTrackerProps struct {
 	//
 	// Deprecated: this property has been deprecated.
 	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
+	// This shape is deprecated since 2022-02-01: Deprecated.
+	//
+	// No longer allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
 	//
 	// Deprecated: this property has been deprecated.

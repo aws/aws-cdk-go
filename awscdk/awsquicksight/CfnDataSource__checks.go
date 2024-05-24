@@ -311,6 +311,14 @@ func (j *jsiiProxy_CfnDataSource) validateSetErrorInfoParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSource) validateSetNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSource) validateSetPermissionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -405,6 +413,14 @@ func (j *jsiiProxy_CfnDataSource) validateSetTagsRawParameters(val *[]*awscdk.Cf
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSource) validateSetTypeParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSource) validateSetVpcConnectionPropertiesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -438,6 +454,9 @@ func validateNewCfnDataSourceParameters(scope constructs.Construct, id *string, 
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

@@ -26,6 +26,6 @@ type CfnDataSet_DataSetRefreshPropertiesProperty struct {
 	// The refresh configuration for a dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html#cfn-quicksight-dataset-datasetrefreshproperties-refreshconfiguration
 	//
-	RefreshConfiguration interface{} `field:"optional" json:"refreshConfiguration" yaml:"refreshConfiguration"`
+	RefreshConfiguration interface{} `field:"required" json:"refreshConfiguration" yaml:"refreshConfiguration"`
 }
 

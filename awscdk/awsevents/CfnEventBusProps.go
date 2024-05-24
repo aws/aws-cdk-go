@@ -17,7 +17,12 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DeadLetterConfig: &DeadLetterConfigProperty{
+//   		Arn: jsii.String("arn"),
+//   	},
+//   	Description: jsii.String("description"),
 //   	EventSourceName: jsii.String("eventSourceName"),
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Policy: policy,
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -38,10 +43,22 @@ type CfnEventBusProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Dead Letter Queue for the event bus.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-deadletterconfig
+	//
+	DeadLetterConfig interface{} `field:"optional" json:"deadLetterConfig" yaml:"deadLetterConfig"`
+	// The description of the event bus.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-eventsourcename
 	//
 	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
+	// Kms Key Identifier used to encrypt events at rest in the event bus.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-kmskeyidentifier
+	//
+	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-policy
 	//

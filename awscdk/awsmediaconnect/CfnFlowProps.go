@@ -38,6 +38,23 @@ package awsmediaconnect
 //   		IngestPort: jsii.Number(123),
 //   		MaxBitrate: jsii.Number(123),
 //   		MaxLatency: jsii.Number(123),
+//   		MaxSyncBuffer: jsii.Number(123),
+//   		MediaStreamSourceConfigurations: []interface{}{
+//   			&MediaStreamSourceConfigurationProperty{
+//   				EncodingName: jsii.String("encodingName"),
+//   				MediaStreamName: jsii.String("mediaStreamName"),
+//
+//   				// the properties below are optional
+//   				InputConfigurations: []interface{}{
+//   					&InputConfigurationProperty{
+//   						InputPort: jsii.Number(123),
+//   						Interface: &InterfaceProperty{
+//   							Name: jsii.String("name"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
 //   		MinLatency: jsii.Number(123),
 //   		Name: jsii.String("name"),
 //   		Protocol: jsii.String("protocol"),
@@ -54,6 +71,35 @@ package awsmediaconnect
 //
 //   	// the properties below are optional
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	Maintenance: &MaintenanceProperty{
+//   		MaintenanceDay: jsii.String("maintenanceDay"),
+//   		MaintenanceStartHour: jsii.String("maintenanceStartHour"),
+//   	},
+//   	MediaStreams: []interface{}{
+//   		&MediaStreamProperty{
+//   			MediaStreamId: jsii.Number(123),
+//   			MediaStreamName: jsii.String("mediaStreamName"),
+//   			MediaStreamType: jsii.String("mediaStreamType"),
+//
+//   			// the properties below are optional
+//   			Attributes: &MediaStreamAttributesProperty{
+//   				Fmtp: &FmtpProperty{
+//   					ChannelOrder: jsii.String("channelOrder"),
+//   					Colorimetry: jsii.String("colorimetry"),
+//   					ExactFramerate: jsii.String("exactFramerate"),
+//   					Par: jsii.String("par"),
+//   					Range: jsii.String("range"),
+//   					ScanMode: jsii.String("scanMode"),
+//   					Tcs: jsii.String("tcs"),
+//   				},
+//   				Lang: jsii.String("lang"),
+//   			},
+//   			ClockRate: jsii.Number(123),
+//   			Description: jsii.String("description"),
+//   			Fmt: jsii.Number(123),
+//   			VideoFormat: jsii.String("videoFormat"),
+//   		},
+//   	},
 //   	SourceFailoverConfig: &FailoverConfigProperty{
 //   		FailoverMode: jsii.String("failoverMode"),
 //   		RecoveryWindow: jsii.Number(123),
@@ -61,6 +107,22 @@ package awsmediaconnect
 //   			PrimarySource: jsii.String("primarySource"),
 //   		},
 //   		State: jsii.String("state"),
+//   	},
+//   	VpcInterfaces: []interface{}{
+//   		&VpcInterfaceProperty{
+//   			Name: jsii.String("name"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetId: jsii.String("subnetId"),
+//
+//   			// the properties below are optional
+//   			NetworkInterfaceIds: []*string{
+//   				jsii.String("networkInterfaceIds"),
+//   			},
+//   			NetworkInterfaceType: jsii.String("networkInterfaceType"),
+//   		},
 //   	},
 //   }
 //
@@ -81,9 +143,23 @@ type CfnFlowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// The maintenance settings you want to use for the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-maintenance
+	//
+	Maintenance interface{} `field:"optional" json:"maintenance" yaml:"maintenance"`
+	// The media streams associated with the flow.
+	//
+	// You can associate any of these media streams with sources and outputs on the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-mediastreams
+	//
+	MediaStreams interface{} `field:"optional" json:"mediaStreams" yaml:"mediaStreams"`
 	// The settings for source failover.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
 	//
 	SourceFailoverConfig interface{} `field:"optional" json:"sourceFailoverConfig" yaml:"sourceFailoverConfig"`
+	// The VPC interfaces that you added to this flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-vpcinterfaces
+	//
+	VpcInterfaces interface{} `field:"optional" json:"vpcInterfaces" yaml:"vpcInterfaces"`
 }
 

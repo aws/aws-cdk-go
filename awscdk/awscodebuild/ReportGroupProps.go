@@ -31,6 +31,12 @@ import (
 //   })
 //
 type ReportGroupProps struct {
+	// If true, deleting the report group force deletes the contents of the report group.
+	//
+	// If false, the report group must be empty before attempting to delete it.
+	// Default: false.
+	//
+	DeleteReports *bool `field:"optional" json:"deleteReports" yaml:"deleteReports"`
 	// An optional S3 bucket to export the reports to.
 	// Default: - the reports will not be exported.
 	//

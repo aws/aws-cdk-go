@@ -1756,6 +1756,26 @@ host := ec2.NewBastionHostLinux(this, jsii.String("BastionHost"), &BastionHostLi
 })
 ```
 
+### Placement Group
+
+Specify `placementGroup` to enable the placement group support:
+
+```go
+var instanceType instanceType
+
+
+pg := ec2.NewPlacementGroup(this, jsii.String("test-pg"), &PlacementGroupProps{
+	Strategy: ec2.PlacementGroupStrategy_SPREAD,
+})
+
+ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+	PlacementGroup: pg,
+})
+```
+
 ### Block Devices
 
 To add EBS block device mappings, specify the `blockDevices` property. The following example sets the EBS-backed

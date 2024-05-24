@@ -885,6 +885,23 @@ userPoolClient := cognito.NewUserPoolClient(this, jsii.String("UserPoolClient"),
 secret := userPoolClient.userPoolClientSecret
 ```
 
+If you set `enablePropagateAdditionalUserContextData: true`, you can collect and pass
+information about your user's session to Amazon Cognito advanced security
+when you use the API to sign them up, sign them in, and reset their password.
+
+```go
+var importedPool userPool
+
+
+userPoolClient := cognito.NewUserPoolClient(this, jsii.String("UserPoolClient"), &UserPoolClientProps{
+	UserPool: importedPool,
+	GenerateSecret: jsii.Boolean(true),
+	EnablePropagateAdditionalUserContextData: jsii.Boolean(true),
+})
+```
+
+See [Adding user device and session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) for more information.
+
 ### Resource Servers
 
 A resource server is a server for access-protected resources. It handles authenticated requests from an app that has an

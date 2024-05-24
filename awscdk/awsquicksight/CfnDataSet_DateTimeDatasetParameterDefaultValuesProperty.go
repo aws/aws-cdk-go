@@ -1,9 +1,7 @@
 package awsquicksight
 
 
-// <p>List of default values defined for a given string date time parameter type.
-//
-// Currently only static values are supported.</p>
+// <p>The default values of a date time parameter.</p>.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

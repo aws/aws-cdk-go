@@ -19,7 +19,7 @@ package awsidentitystore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html
 //
 type CfnGroupMembershipProps struct {
-	// The unique identifier for a group in the identity store.
+	// The identifier for a group in the identity store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html#cfn-identitystore-groupmembership-groupid
 	//
 	GroupId *string `field:"required" json:"groupId" yaml:"groupId"`

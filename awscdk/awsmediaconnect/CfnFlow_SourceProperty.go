@@ -42,6 +42,23 @@ package awsmediaconnect
 //   	IngestPort: jsii.Number(123),
 //   	MaxBitrate: jsii.Number(123),
 //   	MaxLatency: jsii.Number(123),
+//   	MaxSyncBuffer: jsii.Number(123),
+//   	MediaStreamSourceConfigurations: []interface{}{
+//   		&MediaStreamSourceConfigurationProperty{
+//   			EncodingName: jsii.String("encodingName"),
+//   			MediaStreamName: jsii.String("mediaStreamName"),
+//
+//   			// the properties below are optional
+//   			InputConfigurations: []interface{}{
+//   				&InputConfigurationProperty{
+//   					InputPort: jsii.Number(123),
+//   					Interface: &InterfaceProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Protocol: jsii.String("protocol"),
@@ -99,6 +116,14 @@ type CfnFlow_SourceProperty struct {
 	// Default: - 2000.
 	//
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`
+	// The size of the buffer (in milliseconds) to use to sync incoming source data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-maxsyncbuffer
+	//
+	MaxSyncBuffer *float64 `field:"optional" json:"maxSyncBuffer" yaml:"maxSyncBuffer"`
+	// The media stream that is associated with the source, and the parameters for that association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-mediastreamsourceconfigurations
+	//
+	MediaStreamSourceConfigurations interface{} `field:"optional" json:"mediaStreamSourceConfigurations" yaml:"mediaStreamSourceConfigurations"`
 	// The minimum latency in milliseconds for SRT-based streams.
 	//
 	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.

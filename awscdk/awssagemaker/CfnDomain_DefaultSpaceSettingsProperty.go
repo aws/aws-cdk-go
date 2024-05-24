@@ -12,6 +12,45 @@ package awssagemaker
 //   	ExecutionRole: jsii.String("executionRole"),
 //
 //   	// the properties below are optional
+//   	CustomFileSystemConfigs: []interface{}{
+//   		&CustomFileSystemConfigProperty{
+//   			EfsFileSystemConfig: &EFSFileSystemConfigProperty{
+//   				FileSystemId: jsii.String("fileSystemId"),
+//
+//   				// the properties below are optional
+//   				FileSystemPath: jsii.String("fileSystemPath"),
+//   			},
+//   		},
+//   	},
+//   	CustomPosixUserConfig: &CustomPosixUserConfigProperty{
+//   		Gid: jsii.Number(123),
+//   		Uid: jsii.Number(123),
+//   	},
+//   	JupyterLabAppSettings: &JupyterLabAppSettingsProperty{
+//   		CodeRepositories: []interface{}{
+//   			&CodeRepositoryProperty{
+//   				RepositoryUrl: jsii.String("repositoryUrl"),
+//   			},
+//   		},
+//   		CustomImages: []interface{}{
+//   			&CustomImageProperty{
+//   				AppImageConfigName: jsii.String("appImageConfigName"),
+//   				ImageName: jsii.String("imageName"),
+//
+//   				// the properties below are optional
+//   				ImageVersionNumber: jsii.Number(123),
+//   			},
+//   		},
+//   		DefaultResourceSpec: &ResourceSpecProperty{
+//   			InstanceType: jsii.String("instanceType"),
+//   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
+//   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
+//   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
+//   		},
+//   	},
 //   	JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
@@ -40,6 +79,12 @@ package awssagemaker
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
+//   	SpaceStorageSettings: &DefaultSpaceStorageSettingsProperty{
+//   		DefaultEbsStorageSettings: &DefaultEbsStorageSettingsProperty{
+//   			DefaultEbsVolumeSizeInGb: jsii.Number(123),
+//   			MaximumEbsVolumeSizeInGb: jsii.Number(123),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html
@@ -49,6 +94,16 @@ type CfnDomain_DefaultSpaceSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-executionrole
 	//
 	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customfilesystemconfigs
+	//
+	CustomFileSystemConfigs interface{} `field:"optional" json:"customFileSystemConfigs" yaml:"customFileSystemConfigs"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customposixuserconfig
+	//
+	CustomPosixUserConfig interface{} `field:"optional" json:"customPosixUserConfig" yaml:"customPosixUserConfig"`
+	// The JupyterLab app settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-jupyterlabappsettings
+	//
+	JupyterLabAppSettings interface{} `field:"optional" json:"jupyterLabAppSettings" yaml:"jupyterLabAppSettings"`
 	// The JupyterServer app settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-jupyterserverappsettings
 	//
@@ -61,5 +116,9 @@ type CfnDomain_DefaultSpaceSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// Default storage settings for a space.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-spacestoragesettings
+	//
+	SpaceStorageSettings interface{} `field:"optional" json:"spaceStorageSettings" yaml:"spaceStorageSettings"`
 }
 

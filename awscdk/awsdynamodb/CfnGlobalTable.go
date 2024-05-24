@@ -361,6 +361,7 @@ type CfnGlobalTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Sets the write request settings for a global table or a global secondary index.
 	WriteOnDemandThroughputSettings() interface{}
 	SetWriteOnDemandThroughputSettings(val interface{})
 	// Specifies an auto scaling policy for write capacity.
