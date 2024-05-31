@@ -32,6 +32,10 @@ func validateCfnParametersCode_FromCfnParametersParameters(props *CfnParametersC
 	return nil
 }
 
+func validateCfnParametersCode_FromCustomCommandParameters(output *string, command *[]*string, options *CustomCommandOptions) error {
+	return nil
+}
+
 func validateCfnParametersCode_FromDockerBuildParameters(path *string, options *DockerBuildAssetOptions) error {
 	return nil
 }

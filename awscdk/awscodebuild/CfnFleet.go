@@ -20,7 +20,18 @@ import (
 //   	BaseCapacity: jsii.Number(123),
 //   	ComputeType: jsii.String("computeType"),
 //   	EnvironmentType: jsii.String("environmentType"),
+//   	FleetServiceRole: jsii.String("fleetServiceRole"),
+//   	FleetVpcConfig: &VpcConfigProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		Subnets: []*string{
+//   			jsii.String("subnets"),
+//   		},
+//   		VpcId: jsii.String("vpcId"),
+//   	},
 //   	Name: jsii.String("name"),
+//   	OverflowBehavior: jsii.String("overflowBehavior"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -59,6 +70,10 @@ type CfnFleet interface {
 	// The environment type of the compute fleet.
 	EnvironmentType() *string
 	SetEnvironmentType(val *string)
+	FleetServiceRole() *string
+	SetFleetServiceRole(val *string)
+	FleetVpcConfig() interface{}
+	SetFleetVpcConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,6 +89,8 @@ type CfnFleet interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	OverflowBehavior() *string
+	SetOverflowBehavior(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -323,6 +340,26 @@ func (j *jsiiProxy_CfnFleet) EnvironmentType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) FleetServiceRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fleetServiceRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) FleetVpcConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"fleetVpcConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -348,6 +385,16 @@ func (j *jsiiProxy_CfnFleet) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) OverflowBehavior() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"overflowBehavior",
 		&returns,
 	)
 	return returns
@@ -455,10 +502,37 @@ func (j *jsiiProxy_CfnFleet)SetEnvironmentType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFleet)SetFleetServiceRole(val *string) {
+	_jsii_.Set(
+		j,
+		"fleetServiceRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetFleetVpcConfig(val interface{}) {
+	if err := j.validateSetFleetVpcConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"fleetVpcConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFleet)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetOverflowBehavior(val *string) {
+	_jsii_.Set(
+		j,
+		"overflowBehavior",
 		val,
 	)
 }

@@ -8,14 +8,13 @@ import (
 // Properties for starting an AWS Glue job as a task.
 //
 // Example:
-//   import glue "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//
-//   var submitGlue job
-//
-//
-//   submitJob := tasks.NewGlueStartJobRun(this, jsii.String("Submit Job"), &GlueStartJobRunProps{
-//   	GlueJobName: submitGlue.JobName,
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
+//   	GlueJobName: jsii.String("my-glue-job"),
+//   	WorkerConfiguration: &WorkerConfigurationProperty{
+//   		WorkerType: tasks.WorkerType_G_1X,
+//   		 // Worker type
+//   		NumberOfWorkers: jsii.Number(2),
+//   	},
 //   })
 //
 type GlueStartJobRunProps struct {
@@ -125,5 +124,9 @@ type GlueStartJobRunProps struct {
 	// Default: - Default configuration set in the job definition.
 	//
 	SecurityConfiguration *string `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
+	// The worker configuration for this run.
+	// Default: - Default worker configuration in the job definition.
+	//
+	WorkerConfiguration *WorkerConfigurationProperty `field:"optional" json:"workerConfiguration" yaml:"workerConfiguration"`
 }
 

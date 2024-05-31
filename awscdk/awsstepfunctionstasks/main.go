@@ -2923,6 +2923,74 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.LaunchTargetBindOptions",
 		reflect.TypeOf((*LaunchTargetBindOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.MediaConvertCreateJob",
+		reflect.TypeOf((*MediaConvertCreateJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
+			_jsii_.MemberMethod{JsiiMethod: "addCatch", GoMethod: "AddCatch"},
+			_jsii_.MemberMethod{JsiiMethod: "addChoice", GoMethod: "AddChoice"},
+			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
+			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
+			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
+			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultChoice", GoGetter: "DefaultChoice"},
+			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
+			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
+			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailed", GoMethod: "MetricFailed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricHeartbeatTimedOut", GoMethod: "MetricHeartbeatTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRunTime", GoMethod: "MetricRunTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduled", GoMethod: "MetricScheduled"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduleTime", GoMethod: "MetricScheduleTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStarted", GoMethod: "MetricStarted"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSucceeded", GoMethod: "MetricSucceeded"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTime", GoMethod: "MetricTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
+			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
+			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
+			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
+			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
+			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
+			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
+			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
+			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
+			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
+			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
+			_jsii_.MemberProperty{JsiiProperty: "stateName", GoGetter: "StateName"},
+			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
+			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
+			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
+			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
+		},
+		func() interface{} {
+			j := jsiiProxy_MediaConvertCreateJob{}
+			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsTaskStateBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.MediaConvertCreateJobProps",
+		reflect.TypeOf((*MediaConvertCreateJobProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.MessageAttribute",
 		reflect.TypeOf((*MessageAttribute)(nil)).Elem(),
@@ -3798,5 +3866,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.VpcConfig",
 		reflect.TypeOf((*VpcConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.WorkerConfigurationProperty",
+		reflect.TypeOf((*WorkerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_stepfunctions_tasks.WorkerType",
+		reflect.TypeOf((*WorkerType)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": WorkerType_STANDARD,
+			"G_1X": WorkerType_G_1X,
+			"G_2X": WorkerType_G_2X,
+			"G_4X": WorkerType_G_4X,
+			"G_8X": WorkerType_G_8X,
+			"G_025X": WorkerType_G_025X,
+			"Z_2X": WorkerType_Z_2X,
+		},
 	)
 }

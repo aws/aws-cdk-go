@@ -6,6 +6,8 @@ import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 func (i *jsiiProxy_IEnvironment) validateAddDeploymentParameters(configuration IConfiguration) error {
@@ -19,6 +21,22 @@ func (i *jsiiProxy_IEnvironment) validateAddDeploymentParameters(configuration I
 func (i *jsiiProxy_IEnvironment) validateAddExtensionParameters(extension IExtension) error {
 	if extension == nil {
 		return fmt.Errorf("parameter extension is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IEnvironment) validateGrantParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IEnvironment) validateGrantReadConfigParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
 	}
 
 	return nil

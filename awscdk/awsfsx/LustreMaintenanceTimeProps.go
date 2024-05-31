@@ -17,7 +17,7 @@ package awsfsx
 type LustreMaintenanceTimeProps struct {
 	// The day of the week for maintenance to be performed.
 	Day Weekday `field:"required" json:"day" yaml:"day"`
-	// The hour of the day (from 0-24) for maintenance to be performed.
+	// The hour of the day (from 0-23) for maintenance to be performed.
 	Hour *float64 `field:"required" json:"hour" yaml:"hour"`
 	// The minute of the hour (from 0-59) for maintenance to be performed.
 	Minute *float64 `field:"required" json:"minute" yaml:"minute"`

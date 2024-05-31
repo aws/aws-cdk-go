@@ -16,6 +16,7 @@ import (
 type TableBaseV2 interface {
 	awscdk.Resource
 	ITableV2
+	awsiam.IResourceWithPolicy
 	// The KMS encryption key for the table.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
@@ -39,6 +40,9 @@ type TableBaseV2 interface {
 	//   cross-environment scenarios.
 	PhysicalName() *string
 	Region() *string
+	// The resource policy for the table.
+	ResourcePolicy() awsiam.PolicyDocument
+	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// The ARN of the table.
@@ -49,6 +53,12 @@ type TableBaseV2 interface {
 	TableName() *string
 	// The stream ARN of the table.
 	TableStreamArn() *string
+	// Adds a statement to the resource policy associated with this file system.
+	//
+	// A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+	//
+	// Note that this does not work with imported file systems.
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -184,6 +194,7 @@ type TableBaseV2 interface {
 type jsiiProxy_TableBaseV2 struct {
 	internal.Type__awscdkResource
 	jsiiProxy_ITableV2
+	internal.Type__awsiamIResourceWithPolicy
 }
 
 func (j *jsiiProxy_TableBaseV2) EncryptionKey() awskms.IKey {
@@ -241,6 +252,16 @@ func (j *jsiiProxy_TableBaseV2) Region() *string {
 	_jsii_.Get(
 		j,
 		"region",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TableBaseV2) ResourcePolicy() awsiam.PolicyDocument {
+	var returns awsiam.PolicyDocument
+	_jsii_.Get(
+		j,
+		"resourcePolicy",
 		&returns,
 	)
 	return returns
@@ -304,6 +325,14 @@ func NewTableBaseV2_Override(t TableBaseV2, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_dynamodb.TableBaseV2",
 		[]interface{}{scope, id, props},
 		t,
+	)
+}
+
+func (j *jsiiProxy_TableBaseV2)SetResourcePolicy(val awsiam.PolicyDocument) {
+	_jsii_.Set(
+		j,
+		"resourcePolicy",
+		val,
 	)
 }
 
@@ -374,6 +403,22 @@ func TableBaseV2_IsResource(construct constructs.IConstruct) *bool {
 		"aws-cdk-lib.aws_dynamodb.TableBaseV2",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TableBaseV2) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := t.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		t,
+		"addToResourcePolicy",
+		[]interface{}{statement},
 		&returns,
 	)
 

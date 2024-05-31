@@ -93,6 +93,12 @@ type InstanceProps struct {
 	// Default: - default options.
 	//
 	InitOptions *ApplyCloudFormationInitOptions `field:"optional" json:"initOptions" yaml:"initOptions"`
+	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior
+	//
+	// Default: InstanceInitiatedShutdownBehavior.STOP
+	//
+	InstanceInitiatedShutdownBehavior InstanceInitiatedShutdownBehavior `field:"optional" json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
 	// The name of the instance.
 	// Default: - CDK generated name.
 	//

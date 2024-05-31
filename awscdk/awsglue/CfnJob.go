@@ -46,6 +46,7 @@ import (
 //   	},
 //   	GlueVersion: jsii.String("glueVersion"),
 //   	LogUri: jsii.String("logUri"),
+//   	MaintenanceWindow: jsii.String("maintenanceWindow"),
 //   	MaxCapacity: jsii.Number(123),
 //   	MaxRetries: jsii.Number(123),
 //   	Name: jsii.String("name"),
@@ -116,6 +117,8 @@ type CfnJob interface {
 	// This field is reserved for future use.
 	LogUri() *string
 	SetLogUri(val *string)
+	MaintenanceWindow() *string
+	SetMaintenanceWindow(val *string)
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	MaxCapacity() *float64
 	SetMaxCapacity(val *float64)
@@ -459,6 +462,16 @@ func (j *jsiiProxy_CfnJob) LogUri() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJob) MaintenanceWindow() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"maintenanceWindow",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJob) MaxCapacity() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -734,6 +747,14 @@ func (j *jsiiProxy_CfnJob)SetLogUri(val *string) {
 	_jsii_.Set(
 		j,
 		"logUri",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJob)SetMaintenanceWindow(val *string) {
+	_jsii_.Set(
+		j,
+		"maintenanceWindow",
 		val,
 	)
 }

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) validateSetSlackWorkspaceIdPara
 	return nil
 }
 
+func (j *jsiiProxy_CfnSlackChannelConfiguration) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSlackChannelConfiguration) validateSetUserRoleRequiredParameters(val interface{}) error {
 	return nil
 }

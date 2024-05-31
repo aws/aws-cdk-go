@@ -36,6 +36,7 @@ package awsglue
 //   	},
 //   	GlueVersion: jsii.String("glueVersion"),
 //   	LogUri: jsii.String("logUri"),
+//   	MaintenanceWindow: jsii.String("maintenanceWindow"),
 //   	MaxCapacity: jsii.Number(123),
 //   	MaxRetries: jsii.Number(123),
 //   	Name: jsii.String("name"),
@@ -113,6 +114,9 @@ type CfnJobProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-loguri
 	//
 	LogUri *string `field:"optional" json:"logUri" yaml:"logUri"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-maintenancewindow
+	//
+	MaintenanceWindow *string `field:"optional" json:"maintenanceWindow" yaml:"maintenanceWindow"`
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	//
 	// A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.

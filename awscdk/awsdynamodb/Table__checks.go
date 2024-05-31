@@ -35,6 +35,14 @@ func (t *jsiiProxy_Table) validateAddLocalSecondaryIndexParameters(props *LocalS
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	if statement == nil {
+		return fmt.Errorf("parameter statement is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -544,6 +544,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addGlobalSecondaryIndex", GoMethod: "AddGlobalSecondaryIndex"},
 			_jsii_.MemberMethod{JsiiMethod: "addLocalSecondaryIndex", GoMethod: "AddLocalSecondaryIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "autoScaleGlobalSecondaryIndexReadCapacity", GoMethod: "AutoScaleGlobalSecondaryIndexReadCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "autoScaleGlobalSecondaryIndexWriteCapacity", GoMethod: "AutoScaleGlobalSecondaryIndexWriteCapacity"},
@@ -577,6 +578,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "regionalArns", GoGetter: "RegionalArns"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "schema", GoMethod: "Schema"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
@@ -602,6 +604,7 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.TableBase",
 		reflect.TypeOf((*TableBase)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -631,6 +634,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "regionalArns", GoGetter: "RegionalArns"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
@@ -641,6 +645,7 @@ func init() {
 			j := jsiiProxy_TableBase{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITable)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIResourceWithPolicy)
 			return &j
 		},
 	)
@@ -648,6 +653,7 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.TableBaseV2",
 		reflect.TypeOf((*TableBaseV2)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -677,6 +683,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},
@@ -688,6 +695,7 @@ func init() {
 			j := jsiiProxy_TableBaseV2{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITableV2)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIResourceWithPolicy)
 			return &j
 		},
 	)
@@ -743,6 +751,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addGlobalSecondaryIndex", GoMethod: "AddGlobalSecondaryIndex"},
 			_jsii_.MemberMethod{JsiiMethod: "addLocalSecondaryIndex", GoMethod: "AddLocalSecondaryIndex"},
 			_jsii_.MemberMethod{JsiiMethod: "addReplica", GoMethod: "AddReplica"},
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -773,6 +782,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberMethod{JsiiMethod: "replica", GoMethod: "Replica"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},

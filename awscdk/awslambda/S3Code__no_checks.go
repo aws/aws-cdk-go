@@ -28,6 +28,10 @@ func validateS3Code_FromCfnParametersParameters(props *CfnParametersCodeProps) e
 	return nil
 }
 
+func validateS3Code_FromCustomCommandParameters(output *string, command *[]*string, options *CustomCommandOptions) error {
+	return nil
+}
+
 func validateS3Code_FromDockerBuildParameters(path *string, options *DockerBuildAssetOptions) error {
 	return nil
 }

@@ -2,6 +2,7 @@ package awsdynamodb
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 )
 
@@ -52,6 +53,12 @@ type ReplicaTableProps struct {
 	// Default: false.
 	//
 	PointInTimeRecovery *bool `field:"optional" json:"pointInTimeRecovery" yaml:"pointInTimeRecovery"`
+	// Resource policy to assign to DynamoDB Table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-resourcepolicy
+	//
+	// Default: - No resource policy statements are added to the created table.
+	//
+	ResourcePolicy awsiam.PolicyDocument `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
 	// The table class.
 	// Default: TableClass.STANDARD
 	//

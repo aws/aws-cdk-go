@@ -5,6 +5,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
 type IEnvironment interface {
@@ -21,6 +22,12 @@ type IEnvironment interface {
 	AddDeployments(configurations ...IConfiguration)
 	// Adds an extension association to the environment.
 	AddExtension(extension IExtension)
+	// Adds an IAM policy statement associated with this environment to an IAM principal's policy.
+	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Permits an IAM principal to perform read operations on this environment's configurations.
+	//
+	// Actions: GetLatestConfiguration, StartConfigurationSession.
+	GrantReadConfig(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the environment.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_BAKING extension with the provided event destination and also creates an extension association to the environment.
@@ -91,6 +98,43 @@ func (i *jsiiProxy_IEnvironment) AddExtension(extension IExtension) {
 		"addExtension",
 		[]interface{}{extension},
 	)
+}
+
+func (i *jsiiProxy_IEnvironment) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grant",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IEnvironment) GrantReadConfig(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadConfigParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantReadConfig",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
 }
 
 func (i *jsiiProxy_IEnvironment) On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) {

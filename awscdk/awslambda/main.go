@@ -986,6 +986,10 @@ func init() {
 		reflect.TypeOf((*CodeSigningConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CustomCommandOptions",
+		reflect.TypeOf((*CustomCommandOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.DestinationConfig",
 		reflect.TypeOf((*DestinationConfig)(nil)).Elem(),
 	)

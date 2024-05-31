@@ -2,6 +2,7 @@ package awsdynamodb
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
@@ -107,6 +108,12 @@ type TableProps struct {
 	// Default: Duration.minutes(30)
 	//
 	ReplicationTimeout awscdk.Duration `field:"optional" json:"replicationTimeout" yaml:"replicationTimeout"`
+	// Resource policy to assign to table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-resourcepolicy
+	//
+	// Default: - No resource policy statement.
+	//
+	ResourcePolicy awsiam.PolicyDocument `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
 	// Default: - streams are disabled unless `replicationRegions` is specified.
 	//

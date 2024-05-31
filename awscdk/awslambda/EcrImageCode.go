@@ -167,6 +167,25 @@ func EcrImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParameters
 	return returns
 }
 
+// Runs a command to build the code asset that will be used.
+func EcrImageCode_FromCustomCommand(output *string, command *[]*string, options *CustomCommandOptions) AssetCode {
+	_init_.Initialize()
+
+	if err := validateEcrImageCode_FromCustomCommandParameters(output, command, options); err != nil {
+		panic(err)
+	}
+	var returns AssetCode
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.EcrImageCode",
+		"fromCustomCommand",
+		[]interface{}{output, command, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Loads the function code from an asset created by a Docker build.
 //
 // By default, the asset is expected to be located at `/asset` in the

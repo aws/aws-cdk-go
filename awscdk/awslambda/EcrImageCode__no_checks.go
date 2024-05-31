@@ -28,6 +28,10 @@ func validateEcrImageCode_FromCfnParametersParameters(props *CfnParametersCodePr
 	return nil
 }
 
+func validateEcrImageCode_FromCustomCommandParameters(output *string, command *[]*string, options *CustomCommandOptions) error {
+	return nil
+}
+
 func validateEcrImageCode_FromDockerBuildParameters(path *string, options *DockerBuildAssetOptions) error {
 	return nil
 }

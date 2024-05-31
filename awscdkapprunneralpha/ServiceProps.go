@@ -2,6 +2,7 @@ package awscdkapprunneralpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Properties of the AppRunner Service.
@@ -78,6 +79,11 @@ type ServiceProps struct {
 	//
 	// Experimental.
 	InstanceRole awsiam.IRole `field:"optional" json:"instanceRole" yaml:"instanceRole"`
+	// The customer managed key that AWS App Runner uses to encrypt copies of the source repository and service logs.
+	// Default: - Use an AWS managed key.
+	//
+	// Experimental.
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The amount of memory reserved for each instance of your App Runner service.
 	// Default: Memory.TWO_GB
 	//

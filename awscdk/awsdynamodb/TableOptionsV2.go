@@ -2,6 +2,7 @@ package awsdynamodb
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 )
 
@@ -12,7 +13,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var policyDocument policyDocument
 //   var stream stream
 //
 //   tableOptionsV2 := &TableOptionsV2{
@@ -20,6 +23,7 @@ import (
 //   	DeletionProtection: jsii.Boolean(false),
 //   	KinesisStream: stream,
 //   	PointInTimeRecovery: jsii.Boolean(false),
+//   	ResourcePolicy: policyDocument,
 //   	TableClass: awscdk.Aws_dynamodb.TableClass_STANDARD,
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -46,6 +50,12 @@ type TableOptionsV2 struct {
 	// Default: false.
 	//
 	PointInTimeRecovery *bool `field:"optional" json:"pointInTimeRecovery" yaml:"pointInTimeRecovery"`
+	// Resource policy to assign to DynamoDB Table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-resourcepolicy
+	//
+	// Default: - No resource policy statements are added to the created table.
+	//
+	ResourcePolicy awsiam.PolicyDocument `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
 	// The table class.
 	// Default: TableClass.STANDARD
 	//

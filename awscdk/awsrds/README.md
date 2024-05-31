@@ -1487,14 +1487,14 @@ rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
 
 You cannot specify a parameter map and a parameter group at the same time.
 
-## Serverless
+## Serverless v1
 
-[Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless/) is an on-demand, auto-scaling configuration for Amazon
+[Amazon Aurora Serverless v1](https://aws.amazon.com/rds/aurora/serverless/) is an on-demand, auto-scaling configuration for Amazon
 Aurora. The database will automatically start up, shut down, and scale capacity
 up or down based on your application's needs. It enables you to run your database
 in the cloud without managing any database instances.
 
-The following example initializes an Aurora Serverless PostgreSql cluster.
+The following example initializes an Aurora Serverless v1 PostgreSql cluster.
 Aurora Serverless clusters can specify scaling properties which will be used to
 automatically scale the database cluster seamlessly based on the workload.
 
@@ -1522,7 +1522,9 @@ cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &Server
 })
 ```
 
-Aurora Serverless Clusters do not support the following features:
+**Note**: The `rds.ServerlessCluster` class is for Aurora Serverless v1. If you want to use Aurora Serverless v2, use the `rds.DatabaseCluster` class.
+
+Aurora Serverless v1 Clusters do not support the following features:
 
 * Loading data from an Amazon S3 bucket
 * Saving data to an Amazon S3 bucket
@@ -1537,9 +1539,9 @@ Aurora Serverless Clusters do not support the following features:
 * Performance Insights
 * RDS Proxy
 
-Read more about the [limitations of Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations)
+Read more about the [limitations of Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations)
 
-Learn more about using Amazon Aurora Serverless by reading the [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html)
+Learn more about using Amazon Aurora Serverless v1 by reading the [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html)
 
 Use `ServerlessClusterFromSnapshot` to create a serverless cluster from a snapshot:
 
@@ -1553,7 +1555,7 @@ rds.NewServerlessClusterFromSnapshot(this, jsii.String("Cluster"), &ServerlessCl
 })
 ```
 
-### Data API
+## Data API
 
 You can access your Aurora DB cluster using the built-in Data API. The Data API doesn't require a persistent connection to the DB cluster. Instead, it provides a secure HTTP endpoint and integration with AWS SDKs.
 
@@ -1586,7 +1588,7 @@ cluster.GrantDataApiAccess(fn)
 
 To learn more about using the Data API, see the [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html).
 
-### Default VPC
+## Default VPC
 
 The `vpc` parameter is optional.
 
@@ -1594,7 +1596,7 @@ If not provided, the cluster will be created in the default VPC of the account a
 As this VPC is not deployed with AWS CDK, you can't configure the `vpcSubnets`, `subnetGroup` or `securityGroups` of the Aurora Serverless Cluster.
 If you want to provide one of `vpcSubnets`, `subnetGroup` or `securityGroups` parameter, please provide a `vpc`.
 
-### Preferred Maintenance Window
+## Preferred Maintenance Window
 
 When creating an RDS cluster, it is possible to (optionally) specify a preferred maintenance window for the cluster as well as the instances under the cluster.
 See [AWS docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance) for more information regarding maintenance windows.

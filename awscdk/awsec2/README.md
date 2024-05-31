@@ -2164,6 +2164,24 @@ ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
 
 **Note**: `CpuCredits.UNLIMITED` mode is not supported for T3 instances that are launched on a Dedicated Host.
 
+### Shutdown behavior
+
+You can specify the behavior of the instance when you initiate shutdown from the instance (using the operating system command for system shutdown).
+
+```go
+var vpc vpc
+
+
+ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T3, ec2.InstanceSize_NANO),
+	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
+		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
+	}),
+	InstanceInitiatedShutdownBehavior: ec2.InstanceInitiatedShutdownBehavior_TERMINATE,
+})
+```
+
 ## VPC Flow Logs
 
 VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data can be published to Amazon CloudWatch Logs and Amazon S3. After you've created a flow log, you can retrieve and view its data in the chosen destination. ([https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)).

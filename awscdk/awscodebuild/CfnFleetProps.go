@@ -15,7 +15,18 @@ import (
 //   	BaseCapacity: jsii.Number(123),
 //   	ComputeType: jsii.String("computeType"),
 //   	EnvironmentType: jsii.String("environmentType"),
+//   	FleetServiceRole: jsii.String("fleetServiceRole"),
+//   	FleetVpcConfig: &VpcConfigProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		Subnets: []*string{
+//   			jsii.String("subnets"),
+//   		},
+//   		VpcId: jsii.String("vpcId"),
+//   	},
 //   	Name: jsii.String("name"),
+//   	OverflowBehavior: jsii.String("overflowBehavior"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -67,10 +78,19 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-environmenttype
 	//
 	EnvironmentType *string `field:"optional" json:"environmentType" yaml:"environmentType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetservicerole
+	//
+	FleetServiceRole *string `field:"optional" json:"fleetServiceRole" yaml:"fleetServiceRole"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetvpcconfig
+	//
+	FleetVpcConfig interface{} `field:"optional" json:"fleetVpcConfig" yaml:"fleetVpcConfig"`
 	// The name of the compute fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-overflowbehavior
+	//
+	OverflowBehavior *string `field:"optional" json:"overflowBehavior" yaml:"overflowBehavior"`
 	// A list of tag key and value pairs associated with this compute fleet.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.

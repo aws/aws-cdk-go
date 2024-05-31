@@ -185,6 +185,25 @@ func AssetCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCod
 	return returns
 }
 
+// Runs a command to build the code asset that will be used.
+func AssetCode_FromCustomCommand(output *string, command *[]*string, options *CustomCommandOptions) AssetCode {
+	_init_.Initialize()
+
+	if err := validateAssetCode_FromCustomCommandParameters(output, command, options); err != nil {
+		panic(err)
+	}
+	var returns AssetCode
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.AssetCode",
+		"fromCustomCommand",
+		[]interface{}{output, command, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Loads the function code from an asset created by a Docker build.
 //
 // By default, the asset is expected to be located at `/asset` in the

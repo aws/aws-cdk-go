@@ -13,6 +13,14 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (t *jsiiProxy_TableBaseV2) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	if statement == nil {
+		return fmt.Errorf("parameter statement is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TableBaseV2) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

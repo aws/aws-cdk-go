@@ -12,7 +12,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Create an Aurora Serverless Cluster.
+// Create an Aurora Serverless v1 Cluster.
 //
 // Example:
 //   // Build a data source for AppSync to access the database.

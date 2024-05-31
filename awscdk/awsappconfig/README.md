@@ -80,6 +80,25 @@ appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
 Environment monitors also support L1 `CfnEnvironment.MonitorsProperty` constructs through the `fromCfnMonitorsProperty` method.
 However, this is not the recommended approach for CloudWatch alarms because a role will not be auto-generated if not provided.
 
+See [About the AWS AppConfig data plane service](https://docs.aws.amazon.com/appconfig/latest/userguide/about-data-plane.html) for more information.
+
+### Permissions
+
+You can grant read permission on the environment's configurations with the grantReadConfig method as follows:
+
+```go
+import iam "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := appconfig.NewApplication(this, jsii.String("MyAppConfig"))
+env := appconfig.NewEnvironment(this, jsii.String("MyEnvironment"), &EnvironmentProps{
+	Application: app,
+})
+
+user := iam.NewUser(this, jsii.String("MyUser"))
+env.grantReadConfig(user)
+```
+
 ## Deployment Strategy
 
 [AWS AppConfig Deployment Strategy Documentation](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html)

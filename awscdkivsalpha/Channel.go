@@ -12,7 +12,7 @@ import (
 // A new IVS channel.
 //
 // Example:
-//   myChannel := ivs.NewChannel(this, jsii.String("Channel"))
+//   myChannel := ivs.Channel_FromChannelArn(this, jsii.String("Channel"), myChannelArn)
 //
 // Experimental.
 type Channel interface {

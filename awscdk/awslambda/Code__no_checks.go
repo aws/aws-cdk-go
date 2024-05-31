@@ -28,6 +28,10 @@ func validateCode_FromCfnParametersParameters(props *CfnParametersCodeProps) err
 	return nil
 }
 
+func validateCode_FromCustomCommandParameters(output *string, command *[]*string, options *CustomCommandOptions) error {
+	return nil
+}
+
 func validateCode_FromDockerBuildParameters(path *string, options *DockerBuildAssetOptions) error {
 	return nil
 }

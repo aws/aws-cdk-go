@@ -13,8 +13,8 @@ import (
 //
 // Example:
 //   fail := sfn.NewFail(this, jsii.String("Fail"), &FailProps{
-//   	ErrorPath: sfn.JsonPath_StringAt(jsii.String("$.someError")),
-//   	CausePath: sfn.JsonPath_*StringAt(jsii.String("$.someCause")),
+//   	ErrorPath: sfn.JsonPath_Format(jsii.String("error: {}."), sfn.JsonPath_StringAt(jsii.String("$.someError"))),
+//   	CausePath: jsii.String("States.Format('cause: {}.', $.someCause)"),
 //   })
 //
 type Fail interface {
@@ -86,7 +86,7 @@ type Fail interface {
 	ToStateJson() *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
-	// Allows the state to validate itself.
+	// Validate this state.
 	ValidateState() *[]*string
 	// Called whenever this state is bound to a graph.
 	//

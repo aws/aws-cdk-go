@@ -5,8 +5,8 @@ package awsstepfunctions
 //
 // Example:
 //   fail := sfn.NewFail(this, jsii.String("Fail"), &FailProps{
-//   	ErrorPath: sfn.JsonPath_StringAt(jsii.String("$.someError")),
-//   	CausePath: sfn.JsonPath_*StringAt(jsii.String("$.someCause")),
+//   	ErrorPath: sfn.JsonPath_Format(jsii.String("error: {}."), sfn.JsonPath_StringAt(jsii.String("$.someError"))),
+//   	CausePath: jsii.String("States.Format('cause: {}.', $.someCause)"),
 //   })
 //
 type FailProps struct {
@@ -15,6 +15,9 @@ type FailProps struct {
 	//
 	Cause *string `field:"optional" json:"cause" yaml:"cause"`
 	// JsonPath expression to select part of the state to be the cause to this state.
+	//
+	// You can also use an intrinsic function that returns a string to specify this property.
+	// The allowed functions include States.Format, States.JsonToString, States.ArrayGetItem, States.Base64Encode, States.Base64Decode, States.Hash, and States.UUID.
 	// Default: - No cause path.
 	//
 	CausePath *string `field:"optional" json:"causePath" yaml:"causePath"`
@@ -27,6 +30,9 @@ type FailProps struct {
 	//
 	Error *string `field:"optional" json:"error" yaml:"error"`
 	// JsonPath expression to select part of the state to be the error to this state.
+	//
+	// You can also use an intrinsic function that returns a string to specify this property.
+	// The allowed functions include States.Format, States.JsonToString, States.ArrayGetItem, States.Base64Encode, States.Base64Decode, States.Hash, and States.UUID.
 	// Default: - No error path.
 	//
 	ErrorPath *string `field:"optional" json:"errorPath" yaml:"errorPath"`

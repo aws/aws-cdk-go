@@ -6,6 +6,7 @@
 
   * [Lambda Integration](#lambda)
   * [HTTP Proxy Integration](#http-proxy)
+  * [StepFunctions Integration](#stepfunctions-integration)
   * [Private Integration](#private-integration)
   * [Request Parameters](#request-parameters)
 * [WebSocket APIs](#websocket-apis)

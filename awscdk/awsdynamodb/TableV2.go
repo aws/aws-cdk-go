@@ -66,6 +66,9 @@ type TableV2 interface {
 	//   cross-environment scenarios.
 	PhysicalName() *string
 	Region() *string
+	// The resource policy for the table.
+	ResourcePolicy() awsiam.PolicyDocument
+	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// The ARN of the table.
@@ -88,6 +91,12 @@ type TableV2 interface {
 	//
 	// Note: Adding a replica table will allow you to use your table as a global table.
 	AddReplica(props *ReplicaTableProps)
+	// Adds a statement to the resource policy associated with this file system.
+	//
+	// A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+	//
+	// Note that this does not work with imported file systems.
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -288,6 +297,16 @@ func (j *jsiiProxy_TableV2) Region() *string {
 	return returns
 }
 
+func (j *jsiiProxy_TableV2) ResourcePolicy() awsiam.PolicyDocument {
+	var returns awsiam.PolicyDocument
+	_jsii_.Get(
+		j,
+		"resourcePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TableV2) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -363,6 +382,14 @@ func NewTableV2_Override(t TableV2, scope constructs.Construct, id *string, prop
 		"aws-cdk-lib.aws_dynamodb.TableV2",
 		[]interface{}{scope, id, props},
 		t,
+	)
+}
+
+func (j *jsiiProxy_TableV2)SetResourcePolicy(val awsiam.PolicyDocument) {
+	_jsii_.Set(
+		j,
+		"resourcePolicy",
+		val,
 	)
 }
 
@@ -527,6 +554,22 @@ func (t *jsiiProxy_TableV2) AddReplica(props *ReplicaTableProps) {
 		"addReplica",
 		[]interface{}{props},
 	)
+}
+
+func (t *jsiiProxy_TableV2) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := t.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		t,
+		"addToResourcePolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
 }
 
 func (t *jsiiProxy_TableV2) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

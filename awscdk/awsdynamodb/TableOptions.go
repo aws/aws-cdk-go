@@ -2,6 +2,7 @@ package awsdynamodb
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
@@ -16,10 +17,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
 //   var inputFormat inputFormat
 //   var key key
+//   var policyDocument policyDocument
 //
 //   tableOptions := &TableOptions{
 //   	PartitionKey: &Attribute{
@@ -49,6 +52,7 @@ import (
 //   		jsii.String("replicationRegions"),
 //   	},
 //   	ReplicationTimeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   	ResourcePolicy: policyDocument,
 //   	SortKey: &Attribute{
 //   		Name: jsii.String("name"),
 //   		Type: awscdk.*Aws_dynamodb.AttributeType_BINARY,
@@ -130,6 +134,12 @@ type TableOptions struct {
 	// Default: Duration.minutes(30)
 	//
 	ReplicationTimeout awscdk.Duration `field:"optional" json:"replicationTimeout" yaml:"replicationTimeout"`
+	// Resource policy to assign to table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-resourcepolicy
+	//
+	// Default: - No resource policy statement.
+	//
+	ResourcePolicy awsiam.PolicyDocument `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
 	// Default: - streams are disabled unless `replicationRegions` is specified.
 	//

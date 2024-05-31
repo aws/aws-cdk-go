@@ -43,6 +43,8 @@ func init() {
 		map[string]interface{}{
 			"STANDARD": ChannelType_STANDARD,
 			"BASIC": ChannelType_BASIC,
+			"ADVANCED_SD": ChannelType_ADVANCED_SD,
+			"ADVANCED_HD": ChannelType_ADVANCED_HD,
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -128,6 +130,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-ivs-alpha.PlaybackKeyPairProps",
 		reflect.TypeOf((*PlaybackKeyPairProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-ivs-alpha.Preset",
+		reflect.TypeOf((*Preset)(nil)).Elem(),
+		map[string]interface{}{
+			"CONSTRAINED_BANDWIDTH_DELIVERY": Preset_CONSTRAINED_BANDWIDTH_DELIVERY,
+			"HIGHER_BANDWIDTH_DELIVERY": Preset_HIGHER_BANDWIDTH_DELIVERY,
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-ivs-alpha.StreamKey",

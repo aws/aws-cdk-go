@@ -80,6 +80,10 @@ func validateCfnFleet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetFleetVpcConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

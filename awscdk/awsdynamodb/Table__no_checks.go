@@ -12,6 +12,10 @@ func (t *jsiiProxy_Table) validateAddLocalSecondaryIndexParameters(props *LocalS
 	return nil
 }
 
+func (t *jsiiProxy_Table) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (t *jsiiProxy_Table) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

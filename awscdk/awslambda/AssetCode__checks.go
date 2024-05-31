@@ -78,6 +78,22 @@ func validateAssetCode_FromCfnParametersParameters(props *CfnParametersCodeProps
 	return nil
 }
 
+func validateAssetCode_FromCustomCommandParameters(output *string, command *[]*string, options *CustomCommandOptions) error {
+	if output == nil {
+		return fmt.Errorf("parameter output is required, but nil was provided")
+	}
+
+	if command == nil {
+		return fmt.Errorf("parameter command is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateAssetCode_FromDockerBuildParameters(path *string, options *DockerBuildAssetOptions) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")

@@ -6,7 +6,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
-// Properties for a new Aurora Serverless Cluster.
+// Properties for a new Aurora Serverless v1 Cluster.
 //
 // Example:
 //   // Build a data source for AppSync to access the database.
@@ -134,7 +134,7 @@ type ServerlessClusterProps struct {
 	// If the `vpc` property was not provided, no subnet group will be associated with the DB cluster.
 	//
 	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
-	// The VPC that this Aurora Serverless cluster has been created in.
+	// The VPC that this Aurora Serverless v1 Cluster has been created in.
 	// Default: - the default VPC in the account and region will be used.
 	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`

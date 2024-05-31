@@ -68,6 +68,13 @@ type Table interface {
 	//   cross-environment scenarios.
 	PhysicalName() *string
 	RegionalArns() *[]*string
+	// Resource policy to assign to DynamoDB Table.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html
+	//
+	// Default: - No resource policy statements are added to the created table.
+	//
+	ResourcePolicy() awsiam.PolicyDocument
+	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Arn of the dynamodb table.
@@ -80,6 +87,12 @@ type Table interface {
 	AddGlobalSecondaryIndex(props *GlobalSecondaryIndexProps)
 	// Add a local secondary index of table.
 	AddLocalSecondaryIndex(props *LocalSecondaryIndexProps)
+	// Adds a statement to the resource policy associated with this file system.
+	//
+	// A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+	//
+	// Note that this does not work with imported file systems.
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -290,6 +303,16 @@ func (j *jsiiProxy_Table) RegionalArns() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_Table) ResourcePolicy() awsiam.PolicyDocument {
+	var returns awsiam.PolicyDocument
+	_jsii_.Get(
+		j,
+		"resourcePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Table) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -355,6 +378,14 @@ func NewTable_Override(t Table, scope constructs.Construct, id *string, props *T
 		"aws-cdk-lib.aws_dynamodb.Table",
 		[]interface{}{scope, id, props},
 		t,
+	)
+}
+
+func (j *jsiiProxy_Table)SetResourcePolicy(val awsiam.PolicyDocument) {
+	_jsii_.Set(
+		j,
+		"resourcePolicy",
+		val,
 	)
 }
 
@@ -508,6 +539,22 @@ func (t *jsiiProxy_Table) AddLocalSecondaryIndex(props *LocalSecondaryIndexProps
 		"addLocalSecondaryIndex",
 		[]interface{}{props},
 	)
+}
+
+func (t *jsiiProxy_Table) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := t.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		t,
+		"addToResourcePolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
 }
 
 func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

@@ -6,26 +6,34 @@ package awsstepfunctions
 // You can control these AWS services using service integration patterns:.
 //
 // Example:
-//   // Define a state machine with one Pass state
-//   child := sfn.NewStateMachine(this, jsii.String("ChildStateMachine"), &StateMachineProps{
-//   	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("PassState"))),
-//   })
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // Include the state machine in a Task state with callback pattern
-//   task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &StepFunctionsStartExecutionProps{
-//   	StateMachine: child,
-//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-//   	Input: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"token": sfn.JsonPath_taskToken(),
-//   		"foo": jsii.String("bar"),
+//
+//   project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+//   	ProjectName: jsii.String("MyTestProject"),
+//   	BuildSpec: codebuild.BuildSpec_FromObjectToYaml(map[string]interface{}{
+//   		"version": jsii.Number(0.2),
+//   		"batch": map[string][]map[string]*string{
+//   			"build-list": []map[string]*string{
+//   				map[string]*string{
+//   					"identifier": jsii.String("id"),
+//   					"buildspec": jsii.String("version: 0.2\nphases:\n  build:\n    commands:\n      - echo \"Hello, from small!\""),
+//   				},
+//   			},
+//   		},
 //   	}),
-//   	Name: jsii.String("MyExecutionName"),
 //   })
+//   project.EnableBatchBuilds()
 //
-//   // Define a second state machine with the Task state above
-//   // Define a second state machine with the Task state above
-//   sfn.NewStateMachine(this, jsii.String("ParentStateMachine"), &StateMachineProps{
-//   	Definition: task,
+//   task := tasks.NewCodeBuildStartBuildBatch(this, jsii.String("buildBatchTask"), &CodeBuildStartBuildBatchProps{
+//   	Project: Project,
+//   	IntegrationPattern: sfn.IntegrationPattern_REQUEST_RESPONSE,
+//   	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
+//   		"test": &buildEnvironmentVariable{
+//   			"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
+//   			"value": jsii.String("testValue"),
+//   		},
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html

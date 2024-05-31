@@ -28,6 +28,10 @@ func validateAssetCode_FromCfnParametersParameters(props *CfnParametersCodeProps
 	return nil
 }
 
+func validateAssetCode_FromCustomCommandParameters(output *string, command *[]*string, options *CustomCommandOptions) error {
+	return nil
+}
+
 func validateAssetCode_FromDockerBuildParameters(path *string, options *DockerBuildAssetOptions) error {
 	return nil
 }

@@ -7,25 +7,17 @@ import (
 // The properties for the ScheduledFargateTask using an image.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
-//   	MaxAzs: jsii.Number(1),
-//   })
-//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
-//   	Vpc: Vpc,
-//   })
+//   var cluster cluster
+//
 //   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
 //   	Cluster: Cluster,
 //   	ScheduledFargateTaskImageOptions: &ScheduledFargateTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   		ContainerName: jsii.String("customContainerName"),
 //   		MemoryLimitMiB: jsii.Number(512),
 //   	},
 //   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
-//   	Tags: []tag{
-//   		&tag{
-//   			Key: jsii.String("my-tag"),
-//   			Value: jsii.String("my-tag-value"),
-//   		},
-//   	},
+//   	PlatformVersion: ecs.FargatePlatformVersion_LATEST,
 //   })
 //
 type ScheduledFargateTaskImageOptions struct {
@@ -41,6 +33,10 @@ type ScheduledFargateTaskImageOptions struct {
 	// Default: - CMD value built into container image.
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// Optional name for the container added.
+	// Default: - ScheduledContainer.
+	//
+	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The environment variables to pass to the container.
 	// Default: none.
 	//

@@ -82,7 +82,12 @@ type NodejsFunctionProps struct {
 	// Sets the application log level for the function.
 	// Default: "INFO".
 	//
+	// Deprecated: Use `applicationLogLevelV2` as a property instead.
 	ApplicationLogLevel *string `field:"optional" json:"applicationLogLevel" yaml:"applicationLogLevel"`
+	// Sets the application log level for the function.
+	// Default: ApplicationLogLevel.INFO
+	//
+	ApplicationLogLevelV2 awslambda.ApplicationLogLevel `field:"optional" json:"applicationLogLevelV2" yaml:"applicationLogLevelV2"`
 	// The system architectures compatible with this lambda function.
 	// Default: Architecture.X86_64
 	//
@@ -179,6 +184,7 @@ type NodejsFunctionProps struct {
 	// Sets the logFormat for the function.
 	// Default: "Text".
 	//
+	// Deprecated: Use `loggingFormat` as a property instead.
 	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
 	// Sets the loggingFormat for the function.
 	// Default: LoggingFormat.TEXT
@@ -302,7 +308,12 @@ type NodejsFunctionProps struct {
 	// Sets the system log level for the function.
 	// Default: "INFO".
 	//
+	// Deprecated: Use `systemLogLevelV2` as a property instead.
 	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`
+	// Sets the system log level for the function.
+	// Default: SystemLogLevel.INFO
+	//
+	SystemLogLevelV2 awslambda.SystemLogLevel `field:"optional" json:"systemLogLevelV2" yaml:"systemLogLevelV2"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
@@ -353,6 +364,15 @@ type NodejsFunctionProps struct {
 	// modules are bundled.
 	//
 	Bundling *BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
+	// The code that will be deployed to the Lambda Handler.
+	//
+	// If included, then properties related to
+	// bundling of the code are ignored.
+	//
+	// * If the `code` field is specified, then you must include the `handler` property.
+	// Default: - the code is bundled by esbuild.
+	//
+	Code awslambda.Code `field:"optional" json:"code" yaml:"code"`
 	// The path to the dependencies lock file (`yarn.lock`, `pnpm-lock.yaml` or `package-lock.json`).
 	//
 	// This will be used as the source for the volume mounted in the Docker
@@ -373,8 +393,12 @@ type NodejsFunctionProps struct {
 	Entry *string `field:"optional" json:"entry" yaml:"entry"`
 	// The name of the exported handler in the entry file.
 	//
-	// The handler is prefixed with `index.` unless the specified handler value contains a `.`,
-	// in which case it is used as-is.
+	// * If the `code` property is supplied, then you must include the `handler` property. The handler should be the name of the file
+	// that contains the exported handler and the function that should be called when the AWS Lambda is invoked. For example, if
+	// you had a file called `myLambda.js` and the function to be invoked was `myHandler`, then you should input `handler` property as `myLambda.myHandler`.
+	//
+	// * If the `code` property is not supplied and the handler input does not contain a `.`, then the handler is prefixed with `index.` (index period). Otherwise,
+	// the handler property is not modified.
 	// Default: handler.
 	//
 	Handler *string `field:"optional" json:"handler" yaml:"handler"`

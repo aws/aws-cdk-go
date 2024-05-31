@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateSetIamRoleArnP
 	return nil
 }
 
+func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateSetTeamIdParameters(val *string) error {
 	return nil
 }

@@ -4,6 +4,10 @@ package awsdynamodb
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (t *jsiiProxy_TableBase) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (t *jsiiProxy_TableBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

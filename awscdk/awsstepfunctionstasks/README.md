@@ -82,6 +82,9 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
   * [Lambda](#lambda)
 
     * [Invoke](#invoke)
+  * [MediaConvert](#mediaconvert)
+
+    * [Create Job](#create-job)
   * [SageMaker](#sagemaker)
 
     * [Create Training Job](#create-training-job)
@@ -1197,6 +1200,19 @@ tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
 })
 ```
 
+You can configure workers by setting the `workerType` and `numberOfWorkers` properties.
+
+```go
+tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
+	GlueJobName: jsii.String("my-glue-job"),
+	WorkerConfiguration: &WorkerConfigurationProperty{
+		WorkerType: tasks.WorkerType_G_1X,
+		 // Worker type
+		NumberOfWorkers: jsii.Number(2),
+	},
+})
+```
+
 ### StartCrawlerRun
 
 You can call the [`StartCrawler`](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-StartCrawler) API from a `Task` state through AWS SDK service integrations.
@@ -1374,6 +1390,81 @@ results in a 500 error, such as `ClientExecutionTimeoutException`, `ServiceExcep
 As a best practice, the `LambdaInvoke` task will retry on those errors with an interval of 2 seconds,
 a back-off rate of 2 and 6 maximum attempts. Set the `retryOnServiceExceptions` prop to `false` to
 disable this behavior.
+
+## MediaConvert
+
+Step Functions supports [AWS MediaConvert](https://docs.aws.amazon.com/step-functions/latest/dg/connect-mediaconvert.html) through the Optimized integration pattern.
+
+### CreateJob
+
+The [CreateJob](https://docs.aws.amazon.com/mediaconvert/latest/apireference/jobs.html#jobspost) API creates a new transcoding job.
+For information about jobs and job settings, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+
+You can call the `CreateJob` API from a `Task` state. Optionally you can specify the `integrationPattern`.
+
+Make sure you update the required fields - [Role](https://docs.aws.amazon.com/mediaconvert/latest/apireference/jobs.html#jobs-prop-createjobrequest-role) &
+[Settings](https://docs.aws.amazon.com/mediaconvert/latest/apireference/jobs.html#jobs-prop-createjobrequest-settings) and refer
+[CreateJobRequest](https://docs.aws.amazon.com/mediaconvert/latest/apireference/jobs.html#jobs-model-createjobrequest) for all other optional parameters.
+
+```go
+tasks.NewMediaConvertCreateJob(this, jsii.String("CreateJob"), &MediaConvertCreateJobProps{
+	CreateJobRequest: map[string]interface{}{
+		"Role": jsii.String("arn:aws:iam::123456789012:role/MediaConvertRole"),
+		"Settings": map[string][]map[string]interface{}{
+			"OutputGroups": []map[string]interface{}{
+				map[string]interface{}{
+					"Outputs": []map[string]interface{}{
+						map[string]interface{}{
+							"ContainerSettings": map[string]*string{
+								"Container": jsii.String("MP4"),
+							},
+							"VideoDescription": map[string]map[string]interface{}{
+								"CodecSettings": map[string]interface{}{
+									"Codec": jsii.String("H_264"),
+									"H264Settings": map[string]interface{}{
+										"MaxBitrate": jsii.Number(1000),
+										"RateControlMode": jsii.String("QVBR"),
+										"SceneChangeDetect": jsii.String("TRANSITION_DETECTION"),
+									},
+								},
+							},
+							"AudioDescriptions": []map[string]map[string]interface{}{
+								map[string]map[string]interface{}{
+									"CodecSettings": map[string]interface{}{
+										"Codec": jsii.String("AAC"),
+										"AacSettings": map[string]interface{}{
+											"Bitrate": jsii.Number(96000),
+											"CodingMode": jsii.String("CODING_MODE_2_0"),
+											"SampleRate": jsii.Number(48000),
+										},
+									},
+								},
+							},
+						},
+					},
+					"OutputGroupSettings": map[string]interface{}{
+						"Type": jsii.String("FILE_GROUP_SETTINGS"),
+						"FileGroupSettings": map[string]*string{
+							"Destination": jsii.String("s3://EXAMPLE-DESTINATION-BUCKET/"),
+						},
+					},
+				},
+			},
+			"Inputs": []map[string]interface{}{
+				map[string]interface{}{
+					"AudioSelectors": map[string]map[string]*string{
+						"Audio Selector 1": map[string]*string{
+							"DefaultSelection": jsii.String("DEFAULT"),
+						},
+					},
+					"FileInput": jsii.String("s3://EXAMPLE-SOURCE-BUCKET/EXAMPLE-SOURCE_FILE"),
+				},
+			},
+		},
+	},
+	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+})
+```
 
 ## SageMaker
 

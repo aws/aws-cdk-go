@@ -16,6 +16,10 @@ func (t *jsiiProxy_TableV2) validateAddReplicaParameters(props *ReplicaTableProp
 	return nil
 }
 
+func (t *jsiiProxy_TableV2) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (t *jsiiProxy_TableV2) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

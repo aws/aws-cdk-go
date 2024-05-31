@@ -188,6 +188,18 @@ instance.Metric(jsii.String("SparqlRequestsPerSec"))
 
 For more details on the available metrics, refer to https://docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.html
 
+## Copy tags to snapshot
+
+By setting `copyTagsToSnapshot` to true, all tags of the cluster are copied to the snapshots when they are created.
+
+```go
+cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Vpc: Vpc,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
+	CopyTagsToSnapshot: jsii.Boolean(true),
+})
+```
+
 ## Neptune Serverless
 
 You can configure a Neptune Serverless cluster using the dedicated instance type along with the

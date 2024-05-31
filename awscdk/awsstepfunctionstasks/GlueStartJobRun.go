@@ -17,14 +17,13 @@ import (
 // https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-JobRun
 //
 // Example:
-//   import glue "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//
-//   var submitGlue job
-//
-//
-//   submitJob := tasks.NewGlueStartJobRun(this, jsii.String("Submit Job"), &GlueStartJobRunProps{
-//   	GlueJobName: submitGlue.JobName,
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
+//   	GlueJobName: jsii.String("my-glue-job"),
+//   	WorkerConfiguration: &WorkerConfigurationProperty{
+//   		WorkerType: tasks.WorkerType_G_1X,
+//   		 // Worker type
+//   		NumberOfWorkers: jsii.Number(2),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html

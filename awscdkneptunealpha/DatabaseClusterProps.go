@@ -71,6 +71,11 @@ type DatabaseClusterProps struct {
 	//
 	// Experimental.
 	ClusterParameterGroup IClusterParameterGroup `field:"optional" json:"clusterParameterGroup" yaml:"clusterParameterGroup"`
+	// Whether to copy tags to the snapshot when a snapshot is created.
+	// Default: - false.
+	//
+	// Experimental.
+	CopyTagsToSnapshot *bool `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// An optional identifier for the cluster.
 	// Default: - A name is automatically generated.
 	//

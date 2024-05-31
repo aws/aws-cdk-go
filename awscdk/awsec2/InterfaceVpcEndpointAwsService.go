@@ -2343,6 +2343,17 @@ func InterfaceVpcEndpointAwsService_PINPOINT_V1() InterfaceVpcEndpointAwsService
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_PIPES_DATA() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"PIPES_DATA",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_POLLY() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

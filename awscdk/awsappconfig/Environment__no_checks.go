@@ -24,6 +24,14 @@ func (e *jsiiProxy_Environment) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
+func (e *jsiiProxy_Environment) validateGrantParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (e *jsiiProxy_Environment) validateGrantReadConfigParameters(identity awsiam.IGrantable) error {
+	return nil
+}
+
 func (e *jsiiProxy_Environment) validateOnParameters(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) error {
 	return nil
 }

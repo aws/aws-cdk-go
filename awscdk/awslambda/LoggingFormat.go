@@ -20,8 +20,8 @@ package awslambda
 //   	Handler: jsii.String("index.handler"),
 //   	Runtime: lambda.Runtime_NODEJS_18_X(),
 //   	LoggingFormat: lambda.LoggingFormat_JSON,
-//   	SystemLogLevel: lambda.SystemLogLevel_INFO,
-//   	ApplicationLogLevel: lambda.ApplicationLogLevel_INFO,
+//   	SystemLogLevelV2: lambda.SystemLogLevel_INFO,
+//   	ApplicationLogLevelV2: lambda.ApplicationLogLevel_INFO,
 //   	LogGroup: logGroup,
 //   })
 //

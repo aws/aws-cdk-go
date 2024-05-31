@@ -75,7 +75,12 @@ type TriggerFunctionProps struct {
 	// Sets the application log level for the function.
 	// Default: "INFO".
 	//
+	// Deprecated: Use `applicationLogLevelV2` as a property instead.
 	ApplicationLogLevel *string `field:"optional" json:"applicationLogLevel" yaml:"applicationLogLevel"`
+	// Sets the application log level for the function.
+	// Default: ApplicationLogLevel.INFO
+	//
+	ApplicationLogLevelV2 awslambda.ApplicationLogLevel `field:"optional" json:"applicationLogLevelV2" yaml:"applicationLogLevelV2"`
 	// The system architectures compatible with this lambda function.
 	// Default: Architecture.X86_64
 	//
@@ -172,6 +177,7 @@ type TriggerFunctionProps struct {
 	// Sets the logFormat for the function.
 	// Default: "Text".
 	//
+	// Deprecated: Use `loggingFormat` as a property instead.
 	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
 	// Sets the loggingFormat for the function.
 	// Default: LoggingFormat.TEXT
@@ -295,7 +301,12 @@ type TriggerFunctionProps struct {
 	// Sets the system log level for the function.
 	// Default: "INFO".
 	//
+	// Deprecated: Use `systemLogLevelV2` as a property instead.
 	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`
+	// Sets the system log level for the function.
+	// Default: SystemLogLevel.INFO
+	//
+	SystemLogLevelV2 awslambda.SystemLogLevel `field:"optional" json:"systemLogLevelV2" yaml:"systemLogLevelV2"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value

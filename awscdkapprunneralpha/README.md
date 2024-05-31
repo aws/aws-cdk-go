@@ -239,6 +239,27 @@ service := apprunner.NewService(stack, jsii.String("Service"), &ServiceProps{
 service.AddSecret(jsii.String("LATER_SECRET"), apprunner.secret_FromSecretsManager(secret, jsii.String("field")))
 ```
 
+## Use a customer managed key
+
+To use a customer managed key for your source encryption, use the `kmsKey` attribute.
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+var kmsKey iKey
+
+
+apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
+		},
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+	}),
+	KmsKey: KmsKey,
+})
+```
+
 ## HealthCheck
 
 To configure the health check for the service, use the `healthCheck` attribute.

@@ -33,6 +33,12 @@ import (
 //   	SnsTopicArns: []*string{
 //   		jsii.String("snsTopicArns"),
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	UserRoleRequired: jsii.Boolean(false),
 //   })
 //
@@ -41,8 +47,11 @@ import (
 type CfnMicrosoftTeamsChannelConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Amazon Resource Name (ARN) of the configuration.
 	AttrArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -90,6 +99,9 @@ type CfnMicrosoftTeamsChannelConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to add to the configuration.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The ID of the Microsoft Team authorized with AWS Chatbot .
 	TeamId() *string
 	SetTeamId(val *string)
@@ -246,6 +258,7 @@ type CfnMicrosoftTeamsChannelConfiguration interface {
 type jsiiProxy_CfnMicrosoftTeamsChannelConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) AttrArn() *string {
@@ -253,6 +266,16 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -388,6 +411,16 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) TeamId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -518,6 +551,17 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration)SetSnsTopicArns(val *[]
 	_jsii_.Set(
 		j,
 		"snsTopicArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -400,6 +400,27 @@ bucket := s3.NewBucket(this, jsii.String("MyBlockedBucket"), &BucketProps{
 
 When `blockPublicPolicy` is set to `true`, `grantPublicRead()` throws an error.
 
+## Public Read Access
+
+Use `publicReadAccess` to allow public read access to the bucket.
+
+Note that to enable `publicReadAccess`, make sure both bucket-level and account-level block public access control is disabled.
+
+Bucket-level block public access control can be configured through `blockPublicAccess` property. Account-level block public
+access control can be configured on AWS Console -> S3 -> Block Public Access settings for this account (Navigation Panel).
+
+```go
+bucket := s3.NewBucket(this, jsii.String("Bucket"), &BucketProps{
+	PublicReadAccess: jsii.Boolean(true),
+	BlockPublicAccess: map[string]*bool{
+		"blockPublicPolicy": jsii.Boolean(false),
+		"blockPublicAcls": jsii.Boolean(false),
+		"ignorePublicAcls": jsii.Boolean(false),
+		"restrictPublicBuckets": jsii.Boolean(false),
+	},
+})
+```
+
 ## Logging configuration
 
 Use `serverAccessLogsBucket` to describe where server access logs are to be stored.

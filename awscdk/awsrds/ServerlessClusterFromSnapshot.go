@@ -12,7 +12,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A Aurora Serverless Cluster restored from a snapshot.
+// A Aurora Serverless v1 Cluster restored from a snapshot.
 //
 // Example:
 //   var vpc vpc

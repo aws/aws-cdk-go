@@ -38,6 +38,22 @@ You can create a channel
 myChannel := ivs.NewChannel(this, jsii.String("Channel"))
 ```
 
+You can use Advanced Channel type by setting the `type` property to
+`ivs.ChannelType.ADVANCED_HD` or `ivs.ChannelType.ADVANCED_SD`.
+
+Additionally, when using the Advanced Channel type, you can set
+the `preset` property to `ivs.Preset.CONSTRAINED_BANDWIDTH_DELIVERY`
+or `ivs.Preset.HIGHER_BANDWIDTH_DELIVERY`.
+
+For more information, see [Amazon IVS Streaming Configuration](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/streaming-config.html).
+
+```go
+myChannel := ivs.NewChannel(this, jsii.String("myChannel"), &ChannelProps{
+	Type: ivs.ChannelType_ADVANCED_HD,
+	Preset: ivs.Preset_CONSTRAINED_BANDWIDTH_DELIVERY,
+})
+```
+
 ### Importing an existing channel
 
 You can reference an existing channel, for example, if you need to create a

@@ -4,7 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
-// Options for configuring scaling on an Aurora Serverless cluster.
+// Options for configuring scaling on an Aurora Serverless v1 Cluster.
 //
 // Example:
 //   var vpc vpc

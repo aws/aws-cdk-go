@@ -992,6 +992,45 @@ applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedF
 })
 ```
 
+### Customize Container Name for ScheduledFargateTask
+
+```go
+var cluster cluster
+
+scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
+	Cluster: Cluster,
+	ScheduledFargateTaskImageOptions: &ScheduledFargateTaskImageOptions{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+		ContainerName: jsii.String("customContainerName"),
+		MemoryLimitMiB: jsii.Number(512),
+	},
+	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
+	PlatformVersion: ecs.FargatePlatformVersion_LATEST,
+})
+```
+
+### Customize Container Name for ScheduledEc2Task
+
+```go
+var cluster cluster
+
+ecsScheduledTask := ecsPatterns.NewScheduledEc2Task(this, jsii.String("ScheduledTask"), &ScheduledEc2TaskProps{
+	Cluster: Cluster,
+	ScheduledEc2TaskImageOptions: &ScheduledEc2TaskImageOptions{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+		ContainerName: jsii.String("customContainerName"),
+		MemoryLimitMiB: jsii.Number(256),
+		Environment: map[string]*string{
+			"name": jsii.String("TRIGGER"),
+			"value": jsii.String("CloudWatch Events"),
+		},
+	},
+	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
+	Enabled: jsii.Boolean(true),
+	RuleName: jsii.String("sample-scheduled-task-rule"),
+})
+```
+
 ### Set PlatformVersion for ScheduledFargateTask
 
 ```go

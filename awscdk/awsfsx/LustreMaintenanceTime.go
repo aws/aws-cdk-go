@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Class for scheduling a weekly manitenance time.
+// Class for scheduling a weekly maintenance time.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

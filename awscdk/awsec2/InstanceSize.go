@@ -10,17 +10,14 @@ package awsec2
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 //   	}),
-//   	ServerlessV2MinCapacity: jsii.Number(6.5),
-//   	ServerlessV2MaxCapacity: jsii.Number(64),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
-//   			ScaleWithWriter: jsii.Boolean(true),
-//   		}),
-//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 //   	},
+//   	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
+//   	 // Optional - defaults to rds.InstanceUpdateBehaviour.BULK
 //   	Vpc: Vpc,
 //   })
 //

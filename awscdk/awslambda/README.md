@@ -25,6 +25,10 @@ runtime code.
 * `lambda.Code.fromDockerBuild(path, options)` - use the result of a Docker
   build as code. The runtime code is expected to be located at `/asset` in the
   image and will be zipped and uploaded to S3 as an asset.
+* `lambda.Code.fromCustomCommand(output, command, customCommandOptions)` -
+  supply a command that is invoked during cdk synth. That command is meant to direct
+  the generated code to output (a zip file or a directory), which is then used as the
+  code for the created AWS Lambda.
 
 The following example shows how to define a Python function and deploy the code
 from the local directory `my-lambda-handler` to it:
@@ -175,13 +179,13 @@ lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
 	Handler: jsii.String("index.handler"),
 	Runtime: lambda.Runtime_NODEJS_18_X(),
 	LoggingFormat: lambda.LoggingFormat_JSON,
-	SystemLogLevel: lambda.SystemLogLevel_INFO,
-	ApplicationLogLevel: lambda.ApplicationLogLevel_INFO,
+	SystemLogLevelV2: lambda.SystemLogLevel_INFO,
+	ApplicationLogLevelV2: lambda.ApplicationLogLevel_INFO,
 	LogGroup: logGroup,
 })
 ```
 
-To use `applicationLogLevel` and/or `systemLogLevel` you must set `loggingFormat` to `LoggingFormat.JSON`.
+To use `applicationLogLevelV2` and/or `systemLogLevelV2` you must set `loggingFormat` to `LoggingFormat.JSON`.
 
 ## Resource-based Policies
 

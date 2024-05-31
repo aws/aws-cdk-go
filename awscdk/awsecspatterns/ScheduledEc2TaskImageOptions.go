@@ -38,6 +38,10 @@ type ScheduledEc2TaskImageOptions struct {
 	// Default: - CMD value built into container image.
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	// Optional name for the container added.
+	// Default: - ScheduledContainer.
+	//
+	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// The environment variables to pass to the container.
 	// Default: none.
 	//

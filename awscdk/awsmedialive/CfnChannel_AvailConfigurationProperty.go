@@ -31,6 +31,7 @@ package awsmedialive
 //   			WebDeliveryAllowedFlag: jsii.String("webDeliveryAllowedFlag"),
 //   		},
 //   	},
+//   	Scte35SegmentationScope: jsii.String("scte35SegmentationScope"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html
@@ -40,5 +41,8 @@ type CfnChannel_AvailConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html#cfn-medialive-channel-availconfiguration-availsettings
 	//
 	AvailSettings interface{} `field:"optional" json:"availSettings" yaml:"availSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html#cfn-medialive-channel-availconfiguration-scte35segmentationscope
+	//
+	Scte35SegmentationScope *string `field:"optional" json:"scte35SegmentationScope" yaml:"scte35SegmentationScope"`
 }
 
