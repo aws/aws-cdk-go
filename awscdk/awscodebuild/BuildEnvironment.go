@@ -52,6 +52,17 @@ type BuildEnvironment struct {
 	ComputeType ComputeType `field:"optional" json:"computeType" yaml:"computeType"`
 	// The environment variables that your builds can use.
 	EnvironmentVariables *map[string]*BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// Fleet resource for a reserved capacity CodeBuild project.
+	//
+	// Fleets allow for process builds or tests to run immediately and reduces build durations,
+	// by reserving compute resources for your projects.
+	//
+	// You will be charged for the resources in the fleet, even if they are idle.
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html
+	//
+	// Default: - No fleet will be attached to the project, which will remain on-demand.
+	//
+	Fleet IFleet `field:"optional" json:"fleet" yaml:"fleet"`
 	// Indicates how the project builds Docker images.
 	//
 	// Specify true to enable

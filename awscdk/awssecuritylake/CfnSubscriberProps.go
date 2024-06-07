@@ -16,18 +16,6 @@ import (
 //   		jsii.String("accessTypes"),
 //   	},
 //   	DataLakeArn: jsii.String("dataLakeArn"),
-//   	Sources: []interface{}{
-//   		&SourceProperty{
-//   			AwsLogSource: &AwsLogSourceProperty{
-//   				SourceName: jsii.String("sourceName"),
-//   				SourceVersion: jsii.String("sourceVersion"),
-//   			},
-//   			CustomLogSource: &CustomLogSourceProperty{
-//   				SourceName: jsii.String("sourceName"),
-//   				SourceVersion: jsii.String("sourceVersion"),
-//   			},
-//   		},
-//   	},
 //   	SubscriberIdentity: &SubscriberIdentityProperty{
 //   		ExternalId: jsii.String("externalId"),
 //   		Principal: jsii.String("principal"),
@@ -57,12 +45,6 @@ type CfnSubscriberProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-datalakearn
 	//
 	DataLakeArn *string `field:"required" json:"dataLakeArn" yaml:"dataLakeArn"`
-	// Amazon Security Lake supports log and event collection for natively supported AWS services .
-	//
-	// For more information, see the [Amazon Security Lake User Guide](https://docs.aws.amazon.com//security-lake/latest/userguide/source-management.html) .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-sources
-	//
-	Sources interface{} `field:"required" json:"sources" yaml:"sources"`
 	// The AWS identity used to access your data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-subscriberidentity
 	//

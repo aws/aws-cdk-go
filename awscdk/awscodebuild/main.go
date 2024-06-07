@@ -483,6 +483,17 @@ func init() {
 		reflect.TypeOf((*EfsFileSystemLocationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codebuild.EnvironmentType",
+		reflect.TypeOf((*EnvironmentType)(nil)).Elem(),
+		map[string]interface{}{
+			"ARM_CONTAINER": EnvironmentType_ARM_CONTAINER,
+			"LINUX_CONTAINER": EnvironmentType_LINUX_CONTAINER,
+			"LINUX_GPU_CONTAINER": EnvironmentType_LINUX_GPU_CONTAINER,
+			"WINDOWS_SERVER_2019_CONTAINER": EnvironmentType_WINDOWS_SERVER_2019_CONTAINER,
+			"WINDOWS_SERVER_2022_CONTAINER": EnvironmentType_WINDOWS_SERVER_2022_CONTAINER,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_codebuild.EventAction",
 		reflect.TypeOf((*EventAction)(nil)).Elem(),
 		map[string]interface{}{
@@ -529,6 +540,46 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_FilterGroup{}
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codebuild.Fleet",
+		reflect.TypeOf((*Fleet)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "computeType", GoGetter: "ComputeType"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "environmentType", GoGetter: "EnvironmentType"},
+			_jsii_.MemberProperty{JsiiProperty: "fleetArn", GoGetter: "FleetArn"},
+			_jsii_.MemberProperty{JsiiProperty: "fleetName", GoGetter: "FleetName"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Fleet{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFleet)
+			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codebuild.FleetComputeType",
+		reflect.TypeOf((*FleetComputeType)(nil)).Elem(),
+		map[string]interface{}{
+			"SMALL": FleetComputeType_SMALL,
+			"MEDIUM": FleetComputeType_MEDIUM,
+			"LARGE": FleetComputeType_LARGE,
+			"X_LARGE": FleetComputeType_X_LARGE,
+			"X2_LARGE": FleetComputeType_X2_LARGE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.FleetProps",
+		reflect.TypeOf((*FleetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codebuild.GitHubEnterpriseSourceCredentials",
@@ -643,6 +694,25 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IFileSystemLocation{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_codebuild.IFleet",
+		reflect.TypeOf((*IFleet)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "computeType", GoGetter: "ComputeType"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "environmentType", GoGetter: "EnvironmentType"},
+			_jsii_.MemberProperty{JsiiProperty: "fleetArn", GoGetter: "FleetArn"},
+			_jsii_.MemberProperty{JsiiProperty: "fleetName", GoGetter: "FleetName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFleet{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1090,6 +1160,7 @@ func init() {
 		map[string]interface{}{
 			"STANDARD": WindowsImageType_STANDARD,
 			"SERVER_2019": WindowsImageType_SERVER_2019,
+			"SERVER_2022": WindowsImageType_SERVER_2022,
 		},
 	)
 }

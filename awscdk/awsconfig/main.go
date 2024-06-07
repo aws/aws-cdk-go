@@ -814,6 +814,16 @@ func init() {
 		"aws-cdk-lib.aws_config.CustomRuleProps",
 		reflect.TypeOf((*CustomRuleProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_config.EvaluationMode",
+		reflect.TypeOf((*EvaluationMode)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "modes", GoGetter: "Modes"},
+		},
+		func() interface{} {
+			return &jsiiProxy_EvaluationMode{}
+		},
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_config.IRule",
 		reflect.TypeOf((*IRule)(nil)).Elem(),

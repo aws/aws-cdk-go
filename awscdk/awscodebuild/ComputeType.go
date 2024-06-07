@@ -60,6 +60,8 @@ package awscodebuild
 //   	},
 //   })
 //
+// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types
+//
 type ComputeType string
 
 const (

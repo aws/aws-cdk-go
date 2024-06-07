@@ -7,18 +7,23 @@ import (
 // Construction properties for a CustomRule.
 //
 // Example:
-//   // Lambda function containing logic that evaluates compliance with the rule.
-//   evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &FunctionProps{
-//   	Code: lambda.AssetCode_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
-//   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   var fn function
+//   var samplePolicyText string
+//
+//
+//   config.NewManagedRule(this, jsii.String("ManagedRule"), &ManagedRuleProps{
+//   	Identifier: config.ManagedRuleIdentifiers_API_GW_XRAY_ENABLED(),
+//   	EvaluationModes: config.EvaluationMode_DETECTIVE_AND_PROACTIVE(),
 //   })
 //
-//   // A custom rule that runs on configuration changes of EC2 instances
-//   customRule := config.NewCustomRule(this, jsii.String("Custom"), &CustomRuleProps{
-//   	ConfigurationChanges: jsii.Boolean(true),
-//   	LambdaFunction: evalComplianceFn,
-//   	RuleScope: config.RuleScope_FromResource(config.ResourceType_EC2_INSTANCE()),
+//   config.NewCustomRule(this, jsii.String("CustomRule"), &CustomRuleProps{
+//   	LambdaFunction: fn,
+//   	EvaluationModes: config.EvaluationMode_PROACTIVE(),
+//   })
+//
+//   config.NewCustomPolicy(this, jsii.String("CustomPolicy"), &CustomPolicyProps{
+//   	PolicyText: samplePolicyText,
+//   	EvaluationModes: config.EvaluationMode_DETECTIVE(),
 //   })
 //
 type CustomRuleProps struct {
@@ -30,6 +35,12 @@ type CustomRuleProps struct {
 	// Default: - No description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The modes the AWS Config rule can be evaluated in.
+	//
+	// The valid values are distinct objects.
+	// Default: - Detective evaluation mode only.
+	//
+	EvaluationModes EvaluationMode `field:"optional" json:"evaluationModes" yaml:"evaluationModes"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Default: - No input parameters.
 	//

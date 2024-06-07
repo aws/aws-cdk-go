@@ -18,6 +18,35 @@ import (
 //
 //   	// the properties below are optional
 //   	ContainerType: jsii.String("containerType"),
+//   	DashManifests: []interface{}{
+//   		&DashManifestConfigurationProperty{
+//   			ManifestName: jsii.String("manifestName"),
+//
+//   			// the properties below are optional
+//   			DrmSignaling: jsii.String("drmSignaling"),
+//   			FilterConfiguration: &FilterConfigurationProperty{
+//   				End: jsii.String("end"),
+//   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Start: jsii.String("start"),
+//   				TimeDelaySeconds: jsii.Number(123),
+//   			},
+//   			ManifestWindowSeconds: jsii.Number(123),
+//   			MinBufferTimeSeconds: jsii.Number(123),
+//   			MinUpdatePeriodSeconds: jsii.Number(123),
+//   			PeriodTriggers: []*string{
+//   				jsii.String("periodTriggers"),
+//   			},
+//   			ScteDash: &ScteDashProperty{
+//   				AdMarkerDash: jsii.String("adMarkerDash"),
+//   			},
+//   			SegmentTemplateFormat: jsii.String("segmentTemplateFormat"),
+//   			SuggestedPresentationDelaySeconds: jsii.Number(123),
+//   			UtcTiming: &DashUtcTimingProperty{
+//   				TimingMode: jsii.String("timingMode"),
+//   				TimingSource: jsii.String("timingSource"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	HlsManifests: []interface{}{
 //   		&HlsManifestConfigurationProperty{
@@ -121,6 +150,10 @@ type CfnOriginEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-containertype
 	//
 	ContainerType *string `field:"optional" json:"containerType" yaml:"containerType"`
+	// <p>A DASH manifest configuration.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-dashmanifests
+	//
+	DashManifests interface{} `field:"optional" json:"dashManifests" yaml:"dashManifests"`
 	// The description associated with the origin endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-description
 	//

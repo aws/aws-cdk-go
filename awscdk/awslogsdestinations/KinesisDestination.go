@@ -13,17 +13,19 @@ import (
 // Use a Kinesis stream as the destination for a log subscription.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import kinesis "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role role
 //   var stream stream
+//   var logGroup logGroup
 //
-//   kinesisDestination := awscdk.Aws_logs_destinations.NewKinesisDestination(stream, &KinesisDestinationProps{
-//   	Role: role,
+//
+//   logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{
+//   	LogGroup: LogGroup,
+//   	Destination: destinations.NewKinesisDestination(stream),
+//   	FilterPattern: logs.FilterPattern_AllTerms(jsii.String("ERROR"), jsii.String("MainThread")),
+//   	FilterName: jsii.String("ErrorInMainThread"),
+//   	Distribution: logs.Distribution_RANDOM,
 //   })
 //
 type KinesisDestination interface {

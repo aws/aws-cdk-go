@@ -18,6 +18,12 @@ import (
 //   	// the properties below are optional
 //   	AddonVersion: jsii.String("addonVersion"),
 //   	ConfigurationValues: jsii.String("configurationValues"),
+//   	PodIdentityAssociations: []interface{}{
+//   		&PodIdentityAssociationProperty{
+//   			RoleArn: jsii.String("roleArn"),
+//   			ServiceAccount: jsii.String("serviceAccount"),
+//   		},
+//   	},
 //   	PreserveOnDelete: jsii.Boolean(false),
 //   	ResolveConflicts: jsii.String("resolveConflicts"),
 //   	ServiceAccountRoleArn: jsii.String("serviceAccountRoleArn"),
@@ -48,6 +54,10 @@ type CfnAddonProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-configurationvalues
 	//
 	ConfigurationValues *string `field:"optional" json:"configurationValues" yaml:"configurationValues"`
+	// An array of pod identities to apply to this add-on.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-podidentityassociations
+	//
+	PodIdentityAssociations interface{} `field:"optional" json:"podIdentityAssociations" yaml:"podIdentityAssociations"`
 	// Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
 	//
 	// If an IAM account is associated with the add-on, it isn't removed.

@@ -712,6 +712,14 @@ func init() {
 		"aws-cdk-lib.aws_logs.DataProtectionPolicyProps",
 		reflect.TypeOf((*DataProtectionPolicyProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_logs.Distribution",
+		reflect.TypeOf((*Distribution)(nil)).Elem(),
+		map[string]interface{}{
+			"BY_LOG_STREAM": Distribution_BY_LOG_STREAM,
+			"RANDOM": Distribution_RANDOM,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_logs.FilterPattern",
 		reflect.TypeOf((*FilterPattern)(nil)).Elem(),

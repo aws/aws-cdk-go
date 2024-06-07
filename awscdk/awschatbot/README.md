@@ -49,3 +49,21 @@ correct log retention period (never expire, by default).
 
 By default slack channel will use `AdministratorAccess` managed policy as guardrail policy.
 The `guardrailPolicies` property can be used to set a different set of managed policies.
+
+## User Role Requirement
+
+Administrators can [require user roles](https://docs.aws.amazon.com/chatbot/latest/adminguide/understanding-permissions.html#user-role-requirement) for all current channel members and channels and all channels created in the future by enabling a user role requirement.
+
+You can configure this feature by setting the `userRoleRequired` property.
+
+```go
+import chatbot "github.com/aws/aws-cdk-go/awscdk"
+
+
+slackChannel := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &SlackChannelConfigurationProps{
+	SlackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
+	SlackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
+	SlackChannelId: jsii.String("YOUR_SLACK_CHANNEL_ID"),
+	UserRoleRequired: jsii.Boolean(true),
+})
+```

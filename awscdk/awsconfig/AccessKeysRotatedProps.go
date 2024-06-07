@@ -12,12 +12,14 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var evaluationMode evaluationMode
 //   var inputParameters interface{}
 //   var ruleScope ruleScope
 //
 //   accessKeysRotatedProps := &AccessKeysRotatedProps{
 //   	ConfigRuleName: jsii.String("configRuleName"),
 //   	Description: jsii.String("description"),
+//   	EvaluationModes: evaluationMode,
 //   	InputParameters: map[string]interface{}{
 //   		"inputParametersKey": inputParameters,
 //   	},
@@ -35,6 +37,12 @@ type AccessKeysRotatedProps struct {
 	// Default: - No description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The modes the AWS Config rule can be evaluated in.
+	//
+	// The valid values are distinct objects.
+	// Default: - Detective evaluation mode only.
+	//
+	EvaluationModes EvaluationMode `field:"optional" json:"evaluationModes" yaml:"evaluationModes"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Default: - No input parameters.
 	//

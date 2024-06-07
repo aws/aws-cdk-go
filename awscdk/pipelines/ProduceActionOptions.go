@@ -29,6 +29,7 @@ import (
 //   var codePipeline codePipeline
 //   var construct construct
 //   var fileSystemLocation iFileSystemLocation
+//   var fleet fleet
 //   var logGroup logGroup
 //   var policyStatement policyStatement
 //   var securityGroup securityGroup
@@ -64,6 +65,7 @@ import (
 //   					"type": awscdk.*Aws_codebuild.BuildEnvironmentVariableType_PLAINTEXT,
 //   				},
 //   			},
+//   			Fleet: fleet,
 //   			Privileged: jsii.Boolean(false),
 //   		},
 //   		Cache: cache,

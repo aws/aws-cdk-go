@@ -13,16 +13,23 @@ import (
 // A new managed rule.
 //
 // Example:
-//   // https://docs.aws.amazon.com/config/latest/developerguide/access-keys-rotated.html
-//   // https://docs.aws.amazon.com/config/latest/developerguide/access-keys-rotated.html
-//   config.NewManagedRule(this, jsii.String("AccessKeysRotated"), &ManagedRuleProps{
-//   	Identifier: config.ManagedRuleIdentifiers_ACCESS_KEYS_ROTATED(),
-//   	InputParameters: map[string]interface{}{
-//   		"maxAccessKeyAge": jsii.Number(60),
-//   	},
+//   var fn function
+//   var samplePolicyText string
 //
-//   	// default is 24 hours
-//   	MaximumExecutionFrequency: config.MaximumExecutionFrequency_TWELVE_HOURS,
+//
+//   config.NewManagedRule(this, jsii.String("ManagedRule"), &ManagedRuleProps{
+//   	Identifier: config.ManagedRuleIdentifiers_API_GW_XRAY_ENABLED(),
+//   	EvaluationModes: config.EvaluationMode_DETECTIVE_AND_PROACTIVE(),
+//   })
+//
+//   config.NewCustomRule(this, jsii.String("CustomRule"), &CustomRuleProps{
+//   	LambdaFunction: fn,
+//   	EvaluationModes: config.EvaluationMode_PROACTIVE(),
+//   })
+//
+//   config.NewCustomPolicy(this, jsii.String("CustomPolicy"), &CustomPolicyProps{
+//   	PolicyText: samplePolicyText,
+//   	EvaluationModes: config.EvaluationMode_DETECTIVE(),
 //   })
 //
 type ManagedRule interface {

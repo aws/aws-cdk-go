@@ -159,6 +159,17 @@ func AdotLambdaLayerPythonSdkVersion_V1_21_0() AdotLambdaLayerPythonSdkVersion {
 	return returns
 }
 
+func AdotLambdaLayerPythonSdkVersion_V1_24_0() AdotLambdaLayerPythonSdkVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerPythonSdkVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerPythonSdkVersion",
+		"V1_24_0",
+		&returns,
+	)
+	return returns
+}
+
 func (a *jsiiProxy_AdotLambdaLayerPythonSdkVersion) LayerArn(scope constructs.IConstruct, architecture Architecture) *string {
 	if err := a.validateLayerArnParameters(scope, architecture); err != nil {
 		panic(err)

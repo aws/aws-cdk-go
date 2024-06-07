@@ -136,6 +136,26 @@ logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilte
 })
 ```
 
+When you use `KinesisDestination`, you can choose the method used to
+distribute log data to the destination by setting the `distribution` property.
+
+```go
+import destinations "github.com/aws/aws-cdk-go/awscdk"
+import kinesis "github.com/aws/aws-cdk-go/awscdk"
+
+var stream stream
+var logGroup logGroup
+
+
+logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{
+	LogGroup: LogGroup,
+	Destination: destinations.NewKinesisDestination(stream),
+	FilterPattern: logs.FilterPattern_AllTerms(jsii.String("ERROR"), jsii.String("MainThread")),
+	FilterName: jsii.String("ErrorInMainThread"),
+	Distribution: logs.Distribution_RANDOM,
+})
+```
+
 ## Metric Filters
 
 CloudWatch Logs can extract and emit metrics based on a textual log stream.

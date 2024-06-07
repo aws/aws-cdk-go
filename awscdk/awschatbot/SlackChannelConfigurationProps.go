@@ -74,5 +74,9 @@ type SlackChannelConfigurationProps struct {
 	// Default: - A role will be created.
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// Enables use of a user role requirement in your chat configuration.
+	// Default: false.
+	//
+	UserRoleRequired *bool `field:"optional" json:"userRoleRequired" yaml:"userRoleRequired"`
 }
 

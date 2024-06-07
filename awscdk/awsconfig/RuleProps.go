@@ -8,12 +8,14 @@ package awsconfig
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var evaluationMode evaluationMode
 //   var inputParameters interface{}
 //   var ruleScope ruleScope
 //
 //   ruleProps := &RuleProps{
 //   	ConfigRuleName: jsii.String("configRuleName"),
 //   	Description: jsii.String("description"),
+//   	EvaluationModes: evaluationMode,
 //   	InputParameters: map[string]interface{}{
 //   		"inputParametersKey": inputParameters,
 //   	},
@@ -30,6 +32,12 @@ type RuleProps struct {
 	// Default: - No description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The modes the AWS Config rule can be evaluated in.
+	//
+	// The valid values are distinct objects.
+	// Default: - Detective evaluation mode only.
+	//
+	EvaluationModes EvaluationMode `field:"optional" json:"evaluationModes" yaml:"evaluationModes"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Default: - No input parameters.
 	//

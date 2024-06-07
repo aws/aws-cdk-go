@@ -23,6 +23,7 @@ import (
 //   var buildSpec buildSpec
 //   var cache cache
 //   var fileSystemLocation iFileSystemLocation
+//   var fleet fleet
 //   var key key
 //   var logGroup logGroup
 //   var role role
@@ -56,6 +57,7 @@ import (
 //   				"type": awscdk.*Aws_codebuild.BuildEnvironmentVariableType_PLAINTEXT,
 //   			},
 //   		},
+//   		Fleet: fleet,
 //   		Privileged: jsii.Boolean(false),
 //   	},
 //   	EnvironmentVariables: map[string]*buildEnvironmentVariable{

@@ -16,6 +16,7 @@ package awslogs
 //   	FilterPattern: filterPattern,
 //
 //   	// the properties below are optional
+//   	Distribution: awscdk.Aws_logs.Distribution_BY_LOG_STREAM,
 //   	FilterName: jsii.String("filterName"),
 //   }
 //
@@ -26,6 +27,12 @@ type SubscriptionFilterOptions struct {
 	Destination ILogSubscriptionDestination `field:"required" json:"destination" yaml:"destination"`
 	// Log events matching this pattern will be sent to the destination.
 	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
+	// The method used to distribute log data to the destination.
+	//
+	// This property can only be used with KinesisDestination.
+	// Default: Distribution.BY_LOG_STREAM
+	//
+	Distribution Distribution `field:"optional" json:"distribution" yaml:"distribution"`
 	// The name of the subscription filter.
 	// Default: Automatically generated.
 	//

@@ -25,6 +25,12 @@ import (
 //   	// the properties below are optional
 //   	AddonVersion: jsii.String("addonVersion"),
 //   	ConfigurationValues: jsii.String("configurationValues"),
+//   	PodIdentityAssociations: []interface{}{
+//   		&PodIdentityAssociationProperty{
+//   			RoleArn: jsii.String("roleArn"),
+//   			ServiceAccount: jsii.String("serviceAccount"),
+//   		},
+//   	},
 //   	PreserveOnDelete: jsii.Boolean(false),
 //   	ResolveConflicts: jsii.String("resolveConflicts"),
 //   	ServiceAccountRoleArn: jsii.String("serviceAccountRoleArn"),
@@ -77,6 +83,9 @@ type CfnAddon interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// An array of pod identities to apply to this add-on.
+	PodIdentityAssociations() interface{}
+	SetPodIdentityAssociations(val interface{})
 	// Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
 	PreserveOnDelete() interface{}
 	SetPreserveOnDelete(val interface{})
@@ -357,6 +366,16 @@ func (j *jsiiProxy_CfnAddon) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAddon) PodIdentityAssociations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"podIdentityAssociations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAddon) PreserveOnDelete() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -509,6 +528,17 @@ func (j *jsiiProxy_CfnAddon)SetConfigurationValues(val *string) {
 	_jsii_.Set(
 		j,
 		"configurationValues",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAddon)SetPodIdentityAssociations(val interface{}) {
+	if err := j.validateSetPodIdentityAssociationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"podIdentityAssociations",
 		val,
 	)
 }

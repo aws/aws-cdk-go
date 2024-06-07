@@ -8,10 +8,18 @@ import (
 // A collection of static methods to generate appropriate ILogPatterns.
 //
 // Example:
-//   // Search for all events where the component field is equal to
-//   // "HttpServer" and either error is true or the latency is higher
-//   // than 1000.
-//   pattern := logs.FilterPattern_All(logs.FilterPattern_StringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.FilterPattern_Any(logs.FilterPattern_BooleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.FilterPattern_NumberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))))
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var fn function
+//   var logGroup logGroup
+//
+//
+//   logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &SubscriptionFilterProps{
+//   	LogGroup: LogGroup,
+//   	Destination: destinations.NewLambdaDestination(fn),
+//   	FilterPattern: logs.FilterPattern_AllTerms(jsii.String("ERROR"), jsii.String("MainThread")),
+//   	FilterName: jsii.String("ErrorInMainThread"),
+//   })
 //
 type FilterPattern interface {
 }

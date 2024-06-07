@@ -25,5 +25,11 @@ const (
 	WindowsImageType_STANDARD WindowsImageType = "STANDARD"
 	// The WINDOWS_SERVER_2019_CONTAINER environment type.
 	WindowsImageType_SERVER_2019 WindowsImageType = "SERVER_2019"
+	// The WINDOWS_SERVER_2022_CONTAINER environment type.
+	//
+	// Notice: Cannot be used with on-demand compute, only with a {@link BuildEnvironment.fleet}.
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html
+	//
+	WindowsImageType_SERVER_2022 WindowsImageType = "SERVER_2022"
 )
 

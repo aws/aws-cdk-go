@@ -16,7 +16,7 @@ package awssqs
 //   }
 //
 type DeadLetterQueue struct {
-	// The number of times a message can be unsuccesfully dequeued before being moved to the dead-letter queue.
+	// The number of times a message can be unsuccessfully dequeued before being moved to the dead-letter queue.
 	MaxReceiveCount *float64 `field:"required" json:"maxReceiveCount" yaml:"maxReceiveCount"`
 	// The dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.
 	Queue IQueue `field:"required" json:"queue" yaml:"queue"`

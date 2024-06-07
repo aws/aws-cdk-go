@@ -194,6 +194,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "channelName", GoGetter: "ChannelName"},
 			_jsii_.MemberProperty{JsiiProperty: "containerType", GoGetter: "ContainerType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "dashManifests", GoGetter: "DashManifests"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -229,6 +230,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.DashManifestConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_DashManifestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.DashUtcTimingProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_DashUtcTimingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.EncryptionContractConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_EncryptionContractConfigurationProperty)(nil)).Elem(),
 	)
@@ -251,6 +260,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.LowLatencyHlsManifestConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_LowLatencyHlsManifestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.ScteDashProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_ScteDashProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.ScteHlsProperty",

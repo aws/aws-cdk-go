@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnAddon) validateSetClusterNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnAddon) validateSetPodIdentityAssociationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAddon) validateSetPreserveOnDeleteParameters(val interface{}) error {
 	return nil
 }

@@ -23,18 +23,6 @@ import (
 //   		jsii.String("accessTypes"),
 //   	},
 //   	DataLakeArn: jsii.String("dataLakeArn"),
-//   	Sources: []interface{}{
-//   		&SourceProperty{
-//   			AwsLogSource: &AwsLogSourceProperty{
-//   				SourceName: jsii.String("sourceName"),
-//   				SourceVersion: jsii.String("sourceVersion"),
-//   			},
-//   			CustomLogSource: &CustomLogSourceProperty{
-//   				SourceName: jsii.String("sourceName"),
-//   				SourceVersion: jsii.String("sourceVersion"),
-//   			},
-//   		},
-//   	},
 //   	SubscriberIdentity: &SubscriberIdentityProperty{
 //   		ExternalId: jsii.String("externalId"),
 //   		Principal: jsii.String("principal"),
@@ -101,9 +89,6 @@ type CfnSubscriber interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Amazon Security Lake supports log and event collection for natively supported AWS services .
-	Sources() interface{}
-	SetSources(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -417,16 +402,6 @@ func (j *jsiiProxy_CfnSubscriber) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriber) Sources() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"sources",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnSubscriber) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -543,17 +518,6 @@ func (j *jsiiProxy_CfnSubscriber)SetDataLakeArn(val *string) {
 	_jsii_.Set(
 		j,
 		"dataLakeArn",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnSubscriber)SetSources(val interface{}) {
-	if err := j.validateSetSourcesParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"sources",
 		val,
 	)
 }

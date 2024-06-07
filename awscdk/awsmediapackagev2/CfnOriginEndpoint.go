@@ -23,6 +23,35 @@ import (
 //
 //   	// the properties below are optional
 //   	ContainerType: jsii.String("containerType"),
+//   	DashManifests: []interface{}{
+//   		&DashManifestConfigurationProperty{
+//   			ManifestName: jsii.String("manifestName"),
+//
+//   			// the properties below are optional
+//   			DrmSignaling: jsii.String("drmSignaling"),
+//   			FilterConfiguration: &FilterConfigurationProperty{
+//   				End: jsii.String("end"),
+//   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Start: jsii.String("start"),
+//   				TimeDelaySeconds: jsii.Number(123),
+//   			},
+//   			ManifestWindowSeconds: jsii.Number(123),
+//   			MinBufferTimeSeconds: jsii.Number(123),
+//   			MinUpdatePeriodSeconds: jsii.Number(123),
+//   			PeriodTriggers: []*string{
+//   				jsii.String("periodTriggers"),
+//   			},
+//   			ScteDash: &ScteDashProperty{
+//   				AdMarkerDash: jsii.String("adMarkerDash"),
+//   			},
+//   			SegmentTemplateFormat: jsii.String("segmentTemplateFormat"),
+//   			SuggestedPresentationDelaySeconds: jsii.Number(123),
+//   			UtcTiming: &DashUtcTimingProperty{
+//   				TimingMode: jsii.String("timingMode"),
+//   				TimingSource: jsii.String("timingSource"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	HlsManifests: []interface{}{
 //   		&HlsManifestConfigurationProperty{
@@ -139,6 +168,9 @@ type CfnOriginEndpoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// <p>A DASH manifest configuration.</p>.
+	DashManifests() interface{}
+	SetDashManifests(val interface{})
 	// The description associated with the origin endpoint.
 	Description() *string
 	SetDescription(val *string)
@@ -438,6 +470,16 @@ func (j *jsiiProxy_CfnOriginEndpoint) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) DashManifests() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dashManifests",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -622,6 +664,17 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetContainerType(val *string) {
 	_jsii_.Set(
 		j,
 		"containerType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint)SetDashManifests(val interface{}) {
+	if err := j.validateSetDashManifestsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dashManifests",
 		val,
 	)
 }
