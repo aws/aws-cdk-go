@@ -8,6 +8,92 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_eks.AccessEntry",
+		reflect.TypeOf((*AccessEntry)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessEntryArn", GoGetter: "AccessEntryArn"},
+			_jsii_.MemberProperty{JsiiProperty: "accessEntryName", GoGetter: "AccessEntryName"},
+			_jsii_.MemberMethod{JsiiMethod: "addAccessPolicies", GoMethod: "AddAccessPolicies"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AccessEntry{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessEntry)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.AccessEntryAttributes",
+		reflect.TypeOf((*AccessEntryAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.AccessEntryProps",
+		reflect.TypeOf((*AccessEntryProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_eks.AccessEntryType",
+		reflect.TypeOf((*AccessEntryType)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": AccessEntryType_STANDARD,
+			"FARGATE_LINUX": AccessEntryType_FARGATE_LINUX,
+			"EC2_LINUX": AccessEntryType_EC2_LINUX,
+			"EC2_WINDOWS": AccessEntryType_EC2_WINDOWS,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_eks.AccessPolicy",
+		reflect.TypeOf((*AccessPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessScope", GoGetter: "AccessScope"},
+			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AccessPolicy{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessPolicy)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_eks.AccessPolicyArn",
+		reflect.TypeOf((*AccessPolicyArn)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "policyArn", GoGetter: "PolicyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AccessPolicyArn{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.AccessPolicyNameOptions",
+		reflect.TypeOf((*AccessPolicyNameOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.AccessPolicyProps",
+		reflect.TypeOf((*AccessPolicyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.AccessScope",
+		reflect.TypeOf((*AccessScope)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_eks.AccessScopeType",
+		reflect.TypeOf((*AccessScopeType)(nil)).Elem(),
+		map[string]interface{}{
+			"NAMESPACE": AccessScopeType_NAMESPACE,
+			"CLUSTER": AccessScopeType_CLUSTER,
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_eks.AlbController",
 		reflect.TypeOf((*AlbController)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -46,6 +132,15 @@ func init() {
 		map[string]interface{}{
 			"INTERNAL": AlbScheme_INTERNAL,
 			"INTERNET_FACING": AlbScheme_INTERNET_FACING,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_eks.AuthenticationMode",
+		reflect.TypeOf((*AuthenticationMode)(nil)).Elem(),
+		map[string]interface{}{
+			"CONFIG_MAP": AuthenticationMode_CONFIG_MAP,
+			"API_AND_CONFIG_MAP": AuthenticationMode_API_AND_CONFIG_MAP,
+			"API": AuthenticationMode_API,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -609,6 +704,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "adminRole", GoGetter: "AdminRole"},
 			_jsii_.MemberProperty{JsiiProperty: "albController", GoGetter: "AlbController"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authenticationMode", GoGetter: "AuthenticationMode"},
 			_jsii_.MemberProperty{JsiiProperty: "awsAuth", GoGetter: "AwsAuth"},
 			_jsii_.MemberProperty{JsiiProperty: "awscliLayer", GoGetter: "AwscliLayer"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
@@ -631,6 +727,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getServiceLoadBalancerAddress", GoMethod: "GetServiceLoadBalancerAddress"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAccess", GoMethod: "GrantAccess"},
 			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlEnvironment", GoGetter: "KubectlEnvironment"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlLambdaRole", GoGetter: "KubectlLambdaRole"},
@@ -747,6 +844,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "adminRole", GoGetter: "AdminRole"},
 			_jsii_.MemberProperty{JsiiProperty: "albController", GoGetter: "AlbController"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authenticationMode", GoGetter: "AuthenticationMode"},
 			_jsii_.MemberProperty{JsiiProperty: "awsAuth", GoGetter: "AwsAuth"},
 			_jsii_.MemberProperty{JsiiProperty: "awscliLayer", GoGetter: "AwscliLayer"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
@@ -770,6 +868,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getServiceLoadBalancerAddress", GoMethod: "GetServiceLoadBalancerAddress"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAccess", GoMethod: "GrantAccess"},
 			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlEnvironment", GoGetter: "KubectlEnvironment"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlLambdaRole", GoGetter: "KubectlLambdaRole"},
@@ -851,6 +950,34 @@ func init() {
 		reflect.TypeOf((*HelmChartProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_eks.IAccessEntry",
+		reflect.TypeOf((*IAccessEntry)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessEntryArn", GoGetter: "AccessEntryArn"},
+			_jsii_.MemberProperty{JsiiProperty: "accessEntryName", GoGetter: "AccessEntryName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAccessEntry{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_eks.IAccessPolicy",
+		reflect.TypeOf((*IAccessPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessScope", GoGetter: "AccessScope"},
+			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IAccessPolicy{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_eks.ICluster",
 		reflect.TypeOf((*ICluster)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -859,6 +986,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addManifest", GoMethod: "AddManifest"},
 			_jsii_.MemberMethod{JsiiMethod: "addServiceAccount", GoMethod: "AddServiceAccount"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authenticationMode", GoGetter: "AuthenticationMode"},
 			_jsii_.MemberProperty{JsiiProperty: "awscliLayer", GoGetter: "AwscliLayer"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterCertificateAuthorityData", GoGetter: "ClusterCertificateAuthorityData"},

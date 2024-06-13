@@ -23,6 +23,16 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AttributeMappings: []interface{}{
+//   		&AttributeMappingProperty{
+//   			CertificateField: jsii.String("certificateField"),
+//   			MappingRules: []interface{}{
+//   				&MappingRuleProperty{
+//   					Specifier: jsii.String("specifier"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	DurationSeconds: jsii.Number(123),
 //   	Enabled: jsii.Boolean(false),
 //   	ManagedPolicyArns: []*string{
@@ -44,6 +54,8 @@ type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	AttributeMappings() interface{}
+	SetAttributeMappings(val interface{})
 	// The ARN of the profile.
 	AttrProfileArn() *string
 	// The unique primary identifier of the Profile.
@@ -249,6 +261,16 @@ type jsiiProxy_CfnProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnProfile) AttributeMappings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"attributeMappings",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnProfile) AttrProfileArn() *string {
@@ -486,6 +508,17 @@ func NewCfnProfile_Override(c CfnProfile, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_rolesanywhere.CfnProfile",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnProfile)SetAttributeMappings(val interface{}) {
+	if err := j.validateSetAttributeMappingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"attributeMappings",
+		val,
 	)
 }
 

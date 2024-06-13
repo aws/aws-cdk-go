@@ -32,6 +32,10 @@ func (t *jsiiProxy_TopicBase) validateGrantPublishParameters(grantee awsiam.IGra
 	return nil
 }
 
+func (t *jsiiProxy_TopicBase) validateGrantSubscribeParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (t *jsiiProxy_TopicBase) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

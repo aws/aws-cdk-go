@@ -59,6 +59,10 @@ type FargateClusterProps struct {
 	// Default: - The controller is not installed.
 	//
 	AlbController *AlbControllerOptions `field:"optional" json:"albController" yaml:"albController"`
+	// The desired authentication mode for the cluster.
+	// Default: AuthenticationMode.CONFIG_MAP
+	//
+	AuthenticationMode AuthenticationMode `field:"optional" json:"authenticationMode" yaml:"authenticationMode"`
 	// An AWS Lambda layer that contains the `aws` CLI.
 	//
 	// The handler expects the layer to include the following executables:

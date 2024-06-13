@@ -49,6 +49,10 @@ type ICluster interface {
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 	//
 	ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions)
+	// The authentication mode for the cluster.
+	// Default: AuthenticationMode.CONFIG_MAP
+	//
+	AuthenticationMode() AuthenticationMode
 	// An AWS Lambda layer that contains the `aws` CLI.
 	//
 	// If not defined, a default layer will be used containing the AWS CLI 1.x.
@@ -225,6 +229,16 @@ func (i *jsiiProxy_ICluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (j *jsiiProxy_ICluster) AuthenticationMode() AuthenticationMode {
+	var returns AuthenticationMode
+	_jsii_.Get(
+		j,
+		"authenticationMode",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ICluster) AwscliLayer() awslambda.ILayerVersion {

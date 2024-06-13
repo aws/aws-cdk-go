@@ -436,6 +436,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_ExecuteCommandLogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCluster.ManagedStorageConfigurationProperty",
+		reflect.TypeOf((*CfnCluster_ManagedStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnCluster.ServiceConnectDefaultsProperty",
 		reflect.TypeOf((*CfnCluster_ServiceConnectDefaultsProperty)(nil)).Elem(),
 	)

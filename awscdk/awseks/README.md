@@ -41,6 +41,8 @@ In addition, the library also supports defining Kubernetes resource manifests wi
   * [Permissions and Security](#permissions-and-security)
 
     * [AWS IAM Mapping](#aws-iam-mapping)
+    * [Access Config](#access-config)
+    * [Access Entry](#access-mapping)
     * [Cluster Security Group](#cluster-security-group)
     * [Node SSH Access](#node-ssh-access)
     * [Service Accounts](#service-accounts)
@@ -1209,6 +1211,140 @@ consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 // Add this role to system:masters RBAC group
 cluster.awsAuth.AddMastersRole(consoleReadOnlyRole)
 ```
+
+### Access Config
+
+Amazon EKS supports three modes of authentication: `CONFIG_MAP`, `API_AND_CONFIG_MAP`, and `API`. You can enable cluster
+to use access entry APIs by using authenticationMode `API` or `API_AND_CONFIG_MAP`. Use authenticationMode `CONFIG_MAP`
+to continue using aws-auth configMap exclusively. When `API_AND_CONFIG_MAP` is enabled, the cluster will source authenticated
+AWS IAM principals from both Amazon EKS access entry APIs and the aws-auth configMap, with priority given to the access entry API.
+
+To specify the `authenticationMode`:
+
+```go
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv30"
+var vpc vpc
+
+
+eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
+	Version: eks.KubernetesVersion_V1_30(),
+	KubectlLayer: kubectlv30.NewKubectlV30Layer(this, jsii.String("KubectlLayer")),
+	AuthenticationMode: eks.AuthenticationMode_API_AND_CONFIG_MAP,
+})
+```
+
+> **Note** - Switching authentication modes on an existing cluster is a one-way operation. You can switch from
+> `CONFIG_MAP` to `API_AND_CONFIG_MAP`. You can then switch from `API_AND_CONFIG_MAP` to `API`.
+> You cannot revert these operations in the opposite direction. Meaning you cannot switch back to
+> `CONFIG_MAP` or `API_AND_CONFIG_MAP` from `API`. And you cannot switch back to `CONFIG_MAP` from `API_AND_CONFIG_MAP`.
+
+Read [A deep dive into simplified Amazon EKS access management controls
+](https://aws.amazon.com/blogs/containers/a-deep-dive-into-simplified-amazon-eks-access-management-controls/) for more details.
+
+You can disable granting the cluster admin permissions to the cluster creator role on bootstrapping by setting
+`bootstrapClusterCreatorAdminPermissions` to false.
+
+> **Note** - Switching `bootstrapClusterCreatorAdminPermissions` on an existing cluster would cause cluster replacement and should be avoided in production.
+
+### Access Entry
+
+An access entry is a cluster identity—directly linked to an AWS IAM principal user or role that is used to authenticate to
+an Amazon EKS cluster. An Amazon EKS access policy authorizes an access entry to perform specific cluster actions.
+
+Access policies are Amazon EKS-specific policies that assign Kubernetes permissions to access entries. Amazon EKS supports
+only predefined and AWS managed policies. Access policies are not AWS IAM entities and are defined and managed by Amazon EKS.
+Amazon EKS access policies include permission sets that support common use cases of administration, editing, or read-only access
+to Kubernetes resources. See [Access Policy Permissions](https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html#access-policy-permissions) for more details.
+
+Use `AccessPolicy` to include predefined AWS managed policies:
+
+```go
+// AmazonEKSClusterAdminPolicy with `cluster` scope
+eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSClusterAdminPolicy"), &AccessPolicyNameOptions{
+	AccessScopeType: eks.AccessScopeType_CLUSTER,
+})
+// AmazonEKSAdminPolicy with `namespace` scope
+eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &AccessPolicyNameOptions{
+	AccessScopeType: eks.AccessScopeType_NAMESPACE,
+	Namespaces: []*string{
+		jsii.String("foo"),
+		jsii.String("bar"),
+	},
+})
+```
+
+Use `grantAccess()` to grant the AccessPolicy to an IAM principal:
+
+```go
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv30"
+var vpc vpc
+
+
+clusterAdminRole := iam.NewRole(this, jsii.String("ClusterAdminRole"), &RoleProps{
+	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+})
+
+eksAdminRole := iam.NewRole(this, jsii.String("EKSAdminRole"), &RoleProps{
+	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+})
+
+eksAdminViewRole := iam.NewRole(this, jsii.String("EKSAdminViewRole"), &RoleProps{
+	AssumedBy: iam.NewArnPrincipal(jsii.String("arn_for_trusted_principal")),
+})
+
+cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
+	MastersRole: clusterAdminRole,
+	Version: eks.KubernetesVersion_V1_30(),
+	KubectlLayer: kubectlv30.NewKubectlV30Layer(this, jsii.String("KubectlLayer")),
+	AuthenticationMode: eks.AuthenticationMode_API_AND_CONFIG_MAP,
+})
+
+// Cluster Admin role for this cluster
+cluster.GrantAccess(jsii.String("clusterAdminAccess"), clusterAdminRole.RoleArn, []iAccessPolicy{
+	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSClusterAdminPolicy"), &AccessPolicyNameOptions{
+		AccessScopeType: eks.AccessScopeType_CLUSTER,
+	}),
+})
+
+// EKS Admin role for specified namespaces of this cluster
+cluster.GrantAccess(jsii.String("eksAdminRoleAccess"), eksAdminRole.RoleArn, []iAccessPolicy{
+	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &AccessPolicyNameOptions{
+		AccessScopeType: eks.AccessScopeType_NAMESPACE,
+		Namespaces: []*string{
+			jsii.String("foo"),
+			jsii.String("bar"),
+		},
+	}),
+})
+
+// EKS Admin Viewer role for specified namespaces of this cluster
+cluster.GrantAccess(jsii.String("eksAdminViewRoleAccess"), eksAdminViewRole.RoleArn, []iAccessPolicy{
+	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminViewPolicy"), &AccessPolicyNameOptions{
+		AccessScopeType: eks.AccessScopeType_NAMESPACE,
+		Namespaces: []*string{
+			jsii.String("foo"),
+			jsii.String("bar"),
+		},
+	}),
+})
+```
+
+### Migrating from ConfigMap to Access Entry
+
+If the cluster is created with the `authenticationMode` property left undefined,
+it will default to `CONFIG_MAP`.
+
+The update path is:
+
+`undefined`(`CONFIG_MAP`) -> `API_AND_CONFIG_MAP` -> `API`
+
+If you have explicitly declared `AwsAuth` resources and then try to switch to the `API` mode, which no longer supports the
+`ConfigMap`, AWS CDK will throw an error as a protective measure to prevent you from losing all the access entries in the `ConfigMap`. In this case, you will need to remove all the declared `AwsAuth` resources explicitly and define the access entries before you are allowed to transition to the `API` mode.
+
+> **Note** - This is a one-way transition. Once you switch to the `API` mode,
+> you will not be able to switch back. Therefore, it is crucial to ensure that you have defined all the necessary access entries before making the switch to the `API` mode.
 
 ### Cluster Security Group
 

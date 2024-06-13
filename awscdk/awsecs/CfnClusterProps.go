@@ -34,6 +34,10 @@ import (
 //   			},
 //   			Logging: jsii.String("logging"),
 //   		},
+//   		ManagedStorageConfiguration: &ManagedStorageConfigurationProperty{
+//   			FargateEphemeralStorageKmsKeyId: jsii.String("fargateEphemeralStorageKmsKeyId"),
+//   			KmsKeyId: jsii.String("kmsKeyId"),
+//   		},
 //   	},
 //   	DefaultCapacityProviderStrategy: []interface{}{
 //   		&CapacityProviderStrategyItemProperty{

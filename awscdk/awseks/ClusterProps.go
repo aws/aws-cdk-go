@@ -67,6 +67,10 @@ type ClusterProps struct {
 	// Default: - The controller is not installed.
 	//
 	AlbController *AlbControllerOptions `field:"optional" json:"albController" yaml:"albController"`
+	// The desired authentication mode for the cluster.
+	// Default: AuthenticationMode.CONFIG_MAP
+	//
+	AuthenticationMode AuthenticationMode `field:"optional" json:"authenticationMode" yaml:"authenticationMode"`
 	// An AWS Lambda layer that contains the `aws` CLI.
 	//
 	// The handler expects the layer to include the following executables:
@@ -191,6 +195,12 @@ type ClusterProps struct {
 	//   10.100.0.0/16 or 172.20.0.0/16 CIDR blocks
 	//
 	ServiceIpv4Cidr *string `field:"optional" json:"serviceIpv4Cidr" yaml:"serviceIpv4Cidr"`
+	// Whether or not IAM principal of the cluster creator was set as a cluster admin access entry during cluster creation time.
+	//
+	// Changing this value after the cluster has been created will result in the cluster being replaced.
+	// Default: true.
+	//
+	BootstrapClusterCreatorAdminPermissions *bool `field:"optional" json:"bootstrapClusterCreatorAdminPermissions" yaml:"bootstrapClusterCreatorAdminPermissions"`
 	// Number of instances to allocate as an initial capacity for this cluster.
 	//
 	// Instance type can be configured through `defaultCapacityInstanceType`,

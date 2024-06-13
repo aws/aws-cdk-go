@@ -94,6 +94,8 @@ type TopicBase interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant topic publishing permissions to the given identity.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant topic subscribing permissions to the given identity.
+	GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages published to your Amazon SNS topics.
@@ -460,6 +462,22 @@ func (t *jsiiProxy_TopicBase) GrantPublish(grantee awsiam.IGrantable) awsiam.Gra
 	_jsii_.Invoke(
 		t,
 		"grantPublish",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TopicBase) GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := t.validateGrantSubscribeParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		t,
+		"grantSubscribe",
 		[]interface{}{grantee},
 		&returns,
 	)

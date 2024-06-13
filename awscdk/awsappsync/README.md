@@ -774,6 +774,23 @@ appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &Ap
 })
 ```
 
+When using the `LambdaDataSource`, you can control the maximum number of resolver request
+inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation
+by setting the `maxBatchSize` property.
+
+```go
+var api graphqlApi
+var lambdaDataSource lambdaDataSource
+
+
+appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &AppsyncFunctionProps{
+	Name: jsii.String("appsync_function"),
+	Api: Api,
+	DataSource: lambdaDataSource,
+	MaxBatchSize: jsii.Number(10),
+})
+```
+
 AppSync Functions are used in tandem with pipeline resolvers to compose multiple
 operations.
 

@@ -124,7 +124,7 @@ type EvaluateExpressionProps struct {
 	// Example value: `'$.a + $.b'`
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// The runtime language to use to evaluate the expression.
-	// Default: lambda.Runtime.NODEJS_18_X
+	// Default: - the latest Lambda node runtime available in your region.
 	//
 	Runtime awslambda.Runtime `field:"optional" json:"runtime" yaml:"runtime"`
 }

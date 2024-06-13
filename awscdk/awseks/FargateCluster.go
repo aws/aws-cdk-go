@@ -33,6 +33,12 @@ type FargateCluster interface {
 	//
 	// Will be undefined if `albController` wasn't configured.
 	AlbController() AlbController
+	// The authentication mode for the Amazon EKS cluster.
+	//
+	// The authentication mode determines how users and applications authenticate to the Kubernetes API server.
+	// Default: CONFIG_MAP.
+	//
+	AuthenticationMode() AuthenticationMode
 	// Lazily creates the AwsAuth resource, which manages AWS authentication mapping.
 	AwsAuth() AwsAuth
 	// An AWS Lambda layer that contains the `aws` CLI.
@@ -251,6 +257,12 @@ type FargateCluster interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Fetch the load balancer address of a service of type 'LoadBalancer'.
 	GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string
+	// Grants the specified IAM principal access to the EKS cluster based on the provided access policies.
+	//
+	// This method creates an `AccessEntry` construct that grants the specified IAM principal the access permissions
+	// defined by the provided `IAccessPolicy` array. This allows the IAM principal to perform the actions permitted
+	// by the access policies within the EKS cluster.
+	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -275,6 +287,16 @@ func (j *jsiiProxy_FargateCluster) AlbController() AlbController {
 	_jsii_.Get(
 		j,
 		"albController",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateCluster) AuthenticationMode() AuthenticationMode {
+	var returns AuthenticationMode
+	_jsii_.Get(
+		j,
+		"authenticationMode",
 		&returns,
 	)
 	return returns
@@ -944,6 +966,17 @@ func (f *jsiiProxy_FargateCluster) GetServiceLoadBalancerAddress(serviceName *st
 	)
 
 	return returns
+}
+
+func (f *jsiiProxy_FargateCluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy) {
+	if err := f.validateGrantAccessParameters(id, principal, accessPolicies); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"grantAccess",
+		[]interface{}{id, principal, accessPolicies},
+	)
 }
 
 func (f *jsiiProxy_FargateCluster) ToString() *string {

@@ -231,6 +231,17 @@ func FactName_IS_OPT_IN_REGION() *string {
 	return returns
 }
 
+func FactName_LATEST_NODE_RUNTIME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.region_info.FactName",
+		"LATEST_NODE_RUNTIME",
+		&returns,
+	)
+	return returns
+}
+
 func FactName_PARTITION() *string {
 	_init_.Initialize()
 	var returns *string

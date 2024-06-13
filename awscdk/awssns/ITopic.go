@@ -25,6 +25,8 @@ type ITopic interface {
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant topic publishing permissions to the given identity.
 	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
+	// Grant topic subscribing permissions to the given identity.
+	GrantSubscribe(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages published to your Amazon SNS topics.
@@ -122,6 +124,22 @@ func (i *jsiiProxy_ITopic) GrantPublish(identity awsiam.IGrantable) awsiam.Grant
 	_jsii_.Invoke(
 		i,
 		"grantPublish",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ITopic) GrantSubscribe(identity awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantSubscribeParameters(identity); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantSubscribe",
 		[]interface{}{identity},
 		&returns,
 	)

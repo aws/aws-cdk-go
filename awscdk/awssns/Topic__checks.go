@@ -87,6 +87,14 @@ func (t *jsiiProxy_Topic) validateGrantPublishParameters(grantee awsiam.IGrantab
 	return nil
 }
 
+func (t *jsiiProxy_Topic) validateGrantSubscribeParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_Topic) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	if metricName == nil {
 		return fmt.Errorf("parameter metricName is required, but nil was provided")

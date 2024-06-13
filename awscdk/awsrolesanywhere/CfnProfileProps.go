@@ -18,6 +18,16 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AttributeMappings: []interface{}{
+//   		&AttributeMappingProperty{
+//   			CertificateField: jsii.String("certificateField"),
+//   			MappingRules: []interface{}{
+//   				&MappingRuleProperty{
+//   					Specifier: jsii.String("specifier"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	DurationSeconds: jsii.Number(123),
 //   	Enabled: jsii.Boolean(false),
 //   	ManagedPolicyArns: []*string{
@@ -44,6 +54,9 @@ type CfnProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-rolearns
 	//
 	RoleArns *[]*string `field:"required" json:"roleArns" yaml:"roleArns"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-attributemappings
+	//
+	AttributeMappings interface{} `field:"optional" json:"attributeMappings" yaml:"attributeMappings"`
 	// The number of seconds vended session credentials will be valid for.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-durationseconds
 	//

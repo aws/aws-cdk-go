@@ -44,13 +44,14 @@ import (
 //   		Policy: policy,
 //   		Repository: jsii.String("repository"),
 //   	},
+//   	AuthenticationMode: awscdk.Aws_eks.AuthenticationMode_CONFIG_MAP,
 //   	AwscliLayer: layerVersion,
 //   	ClusterHandlerEnvironment: map[string]*string{
 //   		"clusterHandlerEnvironmentKey": jsii.String("clusterHandlerEnvironment"),
 //   	},
 //   	ClusterHandlerSecurityGroup: securityGroup,
 //   	ClusterLogging: []clusterLoggingTypes{
-//   		awscdk.Aws_eks.*clusterLoggingTypes_API,
+//   		awscdk.*Aws_eks.*clusterLoggingTypes_API,
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
 //   	CoreDnsComputeType: awscdk.*Aws_eks.CoreDnsComputeType_EC2,
@@ -135,6 +136,10 @@ type ClusterOptions struct {
 	// Default: - The controller is not installed.
 	//
 	AlbController *AlbControllerOptions `field:"optional" json:"albController" yaml:"albController"`
+	// The desired authentication mode for the cluster.
+	// Default: AuthenticationMode.CONFIG_MAP
+	//
+	AuthenticationMode AuthenticationMode `field:"optional" json:"authenticationMode" yaml:"authenticationMode"`
 	// An AWS Lambda layer that contains the `aws` CLI.
 	//
 	// The handler expects the layer to include the following executables:

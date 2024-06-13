@@ -37,6 +37,14 @@ func (i *jsiiProxy_ITopic) validateGrantPublishParameters(identity awsiam.IGrant
 	return nil
 }
 
+func (i *jsiiProxy_ITopic) validateGrantSubscribeParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_ITopic) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	if metricName == nil {
 		return fmt.Errorf("parameter metricName is required, but nil was provided")

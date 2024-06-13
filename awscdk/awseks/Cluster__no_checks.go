@@ -56,6 +56,10 @@ func (c *jsiiProxy_Cluster) validateGetServiceLoadBalancerAddressParameters(serv
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateGrantAccessParameters(id *string, principal *string, accessPolicies *[]IAccessPolicy) error {
+	return nil
+}
+
 func validateCluster_FromClusterAttributesParameters(scope constructs.Construct, id *string, attrs *ClusterAttributes) error {
 	return nil
 }

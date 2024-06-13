@@ -193,6 +193,14 @@ func init() {
 			"ECR": ImageRepositoryType_ECR,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-apprunner-alpha.IpAddressType",
+		reflect.TypeOf((*IpAddressType)(nil)).Elem(),
+		map[string]interface{}{
+			"IPV4": IpAddressType_IPV4,
+			"DUAL_STACK": IpAddressType_DUAL_STACK,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-apprunner-alpha.Memory",
 		reflect.TypeOf((*Memory)(nil)).Elem(),

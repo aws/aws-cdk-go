@@ -175,6 +175,22 @@ func (c *jsiiProxy_Cluster) validateGetServiceLoadBalancerAddressParameters(serv
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateGrantAccessParameters(id *string, principal *string, accessPolicies *[]IAccessPolicy) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if principal == nil {
+		return fmt.Errorf("parameter principal is required, but nil was provided")
+	}
+
+	if accessPolicies == nil {
+		return fmt.Errorf("parameter accessPolicies is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCluster_FromClusterAttributesParameters(scope constructs.Construct, id *string, attrs *ClusterAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

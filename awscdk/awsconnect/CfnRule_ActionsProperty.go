@@ -58,6 +58,11 @@ package awsconnect
 //   			Subject: jsii.String("subject"),
 //   		},
 //   	},
+//   	SubmitAutoEvaluationActions: []interface{}{
+//   		&SubmitAutoEvaluationActionProperty{
+//   			EvaluationFormArn: jsii.String("evaluationFormArn"),
+//   		},
+//   	},
 //   	TaskActions: []interface{}{
 //   		&TaskActionProperty{
 //   			ContactFlowArn: jsii.String("contactFlowArn"),
@@ -115,6 +120,10 @@ type CfnRule_ActionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-sendnotificationactions
 	//
 	SendNotificationActions interface{} `field:"optional" json:"sendNotificationActions" yaml:"sendNotificationActions"`
+	// This action will submit an auto contact evaluation when a rule is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-submitautoevaluationactions
+	//
+	SubmitAutoEvaluationActions interface{} `field:"optional" json:"submitAutoEvaluationActions" yaml:"submitAutoEvaluationActions"`
 	// Information about the task action.
 	//
 	// This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`.

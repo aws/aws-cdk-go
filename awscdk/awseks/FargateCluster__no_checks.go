@@ -56,6 +56,10 @@ func (f *jsiiProxy_FargateCluster) validateGetServiceLoadBalancerAddressParamete
 	return nil
 }
 
+func (f *jsiiProxy_FargateCluster) validateGrantAccessParameters(id *string, principal *string, accessPolicies *[]IAccessPolicy) error {
+	return nil
+}
+
 func validateFargateCluster_FromClusterAttributesParameters(scope constructs.Construct, id *string, attrs *ClusterAttributes) error {
 	return nil
 }

@@ -80,6 +80,10 @@ func validateCfnProfile_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnProfile) validateSetAttributeMappingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnProfile) validateSetEnabledParameters(val interface{}) error {
 	return nil
 }

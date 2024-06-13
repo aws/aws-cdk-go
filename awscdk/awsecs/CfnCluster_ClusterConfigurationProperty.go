@@ -20,6 +20,10 @@ package awsecs
 //   		},
 //   		Logging: jsii.String("logging"),
 //   	},
+//   	ManagedStorageConfiguration: &ManagedStorageConfigurationProperty{
+//   		FargateEphemeralStorageKmsKeyId: jsii.String("fargateEphemeralStorageKmsKeyId"),
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
@@ -29,5 +33,8 @@ type CfnCluster_ClusterConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
 	//
 	ExecuteCommandConfiguration interface{} `field:"optional" json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-managedstorageconfiguration
+	//
+	ManagedStorageConfiguration interface{} `field:"optional" json:"managedStorageConfiguration" yaml:"managedStorageConfiguration"`
 }
 

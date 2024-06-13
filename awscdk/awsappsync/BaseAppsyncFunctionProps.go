@@ -18,6 +18,7 @@ package awsappsync
 //   	// the properties below are optional
 //   	Code: code,
 //   	Description: jsii.String("description"),
+//   	MaxBatchSize: jsii.Number(123),
 //   	RequestMappingTemplate: mappingTemplate,
 //   	ResponseMappingTemplate: mappingTemplate,
 //   	Runtime: functionRuntime,
@@ -34,6 +35,12 @@ type BaseAppsyncFunctionProps struct {
 	// Default: - no description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+	//
+	// Can only be set when using LambdaDataSource.
+	// Default: - No max batch size.
+	//
+	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
 	// the request mapping template for the AppSync Function.
 	// Default: - no request mapping template.
 	//

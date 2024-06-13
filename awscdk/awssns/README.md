@@ -61,6 +61,17 @@ myTopic.AddSubscription(subscriptions.NewSqsSubscription(queue))
 Note that subscriptions of queues in different accounts need to be manually confirmed by
 reading the initial message from the queue and visiting the link found in it.
 
+The `grantSubscribe` method adds a policy statement to the topic's resource policy, allowing the specified principal to perform the `sns:Subscribe` action.
+It's useful when you want to allow entities, such as another AWS account or resources created later, to subscribe to the topic at their own pace, separating permission granting from the actual subscription process.
+
+```go
+var accountPrincipal accountPrincipal
+
+myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
+
+myTopic.GrantSubscribe(accountPrincipal)
+```
+
 ### Filter policy
 
 A filter policy can be specified when subscribing an endpoint to a topic.

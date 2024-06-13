@@ -16,6 +16,10 @@ func (i *jsiiProxy_ITopic) validateGrantPublishParameters(identity awsiam.IGrant
 	return nil
 }
 
+func (i *jsiiProxy_ITopic) validateGrantSubscribeParameters(identity awsiam.IGrantable) error {
+	return nil
+}
+
 func (i *jsiiProxy_ITopic) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

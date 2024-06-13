@@ -84,6 +84,7 @@ gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 	 // optional, default is false
 	WebhookFilters: []filterGroup{
 		codebuild.*filterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
+		codebuild.*filterGroup_*InEventOf(codebuild.EventAction_RELEASED).*AndBranchIs(jsii.String("main")),
 	},
 })
 ```

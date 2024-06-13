@@ -18,43 +18,72 @@ package awsautoscaling
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   customizedMetricSpecificationProperty := &CustomizedMetricSpecificationProperty{
-//   	MetricName: jsii.String("metricName"),
-//   	Namespace: jsii.String("namespace"),
-//   	Statistic: jsii.String("statistic"),
-//
-//   	// the properties below are optional
 //   	Dimensions: []interface{}{
 //   		&MetricDimensionProperty{
 //   			Name: jsii.String("name"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	MetricName: jsii.String("metricName"),
+//   	Metrics: []interface{}{
+//   		&TargetTrackingMetricDataQueryProperty{
+//   			Id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			Expression: jsii.String("expression"),
+//   			Label: jsii.String("label"),
+//   			MetricStat: &TargetTrackingMetricStatProperty{
+//   				Metric: &MetricProperty{
+//   					MetricName: jsii.String("metricName"),
+//   					Namespace: jsii.String("namespace"),
+//
+//   					// the properties below are optional
+//   					Dimensions: []interface{}{
+//   						&MetricDimensionProperty{
+//   							Name: jsii.String("name"),
+//   							Value: jsii.String("value"),
+//   						},
+//   					},
+//   				},
+//   				Stat: jsii.String("stat"),
+//
+//   				// the properties below are optional
+//   				Unit: jsii.String("unit"),
+//   			},
+//   			ReturnData: jsii.Boolean(false),
+//   		},
+//   	},
+//   	Namespace: jsii.String("namespace"),
+//   	Statistic: jsii.String("statistic"),
 //   	Unit: jsii.String("unit"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html
 //
 type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
-	// The name of the metric.
-	//
-	// To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-metricname
-	//
-	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
-	// The namespace of the metric.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-namespace
-	//
-	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
-	// The statistic of the metric.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-statistic
-	//
-	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 	// The dimensions of the metric.
 	//
 	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-dimensions
 	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
+	// The name of the metric.
+	//
+	// To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-metricname
+	//
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-metrics
+	//
+	Metrics interface{} `field:"optional" json:"metrics" yaml:"metrics"`
+	// The namespace of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-namespace
+	//
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
+	// The statistic of the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-statistic
+	//
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// The unit of the metric.
 	//
 	// For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .

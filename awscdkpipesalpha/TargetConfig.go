@@ -207,6 +207,41 @@ import (
 //   		StepFunctionStateMachineParameters: &PipeTargetStateMachineParametersProperty{
 //   			InvocationType: jsii.String("invocationType"),
 //   		},
+//   		TimestreamParameters: &PipeTargetTimestreamParametersProperty{
+//   			DimensionMappings: []interface{}{
+//   				&DimensionMappingProperty{
+//   					DimensionName: jsii.String("dimensionName"),
+//   					DimensionValue: jsii.String("dimensionValue"),
+//   					DimensionValueType: jsii.String("dimensionValueType"),
+//   				},
+//   			},
+//   			TimeValue: jsii.String("timeValue"),
+//   			VersionValue: jsii.String("versionValue"),
+//
+//   			// the properties below are optional
+//   			EpochTimeUnit: jsii.String("epochTimeUnit"),
+//   			MultiMeasureMappings: []interface{}{
+//   				&MultiMeasureMappingProperty{
+//   					MultiMeasureAttributeMappings: []interface{}{
+//   						&MultiMeasureAttributeMappingProperty{
+//   							MeasureValue: jsii.String("measureValue"),
+//   							MeasureValueType: jsii.String("measureValueType"),
+//   							MultiMeasureAttributeName: jsii.String("multiMeasureAttributeName"),
+//   						},
+//   					},
+//   					MultiMeasureName: jsii.String("multiMeasureName"),
+//   				},
+//   			},
+//   			SingleMeasureMappings: []interface{}{
+//   				&SingleMeasureMappingProperty{
+//   					MeasureName: jsii.String("measureName"),
+//   					MeasureValue: jsii.String("measureValue"),
+//   					MeasureValueType: jsii.String("measureValueType"),
+//   				},
+//   			},
+//   			TimeFieldType: jsii.String("timeFieldType"),
+//   			TimestampFormat: jsii.String("timestampFormat"),
+//   		},
 //   	},
 //   }
 //

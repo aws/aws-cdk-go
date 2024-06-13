@@ -19,18 +19,16 @@ import (
 // The user is still required to create the worker nodes.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   myEksCluster := eks.NewCluster(this, jsii.String("my sample cluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_18(),
-//   	ClusterName: jsii.String("myEksCluster"),
+//   // or
+//   var vpc vpc
+//   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
+//   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
+//   	Version: eks.KubernetesVersion_V1_30(),
 //   })
-//
-//   tasks.NewEksCall(this, jsii.String("Call a EKS Endpoint"), &EksCallProps{
-//   	Cluster: myEksCluster,
-//   	HttpMethod: tasks.HttpMethods_GET,
-//   	HttpPath: jsii.String("/api/v1/namespaces/default/pods"),
+//   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
+//   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
+//   	Vpc: Vpc,
+//   	ClusterName: jsii.String("cluster-name"),
 //   })
 //
 type Cluster interface {
@@ -44,6 +42,12 @@ type Cluster interface {
 	//
 	// Will be undefined if `albController` wasn't configured.
 	AlbController() AlbController
+	// The authentication mode for the Amazon EKS cluster.
+	//
+	// The authentication mode determines how users and applications authenticate to the Kubernetes API server.
+	// Default: CONFIG_MAP.
+	//
+	AuthenticationMode() AuthenticationMode
 	// Lazily creates the AwsAuth resource, which manages AWS authentication mapping.
 	AwsAuth() AwsAuth
 	// An AWS Lambda layer that contains the `aws` CLI.
@@ -260,6 +264,12 @@ type Cluster interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Fetch the load balancer address of a service of type 'LoadBalancer'.
 	GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string
+	// Grants the specified IAM principal access to the EKS cluster based on the provided access policies.
+	//
+	// This method creates an `AccessEntry` construct that grants the specified IAM principal the access permissions
+	// defined by the provided `IAccessPolicy` array. This allows the IAM principal to perform the actions permitted
+	// by the access policies within the EKS cluster.
+	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -285,6 +295,16 @@ func (j *jsiiProxy_Cluster) AlbController() AlbController {
 	_jsii_.Get(
 		j,
 		"albController",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Cluster) AuthenticationMode() AuthenticationMode {
+	var returns AuthenticationMode
+	_jsii_.Get(
+		j,
+		"authenticationMode",
 		&returns,
 	)
 	return returns
@@ -946,6 +966,17 @@ func (c *jsiiProxy_Cluster) GetServiceLoadBalancerAddress(serviceName *string, o
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_Cluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy) {
+	if err := c.validateGrantAccessParameters(id, principal, accessPolicies); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"grantAccess",
+		[]interface{}{id, principal, accessPolicies},
+	)
 }
 
 func (c *jsiiProxy_Cluster) ToString() *string {

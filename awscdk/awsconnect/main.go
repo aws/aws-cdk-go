@@ -994,6 +994,10 @@ func init() {
 		reflect.TypeOf((*CfnRule_SendNotificationActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRule.SubmitAutoEvaluationActionProperty",
+		reflect.TypeOf((*CfnRule_SubmitAutoEvaluationActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRule.TaskActionProperty",
 		reflect.TypeOf((*CfnRule_TaskActionProperty)(nil)).Elem(),
 	)

@@ -544,6 +544,14 @@ func init() {
 		reflect.TypeOf((*CfnScalingPolicy_TargetTrackingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.TargetTrackingMetricDataQueryProperty",
+		reflect.TypeOf((*CfnScalingPolicy_TargetTrackingMetricDataQueryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.TargetTrackingMetricStatProperty",
+		reflect.TypeOf((*CfnScalingPolicy_TargetTrackingMetricStatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicyProps",
 		reflect.TypeOf((*CfnScalingPolicyProps)(nil)).Elem(),
 	)

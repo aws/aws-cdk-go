@@ -14,18 +14,17 @@ import (
 // A new SNS topic.
 //
 // Example:
-//   import sns "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+//   var stream deliveryStream
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
+//   topic := sns.NewTopic(this, jsii.String("Topic"))
 //
-//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
-//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-//   	Actions: []iAction{
-//   		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
-//   			MessageFormat: actions.SnsActionMessageFormat_JSON,
-//   		}),
-//   	},
+//   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
+//   	Topic: Topic,
+//   	Endpoint: stream.DeliveryStreamArn,
+//   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
+//   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 //   })
 //
 type Topic interface {
@@ -110,6 +109,8 @@ type Topic interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant topic publishing permissions to the given identity.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant topic subscribing permissions to the given identity.
+	GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages published to your Amazon SNS topics.
@@ -541,6 +542,22 @@ func (t *jsiiProxy_Topic) GrantPublish(grantee awsiam.IGrantable) awsiam.Grant {
 	_jsii_.Invoke(
 		t,
 		"grantPublish",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_Topic) GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := t.validateGrantSubscribeParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		t,
+		"grantSubscribe",
 		[]interface{}{grantee},
 		&returns,
 	)

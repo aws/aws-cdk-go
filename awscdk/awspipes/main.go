@@ -109,6 +109,10 @@ func init() {
 		reflect.TypeOf((*CfnPipe_DeadLetterConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.DimensionMappingProperty",
+		reflect.TypeOf((*CfnPipe_DimensionMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.EcsContainerOverrideProperty",
 		reflect.TypeOf((*CfnPipe_EcsContainerOverrideProperty)(nil)).Elem(),
 	)
@@ -155,6 +159,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.MSKAccessCredentialsProperty",
 		reflect.TypeOf((*CfnPipe_MSKAccessCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.MultiMeasureAttributeMappingProperty",
+		reflect.TypeOf((*CfnPipe_MultiMeasureAttributeMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.MultiMeasureMappingProperty",
+		reflect.TypeOf((*CfnPipe_MultiMeasureMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.NetworkConfigurationProperty",
@@ -253,6 +265,10 @@ func init() {
 		reflect.TypeOf((*CfnPipe_PipeTargetStateMachineParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.PipeTargetTimestreamParametersProperty",
+		reflect.TypeOf((*CfnPipe_PipeTargetTimestreamParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.PlacementConstraintProperty",
 		reflect.TypeOf((*CfnPipe_PlacementConstraintProperty)(nil)).Elem(),
 	)
@@ -275,6 +291,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipe.SelfManagedKafkaAccessConfigurationVpcProperty",
 		reflect.TypeOf((*CfnPipe_SelfManagedKafkaAccessConfigurationVpcProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pipes.CfnPipe.SingleMeasureMappingProperty",
+		reflect.TypeOf((*CfnPipe_SingleMeasureMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pipes.CfnPipeProps",

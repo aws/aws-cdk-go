@@ -62,6 +62,11 @@ import (
 //   				Subject: jsii.String("subject"),
 //   			},
 //   		},
+//   		SubmitAutoEvaluationActions: []interface{}{
+//   			&SubmitAutoEvaluationActionProperty{
+//   				EvaluationFormArn: jsii.String("evaluationFormArn"),
+//   			},
+//   		},
 //   		TaskActions: []interface{}{
 //   			&TaskActionProperty{
 //   				ContactFlowArn: jsii.String("contactFlowArn"),

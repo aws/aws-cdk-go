@@ -15,17 +15,43 @@ package awsautoscaling
 //
 //   	// the properties below are optional
 //   	CustomizedMetricSpecification: &CustomizedMetricSpecificationProperty{
-//   		MetricName: jsii.String("metricName"),
-//   		Namespace: jsii.String("namespace"),
-//   		Statistic: jsii.String("statistic"),
-//
-//   		// the properties below are optional
 //   		Dimensions: []interface{}{
 //   			&MetricDimensionProperty{
 //   				Name: jsii.String("name"),
 //   				Value: jsii.String("value"),
 //   			},
 //   		},
+//   		MetricName: jsii.String("metricName"),
+//   		Metrics: []interface{}{
+//   			&TargetTrackingMetricDataQueryProperty{
+//   				Id: jsii.String("id"),
+//
+//   				// the properties below are optional
+//   				Expression: jsii.String("expression"),
+//   				Label: jsii.String("label"),
+//   				MetricStat: &TargetTrackingMetricStatProperty{
+//   					Metric: &MetricProperty{
+//   						MetricName: jsii.String("metricName"),
+//   						Namespace: jsii.String("namespace"),
+//
+//   						// the properties below are optional
+//   						Dimensions: []interface{}{
+//   							&MetricDimensionProperty{
+//   								Name: jsii.String("name"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   					Stat: jsii.String("stat"),
+//
+//   					// the properties below are optional
+//   					Unit: jsii.String("unit"),
+//   				},
+//   				ReturnData: jsii.Boolean(false),
+//   			},
+//   		},
+//   		Namespace: jsii.String("namespace"),
+//   		Statistic: jsii.String("statistic"),
 //   		Unit: jsii.String("unit"),
 //   	},
 //   	DisableScaleIn: jsii.Boolean(false),

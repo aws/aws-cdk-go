@@ -79,6 +79,11 @@ type ServiceProps struct {
 	//
 	// Experimental.
 	InstanceRole awsiam.IRole `field:"optional" json:"instanceRole" yaml:"instanceRole"`
+	// The IP address type for your incoming public network configuration.
+	// Default: - IpAddressType.IPV4
+	//
+	// Experimental.
+	IpAddressType IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The customer managed key that AWS App Runner uses to encrypt copies of the source repository and service logs.
 	// Default: - Use an AWS managed key.
 	//
