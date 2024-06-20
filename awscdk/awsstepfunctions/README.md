@@ -596,6 +596,21 @@ distributedMap := sfn.NewDistributedMap(this, jsii.String("Distributed Map State
 distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")))
 ```
 
+If you want to specify the execution type for the ItemProcessor in the DistributedMap, you must set the `mapExecutionType` property in the `DistributedMap` class. When using the `DistributedMap` class, the `ProcessorConfig.executionType` property is ignored.
+
+In the following example, the execution type for the ItemProcessor in the DistributedMap is set to `EXPRESS` based on the value specified for `mapExecutionType`.
+
+```go
+distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
+	MapExecutionType: sfn.StateMachineType_EXPRESS,
+})
+
+distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")), &ProcessorConfig{
+	Mode: sfn.ProcessorMode_DISTRIBUTED,
+	ExecutionType: sfn.ProcessorType_STANDARD,
+})
+```
+
 ### Custom State
 
 It's possible that the high-level constructs for the states or `stepfunctions-tasks` do not have

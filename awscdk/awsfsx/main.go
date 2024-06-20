@@ -155,6 +155,10 @@ func init() {
 		reflect.TypeOf((*CfnFileSystem_LustreConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnFileSystem.MetadataConfigurationProperty",
+		reflect.TypeOf((*CfnFileSystem_MetadataConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnFileSystem.NfsExportsProperty",
 		reflect.TypeOf((*CfnFileSystem_NfsExportsProperty)(nil)).Elem(),
 	)

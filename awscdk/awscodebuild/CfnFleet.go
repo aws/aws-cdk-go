@@ -70,8 +70,10 @@ type CfnFleet interface {
 	// The environment type of the compute fleet.
 	EnvironmentType() *string
 	SetEnvironmentType(val *string)
+	// The service role associated with the compute fleet.
 	FleetServiceRole() *string
 	SetFleetServiceRole(val *string)
+	// Information about the VPC configuration that AWS CodeBuild accesses.
 	FleetVpcConfig() interface{}
 	SetFleetVpcConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -89,6 +91,7 @@ type CfnFleet interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The compute fleet overflow behavior.
 	OverflowBehavior() *string
 	SetOverflowBehavior(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -222,6 +225,8 @@ type CfnFleet interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

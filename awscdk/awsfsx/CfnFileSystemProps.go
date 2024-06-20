@@ -32,6 +32,10 @@ import (
 //   		ExportPath: jsii.String("exportPath"),
 //   		ImportedFileChunkSize: jsii.Number(123),
 //   		ImportPath: jsii.String("importPath"),
+//   		MetadataConfiguration: &MetadataConfigurationProperty{
+//   			Iops: jsii.Number(123),
+//   			Mode: jsii.String("mode"),
+//   		},
 //   		PerUnitStorageThroughput: jsii.Number(123),
 //   		WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
 //   	},
@@ -174,16 +178,18 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-backupid
 	//
 	BackupId *string `field:"optional" json:"backupId" yaml:"backupId"`
-	// (Optional) For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating.
+	// For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating.
 	//
 	// Valid values are `2.10` , `2.12` , and `2.15` :
 	//
-	// - 2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.
-	// - 2.12 and 2.15 are supported by all Lustre deployment types. `2.12` or `2.15` is required when setting FSx for Lustre `DeploymentType` to `PERSISTENT_2` .
+	// - `2.10` is supported by the Scratch and Persistent_1 Lustre deployment types.
+	// - `2.12` is supported by all Lustre deployment types, except for `PERSISTENT_2` with a metadata configuration mode.
+	// - `2.15` is supported by all Lustre deployment types and is recommended for all new file systems.
 	//
-	// Default value = `2.10` , except when `DeploymentType` is set to `PERSISTENT_2` , then the default is `2.12` .
+	// Default value is `2.10` , except for the following deployments:
 	//
-	// > If you set `FileSystemTypeVersion` to `2.10` for a `PERSISTENT_2` Lustre deployment type, the `CreateFileSystem` operation fails.
+	// - Default value is `2.12` when `DeploymentType` is set to `PERSISTENT_2` without a metadata configuration mode.
+	// - Default value is `2.15` when `DeploymentType` is set to `PERSISTENT_2` with a metadata configuration mode.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtypeversion
 	//
 	FileSystemTypeVersion *string `field:"optional" json:"fileSystemTypeVersion" yaml:"fileSystemTypeVersion"`

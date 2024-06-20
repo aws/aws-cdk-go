@@ -69,6 +69,9 @@ type CfnPipeline_StageDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-blockers
 	//
 	Blockers interface{} `field:"optional" json:"blockers" yaml:"blockers"`
+	// The method to use when a stage has not completed successfully.
+	//
+	// For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onfailure
 	//
 	OnFailure interface{} `field:"optional" json:"onFailure" yaml:"onFailure"`

@@ -136,6 +136,12 @@ import (
 //   	Description: jsii.String("description"),
 //   	FarmId: jsii.String("farmId"),
 //   	MinWorkerCount: jsii.Number(123),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html
@@ -143,6 +149,7 @@ import (
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) assigned to the fleet.
 	AttrArn() *string
 	AttrCapabilities() awscdk.IResolvable
@@ -152,6 +159,8 @@ type CfnFleet interface {
 	AttrStatus() *string
 	// The number of workers in the fleet summary.
 	AttrWorkerCount() *float64
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -203,6 +212,9 @@ type CfnFleet interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to add to your fleet.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -322,6 +334,8 @@ type CfnFleet interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//
@@ -347,6 +361,7 @@ type CfnFleet interface {
 type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFleet) AttrArn() *string {
@@ -394,6 +409,16 @@ func (j *jsiiProxy_CfnFleet) AttrWorkerCount() *float64 {
 	_jsii_.Get(
 		j,
 		"attrWorkerCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -549,6 +574,16 @@ func (j *jsiiProxy_CfnFleet) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -661,6 +696,17 @@ func (j *jsiiProxy_CfnFleet)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

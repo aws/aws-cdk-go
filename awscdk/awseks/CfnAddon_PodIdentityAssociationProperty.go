@@ -1,7 +1,7 @@
 package awseks
 
 
-// A pod identity to associate with an add-on.
+// Amazon EKS Pod Identity associations provide the ability to manage credentials for your applications, similar to the way that Amazon EC2 instance profiles provide credentials to Amazon EC2 instances.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,13 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html
 //
 type CfnAddon_PodIdentityAssociationProperty struct {
-	// The IAM role ARN that the pod identity association is created for.
+	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account.
+	//
+	// The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html#cfn-eks-addon-podidentityassociation-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// The Kubernetes service account that the pod identity association is created for.
+	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html#cfn-eks-addon-podidentityassociation-serviceaccount
 	//
 	ServiceAccount *string `field:"required" json:"serviceAccount" yaml:"serviceAccount"`

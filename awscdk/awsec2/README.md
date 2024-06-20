@@ -2182,6 +2182,58 @@ ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 })
 ```
 
+### Enabling Nitro Enclaves
+
+You can enable [AWS Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) for
+your EC2 instances by setting the `enclaveEnabled` property to `true`. Nitro Enclaves is a feature of
+AWS Nitro System that enables creating isolated and highly constrained CPU environments known as enclaves.
+
+```go
+var vpc vpc
+
+
+instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_XLARGE),
+	MachineImage: ec2.NewAmazonLinuxImage(),
+	Vpc: vpc,
+	EnclaveEnabled: jsii.Boolean(true),
+})
+```
+
+> NOTE: You must use an instance type and operating system that support Nitro Enclaves.
+> For more information, see [Requirements](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html#nitro-enclave-reqs).
+
+### Enabling Instance Hibernation
+
+You can enable [Instance Hibernation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) for
+your EC2 instances by setting the `hibernationEnabled` property to `true`. Instance Hibernation saves the
+instance's in-memory (RAM) state when an instance is stopped, and restores that state when the instance is started.
+
+```go
+var vpc vpc
+
+
+instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_XLARGE),
+	MachineImage: ec2.NewAmazonLinuxImage(),
+	Vpc: vpc,
+	HibernationEnabled: jsii.Boolean(true),
+	BlockDevices: []blockDevice{
+		&blockDevice{
+			DeviceName: jsii.String("/dev/xvda"),
+			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(30), &EbsDeviceOptions{
+				VolumeType: ec2.EbsDeviceVolumeType_GP3,
+				Encrypted: jsii.Boolean(true),
+				DeleteOnTermination: jsii.Boolean(true),
+			}),
+		},
+	},
+})
+```
+
+> NOTE: You must use an instance and a volume that meet the requirements for hibernation.
+> For more information, see [Prerequisites for Amazon EC2 instance hibernation](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html#nitro-enclave-reqs).
+
 ## VPC Flow Logs
 
 VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data can be published to Amazon CloudWatch Logs and Amazon S3. After you've created a flow log, you can retrieve and view its data in the chosen destination. ([https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)).

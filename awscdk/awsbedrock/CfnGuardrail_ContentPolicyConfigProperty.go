@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Content policy config for a guardrail.
+// Contains details about how to handle harmful content.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,7 +21,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html
 //
 type CfnGuardrail_ContentPolicyConfigProperty struct {
-	// List of content filter configs in content policy.
+	// Contains the type of the content filter and how strongly it should apply to prompts and model responses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html#cfn-bedrock-guardrail-contentpolicyconfig-filtersconfig
 	//
 	FiltersConfig interface{} `field:"required" json:"filtersConfig" yaml:"filtersConfig"`

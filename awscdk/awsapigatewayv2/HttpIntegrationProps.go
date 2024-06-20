@@ -1,11 +1,15 @@
 package awsapigatewayv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // The integration properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApi httpApi
@@ -27,6 +31,7 @@ package awsapigatewayv2
 //   	ParameterMapping: parameterMapping,
 //   	PayloadFormatVersion: payloadFormatVersion,
 //   	SecureServerName: jsii.String("secureServerName"),
+//   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   }
 //
 type HttpIntegrationProps struct {
@@ -83,5 +88,11 @@ type HttpIntegrationProps struct {
 	// Default: undefined private integration traffic will use HTTP protocol.
 	//
 	SecureServerName *string `field:"optional" json:"secureServerName" yaml:"secureServerName"`
+	// The maximum amount of time an integration will run before it returns without a response.
+	//
+	// Must be between 50 milliseconds and 29 seconds.
+	// Default: Duration.seconds(29)
+	//
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

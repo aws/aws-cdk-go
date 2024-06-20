@@ -49,6 +49,12 @@ import (
 //   		jsii.String("requiredFileSystemLocationNames"),
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html
@@ -56,6 +62,7 @@ import (
 type CfnQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
 	AllowedStorageProfileIds() *[]*string
 	SetAllowedStorageProfileIds(val *[]*string)
@@ -63,6 +70,8 @@ type CfnQueue interface {
 	AttrArn() *string
 	// The queue ID.
 	AttrQueueId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -117,6 +126,9 @@ type CfnQueue interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to add to your queue.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -236,6 +248,8 @@ type CfnQueue interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//
@@ -261,6 +275,7 @@ type CfnQueue interface {
 type jsiiProxy_CfnQueue struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnQueue) AllowedStorageProfileIds() *[]*string {
@@ -288,6 +303,16 @@ func (j *jsiiProxy_CfnQueue) AttrQueueId() *string {
 	_jsii_.Get(
 		j,
 		"attrQueueId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueue) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -453,6 +478,16 @@ func (j *jsiiProxy_CfnQueue) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -578,6 +613,17 @@ func (j *jsiiProxy_CfnQueue)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

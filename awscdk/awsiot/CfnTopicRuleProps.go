@@ -522,7 +522,7 @@ type CfnTopicRuleProps struct {
 	TopicRulePayload interface{} `field:"required" json:"topicRulePayload" yaml:"topicRulePayload"`
 	// The name of the rule.
 	//
-	// *Pattern* : `[a-zA-Z0-9:_-]+`.
+	// *Pattern* : `^[a-zA-Z0-9_]+$`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
 	//
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`

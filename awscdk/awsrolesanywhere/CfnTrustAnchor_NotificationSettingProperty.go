@@ -3,7 +3,7 @@ package awsrolesanywhere
 
 // Customizable notification settings that will be applied to notification events.
 //
-// IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+// IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge, and AWS Health Dashboard .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,7 +32,7 @@ type CfnTrustAnchor_NotificationSettingProperty struct {
 	Event *string `field:"required" json:"event" yaml:"event"`
 	// The specified channel of notification.
 	//
-	// IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+	// IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
 	//
 	// > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-notificationsetting.html#cfn-rolesanywhere-trustanchor-notificationsetting-channel

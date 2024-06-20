@@ -44,6 +44,10 @@ import (
 //   		ExportPath: jsii.String("exportPath"),
 //   		ImportedFileChunkSize: jsii.Number(123),
 //   		ImportPath: jsii.String("importPath"),
+//   		MetadataConfiguration: &MetadataConfigurationProperty{
+//   			Iops: jsii.Number(123),
+//   			Mode: jsii.String("mode"),
+//   		},
 //   		PerUnitStorageThroughput: jsii.Number(123),
 //   		WeeklyMaintenanceStartTime: jsii.String("weeklyMaintenanceStartTime"),
 //   	},
@@ -205,7 +209,7 @@ type CfnFileSystem interface {
 	// The type of Amazon FSx file system, which can be `LUSTRE` , `WINDOWS` , `ONTAP` , or `OPENZFS` .
 	FileSystemType() *string
 	SetFileSystemType(val *string)
-	// (Optional) For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating.
+	// For FSx for Lustre file systems, sets the Lustre version for the file system that you're creating.
 	FileSystemTypeVersion() *string
 	SetFileSystemTypeVersion(val *string)
 	// The ID of the AWS Key Management Service ( AWS KMS ) key used to encrypt Amazon FSx file system data.
@@ -382,6 +386,8 @@ type CfnFileSystem interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

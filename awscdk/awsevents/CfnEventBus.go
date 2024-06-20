@@ -63,16 +63,16 @@ type CfnEventBus interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Dead Letter Queue for the event bus.
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
 	DeadLetterConfig() interface{}
 	SetDeadLetterConfig(val interface{})
-	// The description of the event bus.
+	// The event bus description.
 	Description() *string
 	SetDescription(val *string)
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName() *string
 	SetEventSourceName(val *string)
-	// Kms Key Identifier used to encrypt events at rest in the event bus.
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -224,6 +224,8 @@ type CfnEventBus interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

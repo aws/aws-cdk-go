@@ -1213,6 +1213,15 @@ tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
 })
 ```
 
+You can choose the execution class by setting the `executionClass` property.
+
+```go
+tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
+	GlueJobName: jsii.String("my-glue-job"),
+	ExecutionClass: tasks.ExecutionClass_FLEX,
+})
+```
+
 ### StartCrawlerRun
 
 You can call the [`StartCrawler`](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-StartCrawler) API from a `Task` state through AWS SDK service integrations.

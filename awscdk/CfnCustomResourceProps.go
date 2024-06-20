@@ -15,11 +15,9 @@ package awscdk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html
 //
 type CfnCustomResourceProps struct {
-	// > Only one property is defined by AWS for a custom resource: `ServiceToken` .
+	// The service token, such as an Amazon SNS topic ARN or Lambda function ARN.
 	//
-	// All other properties are defined by the service provider.
-	//
-	// The service token that was given to the template developer by the service provider to access the service, such as an Amazon SNS topic ARN or Lambda function ARN. The service token must be from the same Region in which you are creating the stack.
+	// The service token must be from the same Region as the stack.
 	//
 	// Updates aren't supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html#cfn-cloudformation-customresource-servicetoken

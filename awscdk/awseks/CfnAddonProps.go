@@ -54,7 +54,11 @@ type CfnAddonProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-configurationvalues
 	//
 	ConfigurationValues *string `field:"optional" json:"configurationValues" yaml:"configurationValues"`
-	// An array of pod identities to apply to this add-on.
+	// An array of Pod Identity Assocations owned by the Addon.
+	//
+	// Each EKS Pod Identity association maps a role to a service account in a namespace in the cluster.
+	//
+	// For more information, see [Attach an IAM Role to an Amazon EKS add-on using Pod Identity](https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html) in the EKS User Guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-podidentityassociations
 	//
 	PodIdentityAssociations interface{} `field:"optional" json:"podIdentityAssociations" yaml:"podIdentityAssociations"`

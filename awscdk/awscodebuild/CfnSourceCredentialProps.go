@@ -34,7 +34,7 @@ type CfnSourceCredentialProps struct {
 	ServerType *string `field:"required" json:"serverType" yaml:"serverType"`
 	// For GitHub or GitHub Enterprise, this is the personal access token.
 	//
-	// For Bitbucket, this is either the access token or the app password.
+	// For Bitbucket, this is either the access token or the app password. For the `authType` CODECONNECTIONS, this is the `connectionArn` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html#cfn-codebuild-sourcecredential-token
 	//
 	Token *string `field:"required" json:"token" yaml:"token"`

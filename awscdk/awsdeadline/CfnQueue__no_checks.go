@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnQueue) validateSetJobRunAsUserParameters(val interface{}) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnQueue) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnQueueParameters(scope constructs.Construct, id *string, props *CfnQueueProps) error {
 	return nil
 }

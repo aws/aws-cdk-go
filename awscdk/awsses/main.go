@@ -1191,6 +1191,10 @@ func init() {
 		reflect.TypeOf((*VdmAttributesProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.VdmOptions",
+		reflect.TypeOf((*VdmOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.WorkmailActionConfig",
 		reflect.TypeOf((*WorkmailActionConfig)(nil)).Elem(),
 	)

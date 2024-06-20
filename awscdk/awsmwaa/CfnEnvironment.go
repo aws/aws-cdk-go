@@ -151,13 +151,13 @@ type CfnEnvironment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Maximum webserver compute units.
+	// The maximum number of web servers that you want to run in your environment.
 	MaxWebservers() *float64
 	SetMaxWebservers(val *float64)
 	// The maximum number of workers that you want to run in your environment.
 	MaxWorkers() *float64
 	SetMaxWorkers(val *float64)
-	// Minimum webserver compute units.
+	// The minimum number of web servers that you want to run in your environment.
 	MinWebservers() *float64
 	SetMinWebservers(val *float64)
 	// The minimum number of workers that you want to run in your environment.
@@ -340,6 +340,8 @@ type CfnEnvironment interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

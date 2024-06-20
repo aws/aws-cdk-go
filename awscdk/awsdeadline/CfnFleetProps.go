@@ -1,5 +1,8 @@
 package awsdeadline
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnFleet`.
 //
@@ -126,6 +129,12 @@ package awsdeadline
 //   	Description: jsii.String("description"),
 //   	FarmId: jsii.String("farmId"),
 //   	MinWorkerCount: jsii.Number(123),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html
@@ -163,5 +172,11 @@ type CfnFleetProps struct {
 	// Default: - 0.
 	//
 	MinWorkerCount *float64 `field:"optional" json:"minWorkerCount" yaml:"minWorkerCount"`
+	// The tags to add to your fleet.
+	//
+	// Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

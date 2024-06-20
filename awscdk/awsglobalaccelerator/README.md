@@ -125,6 +125,7 @@ listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
 	Endpoints: []iEndpoint{
 		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb, &NetworkLoadBalancerEndpointProps{
 			Weight: jsii.Number(128),
+			PreserveClientIp: jsii.Boolean(true),
 		}),
 	},
 })

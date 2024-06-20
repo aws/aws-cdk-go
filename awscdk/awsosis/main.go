@@ -22,6 +22,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrIngestEndpointUrls", GoGetter: "AttrIngestEndpointUrls"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPipelineArn", GoGetter: "AttrPipelineArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVpcEndpoints", GoGetter: "AttrVpcEndpoints"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEndpointService", GoGetter: "AttrVpcEndpointService"},
 			_jsii_.MemberProperty{JsiiProperty: "bufferOptions", GoGetter: "BufferOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

@@ -37,7 +37,7 @@ type CfnProject_WebhookFilterProperty struct {
 	//
 	// - A webhook event triggers a build when the provided `pattern` matches one of nine event types: `PUSH` , `PULL_REQUEST_CREATED` , `PULL_REQUEST_UPDATED` , `PULL_REQUEST_CLOSED` , `PULL_REQUEST_REOPENED` , `PULL_REQUEST_MERGED` , `RELEASED` , `PRERELEASED` , and `WORKFLOW_JOB_QUEUED` . The `EVENT` patterns are specified as a comma-separated string. For example, `PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED` filters all push, pull request created, and pull request updated events.
 	//
-	// > The `PULL_REQUEST_REOPENED` works with GitHub and GitHub Enterprise only. The `RELEASED` , `PRERELEASED` , and `WORKFLOW_JOB_QUEUED` work with GitHub only.
+	// > Types `PULL_REQUEST_REOPENED` and `WORKFLOW_JOB_QUEUED` work with GitHub and GitHub Enterprise only. Types `RELEASED` and `PRERELEASED` work with GitHub only.
 	// - ACTOR_ACCOUNT_ID
 	//
 	// - A webhook event triggers a build when a GitHub, GitHub Enterprise, or Bitbucket account ID matches the regular expression `pattern` .

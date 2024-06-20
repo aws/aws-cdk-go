@@ -41,9 +41,10 @@ type CfnCustomerGateway interface {
 	awscdk.ITaggable
 	// The ID of the customer gateway.
 	AttrCustomerGatewayId() *string
-	// For devices that support BGP, the customer gateway's BGP ASN.
+	// For customer gateway devices that support BGP, specify the device's ASN.
 	BgpAsn() *float64
 	SetBgpAsn(val *float64)
+	// For customer gateway devices that support BGP, specify the device's ASN.
 	BgpAsnExtended() *float64
 	SetBgpAsnExtended(val *float64)
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
@@ -212,6 +213,8 @@ type CfnCustomerGateway interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

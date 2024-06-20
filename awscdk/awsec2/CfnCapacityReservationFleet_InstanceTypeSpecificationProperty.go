@@ -51,7 +51,7 @@ type CfnCapacityReservationFleet_InstanceTypeSpecificationProperty struct {
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The priority to assign to the instance type.
 	//
-	// This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
+	// This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the *Amazon EC2 User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservationfleet-instancetypespecification.html#cfn-ec2-capacityreservationfleet-instancetypespecification-priority
 	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`

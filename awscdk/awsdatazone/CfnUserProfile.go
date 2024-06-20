@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A user profile represents Amazon DataZone users.
-//
-// Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
+// The user type of the user for which the user profile is created.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,9 +31,9 @@ type CfnUserProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrDetails() awscdk.IResolvable
-	// The identifier of the Amazon DataZone domain in which the user profile is created.
+	// The identifier of a Amazon DataZone domain in which a user profile exists.
 	AttrDomainId() *string
-	// The ID of the Amazon DataZone user profile.
+	// The ID of the user profile.
 	AttrId() *string
 	// The type of the user profile.
 	AttrType() *string
@@ -48,7 +46,7 @@ type CfnUserProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The identifier of the Amazon DataZone domain in which the user profile would be created.
+	// The identifier of a Amazon DataZone domain in which a user profile exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -88,10 +86,10 @@ type CfnUserProfile interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the user.
+	// The identifier of the user for which the user profile is created.
 	UserIdentifier() *string
 	SetUserIdentifier(val *string)
-	// The type of the user.
+	// The user type of the user for which the user profile is created.
 	UserType() *string
 	SetUserType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -200,6 +198,8 @@ type CfnUserProfile interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

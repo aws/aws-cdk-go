@@ -24,6 +24,9 @@ type CfnDataflowEndpointGroup_DataflowEndpointProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-address
 	//
 	Address interface{} `field:"optional" json:"address" yaml:"address"`
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	//
+	// Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html#cfn-groundstation-dataflowendpointgroup-dataflowendpoint-mtu
 	//
 	Mtu *float64 `field:"optional" json:"mtu" yaml:"mtu"`

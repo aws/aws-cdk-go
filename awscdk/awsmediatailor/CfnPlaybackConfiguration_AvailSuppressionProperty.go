@@ -21,7 +21,7 @@ package awsmediatailor
 type CfnPlaybackConfiguration_AvailSuppressionProperty struct {
 	// Defines the policy to apply to the avail suppression mode.
 	//
-	// BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+	// `BEHIND_LIVE_EDGE` will always use the full avail suppression policy. `AFTER_LIVE_EDGE` mode can be used to invoke partial ad break fills when a session starts mid-break.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-availsuppression.html#cfn-mediatailor-playbackconfiguration-availsuppression-fillpolicy
 	//
 	FillPolicy *string `field:"optional" json:"fillPolicy" yaml:"fillPolicy"`

@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A security control in Security Hub describes a security best practice related to a specific resource.
+// The `AWS::SecurityHub::SecurityControl` resource specifies custom parameter values for an AWS Security Hub control.
+//
+// For a list of controls that support custom parameters, see [Security Hub controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) . You can also use this resource to specify the use of default parameter values for a control. For more information about custom parameters, see [Custom control parameters](https://docs.aws.amazon.com/securityhub/latest/userguide/custom-control-parameters.html) in the *AWS Security Hub User Guide* .
+//
+// Tags aren't supported for this resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -58,6 +62,7 @@ type CfnSecurityControl interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// An object that identifies the name of a control parameter, its current value, and whether it has been customized.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -65,8 +70,10 @@ type CfnSecurityControl interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1` . This parameter doesn't mention a specific standard.
 	SecurityControlArn() *string
 	SetSecurityControlArn(val *string)
+	// The unique identifier of a security control across standards.
 	SecurityControlId() *string
 	SetSecurityControlId(val *string)
 	// The stack in which this element is defined.
@@ -192,6 +199,8 @@ type CfnSecurityControl interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

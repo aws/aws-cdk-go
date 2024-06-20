@@ -43,5 +43,9 @@ type ConfigurationSetProps struct {
 	// Default: ConfigurationSetTlsPolicy.OPTIONAL
 	//
 	TlsPolicy ConfigurationSetTlsPolicy `field:"optional" json:"tlsPolicy" yaml:"tlsPolicy"`
+	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+	// Default: - VDM options not configured at the configuration set level. In this case, use account level settings. (To set the account level settings using CDK, use the `VdmAttributes` Construct.)
+	//
+	VdmOptions *VdmOptions `field:"optional" json:"vdmOptions" yaml:"vdmOptions"`
 }
 

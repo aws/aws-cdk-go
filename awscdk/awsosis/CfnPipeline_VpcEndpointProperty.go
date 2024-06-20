@@ -20,6 +20,7 @@ package awsosis
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},
+//   		VpcEndpointManagement: jsii.String("vpcEndpointManagement"),
 //   	},
 //   }
 //

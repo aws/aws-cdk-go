@@ -72,7 +72,7 @@ type CfnQueueEnvironment interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A JSON or YAML template the describes the processing environment for the queue.
+	// A JSON or YAML template that describes the processing environment for the queue.
 	Template() *string
 	SetTemplate(val *string)
 	// Specifies whether the template for the queue environment is JSON or YAML.
@@ -197,6 +197,8 @@ type CfnQueueEnvironment interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

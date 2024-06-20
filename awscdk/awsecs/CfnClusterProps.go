@@ -84,7 +84,7 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
 	//
 	ClusterSettings interface{} `field:"optional" json:"clusterSettings" yaml:"clusterSettings"`
-	// The execute command configuration for the cluster.
+	// The execute command and managed storage configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`

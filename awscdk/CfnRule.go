@@ -60,6 +60,8 @@ type CfnRule interface {
 	// Adds an assertion to the rule.
 	AddAssertion(condition ICfnConditionExpression, description *string)
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Returns a string representation of this construct.
 	ToString() *string

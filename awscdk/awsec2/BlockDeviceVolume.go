@@ -17,11 +17,17 @@ import (
 //   	Vpc: Vpc,
 //   	InstanceType: InstanceType,
 //   	MachineImage: MachineImage,
-//   	EbsOptimized: jsii.Boolean(true),
+//
+//   	// ...
+//
 //   	BlockDevices: []blockDevice{
 //   		&blockDevice{
-//   			DeviceName: jsii.String("/dev/xvda"),
-//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(8)),
+//   			DeviceName: jsii.String("/dev/sda1"),
+//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(50)),
+//   		},
+//   		&blockDevice{
+//   			DeviceName: jsii.String("/dev/sdm"),
+//   			Volume: ec2.BlockDeviceVolume_*Ebs(jsii.Number(100)),
 //   		},
 //   	},
 //   })

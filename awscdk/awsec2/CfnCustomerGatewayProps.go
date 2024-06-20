@@ -33,7 +33,7 @@ import (
 type CfnCustomerGatewayProps struct {
 	// IPv4 address for the customer gateway device's outside interface.
 	//
-	// The address must be static.
+	// The address must be static. If `OutsideIpAddressType` in your VPN connection options is set to `PrivateIpv4` , you can use an RFC6598 or RFC1918 private IPv4 address. If `OutsideIpAddressType` is set to `PublicIpv4` , you can use a public IPv4 address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-ipaddress
 	//
 	IpAddress *string `field:"required" json:"ipAddress" yaml:"ipAddress"`
@@ -41,14 +41,23 @@ type CfnCustomerGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// For devices that support BGP, the customer gateway's BGP ASN.
+	// For customer gateway devices that support BGP, specify the device's ASN.
 	//
-	// Default: 65000.
+	// You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+	//
+	// Default: 65000
+	//
+	// Valid values: `1` to `2,147,483,647`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasn
 	//
 	// Default: - 65000.
 	//
 	BgpAsn *float64 `field:"optional" json:"bgpAsn" yaml:"bgpAsn"`
+	// For customer gateway devices that support BGP, specify the device's ASN.
+	//
+	// You must specify either `BgpAsn` or `BgpAsnExtended` when creating the customer gateway. If the ASN is larger than `2,147,483,647` , you must use `BgpAsnExtended` .
+	//
+	// Valid values: `2,147,483,648` to `4,294,967,295`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html#cfn-ec2-customergateway-bgpasnextended
 	//
 	BgpAsnExtended *float64 `field:"optional" json:"bgpAsnExtended" yaml:"bgpAsnExtended"`

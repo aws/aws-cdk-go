@@ -15,7 +15,7 @@ package awssecuritylake
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html
 //
 type CfnSubscriberNotificationProps struct {
-	// The ARN for the subscriber.
+	// The Amazon Resource Name (ARN) of the Security Lake subscriber.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html#cfn-securitylake-subscribernotification-subscriberarn
 	//
 	SubscriberArn *string `field:"required" json:"subscriberArn" yaml:"subscriberArn"`

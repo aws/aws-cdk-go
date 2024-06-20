@@ -1,7 +1,7 @@
 package awssecurityhub
 
 
-// An object of security control and control parameter value that are included in a configuration policy.
+// A list of security controls and control parameter values that are included in a configuration policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

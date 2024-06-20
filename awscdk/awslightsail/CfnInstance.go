@@ -111,7 +111,7 @@ type CfnInstance interface {
 	AttrHardwareRamSizeInGb() *float64
 	// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	AttrInstanceArn() *string
-	// IPv6 addresses of the instance.
+	// The IPv6 addresses of the instance.
 	AttrIpv6Addresses() *[]*string
 	// A Boolean value indicating whether the instance has a static IP assigned to it.
 	AttrIsStaticIp() awscdk.IResolvable
@@ -323,6 +323,8 @@ type CfnInstance interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

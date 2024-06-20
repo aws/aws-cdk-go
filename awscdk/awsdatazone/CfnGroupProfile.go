@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Group profiles represent groups of Amazon DataZone users.
-//
-// Groups can be manually created, or mapped to Active Directory groups of enterprise customers. In Amazon DataZone, groups serve two purposes. First, a group can map to a team of users in the organizational chart, and thus reduce the administrative work of a Amazon DataZone project owner when there are new employees joining or leaving a team. Second, corporate administrators use Active Directory groups to manage and update user statuses and so Amazon DataZone domain administrators can use these group memberships to implement Amazon DataZone domain policies.
+// The details of a group profile in Amazon DataZone.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,11 +29,11 @@ import (
 type CfnGroupProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The identifier of the Amazon DataZone domain in which the group profile is created.
+	// The identifier of the Amazon DataZone domain in which a group profile exists.
 	AttrDomainId() *string
-	// The group-name of the Group Profile.
+	// The name of a group profile.
 	AttrGroupName() *string
-	// The ID of the Amazon DataZone group profile.
+	// The ID of a group profile.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,10 +44,10 @@ type CfnGroupProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The identifier of the Amazon DataZone domain in which the group profile would be created.
+	// The identifier of the Amazon DataZone domain in which a group profile exists.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
-	// The ID of the group.
+	// The ID of the group of a project member.
 	GroupIdentifier() *string
 	SetGroupIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -73,7 +71,7 @@ type CfnGroupProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The status of the group profile.
+	// The status of a group profile.
 	Status() *string
 	SetStatus(val *string)
 	// Deprecated.
@@ -195,6 +193,8 @@ type CfnGroupProfile interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

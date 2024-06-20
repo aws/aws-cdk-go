@@ -75,7 +75,7 @@ type CfnStudioComponentProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The unique identifier for a studio resource.
 	//
-	// In Nimble Studio , all other resources are contained in a studio resource.
+	// In Nimble Studio, all other resources are contained in a studio resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
 	//
 	StudioId *string `field:"required" json:"studioId" yaml:"studioId"`

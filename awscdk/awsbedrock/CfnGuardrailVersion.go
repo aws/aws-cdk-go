@@ -30,7 +30,7 @@ import (
 type CfnGuardrailVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ARN of the guardrail that was created.
+	// The ARN of the guardrail.
 	AttrGuardrailArn() *string
 	// The unique identifier of the guardrail.
 	AttrGuardrailId() *string
@@ -191,6 +191,8 @@ type CfnGuardrailVersion interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

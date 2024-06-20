@@ -71,7 +71,7 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	FsxAdminPassword *string `field:"optional" json:"fsxAdminPassword" yaml:"fsxAdminPassword"`
 	// Specifies how many high-availability (HA) pairs of file servers will power your file system.
 	//
-	// Scale-up file systems are powered by 1 HA pair. The default value is 1. FSx for ONTAP scale-out file systems are powered by up to 12 HA pairs. The value of this property affects the values of `StorageCapacity` , `Iops` , and `ThroughputCapacity` . For more information, see [High-availability (HA) pairs](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/HA-pairs.html) in the FSx for ONTAP user guide.
+	// Scale-up file systems are powered by 1 HA pair. The default value is 1. FSx for ONTAP scale-out file systems are powered by up to 12 HA pairs. The value of this property affects the values of `StorageCapacity` , `Iops` , and `ThroughputCapacity` . For more information, see [High-availability (HA) pairs](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/administering-file-systems.html#HA-pairs) in the FSx for ONTAP user guide.
 	//
 	// Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
 	//

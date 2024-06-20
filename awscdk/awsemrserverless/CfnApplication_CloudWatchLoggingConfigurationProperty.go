@@ -3,7 +3,7 @@ package awsemrserverless
 
 // The Amazon CloudWatch configuration for monitoring logs.
 //
-// You can configure your jobs to send log information to CloudWatch .
+// You can configure your jobs to send log information to CloudWatch.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,7 +34,7 @@ type CfnApplication_CloudWatchLoggingConfigurationProperty struct {
 	// Default: - false.
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
-	// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs .
+	// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html#cfn-emrserverless-application-cloudwatchloggingconfiguration-encryptionkeyarn
 	//
 	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`

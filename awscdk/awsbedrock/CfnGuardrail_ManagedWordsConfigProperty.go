@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// A managed words config.
+// The managed word list to configure for the guardrail.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html
 //
 type CfnGuardrail_ManagedWordsConfigProperty struct {
-	// Options for managed words.
+	// The managed word type to configure for the guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html#cfn-bedrock-guardrail-managedwordsconfig-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

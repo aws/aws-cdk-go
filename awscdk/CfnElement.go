@@ -32,6 +32,8 @@ type CfnElement interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() Stack
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Returns a string representation of this construct.
 	ToString() *string

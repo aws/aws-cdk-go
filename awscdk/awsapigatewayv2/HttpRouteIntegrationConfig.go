@@ -1,11 +1,15 @@
 package awsapigatewayv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Config returned back as a result of the bind.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var integrationCredentials integrationCredentials
@@ -24,6 +28,7 @@ package awsapigatewayv2
 //   	ParameterMapping: parameterMapping,
 //   	SecureServerName: jsii.String("secureServerName"),
 //   	Subtype: awscdk.*Aws_apigatewayv2.HttpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
+//   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   	Uri: jsii.String("uri"),
 //   }
 //
@@ -72,6 +77,12 @@ type HttpRouteIntegrationConfig struct {
 	// Default: - none, required if no `integrationUri` is defined.
 	//
 	Subtype HttpIntegrationSubtype `field:"optional" json:"subtype" yaml:"subtype"`
+	// The maximum amount of time an integration will run before it returns without a response.
+	//
+	// Must be between 50 milliseconds and 29 seconds.
+	// Default: Duration.seconds(29)
+	//
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Integration URI.
 	// Default: - none, required if no `integrationSubtype` is defined.
 	//

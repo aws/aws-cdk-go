@@ -110,6 +110,10 @@ type GlueStartJobRunProps struct {
 	// Default: - Default arguments set in the job definition.
 	//
 	Arguments awsstepfunctions.TaskInput `field:"optional" json:"arguments" yaml:"arguments"`
+	// The excecution class of the job.
+	// Default: - STANDARD.
+	//
+	ExecutionClass ExecutionClass `field:"optional" json:"executionClass" yaml:"executionClass"`
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
 	//
 	// Must be at least 1 minute.

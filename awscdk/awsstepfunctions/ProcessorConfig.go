@@ -21,12 +21,15 @@ package awsstepfunctions
 type ProcessorConfig struct {
 	// Specifies the execution type for the Map workflow.
 	//
-	// You must provide this field if you specified `DISTRIBUTED` for the `mode` sub-field.
+	// If you use the `Map` class, you must provide this field if you specified `DISTRIBUTED` for the `mode` sub-field.
+	//
+	// If you use the `DistributedMap` class, this property is ignored.
+	// Use the `mapExecutionType` in the `DistributedMap` class instead.
 	// Default: - no execution type.
 	//
 	ExecutionType ProcessorType `field:"optional" json:"executionType" yaml:"executionType"`
 	// Specifies the execution mode for the Map workflow.
-	// Default: - ProcessorMode.INLINE
+	// Default: - ProcessorMode.INLINE if using the `Map` class, ProcessorMode.DISTRIBUTED if using the `DistributedMap` class
 	//
 	Mode ProcessorMode `field:"optional" json:"mode" yaml:"mode"`
 }

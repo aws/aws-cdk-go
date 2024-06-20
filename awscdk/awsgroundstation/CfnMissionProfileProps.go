@@ -69,10 +69,11 @@ type CfnMissionProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
 	//
 	ContactPrePassDurationSeconds *float64 `field:"optional" json:"contactPrePassDurationSeconds" yaml:"contactPrePassDurationSeconds"`
+	// KMS key to use for encrypting streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-streamskmskey
 	//
 	StreamsKmsKey interface{} `field:"optional" json:"streamsKmsKey" yaml:"streamsKmsKey"`
-	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+	// Role to use for encrypting streams with KMS key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-streamskmsrole
 	//
 	StreamsKmsRole *string `field:"optional" json:"streamsKmsRole" yaml:"streamsKmsRole"`

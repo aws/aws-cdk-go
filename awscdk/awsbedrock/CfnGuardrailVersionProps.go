@@ -19,6 +19,8 @@ package awsbedrock
 //
 type CfnGuardrailVersionProps struct {
 	// The unique identifier of the guardrail.
+	//
+	// This can be an ID or the ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrailversion.html#cfn-bedrock-guardrailversion-guardrailidentifier
 	//
 	GuardrailIdentifier *string `field:"required" json:"guardrailIdentifier" yaml:"guardrailIdentifier"`

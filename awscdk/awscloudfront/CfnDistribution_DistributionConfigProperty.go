@@ -367,10 +367,14 @@ type CfnDistribution_DistributionConfigProperty struct {
 	//
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 	// A complex type that contains information about origin groups for this distribution.
+	//
+	// Specify a value for either the `Origins` or `OriginGroups` property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
 	//
 	OriginGroups interface{} `field:"optional" json:"originGroups" yaml:"originGroups"`
 	// A complex type that contains information about origins for this distribution.
+	//
+	// Specify a value for either the `Origins` or `OriginGroups` property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
 	//
 	Origins interface{} `field:"optional" json:"origins" yaml:"origins"`

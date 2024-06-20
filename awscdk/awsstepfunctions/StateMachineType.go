@@ -4,16 +4,13 @@ package awsstepfunctions
 // Two types of state machines are available in AWS Step Functions: EXPRESS AND STANDARD.
 //
 // Example:
-//   stateMachineDefinition := stepfunctions.NewPass(this, jsii.String("PassState"))
-//
-//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-//   	Definition: stateMachineDefinition,
-//   	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
+//   distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
+//   	MapExecutionType: sfn.StateMachineType_EXPRESS,
 //   })
 //
-//   apigateway.NewStepFunctionsRestApi(this, jsii.String("StepFunctionsRestApi"), &StepFunctionsRestApiProps{
-//   	Deploy: jsii.Boolean(true),
-//   	StateMachine: stateMachine,
+//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")), &ProcessorConfig{
+//   	Mode: sfn.ProcessorMode_DISTRIBUTED,
+//   	ExecutionType: sfn.ProcessorType_STANDARD,
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html

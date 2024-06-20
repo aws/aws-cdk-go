@@ -168,7 +168,7 @@ type CfnOriginEndpoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// <p>A DASH manifest configuration.</p>.
+	// A DASH manifest configuration.
 	DashManifests() interface{}
 	SetDashManifests(val interface{})
 	// The description associated with the origin endpoint.
@@ -332,6 +332,8 @@ type CfnOriginEndpoint interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

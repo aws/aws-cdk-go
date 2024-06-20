@@ -45,7 +45,7 @@ type CfnAgent_PromptOverrideConfigurationProperty struct {
 	PromptConfigurations interface{} `field:"required" json:"promptConfigurations" yaml:"promptConfigurations"`
 	// The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence.
 	//
-	// If you specify this field, at least one of the `promptConfigurations` must contain a `parserMode` value that is set to `OVERRIDDEN` .
+	// If you specify this field, at least one of the `promptConfigurations` must contain a `parserMode` value that is set to `OVERRIDDEN` . For more information, see [Parser Lambda function in Agents for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptoverrideconfiguration.html#cfn-bedrock-agent-promptoverrideconfiguration-overridelambda
 	//
 	OverrideLambda *string `field:"optional" json:"overrideLambda" yaml:"overrideLambda"`

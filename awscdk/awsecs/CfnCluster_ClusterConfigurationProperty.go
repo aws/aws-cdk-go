@@ -1,7 +1,7 @@
 package awsecs
 
 
-// The execute command configuration for the cluster.
+// The execute command and managed storage configuration for the cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,6 +33,7 @@ type CfnCluster_ClusterConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
 	//
 	ExecuteCommandConfiguration interface{} `field:"optional" json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
+	// The details of the managed storage configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-managedstorageconfiguration
 	//
 	ManagedStorageConfiguration interface{} `field:"optional" json:"managedStorageConfiguration" yaml:"managedStorageConfiguration"`

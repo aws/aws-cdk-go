@@ -54,6 +54,7 @@ type CfnProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-rolearns
 	//
 	RoleArns *[]*string `field:"required" json:"roleArns" yaml:"roleArns"`
+	// A mapping applied to the authenticating end-entity certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-attributemappings
 	//
 	AttributeMappings interface{} `field:"optional" json:"attributeMappings" yaml:"attributeMappings"`

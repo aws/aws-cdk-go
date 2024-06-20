@@ -56,7 +56,7 @@ type CfnCustomResource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// > Only one property is defined by AWS for a custom resource: `ServiceToken` .
+	// The service token, such as an Amazon SNS topic ARN or Lambda function ARN.
 	ServiceToken() *string
 	SetServiceToken(val *string)
 	// The stack in which this element is defined.
@@ -182,6 +182,8 @@ type CfnCustomResource interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

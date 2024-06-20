@@ -4,15 +4,23 @@ package awsec2
 // Supported EBS volume types for blockDevices.
 //
 // Example:
-//   domain := es.NewDomain(this, jsii.String("Domain"), &DomainProps{
-//   	Version: es.ElasticsearchVersion_V7_4(),
-//   	Ebs: &EbsOptions{
-//   		VolumeSize: jsii.Number(100),
-//   		VolumeType: ec2.EbsDeviceVolumeType_GENERAL_PURPOSE_SSD,
-//   	},
-//   	NodeToNodeEncryption: jsii.Boolean(true),
-//   	EncryptionAtRest: &EncryptionAtRestOptions{
-//   		Enabled: jsii.Boolean(true),
+//   var vpc vpc
+//
+//
+//   instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_XLARGE),
+//   	MachineImage: ec2.NewAmazonLinuxImage(),
+//   	Vpc: vpc,
+//   	HibernationEnabled: jsii.Boolean(true),
+//   	BlockDevices: []blockDevice{
+//   		&blockDevice{
+//   			DeviceName: jsii.String("/dev/xvda"),
+//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(30), &EbsDeviceOptions{
+//   				VolumeType: ec2.EbsDeviceVolumeType_GP3,
+//   				Encrypted: jsii.Boolean(true),
+//   				DeleteOnTermination: jsii.Boolean(true),
+//   			}),
+//   		},
 //   	},
 //   })
 //

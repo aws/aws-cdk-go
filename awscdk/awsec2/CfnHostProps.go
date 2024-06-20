@@ -36,7 +36,7 @@ type CfnHostProps struct {
 	//
 	// For more information, see [Understanding auto-placement and affinity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding) in the *Amazon EC2 User Guide* .
 	//
-	// Default: `on`.
+	// Default: `off`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-autoplacement
 	//
 	AutoPlacement *string `field:"optional" json:"autoPlacement" yaml:"autoPlacement"`

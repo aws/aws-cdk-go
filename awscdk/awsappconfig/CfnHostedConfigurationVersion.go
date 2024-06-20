@@ -54,7 +54,7 @@ type CfnHostedConfigurationVersion interface {
 	// The configuration profile ID.
 	ConfigurationProfileId() *string
 	SetConfigurationProfileId(val *string)
-	// The content of the configuration or the configuration data.
+	// The configuration data, as bytes.
 	Content() *string
 	SetContent(val *string)
 	// A standard MIME type describing the format of the configuration content.
@@ -213,6 +213,8 @@ type CfnHostedConfigurationVersion interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

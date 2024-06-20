@@ -17,7 +17,9 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html
 //
 type CfnPolicyAssociationProps struct {
-	// The universally unique identifier (UUID) of the configuration policy or a value of SELF_MANAGED_SECURITY_HUB for a self-managed configuration.
+	// The universally unique identifier (UUID) of the configuration policy.
+	//
+	// A self-managed configuration has no UUID. The identifier of a self-managed configuration is `SELF_MANAGED_SECURITY_HUB` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html#cfn-securityhub-policyassociation-configurationpolicyid
 	//
 	ConfigurationPolicyId *string `field:"required" json:"configurationPolicyId" yaml:"configurationPolicyId"`
@@ -25,7 +27,7 @@ type CfnPolicyAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html#cfn-securityhub-policyassociation-targetid
 	//
 	TargetId *string `field:"required" json:"targetId" yaml:"targetId"`
-	// Indicates whether the target is an AWS account, organizational unit, or the organization root.
+	// Specifies whether the target is an AWS account , organizational unit, or the root.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html#cfn-securityhub-policyassociation-targettype
 	//
 	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`

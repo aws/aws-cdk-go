@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Topic policy config for a guardrail.
+// Contains details about topics that the guardrail should identify and deny.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,7 +26,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html
 //
 type CfnGuardrail_TopicPolicyConfigProperty struct {
-	// List of topic configs in topic policy.
+	// A list of policies related to topics that the guardrail should deny.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html#cfn-bedrock-guardrail-topicpolicyconfig-topicsconfig
 	//
 	TopicsConfig interface{} `field:"required" json:"topicsConfig" yaml:"topicsConfig"`

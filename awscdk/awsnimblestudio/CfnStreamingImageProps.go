@@ -33,7 +33,7 @@ type CfnStreamingImageProps struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The unique identifier for a studio resource.
 	//
-	// In Nimble Studio , all other resources are contained in a studio resource.
+	// In Nimble Studio, all other resources are contained in a studio resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
 	//
 	StudioId *string `field:"required" json:"studioId" yaml:"studioId"`

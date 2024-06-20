@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
+// The `AWS::SecurityHub::ConfigurationPolicy` resource creates a central configuration policy with the defined settings.
+//
+// Only the AWS Security Hub delegated administrator can create this resource in the home Region. For more information, see [Central configuration in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in the *AWS Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -76,15 +78,17 @@ type CfnConfigurationPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the configuration policy.
+	// The ARN of the configuration policy.
 	AttrArn() *string
 	// The date and time, in UTC and ISO 8601 format.
 	AttrCreatedAt() *string
 	// The universally unique identifier (UUID) of the configuration policy.
+	//
+	// A self-managed configuration has no UUID. The identifier of a self-managed configuration is `SELF_MANAGED_SECURITY_HUB` .
 	AttrId() *string
 	// Indicates whether the service that the configuration policy applies to is enabled in the policy.
 	AttrServiceEnabled() awscdk.IResolvable
-	// The date and time, in UTC and ISO 8601 format.
+	// The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -93,7 +97,7 @@ type CfnConfigurationPolicy interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// An object that defines how Security Hub is configured.
+	// An object that defines how AWS Security Hub is configured.
 	ConfigurationPolicy() interface{}
 	SetConfigurationPolicy(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -127,7 +131,7 @@ type CfnConfigurationPolicy interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A key-value pair to associate with a resource.
+	// User-defined tags associated with a configuration policy.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.
@@ -249,6 +253,8 @@ type CfnConfigurationPolicy interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

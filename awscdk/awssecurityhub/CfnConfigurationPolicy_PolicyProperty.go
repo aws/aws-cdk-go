@@ -1,7 +1,9 @@
 package awssecurityhub
 
 
-// An object that defines how Security Hub is configured.
+// An object that defines how AWS Security Hub is configured.
+//
+// It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -56,7 +58,7 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html
 //
 type CfnConfigurationPolicy_PolicyProperty struct {
-	// An object that defines how AWS Security Hub is configured.
+	// The AWS service that the configuration policy applies to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html#cfn-securityhub-configurationpolicy-policy-securityhub
 	//
 	SecurityHub interface{} `field:"optional" json:"securityHub" yaml:"securityHub"`

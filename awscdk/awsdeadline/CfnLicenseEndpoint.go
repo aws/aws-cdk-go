@@ -24,6 +24,14 @@ import (
 //   		jsii.String("subnetIds"),
 //   	},
 //   	VpcId: jsii.String("vpcId"),
+//
+//   	// the properties below are optional
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html
@@ -31,6 +39,7 @@ import (
 type CfnLicenseEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the license endpoint.
 	AttrArn() *string
 	// The DNS name of the license server endpoint.
@@ -41,6 +50,8 @@ type CfnLicenseEndpoint interface {
 	AttrStatus() *string
 	// The status message of the license endpoint.
 	AttrStatusMessage() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,6 +88,9 @@ type CfnLicenseEndpoint interface {
 	// Identifies the VPC subnets that can connect to a license endpoint.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
+	// The tags to add to your license endpoint.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -199,6 +213,8 @@ type CfnLicenseEndpoint interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//
@@ -224,6 +240,7 @@ type CfnLicenseEndpoint interface {
 type jsiiProxy_CfnLicenseEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnLicenseEndpoint) AttrArn() *string {
@@ -271,6 +288,16 @@ func (j *jsiiProxy_CfnLicenseEndpoint) AttrStatusMessage() *string {
 	_jsii_.Get(
 		j,
 		"attrStatusMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLicenseEndpoint) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -376,6 +403,16 @@ func (j *jsiiProxy_CfnLicenseEndpoint) SubnetIds() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLicenseEndpoint) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLicenseEndpoint) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -452,6 +489,17 @@ func (j *jsiiProxy_CfnLicenseEndpoint)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLicenseEndpoint)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

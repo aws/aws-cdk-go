@@ -71,6 +71,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::Cassandra::Table`
 	// - `AWS::CloudFront::KeyValueStore`
 	// - `AWS::CloudTrail::Channel`
+	// - `AWS::CloudWatch::Metric`
 	// - `AWS::CodeWhisperer::Customization`
 	// - `AWS::CodeWhisperer::Profile`
 	// - `AWS::Cognito::IdentityPool`
@@ -89,12 +90,16 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::IoTTwinMaker::Entity`
 	// - `AWS::IoTTwinMaker::Workspace`
 	// - `AWS::KendraRanking::ExecutionPlan`
+	// - `AWS::Kinesis::Stream`
+	// - `AWS::Kinesis::StreamConsumer`
 	// - `AWS::KinesisVideo::Stream`
+	// - `AWS::MachineLearning::MlModel`
 	// - `AWS::ManagedBlockchain::Network`
 	// - `AWS::ManagedBlockchain::Node`
 	// - `AWS::MedicalImaging::Datastore`
 	// - `AWS::NeptuneGraph::Graph`
 	// - `AWS::PCAConnectorAD::Connector`
+	// - `AWS::PCAConnectorSCEP::Connector`
 	// - `AWS::QApps:QApp`
 	// - `AWS::QBusiness::Application`
 	// - `AWS::QBusiness::DataSource`
@@ -115,6 +120,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::SQS::Queue`
 	// - `AWS::SSM::ManagedNode`
 	// - `AWS::SSMMessages::ControlChannel`
+	// - `AWS::StepFunctions::StateMachine`
 	// - `AWS::SWF::Domain`
 	// - `AWS::ThinClient::Device`
 	// - `AWS::ThinClient::Environment`
@@ -245,9 +251,21 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	//
 	// - `arn:<partition>:kendra-ranking:<region>:<account_ID>:rescore-execution-plan/<rescore_execution_plan_ID>`
 	//
+	// When `resources.type` equals `AWS::Kinesis::Stream` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:kinesis:<region>:<account_ID>:stream/<stream_name>`
+	//
+	// When `resources.type` equals `AWS::Kinesis::Stream` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:kinesis:<region>:<account_ID>:<stream_type>/<stream_name>/consumer/<consumer_name>:<consumer_creation_timestamp>`
+	//
 	// When `resources.type` equals `AWS::KinesisVideo::Stream` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name>/<creation_time>`
+	//
+	// When `resources.type` equals `AWS::MachineLearning::MlModel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:machinelearning:<region>:<account_ID>:mlmodel/<model_ID>`
 	//
 	// When `resources.type` equals `AWS::ManagedBlockchain::Network` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
@@ -268,6 +286,10 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::PCAConnectorAD::Connector` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID>`
+	//
+	// When `resources.type` equals `AWS::PCAConnectorSCEP::Connector` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
+	//
+	// - `arn:<partition>:pca-connector-scep:<region>:<account_ID>:connector/<connector_ID>`
 	//
 	// When `resources.type` equals `AWS::QApps:QApp` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
@@ -350,6 +372,11 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// When `resources.type` equals `AWS::SSMMessages::ControlChannel` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//
 	// - `arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID>`
+	//
+	// When `resources.type` equals `AWS::StepFunctions::StateMachine` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in one of the following formats:
+	//
+	// - `arn:<partition>:states:<region>:<account_ID>:stateMachine:<stateMachine_name>`
+	// - `arn:<partition>:states:<region>:<account_ID>:stateMachine:<stateMachine_name>/<label_name>`
 	//
 	// When `resources.type` equals `AWS::SWF::Domain` , and the operator is set to `Equals` or `NotEquals` , the ARN must be in the following format:
 	//

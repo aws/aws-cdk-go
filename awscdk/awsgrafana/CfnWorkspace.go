@@ -181,7 +181,7 @@ type CfnWorkspace interface {
 	// Specifies the organizational units that this workspace is allowed to use data sources from, if this workspace is in an account that is part of an organization.
 	OrganizationalUnits() *[]*string
 	SetOrganizationalUnits(val *[]*string)
-	// The name of the IAM role that is used to access resources through Organizations .
+	// The name of the IAM role that is used to access resources through Organizations.
 	OrganizationRoleName() *string
 	SetOrganizationRoleName(val *string)
 	// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
@@ -330,6 +330,8 @@ type CfnWorkspace interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

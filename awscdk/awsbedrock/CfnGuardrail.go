@@ -11,7 +11,16 @@ import (
 
 // Creates a guardrail to block topics and to implement safeguards for your generative AI applications.
 //
-// You can configure denied topics to disallow undesirable topics and content filters to block harmful content in model inputs and responses. For more information, see [Guardrails for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) in the *Amazon Bedrock User Guide*
+// You can configure the following policies in a guardrail to avoid undesirable and harmful content, filter out denied topics and words, and remove sensitive information for privacy protection.
+//
+// - *Content filters* - Adjust filter strengths to block input prompts or model responses containing harmful content.
+// - *Denied topics* - Define a set of topics that are undesirable in the context of your application. These topics will be blocked if detected in user queries or model responses.
+// - *Word filters* - Configure filters to block undesirable words, phrases, and profanity. Such words can include offensive terms, competitor names etc.
+// - *Sensitive information filters* - Block or mask sensitive information such as personally identifiable information (PII) or custom regex in user inputs and model responses.
+//
+// In addition to the above policies, you can also configure the messages to be returned to the user if a user input or model response is in violation of the policies defined in the guardrail.
+//
+// For more information, see [Guardrails for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) in the *Amazon Bedrock User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -95,21 +104,25 @@ type CfnGuardrail interface {
 	awscdk.ITaggableV2
 	// The date and time at which the guardrail was created.
 	AttrCreatedAt() *string
-	// List of failure recommendations.
-	AttrFailureRecommendations() *[]*string
-	// The Amazon Resource Name (ARN) of the guardrail.
+	// Appears if the `status` of the guardrail is `FAILED` .
 	//
-	// This a the primary identifier for the guardrail.
+	// A list of recommendations to carry out before retrying the request.
+	AttrFailureRecommendations() *[]*string
+	// The ARN of the guardrail.
 	AttrGuardrailArn() *string
 	// The unique identifier of the guardrail.
 	AttrGuardrailId() *string
-	// Status of the guardrail.
+	// The status of the guardrail.
 	AttrStatus() *string
-	// List of status reasons.
+	// Appears if the `status` is `FAILED` .
+	//
+	// A list of reasons for why the guardrail failed to be created, updated, versioned, or deleted.
 	AttrStatusReasons() *[]*string
 	// The date and time at which the guardrail was last updated.
 	AttrUpdatedAt() *string
-	// The version of the guardrail.
+	// The version of the guardrail that was created.
+	//
+	// This value will always be `DRAFT` .
 	AttrVersion() *string
 	// The message to return when the guardrail blocks a prompt.
 	BlockedInputMessaging() *string
@@ -124,7 +137,7 @@ type CfnGuardrail interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Content policy config for a guardrail.
+	// The content filter policies to configure for the guardrail.
 	ContentPolicyConfig() interface{}
 	SetContentPolicyConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -134,7 +147,7 @@ type CfnGuardrail interface {
 	// A description of the guardrail.
 	Description() *string
 	SetDescription(val *string)
-	// The ARN of the AWS KMS key used to encrypt the guardrail.
+	// The ARN of the AWS KMS key that you use to encrypt the guardrail.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -157,19 +170,17 @@ type CfnGuardrail interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Sensitive information policy config for a guardrail.
+	// The sensitive information policy to configure for the guardrail.
 	SensitiveInformationPolicyConfig() interface{}
 	SetSensitiveInformationPolicyConfig(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Metadata that you can assign to a guardrail as key-value pairs.
-	//
-	// For more information, see the following resources:.
+	// The tags that you want to attach to the guardrail.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// Topic policy config for a guardrail.
+	// The topic policies to configure for the guardrail.
 	TopicPolicyConfig() interface{}
 	SetTopicPolicyConfig(val interface{})
 	// Deprecated.
@@ -185,7 +196,7 @@ type CfnGuardrail interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Word policy config for a guardrail.
+	// The word policy you configure for the guardrail.
 	WordPolicyConfig() interface{}
 	SetWordPolicyConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -294,6 +305,8 @@ type CfnGuardrail interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

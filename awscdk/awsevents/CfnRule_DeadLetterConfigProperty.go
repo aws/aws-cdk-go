@@ -3,7 +3,7 @@ package awsevents
 
 // Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
 //
-// For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
+// For more information, see [Using dead-letter queues to process undelivered events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq) in the *EventBridge User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

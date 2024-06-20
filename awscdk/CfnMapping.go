@@ -54,6 +54,8 @@ type CfnMapping interface {
 	// If mapping is lazy, the value from the map or default value is returned instead of the reference and the mapping is not rendered in the template.
 	FindInMap(key1 *string, key2 *string, defaultValue *string) *string
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Sets a value in the map based on the two keys.
 	SetValue(key1 *string, key2 *string, value interface{})

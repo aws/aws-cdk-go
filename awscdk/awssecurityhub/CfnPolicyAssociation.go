@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::SecurityHub::PolicyAssociation resource represents the AWS Security Hub Central Configuration Policy associations in your Target.
+// The `AWS::SecurityHub::PolicyAssociation` resource specifies associations for a configuration policy or a self-managed configuration.
 //
-// Only the AWS Security Hub delegated administrator can create the resouce from the home region.
+// You can associate a AWS Security Hub configuration policy or self-managed configuration with the organization root, organizational units (OUs), or AWS accounts . After a successful association, the configuration policy takes effect in the specified targets. For more information, see [Creating and associating Security Hub configuration policies](https://docs.aws.amazon.com/securityhub/latest/userguide/create-associate-policy.html) in the *AWS Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,13 +29,15 @@ import (
 type CfnPolicyAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// A unique identifier to indicates if the target has an association.
+	// The association identifier, formatted as `TargetType/TargetId` .
+	//
+	// For example, `ACCOUNT/123456789012` .
 	AttrAssociationIdentifier() *string
 	// The current status of the association between the specified target and the configuration.
 	AttrAssociationStatus() *string
-	// An explanation for a FAILED value for AssociationStatus.
+	// The explanation for a `FAILED` value for `AssociationStatus` .
 	AttrAssociationStatusMessage() *string
-	// Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent.
+	// Indicates whether the association between the specified target and the configuration was directly applied by the AWS Security Hub delegated administrator or inherited from a parent.
 	AttrAssociationType() *string
 	// The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
 	AttrUpdatedAt() *string
@@ -44,7 +46,7 @@ type CfnPolicyAssociation interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The universally unique identifier (UUID) of the configuration policy or a value of SELF_MANAGED_SECURITY_HUB for a self-managed configuration.
+	// The universally unique identifier (UUID) of the configuration policy.
 	ConfigurationPolicyId() *string
 	SetConfigurationPolicyId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -75,7 +77,7 @@ type CfnPolicyAssociation interface {
 	// The identifier of the target account, organizational unit, or the root.
 	TargetId() *string
 	SetTargetId(val *string)
-	// Indicates whether the target is an AWS account, organizational unit, or the organization root.
+	// Specifies whether the target is an AWS account , organizational unit, or the root.
 	TargetType() *string
 	SetTargetType(val *string)
 	// Deprecated.
@@ -197,6 +199,8 @@ type CfnPolicyAssociation interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

@@ -7,13 +7,28 @@ import (
 // Block device options for an EBS volume.
 //
 // Example:
-//   host := ec2.NewBastionHostLinux(this, jsii.String("BastionHost"), &BastionHostLinuxProps{
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var vpc vpc
+//   var instanceType instanceType
+//   var machineImage iMachineImage
+//
+//
+//   kmsKey := awscdk.NewKey(this, jsii.String("KmsKey"))
+//
+//   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 //   	Vpc: Vpc,
+//   	InstanceType: InstanceType,
+//   	MachineImage: MachineImage,
+//
+//   	// ...
+//
 //   	BlockDevices: []blockDevice{
 //   		&blockDevice{
-//   			DeviceName: jsii.String("/dev/sdh"),
-//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(10), &EbsDeviceOptions{
+//   			DeviceName: jsii.String("/dev/sda1"),
+//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(50), &EbsDeviceOptions{
 //   				Encrypted: jsii.Boolean(true),
+//   				KmsKey: kmsKey,
 //   			}),
 //   		},
 //   	},

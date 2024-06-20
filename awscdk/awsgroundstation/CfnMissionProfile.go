@@ -100,9 +100,10 @@ type CfnMissionProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// KMS key to use for encrypting streams.
 	StreamsKmsKey() interface{}
 	SetStreamsKmsKey(val interface{})
-	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
+	// Role to use for encrypting streams with KMS key.
 	StreamsKmsRole() *string
 	SetStreamsKmsRole(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -232,6 +233,8 @@ type CfnMissionProfile interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

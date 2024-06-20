@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub.
+// The `AWS::SecurityHub::OrganizationConfiguration` resource specifies the way that your AWS organization is configured in AWS Security Hub .
 //
-// Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
+// Specifically, you can use this resource to specify the configuration type for your organization and whether to automatically Security Hub and security standards in new member accounts. For more information, see [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) in the *AWS Security Hub User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,16 +33,20 @@ type CfnOrganizationConfiguration interface {
 	awscdk.IInspectable
 	// Whether the maximum number of allowed member accounts are already associated with the Security Hub administrator account.
 	AttrMemberAccountLimitReached() awscdk.IResolvable
-	// The identifier of the OrganizationConfiguration being created and assigned as the unique identifier.
+	// The organization configuration identifier, formatted as `AccountId/Region/securityhub-organization-configuration` .
+	//
+	// For example, `123456789012/us-east-1/securityhub-organization-configuration` .
 	AttrOrganizationConfigurationIdentifier() *string
-	// Describes whether central configuration could be enabled as the ConfigurationType for the organization.
+	// Describes whether central configuration could be enabled as the `ConfigurationType` for the organization.
+	//
+	// If your `ConfigurationType` is local configuration, then the value of `Status` is always `ENABLED` .
 	AttrStatus() *string
-	// Provides an explanation if the value of Status is equal to FAILED when ConfigurationType is equal to CENTRAL.
+	// Provides an explanation if the value of `Status` is equal to `FAILED` when `ConfigurationType` is equal to `CENTRAL` .
 	AttrStatusMessage() *string
 	// Whether to automatically enable Security Hub in new member accounts when they join the organization.
 	AutoEnable() interface{}
 	SetAutoEnable(val interface{})
-	// Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
+	// Whether to automatically enable Security Hub [default standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html) in new member accounts when they join the organization.
 	AutoEnableStandards() *string
 	SetAutoEnableStandards(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -197,6 +201,8 @@ type CfnOrganizationConfiguration interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

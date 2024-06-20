@@ -73,6 +73,9 @@ type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-metricname
 	//
 	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
+	// The metrics to include in the target tracking scaling policy, as a metric data query.
+	//
+	// This can include both raw metric and metric math expressions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-metrics
 	//
 	Metrics interface{} `field:"optional" json:"metrics" yaml:"metrics"`

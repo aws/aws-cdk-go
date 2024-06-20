@@ -50,6 +50,9 @@ package awsglue
 //   	JdbcTargets: []interface{}{
 //   		&JdbcTargetProperty{
 //   			ConnectionName: jsii.String("connectionName"),
+//   			EnableAdditionalMetadata: []*string{
+//   				jsii.String("enableAdditionalMetadata"),
+//   			},
 //   			Exclusions: []*string{
 //   				jsii.String("exclusions"),
 //   			},

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnLicenseEndpoint) validateSetSubnetIdsParameters(val *[]*st
 	return nil
 }
 
+func (j *jsiiProxy_CfnLicenseEndpoint) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLicenseEndpoint) validateSetVpcIdParameters(val *string) error {
 	return nil
 }

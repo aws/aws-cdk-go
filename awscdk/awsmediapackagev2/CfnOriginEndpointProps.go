@@ -150,7 +150,7 @@ type CfnOriginEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-containertype
 	//
 	ContainerType *string `field:"optional" json:"containerType" yaml:"containerType"`
-	// <p>A DASH manifest configuration.</p>.
+	// A DASH manifest configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-dashmanifests
 	//
 	DashManifests interface{} `field:"optional" json:"dashManifests" yaml:"dashManifests"`

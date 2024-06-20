@@ -92,6 +92,7 @@ type CfnSubscriptionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// Specifies whether Amazon SNS resends the notification to the subscription when a message's attribute changes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-replaypolicy
 	//
 	ReplayPolicy interface{} `field:"optional" json:"replayPolicy" yaml:"replayPolicy"`

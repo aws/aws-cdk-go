@@ -50,6 +50,7 @@ import (
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},
+//   		VpcEndpointManagement: jsii.String("vpcEndpointManagement"),
 //   	},
 //   })
 //
@@ -67,6 +68,8 @@ type CfnPipeline interface {
 	AttrPipelineArn() *string
 	// The VPC interface endpoints that have access to the pipeline.
 	AttrVpcEndpoints() awscdk.IResolvable
+	// The VPC endpoint service name for the pipeline.
+	AttrVpcEndpointService() *string
 	// Options that specify the configuration of a persistent buffer.
 	BufferOptions() interface{}
 	SetBufferOptions(val interface{})
@@ -245,6 +248,8 @@ type CfnPipeline interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//
@@ -298,6 +303,16 @@ func (j *jsiiProxy_CfnPipeline) AttrVpcEndpoints() awscdk.IResolvable {
 	_jsii_.Get(
 		j,
 		"attrVpcEndpoints",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPipeline) AttrVpcEndpointService() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEndpointService",
 		&returns,
 	)
 	return returns

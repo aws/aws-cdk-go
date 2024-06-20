@@ -14,6 +14,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApi httpApi
@@ -35,6 +36,7 @@ import (
 //   	ParameterMapping: parameterMapping,
 //   	PayloadFormatVersion: payloadFormatVersion,
 //   	SecureServerName: jsii.String("secureServerName"),
+//   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   })
 //
 type HttpIntegration interface {

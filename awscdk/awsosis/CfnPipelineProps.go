@@ -45,6 +45,7 @@ import (
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},
+//   		VpcEndpointManagement: jsii.String("vpcEndpointManagement"),
 //   	},
 //   }
 //

@@ -53,6 +53,7 @@ package awsgroundstation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html
 //
 type CfnDataflowEndpointGroup_EndpointDetailsProperty struct {
+	// An agent endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-awsgroundstationagentendpoint
 	//
 	AwsGroundStationAgentEndpoint interface{} `field:"optional" json:"awsGroundStationAgentEndpoint" yaml:"awsGroundStationAgentEndpoint"`

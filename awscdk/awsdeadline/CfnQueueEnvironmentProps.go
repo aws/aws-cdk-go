@@ -31,7 +31,7 @@ type CfnQueueEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queueenvironment.html#cfn-deadline-queueenvironment-queueid
 	//
 	QueueId *string `field:"required" json:"queueId" yaml:"queueId"`
-	// A JSON or YAML template the describes the processing environment for the queue.
+	// A JSON or YAML template that describes the processing environment for the queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queueenvironment.html#cfn-deadline-queueenvironment-template
 	//
 	Template *string `field:"required" json:"template" yaml:"template"`

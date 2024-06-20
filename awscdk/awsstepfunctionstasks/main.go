@@ -2495,6 +2495,14 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEventsProps",
 		reflect.TypeOf((*EventBridgePutEventsProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ExecutionClass",
+		reflect.TypeOf((*ExecutionClass)(nil)).Elem(),
+		map[string]interface{}{
+			"FLEX": ExecutionClass_FLEX,
+			"STANDARD": ExecutionClass_STANDARD,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		reflect.TypeOf((*GlueDataBrewStartJobRun)(nil)).Elem(),
@@ -3876,11 +3884,11 @@ func init() {
 		reflect.TypeOf((*WorkerType)(nil)).Elem(),
 		map[string]interface{}{
 			"STANDARD": WorkerType_STANDARD,
+			"G_025X": WorkerType_G_025X,
 			"G_1X": WorkerType_G_1X,
 			"G_2X": WorkerType_G_2X,
 			"G_4X": WorkerType_G_4X,
 			"G_8X": WorkerType_G_8X,
-			"G_025X": WorkerType_G_025X,
 			"Z_2X": WorkerType_Z_2X,
 		},
 	)

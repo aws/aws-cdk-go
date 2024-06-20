@@ -1,7 +1,7 @@
 package awsdatazone
 
 
-// The details of the IAM User Profile.
+// The details of an IAM user profile in Amazon DataZone.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-iamuserprofiledetails.html
 //
 type CfnUserProfile_IamUserProfileDetailsProperty struct {
-	// The ARN of the IAM User Profile.
+	// The ARN of an IAM user profile in Amazon DataZone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-iamuserprofiledetails.html#cfn-datazone-userprofile-iamuserprofiledetails-arn
 	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`

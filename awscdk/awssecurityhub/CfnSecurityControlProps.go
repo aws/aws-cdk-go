@@ -24,18 +24,23 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html
 //
 type CfnSecurityControlProps struct {
+	// An object that identifies the name of a control parameter, its current value, and whether it has been customized.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-parameters
 	//
 	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`
 	// The most recent reason for updating the customizable properties of a security control.
 	//
-	// This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
+	// This differs from the `UpdateReason` field of the [`BatchUpdateStandardsControlAssociations`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html) API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-lastupdatereason
 	//
 	LastUpdateReason *string `field:"optional" json:"lastUpdateReason" yaml:"lastUpdateReason"`
+	// The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1` . This parameter doesn't mention a specific standard.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-securitycontrolarn
 	//
 	SecurityControlArn *string `field:"optional" json:"securityControlArn" yaml:"securityControlArn"`
+	// The unique identifier of a security control across standards.
+	//
+	// Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-securitycontrolid
 	//
 	SecurityControlId *string `field:"optional" json:"securityControlId" yaml:"securityControlId"`

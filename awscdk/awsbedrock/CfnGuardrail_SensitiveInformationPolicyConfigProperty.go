@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Sensitive information policy config for a guardrail.
+// Contains details about PII entities and regular expressions to configure for the guardrail.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,11 +30,11 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-sensitiveinformationpolicyconfig.html
 //
 type CfnGuardrail_SensitiveInformationPolicyConfigProperty struct {
-	// List of entities.
+	// A list of PII entities to configure to the guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-sensitiveinformationpolicyconfig.html#cfn-bedrock-guardrail-sensitiveinformationpolicyconfig-piientitiesconfig
 	//
 	PiiEntitiesConfig interface{} `field:"optional" json:"piiEntitiesConfig" yaml:"piiEntitiesConfig"`
-	// List of regex.
+	// A list of regular expressions to configure to the guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-sensitiveinformationpolicyconfig.html#cfn-bedrock-guardrail-sensitiveinformationpolicyconfig-regexesconfig
 	//
 	RegexesConfig interface{} `field:"optional" json:"regexesConfig" yaml:"regexesConfig"`

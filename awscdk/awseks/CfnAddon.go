@@ -83,7 +83,7 @@ type CfnAddon interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// An array of pod identities to apply to this add-on.
+	// An array of Pod Identity Assocations owned by the Addon.
 	PodIdentityAssociations() interface{}
 	SetPodIdentityAssociations(val interface{})
 	// Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
@@ -228,6 +228,8 @@ type CfnAddon interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

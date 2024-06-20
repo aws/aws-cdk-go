@@ -90,7 +90,7 @@ type CfnLaunchProfileProps struct {
 	StudioComponentIds *[]*string `field:"required" json:"studioComponentIds" yaml:"studioComponentIds"`
 	// The unique identifier for a studio resource.
 	//
-	// In Nimble Studio , all other resources are contained in a studio resource.
+	// In Nimble Studio, all other resources are contained in a studio resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
 	//
 	StudioId *string `field:"required" json:"studioId" yaml:"studioId"`

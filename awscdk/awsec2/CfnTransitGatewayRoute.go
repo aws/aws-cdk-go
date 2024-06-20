@@ -30,7 +30,6 @@ import (
 type CfnTransitGatewayRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
 	// Indicates whether to drop traffic that matches this route.
 	Blackhole() interface{}
 	SetBlackhole(val interface{})
@@ -192,6 +191,8 @@ type CfnTransitGatewayRoute interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//
@@ -217,16 +218,6 @@ type CfnTransitGatewayRoute interface {
 type jsiiProxy_CfnTransitGatewayRoute struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnTransitGatewayRoute) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnTransitGatewayRoute) Blackhole() interface{} {

@@ -83,6 +83,26 @@ type InstanceProps struct {
 	// Default: false.
 	//
 	EbsOptimized *bool `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
+	// Whether the instance is enabled for AWS Nitro Enclaves.
+	//
+	// Nitro Enclaves requires a Nitro-based virtualized parent instance with specific Intel/AMD with at least 4 vCPUs
+	// or Graviton with at least 2 vCPUs instance types and Linux/Windows host OS,
+	// while the enclave itself supports only Linux OS.
+	//
+	// You can't set both `enclaveEnabled` and `hibernationEnabled` to true on the same instance.
+	// See: https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html#nitro-enclave-reqs
+	//
+	// Default: - false.
+	//
+	EnclaveEnabled *bool `field:"optional" json:"enclaveEnabled" yaml:"enclaveEnabled"`
+	// Whether the instance is enabled for hibernation.
+	//
+	// You can't set both `enclaveEnabled` and `hibernationEnabled` to true on the same instance.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html
+	//
+	// Default: - false.
+	//
+	HibernationEnabled *bool `field:"optional" json:"hibernationEnabled" yaml:"hibernationEnabled"`
 	// Apply the given CloudFormation Init configuration to the instance at startup.
 	// Default: - no CloudFormation init.
 	//

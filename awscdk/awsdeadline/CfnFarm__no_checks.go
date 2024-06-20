@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnFarm) validateSetDisplayNameParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnFarm) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFarmParameters(scope constructs.Construct, id *string, props *CfnFarmProps) error {
 	return nil
 }

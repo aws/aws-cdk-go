@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// A custom word config.
+// A word to configure for the guardrail.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordconfig.html
 //
 type CfnGuardrail_WordConfigProperty struct {
-	// The custom word text.
+	// Text of the word configured for the guardrail to block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordconfig.html#cfn-bedrock-guardrail-wordconfig-text
 	//
 	Text *string `field:"required" json:"text" yaml:"text"`

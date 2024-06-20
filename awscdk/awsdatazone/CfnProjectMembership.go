@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::DataZone::ProjectMembership Resource Type.
+// The `AWS::DataZone::ProjectMembership` resource adds a member to an Amazon DataZone project.
+//
+// Project members consume assets from the Amazon DataZone catalog and produce new assets using one or more analytical workflows.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,8 +42,10 @@ type CfnProjectMembership interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The designated role of a project member.
 	Designation() *string
 	SetDesignation(val *string)
+	// The ID of the Amazon DataZone domain in which project membership is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -54,10 +58,12 @@ type CfnProjectMembership interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The details about a project member.
 	Member() interface{}
 	SetMember(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// The ID of the project for which this project membership was created.
 	ProjectIdentifier() *string
 	SetProjectIdentifier(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -188,6 +194,8 @@ type CfnProjectMembership interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

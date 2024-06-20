@@ -20,11 +20,11 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html
 //
 type CfnUserProfileProps struct {
-	// The identifier of the Amazon DataZone domain in which the user profile would be created.
+	// The identifier of a Amazon DataZone domain in which a user profile exists.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-domainidentifier
 	//
 	DomainIdentifier *string `field:"required" json:"domainIdentifier" yaml:"domainIdentifier"`
-	// The ID of the user.
+	// The identifier of the user for which the user profile is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-useridentifier
 	//
 	UserIdentifier *string `field:"required" json:"userIdentifier" yaml:"userIdentifier"`
@@ -32,7 +32,7 @@ type CfnUserProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// The type of the user.
+	// The user type of the user for which the user profile is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-usertype
 	//
 	UserType *string `field:"optional" json:"userType" yaml:"userType"`

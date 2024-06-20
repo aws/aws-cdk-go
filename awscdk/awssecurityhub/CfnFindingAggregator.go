@@ -9,9 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::SecurityHub::FindingAggregator resource represents the AWS Security Hub Finding Aggregator in your account.
+// The `AWS::SecurityHub::FindingAggregator` resource enables cross-Region aggregation.
 //
-// One finding aggregator resource is created for each account in non opt-in region in which you configure region linking mode.
+// When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *AWS Security Hub User Guide*
+//
+// This resource must be created in the Region that you want to designate as your aggregation Region.
+//
+// Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in Security Hub .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,8 +36,11 @@ import (
 type CfnFindingAggregator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The aggregation Region.
 	AttrFindingAggregationRegion() *string
-	// The ARN of the FindingAggregator being created and assigned as the unique identifier.
+	// The ARN of the finding aggregator.
+	//
+	// You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
 	AttrFindingAggregatorArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -61,10 +68,10 @@ type CfnFindingAggregator interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.
+	// Indicates whether to aggregate findings from all of the available Regions in the current partition.
 	RegionLinkingMode() *string
 	SetRegionLinkingMode(val *string)
-	// The list of excluded Regions or included Regions.
+	// If `RegionLinkingMode` is `ALL_REGIONS_EXCEPT_SPECIFIED` , then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
 	Regions() *[]*string
 	SetRegions(val *[]*string)
 	// The stack in which this element is defined.
@@ -190,6 +197,8 @@ type CfnFindingAggregator interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

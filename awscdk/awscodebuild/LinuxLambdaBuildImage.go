@@ -156,6 +156,17 @@ func LinuxLambdaBuildImage_AMAZON_LINUX_2023_CORRETTO_21() IBuildImage {
 	return returns
 }
 
+func LinuxLambdaBuildImage_AMAZON_LINUX_2023_DOTNET_8() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxLambdaBuildImage",
+		"AMAZON_LINUX_2023_DOTNET_8",
+		&returns,
+	)
+	return returns
+}
+
 func LinuxLambdaBuildImage_AMAZON_LINUX_2023_NODE_20() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage

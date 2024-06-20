@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::SecurityLake::SubscriberNotification.
+// Notifies the subscriber when new data is written to the data lake for the sources that the subscriber consumes in Security Lake.
+//
+// You can create only one subscriber notification per subscriber.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,7 +59,7 @@ type CfnSubscriberNotification interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ARN for the subscriber.
+	// The Amazon Resource Name (ARN) of the Security Lake subscriber.
 	SubscriberArn() *string
 	SetSubscriberArn(val *string)
 	// Deprecated.
@@ -179,6 +181,8 @@ type CfnSubscriberNotification interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

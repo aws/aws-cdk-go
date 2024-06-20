@@ -4,11 +4,14 @@ package awsstepfunctions
 // Properties for configuring a Distribute Map state.
 //
 // Example:
-//   distributedMap := sfn.NewDistributedMap(this, jsii.String("Distributed Map State"), &DistributedMapProps{
-//   	MaxConcurrency: jsii.Number(1),
-//   	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
+//   distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
+//   	MapExecutionType: sfn.StateMachineType_EXPRESS,
 //   })
-//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")))
+//
+//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")), &ProcessorConfig{
+//   	Mode: sfn.ProcessorMode_DISTRIBUTED,
+//   	ExecutionType: sfn.ProcessorType_STANDARD,
+//   })
 //
 type DistributedMapProps struct {
 	// An optional description for this state.
@@ -93,7 +96,9 @@ type DistributedMapProps struct {
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// MapExecutionType.
 	//
-	// The execution type of the distributed map state.
+	// The execution type of the distributed map state
+	//
+	// This property overwrites ProcessorConfig.executionType
 	// Default: StateMachineType.STANDARD
 	//
 	MapExecutionType StateMachineType `field:"optional" json:"mapExecutionType" yaml:"mapExecutionType"`

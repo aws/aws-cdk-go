@@ -11,7 +11,7 @@ import (
 
 // The `AWS::SNS::Subscription` resource subscribes an endpoint to an Amazon SNS topic.
 //
-// For a subscription to be created, the owner of the endpoint must confirm the subscription.
+// For a subscription to be created, the owner of the endpoint must` confirm the subscription.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -95,6 +95,7 @@ type CfnSubscription interface {
 	// For cross-region subscriptions, the region in which the topic resides.
 	Region() *string
 	SetRegion(val *string)
+	// Specifies whether Amazon SNS resends the notification to the subscription when a message's attribute changes.
 	ReplayPolicy() interface{}
 	SetReplayPolicy(val interface{})
 	// The stack in which this element is defined.
@@ -226,6 +227,8 @@ type CfnSubscription interface {
 	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
 	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
+	//
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//

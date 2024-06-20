@@ -43,10 +43,11 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html#cfn-opensearchservice-domain-domainendpointoptions-enforcehttps
 	//
 	EnforceHttps interface{} `field:"optional" json:"enforceHttps" yaml:"enforceHttps"`
-	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:.
+	// The minimum TLS version required for traffic to the domain. The policy can be one of the following values:.
 	//
-	// - `Policy-Min-TLS-1-0-2019-07`
-	// - `Policy-Min-TLS-1-2-2019-07`.
+	// - *Policy-Min-TLS-1-0-2019-07:* TLS security policy that supports TLS version 1.0 to TLS version 1.2
+	// - *Policy-Min-TLS-1-2-2019-07:* TLS security policy that supports only TLS version 1.2
+	// - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html#cfn-opensearchservice-domain-domainendpointoptions-tlssecuritypolicy
 	//
 	TlsSecurityPolicy *string `field:"optional" json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
