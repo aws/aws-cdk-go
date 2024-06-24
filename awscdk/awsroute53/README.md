@@ -344,7 +344,6 @@ delegationRole := iam.Role_FromRoleArn(this, jsii.String("DelegationRole"), dele
 // create the record
 route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &CrossAccountZoneDelegationRecordProps{
 	DelegatedZone: subZone,
-	 // Note that an imported HostedZone is not supported as Name Servers info will not be available
 	ParentHostedZoneName: jsii.String("someexample.com"),
 	 // or you can use parentHostedZoneId
 	DelegationRole: DelegationRole,
