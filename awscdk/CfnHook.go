@@ -44,8 +44,6 @@ type CfnHook interface {
 	// The type of the hook (for example, "AWS::CodeDeploy::BlueGreen").
 	Type() *string
 	// Overrides the auto-generated logical ID with a specific ID.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html#resources-section-structure-logicalid
-	//
 	OverrideLogicalId(newLogicalId *string)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Returns a string representation of this construct.
