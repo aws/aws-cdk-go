@@ -4,8 +4,8 @@ go 1.18
 
 require (
 	github.com/aws/jsii-runtime-go v1.99.0
-	github.com/aws/aws-cdk-go/awscdkioteventsalpha/v2 v2.147.2-alpha.0
-	github.com/aws/aws-cdk-go/awscdk/v2 v2.147.2
+	github.com/aws/aws-cdk-go/awscdkioteventsalpha/v2 v2.147.3-alpha.0
+	github.com/aws/aws-cdk-go/awscdk/v2 v2.147.3
 	github.com/aws/constructs-go/constructs/v10 v10.3.0
 	github.com/cdklabs/awscdk-asset-awscli-go/awscliv1/v2 v2.2.202 // indirect
 	github.com/cdklabs/awscdk-asset-kubectl-go/kubectlv20/v2 v2.1.2 // indirect
