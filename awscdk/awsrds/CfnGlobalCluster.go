@@ -25,6 +25,7 @@ import (
 //   cfnGlobalCluster := awscdk.Aws_rds.NewCfnGlobalCluster(this, jsii.String("MyCfnGlobalCluster"), &CfnGlobalClusterProps{
 //   	DeletionProtection: jsii.Boolean(false),
 //   	Engine: jsii.String("engine"),
+//   	EngineLifecycleSupport: jsii.String("engineLifecycleSupport"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
@@ -51,6 +52,9 @@ type CfnGlobalCluster interface {
 	// The database engine to use for this global database cluster.
 	Engine() *string
 	SetEngine(val *string)
+	// The life cycle type for this global database cluster.
+	EngineLifecycleSupport() *string
+	SetEngineLifecycleSupport(val *string)
 	// The engine version to use for this global database cluster.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
@@ -290,6 +294,16 @@ func (j *jsiiProxy_CfnGlobalCluster) Engine() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalCluster) EngineLifecycleSupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"engineLifecycleSupport",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalCluster) EngineVersion() *string {
 	var returns *string
 	_jsii_.Get(
@@ -433,6 +447,14 @@ func (j *jsiiProxy_CfnGlobalCluster)SetEngine(val *string) {
 	_jsii_.Set(
 		j,
 		"engine",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalCluster)SetEngineLifecycleSupport(val *string) {
+	_jsii_.Set(
+		j,
+		"engineLifecycleSupport",
 		val,
 	)
 }

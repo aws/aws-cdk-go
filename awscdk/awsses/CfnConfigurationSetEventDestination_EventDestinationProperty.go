@@ -28,6 +28,9 @@ package awsses
 //   		},
 //   	},
 //   	Enabled: jsii.Boolean(false),
+//   	EventBridgeDestination: &EventBridgeDestinationProperty{
+//   		EventBusArn: jsii.String("eventBusArn"),
+//   	},
 //   	KinesisFirehoseDestination: &KinesisFirehoseDestinationProperty{
 //   		DeliveryStreamArn: jsii.String("deliveryStreamArn"),
 //   		IamRoleArn: jsii.String("iamRoleArn"),
@@ -66,6 +69,10 @@ type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// An object that contains Event bus ARN associated with the event bridge destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-eventbridgedestination
+	//
+	EventBridgeDestination interface{} `field:"optional" json:"eventBridgeDestination" yaml:"eventBridgeDestination"`
 	// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-kinesisfirehosedestination
 	//

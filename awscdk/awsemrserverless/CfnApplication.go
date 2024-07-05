@@ -46,6 +46,7 @@ import (
 //
 //   					// the properties below are optional
 //   					Disk: jsii.String("disk"),
+//   					DiskType: jsii.String("diskType"),
 //   				},
 //   				WorkerCount: jsii.Number(123),
 //   			},

@@ -52,7 +52,15 @@ func (q *jsiiProxy_QualifiedFunctionBase) validateGrantInvokeCompositePrincipalP
 	return nil
 }
 
+func (q *jsiiProxy_QualifiedFunctionBase) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (q *jsiiProxy_QualifiedFunctionBase) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (q *jsiiProxy_QualifiedFunctionBase) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
 	return nil
 }
 

@@ -4,31 +4,25 @@ package awseks
 // Properties for defining service accounts.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var cluster cluster
 //
-//   serviceAccountProps := &ServiceAccountProps{
-//   	Cluster: cluster,
 //
-//   	// the properties below are optional
-//   	Annotations: map[string]*string{
-//   		"annotationsKey": jsii.String("annotations"),
-//   	},
-//   	Labels: map[string]*string{
-//   		"labelsKey": jsii.String("labels"),
-//   	},
-//   	Name: jsii.String("name"),
-//   	Namespace: jsii.String("namespace"),
-//   }
+//   eks.NewServiceAccount(this, jsii.String("ServiceAccount"), &ServiceAccountProps{
+//   	Cluster: Cluster,
+//   	Name: jsii.String("test-sa"),
+//   	Namespace: jsii.String("default"),
+//   	IdentityType: eks.IdentityType_POD_IDENTITY,
+//   })
 //
 type ServiceAccountProps struct {
 	// Additional annotations of the service account.
 	// Default: - no additional annotations.
 	//
 	Annotations *map[string]*string `field:"optional" json:"annotations" yaml:"annotations"`
+	// The identity type to use for the service account.
+	// Default: IdentityType.IRSA
+	//
+	IdentityType IdentityType `field:"optional" json:"identityType" yaml:"identityType"`
 	// Additional labels of the service account.
 	// Default: - no additional labels.
 	//

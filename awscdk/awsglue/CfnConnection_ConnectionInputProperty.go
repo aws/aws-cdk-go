@@ -57,6 +57,9 @@ type CfnConnection_ConnectionInputProperty struct {
 	//
 	// - Required: `CONNECTION_URL` .
 	// - Required: All of ( `USERNAME` , `PASSWORD` ) or `SECRET_ID` .
+	// - `SALESFORCE` - Designates a connection to Salesforce using OAuth authencation.
+	//
+	// - Requires the `AuthenticationConfiguration` member to be configured.
 	// - `NETWORK` - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
 	//
 	// `NETWORK` Connections do not require ConnectionParameters. Instead, provide a PhysicalConnectionRequirements.
@@ -89,12 +92,10 @@ type CfnConnection_ConnectionInputProperty struct {
 	//
 	MatchCriteria *[]*string `field:"optional" json:"matchCriteria" yaml:"matchCriteria"`
 	// The name of the connection.
-	//
-	// Connection will not function as expected without a name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// A map of physical connection requirements, such as virtual private cloud (VPC) and `SecurityGroup` , that are needed to successfully make this connection.
+	// The physical connection requirements, such as virtual private cloud (VPC) and `SecurityGroup` , that are needed to successfully make this connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
 	//
 	PhysicalConnectionRequirements interface{} `field:"optional" json:"physicalConnectionRequirements" yaml:"physicalConnectionRequirements"`

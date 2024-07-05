@@ -106,6 +106,13 @@ type Cluster interface {
 	// This will be `undefined` if the `defaultCapacityType` is `EC2` or
 	// `defaultCapacityType` is `NODEGROUP` but default capacity is set to 0.
 	DefaultNodegroup() Nodegroup
+	// Retrieves the EKS Pod Identity Agent addon for the EKS cluster.
+	//
+	// The EKS Pod Identity Agent is responsible for managing the temporary credentials
+	// used by pods in the cluster to access AWS resources. It runs as a DaemonSet on
+	// each node and provides the necessary credentials to the pods based on their
+	// associated service account.
+	EksPodIdentityAgent() IAddon
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -455,6 +462,16 @@ func (j *jsiiProxy_Cluster) DefaultNodegroup() Nodegroup {
 	_jsii_.Get(
 		j,
 		"defaultNodegroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Cluster) EksPodIdentityAgent() IAddon {
+	var returns IAddon
+	_jsii_.Get(
+		j,
+		"eksPodIdentityAgent",
 		&returns,
 	)
 	return returns

@@ -71,7 +71,7 @@ type CfnUserProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
 	//
 	Passwords *[]*string `field:"optional" json:"passwords" yaml:"passwords"`
-	// An array of key-value pairs to apply to this user.
+	// The list of tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

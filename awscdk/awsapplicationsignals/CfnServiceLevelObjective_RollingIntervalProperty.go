@@ -1,7 +1,7 @@
 package awsapplicationsignals
 
 
-// If the interval is a calendar interval, this structure contains the interval specifications.
+// If the interval for this SLO is a rolling interval, this structure contains the interval specifications.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,13 +16,13 @@ package awsapplicationsignals
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-rollinginterval.html
 //
 type CfnServiceLevelObjective_RollingIntervalProperty struct {
-	// Specifies the duration of each calendar interval.
+	// Specifies the duration of each rolling interval.
 	//
-	// For example, if `Duration` is 1 and `DurationUnit` is `MONTH`, each interval is one month, aligned with the calendar.
+	// For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-rollinginterval.html#cfn-applicationsignals-servicelevelobjective-rollinginterval-duration
 	//
 	Duration *float64 `field:"required" json:"duration" yaml:"duration"`
-	// Specifies the calendar interval unit.
+	// Specifies the rolling interval unit.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-rollinginterval.html#cfn-applicationsignals-servicelevelobjective-rollinginterval-durationunit
 	//
 	DurationUnit *string `field:"required" json:"durationUnit" yaml:"durationUnit"`

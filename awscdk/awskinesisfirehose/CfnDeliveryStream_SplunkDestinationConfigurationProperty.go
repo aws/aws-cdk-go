@@ -11,7 +11,6 @@ package awskinesisfirehose
 //   splunkDestinationConfigurationProperty := &SplunkDestinationConfigurationProperty{
 //   	HecEndpoint: jsii.String("hecEndpoint"),
 //   	HecEndpointType: jsii.String("hecEndpointType"),
-//   	HecToken: jsii.String("hecToken"),
 //   	S3Configuration: &S3DestinationConfigurationProperty{
 //   		BucketArn: jsii.String("bucketArn"),
 //   		RoleArn: jsii.String("roleArn"),
@@ -48,6 +47,7 @@ package awskinesisfirehose
 //   		LogStreamName: jsii.String("logStreamName"),
 //   	},
 //   	HecAcknowledgmentTimeoutInSeconds: jsii.Number(123),
+//   	HecToken: jsii.String("hecToken"),
 //   	ProcessingConfiguration: &ProcessingConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		Processors: []interface{}{
@@ -68,6 +68,13 @@ package awskinesisfirehose
 //   		DurationInSeconds: jsii.Number(123),
 //   	},
 //   	S3BackupMode: jsii.String("s3BackupMode"),
+//   	SecretsManagerConfiguration: &SecretsManagerConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		RoleArn: jsii.String("roleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html
@@ -81,10 +88,6 @@ type CfnDeliveryStream_SplunkDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecendpointtype
 	//
 	HecEndpointType *string `field:"required" json:"hecEndpointType" yaml:"hecEndpointType"`
-	// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
-	//
-	HecToken *string `field:"required" json:"hecToken" yaml:"hecToken"`
 	// The configuration for the backup Amazon S3 location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration
 	//
@@ -105,6 +108,10 @@ type CfnDeliveryStream_SplunkDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hecacknowledgmenttimeoutinseconds
 	//
 	HecAcknowledgmentTimeoutInSeconds *float64 `field:"optional" json:"hecAcknowledgmentTimeoutInSeconds" yaml:"hecAcknowledgmentTimeoutInSeconds"`
+	// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken
+	//
+	HecToken *string `field:"optional" json:"hecToken" yaml:"hecToken"`
 	// The data processing configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-processingconfiguration
 	//
@@ -121,5 +128,9 @@ type CfnDeliveryStream_SplunkDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3backupmode
 	//
 	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
+	// The configuration that defines how you access secrets for Splunk.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-secretsmanagerconfiguration
+	//
+	SecretsManagerConfiguration interface{} `field:"optional" json:"secretsManagerConfiguration" yaml:"secretsManagerConfiguration"`
 }
 

@@ -23,6 +23,8 @@ package awsapplicationsignals
 //
 type CfnServiceLevelObjective_MetricProperty struct {
 	// An array of one or more dimensions to use to define the metric that you want to use.
+	//
+	// For more information, see [Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metric.html#cfn-applicationsignals-servicelevelobjective-metric-dimensions
 	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
@@ -31,6 +33,8 @@ type CfnServiceLevelObjective_MetricProperty struct {
 	//
 	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
+	//
+	// For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metric.html#cfn-applicationsignals-servicelevelobjective-metric-namespace
 	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`

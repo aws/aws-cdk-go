@@ -1,7 +1,7 @@
 package awsapplicationsignals
 
 
-// A structure that contains information about the metric that the SLO monitors.
+// Use this structure to specify the metric to be used for the SLO.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -48,19 +48,29 @@ package awsapplicationsignals
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html
 //
 type CfnServiceLevelObjective_SliMetricProperty struct {
-	// This is a string-to-string map that contains information about the type of object that this SLO is related to.
+	// If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to.
+	//
+	// To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+	//
+	// This is a string-to-string map. It can include the following fields.
+	//
+	// - `Type` designates the type of object this is.
+	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-keyattributes
 	//
 	KeyAttributes interface{} `field:"optional" json:"keyAttributes" yaml:"keyAttributes"`
-	// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, this structure includes the information about that metric or expression.
+	// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-metricdataqueries
 	//
 	MetricDataQueries interface{} `field:"optional" json:"metricDataQueries" yaml:"metricDataQueries"`
-	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+	// If the SLO is to monitor either the `LATENCY` or `AVAILABILITY` metric that Application Signals collects, use this field to specify which of those metrics is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-metrictype
 	//
 	MetricType *string `field:"optional" json:"metricType" yaml:"metricType"`
-	// If the SLO monitors a specific operation of the service, this field displays that operation name.
+	// If the SLO is to monitor a specific operation of the service, use this field to specify the name of that operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-operationname
 	//
 	OperationName *string `field:"optional" json:"operationName" yaml:"operationName"`
@@ -72,7 +82,7 @@ type CfnServiceLevelObjective_SliMetricProperty struct {
 	PeriodSeconds *float64 `field:"optional" json:"periodSeconds" yaml:"periodSeconds"`
 	// The statistic to use for comparison to the threshold.
 	//
-	// It can be any CloudWatch statistic or extended statistic.
+	// It can be any CloudWatch statistic or extended statistic. For more information about statistics, see [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-statistic
 	//
 	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`

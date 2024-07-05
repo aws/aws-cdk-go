@@ -122,8 +122,6 @@ type CfnUserPoolClient interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The default redirect URI.
-	//
-	// Must be in the `CallbackURLs` list.
 	DefaultRedirectUri() *string
 	SetDefaultRedirectUri(val *string)
 	// Activates the propagation of additional user context data.

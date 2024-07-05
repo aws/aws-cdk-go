@@ -1,7 +1,7 @@
 package awsglue
 
 
-// Specifies the physical requirements for a connection.
+// The OAuth client app in GetConnection response.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,8 +20,6 @@ package awsglue
 //
 type CfnConnection_PhysicalConnectionRequirementsProperty struct {
 	// The connection's Availability Zone.
-	//
-	// This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`

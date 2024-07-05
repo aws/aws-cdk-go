@@ -61,7 +61,7 @@ type CfnIpAccessSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-ipaccesssettings.html#cfn-workspacesweb-ipaccesssettings-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
-	// The tags to add to the browser settings resource.
+	// The tags to add to the IP access settings resource.
 	//
 	// A tag is a key-value pair.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-ipaccesssettings.html#cfn-workspacesweb-ipaccesssettings-tags

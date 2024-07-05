@@ -753,6 +753,31 @@ pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
 })
 ```
 
+To set a default redirect URI, use the `defaultRedirectUri` property.
+Its value must be present in the `callbackUrls` list.
+
+```go
+pool := cognito.NewUserPool(this, jsii.String("Pool"))
+pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
+	OAuth: &OAuthSettings{
+		Flows: &OAuthFlows{
+			AuthorizationCodeGrant: jsii.Boolean(true),
+		},
+		Scopes: []oAuthScope{
+			cognito.*oAuthScope_OPENID(),
+		},
+		DefaultRedirectUri: jsii.String("https://my-app-domain.com/welcome"),
+		CallbackUrls: []*string{
+			jsii.String("https://my-app-domain.com/welcome"),
+			jsii.String("https://my-app-domain.com/hello"),
+		},
+		LogoutUrls: []*string{
+			jsii.String("https://my-app-domain.com/signin"),
+		},
+	},
+})
+```
+
 An app client can be configured to prevent user existence errors. This
 instructs the Cognito authentication API to return generic authentication
 failure responses instead of an UserNotFoundException. By default, the flag

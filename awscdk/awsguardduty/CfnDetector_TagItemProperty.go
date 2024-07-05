@@ -16,11 +16,11 @@ package awsguardduty
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-tagitem.html
 //
 type CfnDetector_TagItemProperty struct {
-	// The tag value.
+	// The tag key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-tagitem.html#cfn-guardduty-detector-tagitem-key
 	//
 	Key *string `field:"required" json:"key" yaml:"key"`
-	// The tag key.
+	// The tag value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-tagitem.html#cfn-guardduty-detector-tagitem-value
 	//
 	Value *string `field:"required" json:"value" yaml:"value"`

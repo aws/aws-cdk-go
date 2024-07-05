@@ -34,13 +34,13 @@ import (
 type CfnAgentProps struct {
 	// Specifies your DataSync agent's activation key.
 	//
-	// If you don't have an activation key, see [Activate your agent](https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html) .
+	// If you don't have an activation key, see [Activating your agent](https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
 	//
 	ActivationKey *string `field:"optional" json:"activationKey" yaml:"activationKey"`
 	// Specifies a name for your agent.
 	//
-	// You can see this name in the DataSync console.
+	// We recommend specifying a name that you can remember.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
 	//
 	AgentName *string `field:"optional" json:"agentName" yaml:"agentName"`
@@ -52,9 +52,9 @@ type CfnAgentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
 	//
 	SecurityGroupArns *[]*string `field:"optional" json:"securityGroupArns" yaml:"securityGroupArns"`
-	// Specifies the ARN of the subnet where you want to run your DataSync task when using a VPC endpoint.
+	// Specifies the ARN of the subnet where your VPC service endpoint is located.
 	//
-	// This is the subnet where DataSync creates and manages the [network interfaces](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces) for your transfer. You can only specify one ARN.
+	// You can only specify one ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
 	//
 	SubnetArns *[]*string `field:"optional" json:"subnetArns" yaml:"subnetArns"`

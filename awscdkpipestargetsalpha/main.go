@@ -9,6 +9,32 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-targets-alpha.LambdaFunction",
+		reflect.TypeOf((*LambdaFunction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+			_jsii_.MemberProperty{JsiiProperty: "targetArn", GoGetter: "TargetArn"},
+		},
+		func() interface{} {
+			j := jsiiProxy_LambdaFunction{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkpipesalphaITarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-pipes-targets-alpha.LambdaFunctionInvocationType",
+		reflect.TypeOf((*LambdaFunctionInvocationType)(nil)).Elem(),
+		map[string]interface{}{
+			"FIRE_AND_FORGET": LambdaFunctionInvocationType_FIRE_AND_FORGET,
+			"REQUEST_RESPONSE": LambdaFunctionInvocationType_REQUEST_RESPONSE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-pipes-targets-alpha.LambdaFunctionParameters",
+		reflect.TypeOf((*LambdaFunctionParameters)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-pipes-targets-alpha.SfnStateMachine",
 		reflect.TypeOf((*SfnStateMachine)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -413,6 +413,20 @@ func init() {
 		"aws-cdk-lib.aws_fsx.CfnVolumeProps",
 		reflect.TypeOf((*CfnVolumeProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_fsx.DailyAutomaticBackupStartTime",
+		reflect.TypeOf((*DailyAutomaticBackupStartTime)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toTimestamp", GoMethod: "ToTimestamp"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DailyAutomaticBackupStartTime{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.DailyAutomaticBackupStartTimeProps",
+		reflect.TypeOf((*DailyAutomaticBackupStartTimeProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.FileSystemAttributes",
 		reflect.TypeOf((*FileSystemAttributes)(nil)).Elem(),

@@ -95,6 +95,8 @@ type CfnContainerGroupDefinitionProps struct {
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The platform required for all containers in the container group definition.
+	//
+	// > Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the [Amazon Linux 2 FAQs](https://docs.aws.amazon.com/https://aws.amazon.com/amazon-linux-2/faqs/) . For game servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first update the game server build to server SDK 5.x, and then deploy to AL2023 instances. See [Migrate to Amazon GameLift server SDK version 5.](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-operatingsystem
 	//
 	OperatingSystem *string `field:"required" json:"operatingSystem" yaml:"operatingSystem"`

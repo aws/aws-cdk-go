@@ -27,7 +27,8 @@ Pipe targets are the end point of a EventBridge Pipe.
 The following targets are supported:
 
 1. `targets.SqsTarget`: [Send event source to a Queue](#amazon-sqs)
-2. `targets.SfnStateMachine`: [Invoke a State Machine from an event source](#aws-step-functions)
+2. `targets.SfnStateMachine`: [Invoke a State Machine from an event source](#aws-step-functions-state-machine)
+3. `targets.LambdaFunction`: [Send event source to a Lambda Function](#aws-lambda-function)
 
 ### Amazon SQS
 
@@ -67,7 +68,7 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 
 ### AWS Step Functions State Machine
 
-A State Machine can be used as a target for a pipe. The State Machine will be invoked with the (enriched/filtered) source payload.
+A State Machine can be used as a target for a pipe. The State Machine will be invoked with the (enriched) source payload.
 
 ```go
 var sourceQueue queue
@@ -112,6 +113,60 @@ pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachinePar
 		"body": jsii.String("<$.body>"),
 	}),
 	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: NewSomeSource(sourceQueue),
+	Target: pipeTarget,
+})
+```
+
+### AWS Lambda Function
+
+A Lambda Function can be used as a target for a pipe. The Lambda Function will be invoked with the (enriched) source payload.
+
+```go
+var sourceQueue queue
+var targetFunction iFunction
+
+
+pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: NewSomeSource(sourceQueue),
+	Target: pipeTarget,
+})
+```
+
+The target Lambda Function is invoked synchronously by default. You can also choose to invoke the Lambda Function asynchronously by setting `invocationType` property to `FIRE_AND_FORGET`.
+
+```go
+var sourceQueue queue
+var targetFunction iFunction
+
+
+pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+	InvocationType: targets.LambdaFunctionInvocationType_FIRE_AND_FORGET,
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: NewSomeSource(sourceQueue),
+	Target: pipeTarget,
+})
+```
+
+The input to the target Lambda Function can be transformed:
+
+```go
+var sourceQueue queue
+var targetFunction iFunction
+
+
+pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("👀"),
+	}),
 })
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{

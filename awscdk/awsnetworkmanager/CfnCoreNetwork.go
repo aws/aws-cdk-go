@@ -46,7 +46,7 @@ type CfnCoreNetwork interface {
 	AttrCreatedAt() *string
 	// The edges.
 	AttrEdges() awscdk.IResolvable
-	// Owner of the core network.
+	// The owner of the core network.
 	AttrOwnerAccount() *string
 	// The segments.
 	AttrSegments() awscdk.IResolvable

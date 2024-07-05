@@ -89,6 +89,8 @@ type CfnWorkspaceProps struct {
 	//
 	AccountAccessType *string `field:"required" json:"accountAccessType" yaml:"accountAccessType"`
 	// Specifies whether this workspace uses SAML 2.0, AWS IAM Identity Center , or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html) .
+	//
+	// *Allowed Values* : `AWS_SSO | SAML`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-authenticationproviders
 	//
 	AuthenticationProviders *[]*string `field:"required" json:"authenticationProviders" yaml:"authenticationProviders"`
@@ -135,6 +137,8 @@ type CfnWorkspaceProps struct {
 	//
 	NetworkAccessControl interface{} `field:"optional" json:"networkAccessControl" yaml:"networkAccessControl"`
 	// The AWS notification channels that Amazon Managed Grafana can automatically create IAM roles and permissions for, to allow Amazon Managed Grafana to use these channels.
+	//
+	// *AllowedValues* : `SNS`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-notificationdestinations
 	//
 	NotificationDestinations *[]*string `field:"optional" json:"notificationDestinations" yaml:"notificationDestinations"`

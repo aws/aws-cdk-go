@@ -52,7 +52,15 @@ func (e *jsiiProxy_EdgeFunction) validateGrantInvokeCompositePrincipalParameters
 	return nil
 }
 
+func (e *jsiiProxy_EdgeFunction) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
+	return nil
+}
+
 func (e *jsiiProxy_EdgeFunction) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
+	return nil
+}
+
+func (e *jsiiProxy_EdgeFunction) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version awslambda.IVersion) error {
 	return nil
 }
 

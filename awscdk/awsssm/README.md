@@ -143,3 +143,34 @@ listParameter := ssm.NewStringListParameter(this, jsii.String("StringListParamet
 When specifying an `allowedPattern`, the values provided as string literals
 are validated against the pattern and an exception is raised if a value
 provided does not comply.
+
+## Using Tokens in parameter name
+
+When using [CDK Tokens](https://docs.aws.amazon.com/cdk/v2/guide/tokens.html) in parameter name,
+you need to explicitly set the `simpleName` property. Setting `simpleName` to an incorrect boolean
+value may result in unexpected behaviours, such as having duplicate '/' in the parameter ARN
+or missing a '/' in the parameter ARN.
+
+`simpleName` is used to indicates whether the parameter name is a simple name. A parameter name
+without any '/' is considered a simple name, thus you should set `simpleName` to `true`.
+If the parameter name includes '/', set `simpleName` to `false`.
+
+```go
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+
+var func iFunction
+
+
+simpleParameter := ssm.NewStringParameter(this, jsii.String("StringParameter"), &StringParameterProps{
+	// the parameter name doesn't contain any '/'
+	ParameterName: jsii.String("parameter"),
+	StringValue: jsii.String("SOME_VALUE"),
+	SimpleName: jsii.Boolean(true),
+})
+nonSimpleParameter := ssm.NewStringParameter(this, jsii.String("StringParameter"), &StringParameterProps{
+	// the parameter name contains '/'
+	ParameterName: fmt.Sprintf("/%v/my/app/param", func.FunctionName),
+	StringValue: jsii.String("SOME_VALUE"),
+	SimpleName: jsii.Boolean(false),
+})
+```

@@ -26,4 +26,22 @@ func init() {
 		"@aws-cdk/aws-pipes-enrichments-alpha.LambdaEnrichmentProps",
 		reflect.TypeOf((*LambdaEnrichmentProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-enrichments-alpha.StepFunctionsEnrichment",
+		reflect.TypeOf((*StepFunctionsEnrichment)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "enrichmentArn", GoGetter: "EnrichmentArn"},
+			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
+		},
+		func() interface{} {
+			j := jsiiProxy_StepFunctionsEnrichment{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkpipesalphaIEnrichment)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-pipes-enrichments-alpha.StepFunctionsEnrichmentProps",
+		reflect.TypeOf((*StepFunctionsEnrichmentProps)(nil)).Elem(),
+	)
 }

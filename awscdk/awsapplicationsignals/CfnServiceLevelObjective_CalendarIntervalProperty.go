@@ -19,7 +19,7 @@ package awsapplicationsignals
 type CfnServiceLevelObjective_CalendarIntervalProperty struct {
 	// Specifies the duration of each calendar interval.
 	//
-	// For example, if `Duration` is 1 and `DurationUnit` is `MONTH`, each interval is one month, aligned with the calendar.
+	// For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-calendarinterval.html#cfn-applicationsignals-servicelevelobjective-calendarinterval-duration
 	//
 	Duration *float64 `field:"required" json:"duration" yaml:"duration"`
@@ -27,9 +27,12 @@ type CfnServiceLevelObjective_CalendarIntervalProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-calendarinterval.html#cfn-applicationsignals-servicelevelobjective-calendarinterval-durationunit
 	//
 	DurationUnit *string `field:"required" json:"durationUnit" yaml:"durationUnit"`
-	// Epoch time in seconds you want the first interval to start.
+	// The date and time when you want the first interval to start.
 	//
 	// Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.
+	//
+	// When used in a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: `1698778057`
+	//
 	// As soon as one calendar interval ends, another automatically begins.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-calendarinterval.html#cfn-applicationsignals-servicelevelobjective-calendarinterval-starttime
 	//

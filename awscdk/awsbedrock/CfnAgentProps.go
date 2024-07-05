@@ -58,6 +58,10 @@ package awsbedrock
 //   	CustomerEncryptionKeyArn: jsii.String("customerEncryptionKeyArn"),
 //   	Description: jsii.String("description"),
 //   	FoundationModel: jsii.String("foundationModel"),
+//   	GuardrailConfiguration: &GuardrailConfigurationProperty{
+//   		GuardrailIdentifier: jsii.String("guardrailIdentifier"),
+//   		GuardrailVersion: jsii.String("guardrailVersion"),
+//   	},
 //   	IdleSessionTtlInSeconds: jsii.Number(123),
 //   	Instruction: jsii.String("instruction"),
 //   	KnowledgeBases: []interface{}{
@@ -136,6 +140,10 @@ type CfnAgentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-foundationmodel
 	//
 	FoundationModel *string `field:"optional" json:"foundationModel" yaml:"foundationModel"`
+	// Details about the guardrail associated with the agent.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html#cfn-bedrock-agent-guardrailconfiguration
+	//
+	GuardrailConfiguration interface{} `field:"optional" json:"guardrailConfiguration" yaml:"guardrailConfiguration"`
 	// The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.
 	//
 	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.

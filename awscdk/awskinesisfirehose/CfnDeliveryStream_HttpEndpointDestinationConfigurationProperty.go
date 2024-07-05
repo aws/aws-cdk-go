@@ -83,6 +83,13 @@ package awskinesisfirehose
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	S3BackupMode: jsii.String("s3BackupMode"),
+//   	SecretsManagerConfiguration: &SecretsManagerConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		RoleArn: jsii.String("roleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html
@@ -128,5 +135,9 @@ type CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-s3backupmode
 	//
 	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
+	// The configuration that defines how you access secrets for HTTP Endpoint destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration-secretsmanagerconfiguration
+	//
+	SecretsManagerConfiguration interface{} `field:"optional" json:"secretsManagerConfiguration" yaml:"secretsManagerConfiguration"`
 }
 

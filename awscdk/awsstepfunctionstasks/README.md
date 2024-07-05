@@ -24,7 +24,9 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 
     * [Call REST API Endpoint](#call-rest-api-endpoint)
     * [Call HTTP API Endpoint](#call-http-api-endpoint)
-    * [AWS SDK](#aws-sdk)
+  * [AWS SDK](#aws-sdk)
+
+    * [Cross-region AWS API call](#cross-region-aws-api-call)
   * [Athena](#athena)
 
     * [StartQueryExecution](#startqueryexecution)
@@ -208,7 +210,7 @@ invokeTask := tasks.NewCallApiGatewayHttpApiEndpoint(this, jsii.String("Call HTT
 })
 ```
 
-### AWS SDK
+## AWS SDK
 
 Step Functions supports calling [AWS service's API actions](https://docs.aws.amazon.com/step-functions/latest/dg/supported-services-awssdk.html)
 through the service integration pattern.
@@ -274,6 +276,29 @@ detectLabels := tasks.NewCallAwsService(this, jsii.String("DetectLabels"), &Call
 	},
 })
 ```
+
+### Cross-region AWS API call
+
+You can call AWS API in a different region from your state machine by using the `CallAwsServiceCrossRegion` construct. In addition to the properties for `CallAwsService` construct, you have to set `region` property to call the API.
+
+```go
+var myBucket bucket
+
+getObject := tasks.NewCallAwsServiceCrossRegion(this, jsii.String("GetObject"), &CallAwsServiceCrossRegionProps{
+	Region: jsii.String("ap-northeast-1"),
+	Service: jsii.String("s3"),
+	Action: jsii.String("getObject"),
+	Parameters: map[string]interface{}{
+		"Bucket": myBucket.bucketName,
+		"Key": sfn.JsonPath_stringAt(jsii.String("$.key")),
+	},
+	IamResources: []*string{
+		myBucket.ArnForObjects(jsii.String("*")),
+	},
+})
+```
+
+Other properties such as `additionalIamStatements` can be used in the same way as the `CallAwsService` task.
 
 ## Athena
 

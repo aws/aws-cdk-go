@@ -106,6 +106,7 @@ import (
 //   		Port: jsii.String("port"),
 //   	},
 //   	Engine: jsii.String("engine"),
+//   	EngineLifecycleSupport: jsii.String("engineLifecycleSupport"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	Iops: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -317,6 +318,9 @@ type CfnDBInstance interface {
 	// The name of the database engine to use for this DB instance.
 	Engine() *string
 	SetEngine(val *string)
+	// The life cycle type for this DB instance.
+	EngineLifecycleSupport() *string
+	SetEngineLifecycleSupport(val *string)
 	// The version number of the database engine to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
@@ -1110,6 +1114,16 @@ func (j *jsiiProxy_CfnDBInstance) Engine() *string {
 	_jsii_.Get(
 		j,
 		"engine",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) EngineLifecycleSupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"engineLifecycleSupport",
 		&returns,
 	)
 	return returns
@@ -1941,6 +1955,14 @@ func (j *jsiiProxy_CfnDBInstance)SetEngine(val *string) {
 	_jsii_.Set(
 		j,
 		"engine",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetEngineLifecycleSupport(val *string) {
+	_jsii_.Set(
+		j,
+		"engineLifecycleSupport",
 		val,
 	)
 }

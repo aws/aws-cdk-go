@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnAgent) validateSetAutoPrepareParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgent) validateSetGuardrailConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAgent) validateSetKnowledgeBasesParameters(val interface{}) error {
 	return nil
 }

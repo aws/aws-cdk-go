@@ -37,8 +37,6 @@ import (
 type CfnUserPoolResourceServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The resource ID.
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -225,16 +223,6 @@ type CfnUserPoolResourceServer interface {
 type jsiiProxy_CfnUserPoolResourceServer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnUserPoolResourceServer) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnUserPoolResourceServer) CfnOptions() awscdk.ICfnResourceOptions {

@@ -29,7 +29,7 @@ package awscdk
 type ArnComponents struct {
 	// Resource type (e.g. "table", "autoScalingGroup", "certificate"). For some resource types, e.g. S3 buckets, this field defines the bucket name.
 	Resource *string `field:"required" json:"resource" yaml:"resource"`
-	// The service namespace that identifies the AWS product (for example, 's3', 'iam', 'codepipline').
+	// The service namespace that identifies the AWS product (for example, 's3', 'iam', 'codepipeline').
 	Service *string `field:"required" json:"service" yaml:"service"`
 	// The ID of the AWS account that owns the resource, without the hyphens.
 	//

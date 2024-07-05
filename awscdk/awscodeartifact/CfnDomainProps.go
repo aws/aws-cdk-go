@@ -34,7 +34,7 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
 	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
-	// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+	// The key used to encrypt the domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
 	//
 	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`

@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnDBCluster) validateSetEnableIamDatabaseAuthenticationParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBCluster) validateSetEnableLocalWriteForwardingParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBCluster) validateSetManageMasterUserPasswordParameters(val interface{}) error {
 	return nil
 }

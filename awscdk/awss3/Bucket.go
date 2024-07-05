@@ -705,7 +705,7 @@ func Bucket_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Thrown an exception if the given bucket name is not valid.
-func Bucket_ValidateBucketName(physicalName *string) {
+func Bucket_ValidateBucketName(physicalName *string, allowLegacyBucketNaming *bool) {
 	_init_.Initialize()
 
 	if err := validateBucket_ValidateBucketNameParameters(physicalName); err != nil {
@@ -714,7 +714,7 @@ func Bucket_ValidateBucketName(physicalName *string) {
 	_jsii_.StaticInvokeVoid(
 		"aws-cdk-lib.aws_s3.Bucket",
 		"validateBucketName",
-		[]interface{}{physicalName},
+		[]interface{}{physicalName, allowLegacyBucketNaming},
 	)
 }
 

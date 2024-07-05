@@ -115,7 +115,7 @@ type NodegroupProps struct {
 	//
 	ForceUpdate *bool `field:"optional" json:"forceUpdate" yaml:"forceUpdate"`
 	// The instance types to use for your node group.
-	// See:  - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
 	//
 	// Default: t3.medium will be used according to the cloudformation document.
 	//
@@ -125,7 +125,7 @@ type NodegroupProps struct {
 	//
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// Launch template specification used for the nodegroup.
-	// See:  - https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
 	//
 	// Default: - no launch template.
 	//

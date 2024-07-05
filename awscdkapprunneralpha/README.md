@@ -167,6 +167,29 @@ when required.
 
 See [App Runner IAM Roles](https://docs.aws.amazon.com/apprunner/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more details.
 
+## Auto Scaling Configuration
+
+To associate an App Runner service with a custom Auto Scaling Configuration, define `autoScalingConfiguration` for the service.
+
+```go
+autoScalingConfiguration := apprunner.NewAutoScalingConfiguration(this, jsii.String("AutoScalingConfiguration"), &AutoScalingConfigurationProps{
+	AutoScalingConfigurationName: jsii.String("MyAutoScalingConfiguration"),
+	MaxConcurrency: jsii.Number(150),
+	MaxSize: jsii.Number(20),
+	MinSize: jsii.Number(5),
+})
+
+apprunner.NewService(this, jsii.String("DemoService"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
+		},
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+	}),
+	AutoScalingConfiguration: AutoScalingConfiguration,
+})
+```
+
 ## VPC Connector
 
 To associate an App Runner service with a custom VPC, define `vpcConnector` for the service.
@@ -303,5 +326,26 @@ apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
 		Timeout: awscdk.Duration_*Seconds(jsii.Number(10)),
 		UnhealthyThreshold: jsii.Number(10),
 	}),
+})
+```
+
+## Observability Configuration
+
+To associate an App Runner service with a custom observability configuration, use the `observabilityConfiguration` property.
+
+```go
+observabilityConfiguration := apprunner.NewObservabilityConfiguration(this, jsii.String("ObservabilityConfiguration"), &ObservabilityConfigurationProps{
+	ObservabilityConfigurationName: jsii.String("MyObservabilityConfiguration"),
+	TraceConfigurationVendor: apprunner.TraceConfigurationVendor_AWSXRAY,
+})
+
+apprunner.NewService(this, jsii.String("DemoService"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
+		},
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+	}),
+	ObservabilityConfiguration: ObservabilityConfiguration,
 })
 ```

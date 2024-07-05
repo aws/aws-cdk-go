@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnCluster) validateSetAccessConfigParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetBootstrapSelfManagedAddonsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetEncryptionConfigParameters(val interface{}) error {
 	return nil
 }

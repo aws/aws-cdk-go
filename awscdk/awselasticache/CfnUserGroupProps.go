@@ -44,7 +44,7 @@ type CfnUserGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
 	//
 	UserIds *[]*string `field:"required" json:"userIds" yaml:"userIds"`
-	// An array of key-value pairs to apply to this user.
+	// The list of tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

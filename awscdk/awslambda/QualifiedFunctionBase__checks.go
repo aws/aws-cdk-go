@@ -137,9 +137,29 @@ func (q *jsiiProxy_QualifiedFunctionBase) validateGrantInvokeCompositePrincipalP
 	return nil
 }
 
+func (q *jsiiProxy_QualifiedFunctionBase) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (q *jsiiProxy_QualifiedFunctionBase) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (q *jsiiProxy_QualifiedFunctionBase) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	if version == nil {
+		return fmt.Errorf("parameter version is required, but nil was provided")
 	}
 
 	return nil

@@ -11,7 +11,6 @@ package awskinesisfirehose
 //   snowflakeDestinationConfigurationProperty := &SnowflakeDestinationConfigurationProperty{
 //   	AccountUrl: jsii.String("accountUrl"),
 //   	Database: jsii.String("database"),
-//   	PrivateKey: jsii.String("privateKey"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	S3Configuration: &S3DestinationConfigurationProperty{
 //   		BucketArn: jsii.String("bucketArn"),
@@ -39,7 +38,6 @@ package awskinesisfirehose
 //   	},
 //   	Schema: jsii.String("schema"),
 //   	Table: jsii.String("table"),
-//   	User: jsii.String("user"),
 //
 //   	// the properties below are optional
 //   	CloudWatchLoggingOptions: &CloudWatchLoggingOptionsProperty{
@@ -51,6 +49,7 @@ package awskinesisfirehose
 //   	DataLoadingOption: jsii.String("dataLoadingOption"),
 //   	KeyPassphrase: jsii.String("keyPassphrase"),
 //   	MetaDataColumnName: jsii.String("metaDataColumnName"),
+//   	PrivateKey: jsii.String("privateKey"),
 //   	ProcessingConfiguration: &ProcessingConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		Processors: []interface{}{
@@ -71,6 +70,13 @@ package awskinesisfirehose
 //   		DurationInSeconds: jsii.Number(123),
 //   	},
 //   	S3BackupMode: jsii.String("s3BackupMode"),
+//   	SecretsManagerConfiguration: &SecretsManagerConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		RoleArn: jsii.String("roleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	SnowflakeRoleConfiguration: &SnowflakeRoleConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		SnowflakeRole: jsii.String("snowflakeRole"),
@@ -78,6 +84,7 @@ package awskinesisfirehose
 //   	SnowflakeVpcConfiguration: &SnowflakeVpcConfigurationProperty{
 //   		PrivateLinkVpceId: jsii.String("privateLinkVpceId"),
 //   	},
+//   	User: jsii.String("user"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html
@@ -93,12 +100,6 @@ type CfnDeliveryStream_SnowflakeDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-database
 	//
 	Database *string `field:"required" json:"database" yaml:"database"`
-	// The private key used to encrypt your Snowflake client.
-	//
-	// For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-privatekey
-	//
-	PrivateKey *string `field:"required" json:"privateKey" yaml:"privateKey"`
 	// The Amazon Resource Name (ARN) of the Snowflake role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-rolearn
 	//
@@ -114,10 +115,6 @@ type CfnDeliveryStream_SnowflakeDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-table
 	//
 	Table *string `field:"required" json:"table" yaml:"table"`
-	// User login name for the Snowflake account.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-user
-	//
-	User *string `field:"required" json:"user" yaml:"user"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-cloudwatchloggingoptions
 	//
 	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
@@ -139,6 +136,12 @@ type CfnDeliveryStream_SnowflakeDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-metadatacolumnname
 	//
 	MetaDataColumnName *string `field:"optional" json:"metaDataColumnName" yaml:"metaDataColumnName"`
+	// The private key used to encrypt your Snowflake client.
+	//
+	// For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-privatekey
+	//
+	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-processingconfiguration
 	//
 	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
@@ -150,6 +153,10 @@ type CfnDeliveryStream_SnowflakeDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-s3backupmode
 	//
 	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
+	// The configuration that defines how you access secrets for Snowflake.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-secretsmanagerconfiguration
+	//
+	SecretsManagerConfiguration interface{} `field:"optional" json:"secretsManagerConfiguration" yaml:"secretsManagerConfiguration"`
 	// Optionally configure a Snowflake role.
 	//
 	// Otherwise the default user role will be used.
@@ -162,5 +169,9 @@ type CfnDeliveryStream_SnowflakeDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-snowflakevpcconfiguration
 	//
 	SnowflakeVpcConfiguration interface{} `field:"optional" json:"snowflakeVpcConfiguration" yaml:"snowflakeVpcConfiguration"`
+	// User login name for the Snowflake account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-user
+	//
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 

@@ -60,7 +60,15 @@ func (s *jsiiProxy_SingletonFunction) validateGrantInvokeCompositePrincipalParam
 	return nil
 }
 
+func (s *jsiiProxy_SingletonFunction) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (s *jsiiProxy_SingletonFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (s *jsiiProxy_SingletonFunction) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
 	return nil
 }
 

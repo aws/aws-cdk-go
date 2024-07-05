@@ -354,6 +354,13 @@ type CfnReplicationGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicaspernodegroup
 	//
 	ReplicasPerNodeGroup *float64 `field:"optional" json:"replicasPerNodeGroup" yaml:"replicasPerNodeGroup"`
+	// The replication group identifier. This parameter is stored as a lowercase string.
+	//
+	// Constraints:
+	//
+	// - A name must contain from 1 to 40 alphanumeric characters or hyphens.
+	// - The first character must be a letter.
+	// - A name cannot end with a hyphen or contain two consecutive hyphens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicationgroupid
 	//
 	ReplicationGroupId *string `field:"optional" json:"replicationGroupId" yaml:"replicationGroupId"`

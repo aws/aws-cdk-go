@@ -76,6 +76,17 @@ func FoundationModelIdentifier_AI21_J2_GRANDE_INSTRUCT() FoundationModelIdentifi
 	return returns
 }
 
+func FoundationModelIdentifier_AI21_J2_JAMBA_INSTRUCT_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AI21_J2_JAMBA_INSTRUCT_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AI21_J2_JUMBO_INSTRUCT() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -131,6 +142,17 @@ func FoundationModelIdentifier_AI21_LABS_JURASSIC_2_ULTRA_V1() FoundationModelId
 	return returns
 }
 
+func FoundationModelIdentifier_AI21_LABS_JURASSIC_2_ULTRA_V1_0_8K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AI21_LABS_JURASSIC_2_ULTRA_V1_0_8K",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AMAZON_TITAN_EMBED_G1_TEXT_02() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -170,6 +192,17 @@ func FoundationModelIdentifier_AMAZON_TITAN_EMBED_TEXT_V2_0() FoundationModelIde
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"AMAZON_TITAN_EMBED_TEXT_V2_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_TITAN_EMBED_TEXT_V2_0_8K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_TITAN_EMBED_TEXT_V2_0_8K",
 		&returns,
 	)
 	return returns
@@ -291,6 +324,17 @@ func FoundationModelIdentifier_AMAZON_TITAN_TG1_LARGE() FoundationModelIdentifie
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"AMAZON_TITAN_TG1_LARGE",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0",
 		&returns,
 	)
 	return returns
@@ -549,12 +593,34 @@ func FoundationModelIdentifier_COHERE_EMBED_ENGLISH_V3() FoundationModelIdentifi
 	return returns
 }
 
+func FoundationModelIdentifier_COHERE_EMBED_ENGLISH_V3_0_512() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"COHERE_EMBED_ENGLISH_V3_0_512",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_COHERE_EMBED_MULTILINGUAL_V3() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"COHERE_EMBED_MULTILINGUAL_V3",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_COHERE_EMBED_MULTILINGUAL_V3_0_512() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"COHERE_EMBED_MULTILINGUAL_V3_0_512",
 		&returns,
 	)
 	return returns
@@ -698,6 +764,17 @@ func FoundationModelIdentifier_MISTRAL_MIXTRAL_8X7B_INSTRUCT_V0_1() FoundationMo
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"MISTRAL_MIXTRAL_8X7B_INSTRUCT_V0_1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_MISTRAL_SMALL_V0_1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"MISTRAL_SMALL_V0_1",
 		&returns,
 	)
 	return returns

@@ -138,9 +138,29 @@ func (e *jsiiProxy_EdgeFunction) validateGrantInvokeCompositePrincipalParameters
 	return nil
 }
 
+func (e *jsiiProxy_EdgeFunction) validateGrantInvokeLatestVersionParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_EdgeFunction) validateGrantInvokeUrlParameters(identity awsiam.IGrantable) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (e *jsiiProxy_EdgeFunction) validateGrantInvokeVersionParameters(identity awsiam.IGrantable, version awslambda.IVersion) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	if version == nil {
+		return fmt.Errorf("parameter version is required, but nil was provided")
 	}
 
 	return nil

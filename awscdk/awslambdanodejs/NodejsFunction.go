@@ -198,8 +198,12 @@ type NodejsFunction interface {
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
 	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
+	// Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
+	GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke the given version of this Lambda.
+	GrantInvokeVersion(grantee awsiam.IGrantable, version awslambda.IVersion) awsiam.Grant
 	// Mix additional information into the hash of the Version object.
 	//
 	// The Lambda Function construct does its best to automatically create a new
@@ -1000,6 +1004,22 @@ func (n *jsiiProxy_NodejsFunction) GrantInvokeCompositePrincipal(compositePrinci
 	return returns
 }
 
+func (n *jsiiProxy_NodejsFunction) GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := n.validateGrantInvokeLatestVersionParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		n,
+		"grantInvokeLatestVersion",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
 func (n *jsiiProxy_NodejsFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
 	if err := n.validateGrantInvokeUrlParameters(grantee); err != nil {
 		panic(err)
@@ -1010,6 +1030,22 @@ func (n *jsiiProxy_NodejsFunction) GrantInvokeUrl(grantee awsiam.IGrantable) aws
 		n,
 		"grantInvokeUrl",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (n *jsiiProxy_NodejsFunction) GrantInvokeVersion(grantee awsiam.IGrantable, version awslambda.IVersion) awsiam.Grant {
+	if err := n.validateGrantInvokeVersionParameters(grantee, version); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		n,
+		"grantInvokeVersion",
+		[]interface{}{grantee, version},
 		&returns,
 	)
 

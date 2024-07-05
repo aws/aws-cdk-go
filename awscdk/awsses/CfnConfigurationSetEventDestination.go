@@ -36,6 +36,9 @@ import (
 //   			},
 //   		},
 //   		Enabled: jsii.Boolean(false),
+//   		EventBridgeDestination: &EventBridgeDestinationProperty{
+//   			EventBusArn: jsii.String("eventBusArn"),
+//   		},
 //   		KinesisFirehoseDestination: &KinesisFirehoseDestinationProperty{
 //   			DeliveryStreamArn: jsii.String("deliveryStreamArn"),
 //   			IamRoleArn: jsii.String("iamRoleArn"),

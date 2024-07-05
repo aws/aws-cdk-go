@@ -94,6 +94,37 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_eks.Addon",
+		reflect.TypeOf((*Addon)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "addonArn", GoGetter: "AddonArn"},
+			_jsii_.MemberProperty{JsiiProperty: "addonName", GoGetter: "AddonName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Addon{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAddon)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.AddonAttributes",
+		reflect.TypeOf((*AddonAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.AddonProps",
+		reflect.TypeOf((*AddonProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_eks.AlbController",
 		reflect.TypeOf((*AlbController)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -335,6 +366,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrKubernetesNetworkConfigServiceIpv6Cidr", GoGetter: "AttrKubernetesNetworkConfigServiceIpv6Cidr"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOpenIdConnectIssuerUrl", GoGetter: "AttrOpenIdConnectIssuerUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "bootstrapSelfManagedAddons", GoGetter: "BootstrapSelfManagedAddons"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -721,6 +753,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultCapacity", GoGetter: "DefaultCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultNodegroup", GoGetter: "DefaultNodegroup"},
+			_jsii_.MemberProperty{JsiiProperty: "eksPodIdentityAgent", GoGetter: "EksPodIdentityAgent"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getIngressLoadBalancerAddress", GoMethod: "GetIngressLoadBalancerAddress"},
@@ -862,6 +895,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "defaultCapacity", GoGetter: "DefaultCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultNodegroup", GoGetter: "DefaultNodegroup"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultProfile", GoGetter: "DefaultProfile"},
+			_jsii_.MemberProperty{JsiiProperty: "eksPodIdentityAgent", GoGetter: "EksPodIdentityAgent"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getIngressLoadBalancerAddress", GoMethod: "GetIngressLoadBalancerAddress"},
@@ -978,6 +1012,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_eks.IAddon",
+		reflect.TypeOf((*IAddon)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "addonArn", GoGetter: "AddonArn"},
+			_jsii_.MemberProperty{JsiiProperty: "addonName", GoGetter: "AddonName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAddon{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_eks.ICluster",
 		reflect.TypeOf((*ICluster)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -998,6 +1049,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroupId", GoGetter: "ClusterSecurityGroupId"},
 			_jsii_.MemberMethod{JsiiMethod: "connectAutoScalingGroupCapacity", GoMethod: "ConnectAutoScalingGroupCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "eksPodIdentityAgent", GoGetter: "EksPodIdentityAgent"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ipFamily", GoGetter: "IpFamily"},
 			_jsii_.MemberProperty{JsiiProperty: "kubectlEnvironment", GoGetter: "KubectlEnvironment"},
@@ -1051,6 +1103,14 @@ func init() {
 			j := jsiiProxy_INodegroup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_eks.IdentityType",
+		reflect.TypeOf((*IdentityType)(nil)).Elem(),
+		map[string]interface{}{
+			"IRSA": IdentityType_IRSA,
+			"POD_IDENTITY": IdentityType_POD_IDENTITY,
 		},
 	)
 	_jsii_.RegisterStruct(

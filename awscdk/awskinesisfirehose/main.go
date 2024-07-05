@@ -232,6 +232,10 @@ func init() {
 		reflect.TypeOf((*CfnDeliveryStream_SchemaConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SecretsManagerConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_SecretsManagerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SerializerProperty",
 		reflect.TypeOf((*CfnDeliveryStream_SerializerProperty)(nil)).Elem(),
 	)

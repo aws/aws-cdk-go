@@ -24,6 +24,38 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apprunner-alpha.AutoScalingConfiguration",
+		reflect.TypeOf((*AutoScalingConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationArn", GoGetter: "AutoScalingConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationName", GoGetter: "AutoScalingConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationRevision", GoGetter: "AutoScalingConfigurationRevision"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AutoScalingConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAutoScalingConfiguration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apprunner-alpha.AutoScalingConfigurationAttributes",
+		reflect.TypeOf((*AutoScalingConfigurationAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apprunner-alpha.AutoScalingConfigurationProps",
+		reflect.TypeOf((*AutoScalingConfigurationProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apprunner-alpha.CodeConfiguration",
 		reflect.TypeOf((*CodeConfiguration)(nil)).Elem(),
@@ -141,6 +173,42 @@ func init() {
 		reflect.TypeOf((*HttpHealthCheckOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-apprunner-alpha.IAutoScalingConfiguration",
+		reflect.TypeOf((*IAutoScalingConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationArn", GoGetter: "AutoScalingConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationName", GoGetter: "AutoScalingConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationRevision", GoGetter: "AutoScalingConfigurationRevision"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAutoScalingConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-apprunner-alpha.IObservabilityConfiguration",
+		reflect.TypeOf((*IObservabilityConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationArn", GoGetter: "ObservabilityConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationName", GoGetter: "ObservabilityConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationRevision", GoGetter: "ObservabilityConfigurationRevision"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IObservabilityConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-apprunner-alpha.IService",
 		reflect.TypeOf((*IService)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -210,6 +278,38 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_Memory{}
 		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apprunner-alpha.ObservabilityConfiguration",
+		reflect.TypeOf((*ObservabilityConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationArn", GoGetter: "ObservabilityConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationName", GoGetter: "ObservabilityConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationRevision", GoGetter: "ObservabilityConfigurationRevision"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ObservabilityConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IObservabilityConfiguration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apprunner-alpha.ObservabilityConfigurationAttributes",
+		reflect.TypeOf((*ObservabilityConfigurationAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apprunner-alpha.ObservabilityConfigurationProps",
+		reflect.TypeOf((*ObservabilityConfigurationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-apprunner-alpha.Runtime",
@@ -297,6 +397,13 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apprunner-alpha.TcpHealthCheckOptions",
 		reflect.TypeOf((*TcpHealthCheckOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-apprunner-alpha.TraceConfigurationVendor",
+		reflect.TypeOf((*TraceConfigurationVendor)(nil)).Elem(),
+		map[string]interface{}{
+			"AWSXRAY": TraceConfigurationVendor_AWSXRAY,
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-apprunner-alpha.VpcConnector",

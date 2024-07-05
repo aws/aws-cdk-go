@@ -67,6 +67,7 @@ import (
 //   		Port: jsii.String("port"),
 //   	},
 //   	Engine: jsii.String("engine"),
+//   	EngineLifecycleSupport: jsii.String("engineLifecycleSupport"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	Iops: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -676,6 +677,20 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-engine
 	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
+	// The life cycle type for this DB instance.
+	//
+	// > By default, this value is set to `open-source-rds-extended-support` , which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to `open-source-rds-extended-support-disabled` . In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.
+	//
+	// This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.
+	//
+	// You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* .
+	//
+	// Valid Values: `open-source-rds-extended-support | open-source-rds-extended-support-disabled`
+	//
+	// Default: `open-source-rds-extended-support`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enginelifecyclesupport
+	//
+	EngineLifecycleSupport *string `field:"optional" json:"engineLifecycleSupport" yaml:"engineLifecycleSupport"`
 	// The version number of the database engine to use.
 	//
 	// For a list of valid engine versions, use the `DescribeDBEngineVersions` action.

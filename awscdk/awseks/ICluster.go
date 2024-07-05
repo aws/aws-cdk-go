@@ -79,6 +79,17 @@ type ICluster interface {
 	ClusterSecurityGroup() awsec2.ISecurityGroup
 	// The id of the cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId() *string
+	// The EKS Pod Identity Agent addon for the EKS cluster.
+	//
+	// The EKS Pod Identity Agent is responsible for managing the temporary credentials
+	// used by pods in the cluster to access AWS resources. It runs as a DaemonSet on
+	// each node and provides the necessary credentials to the pods based on their
+	// associated service account.
+	//
+	// This property returns the `CfnAddon` resource representing the EKS Pod Identity
+	// Agent addon. If the addon has not been created yet, it will be created and
+	// returned.
+	EksPodIdentityAgent() IAddon
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
 	//
@@ -326,6 +337,16 @@ func (j *jsiiProxy_ICluster) ClusterSecurityGroupId() *string {
 	_jsii_.Get(
 		j,
 		"clusterSecurityGroupId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICluster) EksPodIdentityAgent() IAddon {
+	var returns IAddon
+	_jsii_.Get(
+		j,
+		"eksPodIdentityAgent",
 		&returns,
 	)
 	return returns

@@ -123,6 +123,7 @@ type CfnResourceDataSync interface {
 	// A supported sync format.
 	SyncFormat() *string
 	SetSyncFormat(val *string)
+	// A name for the resource data sync.
 	SyncName() *string
 	SetSyncName(val *string)
 	// Information about the source where the data was synchronized.

@@ -978,3 +978,20 @@ codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
 	ConcurrentBuildLimit: jsii.Number(1),
 })
 ```
+
+## Visibility
+
+When you can specify the visibility of the project builds. This setting controls whether the builds are publicly readable or remain private.
+
+Visibility options:
+
+* `PUBLIC_READ`: The project builds are visible to the public.
+* `PRIVATE`: The project builds are not visible to the public.
+
+Examples:
+
+```go
+codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	Visibility: codebuild.ProjectVisibility_PUBLIC_READ,
+})
+```

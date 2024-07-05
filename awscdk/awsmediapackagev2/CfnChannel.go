@@ -44,6 +44,7 @@ type CfnChannel interface {
 	AttrCreatedAt() *string
 	// The ingest endpoints associated with the channel.
 	AttrIngestEndpoints() awscdk.IResolvable
+	AttrIngestEndpointUrls() *[]*string
 	// The timestamp of the modification of the channel.
 	AttrModifiedAt() *string
 	// Tag Manager which manages the tags for this resource.
@@ -262,6 +263,16 @@ func (j *jsiiProxy_CfnChannel) AttrIngestEndpoints() awscdk.IResolvable {
 	_jsii_.Get(
 		j,
 		"attrIngestEndpoints",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) AttrIngestEndpointUrls() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrIngestEndpointUrls",
 		&returns,
 	)
 	return returns

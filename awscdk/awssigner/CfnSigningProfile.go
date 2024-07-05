@@ -22,6 +22,7 @@ import (
 //   	PlatformId: jsii.String("platformId"),
 //
 //   	// the properties below are optional
+//   	ProfileName: jsii.String("profileName"),
 //   	SignatureValidityPeriod: &SignatureValidityPeriodProperty{
 //   		Type: jsii.String("type"),
 //   		Value: jsii.Number(123),
@@ -72,6 +73,9 @@ type CfnSigningProfile interface {
 	// The ID of a platform that is available for use by a signing profile.
 	PlatformId() *string
 	SetPlatformId(val *string)
+	// The name of the signing profile.
+	ProfileName() *string
+	SetProfileName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -346,6 +350,16 @@ func (j *jsiiProxy_CfnSigningProfile) PlatformId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSigningProfile) ProfileName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"profileName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSigningProfile) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -451,6 +465,14 @@ func (j *jsiiProxy_CfnSigningProfile)SetPlatformId(val *string) {
 	_jsii_.Set(
 		j,
 		"platformId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSigningProfile)SetProfileName(val *string) {
+	_jsii_.Set(
+		j,
+		"profileName",
 		val,
 	)
 }

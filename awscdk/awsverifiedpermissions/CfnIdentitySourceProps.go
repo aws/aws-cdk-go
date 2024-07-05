@@ -21,6 +21,30 @@ package awsverifiedpermissions
 //   				GroupEntityType: jsii.String("groupEntityType"),
 //   			},
 //   		},
+//   		OpenIdConnectConfiguration: &OpenIdConnectConfigurationProperty{
+//   			Issuer: jsii.String("issuer"),
+//   			TokenSelection: &OpenIdConnectTokenSelectionProperty{
+//   				AccessTokenOnly: &OpenIdConnectAccessTokenConfigurationProperty{
+//   					Audiences: []*string{
+//   						jsii.String("audiences"),
+//   					},
+//   					PrincipalIdClaim: jsii.String("principalIdClaim"),
+//   				},
+//   				IdentityTokenOnly: &OpenIdConnectIdentityTokenConfigurationProperty{
+//   					ClientIds: []*string{
+//   						jsii.String("clientIds"),
+//   					},
+//   					PrincipalIdClaim: jsii.String("principalIdClaim"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			EntityIdPrefix: jsii.String("entityIdPrefix"),
+//   			GroupConfiguration: &OpenIdConnectGroupConfigurationProperty{
+//   				GroupClaim: jsii.String("groupClaim"),
+//   				GroupEntityType: jsii.String("groupEntityType"),
+//   			},
+//   		},
 //   	},
 //   	PolicyStoreId: jsii.String("policyStoreId"),
 //

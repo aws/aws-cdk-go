@@ -21,6 +21,10 @@ type ServiceAccountOptions struct {
 	// Default: - no additional annotations.
 	//
 	Annotations *map[string]*string `field:"optional" json:"annotations" yaml:"annotations"`
+	// The identity type to use for the service account.
+	// Default: IdentityType.IRSA
+	//
+	IdentityType IdentityType `field:"optional" json:"identityType" yaml:"identityType"`
 	// Additional labels of the service account.
 	// Default: - no additional labels.
 	//

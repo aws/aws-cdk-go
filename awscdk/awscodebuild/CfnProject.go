@@ -212,6 +212,9 @@ import (
 //   				},
 //   			},
 //   		},
+//   		ScopeConfiguration: &ScopeConfigurationProperty{
+//   			Name: jsii.String("name"),
+//   		},
 //   		Webhook: jsii.Boolean(false),
 //   	},
 //   	Visibility: jsii.String("visibility"),

@@ -8,17 +8,18 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetQueue queue
+//   var targetFunction iFunction
 //
 //
-//   pipeSource := sources.NewSqsSource(sourceQueue, &SqsSourceParameters{
-//   	BatchSize: jsii.Number(10),
-//   	MaximumBatchingWindow: cdk.Duration_Seconds(jsii.Number(10)),
+//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+//   		"body": jsii.String("👀"),
+//   	}),
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: pipeSource,
-//   	Target: NewSomeTarget(targetQueue),
+//   	Source: NewSomeSource(sourceQueue),
+//   	Target: pipeTarget,
 //   })
 //
 // Experimental.

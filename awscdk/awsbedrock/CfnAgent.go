@@ -74,6 +74,10 @@ import (
 //   	CustomerEncryptionKeyArn: jsii.String("customerEncryptionKeyArn"),
 //   	Description: jsii.String("description"),
 //   	FoundationModel: jsii.String("foundationModel"),
+//   	GuardrailConfiguration: &GuardrailConfigurationProperty{
+//   		GuardrailIdentifier: jsii.String("guardrailIdentifier"),
+//   		GuardrailVersion: jsii.String("guardrailVersion"),
+//   	},
 //   	IdleSessionTtlInSeconds: jsii.Number(123),
 //   	Instruction: jsii.String("instruction"),
 //   	KnowledgeBases: []interface{}{
@@ -181,6 +185,9 @@ type CfnAgent interface {
 	// The foundation model used for orchestration by the agent.
 	FoundationModel() *string
 	SetFoundationModel(val *string)
+	// Details about the guardrail associated with the agent.
+	GuardrailConfiguration() interface{}
+	SetGuardrailConfiguration(val interface{})
 	// The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.
 	IdleSessionTtlInSeconds() *float64
 	SetIdleSessionTtlInSeconds(val *float64)
@@ -584,6 +591,16 @@ func (j *jsiiProxy_CfnAgent) FoundationModel() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgent) GuardrailConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"guardrailConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgent) IdleSessionTtlInSeconds() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -803,6 +820,17 @@ func (j *jsiiProxy_CfnAgent)SetFoundationModel(val *string) {
 	_jsii_.Set(
 		j,
 		"foundationModel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAgent)SetGuardrailConfiguration(val interface{}) {
+	if err := j.validateSetGuardrailConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"guardrailConfiguration",
 		val,
 	)
 }

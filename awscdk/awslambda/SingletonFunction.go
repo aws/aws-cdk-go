@@ -168,8 +168,12 @@ type SingletonFunction interface {
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
 	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
+	// Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
+	GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke the given version of this Lambda.
+	GrantInvokeVersion(grantee awsiam.IGrantable, version IVersion) awsiam.Grant
 	// Return the given named metric for this Function.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
@@ -707,6 +711,22 @@ func (s *jsiiProxy_SingletonFunction) GrantInvokeCompositePrincipal(compositePri
 	return returns
 }
 
+func (s *jsiiProxy_SingletonFunction) GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := s.validateGrantInvokeLatestVersionParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		s,
+		"grantInvokeLatestVersion",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_SingletonFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
 	if err := s.validateGrantInvokeUrlParameters(grantee); err != nil {
 		panic(err)
@@ -717,6 +737,22 @@ func (s *jsiiProxy_SingletonFunction) GrantInvokeUrl(grantee awsiam.IGrantable) 
 		s,
 		"grantInvokeUrl",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SingletonFunction) GrantInvokeVersion(grantee awsiam.IGrantable, version IVersion) awsiam.Grant {
+	if err := s.validateGrantInvokeVersionParameters(grantee, version); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		s,
+		"grantInvokeVersion",
+		[]interface{}{grantee, version},
 		&returns,
 	)
 

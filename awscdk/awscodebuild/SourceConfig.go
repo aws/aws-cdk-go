@@ -48,6 +48,9 @@ package awscodebuild
 //   				},
 //   			},
 //   		},
+//   		ScopeConfiguration: &ScopeConfigurationProperty{
+//   			Name: jsii.String("name"),
+//   		},
 //   		Webhook: jsii.Boolean(false),
 //   	},
 //   	SourceVersion: jsii.String("sourceVersion"),

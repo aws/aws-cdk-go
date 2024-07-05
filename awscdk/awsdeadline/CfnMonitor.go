@@ -30,6 +30,7 @@ import (
 type CfnMonitor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the monitor.
 	AttrArn() *string
 	// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
 	AttrIdentityCenterApplicationArn() *string

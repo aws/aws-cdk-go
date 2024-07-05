@@ -117,6 +117,7 @@ type CfnJob interface {
 	// This field is reserved for future use.
 	LogUri() *string
 	SetLogUri(val *string)
+	// This field specifies a day of the week and hour for a maintenance window for streaming jobs.
 	MaintenanceWindow() *string
 	SetMaintenanceWindow(val *string)
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.

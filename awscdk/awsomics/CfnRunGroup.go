@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a run group.
+// You can optionally create a run group to limit the compute resources for the runs that you add to the group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

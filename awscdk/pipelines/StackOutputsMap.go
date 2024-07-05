@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Translate stack outputs to Codepipline variable references.
+// Translate stack outputs to CodePipeline variable references.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -178,8 +178,12 @@ type Version interface {
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
 	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
+	// Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
+	GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke the given version of this Lambda.
+	GrantInvokeVersion(grantee awsiam.IGrantable, version IVersion) awsiam.Grant
 	// Return the given named metric for this Function.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
@@ -728,6 +732,22 @@ func (v *jsiiProxy_Version) GrantInvokeCompositePrincipal(compositePrincipal aws
 	return returns
 }
 
+func (v *jsiiProxy_Version) GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := v.validateGrantInvokeLatestVersionParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		v,
+		"grantInvokeLatestVersion",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
 func (v *jsiiProxy_Version) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
 	if err := v.validateGrantInvokeUrlParameters(grantee); err != nil {
 		panic(err)
@@ -738,6 +758,22 @@ func (v *jsiiProxy_Version) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Gra
 		v,
 		"grantInvokeUrl",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_Version) GrantInvokeVersion(grantee awsiam.IGrantable, version IVersion) awsiam.Grant {
+	if err := v.validateGrantInvokeVersionParameters(grantee, version); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		v,
+		"grantInvokeVersion",
+		[]interface{}{grantee, version},
 		&returns,
 	)
 

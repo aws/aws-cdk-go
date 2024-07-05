@@ -4,7 +4,6 @@ package awsapplicationsignals
 // The time period used to evaluate the SLO.
 //
 // It can be either a calendar interval or rolling interval.
-// If you omit this parameter, a rolling interval of 7 days is used.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,11 +25,11 @@ package awsapplicationsignals
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-interval.html
 //
 type CfnServiceLevelObjective_IntervalProperty struct {
-	// If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
+	// If the interval is a calendar interval, this structure contains the interval specifications.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-interval.html#cfn-applicationsignals-servicelevelobjective-interval-calendarinterval
 	//
 	CalendarInterval interface{} `field:"optional" json:"calendarInterval" yaml:"calendarInterval"`
-	// If the interval is a calendar interval, this structure contains the interval specifications.
+	// If the interval is a rolling interval, this structure contains the interval specifications.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-interval.html#cfn-applicationsignals-servicelevelobjective-interval-rollinginterval
 	//
 	RollingInterval interface{} `field:"optional" json:"rollingInterval" yaml:"rollingInterval"`

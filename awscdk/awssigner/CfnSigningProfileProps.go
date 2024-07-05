@@ -15,6 +15,7 @@ import (
 //   	PlatformId: jsii.String("platformId"),
 //
 //   	// the properties below are optional
+//   	ProfileName: jsii.String("profileName"),
 //   	SignatureValidityPeriod: &SignatureValidityPeriodProperty{
 //   		Type: jsii.String("type"),
 //   		Value: jsii.Number(123),
@@ -34,6 +35,10 @@ type CfnSigningProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
 	//
 	PlatformId *string `field:"required" json:"platformId" yaml:"platformId"`
+	// The name of the signing profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-profilename
+	//
+	ProfileName *string `field:"optional" json:"profileName" yaml:"profileName"`
 	// The validity period override for any signature generated using this signing profile.
 	//
 	// If unspecified, the default is 135 months.

@@ -69,9 +69,9 @@ type CfnInstanceConnectEndpoint interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Indicates whether your client's IP address is preserved as the source.
+	// Indicates whether the client IP address is preserved as the source.
 	//
-	// The value is `true` or `false` .
+	// The following are the possible values.
 	PreserveClientIp() interface{}
 	SetPreserveClientIp(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

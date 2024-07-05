@@ -82,29 +82,31 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html
 //
 type CfnServiceLevelObjectiveProps struct {
-	// The name of this SLO.
+	// A name for this SLO.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// This structure contains information about the performance metric that an SLO monitors.
+	// A structure containing information about the performance metric that this SLO monitors.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-sli
 	//
 	Sli interface{} `field:"required" json:"sli" yaml:"sli"`
 	// An optional description for this SLO.
-	//
-	// Default is 'No description'.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-description
 	//
 	// Default: - "No description".
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// A structure that contains the attributes that determine the goal of the SLO.
+	// This structure contains the attributes that determine the goal of an SLO.
 	//
 	// This includes the time period for evaluation and the attainment threshold.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-goal
 	//
 	Goal interface{} `field:"optional" json:"goal" yaml:"goal"`
-	// The list of tag keys and values associated with the resource you specified.
+	// A list of key-value pairs to associate with the SLO.
+	//
+	// You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -1,7 +1,7 @@
 package awsapplicationsignals
 
 
-// This structure contains information about the performance metric that an SLO monitors.
+// This structure specifies the information about the service and the performance metric that an SLO is to monitor.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,7 +52,7 @@ package awsapplicationsignals
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html
 //
 type CfnServiceLevelObjective_SliProperty struct {
-	// The arithmetic operation used when comparing the specified metric to the threshold.
+	// The arithmetic operation to use when comparing the specified metric to the threshold.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html#cfn-applicationsignals-servicelevelobjective-sli-comparisonoperator
 	//
 	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
@@ -60,7 +60,7 @@ type CfnServiceLevelObjective_SliProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html#cfn-applicationsignals-servicelevelobjective-sli-metricthreshold
 	//
 	MetricThreshold *float64 `field:"required" json:"metricThreshold" yaml:"metricThreshold"`
-	// A structure that contains information about the metric that the SLO monitors.
+	// Use this structure to specify the metric to be used for the SLO.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html#cfn-applicationsignals-servicelevelobjective-sli-slimetric
 	//
 	SliMetric interface{} `field:"required" json:"sliMetric" yaml:"sliMetric"`

@@ -39,7 +39,7 @@ type ImageRepository struct {
 	// For `ECR_PUBLIC` imageRepositoryType, the identifier domain should
 	// always be `public.ecr.aws`. For `ECR`, the pattern should be
 	// `([0-9]{12}.dkr.ecr.[a-z\-]+-[0-9]{1}.amazonaws.com\/.*)`.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html for more details.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html
 	//
 	// Experimental.
 	ImageIdentifier *string `field:"required" json:"imageIdentifier" yaml:"imageIdentifier"`

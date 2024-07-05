@@ -233,9 +233,15 @@ type PythonFunction interface {
 	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
 	// Experimental.
 	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
+	// Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
+	// Experimental.
+	GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	// Experimental.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke the given version of this Lambda.
+	// Experimental.
+	GrantInvokeVersion(grantee awsiam.IGrantable, version awslambda.IVersion) awsiam.Grant
 	// Mix additional information into the hash of the Version object.
 	//
 	// The Lambda Function construct does its best to automatically create a new
@@ -1060,6 +1066,22 @@ func (p *jsiiProxy_PythonFunction) GrantInvokeCompositePrincipal(compositePrinci
 	return returns
 }
 
+func (p *jsiiProxy_PythonFunction) GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := p.validateGrantInvokeLatestVersionParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		p,
+		"grantInvokeLatestVersion",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
 func (p *jsiiProxy_PythonFunction) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
 	if err := p.validateGrantInvokeUrlParameters(grantee); err != nil {
 		panic(err)
@@ -1070,6 +1092,22 @@ func (p *jsiiProxy_PythonFunction) GrantInvokeUrl(grantee awsiam.IGrantable) aws
 		p,
 		"grantInvokeUrl",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PythonFunction) GrantInvokeVersion(grantee awsiam.IGrantable, version awslambda.IVersion) awsiam.Grant {
+	if err := p.validateGrantInvokeVersionParameters(grantee, version); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		p,
+		"grantInvokeVersion",
+		[]interface{}{grantee, version},
 		&returns,
 	)
 

@@ -60,7 +60,15 @@ func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeCompositePrincipalPar
 	return nil
 }
 
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (d *jsiiProxy_DockerImageFunction) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
 	return nil
 }
 

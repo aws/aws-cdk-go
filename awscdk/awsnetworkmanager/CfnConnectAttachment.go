@@ -119,7 +119,7 @@ type CfnConnectAttachment interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// Tags for the attachment.
+	// The tags associated with the Connect attachment.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ID of the transport attachment.

@@ -146,6 +146,9 @@ type CfnOriginEndpoint interface {
 	AttrArn() *string
 	// The timestamp of the creation of the origin endpoint.
 	AttrCreatedAt() *string
+	AttrDashManifestUrls() *[]*string
+	AttrHlsManifestUrls() *[]*string
+	AttrLowLatencyHlsManifestUrls() *[]*string
 	// The timestamp of the modification of the origin endpoint.
 	AttrModifiedAt() *string
 	// Tag Manager which manages the tags for this resource.
@@ -375,6 +378,36 @@ func (j *jsiiProxy_CfnOriginEndpoint) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint) AttrDashManifestUrls() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrDashManifestUrls",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint) AttrHlsManifestUrls() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrHlsManifestUrls",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint) AttrLowLatencyHlsManifestUrls() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrLowLatencyHlsManifestUrls",
 		&returns,
 	)
 	return returns

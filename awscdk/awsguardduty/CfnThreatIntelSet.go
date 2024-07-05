@@ -11,7 +11,7 @@ import (
 
 // The `AWS::GuardDuty::ThreatIntelSet` resource specifies a new `ThreatIntelSet` .
 //
-// A `ThreatIntelSet` consists of known malicious IP addresses. GuardDuty generates findings based on the `ThreatIntelSet` when it is activated.
+// A `ThreatIntelSet` consists of known malicious IP addresses. GuardDuty generates findings based on the `ThreatIntelSet` after it is activated.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,6 +43,7 @@ type CfnThreatIntelSet interface {
 	// A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate() interface{}
 	SetActivate(val interface{})
+	// The unique ID of the `threatIntelSet` .
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

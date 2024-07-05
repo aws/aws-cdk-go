@@ -17,7 +17,6 @@ package awskinesisfirehose
 //   		CopyOptions: jsii.String("copyOptions"),
 //   		DataTableColumns: jsii.String("dataTableColumns"),
 //   	},
-//   	Password: jsii.String("password"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	S3Configuration: &S3DestinationConfigurationProperty{
 //   		BucketArn: jsii.String("bucketArn"),
@@ -43,7 +42,6 @@ package awskinesisfirehose
 //   		ErrorOutputPrefix: jsii.String("errorOutputPrefix"),
 //   		Prefix: jsii.String("prefix"),
 //   	},
-//   	Username: jsii.String("username"),
 //
 //   	// the properties below are optional
 //   	CloudWatchLoggingOptions: &CloudWatchLoggingOptionsProperty{
@@ -51,6 +49,7 @@ package awskinesisfirehose
 //   		LogGroupName: jsii.String("logGroupName"),
 //   		LogStreamName: jsii.String("logStreamName"),
 //   	},
+//   	Password: jsii.String("password"),
 //   	ProcessingConfiguration: &ProcessingConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		Processors: []interface{}{
@@ -95,6 +94,14 @@ package awskinesisfirehose
 //   		Prefix: jsii.String("prefix"),
 //   	},
 //   	S3BackupMode: jsii.String("s3BackupMode"),
+//   	SecretsManagerConfiguration: &SecretsManagerConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		RoleArn: jsii.String("roleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	Username: jsii.String("username"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html
@@ -108,10 +115,6 @@ type CfnDeliveryStream_RedshiftDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-copycommand
 	//
 	CopyCommand interface{} `field:"required" json:"copyCommand" yaml:"copyCommand"`
-	// The password for the Amazon Redshift user that you specified in the `Username` property.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-password
-	//
-	Password *string `field:"required" json:"password" yaml:"password"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption).
 	//
 	// For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
@@ -124,16 +127,14 @@ type CfnDeliveryStream_RedshiftDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3configuration
 	//
 	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
-	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster.
-	//
-	// This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-username
-	//
-	Username *string `field:"required" json:"username" yaml:"username"`
 	// The CloudWatch logging options for your delivery stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-cloudwatchloggingoptions
 	//
 	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
+	// The password for the Amazon Redshift user that you specified in the `Username` property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-password
+	//
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration
 	//
@@ -154,5 +155,15 @@ type CfnDeliveryStream_RedshiftDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupmode
 	//
 	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
+	// The configuration that defines how you access secrets for Amazon Redshift.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-secretsmanagerconfiguration
+	//
+	SecretsManagerConfiguration interface{} `field:"optional" json:"secretsManagerConfiguration" yaml:"secretsManagerConfiguration"`
+	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster.
+	//
+	// This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-username
+	//
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 

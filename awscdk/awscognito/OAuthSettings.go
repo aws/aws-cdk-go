@@ -48,6 +48,21 @@ type OAuthSettings struct {
 	// Default: - ['https://example.com'] if either authorizationCodeGrant or implicitCodeGrant flows are enabled, no callback URLs otherwise.
 	//
 	CallbackUrls *[]*string `field:"optional" json:"callbackUrls" yaml:"callbackUrls"`
+	// The default redirect URI. Must be in the `callbackUrls` list.
+	//
+	// A redirect URI must:
+	// * Be an absolute URI
+	// * Be registered with the authorization server.
+	// * Not include a fragment component.
+	// See: https://tools.ietf.org/html/rfc6749#section-3.1.2
+	//
+	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+	//
+	// App callback URLs such as myapp://example are also supported.
+	//
+	// Default: - no default redirect URI.
+	//
+	DefaultRedirectUri *string `field:"optional" json:"defaultRedirectUri" yaml:"defaultRedirectUri"`
 	// OAuth flows that are allowed with this client.
 	// See:  - the 'Allowed OAuth Flows' section at https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html
 	//

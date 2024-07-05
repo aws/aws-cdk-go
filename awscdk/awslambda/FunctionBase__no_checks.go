@@ -52,7 +52,15 @@ func (f *jsiiProxy_FunctionBase) validateGrantInvokeCompositePrincipalParameters
 	return nil
 }
 
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (f *jsiiProxy_FunctionBase) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (f *jsiiProxy_FunctionBase) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version IVersion) error {
 	return nil
 }
 

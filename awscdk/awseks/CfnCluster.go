@@ -53,6 +53,7 @@ import (
 //   		AuthenticationMode: jsii.String("authenticationMode"),
 //   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
 //   	},
+//   	BootstrapSelfManagedAddons: jsii.Boolean(false),
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -131,6 +132,9 @@ type CfnCluster interface {
 	//
 	// `!Select [1, !Split ["//", !GetAtt EKSCluster.OpenIdConnectIssuerUrl]]`
 	AttrOpenIdConnectIssuerUrl() *string
+	// If you set this value to `False` when creating a cluster, the default networking add-ons will not be installed.
+	BootstrapSelfManagedAddons() interface{}
+	SetBootstrapSelfManagedAddons(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -427,6 +431,16 @@ func (j *jsiiProxy_CfnCluster) AttrOpenIdConnectIssuerUrl() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) BootstrapSelfManagedAddons() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"bootstrapSelfManagedAddons",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -662,6 +676,17 @@ func (j *jsiiProxy_CfnCluster)SetAccessConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"accessConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetBootstrapSelfManagedAddons(val interface{}) {
+	if err := j.validateSetBootstrapSelfManagedAddonsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"bootstrapSelfManagedAddons",
 		val,
 	)
 }

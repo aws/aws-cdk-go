@@ -84,7 +84,7 @@ type CfnScheduledActionProps struct {
 	StartTime *string `field:"optional" json:"startTime" yaml:"startTime"`
 	// A JSON format string of the Amazon Redshift API operation with input parameters.
 	//
-	// " `{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}` ".
+	// " `{\"ResizeCluster\":{\"NodeType\":\"ra3.4xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}` ".
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html#cfn-redshift-scheduledaction-targetaction
 	//
 	TargetAction interface{} `field:"optional" json:"targetAction" yaml:"targetAction"`

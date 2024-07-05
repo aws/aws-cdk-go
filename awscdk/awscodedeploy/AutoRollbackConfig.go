@@ -64,6 +64,9 @@ package awscodedeploy
 //   		 // default: false
 //   		DeploymentInAlarm: jsii.Boolean(true),
 //   	},
+//   	// whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group
+//   	// default: false
+//   	TerminationHook: jsii.Boolean(true),
 //   })
 //
 type AutoRollbackConfig struct {

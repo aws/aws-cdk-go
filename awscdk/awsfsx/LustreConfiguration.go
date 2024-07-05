@@ -1,5 +1,8 @@
 package awsfsx
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // The configuration for the Amazon FSx for Lustre file system.
 //
@@ -39,6 +42,23 @@ type LustreConfiguration struct {
 	// Default: - no import policy.
 	//
 	AutoImportPolicy LustreAutoImportPolicy `field:"optional" json:"autoImportPolicy" yaml:"autoImportPolicy"`
+	// The number of days to retain automatic backups.
+	//
+	// Setting this property to 0 disables automatic backups.
+	// You can retain automatic backups for a maximum of 90 days.
+	//
+	// Automatic Backups is not supported on scratch file systems.
+	// Default: Duration.days(0)
+	//
+	AutomaticBackupRetention awscdk.Duration `field:"optional" json:"automaticBackupRetention" yaml:"automaticBackupRetention"`
+	// A boolean flag indicating whether tags for the file system should be copied to backups.
+	// Default: - false.
+	//
+	CopyTagsToBackups *bool `field:"optional" json:"copyTagsToBackups" yaml:"copyTagsToBackups"`
+	// Start time for 30-minute daily automatic backup window in Coordinated Universal Time (UTC).
+	// Default: - no backup window.
+	//
+	DailyAutomaticBackupStartTime DailyAutomaticBackupStartTime `field:"optional" json:"dailyAutomaticBackupStartTime" yaml:"dailyAutomaticBackupStartTime"`
 	// Sets the data compression configuration for the file system.
 	//
 	// For more information, see [Lustre data compression](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html) in the *Amazon FSx for Lustre User Guide* .

@@ -39,12 +39,12 @@ type CfnInstanceConnectEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instanceconnectendpoint.html#cfn-ec2-instanceconnectendpoint-clienttoken
 	//
 	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
-	// Indicates whether your client's IP address is preserved as the source. The value is `true` or `false` .
+	// Indicates whether the client IP address is preserved as the source. The following are the possible values.
 	//
-	// - If `true` , your client's IP address is used when you connect to a resource.
-	// - If `false` , the elastic network interface IP address is used when you connect to a resource.
+	// - `true` - Use the client IP address as the source.
+	// - `false` - Use the network interface IP address as the source.
 	//
-	// Default: `true`.
+	// Default: `false`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instanceconnectendpoint.html#cfn-ec2-instanceconnectendpoint-preserveclientip
 	//
 	PreserveClientIp interface{} `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`

@@ -12,6 +12,7 @@ package awsemrserverless
 //
 //   	// the properties below are optional
 //   	Disk: jsii.String("disk"),
+//   	DiskType: jsii.String("diskType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html
@@ -35,5 +36,11 @@ type CfnApplication_WorkerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html#cfn-emrserverless-application-workerconfiguration-disk
 	//
 	Disk *string `field:"optional" json:"disk" yaml:"disk"`
+	// Per worker DiskType resource.
+	//
+	// Shuffle optimized and Standard are only supported types and specifying diskType is optional.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html#cfn-emrserverless-application-workerconfiguration-disktype
+	//
+	DiskType *string `field:"optional" json:"diskType" yaml:"diskType"`
 }
 

@@ -172,8 +172,12 @@ type Alias interface {
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
 	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
+	// Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
+	GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke the given version of this Lambda.
+	GrantInvokeVersion(grantee awsiam.IGrantable, version IVersion) awsiam.Grant
 	// Return the given named metric for this Function.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How long execution of this Lambda takes.
@@ -703,6 +707,22 @@ func (a *jsiiProxy_Alias) GrantInvokeCompositePrincipal(compositePrincipal awsia
 	return returns
 }
 
+func (a *jsiiProxy_Alias) GrantInvokeLatestVersion(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := a.validateGrantInvokeLatestVersionParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		a,
+		"grantInvokeLatestVersion",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_Alias) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant {
 	if err := a.validateGrantInvokeUrlParameters(grantee); err != nil {
 		panic(err)
@@ -713,6 +733,22 @@ func (a *jsiiProxy_Alias) GrantInvokeUrl(grantee awsiam.IGrantable) awsiam.Grant
 		a,
 		"grantInvokeUrl",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Alias) GrantInvokeVersion(grantee awsiam.IGrantable, version IVersion) awsiam.Grant {
+	if err := a.validateGrantInvokeVersionParameters(grantee, version); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		a,
+		"grantInvokeVersion",
+		[]interface{}{grantee, version},
 		&returns,
 	)
 

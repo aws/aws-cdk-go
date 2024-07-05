@@ -75,6 +75,26 @@ func init() {
 		reflect.TypeOf((*CfnIdentitySource_IdentitySourceDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource.OpenIdConnectAccessTokenConfigurationProperty",
+		reflect.TypeOf((*CfnIdentitySource_OpenIdConnectAccessTokenConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource.OpenIdConnectConfigurationProperty",
+		reflect.TypeOf((*CfnIdentitySource_OpenIdConnectConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource.OpenIdConnectGroupConfigurationProperty",
+		reflect.TypeOf((*CfnIdentitySource_OpenIdConnectGroupConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource.OpenIdConnectIdentityTokenConfigurationProperty",
+		reflect.TypeOf((*CfnIdentitySource_OpenIdConnectIdentityTokenConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySource.OpenIdConnectTokenSelectionProperty",
+		reflect.TypeOf((*CfnIdentitySource_OpenIdConnectTokenSelectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_verifiedpermissions.CfnIdentitySourceProps",
 		reflect.TypeOf((*CfnIdentitySourceProps)(nil)).Elem(),
 	)

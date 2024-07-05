@@ -102,7 +102,7 @@ type CfnIpAccessSettings interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags to add to the browser settings resource.
+	// The tags to add to the IP access settings resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

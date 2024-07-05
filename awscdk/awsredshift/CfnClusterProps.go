@@ -130,7 +130,7 @@ type CfnClusterProps struct {
 	//
 	// For information about node types, go to [Working with Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes) in the *Amazon Redshift Cluster Management Guide* .
 	//
-	// Valid Values: `ds2.xlarge` | `ds2.8xlarge` | `dc1.large` | `dc1.8xlarge` | `dc2.large` | `dc2.8xlarge` | `ra3.xlplus` | `ra3.4xlarge` | `ra3.16xlarge`
+	// Valid Values: `dc2.large` | `dc2.8xlarge` | `ra3.xlplus` | `ra3.4xlarge` | `ra3.16xlarge`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
 	//
 	NodeType *string `field:"required" json:"nodeType" yaml:"nodeType"`
@@ -379,7 +379,7 @@ type CfnClusterProps struct {
 	// Valid Values:
 	//
 	// - For clusters with ra3 nodes - Select a port within the ranges `5431-5455` or `8191-8215` . (If you have an existing cluster with ra3 nodes, it isn't required that you change the port to these ranges.)
-	// - For clusters with ds2 or dc2 nodes - Select a port within the range `1150-65535` .
+	// - For clusters with dc2 nodes - Select a port within the range `1150-65535` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`

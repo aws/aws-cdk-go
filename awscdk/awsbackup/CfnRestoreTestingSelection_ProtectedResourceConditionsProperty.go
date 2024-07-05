@@ -3,8 +3,6 @@ package awsbackup
 
 // The conditions that you define for resources in your restore testing plan using tags.
 //
-// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

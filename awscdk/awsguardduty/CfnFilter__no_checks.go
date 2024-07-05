@@ -80,7 +80,15 @@ func validateCfnFilter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFilter) validateSetDetectorIdParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFilter) validateSetFindingCriteriaParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFilter) validateSetNameParameters(val *string) error {
 	return nil
 }
 

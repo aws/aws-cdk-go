@@ -60,7 +60,15 @@ func (t *jsiiProxy_TriggerFunction) validateGrantInvokeCompositePrincipalParamet
 	return nil
 }
 
+func (t *jsiiProxy_TriggerFunction) validateGrantInvokeLatestVersionParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (t *jsiiProxy_TriggerFunction) validateGrantInvokeUrlParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (t *jsiiProxy_TriggerFunction) validateGrantInvokeVersionParameters(grantee awsiam.IGrantable, version awslambda.IVersion) error {
 	return nil
 }
 

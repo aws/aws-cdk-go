@@ -150,8 +150,12 @@ type EdgeFunction interface {
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
 	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
 	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
+	// Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
+	GrantInvokeLatestVersion(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to invoke the given version of this Lambda.
+	GrantInvokeVersion(identity awsiam.IGrantable, version awslambda.IVersion) awsiam.Grant
 	// Return the given named metric for this Lambda Return the given named metric for this Function.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the Duration of this Lambda How long execution of this Lambda takes.
@@ -641,6 +645,22 @@ func (e *jsiiProxy_EdgeFunction) GrantInvokeCompositePrincipal(compositePrincipa
 	return returns
 }
 
+func (e *jsiiProxy_EdgeFunction) GrantInvokeLatestVersion(identity awsiam.IGrantable) awsiam.Grant {
+	if err := e.validateGrantInvokeLatestVersionParameters(identity); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		e,
+		"grantInvokeLatestVersion",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EdgeFunction) GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant {
 	if err := e.validateGrantInvokeUrlParameters(identity); err != nil {
 		panic(err)
@@ -651,6 +671,22 @@ func (e *jsiiProxy_EdgeFunction) GrantInvokeUrl(identity awsiam.IGrantable) awsi
 		e,
 		"grantInvokeUrl",
 		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EdgeFunction) GrantInvokeVersion(identity awsiam.IGrantable, version awslambda.IVersion) awsiam.Grant {
+	if err := e.validateGrantInvokeVersionParameters(identity, version); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		e,
+		"grantInvokeVersion",
+		[]interface{}{identity, version},
 		&returns,
 	)
 

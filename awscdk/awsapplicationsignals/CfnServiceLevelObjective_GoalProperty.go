@@ -1,7 +1,7 @@
 package awsapplicationsignals
 
 
-// A structure that contains the attributes that determine the goal of the SLO.
+// This structure contains the attributes that determine the goal of an SLO.
 //
 // This includes the time period for evaluation and the attainment threshold.
 //
@@ -31,14 +31,14 @@ package awsapplicationsignals
 type CfnServiceLevelObjective_GoalProperty struct {
 	// The threshold that determines if the goal is being met.
 	//
-	// An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
+	// An *attainment goal* is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
+	//
 	// If you omit this parameter, 99 is used to represent 99% as the attainment goal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-attainmentgoal
 	//
 	AttainmentGoal *float64 `field:"optional" json:"attainmentGoal" yaml:"attainmentGoal"`
-	// The time period used to evaluate the SLO.
+	// The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
 	//
-	// It can be either a calendar interval or rolling interval.
 	// If you omit this parameter, a rolling interval of 7 days is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-interval
 	//

@@ -71,6 +71,11 @@ type CfnProject_WebhookFilterProperty struct {
 	// - A webhook triggers a build when the release name matches the regular expression `pattern` .
 	//
 	// > Works with `RELEASED` and `PRERELEASED` events only.
+	// - REPOSITORY_NAME
+	//
+	// - A webhook triggers a build when the repository name matches the regular expression pattern.
+	//
+	// > Works with GitHub global or organization webhooks only.
 	// - WORKFLOW_NAME
 	//
 	// - A webhook triggers a build when the workflow name matches the regular expression `pattern` .

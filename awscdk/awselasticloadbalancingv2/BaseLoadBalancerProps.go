@@ -45,7 +45,7 @@ type BaseLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Indicates whether cross-zone load balancing is enabled.
-	// See:  - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html
 	//
 	// Default: - false for Network Load Balancers and true for Application Load Balancers.
 	// This can not be `false` for Application Load Balancers.

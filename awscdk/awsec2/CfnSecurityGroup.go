@@ -74,13 +74,11 @@ type CfnSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The group ID of the specified security group, such as `sg-94b3a1f6` .
+	// The ID of the security group, such as `sg-94b3a1f6` .
 	AttrGroupId() *string
 	// The group name or group ID depending on whether the SG is created in default or specific VPC.
 	AttrId() *string
-	// The physical ID of the VPC.
-	//
-	// You can obtain the physical ID by using a reference to an [AWS::EC2::VPC](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html) , such as: `{ "Ref" : "myVPC" }` .
+	// The ID of the VPC, such as `vpc-0669f8f9` .
 	AttrVpcId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

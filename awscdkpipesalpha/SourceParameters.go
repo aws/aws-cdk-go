@@ -8,11 +8,13 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetStateMachine iStateMachine
+//   var targetFunction iFunction
 //
 //
-//   pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
-//   	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
+//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+//   		"body": jsii.String("👀"),
+//   	}),
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{

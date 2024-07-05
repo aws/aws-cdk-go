@@ -58,7 +58,7 @@ type CfnReplicationConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the Replication Config.
+	// The Amazon Resource Name (ARN) of this AWS DMS Serverless replication configuration.
 	AttrReplicationConfigArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager

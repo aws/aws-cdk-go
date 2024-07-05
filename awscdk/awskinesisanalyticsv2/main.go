@@ -81,6 +81,10 @@ func init() {
 		reflect.TypeOf((*CfnApplication_ApplicationSnapshotConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.ApplicationSystemRollbackConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_ApplicationSystemRollbackConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisanalyticsv2.CfnApplication.CSVMappingParametersProperty",
 		reflect.TypeOf((*CfnApplication_CSVMappingParametersProperty)(nil)).Elem(),
 	)

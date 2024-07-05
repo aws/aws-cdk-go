@@ -95,7 +95,7 @@ type CfnAgent interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Specifies the ARN of the subnet where you want to run your DataSync task when using a VPC endpoint.
+	// Specifies the ARN of the subnet where your VPC service endpoint is located.
 	SubnetArns() *[]*string
 	SetSubnetArns(val *[]*string)
 	// Tag Manager which manages the tags for this resource.

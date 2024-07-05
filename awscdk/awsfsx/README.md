@@ -199,7 +199,33 @@ lustreConfiguration := map[string]lustreDataCompressionType{
 }
 ```
 
-When you turn data compression on for an existing file system, only newly written files are compressed.  Existing files are not compressed. For more information, see [Compressing previously written files](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html#migrate-compression).```
+When you turn data compression on for an existing file system, only newly written files are compressed.  Existing files are not compressed. For more information, see [Compressing previously written files](https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html#migrate-compression).
+
+### Backups
+
+You can take daily automatic backups by setting `automaticBackupRetention` to a non-zero day in the `lustreConfiguration`.
+
+Additionally, you can set the backup window by specifying the `dailyAutomaticBackupStartTime`.
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+lustreConfiguration := map[string]interface{}{
+	// ...
+	"automaticBackupRetention": cdk.Duration_days(jsii.Number(3)),
+	 // backup retention
+	"copyTagsToBackups": jsii.Boolean(true),
+	 // if true, tags are copied to backups
+	"dailyAutomaticBackupStartTime": fsx.NewDailyAutomaticBackupStartTime(&DailyAutomaticBackupStartTimeProps{
+		"hour": jsii.Number(11),
+		"minute": jsii.Number(30),
+	}),
+}
+```
+
+For more information, see [Working with backups
+](https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html).
 
 ## FSx for Windows File Server
 

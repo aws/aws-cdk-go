@@ -23,6 +23,9 @@ package awscodebuild
 //   			},
 //   		},
 //   	},
+//   	ScopeConfiguration: &ScopeConfigurationProperty{
+//   		Name: jsii.String("name"),
+//   	},
 //   	Webhook: jsii.Boolean(false),
 //   }
 //
@@ -42,6 +45,9 @@ type CfnProject_ProjectTriggersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
 	//
 	FilterGroups interface{} `field:"optional" json:"filterGroups" yaml:"filterGroups"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-scopeconfiguration
+	//
+	ScopeConfiguration interface{} `field:"optional" json:"scopeConfiguration" yaml:"scopeConfiguration"`
 	// Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook
 	//

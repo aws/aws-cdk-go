@@ -19,6 +19,7 @@ import (
 //   var criterion interface{}
 //
 //   cfnFilter := awscdk.Aws_guardduty.NewCfnFilter(this, jsii.String("MyCfnFilter"), &CfnFilterProps{
+//   	DetectorId: jsii.String("detectorId"),
 //   	FindingCriteria: &FindingCriteriaProperty{
 //   		Criterion: criterion,
 //   		ItemType: &ConditionProperty{
@@ -44,12 +45,11 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Action: jsii.String("action"),
 //   	Description: jsii.String("description"),
-//   	DetectorId: jsii.String("detectorId"),
-//   	Name: jsii.String("name"),
 //   	Rank: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -490,6 +490,9 @@ func (j *jsiiProxy_CfnFilter)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnFilter)SetDetectorId(val *string) {
+	if err := j.validateSetDetectorIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"detectorId",
@@ -509,6 +512,9 @@ func (j *jsiiProxy_CfnFilter)SetFindingCriteria(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnFilter)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",

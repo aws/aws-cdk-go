@@ -313,6 +313,10 @@ func init() {
 		reflect.TypeOf((*CfnProject_S3LogsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.CfnProject.ScopeConfigurationProperty",
+		reflect.TypeOf((*CfnProject_ScopeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.CfnProject.SourceAuthProperty",
 		reflect.TypeOf((*CfnProject_SourceAuthProperty)(nil)).Elem(),
 	)
@@ -1023,6 +1027,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.ProjectProps",
 		reflect.TypeOf((*ProjectProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codebuild.ProjectVisibility",
+		reflect.TypeOf((*ProjectVisibility)(nil)).Elem(),
+		map[string]interface{}{
+			"PUBLIC_READ": ProjectVisibility_PUBLIC_READ,
+			"PRIVATE": ProjectVisibility_PRIVATE,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codebuild.ReportGroup",

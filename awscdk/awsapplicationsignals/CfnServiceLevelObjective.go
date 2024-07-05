@@ -9,7 +9,29 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective.
+// Creates or updates a service level objective (SLO), which can help you ensure that your critical business operations are meeting customer expectations.
+//
+// Use SLOs to set and track specific target levels for the reliability and availability of your applications and services. SLOs use service level indicators (SLIs) to calculate whether the application is performing at the level that you want.
+//
+// Create an SLO to set a target for a service or operation’s availability or latency. CloudWatch measures this target frequently you can find whether it has been breached.
+//
+// When you create an SLO, you set an *attainment goal* for it. An *attainment goal* is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
+//
+// After you have created an SLO, you can retrieve error budget reports for it. An *error budget* is the number of periods or amount of time that your service can accumulate during an interval before your overall SLO budget health is breached and the SLO is considered to be unmet. for example, an SLO with a threshold that 99.95% of requests must be completed under 2000ms every month translates to an error budget of 21.9 minutes of downtime per month.
+//
+// When you call this operation, Application Signals creates the *AWSServiceRoleForCloudWatchApplicationSignals* service-linked role, if it doesn't already exist in your account. This service- linked role has the following permissions:
+//
+// - `xray:GetServiceGraph`
+// - `logs:StartQuery`
+// - `logs:GetQueryResults`
+// - `cloudwatch:GetMetricData`
+// - `cloudwatch:ListMetrics`
+// - `tag:GetResources`
+// - `autoscaling:DescribeAutoScalingGroups`
+//
+// You can easily set SLO targets for your applications that are discovered by Application Signals, using critical metrics such as latency and availability. You can also set SLOs against any CloudWatch metric or math expression that produces a time series.
+//
+// For more information about SLOs, see [Service level objectives (SLOs)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -92,9 +114,9 @@ type CfnServiceLevelObjective interface {
 	awscdk.ITaggableV2
 	// The ARN of this SLO.
 	AttrArn() *string
-	// Epoch time in seconds of the time that this SLO was created.
+	// The date and time that this SLO was created.
 	AttrCreatedTime() *float64
-	// Epoch time in seconds of the time that this SLO was most recently updated.
+	// The time that this SLO was most recently updated.
 	AttrLastUpdatedTime() *float64
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -110,7 +132,7 @@ type CfnServiceLevelObjective interface {
 	// An optional description for this SLO.
 	Description() *string
 	SetDescription(val *string)
-	// A structure that contains the attributes that determine the goal of the SLO.
+	// This structure contains the attributes that determine the goal of an SLO.
 	Goal() interface{}
 	SetGoal(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -123,7 +145,7 @@ type CfnServiceLevelObjective interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of this SLO.
+	// A name for this SLO.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -133,14 +155,14 @@ type CfnServiceLevelObjective interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// This structure contains information about the performance metric that an SLO monitors.
+	// A structure containing information about the performance metric that this SLO monitors.
 	Sli() interface{}
 	SetSli(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The list of tag keys and values associated with the resource you specified.
+	// A list of key-value pairs to associate with the SLO.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

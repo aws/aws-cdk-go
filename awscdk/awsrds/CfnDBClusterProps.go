@@ -44,7 +44,9 @@ import (
 //   	EnableGlobalWriteForwarding: jsii.Boolean(false),
 //   	EnableHttpEndpoint: jsii.Boolean(false),
 //   	EnableIamDatabaseAuthentication: jsii.Boolean(false),
+//   	EnableLocalWriteForwarding: jsii.Boolean(false),
 //   	Engine: jsii.String("engine"),
+//   	EngineLifecycleSupport: jsii.String("engineLifecycleSupport"),
 //   	EngineMode: jsii.String("engineMode"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
@@ -322,6 +324,14 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
 	//
 	EnableIamDatabaseAuthentication interface{} `field:"optional" json:"enableIamDatabaseAuthentication" yaml:"enableIamDatabaseAuthentication"`
+	// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster.
+	//
+	// By default, write operations aren't allowed on reader DB instances.
+	//
+	// Valid for: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablelocalwriteforwarding
+	//
+	EnableLocalWriteForwarding interface{} `field:"optional" json:"enableLocalWriteForwarding" yaml:"enableLocalWriteForwarding"`
 	// The name of the database engine to be used for this DB cluster.
 	//
 	// Valid Values:
@@ -335,6 +345,23 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
 	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
+	// The life cycle type for this DB cluster.
+	//
+	// > By default, this value is set to `open-source-rds-extended-support` , which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to `open-source-rds-extended-support-disabled` . In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
+	//
+	// You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
+	//
+	// - Amazon Aurora (PostgreSQL only) - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*
+	// - Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*
+	//
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
+	//
+	// Valid Values: `open-source-rds-extended-support | open-source-rds-extended-support-disabled`
+	//
+	// Default: `open-source-rds-extended-support`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginelifecyclesupport
+	//
+	EngineLifecycleSupport *string `field:"optional" json:"engineLifecycleSupport" yaml:"engineLifecycleSupport"`
 	// The DB engine mode of the DB cluster, either `provisioned` or `serverless` .
 	//
 	// The `serverless` engine mode only applies for Aurora Serverless v1 DB clusters. Aurora Serverless v2 DB clusters use the `provisioned` engine mode.

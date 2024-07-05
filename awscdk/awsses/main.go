@@ -171,6 +171,10 @@ func init() {
 		reflect.TypeOf((*CfnConfigurationSetEventDestination_DimensionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination.EventBridgeDestinationProperty",
+		reflect.TypeOf((*CfnConfigurationSetEventDestination_EventBridgeDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnConfigurationSetEventDestination.EventDestinationProperty",
 		reflect.TypeOf((*CfnConfigurationSetEventDestination_EventDestinationProperty)(nil)).Elem(),
 	)

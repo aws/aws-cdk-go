@@ -21,7 +21,12 @@ type CommonStringParameterAttributes struct {
 	// This value can be a token or a concrete string. If it is a concrete string
 	// and includes "/" it must also be prefixed with a "/" (fully-qualified).
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
-	// Indicates if the parameter name is a simple name (i.e. does not include "/" separators).
+	// Indicates whether the parameter name is a simple name.
+	//
+	// A parameter name
+	// without any "/" is considered a simple name. If the parameter name includes
+	// "/", setting simpleName to true might cause unintended issues such
+	// as duplicate "/" in the resulting ARN.
 	//
 	// This is required only if `parameterName` is a token, which means we
 	// are unable to detect if the name is simple or "path-like" for the purpose

@@ -56,6 +56,16 @@ type ServiceProps struct {
 	//
 	// Experimental.
 	AutoDeploymentsEnabled *bool `field:"optional" json:"autoDeploymentsEnabled" yaml:"autoDeploymentsEnabled"`
+	// Specifies an App Runner Auto Scaling Configuration.
+	//
+	// A default configuration is either the AWS recommended configuration,
+	// or the configuration you set as the default.
+	// See: https://docs.aws.amazon.com/apprunner/latest/dg/manage-autoscaling.html
+	//
+	// Default: - the latest revision of a default auto scaling configuration is used.
+	//
+	// Experimental.
+	AutoScalingConfiguration IAutoScalingConfiguration `field:"optional" json:"autoScalingConfiguration" yaml:"autoScalingConfiguration"`
 	// The number of CPU units reserved for each instance of your App Runner service.
 	// Default: Cpu.ONE_VCPU
 	//
@@ -94,6 +104,11 @@ type ServiceProps struct {
 	//
 	// Experimental.
 	Memory Memory `field:"optional" json:"memory" yaml:"memory"`
+	// Settings for an App Runner observability configuration.
+	// Default: - no observability configuration resource is associated with the service.
+	//
+	// Experimental.
+	ObservabilityConfiguration IObservabilityConfiguration `field:"optional" json:"observabilityConfiguration" yaml:"observabilityConfiguration"`
 	// Name of the service.
 	// Default: - auto-generated if undefined.
 	//

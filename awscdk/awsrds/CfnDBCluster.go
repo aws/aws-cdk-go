@@ -76,7 +76,9 @@ import (
 //   	EnableGlobalWriteForwarding: jsii.Boolean(false),
 //   	EnableHttpEndpoint: jsii.Boolean(false),
 //   	EnableIamDatabaseAuthentication: jsii.Boolean(false),
+//   	EnableLocalWriteForwarding: jsii.Boolean(false),
 //   	Engine: jsii.String("engine"),
+//   	EngineLifecycleSupport: jsii.String("engineLifecycleSupport"),
 //   	EngineMode: jsii.String("engineMode"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
@@ -243,9 +245,15 @@ type CfnDBCluster interface {
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	EnableIamDatabaseAuthentication() interface{}
 	SetEnableIamDatabaseAuthentication(val interface{})
+	// Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster.
+	EnableLocalWriteForwarding() interface{}
+	SetEnableLocalWriteForwarding(val interface{})
 	// The name of the database engine to be used for this DB cluster.
 	Engine() *string
 	SetEngine(val *string)
+	// The life cycle type for this DB cluster.
+	EngineLifecycleSupport() *string
+	SetEngineLifecycleSupport(val *string)
 	// The DB engine mode of the DB cluster, either `provisioned` or `serverless` .
 	EngineMode() *string
 	SetEngineMode(val *string)
@@ -856,11 +864,31 @@ func (j *jsiiProxy_CfnDBCluster) EnableIamDatabaseAuthentication() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) EnableLocalWriteForwarding() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableLocalWriteForwarding",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) Engine() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"engine",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) EngineLifecycleSupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"engineLifecycleSupport",
 		&returns,
 	)
 	return returns
@@ -1473,10 +1501,29 @@ func (j *jsiiProxy_CfnDBCluster)SetEnableIamDatabaseAuthentication(val interface
 	)
 }
 
+func (j *jsiiProxy_CfnDBCluster)SetEnableLocalWriteForwarding(val interface{}) {
+	if err := j.validateSetEnableLocalWriteForwardingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enableLocalWriteForwarding",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBCluster)SetEngine(val *string) {
 	_jsii_.Set(
 		j,
 		"engine",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetEngineLifecycleSupport(val *string) {
+	_jsii_.Set(
+		j,
+		"engineLifecycleSupport",
 		val,
 	)
 }

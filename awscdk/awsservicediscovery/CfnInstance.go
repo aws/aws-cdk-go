@@ -43,6 +43,9 @@ type CfnInstance interface {
 	// A string map that contains the following information for the service that you specify in `ServiceId` :.
 	InstanceAttributes() interface{}
 	SetInstanceAttributes(val interface{})
+	// An identifier that you want to associate with the instance.
+	//
+	// Note the following:.
 	InstanceId() *string
 	SetInstanceId(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -109,6 +109,7 @@ import (
 //   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
 //   	},
 //   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	Visibility: awscdk.*Aws_codebuild.ProjectVisibility_PUBLIC_READ,
 //   	Vpc: vpc,
 //   }
 //
@@ -244,7 +245,7 @@ type CommonProjectProps struct {
 	// If you don't specify a subnet selection, the default behavior is to use PRIVATE_WITH_EGRESS subnets first if they exist,
 	// then PRIVATE_WITHOUT_EGRESS, and finally PUBLIC subnets. If your VPC doesn't have PRIVATE_WITH_EGRESS subnets but you need
 	// AWS service access, add VPC Endpoints to your private subnets.
-	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html for more details.
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html
 	//
 	// Default: - private subnets if available else public subnets.
 	//
@@ -256,6 +257,10 @@ type CommonProjectProps struct {
 	// Default: Duration.hours(1)
 	//
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
+	// Specifies the visibility of the project's builds.
+	// Default: - no visibility is set.
+	//
+	Visibility ProjectVisibility `field:"optional" json:"visibility" yaml:"visibility"`
 	// VPC network to place codebuild network interfaces.
 	//
 	// Specify this if the codebuild project needs to access resources in a VPC.

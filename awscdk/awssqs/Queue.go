@@ -15,12 +15,12 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetQueue queue
+//   var targetFunction iFunction
 //
 //
-//   pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
+//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
 //   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-//   		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
+//   		"body": jsii.String("👀"),
 //   	}),
 //   })
 //

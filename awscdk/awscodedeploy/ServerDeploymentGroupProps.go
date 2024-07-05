@@ -101,5 +101,11 @@ type ServerDeploymentGroupProps struct {
 	// Default: - A new Role will be created.
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors
+	//
+	// Default: - false.
+	//
+	TerminationHook *bool `field:"optional" json:"terminationHook" yaml:"terminationHook"`
 }
 

@@ -29,7 +29,7 @@ type CfnMasterProps struct {
 	MasterId *string `field:"required" json:"masterId" yaml:"masterId"`
 	// The ID of the invitation that is sent to the account designated as a member account.
 	//
-	// You can find the invitation ID by using the ListInvitation action of the GuardDuty API.
+	// You can find the invitation ID by running the [ListInvitations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListInvitations.html) in the *GuardDuty API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-invitationid
 	//
 	InvitationId *string `field:"optional" json:"invitationId" yaml:"invitationId"`

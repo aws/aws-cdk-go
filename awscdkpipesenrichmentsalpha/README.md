@@ -43,3 +43,27 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Target: NewSomeTarget(targetQueue),
 })
 ```
+
+### Step Functions state machine
+
+Step Functions state machine can be used to enrich events of a pipe.
+
+**Note:** EventBridge Pipes only supports Express workflows invoked synchronously.
+
+> Visit [Amazon EventBridge Pipes event enrichment](https://docs.aws.amazon.com/eventbridge/latest/userguide/pipes-enrichment.html) for more details.
+
+```go
+var sourceQueue queue
+var targetQueue queue
+
+var enrichmentStateMachine stateMachine
+
+
+enrichment := enrichments.NewStepFunctionsEnrichment(enrichmentStateMachine)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: NewSomeSource(sourceQueue),
+	Enrichment: Enrichment,
+	Target: NewSomeTarget(targetQueue),
+})
+```

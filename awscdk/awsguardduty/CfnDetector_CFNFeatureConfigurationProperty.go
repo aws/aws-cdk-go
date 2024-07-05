@@ -25,6 +25,8 @@ package awsguardduty
 //
 type CfnDetector_CFNFeatureConfigurationProperty struct {
 	// Name of the feature.
+	//
+	// For a list of allowed values, see [DetectorFeatureConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html#guardduty-Type-DetectorFeatureConfiguration-name) in the *GuardDuty API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureconfiguration.html#cfn-guardduty-detector-cfnfeatureconfiguration-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`

@@ -34,6 +34,7 @@ import (
 //   		AuthenticationMode: jsii.String("authenticationMode"),
 //   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
 //   	},
+//   	BootstrapSelfManagedAddons: jsii.Boolean(false),
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -98,6 +99,14 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-accessconfig
 	//
 	AccessConfig interface{} `field:"optional" json:"accessConfig" yaml:"accessConfig"`
+	// If you set this value to `False` when creating a cluster, the default networking add-ons will not be installed.
+	//
+	// The default networking addons include vpc-cni, coredns, and kube-proxy.
+	//
+	// Use this option when you plan to install third-party alternative add-ons or self-manage the default networking add-ons.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-bootstrapselfmanagedaddons
+	//
+	BootstrapSelfManagedAddons interface{} `field:"optional" json:"bootstrapSelfManagedAddons" yaml:"bootstrapSelfManagedAddons"`
 	// The encryption configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
 	//

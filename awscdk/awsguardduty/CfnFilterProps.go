@@ -14,6 +14,7 @@ import (
 //   var criterion interface{}
 //
 //   cfnFilterProps := &CfnFilterProps{
+//   	DetectorId: jsii.String("detectorId"),
 //   	FindingCriteria: &FindingCriteriaProperty{
 //   		Criterion: criterion,
 //   		ItemType: &ConditionProperty{
@@ -39,12 +40,11 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Action: jsii.String("action"),
 //   	Description: jsii.String("description"),
-//   	DetectorId: jsii.String("detectorId"),
-//   	Name: jsii.String("name"),
 //   	Rank: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -57,10 +57,20 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html
 //
 type CfnFilterProps struct {
+	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
+	//
+	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// Represents the criteria to be used in the filter for querying findings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-findingcriteria
 	//
 	FindingCriteria interface{} `field:"required" json:"findingCriteria" yaml:"findingCriteria"`
+	// The name of the filter.
+	//
+	// Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
+	//
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the action that is to be applied to the findings that match the filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-action
 	//
@@ -71,16 +81,6 @@ type CfnFilterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
-	//
-	DetectorId *string `field:"optional" json:"detectorId" yaml:"detectorId"`
-	// The name of the filter.
-	//
-	// Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
-	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies the position of the filter in the list of current filters.
 	//
 	// Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.

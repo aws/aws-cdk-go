@@ -41,6 +41,9 @@ import (
 //   		ApplicationSnapshotConfiguration: &ApplicationSnapshotConfigurationProperty{
 //   			SnapshotsEnabled: jsii.Boolean(false),
 //   		},
+//   		ApplicationSystemRollbackConfiguration: &ApplicationSystemRollbackConfigurationProperty{
+//   			RollbackEnabled: jsii.Boolean(false),
+//   		},
 //   		EnvironmentProperties: &EnvironmentPropertiesProperty{
 //   			PropertyGroups: []interface{}{
 //   				&PropertyGroupProperty{

@@ -149,6 +149,7 @@ type CfnServer interface {
 	// A list of security group IDs to attach to the Amazon EC2 instance.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
+	// The name of the server.
 	ServerName() *string
 	SetServerName(val *string)
 	// The service role that the AWS OpsWorks CM service backend uses to work with your account.
