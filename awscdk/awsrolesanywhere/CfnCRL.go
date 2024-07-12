@@ -37,6 +37,7 @@ type CfnCRL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The unique primary identifier of the Crl.
 	AttrCrlId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -47,8 +48,10 @@ type CfnCRL interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The x509 v3 specified certificate revocation list (CRL).
 	CrlData() *string
 	SetCrlData(val *string)
+	// Specifies whether the certificate revocation list (CRL) is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -61,6 +64,7 @@ type CfnCRL interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the certificate revocation list (CRL).
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -76,6 +80,7 @@ type CfnCRL interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
+	// A list of tags to attach to the certificate revocation list (CRL).
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.

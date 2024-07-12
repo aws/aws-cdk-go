@@ -20,11 +20,11 @@ package awsses
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html
 //
 type CfnConfigurationSet_VdmOptionsProperty struct {
-	// Settings for your VDM configuration as applicable to the Dashboard.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html#cfn-ses-configurationset-vdmoptions-dashboardoptions
 	//
 	DashboardOptions interface{} `field:"optional" json:"dashboardOptions" yaml:"dashboardOptions"`
-	// Settings for your VDM configuration as applicable to the Guardian.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html#cfn-ses-configurationset-vdmoptions-guardianoptions
 	//
 	GuardianOptions interface{} `field:"optional" json:"guardianOptions" yaml:"guardianOptions"`

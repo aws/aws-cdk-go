@@ -23,7 +23,7 @@ type jsiiProxy_MinimumHealthyHosts struct {
 	_ byte // padding
 }
 
-// The minimum healhty hosts threshold expressed as an absolute number.
+// The minimum healthy hosts threshold expressed as an absolute number.
 func MinimumHealthyHosts_Count(value *float64) MinimumHealthyHosts {
 	_init_.Initialize()
 
@@ -42,7 +42,7 @@ func MinimumHealthyHosts_Count(value *float64) MinimumHealthyHosts {
 	return returns
 }
 
-// The minmum healhty hosts threshold expressed as a percentage of the fleet.
+// The minimum healthy hosts threshold expressed as a percentage of the fleet.
 func MinimumHealthyHosts_Percentage(value *float64) MinimumHealthyHosts {
 	_init_.Initialize()
 

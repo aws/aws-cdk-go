@@ -7440,6 +7440,8 @@ func init() {
 			"R7IZ": InstanceClass_R7IZ,
 			"MEMORY7_AMD": InstanceClass_MEMORY7_AMD,
 			"R7A": InstanceClass_R7A,
+			"MEMORY8_GRAVITON": InstanceClass_MEMORY8_GRAVITON,
+			"R8G": InstanceClass_R8G,
 			"COMPUTE3": InstanceClass_COMPUTE3,
 			"C3": InstanceClass_C3,
 			"COMPUTE4": InstanceClass_COMPUTE4,

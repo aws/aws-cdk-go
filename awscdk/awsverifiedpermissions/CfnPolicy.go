@@ -13,7 +13,7 @@ import (
 //
 // You can create either a static policy or a policy linked to a policy template.
 //
-// You can directly update only static policies. To update a template-linked policy, you must update it's linked policy template instead.
+// You can directly update only static policies. To update a template-linked policy, you must update its linked policy template instead.
 //
 // - To create a static policy, in the `Definition` include a `Static` element that includes the Cedar policy text in the `Statement` element.
 // - To create a policy that is dynamically linked to a policy template, in the `Definition` include a `Templatelinked` element that specifies the policy template ID and the principal and resource to associate with this policy. If the policy template is ever updated, any policies linked to the policy template automatically use the updated template.

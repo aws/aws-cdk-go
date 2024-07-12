@@ -29,15 +29,19 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html
 //
 type CfnCRLProps struct {
+	// The x509 v3 specified certificate revocation list (CRL).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html#cfn-rolesanywhere-crl-crldata
 	//
 	CrlData *string `field:"required" json:"crlData" yaml:"crlData"`
+	// The name of the certificate revocation list (CRL).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html#cfn-rolesanywhere-crl-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Specifies whether the certificate revocation list (CRL) is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html#cfn-rolesanywhere-crl-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// A list of tags to attach to the certificate revocation list (CRL).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html#cfn-rolesanywhere-crl-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

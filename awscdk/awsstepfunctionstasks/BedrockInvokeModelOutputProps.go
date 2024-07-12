@@ -28,7 +28,7 @@ type BedrockInvokeModelOutputProps struct {
 	//
 	// If you specify this field, the API response body is replaced with
 	// a reference to the Amazon S3 location of the original output.
-	// Default: Response body is returned in the task result.
+	// Default: - Response body is returned in the task result.
 	//
 	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }

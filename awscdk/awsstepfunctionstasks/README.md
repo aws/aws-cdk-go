@@ -330,6 +330,31 @@ startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("
 })
 ```
 
+You can reuse the query results by setting the `resultReuseConfigurationMaxAge` property.
+
+```go
+startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("Start Athena Query"), &AthenaStartQueryExecutionProps{
+	QueryString: sfn.JsonPath_StringAt(jsii.String("$.queryString")),
+	QueryExecutionContext: &QueryExecutionContext{
+		DatabaseName: jsii.String("mydatabase"),
+	},
+	ResultConfiguration: &ResultConfiguration{
+		EncryptionConfiguration: &EncryptionConfiguration{
+			EncryptionOption: tasks.EncryptionOption_S3_MANAGED,
+		},
+		OutputLocation: &Location{
+			BucketName: jsii.String("query-results-bucket"),
+			ObjectKey: jsii.String("folder"),
+		},
+	},
+	ExecutionParameters: []*string{
+		jsii.String("param1"),
+		jsii.String("param2"),
+	},
+	ResultReuseConfigurationMaxAge: awscdk.Duration_Minutes(jsii.Number(100)),
+})
+```
+
 ### GetQueryExecution
 
 The [GetQueryExecution](https://docs.aws.amazon.com/athena/latest/APIReference/API_GetQueryExecution.html) API gets information about a single execution of a query.
@@ -406,6 +431,30 @@ task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockI
 			"temperature": jsii.Number(1),
 		},
 	}),
+	ResultSelector: map[string]interface{}{
+		"names": sfn.JsonPath_stringAt(jsii.String("$.Body.results[0].outputText")),
+	},
+})
+```
+
+You can apply a guardrail to the invocation by setting `guardrail`.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_AMAZON_TITAN_TEXT_G1_EXPRESS_V1())
+
+task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model with guardrail"), &BedrockInvokeModelProps{
+	Model: Model,
+	Body: sfn.TaskInput_FromObject(map[string]interface{}{
+		"inputText": jsii.String("Generate a list of five first names."),
+		"textGenerationConfig": map[string]*f64{
+			"maxTokenCount": jsii.Number(100),
+			"temperature": jsii.Number(1),
+		},
+	}),
+	Guardrail: tasks.Guardrail_Enable(jsii.String("guardrailId"), jsii.Number(1)),
 	ResultSelector: map[string]interface{}{
 		"names": sfn.JsonPath_stringAt(jsii.String("$.Body.results[0].outputText")),
 	},

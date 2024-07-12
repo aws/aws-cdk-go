@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::WorkSpaces::WorkspacesPool.
+// Describes a pool of WorkSpaces.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -51,13 +51,19 @@ type CfnWorkspacesPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The persistent application settings for users of the pool.
 	ApplicationSettings() interface{}
 	SetApplicationSettings(val interface{})
+	// The time the pool was created.
 	AttrCreatedAt() *string
+	// The Amazon Resource Name (ARN) for the pool.
 	AttrPoolArn() *string
+	// The identifier of the pool.
 	AttrPoolId() *string
+	// The identifier of the bundle used by the pool.
 	BundleId() *string
 	SetBundleId(val *string)
+	// Describes the user capacity for the pool.
 	Capacity() interface{}
 	SetCapacity(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -71,8 +77,10 @@ type CfnWorkspacesPool interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The description of the pool.
 	Description() *string
 	SetDescription(val *string)
+	// The identifier of the directory used by the pool.
 	DirectoryId() *string
 	SetDirectoryId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -87,6 +95,7 @@ type CfnWorkspacesPool interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The name of the pool.
 	PoolName() *string
 	SetPoolName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -98,8 +107,10 @@ type CfnWorkspacesPool interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags for the pool.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The amount of time that a pool session remains active after users disconnect.
 	TimeoutSettings() interface{}
 	SetTimeoutSettings(val interface{})
 	// Deprecated.

@@ -136,7 +136,7 @@ type BedrockInvokeModelProps struct {
 	// You must specify either the `body` or the `input` field, but not both.
 	// See: https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html
 	//
-	// Default: Input data is retrieved from the location specified in the `input` field.
+	// Default: - Input data is retrieved from the location specified in the `input` field.
 	//
 	Body awsstepfunctions.TaskInput `field:"optional" json:"body" yaml:"body"`
 	// The MIME type of the input data in the request.
@@ -144,17 +144,26 @@ type BedrockInvokeModelProps struct {
 	//
 	// Default: 'application/json'.
 	//
+	// Deprecated: This property does not require configuration because the only acceptable value is 'application/json'.
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
+	// The guardrail is applied to the invocation.
+	// Default: - No guardrail is applied to the invocation.
+	//
+	Guardrail Guardrail `field:"optional" json:"guardrail" yaml:"guardrail"`
 	// The source location to retrieve the input data from.
-	// Default: Input data is retrieved from the `body` field.
+	// Default: - Input data is retrieved from the `body` field.
 	//
 	Input *BedrockInvokeModelInputProps `field:"optional" json:"input" yaml:"input"`
 	// The destination location where the API response is written.
 	//
 	// If you specify this field, the API response body is replaced with a reference to the
 	// output location.
-	// Default: The API response body is returned in the result.
+	// Default: - The API response body is returned in the result.
 	//
 	Output *BedrockInvokeModelOutputProps `field:"optional" json:"output" yaml:"output"`
+	// Specifies whether to enable or disable the Bedrock trace.
+	// Default: - Trace is not enabled for the invocation.
+	//
+	TraceEnabled *bool `field:"optional" json:"traceEnabled" yaml:"traceEnabled"`
 }
 

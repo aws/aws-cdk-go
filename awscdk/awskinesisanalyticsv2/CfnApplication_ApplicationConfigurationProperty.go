@@ -175,7 +175,7 @@ type CfnApplication_ApplicationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsnapshotconfiguration
 	//
 	ApplicationSnapshotConfiguration interface{} `field:"optional" json:"applicationSnapshotConfiguration" yaml:"applicationSnapshotConfiguration"`
-	// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+	// Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationsystemrollbackconfiguration
 	//
 	ApplicationSystemRollbackConfiguration interface{} `field:"optional" json:"applicationSystemRollbackConfiguration" yaml:"applicationSystemRollbackConfiguration"`

@@ -3,7 +3,7 @@ package awskinesisanalytics
 
 // Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously.
 //
-// For more information about parallelism, see [Parallel Execution](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html) in the [Apache Flink Documentation](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/) .
+// For more information about parallelism, see [Parallel Execution](https://docs.aws.amazon.com/https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/execution/parallel/) in the [Apache Flink Documentation](https://docs.aws.amazon.com/https://nightlies.apache.org/flink/flink-docs-master) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

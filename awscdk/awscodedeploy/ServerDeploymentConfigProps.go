@@ -18,5 +18,9 @@ type ServerDeploymentConfigProps struct {
 	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 	// Minimum number of healthy hosts.
 	MinimumHealthyHosts MinimumHealthyHosts `field:"required" json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`
+	// Configure CodeDeploy to deploy your application to one Availability Zone at a time within an AWS Region.
+	// Default: - deploy your application to a random selection of hosts across a Region.
+	//
+	ZonalConfig *ZonalConfig `field:"optional" json:"zonalConfig" yaml:"zonalConfig"`
 }
 

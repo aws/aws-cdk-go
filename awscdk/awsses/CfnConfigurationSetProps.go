@@ -41,7 +41,7 @@ package awsses
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
 //
 type CfnConfigurationSetProps struct {
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-deliveryoptions
 	//
 	DeliveryOptions interface{} `field:"optional" json:"deliveryOptions" yaml:"deliveryOptions"`
@@ -52,7 +52,7 @@ type CfnConfigurationSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// An object that represents the reputation settings for the configuration set.
+	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-reputationoptions
 	//
 	ReputationOptions interface{} `field:"optional" json:"reputationOptions" yaml:"reputationOptions"`
@@ -64,7 +64,7 @@ type CfnConfigurationSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-suppressionoptions
 	//
 	SuppressionOptions interface{} `field:"optional" json:"suppressionOptions" yaml:"suppressionOptions"`
-	// The name of the custom open and click tracking domain associated with the configuration set.
+	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-trackingoptions
 	//
 	TrackingOptions interface{} `field:"optional" json:"trackingOptions" yaml:"trackingOptions"`

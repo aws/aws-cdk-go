@@ -23,7 +23,7 @@ The following targets are supported:
 ## Examples
 
 ```go
-import notifications "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import codebuild "github.com/aws/aws-cdk-go/awscdk"
 import sns "github.com/aws/aws-cdk-go/awscdk"
 import chatbot "github.com/aws/aws-cdk-go/awscdk"
@@ -48,6 +48,12 @@ rule := notifications.NewNotificationRule(this, jsii.String("NotificationRule"),
 	Targets: []iNotificationRuleTarget{
 		topic,
 	},
+	NotificationRuleName: jsii.String("MyNotificationRuleName"),
+	Enabled: jsii.Boolean(true),
+	 // The default is true
+	DetailType: notifications.DetailType_FULL,
+	 // The default is FULL
+	CreatedBy: jsii.String("Jone Doe"),
 })
 rule.AddTarget(slack)
 ```

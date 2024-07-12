@@ -49,8 +49,6 @@ type CfnWorkspaceProps struct {
 	// The user name of the user for the WorkSpace.
 	//
 	// This user name must exist in the AWS Directory Service directory for the WorkSpace.
-	//
-	// The reserved keyword, `[UNDEFINED]` , is used when creating user-decoupled WorkSpaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username
 	//
 	UserName *string `field:"required" json:"userName" yaml:"userName"`
@@ -66,7 +64,7 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-uservolumeencryptionenabled
 	//
 	UserVolumeEncryptionEnabled interface{} `field:"optional" json:"userVolumeEncryptionEnabled" yaml:"userVolumeEncryptionEnabled"`
-	// The ARN of the symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
+	// The symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
 	//
 	// Amazon WorkSpaces does not support asymmetric KMS keys.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey

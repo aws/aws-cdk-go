@@ -2777,6 +2777,17 @@ func init() {
 		reflect.TypeOf((*GlueStartJobRunProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Guardrail",
+		reflect.TypeOf((*Guardrail)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "guardrailIdentifier", GoGetter: "GuardrailIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "guardrailVersion", GoGetter: "GuardrailVersion"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Guardrail{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions_tasks.HttpInvoke",
 		reflect.TypeOf((*HttpInvoke)(nil)).Elem(),
 		[]_jsii_.Member{

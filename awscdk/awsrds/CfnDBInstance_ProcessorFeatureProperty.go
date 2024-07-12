@@ -22,7 +22,7 @@ type CfnDBInstance_ProcessorFeatureProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The value of a processor feature name.
+	// The value of a processor feature.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

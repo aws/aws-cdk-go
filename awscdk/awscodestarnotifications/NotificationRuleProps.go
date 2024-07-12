@@ -4,7 +4,7 @@ package awscodestarnotifications
 // Properties for a new notification rule.
 //
 // Example:
-//   import notifications "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import codebuild "github.com/aws/aws-cdk-go/awscdk"
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //   import chatbot "github.com/aws/aws-cdk-go/awscdk"
@@ -29,10 +29,22 @@ package awscodestarnotifications
 //   	Targets: []iNotificationRuleTarget{
 //   		topic,
 //   	},
+//   	NotificationRuleName: jsii.String("MyNotificationRuleName"),
+//   	Enabled: jsii.Boolean(true),
+//   	 // The default is true
+//   	DetailType: notifications.DetailType_FULL,
+//   	 // The default is FULL
+//   	CreatedBy: jsii.String("Jone Doe"),
 //   })
 //   rule.AddTarget(slack)
 //
 type NotificationRuleProps struct {
+	// The name or email alias of the person who created the notification rule.
+	//
+	// If not specified, it means that the creator's alias is not provided.
+	// Default: - No alias provided.
+	//
+	CreatedBy *string `field:"optional" json:"createdBy" yaml:"createdBy"`
 	// The level of detail to include in the notifications for this resource.
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.

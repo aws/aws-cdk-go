@@ -89,7 +89,7 @@ type CfnIdentitySource interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Contains configuration information about an identity source.
+	// Contains configuration information used when creating a new identity source.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

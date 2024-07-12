@@ -123,15 +123,16 @@ type CfnScalingPolicyProps struct {
 	// - Neptune cluster - The resource type is `cluster` and the unique identifier is the cluster name. Example: `cluster:mycluster` .
 	// - SageMaker serverless endpoint - The resource type is `variant` and the unique identifier is the resource ID. Example: `endpoint/my-end-point/variant/KMeansClustering` .
 	// - SageMaker inference component - The resource type is `inference-component` and the unique identifier is the resource ID. Example: `inference-component/my-inference-component` .
+	// - Pool of WorkSpaces - The resource type is `workspacespool` and the unique identifier is the pool ID. Example: `workspacespool/wspool-123456` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-resourceid
 	//
 	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 	// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
 	//
-	// - `ecs:service:DesiredCount` - The desired task count of an ECS service.
+	// - `ecs:service:DesiredCount` - The task count of an ECS service.
 	// - `elasticmapreduce:instancegroup:InstanceCount` - The instance count of an EMR Instance Group.
 	// - `ec2:spot-fleet-request:TargetCapacity` - The target capacity of a Spot Fleet.
-	// - `appstream:fleet:DesiredCapacity` - The desired capacity of an AppStream 2.0 fleet.
+	// - `appstream:fleet:DesiredCapacity` - The capacity of an AppStream 2.0 fleet.
 	// - `dynamodb:table:ReadCapacityUnits` - The provisioned read capacity for a DynamoDB table.
 	// - `dynamodb:table:WriteCapacityUnits` - The provisioned write capacity for a DynamoDB table.
 	// - `dynamodb:index:ReadCapacityUnits` - The provisioned read capacity for a DynamoDB global secondary index.
@@ -150,6 +151,7 @@ type CfnScalingPolicyProps struct {
 	// - `neptune:cluster:ReadReplicaCount` - The count of read replicas in an Amazon Neptune DB cluster.
 	// - `sagemaker:variant:DesiredProvisionedConcurrency` - The provisioned concurrency for a SageMaker serverless endpoint.
 	// - `sagemaker:inference-component:DesiredCopyCount` - The number of copies across an endpoint for a SageMaker inference component.
+	// - `workspaces:workspacespool:DesiredUserSessions` - The number of user sessions for the WorkSpaces in the pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalabledimension
 	//
 	ScalableDimension *string `field:"optional" json:"scalableDimension" yaml:"scalableDimension"`

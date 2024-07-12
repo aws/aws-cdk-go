@@ -56,7 +56,7 @@ type CfnReceiptRuleSet interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The name of the receipt rule set to reorder.
+	// The name of the receipt rule set to make active.
 	RuleSetName() *string
 	SetRuleSetName(val *string)
 	// The stack in which this element is defined.

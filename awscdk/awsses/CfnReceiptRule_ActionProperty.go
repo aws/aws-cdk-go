@@ -86,7 +86,7 @@ type CfnReceiptRule_ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-stopaction
 	//
 	StopAction interface{} `field:"optional" json:"stopAction" yaml:"stopAction"`
-	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
+	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-workmailaction
 	//
 	WorkmailAction interface{} `field:"optional" json:"workmailAction" yaml:"workmailAction"`

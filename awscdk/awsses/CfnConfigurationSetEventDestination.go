@@ -11,7 +11,9 @@ import (
 
 // Specifies a configuration set event destination.
 //
-// An event destination is an AWS service that Amazon SES publishes email sending events to. When you specify an event destination, you provide one, and only one, destination. You can send event data to Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon Simple Notification Service (Amazon SNS).
+// *Events* include message sends, deliveries, opens, clicks, bounces, and complaints. *Event destinations* are places that you can send information about these events to. For example, you can send event data to Amazon SNS to receive notifications when you receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+//
+// A single configuration set can include more than one event destination.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -68,7 +70,7 @@ type CfnConfigurationSetEventDestination interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The event destination object.
+	// An object that defines the event destination.
 	EventDestination() interface{}
 	SetEventDestination(val interface{})
 	// The logical ID for this CloudFormation stack element.

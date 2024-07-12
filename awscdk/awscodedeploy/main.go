@@ -792,6 +792,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codedeploy.MinimumHealthyHostsPerZone",
+		reflect.TypeOf((*MinimumHealthyHostsPerZone)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_MinimumHealthyHostsPerZone{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codedeploy.ServerApplication",
 		reflect.TypeOf((*ServerApplication)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -931,5 +939,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codedeploy.TrafficRoutingConfig",
 		reflect.TypeOf((*TrafficRoutingConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codedeploy.ZonalConfig",
+		reflect.TypeOf((*ZonalConfig)(nil)).Elem(),
 	)
 }

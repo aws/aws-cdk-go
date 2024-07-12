@@ -36,7 +36,7 @@ type CfnCluster_SpotProvisioningSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-spotprovisioningspecification.html#cfn-emr-cluster-spotprovisioningspecification-timeoutdurationminutes
 	//
 	TimeoutDurationMinutes *float64 `field:"required" json:"timeoutDurationMinutes" yaml:"timeoutDurationMinutes"`
-	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized` , `capacity-optimized` , `lowest-price` , or `diversified` .
+	// Specifies one of the following strategies to launch Spot Instance fleets: `capacity-optimized` , `price-capacity-optimized` , `lowest-price` , or `diversified` , and `capacity-optimized-prioritized` .
 	//
 	// For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide for Linux Instances* .
 	//

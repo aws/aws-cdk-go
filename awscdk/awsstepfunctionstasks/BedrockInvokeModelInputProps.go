@@ -27,7 +27,7 @@ type BedrockInvokeModelInputProps struct {
 	// S3 object to retrieve the input data from.
 	//
 	// If the S3 location is not set, then the Body must be set.
-	// Default: Input data is retrieved from the `body` field.
+	// Default: - Input data is retrieved from the `body` field.
 	//
 	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }

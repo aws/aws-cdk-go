@@ -47,7 +47,7 @@ type CfnConfigurationSetEventDestinationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html#cfn-ses-configurationseteventdestination-configurationsetname
 	//
 	ConfigurationSetName *string `field:"required" json:"configurationSetName" yaml:"configurationSetName"`
-	// The event destination object.
+	// An object that defines the event destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html#cfn-ses-configurationseteventdestination-eventdestination
 	//
 	EventDestination interface{} `field:"required" json:"eventDestination" yaml:"eventDestination"`

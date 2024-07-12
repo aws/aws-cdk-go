@@ -1,7 +1,9 @@
 package awsses
 
 
-// The content of the email, composed of a subject line and either an HTML part or a text-only part.
+// An object that defines the email template to use for an email message, and the values to use for any message variables in that template.
+//
+// An *email template* is a type of message template that contains content that you want to define, save, and reuse in email messages that you send.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,6 +31,8 @@ type CfnTemplate_TemplateProperty struct {
 	//
 	HtmlPart *string `field:"optional" json:"htmlPart" yaml:"htmlPart"`
 	// The name of the template.
+	//
+	// You will refer to this name when you send email using the `SendTemplatedEmail` or `SendBulkTemplatedEmail` operations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-templatename
 	//
 	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`

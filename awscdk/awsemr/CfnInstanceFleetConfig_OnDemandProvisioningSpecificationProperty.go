@@ -19,7 +19,7 @@ package awsemr
 type CfnInstanceFleetConfig_OnDemandProvisioningSpecificationProperty struct {
 	// Specifies the strategy to use in launching On-Demand instance fleets.
 	//
-	// Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
+	// Available options are `lowest-price` and `prioritized` . `lowest-price` specifies to launch the instances with the lowest price first, and `prioritized` specifies that Amazon EMR should launch the instances with the highest priority first. The default is `lowest-price` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandprovisioningspecification.html#cfn-emr-instancefleetconfig-ondemandprovisioningspecification-allocationstrategy
 	//
 	AllocationStrategy *string `field:"required" json:"allocationStrategy" yaml:"allocationStrategy"`

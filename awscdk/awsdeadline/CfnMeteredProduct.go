@@ -40,7 +40,6 @@ type CfnMeteredProduct interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The family to which the metered product belongs.
 	Family() *string
 	SetFamily(val *string)
 	// The Amazon EC2 identifier of the license endpoint.
@@ -58,7 +57,6 @@ type CfnMeteredProduct interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The port on which the metered product should run.
 	Port() *float64
 	SetPort(val *float64)
 	// The product ID.
@@ -86,7 +84,6 @@ type CfnMeteredProduct interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The vendor.
 	Vendor() *string
 	SetVendor(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

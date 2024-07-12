@@ -1,7 +1,9 @@
 package awsses
 
 
-// An object that contains Event bus ARN associated with the event bridge destination.
+// An object that defines an Amazon EventBridge destination for email events.
+//
+// You can use Amazon EventBridge to send notifications when certain email events occur.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,6 +17,9 @@ package awsses
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventbridgedestination.html
 //
 type CfnConfigurationSetEventDestination_EventBridgeDestinationProperty struct {
+	// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to.
+	//
+	// Only the default bus is supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventbridgedestination.html#cfn-ses-configurationseteventdestination-eventbridgedestination-eventbusarn
 	//
 	EventBusArn *string `field:"required" json:"eventBusArn" yaml:"eventBusArn"`

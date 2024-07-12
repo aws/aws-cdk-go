@@ -7,8 +7,10 @@ package awscodedeploy
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var minimumHealthyHosts minimumHealthyHosts
+//   var minimumHealthyHostsPerZone minimumHealthyHostsPerZone
 //   var trafficRouting trafficRouting
 //
 //   baseDeploymentConfigProps := &BaseDeploymentConfigProps{
@@ -16,6 +18,11 @@ package awscodedeploy
 //   	DeploymentConfigName: jsii.String("deploymentConfigName"),
 //   	MinimumHealthyHosts: minimumHealthyHosts,
 //   	TrafficRouting: trafficRouting,
+//   	ZonalConfig: &ZonalConfig{
+//   		FirstZoneMonitorDuration: cdk.Duration_Minutes(jsii.Number(30)),
+//   		MinimumHealthyHostsPerZone: minimumHealthyHostsPerZone,
+//   		MonitorDuration: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	},
 //   }
 //
 type BaseDeploymentConfigProps struct {
@@ -37,5 +44,11 @@ type BaseDeploymentConfigProps struct {
 	// Default: None.
 	//
 	TrafficRouting TrafficRouting `field:"optional" json:"trafficRouting" yaml:"trafficRouting"`
+	// Configure CodeDeploy to deploy your application to one Availability Zone at a time within an AWS Region.
+	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config
+	//
+	// Default: - deploy your application to a random selection of hosts across a Region.
+	//
+	ZonalConfig *ZonalConfig `field:"optional" json:"zonalConfig" yaml:"zonalConfig"`
 }
 

@@ -133,6 +133,10 @@ type AthenaStartQueryExecutionProps struct {
 	// Default: - No result configuration.
 	//
 	ResultConfiguration *ResultConfiguration `field:"optional" json:"resultConfiguration" yaml:"resultConfiguration"`
+	// Specifies, in minutes, the maximum age of a previous query result that Athena should consider for reuse.
+	// Default: - Query results are not reused.
+	//
+	ResultReuseConfigurationMaxAge awscdk.Duration `field:"optional" json:"resultReuseConfigurationMaxAge" yaml:"resultReuseConfigurationMaxAge"`
 	// Configuration on how and where to save query.
 	// Default: - No work group.
 	//

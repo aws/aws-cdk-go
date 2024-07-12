@@ -233,6 +233,25 @@ Or import an existing one:
 deploymentConfig := codedeploy.ServerDeploymentConfig_FromServerDeploymentConfigName(this, jsii.String("ExistingDeploymentConfiguration"), jsii.String("MyExistingDeploymentConfiguration"))
 ```
 
+### Zonal Configuration
+
+CodeDeploy can deploy your application to one Availability Zone at a time, within an AWS Region by configuring [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config).
+
+To create a new deployment configuration with zonal configuration:
+
+```go
+deploymentConfig := codedeploy.NewServerDeploymentConfig(this, jsii.String("DeploymentConfiguration"), &ServerDeploymentConfigProps{
+	MinimumHealthyHosts: codedeploy.MinimumHealthyHosts_Count(jsii.Number(2)),
+	ZonalConfig: &ZonalConfig{
+		MonitorDuration: awscdk.Duration_Minutes(jsii.Number(30)),
+		FirstZoneMonitorDuration: awscdk.Duration_*Minutes(jsii.Number(60)),
+		MinimumHealthyHostsPerZone: codedeploy.MinimumHealthyHostsPerZone_Count(jsii.Number(1)),
+	},
+})
+```
+
+**Note**: Zonal configuration is only configurable for EC2/on-premise deployments.
+
 ## Lambda Applications
 
 To create a new CodeDeploy Application that deploys to a Lambda function:

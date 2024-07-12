@@ -45,6 +45,7 @@ type CfnProject_ProjectTriggersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
 	//
 	FilterGroups interface{} `field:"optional" json:"filterGroups" yaml:"filterGroups"`
+	// Contains configuration information about the scope for a webhook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-scopeconfiguration
 	//
 	ScopeConfiguration interface{} `field:"optional" json:"scopeConfiguration" yaml:"scopeConfiguration"`

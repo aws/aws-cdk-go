@@ -55,7 +55,7 @@ package awsverifiedpermissions
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html
 //
 type CfnIdentitySourceProps struct {
-	// Contains configuration information about an identity source.
+	// Contains configuration information used when creating a new identity source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#cfn-verifiedpermissions-identitysource-configuration
 	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`

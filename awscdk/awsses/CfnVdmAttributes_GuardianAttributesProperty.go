@@ -1,7 +1,7 @@
 package awsses
 
 
-// Settings for your VDM configuration as applicable to the Guardian.
+// An object containing additional settings for your VDM configuration as applicable to the Guardian.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -11,8 +11,11 @@ import (
 // A custom Deployment Configuration for an EC2/on-premise Deployment Group.
 //
 // Example:
-//   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &ServerDeploymentGroupProps{
-//   	DeploymentConfig: codedeploy.ServerDeploymentConfig_ALL_AT_ONCE(),
+//   deploymentConfig := codedeploy.NewServerDeploymentConfig(this, jsii.String("DeploymentConfiguration"), &ServerDeploymentConfigProps{
+//   	DeploymentConfigName: jsii.String("MyDeploymentConfiguration"),
+//   	 // optional property
+//   	// one of these is required, but both cannot be specified at the same time
+//   	MinimumHealthyHosts: codedeploy.MinimumHealthyHosts_Count(jsii.Number(2)),
 //   })
 //
 type ServerDeploymentConfig interface {

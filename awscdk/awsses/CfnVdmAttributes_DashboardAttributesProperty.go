@@ -1,7 +1,7 @@
 package awsses
 
 
-// Settings for your VDM configuration as applicable to the Dashboard.
+// An object containing additional settings for your VDM configuration as applicable to the Dashboard.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

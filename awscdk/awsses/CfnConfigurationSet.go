@@ -75,7 +75,7 @@ type CfnConfigurationSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions() interface{}
 	SetDeliveryOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -100,7 +100,7 @@ type CfnConfigurationSet interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// An object that represents the reputation settings for the configuration set.
+	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
 	ReputationOptions() interface{}
 	SetReputationOptions(val interface{})
 	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
@@ -113,7 +113,7 @@ type CfnConfigurationSet interface {
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions() interface{}
 	SetSuppressionOptions(val interface{})
-	// The name of the custom open and click tracking domain associated with the configuration set.
+	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions() interface{}
 	SetTrackingOptions(val interface{})
 	// Deprecated.

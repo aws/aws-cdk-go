@@ -18,12 +18,19 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	CreatedBy: jsii.String("createdBy"),
 //   	DetailType: awscdk.Aws_codestarnotifications.DetailType_BASIC,
 //   	Enabled: jsii.Boolean(false),
 //   	NotificationRuleName: jsii.String("notificationRuleName"),
 //   }
 //
 type PipelineNotifyOnOptions struct {
+	// The name or email alias of the person who created the notification rule.
+	//
+	// If not specified, it means that the creator's alias is not provided.
+	// Default: - No alias provided.
+	//
+	CreatedBy *string `field:"optional" json:"createdBy" yaml:"createdBy"`
 	// The level of detail to include in the notifications for this resource.
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.

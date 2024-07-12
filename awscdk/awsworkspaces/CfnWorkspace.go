@@ -113,7 +113,7 @@ type CfnWorkspace interface {
 	// Indicates whether the data stored on the user volume is encrypted.
 	UserVolumeEncryptionEnabled() interface{}
 	SetUserVolumeEncryptionEnabled(val interface{})
-	// The ARN of the symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
+	// The symmetric AWS KMS key used to encrypt data stored on your WorkSpace.
 	VolumeEncryptionKey() *string
 	SetVolumeEncryptionKey(val *string)
 	// The WorkSpace properties.

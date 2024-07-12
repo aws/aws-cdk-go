@@ -19,7 +19,6 @@ package awsdeadline
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html
 //
 type CfnMeteredProductProps struct {
-	// The family to which the metered product belongs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html#cfn-deadline-meteredproduct-family
 	//
 	Family *string `field:"optional" json:"family" yaml:"family"`
@@ -27,7 +26,6 @@ type CfnMeteredProductProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html#cfn-deadline-meteredproduct-licenseendpointid
 	//
 	LicenseEndpointId *string `field:"optional" json:"licenseEndpointId" yaml:"licenseEndpointId"`
-	// The port on which the metered product should run.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html#cfn-deadline-meteredproduct-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
@@ -35,7 +33,6 @@ type CfnMeteredProductProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html#cfn-deadline-meteredproduct-productid
 	//
 	ProductId *string `field:"optional" json:"productId" yaml:"productId"`
-	// The vendor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html#cfn-deadline-meteredproduct-vendor
 	//
 	Vendor *string `field:"optional" json:"vendor" yaml:"vendor"`
