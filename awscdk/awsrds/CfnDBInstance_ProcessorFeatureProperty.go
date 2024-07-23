@@ -1,7 +1,7 @@
 package awsrds
 
 
-// The `ProcessorFeature` property type specifies the processor features of a DB instance class status.
+// The `ProcessorFeature` property type specifies the processor features of a DB instance class.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

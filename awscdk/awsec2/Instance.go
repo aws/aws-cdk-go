@@ -90,6 +90,14 @@ type Instance interface {
 	//
 	// The command must be in the scripting language supported by the instance's OS (i.e. Linux/Windows).
 	AddUserData(commands ...*string)
+	// Use a CloudFormation Init configuration at instance startup.
+	//
+	// This does the following:
+	//
+	// - Attaches the CloudFormation Init metadata to the Instance resource.
+	// - Add commands to the instance UserData to run `cfn-init` and `cfn-signal`.
+	// - Update the instance's CreationPolicy to wait for the `cfn-signal` commands.
+	ApplyCloudFormationInit(init CloudFormationInit, options *ApplyCloudFormationInitOptions)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -417,6 +425,17 @@ func (i *jsiiProxy_Instance) AddUserData(commands ...*string) {
 		i,
 		"addUserData",
 		args,
+	)
+}
+
+func (i *jsiiProxy_Instance) ApplyCloudFormationInit(init CloudFormationInit, options *ApplyCloudFormationInitOptions) {
+	if err := i.validateApplyCloudFormationInitParameters(init, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyCloudFormationInit",
+		[]interface{}{init, options},
 	)
 }
 

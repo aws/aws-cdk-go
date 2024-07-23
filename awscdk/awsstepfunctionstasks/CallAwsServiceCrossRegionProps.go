@@ -120,7 +120,7 @@ type CallAwsServiceCrossRegionProps struct {
 	//   "us-east-1"
 	//
 	Region *string `field:"required" json:"region" yaml:"region"`
-	// The AWS service to call in AWS SDK for JavaScript v3 style.
+	// The AWS service to call in AWS SDK for JavaScript v3 format.
 	//
 	// Example:
 	//   "s3"
@@ -149,9 +149,7 @@ type CallAwsServiceCrossRegionProps struct {
 	// Default: - service:action.
 	//
 	IamAction *string `field:"optional" json:"iamAction" yaml:"iamAction"`
-	// Parameters for the API action call.
-	//
-	// Use PascalCase for the parameter names.
+	// Parameters for the API action call in AWS SDK for JavaScript v3 format.
 	// Default: - no parameters.
 	//
 	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`

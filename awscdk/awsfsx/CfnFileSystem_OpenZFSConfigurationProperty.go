@@ -60,15 +60,15 @@ package awsfsx
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html
 //
 type CfnFileSystem_OpenZFSConfigurationProperty struct {
-	// Specifies the file system deployment type.
+	// Specifies the file system deployment type. Valid values are the following:.
 	//
-	// Single AZ deployment types are configured for redundancy within a single Availability Zone in an AWS Region . Valid values are the following:
+	// - `MULTI_AZ_1` - Creates file systems with high availability and durability by replicating your data and supporting failover across multiple Availability Zones in the same AWS Region .
+	// - `SINGLE_AZ_HA_2` - Creates file systems with high availability and throughput capacities of 160 - 10,240 MB/s using an NVMe L2ARC cache by deploying a primary and standby file system within the same Availability Zone.
+	// - `SINGLE_AZ_HA_1` - Creates file systems with high availability and throughput capacities of 64 - 4,096 MB/s by deploying a primary and standby file system within the same Availability Zone.
+	// - `SINGLE_AZ_2` - Creates file systems with throughput capacities of 160 - 10,240 MB/s using an NVMe L2ARC cache that automatically recover within a single Availability Zone.
+	// - `SINGLE_AZ_1` - Creates file systems with throughput capacities of 64 - 4,096 MBs that automatically recover within a single Availability Zone.
 	//
-	// - `MULTI_AZ_1` - Creates file systems with high availability that are configured for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones (AZs). `Multi_AZ_1` is available only in the US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and Europe (Ireland) AWS Regions .
-	// - `SINGLE_AZ_1` - Creates file systems with throughput capacities of 64 - 4,096 MB/s. `Single_AZ_1` is available in all AWS Regions where Amazon FSx for OpenZFS is available.
-	// - `SINGLE_AZ_2` - Creates file systems with throughput capacities of 160 - 10,240 MB/s using an NVMe L2ARC cache. `Single_AZ_2` is available only in the US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and Europe (Ireland) AWS Regions .
-	//
-	// For more information, see [Deployment type availability](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions) and [File system performance](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance) in the *Amazon FSx for OpenZFS User Guide* .
+	// For a list of which AWS Regions each deployment type is available in, see [Deployment type availability](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions) . For more information on the differences in performance between deployment types, see [File system performance](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance) in the *Amazon FSx for OpenZFS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-deploymenttype
 	//
 	DeploymentType *string `field:"required" json:"deploymentType" yaml:"deploymentType"`

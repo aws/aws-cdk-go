@@ -88,10 +88,10 @@ type CfnDataSource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The data deletion policy for a data source.
+	// The data deletion policy for the data source.
 	DataDeletionPolicy() *string
 	SetDataDeletionPolicy(val *string)
-	// Contains details about how the data source is stored.
+	// The connection configuration for the data source.
 	DataSourceConfiguration() interface{}
 	SetDataSourceConfiguration(val interface{})
 	// The description of the data source.

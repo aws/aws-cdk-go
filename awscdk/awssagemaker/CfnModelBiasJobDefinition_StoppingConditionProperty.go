@@ -1,9 +1,9 @@
 package awssagemaker
 
 
-// Specifies a limit to how long a model training job or model compilation job can run.
+// Specifies a limit to how long a job can run.
 //
-// It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
+// When the job reaches the time limit, SageMaker ends the job. Use this API to cap costs.
 //
 // To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
 //

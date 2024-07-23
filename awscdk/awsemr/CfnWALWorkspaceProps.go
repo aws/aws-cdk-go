@@ -24,13 +24,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html
 //
 type CfnWALWorkspaceProps struct {
-	// You can add tags when you create a new workspace.
-	//
-	// You can add, remove, or list tags from an active workspace, but you can't update tags. Instead, remove the tag and add a new one. For more information, see see [Tag your Amazon EMR WAL workspaces](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-wal.html#emr-hbase-wal-tagging) .
+	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html#cfn-emr-walworkspace-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The name of the WAL workspace.
+	// The name of the emrwal container.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html#cfn-emr-walworkspace-walworkspacename
 	//
 	WalWorkspaceName *string `field:"optional" json:"walWorkspaceName" yaml:"walWorkspaceName"`

@@ -6,6 +6,10 @@ import (
 )
 
 // Provides default values for certain regional information points.
+//
+// This class is no longer needed because service principals are no longer needed except in very specific cases
+// that are handled in the IAM ServicePrincipal class.
+// Deprecated: - Service principals are now globally `<SERVICE>.amazonaws.com`, use iam.ServicePrincipal instead.
 type Default interface {
 }
 
@@ -20,6 +24,7 @@ type jsiiProxy_Default struct {
 // you need to compute a service principal name, but you do not have a synthesize-time region literal available (so
 // all you have is `{ "Ref": "AWS::Region" }`). This way you get the same defaulting behavior that is normally used
 // for built-in data.
+// Deprecated: - Service principals are now globally `<SERVICE>.amazonaws.com`, use iam.ServicePrincipal instead.
 func Default_ServicePrincipal(serviceFqn *string, region *string, urlSuffix *string) *string {
 	_init_.Initialize()
 

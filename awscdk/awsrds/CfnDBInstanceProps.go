@@ -218,7 +218,7 @@ type CfnDBInstanceProps struct {
 	AutomaticBackupReplicationKmsKeyId *string `field:"optional" json:"automaticBackupReplicationKmsKeyId" yaml:"automaticBackupReplicationKmsKeyId"`
 	// The destination region for the backup replication of the DB instance.
 	//
-	// For more info, see [Replicating automated backups to another AWS Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide* .
+	// For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationregion
 	//
 	AutomaticBackupReplicationRegion *string `field:"optional" json:"automaticBackupReplicationRegion" yaml:"automaticBackupReplicationRegion"`

@@ -12,8 +12,7 @@ import (
 //   region := regionInfo.RegionInfo_Get(jsii.String("eu-west-1"))
 //
 //   // Access attributes:
-//   region.s3StaticWebsiteEndpoint // s3-website-eu-west-1.amazonaws.com
-//   region.ServicePrincipal(jsii.String("logs.amazonaws.com"))
+//   region.s3StaticWebsiteEndpoint
 //
 type RegionInfo interface {
 	// The ID of the AWS account that owns the public ECR repository that contains the AWS App Mesh Envoy Proxy images in a given region.
@@ -52,6 +51,7 @@ type RegionInfo interface {
 	// The ARN of the Parameters and Secrets Lambda layer for the given lambda architecture.
 	ParamsAndSecretsLambdaLayerArn(version *string, architecture *string) *string
 	// The name of the service principal for a given service in this region.
+	// Deprecated: - Use `iam.ServicePrincipal.servicePrincipalName()` instead.
 	ServicePrincipal(service *string) *string
 }
 

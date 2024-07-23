@@ -4,19 +4,14 @@ package awseks
 // Properties for creating an Amazon EKS Add-On.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var cluster cluster
 //
-//   addonProps := &AddonProps{
-//   	AddonName: jsii.String("addonName"),
-//   	Cluster: cluster,
 //
-//   	// the properties below are optional
-//   	AddonVersion: jsii.String("addonVersion"),
-//   }
+//   eks.NewAddon(this, jsii.String("Addon"), &AddonProps{
+//   	Cluster: Cluster,
+//   	AddonName: jsii.String("aws-guardduty-agent"),
+//   	AddonVersion: jsii.String("v1.6.1"),
+//   })
 //
 type AddonProps struct {
 	// Name of the Add-On.

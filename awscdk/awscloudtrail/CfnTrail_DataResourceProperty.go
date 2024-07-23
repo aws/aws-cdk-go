@@ -1,23 +1,19 @@
 package awscloudtrail
 
 
-// Data events provide information about the resource operations performed on or within a resource itself.
-//
-// These are also known as data plane operations. You can specify up to 250 data resources for a trail.
-//
-// Configure the `DataResource` to specify the resource type and resource ARNs for which you want to log data events.
-//
-// You can specify the following resource types in your event selectors for your trail:
+// You can configure the `DataResource` in an `EventSelector` to log data events for the following three resource types:.
 //
 // - `AWS::DynamoDB::Table`
 // - `AWS::Lambda::Function`
 // - `AWS::S3::Object`
 //
-// > The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors for the trail.
-// >
-// > If you are using advanced event selectors, the maximum total number of values for all conditions, across all advanced event selectors for the trail, is 500.
+// To log data events for all other resource types including objects stored in [directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html) , you must use [AdvancedEventSelectors](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html) . You must also use `AdvancedEventSelectors` if you want to filter on the `eventName` field.
 //
-// The following example demonstrates how logging works when you configure logging of all data events for an S3 bucket named `DOC-EXAMPLE-BUCKET1` . In this example, the CloudTrail user specified an empty prefix, and the option to log both `Read` and `Write` data events.
+// Configure the `DataResource` to specify the resource type and resource ARNs for which you want to log data events.
+//
+// > The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors for the trail.
+//
+// The following example demonstrates how logging works when you configure logging of all data events for a general purpose bucket named `DOC-EXAMPLE-BUCKET1` . In this example, the CloudTrail user specified an empty prefix, and the option to log both `Read` and `Write` data events.
 //
 // - A user uploads an image file to `DOC-EXAMPLE-BUCKET1` .
 // - The `PutObject` API operation is an Amazon S3 object-level API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified an S3 bucket with an empty prefix, events that occur on any object in that bucket are logged. The trail processes and logs the event.

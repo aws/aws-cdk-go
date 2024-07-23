@@ -125,6 +125,7 @@ func FactName_ParamsAndSecretsLambdaLayer(version *string, architecture *string)
 }
 
 // The name of the regional service principal for a given service.
+// Deprecated: - Use `iam.ServicePrincipal.servicePrincipalName()` instead.
 func FactName_ServicePrincipal(service *string) *string {
 	_init_.Initialize()
 

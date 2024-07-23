@@ -74,6 +74,8 @@ package awsemr
 //
 type CfnSecurityConfigurationProps struct {
 	// The security configuration details in JSON format.
+	//
+	// For JSON parameters and examples, see [Use Security Configurations to Set Up Cluster Security](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html) in the *Amazon EMR Management Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-securityconfiguration
 	//
 	SecurityConfiguration interface{} `field:"required" json:"securityConfiguration" yaml:"securityConfiguration"`

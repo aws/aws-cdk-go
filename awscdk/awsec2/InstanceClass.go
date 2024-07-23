@@ -393,6 +393,10 @@ const (
 	InstanceClass_GRAPHICS5_GRAVITON2 InstanceClass = "GRAPHICS5_GRAVITON2"
 	// Graphics-optimized instances powered by AWS Graviton2 Processors and NVIDIA T4G Tensor Core GPUs, 5th generation.
 	InstanceClass_G5G InstanceClass = "G5G"
+	// Graphics-optimized instances, 6th generation.
+	InstanceClass_GRAPHICS6 InstanceClass = "GRAPHICS6"
+	// Graphics-optimized instances, 6th generation.
+	InstanceClass_G6 InstanceClass = "G6"
 	// Parallel-processing optimized instances, 2nd generation.
 	InstanceClass_PARALLEL2 InstanceClass = "PARALLEL2"
 	// Parallel-processing optimized instances, 2nd generation.

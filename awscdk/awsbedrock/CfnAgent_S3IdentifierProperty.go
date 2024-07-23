@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Contains information about the S3 object containing the resource.
+// The identifier information for an Amazon S3 bucket.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,7 +20,7 @@ type CfnAgent_S3IdentifierProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-s3identifier.html#cfn-bedrock-agent-s3identifier-s3bucketname
 	//
 	S3BucketName *string `field:"optional" json:"s3BucketName" yaml:"s3BucketName"`
-	// The S3 object key containing the resource.
+	// The S3 object key for the S3 resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-s3identifier.html#cfn-bedrock-agent-s3identifier-s3objectkey
 	//
 	S3ObjectKey *string `field:"optional" json:"s3ObjectKey" yaml:"s3ObjectKey"`

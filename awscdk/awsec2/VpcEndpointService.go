@@ -300,6 +300,17 @@ func VpcEndpointService_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+func VpcEndpointService_DEFAULT_PREFIX() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.VpcEndpointService",
+		"DEFAULT_PREFIX",
+		&returns,
+	)
+	return returns
+}
+
 func (v *jsiiProxy_VpcEndpointService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	if err := v.validateApplyRemovalPolicyParameters(policy); err != nil {
 		panic(err)

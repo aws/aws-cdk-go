@@ -64,6 +64,7 @@ In addition, the library also supports defining Kubernetes resource manifests wi
       * [Manually importing k8s specs and CRD's](#manually-importing-k8s-specs-and-crds)
   * [Patching Kubernetes Resources](#patching-kubernetes-resources)
   * [Querying Kubernetes Resources](#querying-kubernetes-resources)
+  * [Add-ons](#add-ons)
   * [Using existing clusters](#using-existing-clusters)
   * [Logging](#logging)
   * [Known Issues and Limitations](#known-issues-and-limitations)
@@ -2029,6 +2030,21 @@ Specifically, since the above use-case is quite common, there is an easier way t
 var cluster cluster
 
 loadBalancerAddress := cluster.GetServiceLoadBalancerAddress(jsii.String("my-service"))
+```
+
+## Add-ons
+
+[Add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html) is a software that provides supporting operational capabilities to Kubernetes applications. The EKS module supports adding add-ons to your cluster using the `eks.Addon` class.
+
+```go
+var cluster cluster
+
+
+eks.NewAddon(this, jsii.String("Addon"), &AddonProps{
+	Cluster: Cluster,
+	AddonName: jsii.String("aws-guardduty-agent"),
+	AddonVersion: jsii.String("v1.6.1"),
+})
 ```
 
 ## Using existing clusters

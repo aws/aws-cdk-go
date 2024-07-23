@@ -303,6 +303,8 @@ type CfnTaskDefinitionProps struct {
 	//
 	// If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the `memory` parameter.
 	//
+	// If you use the EC2 launch type, this field is optional. Supported values are between `128` CPU units ( `0.125` vCPUs) and `10240` CPU units ( `10` vCPUs).
+	//
 	// The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
 	//
 	// - 256 (.25 vCPU) - Available `memory` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)

@@ -24,7 +24,7 @@ type CfnVolume_AggregateConfigurationProperty struct {
 	//
 	// Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
 	//
-	// - The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 6.
+	// - The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 12.
 	// - The value of `Aggregates` contains aggregates that are not present.
 	// - One or more of the aggregates supplied are too close to the volume limit to support adding more volumes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-aggregateconfiguration.html#cfn-fsx-volume-aggregateconfiguration-aggregates

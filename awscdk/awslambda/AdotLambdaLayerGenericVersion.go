@@ -49,6 +49,17 @@ func AdotLambdaLayerGenericVersion_LATEST() AdotLambdaLayerGenericVersion {
 	return returns
 }
 
+func AdotLambdaLayerGenericVersion_V0_102_1() AdotLambdaLayerGenericVersion {
+	_init_.Initialize()
+	var returns AdotLambdaLayerGenericVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.AdotLambdaLayerGenericVersion",
+		"V0_102_1",
+		&returns,
+	)
+	return returns
+}
+
 func AdotLambdaLayerGenericVersion_V0_62_1() AdotLambdaLayerGenericVersion {
 	_init_.Initialize()
 	var returns AdotLambdaLayerGenericVersion

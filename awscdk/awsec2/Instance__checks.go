@@ -28,6 +28,18 @@ func (i *jsiiProxy_Instance) validateAddToRolePolicyParameters(statement awsiam.
 	return nil
 }
 
+func (i *jsiiProxy_Instance) validateApplyCloudFormationInitParameters(init CloudFormationInit, options *ApplyCloudFormationInitOptions) error {
+	if init == nil {
+		return fmt.Errorf("parameter init is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_Instance) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Contains details about how a data source is stored.
+// The connection configuration for the data source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,11 +24,11 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html
 //
 type CfnDataSource_DataSourceConfigurationProperty struct {
-	// Contains details about the configuration of the S3 object containing the data source.
+	// The configuration information to connect to Amazon S3 as your data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-s3configuration
 	//
 	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
-	// The type of storage for the data source.
+	// The type of data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

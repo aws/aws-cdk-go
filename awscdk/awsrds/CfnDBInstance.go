@@ -206,6 +206,8 @@ type CfnDBInstance interface {
 	// For example: `3306`.
 	AttrEndpointPort() *string
 	// The Amazon Resource Name (ARN) of the secret.
+	//
+	// This parameter is a return value that you can retrieve using the `Fn::GetAtt` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values) .
 	AttrMasterUserSecretSecretArn() *string
 	// The AWS KMS key identifier for encryption of the replicated automated backups.
 	AutomaticBackupReplicationKmsKeyId() *string

@@ -12,6 +12,10 @@ func (i *jsiiProxy_Instance) validateAddToRolePolicyParameters(statement awsiam.
 	return nil
 }
 
+func (i *jsiiProxy_Instance) validateApplyCloudFormationInitParameters(init CloudFormationInit, options *ApplyCloudFormationInitOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_Instance) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

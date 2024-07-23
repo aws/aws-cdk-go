@@ -106,7 +106,7 @@ type CfnJobProps struct {
 	//
 	// For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 	//
-	// Jobs that are created without specifying a Glue version default to Glue 0.9.
+	// Jobs that are created without specifying a Glue version default to the latest Glue version available.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-glueversion
 	//
 	GlueVersion *string `field:"optional" json:"glueVersion" yaml:"glueVersion"`

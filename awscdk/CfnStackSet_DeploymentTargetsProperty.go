@@ -26,12 +26,9 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	//
 	// The following is a list of possible values for the `AccountFilterType` operation.
 	//
-	// - `INTERSECTION` : StackSets deploys to the accounts specified in `Accounts` parameter.
-	// - `DIFFERENCE` : StackSets excludes the accounts specified in `Accounts` parameter. This enables user to avoid certain accounts within an OU such as suspended accounts.
-	// - `UNION` : StackSets includes additional accounts deployment targets.
-	//
-	// This is the default value if `AccountFilterType` is not provided. This enables user to update an entire OU and individual accounts from a different OU in one request, which used to be two separate requests.
-	// - `NONE` : Deploys to all the accounts in specified organizational units (OU).
+	// - `INTERSECTION` : StackSet deploys to the accounts specified in the `Accounts` parameter.
+	// - `DIFFERENCE` : StackSet deploys to the OU, excluding the accounts specified in the `Accounts` parameter.
+	// - `UNION` isn't supported when using StackSet as a resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountfiltertype
 	//
 	AccountFilterType *string `field:"optional" json:"accountFilterType" yaml:"accountFilterType"`

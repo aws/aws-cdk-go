@@ -17,8 +17,7 @@ the regional information database:
 region := regionInfo.RegionInfo_Get(jsii.String("eu-west-1"))
 
 // Access attributes:
-region.s3StaticWebsiteEndpoint // s3-website-eu-west-1.amazonaws.com
-region.ServicePrincipal(jsii.String("logs.amazonaws.com"))
+region.s3StaticWebsiteEndpoint
 ```
 
 The `RegionInfo` layer is built on top of the Low-Level API, which is described
@@ -33,9 +32,6 @@ a list of known fact names, which can then be used with the `RegionInfo` to
 retrieve a particular value:
 
 ```go
-codeDeployPrincipal := regionInfo.Fact_Find(jsii.String("us-east-1"), regionInfo.FactName_ServicePrincipal(jsii.String("codedeploy.amazonaws.com")))
-// => codedeploy.us-east-1.amazonaws.com
-
 staticWebsite := regionInfo.Fact_Find(jsii.String("ap-northeast-1"), regionInfo.FactName_S3_STATIC_WEBSITE_ENDPOINT())
 ```
 

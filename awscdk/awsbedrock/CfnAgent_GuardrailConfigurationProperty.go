@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Configuration information for a guardrail that you use with the `Converse` action.
+// Configuration information for a guardrail that you use with the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

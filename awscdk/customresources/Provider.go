@@ -12,18 +12,31 @@ import (
 // Defines an AWS CloudFormation custom resource provider.
 //
 // Example:
-//   var onEvent function
-//   var isComplete function
-//   var myRole role
+//   // Create custom resource handler entrypoint
+//   handler := lambda.NewFunction(this, jsii.String("my-handler"), &FunctionProps{
+//   	Runtime: lambda.Runtime_NODEJS_20_X(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.Code_FromInline(jsii.String(`
+//   	  exports.handler = async (event, context) => {
+//   	    return {
+//   	      PhysicalResourceId: '1234',
+//   	      NoEcho: true,
+//   	      Data: {
+//   	        mySecret: 'secret-value',
+//   	        hello: 'world',
+//   	        ghToken: 'gho_xxxxxxx',
+//   	      },
+//   	    };
+//   	  };`)),
+//   })
 //
-//   myProvider := cr.NewProvider(this, jsii.String("MyProvider"), &ProviderProps{
-//   	OnEventHandler: onEvent,
-//   	IsCompleteHandler: isComplete,
-//   	LogGroup: logs.NewLogGroup(this, jsii.String("MyProviderLogs"), &LogGroupProps{
-//   		Retention: logs.RetentionDays_ONE_DAY,
-//   	}),
-//   	Role: myRole,
-//   	ProviderFunctionName: jsii.String("the-lambda-name"),
+//   // Provision a custom resource provider framework
+//   provider := cr.NewProvider(this, jsii.String("my-provider"), &ProviderProps{
+//   	OnEventHandler: handler,
+//   })
+//
+//   awscdk.NewCustomResource(this, jsii.String("my-cr"), &CustomResourceProps{
+//   	ServiceToken: provider.ServiceToken,
 //   })
 //
 type Provider interface {

@@ -9,9 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A WAL workspace is a logical container of write-ahead logs (WALs).
-//
-// All WALs in Amazon EMR WAL are encapsulated by a WAL workspace.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -66,7 +64,7 @@ type CfnWALWorkspace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// You can add tags when you create a new workspace.
+	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -82,7 +80,7 @@ type CfnWALWorkspace interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The name of the WAL workspace.
+	// The name of the emrwal container.
 	WalWorkspaceName() *string
 	SetWalWorkspaceName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

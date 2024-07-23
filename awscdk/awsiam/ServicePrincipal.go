@@ -162,11 +162,13 @@ func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *Ser
 // These days all service principal names are standardized, and they are all
 // of the form `<servicename>.amazonaws.com`.
 //
-// If the feature flag `@aws-cdk/aws-iam:standardizedServicePrincipals` is set, this
-// method will always return its input. If this feature flag is not set, this
-// method will perform the legacy behavior, which appends the region-specific
-// domain suffix for some select services (for example, it would append `.cn`
-// to some service principal names).
+// To avoid breaking changes, handling is provided for services added with the formats below,
+// however, no additional handling will be added for new regions or partitions.
+//   - s3
+//   - s3.amazonaws.com
+//   - s3.amazonaws.com.cn
+//   - s3.c2s.ic.gov
+//   - s3.sc2s.sgov.gov
 //
 // Example:
 //   principalName := iam.ServicePrincipal_ServicePrincipalName(jsii.String("ec2.amazonaws.com"))

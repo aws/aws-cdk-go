@@ -616,7 +616,7 @@ type CfnCluster interface {
 	// An IAM role for automatic scaling policies.
 	AutoScalingRole() *string
 	SetAutoScalingRole(val *string)
-	// An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates.
+	// An auto-termination policy for an Amazon EMR cluster.
 	AutoTerminationPolicy() interface{}
 	SetAutoTerminationPolicy(val interface{})
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
