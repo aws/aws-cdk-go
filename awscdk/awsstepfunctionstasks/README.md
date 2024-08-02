@@ -437,6 +437,23 @@ task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockI
 })
 ```
 
+### Using Input Path
+
+Provide S3 URI as an input or output path to invoke a model
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_AMAZON_TITAN_TEXT_G1_EXPRESS_V1())
+
+task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
+	Model: Model,
+	InputPath: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
+	OutputPath: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
+})
+```
+
 You can apply a guardrail to the invocation by setting `guardrail`.
 
 ```go

@@ -17,5 +17,13 @@ const (
 	HttpCodeElb_ELB_4XX_COUNT HttpCodeElb = "ELB_4XX_COUNT"
 	// The number of HTTP 5XX server error codes that originate from the load balancer.
 	HttpCodeElb_ELB_5XX_COUNT HttpCodeElb = "ELB_5XX_COUNT"
+	// The number of HTTP 500 server error codes that originate from the load balancer.
+	HttpCodeElb_ELB_500_COUNT HttpCodeElb = "ELB_500_COUNT"
+	// The number of HTTP 502 server error codes that originate from the load balancer.
+	HttpCodeElb_ELB_502_COUNT HttpCodeElb = "ELB_502_COUNT"
+	// The number of HTTP 503 server error codes that originate from the load balancer.
+	HttpCodeElb_ELB_503_COUNT HttpCodeElb = "ELB_503_COUNT"
+	// The number of HTTP 504 server error codes that originate from the load balancer.
+	HttpCodeElb_ELB_504_COUNT HttpCodeElb = "ELB_504_COUNT"
 )
 

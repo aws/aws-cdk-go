@@ -136,17 +136,15 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
 	//
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
-	// The target backtrack window, in seconds. To disable backtracking, set this value to 0.
+	// The target backtrack window, in seconds. To disable backtracking, set this value to `0` .
 	//
-	// > Currently, Backtrack is only supported for Aurora MySQL DB clusters.
+	// Valid for Cluster Type: Aurora MySQL DB clusters only
 	//
-	// Default: 0
+	// Default: `0`
 	//
 	// Constraints:
 	//
 	// - If specified, this value must be set to a number from 0 to 259,200 (72 hours).
-	//
-	// Valid for: Aurora MySQL DB clusters only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
 	//
 	// Default: - 0.
@@ -767,9 +765,9 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
-	// An optional array of key-value pairs to apply to this DB cluster.
+	// Tags to assign to the DB cluster.
 	//
-	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -43,9 +43,11 @@ type CfnStateMachineAlias_DeploymentPreferenceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// A list of Amazon CloudWatch alarms to be monitored during the deployment.
+	// A list of Amazon CloudWatch alarm names to be monitored during the deployment.
 	//
 	// The deployment fails and rolls back if any of these alarms go into the `ALARM` state.
+	//
+	// > Amazon CloudWatch considers nonexistent alarms to have an `OK` state. If you provide an invalid alarm name or provide the ARN of an alarm instead of its name, your deployment may not roll back correctly.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms
 	//
 	Alarms *[]*string `field:"optional" json:"alarms" yaml:"alarms"`

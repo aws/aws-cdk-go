@@ -923,6 +923,10 @@ func init() {
 			"ELB_3XX_COUNT": HttpCodeElb_ELB_3XX_COUNT,
 			"ELB_4XX_COUNT": HttpCodeElb_ELB_4XX_COUNT,
 			"ELB_5XX_COUNT": HttpCodeElb_ELB_5XX_COUNT,
+			"ELB_500_COUNT": HttpCodeElb_ELB_500_COUNT,
+			"ELB_502_COUNT": HttpCodeElb_ELB_502_COUNT,
+			"ELB_503_COUNT": HttpCodeElb_ELB_503_COUNT,
+			"ELB_504_COUNT": HttpCodeElb_ELB_504_COUNT,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -1536,6 +1540,7 @@ func init() {
 		map[string]interface{}{
 			"ROUND_ROBIN": TargetGroupLoadBalancingAlgorithmType_ROUND_ROBIN,
 			"LEAST_OUTSTANDING_REQUESTS": TargetGroupLoadBalancingAlgorithmType_LEAST_OUTSTANDING_REQUESTS,
+			"WEIGHTED_RANDOM": TargetGroupLoadBalancingAlgorithmType_WEIGHTED_RANDOM,
 		},
 	)
 	_jsii_.RegisterEnum(

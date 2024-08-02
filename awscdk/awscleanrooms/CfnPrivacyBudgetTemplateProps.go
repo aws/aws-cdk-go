@@ -42,7 +42,7 @@ type CfnPrivacyBudgetTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html#cfn-cleanrooms-privacybudgettemplate-membershipidentifier
 	//
 	MembershipIdentifier *string `field:"required" json:"membershipIdentifier" yaml:"membershipIdentifier"`
-	// Specifies the epislon and noise parameters for the privacy budget template.
+	// Specifies the epsilon and noise parameters for the privacy budget template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html#cfn-cleanrooms-privacybudgettemplate-parameters
 	//
 	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`

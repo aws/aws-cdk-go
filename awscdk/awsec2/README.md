@@ -2552,6 +2552,8 @@ instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), 
 })
 
 template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+	LaunchTemplateName: jsii.String("MyTemplateV1"),
+	VersionDescription: jsii.String("This is my v1 template"),
 	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
 	SecurityGroup: ec2.NewSecurityGroup(this, jsii.String("LaunchTemplateSG"), &SecurityGroupProps{
 		Vpc: vpc,

@@ -59,7 +59,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html
 //
 type CfnIdMappingWorkflowProps struct {
-	// An object which defines the `idMappingType` and the `providerProperties` .
+	// An object which defines the ID mapping technique and any additional configurations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques
 	//
 	IdMappingTechniques interface{} `field:"required" json:"idMappingTechniques" yaml:"idMappingTechniques"`

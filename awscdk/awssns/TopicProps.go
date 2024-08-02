@@ -17,6 +17,9 @@ type TopicProps struct {
 	//
 	ContentBasedDeduplication *bool `field:"optional" json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
 	// A developer-defined string that can be used to identify this SNS topic.
+	//
+	// The display name must be maximum 100 characters long, including hyphens (-),
+	// underscores (_), spaces, and tabs.
 	// Default: None.
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`

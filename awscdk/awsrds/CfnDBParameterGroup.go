@@ -93,7 +93,7 @@ type CfnDBParameterGroup interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An optional array of key-value pairs to apply to this DB parameter group.
+	// Tags to assign to the DB parameter group.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

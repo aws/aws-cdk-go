@@ -9,6 +9,7 @@ import (
 // Example:
 //   bus := events.NewEventBus(this, jsii.String("bus"), &EventBusProps{
 //   	EventBusName: jsii.String("MyCustomEventBus"),
+//   	Description: jsii.String("MyCustomEventBus"),
 //   })
 //
 //   bus.archive(jsii.String("MyArchive"), &BaseArchiveProps{

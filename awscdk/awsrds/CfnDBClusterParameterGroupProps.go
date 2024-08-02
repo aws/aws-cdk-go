@@ -31,23 +31,46 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html
 //
 type CfnDBClusterParameterGroupProps struct {
-	// A friendly description for this DB cluster parameter group.
+	// The description for the DB cluster parameter group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-description
 	//
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// The DB cluster parameter group family name.
 	//
-	// A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
+	// A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
 	//
-	// > The DB cluster parameter group family can't be changed when updating a DB cluster parameter group.
+	// *Aurora MySQL*
 	//
-	// To list all of the available parameter group families, use the following command:
+	// Example: `aurora-mysql5.7` , `aurora-mysql8.0`
 	//
-	// `aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"`
+	// *Aurora PostgreSQL*
 	//
-	// The output contains duplicates.
+	// Example: `aurora-postgresql14`
 	//
-	// For more information, see `[CreateDBClusterParameterGroup](https://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_CreateDBClusterParameterGroup.html)` .
+	// *RDS for MySQL*
+	//
+	// Example: `mysql8.0`
+	//
+	// *RDS for PostgreSQL*
+	//
+	// Example: `postgres13`
+	//
+	// To list all of the available parameter group families for a DB engine, use the following command:
+	//
+	// `aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`
+	//
+	// For example, to list all of the available parameter group families for the Aurora PostgreSQL DB engine, use the following command:
+	//
+	// `aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql`
+	//
+	// > The output contains duplicates.
+	//
+	// The following are the valid DB engine values:
+	//
+	// - `aurora-mysql`
+	// - `aurora-postgresql`
+	// - `mysql`
+	// - `postgres`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-family
 	//
 	Family *string `field:"required" json:"family" yaml:"family"`
@@ -61,13 +84,11 @@ type CfnDBClusterParameterGroupProps struct {
 	//
 	// - Must not match the name of an existing DB cluster parameter group.
 	//
-	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
-	//
 	// > This value is stored as a lowercase string.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-dbclusterparametergroupname
 	//
 	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
-	// An optional array of key-value pairs to apply to this DB cluster parameter group.
+	// Tags to assign to the DB cluster parameter group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

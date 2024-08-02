@@ -106,7 +106,12 @@ type CfnIPAMPoolProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The locale of the IPAM pool.
 	//
-	// In IPAM, the locale is the AWS Region where you want to make an IPAM pool available for allocations. Only resources in the same Region as the locale of the pool can get IP address allocations from the pool. You can only allocate a CIDR for a VPC, for example, from an IPAM pool that shares a locale with the VPC’s Region. Note that once you choose a Locale for a pool, you cannot modify it. If you choose an AWS Region for locale that has not been configured as an operating Region for the IPAM, you'll get an error.
+	// The locale for the pool should be one of the following:
+	//
+	// - An AWS Region where you want this IPAM pool to be available for allocations.
+	// - The network border group for an AWS Local Zone where you want this IPAM pool to be available for allocations ( [supported Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail) ). This option is only available for IPAM IPv4 pools in the public scope.
+	//
+	// If you choose an AWS Region for locale that has not been configured as an operating Region for the IPAM, you'll get an error.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-locale
 	//
 	Locale *string `field:"optional" json:"locale" yaml:"locale"`

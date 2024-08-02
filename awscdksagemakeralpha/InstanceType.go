@@ -519,6 +519,94 @@ func InstanceType_G5_XLARGE() InstanceType {
 	return returns
 }
 
+func InstanceType_G6_12XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"G6_12XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_G6_16XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"G6_16XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_G6_24XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"G6_24XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_G6_2XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"G6_2XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_G6_48XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"G6_48XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_G6_4XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"G6_4XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_G6_8XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"G6_8XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_G6_XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-sagemaker-alpha.InstanceType",
+		"G6_XLARGE",
+		&returns,
+	)
+	return returns
+}
+
 func InstanceType_INF1_24XLARGE() InstanceType {
 	_init_.Initialize()
 	var returns InstanceType

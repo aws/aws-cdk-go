@@ -50,8 +50,6 @@ type CfnDBProxyEndpointProps struct {
 	//
 	Tags *[]*CfnDBProxyEndpoint_TagFormatProperty `field:"optional" json:"tags" yaml:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	//
-	// Valid Values: `READ_WRITE | READ_ONLY`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
 	//
 	TargetRole *string `field:"optional" json:"targetRole" yaml:"targetRole"`

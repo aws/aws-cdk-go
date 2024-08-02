@@ -198,7 +198,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html
 //
 type CfnAssetModelProps struct {
-	// A unique, friendly name for the asset model.
+	// A unique name for the asset model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
 	//
 	AssetModelName *string `field:"required" json:"assetModelName" yaml:"assetModelName"`

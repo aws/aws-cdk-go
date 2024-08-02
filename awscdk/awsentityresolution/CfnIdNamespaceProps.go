@@ -60,7 +60,7 @@ type CfnIdNamespaceProps struct {
 	//
 	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 	//
-	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idnamespace.html#cfn-entityresolution-idnamespace-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

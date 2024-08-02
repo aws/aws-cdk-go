@@ -6,27 +6,17 @@ package awsapigatewayv2
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var connectHandler function
-//   var disconnectHandler function
-//   var defaultHandler function
+//   var messageHandler function
 //
 //
-//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocketApiProps{
-//   	ConnectRouteOptions: &WebSocketRouteOptions{
-//   		Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("ConnectIntegration"), connectHandler),
-//   	},
-//   	DisconnectRouteOptions: &WebSocketRouteOptions{
-//   		Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("DisconnectIntegration"), disconnectHandler),
-//   	},
-//   	DefaultRouteOptions: &WebSocketRouteOptions{
-//   		Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("DefaultIntegration"), defaultHandler),
-//   	},
-//   })
-//
+//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 //   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
 //   	WebSocketApi: WebSocketApi,
 //   	StageName: jsii.String("dev"),
 //   	AutoDeploy: jsii.Boolean(true),
+//   })
+//   webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
+//   	Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
 type WebSocketStageProps struct {
@@ -34,6 +24,10 @@ type WebSocketStageProps struct {
 	// Default: false.
 	//
 	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
+	// The description for the API stage.
+	// Default: - no description.
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The options for custom domain and api mapping.
 	// Default: - no custom domain and api mapping configuration.
 	//

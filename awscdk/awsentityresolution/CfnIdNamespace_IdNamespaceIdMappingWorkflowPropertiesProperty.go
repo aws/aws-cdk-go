@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object containing `IdMappingType` and `ProviderProperties` .
+// An object containing `IdMappingType` , `ProviderProperties` , and `RuleBasedProperties` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

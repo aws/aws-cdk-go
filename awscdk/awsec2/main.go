@@ -8011,6 +8011,20 @@ func init() {
 		reflect.TypeOf((*NatGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.NatGatewayProvider",
+		reflect.TypeOf((*NatGatewayProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configuredGateways", GoGetter: "ConfiguredGateways"},
+			_jsii_.MemberMethod{JsiiMethod: "configureNat", GoMethod: "ConfigureNat"},
+			_jsii_.MemberMethod{JsiiMethod: "configureSubnet", GoMethod: "ConfigureSubnet"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NatGatewayProvider{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_NatProvider)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.NatInstanceImage",
 		reflect.TypeOf((*NatInstanceImage)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -200,6 +200,116 @@ func LogFormat_DST_PORT() LogFormat {
 	return returns
 }
 
+func LogFormat_ECS_CLUSTER_ARN() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_CLUSTER_ARN",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_CLUSTER_NAME() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_CLUSTER_NAME",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_CONTAINER_ID() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_CONTAINER_ID",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_CONTAINER_INSTANCE_ARN() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_CONTAINER_INSTANCE_ARN",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_CONTAINER_INSTANCE_ID() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_CONTAINER_INSTANCE_ID",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_SECOND_CONTAINER_ID() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_SECOND_CONTAINER_ID",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_SERVICE_NAME() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_SERVICE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_TASK_ARN() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_TASK_ARN",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_TASK_DEFINITION_ARN() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_TASK_DEFINITION_ARN",
+		&returns,
+	)
+	return returns
+}
+
+func LogFormat_ECS_TASK_ID() LogFormat {
+	_init_.Initialize()
+	var returns LogFormat
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.LogFormat",
+		"ECS_TASK_ID",
+		&returns,
+	)
+	return returns
+}
+
 func LogFormat_END_TIMESTAMP() LogFormat {
 	_init_.Initialize()
 	var returns LogFormat

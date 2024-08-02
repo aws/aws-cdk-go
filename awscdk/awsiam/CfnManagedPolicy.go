@@ -47,28 +47,13 @@ import (
 type CfnManagedPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The number of principal entities (users, groups, and roles) that the policy is attached to.
 	AttrAttachmentCount() *float64
-	// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was created.
 	AttrCreateDate() *string
-	// The identifier for the version of the policy that is set as the default (operative) version.
-	//
-	// For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide* .
 	AttrDefaultVersionId() *string
-	// Specifies whether the policy can be attached to an IAM user, group, or role.
 	AttrIsAttachable() awscdk.IResolvable
-	// The number of entities (users and roles) for which the policy is used as the permissions boundary.
-	//
-	// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
 	AttrPermissionsBoundaryUsageCount() *float64
 	AttrPolicyArn() *string
-	// The stable and unique string identifying the policy.
-	//
-	// For more information about IDs, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
 	AttrPolicyId() *string
-	// The date and time, in [ISO 8601 date-time format](https://docs.aws.amazon.com/http://www.iso.org/iso/iso8601) , when the policy was last updated.
-	//
-	// When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
 	AttrUpdateDate() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

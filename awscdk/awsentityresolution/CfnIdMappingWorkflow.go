@@ -89,7 +89,7 @@ type CfnIdMappingWorkflow interface {
 	// A description of the workflow.
 	Description() *string
 	SetDescription(val *string)
-	// An object which defines the `idMappingType` and the `providerProperties` .
+	// An object which defines the ID mapping technique and any additional configurations.
 	IdMappingTechniques() interface{}
 	SetIdMappingTechniques(val interface{})
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .

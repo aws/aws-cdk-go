@@ -1,7 +1,7 @@
 package awscleanrooms
 
 
-// Specifies the epislon and noise parameters for the privacy budget template.
+// Specifies the epsilon and noise parameters for the privacy budget template.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

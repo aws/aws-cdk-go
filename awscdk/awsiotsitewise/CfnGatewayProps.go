@@ -42,7 +42,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
 //
 type CfnGatewayProps struct {
-	// A unique, friendly name for the gateway.
+	// A unique name for the gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
 	//
 	GatewayName *string `field:"required" json:"gatewayName" yaml:"gatewayName"`

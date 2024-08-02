@@ -19,6 +19,7 @@ import (
 //   apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
 //   	HttpApi: api,
 //   	StageName: jsii.String("beta"),
+//   	Description: jsii.String("My Stage"),
 //   })
 //
 type HttpStage interface {

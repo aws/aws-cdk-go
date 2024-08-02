@@ -20,8 +20,6 @@ package awsrds
 //
 type CfnDBProxy_AuthFormatProperty struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-	//
-	// Valid Values: `SECRETS`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
 	//
 	AuthScheme *string `field:"optional" json:"authScheme" yaml:"authScheme"`
@@ -33,11 +31,9 @@ type CfnDBProxy_AuthFormatProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+	// A value that indicates whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 	//
 	// The `ENABLED` value is valid only for proxies with RDS for Microsoft SQL Server.
-	//
-	// Valid Values: `ENABLED | DISABLED | REQUIRED`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
 	//
 	IamAuth *string `field:"optional" json:"iamAuth" yaml:"iamAuth"`

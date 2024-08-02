@@ -66,7 +66,7 @@ type CfnDBProxyTargetGroup interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+	// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
 	ConnectionPoolConfigurationInfo() interface{}
 	SetConnectionPoolConfigurationInfo(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

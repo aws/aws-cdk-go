@@ -96,7 +96,7 @@ type CfnIntegration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags.
+	// An optional array of key-value pairs to apply to this integration.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// The ARN of the Redshift data warehouse to use as the target for replication.

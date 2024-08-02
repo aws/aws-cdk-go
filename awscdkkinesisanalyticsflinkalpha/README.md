@@ -34,7 +34,7 @@ stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 
 flinkApp := flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromAsset(path.join(__dirname, jsii.String("code-asset"))),
-	Runtime: flink.Runtime_FLINK_1_18(),
+	Runtime: flink.Runtime_FLINK_1_19(),
 })
 
 cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
@@ -66,7 +66,7 @@ fileKey := asset.S3ObjectKey
 
 flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromBucket(bucket, fileKey),
-	Runtime: flink.Runtime_FLINK_1_18(),
+	Runtime: flink.Runtime_FLINK_1_19(),
 })
 
 app.Synth()
@@ -88,7 +88,7 @@ flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationP
 		},
 	},
 	// ...
-	Runtime: flink.Runtime_FLINK_1_18(),
+	Runtime: flink.Runtime_FLINK_1_19(),
 	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
 })
 ```
@@ -102,7 +102,7 @@ var bucket bucket
 
 flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
-	Runtime: flink.Runtime_FLINK_1_18(),
+	Runtime: flink.Runtime_FLINK_1_19(),
 	CheckpointingEnabled: jsii.Boolean(true),
 	 // default is true
 	CheckpointInterval: awscdk.Duration_Seconds(jsii.Number(30)),
@@ -133,7 +133,7 @@ var vpc vpc
 
 flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
-	Runtime: flink.Runtime_FLINK_1_18(),
+	Runtime: flink.Runtime_FLINK_1_19(),
 	Vpc: Vpc,
 })
 ```

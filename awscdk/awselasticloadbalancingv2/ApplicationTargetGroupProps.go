@@ -11,15 +11,11 @@ import (
 //   var vpc vpc
 //
 //
+//   // Target group with slow start mode enabled
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{
-//   	TargetType: elbv2.TargetType_IP,
-//   	Port: jsii.Number(50051),
-//   	Protocol: elbv2.ApplicationProtocol_HTTP,
-//   	ProtocolVersion: elbv2.ApplicationProtocolVersion_GRPC,
-//   	HealthCheck: &HealthCheck{
-//   		Enabled: jsii.Boolean(true),
-//   		HealthyGrpcCodes: jsii.String("0-99"),
-//   	},
+//   	TargetType: elbv2.TargetType_INSTANCE,
+//   	SlowStart: awscdk.Duration_Seconds(jsii.Number(60)),
+//   	Port: jsii.Number(80),
 //   	Vpc: Vpc,
 //   })
 //
@@ -58,6 +54,14 @@ type ApplicationTargetGroupProps struct {
 	// Default: - undefined.
 	//
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
+	// Indicates whether anomaly mitigation is enabled.
+	//
+	// Only available when `loadBalancingAlgorithmType` is `TargetGroupLoadBalancingAlgorithmType.WEIGHTED_RANDOM`
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights
+	//
+	// Default: false.
+	//
+	EnableAnomalyMitigation *bool `field:"optional" json:"enableAnomalyMitigation" yaml:"enableAnomalyMitigation"`
 	// The load balancing algorithm to select targets for routing requests.
 	// Default: TargetGroupLoadBalancingAlgorithmType.ROUND_ROBIN
 	//

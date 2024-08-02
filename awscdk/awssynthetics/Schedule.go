@@ -17,9 +17,7 @@ import (
 //   		Handler: jsii.String("index.handler"),
 //   	}),
 //   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
-//   	EnvironmentVariables: map[string]*string{
-//   		"stage": jsii.String("prod"),
-//   	},
+//   	ActiveTracing: jsii.Boolean(true),
 //   })
 //
 type Schedule interface {

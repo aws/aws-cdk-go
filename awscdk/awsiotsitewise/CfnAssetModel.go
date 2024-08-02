@@ -225,7 +225,7 @@ type CfnAssetModel interface {
 	// The hierarchy definitions of the asset model.
 	AssetModelHierarchies() interface{}
 	SetAssetModelHierarchies(val interface{})
-	// A unique, friendly name for the asset model.
+	// A unique name for the asset model.
 	AssetModelName() *string
 	SetAssetModelName(val *string)
 	// The property definitions of the asset model.

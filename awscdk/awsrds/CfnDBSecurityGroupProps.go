@@ -43,13 +43,17 @@ type CfnDBSecurityGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsecuritygroup.html#cfn-rds-dbsecuritygroup-groupdescription
 	//
 	GroupDescription *string `field:"required" json:"groupDescription" yaml:"groupDescription"`
-	// The identifier of an Amazon VPC. This property indicates the VPC that this DB security group belongs to.
+	// The identifier of an Amazon virtual private cloud (VPC).
 	//
-	// > The `EC2VpcId` property is for backward compatibility with older regions, and is no longer recommended for providing security information to an RDS DB instance.
+	// This property indicates the VPC that this DB security group belongs to.
+	//
+	// > This property is included for backwards compatibility and is no longer recommended for providing security information to an RDS DB instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsecuritygroup.html#cfn-rds-dbsecuritygroup-ec2vpcid
 	//
 	Ec2VpcId *string `field:"optional" json:"ec2VpcId" yaml:"ec2VpcId"`
-	// An optional array of key-value pairs to apply to this DB security group.
+	// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+	//
+	// For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsecuritygroup.html#cfn-rds-dbsecuritygroup-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

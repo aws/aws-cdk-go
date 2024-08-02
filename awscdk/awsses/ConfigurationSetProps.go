@@ -28,7 +28,7 @@ type ConfigurationSetProps struct {
 	//
 	DedicatedIpPool IDedicatedIpPool `field:"optional" json:"dedicatedIpPool" yaml:"dedicatedIpPool"`
 	// Whether to publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
-	// Default: false.
+	// Default: true.
 	//
 	ReputationMetrics *bool `field:"optional" json:"reputationMetrics" yaml:"reputationMetrics"`
 	// Whether email sending is enabled.

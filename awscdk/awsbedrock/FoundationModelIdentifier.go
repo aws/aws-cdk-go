@@ -15,16 +15,8 @@ import (
 //
 //   task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
 //   	Model: Model,
-//   	Body: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"inputText": jsii.String("Generate a list of five first names."),
-//   		"textGenerationConfig": map[string]*f64{
-//   			"maxTokenCount": jsii.Number(100),
-//   			"temperature": jsii.Number(1),
-//   		},
-//   	}),
-//   	ResultSelector: map[string]interface{}{
-//   		"names": sfn.JsonPath_stringAt(jsii.String("$.Body.results[0].outputText")),
-//   	},
+//   	InputPath: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
+//   	OutputPath: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
@@ -728,6 +720,39 @@ func FoundationModelIdentifier_META_LLAMA_2_CHAT_70B_V1() FoundationModelIdentif
 	return returns
 }
 
+func FoundationModelIdentifier_META_LLAMA_3_1_405_INSTRUCT_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_1_405_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_3_1_70_INSTRUCT_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_1_70_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_3_1_8B_INSTRUCT_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_1_8B_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_META_LLAMA_3_70_INSTRUCT_V1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -745,6 +770,17 @@ func FoundationModelIdentifier_META_LLAMA_3_8B_INSTRUCT_V1() FoundationModelIden
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"META_LLAMA_3_8B_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_MISTRAL_LARGE_2_V0_1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"MISTRAL_LARGE_2_V0_1",
 		&returns,
 	)
 	return returns

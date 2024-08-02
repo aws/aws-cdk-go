@@ -319,7 +319,9 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-customiaminstanceprofile
 	//
 	CustomIamInstanceProfile *string `field:"optional" json:"customIamInstanceProfile" yaml:"customIamInstanceProfile"`
-	// The identifier of the DB cluster that the instance will belong to.
+	// The identifier of the DB cluster that this DB instance will belong to.
+	//
+	// This setting doesn't apply to RDS Custom DB instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbclusteridentifier
 	//
 	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
@@ -474,7 +476,6 @@ type CfnDBInstanceProps struct {
 	// - `DBClusterIdentifier`
 	// - `DBName`
 	// - `DeleteAutomatedBackups`
-	// - `EnablePerformanceInsights`
 	// - `KmsKeyId`
 	// - `MasterUsername`
 	// - `MasterUserPassword`
@@ -498,11 +499,9 @@ type CfnDBInstanceProps struct {
 	//
 	// If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
 	//
-	// For more information about using Amazon RDS in a VPC, see [Using Amazon RDS with Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide* .
+	// For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide* .
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+	// This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsubnetgroupname
 	//
 	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
@@ -520,13 +519,11 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-deleteautomatedbackups
 	//
 	DeleteAutomatedBackups interface{} `field:"optional" json:"deleteAutomatedBackups" yaml:"deleteAutomatedBackups"`
-	// A value that indicates whether the DB instance has deletion protection enabled.
+	// Specifies whether the DB instance has deletion protection enabled.
 	//
-	// The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html) .
+	// The database can't be deleted when deletion protection is enabled. By default, deletion protection isn't enabled. For more information, see [Deleting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html) .
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. You can enable or disable deletion protection for the DB cluster. For more information, see `CreateDBCluster` . DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
+	// This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable deletion protection for the DB cluster. For more information, see `CreateDBCluster` . DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-deletionprotection
 	//
 	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
@@ -899,13 +896,15 @@ type CfnDBInstanceProps struct {
 	MaxAllocatedStorage *float64 `field:"optional" json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	//
-	// To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.
+	// To disable collection of Enhanced Monitoring metrics, specify `0` .
 	//
-	// If `MonitoringRoleArn` is specified, then you must set `MonitoringInterval` to a value other than 0.
+	// If `MonitoringRoleArn` is specified, then you must set `MonitoringInterval` to a value other than `0` .
 	//
-	// This setting doesn't apply to RDS Custom.
+	// This setting doesn't apply to RDS Custom DB instances.
 	//
-	// Valid Values: `0, 1, 5, 10, 15, 30, 60`.
+	// Valid Values: `0 | 1 | 5 | 10 | 15 | 30 | 60`
+	//
+	// Default: `0`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-monitoringinterval
 	//
 	// Default: - 0.
@@ -921,15 +920,14 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-monitoringrolearn
 	//
 	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
-	// Specifies whether the database instance is a Multi-AZ DB instance deployment.
+	// Specifies whether the DB instance is a Multi-AZ deployment.
 	//
-	// You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to true.
+	// You can't set the `AvailabilityZone` parameter if the DB instance is a Multi-AZ deployment.
 	//
-	// For more information, see [Multi-AZ deployments for high availability](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) in the *Amazon RDS User Guide* .
+	// This setting doesn't apply to the following DB instances:
 	//
-	// *Amazon Aurora*
-	//
-	// Not applicable. Amazon Aurora storage is replicated across all of the Availability Zones and doesn't require the `MultiAZ` option to be set.
+	// - Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
+	// - RDS Custom.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-multiaz
 	//
 	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`
@@ -986,13 +984,22 @@ type CfnDBInstanceProps struct {
 	PerformanceInsightsRetentionPeriod *float64 `field:"optional" json:"performanceInsightsRetentionPeriod" yaml:"performanceInsightsRetentionPeriod"`
 	// The port number on which the database accepts connections.
 	//
-	// *Amazon Aurora*
+	// This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
 	//
-	// Not applicable. The port number is managed by the DB cluster.
+	// Valid Values: `1150-65535`
 	//
-	// *Db2*
+	// Default:
 	//
-	// Default value: `50000`.
+	// - RDS for Db2 - `50000`
+	// - RDS for MariaDB - `3306`
+	// - RDS for Microsoft SQL Server - `1433`
+	// - RDS for MySQL - `3306`
+	// - RDS for Oracle - `1521`
+	// - RDS for PostgreSQL - `5432`
+	//
+	// Constraints:
+	//
+	// - For RDS for Microsoft SQL Server, the value can't be `1234` , `1434` , `3260` , `3343` , `3389` , `47001` , or `49152-49156` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-port
 	//
 	Port *string `field:"optional" json:"port" yaml:"port"`
@@ -1157,7 +1164,7 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
-	// An optional array of key-value pairs to apply to this DB instance.
+	// Tags to assign to the DB instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

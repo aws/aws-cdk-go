@@ -16,6 +16,9 @@ import (
 // Define a new Canary.
 //
 // Example:
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 //   	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
 //   	Test: synthetics.Test_Custom(&CustomTestOptions{
@@ -23,9 +26,7 @@ import (
 //   		Handler: jsii.String("index.handler"),
 //   	}),
 //   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
-//   	EnvironmentVariables: map[string]*string{
-//   		"stage": jsii.String("prod"),
-//   	},
+//   	Memory: cdk.Size_Mebibytes(jsii.Number(1024)),
 //   })
 //
 type Canary interface {

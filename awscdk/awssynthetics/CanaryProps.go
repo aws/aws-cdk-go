@@ -10,6 +10,9 @@ import (
 // Properties for a canary.
 //
 // Example:
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 //   	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
 //   	Test: synthetics.Test_Custom(&CustomTestOptions{
@@ -17,9 +20,7 @@ import (
 //   		Handler: jsii.String("index.handler"),
 //   	}),
 //   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
-//   	EnvironmentVariables: map[string]*string{
-//   		"stage": jsii.String("prod"),
-//   	},
+//   	Memory: cdk.Size_Mebibytes(jsii.Number(1024)),
 //   })
 //
 type CanaryProps struct {
@@ -31,6 +32,17 @@ type CanaryProps struct {
 	//
 	// Use `Test.custom()` to specify the test to run.
 	Test Test `field:"required" json:"test" yaml:"test"`
+	// Specifies whether this canary is to use active AWS X-Ray tracing when it runs.
+	//
+	// Active tracing enables this canary run to be displayed in the ServiceLens and X-Ray service maps even if the
+	// canary does not hit an endpoint that has X-Ray tracing enabled. Using X-Ray tracing incurs charges.
+	//
+	// You can enable active tracing only for canaries that use version `syn-nodejs-2.0` or later for their canary runtime.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html
+	//
+	// Default: false.
+	//
+	ActiveTracing *bool `field:"optional" json:"activeTracing" yaml:"activeTracing"`
 	// Lifecycle rules for the generated canary artifact bucket.
 	//
 	// Has no effect
@@ -74,6 +86,13 @@ type CanaryProps struct {
 	// Default: Duration.days(31)
 	//
 	FailureRetentionPeriod awscdk.Duration `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
+	// The maximum amount of memory that the canary can use while running.
+	//
+	// This value must be a multiple of 64 Mib.
+	// The range is 960 MiB to 3008 MiB.
+	// Default: Size.mebibytes(1024)
+	//
+	Memory awscdk.Size `field:"optional" json:"memory" yaml:"memory"`
 	// Canary execution role.
 	//
 	// This is the role that will be assumed by the canary upon execution.
@@ -110,6 +129,15 @@ type CanaryProps struct {
 	// Default: Duration.days(31)
 	//
 	SuccessRetentionPeriod awscdk.Duration `field:"optional" json:"successRetentionPeriod" yaml:"successRetentionPeriod"`
+	// How long the canary is allowed to run before it must stop.
+	//
+	// You can't set this time to be longer than the frequency of the runs of this canary.
+	//
+	// The minimum allowed value is 3 seconds.
+	// The maximum allowed value is 840 seconds (14 minutes).
+	// Default: - the frequency of the canary is used as this value, up to a maximum of 900 seconds.
+	//
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// How long the canary will be in a 'RUNNING' state.
 	//
 	// For example, if you set `timeToLive` to be 1 hour and `schedule` to be `rate(10 minutes)`,

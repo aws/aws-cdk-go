@@ -22,7 +22,7 @@ package awspipes
 type CfnPipe_SelfManagedKafkaAccessConfigurationVpcProperty struct {
 	// Specifies the security groups associated with the stream.
 	//
-	// These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+	// These security groups must all be in the same VPC. You can specify as many as five security groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc.html#cfn-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc-securitygroup
 	//
 	SecurityGroup *[]*string `field:"optional" json:"securityGroup" yaml:"securityGroup"`

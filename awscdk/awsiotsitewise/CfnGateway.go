@@ -66,7 +66,7 @@ type CfnGateway interface {
 	// A list of gateway capability summaries that each contain a namespace and status.
 	GatewayCapabilitySummaries() interface{}
 	SetGatewayCapabilitySummaries(val interface{})
-	// A unique, friendly name for the gateway.
+	// A unique name for the gateway.
 	GatewayName() *string
 	SetGatewayName(val *string)
 	// The gateway's platform.

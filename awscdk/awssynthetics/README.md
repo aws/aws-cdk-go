@@ -87,6 +87,64 @@ schedule := synthetics.Schedule_Cron(&CronOptions{
 
 If you want the canary to run just once upon deployment, you can use `Schedule.once()`.
 
+### Active Tracing
+
+You can choose to enable active AWS X-Ray tracing on canaries that use the `syn-nodejs-2.0` or later runtime by setting `activeTracing` to `true`.
+
+With tracing enabled, traces are sent for all calls made by the canary that use the browser, the AWS SDK, or HTTP or HTTPS modules.
+
+For more information, see [Canaries and X-Ray tracing](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html).
+
+```go
+canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
+	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
+		Handler: jsii.String("index.handler"),
+	}),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
+	ActiveTracing: jsii.Boolean(true),
+})
+```
+
+### Memory
+
+You can set the maximum amount of memory the canary can use while running with the `memory` property.
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
+	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
+		Handler: jsii.String("index.handler"),
+	}),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
+	Memory: cdk.Size_Mebibytes(jsii.Number(1024)),
+})
+```
+
+### Timeout
+
+You can set how long the canary is allowed to run before it must stop with the `timeout` property.
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
+	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
+		Handler: jsii.String("index.handler"),
+	}),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
+	Timeout: cdk.Duration_Seconds(jsii.Number(60)),
+})
+```
+
 ### Deleting underlying resources on canary deletion
 
 When you delete a lambda, the following underlying resources are isolated in your AWS account:

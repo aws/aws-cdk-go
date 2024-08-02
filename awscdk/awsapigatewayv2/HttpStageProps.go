@@ -10,6 +10,7 @@ package awsapigatewayv2
 //   apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
 //   	HttpApi: api,
 //   	StageName: jsii.String("beta"),
+//   	Description: jsii.String("My Stage"),
 //   })
 //
 type HttpStageProps struct {
@@ -17,6 +18,10 @@ type HttpStageProps struct {
 	// Default: false.
 	//
 	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
+	// The description for the API stage.
+	// Default: - no description.
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The options for custom domain and api mapping.
 	// Default: - no custom domain and api mapping configuration.
 	//

@@ -18,7 +18,7 @@ package awsentityresolution
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-idnamespaceinputsource.html
 //
 type CfnIdNamespace_IdNamespaceInputSourceProperty struct {
-	// An AWS Glue table ARN for the input source table.
+	// An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-idnamespaceinputsource.html#cfn-entityresolution-idnamespace-idnamespaceinputsource-inputsourcearn
 	//
 	InputSourceArn *string `field:"required" json:"inputSourceArn" yaml:"inputSourceArn"`

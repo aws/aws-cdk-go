@@ -494,6 +494,27 @@ tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTarge
 })
 ```
 
+### Weighted random routing algorithms and automatic target weights for your Application Load Balancer
+
+You can use the `weighted_random` routing algorithms by setting the `loadBalancingAlgorithmType` property.
+
+When using this algorithm, Automatic Target Weights (ATW) anomaly mitigation can be used by setting `enableAnomalyMitigation` to `true`.
+
+Also you can't use this algorithm with slow start mode.
+
+For more information, see [Routing algorithms](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#modify-routing-algorithm) and [Automatic Target Weights (ATW)](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights).
+
+```go
+var vpc vpc
+
+
+tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &ApplicationTargetGroupProps{
+	Vpc: Vpc,
+	LoadBalancingAlgorithmType: elbv2.TargetGroupLoadBalancingAlgorithmType_WEIGHTED_RANDOM,
+	EnableAnomalyMitigation: jsii.Boolean(true),
+})
+```
+
 ## Using Lambda Targets
 
 To use a Lambda Function as a target, use the integration class in the

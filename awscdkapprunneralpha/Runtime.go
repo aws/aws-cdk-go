@@ -145,6 +145,17 @@ func Runtime_NODEJS_16() Runtime {
 	return returns
 }
 
+func Runtime_NODEJS_18() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Runtime",
+		"NODEJS_18",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_PHP_81() Runtime {
 	_init_.Initialize()
 	var returns Runtime
@@ -162,6 +173,17 @@ func Runtime_PYTHON_3() Runtime {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-apprunner-alpha.Runtime",
 		"PYTHON_3",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_PYTHON_311() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-apprunner-alpha.Runtime",
+		"PYTHON_311",
 		&returns,
 	)
 	return returns

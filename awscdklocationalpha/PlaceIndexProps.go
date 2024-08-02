@@ -28,6 +28,9 @@ type PlaceIndexProps struct {
 	// Experimental.
 	IntendedUse IntendedUse `field:"optional" json:"intendedUse" yaml:"intendedUse"`
 	// A name for the place index.
+	//
+	// Must be between 1 and 100 characters and contain only alphanumeric characters,
+	// hyphens, periods and underscores.
 	// Default: - A name is automatically generated.
 	//
 	// Experimental.

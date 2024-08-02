@@ -150,6 +150,7 @@ var api httpApi
 apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
 	HttpApi: api,
 	StageName: jsii.String("beta"),
+	Description: jsii.String("My Stage"),
 })
 ```
 
@@ -405,6 +406,7 @@ webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocket
 apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
 	WebSocketApi: WebSocketApi,
 	StageName: jsii.String("dev"),
+	Description: jsii.String("My Stage"),
 	AutoDeploy: jsii.Boolean(true),
 })
 ```

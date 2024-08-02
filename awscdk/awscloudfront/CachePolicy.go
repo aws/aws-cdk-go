@@ -307,6 +307,28 @@ func CachePolicy_ELEMENTAL_MEDIA_PACKAGE() ICachePolicy {
 	return returns
 }
 
+func CachePolicy_USE_ORIGIN_CACHE_CONTROL_HEADERS() ICachePolicy {
+	_init_.Initialize()
+	var returns ICachePolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.CachePolicy",
+		"USE_ORIGIN_CACHE_CONTROL_HEADERS",
+		&returns,
+	)
+	return returns
+}
+
+func CachePolicy_USE_ORIGIN_CACHE_CONTROL_HEADERS_QUERY_STRINGS() ICachePolicy {
+	_init_.Initialize()
+	var returns ICachePolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.CachePolicy",
+		"USE_ORIGIN_CACHE_CONTROL_HEADERS_QUERY_STRINGS",
+		&returns,
+	)
+	return returns
+}
+
 func (c *jsiiProxy_CachePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	if err := c.validateApplyRemovalPolicyParameters(policy); err != nil {
 		panic(err)

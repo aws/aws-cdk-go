@@ -15,7 +15,7 @@ import (
 //
 // > If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
 // >
-// > If you apply a change to parameter group associated with a stopped DB cluster, then the update stack waits until the DB cluster is started.
+// > If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -57,7 +57,7 @@ type CfnDBClusterParameterGroup interface {
 	// The name of the DB cluster parameter group.
 	DbClusterParameterGroupName() *string
 	SetDbClusterParameterGroupName(val *string)
-	// A friendly description for this DB cluster parameter group.
+	// The description for the DB cluster parameter group.
 	Description() *string
 	SetDescription(val *string)
 	// The DB cluster parameter group family name.
@@ -89,7 +89,7 @@ type CfnDBClusterParameterGroup interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An optional array of key-value pairs to apply to this DB cluster parameter group.
+	// Tags to assign to the DB cluster parameter group.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

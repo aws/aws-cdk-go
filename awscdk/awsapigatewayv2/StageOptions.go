@@ -14,6 +14,7 @@ package awsapigatewayv2
 //
 //   stageOptions := &StageOptions{
 //   	AutoDeploy: jsii.Boolean(false),
+//   	Description: jsii.String("description"),
 //   	DomainMapping: &DomainMappingOptions{
 //   		DomainName: domainName,
 //
@@ -31,6 +32,10 @@ type StageOptions struct {
 	// Default: false.
 	//
 	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
+	// The description for the API stage.
+	// Default: - no description.
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The options for custom domain and api mapping.
 	// Default: - no custom domain and api mapping configuration.
 	//

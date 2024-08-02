@@ -8,7 +8,7 @@ package awscdkkinesisanalyticsflinkalpha
 //
 //   flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 //   	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
-//   	Runtime: flink.Runtime_FLINK_1_18(),
+//   	Runtime: flink.Runtime_FLINK_1_19(),
 //   	CheckpointingEnabled: jsii.Boolean(true),
 //   	 // default is true
 //   	CheckpointInterval: awscdk.Duration_Seconds(jsii.Number(30)),

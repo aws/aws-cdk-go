@@ -28,5 +28,7 @@ const (
 	AdotLambdaExecWrapper_STREAM_HANDLER AdotLambdaExecWrapper = "STREAM_HANDLER"
 	// Wrapping python lambda handlers see https://aws-otel.github.io/docs/getting-started/lambda/lambda-python.
 	AdotLambdaExecWrapper_INSTRUMENT_HANDLER AdotLambdaExecWrapper = "INSTRUMENT_HANDLER"
+	// Wrapping SQS-triggered function handlers (implementing RequestHandler).
+	AdotLambdaExecWrapper_SQS_HANDLER AdotLambdaExecWrapper = "SQS_HANDLER"
 )
 

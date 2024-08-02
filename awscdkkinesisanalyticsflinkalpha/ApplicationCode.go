@@ -22,7 +22,7 @@ import (
 //
 //   flinkApp := flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
 //   	Code: flink.ApplicationCode_FromAsset(path.join(__dirname, jsii.String("code-asset"))),
-//   	Runtime: flink.Runtime_FLINK_1_18(),
+//   	Runtime: flink.Runtime_FLINK_1_19(),
 //   })
 //
 //   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{

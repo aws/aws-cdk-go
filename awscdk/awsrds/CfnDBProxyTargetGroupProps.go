@@ -43,7 +43,7 @@ type CfnDBProxyTargetGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
 	//
 	TargetGroupName *string `field:"required" json:"targetGroupName" yaml:"targetGroupName"`
-	// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+	// Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
 	//
 	ConnectionPoolConfigurationInfo interface{} `field:"optional" json:"connectionPoolConfigurationInfo" yaml:"connectionPoolConfigurationInfo"`

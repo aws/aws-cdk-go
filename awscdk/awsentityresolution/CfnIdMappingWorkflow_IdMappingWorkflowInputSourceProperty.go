@@ -19,7 +19,7 @@ package awsentityresolution
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html
 //
 type CfnIdMappingWorkflow_IdMappingWorkflowInputSourceProperty struct {
-	// An AWS Glue table ARN for the input source table.
+	// An AWS Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-inputsourcearn
 	//
 	InputSourceArn *string `field:"required" json:"inputSourceArn" yaml:"inputSourceArn"`
@@ -31,7 +31,7 @@ type CfnIdMappingWorkflow_IdMappingWorkflowInputSourceProperty struct {
 	//
 	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
 	//
-	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	// The `TARGET` contains a configuration of `targetId` which all `sourceIds` will resolve to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html#cfn-entityresolution-idmappingworkflow-idmappingworkflowinputsource-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

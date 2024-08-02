@@ -61,7 +61,7 @@ type SourcedConfigurationProps struct {
 	// The location where the configuration is stored.
 	Location ConfigurationSource `field:"required" json:"location" yaml:"location"`
 	// The IAM role to retrieve the configuration.
-	// Default: - A role is generated.
+	// Default: - Auto generated if location type is not ConfigurationSourceType.CODE_PIPELINE otherwise no role specified.
 	//
 	RetrievalRole awsiam.IRole `field:"optional" json:"retrievalRole" yaml:"retrievalRole"`
 	// The version number of the sourced configuration to deploy.

@@ -62,6 +62,14 @@ type AddApplicationTargetsProps struct {
 	// Default: Duration.minutes(5)
 	//
 	DeregistrationDelay awscdk.Duration `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
+	// Indicates whether anomaly mitigation is enabled.
+	//
+	// Only available when `loadBalancingAlgorithmType` is `TargetGroupLoadBalancingAlgorithmType.WEIGHTED_RANDOM`
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights
+	//
+	// Default: false.
+	//
+	EnableAnomalyMitigation *bool `field:"optional" json:"enableAnomalyMitigation" yaml:"enableAnomalyMitigation"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//

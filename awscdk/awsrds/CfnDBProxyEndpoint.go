@@ -46,15 +46,17 @@ type CfnDBProxyEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) representing the DB proxy endpoint.
+	// The Amazon Resource Name (ARN) for the DB proxy endpoint.
 	AttrDbProxyEndpointArn() *string
-	// The custom endpoint for the RDS DB instance or Aurora DB cluster.
+	// The endpoint that you can use to connect to the DB proxy.
+	//
+	// You include the endpoint value in the connection string for a database client application.
 	AttrEndpoint() *string
-	// A value that indicates whether this endpoint is the default endpoint for the associated DB proxy.
+	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
 	//
 	// Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
 	AttrIsDefault() awscdk.IResolvable
-	// The VPC ID of the DB proxy endpoint.
+	// Provides the VPC ID of the DB proxy endpoint.
 	AttrVpcId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager

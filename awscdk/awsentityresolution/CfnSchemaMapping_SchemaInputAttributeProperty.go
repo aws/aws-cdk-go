@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object containing `FieldName` , `Type` , `GroupName` , `MatchKey` , and `SubType` .
+// An object containing `FieldName` , `Type` , `GroupName` , `MatchKey` , `Hashing` , and `SubType` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,7 +37,9 @@ type CfnSchemaMapping_SchemaInputAttributeProperty struct {
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// A key that allows grouping of multiple input attributes into a unified matching group.
 	//
-	// For example, consider a scenario where the source table contains various addresses, such as `business_address` and `shipping_address` . By assigning a `matchKey` called `address` to both attributes, AWS Entity Resolution will match records across these fields to create a consolidated matching group. If no `matchKey` is specified for a column, it won't be utilized for matching purposes but will still be included in the output table.
+	// For example, consider a scenario where the source table contains various addresses, such as `business_address` and `shipping_address` . By assigning a `matchKey` called `address` to both attributes, AWS Entity Resolution will match records across these fields to create a consolidated matching group.
+	//
+	// If no `matchKey` is specified for a column, it won't be utilized for matching purposes but will still be included in the output table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-schemamapping-schemainputattribute.html#cfn-entityresolution-schemamapping-schemainputattribute-matchkey
 	//
 	MatchKey *string `field:"optional" json:"matchKey" yaml:"matchKey"`

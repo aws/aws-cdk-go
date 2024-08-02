@@ -19,6 +19,7 @@ func init() {
 			"PROXY_HANDLER": AdotLambdaExecWrapper_PROXY_HANDLER,
 			"STREAM_HANDLER": AdotLambdaExecWrapper_STREAM_HANDLER,
 			"INSTRUMENT_HANDLER": AdotLambdaExecWrapper_INSTRUMENT_HANDLER,
+			"SQS_HANDLER": AdotLambdaExecWrapper_SQS_HANDLER,
 		},
 	)
 	_jsii_.RegisterClass(

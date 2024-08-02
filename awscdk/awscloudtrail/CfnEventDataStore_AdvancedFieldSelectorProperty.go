@@ -99,6 +99,8 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - `AWS::ManagedBlockchain::Node`
 	// - `AWS::MedicalImaging::Datastore`
 	// - `AWS::NeptuneGraph::Graph`
+	// - `AWS::One::UKey`
+	// - `AWS::One::User`
 	// - `AWS::PaymentCryptography::Alias`
 	// - `AWS::PaymentCryptography::Key`
 	// - `AWS::PCAConnectorAD::Connector`

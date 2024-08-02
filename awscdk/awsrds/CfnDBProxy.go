@@ -64,9 +64,11 @@ type CfnDBProxy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) representing the target group.
+	// The Amazon Resource Name (ARN) for the proxy.
 	AttrDbProxyArn() *string
-	// The writer endpoint for the RDS DB instance or Aurora DB cluster.
+	// The endpoint that you can use to connect to the DB proxy.
+	//
+	// You include the endpoint value in the connection string for a database client application.
 	AttrEndpoint() *string
 	// The VPC ID to associate with the DB proxy.
 	AttrVpcId() *string

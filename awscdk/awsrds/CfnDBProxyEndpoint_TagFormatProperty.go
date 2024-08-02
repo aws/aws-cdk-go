@@ -1,7 +1,9 @@
 package awsrds
 
 
-// Metadata assigned to a DB proxy endpoint consisting of a key-value pair.
+// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+//
+// For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,13 +18,15 @@ package awsrds
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
 //
 type CfnDBProxyEndpoint_TagFormatProperty struct {
-	// A value is the optional value of the tag.
+	// A key is the required name of the tag.
 	//
-	// The string value can be 1-256 Unicode characters in length and can't be prefixed with `aws:` . The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+	// The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with `aws:` or `rds:` . The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
 	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
-	// Metadata assigned to a DB instance consisting of a key-value pair.
+	// A value is the optional value of the tag.
+	//
+	// The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with `aws:` or `rds:` . The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

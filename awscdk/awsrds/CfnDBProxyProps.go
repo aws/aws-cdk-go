@@ -56,8 +56,6 @@ type CfnDBProxyProps struct {
 	// The kinds of databases that the proxy can connect to.
 	//
 	// This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL` . For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL` . For RDS for Microsoft SQL Server, specify `SQLSERVER` .
-	//
-	// *Valid Values* : `MYSQL` | `POSTGRESQL` | `SQLSERVER`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
 	//
 	EngineFamily *string `field:"required" json:"engineFamily" yaml:"engineFamily"`

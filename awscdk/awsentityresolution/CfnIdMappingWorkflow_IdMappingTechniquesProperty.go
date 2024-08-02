@@ -1,7 +1,7 @@
 package awsentityresolution
 
 
-// An object which defines the ID mapping techniques and provider configurations.
+// An object which defines the ID mapping technique and any additional configurations.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

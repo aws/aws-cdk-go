@@ -85,7 +85,7 @@ type CfnDBSubnetGroup interface {
 	SetSubnetIds(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An optional array of key-value pairs to apply to this DB subnet group.
+	// Tags to assign to the DB subnet group.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -81,7 +81,7 @@ type CfnPrivacyBudgetTemplate interface {
 	SetMembershipIdentifier(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the epislon and noise parameters for the privacy budget template.
+	// Specifies the epsilon and noise parameters for the privacy budget template.
 	Parameters() interface{}
 	SetParameters(val interface{})
 	// Specifies the type of the privacy budget template.

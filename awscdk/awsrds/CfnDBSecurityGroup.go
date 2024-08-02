@@ -58,9 +58,7 @@ type CfnDBSecurityGroup interface {
 	// Ingress rules to be applied to the DB security group.
 	DbSecurityGroupIngress() interface{}
 	SetDbSecurityGroupIngress(val interface{})
-	// The identifier of an Amazon VPC.
-	//
-	// This property indicates the VPC that this DB security group belongs to.
+	// The identifier of an Amazon virtual private cloud (VPC).
 	Ec2VpcId() *string
 	SetEc2VpcId(val *string)
 	// Provides the description of the DB security group.
@@ -89,7 +87,7 @@ type CfnDBSecurityGroup interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An optional array of key-value pairs to apply to this DB security group.
+	// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

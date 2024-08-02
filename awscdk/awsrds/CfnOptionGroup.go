@@ -85,7 +85,7 @@ type CfnOptionGroup interface {
 	SetMajorEngineVersion(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// A list of options and the settings for each option.
+	// A list of all available options.
 	OptionConfigurations() interface{}
 	SetOptionConfigurations(val interface{})
 	// The description of the option group.
@@ -105,7 +105,7 @@ type CfnOptionGroup interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An optional array of key-value pairs to apply to this option group.
+	// Tags to assign to the option group.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

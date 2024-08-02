@@ -28,7 +28,7 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	//
 	// - `INTERSECTION` : StackSet deploys to the accounts specified in the `Accounts` parameter.
 	// - `DIFFERENCE` : StackSet deploys to the OU, excluding the accounts specified in the `Accounts` parameter.
-	// - `UNION` isn't supported when using StackSet as a resource.
+	// - `UNION` StackSet deploys to the OU, and the accounts specified in the `Accounts` parameter. `UNION` is not supported for create operations when using StackSet as a resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountfiltertype
 	//
 	AccountFilterType *string `field:"optional" json:"accountFilterType" yaml:"accountFilterType"`

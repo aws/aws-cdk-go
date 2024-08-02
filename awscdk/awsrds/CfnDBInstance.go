@@ -251,7 +251,7 @@ type CfnDBInstance interface {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile() *string
 	SetCustomIamInstanceProfile(val *string)
-	// The identifier of the DB cluster that the instance will belong to.
+	// The identifier of the DB cluster that this DB instance will belong to.
 	DbClusterIdentifier() *string
 	SetDbClusterIdentifier(val *string)
 	// The identifier for the Multi-AZ DB cluster snapshot to restore from.
@@ -284,7 +284,7 @@ type CfnDBInstance interface {
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups() interface{}
 	SetDeleteAutomatedBackups(val interface{})
-	// A value that indicates whether the DB instance has deletion protection enabled.
+	// Specifies whether the DB instance has deletion protection enabled.
 	DeletionProtection() interface{}
 	SetDeletionProtection(val interface{})
 	// The Active Directory directory ID to create the DB instance in.
@@ -368,7 +368,7 @@ type CfnDBInstance interface {
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn() *string
 	SetMonitoringRoleArn(val *string)
-	// Specifies whether the database instance is a Multi-AZ DB instance deployment.
+	// Specifies whether the DB instance is a Multi-AZ deployment.
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
 	// The name of the NCHAR character set for the Oracle DB instance.
@@ -451,7 +451,7 @@ type CfnDBInstance interface {
 	SetStorageType(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An optional array of key-value pairs to apply to this DB instance.
+	// Tags to assign to the DB instance.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated: this property has been deprecated.

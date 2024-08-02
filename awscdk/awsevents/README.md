@@ -233,6 +233,7 @@ It is possible to archive all or some events sent to an event bus. It is then po
 ```go
 bus := events.NewEventBus(this, jsii.String("bus"), &EventBusProps{
 	EventBusName: jsii.String("MyCustomEventBus"),
+	Description: jsii.String("MyCustomEventBus"),
 })
 
 bus.archive(jsii.String("MyArchive"), &BaseArchiveProps{
@@ -263,3 +264,22 @@ eventBus := events.EventBus_FromEventBusArn(this, jsii.String("ImportedEventBus"
 // now you can just call methods on the eventbus
 eventBus.GrantPutEventsTo(lambdaFunction)
 ```
+
+## Use a customer managed key
+
+To use a customer managed key for events on the event bus, use the `kmsKey` attribute.
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+var kmsKey iKey
+
+
+events.NewEventBus(this, jsii.String("Bus"), &EventBusProps{
+	KmsKey: KmsKey,
+})
+```
+
+**Note**: Archives and schema discovery are not supported for event buses encrypted using a customer managed key.
+To enable archives or schema discovery on an event bus, choose to use an AWS owned key.
+For more information, see [KMS key options for event bus encryption](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption-at-rest-key-options.html).

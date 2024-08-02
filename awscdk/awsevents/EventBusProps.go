@@ -1,5 +1,8 @@
 package awsevents
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+)
 
 // Properties to define an event bus.
 //
@@ -7,26 +10,32 @@ package awsevents
 //   import events "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   eventBus := events.NewEventBus(this, jsii.String("EventBus"), &EventBusProps{
-//   	EventBusName: jsii.String("DomainEvents"),
+//   myEventBus := events.NewEventBus(this, jsii.String("EventBus"), &EventBusProps{
+//   	EventBusName: jsii.String("MyEventBus1"),
 //   })
 //
-//   eventEntry := &EventBridgePutEventsEntry{
-//   	EventBus: EventBus,
-//   	Source: jsii.String("PetService"),
-//   	Detail: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
-//   		"Name": jsii.String("Fluffy"),
-//   	}),
-//   	DetailType: jsii.String("🐶"),
-//   }
-//
-//   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
-//   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
-//   	Target: targets.NewEventBridgePutEvents(eventEntry, &ScheduleTargetBaseProps{
-//   	}),
+//   tasks.NewEventBridgePutEvents(this, jsii.String("Send an event to EventBridge"), &EventBridgePutEventsProps{
+//   	Entries: []eventBridgePutEventsEntry{
+//   		&eventBridgePutEventsEntry{
+//   			Detail: sfn.TaskInput_FromObject(map[string]interface{}{
+//   				"Message": jsii.String("Hello from Step Functions!"),
+//   			}),
+//   			EventBus: myEventBus,
+//   			DetailType: jsii.String("MessageFromStepFunctions"),
+//   			Source: jsii.String("step.functions"),
+//   		},
+//   	},
 //   })
 //
 type EventBusProps struct {
+	// The event bus description.
+	//
+	// The description can be up to 512 characters long.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-description
+	//
+	// Default: - no description.
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the event bus you are creating Note: If 'eventSourceName' is passed in, you cannot set this.
 	// Default: - automatically generated name.
 	//
@@ -35,5 +44,9 @@ type EventBusProps struct {
 	// Default: - no partner event source.
 	//
 	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
+	// The customer managed key that encrypt events on this event bus.
+	// Default: - Use an AWS managed key.
+	//
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
