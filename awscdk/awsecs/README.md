@@ -530,7 +530,7 @@ To grant a principal permission to run your `TaskDefinition`, you can use the `T
 var role iGrantable
 
 taskDef := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
-	Cpu: jsii.String("256"),
+	Cpu: jsii.String("512"),
 	MemoryMiB: jsii.String("512"),
 	Compatibility: ecs.Compatibility_EC2_AND_FARGATE,
 })
