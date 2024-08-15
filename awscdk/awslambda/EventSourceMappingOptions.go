@@ -2,6 +2,7 @@ package awslambda
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Example:
@@ -9,9 +10,11 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var eventSourceDlq iEventSourceDlq
 //   var filters interface{}
+//   var key key
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
 //
 //   eventSourceMappingOptions := &EventSourceMappingOptions{
@@ -19,6 +22,7 @@ import (
 //   	BisectBatchOnError: jsii.Boolean(false),
 //   	Enabled: jsii.Boolean(false),
 //   	EventSourceArn: jsii.String("eventSourceArn"),
+//   	FilterEncryption: key,
 //   	Filters: []map[string]interface{}{
 //   		map[string]interface{}{
 //   			"filtersKey": filters,
@@ -74,6 +78,12 @@ type EventSourceMappingOptions struct {
 	// Default: - not set if using a self managed Kafka cluster, throws an error otherwise.
 	//
 	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
+	// Add Customer managed KMS key to encrypt Filter Criteria.
+	// See: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk
+	//
+	// Default: - none.
+	//
+	FilterEncryption awskms.IKey `field:"optional" json:"filterEncryption" yaml:"filterEncryption"`
 	// Add filter criteria to Event Source.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html
 	//

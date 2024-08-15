@@ -16,18 +16,18 @@ package awslambda
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
 //
-//   // The secret that allows access to your MSK cluster
-//   // You still have to make sure that it is associated with your cluster as described in the documentation
-//   secret := awscdk.NewSecret(this, jsii.String("Secret"), &SecretProps{
-//   	SecretName: jsii.String("AmazonMSK_KafkaSecret"),
-//   })
+//   // Your self managed KMS key
+//   myKey := awscdk.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>"))
 //   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
 //   	ClusterArn: jsii.String(ClusterArn),
-//   	Topic: topic,
-//   	Secret: secret,
-//   	BatchSize: jsii.Number(100),
-//   	 // default
+//   	Topic: jsii.String(Topic),
 //   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+//   	Filters: []map[string]interface{}{
+//   		lambda.FilterCriteria_Filter(map[string]interface{}{
+//   			"stringEquals": lambda.FilterRule_isEqual(jsii.String("test")),
+//   		}),
+//   	},
+//   	FilterEncryption: myKey,
 //   }))
 //
 type StartingPosition string

@@ -17,7 +17,7 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
 //
 type CfnEventSourceMapping_DestinationConfigProperty struct {
-	// The destination configuration for failed invocations.
+	// A destination for records of invocations that failed processing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
 	//
 	OnFailure interface{} `field:"optional" json:"onFailure" yaml:"onFailure"`

@@ -848,6 +848,54 @@ fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourcePro
 }))
 ```
 
+By default, Lambda will encrypt Filter Criteria using AWS managed keys. But if you want to use a self managed KMS key to encrypt the filters, You can specify the self managed key using the `filterEncryption` property.
+
+```go
+import eventsources "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var fn function
+
+table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	Stream: dynamodb.StreamViewType_NEW_IMAGE,
+})
+// Your self managed KMS key
+myKey := awscdk.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>"))
+
+fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
+	StartingPosition: lambda.StartingPosition_LATEST,
+	Filters: []map[string]interface{}{
+		lambda.FilterCriteria_Filter(map[string]interface{}{
+			"eventName": lambda.FilterRule_isEqual(jsii.String("INSERT")),
+		}),
+	},
+	FilterEncryption: myKey,
+}))
+```
+
+> Lambda requires allow `kms:Decrypt` on Lambda principal `lambda.amazonaws.com` to use the key for Filter Criteria Encryption. If you create the KMS key in the stack, CDK will automatically add this permission to the Key when you creates eventSourceMapping. However, if you import the key using function like `Key.fromKeyArn` then you need to add the following permission to the KMS key before using it to encrypt Filter Criteria
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "lambda.amazonaws.com"
+            },
+            "Action": "kms:Decrypt",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 See the documentation for the **@aws-cdk/aws-lambda-event-sources** module for more details.
 
 ## Imported Lambdas

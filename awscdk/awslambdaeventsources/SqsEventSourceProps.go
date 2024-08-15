@@ -2,6 +2,7 @@ package awslambdaeventsources
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Example:
@@ -35,6 +36,12 @@ type SqsEventSourceProps struct {
 	// Default: true.
 	//
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
+	// Add Customer managed KMS key to encrypt Filter Criteria.
+	// See: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk
+	//
+	// Default: - none.
+	//
+	FilterEncryption awskms.IKey `field:"optional" json:"filterEncryption" yaml:"filterEncryption"`
 	// Add filter criteria option.
 	// Default: - None.
 	//

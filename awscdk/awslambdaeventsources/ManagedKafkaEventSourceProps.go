@@ -2,6 +2,7 @@ package awslambdaeventsources
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
@@ -73,6 +74,12 @@ type ManagedKafkaEventSourceProps struct {
 	// Default: - none.
 	//
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
+	// Add Customer managed KMS key to encrypt Filter Criteria.
+	// See: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk
+	//
+	// Default: - none.
+	//
+	FilterEncryption awskms.IKey `field:"optional" json:"filterEncryption" yaml:"filterEncryption"`
 	// Add filter criteria to Event Source.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html
 	//

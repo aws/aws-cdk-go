@@ -10,33 +10,31 @@ import (
 // Properties for a DynamoDB Table.
 //
 // Example:
+//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket iBucket
+//   var fn function
 //
-//
-//   app := cdk.NewApp()
-//   stack := cdk.NewStack(app, jsii.String("Stack"))
-//
-//   dynamodb.NewTable(stack, jsii.String("Table"), &TableProps{
+//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("id"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	ImportSource: &ImportSourceSpecification{
-//   		CompressionType: dynamodb.InputCompressionType_GZIP,
-//   		InputFormat: dynamodb.InputFormat_Csv(&CsvOptions{
-//   			Delimiter: jsii.String(","),
-//   			HeaderList: []*string{
-//   				jsii.String("id"),
-//   				jsii.String("name"),
-//   			},
-//   		}),
-//   		Bucket: *Bucket,
-//   		KeyPrefix: jsii.String("prefix"),
-//   	},
+//   	Stream: dynamodb.StreamViewType_NEW_IMAGE,
 //   })
+//   // Your self managed KMS key
+//   myKey := awscdk.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>"))
+//
+//   fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
+//   	StartingPosition: lambda.StartingPosition_LATEST,
+//   	Filters: []map[string]interface{}{
+//   		lambda.FilterCriteria_Filter(map[string]interface{}{
+//   			"eventName": lambda.FilterRule_isEqual(jsii.String("INSERT")),
+//   		}),
+//   	},
+//   	FilterEncryption: myKey,
+//   }))
 //
 type TableProps struct {
 	// Partition key attribute definition.

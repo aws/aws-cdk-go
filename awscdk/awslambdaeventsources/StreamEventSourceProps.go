@@ -2,6 +2,7 @@ package awslambdaeventsources
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
@@ -13,9 +14,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var eventSourceDlq iEventSourceDlq
 //   var filters interface{}
+//   var key key
 //
 //   streamEventSourceProps := &StreamEventSourceProps{
 //   	StartingPosition: awscdk.Aws_lambda.StartingPosition_TRIM_HORIZON,
@@ -24,6 +27,7 @@ import (
 //   	BatchSize: jsii.Number(123),
 //   	BisectBatchOnError: jsii.Boolean(false),
 //   	Enabled: jsii.Boolean(false),
+//   	FilterEncryption: key,
 //   	Filters: []map[string]interface{}{
 //   		map[string]interface{}{
 //   			"filtersKey": filters,
@@ -70,6 +74,12 @@ type StreamEventSourceProps struct {
 	// Default: false.
 	//
 	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
+	// Add Customer managed KMS key to encrypt Filter Criteria.
+	// See: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk
+	//
+	// Default: - none.
+	//
+	FilterEncryption awskms.IKey `field:"optional" json:"filterEncryption" yaml:"filterEncryption"`
 	// Add filter criteria option.
 	// Default: - None.
 	//

@@ -32,10 +32,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var eventSourceDlq iEventSourceDlq
 //   var filters interface{}
 //   var function_ function
+//   var key key
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
 //
 //   eventSourceMapping := awscdk.Aws_lambda.NewEventSourceMapping(this, jsii.String("MyEventSourceMapping"), &EventSourceMappingProps{
@@ -46,6 +48,7 @@ import (
 //   	BisectBatchOnError: jsii.Boolean(false),
 //   	Enabled: jsii.Boolean(false),
 //   	EventSourceArn: jsii.String("eventSourceArn"),
+//   	FilterEncryption: key,
 //   	Filters: []map[string]interface{}{
 //   		map[string]interface{}{
 //   			"filtersKey": filters,
