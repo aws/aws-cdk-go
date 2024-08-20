@@ -16,11 +16,11 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstartresponse.html
 //
 type CfnFunction_SnapStartResponseProperty struct {
-	// When set to `PublishedVersions` , Lambda creates a snapshot of the execution environment when you publish a function version.
+	// When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstartresponse.html#cfn-lambda-function-snapstartresponse-applyon
 	//
 	ApplyOn *string `field:"optional" json:"applyOn" yaml:"applyOn"`
-	// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using) , this response element indicates whether SnapStart is activated for the specified function version.
+	// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstartresponse.html#cfn-lambda-function-snapstartresponse-optimizationstatus
 	//
 	OptimizationStatus *string `field:"optional" json:"optimizationStatus" yaml:"optimizationStatus"`

@@ -559,6 +559,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "packageType", GoGetter: "PackageType"},
+			_jsii_.MemberProperty{JsiiProperty: "recursiveLoop", GoGetter: "RecursiveLoop"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -1823,6 +1824,14 @@ func init() {
 			j := jsiiProxy_QualifiedFunctionBase{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_FunctionBase)
 			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.RecursiveLoop",
+		reflect.TypeOf((*RecursiveLoop)(nil)).Elem(),
+		map[string]interface{}{
+			"ALLOW": RecursiveLoop_ALLOW,
+			"TERMINATE": RecursiveLoop_TERMINATE,
 		},
 	)
 	_jsii_.RegisterStruct(

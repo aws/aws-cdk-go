@@ -269,6 +269,12 @@ type EdgeFunctionProps struct {
 	// Default: - A new profiling group will be created if `profiling` is set.
 	//
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
+	// Sets the Recursive Loop Protection for Lambda Function.
+	//
+	// It lets Lambda detect and terminate unintended recusrive loops.
+	// Default: RecursiveLoop.Terminate
+	//
+	RecursiveLoop awslambda.RecursiveLoop `field:"optional" json:"recursiveLoop" yaml:"recursiveLoop"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
