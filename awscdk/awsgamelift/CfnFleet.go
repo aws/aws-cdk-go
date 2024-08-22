@@ -182,7 +182,7 @@ type CfnFleet interface {
 	// Indicates that fleet instances maintain a shared credentials file for the IAM role defined in `InstanceRoleArn` .
 	InstanceRoleCredentialsProvider() *string
 	SetInstanceRoleCredentialsProvider(val *string)
-	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
+	// A set of remote locations to deploy additional instances to and manage as a multi-location fleet.
 	Locations() interface{}
 	SetLocations(val interface{})
 	// The logical ID for this CloudFormation stack element.

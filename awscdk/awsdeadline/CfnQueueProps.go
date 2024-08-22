@@ -13,6 +13,7 @@ import (
 //
 //   cfnQueueProps := &CfnQueueProps{
 //   	DisplayName: jsii.String("displayName"),
+//   	FarmId: jsii.String("farmId"),
 //
 //   	// the properties below are optional
 //   	AllowedStorageProfileIds: []*string{
@@ -20,7 +21,6 @@ import (
 //   	},
 //   	DefaultBudgetAction: jsii.String("defaultBudgetAction"),
 //   	Description: jsii.String("description"),
-//   	FarmId: jsii.String("farmId"),
 //   	JobAttachmentSettings: &JobAttachmentSettingsProperty{
 //   		RootPrefix: jsii.String("rootPrefix"),
 //   		S3BucketName: jsii.String("s3BucketName"),
@@ -54,9 +54,15 @@ import (
 //
 type CfnQueueProps struct {
 	// The display name of the queue summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html#cfn-deadline-queue-displayname
 	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
+	// The farm ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html#cfn-deadline-queue-farmid
+	//
+	FarmId *string `field:"required" json:"farmId" yaml:"farmId"`
 	// The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html#cfn-deadline-queue-allowedstorageprofileids
 	//
@@ -73,10 +79,6 @@ type CfnQueueProps struct {
 	// Default: - "".
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The farm ID.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html#cfn-deadline-queue-farmid
-	//
-	FarmId *string `field:"optional" json:"farmId" yaml:"farmId"`
 	// The job attachment settings.
 	//
 	// These are the Amazon S3 bucket name and the Amazon S3 prefix.

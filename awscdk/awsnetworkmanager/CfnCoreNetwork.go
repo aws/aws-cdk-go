@@ -46,6 +46,8 @@ type CfnCoreNetwork interface {
 	AttrCreatedAt() *string
 	// The edges.
 	AttrEdges() awscdk.IResolvable
+	// The network function groups associated with a core network.
+	AttrNetworkFunctionGroups() awscdk.IResolvable
 	// The owner of the core network.
 	AttrOwnerAccount() *string
 	// The segments.
@@ -282,6 +284,16 @@ func (j *jsiiProxy_CfnCoreNetwork) AttrEdges() awscdk.IResolvable {
 	_jsii_.Get(
 		j,
 		"attrEdges",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCoreNetwork) AttrNetworkFunctionGroups() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrNetworkFunctionGroups",
 		&returns,
 	)
 	return returns

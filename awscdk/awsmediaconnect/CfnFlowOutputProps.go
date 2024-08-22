@@ -52,6 +52,7 @@ package awsmediaconnect
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	OutputStatus: jsii.String("outputStatus"),
 //   	Port: jsii.Number(123),
 //   	RemoteId: jsii.String("remoteId"),
 //   	SmoothingLatency: jsii.Number(123),
@@ -114,6 +115,10 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// An indication of whether the output should transmit data or not.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-outputstatus
+	//
+	OutputStatus *string `field:"optional" json:"outputStatus" yaml:"outputStatus"`
 	// The port to use when MediaConnect distributes content to the output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
 	//

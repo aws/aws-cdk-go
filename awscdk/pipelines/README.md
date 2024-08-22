@@ -45,15 +45,15 @@ details.
 CDK Pipelines supports multiple *deployment engines* (see
 [Using a different deployment engine](#using-a-different-deployment-engine)),
 and comes with a deployment engine that deploys CDK apps using AWS CodePipeline.
-To use the CodePipeline engine, define a `CodePipeline` construct.  The following
+To use the CodePipeline engine, define a `CodePipeline` construct. The following
 example creates a CodePipeline that deploys an application from GitHub:
 
 ```go
 /** The stacks for our app are minimally defined here.  The internals of these
-  * stacks aren't important, except that DatabaseStack exposes an attribute
-  * "table" for a database table it defines, and ComputeStack accepts a reference
-  * to this table in its properties.
-  */
+ * stacks aren't important, except that DatabaseStack exposes an attribute
+ * "table" for a database table it defines, and ComputeStack accepts a reference
+ * to this table in its properties.
+ */
 type databaseStack struct {
 	stack
 	table tableV2
@@ -114,7 +114,8 @@ func newMyPipelineStack(scope construct, id *string, props stackProps) *myPipeli
 	// 'MyApplication' is defined below. Call `addStage` as many times as
 	// necessary with any account and region (may be different from the
 	// pipeline's).
-	pipeline.AddStage(NewMyApplication(this, jsii.String("Prod"), &stageProps{
+	pipeline.AddStage(
+	NewMyApplication(this, jsii.String("Prod"), &stageProps{
 		Env: &Environment{
 			Account: jsii.String("123456789012"),
 			Region: jsii.String("eu-west-1"),
@@ -201,8 +202,7 @@ To make the development more convenient, the self-mutation feature can be turned
 off temporarily, by passing `selfMutation: false` property, example:
 
 ```go
-// Modern API
-modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 	SelfMutation: jsii.Boolean(false),
 	Synth: pipelines.NewShellStep(jsii.String("Synth"), &ShellStepProps{
 		Input: pipelines.CodePipelineSource_Connection(jsii.String("my-org/my-app"), jsii.String("main"), &ConnectionSourceOptions{
@@ -214,13 +214,6 @@ modernPipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &Code
 			jsii.String("npx cdk synth"),
 		},
 	}),
-})
-
-// Original API
-cloudAssemblyArtifact := codepipeline.NewArtifact()
-originalPipeline := pipelines.NewCdkPipeline(this, jsii.String("Pipeline"), &cdkPipelineProps{
-	selfMutating: jsii.Boolean(false),
-	cloudAssemblyArtifact: cloudAssemblyArtifact,
 })
 ```
 
@@ -495,7 +488,8 @@ var pipeline codePipeline
 
 // Do this as many times as necessary with any account and region
 // Account and region may different from the pipeline's.
-pipeline.AddStage(NewMyApplicationStage(this, jsii.String("Prod"), &stageProps{
+pipeline.AddStage(
+NewMyApplicationStage(this, jsii.String("Prod"), &stageProps{
 	Env: &Environment{
 		Account: jsii.String("123456789012"),
 		Region: jsii.String("eu-west-1"),
@@ -528,12 +522,14 @@ application to `eu-west-1` and `eu-central-1` in parallel:
 var pipeline codePipeline
 
 europeWave := pipeline.AddWave(jsii.String("Europe"))
-europeWave.AddStage(NewMyApplicationStage(this, jsii.String("Ireland"), &stageProps{
+europeWave.AddStage(
+NewMyApplicationStage(this, jsii.String("Ireland"), &stageProps{
 	Env: &Environment{
 		Region: jsii.String("eu-west-1"),
 	},
 }))
-europeWave.AddStage(NewMyApplicationStage(this, jsii.String("Germany"), &stageProps{
+europeWave.AddStage(
+NewMyApplicationStage(this, jsii.String("Germany"), &stageProps{
 	Env: &Environment{
 		Region: jsii.String("eu-central-1"),
 	},
@@ -945,10 +941,10 @@ func newMyJenkinsStep(provider jenkinsProvider, input fileSet) *myJenkinsStep {
 }
 
 func (this *myJenkinsStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
-
 	// This is where you control what type of Action gets added to the
 	// CodePipeline
-	*stage.AddAction(cpactions.NewJenkinsAction(&JenkinsActionProps{
+	*stage.AddAction(
+	cpactions.NewJenkinsAction(&JenkinsActionProps{
 		// Copy 'actionName' and 'runOrder' from the options
 		ActionName: options.ActionName,
 		RunOrder: options.RunOrder,
@@ -986,8 +982,8 @@ func newMyLambdaStep(fn function, stackOutput cfnOutput) *myLambdaStep {
 }
 
 func (this *myLambdaStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
-
-	*stage.AddAction(cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+	*stage.AddAction(
+	cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
 		ActionName: options.ActionName,
 		RunOrder: options.RunOrder,
 		// Map the reference to the variable name the CDK has generated for you.
@@ -1306,7 +1302,7 @@ These command lines explained:
 > Be aware that anyone who has access to the trusted Accounts **effectively has all
 > permissions conferred by the configured CloudFormation execution policies**,
 > allowing them to do things like read arbitrary S3 buckets and create arbitrary
-> infrastructure in the bootstrapped account.  Restrict the list of `--trust`ed Accounts,
+> infrastructure in the bootstrapped account. Restrict the list of `--trust`ed Accounts,
 > or restrict the policies configured by `--cloudformation-execution-policies`.
 
 <br>
@@ -1422,7 +1418,7 @@ contains the results of the context lookups. This will make sure your
 synthesized infrastructure is consistent and repeatable. If you do not commit
 `cdk.context.json`, the results of the lookups may suddenly be different in
 unexpected ways, and even produce results that cannot be deployed or will cause
-data loss.  To give an account permissions to perform lookups against an
+data loss. To give an account permissions to perform lookups against an
 environment, without being able to deploy to it and make changes, run
 `cdk bootstrap --trust-for-lookup=<account>`.
 
@@ -1616,7 +1612,7 @@ but the directory wasn't there. There are two common causes for this:
 
 ### <Stack> is in ROLLBACK_COMPLETE state and can not be updated
 
-If  you see the following error during execution of your pipeline:
+If you see the following error during execution of your pipeline:
 
 ```plaintext
 Stack ... is in ROLLBACK_COMPLETE state and can not be updated. (Service:
@@ -1664,21 +1660,6 @@ that bundles asset using tools run via Docker, like `aws-lambda-nodejs`, `aws-la
 `aws-lambda-go` and others.
 
 Make sure you set the `privileged` environment variable to `true` in the synth definition:
-
-```go
-sourceArtifact := codepipeline.NewArtifact()
-cloudAssemblyArtifact := codepipeline.NewArtifact()
-pipeline := pipelines.NewCdkPipeline(this, jsii.String("MyPipeline"), &cdkPipelineProps{
-	cloudAssemblyArtifact: cloudAssemblyArtifact,
-	synthAction: pipelines.simpleSynthAction_StandardNpmSynth(&standardNpmSynthOptions{
-		sourceArtifact: sourceArtifact,
-		cloudAssemblyArtifact: cloudAssemblyArtifact,
-		environment: &BuildEnvironment{
-			Privileged: jsii.Boolean(true),
-		},
-	}),
-})
-```
 
 After turning on `privilegedMode: true`, you will need to do a one-time manual cdk deploy of your
 pipeline to get it going again (as with a broken 'synth' the pipeline will not be able to self
@@ -1731,27 +1712,6 @@ An "S3 Access Denied" error can have two causes:
 
 * Asset hashes have changed, but self-mutation has been disabled in the pipeline.
 * You have deleted and recreated the bootstrap stack, or changed its qualifier.
-
-#### Self-mutation step has been removed
-
-Some constructs, such as EKS clusters, generate nested stacks. When CloudFormation tries
-to deploy those stacks, it may fail with this error:
-
-```console
-S3 error: Access Denied For more information check http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html
-```
-
-This happens because the pipeline is not self-mutating and, as a consequence, the `FileAssetX`
-build projects get out-of-sync with the generated templates. To fix this, make sure the
-`selfMutating` property is set to `true`:
-
-```go
-cloudAssemblyArtifact := codepipeline.NewArtifact()
-pipeline := pipelines.NewCdkPipeline(this, jsii.String("MyPipeline"), &cdkPipelineProps{
-	selfMutating: jsii.Boolean(true),
-	cloudAssemblyArtifact: cloudAssemblyArtifact,
-})
-```
 
 #### Bootstrap roles have been renamed or recreated
 
@@ -1806,13 +1766,13 @@ encryption key policy for the artifacts bucket may have a statement that looks l
 
 ```json
 {
-  "Effect" : "Allow",
-  "Principal" : {
+  "Effect": "Allow",
+  "Principal": {
     // "AWS" : "AROAYBRETNYCYV6ZF2R93"  // Indicates this issue; replace this value
-    "AWS": "arn:aws:iam::0123456789012:role/cdk-hnb659fds-deploy-role-0123456789012-eu-west-1", // Correct value
+    "AWS": "arn:aws:iam::0123456789012:role/cdk-hnb659fds-deploy-role-0123456789012-eu-west-1" // Correct value
   },
-  "Action" : [ "kms:Decrypt", "kms:DescribeKey" ],
-  "Resource" : "*"
+  "Action": ["kms:Decrypt", "kms:DescribeKey"],
+  "Resource": "*"
 }
 ```
 

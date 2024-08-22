@@ -12,6 +12,7 @@ package awselasticloadbalancingv2
 //   var applicationTargetGroup applicationTargetGroup
 //   var listenerAction listenerAction
 //   var listenerCertificate listenerCertificate
+//   var trustStore trustStore
 //
 //   applicationListenerProps := &ApplicationListenerProps{
 //   	LoadBalancer: applicationLoadBalancer,
@@ -24,9 +25,14 @@ package awselasticloadbalancingv2
 //   	DefaultTargetGroups: []iApplicationTargetGroup{
 //   		applicationTargetGroup,
 //   	},
+//   	MutualAuthentication: &MutualAuthentication{
+//   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
+//   		MutualAuthenticationMode: awscdk.Aws_elasticloadbalancingv2.MutualAuthenticationMode_OFF,
+//   		TrustStore: trustStore,
+//   	},
 //   	Open: jsii.Boolean(false),
 //   	Port: jsii.Number(123),
-//   	Protocol: awscdk.Aws_elasticloadbalancingv2.ApplicationProtocol_HTTP,
+//   	Protocol: awscdk.*Aws_elasticloadbalancingv2.ApplicationProtocol_HTTP,
 //   	SslPolicy: awscdk.*Aws_elasticloadbalancingv2.SslPolicy_RECOMMENDED_TLS,
 //   }
 //
@@ -58,6 +64,12 @@ type ApplicationListenerProps struct {
 	// Default: - None.
 	//
 	DefaultTargetGroups *[]IApplicationTargetGroup `field:"optional" json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
+	// The mutual authentication configuration information.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html
+	//
+	// Default: - No mutual authentication configuration.
+	//
+	MutualAuthentication *MutualAuthentication `field:"optional" json:"mutualAuthentication" yaml:"mutualAuthentication"`
 	// Allow anyone to connect to the load balancer on the listener port.
 	//
 	// If this is specified, the load balancer will be opened up to anyone who can reach it.

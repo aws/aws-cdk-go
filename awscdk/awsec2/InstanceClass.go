@@ -509,6 +509,10 @@ const (
 	InstanceClass_MACINTOSH2_M2_PRO InstanceClass = "MACINTOSH2_M2_PRO"
 	// Macintosh instances built on Apple Mac mini 2023 computers, 2nd generation with Apple silicon M2 Pro processors.
 	InstanceClass_MAC2_M2PRO InstanceClass = "MAC2_M2PRO"
+	// Macintosh instances built on 2022 Mac Studio hardware powered by Apple silicon M1 Ultra processors.
+	InstanceClass_MACINTOSH2_M1_ULTRA InstanceClass = "MACINTOSH2_M1_ULTRA"
+	// Macintosh instances built on 2022 Mac Studio hardware powered by Apple silicon M1 Ultra processors.
+	InstanceClass_MAC2_M1ULTRA InstanceClass = "MAC2_M1ULTRA"
 	// Multi-stream video transcoding instances for resolutions up to 4K UHD, 1st generation.
 	InstanceClass_VIDEO_TRANSCODING1 InstanceClass = "VIDEO_TRANSCODING1"
 	// Multi-stream video transcoding instances for resolutions up to 4K UHD, 1st generation.

@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+// The details of the repository creation template associated with the request.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,6 +23,7 @@ import (
 //   	Prefix: jsii.String("prefix"),
 //
 //   	// the properties below are optional
+//   	CustomRoleArn: jsii.String("customRoleArn"),
 //   	Description: jsii.String("description"),
 //   	EncryptionConfiguration: &EncryptionConfigurationProperty{
 //   		EncryptionType: jsii.String("encryptionType"),
@@ -46,12 +47,12 @@ import (
 type CfnRepositoryCreationTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.
+	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards.
 	AppliedFor() *[]*string
 	SetAppliedFor(val *[]*string)
-	// Create timestamp of the template.
+	// The date and time, in JavaScript date format, when the repository creation template was created.
 	AttrCreatedAt() *string
-	// Update timestamp of the template.
+	// The date and time, in JavaScript date format, when the repository creation template was last updated.
 	AttrUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -62,18 +63,19 @@ type CfnRepositoryCreationTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the template.
+	// The ARN of the role to be assumed by Amazon ECR.
+	CustomRoleArn() *string
+	SetCustomRoleArn(val *string)
+	// The description associated with the repository creation template.
 	Description() *string
 	SetDescription(val *string)
-	// The encryption configuration for the repository.
-	//
-	// This determines how the contents of your repository are encrypted at rest.
+	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
-	// The image tag mutability setting for the repository.
+	// The tag mutability setting for the repository.
 	ImageTagMutability() *string
 	SetImageTagMutability(val *string)
-	// The JSON lifecycle policy text to apply to the repository.
+	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy() *string
 	SetLifecyclePolicy(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -88,7 +90,7 @@ type CfnRepositoryCreationTemplate interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The prefix use to match the repository name and apply the template.
+	// The repository namespace prefix associated with the repository creation template.
 	Prefix() *string
 	SetPrefix(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -96,10 +98,10 @@ type CfnRepositoryCreationTemplate interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The JSON repository policy text to apply to the repository.
+	// he repository policy to apply to repositories created using the template.
 	RepositoryPolicy() *string
 	SetRepositoryPolicy(val *string)
-	// The tags attached to the resource.
+	// The metadata to apply to the repository to help you categorize and organize.
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
 	// The stack in which this element is defined.
@@ -322,6 +324,16 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRepositoryCreationTemplate) CustomRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"customRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRepositoryCreationTemplate) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -487,6 +499,14 @@ func (j *jsiiProxy_CfnRepositoryCreationTemplate)SetAppliedFor(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"appliedFor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRepositoryCreationTemplate)SetCustomRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"customRoleArn",
 		val,
 	)
 }

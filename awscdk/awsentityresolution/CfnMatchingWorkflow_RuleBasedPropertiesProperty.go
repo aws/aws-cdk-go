@@ -20,6 +20,9 @@ package awsentityresolution
 //   			RuleName: jsii.String("ruleName"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	MatchPurpose: jsii.String("matchPurpose"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html
@@ -37,5 +40,13 @@ type CfnMatchingWorkflow_RuleBasedPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html#cfn-entityresolution-matchingworkflow-rulebasedproperties-rules
 	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
+	// An indicator of whether to generate IDs and index the data or not.
+	//
+	// If you choose `IDENTIFIER_GENERATION` , the process generates IDs and indexes the data.
+	//
+	// If you choose `INDEXING` , the process indexes the data without generating IDs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html#cfn-entityresolution-matchingworkflow-rulebasedproperties-matchpurpose
+	//
+	MatchPurpose *string `field:"optional" json:"matchPurpose" yaml:"matchPurpose"`
 }
 

@@ -1401,6 +1401,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "enablePrivateGua", GoGetter: "EnablePrivateGua"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -4020,6 +4021,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIpSource", GoGetter: "AttrIpSource"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIpv6AddressAttribute", GoGetter: "AttrIpv6AddressAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -4225,6 +4228,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -4251,6 +4255,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "sourceCidrBlock", GoGetter: "SourceCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "sourcePortRange", GoGetter: "SourcePortRange"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trafficDirection", GoGetter: "TrafficDirection"},
 			_jsii_.MemberProperty{JsiiProperty: "trafficMirrorFilterId", GoGetter: "TrafficMirrorFilterId"},
@@ -4262,6 +4267,7 @@ func init() {
 			j := jsiiProxy_CfnTrafficMirrorFilterRule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)
@@ -5179,6 +5185,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "amazonProvidedIpv6CidrBlock", GoGetter: "AmazonProvidedIpv6CidrBlock"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIpSource", GoGetter: "AttrIpSource"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIpv6AddressAttribute", GoGetter: "AttrIpv6AddressAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -5605,6 +5613,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customerGatewayId", GoGetter: "CustomerGatewayId"},
+			_jsii_.MemberProperty{JsiiProperty: "enableAcceleration", GoGetter: "EnableAcceleration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -7595,6 +7604,8 @@ func init() {
 			"MAC2_M2": InstanceClass_MAC2_M2,
 			"MACINTOSH2_M2_PRO": InstanceClass_MACINTOSH2_M2_PRO,
 			"MAC2_M2PRO": InstanceClass_MAC2_M2PRO,
+			"MACINTOSH2_M1_ULTRA": InstanceClass_MACINTOSH2_M1_ULTRA,
+			"MAC2_M1ULTRA": InstanceClass_MAC2_M1ULTRA,
 			"VIDEO_TRANSCODING1": InstanceClass_VIDEO_TRANSCODING1,
 			"VT1": InstanceClass_VT1,
 			"HIGH_PERFORMANCE_COMPUTING6_AMD": InstanceClass_HIGH_PERFORMANCE_COMPUTING6_AMD,

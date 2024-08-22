@@ -27,15 +27,14 @@ generated [*json-schema*](./schema/cloud-assembly.schema.json).
 
 ## Versioning
 
-The schema version is specified in the [`cloud-assembly.version.json`](./schema/cloud-assembly.schema.json) file, under the `version` property.
-It follows semantic versioning, but with a small twist.
+The schema version is specified my the major version of the package release. It follows semantic versioning, but with a small twist.
 
 When we add instructions to the assembly, they are reflected in the manifest file and the *json-schema* accordingly.
 Every such instruction, is crucial for ensuring the correct deployment behavior. This means that to properly deploy a cloud assembly,
 consumers must be aware of every such instruction modification.
 
 For this reason, every change to the schema, even though it might not strictly break validation of the *json-schema* format,
-is considered `major` version bump.
+is considered `major` version bump. All changes that do not impact the schema are considered a `minor` version bump.
 
 ## How to consume
 
@@ -51,4 +50,6 @@ cannot be guaranteed because some instructions will be ignored.
 
 ## Contributing
 
-See [Contribution Guide](./CONTRIBUTING.md)
+The source code for this file has been moved to CDKLabs.
+
+See [Contribution Guide](https://github.com/cdklabs/cloud-assembly-schema/blob/main/CONTRIBUTING.md)

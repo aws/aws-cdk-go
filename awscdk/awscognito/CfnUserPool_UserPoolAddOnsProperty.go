@@ -13,13 +13,19 @@ package awscognito
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   userPoolAddOnsProperty := &UserPoolAddOnsProperty{
+//   	AdvancedSecurityAdditionalFlows: &AdvancedSecurityAdditionalFlowsProperty{
+//   		CustomAuthMode: jsii.String("customAuthMode"),
+//   	},
 //   	AdvancedSecurityMode: jsii.String("advancedSecurityMode"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html
 //
 type CfnUserPool_UserPoolAddOnsProperty struct {
-	// The operating mode of advanced security features in your user pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecurityadditionalflows
+	//
+	AdvancedSecurityAdditionalFlows interface{} `field:"optional" json:"advancedSecurityAdditionalFlows" yaml:"advancedSecurityAdditionalFlows"`
+	// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html#cfn-cognito-userpool-userpooladdons-advancedsecuritymode
 	//
 	AdvancedSecurityMode *string `field:"optional" json:"advancedSecurityMode" yaml:"advancedSecurityMode"`

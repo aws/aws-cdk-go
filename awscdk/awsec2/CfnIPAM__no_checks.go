@@ -80,6 +80,10 @@ func validateCfnIPAM_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnIPAM) validateSetEnablePrivateGuaParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnIPAM) validateSetOperatingRegionsParameters(val interface{}) error {
 	return nil
 }

@@ -82,7 +82,7 @@ type CfnGlobalReplicationGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Elasticache Redis engine version.
+	// The Elasticache Redis OSS engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	// The number of node groups that comprise the Global Datastore.

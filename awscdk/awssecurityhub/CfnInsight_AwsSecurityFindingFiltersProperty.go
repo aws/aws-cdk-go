@@ -710,7 +710,7 @@ type CfnInsight_AwsSecurityFindingFiltersProperty struct {
 	ComplianceAssociatedStandardsId interface{} `field:"optional" json:"complianceAssociatedStandardsId" yaml:"complianceAssociatedStandardsId"`
 	// The unique identifier of a control across standards.
 	//
-	// Values for this field typically consist of an AWS service and a number, such as APIGateway.5.
+	// Values for this field typically consist of an AWS-service and a number, such as APIGateway.5.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html#cfn-securityhub-insight-awssecurityfindingfilters-compliancesecuritycontrolid
 	//
 	ComplianceSecurityControlId interface{} `field:"optional" json:"complianceSecurityControlId" yaml:"complianceSecurityControlId"`

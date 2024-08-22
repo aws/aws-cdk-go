@@ -31,6 +31,9 @@ package awsentityresolution
 //   				RuleName: jsii.String("ruleName"),
 //   			},
 //   		},
+//
+//   		// the properties below are optional
+//   		MatchPurpose: jsii.String("matchPurpose"),
 //   	},
 //   }
 //

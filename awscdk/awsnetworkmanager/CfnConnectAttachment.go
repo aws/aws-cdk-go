@@ -27,10 +27,21 @@ import (
 //   	TransportAttachmentId: jsii.String("transportAttachmentId"),
 //
 //   	// the properties below are optional
+//   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
+//   		AttachmentPolicyRuleNumber: jsii.Number(123),
+//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   		Tags: []cfnTag{
+//   			&cfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
-//   		Tags: []cfnTag{
+//   		Tags: []*cfnTag{
 //   			&cfnTag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
@@ -100,11 +111,17 @@ type CfnConnectAttachment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the network function group.
+	NetworkFunctionGroupName() *string
+	SetNetworkFunctionGroupName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Options for connecting an attachment.
 	Options() interface{}
 	SetOptions(val interface{})
+	// Describes proposed changes to a network function group.
+	ProposedNetworkFunctionGroupChange() interface{}
+	SetProposedNetworkFunctionGroupChange(val interface{})
 	// Describes a proposed segment change.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
@@ -442,6 +459,16 @@ func (j *jsiiProxy_CfnConnectAttachment) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnectAttachment) NetworkFunctionGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkFunctionGroupName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectAttachment) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -457,6 +484,16 @@ func (j *jsiiProxy_CfnConnectAttachment) Options() interface{} {
 	_jsii_.Get(
 		j,
 		"options",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectAttachment) ProposedNetworkFunctionGroupChange() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"proposedNetworkFunctionGroupChange",
 		&returns,
 	)
 	return returns
@@ -592,6 +629,14 @@ func (j *jsiiProxy_CfnConnectAttachment)SetEdgeLocation(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnConnectAttachment)SetNetworkFunctionGroupName(val *string) {
+	_jsii_.Set(
+		j,
+		"networkFunctionGroupName",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnConnectAttachment)SetOptions(val interface{}) {
 	if err := j.validateSetOptionsParameters(val); err != nil {
 		panic(err)
@@ -599,6 +644,17 @@ func (j *jsiiProxy_CfnConnectAttachment)SetOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"options",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectAttachment)SetProposedNetworkFunctionGroupChange(val interface{}) {
+	if err := j.validateSetProposedNetworkFunctionGroupChangeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"proposedNetworkFunctionGroupChange",
 		val,
 	)
 }

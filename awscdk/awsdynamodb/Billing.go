@@ -66,15 +66,18 @@ func (j *jsiiProxy_Billing) Mode() BillingMode {
 // Flexible billing option capable of serving requests without capacity planning.
 //
 // Note: Billing mode will be PAY_PER_REQUEST.
-func Billing_OnDemand() Billing {
+func Billing_OnDemand(props *MaxThroughputProps) Billing {
 	_init_.Initialize()
 
+	if err := validateBilling_OnDemandParameters(props); err != nil {
+		panic(err)
+	}
 	var returns Billing
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_dynamodb.Billing",
 		"onDemand",
-		nil, // no parameters
+		[]interface{}{props},
 		&returns,
 	)
 

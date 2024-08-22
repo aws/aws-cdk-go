@@ -35,6 +35,7 @@ import (
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Arn of the secret.
 	AttrId() *string
 	// Specifies whether to block resource-based policies that allow broad access to the secret.
 	BlockPublicPolicy() interface{}

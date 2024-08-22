@@ -1,5 +1,8 @@
 package awsec2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnTrafficMirrorFilterRule`.
 //
@@ -26,6 +29,12 @@ package awsec2
 //   	SourcePortRange: &TrafficMirrorPortRangeProperty{
 //   		FromPort: jsii.Number(123),
 //   		ToPort: jsii.Number(123),
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -76,5 +85,9 @@ type CfnTrafficMirrorFilterRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourceportrange
 	//
 	SourcePortRange interface{} `field:"optional" json:"sourcePortRange" yaml:"sourcePortRange"`
+	// Tags on Traffic Mirroring filter rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

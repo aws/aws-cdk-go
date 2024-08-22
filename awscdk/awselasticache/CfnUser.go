@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// For Redis engine version 6.0 onwards: Creates a Redis user. For more information, see [Using Role Based Access Control (RBAC)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html) .
+// For Redis OSS engine version 6.0 onwards: Creates a Redis OSS user. For more information, see [Using Role Based Access Control (RBAC)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

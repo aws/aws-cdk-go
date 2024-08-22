@@ -28,10 +28,20 @@ import (
 //   		ApplianceModeSupport: jsii.Boolean(false),
 //   		Ipv6Support: jsii.Boolean(false),
 //   	},
+//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
+//   		AttachmentPolicyRuleNumber: jsii.Number(123),
+//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   		Tags: []cfnTag{
+//   			&cfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
-//   		Tags: []cfnTag{
+//   		Tags: []*cfnTag{
 //   			&cfnTag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
@@ -66,6 +76,8 @@ type CfnVpcAttachment interface {
 	AttrCreatedAt() *string
 	// The Region where the core network edge is located.
 	AttrEdgeLocation() *string
+	// The name of the network function group.
+	AttrNetworkFunctionGroupName() *string
 	// The ID of the VPC attachment owner.
 	AttrOwnerAccountId() *string
 	// The resource ARN for the VPC attachment.
@@ -105,6 +117,9 @@ type CfnVpcAttachment interface {
 	// Options for creating the VPC attachment.
 	Options() interface{}
 	SetOptions(val interface{})
+	// Describes proposed changes to a network function group.
+	ProposedNetworkFunctionGroupChange() interface{}
+	SetProposedNetworkFunctionGroupChange(val interface{})
 	// Describes a proposed segment change.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
@@ -335,6 +350,16 @@ func (j *jsiiProxy_CfnVpcAttachment) AttrEdgeLocation() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVpcAttachment) AttrNetworkFunctionGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrNetworkFunctionGroupName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVpcAttachment) AttrOwnerAccountId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -460,6 +485,16 @@ func (j *jsiiProxy_CfnVpcAttachment) Options() interface{} {
 	_jsii_.Get(
 		j,
 		"options",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcAttachment) ProposedNetworkFunctionGroupChange() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"proposedNetworkFunctionGroupChange",
 		&returns,
 	)
 	return returns
@@ -601,6 +636,17 @@ func (j *jsiiProxy_CfnVpcAttachment)SetOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"options",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcAttachment)SetProposedNetworkFunctionGroupChange(val interface{}) {
+	if err := j.validateSetProposedNetworkFunctionGroupChangeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"proposedNetworkFunctionGroupChange",
 		val,
 	)
 }

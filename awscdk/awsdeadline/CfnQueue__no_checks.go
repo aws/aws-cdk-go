@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnQueue) validateSetDisplayNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnQueue) validateSetFarmIdParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnQueue) validateSetJobAttachmentSettingsParameters(val interface{}) error {
 	return nil
 }

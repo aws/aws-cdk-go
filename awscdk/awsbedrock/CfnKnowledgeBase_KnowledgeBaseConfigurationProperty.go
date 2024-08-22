@@ -14,6 +14,13 @@ package awsbedrock
 //   	Type: jsii.String("type"),
 //   	VectorKnowledgeBaseConfiguration: &VectorKnowledgeBaseConfigurationProperty{
 //   		EmbeddingModelArn: jsii.String("embeddingModelArn"),
+//
+//   		// the properties below are optional
+//   		EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
+//   			BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
+//   				Dimensions: jsii.Number(123),
+//   			},
+//   		},
 //   	},
 //   }
 //

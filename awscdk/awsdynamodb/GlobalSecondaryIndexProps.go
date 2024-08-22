@@ -16,6 +16,8 @@ package awsdynamodb
 //   	},
 //
 //   	// the properties below are optional
+//   	MaxReadRequestUnits: jsii.Number(123),
+//   	MaxWriteRequestUnits: jsii.Number(123),
 //   	NonKeyAttributes: []*string{
 //   		jsii.String("nonKeyAttributes"),
 //   	},
@@ -45,6 +47,18 @@ type GlobalSecondaryIndexProps struct {
 	// Default: no sort key.
 	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
+	// The maximum read request units for the global secondary index.
+	//
+	// Can only be provided if table billingMode is PAY_PER_REQUEST.
+	// Default: - on-demand throughput is disabled.
+	//
+	MaxReadRequestUnits *float64 `field:"optional" json:"maxReadRequestUnits" yaml:"maxReadRequestUnits"`
+	// The maximum write request units for the global secondary index.
+	//
+	// Can only be provided if table billingMode is PAY_PER_REQUEST.
+	// Default: - on-demand throughput is disabled.
+	//
+	MaxWriteRequestUnits *float64 `field:"optional" json:"maxWriteRequestUnits" yaml:"maxWriteRequestUnits"`
 	// The read capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.

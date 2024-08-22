@@ -41,6 +41,18 @@ type GlobalSecondaryIndexPropsV2 struct {
 	ProjectionType ProjectionType `field:"optional" json:"projectionType" yaml:"projectionType"`
 	// Partition key attribute definition.
 	PartitionKey *Attribute `field:"required" json:"partitionKey" yaml:"partitionKey"`
+	// The maximum read request units.
+	//
+	// Note: This can only be configured if the primary table billing is PAY_PER_REQUEST.
+	// Default: - inherited from the primary table.
+	//
+	MaxReadRequestUnits *float64 `field:"optional" json:"maxReadRequestUnits" yaml:"maxReadRequestUnits"`
+	// The maximum write request units.
+	//
+	// Note: This can only be configured if the primary table billing is PAY_PER_REQUEST.
+	// Default: - inherited from the primary table.
+	//
+	MaxWriteRequestUnits *float64 `field:"optional" json:"maxWriteRequestUnits" yaml:"maxWriteRequestUnits"`
 	// The read capacity.
 	//
 	// Note: This can only be configured if the primary table billing is provisioned.

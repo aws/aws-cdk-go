@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) validateSetSourcePortRangeParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrafficMirrorFilterRule) validateSetTrafficDirectionParameters(val *string) error {
 	return nil
 }

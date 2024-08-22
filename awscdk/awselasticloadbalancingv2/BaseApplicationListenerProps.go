@@ -57,6 +57,12 @@ type BaseApplicationListenerProps struct {
 	// Default: - None.
 	//
 	DefaultTargetGroups *[]IApplicationTargetGroup `field:"optional" json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
+	// The mutual authentication configuration information.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html
+	//
+	// Default: - No mutual authentication configuration.
+	//
+	MutualAuthentication *MutualAuthentication `field:"optional" json:"mutualAuthentication" yaml:"mutualAuthentication"`
 	// Allow anyone to connect to the load balancer on the listener port.
 	//
 	// If this is specified, the load balancer will be opened up to anyone who can reach it.

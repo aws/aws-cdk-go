@@ -9,11 +9,9 @@ package awsamazonmq
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnBrokerProps := &CfnBrokerProps{
-//   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	BrokerName: jsii.String("brokerName"),
 //   	DeploymentMode: jsii.String("deploymentMode"),
 //   	EngineType: jsii.String("engineType"),
-//   	EngineVersion: jsii.String("engineVersion"),
 //   	HostInstanceType: jsii.String("hostInstanceType"),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	Users: []interface{}{
@@ -32,6 +30,7 @@ package awsamazonmq
 //
 //   	// the properties below are optional
 //   	AuthenticationStrategy: jsii.String("authenticationStrategy"),
+//   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	Configuration: &ConfigurationIdProperty{
 //   		Id: jsii.String("id"),
 //   		Revision: jsii.Number(123),
@@ -44,6 +43,7 @@ package awsamazonmq
 //   		// the properties below are optional
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	EngineVersion: jsii.String("engineVersion"),
 //   	LdapServerMetadata: &LdapServerMetadataProperty{
 //   		Hosts: []*string{
 //   			jsii.String("hosts"),
@@ -88,12 +88,6 @@ package awsamazonmq
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
 //
 type CfnBrokerProps struct {
-	// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ.
-	//
-	// Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
-	//
-	AutoMinorVersionUpgrade interface{} `field:"required" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the broker.
 	//
 	// This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
@@ -116,12 +110,6 @@ type CfnBrokerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype
 	//
 	EngineType *string `field:"required" json:"engineType" yaml:"engineType"`
-	// The version of the broker engine.
-	//
-	// For a list of supported engine versions, see [Engine](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) in the *Amazon MQ Developer Guide* .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion
-	//
-	EngineVersion *string `field:"required" json:"engineVersion" yaml:"engineVersion"`
 	// The broker's instance type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
 	//
@@ -142,6 +130,12 @@ type CfnBrokerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
 	//
 	AuthenticationStrategy *string `field:"optional" json:"authenticationStrategy" yaml:"authenticationStrategy"`
+	// Enables automatic upgrades to new minor versions for brokers, as new broker engine versions are released and supported by Amazon MQ.
+	//
+	// Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
+	//
+	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// A list of information about the configuration.
 	//
 	// Does not apply to RabbitMQ brokers.
@@ -164,6 +158,12 @@ type CfnBrokerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-encryptionoptions
 	//
 	EncryptionOptions interface{} `field:"optional" json:"encryptionOptions" yaml:"encryptionOptions"`
+	// The version of the broker engine.
+	//
+	// For a list of supported engine versions, see [Engine](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) in the *Amazon MQ Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion
+	//
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Optional.
 	//
 	// The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.

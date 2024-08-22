@@ -122,12 +122,12 @@ import (
 //   		},
 //   	},
 //   	DisplayName: jsii.String("displayName"),
+//   	FarmId: jsii.String("farmId"),
 //   	MaxWorkerCount: jsii.Number(123),
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	FarmId: jsii.String("farmId"),
 //   	MinWorkerCount: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -145,9 +145,15 @@ type CfnFleetProps struct {
 	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
 	// The display name of the fleet summary to update.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-displayname
 	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
+	// The farm ID.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-farmid
+	//
+	FarmId *string `field:"required" json:"farmId" yaml:"farmId"`
 	// The maximum number of workers specified in the fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-maxworkercount
 	//
@@ -162,10 +168,6 @@ type CfnFleetProps struct {
 	// Default: - "".
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The farm ID.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-farmid
-	//
-	FarmId *string `field:"optional" json:"farmId" yaml:"farmId"`
 	// The minimum number of workers in the fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-minworkercount
 	//

@@ -311,6 +311,30 @@ func (j *jsiiProxy_CfnApplication) validateSetInitialCapacityParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetInteractiveConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnApplication_InteractiveConfigurationProperty:
+		val := val.(*CfnApplication_InteractiveConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnApplication_InteractiveConfigurationProperty:
+		val_ := val.(CfnApplication_InteractiveConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplication_InteractiveConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetMaximumCapacityParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

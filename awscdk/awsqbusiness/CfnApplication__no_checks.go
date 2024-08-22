@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnApplication) validateSetEncryptionConfigurationParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetQAppsConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

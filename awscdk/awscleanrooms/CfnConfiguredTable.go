@@ -61,6 +61,7 @@ import (
 //   						},
 //
 //   						// the properties below are optional
+//   						AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   						AllowedJoinOperators: []*string{
 //   							jsii.String("allowedJoinOperators"),
 //   						},
@@ -72,6 +73,7 @@ import (
 //   						},
 //
 //   						// the properties below are optional
+//   						AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   						AllowedAnalysisProviders: []*string{
 //   							jsii.String("allowedAnalysisProviders"),
 //   						},
@@ -81,6 +83,9 @@ import (
 //   									Name: jsii.String("name"),
 //   								},
 //   							},
+//   						},
+//   						DisallowedOutputColumns: []*string{
+//   							jsii.String("disallowedOutputColumns"),
 //   						},
 //   					},
 //   					List: &AnalysisRuleListProperty{
@@ -92,6 +97,7 @@ import (
 //   						},
 //
 //   						// the properties below are optional
+//   						AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   						AllowedJoinOperators: []*string{
 //   							jsii.String("allowedJoinOperators"),
 //   						},
@@ -122,7 +128,7 @@ type CfnConfiguredTable interface {
 	// The analysis method for the configured table.
 	AnalysisMethod() *string
 	SetAnalysisMethod(val *string)
-	// The entire created analysis rule.
+	// The analysis rule that was created for the configured table.
 	AnalysisRules() interface{}
 	SetAnalysisRules(val interface{})
 	// Returns the Amazon Resource Name (ARN) of the specified configured table.

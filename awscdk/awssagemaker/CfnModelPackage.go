@@ -33,6 +33,18 @@ import (
 //   					Framework: jsii.String("framework"),
 //   					FrameworkVersion: jsii.String("frameworkVersion"),
 //   					ImageDigest: jsii.String("imageDigest"),
+//   					ModelDataSource: &ModelDataSourceProperty{
+//   						S3DataSource: &S3ModelDataSourceProperty{
+//   							CompressionType: jsii.String("compressionType"),
+//   							S3DataType: jsii.String("s3DataType"),
+//   							S3Uri: jsii.String("s3Uri"),
+//
+//   							// the properties below are optional
+//   							ModelAccessConfig: &ModelAccessConfigProperty{
+//   								AcceptEula: jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
 //   					ModelDataUrl: jsii.String("modelDataUrl"),
 //   					ModelInput: modelInput,
 //   					NearestModelName: jsii.String("nearestModelName"),
@@ -70,6 +82,18 @@ import (
 //   					Framework: jsii.String("framework"),
 //   					FrameworkVersion: jsii.String("frameworkVersion"),
 //   					ImageDigest: jsii.String("imageDigest"),
+//   					ModelDataSource: &ModelDataSourceProperty{
+//   						S3DataSource: &S3ModelDataSourceProperty{
+//   							CompressionType: jsii.String("compressionType"),
+//   							S3DataType: jsii.String("s3DataType"),
+//   							S3Uri: jsii.String("s3Uri"),
+//
+//   							// the properties below are optional
+//   							ModelAccessConfig: &ModelAccessConfigProperty{
+//   								AcceptEula: jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
 //   					ModelDataUrl: jsii.String("modelDataUrl"),
 //   					ModelInput: modelInput,
 //   					NearestModelName: jsii.String("nearestModelName"),
@@ -186,6 +210,18 @@ import (
 //   				Framework: jsii.String("framework"),
 //   				FrameworkVersion: jsii.String("frameworkVersion"),
 //   				ImageDigest: jsii.String("imageDigest"),
+//   				ModelDataSource: &ModelDataSourceProperty{
+//   					S3DataSource: &S3ModelDataSourceProperty{
+//   						CompressionType: jsii.String("compressionType"),
+//   						S3DataType: jsii.String("s3DataType"),
+//   						S3Uri: jsii.String("s3Uri"),
+//
+//   						// the properties below are optional
+//   						ModelAccessConfig: &ModelAccessConfigProperty{
+//   							AcceptEula: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
 //   				ModelDataUrl: jsii.String("modelDataUrl"),
 //   				ModelInput: modelInput,
 //   				NearestModelName: jsii.String("nearestModelName"),
@@ -214,6 +250,10 @@ import (
 //   		Repository: jsii.String("repository"),
 //   	},
 //   	ModelApprovalStatus: jsii.String("modelApprovalStatus"),
+//   	ModelCard: &ModelCardProperty{
+//   		ModelCardContent: jsii.String("modelCardContent"),
+//   		ModelCardStatus: jsii.String("modelCardStatus"),
+//   	},
 //   	ModelMetrics: &ModelMetricsProperty{
 //   		Bias: &BiasProperty{
 //   			PostTrainingReport: &MetricsSourceProperty{
@@ -296,6 +336,9 @@ import (
 //   	},
 //   	ModelPackageVersion: jsii.Number(123),
 //   	SamplePayloadUrl: jsii.String("samplePayloadUrl"),
+//   	SecurityConfig: &SecurityConfigProperty{
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
 //   	SkipModelValidation: jsii.String("skipModelValidation"),
 //   	SourceAlgorithmSpecification: &SourceAlgorithmSpecificationProperty{
 //   		SourceAlgorithms: []interface{}{
@@ -307,6 +350,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SourceUri: jsii.String("sourceUri"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -437,6 +481,9 @@ type CfnModelPackage interface {
 	// This can be one of the following values.
 	ModelApprovalStatus() *string
 	SetModelApprovalStatus(val *string)
+	// An Amazon SageMaker Model Card.
+	ModelCard() interface{}
+	SetModelCard(val interface{})
 	// Metrics for the model.
 	ModelMetrics() interface{}
 	SetModelMetrics(val interface{})
@@ -465,12 +512,18 @@ type CfnModelPackage interface {
 	// The Amazon Simple Storage Service path where the sample payload are stored.
 	SamplePayloadUrl() *string
 	SetSamplePayloadUrl(val *string)
+	// An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+	SecurityConfig() interface{}
+	SetSecurityConfig(val interface{})
 	// Indicates if you want to skip model validation.
 	SkipModelValidation() *string
 	SetSkipModelValidation(val *string)
 	// A list of algorithms that were used to create a model package.
 	SourceAlgorithmSpecification() interface{}
 	SetSourceAlgorithmSpecification(val interface{})
+	// The URI of the source for the model package.
+	SourceUri() *string
+	SetSourceUri(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -833,6 +886,16 @@ func (j *jsiiProxy_CfnModelPackage) ModelApprovalStatus() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnModelPackage) ModelCard() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"modelCard",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnModelPackage) ModelMetrics() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -923,6 +986,16 @@ func (j *jsiiProxy_CfnModelPackage) SamplePayloadUrl() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnModelPackage) SecurityConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"securityConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnModelPackage) SkipModelValidation() *string {
 	var returns *string
 	_jsii_.Get(
@@ -938,6 +1011,16 @@ func (j *jsiiProxy_CfnModelPackage) SourceAlgorithmSpecification() interface{} {
 	_jsii_.Get(
 		j,
 		"sourceAlgorithmSpecification",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnModelPackage) SourceUri() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceUri",
 		&returns,
 	)
 	return returns
@@ -1158,6 +1241,17 @@ func (j *jsiiProxy_CfnModelPackage)SetModelApprovalStatus(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnModelPackage)SetModelCard(val interface{}) {
+	if err := j.validateSetModelCardParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"modelCard",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnModelPackage)SetModelMetrics(val interface{}) {
 	if err := j.validateSetModelMetricsParameters(val); err != nil {
 		panic(err)
@@ -1220,6 +1314,17 @@ func (j *jsiiProxy_CfnModelPackage)SetSamplePayloadUrl(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnModelPackage)SetSecurityConfig(val interface{}) {
+	if err := j.validateSetSecurityConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"securityConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnModelPackage)SetSkipModelValidation(val *string) {
 	_jsii_.Set(
 		j,
@@ -1235,6 +1340,14 @@ func (j *jsiiProxy_CfnModelPackage)SetSourceAlgorithmSpecification(val interface
 	_jsii_.Set(
 		j,
 		"sourceAlgorithmSpecification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnModelPackage)SetSourceUri(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceUri",
 		val,
 	)
 }

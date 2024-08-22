@@ -16,6 +16,9 @@ package awssagemaker
 //   	S3Uri: jsii.String("s3Uri"),
 //
 //   	// the properties below are optional
+//   	HubAccessConfig: &HubAccessConfigProperty{
+//   		HubContentArn: jsii.String("hubContentArn"),
+//   	},
 //   	ModelAccessConfig: &ModelAccessConfigProperty{
 //   		AcceptEula: jsii.Boolean(false),
 //   	},
@@ -76,6 +79,9 @@ type CfnModel_S3DataSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-s3uri
 	//
 	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-hubaccessconfig
+	//
+	HubAccessConfig interface{} `field:"optional" json:"hubAccessConfig" yaml:"hubAccessConfig"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-modelaccessconfig
 	//
 	ModelAccessConfig interface{} `field:"optional" json:"modelAccessConfig" yaml:"modelAccessConfig"`

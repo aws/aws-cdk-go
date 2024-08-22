@@ -180,9 +180,6 @@ func validateCfnBroker_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnBroker) validateSetAutoMinorVersionUpgradeParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case *bool:
 		// ok
@@ -264,14 +261,6 @@ func (j *jsiiProxy_CfnBroker) validateSetEncryptionOptionsParameters(val interfa
 }
 
 func (j *jsiiProxy_CfnBroker) validateSetEngineTypeParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnBroker) validateSetEngineVersionParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}

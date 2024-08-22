@@ -43,6 +43,32 @@ package awscodepipeline
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	BeforeEntry: &BeforeEntryConditionsProperty{
+//   		Conditions: []interface{}{
+//   			&ConditionProperty{
+//   				Result: jsii.String("result"),
+//   				Rules: []interface{}{
+//   					&RuleDeclarationProperty{
+//   						Configuration: configuration,
+//   						InputArtifacts: []interface{}{
+//   							&InputArtifactProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Name: jsii.String("name"),
+//   						Region: jsii.String("region"),
+//   						RoleArn: jsii.String("roleArn"),
+//   						RuleTypeId: &RuleTypeIdProperty{
+//   							Category: jsii.String("category"),
+//   							Owner: jsii.String("owner"),
+//   							Provider: jsii.String("provider"),
+//   							Version: jsii.String("version"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Blockers: []interface{}{
 //   		&BlockerDeclarationProperty{
 //   			Name: jsii.String("name"),
@@ -50,7 +76,57 @@ package awscodepipeline
 //   		},
 //   	},
 //   	OnFailure: &FailureConditionsProperty{
+//   		Conditions: []interface{}{
+//   			&ConditionProperty{
+//   				Result: jsii.String("result"),
+//   				Rules: []interface{}{
+//   					&RuleDeclarationProperty{
+//   						Configuration: configuration,
+//   						InputArtifacts: []interface{}{
+//   							&InputArtifactProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Name: jsii.String("name"),
+//   						Region: jsii.String("region"),
+//   						RoleArn: jsii.String("roleArn"),
+//   						RuleTypeId: &RuleTypeIdProperty{
+//   							Category: jsii.String("category"),
+//   							Owner: jsii.String("owner"),
+//   							Provider: jsii.String("provider"),
+//   							Version: jsii.String("version"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
 //   		Result: jsii.String("result"),
+//   	},
+//   	OnSuccess: &SuccessConditionsProperty{
+//   		Conditions: []interface{}{
+//   			&ConditionProperty{
+//   				Result: jsii.String("result"),
+//   				Rules: []interface{}{
+//   					&RuleDeclarationProperty{
+//   						Configuration: configuration,
+//   						InputArtifacts: []interface{}{
+//   							&InputArtifactProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   						Name: jsii.String("name"),
+//   						Region: jsii.String("region"),
+//   						RoleArn: jsii.String("roleArn"),
+//   						RuleTypeId: &RuleTypeIdProperty{
+//   							Category: jsii.String("category"),
+//   							Owner: jsii.String("owner"),
+//   							Provider: jsii.String("provider"),
+//   							Version: jsii.String("version"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   }
 //
@@ -65,6 +141,12 @@ type CfnPipeline_StageDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The method to use when a stage allows entry.
+	//
+	// For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-beforeentry
+	//
+	BeforeEntry interface{} `field:"optional" json:"beforeEntry" yaml:"beforeEntry"`
 	// Reserved for future use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-blockers
 	//
@@ -75,5 +157,11 @@ type CfnPipeline_StageDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onfailure
 	//
 	OnFailure interface{} `field:"optional" json:"onFailure" yaml:"onFailure"`
+	// The method to use when a stage has succeeded.
+	//
+	// For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-onsuccess
+	//
+	OnSuccess interface{} `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 }
 

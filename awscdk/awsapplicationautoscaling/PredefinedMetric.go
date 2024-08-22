@@ -113,5 +113,17 @@ const (
 	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
 	//
 	PredefinedMetric_ELASTICACHE_DATABASE_CAPACITY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE PredefinedMetric = "ELASTICACHE_DATABASE_CAPACITY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE"
+	// SAGEMAKER_INFERENCE_COMPONENT_CONCURRENT_REQUESTS_PER_COPY_HIGH_RESOLUTION.
+	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
+	//
+	PredefinedMetric_SAGEMAKER_INFERENCE_COMPONENT_CONCURRENT_REQUESTS_PER_COPY_HIGH_RESOLUTION PredefinedMetric = "SAGEMAKER_INFERENCE_COMPONENT_CONCURRENT_REQUESTS_PER_COPY_HIGH_RESOLUTION"
+	// SAGEMAKER_VARIANT_CONCURRENT_REQUESTS_PER_MODEL_HIGH_RESOLUTION.
+	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
+	//
+	PredefinedMetric_SAGEMAKER_VARIANT_CONCURRENT_REQUESTS_PER_MODEL_HIGH_RESOLUTION PredefinedMetric = "SAGEMAKER_VARIANT_CONCURRENT_REQUESTS_PER_MODEL_HIGH_RESOLUTION"
+	// WORKSPACES_AVERAGE_USER_SESSIONS_CAPACITY_UTILIZATION.
+	// See: https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredefinedMetricSpecification.html
+	//
+	PredefinedMetric_WORKSPACES_AVERAGE_USER_SESSIONS_CAPACITY_UTILIZATION PredefinedMetric = "WORKSPACES_AVERAGE_USER_SESSIONS_CAPACITY_UTILIZATION"
 )
 

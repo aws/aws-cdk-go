@@ -12,20 +12,20 @@ import (
 // Model data represents the source of model artifacts, which will ultimately be loaded from an S3 location.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
-//   import "github.com/aws-samples/dummy/path"
+//   import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
+//
+//   var image containerImage
+//   var modelData modelData
 //
 //
-//   image := sagemaker.ContainerImage_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("Dockerfile"), jsii.String("directory")))
-//   modelData := sagemaker.ModelData_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("artifact"), jsii.String("file.tar.gz")))
-//
-//   model := sagemaker.NewModel(this, jsii.String("PrimaryContainerModel"), &ModelProps{
+//   model := sagemaker.NewModel(this, jsii.String("ContainerModel"), &ModelProps{
 //   	Containers: []containerDefinition{
 //   		&containerDefinition{
-//   			Image: image,
-//   			ModelData: modelData,
+//   			Image: *Image,
+//   			ModelData: *ModelData,
 //   		},
 //   	},
+//   	NetworkIsolation: jsii.Boolean(true),
 //   })
 //
 // Experimental.

@@ -11,12 +11,12 @@ package awsamazonmq
 //   cfnConfigurationProps := &CfnConfigurationProps{
 //   	Data: jsii.String("data"),
 //   	EngineType: jsii.String("engineType"),
-//   	EngineVersion: jsii.String("engineVersion"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	AuthenticationStrategy: jsii.String("authenticationStrategy"),
 //   	Description: jsii.String("description"),
+//   	EngineVersion: jsii.String("engineVersion"),
 //   	Tags: []tagsEntryProperty{
 //   		&tagsEntryProperty{
 //   			Key: jsii.String("key"),
@@ -38,12 +38,6 @@ type CfnConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-enginetype
 	//
 	EngineType *string `field:"required" json:"engineType" yaml:"engineType"`
-	// The version of the broker engine.
-	//
-	// For a list of supported engine versions, see [](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html)
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-engineversion
-	//
-	EngineVersion *string `field:"required" json:"engineVersion" yaml:"engineVersion"`
 	// The name of the configuration.
 	//
 	// This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
@@ -60,6 +54,12 @@ type CfnConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The version of the broker engine.
+	//
+	// For a list of supported engine versions, see [](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-engineversion
+	//
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Create tags when creating the configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-tags
 	//

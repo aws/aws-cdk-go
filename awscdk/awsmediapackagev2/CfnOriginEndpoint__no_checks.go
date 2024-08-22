@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetDashManifestsParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetForceEndpointErrorConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetHlsManifestsParameters(val interface{}) error {
 	return nil
 }

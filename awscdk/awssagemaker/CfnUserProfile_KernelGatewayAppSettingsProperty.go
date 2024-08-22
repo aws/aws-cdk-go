@@ -20,8 +20,12 @@ package awssagemaker
 //   	},
 //   	DefaultResourceSpec: &ResourceSpecProperty{
 //   		InstanceType: jsii.String("instanceType"),
+//   		LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   		SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   		SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   	},
+//   	LifecycleConfigArns: []*string{
+//   		jsii.String("lifecycleConfigArns"),
 //   	},
 //   }
 //
@@ -38,5 +42,11 @@ type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
 	//
 	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the user profile or domain.
+	//
+	// > To remove a Lifecycle Config, you must set `LifecycleConfigArns` to an empty list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-lifecycleconfigarns
+	//
+	LifecycleConfigArns *[]*string `field:"optional" json:"lifecycleConfigArns" yaml:"lifecycleConfigArns"`
 }
 

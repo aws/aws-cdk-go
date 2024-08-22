@@ -33,7 +33,6 @@ type CfnTransitGatewayMulticastGroupSource interface {
 	AttrGroupMember() awscdk.IResolvable
 	// Indicates that the resource is a transit gateway group member.
 	AttrGroupSource() awscdk.IResolvable
-	// The type of group member, for example static.
 	AttrMemberType() *string
 	// The ID of the resource.
 	AttrResourceId() *string

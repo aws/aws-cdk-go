@@ -10,6 +10,13 @@ package awsbedrock
 //
 //   vectorKnowledgeBaseConfigurationProperty := &VectorKnowledgeBaseConfigurationProperty{
 //   	EmbeddingModelArn: jsii.String("embeddingModelArn"),
+//
+//   	// the properties below are optional
+//   	EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
+//   		BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
+//   			Dimensions: jsii.Number(123),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html
@@ -19,5 +26,9 @@ type CfnKnowledgeBase_VectorKnowledgeBaseConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-embeddingmodelarn
 	//
 	EmbeddingModelArn *string `field:"required" json:"embeddingModelArn" yaml:"embeddingModelArn"`
+	// The embeddings model configuration details for the vector model used in Knowledge Base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-embeddingmodelconfiguration
+	//
+	EmbeddingModelConfiguration interface{} `field:"optional" json:"embeddingModelConfiguration" yaml:"embeddingModelConfiguration"`
 }
 

@@ -56,6 +56,7 @@ import (
 //   						},
 //
 //   						// the properties below are optional
+//   						AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   						AllowedJoinOperators: []*string{
 //   							jsii.String("allowedJoinOperators"),
 //   						},
@@ -67,6 +68,7 @@ import (
 //   						},
 //
 //   						// the properties below are optional
+//   						AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   						AllowedAnalysisProviders: []*string{
 //   							jsii.String("allowedAnalysisProviders"),
 //   						},
@@ -76,6 +78,9 @@ import (
 //   									Name: jsii.String("name"),
 //   								},
 //   							},
+//   						},
+//   						DisallowedOutputColumns: []*string{
+//   							jsii.String("disallowedOutputColumns"),
 //   						},
 //   					},
 //   					List: &AnalysisRuleListProperty{
@@ -87,6 +92,7 @@ import (
 //   						},
 //
 //   						// the properties below are optional
+//   						AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   						AllowedJoinOperators: []*string{
 //   							jsii.String("allowedJoinOperators"),
 //   						},
@@ -126,7 +132,7 @@ type CfnConfiguredTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-tablereference
 	//
 	TableReference interface{} `field:"required" json:"tableReference" yaml:"tableReference"`
-	// The entire created analysis rule.
+	// The analysis rule that was created for the configured table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-analysisrules
 	//
 	AnalysisRules interface{} `field:"optional" json:"analysisRules" yaml:"analysisRules"`

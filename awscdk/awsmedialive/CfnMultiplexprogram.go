@@ -17,7 +17,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnMultiplexprogram := awscdk.Aws_medialive.NewCfnMultiplexprogram(this, jsii.String("MyCfnMultiplexprogram"), &CfnMultiplexprogramProps{
-//   	ChannelId: jsii.String("channelId"),
 //   	MultiplexId: jsii.String("multiplexId"),
 //   	MultiplexProgramSettings: &MultiplexProgramSettingsProperty{
 //   		ProgramNumber: jsii.Number(123),
@@ -75,14 +74,13 @@ import (
 type CfnMultiplexprogram interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The unique ID of the channel.
+	AttrChannelId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The unique ID of the channel.
-	ChannelId() *string
-	SetChannelId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -272,6 +270,16 @@ type jsiiProxy_CfnMultiplexprogram struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnMultiplexprogram) AttrChannelId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrChannelId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMultiplexprogram) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -297,16 +305,6 @@ func (j *jsiiProxy_CfnMultiplexprogram) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnMultiplexprogram) ChannelId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"channelId",
 		&returns,
 	)
 	return returns
@@ -467,14 +465,6 @@ func NewCfnMultiplexprogram_Override(c CfnMultiplexprogram, scope constructs.Con
 		"aws-cdk-lib.aws_medialive.CfnMultiplexprogram",
 		[]interface{}{scope, id, props},
 		c,
-	)
-}
-
-func (j *jsiiProxy_CfnMultiplexprogram)SetChannelId(val *string) {
-	_jsii_.Set(
-		j,
-		"channelId",
-		val,
 	)
 }
 

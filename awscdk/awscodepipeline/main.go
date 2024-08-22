@@ -166,7 +166,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactStore", GoGetter: "ArtifactStore"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactStores", GoGetter: "ArtifactStores"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -227,8 +226,16 @@ func init() {
 		reflect.TypeOf((*CfnPipeline_ArtifactStoreProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.BeforeEntryConditionsProperty",
+		reflect.TypeOf((*CfnPipeline_BeforeEntryConditionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.BlockerDeclarationProperty",
 		reflect.TypeOf((*CfnPipeline_BlockerDeclarationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.ConditionProperty",
+		reflect.TypeOf((*CfnPipeline_ConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.EncryptionKeyProperty",
@@ -275,12 +282,24 @@ func init() {
 		reflect.TypeOf((*CfnPipeline_PipelineTriggerDeclarationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.RuleDeclarationProperty",
+		reflect.TypeOf((*CfnPipeline_RuleDeclarationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.RuleTypeIdProperty",
+		reflect.TypeOf((*CfnPipeline_RuleTypeIdProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.StageDeclarationProperty",
 		reflect.TypeOf((*CfnPipeline_StageDeclarationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.StageTransitionProperty",
 		reflect.TypeOf((*CfnPipeline_StageTransitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.SuccessConditionsProperty",
+		reflect.TypeOf((*CfnPipeline_SuccessConditionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.VariableDeclarationProperty",

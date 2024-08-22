@@ -60,6 +60,8 @@ type CfnConnection_ConnectionInputProperty struct {
 	// - `SALESFORCE` - Designates a connection to Salesforce using OAuth authencation.
 	//
 	// - Requires the `AuthenticationConfiguration` member to be configured.
+	// - `VIEW_VALIDATION_REDSHIFT` - Designates a connection used for view validation by Amazon Redshift.
+	// - `VIEW_VALIDATION_ATHENA` - Designates a connection used for view validation by Amazon Athena.
 	// - `NETWORK` - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
 	//
 	// `NETWORK` Connections do not require ConnectionParameters. Instead, provide a PhysicalConnectionRequirements.

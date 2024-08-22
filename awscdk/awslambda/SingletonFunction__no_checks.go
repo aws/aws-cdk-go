@@ -20,6 +20,10 @@ func (s *jsiiProxy_SingletonFunction) validateAddFunctionUrlParameters(options *
 	return nil
 }
 
+func (s *jsiiProxy_SingletonFunction) validateAddMetadataParameters(type_ *string, data interface{}, options *constructs.MetadataOptions) error {
+	return nil
+}
+
 func (s *jsiiProxy_SingletonFunction) validateAddPermissionParameters(name *string, permission *Permission) error {
 	return nil
 }

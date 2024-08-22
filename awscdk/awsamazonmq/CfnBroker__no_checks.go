@@ -104,10 +104,6 @@ func (j *jsiiProxy_CfnBroker) validateSetEngineTypeParameters(val *string) error
 	return nil
 }
 
-func (j *jsiiProxy_CfnBroker) validateSetEngineVersionParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnBroker) validateSetHostInstanceTypeParameters(val *string) error {
 	return nil
 }

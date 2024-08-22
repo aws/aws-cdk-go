@@ -76,6 +76,12 @@ type ReplicaGlobalSecondaryIndexOptions struct {
 	// Default: - inherited from the primary table.
 	//
 	ContributorInsights *bool `field:"optional" json:"contributorInsights" yaml:"contributorInsights"`
+	// The maximum read request units for a specific global secondary index on a replica table.
+	//
+	// Note: This can only be configured if primary table billing is PAY_PER_REQUEST.
+	// Default: - inherited from the primary table.
+	//
+	MaxReadRequestUnits *float64 `field:"optional" json:"maxReadRequestUnits" yaml:"maxReadRequestUnits"`
 	// The read capacity for a specific global secondary index on a replica table.
 	//
 	// Note: This can only be configured if primary table billing is provisioned.

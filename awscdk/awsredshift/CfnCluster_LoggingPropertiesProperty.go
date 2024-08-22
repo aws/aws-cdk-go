@@ -10,6 +10,10 @@ package awsredshift
 //
 //   loggingPropertiesProperty := &LoggingPropertiesProperty{
 //   	BucketName: jsii.String("bucketName"),
+//   	LogDestinationType: jsii.String("logDestinationType"),
+//   	LogExports: []*string{
+//   		jsii.String("logExports"),
+//   	},
 //   	S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   }
 //
@@ -25,6 +29,18 @@ type CfnCluster_LoggingPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname
 	//
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	// The log destination type.
+	//
+	// An enum with possible values of `s3` and `cloudwatch` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-logdestinationtype
+	//
+	LogDestinationType *string `field:"optional" json:"logDestinationType" yaml:"logDestinationType"`
+	// The collection of exported log types.
+	//
+	// Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-logexports
+	//
+	LogExports *[]*string `field:"optional" json:"logExports" yaml:"logExports"`
 	// The prefix applied to the log file names.
 	//
 	// Constraints:

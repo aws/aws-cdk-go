@@ -39,6 +39,12 @@ import (
 //   		FromPort: jsii.Number(123),
 //   		ToPort: jsii.Number(123),
 //   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html
@@ -46,7 +52,10 @@ import (
 type CfnTrafficMirrorFilterRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	AttrId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -101,6 +110,9 @@ type CfnTrafficMirrorFilterRule interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Tags on Traffic Mirroring filter rules.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The type of traffic.
 	TrafficDirection() *string
 	SetTrafficDirection(val *string)
@@ -251,6 +263,7 @@ type CfnTrafficMirrorFilterRule interface {
 type jsiiProxy_CfnTrafficMirrorFilterRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTrafficMirrorFilterRule) AttrId() *string {
@@ -258,6 +271,16 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -423,6 +446,16 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrafficMirrorFilterRule) TrafficDirection() *string {
 	var returns *string
 	_jsii_.Get(
@@ -569,6 +602,17 @@ func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetSourcePortRange(val interface{}
 	_jsii_.Set(
 		j,
 		"sourcePortRange",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrafficMirrorFilterRule)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

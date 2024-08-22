@@ -55,7 +55,7 @@ type CfnLocationHDFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.
+	// The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
 	// The Amazon Resource Name (ARN) of the HDFS cluster location to describe.

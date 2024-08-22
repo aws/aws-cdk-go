@@ -62,6 +62,7 @@ import (
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	OutputStatus: jsii.String("outputStatus"),
 //   	Port: jsii.Number(123),
 //   	RemoteId: jsii.String("remoteId"),
 //   	SmoothingLatency: jsii.Number(123),
@@ -126,6 +127,9 @@ type CfnFlowOutput interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// An indication of whether the output should transmit data or not.
+	OutputStatus() *string
+	SetOutputStatus(val *string)
 	// The port to use when MediaConnect distributes content to the output.
 	Port() *float64
 	SetPort(val *float64)
@@ -459,6 +463,16 @@ func (j *jsiiProxy_CfnFlowOutput) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowOutput) OutputStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outputStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowOutput) Port() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -664,6 +678,14 @@ func (j *jsiiProxy_CfnFlowOutput)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetOutputStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"outputStatus",
 		val,
 	)
 }

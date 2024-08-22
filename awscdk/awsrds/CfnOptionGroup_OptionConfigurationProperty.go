@@ -35,7 +35,7 @@ type CfnOptionGroup_OptionConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-optionname
 	//
 	OptionName *string `field:"required" json:"optionName" yaml:"optionName"`
-	// A list of DBSecurityGroupMembership name strings used for this option.
+	// A list of DB security groups used for this option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-dbsecuritygroupmemberships
 	//
 	DbSecurityGroupMemberships *[]*string `field:"optional" json:"dbSecurityGroupMemberships" yaml:"dbSecurityGroupMemberships"`
@@ -51,7 +51,7 @@ type CfnOptionGroup_OptionConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
-	// A list of VpcSecurityGroupMembership name strings used for this option.
+	// A list of VPC security group names used for this option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html#cfn-rds-optiongroup-optionconfiguration-vpcsecuritygroupmemberships
 	//
 	VpcSecurityGroupMemberships *[]*string `field:"optional" json:"vpcSecurityGroupMemberships" yaml:"vpcSecurityGroupMemberships"`

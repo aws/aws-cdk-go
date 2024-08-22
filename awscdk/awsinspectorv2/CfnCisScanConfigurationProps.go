@@ -38,9 +38,6 @@ package awsinspectorv2
 //   		},
 //   	},
 //   	SecurityLevel: jsii.String("securityLevel"),
-//   	Tags: map[string]*string{
-//   		"tagsKey": jsii.String("tags"),
-//   	},
 //   	Targets: &CisTargetsProperty{
 //   		AccountIds: []*string{
 //   			jsii.String("accountIds"),
@@ -53,6 +50,11 @@ package awsinspectorv2
 //   			},
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html
@@ -61,22 +63,22 @@ type CfnCisScanConfigurationProps struct {
 	// The name of the CIS scan configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-scanname
 	//
-	ScanName *string `field:"optional" json:"scanName" yaml:"scanName"`
+	ScanName *string `field:"required" json:"scanName" yaml:"scanName"`
 	// The CIS scan configuration's schedule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-schedule
 	//
-	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
+	Schedule interface{} `field:"required" json:"schedule" yaml:"schedule"`
 	// The CIS scan configuration's CIS Benchmark level.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-securitylevel
 	//
-	SecurityLevel *string `field:"optional" json:"securityLevel" yaml:"securityLevel"`
+	SecurityLevel *string `field:"required" json:"securityLevel" yaml:"securityLevel"`
+	// The CIS scan configuration's targets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-targets
+	//
+	Targets interface{} `field:"required" json:"targets" yaml:"targets"`
 	// The CIS scan configuration's tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// The CIS scan configuration's targets.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html#cfn-inspectorv2-cisscanconfiguration-targets
-	//
-	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 }
 

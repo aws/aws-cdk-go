@@ -141,6 +141,13 @@ type ApplicationLoadBalancer interface {
 	// A region must be specified on the stack containing the load balancer; you cannot enable logging on
 	// environment-agnostic stacks. See https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 	LogAccessLogs(bucket awss3.IBucket, prefix *string)
+	// Enable connection logging for this load balancer.
+	//
+	// A region must be specified on the stack containing the load balancer; you cannot enable logging on
+	// environment-agnostic stacks.
+	// See: https://docs.aws.amazon.com/cdk/latest/guide/environments.html
+	//
+	LogConnectionLogs(bucket awss3.IBucket, prefix *string)
 	// Return the given named metric for this Application Load Balancer.
 	// Default: Average over 5 minutes.
 	//
@@ -689,6 +696,17 @@ func (a *jsiiProxy_ApplicationLoadBalancer) LogAccessLogs(bucket awss3.IBucket, 
 	_jsii_.InvokeVoid(
 		a,
 		"logAccessLogs",
+		[]interface{}{bucket, prefix},
+	)
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancer) LogConnectionLogs(bucket awss3.IBucket, prefix *string) {
+	if err := a.validateLogConnectionLogsParameters(bucket); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"logConnectionLogs",
 		[]interface{}{bucket, prefix},
 	)
 }

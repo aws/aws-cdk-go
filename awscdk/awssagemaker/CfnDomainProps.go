@@ -84,6 +84,9 @@ import (
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
+//   			LifecycleConfigArns: []*string{
+//   				jsii.String("lifecycleConfigArns"),
+//   			},
 //   		},
 //   		KernelGatewayAppSettings: &KernelGatewayAppSettingsProperty{
 //   			CustomImages: []interface{}{
@@ -100,6 +103,9 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   			LifecycleConfigArns: []*string{
+//   				jsii.String("lifecycleConfigArns"),
 //   			},
 //   		},
 //   		RSessionAppSettings: &RSessionAppSettingsProperty{
@@ -138,6 +144,14 @@ import (
 //   			},
 //   		},
 //   		StudioWebPortal: jsii.String("studioWebPortal"),
+//   		StudioWebPortalSettings: &StudioWebPortalSettingsProperty{
+//   			HiddenAppTypes: []*string{
+//   				jsii.String("hiddenAppTypes"),
+//   			},
+//   			HiddenMlTools: []*string{
+//   				jsii.String("hiddenMlTools"),
+//   			},
+//   		},
 //   	},
 //   	DomainName: jsii.String("domainName"),
 //   	SubnetIds: []*string{
@@ -198,6 +212,9 @@ import (
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
+//   			LifecycleConfigArns: []*string{
+//   				jsii.String("lifecycleConfigArns"),
+//   			},
 //   		},
 //   		KernelGatewayAppSettings: &KernelGatewayAppSettingsProperty{
 //   			CustomImages: []interface{}{
@@ -214,6 +231,9 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   			LifecycleConfigArns: []*string{
+//   				jsii.String("lifecycleConfigArns"),
 //   			},
 //   		},
 //   		SecurityGroups: []*string{

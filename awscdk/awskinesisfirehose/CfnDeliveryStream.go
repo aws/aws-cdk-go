@@ -77,6 +77,9 @@ type CfnDeliveryStream interface {
 	// Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination.
 	HttpEndpointDestinationConfiguration() interface{}
 	SetHttpEndpointDestinationConfiguration(val interface{})
+	// Specifies the destination configure settings for Apache Iceberg Table.
+	IcebergDestinationConfiguration() interface{}
+	SetIcebergDestinationConfiguration(val interface{})
 	// When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
 	KinesisStreamSourceConfiguration() interface{}
 	SetKinesisStreamSourceConfiguration(val interface{})
@@ -398,6 +401,16 @@ func (j *jsiiProxy_CfnDeliveryStream) HttpEndpointDestinationConfiguration() int
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) IcebergDestinationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"icebergDestinationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) KinesisStreamSourceConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -644,6 +657,17 @@ func (j *jsiiProxy_CfnDeliveryStream)SetHttpEndpointDestinationConfiguration(val
 	_jsii_.Set(
 		j,
 		"httpEndpointDestinationConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryStream)SetIcebergDestinationConfiguration(val interface{}) {
+	if err := j.validateSetIcebergDestinationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"icebergDestinationConfiguration",
 		val,
 	)
 }

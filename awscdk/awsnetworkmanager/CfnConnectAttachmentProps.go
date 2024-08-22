@@ -20,10 +20,21 @@ import (
 //   	TransportAttachmentId: jsii.String("transportAttachmentId"),
 //
 //   	// the properties below are optional
+//   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
+//   		AttachmentPolicyRuleNumber: jsii.Number(123),
+//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   		Tags: []cfnTag{
+//   			&cfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
-//   		Tags: []cfnTag{
+//   		Tags: []*cfnTag{
 //   			&cfnTag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
@@ -57,6 +68,14 @@ type CfnConnectAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-transportattachmentid
 	//
 	TransportAttachmentId *string `field:"required" json:"transportAttachmentId" yaml:"transportAttachmentId"`
+	// The name of the network function group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-networkfunctiongroupname
+	//
+	NetworkFunctionGroupName *string `field:"optional" json:"networkFunctionGroupName" yaml:"networkFunctionGroupName"`
+	// Describes proposed changes to a network function group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html#cfn-networkmanager-connectattachment-proposednetworkfunctiongroupchange
+	//
+	ProposedNetworkFunctionGroupChange interface{} `field:"optional" json:"proposedNetworkFunctionGroupChange" yaml:"proposedNetworkFunctionGroupChange"`
 	// Describes a proposed segment change.
 	//
 	// In some cases, the segment change must first be evaluated and accepted.

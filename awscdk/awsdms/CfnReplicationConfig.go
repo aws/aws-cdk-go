@@ -37,19 +37,21 @@ import (
 //   		},
 //   	},
 //   	ReplicationConfigIdentifier: jsii.String("replicationConfigIdentifier"),
-//   	ReplicationSettings: replicationSettings,
 //   	ReplicationType: jsii.String("replicationType"),
-//   	ResourceIdentifier: jsii.String("resourceIdentifier"),
 //   	SourceEndpointArn: jsii.String("sourceEndpointArn"),
-//   	SupplementalSettings: supplementalSettings,
 //   	TableMappings: tableMappings,
+//   	TargetEndpointArn: jsii.String("targetEndpointArn"),
+//
+//   	// the properties below are optional
+//   	ReplicationSettings: replicationSettings,
+//   	ResourceIdentifier: jsii.String("resourceIdentifier"),
+//   	SupplementalSettings: supplementalSettings,
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	TargetEndpointArn: jsii.String("targetEndpointArn"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html
@@ -529,6 +531,9 @@ func (j *jsiiProxy_CfnReplicationConfig)SetComputeConfig(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnReplicationConfig)SetReplicationConfigIdentifier(val *string) {
+	if err := j.validateSetReplicationConfigIdentifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"replicationConfigIdentifier",
@@ -545,6 +550,9 @@ func (j *jsiiProxy_CfnReplicationConfig)SetReplicationSettings(val interface{}) 
 }
 
 func (j *jsiiProxy_CfnReplicationConfig)SetReplicationType(val *string) {
+	if err := j.validateSetReplicationTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"replicationType",
@@ -561,6 +569,9 @@ func (j *jsiiProxy_CfnReplicationConfig)SetResourceIdentifier(val *string) {
 }
 
 func (j *jsiiProxy_CfnReplicationConfig)SetSourceEndpointArn(val *string) {
+	if err := j.validateSetSourceEndpointArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"sourceEndpointArn",
@@ -577,6 +588,9 @@ func (j *jsiiProxy_CfnReplicationConfig)SetSupplementalSettings(val interface{})
 }
 
 func (j *jsiiProxy_CfnReplicationConfig)SetTableMappings(val interface{}) {
+	if err := j.validateSetTableMappingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tableMappings",
@@ -596,6 +610,9 @@ func (j *jsiiProxy_CfnReplicationConfig)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnReplicationConfig)SetTargetEndpointArn(val *string) {
+	if err := j.validateSetTargetEndpointArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"targetEndpointArn",

@@ -23,24 +23,33 @@ import (
 // with, and we want to make it not too visually overwhelming).
 //
 // Example:
-//   var listener applicationListener
-//   var myTargetGroup applicationTargetGroup
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var certificate certificate
+//   var lb applicationLoadBalancer
+//   var bucket bucket
 //
 //
-//   listener.AddAction(jsii.String("DefaultAction"), &AddApplicationActionProps{
-//   	Action: elbv2.ListenerAction_AuthenticateOidc(&AuthenticateOidcOptions{
-//   		AuthorizationEndpoint: jsii.String("https://example.com/openid"),
-//   		// Other OIDC properties here
-//   		ClientId: jsii.String("..."),
-//   		ClientSecret: awscdk.SecretValue_SecretsManager(jsii.String("...")),
-//   		Issuer: jsii.String("..."),
-//   		TokenEndpoint: jsii.String("..."),
-//   		UserInfoEndpoint: jsii.String("..."),
+//   trustStore := elbv2.NewTrustStore(this, jsii.String("Store"), &TrustStoreProps{
+//   	Bucket: Bucket,
+//   	Key: jsii.String("rootCA_cert.pem"),
+//   })
 //
-//   		// Next
-//   		Next: elbv2.ListenerAction_Forward([]iApplicationTargetGroup{
-//   			myTargetGroup,
-//   		}),
+//   lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(443),
+//   	Protocol: elbv2.ApplicationProtocol_HTTPS,
+//   	Certificates: []iListenerCertificate{
+//   		certificate,
+//   	},
+//   	// mTLS settings
+//   	MutualAuthentication: &MutualAuthentication{
+//   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
+//   		MutualAuthenticationMode: elbv2.MutualAuthenticationMode_VERIFY,
+//   		TrustStore: *TrustStore,
+//   	},
+//   	DefaultAction: elbv2.ListenerAction_FixedResponse(jsii.Number(200), &FixedResponseOptions{
+//   		ContentType: jsii.String("text/plain"),
+//   		MessageBody: jsii.String("Success mTLS"),
 //   	}),
 //   })
 //

@@ -21,6 +21,21 @@ package awsentityresolution
 //   			"providerConfigurationKey": jsii.String("providerConfiguration"),
 //   		},
 //   	},
+//   	RuleBasedProperties: &IdMappingRuleBasedPropertiesProperty{
+//   		AttributeMatchingModel: jsii.String("attributeMatchingModel"),
+//   		RecordMatchingModel: jsii.String("recordMatchingModel"),
+//
+//   		// the properties below are optional
+//   		RuleDefinitionType: jsii.String("ruleDefinitionType"),
+//   		Rules: []interface{}{
+//   			&RuleProperty{
+//   				MatchingKeys: []*string{
+//   					jsii.String("matchingKeys"),
+//   				},
+//   				RuleName: jsii.String("ruleName"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html
@@ -34,5 +49,9 @@ type CfnIdMappingWorkflow_IdMappingTechniquesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-providerproperties
 	//
 	ProviderProperties interface{} `field:"optional" json:"providerProperties" yaml:"providerProperties"`
+	// An object which defines any additional configurations required by rule-based matching.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-rulebasedproperties
+	//
+	RuleBasedProperties interface{} `field:"optional" json:"ruleBasedProperties" yaml:"ruleBasedProperties"`
 }
 

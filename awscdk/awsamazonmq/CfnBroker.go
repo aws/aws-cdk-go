@@ -38,11 +38,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnBroker := awscdk.Aws_amazonmq.NewCfnBroker(this, jsii.String("MyCfnBroker"), &CfnBrokerProps{
-//   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	BrokerName: jsii.String("brokerName"),
 //   	DeploymentMode: jsii.String("deploymentMode"),
 //   	EngineType: jsii.String("engineType"),
-//   	EngineVersion: jsii.String("engineVersion"),
 //   	HostInstanceType: jsii.String("hostInstanceType"),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	Users: []interface{}{
@@ -61,6 +59,7 @@ import (
 //
 //   	// the properties below are optional
 //   	AuthenticationStrategy: jsii.String("authenticationStrategy"),
+//   	AutoMinorVersionUpgrade: jsii.Boolean(false),
 //   	Configuration: &ConfigurationIdProperty{
 //   		Id: jsii.String("id"),
 //   		Revision: jsii.Number(123),
@@ -73,6 +72,7 @@ import (
 //   		// the properties below are optional
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	EngineVersion: jsii.String("engineVersion"),
 //   	LdapServerMetadata: &LdapServerMetadataProperty{
 //   		Hosts: []*string{
 //   			jsii.String("hosts"),
@@ -930,9 +930,6 @@ func (j *jsiiProxy_CfnBroker)SetEngineType(val *string) {
 }
 
 func (j *jsiiProxy_CfnBroker)SetEngineVersion(val *string) {
-	if err := j.validateSetEngineVersionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"engineVersion",

@@ -21,6 +21,18 @@ package awssagemaker
 //   	Framework: jsii.String("framework"),
 //   	FrameworkVersion: jsii.String("frameworkVersion"),
 //   	ImageDigest: jsii.String("imageDigest"),
+//   	ModelDataSource: &ModelDataSourceProperty{
+//   		S3DataSource: &S3ModelDataSourceProperty{
+//   			CompressionType: jsii.String("compressionType"),
+//   			S3DataType: jsii.String("s3DataType"),
+//   			S3Uri: jsii.String("s3Uri"),
+//
+//   			// the properties below are optional
+//   			ModelAccessConfig: &ModelAccessConfigProperty{
+//   				AcceptEula: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
 //   	ModelDataUrl: jsii.String("modelDataUrl"),
 //   	ModelInput: modelInput,
 //   	NearestModelName: jsii.String("nearestModelName"),
@@ -57,6 +69,10 @@ type CfnModelPackage_ModelPackageContainerDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-imagedigest
 	//
 	ImageDigest *string `field:"optional" json:"imageDigest" yaml:"imageDigest"`
+	// Specifies the location of ML model data to deploy during endpoint creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html#cfn-sagemaker-modelpackage-modelpackagecontainerdefinition-modeldatasource
+	//
+	ModelDataSource interface{} `field:"optional" json:"modelDataSource" yaml:"modelDataSource"`
 	// The Amazon S3 path where the model artifacts, which result from model training, are stored.
 	//
 	// This path must point to a single `gzip` compressed tar archive ( `.tar.gz` suffix).

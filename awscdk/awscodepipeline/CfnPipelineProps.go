@@ -49,6 +49,32 @@ import (
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
+//   			BeforeEntry: &BeforeEntryConditionsProperty{
+//   				Conditions: []interface{}{
+//   					&ConditionProperty{
+//   						Result: jsii.String("result"),
+//   						Rules: []interface{}{
+//   							&RuleDeclarationProperty{
+//   								Configuration: configuration,
+//   								InputArtifacts: []interface{}{
+//   									&InputArtifactProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
+//   								Name: jsii.String("name"),
+//   								Region: jsii.String("region"),
+//   								RoleArn: jsii.String("roleArn"),
+//   								RuleTypeId: &RuleTypeIdProperty{
+//   									Category: jsii.String("category"),
+//   									Owner: jsii.String("owner"),
+//   									Provider: jsii.String("provider"),
+//   									Version: jsii.String("version"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
 //   			Blockers: []interface{}{
 //   				&BlockerDeclarationProperty{
 //   					Name: jsii.String("name"),
@@ -56,7 +82,57 @@ import (
 //   				},
 //   			},
 //   			OnFailure: &FailureConditionsProperty{
+//   				Conditions: []interface{}{
+//   					&ConditionProperty{
+//   						Result: jsii.String("result"),
+//   						Rules: []interface{}{
+//   							&RuleDeclarationProperty{
+//   								Configuration: configuration,
+//   								InputArtifacts: []interface{}{
+//   									&InputArtifactProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
+//   								Name: jsii.String("name"),
+//   								Region: jsii.String("region"),
+//   								RoleArn: jsii.String("roleArn"),
+//   								RuleTypeId: &RuleTypeIdProperty{
+//   									Category: jsii.String("category"),
+//   									Owner: jsii.String("owner"),
+//   									Provider: jsii.String("provider"),
+//   									Version: jsii.String("version"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Result: jsii.String("result"),
+//   			},
+//   			OnSuccess: &SuccessConditionsProperty{
+//   				Conditions: []interface{}{
+//   					&ConditionProperty{
+//   						Result: jsii.String("result"),
+//   						Rules: []interface{}{
+//   							&RuleDeclarationProperty{
+//   								Configuration: configuration,
+//   								InputArtifacts: []interface{}{
+//   									&InputArtifactProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
+//   								Name: jsii.String("name"),
+//   								Region: jsii.String("region"),
+//   								RoleArn: jsii.String("roleArn"),
+//   								RuleTypeId: &RuleTypeIdProperty{
+//   									Category: jsii.String("category"),
+//   									Owner: jsii.String("owner"),
+//   									Provider: jsii.String("provider"),
+//   									Version: jsii.String("version"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
 //   			},
 //   		},
 //   	},
@@ -210,6 +286,8 @@ type CfnPipelineProps struct {
 	//
 	// The default mode is SUPERSEDED.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-executionmode
+	//
+	// Default: - "SUPERSEDED".
 	//
 	ExecutionMode *string `field:"optional" json:"executionMode" yaml:"executionMode"`
 	// The name of the pipeline.

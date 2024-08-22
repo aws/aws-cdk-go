@@ -10,59 +10,31 @@ import (
 // A single Application Load Balancer as the target for load balancing.
 //
 // Example:
-//   import targets "github.com/aws/aws-cdk-go/awscdk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import patterns "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var vpc vpc
+//   var applicationLoadBalancer applicationLoadBalancer
 //
+//   albTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewAlbTarget(applicationLoadBalancer, jsii.Number(123))
 //
-//   task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &FargateTaskDefinitionProps{
-//   	Cpu: jsii.Number(256),
-//   	MemoryLimitMiB: jsii.Number(512),
-//   })
-//   task.AddContainer(jsii.String("nginx"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/nginx/nginx:latest")),
-//   	PortMappings: []portMapping{
-//   		&portMapping{
-//   			ContainerPort: jsii.Number(80),
-//   		},
-//   	},
-//   })
-//
-//   svc := patterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
-//   	Vpc: Vpc,
-//   	TaskDefinition: task,
-//   	PublicLoadBalancer: jsii.Boolean(false),
-//   })
-//
-//   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("Nlb"), &NetworkLoadBalancerProps{
-//   	Vpc: Vpc,
-//   	CrossZoneEnabled: jsii.Boolean(true),
-//   	InternetFacing: jsii.Boolean(true),
-//   })
-//
-//   listener := nlb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//
-//   listener.AddTargets(jsii.String("Targets"), &AddNetworkTargetsProps{
-//   	Targets: []iNetworkLoadBalancerTarget{
-//   		targets.NewAlbTarget(svc.loadBalancer, jsii.Number(80)),
-//   	},
-//   	Port: jsii.Number(80),
-//   })
-//
-//   awscdk.NewCfnOutput(this, jsii.String("NlbEndpoint"), &CfnOutputProps{
-//   	Value: fmt.Sprintf("http://%v", nlb.LoadBalancerDnsName),
-//   })
-//
+// Deprecated: Use `AlbListenerTarget` instead or
+// `AlbArnTarget` for an imported load balancer. This target does not automatically
+// add a dependency between the ALB listener and resulting NLB target group,
+// without which may cause stack deployments to fail if the NLB target group is provisioned
+// before the listener has been fully created.
 type AlbTarget interface {
 	AlbArnTarget
 	// Register this alb target with a load balancer.
 	//
 	// Don't call this, it is called automatically when you add the target to a
 	// load balancer.
+	// Deprecated: Use `AlbListenerTarget` instead or
+	// `AlbArnTarget` for an imported load balancer. This target does not automatically
+	// add a dependency between the ALB listener and resulting NLB target group,
+	// without which may cause stack deployments to fail if the NLB target group is provisioned
+	// before the listener has been fully created.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 }
 
@@ -71,6 +43,11 @@ type jsiiProxy_AlbTarget struct {
 	jsiiProxy_AlbArnTarget
 }
 
+// Deprecated: Use `AlbListenerTarget` instead or
+// `AlbArnTarget` for an imported load balancer. This target does not automatically
+// add a dependency between the ALB listener and resulting NLB target group,
+// without which may cause stack deployments to fail if the NLB target group is provisioned
+// before the listener has been fully created.
 func NewAlbTarget(alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *float64) AlbTarget {
 	_init_.Initialize()
 
@@ -88,6 +65,11 @@ func NewAlbTarget(alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *
 	return &j
 }
 
+// Deprecated: Use `AlbListenerTarget` instead or
+// `AlbArnTarget` for an imported load balancer. This target does not automatically
+// add a dependency between the ALB listener and resulting NLB target group,
+// without which may cause stack deployments to fail if the NLB target group is provisioned
+// before the listener has been fully created.
 func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *float64) {
 	_init_.Initialize()
 

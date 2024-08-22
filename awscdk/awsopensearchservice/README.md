@@ -483,7 +483,7 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 })
 ```
 
-## Enable support for Multi-AZ with Standby deployment
+## Enable support for Multi-AZ with Standby deployment
 
 The domain can be configured to use [multi-AZ with standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby).
 

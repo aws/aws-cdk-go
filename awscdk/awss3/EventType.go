@@ -4,15 +4,12 @@ package awss3
 // Notification event types.
 //
 // Example:
-//   var myLambda function
+//   var myQueue queue
 //
-//   bucket := s3.Bucket_FromBucketAttributes(this, jsii.String("ImportedBucket"), &BucketAttributes{
-//   	BucketArn: jsii.String("arn:aws:s3:::my-bucket"),
-//   })
-//
-//   // now you can just call methods on the bucket
-//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), &NotificationKeyFilter{
-//   	Prefix: jsii.String("home/myusername/*"),
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
+//   bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
+//   	Prefix: jsii.String("foo/"),
+//   	Suffix: jsii.String(".jpg"),
 //   })
 //
 type EventType string

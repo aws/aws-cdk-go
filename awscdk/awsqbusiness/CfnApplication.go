@@ -30,6 +30,9 @@ import (
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   	QAppsConfiguration: &QAppsConfigurationProperty{
+//   		QAppsControlMode: jsii.String("qAppsControlMode"),
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -97,6 +100,9 @@ type CfnApplication interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Configuration information about Amazon Q Apps.
+	QAppsConfiguration() interface{}
+	SetQAppsConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -439,6 +445,16 @@ func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) QAppsConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"qAppsConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -572,6 +588,17 @@ func (j *jsiiProxy_CfnApplication)SetIdentityCenterInstanceArn(val *string) {
 	_jsii_.Set(
 		j,
 		"identityCenterInstanceArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetQAppsConfiguration(val interface{}) {
+	if err := j.validateSetQAppsConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"qAppsConfiguration",
 		val,
 	)
 }

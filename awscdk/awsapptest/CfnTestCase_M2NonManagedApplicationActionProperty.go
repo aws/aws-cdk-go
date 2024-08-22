@@ -1,7 +1,7 @@
 package awsapptest
 
 
-// Specifies the AWS Mainframe Modernization non-managed application action.
+// Specifies the Mainframe Modernization non-managed application action.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package awsapptest
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2nonmanagedapplicationaction.html
 //
 type CfnTestCase_M2NonManagedApplicationActionProperty struct {
-	// The action type of the AWS Mainframe Modernization non-managed application action.
+	// The action type of the Mainframe Modernization non-managed application action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2nonmanagedapplicationaction.html#cfn-apptest-testcase-m2nonmanagedapplicationaction-actiontype
 	//
 	ActionType *string `field:"required" json:"actionType" yaml:"actionType"`
-	// The resource of the AWS Mainframe Modernization non-managed application action.
+	// The resource of the Mainframe Modernization non-managed application action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2nonmanagedapplicationaction.html#cfn-apptest-testcase-m2nonmanagedapplicationaction-resource
 	//
 	Resource *string `field:"required" json:"resource" yaml:"resource"`

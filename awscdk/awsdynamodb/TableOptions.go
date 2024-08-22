@@ -45,6 +45,8 @@ import (
 //   		CompressionType: awscdk.*Aws_dynamodb.InputCompressionType_GZIP,
 //   		KeyPrefix: jsii.String("keyPrefix"),
 //   	},
+//   	MaxReadRequestUnits: jsii.Number(123),
+//   	MaxWriteRequestUnits: jsii.Number(123),
 //   	PointInTimeRecovery: jsii.Boolean(false),
 //   	ReadCapacity: jsii.Number(123),
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
@@ -109,6 +111,24 @@ type TableOptions struct {
 	// Default: - no data import from the S3 bucket.
 	//
 	ImportSource *ImportSourceSpecification `field:"optional" json:"importSource" yaml:"importSource"`
+	// The maximum read request units for the table.
+	//
+	// Careful if you add Global Secondary Indexes, as
+	//  those will share the table's maximum on-demand throughput.
+	//
+	// Can only be provided if billingMode is PAY_PER_REQUEST.
+	// Default: - on-demand throughput is disabled.
+	//
+	MaxReadRequestUnits *float64 `field:"optional" json:"maxReadRequestUnits" yaml:"maxReadRequestUnits"`
+	// The write request units for the table.
+	//
+	// Careful if you add Global Secondary Indexes, as
+	// those will share the table's maximum on-demand throughput.
+	//
+	// Can only be provided if billingMode is PAY_PER_REQUEST.
+	// Default: - on-demand throughput is disabled.
+	//
+	MaxWriteRequestUnits *float64 `field:"optional" json:"maxWriteRequestUnits" yaml:"maxWriteRequestUnits"`
 	// Whether point-in-time recovery is enabled.
 	// Default: - point-in-time recovery is disabled.
 	//

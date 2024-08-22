@@ -17,6 +17,49 @@ package awsbedrock
 //   			MaxTokens: jsii.Number(123),
 //   			OverlapPercentage: jsii.Number(123),
 //   		},
+//   		HierarchicalChunkingConfiguration: &HierarchicalChunkingConfigurationProperty{
+//   			LevelConfigurations: []interface{}{
+//   				&HierarchicalChunkingLevelConfigurationProperty{
+//   					MaxTokens: jsii.Number(123),
+//   				},
+//   			},
+//   			OverlapTokens: jsii.Number(123),
+//   		},
+//   		SemanticChunkingConfiguration: &SemanticChunkingConfigurationProperty{
+//   			BreakpointPercentileThreshold: jsii.Number(123),
+//   			BufferSize: jsii.Number(123),
+//   			MaxTokens: jsii.Number(123),
+//   		},
+//   	},
+//   	CustomTransformationConfiguration: &CustomTransformationConfigurationProperty{
+//   		IntermediateStorage: &IntermediateStorageProperty{
+//   			S3Location: &S3LocationProperty{
+//   				Uri: jsii.String("uri"),
+//   			},
+//   		},
+//   		Transformations: []interface{}{
+//   			&TransformationProperty{
+//   				StepToApply: jsii.String("stepToApply"),
+//   				TransformationFunction: &TransformationFunctionProperty{
+//   					TransformationLambdaConfiguration: &TransformationLambdaConfigurationProperty{
+//   						LambdaArn: jsii.String("lambdaArn"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
+//   	ParsingConfiguration: &ParsingConfigurationProperty{
+//   		ParsingStrategy: jsii.String("parsingStrategy"),
+//
+//   		// the properties below are optional
+//   		BedrockFoundationModelConfiguration: &BedrockFoundationModelConfigurationProperty{
+//   			ModelArn: jsii.String("modelArn"),
+//
+//   			// the properties below are optional
+//   			ParsingPrompt: &ParsingPromptProperty{
+//   				ParsingPromptText: jsii.String("parsingPromptText"),
+//   			},
+//   		},
 //   	},
 //   }
 //
@@ -29,5 +72,13 @@ type CfnDataSource_VectorIngestionConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-chunkingconfiguration
 	//
 	ChunkingConfiguration interface{} `field:"optional" json:"chunkingConfiguration" yaml:"chunkingConfiguration"`
+	// A custom document transformer for parsed data source documents.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-customtransformationconfiguration
+	//
+	CustomTransformationConfiguration interface{} `field:"optional" json:"customTransformationConfiguration" yaml:"customTransformationConfiguration"`
+	// A custom parser for data source documents.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-parsingconfiguration
+	//
+	ParsingConfiguration interface{} `field:"optional" json:"parsingConfiguration" yaml:"parsingConfiguration"`
 }
 

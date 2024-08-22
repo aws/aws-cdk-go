@@ -1,5 +1,8 @@
 package awscognito
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnIdentityPool`.
 //
@@ -59,6 +62,12 @@ type CfnIdentityPoolProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypoolname
 	//
 	IdentityPoolName *string `field:"optional" json:"identityPoolName" yaml:"identityPoolName"`
+	// Tags to assign to the identity pool.
+	//
+	// A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-identitypooltags
+	//
+	IdentityPoolTags *[]*awscdk.CfnTag `field:"optional" json:"identityPoolTags" yaml:"identityPoolTags"`
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns
 	//

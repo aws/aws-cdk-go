@@ -23,6 +23,7 @@ import (
 //   			EndpointId: jsii.String("endpointId"),
 //
 //   			// the properties below are optional
+//   			Cidr: jsii.String("cidr"),
 //   			Region: jsii.String("region"),
 //   		},
 //   	},

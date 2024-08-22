@@ -1,6 +1,8 @@
 package awsapigatewayv2
 
 
+// response parameter.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -16,9 +18,9 @@ package awsapigatewayv2
 type CfnIntegration_ResponseParameterProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html#cfn-apigatewayv2-integration-responseparameter-destination
 	//
-	Destination *string `field:"required" json:"destination" yaml:"destination"`
+	Destination *string `field:"optional" json:"destination" yaml:"destination"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html#cfn-apigatewayv2-integration-responseparameter-source
 	//
-	Source *string `field:"required" json:"source" yaml:"source"`
+	Source *string `field:"optional" json:"source" yaml:"source"`
 }
 

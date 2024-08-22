@@ -28,9 +28,7 @@ type CfnPipe_S3LogDestinationProperty struct {
 	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
 	// The format EventBridge uses for the log records.
 	//
-	// - `json` : JSON
-	// - `plain` : Plain text
-	// - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+	// EventBridge currently only supports `json` formatting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html#cfn-pipes-pipe-s3logdestination-outputformat
 	//
 	OutputFormat *string `field:"optional" json:"outputFormat" yaml:"outputFormat"`

@@ -4,32 +4,41 @@ package cloudassemblyschema
 // Options to use with cdk destroy.
 //
 // Example:
-//   app := awscdk.NewApp()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   stackUnderTest := awscdk.NewStack(app, jsii.String("StackUnderTest"))
-//
-//   stack := awscdk.NewStack(app, jsii.String("stack"))
-//
-//   testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("CustomizedDeploymentWorkflow"), &IntegTestProps{
-//   	TestCases: []stack{
-//   		stackUnderTest,
+//   destroyOptions := &DestroyOptions{
+//   	All: jsii.Boolean(false),
+//   	App: jsii.String("app"),
+//   	AssetMetadata: jsii.Boolean(false),
+//   	CaBundlePath: jsii.String("caBundlePath"),
+//   	Color: jsii.Boolean(false),
+//   	Context: map[string]*string{
+//   		"contextKey": jsii.String("context"),
 //   	},
-//   	DiffAssets: jsii.Boolean(true),
-//   	StackUpdateWorkflow: jsii.Boolean(true),
-//   	CdkCommandOptions: &CdkCommands{
-//   		Deploy: &DeployCommand{
-//   			Args: &DeployOptions{
-//   				RequireApproval: awscdk.RequireApproval_NEVER,
-//   				Json: jsii.Boolean(true),
-//   			},
-//   		},
-//   		Destroy: &DestroyCommand{
-//   			Args: &DestroyOptions{
-//   				Force: jsii.Boolean(true),
-//   			},
-//   		},
+//   	Debug: jsii.Boolean(false),
+//   	Ec2Creds: jsii.Boolean(false),
+//   	Exclusively: jsii.Boolean(false),
+//   	Force: jsii.Boolean(false),
+//   	IgnoreErrors: jsii.Boolean(false),
+//   	Json: jsii.Boolean(false),
+//   	Lookups: jsii.Boolean(false),
+//   	Notices: jsii.Boolean(false),
+//   	Output: jsii.String("output"),
+//   	PathMetadata: jsii.Boolean(false),
+//   	Profile: jsii.String("profile"),
+//   	Proxy: jsii.String("proxy"),
+//   	RoleArn: jsii.String("roleArn"),
+//   	Stacks: []*string{
+//   		jsii.String("stacks"),
 //   	},
-//   })
+//   	Staging: jsii.Boolean(false),
+//   	Strict: jsii.Boolean(false),
+//   	Trace: jsii.Boolean(false),
+//   	Verbose: jsii.Boolean(false),
+//   	VersionReporting: jsii.Boolean(false),
+//   }
 //
 type DestroyOptions struct {
 	// Deploy all stacks.

@@ -17,11 +17,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnMeteredProduct := awscdk.Aws_deadline.NewCfnMeteredProduct(this, jsii.String("MyCfnMeteredProduct"), &CfnMeteredProductProps{
-//   	Family: jsii.String("family"),
 //   	LicenseEndpointId: jsii.String("licenseEndpointId"),
-//   	Port: jsii.Number(123),
 //   	ProductId: jsii.String("productId"),
-//   	Vendor: jsii.String("vendor"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html
@@ -31,6 +28,12 @@ type CfnMeteredProduct interface {
 	awscdk.IInspectable
 	// The Amazon Resource Name (ARN) of the metered product.
 	AttrArn() *string
+	// The family to which the metered product belongs.
+	AttrFamily() *string
+	// The port on which the metered product should run.
+	AttrPort() *float64
+	// The vendor.
+	AttrVendor() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -40,8 +43,6 @@ type CfnMeteredProduct interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	Family() *string
-	SetFamily(val *string)
 	// The Amazon EC2 identifier of the license endpoint.
 	LicenseEndpointId() *string
 	SetLicenseEndpointId(val *string)
@@ -57,8 +58,6 @@ type CfnMeteredProduct interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	Port() *float64
-	SetPort(val *float64)
 	// The product ID.
 	ProductId() *string
 	SetProductId(val *string)
@@ -84,8 +83,6 @@ type CfnMeteredProduct interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	Vendor() *string
-	SetVendor(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -229,6 +226,36 @@ func (j *jsiiProxy_CfnMeteredProduct) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMeteredProduct) AttrFamily() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFamily",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMeteredProduct) AttrPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMeteredProduct) AttrVendor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVendor",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMeteredProduct) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -269,16 +296,6 @@ func (j *jsiiProxy_CfnMeteredProduct) CreationStack() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMeteredProduct) Family() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"family",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnMeteredProduct) LicenseEndpointId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -304,16 +321,6 @@ func (j *jsiiProxy_CfnMeteredProduct) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnMeteredProduct) Port() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"port",
 		&returns,
 	)
 	return returns
@@ -369,16 +376,6 @@ func (j *jsiiProxy_CfnMeteredProduct) UpdatedProperties() *map[string]interface{
 	return returns
 }
 
-func (j *jsiiProxy_CfnMeteredProduct) Vendor() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"vendor",
-		&returns,
-	)
-	return returns
-}
-
 
 func NewCfnMeteredProduct(scope constructs.Construct, id *string, props *CfnMeteredProductProps) CfnMeteredProduct {
 	_init_.Initialize()
@@ -407,14 +404,6 @@ func NewCfnMeteredProduct_Override(c CfnMeteredProduct, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnMeteredProduct)SetFamily(val *string) {
-	_jsii_.Set(
-		j,
-		"family",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnMeteredProduct)SetLicenseEndpointId(val *string) {
 	_jsii_.Set(
 		j,
@@ -423,26 +412,10 @@ func (j *jsiiProxy_CfnMeteredProduct)SetLicenseEndpointId(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMeteredProduct)SetPort(val *float64) {
-	_jsii_.Set(
-		j,
-		"port",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnMeteredProduct)SetProductId(val *string) {
 	_jsii_.Set(
 		j,
 		"productId",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnMeteredProduct)SetVendor(val *string) {
-	_jsii_.Set(
-		j,
-		"vendor",
 		val,
 	)
 }

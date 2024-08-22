@@ -40,6 +40,10 @@ package awskinesisfirehose
 //   	Table: jsii.String("table"),
 //
 //   	// the properties below are optional
+//   	BufferingHints: &SnowflakeBufferingHintsProperty{
+//   		IntervalInSeconds: jsii.Number(123),
+//   		SizeInMBs: jsii.Number(123),
+//   	},
 //   	CloudWatchLoggingOptions: &CloudWatchLoggingOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		LogGroupName: jsii.String("logGroupName"),
@@ -115,6 +119,12 @@ type CfnDeliveryStream_SnowflakeDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-table
 	//
 	Table *string `field:"required" json:"table" yaml:"table"`
+	// Describes the buffering to perform before delivering data to the Snowflake destination.
+	//
+	// If you do not specify any value, Firehose uses the default values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-bufferinghints
+	//
+	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-cloudwatchloggingoptions
 	//
 	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
@@ -142,6 +152,7 @@ type CfnDeliveryStream_SnowflakeDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-privatekey
 	//
 	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
+	// Specifies configuration for Snowflake.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-processingconfiguration
 	//
 	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`

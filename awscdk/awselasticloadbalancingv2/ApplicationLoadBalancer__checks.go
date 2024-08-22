@@ -84,6 +84,14 @@ func (a *jsiiProxy_ApplicationLoadBalancer) validateLogAccessLogsParameters(buck
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationLoadBalancer) validateLogConnectionLogsParameters(bucket awss3.IBucket) error {
+	if bucket == nil {
+		return fmt.Errorf("parameter bucket is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationLoadBalancer) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	if metricName == nil {
 		return fmt.Errorf("parameter metricName is required, but nil was provided")

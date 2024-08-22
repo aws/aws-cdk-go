@@ -34,17 +34,21 @@ type CfnPatchBaseline_RuleProperty struct {
 	//
 	// For example, a value of `7` means that patches are approved seven days after they are released.
 	//
-	// You must specify a value for `ApproveAfterDays` .
+	// > This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 	//
-	// Exception: Not supported on Debian Server or Ubuntu Server.
+	// Not supported for Debian Server or Ubuntu Server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
 	//
 	ApproveAfterDays *float64 `field:"optional" json:"approveAfterDays" yaml:"approveAfterDays"`
 	// The cutoff date for auto approval of released patches.
 	//
-	// Any patches released on or before this date are installed automatically. Not supported on Debian Server or Ubuntu Server.
+	// Any patches released on or before this date are installed automatically.
 	//
 	// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+	//
+	// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+	//
+	// Not supported for Debian Server or Ubuntu Server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
 	//
 	ApproveUntilDate *string `field:"optional" json:"approveUntilDate" yaml:"approveUntilDate"`

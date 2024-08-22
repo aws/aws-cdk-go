@@ -27,18 +27,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDataSource := awscdk.Aws_bedrock.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &CfnDataSourceProps{
-//   	DataSourceConfiguration: &DataSourceConfigurationProperty{
-//   		S3Configuration: &S3DataSourceConfigurationProperty{
-//   			BucketArn: jsii.String("bucketArn"),
-//
-//   			// the properties below are optional
-//   			BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
-//   			InclusionPrefixes: []*string{
-//   				jsii.String("inclusionPrefixes"),
-//   			},
-//   		},
-//   		Type: jsii.String("type"),
-//   	},
 //   	KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //   	Name: jsii.String("name"),
 //
@@ -56,6 +44,49 @@ import (
 //   			FixedSizeChunkingConfiguration: &FixedSizeChunkingConfigurationProperty{
 //   				MaxTokens: jsii.Number(123),
 //   				OverlapPercentage: jsii.Number(123),
+//   			},
+//   			HierarchicalChunkingConfiguration: &HierarchicalChunkingConfigurationProperty{
+//   				LevelConfigurations: []interface{}{
+//   					&HierarchicalChunkingLevelConfigurationProperty{
+//   						MaxTokens: jsii.Number(123),
+//   					},
+//   				},
+//   				OverlapTokens: jsii.Number(123),
+//   			},
+//   			SemanticChunkingConfiguration: &SemanticChunkingConfigurationProperty{
+//   				BreakpointPercentileThreshold: jsii.Number(123),
+//   				BufferSize: jsii.Number(123),
+//   				MaxTokens: jsii.Number(123),
+//   			},
+//   		},
+//   		CustomTransformationConfiguration: &CustomTransformationConfigurationProperty{
+//   			IntermediateStorage: &IntermediateStorageProperty{
+//   				S3Location: &S3LocationProperty{
+//   					Uri: jsii.String("uri"),
+//   				},
+//   			},
+//   			Transformations: []interface{}{
+//   				&TransformationProperty{
+//   					StepToApply: jsii.String("stepToApply"),
+//   					TransformationFunction: &TransformationFunctionProperty{
+//   						TransformationLambdaConfiguration: &TransformationLambdaConfigurationProperty{
+//   							LambdaArn: jsii.String("lambdaArn"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		ParsingConfiguration: &ParsingConfigurationProperty{
+//   			ParsingStrategy: jsii.String("parsingStrategy"),
+//
+//   			// the properties below are optional
+//   			BedrockFoundationModelConfiguration: &BedrockFoundationModelConfigurationProperty{
+//   				ModelArn: jsii.String("modelArn"),
+//
+//   				// the properties below are optional
+//   				ParsingPrompt: &ParsingPromptProperty{
+//   					ParsingPromptText: jsii.String("parsingPromptText"),
+//   				},
 //   			},
 //   		},
 //   	},
@@ -91,9 +122,6 @@ type CfnDataSource interface {
 	// The data deletion policy for the data source.
 	DataDeletionPolicy() *string
 	SetDataDeletionPolicy(val *string)
-	// The connection configuration for the data source.
-	DataSourceConfiguration() interface{}
-	SetDataSourceConfiguration(val interface{})
 	// The description of the data source.
 	Description() *string
 	SetDescription(val *string)
@@ -376,16 +404,6 @@ func (j *jsiiProxy_CfnDataSource) DataDeletionPolicy() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) DataSourceConfiguration() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"dataSourceConfiguration",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDataSource) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -528,17 +546,6 @@ func (j *jsiiProxy_CfnDataSource)SetDataDeletionPolicy(val *string) {
 	_jsii_.Set(
 		j,
 		"dataDeletionPolicy",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDataSource)SetDataSourceConfiguration(val interface{}) {
-	if err := j.validateSetDataSourceConfigurationParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"dataSourceConfiguration",
 		val,
 	)
 }

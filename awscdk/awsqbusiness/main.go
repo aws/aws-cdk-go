@@ -43,6 +43,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "qAppsConfiguration", GoGetter: "QAppsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -71,6 +72,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnApplication.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnApplication.QAppsConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_QAppsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnApplicationProps",

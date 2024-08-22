@@ -212,7 +212,7 @@ type CfnDBInstance interface {
 	// The AWS KMS key identifier for encryption of the replicated automated backups.
 	AutomaticBackupReplicationKmsKeyId() *string
 	SetAutomaticBackupReplicationKmsKeyId(val *string)
-	// The destination region for the backup replication of the DB instance.
+	// The AWS Region associated with the automated backup.
 	AutomaticBackupReplicationRegion() *string
 	SetAutomaticBackupReplicationRegion(val *string)
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.

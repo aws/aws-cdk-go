@@ -608,6 +608,7 @@ func init() {
 		reflect.TypeOf((*EcsMachineImageType)(nil)).Elem(),
 		map[string]interface{}{
 			"ECS_AL2": EcsMachineImageType_ECS_AL2,
+			"ECS_AL2023": EcsMachineImageType_ECS_AL2023,
 			"ECS_AL2_NVIDIA": EcsMachineImageType_ECS_AL2_NVIDIA,
 		},
 	)

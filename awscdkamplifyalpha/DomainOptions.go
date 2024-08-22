@@ -1,5 +1,8 @@
 package awscdkamplifyalpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+)
 
 // Options to add a domain to an application.
 //
@@ -28,6 +31,11 @@ type DomainOptions struct {
 	//
 	// Experimental.
 	AutoSubdomainCreationPatterns *[]*string `field:"optional" json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
+	// The type of SSL/TLS certificate to use for your custom domain.
+	// Default: - Amplify uses the default certificate that it provisions and manages for you.
+	//
+	// Experimental.
+	CustomCertificate awscertificatemanager.ICertificate `field:"optional" json:"customCertificate" yaml:"customCertificate"`
 	// The name of the domain.
 	// Default: - the construct's id.
 	//

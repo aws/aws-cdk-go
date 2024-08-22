@@ -52,6 +52,7 @@ import (
 //   		},
 //   	},
 //   	CustomerManagedKey: jsii.String("customerManagedKey"),
+//   	DeepLinkAllowed: jsii.String("deepLinkAllowed"),
 //   	DisconnectTimeoutInMinutes: jsii.Number(123),
 //   	IdleDisconnectTimeoutInMinutes: jsii.Number(123),
 //   	Tags: []cfnTag{
@@ -95,6 +96,9 @@ type CfnUserSettings interface {
 	// The customer managed key used to encrypt sensitive information in the user settings.
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
+	// Specifies whether the user can use deep links that open automatically when connecting to a session.
+	DeepLinkAllowed() *string
+	SetDeepLinkAllowed(val *string)
 	// The amount of time that a streaming session remains active after users disconnect.
 	DisconnectTimeoutInMinutes() *float64
 	SetDisconnectTimeoutInMinutes(val *float64)
@@ -394,6 +398,16 @@ func (j *jsiiProxy_CfnUserSettings) CustomerManagedKey() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserSettings) DeepLinkAllowed() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deepLinkAllowed",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserSettings) DisconnectTimeoutInMinutes() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -589,6 +603,14 @@ func (j *jsiiProxy_CfnUserSettings)SetCustomerManagedKey(val *string) {
 	_jsii_.Set(
 		j,
 		"customerManagedKey",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserSettings)SetDeepLinkAllowed(val *string) {
+	_jsii_.Set(
+		j,
+		"deepLinkAllowed",
 		val,
 	)
 }

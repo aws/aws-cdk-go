@@ -343,7 +343,7 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	//
 	// Valid formats:
 	//
-	// - `ami-17characters00000`
+	// - `ami-0ac394d6a3example`
 	// - `resolve:ssm:parameter-name`
 	// - `resolve:ssm:parameter-name:version-number`
 	// - `resolve:ssm:parameter-name:label`

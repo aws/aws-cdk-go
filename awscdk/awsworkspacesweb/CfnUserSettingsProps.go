@@ -45,6 +45,7 @@ import (
 //   		},
 //   	},
 //   	CustomerManagedKey: jsii.String("customerManagedKey"),
+//   	DeepLinkAllowed: jsii.String("deepLinkAllowed"),
 //   	DisconnectTimeoutInMinutes: jsii.Number(123),
 //   	IdleDisconnectTimeoutInMinutes: jsii.Number(123),
 //   	Tags: []cfnTag{
@@ -90,6 +91,10 @@ type CfnUserSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-customermanagedkey
 	//
 	CustomerManagedKey *string `field:"optional" json:"customerManagedKey" yaml:"customerManagedKey"`
+	// Specifies whether the user can use deep links that open automatically when connecting to a session.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-deeplinkallowed
+	//
+	DeepLinkAllowed *string `field:"optional" json:"deepLinkAllowed" yaml:"deepLinkAllowed"`
 	// The amount of time that a streaming session remains active after users disconnect.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-disconnecttimeoutinminutes
 	//

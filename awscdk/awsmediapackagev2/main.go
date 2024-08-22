@@ -34,6 +34,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "inputType", GoGetter: "InputType"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -200,6 +201,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dashManifests", GoGetter: "DashManifests"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "forceEndpointErrorConfiguration", GoGetter: "ForceEndpointErrorConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "hlsManifests", GoGetter: "HlsManifests"},
@@ -256,6 +258,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.FilterConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_FilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.ForceEndpointErrorConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_ForceEndpointErrorConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.HlsManifestConfigurationProperty",

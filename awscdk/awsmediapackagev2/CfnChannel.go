@@ -24,6 +24,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	InputType: jsii.String("inputType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -67,6 +68,8 @@ type CfnChannel interface {
 	// The description of the channel.
 	Description() *string
 	SetDescription(val *string)
+	InputType() *string
+	SetInputType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -368,6 +371,16 @@ func (j *jsiiProxy_CfnChannel) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) InputType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"inputType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -492,6 +505,14 @@ func (j *jsiiProxy_CfnChannel)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetInputType(val *string) {
+	_jsii_.Set(
+		j,
+		"inputType",
 		val,
 	)
 }

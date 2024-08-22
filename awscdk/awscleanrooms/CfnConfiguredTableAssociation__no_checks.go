@@ -80,6 +80,10 @@ func validateCfnConfiguredTableAssociation_IsConstructParameters(x interface{}) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfiguredTableAssociation) validateSetConfiguredTableAssociationAnalysisRulesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConfiguredTableAssociation) validateSetConfiguredTableIdentifierParameters(val *string) error {
 	return nil
 }

@@ -50,7 +50,7 @@ type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	IgnorePublicAcls interface{} `field:"optional" json:"ignorePublicAcls" yaml:"ignorePublicAcls"`
 	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
 	//
-	// Setting this element to `TRUE` restricts access to this bucket to only AWS service principals and authorized users within this account if the bucket has a public policy.
+	// Setting this element to `TRUE` restricts access to this bucket to only AWS-service principals and authorized users within this account if the bucket has a public policy.
 	//
 	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets

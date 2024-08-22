@@ -26,6 +26,14 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ContextualGroundingPolicyConfig: &ContextualGroundingPolicyConfigProperty{
+//   		FiltersConfig: []interface{}{
+//   			&ContextualGroundingFilterConfigProperty{
+//   				Threshold: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	SensitiveInformationPolicyConfig: &SensitiveInformationPolicyConfigProperty{
@@ -99,6 +107,10 @@ type CfnGuardrailProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-contentpolicyconfig
 	//
 	ContentPolicyConfig interface{} `field:"optional" json:"contentPolicyConfig" yaml:"contentPolicyConfig"`
+	// Contextual grounding policy config for a guardrail.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-contextualgroundingpolicyconfig
+	//
+	ContextualGroundingPolicyConfig interface{} `field:"optional" json:"contextualGroundingPolicyConfig" yaml:"contextualGroundingPolicyConfig"`
 	// A description of the guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html#cfn-bedrock-guardrail-description
 	//

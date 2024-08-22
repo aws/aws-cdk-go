@@ -222,6 +222,30 @@ func (j *jsiiProxy_CfnConnectAttachment) validateSetOptionsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnectAttachment) validateSetProposedNetworkFunctionGroupChangeParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnConnectAttachment_ProposedNetworkFunctionGroupChangeProperty:
+		val := val.(*CfnConnectAttachment_ProposedNetworkFunctionGroupChangeProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnConnectAttachment_ProposedNetworkFunctionGroupChangeProperty:
+		val_ := val.(CfnConnectAttachment_ProposedNetworkFunctionGroupChangeProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnectAttachment_ProposedNetworkFunctionGroupChangeProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnectAttachment) validateSetProposedSegmentChangeParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

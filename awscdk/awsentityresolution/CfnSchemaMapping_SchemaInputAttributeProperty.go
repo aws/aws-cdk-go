@@ -14,6 +14,7 @@ package awsentityresolution
 //
 //   	// the properties below are optional
 //   	GroupName: jsii.String("groupName"),
+//   	Hashed: jsii.Boolean(false),
 //   	MatchKey: jsii.String("matchKey"),
 //   	SubType: jsii.String("subType"),
 //   }
@@ -35,6 +36,12 @@ type CfnSchemaMapping_SchemaInputAttributeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-schemamapping-schemainputattribute.html#cfn-entityresolution-schemamapping-schemainputattribute-groupname
 	//
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
+	// Indicates if the column values are hashed in the schema input.
+	//
+	// If the value is set to `TRUE` , the column values are hashed. If the value is set to `FALSE` , the column values are cleartext.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-schemamapping-schemainputattribute.html#cfn-entityresolution-schemamapping-schemainputattribute-hashed
+	//
+	Hashed interface{} `field:"optional" json:"hashed" yaml:"hashed"`
 	// A key that allows grouping of multiple input attributes into a unified matching group.
 	//
 	// For example, consider a scenario where the source table contains various addresses, such as `business_address` and `shipping_address` . By assigning a `matchKey` called `address` to both attributes, AWS Entity Resolution will match records across these fields to create a consolidated matching group.

@@ -169,6 +169,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "sources", GoGetter: "Sources"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subscriberDescription", GoGetter: "SubscriberDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "subscriberIdentity", GoGetter: "SubscriberIdentity"},
@@ -186,6 +187,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_securitylake.CfnSubscriber.AwsLogSourceProperty",
+		reflect.TypeOf((*CfnSubscriber_AwsLogSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_securitylake.CfnSubscriber.CustomLogSourceProperty",
+		reflect.TypeOf((*CfnSubscriber_CustomLogSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_securitylake.CfnSubscriber.SourceProperty",
+		reflect.TypeOf((*CfnSubscriber_SourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_securitylake.CfnSubscriber.SubscriberIdentityProperty",

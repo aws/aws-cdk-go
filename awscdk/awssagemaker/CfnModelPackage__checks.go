@@ -405,6 +405,30 @@ func (j *jsiiProxy_CfnModelPackage) validateSetMetadataPropertiesParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnModelPackage) validateSetModelCardParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnModelPackage_ModelCardProperty:
+		val := val.(*CfnModelPackage_ModelCardProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnModelPackage_ModelCardProperty:
+		val_ := val.(CfnModelPackage_ModelCardProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_ModelCardProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnModelPackage) validateSetModelMetricsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -447,6 +471,30 @@ func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusDetailsParamete
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_ModelPackageStatusDetailsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnModelPackage) validateSetSecurityConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnModelPackage_SecurityConfigProperty:
+		val := val.(*CfnModelPackage_SecurityConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnModelPackage_SecurityConfigProperty:
+		val_ := val.(CfnModelPackage_SecurityConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnModelPackage_SecurityConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

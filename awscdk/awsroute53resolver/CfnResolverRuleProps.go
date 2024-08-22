@@ -12,10 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnResolverRuleProps := &CfnResolverRuleProps{
-//   	DomainName: jsii.String("domainName"),
 //   	RuleType: jsii.String("ruleType"),
 //
 //   	// the properties below are optional
+//   	DelegationRecord: jsii.String("delegationRecord"),
+//   	DomainName: jsii.String("domainName"),
 //   	Name: jsii.String("name"),
 //   	ResolverEndpointId: jsii.String("resolverEndpointId"),
 //   	Tags: []cfnTag{
@@ -37,12 +38,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html
 //
 type CfnResolverRuleProps struct {
-	// DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps` .
-	//
-	// If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-domainname
-	//
-	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify `FORWARD` .
 	//
 	// When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify `SYSTEM` .
@@ -53,6 +48,16 @@ type CfnResolverRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-ruletype
 	//
 	RuleType *string `field:"required" json:"ruleType" yaml:"ruleType"`
+	// The name server domain for queries to be delegated to if a query matches the delegation record.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-delegationrecord
+	//
+	DelegationRecord *string `field:"optional" json:"delegationRecord" yaml:"delegationRecord"`
+	// DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps` .
+	//
+	// If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-domainname
+	//
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The name for the Resolver rule, which you specified when you created the Resolver rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-name
 	//

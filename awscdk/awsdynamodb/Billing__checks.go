@@ -8,6 +8,14 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+func validateBilling_OnDemandParameters(props *MaxThroughputProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateBilling_ProvisionedParameters(props *ThroughputProps) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")

@@ -423,6 +423,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "copyAllowed", GoGetter: "CopyAllowed"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customerManagedKey", GoGetter: "CustomerManagedKey"},
+			_jsii_.MemberProperty{JsiiProperty: "deepLinkAllowed", GoGetter: "DeepLinkAllowed"},
 			_jsii_.MemberProperty{JsiiProperty: "disconnectTimeoutInMinutes", GoGetter: "DisconnectTimeoutInMinutes"},
 			_jsii_.MemberProperty{JsiiProperty: "downloadAllowed", GoGetter: "DownloadAllowed"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},

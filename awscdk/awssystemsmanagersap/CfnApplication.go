@@ -28,6 +28,7 @@ import (
 //   			SecretId: jsii.String("secretId"),
 //   		},
 //   	},
+//   	DatabaseArn: jsii.String("databaseArn"),
 //   	Instances: []*string{
 //   		jsii.String("instances"),
 //   	},
@@ -67,6 +68,9 @@ type CfnApplication interface {
 	// The credentials of the SAP application.
 	Credentials() interface{}
 	SetCredentials(val interface{})
+	// The Amazon Resource Name (ARN) of the database.
+	DatabaseArn() *string
+	SetDatabaseArn(val *string)
 	// The Amazon EC2 instances on which your SAP application is running.
 	Instances() *[]*string
 	SetInstances(val *[]*string)
@@ -329,6 +333,16 @@ func (j *jsiiProxy_CfnApplication) Credentials() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) DatabaseArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"databaseArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) Instances() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -496,6 +510,14 @@ func (j *jsiiProxy_CfnApplication)SetCredentials(val interface{}) {
 	_jsii_.Set(
 		j,
 		"credentials",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetDatabaseArn(val *string) {
+	_jsii_.Set(
+		j,
+		"databaseArn",
 		val,
 	)
 }

@@ -23,12 +23,12 @@ import (
 //   cfnConfiguration := awscdk.Aws_amazonmq.NewCfnConfiguration(this, jsii.String("MyCfnConfiguration"), &CfnConfigurationProps{
 //   	Data: jsii.String("data"),
 //   	EngineType: jsii.String("engineType"),
-//   	EngineVersion: jsii.String("engineVersion"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	AuthenticationStrategy: jsii.String("authenticationStrategy"),
 //   	Description: jsii.String("description"),
+//   	EngineVersion: jsii.String("engineVersion"),
 //   	Tags: []tagsEntryProperty{
 //   		&tagsEntryProperty{
 //   			Key: jsii.String("key"),
@@ -532,9 +532,6 @@ func (j *jsiiProxy_CfnConfiguration)SetEngineType(val *string) {
 }
 
 func (j *jsiiProxy_CfnConfiguration)SetEngineVersion(val *string) {
-	if err := j.validateSetEngineVersionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"engineVersion",

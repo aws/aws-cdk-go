@@ -53,6 +53,11 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	ForceEndpointErrorConfiguration: &ForceEndpointErrorConfigurationProperty{
+//   		EndpointErrorConditions: []*string{
+//   			jsii.String("endpointErrorConditions"),
+//   		},
+//   	},
 //   	HlsManifests: []interface{}{
 //   		&HlsManifestConfigurationProperty{
 //   			ManifestName: jsii.String("manifestName"),
@@ -177,6 +182,9 @@ type CfnOriginEndpoint interface {
 	// The description associated with the origin endpoint.
 	Description() *string
 	SetDescription(val *string)
+	// <p>The failover settings for the endpoint.</p>.
+	ForceEndpointErrorConfiguration() interface{}
+	SetForceEndpointErrorConfiguration(val interface{})
 	// The HLS manfiests associated with the origin endpoint configuration.
 	HlsManifests() interface{}
 	SetHlsManifests(val interface{})
@@ -523,6 +531,16 @@ func (j *jsiiProxy_CfnOriginEndpoint) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) ForceEndpointErrorConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"forceEndpointErrorConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) HlsManifests() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -716,6 +734,17 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint)SetForceEndpointErrorConfiguration(val interface{}) {
+	if err := j.validateSetForceEndpointErrorConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"forceEndpointErrorConfiguration",
 		val,
 	)
 }

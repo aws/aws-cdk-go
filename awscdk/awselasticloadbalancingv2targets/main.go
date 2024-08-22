@@ -20,6 +20,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.AlbListenerTarget",
+		reflect.TypeOf((*AlbListenerTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "attachToNetworkTargetGroup", GoMethod: "AttachToNetworkTargetGroup"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AlbListenerTarget{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AlbArnTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.AlbTarget",
 		reflect.TypeOf((*AlbTarget)(nil)).Elem(),
 		[]_jsii_.Member{

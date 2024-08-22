@@ -17,6 +17,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	InputType: jsii.String("inputType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -40,6 +41,9 @@ type CfnChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-inputtype
+	//
+	InputType *string `field:"optional" json:"inputType" yaml:"inputType"`
 	// The tags associated with the channel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-tags
 	//

@@ -331,6 +331,17 @@ bucket := s3.Bucket_FromBucketAttributes(this, jsii.String("ImportedBucket"), &B
 bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewSnsDestination(topic))
 ```
 
+If you do not want for S3 to validate permissions of Amazon SQS, Amazon SNS, and Lambda destinations you can use the `notificationsSkipDestinationValidation` flag:
+
+```go
+var myQueue queue
+
+bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+	NotificationsSkipDestinationValidation: jsii.Boolean(true),
+})
+bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue))
+```
+
 When you add an event notification to a bucket, a custom resource is created to
 manage the notifications. By default, a new role is created for the Lambda
 function that implements this feature. If you want to use your own role instead,

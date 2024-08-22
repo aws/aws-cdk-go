@@ -60,6 +60,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancer", GoGetter: "LoadBalancer"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
 			_jsii_.MemberMethod{JsiiMethod: "registerConnectable", GoMethod: "RegisterConnectable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -143,6 +144,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerName", GoGetter: "LoadBalancerName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerSecurityGroups", GoGetter: "LoadBalancerSecurityGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "logAccessLogs", GoMethod: "LogAccessLogs"},
+			_jsii_.MemberMethod{JsiiMethod: "logConnectionLogs", GoMethod: "LogConnectionLogs"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricActiveConnectionCount", GoMethod: "MetricActiveConnectionCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClientTlsNegotiationErrorCount", GoMethod: "MetricClientTlsNegotiationErrorCount"},
@@ -1239,6 +1241,23 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ITrustStore",
+		reflect.TypeOf((*ITrustStore)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "trustStoreArn", GoGetter: "TrustStoreArn"},
+			_jsii_.MemberProperty{JsiiProperty: "trustStoreName", GoGetter: "TrustStoreName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITrustStore{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IpAddressType",
 		reflect.TypeOf((*IpAddressType)(nil)).Elem(),
@@ -1289,6 +1308,19 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.LoadBalancerTargetProps",
 		reflect.TypeOf((*LoadBalancerTargetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.MutualAuthentication",
+		reflect.TypeOf((*MutualAuthentication)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.MutualAuthenticationMode",
+		reflect.TypeOf((*MutualAuthenticationMode)(nil)).Elem(),
+		map[string]interface{}{
+			"OFF": MutualAuthenticationMode_OFF,
+			"PASS_THROUGH": MutualAuthenticationMode_PASS_THROUGH,
+			"VERIFY": MutualAuthenticationMode_VERIFY,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkForwardOptions",
@@ -1469,6 +1501,17 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.RedirectOptions",
 		reflect.TypeOf((*RedirectOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.RevocationContent",
+		reflect.TypeOf((*RevocationContent)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.RevocationType",
+		reflect.TypeOf((*RevocationType)(nil)).Elem(),
+		map[string]interface{}{
+			"CRL": RevocationType_CRL,
+		},
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.SslPolicy",
 		reflect.TypeOf((*SslPolicy)(nil)).Elem(),
@@ -1552,6 +1595,59 @@ func init() {
 			"LAMBDA": TargetType_LAMBDA,
 			"ALB": TargetType_ALB,
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.TrustStore",
+		reflect.TypeOf((*TrustStore)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "numberOfCaCertificates", GoGetter: "NumberOfCaCertificates"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trustStoreArn", GoGetter: "TrustStoreArn"},
+			_jsii_.MemberProperty{JsiiProperty: "trustStoreName", GoGetter: "TrustStoreName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TrustStore{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITrustStore)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.TrustStoreProps",
+		reflect.TypeOf((*TrustStoreProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.TrustStoreRevocation",
+		reflect.TypeOf((*TrustStoreRevocation)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TrustStoreRevocation{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.TrustStoreRevocationProps",
+		reflect.TypeOf((*TrustStoreRevocationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.UnauthenticatedAction",

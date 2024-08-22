@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnGuardrail) validateSetContentPolicyConfigParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnGuardrail) validateSetContextualGroundingPolicyConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGuardrail) validateSetNameParameters(val *string) error {
 	return nil
 }

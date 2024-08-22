@@ -22,6 +22,7 @@ import (
 //
 //   cfnIPAM := awscdk.Aws_ec2.NewCfnIPAM(this, jsii.String("MyCfnIPAM"), &CfnIPAMProps{
 //   	Description: jsii.String("description"),
+//   	EnablePrivateGua: jsii.Boolean(false),
 //   	OperatingRegions: []interface{}{
 //   		&IpamOperatingRegionProperty{
 //   			RegionName: jsii.String("regionName"),
@@ -70,6 +71,9 @@ type CfnIPAM interface {
 	// The description for the IPAM.
 	Description() *string
 	SetDescription(val *string)
+	// Enable provisioning of GUA space in private pools.
+	EnablePrivateGua() interface{}
+	SetEnablePrivateGua(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -379,6 +383,16 @@ func (j *jsiiProxy_CfnIPAM) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIPAM) EnablePrivateGua() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enablePrivateGua",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIPAM) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -511,6 +525,17 @@ func (j *jsiiProxy_CfnIPAM)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIPAM)SetEnablePrivateGua(val interface{}) {
+	if err := j.validateSetEnablePrivateGuaParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enablePrivateGua",
 		val,
 	)
 }

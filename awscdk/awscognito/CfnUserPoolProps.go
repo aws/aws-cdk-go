@@ -80,6 +80,7 @@ package awscognito
 //   	Policies: &PoliciesProperty{
 //   		PasswordPolicy: &PasswordPolicyProperty{
 //   			MinimumLength: jsii.Number(123),
+//   			PasswordHistorySize: jsii.Number(123),
 //   			RequireLowercase: jsii.Boolean(false),
 //   			RequireNumbers: jsii.Boolean(false),
 //   			RequireSymbols: jsii.Boolean(false),
@@ -123,6 +124,9 @@ package awscognito
 //   		CaseSensitive: jsii.Boolean(false),
 //   	},
 //   	UserPoolAddOns: &UserPoolAddOnsProperty{
+//   		AdvancedSecurityAdditionalFlows: &AdvancedSecurityAdditionalFlowsProperty{
+//   			CustomAuthMode: jsii.String("customAuthMode"),
+//   		},
 //   		AdvancedSecurityMode: jsii.String("advancedSecurityMode"),
 //   	},
 //   	UserPoolName: jsii.String("userPoolName"),

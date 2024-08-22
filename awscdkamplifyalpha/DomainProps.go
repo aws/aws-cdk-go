@@ -1,6 +1,7 @@
 package awscdkamplifyalpha
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
@@ -11,9 +12,11 @@ import (
 //   // The values are placeholders you should change.
 //   import amplify_alpha "github.com/aws/aws-cdk-go/awscdkamplifyalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var app app
 //   var branch branch
+//   var certificate certificate
 //   var role role
 //
 //   domainProps := &DomainProps{
@@ -24,6 +27,7 @@ import (
 //   		jsii.String("autoSubdomainCreationPatterns"),
 //   	},
 //   	AutoSubDomainIamRole: role,
+//   	CustomCertificate: certificate,
 //   	DomainName: jsii.String("domainName"),
 //   	EnableAutoSubdomain: jsii.Boolean(false),
 //   	SubDomains: []subDomain{
@@ -43,6 +47,11 @@ type DomainProps struct {
 	//
 	// Experimental.
 	AutoSubdomainCreationPatterns *[]*string `field:"optional" json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
+	// The type of SSL/TLS certificate to use for your custom domain.
+	// Default: - Amplify uses the default certificate that it provisions and manages for you.
+	//
+	// Experimental.
+	CustomCertificate awscertificatemanager.ICertificate `field:"optional" json:"customCertificate" yaml:"customCertificate"`
 	// The name of the domain.
 	// Default: - the construct's id.
 	//

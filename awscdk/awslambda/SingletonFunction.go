@@ -125,6 +125,10 @@ type SingletonFunction interface {
 	AddFunctionUrl(options *FunctionUrlOptions) FunctionUrl
 	// Adds one or more Lambda Layers to this Lambda function.
 	AddLayers(layers ...ILayerVersion)
+	// Use this method to write to the construct tree.
+	//
+	// The metadata entries are written to the Cloud Assembly Manifest if the `treeMetadata` property is specified in the props of the App that contains this Construct.
+	AddMetadata(type_ *string, data interface{}, options *constructs.MetadataOptions)
 	// Adds a permission to the Lambda resource policy.
 	AddPermission(name *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
@@ -565,6 +569,17 @@ func (s *jsiiProxy_SingletonFunction) AddLayers(layers ...ILayerVersion) {
 		s,
 		"addLayers",
 		args,
+	)
+}
+
+func (s *jsiiProxy_SingletonFunction) AddMetadata(type_ *string, data interface{}, options *constructs.MetadataOptions) {
+	if err := s.validateAddMetadataParameters(type_, data, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"addMetadata",
+		[]interface{}{type_, data, options},
 	)
 }
 

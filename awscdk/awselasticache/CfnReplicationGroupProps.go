@@ -105,7 +105,7 @@ type CfnReplicationGroupProps struct {
 	//
 	// You cannot modify the value of `AtRestEncryptionEnabled` after the replication group is created. To enable encryption at rest on a replication group you must set `AtRestEncryptionEnabled` to `true` when you create the replication group.
 	//
-	// *Required:* Only available when creating a replication group in an Amazon VPC using redis version `3.2.6` or `4.x` onward.
+	// *Required:* Only available when creating a replication group in an Amazon VPC using Redis OSS version `3.2.6` or `4.x` onward.
 	//
 	// Default: `false`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-atrestencryptionenabled
@@ -113,7 +113,7 @@ type CfnReplicationGroupProps struct {
 	AtRestEncryptionEnabled interface{} `field:"optional" json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
 	// *Reserved parameter.* The password used to access a password protected server.
 	//
-	// `AuthToken` can be specified only on replication groups where `TransitEncryptionEnabled` is `true` . For more information, see [Authenticating Users with the Redis AUTH Command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) .
+	// `AuthToken` can be specified only on replication groups where `TransitEncryptionEnabled` is `true` . For more information, see [Authenticating Users with the Redis OSS AUTH Command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) .
 	//
 	// > For HIPAA compliance, you must specify `TransitEncryptionEnabled` as `true` , an `AuthToken` , and a `CacheSubnetGroup` .
 	//
@@ -131,13 +131,13 @@ type CfnReplicationGroupProps struct {
 	AuthToken *string `field:"optional" json:"authToken" yaml:"authToken"`
 	// Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
 	//
-	// `AutomaticFailoverEnabled` must be enabled for Redis (cluster mode enabled) replication groups.
+	// `AutomaticFailoverEnabled` must be enabled for Redis OSS (cluster mode enabled) replication groups.
 	//
 	// Default: false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-automaticfailoverenabled
 	//
 	AutomaticFailoverEnabled interface{} `field:"optional" json:"automaticFailoverEnabled" yaml:"automaticFailoverEnabled"`
-	// If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
+	// If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-autominorversionupgrade
 	//
 	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
@@ -199,10 +199,10 @@ type CfnReplicationGroupProps struct {
 	//
 	// If this argument is omitted, the default cache parameter group for the specified engine is used.
 	//
-	// If you are running Redis version 3.2.4 or later, only one node group (shard), and want to use a default parameter group, we recommend that you specify the parameter group by name.
+	// If you are running Redis OSS version 3.2.4 or later, only one node group (shard), and want to use a default parameter group, we recommend that you specify the parameter group by name.
 	//
-	// - To create a Redis (cluster mode disabled) replication group, use `CacheParameterGroupName=default.redis3.2` .
-	// - To create a Redis (cluster mode enabled) replication group, use `CacheParameterGroupName=default.redis3.2.cluster.on` .
+	// - To create a Redis OSS (cluster mode disabled) replication group, use `CacheParameterGroupName=default.redis3.2` .
+	// - To create a Redis OSS (cluster mode enabled) replication group, use `CacheParameterGroupName=default.redis3.2.cluster.on` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cacheparametergroupname
 	//
 	CacheParameterGroupName *string `field:"optional" json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
@@ -218,7 +218,7 @@ type CfnReplicationGroupProps struct {
 	CacheSubnetGroupName *string `field:"optional" json:"cacheSubnetGroupName" yaml:"cacheSubnetGroupName"`
 	// Enabled or Disabled.
 	//
-	// To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see [Modify cluster mode](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/modify-cluster-mode.html) .
+	// To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see [Modify cluster mode](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/modify-cluster-mode.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-clustermode
 	//
 	ClusterMode *string `field:"optional" json:"clusterMode" yaml:"clusterMode"`
@@ -248,7 +248,7 @@ type CfnReplicationGroupProps struct {
 	GlobalReplicationGroupId *string `field:"optional" json:"globalReplicationGroupId" yaml:"globalReplicationGroupId"`
 	// The network type you choose when creating a replication group, either `ipv4` | `ipv6` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-ipdiscovery
 	//
 	IpDiscovery *string `field:"optional" json:"ipDiscovery" yaml:"ipDiscovery"`
@@ -268,11 +268,11 @@ type CfnReplicationGroupProps struct {
 	MultiAzEnabled interface{} `field:"optional" json:"multiAzEnabled" yaml:"multiAzEnabled"`
 	// Must be either `ipv4` | `ipv6` | `dual_stack` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-networktype
 	//
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
-	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
+	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis OSS cluster node group.
 	//
 	// If you set [UseOnlineResharding](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding) to `true` , you can update `NodeGroupConfiguration` without interruption. When `UseOnlineResharding` is set to `false` , or is not specified, updating `NodeGroupConfiguration` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-nodegroupconfiguration
@@ -294,9 +294,9 @@ type CfnReplicationGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numcacheclusters
 	//
 	NumCacheClusters *float64 `field:"optional" json:"numCacheClusters" yaml:"numCacheClusters"`
-	// An optional parameter that specifies the number of node groups (shards) for this Redis (cluster mode enabled) replication group.
+	// An optional parameter that specifies the number of node groups (shards) for this Redis OSS (cluster mode enabled) replication group.
 	//
-	// For Redis (cluster mode disabled) either omit this parameter or set it to 1.
+	// For Redis OSS (cluster mode disabled) either omit this parameter or set it to 1.
 	//
 	// If you set [UseOnlineResharding](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-useonlineresharding) to `true` , you can update `NumNodeGroups` without interruption. When `UseOnlineResharding` is set to `false` , or is not specified, updating `NumNodeGroups` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	//
@@ -370,7 +370,7 @@ type CfnReplicationGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
-	// A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3.
+	// A list of Amazon Resource Names (ARN) that uniquely identify the Redis OSS RDB snapshot files stored in Amazon S3.
 	//
 	// The snapshot files are used to populate the new replication group. The Amazon S3 object name in the ARN cannot contain any commas. The new replication group will have the number of node groups (console: shards) specified by the parameter *NumNodeGroups* or the number of node groups configured by *NodeGroupConfiguration* regardless of the number of ARNs specified here.
 	//
@@ -394,7 +394,7 @@ type CfnReplicationGroupProps struct {
 	SnapshotRetentionLimit *float64 `field:"optional" json:"snapshotRetentionLimit" yaml:"snapshotRetentionLimit"`
 	// The cluster ID that is used as the daily snapshot source for the replication group.
 	//
-	// This parameter cannot be set for Redis (cluster mode enabled) replication groups.
+	// This parameter cannot be set for Redis OSS (cluster mode enabled) replication groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshottingclusterid
 	//
 	SnapshottingClusterId *string `field:"optional" json:"snapshottingClusterId" yaml:"snapshottingClusterId"`
@@ -420,7 +420,7 @@ type CfnReplicationGroupProps struct {
 	//
 	// If you enable in-transit encryption, you must also specify a value for `CacheSubnetGroup` .
 	//
-	// *Required:* Only available when creating a replication group in an Amazon VPC using redis version `3.2.6` or `4.x` onward.
+	// *Required:* Only available when creating a replication group in an Amazon VPC using Redis OSS version `3.2.6` or `4.x` onward.
 	//
 	// Default: `false`
 	//
@@ -430,7 +430,7 @@ type CfnReplicationGroupProps struct {
 	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 	// A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.
 	//
-	// When setting `TransitEncryptionEnabled` to `true` , you can set your `TransitEncryptionMode` to `preferred` in the same request, to allow both encrypted and unencrypted connections at the same time. Once you migrate all your Redis clients to use encrypted connections you can modify the value to `required` to allow encrypted connections only.
+	// When setting `TransitEncryptionEnabled` to `true` , you can set your `TransitEncryptionMode` to `preferred` in the same request, to allow both encrypted and unencrypted connections at the same time. Once you migrate all your Redis OSS clients to use encrypted connections you can modify the value to `required` to allow encrypted connections only.
 	//
 	// Setting `TransitEncryptionMode` to `required` is a two-step process that requires you to first set the `TransitEncryptionMode` to `preferred` , after that you can set `TransitEncryptionMode` to `required` .
 	//

@@ -31,6 +31,7 @@ import (
 //   	ExecutionRoleName: jsii.String("executionRoleName"),
 //   	ManagedExecution: managedExecution,
 //   	OperationPreferences: &OperationPreferencesProperty{
+//   		ConcurrencyMode: jsii.String("concurrencyMode"),
 //   		FailureToleranceCount: jsii.Number(123),
 //   		FailureTolerancePercentage: jsii.Number(123),
 //   		MaxConcurrentCount: jsii.Number(123),

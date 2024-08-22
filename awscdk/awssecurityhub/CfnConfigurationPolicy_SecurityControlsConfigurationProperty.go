@@ -5,6 +5,8 @@ package awssecurityhub
 //
 // The enablement status of a control is aligned across all of the enabled standards in an account.
 //
+// This property is required only if `ServiceEnabled` is set to `true` in your configuration policy.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -52,13 +54,17 @@ package awssecurityhub
 type CfnConfigurationPolicy_SecurityControlsConfigurationProperty struct {
 	// A list of security controls that are disabled in the configuration policy.
 	//
-	// Security Hub enables all other controls (including newly released controls) other than the listed controls.
+	// Provide only one of `EnabledSecurityControlIdentifiers` or `DisabledSecurityControlIdentifiers` .
+	//
+	// If you provide `DisabledSecurityControlIdentifiers` , Security Hub enables all other controls not in the list, and enables [AutoEnableControls](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.html#securityhub-UpdateSecurityHubConfiguration-request-AutoEnableControls) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html#cfn-securityhub-configurationpolicy-securitycontrolsconfiguration-disabledsecuritycontrolidentifiers
 	//
 	DisabledSecurityControlIdentifiers *[]*string `field:"optional" json:"disabledSecurityControlIdentifiers" yaml:"disabledSecurityControlIdentifiers"`
 	// A list of security controls that are enabled in the configuration policy.
 	//
-	// Security Hub disables all other controls (including newly released controls) other than the listed controls.
+	// Provide only one of `EnabledSecurityControlIdentifiers` or `DisabledSecurityControlIdentifiers` .
+	//
+	// If you provide `EnabledSecurityControlIdentifiers` , Security Hub disables all other controls not in the list, and disables [AutoEnableControls](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.html#securityhub-UpdateSecurityHubConfiguration-request-AutoEnableControls) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html#cfn-securityhub-configurationpolicy-securitycontrolsconfiguration-enabledsecuritycontrolidentifiers
 	//
 	EnabledSecurityControlIdentifiers *[]*string `field:"optional" json:"enabledSecurityControlIdentifiers" yaml:"enabledSecurityControlIdentifiers"`

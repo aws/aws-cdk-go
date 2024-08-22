@@ -72,8 +72,6 @@ type CfnTrigger interface {
 	// The actions initiated by this trigger.
 	Actions() interface{}
 	SetActions(val interface{})
-	// Reserved for future use.
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -285,16 +283,6 @@ func (j *jsiiProxy_CfnTrigger) Actions() interface{} {
 	_jsii_.Get(
 		j,
 		"actions",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnTrigger) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

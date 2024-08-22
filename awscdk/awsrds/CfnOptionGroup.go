@@ -85,7 +85,7 @@ type CfnOptionGroup interface {
 	SetMajorEngineVersion(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// A list of all available options.
+	// A list of all available options for an option group.
 	OptionConfigurations() interface{}
 	SetOptionConfigurations(val interface{})
 	// The description of the option group.

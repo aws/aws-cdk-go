@@ -37,6 +37,7 @@ import (
 //   			},
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
+//   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
@@ -77,6 +78,7 @@ import (
 //   			},
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
+//   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   			},
@@ -87,8 +89,12 @@ import (
 //   		JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
+//   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   			LifecycleConfigArns: []*string{
+//   				jsii.String("lifecycleConfigArns"),
 //   			},
 //   		},
 //   		KernelGatewayAppSettings: &KernelGatewayAppSettingsProperty{
@@ -103,8 +109,12 @@ import (
 //   			},
 //   			DefaultResourceSpec: &ResourceSpecProperty{
 //   				InstanceType: jsii.String("instanceType"),
+//   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			},
+//   			LifecycleConfigArns: []*string{
+//   				jsii.String("lifecycleConfigArns"),
 //   			},
 //   		},
 //   		RStudioServerProAppSettings: &RStudioServerProAppSettingsProperty{
@@ -126,6 +136,14 @@ import (
 //   			},
 //   		},
 //   		StudioWebPortal: jsii.String("studioWebPortal"),
+//   		StudioWebPortalSettings: &StudioWebPortalSettingsProperty{
+//   			HiddenAppTypes: []*string{
+//   				jsii.String("hiddenAppTypes"),
+//   			},
+//   			HiddenMlTools: []*string{
+//   				jsii.String("hiddenMlTools"),
+//   			},
+//   		},
 //   	},
 //   }
 //

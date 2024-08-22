@@ -108,11 +108,19 @@ func (j *jsiiProxy_CfnModelPackage) validateSetMetadataPropertiesParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnModelPackage) validateSetModelCardParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnModelPackage) validateSetModelMetricsParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnModelPackage) validateSetModelPackageStatusDetailsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnModelPackage) validateSetSecurityConfigParameters(val interface{}) error {
 	return nil
 }
 

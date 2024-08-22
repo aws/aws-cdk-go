@@ -25,6 +25,18 @@ package awssagemaker
 //   			Framework: jsii.String("framework"),
 //   			FrameworkVersion: jsii.String("frameworkVersion"),
 //   			ImageDigest: jsii.String("imageDigest"),
+//   			ModelDataSource: &ModelDataSourceProperty{
+//   				S3DataSource: &S3ModelDataSourceProperty{
+//   					CompressionType: jsii.String("compressionType"),
+//   					S3DataType: jsii.String("s3DataType"),
+//   					S3Uri: jsii.String("s3Uri"),
+//
+//   					// the properties below are optional
+//   					ModelAccessConfig: &ModelAccessConfigProperty{
+//   						AcceptEula: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
 //   			ModelDataUrl: jsii.String("modelDataUrl"),
 //   			ModelInput: modelInput,
 //   			NearestModelName: jsii.String("nearestModelName"),

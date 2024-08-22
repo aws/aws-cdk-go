@@ -80,6 +80,10 @@ func validateCfnActivity_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnActivity) validateSetEncryptionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnActivity) validateSetNameParameters(val *string) error {
 	return nil
 }

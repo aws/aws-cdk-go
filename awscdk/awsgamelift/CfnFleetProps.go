@@ -210,11 +210,9 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolecredentialsprovider
 	//
 	InstanceRoleCredentialsProvider *string `field:"optional" json:"instanceRoleCredentialsProvider" yaml:"instanceRoleCredentialsProvider"`
-	// A set of remote locations to deploy additional instances to and manage as part of the fleet.
+	// A set of remote locations to deploy additional instances to and manage as a multi-location fleet.
 	//
-	// This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
-	//
-	// When using this parameter, Amazon GameLift requires you to include your home location in the request.
+	// Use this parameter when creating a fleet in AWS Regions that support multiple locations. You can add any AWS Region or Local Zone that's supported by Amazon GameLift. Provide a list of one or more AWS Region codes, such as `us-west-2` , or Local Zone names. When using this parameter, Amazon GameLift requires you to include your home location in the request. For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
 	//
 	Locations interface{} `field:"optional" json:"locations" yaml:"locations"`

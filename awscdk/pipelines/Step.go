@@ -33,10 +33,10 @@ import (
 //   }
 //
 //   func (this *myJenkinsStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
-//
 //   	// This is where you control what type of Action gets added to the
 //   	// CodePipeline
-//   	*stage.AddAction(cpactions.NewJenkinsAction(&JenkinsActionProps{
+//   	*stage.AddAction(
+//   	cpactions.NewJenkinsAction(&JenkinsActionProps{
 //   		// Copy 'actionName' and 'runOrder' from the options
 //   		ActionName: options.ActionName,
 //   		RunOrder: options.RunOrder,

@@ -18,6 +18,39 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	ConfiguredTableAssociationAnalysisRules: []interface{}{
+//   		&ConfiguredTableAssociationAnalysisRuleProperty{
+//   			Policy: &ConfiguredTableAssociationAnalysisRulePolicyProperty{
+//   				V1: &ConfiguredTableAssociationAnalysisRulePolicyV1Property{
+//   					Aggregation: &ConfiguredTableAssociationAnalysisRuleAggregationProperty{
+//   						AllowedAdditionalAnalyses: []*string{
+//   							jsii.String("allowedAdditionalAnalyses"),
+//   						},
+//   						AllowedResultReceivers: []*string{
+//   							jsii.String("allowedResultReceivers"),
+//   						},
+//   					},
+//   					Custom: &ConfiguredTableAssociationAnalysisRuleCustomProperty{
+//   						AllowedAdditionalAnalyses: []*string{
+//   							jsii.String("allowedAdditionalAnalyses"),
+//   						},
+//   						AllowedResultReceivers: []*string{
+//   							jsii.String("allowedResultReceivers"),
+//   						},
+//   					},
+//   					List: &ConfiguredTableAssociationAnalysisRuleListProperty{
+//   						AllowedAdditionalAnalyses: []*string{
+//   							jsii.String("allowedAdditionalAnalyses"),
+//   						},
+//   						AllowedResultReceivers: []*string{
+//   							jsii.String("allowedResultReceivers"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -50,6 +83,12 @@ type CfnConfiguredTableAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	// An analysis rule for a configured table association.
+	//
+	// This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrules
+	//
+	ConfiguredTableAssociationAnalysisRules interface{} `field:"optional" json:"configuredTableAssociationAnalysisRules" yaml:"configuredTableAssociationAnalysisRules"`
 	// A description of the configured table association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html#cfn-cleanrooms-configuredtableassociation-description
 	//

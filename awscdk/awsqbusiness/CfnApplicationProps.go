@@ -23,6 +23,9 @@ import (
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   	QAppsConfiguration: &QAppsConfigurationProperty{
+//   		QAppsControlMode: jsii.String("qAppsControlMode"),
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -59,6 +62,12 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-identitycenterinstancearn
 	//
 	IdentityCenterInstanceArn *string `field:"optional" json:"identityCenterInstanceArn" yaml:"identityCenterInstanceArn"`
+	// Configuration information about Amazon Q Apps.
+	//
+	// (preview feature).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-qappsconfiguration
+	//
+	QAppsConfiguration interface{} `field:"optional" json:"qAppsConfiguration" yaml:"qAppsConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-rolearn
 	//

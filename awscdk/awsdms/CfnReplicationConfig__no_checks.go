@@ -84,7 +84,27 @@ func (j *jsiiProxy_CfnReplicationConfig) validateSetComputeConfigParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationConfigIdentifierParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationTypeParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnReplicationConfig) validateSetSourceEndpointArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnReplicationConfig) validateSetTableMappingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnReplicationConfig) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnReplicationConfig) validateSetTargetEndpointArnParameters(val *string) error {
 	return nil
 }
 

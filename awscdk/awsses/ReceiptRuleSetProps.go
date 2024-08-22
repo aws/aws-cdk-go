@@ -4,42 +4,18 @@ package awsses
 // Construction properties for a ReceiptRuleSet.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import ses "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   bucket := s3.NewBucket(this, jsii.String("Bucket"))
-//   topic := sns.NewTopic(this, jsii.String("Topic"))
+//   app := cdk.NewApp()
+//   stack := cdk.NewStack(app, jsii.String("Stack"))
+//   awscdk.CustomResourceConfig_Of(app).AddLogRetentionLifetime(logs.RetentionDays_TEN_YEARS)
+//   awscdk.CustomResourceConfig_Of(app).AddRemovalPolicy(cdk.RemovalPolicy_DESTROY)
 //
-//   ses.NewReceiptRuleSet(this, jsii.String("RuleSet"), &ReceiptRuleSetProps{
-//   	Rules: []receiptRuleOptions{
-//   		&receiptRuleOptions{
-//   			Recipients: []*string{
-//   				jsii.String("hello@aws.com"),
-//   			},
-//   			Actions: []iReceiptRuleAction{
-//   				actions.NewAddHeader(&AddHeaderProps{
-//   					Name: jsii.String("X-Special-Header"),
-//   					Value: jsii.String("aws"),
-//   				}),
-//   				actions.NewS3(&S3Props{
-//   					Bucket: *Bucket,
-//   					ObjectKeyPrefix: jsii.String("emails/"),
-//   					Topic: *Topic,
-//   				}),
-//   			},
-//   		},
-//   		&receiptRuleOptions{
-//   			Recipients: []*string{
-//   				jsii.String("aws.com"),
-//   			},
-//   			Actions: []*iReceiptRuleAction{
-//   				actions.NewSns(&SnsProps{
-//   					Topic: *Topic,
-//   				}),
-//   			},
-//   		},
-//   	},
+//   ses.NewReceiptRuleSet(app, jsii.String("RuleSet"), &ReceiptRuleSetProps{
+//   	DropSpam: jsii.Boolean(true),
 //   })
 //
 type ReceiptRuleSetProps struct {

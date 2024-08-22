@@ -23,8 +23,8 @@ import (
 //   }
 //
 //   func (this *myLambdaStep) produceAction(stage iStage, options produceActionOptions) codePipelineActionFactoryResult {
-//
-//   	*stage.AddAction(cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
+//   	*stage.AddAction(
+//   	cpactions.NewLambdaInvokeAction(&LambdaInvokeActionProps{
 //   		ActionName: options.ActionName,
 //   		RunOrder: options.RunOrder,
 //   		// Map the reference to the variable name the CDK has generated for you.

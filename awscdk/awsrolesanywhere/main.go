@@ -65,6 +65,7 @@ func init() {
 		"aws-cdk-lib.aws_rolesanywhere.CfnProfile",
 		reflect.TypeOf((*CfnProfile)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "acceptRoleSessionName", GoGetter: "AcceptRoleSessionName"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},

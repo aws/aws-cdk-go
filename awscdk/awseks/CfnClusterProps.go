@@ -77,6 +77,9 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UpgradePolicy: &UpgradePolicyProperty{
+//   		SupportType: jsii.String("supportType"),
+//   	},
 //   	Version: jsii.String("version"),
 //   }
 //
@@ -137,6 +140,12 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// This value indicates if extended support is enabled or disabled for the cluster.
+	//
+	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-upgradepolicy
+	//
+	UpgradePolicy interface{} `field:"optional" json:"upgradePolicy" yaml:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster.
 	//
 	// If you don't specify a value here, the default version available in Amazon EKS is used.

@@ -16,6 +16,7 @@ package awscleanrooms
 //   	},
 //
 //   	// the properties below are optional
+//   	AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   	AllowedAnalysisProviders: []*string{
 //   		jsii.String("allowedAnalysisProviders"),
 //   	},
@@ -26,6 +27,9 @@ package awscleanrooms
 //   			},
 //   		},
 //   	},
+//   	DisallowedOutputColumns: []*string{
+//   		jsii.String("disallowedOutputColumns"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html
@@ -35,6 +39,10 @@ type CfnConfiguredTable_AnalysisRuleCustomProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-allowedanalyses
 	//
 	AllowedAnalyses *[]*string `field:"required" json:"allowedAnalyses" yaml:"allowedAnalyses"`
+	// An indicator as to whether additional analyses (such as AWS Clean Rooms ML) can be applied to the output of the direct query.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-additionalanalyses
+	//
+	AdditionalAnalyses *string `field:"optional" json:"additionalAnalyses" yaml:"additionalAnalyses"`
 	// The IDs of the AWS accounts that are allowed to query by the custom analysis rule.
 	//
 	// Required when `allowedAnalyses` is `ANY_QUERY` .
@@ -45,5 +53,9 @@ type CfnConfiguredTable_AnalysisRuleCustomProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-differentialprivacy
 	//
 	DifferentialPrivacy interface{} `field:"optional" json:"differentialPrivacy" yaml:"differentialPrivacy"`
+	// A list of columns that aren't allowed to be shown in the query output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-disallowedoutputcolumns
+	//
+	DisallowedOutputColumns *[]*string `field:"optional" json:"disallowedOutputColumns" yaml:"disallowedOutputColumns"`
 }
 

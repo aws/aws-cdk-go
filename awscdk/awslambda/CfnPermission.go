@@ -76,7 +76,7 @@ type CfnPermission interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The AWS service or AWS account that invokes the function.
+	// The AWS-service or AWS account that invokes the function.
 	Principal() *string
 	SetPrincipal(val *string)
 	// The identifier for your organization in AWS Organizations .
@@ -87,10 +87,10 @@ type CfnPermission interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// For AWS service , the ID of the AWS account that owns the resource.
+	// For AWS-service , the ID of the AWS account that owns the resource.
 	SourceAccount() *string
 	SetSourceAccount(val *string)
-	// For AWS services , the ARN of the AWS resource that invokes the function.
+	// For AWS-services , the ARN of the AWS resource that invokes the function.
 	SourceArn() *string
 	SetSourceArn(val *string)
 	// The stack in which this element is defined.

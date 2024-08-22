@@ -10,6 +10,7 @@ package awssagemaker
 //
 //   resourceSpecProperty := &ResourceSpecProperty{
 //   	InstanceType: jsii.String("instanceType"),
+//   	LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   	SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   	SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   }
@@ -25,6 +26,10 @@ type CfnSpace_ResourceSpecProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-resourcespec.html#cfn-sagemaker-space-resourcespec-instancetype
 	//
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-resourcespec.html#cfn-sagemaker-space-resourcespec-lifecycleconfigarn
+	//
+	LifecycleConfigArn *string `field:"optional" json:"lifecycleConfigArn" yaml:"lifecycleConfigArn"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-resourcespec.html#cfn-sagemaker-space-resourcespec-sagemakerimagearn
 	//

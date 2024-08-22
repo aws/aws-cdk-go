@@ -31,6 +31,7 @@ import (
 type CfnIdentityPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Enables the Basic (Classic) authentication flow.
 	AllowClassicFlow() interface{}
 	SetAllowClassicFlow(val interface{})
@@ -40,6 +41,8 @@ type CfnIdentityPool interface {
 	AttrId() *string
 	// The name of the Amazon Cognito identity pool, returned as a string.
 	AttrName() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -64,6 +67,9 @@ type CfnIdentityPool interface {
 	// The name of your Amazon Cognito identity pool.
 	IdentityPoolName() *string
 	SetIdentityPoolName(val *string)
+	// Tags to assign to the identity pool.
+	IdentityPoolTags() *[]*awscdk.CfnTag
+	SetIdentityPoolTags(val *[]*awscdk.CfnTag)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -241,6 +247,7 @@ type CfnIdentityPool interface {
 type jsiiProxy_CfnIdentityPool struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnIdentityPool) AllowClassicFlow() interface{} {
@@ -278,6 +285,16 @@ func (j *jsiiProxy_CfnIdentityPool) AttrName() *string {
 	_jsii_.Get(
 		j,
 		"attrName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdentityPool) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -368,6 +385,16 @@ func (j *jsiiProxy_CfnIdentityPool) IdentityPoolName() *string {
 	_jsii_.Get(
 		j,
 		"identityPoolName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdentityPool) IdentityPoolTags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"identityPoolTags",
 		&returns,
 	)
 	return returns
@@ -565,6 +592,17 @@ func (j *jsiiProxy_CfnIdentityPool)SetIdentityPoolName(val *string) {
 	_jsii_.Set(
 		j,
 		"identityPoolName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIdentityPool)SetIdentityPoolTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetIdentityPoolTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"identityPoolTags",
 		val,
 	)
 }

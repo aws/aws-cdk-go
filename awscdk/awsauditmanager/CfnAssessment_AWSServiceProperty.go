@@ -1,7 +1,7 @@
 package awsauditmanager
 
 
-// The `AWSService` property type specifies an AWS service such as Amazon S3 , AWS CloudTrail , and so on.
+// The `AWSService` property type specifies an  such as Amazon S3 , AWS CloudTrail , and so on.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsauditmanager
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
 //
 type CfnAssessment_AWSServiceProperty struct {
-	// The name of the AWS service .
+	// The name of the AWS-service .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
 	//
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`

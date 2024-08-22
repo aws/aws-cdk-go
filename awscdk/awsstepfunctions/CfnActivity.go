@@ -11,7 +11,7 @@ import (
 
 // An activity is a task that you write in any programming language and host on any machine that has access to AWS Step Functions .
 //
-// Activities must poll Step Functions using the `GetActivityTask` API action and respond using `SendTask*` API actions. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
+// Activities must poll Step Functions using the `GetActivityTask` API action and respond using `SendTask*` API actions. This function makes Step Functions aware of your activity and returns an identifier for use in a state machine and when polling from the activity.
 //
 // For information about creating an activity, see [Creating an Activity State Machine](https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-creating-activity-state-machine.html) in the *AWS Step Functions Developer Guide* and [CreateActivity](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateActivity.html) in the *AWS Step Functions API Reference* .
 //
@@ -24,6 +24,13 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		KmsDataKeyReusePeriodSeconds: jsii.Number(123),
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
 //   	Tags: []tagsEntryProperty{
 //   		&tagsEntryProperty{
 //   			Key: jsii.String("key"),
@@ -59,6 +66,9 @@ type CfnActivity interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Encryption configuration for the activity.
+	EncryptionConfiguration() interface{}
+	SetEncryptionConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -295,6 +305,16 @@ func (j *jsiiProxy_CfnActivity) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnActivity) EncryptionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnActivity) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -410,6 +430,17 @@ func NewCfnActivity_Override(c CfnActivity, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_stepfunctions.CfnActivity",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnActivity)SetEncryptionConfiguration(val interface{}) {
+	if err := j.validateSetEncryptionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encryptionConfiguration",
+		val,
 	)
 }
 

@@ -13,6 +13,7 @@ package awssagemaker
 //   	CodeEditorAppSettings: &SpaceCodeEditorAppSettingsProperty{
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
+//   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   		},
@@ -32,6 +33,7 @@ package awssagemaker
 //   		},
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
+//   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   		},
@@ -39,8 +41,12 @@ package awssagemaker
 //   	JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
+//   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
 //   		},
 //   	},
 //   	KernelGatewayAppSettings: &KernelGatewayAppSettingsProperty{
@@ -55,8 +61,12 @@ package awssagemaker
 //   		},
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
+//   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
 //   		},
 //   	},
 //   	SpaceStorageSettings: &SpaceStorageSettingsProperty{

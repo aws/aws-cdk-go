@@ -17,6 +17,9 @@ package awssagemaker
 //   		S3Uri: jsii.String("s3Uri"),
 //
 //   		// the properties below are optional
+//   		HubAccessConfig: &HubAccessConfigProperty{
+//   			HubContentArn: jsii.String("hubContentArn"),
+//   		},
 //   		ModelAccessConfig: &ModelAccessConfigProperty{
 //   			AcceptEula: jsii.Boolean(false),
 //   		},

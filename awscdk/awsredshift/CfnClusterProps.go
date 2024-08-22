@@ -54,6 +54,10 @@ import (
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LoggingProperties: &LoggingPropertiesProperty{
 //   		BucketName: jsii.String("bucketName"),
+//   		LogDestinationType: jsii.String("logDestinationType"),
+//   		LogExports: []*string{
+//   			jsii.String("logExports"),
+//   		},
 //   		S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	},
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),

@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnConfiguration) validateSetEngineTypeParameters(val *string
 	return nil
 }
 
-func (j *jsiiProxy_CfnConfiguration) validateSetEngineVersionParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnConfiguration) validateSetNameParameters(val *string) error {
 	return nil
 }

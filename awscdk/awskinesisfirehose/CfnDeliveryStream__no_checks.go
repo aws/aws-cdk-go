@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetHttpEndpointDestinationConfigur
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) validateSetIcebergDestinationConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) validateSetKinesisStreamSourceConfigurationParameters(val interface{}) error {
 	return nil
 }

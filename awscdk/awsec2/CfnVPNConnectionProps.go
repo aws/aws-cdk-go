@@ -16,6 +16,7 @@ import (
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	EnableAcceleration: jsii.Boolean(false),
 //   	StaticRoutesOnly: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -44,6 +45,12 @@ type CfnVPNConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// Indicate whether to enable acceleration for the VPN connection.
+	//
+	// Default: `false`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-enableacceleration
+	//
+	EnableAcceleration interface{} `field:"optional" json:"enableAcceleration" yaml:"enableAcceleration"`
 	// Indicates whether the VPN connection uses static routes only.
 	//
 	// Static routes must be used for devices that don't support BGP.

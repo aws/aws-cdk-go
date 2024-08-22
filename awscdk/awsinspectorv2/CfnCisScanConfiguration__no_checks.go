@@ -80,7 +80,15 @@ func validateCfnCisScanConfiguration_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnCisScanConfiguration) validateSetScanNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCisScanConfiguration) validateSetScheduleParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCisScanConfiguration) validateSetSecurityLevelParameters(val *string) error {
 	return nil
 }
 

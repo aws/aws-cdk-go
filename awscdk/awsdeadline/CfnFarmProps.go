@@ -29,6 +29,8 @@ import (
 //
 type CfnFarmProps struct {
 	// The display name of the farm.
+	//
+	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-farm.html#cfn-deadline-farm-displayname
 	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`

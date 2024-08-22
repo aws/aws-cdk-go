@@ -47,7 +47,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html
 //
 type CfnLocationHDFSProps struct {
-	// The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.
+	// The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-agentarns
 	//
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`

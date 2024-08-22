@@ -28,6 +28,18 @@ import (
 //   					Framework: jsii.String("framework"),
 //   					FrameworkVersion: jsii.String("frameworkVersion"),
 //   					ImageDigest: jsii.String("imageDigest"),
+//   					ModelDataSource: &ModelDataSourceProperty{
+//   						S3DataSource: &S3ModelDataSourceProperty{
+//   							CompressionType: jsii.String("compressionType"),
+//   							S3DataType: jsii.String("s3DataType"),
+//   							S3Uri: jsii.String("s3Uri"),
+//
+//   							// the properties below are optional
+//   							ModelAccessConfig: &ModelAccessConfigProperty{
+//   								AcceptEula: jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
 //   					ModelDataUrl: jsii.String("modelDataUrl"),
 //   					ModelInput: modelInput,
 //   					NearestModelName: jsii.String("nearestModelName"),
@@ -65,6 +77,18 @@ import (
 //   					Framework: jsii.String("framework"),
 //   					FrameworkVersion: jsii.String("frameworkVersion"),
 //   					ImageDigest: jsii.String("imageDigest"),
+//   					ModelDataSource: &ModelDataSourceProperty{
+//   						S3DataSource: &S3ModelDataSourceProperty{
+//   							CompressionType: jsii.String("compressionType"),
+//   							S3DataType: jsii.String("s3DataType"),
+//   							S3Uri: jsii.String("s3Uri"),
+//
+//   							// the properties below are optional
+//   							ModelAccessConfig: &ModelAccessConfigProperty{
+//   								AcceptEula: jsii.Boolean(false),
+//   							},
+//   						},
+//   					},
 //   					ModelDataUrl: jsii.String("modelDataUrl"),
 //   					ModelInput: modelInput,
 //   					NearestModelName: jsii.String("nearestModelName"),
@@ -181,6 +205,18 @@ import (
 //   				Framework: jsii.String("framework"),
 //   				FrameworkVersion: jsii.String("frameworkVersion"),
 //   				ImageDigest: jsii.String("imageDigest"),
+//   				ModelDataSource: &ModelDataSourceProperty{
+//   					S3DataSource: &S3ModelDataSourceProperty{
+//   						CompressionType: jsii.String("compressionType"),
+//   						S3DataType: jsii.String("s3DataType"),
+//   						S3Uri: jsii.String("s3Uri"),
+//
+//   						// the properties below are optional
+//   						ModelAccessConfig: &ModelAccessConfigProperty{
+//   							AcceptEula: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
 //   				ModelDataUrl: jsii.String("modelDataUrl"),
 //   				ModelInput: modelInput,
 //   				NearestModelName: jsii.String("nearestModelName"),
@@ -209,6 +245,10 @@ import (
 //   		Repository: jsii.String("repository"),
 //   	},
 //   	ModelApprovalStatus: jsii.String("modelApprovalStatus"),
+//   	ModelCard: &ModelCardProperty{
+//   		ModelCardContent: jsii.String("modelCardContent"),
+//   		ModelCardStatus: jsii.String("modelCardStatus"),
+//   	},
 //   	ModelMetrics: &ModelMetricsProperty{
 //   		Bias: &BiasProperty{
 //   			PostTrainingReport: &MetricsSourceProperty{
@@ -291,6 +331,9 @@ import (
 //   	},
 //   	ModelPackageVersion: jsii.Number(123),
 //   	SamplePayloadUrl: jsii.String("samplePayloadUrl"),
+//   	SecurityConfig: &SecurityConfigProperty{
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
 //   	SkipModelValidation: jsii.String("skipModelValidation"),
 //   	SourceAlgorithmSpecification: &SourceAlgorithmSpecificationProperty{
 //   		SourceAlgorithms: []interface{}{
@@ -302,6 +345,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SourceUri: jsii.String("sourceUri"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -418,6 +462,10 @@ type CfnModelPackageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelapprovalstatus
 	//
 	ModelApprovalStatus *string `field:"optional" json:"modelApprovalStatus" yaml:"modelApprovalStatus"`
+	// An Amazon SageMaker Model Card.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelcard
+	//
+	ModelCard interface{} `field:"optional" json:"modelCard" yaml:"modelCard"`
 	// Metrics for the model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-modelmetrics
 	//
@@ -448,6 +496,10 @@ type CfnModelPackageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-samplepayloadurl
 	//
 	SamplePayloadUrl *string `field:"optional" json:"samplePayloadUrl" yaml:"samplePayloadUrl"`
+	// An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-securityconfig
+	//
+	SecurityConfig interface{} `field:"optional" json:"securityConfig" yaml:"securityConfig"`
 	// Indicates if you want to skip model validation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-skipmodelvalidation
 	//
@@ -456,6 +508,10 @@ type CfnModelPackageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-sourcealgorithmspecification
 	//
 	SourceAlgorithmSpecification interface{} `field:"optional" json:"sourceAlgorithmSpecification" yaml:"sourceAlgorithmSpecification"`
+	// The URI of the source for the model package.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html#cfn-sagemaker-modelpackage-sourceuri
+	//
+	SourceUri *string `field:"optional" json:"sourceUri" yaml:"sourceUri"`
 	// A list of the tags associated with the model package.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .

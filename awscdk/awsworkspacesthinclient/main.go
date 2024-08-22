@@ -37,6 +37,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "desiredSoftwareSetId", GoGetter: "DesiredSoftwareSetId"},
 			_jsii_.MemberProperty{JsiiProperty: "desktopArn", GoGetter: "DesktopArn"},
 			_jsii_.MemberProperty{JsiiProperty: "desktopEndpoint", GoGetter: "DesktopEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "deviceCreationTags", GoGetter: "DeviceCreationTags"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},

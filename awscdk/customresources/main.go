@@ -43,6 +43,41 @@ func init() {
 		"aws-cdk-lib.custom_resources.AwsSdkCall",
 		reflect.TypeOf((*AwsSdkCall)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.custom_resources.CustomResourceConfig",
+		reflect.TypeOf((*CustomResourceConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addLogRetentionLifetime", GoMethod: "AddLogRetentionLifetime"},
+			_jsii_.MemberMethod{JsiiMethod: "addRemovalPolicy", GoMethod: "AddRemovalPolicy"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CustomResourceConfig{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.custom_resources.CustomResourceLogRetention",
+		reflect.TypeOf((*CustomResourceLogRetention)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "visit", GoMethod: "Visit"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CustomResourceLogRetention{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIAspect)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.custom_resources.CustomResourceRemovalPolicy",
+		reflect.TypeOf((*CustomResourceRemovalPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "visit", GoMethod: "Visit"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CustomResourceRemovalPolicy{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIAspect)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.custom_resources.LogOptions",
 		reflect.TypeOf((*LogOptions)(nil)).Elem(),

@@ -49,7 +49,7 @@ type CfnSlackChannelConfigurationProps struct {
 	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The ID of the Slack channel.
 	//
-	// To get the ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, `ABCBBLZZZ` .
+	// To get the ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the character string at the end of the URL. For example, `ABCBBLZZZ` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
 	//
 	SlackChannelId *string `field:"required" json:"slackChannelId" yaml:"slackChannelId"`

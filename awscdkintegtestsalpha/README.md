@@ -155,7 +155,7 @@ testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("CustomizedDeplo
 	CdkCommandOptions: &CdkCommands{
 		Deploy: &DeployCommand{
 			Args: &DeployOptions{
-				RequireApproval: awscdk.RequireApproval_NEVER,
+				RequireApproval: awscdklibcloudassemblyschema.RequireApproval_NEVER,
 				Json: jsii.Boolean(true),
 			},
 		},

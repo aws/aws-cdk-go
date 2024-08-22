@@ -23,6 +23,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AcceptRoleSessionName: jsii.Boolean(false),
 //   	AttributeMappings: []interface{}{
 //   		&AttributeMappingProperty{
 //   			CertificateField: jsii.String("certificateField"),
@@ -54,6 +55,9 @@ type CfnProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// Used to determine if a custom role session name will be accepted in a temporary credential request.
+	AcceptRoleSessionName() interface{}
+	SetAcceptRoleSessionName(val interface{})
 	// A mapping applied to the authenticating end-entity certificate.
 	AttributeMappings() interface{}
 	SetAttributeMappings(val interface{})
@@ -262,6 +266,16 @@ type jsiiProxy_CfnProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnProfile) AcceptRoleSessionName() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"acceptRoleSessionName",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnProfile) AttributeMappings() interface{} {
@@ -509,6 +523,17 @@ func NewCfnProfile_Override(c CfnProfile, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_rolesanywhere.CfnProfile",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnProfile)SetAcceptRoleSessionName(val interface{}) {
+	if err := j.validateSetAcceptRoleSessionNameParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"acceptRoleSessionName",
+		val,
 	)
 }
 

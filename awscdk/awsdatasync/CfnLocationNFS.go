@@ -71,7 +71,7 @@ type CfnLocationNFS interface {
 	SetMountOptions(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
 	OnPremConfig() interface{}
 	SetOnPremConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

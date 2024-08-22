@@ -12,12 +12,21 @@ import (
 // Constructs for types of container images.
 //
 // Example:
-//   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //   import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
 //
+//   var image containerImage
+//   var modelData modelData
 //
-//   repository := ecr.Repository_FromRepositoryName(this, jsii.String("Repository"), jsii.String("repo"))
-//   image := sagemaker.ContainerImage_FromEcrRepository(repository, jsii.String("tag"))
+//
+//   model := sagemaker.NewModel(this, jsii.String("ContainerModel"), &ModelProps{
+//   	Containers: []containerDefinition{
+//   		&containerDefinition{
+//   			Image: *Image,
+//   			ModelData: *ModelData,
+//   		},
+//   	},
+//   	NetworkIsolation: jsii.Boolean(true),
+//   })
 //
 // Experimental.
 type ContainerImage interface {

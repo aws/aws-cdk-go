@@ -43,7 +43,8 @@ import (
 type CfnAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
+	// The Amazon Resource Name (ARN) of the alias.
+	AttrAliasArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -238,11 +239,11 @@ type jsiiProxy_CfnAlias struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnAlias) AttrId() *string {
+func (j *jsiiProxy_CfnAlias) AttrAliasArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrAliasArn",
 		&returns,
 	)
 	return returns

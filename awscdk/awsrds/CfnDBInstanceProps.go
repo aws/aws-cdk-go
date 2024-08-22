@@ -216,9 +216,7 @@ type CfnDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationkmskeyid
 	//
 	AutomaticBackupReplicationKmsKeyId *string `field:"optional" json:"automaticBackupReplicationKmsKeyId" yaml:"automaticBackupReplicationKmsKeyId"`
-	// The destination region for the backup replication of the DB instance.
-	//
-	// For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
+	// The AWS Region associated with the automated backup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationregion
 	//
 	AutomaticBackupReplicationRegion *string `field:"optional" json:"automaticBackupReplicationRegion" yaml:"automaticBackupReplicationRegion"`
@@ -1074,6 +1072,8 @@ type CfnDBInstanceProps struct {
 	ReplicaMode *string `field:"optional" json:"replicaMode" yaml:"replicaMode"`
 	// The date and time to restore from.
 	//
+	// This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide* .
+	//
 	// Constraints:
 	//
 	// - Must be a time in Universal Coordinated Time (UTC) format.
@@ -1190,7 +1190,7 @@ type CfnDBInstanceProps struct {
 	UseDefaultProcessorFeatures interface{} `field:"optional" json:"useDefaultProcessorFeatures" yaml:"useDefaultProcessorFeatures"`
 	// Specifies whether the DB instance is restored from the latest backup time.
 	//
-	// By default, the DB instance isn't restored from the latest backup time.
+	// By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide* .
 	//
 	// Constraints:
 	//

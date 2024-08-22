@@ -220,6 +220,30 @@ func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionSubstitutionsParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnStateMachine) validateSetEncryptionConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnStateMachine_EncryptionConfigurationProperty:
+		val := val.(*CfnStateMachine_EncryptionConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnStateMachine_EncryptionConfigurationProperty:
+		val_ := val.(CfnStateMachine_EncryptionConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStateMachine_EncryptionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnStateMachine) validateSetLoggingConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

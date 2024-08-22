@@ -36,6 +36,13 @@ import (
 //   	DefinitionSubstitutions: map[string]*string{
 //   		"definitionSubstitutionsKey": jsii.String("definitionSubstitutions"),
 //   	},
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		KmsDataKeyReusePeriodSeconds: jsii.Number(123),
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		Destinations: []interface{}{
 //   			&LogDestinationProperty{
@@ -105,6 +112,9 @@ type CfnStateMachine interface {
 	// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition.
 	DefinitionSubstitutions() interface{}
 	SetDefinitionSubstitutions(val interface{})
+	// Encryption configuration for the state machine.
+	EncryptionConfiguration() interface{}
+	SetEncryptionConfiguration(val interface{})
 	// Defines what execution history events are logged and where they are logged.
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
@@ -403,6 +413,16 @@ func (j *jsiiProxy_CfnStateMachine) DefinitionSubstitutions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStateMachine) EncryptionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encryptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStateMachine) LoggingConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -595,6 +615,17 @@ func (j *jsiiProxy_CfnStateMachine)SetDefinitionSubstitutions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"definitionSubstitutions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStateMachine)SetEncryptionConfiguration(val interface{}) {
+	if err := j.validateSetEncryptionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encryptionConfiguration",
 		val,
 	)
 }

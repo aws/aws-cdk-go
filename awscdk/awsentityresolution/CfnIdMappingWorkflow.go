@@ -32,6 +32,21 @@ import (
 //   				"providerConfigurationKey": jsii.String("providerConfiguration"),
 //   			},
 //   		},
+//   		RuleBasedProperties: &IdMappingRuleBasedPropertiesProperty{
+//   			AttributeMatchingModel: jsii.String("attributeMatchingModel"),
+//   			RecordMatchingModel: jsii.String("recordMatchingModel"),
+//
+//   			// the properties below are optional
+//   			RuleDefinitionType: jsii.String("ruleDefinitionType"),
+//   			Rules: []interface{}{
+//   				&RuleProperty{
+//   					MatchingKeys: []*string{
+//   						jsii.String("matchingKeys"),
+//   					},
+//   					RuleName: jsii.String("ruleName"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	InputSourceConfig: []interface{}{
 //   		&IdMappingWorkflowInputSourceProperty{

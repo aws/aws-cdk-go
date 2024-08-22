@@ -58,6 +58,9 @@ package awssagemaker
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
+//   		},
 //   	},
 //   	KernelGatewayAppSettings: &KernelGatewayAppSettingsProperty{
 //   		CustomImages: []interface{}{
@@ -74,6 +77,9 @@ package awssagemaker
 //   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
 //   		},
 //   	},
 //   	SecurityGroups: []*string{

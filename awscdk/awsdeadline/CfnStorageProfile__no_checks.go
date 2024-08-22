@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnStorageProfile) validateSetDisplayNameParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnStorageProfile) validateSetFarmIdParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStorageProfile) validateSetFileSystemLocationsParameters(val interface{}) error {
 	return nil
 }

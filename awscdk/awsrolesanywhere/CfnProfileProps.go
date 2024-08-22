@@ -18,6 +18,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AcceptRoleSessionName: jsii.Boolean(false),
 //   	AttributeMappings: []interface{}{
 //   		&AttributeMappingProperty{
 //   			CertificateField: jsii.String("certificateField"),
@@ -54,6 +55,10 @@ type CfnProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-rolearns
 	//
 	RoleArns *[]*string `field:"required" json:"roleArns" yaml:"roleArns"`
+	// Used to determine if a custom role session name will be accepted in a temporary credential request.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-acceptrolesessionname
+	//
+	AcceptRoleSessionName interface{} `field:"optional" json:"acceptRoleSessionName" yaml:"acceptRoleSessionName"`
 	// A mapping applied to the authenticating end-entity certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-attributemappings
 	//

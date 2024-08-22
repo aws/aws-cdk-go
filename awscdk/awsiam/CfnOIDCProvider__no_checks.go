@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnOIDCProvider) validateSetTagsRawParameters(val *[]*awscdk.
 	return nil
 }
 
-func (j *jsiiProxy_CfnOIDCProvider) validateSetThumbprintListParameters(val *[]*string) error {
-	return nil
-}
-
 func validateNewCfnOIDCProviderParameters(scope constructs.Construct, id *string, props *CfnOIDCProviderProps) error {
 	return nil
 }

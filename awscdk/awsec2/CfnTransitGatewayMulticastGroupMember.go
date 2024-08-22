@@ -39,7 +39,6 @@ type CfnTransitGatewayMulticastGroupMember interface {
 	AttrResourceId() *string
 	// The type of resource, for example a VPC attachment.
 	AttrResourceType() *string
-	// The type of source.
 	AttrSourceType() *string
 	// The ID of the subnet.
 	AttrSubnetId() *string

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnStateMachine) validateSetDefinitionSubstitutionsParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnStateMachine) validateSetEncryptionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStateMachine) validateSetLoggingConfigurationParameters(val interface{}) error {
 	return nil
 }

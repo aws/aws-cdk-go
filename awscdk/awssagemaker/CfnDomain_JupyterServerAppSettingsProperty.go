@@ -15,6 +15,9 @@ package awssagemaker
 //   		SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   		SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   	},
+//   	LifecycleConfigArns: []*string{
+//   		jsii.String("lifecycleConfigArns"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
@@ -24,5 +27,13 @@ type CfnDomain_JupyterServerAppSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
 	//
 	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp.
+	//
+	// If you use this parameter, the `DefaultResourceSpec` parameter is also required.
+	//
+	// > To remove a Lifecycle Config, you must set `LifecycleConfigArns` to an empty list.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-lifecycleconfigarns
+	//
+	LifecycleConfigArns *[]*string `field:"optional" json:"lifecycleConfigArns" yaml:"lifecycleConfigArns"`
 }
 

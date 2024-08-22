@@ -45,6 +45,10 @@ import (
 //   			},
 //   		},
 //   	},
+//   	InteractiveConfiguration: &InteractiveConfigurationProperty{
+//   		LivyEndpointEnabled: jsii.Boolean(false),
+//   		StudioEnabled: jsii.Boolean(false),
+//   	},
 //   	MaximumCapacity: &MaximumAllowedResourcesProperty{
 //   		Cpu: jsii.String("cpu"),
 //   		Memory: jsii.String("memory"),
@@ -144,6 +148,10 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-initialcapacity
 	//
 	InitialCapacity interface{} `field:"optional" json:"initialCapacity" yaml:"initialCapacity"`
+	// The interactive configuration object that enables the interactive use cases for an application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-interactiveconfiguration
+	//
+	InteractiveConfiguration interface{} `field:"optional" json:"interactiveConfiguration" yaml:"interactiveConfiguration"`
 	// The maximum capacity of the application.
 	//
 	// This is cumulative across all workers at any given point in time during the lifespan of the application is created. No new resources will be created once any one of the defined limits is hit.

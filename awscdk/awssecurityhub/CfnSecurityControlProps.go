@@ -40,7 +40,7 @@ type CfnSecurityControlProps struct {
 	SecurityControlArn *string `field:"optional" json:"securityControlArn" yaml:"securityControlArn"`
 	// The unique identifier of a security control across standards.
 	//
-	// Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
+	// Values for this field typically consist of an AWS-service name and a number, such as APIGateway.3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-securitycontrolid
 	//
 	SecurityControlId *string `field:"optional" json:"securityControlId" yaml:"securityControlId"`

@@ -38,11 +38,11 @@ type CfnTestCase_ResourceActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-resourceaction.html#cfn-apptest-testcase-resourceaction-cloudformationaction
 	//
 	CloudFormationAction interface{} `field:"optional" json:"cloudFormationAction" yaml:"cloudFormationAction"`
-	// The AWS Mainframe Modernization managed application action of the resource action.
+	// The Mainframe Modernization managed application action of the resource action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-resourceaction.html#cfn-apptest-testcase-resourceaction-m2managedapplicationaction
 	//
 	M2ManagedApplicationAction interface{} `field:"optional" json:"m2ManagedApplicationAction" yaml:"m2ManagedApplicationAction"`
-	// The AWS Mainframe Modernization non-managed application action of the resource action.
+	// The Mainframe Modernization non-managed application action of the resource action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-resourceaction.html#cfn-apptest-testcase-resourceaction-m2nonmanagedapplicationaction
 	//
 	M2NonManagedApplicationAction interface{} `field:"optional" json:"m2NonManagedApplicationAction" yaml:"m2NonManagedApplicationAction"`

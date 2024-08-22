@@ -62,6 +62,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow.IdMappingRuleBasedPropertiesProperty",
+		reflect.TypeOf((*CfnIdMappingWorkflow_IdMappingRuleBasedPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow.IdMappingTechniquesProperty",
 		reflect.TypeOf((*CfnIdMappingWorkflow_IdMappingTechniquesProperty)(nil)).Elem(),
 	)
@@ -80,6 +84,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow.ProviderPropertiesProperty",
 		reflect.TypeOf((*CfnIdMappingWorkflow_ProviderPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflow.RuleProperty",
+		reflect.TypeOf((*CfnIdMappingWorkflow_RuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnIdMappingWorkflowProps",
@@ -150,6 +158,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace.NamespaceProviderPropertiesProperty",
 		reflect.TypeOf((*CfnIdNamespace_NamespaceProviderPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace.NamespaceRuleBasedPropertiesProperty",
+		reflect.TypeOf((*CfnIdNamespace_NamespaceRuleBasedPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnIdNamespace.RuleProperty",
+		reflect.TypeOf((*CfnIdNamespace_RuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnIdNamespaceProps",

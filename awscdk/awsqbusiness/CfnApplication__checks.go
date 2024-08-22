@@ -235,6 +235,30 @@ func (j *jsiiProxy_CfnApplication) validateSetEncryptionConfigurationParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetQAppsConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnApplication_QAppsConfigurationProperty:
+		val := val.(*CfnApplication_QAppsConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnApplication_QAppsConfigurationProperty:
+		val_ := val.(CfnApplication_QAppsConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplication_QAppsConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

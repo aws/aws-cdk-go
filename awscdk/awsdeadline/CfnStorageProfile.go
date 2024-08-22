@@ -18,10 +18,10 @@ import (
 //
 //   cfnStorageProfile := awscdk.Aws_deadline.NewCfnStorageProfile(this, jsii.String("MyCfnStorageProfile"), &CfnStorageProfileProps{
 //   	DisplayName: jsii.String("displayName"),
+//   	FarmId: jsii.String("farmId"),
 //   	OsFamily: jsii.String("osFamily"),
 //
 //   	// the properties below are optional
-//   	FarmId: jsii.String("farmId"),
 //   	FileSystemLocations: []interface{}{
 //   		&FileSystemLocationProperty{
 //   			Name: jsii.String("name"),
@@ -416,6 +416,9 @@ func (j *jsiiProxy_CfnStorageProfile)SetDisplayName(val *string) {
 }
 
 func (j *jsiiProxy_CfnStorageProfile)SetFarmId(val *string) {
+	if err := j.validateSetFarmIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"farmId",

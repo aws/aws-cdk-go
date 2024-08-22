@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetCoreNetworkIdParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetProposedNetworkFunctionGroupChangeParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetProposedSegmentChangeParameters(val interface{}) error {
 	return nil
 }

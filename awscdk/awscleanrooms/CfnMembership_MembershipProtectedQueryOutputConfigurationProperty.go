@@ -21,7 +21,7 @@ package awscleanrooms
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html
 //
 type CfnMembership_MembershipProtectedQueryOutputConfigurationProperty struct {
-	// Required configuration for a protected query with an `S3` output type.
+	// Required configuration for a protected query with an `s3` output type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html#cfn-cleanrooms-membership-membershipprotectedqueryoutputconfiguration-s3
 	//
 	S3 interface{} `field:"required" json:"s3" yaml:"s3"`

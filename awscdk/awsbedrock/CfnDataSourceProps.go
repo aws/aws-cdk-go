@@ -9,18 +9,6 @@ package awsbedrock
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDataSourceProps := &CfnDataSourceProps{
-//   	DataSourceConfiguration: &DataSourceConfigurationProperty{
-//   		S3Configuration: &S3DataSourceConfigurationProperty{
-//   			BucketArn: jsii.String("bucketArn"),
-//
-//   			// the properties below are optional
-//   			BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
-//   			InclusionPrefixes: []*string{
-//   				jsii.String("inclusionPrefixes"),
-//   			},
-//   		},
-//   		Type: jsii.String("type"),
-//   	},
 //   	KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //   	Name: jsii.String("name"),
 //
@@ -39,6 +27,49 @@ package awsbedrock
 //   				MaxTokens: jsii.Number(123),
 //   				OverlapPercentage: jsii.Number(123),
 //   			},
+//   			HierarchicalChunkingConfiguration: &HierarchicalChunkingConfigurationProperty{
+//   				LevelConfigurations: []interface{}{
+//   					&HierarchicalChunkingLevelConfigurationProperty{
+//   						MaxTokens: jsii.Number(123),
+//   					},
+//   				},
+//   				OverlapTokens: jsii.Number(123),
+//   			},
+//   			SemanticChunkingConfiguration: &SemanticChunkingConfigurationProperty{
+//   				BreakpointPercentileThreshold: jsii.Number(123),
+//   				BufferSize: jsii.Number(123),
+//   				MaxTokens: jsii.Number(123),
+//   			},
+//   		},
+//   		CustomTransformationConfiguration: &CustomTransformationConfigurationProperty{
+//   			IntermediateStorage: &IntermediateStorageProperty{
+//   				S3Location: &S3LocationProperty{
+//   					Uri: jsii.String("uri"),
+//   				},
+//   			},
+//   			Transformations: []interface{}{
+//   				&TransformationProperty{
+//   					StepToApply: jsii.String("stepToApply"),
+//   					TransformationFunction: &TransformationFunctionProperty{
+//   						TransformationLambdaConfiguration: &TransformationLambdaConfigurationProperty{
+//   							LambdaArn: jsii.String("lambdaArn"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		ParsingConfiguration: &ParsingConfigurationProperty{
+//   			ParsingStrategy: jsii.String("parsingStrategy"),
+//
+//   			// the properties below are optional
+//   			BedrockFoundationModelConfiguration: &BedrockFoundationModelConfigurationProperty{
+//   				ModelArn: jsii.String("modelArn"),
+//
+//   				// the properties below are optional
+//   				ParsingPrompt: &ParsingPromptProperty{
+//   					ParsingPromptText: jsii.String("parsingPromptText"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   }
@@ -46,10 +77,6 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html
 //
 type CfnDataSourceProps struct {
-	// The connection configuration for the data source.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-datasourceconfiguration
-	//
-	DataSourceConfiguration interface{} `field:"required" json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`
 	// The unique identifier of the knowledge base to which the data source belongs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html#cfn-bedrock-datasource-knowledgebaseid
 	//

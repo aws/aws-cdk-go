@@ -49,7 +49,7 @@ type CfnLocationObjectStorage interface {
 	// Specifies the access key (for example, a user name) if credentials are required to authenticate with the object storage server.
 	AccessKey() *string
 	SetAccessKey(val *string)
-	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely connect with your location.
+	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
 	// The Amazon Resource Name (ARN) of the specified object storage location.

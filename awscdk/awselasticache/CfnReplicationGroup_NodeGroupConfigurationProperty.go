@@ -1,7 +1,7 @@
 package awselasticache
 
 
-// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
+// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis OSS cluster node group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,7 +21,7 @@ package awselasticache
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
 //
 type CfnReplicationGroup_NodeGroupConfigurationProperty struct {
-	// Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+	// Either the ElastiCache (Redis OSS) supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
 	//
 	NodeGroupId *string `field:"optional" json:"nodeGroupId" yaml:"nodeGroupId"`

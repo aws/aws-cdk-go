@@ -71,6 +71,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -100,6 +101,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.CfnActivity.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnActivity_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.CfnActivity.TagsEntryProperty",
@@ -132,6 +137,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "definitionS3Location", GoGetter: "DefinitionS3Location"},
 			_jsii_.MemberProperty{JsiiProperty: "definitionString", GoGetter: "DefinitionString"},
 			_jsii_.MemberProperty{JsiiProperty: "definitionSubstitutions", GoGetter: "DefinitionSubstitutions"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -169,6 +175,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine.CloudWatchLogsLogGroupProperty",
 		reflect.TypeOf((*CfnStateMachine_CloudWatchLogsLogGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnStateMachine_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine.LogDestinationProperty",

@@ -12,11 +12,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnOIDCProviderProps := &CfnOIDCProviderProps{
-//   	ThumbprintList: []*string{
-//   		jsii.String("thumbprintList"),
-//   	},
-//
-//   	// the properties below are optional
 //   	ClientIdList: []*string{
 //   		jsii.String("clientIdList"),
 //   	},
@@ -26,20 +21,15 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	ThumbprintList: []*string{
+//   		jsii.String("thumbprintList"),
+//   	},
 //   	Url: jsii.String("url"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html
 //
 type CfnOIDCProviderProps struct {
-	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object.
-	//
-	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
-	//
-	// This property is optional. If it is not included, IAM will retrieve and use the top intermediate certificate authority (CA) thumbprint of the OpenID Connect identity provider server certificate.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
-	//
-	ThumbprintList *[]*string `field:"required" json:"thumbprintList" yaml:"thumbprintList"`
 	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object.
 	//
 	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
@@ -52,6 +42,14 @@ type CfnOIDCProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object.
+	//
+	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	//
+	// This property is optional. If it is not included, IAM will retrieve and use the top intermediate certificate authority (CA) thumbprint of the OpenID Connect identity provider server certificate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
+	//
+	ThumbprintList *[]*string `field:"optional" json:"thumbprintList" yaml:"thumbprintList"`
 	// The URL that the IAM OIDC provider resource object is associated with.
 	//
 	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .

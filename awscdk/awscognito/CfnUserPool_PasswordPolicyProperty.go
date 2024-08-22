@@ -10,6 +10,7 @@ package awscognito
 //
 //   passwordPolicyProperty := &PasswordPolicyProperty{
 //   	MinimumLength: jsii.Number(123),
+//   	PasswordHistorySize: jsii.Number(123),
 //   	RequireLowercase: jsii.Boolean(false),
 //   	RequireNumbers: jsii.Boolean(false),
 //   	RequireSymbols: jsii.Boolean(false),
@@ -26,6 +27,14 @@ type CfnUserPool_PasswordPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-minimumlength
 	//
 	MinimumLength *float64 `field:"optional" json:"minimumLength" yaml:"minimumLength"`
+	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing.
+	//
+	// Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
+	//
+	// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-passwordhistorysize
+	//
+	PasswordHistorySize *float64 `field:"optional" json:"passwordHistorySize" yaml:"passwordHistorySize"`
 	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requirelowercase
 	//

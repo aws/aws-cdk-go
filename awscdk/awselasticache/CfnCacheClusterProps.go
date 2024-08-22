@@ -126,9 +126,9 @@ type CfnCacheClusterProps struct {
 	// *Additional node type info*
 	//
 	// - All current generation instance types are created in Amazon VPC by default.
-	// - Redis append-only files (AOF) are not supported for T1 or T2 instances.
-	// - Redis Multi-AZ with automatic failover is not supported on T1 instances.
-	// - Redis configuration variables `appendonly` and `appendfsync` are not supported on Redis version 2.8.22 and later.
+	// - Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.
+	// - Redis OSS Multi-AZ with automatic failover is not supported on T1 instances.
+	// - Redis OSS configuration variables `appendonly` and `appendfsync` are not supported on Redis OSS version 2.8.22 and later.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-cachenodetype
 	//
 	CacheNodeType *string `field:"required" json:"cacheNodeType" yaml:"cacheNodeType"`
@@ -144,7 +144,7 @@ type CfnCacheClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-numcachenodes
 	//
 	NumCacheNodes *float64 `field:"required" json:"numCacheNodes" yaml:"numCacheNodes"`
-	// If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
+	// If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-autominorversionupgrade
 	//
 	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
@@ -194,7 +194,7 @@ type CfnCacheClusterProps struct {
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// The network type you choose when modifying a cluster, either `ipv4` | `ipv6` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-ipdiscovery
 	//
 	IpDiscovery *string `field:"optional" json:"ipDiscovery" yaml:"ipDiscovery"`
@@ -204,7 +204,7 @@ type CfnCacheClusterProps struct {
 	LogDeliveryConfigurations interface{} `field:"optional" json:"logDeliveryConfigurations" yaml:"logDeliveryConfigurations"`
 	// Must be either `ipv4` | `ipv6` | `dual_stack` .
 	//
-	// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
+	// IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](https://docs.aws.amazon.com/ec2/nitro/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-networktype
 	//
 	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
@@ -260,7 +260,7 @@ type CfnCacheClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-preferredmaintenancewindow
 	//
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
-	// A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
+	// A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis OSS RDB snapshot file stored in Amazon S3.
 	//
 	// The snapshot file is used to populate the node group (shard). The Amazon S3 object name in the ARN cannot contain any commas.
 	//
@@ -270,7 +270,7 @@ type CfnCacheClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-snapshotarns
 	//
 	SnapshotArns *[]*string `field:"optional" json:"snapshotArns" yaml:"snapshotArns"`
-	// The name of a Redis snapshot from which to restore data into the new node group (shard).
+	// The name of a Redis OSS snapshot from which to restore data into the new node group (shard).
 	//
 	// The snapshot status changes to `restoring` while the new node group (shard) is being created.
 	//

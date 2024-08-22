@@ -22,6 +22,12 @@ import (
 //   	// the properties below are optional
 //   	DesiredSoftwareSetId: jsii.String("desiredSoftwareSetId"),
 //   	DesktopEndpoint: jsii.String("desktopEndpoint"),
+//   	DeviceCreationTags: []interface{}{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	MaintenanceWindow: &MaintenanceWindowProperty{
 //   		Type: jsii.String("type"),
@@ -93,6 +99,9 @@ type CfnEnvironment interface {
 	// The URL for the identity provider login (only for environments that use AppStream 2.0).
 	DesktopEndpoint() *string
 	SetDesktopEndpoint(val *string)
+	// The tag keys and optional values for the newly created devices for this environment.
+	DeviceCreationTags() interface{}
+	SetDeviceCreationTags(val interface{})
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -459,6 +468,16 @@ func (j *jsiiProxy_CfnEnvironment) DesktopEndpoint() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) DeviceCreationTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deviceCreationTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) KmsKeyArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -630,6 +649,17 @@ func (j *jsiiProxy_CfnEnvironment)SetDesktopEndpoint(val *string) {
 	_jsii_.Set(
 		j,
 		"desktopEndpoint",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetDeviceCreationTags(val interface{}) {
+	if err := j.validateSetDeviceCreationTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deviceCreationTags",
 		val,
 	)
 }

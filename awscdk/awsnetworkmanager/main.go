@@ -39,11 +39,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "networkFunctionGroupName", GoGetter: "NetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "proposedNetworkFunctionGroupChange", GoGetter: "ProposedNetworkFunctionGroupChange"},
 			_jsii_.MemberProperty{JsiiProperty: "proposedSegmentChange", GoGetter: "ProposedSegmentChange"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -70,6 +72,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment.ConnectAttachmentOptionsProperty",
 		reflect.TypeOf((*CfnConnectAttachment_ConnectAttachmentOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment.ProposedNetworkFunctionGroupChangeProperty",
+		reflect.TypeOf((*CfnConnectAttachment_ProposedNetworkFunctionGroupChangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment.ProposedSegmentChangeProperty",
@@ -173,6 +179,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkId", GoGetter: "AttrCoreNetworkId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEdges", GoGetter: "AttrEdges"},
+			_jsii_.MemberProperty{JsiiProperty: "attrNetworkFunctionGroups", GoGetter: "AttrNetworkFunctionGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccount", GoGetter: "AttrOwnerAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSegments", GoGetter: "AttrSegments"},
 			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
@@ -217,8 +224,16 @@ func init() {
 		reflect.TypeOf((*CfnCoreNetwork_CoreNetworkEdgeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnCoreNetwork.CoreNetworkNetworkFunctionGroupProperty",
+		reflect.TypeOf((*CfnCoreNetwork_CoreNetworkNetworkFunctionGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnCoreNetwork.CoreNetworkSegmentProperty",
 		reflect.TypeOf((*CfnCoreNetwork_CoreNetworkSegmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnCoreNetwork.SegmentsProperty",
+		reflect.TypeOf((*CfnCoreNetwork_SegmentsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnCoreNetworkProps",
@@ -602,10 +617,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "networkFunctionGroupName", GoGetter: "NetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "proposedNetworkFunctionGroupChange", GoGetter: "ProposedNetworkFunctionGroupChange"},
 			_jsii_.MemberProperty{JsiiProperty: "proposedSegmentChange", GoGetter: "ProposedSegmentChange"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -628,6 +645,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnSiteToSiteVpnAttachment.ProposedNetworkFunctionGroupChangeProperty",
+		reflect.TypeOf((*CfnSiteToSiteVpnAttachment_ProposedNetworkFunctionGroupChangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnSiteToSiteVpnAttachment.ProposedSegmentChangeProperty",
@@ -777,11 +798,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "networkFunctionGroupName", GoGetter: "NetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "peeringId", GoGetter: "PeeringId"},
+			_jsii_.MemberProperty{JsiiProperty: "proposedNetworkFunctionGroupChange", GoGetter: "ProposedNetworkFunctionGroupChange"},
 			_jsii_.MemberProperty{JsiiProperty: "proposedSegmentChange", GoGetter: "ProposedSegmentChange"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -804,6 +827,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnTransitGatewayRouteTableAttachment.ProposedNetworkFunctionGroupChangeProperty",
+		reflect.TypeOf((*CfnTransitGatewayRouteTableAttachment_ProposedNetworkFunctionGroupChangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnTransitGatewayRouteTableAttachment.ProposedSegmentChangeProperty",
@@ -831,6 +858,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkArn", GoGetter: "AttrCoreNetworkArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEdgeLocation", GoGetter: "AttrEdgeLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "attrNetworkFunctionGroupName", GoGetter: "AttrNetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSegmentName", GoGetter: "AttrSegmentName"},
@@ -850,6 +878,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "proposedNetworkFunctionGroupChange", GoGetter: "ProposedNetworkFunctionGroupChange"},
 			_jsii_.MemberProperty{JsiiProperty: "proposedSegmentChange", GoGetter: "ProposedSegmentChange"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -873,6 +902,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnVpcAttachment.ProposedNetworkFunctionGroupChangeProperty",
+		reflect.TypeOf((*CfnVpcAttachment_ProposedNetworkFunctionGroupChangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnVpcAttachment.ProposedSegmentChangeProperty",

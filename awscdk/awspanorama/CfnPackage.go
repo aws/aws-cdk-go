@@ -47,10 +47,15 @@ type CfnPackage interface {
 	AttrCreatedTime() *float64
 	// The package's ID.
 	AttrPackageId() *string
+	// The location's binary prefix.
 	AttrStorageLocationBinaryPrefixLocation() *string
+	// The location's bucket.
 	AttrStorageLocationBucket() *string
+	// The location's generated prefix.
 	AttrStorageLocationGeneratedPrefixLocation() *string
+	// The location's manifest prefix.
 	AttrStorageLocationManifestPrefixLocation() *string
+	// The location's repo prefix.
 	AttrStorageLocationRepoPrefixLocation() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

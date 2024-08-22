@@ -419,6 +419,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberProperty{JsiiProperty: "outputStatus", GoGetter: "OutputStatus"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
 			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},

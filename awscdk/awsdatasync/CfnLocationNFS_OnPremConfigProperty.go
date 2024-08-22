@@ -1,7 +1,7 @@
 package awsdatasync
 
 
-// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+// The AWS DataSync agents that can connect to your Network File System (NFS) file server.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,9 @@ package awsdatasync
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
 //
 type CfnLocationNFS_OnPremConfigProperty struct {
-	// The Amazon Resource Names (ARNs) of the agents connecting to a transfer location.
+	// The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your NFS file server.
+	//
+	// You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
 	//
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`

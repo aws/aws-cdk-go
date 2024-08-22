@@ -21,10 +21,21 @@ import (
 //   	TransitGatewayRouteTableArn: jsii.String("transitGatewayRouteTableArn"),
 //
 //   	// the properties below are optional
+//   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
+//   		AttachmentPolicyRuleNumber: jsii.Number(123),
+//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   		Tags: []cfnTag{
+//   			&cfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
-//   		Tags: []cfnTag{
+//   		Tags: []*cfnTag{
 //   			&cfnTag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
@@ -92,11 +103,17 @@ type CfnTransitGatewayRouteTableAttachment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the network function group.
+	NetworkFunctionGroupName() *string
+	SetNetworkFunctionGroupName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The ID of the transit gateway peering.
 	PeeringId() *string
 	SetPeeringId(val *string)
+	// Describes proposed changes to a network function group.
+	ProposedNetworkFunctionGroupChange() interface{}
+	SetProposedNetworkFunctionGroupChange(val interface{})
 	// This property is read-only.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
@@ -434,6 +451,16 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) NetworkFunctionGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkFunctionGroupName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -449,6 +476,16 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) PeeringId() *string {
 	_jsii_.Get(
 		j,
 		"peeringId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) ProposedNetworkFunctionGroupChange() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"proposedNetworkFunctionGroupChange",
 		&returns,
 	)
 	return returns
@@ -562,6 +599,14 @@ func NewCfnTransitGatewayRouteTableAttachment_Override(c CfnTransitGatewayRouteT
 	)
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment)SetNetworkFunctionGroupName(val *string) {
+	_jsii_.Set(
+		j,
+		"networkFunctionGroupName",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment)SetPeeringId(val *string) {
 	if err := j.validateSetPeeringIdParameters(val); err != nil {
 		panic(err)
@@ -569,6 +614,17 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment)SetPeeringId(val *strin
 	_jsii_.Set(
 		j,
 		"peeringId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment)SetProposedNetworkFunctionGroupChange(val interface{}) {
+	if err := j.validateSetProposedNetworkFunctionGroupChangeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"proposedNetworkFunctionGroupChange",
 		val,
 	)
 }

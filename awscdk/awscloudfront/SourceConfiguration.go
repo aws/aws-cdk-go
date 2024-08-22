@@ -6,7 +6,7 @@ import (
 
 // A source configuration is a wrapper for CloudFront origins and behaviors.
 //
-// An origin is what CloudFront will "be in front of" - that is, CloudFront will pull it's assets from an origin.
+// An origin is what CloudFront will "be in front of" - that is, CloudFront will pull its assets from an origin.
 //
 // If you're using s3 as a source - pass the `s3Origin` property, otherwise, pass the `customOriginSource` property.
 //

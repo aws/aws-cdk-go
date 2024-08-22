@@ -48,6 +48,11 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	ForceEndpointErrorConfiguration: &ForceEndpointErrorConfigurationProperty{
+//   		EndpointErrorConditions: []*string{
+//   			jsii.String("endpointErrorConditions"),
+//   		},
+//   	},
 //   	HlsManifests: []interface{}{
 //   		&HlsManifestConfigurationProperty{
 //   			ManifestName: jsii.String("manifestName"),
@@ -158,6 +163,10 @@ type CfnOriginEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// <p>The failover settings for the endpoint.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-forceendpointerrorconfiguration
+	//
+	ForceEndpointErrorConfiguration interface{} `field:"optional" json:"forceEndpointErrorConfiguration" yaml:"forceEndpointErrorConfiguration"`
 	// The HLS manfiests associated with the origin endpoint configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-hlsmanifests
 	//

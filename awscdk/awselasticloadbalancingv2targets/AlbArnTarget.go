@@ -32,6 +32,8 @@ type jsiiProxy_AlbArnTarget struct {
 }
 
 // Create a new alb target.
+//
+// Note that the ALB must have a listener on the provided target port.
 func NewAlbArnTarget(albArn *string, port *float64) AlbArnTarget {
 	_init_.Initialize()
 
@@ -50,6 +52,8 @@ func NewAlbArnTarget(albArn *string, port *float64) AlbArnTarget {
 }
 
 // Create a new alb target.
+//
+// Note that the ALB must have a listener on the provided target port.
 func NewAlbArnTarget_Override(a AlbArnTarget, albArn *string, port *float64) {
 	_init_.Initialize()
 

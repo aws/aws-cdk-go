@@ -42,7 +42,6 @@ type CfnParameterGroup interface {
 	awscdk.ITaggable
 	// A user-specified name for the cache parameter group.
 	AttrCacheParameterGroupName() *string
-	AttrId() *string
 	// The name of the cache parameter group family that this cache parameter group is compatible with.
 	CacheParameterGroupFamily() *string
 	SetCacheParameterGroupFamily(val *string)
@@ -239,16 +238,6 @@ func (j *jsiiProxy_CfnParameterGroup) AttrCacheParameterGroupName() *string {
 	_jsii_.Get(
 		j,
 		"attrCacheParameterGroupName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnParameterGroup) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

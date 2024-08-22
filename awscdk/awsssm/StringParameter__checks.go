@@ -78,6 +78,22 @@ func validateStringParameter_FromSecureStringParameterAttributesParameters(scope
 	return nil
 }
 
+func validateStringParameter_FromStringParameterArnParameters(scope constructs.Construct, id *string, stringParameterArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if stringParameterArn == nil {
+		return fmt.Errorf("parameter stringParameterArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateStringParameter_FromStringParameterAttributesParameters(scope constructs.Construct, id *string, attrs *StringParameterAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

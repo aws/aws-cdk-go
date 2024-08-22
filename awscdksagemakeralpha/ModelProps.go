@@ -8,20 +8,20 @@ import (
 // Construction properties for a SageMaker Model.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
-//   import "github.com/aws-samples/dummy/path"
+//   import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
+//
+//   var image containerImage
+//   var modelData modelData
 //
 //
-//   image := sagemaker.ContainerImage_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("Dockerfile"), jsii.String("directory")))
-//   modelData := sagemaker.ModelData_FromAsset(path.join(jsii.String("path"), jsii.String("to"), jsii.String("artifact"), jsii.String("file.tar.gz")))
-//
-//   model := sagemaker.NewModel(this, jsii.String("PrimaryContainerModel"), &ModelProps{
+//   model := sagemaker.NewModel(this, jsii.String("ContainerModel"), &ModelProps{
 //   	Containers: []containerDefinition{
 //   		&containerDefinition{
-//   			Image: image,
-//   			ModelData: modelData,
+//   			Image: *Image,
+//   			ModelData: *ModelData,
 //   		},
 //   	},
+//   	NetworkIsolation: jsii.Boolean(true),
 //   })
 //
 // Experimental.
@@ -47,6 +47,15 @@ type ModelProps struct {
 	//
 	// Experimental.
 	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
+	// Whether to enable network isolation for the model container.
+	//
+	// When enabled, no inbound or outbound network calls can be made to or from the model container.
+	// See: https://docs.aws.amazon.com/sagemaker/latest/dg/mkt-algo-model-internet-free.html
+	//
+	// Default: false.
+	//
+	// Experimental.
+	NetworkIsolation *bool `field:"optional" json:"networkIsolation" yaml:"networkIsolation"`
 	// The IAM role that the Amazon SageMaker service assumes.
 	// See: https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html#sagemaker-roles-createmodel-perms
 	//

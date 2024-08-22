@@ -111,6 +111,7 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	// - `AWS::QBusiness::Index`
 	// - `AWS::QBusiness::WebExperience`
 	// - `AWS::RDS::DBCluster`
+	// - `AWS::RUM::AppMonitor`
 	// - `AWS::S3::AccessPoint`
 	// - `AWS::S3::Object`
 	// - `AWS::S3Express::Object`

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnEnvironment) validateSetDesktopArnParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnvironment) validateSetDeviceCreationTagsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEnvironment) validateSetMaintenanceWindowParameters(val interface{}) error {
 	return nil
 }

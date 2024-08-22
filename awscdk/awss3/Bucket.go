@@ -67,6 +67,8 @@ type Bucket interface {
 	Node() constructs.Node
 	NotificationsHandlerRole() awsiam.IRole
 	SetNotificationsHandlerRole(val awsiam.IRole)
+	NotificationsSkipDestinationValidation() *bool
+	SetNotificationsSkipDestinationValidation(val *bool)
 	ObjectOwnership() ObjectOwnership
 	SetObjectOwnership(val ObjectOwnership)
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -446,6 +448,16 @@ func (j *jsiiProxy_Bucket) NotificationsHandlerRole() awsiam.IRole {
 	return returns
 }
 
+func (j *jsiiProxy_Bucket) NotificationsSkipDestinationValidation() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"notificationsSkipDestinationValidation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Bucket) ObjectOwnership() ObjectOwnership {
 	var returns ObjectOwnership
 	_jsii_.Get(
@@ -537,6 +549,14 @@ func (j *jsiiProxy_Bucket)SetNotificationsHandlerRole(val awsiam.IRole) {
 	_jsii_.Set(
 		j,
 		"notificationsHandlerRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_Bucket)SetNotificationsSkipDestinationValidation(val *bool) {
+	_jsii_.Set(
+		j,
+		"notificationsSkipDestinationValidation",
 		val,
 	)
 }

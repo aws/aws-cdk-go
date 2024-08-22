@@ -13,11 +13,11 @@ package awscloudtrail
 //
 // > The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors for the trail.
 //
-// The following example demonstrates how logging works when you configure logging of all data events for a general purpose bucket named `DOC-EXAMPLE-BUCKET1` . In this example, the CloudTrail user specified an empty prefix, and the option to log both `Read` and `Write` data events.
+// The following example demonstrates how logging works when you configure logging of all data events for a general purpose bucket named `amzn-s3-demo-bucket1` . In this example, the CloudTrail user specified an empty prefix, and the option to log both `Read` and `Write` data events.
 //
-// - A user uploads an image file to `DOC-EXAMPLE-BUCKET1` .
+// - A user uploads an image file to `amzn-s3-demo-bucket1` .
 // - The `PutObject` API operation is an Amazon S3 object-level API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified an S3 bucket with an empty prefix, events that occur on any object in that bucket are logged. The trail processes and logs the event.
-// - A user uploads an object to an Amazon S3 bucket named `arn:aws:s3:::DOC-EXAMPLE-BUCKET1` .
+// - A user uploads an object to an Amazon S3 bucket named `arn:aws:s3:::amzn-s3-demo-bucket1` .
 // - The `PutObject` API operation occurred for an object in an S3 bucket that the CloudTrail user didn't specify for the trail. The trail doesn’t log the event.
 //
 // The following example demonstrates how logging works when you configure logging of AWS Lambda data events for a Lambda function named *MyLambdaFunction* , but not for all Lambda functions.
@@ -60,8 +60,8 @@ type CfnTrail_DataResourceProperty struct {
 	// - To log data events for all objects in all S3 buckets in your AWS account , specify the prefix as `arn:aws:s3` .
 	//
 	// > This also enables logging of data event activity performed by any user or role in your AWS account , even if that activity is performed on a bucket that belongs to another AWS account .
-	// - To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as `arn:aws:s3:::DOC-EXAMPLE-BUCKET1/` . The trail logs data events for all objects in this S3 bucket.
-	// - To log data events for specific objects, specify the S3 bucket and object prefix such as `arn:aws:s3:::DOC-EXAMPLE-BUCKET1/example-images` . The trail logs data events for objects in this S3 bucket that match the prefix.
+	// - To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as `arn:aws:s3:::amzn-s3-demo-bucket1/` . The trail logs data events for all objects in this S3 bucket.
+	// - To log data events for specific objects, specify the S3 bucket and object prefix such as `arn:aws:s3:::amzn-s3-demo-bucket1/example-images` . The trail logs data events for objects in this S3 bucket that match the prefix.
 	// - To log data events for all Lambda functions in your AWS account , specify the prefix as `arn:aws:lambda` .
 	//
 	// > This also enables logging of `Invoke` activity performed by any user or role in your AWS account , even if that activity is performed on a function that belongs to another AWS account .

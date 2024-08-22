@@ -179,7 +179,18 @@ func validateCfnCisScanConfiguration_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnCisScanConfiguration) validateSetScanNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCisScanConfiguration) validateSetScheduleParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -203,7 +214,18 @@ func (j *jsiiProxy_CfnCisScanConfiguration) validateSetScheduleParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnCisScanConfiguration) validateSetSecurityLevelParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCisScanConfiguration) validateSetTargetsParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -236,6 +258,9 @@ func validateNewCfnCisScanConfigurationParameters(scope constructs.Construct, id
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

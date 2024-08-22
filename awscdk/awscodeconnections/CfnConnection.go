@@ -40,7 +40,7 @@ type CfnConnection interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the connection.
 	//
-	// The ARN is used as the connection reference when the connection is shared between AWS services .
+	// The ARN is used as the connection reference when the connection is shared between AWS-services .
 	//
 	// > The ARN is never reused if the connection is deleted.
 	AttrConnectionArn() *string

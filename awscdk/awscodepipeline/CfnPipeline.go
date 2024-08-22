@@ -58,6 +58,32 @@ import (
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
+//   			BeforeEntry: &BeforeEntryConditionsProperty{
+//   				Conditions: []interface{}{
+//   					&ConditionProperty{
+//   						Result: jsii.String("result"),
+//   						Rules: []interface{}{
+//   							&RuleDeclarationProperty{
+//   								Configuration: configuration,
+//   								InputArtifacts: []interface{}{
+//   									&InputArtifactProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
+//   								Name: jsii.String("name"),
+//   								Region: jsii.String("region"),
+//   								RoleArn: jsii.String("roleArn"),
+//   								RuleTypeId: &RuleTypeIdProperty{
+//   									Category: jsii.String("category"),
+//   									Owner: jsii.String("owner"),
+//   									Provider: jsii.String("provider"),
+//   									Version: jsii.String("version"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
 //   			Blockers: []interface{}{
 //   				&BlockerDeclarationProperty{
 //   					Name: jsii.String("name"),
@@ -65,7 +91,57 @@ import (
 //   				},
 //   			},
 //   			OnFailure: &FailureConditionsProperty{
+//   				Conditions: []interface{}{
+//   					&ConditionProperty{
+//   						Result: jsii.String("result"),
+//   						Rules: []interface{}{
+//   							&RuleDeclarationProperty{
+//   								Configuration: configuration,
+//   								InputArtifacts: []interface{}{
+//   									&InputArtifactProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
+//   								Name: jsii.String("name"),
+//   								Region: jsii.String("region"),
+//   								RoleArn: jsii.String("roleArn"),
+//   								RuleTypeId: &RuleTypeIdProperty{
+//   									Category: jsii.String("category"),
+//   									Owner: jsii.String("owner"),
+//   									Provider: jsii.String("provider"),
+//   									Version: jsii.String("version"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Result: jsii.String("result"),
+//   			},
+//   			OnSuccess: &SuccessConditionsProperty{
+//   				Conditions: []interface{}{
+//   					&ConditionProperty{
+//   						Result: jsii.String("result"),
+//   						Rules: []interface{}{
+//   							&RuleDeclarationProperty{
+//   								Configuration: configuration,
+//   								InputArtifacts: []interface{}{
+//   									&InputArtifactProperty{
+//   										Name: jsii.String("name"),
+//   									},
+//   								},
+//   								Name: jsii.String("name"),
+//   								Region: jsii.String("region"),
+//   								RoleArn: jsii.String("roleArn"),
+//   								RuleTypeId: &RuleTypeIdProperty{
+//   									Category: jsii.String("category"),
+//   									Owner: jsii.String("owner"),
+//   									Provider: jsii.String("provider"),
+//   									Version: jsii.String("version"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
 //   			},
 //   		},
 //   	},
@@ -198,7 +274,6 @@ type CfnPipeline interface {
 	// A mapping of `artifactStore` objects and their corresponding AWS Regions.
 	ArtifactStores() interface{}
 	SetArtifactStores(val interface{})
-	AttrId() *string
 	// The version of the pipeline.
 	//
 	// > A new pipeline is always assigned a version number of 1. This number increments when a pipeline is updated.
@@ -427,16 +502,6 @@ func (j *jsiiProxy_CfnPipeline) ArtifactStores() interface{} {
 	_jsii_.Get(
 		j,
 		"artifactStores",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnPipeline) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

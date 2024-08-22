@@ -17,6 +17,12 @@ import (
 //   	// the properties below are optional
 //   	DesiredSoftwareSetId: jsii.String("desiredSoftwareSetId"),
 //   	DesktopEndpoint: jsii.String("desktopEndpoint"),
+//   	DeviceCreationTags: []interface{}{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	MaintenanceWindow: &MaintenanceWindowProperty{
 //   		Type: jsii.String("type"),
@@ -57,6 +63,10 @@ type CfnEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html#cfn-workspacesthinclient-environment-desktopendpoint
 	//
 	DesktopEndpoint *string `field:"optional" json:"desktopEndpoint" yaml:"desktopEndpoint"`
+	// The tag keys and optional values for the newly created devices for this environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html#cfn-workspacesthinclient-environment-devicecreationtags
+	//
+	DeviceCreationTags interface{} `field:"optional" json:"deviceCreationTags" yaml:"deviceCreationTags"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html#cfn-workspacesthinclient-environment-kmskeyarn
 	//

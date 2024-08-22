@@ -860,3 +860,133 @@ cr.NewAwsCustomResource(this, jsii.String("CrossAccount"), &AwsCustomResourcePro
 	}),
 })
 ```
+
+#### Custom Resource Config
+
+**This feature is currently experimental**
+
+You can configure every CDK-vended custom resource in a given scope with `CustomResourceConfig`.
+
+Note that `CustomResourceConfig` uses Aspects to modify your constructs. There is no guarantee in the order in which Aspects modify the construct tree, which means that adding the same Aspect more than once to a given scope produces undefined behavior. This example guarantees that every affected resource will have a log retention of ten years or one day, but you cannot know which:
+CustomResourceConfig.of(App).addLogRetentionLifetime(logs.RetentionDays.TEN_YEARS);
+CustomResourceConfig.of(App).addLogRetentionLifetime(logs.RetentionDays.ONE_DAY);
+
+The following example configures every custom resource in this CDK app to retain its logs for ten years:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+awscdk.CustomResourceConfig_Of(app).AddLogRetentionLifetime(logs.RetentionDays_TEN_YEARS)
+stack := cdk.NewStack(app, jsii.String("Stack"))
+
+websiteBucket := s3.NewBucket(stack, jsii.String("WebsiteBucket"), &BucketProps{
+})
+s3deploy.NewBucketDeployment(stack, jsii.String("s3deploy"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
+			"a": jsii.String("b"),
+		}),
+	},
+	DestinationBucket: websiteBucket,
+})
+```
+
+The following example configures every custom resource in two top-level stacks to retain its log for ten years:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+awscdk.CustomResourceConfig_Of(app).AddLogRetentionLifetime(logs.RetentionDays_TEN_YEARS)
+
+stackA := cdk.NewStack(app, jsii.String("stackA"))
+websiteBucketA := s3.NewBucket(stackA, jsii.String("WebsiteBucketA"), &BucketProps{
+})
+s3deploy.NewBucketDeployment(stackA, jsii.String("s3deployA"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
+			"a": jsii.String("b"),
+		}),
+	},
+	DestinationBucket: websiteBucketA,
+	LogRetention: logs.RetentionDays_ONE_DAY,
+})
+
+stackB := cdk.NewStack(app, jsii.String("stackB"))
+websiteBucketB := s3.NewBucket(stackB, jsii.String("WebsiteBucketB"), &BucketProps{
+})
+s3deploy.NewBucketDeployment(stackB, jsii.String("s3deployB"), &BucketDeploymentProps{
+	Sources: []*iSource{
+		s3deploy.Source_*JsonData(jsii.String("file.json"), map[string]*string{
+			"a": jsii.String("b"),
+		}),
+	},
+	DestinationBucket: websiteBucketB,
+	LogRetention: logs.RetentionDays_ONE_DAY,
+})
+```
+
+This also applies to nested stacks:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"))
+awscdk.CustomResourceConfig_Of(app).AddLogRetentionLifetime(logs.RetentionDays_TEN_YEARS)
+
+nestedStackA := cdk.NewNestedStack(stack, jsii.String("NestedStackA"))
+websiteBucketA := s3.NewBucket(nestedStackA, jsii.String("WebsiteBucketA"), &BucketProps{
+})
+s3deploy.NewBucketDeployment(nestedStackA, jsii.String("s3deployA"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
+			"a": jsii.String("b"),
+		}),
+	},
+	DestinationBucket: websiteBucketA,
+	LogRetention: logs.RetentionDays_ONE_DAY,
+})
+
+nestedStackB := cdk.NewNestedStack(stack, jsii.String("NestedStackB"))
+websiteBucketB := s3.NewBucket(nestedStackB, jsii.String("WebsiteBucketB"), &BucketProps{
+})
+s3deploy.NewBucketDeployment(nestedStackB, jsii.String("s3deployB"), &BucketDeploymentProps{
+	Sources: []*iSource{
+		s3deploy.Source_*JsonData(jsii.String("file.json"), map[string]*string{
+			"a": jsii.String("b"),
+		}),
+	},
+	DestinationBucket: websiteBucketB,
+	LogRetention: logs.RetentionDays_ONE_DAY,
+})
+```
+
+The `addLogRetentionLifetime` method of `CustomResourceConfig` will associate a log group with a AWS-vended custom resource lambda.
+The `addRemovalPolicy` method will configure the custom resource lambda log group removal policy to `DESTROY`.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import ses "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"))
+awscdk.CustomResourceConfig_Of(app).AddLogRetentionLifetime(logs.RetentionDays_TEN_YEARS)
+awscdk.CustomResourceConfig_Of(app).AddRemovalPolicy(cdk.RemovalPolicy_DESTROY)
+
+ses.NewReceiptRuleSet(app, jsii.String("RuleSet"), &ReceiptRuleSetProps{
+	DropSpam: jsii.Boolean(true),
+})
+```

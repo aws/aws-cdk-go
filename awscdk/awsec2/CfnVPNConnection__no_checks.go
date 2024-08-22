@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnVPNConnection) validateSetCustomerGatewayIdParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPNConnection) validateSetEnableAccelerationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPNConnection) validateSetStaticRoutesOnlyParameters(val interface{}) error {
 	return nil
 }

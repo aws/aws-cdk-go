@@ -377,6 +377,532 @@ func init() {
 		reflect.TypeOf((*CfnEmailIdentityProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddonInstance",
+		reflect.TypeOf((*CfnMailManagerAddonInstance)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "addonSubscriptionId", GoGetter: "AddonSubscriptionId"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAddonInstanceArn", GoGetter: "AttrAddonInstanceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAddonInstanceId", GoGetter: "AttrAddonInstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAddonName", GoGetter: "AttrAddonName"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMailManagerAddonInstance{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddonInstanceProps",
+		reflect.TypeOf((*CfnMailManagerAddonInstanceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddonSubscription",
+		reflect.TypeOf((*CfnMailManagerAddonSubscription)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "addonName", GoGetter: "AddonName"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAddonSubscriptionArn", GoGetter: "AttrAddonSubscriptionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAddonSubscriptionId", GoGetter: "AttrAddonSubscriptionId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMailManagerAddonSubscription{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerAddonSubscriptionProps",
+		reflect.TypeOf((*CfnMailManagerAddonSubscriptionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.CfnMailManagerArchive",
+		reflect.TypeOf((*CfnMailManagerArchive)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "archiveName", GoGetter: "ArchiveName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArchiveArn", GoGetter: "AttrArchiveArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArchiveId", GoGetter: "AttrArchiveId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArchiveState", GoGetter: "AttrArchiveState"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyArn", GoGetter: "KmsKeyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "retention", GoGetter: "Retention"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMailManagerArchive{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerArchive.ArchiveRetentionProperty",
+		reflect.TypeOf((*CfnMailManagerArchive_ArchiveRetentionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerArchiveProps",
+		reflect.TypeOf((*CfnMailManagerArchiveProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint",
+		reflect.TypeOf((*CfnMailManagerIngressPoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrARecord", GoGetter: "AttrARecord"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIngressPointArn", GoGetter: "AttrIngressPointArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIngressPointId", GoGetter: "AttrIngressPointId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "ingressPointConfiguration", GoGetter: "IngressPointConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "ingressPointName", GoGetter: "IngressPointName"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleSetId", GoGetter: "RuleSetId"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "statusToUpdate", GoGetter: "StatusToUpdate"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficPolicyId", GoGetter: "TrafficPolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMailManagerIngressPoint{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint.IngressPointConfigurationProperty",
+		reflect.TypeOf((*CfnMailManagerIngressPoint_IngressPointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPointProps",
+		reflect.TypeOf((*CfnMailManagerIngressPointProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRelay",
+		reflect.TypeOf((*CfnMailManagerRelay)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRelayArn", GoGetter: "AttrRelayArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRelayId", GoGetter: "AttrRelayId"},
+			_jsii_.MemberProperty{JsiiProperty: "authentication", GoGetter: "Authentication"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "relayName", GoGetter: "RelayName"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "serverName", GoGetter: "ServerName"},
+			_jsii_.MemberProperty{JsiiProperty: "serverPort", GoGetter: "ServerPort"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMailManagerRelay{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRelay.RelayAuthenticationProperty",
+		reflect.TypeOf((*CfnMailManagerRelay_RelayAuthenticationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRelayProps",
+		reflect.TypeOf((*CfnMailManagerRelayProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet",
+		reflect.TypeOf((*CfnMailManagerRuleSet)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRuleSetArn", GoGetter: "AttrRuleSetArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRuleSetId", GoGetter: "AttrRuleSetId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "rules", GoGetter: "Rules"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleSetName", GoGetter: "RuleSetName"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMailManagerRuleSet{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.AddHeaderActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_AddHeaderActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.AnalysisProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_AnalysisProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.ArchiveActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_ArchiveActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.DeliverToMailboxActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_DeliverToMailboxActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RelayActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RelayActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.ReplaceRecipientActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_ReplaceRecipientActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleBooleanExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleBooleanExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleBooleanToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleBooleanToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleConditionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleDmarcExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleDmarcExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleIpExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleIpExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleIpToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleIpToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleNumberExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleNumberExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleNumberToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleNumberToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleStringExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleStringExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleStringToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleStringToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleVerdictExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleVerdictExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RuleVerdictToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_RuleVerdictToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.S3ActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_S3ActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.SendActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_SendActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSetProps",
+		reflect.TypeOf((*CfnMailManagerRuleSetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrTrafficPolicyArn", GoGetter: "AttrTrafficPolicyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrTrafficPolicyId", GoGetter: "AttrTrafficPolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultAction", GoGetter: "DefaultAction"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "maxMessageSizeBytes", GoGetter: "MaxMessageSizeBytes"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "policyStatements", GoGetter: "PolicyStatements"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficPolicyName", GoGetter: "TrafficPolicyName"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMailManagerTrafficPolicy{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressAnalysisProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressAnalysisProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressBooleanExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressBooleanExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressBooleanToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressBooleanToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressIpToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressIpToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressIpv4ExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressIpv4ExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressStringExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressStringExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressStringToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressStringToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressTlsProtocolExpressionProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressTlsProtocolExpressionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.IngressTlsProtocolToEvaluateProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_IngressTlsProtocolToEvaluateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.PolicyConditionProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_PolicyConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicy.PolicyStatementProperty",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicy_PolicyStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerTrafficPolicyProps",
+		reflect.TypeOf((*CfnMailManagerTrafficPolicyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ses.CfnReceiptFilter",
 		reflect.TypeOf((*CfnReceiptFilter)(nil)).Elem(),
 		[]_jsii_.Member{

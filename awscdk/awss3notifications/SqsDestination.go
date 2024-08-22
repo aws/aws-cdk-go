@@ -15,11 +15,10 @@ import (
 // Example:
 //   var myQueue queue
 //
-//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-//   bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue), &NotificationKeyFilter{
-//   	Prefix: jsii.String("foo/"),
-//   	Suffix: jsii.String(".jpg"),
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+//   	NotificationsSkipDestinationValidation: jsii.Boolean(true),
 //   })
+//   bucket.AddEventNotification(s3.EventType_OBJECT_REMOVED, s3n.NewSqsDestination(myQueue))
 //
 type SqsDestination interface {
 	awss3.IBucketNotificationDestination

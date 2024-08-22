@@ -25,6 +25,39 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	ConfiguredTableAssociationAnalysisRules: []interface{}{
+//   		&ConfiguredTableAssociationAnalysisRuleProperty{
+//   			Policy: &ConfiguredTableAssociationAnalysisRulePolicyProperty{
+//   				V1: &ConfiguredTableAssociationAnalysisRulePolicyV1Property{
+//   					Aggregation: &ConfiguredTableAssociationAnalysisRuleAggregationProperty{
+//   						AllowedAdditionalAnalyses: []*string{
+//   							jsii.String("allowedAdditionalAnalyses"),
+//   						},
+//   						AllowedResultReceivers: []*string{
+//   							jsii.String("allowedResultReceivers"),
+//   						},
+//   					},
+//   					Custom: &ConfiguredTableAssociationAnalysisRuleCustomProperty{
+//   						AllowedAdditionalAnalyses: []*string{
+//   							jsii.String("allowedAdditionalAnalyses"),
+//   						},
+//   						AllowedResultReceivers: []*string{
+//   							jsii.String("allowedResultReceivers"),
+//   						},
+//   					},
+//   					List: &ConfiguredTableAssociationAnalysisRuleListProperty{
+//   						AllowedAdditionalAnalyses: []*string{
+//   							jsii.String("allowedAdditionalAnalyses"),
+//   						},
+//   						AllowedResultReceivers: []*string{
+//   							jsii.String("allowedResultReceivers"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -55,6 +88,9 @@ type CfnConfiguredTableAssociation interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// An analysis rule for a configured table association.
+	ConfiguredTableAssociationAnalysisRules() interface{}
+	SetConfiguredTableAssociationAnalysisRules(val interface{})
 	// A unique identifier for the configured table to be associated to.
 	ConfiguredTableIdentifier() *string
 	SetConfiguredTableIdentifier(val *string)
@@ -305,6 +341,16 @@ func (j *jsiiProxy_CfnConfiguredTableAssociation) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfiguredTableAssociation) ConfiguredTableAssociationAnalysisRules() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"configuredTableAssociationAnalysisRules",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfiguredTableAssociation) ConfiguredTableIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -460,6 +506,17 @@ func NewCfnConfiguredTableAssociation_Override(c CfnConfiguredTableAssociation, 
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTableAssociation",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnConfiguredTableAssociation)SetConfiguredTableAssociationAnalysisRules(val interface{}) {
+	if err := j.validateSetConfiguredTableAssociationAnalysisRulesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"configuredTableAssociationAnalysisRules",
+		val,
 	)
 }
 

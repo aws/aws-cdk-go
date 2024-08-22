@@ -72,6 +72,8 @@ type ApplicationListener interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// The port of the listener.
+	Port() *float64
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Perform the given default action on incoming requests.
@@ -207,6 +209,16 @@ func (j *jsiiProxy_ApplicationListener) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationListener) Port() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"port",
 		&returns,
 	)
 	return returns

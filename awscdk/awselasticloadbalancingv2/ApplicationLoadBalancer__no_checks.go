@@ -32,6 +32,10 @@ func (a *jsiiProxy_ApplicationLoadBalancer) validateLogAccessLogsParameters(buck
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationLoadBalancer) validateLogConnectionLogsParameters(bucket awss3.IBucket) error {
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationLoadBalancer) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
 	return nil
 }

@@ -247,6 +247,17 @@ func FoundationModelIdentifier_AMAZON_TITAN_IMAGE_GENERATOR_V1_0() FoundationMod
 	return returns
 }
 
+func FoundationModelIdentifier_AMAZON_TITAN_IMAGE_GENERATOR_V2_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_TITAN_IMAGE_GENERATOR_V2_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AMAZON_TITAN_MULTIMODAL_EMBEDDINGS_G1_V1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier

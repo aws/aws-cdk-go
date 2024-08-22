@@ -51,7 +51,10 @@ package awsacmpca
 //   		OmitExtension: jsii.Boolean(false),
 //   	},
 //   	CustomCname: jsii.String("customCname"),
+//   	CustomPath: jsii.String("customPath"),
 //   	ExpirationInDays: jsii.Number(123),
+//   	PartitioningEnabled: jsii.Boolean(false),
+//   	RetainExpiredCertificates: jsii.Boolean(false),
 //   	S3BucketName: jsii.String("s3BucketName"),
 //   	S3ObjectAcl: jsii.String("s3ObjectAcl"),
 //   }
@@ -79,10 +82,19 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
 	//
 	CustomCname *string `field:"optional" json:"customCname" yaml:"customCname"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-custompath
+	//
+	CustomPath *string `field:"optional" json:"customPath" yaml:"customPath"`
 	// Validity period of the CRL in days.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
 	//
 	ExpirationInDays *float64 `field:"optional" json:"expirationInDays" yaml:"expirationInDays"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-partitioningenabled
+	//
+	PartitioningEnabled interface{} `field:"optional" json:"partitioningEnabled" yaml:"partitioningEnabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-retainexpiredcertificates
+	//
+	RetainExpiredCertificates interface{} `field:"optional" json:"retainExpiredCertificates" yaml:"retainExpiredCertificates"`
 	// Name of the S3 bucket that contains the CRL.
 	//
 	// If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.

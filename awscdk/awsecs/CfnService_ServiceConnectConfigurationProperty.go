@@ -70,9 +70,9 @@ type CfnService_ServiceConnectConfigurationProperty struct {
 	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// The log configuration for the container.
 	//
-	// This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--log-driver` option to [`docker run`](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/) .
+	// This parameter maps to `LogConfig` in the docker conainer create command and the `--log-driver` option to docker run.
 	//
-	// By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+	// By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
 	//
 	// Understand the following when specifying a log configuration for your containers.
 	//

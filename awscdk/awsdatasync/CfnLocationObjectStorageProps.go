@@ -36,7 +36,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html
 //
 type CfnLocationObjectStorageProps struct {
-	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely connect with your location.
+	// Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
 	//
 	AgentArns *[]*string `field:"required" json:"agentArns" yaml:"agentArns"`

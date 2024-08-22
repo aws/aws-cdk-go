@@ -12,6 +12,7 @@ package awsglobalaccelerator
 //   	EndpointId: jsii.String("endpointId"),
 //
 //   	// the properties below are optional
+//   	Cidr: jsii.String("cidr"),
 //   	Region: jsii.String("region"),
 //   }
 //
@@ -24,6 +25,14 @@ type CfnCrossAccountAttachment_ResourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html#cfn-globalaccelerator-crossaccountattachment-resource-endpointid
 	//
 	EndpointId *string `field:"required" json:"endpointId" yaml:"endpointId"`
+	// An IP address range, in CIDR format, that is specified as resource.
+	//
+	// The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
+	//
+	// For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html#cfn-globalaccelerator-crossaccountattachment-resource-cidr
+	//
+	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 	// The AWS Region where a shared endpoint resource is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html#cfn-globalaccelerator-crossaccountattachment-resource-region
 	//

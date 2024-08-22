@@ -147,8 +147,6 @@ type CfnDBClusterProps struct {
 	// - If specified, this value must be set to a number from 0 to 259,200 (72 hours).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
 	//
-	// Default: - 0.
-	//
 	BacktrackWindow *float64 `field:"optional" json:"backtrackWindow" yaml:"backtrackWindow"`
 	// The number of days for which automated backups are retained.
 	//

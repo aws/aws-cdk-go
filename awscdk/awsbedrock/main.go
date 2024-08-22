@@ -216,7 +216,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataDeletionPolicy", GoGetter: "DataDeletionPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "dataSourceConfiguration", GoGetter: "DataSourceConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -249,24 +248,64 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.BedrockFoundationModelConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_BedrockFoundationModelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.ChunkingConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ChunkingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrock.CfnDataSource.DataSourceConfigurationProperty",
-		reflect.TypeOf((*CfnDataSource_DataSourceConfigurationProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.CustomTransformationConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_CustomTransformationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.FixedSizeChunkingConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_FixedSizeChunkingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrock.CfnDataSource.S3DataSourceConfigurationProperty",
-		reflect.TypeOf((*CfnDataSource_S3DataSourceConfigurationProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.HierarchicalChunkingConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_HierarchicalChunkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.HierarchicalChunkingLevelConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_HierarchicalChunkingLevelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.IntermediateStorageProperty",
+		reflect.TypeOf((*CfnDataSource_IntermediateStorageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.ParsingConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_ParsingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.ParsingPromptProperty",
+		reflect.TypeOf((*CfnDataSource_ParsingPromptProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.S3LocationProperty",
+		reflect.TypeOf((*CfnDataSource_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SemanticChunkingConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_SemanticChunkingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.ServerSideEncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ServerSideEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.TransformationFunctionProperty",
+		reflect.TypeOf((*CfnDataSource_TransformationFunctionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.TransformationLambdaConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_TransformationLambdaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.TransformationProperty",
+		reflect.TypeOf((*CfnDataSource_TransformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.VectorIngestionConfigurationProperty",
@@ -275,6 +314,375 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSourceProps",
 		reflect.TypeOf((*CfnDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrock.CfnFlow",
+		reflect.TypeOf((*CfnFlow)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customerEncryptionKeyArn", GoGetter: "CustomerEncryptionKeyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "definition", GoGetter: "Definition"},
+			_jsii_.MemberProperty{JsiiProperty: "definitionS3Location", GoGetter: "DefinitionS3Location"},
+			_jsii_.MemberProperty{JsiiProperty: "definitionString", GoGetter: "DefinitionString"},
+			_jsii_.MemberProperty{JsiiProperty: "definitionSubstitutions", GoGetter: "DefinitionSubstitutions"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRoleArn", GoGetter: "ExecutionRoleArn"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "testAliasTags", GoGetter: "TestAliasTags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFlow{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.ConditionFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_ConditionFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowConditionProperty",
+		reflect.TypeOf((*CfnFlow_FlowConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowConditionalConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_FlowConditionalConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_FlowConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowConnectionProperty",
+		reflect.TypeOf((*CfnFlow_FlowConnectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowDataConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_FlowDataConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowDefinitionProperty",
+		reflect.TypeOf((*CfnFlow_FlowDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_FlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowNodeInputProperty",
+		reflect.TypeOf((*CfnFlow_FlowNodeInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowNodeOutputProperty",
+		reflect.TypeOf((*CfnFlow_FlowNodeOutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowNodeProperty",
+		reflect.TypeOf((*CfnFlow_FlowNodeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.KnowledgeBaseFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_KnowledgeBaseFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.LambdaFunctionFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_LambdaFunctionFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.LexFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_LexFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_PromptFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptFlowNodeInlineConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_PromptFlowNodeInlineConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptFlowNodeResourceConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_PromptFlowNodeResourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptFlowNodeSourceConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_PromptFlowNodeSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_PromptInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptInputVariableProperty",
+		reflect.TypeOf((*CfnFlow_PromptInputVariableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptModelInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_PromptModelInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.PromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_PromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.S3LocationProperty",
+		reflect.TypeOf((*CfnFlow_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.TextPromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_TextPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrock.CfnFlowAlias",
+		reflect.TypeOf((*CfnFlowAlias)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFlowId", GoGetter: "AttrFlowId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "flowArn", GoGetter: "FlowArn"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "routingConfiguration", GoGetter: "RoutingConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFlowAlias{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowAlias.FlowAliasRoutingConfigurationListItemProperty",
+		reflect.TypeOf((*CfnFlowAlias_FlowAliasRoutingConfigurationListItemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowAliasProps",
+		reflect.TypeOf((*CfnFlowAliasProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowProps",
+		reflect.TypeOf((*CfnFlowProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion",
+		reflect.TypeOf((*CfnFlowVersion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDefinition", GoGetter: "AttrDefinition"},
+			_jsii_.MemberProperty{JsiiProperty: "attrExecutionRoleArn", GoGetter: "AttrExecutionRoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFlowId", GoGetter: "AttrFlowId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "flowArn", GoGetter: "FlowArn"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFlowVersion{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.ConditionFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_ConditionFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowConditionProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowConditionalConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowConditionalConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowConnectionProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowConnectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowDataConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowDataConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowDefinitionProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowNodeInputProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowNodeInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowNodeOutputProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowNodeOutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.FlowNodeProperty",
+		reflect.TypeOf((*CfnFlowVersion_FlowNodeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.KnowledgeBaseFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_KnowledgeBaseFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.LambdaFunctionFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_LambdaFunctionFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.LexFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_LexFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_PromptFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptFlowNodeInlineConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_PromptFlowNodeInlineConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptFlowNodeResourceConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_PromptFlowNodeResourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptFlowNodeSourceConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_PromptFlowNodeSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_PromptInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptInputVariableProperty",
+		reflect.TypeOf((*CfnFlowVersion_PromptInputVariableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptModelInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_PromptModelInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_PromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.TextPromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_TextPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersionProps",
+		reflect.TypeOf((*CfnFlowVersionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrock.CfnGuardrail",
@@ -303,6 +711,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "contentPolicyConfig", GoGetter: "ContentPolicyConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "contextualGroundingPolicyConfig", GoGetter: "ContextualGroundingPolicyConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -345,6 +754,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnGuardrail.ContentPolicyConfigProperty",
 		reflect.TypeOf((*CfnGuardrail_ContentPolicyConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnGuardrail.ContextualGroundingFilterConfigProperty",
+		reflect.TypeOf((*CfnGuardrail_ContextualGroundingFilterConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnGuardrail.ContextualGroundingPolicyConfigProperty",
+		reflect.TypeOf((*CfnGuardrail_ContextualGroundingPolicyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnGuardrail.ManagedWordsConfigProperty",
@@ -490,6 +907,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.BedrockEmbeddingModelConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_BedrockEmbeddingModelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.EmbeddingModelConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_EmbeddingModelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.KnowledgeBaseConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_KnowledgeBaseConfigurationProperty)(nil)).Elem(),
 	)
@@ -528,6 +953,173 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBaseProps",
 		reflect.TypeOf((*CfnKnowledgeBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt",
+		reflect.TypeOf((*CfnPrompt)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customerEncryptionKeyArn", GoGetter: "CustomerEncryptionKeyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultVariant", GoGetter: "DefaultVariant"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "variants", GoGetter: "Variants"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPrompt{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.PromptInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnPrompt_PromptInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.PromptInputVariableProperty",
+		reflect.TypeOf((*CfnPrompt_PromptInputVariableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.PromptModelInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnPrompt_PromptModelInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.PromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnPrompt_PromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.PromptVariantProperty",
+		reflect.TypeOf((*CfnPrompt_PromptVariantProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.TextPromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnPrompt_TextPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.TextS3LocationProperty",
+		reflect.TypeOf((*CfnPrompt_TextS3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptProps",
+		reflect.TypeOf((*CfnPromptProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion",
+		reflect.TypeOf((*CfnPromptVersion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDefaultVariant", GoGetter: "AttrDefaultVariant"},
+			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPromptId", GoGetter: "AttrPromptId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVariants", GoGetter: "AttrVariants"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "promptArn", GoGetter: "PromptArn"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPromptVersion{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.PromptInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnPromptVersion_PromptInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.PromptInputVariableProperty",
+		reflect.TypeOf((*CfnPromptVersion_PromptInputVariableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.PromptModelInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnPromptVersion_PromptModelInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.PromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnPromptVersion_PromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.PromptVariantProperty",
+		reflect.TypeOf((*CfnPromptVersion_PromptVariantProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.TextPromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnPromptVersion_TextPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersionProps",
+		reflect.TypeOf((*CfnPromptVersionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrock.FoundationModel",

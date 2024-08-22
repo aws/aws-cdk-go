@@ -397,6 +397,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "upgradePolicy", GoGetter: "UpgradePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
@@ -447,6 +448,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.ResourcesVpcConfigProperty",
 		reflect.TypeOf((*CfnCluster_ResourcesVpcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.UpgradePolicyProperty",
+		reflect.TypeOf((*CfnCluster_UpgradePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnClusterProps",

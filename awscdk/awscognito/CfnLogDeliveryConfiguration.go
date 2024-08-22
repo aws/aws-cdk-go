@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The logging parameters of a user pool.
+// The logging parameters of a user pool returned in response to `GetLogDeliveryConfiguration` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,7 +26,13 @@ import (
 //   				LogGroupArn: jsii.String("logGroupArn"),
 //   			},
 //   			EventSource: jsii.String("eventSource"),
+//   			FirehoseConfiguration: &FirehoseConfigurationProperty{
+//   				StreamArn: jsii.String("streamArn"),
+//   			},
 //   			LogLevel: jsii.String("logLevel"),
+//   			S3Configuration: &S3ConfigurationProperty{
+//   				BucketArn: jsii.String("bucketArn"),
+//   			},
 //   		},
 //   	},
 //   })
@@ -47,7 +53,7 @@ type CfnLogDeliveryConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The detailed activity logging destination of a user pool.
+	// A logging destination of a user pool.
 	LogConfigurations() interface{}
 	SetLogConfigurations(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -84,7 +90,7 @@ type CfnLogDeliveryConfiguration interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the user pool where you configured detailed activity logging.
+	// The ID of the user pool where you configured logging.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

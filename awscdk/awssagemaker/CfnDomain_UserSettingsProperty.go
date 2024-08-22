@@ -83,6 +83,9 @@ package awssagemaker
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
 //   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
+//   		},
 //   	},
 //   	KernelGatewayAppSettings: &KernelGatewayAppSettingsProperty{
 //   		CustomImages: []interface{}{
@@ -99,6 +102,9 @@ package awssagemaker
 //   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		},
+//   		LifecycleConfigArns: []*string{
+//   			jsii.String("lifecycleConfigArns"),
 //   		},
 //   	},
 //   	RSessionAppSettings: &RSessionAppSettingsProperty{
@@ -137,6 +143,14 @@ package awssagemaker
 //   		},
 //   	},
 //   	StudioWebPortal: jsii.String("studioWebPortal"),
+//   	StudioWebPortalSettings: &StudioWebPortalSettingsProperty{
+//   		HiddenAppTypes: []*string{
+//   			jsii.String("hiddenAppTypes"),
+//   		},
+//   		HiddenMlTools: []*string{
+//   			jsii.String("hiddenMlTools"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
@@ -211,5 +225,11 @@ type CfnDomain_UserSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-studiowebportal
 	//
 	StudioWebPortal *string `field:"optional" json:"studioWebPortal" yaml:"studioWebPortal"`
+	// Studio settings.
+	//
+	// If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-studiowebportalsettings
+	//
+	StudioWebPortalSettings interface{} `field:"optional" json:"studioWebPortalSettings" yaml:"studioWebPortalSettings"`
 }
 

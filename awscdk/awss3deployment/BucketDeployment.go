@@ -13,20 +13,27 @@ import (
 // `BucketDeployment` populates an S3 bucket with the contents of .zip files from other S3 buckets or from local disk.
 //
 // Example:
-//   var websiteBucket bucket
+//   var destinationBucket bucket
 //
 //
-//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &BucketDeploymentProps{
+//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
 //   	Sources: []iSource{
-//   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
+//   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("source-files"))),
 //   	},
-//   	DestinationBucket: websiteBucket,
+//   	DestinationBucket: DestinationBucket,
 //   })
 //
-//   NewConstructThatReadsFromTheBucket(this, jsii.String("Consumer"), map[string]iBucket{
-//   	// Use 'deployment.deployedBucket' instead of 'websiteBucket' here
-//   	"bucket": deployment.deployedBucket,
-//   })
+//   deployment.HandlerRole.AddToPolicy(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Actions: []*string{
+//   		jsii.String("kms:Decrypt"),
+//   		jsii.String("kms:DescribeKey"),
+//   	},
+//   	Effect: iam.Effect_ALLOW,
+//   	Resources: []*string{
+//   		jsii.String("<encryption key ARN>"),
+//   	},
+//   }))
 //
 type BucketDeployment interface {
 	constructs.Construct

@@ -60,6 +60,22 @@ func (s *jsiiProxy_SingletonFunction) validateAddFunctionUrlParameters(options *
 	return nil
 }
 
+func (s *jsiiProxy_SingletonFunction) validateAddMetadataParameters(type_ *string, data interface{}, options *constructs.MetadataOptions) error {
+	if type_ == nil {
+		return fmt.Errorf("parameter type_ is required, but nil was provided")
+	}
+
+	if data == nil {
+		return fmt.Errorf("parameter data is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_SingletonFunction) validateAddPermissionParameters(name *string, permission *Permission) error {
 	if name == nil {
 		return fmt.Errorf("parameter name is required, but nil was provided")

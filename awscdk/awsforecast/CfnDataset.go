@@ -11,6 +11,8 @@ import (
 
 // Creates an Amazon Forecast dataset.
 //
+// > Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://docs.aws.amazon.com/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
+//
 // The information about the dataset that you provide helps Forecast understand how to consume the data for model training. This includes the following:
 //
 // - *`DataFrequency`* - How frequently your historical time-series data is collected.

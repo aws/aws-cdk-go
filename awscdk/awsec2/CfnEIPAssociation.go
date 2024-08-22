@@ -47,7 +47,6 @@ type CfnEIPAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Elastic IP address to associate with the instance.
 	// Deprecated: this property has been deprecated.
 	Eip() *string
 	// Deprecated: this property has been deprecated.

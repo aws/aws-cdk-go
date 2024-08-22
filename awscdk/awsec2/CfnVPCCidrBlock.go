@@ -62,6 +62,10 @@ type CfnVPCCidrBlock interface {
 	SetAmazonProvidedIpv6CidrBlock(val interface{})
 	// The Id of the VPC associated CIDR Block.
 	AttrId() *string
+	// The IP Source of an IPv6 VPC CIDR Block.
+	AttrIpSource() *string
+	// The value denoting whether an IPv6 VPC CIDR Block is public or private.
+	AttrIpv6AddressAttribute() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -279,6 +283,26 @@ func (j *jsiiProxy_CfnVPCCidrBlock) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) AttrIpSource() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIpSource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock) AttrIpv6AddressAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIpv6AddressAttribute",
 		&returns,
 	)
 	return returns

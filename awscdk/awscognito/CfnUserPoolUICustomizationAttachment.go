@@ -35,7 +35,6 @@ import (
 type CfnUserPoolUICustomizationAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -219,16 +218,6 @@ type CfnUserPoolUICustomizationAttachment interface {
 type jsiiProxy_CfnUserPoolUICustomizationAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) CfnOptions() awscdk.ICfnResourceOptions {

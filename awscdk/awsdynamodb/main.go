@@ -475,6 +475,10 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.LocalSecondaryIndexProps",
 		reflect.TypeOf((*LocalSecondaryIndexProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.MaxThroughputProps",
+		reflect.TypeOf((*MaxThroughputProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_dynamodb.Operation",
 		reflect.TypeOf((*Operation)(nil)).Elem(),

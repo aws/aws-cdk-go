@@ -81,6 +81,10 @@ func init() {
 		reflect.TypeOf((*CfnPipeline_LogPublishingOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_osis.CfnPipeline.VpcAttachmentOptionsProperty",
+		reflect.TypeOf((*CfnPipeline_VpcAttachmentOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_osis.CfnPipeline.VpcEndpointProperty",
 		reflect.TypeOf((*CfnPipeline_VpcEndpointProperty)(nil)).Elem(),
 	)

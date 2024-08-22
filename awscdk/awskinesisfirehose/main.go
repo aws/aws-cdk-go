@@ -34,6 +34,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "httpEndpointDestinationConfiguration", GoGetter: "HttpEndpointDestinationConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "icebergDestinationConfiguration", GoGetter: "IcebergDestinationConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kinesisStreamSourceConfiguration", GoGetter: "KinesisStreamSourceConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -100,6 +101,10 @@ func init() {
 		reflect.TypeOf((*CfnDeliveryStream_BufferingHintsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.CatalogConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_CatalogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.CloudWatchLoggingOptionsProperty",
 		reflect.TypeOf((*CfnDeliveryStream_CloudWatchLoggingOptionsProperty)(nil)).Elem(),
 	)
@@ -118,6 +123,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DeserializerProperty",
 		reflect.TypeOf((*CfnDeliveryStream_DeserializerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DestinationTableConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DestinationTableConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DocumentIdOptionsProperty",
@@ -166,6 +175,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.HttpEndpointRequestConfigurationProperty",
 		reflect.TypeOf((*CfnDeliveryStream_HttpEndpointRequestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.IcebergDestinationConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_IcebergDestinationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.InputFormatConfigurationProperty",
@@ -238,6 +251,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SerializerProperty",
 		reflect.TypeOf((*CfnDeliveryStream_SerializerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SnowflakeBufferingHintsProperty",
+		reflect.TypeOf((*CfnDeliveryStream_SnowflakeBufferingHintsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.SnowflakeDestinationConfigurationProperty",

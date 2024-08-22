@@ -12,6 +12,13 @@ package awsstepfunctions
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		KmsDataKeyReusePeriodSeconds: jsii.Number(123),
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
 //   	Tags: []tagsEntryProperty{
 //   		&tagsEntryProperty{
 //   			Key: jsii.String("key"),
@@ -37,6 +44,14 @@ type CfnActivityProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Encryption configuration for the activity.
+	//
+	// Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
+	//
+	// To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-encryptionconfiguration
+	//
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The list of tags to add to a resource.
 	//
 	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + -

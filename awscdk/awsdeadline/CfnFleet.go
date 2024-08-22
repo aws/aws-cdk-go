@@ -129,12 +129,12 @@ import (
 //   		},
 //   	},
 //   	DisplayName: jsii.String("displayName"),
+//   	FarmId: jsii.String("farmId"),
 //   	MaxWorkerCount: jsii.Number(123),
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
-//   	FarmId: jsii.String("farmId"),
 //   	MinWorkerCount: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -661,6 +661,9 @@ func (j *jsiiProxy_CfnFleet)SetDisplayName(val *string) {
 }
 
 func (j *jsiiProxy_CfnFleet)SetFarmId(val *string) {
+	if err := j.validateSetFarmIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"farmId",

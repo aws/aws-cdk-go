@@ -11,6 +11,7 @@ package awscognito
 //   policiesProperty := &PoliciesProperty{
 //   	PasswordPolicy: &PasswordPolicyProperty{
 //   		MinimumLength: jsii.Number(123),
+//   		PasswordHistorySize: jsii.Number(123),
 //   		RequireLowercase: jsii.Boolean(false),
 //   		RequireNumbers: jsii.Boolean(false),
 //   		RequireSymbols: jsii.Boolean(false),

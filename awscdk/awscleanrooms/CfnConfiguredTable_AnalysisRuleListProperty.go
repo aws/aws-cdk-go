@@ -17,6 +17,7 @@ package awscleanrooms
 //   	},
 //
 //   	// the properties below are optional
+//   	AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   	AllowedJoinOperators: []*string{
 //   		jsii.String("allowedJoinOperators"),
 //   	},
@@ -33,6 +34,10 @@ type CfnConfiguredTable_AnalysisRuleListProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-listcolumns
 	//
 	ListColumns *[]*string `field:"required" json:"listColumns" yaml:"listColumns"`
+	// An indicator as to whether additional analyses (such as AWS Clean Rooms ML) can be applied to the output of the direct query.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html#cfn-cleanrooms-configuredtable-analysisrulelist-additionalanalyses
+	//
+	AdditionalAnalyses *string `field:"optional" json:"additionalAnalyses" yaml:"additionalAnalyses"`
 	// The logical operators (if any) that are to be used in an INNER JOIN match condition.
 	//
 	// Default is `AND` .

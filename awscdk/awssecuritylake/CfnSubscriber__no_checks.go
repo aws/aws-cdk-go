@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnSubscriber) validateSetDataLakeArnParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnSubscriber) validateSetSourcesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSubscriber) validateSetSubscriberIdentityParameters(val interface{}) error {
 	return nil
 }

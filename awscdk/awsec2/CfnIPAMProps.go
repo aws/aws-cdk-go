@@ -13,6 +13,7 @@ import (
 //
 //   cfnIPAMProps := &CfnIPAMProps{
 //   	Description: jsii.String("description"),
+//   	EnablePrivateGua: jsii.Boolean(false),
 //   	OperatingRegions: []interface{}{
 //   		&IpamOperatingRegionProperty{
 //   			RegionName: jsii.String("regionName"),
@@ -34,6 +35,10 @@ type CfnIPAMProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Enable provisioning of GUA space in private pools.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-enableprivategua
+	//
+	EnablePrivateGua interface{} `field:"optional" json:"enablePrivateGua" yaml:"enablePrivateGua"`
 	// The operating Regions for an IPAM.
 	//
 	// Operating Regions are AWS Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the AWS Regions you select as operating Regions.

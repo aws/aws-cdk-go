@@ -290,6 +290,25 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 lb.LogAccessLogs(bucket)
 ```
 
+### Setting up Connection Log Bucket on Application Load Balancer
+
+Like access log bucket, the only server-side encryption option that's supported is Amazon S3-managed keys (SSE-S3). For more information
+Documentation: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-connection-logging.html
+
+```go
+var vpc vpc
+
+
+bucket := s3.NewBucket(this, jsii.String("ALBConnectionLogsBucket"), &BucketProps{
+	Encryption: s3.BucketEncryption_S3_MANAGED,
+})
+
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+})
+lb.LogConnectionLogs(bucket)
+```
+
 ## Defining a Network Load Balancer
 
 Network Load Balancers are defined in a similar way to Application Load
@@ -590,7 +609,7 @@ listener := nlb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
 
 listener.AddTargets(jsii.String("Targets"), &AddNetworkTargetsProps{
 	Targets: []iNetworkLoadBalancerTarget{
-		targets.NewAlbTarget(svc.loadBalancer, jsii.Number(80)),
+		targets.NewAlbListenerTarget(svc.Listener),
 	},
 	Port: jsii.Number(80),
 })
@@ -869,3 +888,62 @@ then you will need to enable the `removeRuleSuffixFromLogicalId: true` property 
 
 `ListenerRule`s have a unique `priority` for a given `Listener`.
 Because the `priority` must be unique, CloudFormation will always fail when creating a new `ListenerRule` to replace the existing one, unless you change the `priority` as well as the logicalId.
+
+## Configuring Mutual authentication with TLS in Application Load Balancer
+
+You can configure Mutual authentication with TLS (mTLS) for Application Load Balancer.
+
+To set mTLS, you must create an instance of `TrustStore` and set it to `ApplicationListener`.
+
+For more information, see [Mutual authentication with TLS in Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html)
+
+```go
+import acm "github.com/aws/aws-cdk-go/awscdk"
+
+var certificate certificate
+var lb applicationLoadBalancer
+var bucket bucket
+
+
+trustStore := elbv2.NewTrustStore(this, jsii.String("Store"), &TrustStoreProps{
+	Bucket: Bucket,
+	Key: jsii.String("rootCA_cert.pem"),
+})
+
+lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+	Port: jsii.Number(443),
+	Protocol: elbv2.ApplicationProtocol_HTTPS,
+	Certificates: []iListenerCertificate{
+		certificate,
+	},
+	// mTLS settings
+	MutualAuthentication: &MutualAuthentication{
+		IgnoreClientCertificateExpiry: jsii.Boolean(false),
+		MutualAuthenticationMode: elbv2.MutualAuthenticationMode_VERIFY,
+		TrustStore: *TrustStore,
+	},
+	DefaultAction: elbv2.ListenerAction_FixedResponse(jsii.Number(200), &FixedResponseOptions{
+		ContentType: jsii.String("text/plain"),
+		MessageBody: jsii.String("Success mTLS"),
+	}),
+})
+```
+
+Optionally, you can create a certificate revocation list for a trust store by creating an instance of `TrustStoreRevocation`.
+
+```go
+var trustStore trustStore
+var bucket bucket
+
+
+elbv2.NewTrustStoreRevocation(this, jsii.String("Revocation"), &TrustStoreRevocationProps{
+	TrustStore: TrustStore,
+	RevocationContents: []revocationContent{
+		&revocationContent{
+			RevocationType: elbv2.RevocationType_CRL,
+			Bucket: *Bucket,
+			Key: jsii.String("crl.pem"),
+		},
+	},
+})
+```

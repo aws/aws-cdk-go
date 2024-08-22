@@ -50,6 +50,10 @@ import (
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},
+//   		VpcAttachmentOptions: &VpcAttachmentOptionsProperty{
+//   			AttachToVpc: jsii.Boolean(false),
+//   			CidrBlock: jsii.String("cidrBlock"),
+//   		},
 //   		VpcEndpointManagement: jsii.String("vpcEndpointManagement"),
 //   	},
 //   })

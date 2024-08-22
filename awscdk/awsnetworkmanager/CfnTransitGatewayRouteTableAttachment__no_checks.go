@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateSetPeeringIdPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateSetProposedNetworkFunctionGroupChangeParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateSetProposedSegmentChangeParameters(val interface{}) error {
 	return nil
 }

@@ -46,9 +46,6 @@ import (
 //   		},
 //   	},
 //   	SecurityLevel: jsii.String("securityLevel"),
-//   	Tags: map[string]*string{
-//   		"tagsKey": jsii.String("tags"),
-//   	},
 //   	Targets: &CisTargetsProperty{
 //   		AccountIds: []*string{
 //   			jsii.String("accountIds"),
@@ -60,6 +57,11 @@ import (
 //   				jsii.String("targetResourceTags"),
 //   			},
 //   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
 //   	},
 //   })
 //
@@ -464,6 +466,9 @@ func NewCfnCisScanConfiguration_Override(c CfnCisScanConfiguration, scope constr
 }
 
 func (j *jsiiProxy_CfnCisScanConfiguration)SetScanName(val *string) {
+	if err := j.validateSetScanNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"scanName",
@@ -483,6 +488,9 @@ func (j *jsiiProxy_CfnCisScanConfiguration)SetSchedule(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnCisScanConfiguration)SetSecurityLevel(val *string) {
+	if err := j.validateSetSecurityLevelParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"securityLevel",

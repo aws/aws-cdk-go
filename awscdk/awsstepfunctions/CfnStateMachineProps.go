@@ -26,6 +26,13 @@ package awsstepfunctions
 //   	DefinitionSubstitutions: map[string]*string{
 //   		"definitionSubstitutionsKey": jsii.String("definitionSubstitutions"),
 //   	},
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		KmsDataKeyReusePeriodSeconds: jsii.Number(123),
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		Destinations: []interface{}{
 //   			&LogDestinationProperty{
@@ -83,6 +90,10 @@ type CfnStateMachineProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
 	//
 	DefinitionSubstitutions interface{} `field:"optional" json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
+	// Encryption configuration for the state machine.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-encryptionconfiguration
+	//
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// Defines what execution history events are logged and where they are logged.
 	//
 	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.

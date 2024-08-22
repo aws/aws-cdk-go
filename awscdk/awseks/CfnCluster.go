@@ -96,6 +96,9 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UpgradePolicy: &UpgradePolicyProperty{
+//   		SupportType: jsii.String("supportType"),
+//   	},
 //   	Version: jsii.String("version"),
 //   })
 //
@@ -204,6 +207,9 @@ type CfnCluster interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// This value indicates if extended support is enabled or disabled for the cluster.
+	UpgradePolicy() interface{}
+	SetUpgradePolicy(val interface{})
 	// The desired Kubernetes version for your cluster.
 	Version() *string
 	SetVersion(val *string)
@@ -631,6 +637,16 @@ func (j *jsiiProxy_CfnCluster) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) UpgradePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"upgradePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Version() *string {
 	var returns *string
 	_jsii_.Get(
@@ -772,6 +788,17 @@ func (j *jsiiProxy_CfnCluster)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetUpgradePolicy(val interface{}) {
+	if err := j.validateSetUpgradePolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"upgradePolicy",
 		val,
 	)
 }

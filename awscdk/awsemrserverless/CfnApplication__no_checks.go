@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnApplication) validateSetInitialCapacityParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetInteractiveConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetMaximumCapacityParameters(val interface{}) error {
 	return nil
 }

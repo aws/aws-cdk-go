@@ -234,6 +234,25 @@ func StringParameter_FromSecureStringParameterAttributes(scope constructs.Constr
 	return returns
 }
 
+// Imports an external string parameter by ARN.
+func StringParameter_FromStringParameterArn(scope constructs.Construct, id *string, stringParameterArn *string) IStringParameter {
+	_init_.Initialize()
+
+	if err := validateStringParameter_FromStringParameterArnParameters(scope, id, stringParameterArn); err != nil {
+		panic(err)
+	}
+	var returns IStringParameter
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ssm.StringParameter",
+		"fromStringParameterArn",
+		[]interface{}{scope, id, stringParameterArn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Imports an external string parameter with name and optional version.
 func StringParameter_FromStringParameterAttributes(scope constructs.Construct, id *string, attrs *StringParameterAttributes) IStringParameter {
 	_init_.Initialize()

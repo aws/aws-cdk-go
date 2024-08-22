@@ -148,6 +148,18 @@ domain.MapSubDomain(main, jsii.String("www"))
 domain.MapSubDomain(dev)
 ```
 
+To specify a custom certificate for your custom domain use the `customCertificate` property:
+
+```go
+var customCertificate certificate
+var amplifyApp app
+
+
+domain := amplifyApp.AddDomain(jsii.String("example.com"), &DomainOptions{
+	CustomCertificate: CustomCertificate,
+})
+```
+
 ## Restricting access
 
 Password protect the app with basic auth by specifying the `basicAuth` prop.

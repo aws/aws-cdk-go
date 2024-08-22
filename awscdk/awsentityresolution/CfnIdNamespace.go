@@ -37,6 +37,23 @@ import (
 //   					"providerConfigurationKey": jsii.String("providerConfiguration"),
 //   				},
 //   			},
+//   			RuleBasedProperties: &NamespaceRuleBasedPropertiesProperty{
+//   				AttributeMatchingModel: jsii.String("attributeMatchingModel"),
+//   				RecordMatchingModels: []*string{
+//   					jsii.String("recordMatchingModels"),
+//   				},
+//   				RuleDefinitionTypes: []*string{
+//   					jsii.String("ruleDefinitionTypes"),
+//   				},
+//   				Rules: []interface{}{
+//   					&RuleProperty{
+//   						MatchingKeys: []*string{
+//   							jsii.String("matchingKeys"),
+//   						},
+//   						RuleName: jsii.String("ruleName"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	InputSourceConfig: []interface{}{

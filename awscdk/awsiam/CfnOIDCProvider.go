@@ -37,11 +37,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnOIDCProvider := awscdk.Aws_iam.NewCfnOIDCProvider(this, jsii.String("MyCfnOIDCProvider"), &CfnOIDCProviderProps{
-//   	ThumbprintList: []*string{
-//   		jsii.String("thumbprintList"),
-//   	},
-//
-//   	// the properties below are optional
 //   	ClientIdList: []*string{
 //   		jsii.String("clientIdList"),
 //   	},
@@ -50,6 +45,9 @@ import (
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
+//   	},
+//   	ThumbprintList: []*string{
+//   		jsii.String("thumbprintList"),
 //   	},
 //   	Url: jsii.String("url"),
 //   })
@@ -461,9 +459,6 @@ func (j *jsiiProxy_CfnOIDCProvider)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnOIDCProvider)SetThumbprintList(val *[]*string) {
-	if err := j.validateSetThumbprintListParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"thumbprintList",

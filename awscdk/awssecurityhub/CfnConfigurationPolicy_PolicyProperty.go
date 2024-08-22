@@ -58,7 +58,7 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html
 //
 type CfnConfigurationPolicy_PolicyProperty struct {
-	// The AWS service that the configuration policy applies to.
+	// The AWS-service that the configuration policy applies to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html#cfn-securityhub-configurationpolicy-policy-securityhub
 	//
 	SecurityHub interface{} `field:"optional" json:"securityHub" yaml:"securityHub"`

@@ -1,7 +1,7 @@
 package awscognito
 
 
-// The CloudWatch logging destination of a user pool detailed activity logging configuration.
+// Configuration for the CloudWatch log group destination of user pool detailed activity logging, or of user activity log export with advanced security features.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

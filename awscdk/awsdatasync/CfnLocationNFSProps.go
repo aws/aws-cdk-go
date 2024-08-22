@@ -35,9 +35,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
 //
 type CfnLocationNFSProps struct {
-	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
 	//
-	// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+	// You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
 	//
 	OnPremConfig interface{} `field:"required" json:"onPremConfig" yaml:"onPremConfig"`

@@ -23,6 +23,7 @@ import (
 //   			SecretId: jsii.String("secretId"),
 //   		},
 //   	},
+//   	DatabaseArn: jsii.String("databaseArn"),
 //   	Instances: []*string{
 //   		jsii.String("instances"),
 //   	},
@@ -51,6 +52,10 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-credentials
 	//
 	Credentials interface{} `field:"optional" json:"credentials" yaml:"credentials"`
+	// The Amazon Resource Name (ARN) of the database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-databasearn
+	//
+	DatabaseArn *string `field:"optional" json:"databaseArn" yaml:"databaseArn"`
 	// The Amazon EC2 instances on which your SAP application is running.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-instances
 	//

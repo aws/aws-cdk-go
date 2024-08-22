@@ -72,6 +72,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -83,6 +84,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "identityPoolName", GoGetter: "IdentityPoolName"},
+			_jsii_.MemberProperty{JsiiProperty: "identityPoolTags", GoGetter: "IdentityPoolTags"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -108,6 +110,7 @@ func init() {
 			j := jsiiProxy_CfnIdentityPool{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)
@@ -289,8 +292,16 @@ func init() {
 		reflect.TypeOf((*CfnLogDeliveryConfiguration_CloudWatchLogsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnLogDeliveryConfiguration.FirehoseConfigurationProperty",
+		reflect.TypeOf((*CfnLogDeliveryConfiguration_FirehoseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnLogDeliveryConfiguration.LogConfigurationProperty",
 		reflect.TypeOf((*CfnLogDeliveryConfiguration_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnLogDeliveryConfiguration.S3ConfigurationProperty",
+		reflect.TypeOf((*CfnLogDeliveryConfiguration_S3ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnLogDeliveryConfigurationProps",
@@ -375,6 +386,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPool.AdminCreateUserConfigProperty",
 		reflect.TypeOf((*CfnUserPool_AdminCreateUserConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnUserPool.AdvancedSecurityAdditionalFlowsProperty",
+		reflect.TypeOf((*CfnUserPool_AdvancedSecurityAdditionalFlowsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPool.CustomEmailSenderProperty",
@@ -839,7 +854,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},

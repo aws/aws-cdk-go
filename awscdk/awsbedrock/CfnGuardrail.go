@@ -42,6 +42,14 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ContextualGroundingPolicyConfig: &ContextualGroundingPolicyConfigProperty{
+//   		FiltersConfig: []interface{}{
+//   			&ContextualGroundingFilterConfigProperty{
+//   				Threshold: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	SensitiveInformationPolicyConfig: &SensitiveInformationPolicyConfigProperty{
@@ -140,6 +148,9 @@ type CfnGuardrail interface {
 	// The content filter policies to configure for the guardrail.
 	ContentPolicyConfig() interface{}
 	SetContentPolicyConfig(val interface{})
+	// Contextual grounding policy config for a guardrail.
+	ContextualGroundingPolicyConfig() interface{}
+	SetContextualGroundingPolicyConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -483,6 +494,16 @@ func (j *jsiiProxy_CfnGuardrail) ContentPolicyConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGuardrail) ContextualGroundingPolicyConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"contextualGroundingPolicyConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGuardrail) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -680,6 +701,17 @@ func (j *jsiiProxy_CfnGuardrail)SetContentPolicyConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"contentPolicyConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGuardrail)SetContextualGroundingPolicyConfig(val interface{}) {
+	if err := j.validateSetContextualGroundingPolicyConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"contextualGroundingPolicyConfig",
 		val,
 	)
 }

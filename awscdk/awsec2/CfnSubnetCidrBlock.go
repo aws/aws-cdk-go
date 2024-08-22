@@ -34,6 +34,14 @@ type CfnSubnetCidrBlock interface {
 	awscdk.IInspectable
 	// The ID of the association.
 	AttrId() *string
+	// The source that allocated the IP address space.
+	//
+	// `byoip` or `amazon` indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). `none` indicates private space.
+	AttrIpSource() *string
+	// Public IPv6 addresses are those advertised on the internet from AWS .
+	//
+	// Private IP addresses are not and cannot be advertised on the internet from AWS .
+	AttrIpv6AddressAttribute() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -227,6 +235,26 @@ func (j *jsiiProxy_CfnSubnetCidrBlock) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnetCidrBlock) AttrIpSource() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIpSource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSubnetCidrBlock) AttrIpv6AddressAttribute() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIpv6AddressAttribute",
 		&returns,
 	)
 	return returns

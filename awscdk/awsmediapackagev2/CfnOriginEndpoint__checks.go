@@ -255,6 +255,30 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetDashManifestsParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetForceEndpointErrorConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnOriginEndpoint_ForceEndpointErrorConfigurationProperty:
+		val := val.(*CfnOriginEndpoint_ForceEndpointErrorConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnOriginEndpoint_ForceEndpointErrorConfigurationProperty:
+		val_ := val.(CfnOriginEndpoint_ForceEndpointErrorConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOriginEndpoint_ForceEndpointErrorConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetHlsManifestsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

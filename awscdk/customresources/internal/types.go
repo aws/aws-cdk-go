@@ -6,4 +6,5 @@ import (
 )
 type Type__constructsConstruct = constructs.Construct
 type Type__awsiamIGrantable = awsiam.IGrantable
+type Type__awscdkIAspect = awscdk.IAspect
 type Type__awscdkIResolvable = awscdk.IResolvable

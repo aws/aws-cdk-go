@@ -51,8 +51,6 @@ type CfnProject_SourceProperty struct {
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// Information about the authorization settings for AWS CodeBuild to access the source code to be built.
-	//
-	// This information is for the AWS CodeBuild console's use only. Your code should not get or set `Auth` directly.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-auth
 	//
 	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`

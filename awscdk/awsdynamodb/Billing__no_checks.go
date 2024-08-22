@@ -4,6 +4,10 @@ package awsdynamodb
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateBilling_OnDemandParameters(props *MaxThroughputProps) error {
+	return nil
+}
+
 func validateBilling_ProvisionedParameters(props *ThroughputProps) error {
 	return nil
 }

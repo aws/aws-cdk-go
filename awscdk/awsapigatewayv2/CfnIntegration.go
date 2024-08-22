@@ -55,6 +55,8 @@ type CfnIntegration interface {
 	SetApiId(val *string)
 	// The identifier.
 	AttrId() *string
+	// The integration ID.
+	AttrIntegrationId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -299,6 +301,16 @@ func (j *jsiiProxy_CfnIntegration) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIntegration) AttrIntegrationId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIntegrationId",
 		&returns,
 	)
 	return returns

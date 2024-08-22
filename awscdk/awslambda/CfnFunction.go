@@ -34,6 +34,7 @@ import (
 //   		S3Bucket: jsii.String("s3Bucket"),
 //   		S3Key: jsii.String("s3Key"),
 //   		S3ObjectVersion: jsii.String("s3ObjectVersion"),
+//   		SourceKmsKeyArn: jsii.String("sourceKmsKeyArn"),
 //   		ZipFile: jsii.String("zipFile"),
 //   	},
 //   	Role: jsii.String("role"),

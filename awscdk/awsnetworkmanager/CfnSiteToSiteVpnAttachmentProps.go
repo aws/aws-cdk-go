@@ -16,10 +16,21 @@ import (
 //   	VpnConnectionArn: jsii.String("vpnConnectionArn"),
 //
 //   	// the properties below are optional
+//   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
+//   		AttachmentPolicyRuleNumber: jsii.Number(123),
+//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   		Tags: []cfnTag{
+//   			&cfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
-//   		Tags: []cfnTag{
+//   		Tags: []*cfnTag{
 //   			&cfnTag{
 //   				Key: jsii.String("key"),
 //   				Value: jsii.String("value"),
@@ -45,6 +56,14 @@ type CfnSiteToSiteVpnAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-vpnconnectionarn
 	//
 	VpnConnectionArn *string `field:"required" json:"vpnConnectionArn" yaml:"vpnConnectionArn"`
+	// The name of the network function group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-networkfunctiongroupname
+	//
+	NetworkFunctionGroupName *string `field:"optional" json:"networkFunctionGroupName" yaml:"networkFunctionGroupName"`
+	// Describes proposed changes to a network function group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html#cfn-networkmanager-sitetositevpnattachment-proposednetworkfunctiongroupchange
+	//
+	ProposedNetworkFunctionGroupChange interface{} `field:"optional" json:"proposedNetworkFunctionGroupChange" yaml:"proposedNetworkFunctionGroupChange"`
 	// Describes a proposed segment change.
 	//
 	// In some cases, the segment change must first be evaluated and accepted.

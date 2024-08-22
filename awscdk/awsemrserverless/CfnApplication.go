@@ -52,6 +52,10 @@ import (
 //   			},
 //   		},
 //   	},
+//   	InteractiveConfiguration: &InteractiveConfigurationProperty{
+//   		LivyEndpointEnabled: jsii.Boolean(false),
+//   		StudioEnabled: jsii.Boolean(false),
+//   	},
 //   	MaximumCapacity: &MaximumAllowedResourcesProperty{
 //   		Cpu: jsii.String("cpu"),
 //   		Memory: jsii.String("memory"),
@@ -154,6 +158,9 @@ type CfnApplication interface {
 	// The initial capacity of the application.
 	InitialCapacity() interface{}
 	SetInitialCapacity(val interface{})
+	// The interactive configuration object that enables the interactive use cases for an application.
+	InteractiveConfiguration() interface{}
+	SetInteractiveConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -461,6 +468,16 @@ func (j *jsiiProxy_CfnApplication) InitialCapacity() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) InteractiveConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"interactiveConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -697,6 +714,17 @@ func (j *jsiiProxy_CfnApplication)SetInitialCapacity(val interface{}) {
 	_jsii_.Set(
 		j,
 		"initialCapacity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetInteractiveConfiguration(val interface{}) {
+	if err := j.validateSetInteractiveConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"interactiveConfiguration",
 		val,
 	)
 }

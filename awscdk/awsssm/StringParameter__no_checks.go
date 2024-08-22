@@ -28,6 +28,10 @@ func validateStringParameter_FromSecureStringParameterAttributesParameters(scope
 	return nil
 }
 
+func validateStringParameter_FromStringParameterArnParameters(scope constructs.Construct, id *string, stringParameterArn *string) error {
+	return nil
+}
+
 func validateStringParameter_FromStringParameterAttributesParameters(scope constructs.Construct, id *string, attrs *StringParameterAttributes) error {
 	return nil
 }

@@ -137,6 +137,10 @@ type BucketProps struct {
 	// Default: - a new role will be created.
 	//
 	NotificationsHandlerRole awsiam.IRole `field:"optional" json:"notificationsHandlerRole" yaml:"notificationsHandlerRole"`
+	// Skips notification validation of Amazon SQS, Amazon SNS, and Lambda destinations.
+	// Default: false.
+	//
+	NotificationsSkipDestinationValidation *bool `field:"optional" json:"notificationsSkipDestinationValidation" yaml:"notificationsSkipDestinationValidation"`
 	// The default retention mode and rules for S3 Object Lock.
 	//
 	// Default retention can be configured after a bucket is created if the bucket already
@@ -158,7 +162,8 @@ type BucketProps struct {
 	// The objectOwnership of the bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html
 	//
-	// Default: - No ObjectOwnership configuration, uploading account will own the object.
+	// Default: - No ObjectOwnership configuration. By default, Amazon S3 sets Object Ownership to `Bucket owner enforced`.
+	// This means ACLs are disabled and the bucket owner will own every object.
 	//
 	ObjectOwnership ObjectOwnership `field:"optional" json:"objectOwnership" yaml:"objectOwnership"`
 	// Grants public read access to all objects in the bucket.

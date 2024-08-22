@@ -25,6 +25,8 @@ package awsgamelift
 //
 type CfnFleet_LocationConfigurationProperty struct {
 	// An AWS Region code, such as `us-west-2` .
+	//
+	// For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
 	//
 	Location *string `field:"required" json:"location" yaml:"location"`

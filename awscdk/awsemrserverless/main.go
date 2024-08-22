@@ -33,6 +33,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "imageConfiguration", GoGetter: "ImageConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "initialCapacity", GoGetter: "InitialCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "interactiveConfiguration", GoGetter: "InteractiveConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maximumCapacity", GoGetter: "MaximumCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "monitoringConfiguration", GoGetter: "MonitoringConfiguration"},
@@ -94,6 +95,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.InitialCapacityConfigProperty",
 		reflect.TypeOf((*CfnApplication_InitialCapacityConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.InteractiveConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_InteractiveConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.LogTypeMapKeyValuePairProperty",

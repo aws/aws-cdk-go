@@ -73,7 +73,7 @@ type CfnLocation interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A list of labels to assign to the new matchmaking configuration resource.
+	// A list of labels to assign to the new resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

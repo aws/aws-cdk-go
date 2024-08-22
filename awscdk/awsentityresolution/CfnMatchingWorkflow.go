@@ -68,6 +68,9 @@ import (
 //   					RuleName: jsii.String("ruleName"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			MatchPurpose: jsii.String("matchPurpose"),
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),

@@ -37,6 +37,7 @@ package awscleanrooms
 //   			},
 //
 //   			// the properties below are optional
+//   			AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   			AllowedJoinOperators: []*string{
 //   				jsii.String("allowedJoinOperators"),
 //   			},
@@ -48,6 +49,7 @@ package awscleanrooms
 //   			},
 //
 //   			// the properties below are optional
+//   			AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   			AllowedAnalysisProviders: []*string{
 //   				jsii.String("allowedAnalysisProviders"),
 //   			},
@@ -57,6 +59,9 @@ package awscleanrooms
 //   						Name: jsii.String("name"),
 //   					},
 //   				},
+//   			},
+//   			DisallowedOutputColumns: []*string{
+//   				jsii.String("disallowedOutputColumns"),
 //   			},
 //   		},
 //   		List: &AnalysisRuleListProperty{
@@ -68,6 +73,7 @@ package awscleanrooms
 //   			},
 //
 //   			// the properties below are optional
+//   			AdditionalAnalyses: jsii.String("additionalAnalyses"),
 //   			AllowedJoinOperators: []*string{
 //   				jsii.String("allowedJoinOperators"),
 //   			},

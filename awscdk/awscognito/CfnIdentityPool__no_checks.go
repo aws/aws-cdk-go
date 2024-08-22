@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoStreamsParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnIdentityPool) validateSetIdentityPoolTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnIdentityPool) validateSetPushSyncParameters(val interface{}) error {
 	return nil
 }

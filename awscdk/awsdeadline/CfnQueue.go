@@ -20,6 +20,7 @@ import (
 //
 //   cfnQueue := awscdk.Aws_deadline.NewCfnQueue(this, jsii.String("MyCfnQueue"), &CfnQueueProps{
 //   	DisplayName: jsii.String("displayName"),
+//   	FarmId: jsii.String("farmId"),
 //
 //   	// the properties below are optional
 //   	AllowedStorageProfileIds: []*string{
@@ -27,7 +28,6 @@ import (
 //   	},
 //   	DefaultBudgetAction: jsii.String("defaultBudgetAction"),
 //   	Description: jsii.String("description"),
-//   	FarmId: jsii.String("farmId"),
 //   	JobAttachmentSettings: &JobAttachmentSettingsProperty{
 //   		RootPrefix: jsii.String("rootPrefix"),
 //   		S3BucketName: jsii.String("s3BucketName"),
@@ -570,6 +570,9 @@ func (j *jsiiProxy_CfnQueue)SetDisplayName(val *string) {
 }
 
 func (j *jsiiProxy_CfnQueue)SetFarmId(val *string) {
+	if err := j.validateSetFarmIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"farmId",

@@ -11,6 +11,8 @@ import (
 
 // Creates a security profile.
 //
+// For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html) in the *Amazon Connect Administrator Guide* . For a mapping of the API name and user interface name of the security profile permissions, see [List of security profile permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

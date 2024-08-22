@@ -18,6 +18,19 @@ package awsbedrock
 //   		MaxTokens: jsii.Number(123),
 //   		OverlapPercentage: jsii.Number(123),
 //   	},
+//   	HierarchicalChunkingConfiguration: &HierarchicalChunkingConfigurationProperty{
+//   		LevelConfigurations: []interface{}{
+//   			&HierarchicalChunkingLevelConfigurationProperty{
+//   				MaxTokens: jsii.Number(123),
+//   			},
+//   		},
+//   		OverlapTokens: jsii.Number(123),
+//   	},
+//   	SemanticChunkingConfiguration: &SemanticChunkingConfigurationProperty{
+//   		BreakpointPercentileThreshold: jsii.Number(123),
+//   		BufferSize: jsii.Number(123),
+//   		MaxTokens: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html
@@ -40,5 +53,17 @@ type CfnDataSource_ChunkingConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-fixedsizechunkingconfiguration
 	//
 	FixedSizeChunkingConfiguration interface{} `field:"optional" json:"fixedSizeChunkingConfiguration" yaml:"fixedSizeChunkingConfiguration"`
+	// Settings for hierarchical document chunking for a data source.
+	//
+	// Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-hierarchicalchunkingconfiguration
+	//
+	HierarchicalChunkingConfiguration interface{} `field:"optional" json:"hierarchicalChunkingConfiguration" yaml:"hierarchicalChunkingConfiguration"`
+	// Settings for semantic document chunking for a data source.
+	//
+	// Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html#cfn-bedrock-datasource-chunkingconfiguration-semanticchunkingconfiguration
+	//
+	SemanticChunkingConfiguration interface{} `field:"optional" json:"semanticChunkingConfiguration" yaml:"semanticChunkingConfiguration"`
 }
 

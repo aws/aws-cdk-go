@@ -26,6 +26,7 @@ import (
 //
 //   			// the properties below are optional
 //   			GroupName: jsii.String("groupName"),
+//   			Hashed: jsii.Boolean(false),
 //   			MatchKey: jsii.String("matchKey"),
 //   			SubType: jsii.String("subType"),
 //   		},

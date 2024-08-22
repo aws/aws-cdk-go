@@ -27,6 +27,7 @@ import (
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	EnableAcceleration: jsii.Boolean(false),
 //   	StaticRoutesOnly: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -64,6 +65,9 @@ type CfnVPNConnection interface {
 	// The ID of the customer gateway at your end of the VPN connection.
 	CustomerGatewayId() *string
 	SetCustomerGatewayId(val *string)
+	// Indicate whether to enable acceleration for the VPN connection.
+	EnableAcceleration() interface{}
+	SetEnableAcceleration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -312,6 +316,16 @@ func (j *jsiiProxy_CfnVPNConnection) CustomerGatewayId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPNConnection) EnableAcceleration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableAcceleration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPNConnection) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -477,6 +491,17 @@ func (j *jsiiProxy_CfnVPNConnection)SetCustomerGatewayId(val *string) {
 	_jsii_.Set(
 		j,
 		"customerGatewayId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetEnableAcceleration(val interface{}) {
+	if err := j.validateSetEnableAccelerationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enableAcceleration",
 		val,
 	)
 }

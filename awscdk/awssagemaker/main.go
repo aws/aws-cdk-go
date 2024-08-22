@@ -589,6 +589,10 @@ func init() {
 		reflect.TypeOf((*CfnDomain_SharingSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.StudioWebPortalSettingsProperty",
+		reflect.TypeOf((*CfnDomain_StudioWebPortalSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.UserSettingsProperty",
 		reflect.TypeOf((*CfnDomain_UserSettingsProperty)(nil)).Elem(),
 	)
@@ -1218,6 +1222,63 @@ func init() {
 		reflect.TypeOf((*CfnInferenceExperimentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sagemaker.CfnMlflowTrackingServer",
+		reflect.TypeOf((*CfnMlflowTrackingServer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "artifactStoreUri", GoGetter: "ArtifactStoreUri"},
+			_jsii_.MemberProperty{JsiiProperty: "attrTrackingServerArn", GoGetter: "AttrTrackingServerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "automaticModelRegistration", GoGetter: "AutomaticModelRegistration"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "mlflowVersion", GoGetter: "MlflowVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trackingServerName", GoGetter: "TrackingServerName"},
+			_jsii_.MemberProperty{JsiiProperty: "trackingServerSize", GoGetter: "TrackingServerSize"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "weeklyMaintenanceWindowStart", GoGetter: "WeeklyMaintenanceWindowStart"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMlflowTrackingServer{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnMlflowTrackingServerProps",
+		reflect.TypeOf((*CfnMlflowTrackingServerProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sagemaker.CfnModel",
 		reflect.TypeOf((*CfnModel)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1274,6 +1335,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModel.ContainerDefinitionProperty",
 		reflect.TypeOf((*CfnModel_ContainerDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModel.HubAccessConfigProperty",
+		reflect.TypeOf((*CfnModel_HubAccessConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModel.ImageConfigProperty",
@@ -1762,6 +1827,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "metadataProperties", GoGetter: "MetadataProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "modelApprovalStatus", GoGetter: "ModelApprovalStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "modelCard", GoGetter: "ModelCard"},
 			_jsii_.MemberProperty{JsiiProperty: "modelMetrics", GoGetter: "ModelMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "modelPackageDescription", GoGetter: "ModelPackageDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "modelPackageGroupName", GoGetter: "ModelPackageGroupName"},
@@ -1777,9 +1843,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "samplePayloadUrl", GoGetter: "SamplePayloadUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "securityConfig", GoGetter: "SecurityConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "skipModelValidation", GoGetter: "SkipModelValidation"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceAlgorithmSpecification", GoGetter: "SourceAlgorithmSpecification"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceUri", GoGetter: "SourceUri"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -1851,8 +1919,20 @@ func init() {
 		reflect.TypeOf((*CfnModelPackage_MetricsSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelAccessConfigProperty",
+		reflect.TypeOf((*CfnModelPackage_ModelAccessConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelCardProperty",
+		reflect.TypeOf((*CfnModelPackage_ModelCardProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelDataQualityProperty",
 		reflect.TypeOf((*CfnModelPackage_ModelDataQualityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelDataSourceProperty",
+		reflect.TypeOf((*CfnModelPackage_ModelDataSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.ModelInputProperty",
@@ -1881,6 +1961,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.S3DataSourceProperty",
 		reflect.TypeOf((*CfnModelPackage_S3DataSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.S3ModelDataSourceProperty",
+		reflect.TypeOf((*CfnModelPackage_S3ModelDataSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.SecurityConfigProperty",
+		reflect.TypeOf((*CfnModelPackage_SecurityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnModelPackage.SourceAlgorithmProperty",
@@ -2631,6 +2719,59 @@ func init() {
 		reflect.TypeOf((*CfnSpaceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_sagemaker.CfnStudioLifecycleConfig",
+		reflect.TypeOf((*CfnStudioLifecycleConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStudioLifecycleConfigArn", GoGetter: "AttrStudioLifecycleConfigArn"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "studioLifecycleConfigAppType", GoGetter: "StudioLifecycleConfigAppType"},
+			_jsii_.MemberProperty{JsiiProperty: "studioLifecycleConfigContent", GoGetter: "StudioLifecycleConfigContent"},
+			_jsii_.MemberProperty{JsiiProperty: "studioLifecycleConfigName", GoGetter: "StudioLifecycleConfigName"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnStudioLifecycleConfig{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnStudioLifecycleConfigProps",
+		reflect.TypeOf((*CfnStudioLifecycleConfigProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile",
 		reflect.TypeOf((*CfnUserProfile)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2736,6 +2877,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.SharingSettingsProperty",
 		reflect.TypeOf((*CfnUserProfile_SharingSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.StudioWebPortalSettingsProperty",
+		reflect.TypeOf((*CfnUserProfile_StudioWebPortalSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.UserSettingsProperty",
