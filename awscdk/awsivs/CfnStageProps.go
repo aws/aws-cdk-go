@@ -12,6 +12,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnStageProps := &CfnStageProps{
+//   	AutoParticipantRecordingConfiguration: &AutoParticipantRecordingConfigurationProperty{
+//   		StorageConfigurationArn: jsii.String("storageConfigurationArn"),
+//
+//   		// the properties below are optional
+//   		MediaTypes: []*string{
+//   			jsii.String("mediaTypes"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -24,6 +32,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html
 //
 type CfnStageProps struct {
+	// An object representing a configuration to record a channel stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html#cfn-ivs-stage-autoparticipantrecordingconfiguration
+	//
+	AutoParticipantRecordingConfiguration interface{} `field:"optional" json:"autoParticipantRecordingConfiguration" yaml:"autoParticipantRecordingConfiguration"`
 	// Stage name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html#cfn-ivs-stage-name
 	//

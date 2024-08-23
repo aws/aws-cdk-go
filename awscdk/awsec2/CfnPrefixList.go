@@ -74,7 +74,7 @@ type CfnPrefixList interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// One or more entries for the prefix list.
+	// The entries for the prefix list.
 	Entries() interface{}
 	SetEntries(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
+// *This data type is currently not available.
+//
+// It is under improvement as we respond to customer feedback from the Containers public preview.*
 //
 // The properties that describe a container group resource. Container group definition properties can't be updated. To change a property, create a new container group definition.
 //

@@ -35,7 +35,9 @@ type CfnIPAMProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Enable provisioning of GUA space in private pools.
+	// Enable this option to use your own GUA ranges as private IPv6 addresses.
+	//
+	// This option is disabled by default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html#cfn-ec2-ipam-enableprivategua
 	//
 	EnablePrivateGua interface{} `field:"optional" json:"enablePrivateGua" yaml:"enablePrivateGua"`

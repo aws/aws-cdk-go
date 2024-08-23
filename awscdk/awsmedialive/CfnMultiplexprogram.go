@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnMultiplexprogram := awscdk.Aws_medialive.NewCfnMultiplexprogram(this, jsii.String("MyCfnMultiplexprogram"), &CfnMultiplexprogramProps{
+//   	ChannelId: jsii.String("channelId"),
 //   	MultiplexId: jsii.String("multiplexId"),
 //   	MultiplexProgramSettings: &MultiplexProgramSettingsProperty{
 //   		ProgramNumber: jsii.Number(123),
@@ -81,6 +82,9 @@ type CfnMultiplexprogram interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The MediaLive channel associated with the program.
+	ChannelId() *string
+	SetChannelId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -310,6 +314,16 @@ func (j *jsiiProxy_CfnMultiplexprogram) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMultiplexprogram) ChannelId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"channelId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMultiplexprogram) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -465,6 +479,14 @@ func NewCfnMultiplexprogram_Override(c CfnMultiplexprogram, scope constructs.Con
 		"aws-cdk-lib.aws_medialive.CfnMultiplexprogram",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnMultiplexprogram)SetChannelId(val *string) {
+	_jsii_.Set(
+		j,
+		"channelId",
+		val,
 	)
 }
 

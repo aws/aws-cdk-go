@@ -1,7 +1,9 @@
 package awsecs
 
 
-// The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition.. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+// The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition.
+//
+// For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

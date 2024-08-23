@@ -62,9 +62,13 @@ type CfnVPCCidrBlock interface {
 	SetAmazonProvidedIpv6CidrBlock(val interface{})
 	// The Id of the VPC associated CIDR Block.
 	AttrId() *string
-	// The IP Source of an IPv6 VPC CIDR Block.
+	// The source that allocated the IP address space.
+	//
+	// `byoip` or `amazon` indicates public IP address space allocated by Amazon or space that you have allocated with Bring your own IP (BYOIP). `none` indicates private space.
 	AttrIpSource() *string
-	// The value denoting whether an IPv6 VPC CIDR Block is public or private.
+	// Public IPv6 addresses are those advertised on the internet from AWS .
+	//
+	// Private IP addresses are not and cannot be advertised on the internet from AWS .
 	AttrIpv6AddressAttribute() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

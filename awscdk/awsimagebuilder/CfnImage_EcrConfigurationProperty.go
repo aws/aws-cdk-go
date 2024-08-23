@@ -18,9 +18,9 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ecrconfiguration.html
 //
 type CfnImage_EcrConfigurationProperty struct {
-	// Tags for Image Builder to apply to the output container image that &INS;
+	// Tags for Image Builder to apply to the output container image that Amazon Inspector scans.
 	//
-	// scans. Tags can help you identify and manage your scanned images.
+	// Tags can help you identify and manage your scanned images.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-ecrconfiguration.html#cfn-imagebuilder-image-ecrconfiguration-containertags
 	//
 	ContainerTags *[]*string `field:"optional" json:"containerTags" yaml:"containerTags"`

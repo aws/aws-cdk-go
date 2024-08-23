@@ -71,7 +71,7 @@ type CfnIPAM interface {
 	// The description for the IPAM.
 	Description() *string
 	SetDescription(val *string)
-	// Enable provisioning of GUA space in private pools.
+	// Enable this option to use your own GUA ranges as private IPv6 addresses.
 	EnablePrivateGua() interface{}
 	SetEnablePrivateGua(val interface{})
 	// The logical ID for this CloudFormation stack element.

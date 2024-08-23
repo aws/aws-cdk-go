@@ -80,6 +80,10 @@ func validateCfnStage_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnStage) validateSetAutoParticipantRecordingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStage) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

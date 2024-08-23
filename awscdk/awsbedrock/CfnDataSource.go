@@ -27,6 +27,146 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDataSource := awscdk.Aws_bedrock.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &CfnDataSourceProps{
+//   	DataSourceConfiguration: &DataSourceConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		ConfluenceConfiguration: &ConfluenceDataSourceConfigurationProperty{
+//   			SourceConfiguration: &ConfluenceSourceConfigurationProperty{
+//   				AuthType: jsii.String("authType"),
+//   				CredentialsSecretArn: jsii.String("credentialsSecretArn"),
+//   				HostType: jsii.String("hostType"),
+//   				HostUrl: jsii.String("hostUrl"),
+//   			},
+//
+//   			// the properties below are optional
+//   			CrawlerConfiguration: &ConfluenceCrawlerConfigurationProperty{
+//   				FilterConfiguration: &CrawlFilterConfigurationProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					PatternObjectFilter: &PatternObjectFilterConfigurationProperty{
+//   						Filters: []interface{}{
+//   							&PatternObjectFilterProperty{
+//   								ObjectType: jsii.String("objectType"),
+//
+//   								// the properties below are optional
+//   								ExclusionFilters: []*string{
+//   									jsii.String("exclusionFilters"),
+//   								},
+//   								InclusionFilters: []*string{
+//   									jsii.String("inclusionFilters"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		S3Configuration: &S3DataSourceConfigurationProperty{
+//   			BucketArn: jsii.String("bucketArn"),
+//
+//   			// the properties below are optional
+//   			BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   			InclusionPrefixes: []*string{
+//   				jsii.String("inclusionPrefixes"),
+//   			},
+//   		},
+//   		SalesforceConfiguration: &SalesforceDataSourceConfigurationProperty{
+//   			SourceConfiguration: &SalesforceSourceConfigurationProperty{
+//   				AuthType: jsii.String("authType"),
+//   				CredentialsSecretArn: jsii.String("credentialsSecretArn"),
+//   				HostUrl: jsii.String("hostUrl"),
+//   			},
+//
+//   			// the properties below are optional
+//   			CrawlerConfiguration: &SalesforceCrawlerConfigurationProperty{
+//   				FilterConfiguration: &CrawlFilterConfigurationProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					PatternObjectFilter: &PatternObjectFilterConfigurationProperty{
+//   						Filters: []interface{}{
+//   							&PatternObjectFilterProperty{
+//   								ObjectType: jsii.String("objectType"),
+//
+//   								// the properties below are optional
+//   								ExclusionFilters: []*string{
+//   									jsii.String("exclusionFilters"),
+//   								},
+//   								InclusionFilters: []*string{
+//   									jsii.String("inclusionFilters"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		SharePointConfiguration: &SharePointDataSourceConfigurationProperty{
+//   			SourceConfiguration: &SharePointSourceConfigurationProperty{
+//   				AuthType: jsii.String("authType"),
+//   				CredentialsSecretArn: jsii.String("credentialsSecretArn"),
+//   				Domain: jsii.String("domain"),
+//   				HostType: jsii.String("hostType"),
+//   				SiteUrls: []*string{
+//   					jsii.String("siteUrls"),
+//   				},
+//
+//   				// the properties below are optional
+//   				TenantId: jsii.String("tenantId"),
+//   			},
+//
+//   			// the properties below are optional
+//   			CrawlerConfiguration: &SharePointCrawlerConfigurationProperty{
+//   				FilterConfiguration: &CrawlFilterConfigurationProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					PatternObjectFilter: &PatternObjectFilterConfigurationProperty{
+//   						Filters: []interface{}{
+//   							&PatternObjectFilterProperty{
+//   								ObjectType: jsii.String("objectType"),
+//
+//   								// the properties below are optional
+//   								ExclusionFilters: []*string{
+//   									jsii.String("exclusionFilters"),
+//   								},
+//   								InclusionFilters: []*string{
+//   									jsii.String("inclusionFilters"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		WebConfiguration: &WebDataSourceConfigurationProperty{
+//   			SourceConfiguration: &WebSourceConfigurationProperty{
+//   				UrlConfiguration: &UrlConfigurationProperty{
+//   					SeedUrls: []interface{}{
+//   						&SeedUrlProperty{
+//   							Url: jsii.String("url"),
+//   						},
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			CrawlerConfiguration: &WebCrawlerConfigurationProperty{
+//   				CrawlerLimits: &WebCrawlerLimitsProperty{
+//   					RateLimit: jsii.Number(123),
+//   				},
+//   				ExclusionFilters: []*string{
+//   					jsii.String("exclusionFilters"),
+//   				},
+//   				InclusionFilters: []*string{
+//   					jsii.String("inclusionFilters"),
+//   				},
+//   				Scope: jsii.String("scope"),
+//   			},
+//   		},
+//   	},
 //   	KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //   	Name: jsii.String("name"),
 //
@@ -122,6 +262,9 @@ type CfnDataSource interface {
 	// The data deletion policy for the data source.
 	DataDeletionPolicy() *string
 	SetDataDeletionPolicy(val *string)
+	// The connection configuration for the data source.
+	DataSourceConfiguration() interface{}
+	SetDataSourceConfiguration(val interface{})
 	// The description of the data source.
 	Description() *string
 	SetDescription(val *string)
@@ -404,6 +547,16 @@ func (j *jsiiProxy_CfnDataSource) DataDeletionPolicy() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) DataSourceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dataSourceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -546,6 +699,17 @@ func (j *jsiiProxy_CfnDataSource)SetDataDeletionPolicy(val *string) {
 	_jsii_.Set(
 		j,
 		"dataDeletionPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource)SetDataSourceConfiguration(val interface{}) {
+	if err := j.validateSetDataSourceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dataSourceConfiguration",
 		val,
 	)
 }

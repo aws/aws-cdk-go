@@ -25,6 +25,7 @@ import (
 //   		},
 //   		VpcId: jsii.String("vpcId"),
 //   	},
+//   	ImageId: jsii.String("imageId"),
 //   	Name: jsii.String("name"),
 //   	OverflowBehavior: jsii.String("overflowBehavior"),
 //   	Tags: []cfnTag{
@@ -88,6 +89,9 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetvpcconfig
 	//
 	FleetVpcConfig interface{} `field:"optional" json:"fleetVpcConfig" yaml:"fleetVpcConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-imageid
+	//
+	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// The name of the compute fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-name
 	//

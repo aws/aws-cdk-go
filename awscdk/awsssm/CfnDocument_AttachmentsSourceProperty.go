@@ -33,10 +33,10 @@ type CfnDocument_AttachmentsSourceProperty struct {
 	//
 	// - For the key *SourceUrl* , the value is an S3 bucket location. For example:
 	//
-	// `"Values": [ "s3://doc-example-bucket/my-folder" ]`
+	// `"Values": [ "s3://amzn-s3-demo-bucket/my-prefix" ]`
 	// - For the key *S3FileUrl* , the value is a file in an S3 bucket. For example:
 	//
-	// `"Values": [ "s3://doc-example-bucket/my-folder/my-file.py" ]`
+	// `"Values": [ "s3://amzn-s3-demo-bucket/my-prefix/my-file.py" ]`
 	// - For the key *AttachmentReference* , the value is constructed from the name of another SSM document in your account, a version number of that document, and a file attached to that document version that you want to reuse. For example:
 	//
 	// `"Values": [ "MyOtherDocument/3/my-other-file.py" ]`

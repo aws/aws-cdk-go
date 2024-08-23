@@ -18,6 +18,9 @@ package awsmsk
 //   	StartingPosition: &ReplicationStartingPositionProperty{
 //   		Type: jsii.String("type"),
 //   	},
+//   	TopicNameConfiguration: &ReplicationTopicNameConfigurationProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   	TopicsToExclude: []*string{
 //   		jsii.String("topicsToExclude"),
 //   	},
@@ -46,6 +49,10 @@ type CfnReplicator_TopicReplicationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-startingposition
 	//
 	StartingPosition interface{} `field:"optional" json:"startingPosition" yaml:"startingPosition"`
+	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-topicnameconfiguration
+	//
+	TopicNameConfiguration interface{} `field:"optional" json:"topicNameConfiguration" yaml:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replicated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-topicstoexclude
 	//

@@ -30,6 +30,7 @@ import (
 //   		},
 //   		VpcId: jsii.String("vpcId"),
 //   	},
+//   	ImageId: jsii.String("imageId"),
 //   	Name: jsii.String("name"),
 //   	OverflowBehavior: jsii.String("overflowBehavior"),
 //   	Tags: []cfnTag{
@@ -76,6 +77,8 @@ type CfnFleet interface {
 	// Information about the VPC configuration that AWS CodeBuild accesses.
 	FleetVpcConfig() interface{}
 	SetFleetVpcConfig(val interface{})
+	ImageId() *string
+	SetImageId(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -363,6 +366,16 @@ func (j *jsiiProxy_CfnFleet) FleetVpcConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) ImageId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"imageId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -520,6 +533,14 @@ func (j *jsiiProxy_CfnFleet)SetFleetVpcConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"fleetVpcConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetImageId(val *string) {
+	_jsii_.Set(
+		j,
+		"imageId",
 		val,
 	)
 }

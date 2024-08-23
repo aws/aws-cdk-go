@@ -58,6 +58,9 @@ import (
 //   				StartingPosition: &ReplicationStartingPositionProperty{
 //   					Type: jsii.String("type"),
 //   				},
+//   				TopicNameConfiguration: &ReplicationTopicNameConfigurationProperty{
+//   					Type: jsii.String("type"),
+//   				},
 //   				TopicsToExclude: []*string{
 //   					jsii.String("topicsToExclude"),
 //   				},

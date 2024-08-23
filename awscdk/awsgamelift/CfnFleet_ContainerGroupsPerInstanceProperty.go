@@ -1,7 +1,9 @@
 package awsgamelift
 
 
-// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
+// *This data type is currently not available.
+//
+// It is under improvement as we respond to customer feedback from the Containers public preview.*
 //
 // Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
 //

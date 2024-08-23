@@ -80,6 +80,10 @@ func validateCfnDataSource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSource) validateSetDataSourceConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSource) validateSetKnowledgeBaseIdParameters(val *string) error {
 	return nil
 }

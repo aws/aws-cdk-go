@@ -19,6 +19,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnStage := awscdk.Aws_ivs.NewCfnStage(this, jsii.String("MyCfnStage"), &CfnStageProps{
+//   	AutoParticipantRecordingConfiguration: &AutoParticipantRecordingConfigurationProperty{
+//   		StorageConfigurationArn: jsii.String("storageConfigurationArn"),
+//
+//   		// the properties below are optional
+//   		MediaTypes: []*string{
+//   			jsii.String("mediaTypes"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -42,6 +50,9 @@ type CfnStage interface {
 	//
 	// For example: `arn:aws:ivs:us-west-2:123456789012:stage/abcdABCDefgh`.
 	AttrArn() *string
+	// An object representing a configuration to record a channel stream.
+	AutoParticipantRecordingConfiguration() interface{}
+	SetAutoParticipantRecordingConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -247,6 +258,16 @@ func (j *jsiiProxy_CfnStage) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStage) AutoParticipantRecordingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"autoParticipantRecordingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStage) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -402,6 +423,17 @@ func NewCfnStage_Override(c CfnStage, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_ivs.CfnStage",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnStage)SetAutoParticipantRecordingConfiguration(val interface{}) {
+	if err := j.validateSetAutoParticipantRecordingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"autoParticipantRecordingConfiguration",
+		val,
 	)
 }
 

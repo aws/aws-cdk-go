@@ -47,6 +47,9 @@ import (
 //   			Region: jsii.String("region"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	DatabaseName: jsii.String("databaseName"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
@@ -70,6 +73,9 @@ type CfnDatabase interface {
 	// The metadata for the database.
 	DatabaseInput() interface{}
 	SetDatabaseInput(val interface{})
+	// The name of the catalog database.
+	DatabaseName() *string
+	SetDatabaseName(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -307,6 +313,16 @@ func (j *jsiiProxy_CfnDatabase) DatabaseInput() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDatabase) DatabaseName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDatabase) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -413,6 +429,14 @@ func (j *jsiiProxy_CfnDatabase)SetDatabaseInput(val interface{}) {
 	_jsii_.Set(
 		j,
 		"databaseInput",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDatabase)SetDatabaseName(val *string) {
+	_jsii_.Set(
+		j,
+		"databaseName",
 		val,
 	)
 }

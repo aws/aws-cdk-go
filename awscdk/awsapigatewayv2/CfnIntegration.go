@@ -53,8 +53,6 @@ type CfnIntegration interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
-	// The identifier.
-	AttrId() *string
 	// The integration ID.
 	AttrIntegrationId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -291,16 +289,6 @@ func (j *jsiiProxy_CfnIntegration) ApiId() *string {
 	_jsii_.Get(
 		j,
 		"apiId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnIntegration) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

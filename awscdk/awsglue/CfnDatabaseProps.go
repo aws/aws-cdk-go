@@ -37,6 +37,9 @@ package awsglue
 //   			Region: jsii.String("region"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	DatabaseName: jsii.String("databaseName"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
@@ -52,5 +55,9 @@ type CfnDatabaseProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-databaseinput
 	//
 	DatabaseInput interface{} `field:"required" json:"databaseInput" yaml:"databaseInput"`
+	// The name of the catalog database.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html#cfn-glue-database-databasename
+	//
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 }
 

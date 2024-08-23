@@ -1,7 +1,7 @@
 package awsgamelift
 
 
-// Current resource capacity settings for managed EC2 fleets and container fleets.
+// Current resource capacity settings for managed EC2 fleets.
 //
 // For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 //

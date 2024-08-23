@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Manages AWS-vended Custom Resources This feature is currently experimental.
+// Manages AWS-vended Custom Resources.
+//
+// This feature is currently experimental.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

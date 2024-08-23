@@ -11,6 +11,8 @@ import (
 
 // Manages removal policy for AWS-vended custom resources.
 //
+// This feature is currently experimental.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

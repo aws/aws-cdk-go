@@ -44,7 +44,7 @@ type CfnPatchBaseline_RuleProperty struct {
 	//
 	// Any patches released on or before this date are installed automatically.
 	//
-	// Enter dates in the format `YYYY-MM-DD` . For example, `2021-12-31` .
+	// Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
 	//
 	// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
 	//

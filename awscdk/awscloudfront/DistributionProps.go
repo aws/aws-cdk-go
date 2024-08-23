@@ -51,7 +51,10 @@ type DistributionProps struct {
 	//
 	// If you want to use your own domain name, such as www.example.com, instead of the cloudfront.net domain name,
 	// you can add an alternate domain name to your distribution. If you attach a certificate to the distribution,
-	// you must add (at least one of) the domain names of the certificate to this list.
+	// you should add (at least one of) the domain names of the certificate to this list.
+	//
+	// When you want to move a domain name between distributions, you can associate a certificate without specifying any domain names.
+	// For more information, see the _Moving an alternate domain name to a different distribution_ section in the README.
 	// Default: - The distribution will only support the default generated name (e.g., d111111abcdef8.cloudfront.net)
 	//
 	DomainNames *[]*string `field:"optional" json:"domainNames" yaml:"domainNames"`

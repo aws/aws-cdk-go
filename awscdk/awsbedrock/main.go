@@ -216,6 +216,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataDeletionPolicy", GoGetter: "DataDeletionPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "dataSourceConfiguration", GoGetter: "DataSourceConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -256,8 +257,28 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_ChunkingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.ConfluenceCrawlerConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_ConfluenceCrawlerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.ConfluenceDataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_ConfluenceDataSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.ConfluenceSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_ConfluenceSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.CrawlFilterConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_CrawlFilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.CustomTransformationConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_CustomTransformationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.DataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_DataSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.FixedSizeChunkingConfigurationProperty",
@@ -284,8 +305,36 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_ParsingPromptProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.PatternObjectFilterConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_PatternObjectFilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.PatternObjectFilterProperty",
+		reflect.TypeOf((*CfnDataSource_PatternObjectFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.S3DataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_S3DataSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.S3LocationProperty",
 		reflect.TypeOf((*CfnDataSource_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SalesforceCrawlerConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_SalesforceCrawlerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SalesforceDataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_SalesforceDataSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SalesforceSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_SalesforceSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SeedUrlProperty",
+		reflect.TypeOf((*CfnDataSource_SeedUrlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.SemanticChunkingConfigurationProperty",
@@ -294,6 +343,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.ServerSideEncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ServerSideEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SharePointCrawlerConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_SharePointCrawlerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SharePointDataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_SharePointDataSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SharePointSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_SharePointSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.TransformationFunctionProperty",
@@ -308,8 +369,28 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_TransformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.UrlConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_UrlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.VectorIngestionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_VectorIngestionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.WebCrawlerConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_WebCrawlerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.WebCrawlerLimitsProperty",
+		reflect.TypeOf((*CfnDataSource_WebCrawlerLimitsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.WebDataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_WebDataSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.WebSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_WebSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSourceProps",

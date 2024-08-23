@@ -48,11 +48,13 @@ type CfnPrefixListProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
 	//
 	PrefixListName *string `field:"required" json:"prefixListName" yaml:"prefixListName"`
-	// One or more entries for the prefix list.
+	// The entries for the prefix list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
 	//
 	Entries interface{} `field:"optional" json:"entries" yaml:"entries"`
 	// The maximum number of entries for the prefix list.
+	//
+	// This property is required when you create a prefix list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
 	//
 	MaxEntries *float64 `field:"optional" json:"maxEntries" yaml:"maxEntries"`
