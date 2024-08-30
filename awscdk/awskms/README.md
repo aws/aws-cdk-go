@@ -39,6 +39,14 @@ key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
 })
 ```
 
+Create a multi-Region primary key:
+
+```go
+key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+	MultiRegion: jsii.Boolean(true),
+})
+```
+
 ## Sharing keys between stacks
 
 To use a KMS key in a different stack in the same CDK application,

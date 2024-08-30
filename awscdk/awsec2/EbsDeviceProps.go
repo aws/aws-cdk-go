@@ -20,6 +20,7 @@ import (
 //   	Iops: jsii.Number(123),
 //   	KmsKey: key,
 //   	SnapshotId: jsii.String("snapshotId"),
+//   	Throughput: jsii.Number(123),
 //   	VolumeSize: jsii.Number(123),
 //   	VolumeType: awscdk.Aws_ec2.EbsDeviceVolumeType_STANDARD,
 //   }
@@ -40,6 +41,17 @@ type EbsDeviceProps struct {
 	// Default: - none, required for `EbsDeviceVolumeType.IO1`
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
+	// The throughput to provision for a `gp3` volume.
+	//
+	// Valid Range: Minimum value of 125. Maximum value of 1000.
+	//
+	// `gp3` volumes deliver a consistent baseline throughput performance of 125 MiB/s.
+	// You can provision additional throughput for an additional cost at a ratio of 0.25 MiB/s per provisioned IOPS.
+	// See: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html#gp3-performance
+	//
+	// Default: - 125 MiB/s.
+	//
+	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//

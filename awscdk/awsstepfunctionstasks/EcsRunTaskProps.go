@@ -156,12 +156,24 @@ type EcsRunTaskProps struct {
 	// Default: - No overrides.
 	//
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
+	// Cpu setting override.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TaskOverride.html
+	//
+	// Default: - No override.
+	//
+	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
 	// Whether ECS Exec should be enabled.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-enableExecuteCommand
 	//
 	// Default: false.
 	//
 	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
+	// Memory setting override.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TaskOverride.html
+	//
+	// Default: - No override.
+	//
+	MemoryMiB *string `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//
 	// An error will be received if you specify the SERVICE option when running a task.

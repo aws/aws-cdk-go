@@ -47,11 +47,24 @@ func init() {
 		"aws-cdk-lib.custom_resources.CustomResourceConfig",
 		reflect.TypeOf((*CustomResourceConfig)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addLambdaRuntime", GoMethod: "AddLambdaRuntime"},
 			_jsii_.MemberMethod{JsiiMethod: "addLogRetentionLifetime", GoMethod: "AddLogRetentionLifetime"},
 			_jsii_.MemberMethod{JsiiMethod: "addRemovalPolicy", GoMethod: "AddRemovalPolicy"},
 		},
 		func() interface{} {
 			return &jsiiProxy_CustomResourceConfig{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.custom_resources.CustomResourceLambdaRuntime",
+		reflect.TypeOf((*CustomResourceLambdaRuntime)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "visit", GoMethod: "Visit"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CustomResourceLambdaRuntime{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIAspect)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(

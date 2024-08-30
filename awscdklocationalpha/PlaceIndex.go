@@ -50,7 +50,7 @@ type PlaceIndex interface {
 	// The Amazon Resource Name (ARN) of the place index resource.
 	// Experimental.
 	PlaceIndexArn() *string
-	// The timestamp for when the place index resource was created in ISO 8601 forma.
+	// The timestamp for when the place index resource was created in ISO 8601 format.
 	// Experimental.
 	PlaceIndexCreateTime() *string
 	// The name of the place index.

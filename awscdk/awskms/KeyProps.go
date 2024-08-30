@@ -76,6 +76,18 @@ type KeyProps struct {
 	// Default: KeyUsage.ENCRYPT_DECRYPT
 	//
 	KeyUsage KeyUsage `field:"optional" json:"keyUsage" yaml:"keyUsage"`
+	// Creates a multi-Region primary key that you can replicate in other AWS Regions.
+	//
+	// You can't change the `multiRegion` value after the KMS key is created.
+	//
+	// IMPORTANT: If you change the value of the `multiRegion` property on an existing KMS key, the update request fails,
+	// regardless of the value of the UpdateReplacePolicy attribute.
+	// This prevents you from accidentally deleting a KMS key by changing an immutable property value.
+	// See: https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html
+	//
+	// Default: false.
+	//
+	MultiRegion *bool `field:"optional" json:"multiRegion" yaml:"multiRegion"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack.
 	//
 	// When you remove a customer master key (CMK) from a CloudFormation stack, AWS KMS schedules the CMK for deletion

@@ -496,6 +496,7 @@ func init() {
 			"LINUX_GPU_CONTAINER": EnvironmentType_LINUX_GPU_CONTAINER,
 			"WINDOWS_SERVER_2019_CONTAINER": EnvironmentType_WINDOWS_SERVER_2019_CONTAINER,
 			"WINDOWS_SERVER_2022_CONTAINER": EnvironmentType_WINDOWS_SERVER_2022_CONTAINER,
+			"MAC_ARM": EnvironmentType_MAC_ARM,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -903,6 +904,25 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.LoggingOptions",
 		reflect.TypeOf((*LoggingOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codebuild.MacBuildImage",
+		reflect.TypeOf((*MacBuildImage)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "defaultComputeType", GoGetter: "DefaultComputeType"},
+			_jsii_.MemberProperty{JsiiProperty: "imageId", GoGetter: "ImageId"},
+			_jsii_.MemberProperty{JsiiProperty: "imagePullPrincipalType", GoGetter: "ImagePullPrincipalType"},
+			_jsii_.MemberProperty{JsiiProperty: "repository", GoGetter: "Repository"},
+			_jsii_.MemberMethod{JsiiMethod: "runScriptBuildspec", GoMethod: "RunScriptBuildspec"},
+			_jsii_.MemberProperty{JsiiProperty: "secretsManagerCredentials", GoGetter: "SecretsManagerCredentials"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_MacBuildImage{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBuildImage)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codebuild.PhaseChangeEvent",

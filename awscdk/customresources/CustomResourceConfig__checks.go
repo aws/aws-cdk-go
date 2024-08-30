@@ -6,9 +6,18 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
+
+func (c *jsiiProxy_CustomResourceConfig) validateAddLambdaRuntimeParameters(lambdaRuntime awslambda.Runtime) error {
+	if lambdaRuntime == nil {
+		return fmt.Errorf("parameter lambdaRuntime is required, but nil was provided")
+	}
+
+	return nil
+}
 
 func (c *jsiiProxy_CustomResourceConfig) validateAddLogRetentionLifetimeParameters(rentention awslogs.RetentionDays) error {
 	if rentention == "" {

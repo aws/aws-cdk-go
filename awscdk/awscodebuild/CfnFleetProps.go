@@ -89,6 +89,7 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetvpcconfig
 	//
 	FleetVpcConfig interface{} `field:"optional" json:"fleetVpcConfig" yaml:"fleetVpcConfig"`
+	// The Amazon Machine Image (AMI) of the compute fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-imageid
 	//
 	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`

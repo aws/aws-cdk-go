@@ -3,7 +3,7 @@ package awsec2
 
 // Specifies input parameter values for an SSM document in AWS Systems Manager .
 //
-// `AssociationParameter` is a property of the [Amazon EC2 Instance SsmAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html) property.
+// `AssociationParameter` is a property of the [SsmAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html) property type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

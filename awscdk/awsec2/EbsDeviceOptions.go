@@ -7,14 +7,10 @@ import (
 // Block device options for an EBS volume.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
 //
-//
-//   kmsKey := awscdk.NewKey(this, jsii.String("KmsKey"))
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 //   	Vpc: Vpc,
@@ -26,9 +22,9 @@ import (
 //   	BlockDevices: []blockDevice{
 //   		&blockDevice{
 //   			DeviceName: jsii.String("/dev/sda1"),
-//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(50), &EbsDeviceOptions{
-//   				Encrypted: jsii.Boolean(true),
-//   				KmsKey: kmsKey,
+//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(100), &EbsDeviceOptions{
+//   				VolumeType: ec2.EbsDeviceVolumeType_GP3,
+//   				Throughput: jsii.Number(250),
 //   			}),
 //   		},
 //   	},
@@ -50,6 +46,17 @@ type EbsDeviceOptions struct {
 	// Default: - none, required for `EbsDeviceVolumeType.IO1`
 	//
 	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
+	// The throughput to provision for a `gp3` volume.
+	//
+	// Valid Range: Minimum value of 125. Maximum value of 1000.
+	//
+	// `gp3` volumes deliver a consistent baseline throughput performance of 125 MiB/s.
+	// You can provision additional throughput for an additional cost at a ratio of 0.25 MiB/s per provisioned IOPS.
+	// See: https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html#gp3-performance
+	//
+	// Default: - 125 MiB/s.
+	//
+	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//

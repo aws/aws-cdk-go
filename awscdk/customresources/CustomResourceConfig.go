@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -21,9 +22,17 @@ import (
 //   customResourceConfig := awscdk.Custom_resources.CustomResourceConfig_Of(this)
 //
 type CustomResourceConfig interface {
+	// Set the runtime version on AWS-vended custom resources lambdas.
+	//
+	// This feature is currently experimental.
+	AddLambdaRuntime(lambdaRuntime awslambda.Runtime)
 	// Set the log retention of AWS-vended custom resource lambdas.
+	//
+	// This feature is currently experimental.
 	AddLogRetentionLifetime(rentention awslogs.RetentionDays)
 	// Set the removal policy of AWS-vended custom resource logGroup.
+	//
+	// This feature is currently experimental.
 	AddRemovalPolicy(removalPolicy awscdk.RemovalPolicy)
 }
 
@@ -49,6 +58,17 @@ func CustomResourceConfig_Of(scope constructs.IConstruct) CustomResourceConfig {
 	)
 
 	return returns
+}
+
+func (c *jsiiProxy_CustomResourceConfig) AddLambdaRuntime(lambdaRuntime awslambda.Runtime) {
+	if err := c.validateAddLambdaRuntimeParameters(lambdaRuntime); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addLambdaRuntime",
+		[]interface{}{lambdaRuntime},
+	)
 }
 
 func (c *jsiiProxy_CustomResourceConfig) AddLogRetentionLifetime(rentention awslogs.RetentionDays) {

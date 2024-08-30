@@ -5,20 +5,23 @@ package awsec2
 //
 // Example:
 //   var vpc vpc
+//   var instanceType instanceType
+//   var machineImage iMachineImage
 //
 //
-//   instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_XLARGE),
-//   	MachineImage: ec2.NewAmazonLinuxImage(),
-//   	Vpc: vpc,
-//   	HibernationEnabled: jsii.Boolean(true),
+//   ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+//   	Vpc: Vpc,
+//   	InstanceType: InstanceType,
+//   	MachineImage: MachineImage,
+//
+//   	// ...
+//
 //   	BlockDevices: []blockDevice{
 //   		&blockDevice{
-//   			DeviceName: jsii.String("/dev/xvda"),
-//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(30), &EbsDeviceOptions{
+//   			DeviceName: jsii.String("/dev/sda1"),
+//   			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(100), &EbsDeviceOptions{
 //   				VolumeType: ec2.EbsDeviceVolumeType_GP3,
-//   				Encrypted: jsii.Boolean(true),
-//   				DeleteOnTermination: jsii.Boolean(true),
+//   				Throughput: jsii.Number(250),
 //   			}),
 //   		},
 //   	},

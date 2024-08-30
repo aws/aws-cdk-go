@@ -50,3 +50,34 @@ var role role
 placeIndex := location.NewPlaceIndex(this, jsii.String("PlaceIndex"))
 placeIndex.grantSearch(role)
 ```
+
+## Geofence Collection
+
+Geofence collection resources allow you to store and manage geofences—virtual boundaries on a map.
+You can evaluate locations against a geofence collection resource and get notifications when the location
+update crosses the boundary of any of the geofences in the geofence collection.
+
+```go
+var key key
+
+
+location.NewGeofenceCollection(this, jsii.String("GeofenceCollection"), &GeofenceCollectionProps{
+	GeofenceCollectionName: jsii.String("MyGeofenceCollection"),
+	 // optional, defaults to a generated name
+	KmsKey: key,
+})
+```
+
+Use the `grant()` or `grantRead()` method to grant the given identity permissions to perform actions
+on the geofence collection:
+
+```go
+var role role
+
+
+geofenceCollection := location.NewGeofenceCollection(this, jsii.String("GeofenceCollection"), &GeofenceCollectionProps{
+	GeofenceCollectionName: jsii.String("MyGeofenceCollection"),
+})
+
+geofenceCollection.GrantRead(role)
+```

@@ -35,7 +35,8 @@ type CfnSecretTargetAttachmentProps struct {
 	// - AWS::RDS::DBCluster
 	// - AWS::Redshift::Cluster
 	// - AWS::DocDB::DBInstance
-	// - AWS::DocDB::DBCluster.
+	// - AWS::DocDB::DBCluster
+	// - AWS::DocDBElastic::Cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-targettype
 	//
 	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`

@@ -45,6 +45,8 @@ type InstanceProps struct {
 	//
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Whether to associate a public IP address to the primary network interface attached to this instance.
+	//
+	// You cannot specify this property and `ipv6AddressCount` at the same time.
 	// Default: - public IP address is automatically assigned based on default behavior.
 	//
 	AssociatePublicIpAddress *bool `field:"optional" json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
@@ -123,6 +125,14 @@ type InstanceProps struct {
 	// Default: - CDK generated name.
 	//
 	InstanceName *string `field:"optional" json:"instanceName" yaml:"instanceName"`
+	// The number of IPv6 addresses to associate with the primary network interface.
+	//
+	// Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+	//
+	// You cannot specify this property and `associatePublicIpAddress` at the same time.
+	// Default: - For instances associated with an IPv6 subnet, use 1; otherwise, use 0.
+	//
+	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
 	// Name of SSH keypair to grant access to instance.
 	// Default: - No SSH access will be possible.
 	//

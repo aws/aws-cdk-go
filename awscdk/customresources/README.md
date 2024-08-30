@@ -871,6 +871,8 @@ Note that `CustomResourceConfig` uses Aspects to modify your constructs. There i
 CustomResourceConfig.of(App).addLogRetentionLifetime(logs.RetentionDays.TEN_YEARS);
 CustomResourceConfig.of(App).addLogRetentionLifetime(logs.RetentionDays.ONE_DAY);
 
+### Setting Log Retention Lifetime
+
 The following example configures every custom resource in this CDK app to retain its logs for ten years:
 
 ```go
@@ -972,6 +974,8 @@ s3deploy.NewBucketDeployment(nestedStackB, jsii.String("s3deployB"), &BucketDepl
 })
 ```
 
+### Setting Log Group Removal Policy
+
 The `addLogRetentionLifetime` method of `CustomResourceConfig` will associate a log group with a AWS-vended custom resource lambda.
 The `addRemovalPolicy` method will configure the custom resource lambda log group removal policy to `DESTROY`.
 
@@ -988,5 +992,31 @@ awscdk.CustomResourceConfig_Of(app).AddRemovalPolicy(cdk.RemovalPolicy_DESTROY)
 
 ses.NewReceiptRuleSet(app, jsii.String("RuleSet"), &ReceiptRuleSetProps{
 	DropSpam: jsii.Boolean(true),
+})
+```
+
+### Setting Lambda Runtimes
+
+The `addLambdaRuntime` method of `CustomResourceConfig` will set every AWS-vended custom resource to the specified lambda runtime, provided that the custom resource lambda is in the same runtime family as the one you specified. The S3 BucketDeployment construct uses lambda runtime Python 3.9. The following example sets the custom resource lambda runtime to `PYTHON_3_12`:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+app := cdk.NewApp()
+stack := cdk.NewStack(app, jsii.String("Stack"))
+awscdk.CustomResourceConfig_Of(app).AddLambdaRuntime(lambda.Runtime_PYTHON_3_12())
+
+websiteBucket := s3.NewBucket(stack, jsii.String("WebsiteBucket"), &BucketProps{
+})
+s3deploy.NewBucketDeployment(stack, jsii.String("s3deploy"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_JsonData(jsii.String("file.json"), map[string]*string{
+			"a": jsii.String("b"),
+		}),
+	},
+	DestinationBucket: websiteBucket,
 })
 ```

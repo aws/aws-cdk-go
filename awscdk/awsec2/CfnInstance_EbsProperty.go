@@ -3,7 +3,7 @@ package awsec2
 
 // Specifies a block device for an EBS volume.
 //
-// `Ebs` is a property of the [Amazon EC2 BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html) property.
+// `Ebs` is a property of the [BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html) property type.
 //
 // > After the instance is running, you can modify only the `DeleteOnTermination` parameters for the attached volumes without interrupting the instance. Modifying any other parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 //

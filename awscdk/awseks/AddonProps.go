@@ -11,6 +11,8 @@ package awseks
 //   	Cluster: Cluster,
 //   	AddonName: jsii.String("aws-guardduty-agent"),
 //   	AddonVersion: jsii.String("v1.6.1"),
+//   	// whether to preserve the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
+//   	PreserveOnDelete: jsii.Boolean(false),
 //   })
 //
 type AddonProps struct {
@@ -27,5 +29,11 @@ type AddonProps struct {
 	// Default: the latest version.
 	//
 	AddonVersion *string `field:"optional" json:"addonVersion" yaml:"addonVersion"`
+	// Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
+	//
+	// If an IAM account is associated with the add-on, it isn't removed.
+	// Default: true.
+	//
+	PreserveOnDelete *bool `field:"optional" json:"preserveOnDelete" yaml:"preserveOnDelete"`
 }
 

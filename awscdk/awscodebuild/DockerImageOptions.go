@@ -4,7 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 )
 
-// The options when creating a CodeBuild Docker build image using `LinuxBuildImage.fromDockerRegistry` or `WindowsBuildImage.fromDockerRegistry`.
+// The options when creating a CodeBuild Docker build image using `LinuxBuildImage.fromDockerRegistry`, `WindowsBuildImage.fromDockerRegistry`, or `MacBuildImage.fromDockerRegistry`.
 //
 // Example:
 //   Environment: &BuildEnvironment{

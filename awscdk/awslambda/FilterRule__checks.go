@@ -79,8 +79,12 @@ func validateFilterRule_IsEqualParameters(item interface{}) error {
 		// ok
 	case uint64:
 		// ok
+	case *bool:
+		// ok
+	case bool:
+		// ok
 	default:
-		return fmt.Errorf("parameter item must be one of the allowed types: *string, *float64; received %#v (a %T)", item, item)
+		return fmt.Errorf("parameter item must be one of the allowed types: *string, *float64, *bool; received %#v (a %T)", item, item)
 	}
 
 	return nil

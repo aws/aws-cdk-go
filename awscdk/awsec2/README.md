@@ -1839,6 +1839,33 @@ ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 })
 ```
 
+To specify the throughput value for `gp3` volumes, use the `throughput` property:
+
+```go
+var vpc vpc
+var instanceType instanceType
+var machineImage iMachineImage
+
+
+ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
+
+	// ...
+
+	BlockDevices: []blockDevice{
+		&blockDevice{
+			DeviceName: jsii.String("/dev/sda1"),
+			Volume: ec2.BlockDeviceVolume_Ebs(jsii.Number(100), &EbsDeviceOptions{
+				VolumeType: ec2.EbsDeviceVolumeType_GP3,
+				Throughput: jsii.Number(250),
+			}),
+		},
+	},
+})
+```
+
 #### EBS Optimized Instances
 
 An Amazon EBS–optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O. This optimization provides the best performance for your EBS volumes by minimizing contention between Amazon EBS I/O and other traffic from your instance.
@@ -2132,6 +2159,27 @@ instance.Connections.AllowFrom(ec2.Peer_AnyIpv6(), ec2.Port_AllIcmpV6(), jsii.St
 Note to set `mapPublicIpOnLaunch` to true in the `subnetConfiguration`.
 
 Additionally, IPv6 support varies by instance type. Most instance types have IPv6 support with exception of m1-m3, c1, g2, and t1.micro. A full list can be found here: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI.
+
+#### Specifying the IPv6 Address
+
+If you want to specify [the number of IPv6 addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/MultipleIP.html#assign-multiple-ipv6) to assign to the instance, you can use the `ipv6AddresseCount` property:
+
+```go
+// dual stack VPC
+var vpc vpc
+
+
+instance := ec2.NewInstance(this, jsii.String("MyInstance"), &InstanceProps{
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_LARGE),
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2(),
+	Vpc: vpc,
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+	// Assign 2 IPv6 addresses to the instance
+	Ipv6AddressCount: jsii.Number(2),
+})
+```
 
 ### Credit configuration modes for burstable instances
 

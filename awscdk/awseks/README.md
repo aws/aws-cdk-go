@@ -2044,6 +2044,8 @@ eks.NewAddon(this, jsii.String("Addon"), &AddonProps{
 	Cluster: Cluster,
 	AddonName: jsii.String("aws-guardduty-agent"),
 	AddonVersion: jsii.String("v1.6.1"),
+	// whether to preserve the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
+	PreserveOnDelete: jsii.Boolean(false),
 })
 ```
 

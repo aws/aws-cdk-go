@@ -9,29 +9,27 @@ package awsstepfunctions
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   project := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
+//   codebuildProject := codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 //   	ProjectName: jsii.String("MyTestProject"),
-//   	BuildSpec: codebuild.BuildSpec_FromObjectToYaml(map[string]interface{}{
-//   		"version": jsii.Number(0.2),
-//   		"batch": map[string][]map[string]*string{
-//   			"build-list": []map[string]*string{
-//   				map[string]*string{
-//   					"identifier": jsii.String("id"),
-//   					"buildspec": jsii.String("version: 0.2\nphases:\n  build:\n    commands:\n      - echo \"Hello, from small!\""),
+//   	BuildSpec: codebuild.BuildSpec_FromObject(map[string]interface{}{
+//   		"version": jsii.String("0.2"),
+//   		"phases": map[string]map[string][]*string{
+//   			"build": map[string][]*string{
+//   				"commands": []*string{
+//   					jsii.String("echo \"Hello, CodeBuild!\""),
 //   				},
 //   			},
 //   		},
 //   	}),
 //   })
-//   project.EnableBatchBuilds()
 //
-//   task := tasks.NewCodeBuildStartBuildBatch(this, jsii.String("buildBatchTask"), &CodeBuildStartBuildBatchProps{
-//   	Project: Project,
-//   	IntegrationPattern: sfn.IntegrationPattern_REQUEST_RESPONSE,
+//   task := tasks.NewCodeBuildStartBuild(this, jsii.String("Task"), &CodeBuildStartBuildProps{
+//   	Project: codebuildProject,
+//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
 //   	EnvironmentVariablesOverride: map[string]buildEnvironmentVariable{
-//   		"test": &buildEnvironmentVariable{
+//   		"ZONE": &buildEnvironmentVariable{
 //   			"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
-//   			"value": jsii.String("testValue"),
+//   			"value": sfn.JsonPath_stringAt(jsii.String("$.envVariables.zone")),
 //   		},
 //   	},
 //   })

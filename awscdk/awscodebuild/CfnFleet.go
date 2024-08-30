@@ -77,6 +77,7 @@ type CfnFleet interface {
 	// Information about the VPC configuration that AWS CodeBuild accesses.
 	FleetVpcConfig() interface{}
 	SetFleetVpcConfig(val interface{})
+	// The Amazon Machine Image (AMI) of the compute fleet.
 	ImageId() *string
 	SetImageId(val *string)
 	// The logical ID for this CloudFormation stack element.

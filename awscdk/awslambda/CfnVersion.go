@@ -41,7 +41,7 @@ import (
 type CfnVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The ARN of the version.
+	// The ARN of the function.
 	AttrFunctionArn() *string
 	// The version number.
 	AttrVersion() *string

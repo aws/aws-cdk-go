@@ -4,6 +4,10 @@ package customresources
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_CustomResourceConfig) validateAddLambdaRuntimeParameters(lambdaRuntime awslambda.Runtime) error {
+	return nil
+}
+
 func (c *jsiiProxy_CustomResourceConfig) validateAddLogRetentionLifetimeParameters(rentention awslogs.RetentionDays) error {
 	return nil
 }

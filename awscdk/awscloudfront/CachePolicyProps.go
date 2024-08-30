@@ -37,6 +37,8 @@ type CachePolicyProps struct {
 	//
 	CachePolicyName *string `field:"optional" json:"cachePolicyName" yaml:"cachePolicyName"`
 	// A comment to describe the cache policy.
+	//
+	// The comment cannot be longer than 128 characters.
 	// Default: - no comment.
 	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`

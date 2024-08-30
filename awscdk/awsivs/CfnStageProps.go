@@ -32,7 +32,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html
 //
 type CfnStageProps struct {
-	// An object representing a configuration to record a channel stream.
+	// Configuration object for individual participant recording, to attach to the new stage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html#cfn-ivs-stage-autoparticipantrecordingconfiguration
 	//
 	AutoParticipantRecordingConfiguration interface{} `field:"optional" json:"autoParticipantRecordingConfiguration" yaml:"autoParticipantRecordingConfiguration"`

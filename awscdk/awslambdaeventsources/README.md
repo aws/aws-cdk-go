@@ -190,6 +190,7 @@ and add it to your Lambda function. The following parameters will impact Amazon 
 * **startingPosition**: Will determine where to being consumption, either at the most recent ('LATEST') record or the oldest record ('TRIM_HORIZON'). 'TRIM_HORIZON' will ensure you process all available data, while 'LATEST' will ignore all records that arrived prior to attaching the event source.
 * **tumblingWindow**: The duration in seconds of a processing window when using streams.
 * **enabled**: If the DynamoDB Streams event source mapping should be enabled. The default is true.
+* **filters**: Filters to apply before sending a change event from a DynamoDB table to a Lambda function. Events that are filtered out are not sent to the Lambda function.
 
 ```go
 import dynamodb "github.com/aws/aws-cdk-go/awscdk"
@@ -207,6 +208,34 @@ fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
 	BisectBatchOnError: jsii.Boolean(true),
 	OnFailure: awscdk.NewSqsDlq(deadLetterQueue),
 	RetryAttempts: jsii.Number(10),
+}))
+```
+
+The following code sets up a Lambda function with a DynamoDB event source. A filter is applied to only send DynamoDB events to
+the Lambda function when the `id` column is a boolean that equals `true`.
+
+```go
+import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var table table
+
+var fn function
+
+fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
+	StartingPosition: lambda.StartingPosition_LATEST,
+	Filters: []map[string]interface{}{
+		lambda.FilterCriteria_Filter(map[string]interface{}{
+			"eventName": lambda.FilterRule_isEqual(jsii.String("INSERT")),
+			"dynamodb": map[string]map[string]map[string]interface{}{
+				"NewImage": map[string]map[string]interface{}{
+					"id": map[string]interface{}{
+						"BOOL": lambda.FilterRule_isEqual(jsii.Boolean(true)),
+					},
+				},
+			},
+		}),
+	},
 }))
 ```
 

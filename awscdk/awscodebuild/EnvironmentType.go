@@ -32,5 +32,7 @@ const (
 	EnvironmentType_WINDOWS_SERVER_2019_CONTAINER EnvironmentType = "WINDOWS_SERVER_2019_CONTAINER"
 	// Windows Server 2022 container.
 	EnvironmentType_WINDOWS_SERVER_2022_CONTAINER EnvironmentType = "WINDOWS_SERVER_2022_CONTAINER"
+	// MacOS ARM container.
+	EnvironmentType_MAC_ARM EnvironmentType = "MAC_ARM"
 )
 

@@ -50,7 +50,7 @@ type CfnStage interface {
 	//
 	// For example: `arn:aws:ivs:us-west-2:123456789012:stage/abcdABCDefgh`.
 	AttrArn() *string
-	// An object representing a configuration to record a channel stream.
+	// Configuration object for individual participant recording, to attach to the new stage.
 	AutoParticipantRecordingConfiguration() interface{}
 	SetAutoParticipantRecordingConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
