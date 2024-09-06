@@ -17,13 +17,12 @@ package awscdk
 //   })
 //   delegationRole := iam.Role_FromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
 //
-//   // create the record
-//   // create the record
 //   route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &CrossAccountZoneDelegationRecordProps{
 //   	DelegatedZone: subZone,
 //   	ParentHostedZoneName: jsii.String("someexample.com"),
 //   	 // or you can use parentHostedZoneId
 //   	DelegationRole: DelegationRole,
+//   	AssumeRoleRegion: jsii.String("us-east-1"),
 //   })
 //
 type ArnComponents struct {

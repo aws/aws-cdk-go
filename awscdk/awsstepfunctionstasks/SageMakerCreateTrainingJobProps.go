@@ -126,8 +126,6 @@ type SageMakerCreateTrainingJobProps struct {
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Identifies the training algorithm to use.
 	AlgorithmSpecification *AlgorithmSpecification `field:"required" json:"algorithmSpecification" yaml:"algorithmSpecification"`
-	// Describes the various datasets (e.g. train, validation, test) and the Amazon S3 location where stored.
-	InputDataConfig *[]*Channel `field:"required" json:"inputDataConfig" yaml:"inputDataConfig"`
 	// Identifies the Amazon S3 location where you want Amazon SageMaker to save the results of model training.
 	OutputDataConfig *OutputDataConfig `field:"required" json:"outputDataConfig" yaml:"outputDataConfig"`
 	// Training Job Name.
@@ -151,6 +149,10 @@ type SageMakerCreateTrainingJobProps struct {
 	// Default: - No hyperparameters.
 	//
 	Hyperparameters *map[string]interface{} `field:"optional" json:"hyperparameters" yaml:"hyperparameters"`
+	// Describes the various datasets (e.g. train, validation, test) and the Amazon S3 location where stored.
+	// Default: - No inputDataConfig.
+	//
+	InputDataConfig *[]*Channel `field:"optional" json:"inputDataConfig" yaml:"inputDataConfig"`
 	// Specifies the resources, ML compute instances, and ML storage volumes to deploy for model training.
 	// Default: - 1 instance of EC2 `M4.XLarge` with `10GB` volume
 	//

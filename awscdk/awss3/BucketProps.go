@@ -7,22 +7,18 @@ import (
 )
 
 // Example:
-//   sourceBucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
-//   	Versioned: jsii.Boolean(true),
-//   })
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
 //
-//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-//   sourceOutput := codepipeline.NewArtifact()
-//   sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
-//   	ActionName: jsii.String("S3Source"),
-//   	Bucket: sourceBucket,
-//   	BucketKey: jsii.String("path/to/file.zip"),
-//   	Output: sourceOutput,
+//
+//   myKmsKey := kms.NewKey(this, jsii.String("myKMSKey"))
+//   myBucket := s3.NewBucket(this, jsii.String("mySSEKMSEncryptedBucket"), &BucketProps{
+//   	Encryption: s3.BucketEncryption_KMS,
+//   	EncryptionKey: myKmsKey,
+//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   })
-//   pipeline.AddStage(&StageOptions{
-//   	StageName: jsii.String("Source"),
-//   	Actions: []iAction{
-//   		sourceAction,
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
 //   	},
 //   })
 //

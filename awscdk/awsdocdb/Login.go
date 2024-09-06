@@ -20,7 +20,7 @@ import (
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
-//   	CaCertificate: docdb.CaCertificate_RDS_CA_RSA4096_G1(),
+//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
 //   })
 //
 type Login struct {

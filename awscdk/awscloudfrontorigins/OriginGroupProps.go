@@ -11,7 +11,7 @@ import (
 //   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
 //   		Origin: origins.NewOriginGroup(&OriginGroupProps{
-//   			PrimaryOrigin: origins.NewS3Origin(myBucket),
+//   			PrimaryOrigin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
 //   			FallbackOrigin: origins.NewHttpOrigin(jsii.String("www.example.com")),
 //   			// optional, defaults to: 500, 502, 503 and 504
 //   			FallbackStatusCodes: []*f64{

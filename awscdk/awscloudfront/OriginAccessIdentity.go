@@ -13,12 +13,17 @@ import (
 // An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   originAccessIdentity := awscdk.Aws_cloudfront.NewOriginAccessIdentity(this, jsii.String("MyOriginAccessIdentity"), &OriginAccessIdentityProps{
-//   	Comment: jsii.String("comment"),
+//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
+//   myOai := cloudfront.NewOriginAccessIdentity(this, jsii.String("myOAI"), &OriginAccessIdentityProps{
+//   	Comment: jsii.String("My custom OAI"),
+//   })
+//   s3Origin := origins.S3BucketOrigin_WithOriginAccessIdentity(myBucket, &S3BucketOriginWithOAIProps{
+//   	OriginAccessIdentity: myOai,
+//   })
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: s3Origin,
+//   	},
 //   })
 //
 type OriginAccessIdentity interface {

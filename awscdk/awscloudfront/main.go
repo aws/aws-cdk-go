@@ -7,6 +7,15 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudfront.AccessLevel",
+		reflect.TypeOf((*AccessLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"READ": AccessLevel_READ,
+			"WRITE": AccessLevel_WRITE,
+			"DELETE": AccessLevel_DELETE,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.AddBehaviorOptions",
 		reflect.TypeOf((*AddBehaviorOptions)(nil)).Elem(),
@@ -1446,6 +1455,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_cloudfront.IOriginAccessControl",
+		reflect.TypeOf((*IOriginAccessControl)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "originAccessControlId", GoGetter: "OriginAccessControlId"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IOriginAccessControl{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cloudfront.IOriginAccessIdentity",
 		reflect.TypeOf((*IOriginAccessIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1608,6 +1633,20 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.LoggingConfiguration",
 		reflect.TypeOf((*LoggingConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.OriginAccessControlBaseProps",
+		reflect.TypeOf((*OriginAccessControlBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudfront.OriginAccessControlOriginType",
+		reflect.TypeOf((*OriginAccessControlOriginType)(nil)).Elem(),
+		map[string]interface{}{
+			"S3": OriginAccessControlOriginType_S3,
+			"LAMBDA": OriginAccessControlOriginType_LAMBDA,
+			"MEDIASTORE": OriginAccessControlOriginType_MEDIASTORE,
+			"MEDIAPACKAGEV2": OriginAccessControlOriginType_MEDIAPACKAGEV2,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront.OriginAccessIdentity",
@@ -1892,6 +1931,32 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.S3OriginAccessControl",
+		reflect.TypeOf((*S3OriginAccessControl)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "originAccessControlId", GoGetter: "OriginAccessControlId"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3OriginAccessControl{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOriginAccessControl)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.S3OriginAccessControlProps",
+		reflect.TypeOf((*S3OriginAccessControlProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.S3OriginConfig",
 		reflect.TypeOf((*S3OriginConfig)(nil)).Elem(),
@@ -1915,6 +1980,33 @@ func init() {
 			"TLS_V1_2_2018": SecurityPolicyProtocol_TLS_V1_2_2018,
 			"TLS_V1_2_2019": SecurityPolicyProtocol_TLS_V1_2_2019,
 			"TLS_V1_2_2021": SecurityPolicyProtocol_TLS_V1_2_2021,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.Signing",
+		reflect.TypeOf((*Signing)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "behavior", GoGetter: "Behavior"},
+			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Signing{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudfront.SigningBehavior",
+		reflect.TypeOf((*SigningBehavior)(nil)).Elem(),
+		map[string]interface{}{
+			"ALWAYS": SigningBehavior_ALWAYS,
+			"NEVER": SigningBehavior_NEVER,
+			"NO_OVERRIDE": SigningBehavior_NO_OVERRIDE,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudfront.SigningProtocol",
+		reflect.TypeOf((*SigningProtocol)(nil)).Elem(),
+		map[string]interface{}{
+			"SIGV4": SigningProtocol_SIGV4,
 		},
 	)
 	_jsii_.RegisterStruct(

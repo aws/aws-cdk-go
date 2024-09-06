@@ -42,7 +42,7 @@ type LinuxArmBuildImage interface {
 	Type() *string
 	// Make a buildspec to run the indicated script.
 	RunScriptBuildspec(entrypoint *string) BuildSpec
-	// Validates by checking the BuildEnvironment computeType as aarch64 images only support ComputeType.SMALL and ComputeType.LARGE.
+	// Validates by checking the BuildEnvironments' images are not Lambda ComputeTypes.
 	Validate(buildEnvironment *BuildEnvironment) *[]*string
 }
 

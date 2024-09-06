@@ -8,16 +8,27 @@ import (
 // Properties to use to customize an S3 Origin.
 //
 // Example:
-//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewS3Origin(myBucket, &S3OriginProps{
-//   			CustomHeaders: map[string]*string{
-//   				"Foo": jsii.String("bar"),
-//   			},
-//   		}),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var originAccessIdentity originAccessIdentity
+//
+//   s3OriginProps := &S3OriginProps{
+//   	ConnectionAttempts: jsii.Number(123),
+//   	ConnectionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   	CustomHeaders: map[string]*string{
+//   		"customHeadersKey": jsii.String("customHeaders"),
 //   	},
-//   })
+//   	OriginAccessControlId: jsii.String("originAccessControlId"),
+//   	OriginAccessIdentity: originAccessIdentity,
+//   	OriginId: jsii.String("originId"),
+//   	OriginPath: jsii.String("originPath"),
+//   	OriginShieldEnabled: jsii.Boolean(false),
+//   	OriginShieldRegion: jsii.String("originShieldRegion"),
+//   }
 //
 type S3OriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
@@ -36,6 +47,10 @@ type S3OriginProps struct {
 	// Default: {}.
 	//
 	CustomHeaders *map[string]*string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
+	// The unique identifier of an origin access control for this origin.
+	// Default: - no origin access control.
+	//
+	OriginAccessControlId *string `field:"optional" json:"originAccessControlId" yaml:"originAccessControlId"`
 	// A unique identifier for the origin.
 	//
 	// This value must be unique within the distribution.

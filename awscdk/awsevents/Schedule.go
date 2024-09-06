@@ -12,26 +12,23 @@ import (
 // Note that rates cannot be defined in fractions of minutes.
 //
 // Example:
-//   import ecs "github.com/aws/aws-cdk-go/awscdk"
+//   import redshiftserverless "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster iCluster
-//   var taskDefinition taskDefinition
+//   var workgroup cfnWorkgroup
 //
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 //   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule.AddTarget(
-//   targets.NewEcsTask(&EcsTaskProps{
-//   	Cluster: cluster,
-//   	TaskDefinition: taskDefinition,
-//   	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
-//   	Tags: []tag{
-//   		&tag{
-//   			Key: jsii.String("my-tag"),
-//   			Value: jsii.String("my-tag-value"),
-//   		},
+//   dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
+//
+//   rule.AddTarget(targets.NewRedshiftQuery(workgroup.AttrWorkgroupWorkgroupArn, &RedshiftQueryProps{
+//   	Database: jsii.String("dev"),
+//   	DeadLetterQueue: dlq,
+//   	Sql: []*string{
+//   		jsii.String("SELECT * FROM foo"),
+//   		jsii.String("SELECT * FROM baz"),
 //   	},
 //   }))
 //

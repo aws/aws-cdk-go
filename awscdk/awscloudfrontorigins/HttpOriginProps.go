@@ -23,6 +23,7 @@ import (
 //   	HttpPort: jsii.Number(123),
 //   	HttpsPort: jsii.Number(123),
 //   	KeepaliveTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	OriginAccessControlId: jsii.String("originAccessControlId"),
 //   	OriginId: jsii.String("originId"),
 //   	OriginPath: jsii.String("originPath"),
 //   	OriginShieldEnabled: jsii.Boolean(false),
@@ -51,6 +52,10 @@ type HttpOriginProps struct {
 	// Default: {}.
 	//
 	CustomHeaders *map[string]*string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
+	// The unique identifier of an origin access control for this origin.
+	// Default: - no origin access control.
+	//
+	OriginAccessControlId *string `field:"optional" json:"originAccessControlId" yaml:"originAccessControlId"`
 	// A unique identifier for the origin.
 	//
 	// This value must be unique within the distribution.

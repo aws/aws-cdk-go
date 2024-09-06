@@ -119,6 +119,11 @@ type DatabaseClusterProps struct {
 	//
 	// Experimental.
 	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
+	// The port number on which the DB instances in the DB cluster accept connections.
+	// Default: 8182.
+	//
+	// Experimental.
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.

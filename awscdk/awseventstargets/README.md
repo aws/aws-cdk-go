@@ -25,6 +25,7 @@ Currently supported are:
     * [Launch type for ECS Task](#launch-type-for-ecs-task)
     * [Assign public IP addresses to tasks](#assign-public-ip-addresses-to-tasks)
     * [Enable Amazon ECS Exec for ECS Task](#enable-amazon-ecs-exec-for-ecs-task)
+  * [Run a Redshift query](#schedule-a-redshift-query-serverless-or-cluster)
 
 See the README of the `aws-cdk-lib/aws-events` library for more information on
 EventBridge.
@@ -596,5 +597,33 @@ rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
 		},
 	},
 	EnableExecuteCommand: jsii.Boolean(true),
+}))
+```
+
+## Schedule a Redshift query (serverless or cluster)
+
+Use the `RedshiftQuery` target to schedule an Amazon Redshift Query.
+
+The code snippet below creates the scheduled event rule that route events to an Amazon Redshift Query
+
+```go
+import redshiftserverless "github.com/aws/aws-cdk-go/awscdk"
+
+var workgroup cfnWorkgroup
+
+
+rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
+})
+
+dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
+
+rule.AddTarget(targets.NewRedshiftQuery(workgroup.AttrWorkgroupWorkgroupArn, &RedshiftQueryProps{
+	Database: jsii.String("dev"),
+	DeadLetterQueue: dlq,
+	Sql: []*string{
+		jsii.String("SELECT * FROM foo"),
+		jsii.String("SELECT * FROM baz"),
+	},
 }))
 ```

@@ -35,9 +35,11 @@ import (
 //   	},
 //   })
 //
+// Deprecated: Use `S3BucketOrigin` or `S3StaticWebsiteOrigin` instead.
 type S3Origin interface {
 	awscloudfront.IOrigin
 	// The method called when a given Origin is added (for the first time) to a Distribution.
+	// Deprecated: Use `S3BucketOrigin` or `S3StaticWebsiteOrigin` instead.
 	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 }
 
@@ -46,6 +48,7 @@ type jsiiProxy_S3Origin struct {
 	internal.Type__awscloudfrontIOrigin
 }
 
+// Deprecated: Use `S3BucketOrigin` or `S3StaticWebsiteOrigin` instead.
 func NewS3Origin(bucket awss3.IBucket, props *S3OriginProps) S3Origin {
 	_init_.Initialize()
 
@@ -63,6 +66,7 @@ func NewS3Origin(bucket awss3.IBucket, props *S3OriginProps) S3Origin {
 	return &j
 }
 
+// Deprecated: Use `S3BucketOrigin` or `S3StaticWebsiteOrigin` instead.
 func NewS3Origin_Override(s S3Origin, bucket awss3.IBucket, props *S3OriginProps) {
 	_init_.Initialize()
 

@@ -13,17 +13,19 @@ import (
 // Defines a KMS key.
 //
 // Example:
-//   var destinationBucket bucket
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
 //
-//   sourceBucket := s3.bucket_FromBucketAttributes(this, jsii.String("SourceBucket"), &BucketAttributes{
-//   	BucketArn: jsii.String("arn:aws:s3:::my-source-bucket-name"),
-//   	EncryptionKey: kms.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>")),
+//
+//   myKmsKey := kms.NewKey(this, jsii.String("myKMSKey"))
+//   myBucket := s3.NewBucket(this, jsii.String("mySSEKMSEncryptedBucket"), &BucketProps{
+//   	Encryption: s3.BucketEncryption_KMS,
+//   	EncryptionKey: myKmsKey,
+//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   })
-//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
-//   	Sources: []iSource{
-//   		s3deploy.Source_Bucket(sourceBucket, jsii.String("source.zip")),
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
 //   	},
-//   	DestinationBucket: DestinationBucket,
 //   })
 //
 type Key interface {

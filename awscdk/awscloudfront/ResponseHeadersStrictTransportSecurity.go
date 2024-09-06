@@ -78,7 +78,7 @@ import (
 //   		},
 //   		XssProtection: &ResponseHeadersXSSProtection{
 //   			Protection: jsii.Boolean(true),
-//   			ModeBlock: jsii.Boolean(true),
+//   			ModeBlock: jsii.Boolean(false),
 //   			ReportUri: jsii.String("https://example.com/csp-report"),
 //   			Override: jsii.Boolean(true),
 //   		},

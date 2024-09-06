@@ -96,6 +96,32 @@ func init() {
 		reflect.TypeOf((*RestApiOriginProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront_origins.S3BucketOrigin",
+		reflect.TypeOf((*S3BucketOrigin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3BucketOrigin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscloudfrontOriginBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront_origins.S3BucketOriginBaseProps",
+		reflect.TypeOf((*S3BucketOriginBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront_origins.S3BucketOriginWithOACProps",
+		reflect.TypeOf((*S3BucketOriginWithOACProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront_origins.S3BucketOriginWithOAIProps",
+		reflect.TypeOf((*S3BucketOriginWithOAIProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudfront_origins.S3Origin",
 		reflect.TypeOf((*S3Origin)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -110,5 +136,23 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront_origins.S3OriginProps",
 		reflect.TypeOf((*S3OriginProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront_origins.S3StaticWebsiteOrigin",
+		reflect.TypeOf((*S3StaticWebsiteOrigin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3StaticWebsiteOrigin{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_HttpOrigin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront_origins.S3StaticWebsiteOriginProps",
+		reflect.TypeOf((*S3StaticWebsiteOriginProps)(nil)).Elem(),
 	)
 }

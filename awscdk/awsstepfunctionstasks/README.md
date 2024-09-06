@@ -437,9 +437,43 @@ task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockI
 })
 ```
 
+### Using Input Path for S3 URI
+
+Provide S3 URI as an input or output path to invoke a model
+
+To specify the S3 URI as JSON path to your input or output fields, use props `s3InputUri` and `s3OutputUri` under BedrockInvokeModelProps and set
+feature flag `@aws-cdk/aws-stepfunctions-tasks:useNewS3UriParametersForBedrockInvokeModelTask` to true.
+
+If this flag is not enabled, the code will populate the S3Uri using `InputPath` and `OutputPath` fields, which is not recommended.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_AMAZON_TITAN_TEXT_G1_EXPRESS_V1())
+
+task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
+	Model: Model,
+	Input: &BedrockInvokeModelInputProps{
+		S3InputUri: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
+	},
+	Output: &BedrockInvokeModelOutputProps{
+		S3OutputUri: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
+	},
+})
+```
+
 ### Using Input Path
 
 Provide S3 URI as an input or output path to invoke a model
+
+Currently, input and output Path provided in the BedrockInvokeModelProps input is defined as S3URI field under task definition of state machine.
+To modify the existing behaviour, set `@aws-cdk/aws-stepfunctions-tasks:useNewS3UriParametersForBedrockInvokeModelTask` to true.
+
+If this feature flag is enabled, S3URI fields will be generated from other Props(`s3InputUri` and `s3OutputUri`), and the given inputPath, OutputPath will be rendered as
+it is in the JSON task definition.
+
+If the feature flag is set to `false`, the behavior will be to populate the S3Uri using the `InputPath` and `OutputPath` fields, which is not recommended.
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"

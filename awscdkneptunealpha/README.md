@@ -139,6 +139,18 @@ neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
 })
 ```
 
+## Port
+
+By default, Neptune uses port `8182`. You can override the default port by specifying the `port` property:
+
+```go
+cluster := neptune.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Vpc: Vpc,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
+	Port: jsii.Number(12345),
+})
+```
+
 ## Logging
 
 Neptune supports various methods for monitoring performance and usage. One of those methods is logging

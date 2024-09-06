@@ -544,4 +544,12 @@ func init() {
 		"aws-cdk-lib.aws_docdb.RotationMultiUserOptions",
 		reflect.TypeOf((*RotationMultiUserOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_docdb.StorageType",
+		reflect.TypeOf((*StorageType)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": StorageType_STANDARD,
+			"IOPT1": StorageType_IOPT1,
+		},
+	)
 }

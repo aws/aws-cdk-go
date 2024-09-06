@@ -15,17 +15,17 @@ package awsec2
 //   	Vpc: Vpc,
 //   })
 //
-//   networkLoadbalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("NlbFargateService"), &NetworkLoadBalancedFargateServiceProps{
+//   service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("myService"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,
-//   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
+//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
 //   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 //   })
 //
-//   networkLoadbalancedEc2Service := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsii.String("NlbEc2Service"), &NetworkLoadBalancedEc2ServiceProps{
+//   applicationLoadBalancedEc2Service := ecsPatterns.NewApplicationLoadBalancedEc2Service(this, jsii.String("myService"), &ApplicationLoadBalancedEc2ServiceProps{
 //   	Cluster: Cluster,
-//   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
+//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
 //   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,

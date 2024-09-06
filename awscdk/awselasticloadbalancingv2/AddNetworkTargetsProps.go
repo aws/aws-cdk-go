@@ -38,7 +38,7 @@ import (
 //   })
 //
 type AddNetworkTargetsProps struct {
-	// The port on which the listener listens for requests.
+	// The port on which the target receives traffic.
 	// Default: Determined from protocol if known.
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`

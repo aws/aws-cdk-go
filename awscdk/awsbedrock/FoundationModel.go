@@ -17,8 +17,12 @@ import (
 //
 //   task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
 //   	Model: Model,
-//   	InputPath: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
-//   	OutputPath: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
+//   	Input: &BedrockInvokeModelInputProps{
+//   		S3InputUri: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
+//   	},
+//   	Output: &BedrockInvokeModelOutputProps{
+//   		S3OutputUri: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html

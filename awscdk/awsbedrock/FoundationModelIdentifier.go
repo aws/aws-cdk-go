@@ -15,8 +15,12 @@ import (
 //
 //   task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
 //   	Model: Model,
-//   	InputPath: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
-//   	OutputPath: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
+//   	Input: &BedrockInvokeModelInputProps{
+//   		S3InputUri: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
+//   	},
+//   	Output: &BedrockInvokeModelOutputProps{
+//   		S3OutputUri: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html
@@ -841,6 +845,17 @@ func FoundationModelIdentifier_MISTRAL_SMALL_V0_1() FoundationModelIdentifier {
 	return returns
 }
 
+func FoundationModelIdentifier_STABILITY_SD3_LARGE_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"STABILITY_SD3_LARGE_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_STABILITY_STABLE_DIFFUSION_XL() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -880,6 +895,28 @@ func FoundationModelIdentifier_STABILITY_STABLE_DIFFUSION_XL_V1_0() FoundationMo
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"STABILITY_STABLE_DIFFUSION_XL_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_STABILITY_STABLE_IMAGE_CORE_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"STABILITY_STABLE_IMAGE_CORE_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_STABILITY_STABLE_IMAGE_ULTRA_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"STABILITY_STABLE_IMAGE_ULTRA_V1_0",
 		&returns,
 	)
 	return returns

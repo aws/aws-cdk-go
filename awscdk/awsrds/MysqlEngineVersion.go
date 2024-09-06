@@ -390,6 +390,17 @@ func MysqlEngineVersion_VER_5_7_44_RDS_20240529() MysqlEngineVersion {
 	return returns
 }
 
+func MysqlEngineVersion_VER_5_7_44_RDS_20240808() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"VER_5_7_44_RDS_20240808",
+		&returns,
+	)
+	return returns
+}
+
 func MysqlEngineVersion_VER_8_0() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion

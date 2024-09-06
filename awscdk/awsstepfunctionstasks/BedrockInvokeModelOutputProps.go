@@ -7,19 +7,20 @@ import (
 // Location where the Bedrock InvokeModel API response is written.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   bedrockInvokeModelOutputProps := &BedrockInvokeModelOutputProps{
-//   	S3Location: &Location{
-//   		BucketName: jsii.String("bucketName"),
-//   		ObjectKey: jsii.String("objectKey"),
 //
-//   		// the properties below are optional
-//   		ObjectVersion: jsii.String("objectVersion"),
+//   model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_AMAZON_TITAN_TEXT_G1_EXPRESS_V1())
+//
+//   task := tasks.NewBedrockInvokeModel(this, jsii.String("Prompt Model"), &BedrockInvokeModelProps{
+//   	Model: Model,
+//   	Input: &BedrockInvokeModelInputProps{
+//   		S3InputUri: sfn.JsonPath_StringAt(jsii.String("$.prompt")),
 //   	},
-//   }
+//   	Output: &BedrockInvokeModelOutputProps{
+//   		S3OutputUri: sfn.JsonPath_*StringAt(jsii.String("$.prompt")),
+//   	},
+//   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-bedrock.html
 //
@@ -31,5 +32,11 @@ type BedrockInvokeModelOutputProps struct {
 	// Default: - Response body is returned in the task result.
 	//
 	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
+	// The destination location where the API response is written.
+	//
+	// This field can be used to specify s3 URI in the form of token.
+	// Default: - The API response body is returned in the result.
+	//
+	S3OutputUri *string `field:"optional" json:"s3OutputUri" yaml:"s3OutputUri"`
 }
 

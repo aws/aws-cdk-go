@@ -18,6 +18,7 @@ import (
 //   	CustomHeaders: map[string]*string{
 //   		"customHeadersKey": jsii.String("customHeaders"),
 //   	},
+//   	OriginAccessControlId: jsii.String("originAccessControlId"),
 //   	OriginId: jsii.String("originId"),
 //   	OriginPath: jsii.String("originPath"),
 //   	OriginShieldEnabled: jsii.Boolean(false),
@@ -41,6 +42,10 @@ type OriginProps struct {
 	// Default: {}.
 	//
 	CustomHeaders *map[string]*string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
+	// The unique identifier of an origin access control for this origin.
+	// Default: - no origin access control.
+	//
+	OriginAccessControlId *string `field:"optional" json:"originAccessControlId" yaml:"originAccessControlId"`
 	// A unique identifier for the origin.
 	//
 	// This value must be unique within the distribution.

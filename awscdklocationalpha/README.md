@@ -81,3 +81,32 @@ geofenceCollection := location.NewGeofenceCollection(this, jsii.String("Geofence
 
 geofenceCollection.GrantRead(role)
 ```
+
+## Route Calculator
+
+Route calculator resources allow you to find routes and estimate travel time based on up-to-date road network and live traffic information from your chosen data provider.
+
+For more information, see [Routes](https://docs.aws.amazon.com/location/latest/developerguide/route-concepts.html).
+
+To create a route calculator, define a `RouteCalculator`:
+
+```go
+location.NewRouteCalculator(this, jsii.String("RouteCalculator"), &RouteCalculatorProps{
+	RouteCalculatorName: jsii.String("MyRouteCalculator"),
+	 // optional, defaults to a generated name
+	DataSource: location.DataSource_ESRI,
+})
+```
+
+Use the `grant()` or `grantRead()` method to grant the given identity permissions to perform actions
+on the route calculator:
+
+```go
+var role role
+
+
+routeCalculator := location.NewRouteCalculator(this, jsii.String("RouteCalculator"), &RouteCalculatorProps{
+	DataSource: location.DataSource_ESRI,
+})
+routeCalculator.GrantRead(role)
+```

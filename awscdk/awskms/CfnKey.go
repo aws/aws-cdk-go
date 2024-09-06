@@ -28,10 +28,54 @@ import (
 // AWS KMS CloudFormation resources are available in all Regions in which AWS KMS and AWS CloudFormation are supported. You can use the `AWS::KMS::Key` resource to create and manage all KMS key types that are supported in a Region.
 //
 // Example:
-//   var cfnTemplate cfnInclude
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(cfnKey)
-//   key := kms.Key_FromCfnKey(cfnKey)
+//
+//   kmsKey := kms.NewKey(this, jsii.String("myKMSKey"))
+//   myBucket := s3.NewBucket(this, jsii.String("mySSEKMSEncryptedBucket"), &BucketProps{
+//   	Encryption: s3.BucketEncryption_KMS,
+//   	EncryptionKey: kmsKey,
+//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
+//   })
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
+//   	},
+//   })
+//
+//   // Add the following to scope down the key policy
+//   scopedDownKeyPolicy := map[string]interface{}{
+//   	"Version": jsii.String("2012-10-17"),
+//   	"Statement": []interface{}{
+//   		map[string]interface{}{
+//   			"Effect": jsii.String("Allow"),
+//   			"Principal": map[string]*string{
+//   				"AWS": jsii.String("arn:aws:iam::111122223333:root"),
+//   			},
+//   			"Action": jsii.String("kms:*"),
+//   			"Resource": jsii.String("*"),
+//   		},
+//   		map[string]interface{}{
+//   			"Effect": jsii.String("Allow"),
+//   			"Principal": map[string]*string{
+//   				"Service": jsii.String("cloudfront.amazonaws.com"),
+//   			},
+//   			"Action": []*string{
+//   				jsii.String("kms:Decrypt"),
+//   				jsii.String("kms:Encrypt"),
+//   				jsii.String("kms:GenerateDataKey*"),
+//   			},
+//   			"Resource": jsii.String("*"),
+//   			"Condition": map[string]map[string]*string{
+//   				"StringEquals": map[string]*string{
+//   					"AWS:SourceArn": jsii.String("arn:aws:cloudfront::111122223333:distribution/<CloudFront distribution ID>"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   }
+//   cfnKey := (kmsKey.Node.defaultChild.(cfnKey))
+//   cfnKey.KeyPolicy = scopedDownKeyPolicy
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
 //

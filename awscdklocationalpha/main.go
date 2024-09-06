@@ -13,6 +13,7 @@ func init() {
 		reflect.TypeOf((*DataSource)(nil)).Elem(),
 		map[string]interface{}{
 			"ESRI": DataSource_ESRI,
+			"GRAB": DataSource_GRAB,
 			"HERE": DataSource_HERE,
 		},
 	)
@@ -81,6 +82,23 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-location-alpha.IRouteCalculator",
+		reflect.TypeOf((*IRouteCalculator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorArn", GoGetter: "RouteCalculatorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorName", GoGetter: "RouteCalculatorName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRouteCalculator{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-location-alpha.IntendedUse",
 		reflect.TypeOf((*IntendedUse)(nil)).Elem(),
@@ -119,5 +137,36 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-location-alpha.PlaceIndexProps",
 		reflect.TypeOf((*PlaceIndexProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-location-alpha.RouteCalculator",
+		reflect.TypeOf((*RouteCalculator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorArn", GoGetter: "RouteCalculatorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorCreateTime", GoGetter: "RouteCalculatorCreateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorName", GoGetter: "RouteCalculatorName"},
+			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorUpdateTime", GoGetter: "RouteCalculatorUpdateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_RouteCalculator{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRouteCalculator)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-location-alpha.RouteCalculatorProps",
+		reflect.TypeOf((*RouteCalculatorProps)(nil)).Elem(),
 	)
 }

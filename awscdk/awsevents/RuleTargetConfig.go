@@ -108,6 +108,19 @@ import (
 //   	KinesisParameters: &KinesisParametersProperty{
 //   		PartitionKeyPath: jsii.String("partitionKeyPath"),
 //   	},
+//   	RedshiftDataParameters: &RedshiftDataParametersProperty{
+//   		Database: jsii.String("database"),
+//
+//   		// the properties below are optional
+//   		DbUser: jsii.String("dbUser"),
+//   		SecretManagerArn: jsii.String("secretManagerArn"),
+//   		Sql: jsii.String("sql"),
+//   		Sqls: []*string{
+//   			jsii.String("sqls"),
+//   		},
+//   		StatementName: jsii.String("statementName"),
+//   		WithEvent: jsii.Boolean(false),
+//   	},
 //   	RetryPolicy: &RetryPolicyProperty{
 //   		MaximumEventAgeInSeconds: jsii.Number(123),
 //   		MaximumRetryAttempts: jsii.Number(123),
@@ -159,6 +172,10 @@ type RuleTargetConfig struct {
 	// If you don't include this parameter, eventId is used as the
 	// partition key.
 	KinesisParameters *CfnRule_KinesisParametersProperty `field:"optional" json:"kinesisParameters" yaml:"kinesisParameters"`
+	// Parameters used when the rule invokes Amazon Redshift Queries.
+	// Default: - no parameters set.
+	//
+	RedshiftDataParameters *CfnRule_RedshiftDataParametersProperty `field:"optional" json:"redshiftDataParameters" yaml:"redshiftDataParameters"`
 	// A RetryPolicy object that includes information about the retry policy settings.
 	// Default: EventBridge default retry policy.
 	//

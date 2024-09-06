@@ -24,7 +24,7 @@ import (
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
-//   	CaCertificate: docdb.CaCertificate_RDS_CA_RSA4096_G1(),
+//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
 //   })
 //
 type DatabaseClusterProps struct {
@@ -86,7 +86,7 @@ type DatabaseClusterProps struct {
 	//
 	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// What version of the database to start.
-	// Default: - The default engine version.
+	// Default: -  the latest major version.
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Whether the audit logs should be exported to CloudWatch.
@@ -176,6 +176,14 @@ type DatabaseClusterProps struct {
 	// Default: true.
 	//
 	StorageEncrypted *bool `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
+	// The storage type of the DocDB cluster.
+	//
+	// I/O-optimized storage is supported starting with engine version 5.0.0.
+	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/release-notes.html#release-notes.11-21-2023
+	//
+	// Default: StorageType.STANDARD
+	//
+	StorageType StorageType `field:"optional" json:"storageType" yaml:"storageType"`
 	// Where to place the instances within the VPC.
 	// Default: private subnets.
 	//

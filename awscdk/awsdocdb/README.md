@@ -289,3 +289,23 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 	CaCertificate: docdb.CaCertificate_RDS_CA_RSA4096_G1(),
 })
 ```
+
+## Storage Type
+
+You can specify [storage type](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-storage-configs.html) for the cluster.
+
+```go
+var vpc vpc
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	Vpc: Vpc,
+	StorageType: docdb.StorageType_IOPT1,
+})
+```
+
+**Note**: `StorageType.IOPT1` is supported starting with engine version 5.0.0.

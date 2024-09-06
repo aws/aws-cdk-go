@@ -24,12 +24,19 @@ import (
 //   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
-//   	TaskSubnets: &SubnetSelection{
-//   		Subnets: []iSubnet{
-//   			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
-//   		},
-//   	},
-//   	LoadBalancerName: jsii.String("application-lb-name"),
+//   })
+//
+//   scalableTarget := loadBalancedFargateService.Service.AutoScaleTaskCount(&EnableScalingProps{
+//   	MinCapacity: jsii.Number(1),
+//   	MaxCapacity: jsii.Number(20),
+//   })
+//
+//   scalableTarget.ScaleOnCpuUtilization(jsii.String("CpuScaling"), &CpuUtilizationScalingProps{
+//   	TargetUtilizationPercent: jsii.Number(50),
+//   })
+//
+//   scalableTarget.ScaleOnMemoryUtilization(jsii.String("MemoryScaling"), &MemoryUtilizationScalingProps{
+//   	TargetUtilizationPercent: jsii.Number(50),
 //   })
 //
 type ApplicationLoadBalancedFargateService interface {

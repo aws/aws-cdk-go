@@ -71,6 +71,7 @@ import (
 //   	EnableExecuteCommand: jsii.Boolean(false),
 //   	HealthCheckGracePeriod: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	IdleTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	IpAddressType: awscdk.Aws_elasticloadbalancingv2.IpAddressType_IPV4,
 //   	ListenerPort: jsii.Number(123),
 //   	LoadBalancer: applicationLoadBalancer,
 //   	LoadBalancerName: jsii.String("loadBalancerName"),
@@ -78,7 +79,7 @@ import (
 //   	MinHealthyPercent: jsii.Number(123),
 //   	OpenListener: jsii.Boolean(false),
 //   	PropagateTags: awscdk.*Aws_ecs.PropagatedTagSource_SERVICE,
-//   	Protocol: awscdk.Aws_elasticloadbalancingv2.ApplicationProtocol_HTTP,
+//   	Protocol: awscdk.*Aws_elasticloadbalancingv2.ApplicationProtocol_HTTP,
 //   	ProtocolVersion: awscdk.*Aws_elasticloadbalancingv2.ApplicationProtocolVersion_GRPC,
 //   	PublicLoadBalancer: jsii.Boolean(false),
 //   	RecordType: awscdk.Aws_ecs_patterns.ApplicationLoadBalancedServiceRecordType_ALIAS,
@@ -190,6 +191,10 @@ type ApplicationLoadBalancedServiceBaseProps struct {
 	// Default: - CloudFormation sets idle timeout to 60 seconds.
 	//
 	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
+	// The type of IP address to use.
+	// Default: - IpAddressType.IPV4
+	//
+	IpAddressType awselasticloadbalancingv2.IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Listener port of the application load balancer that will serve traffic to the service.
 	// Default: - The default listener port is determined from the protocol (port 80 for HTTP,
 	// port 443 for HTTPS). A domain name and zone must be also be specified if using HTTPS.

@@ -11,7 +11,8 @@ package awss3
 //   	DefaultStackSynthesizer: awscdkappstagingsynthesizeralpha.AppStagingSynthesizer_DefaultResources(&DefaultResourcesOptions{
 //   		AppId: jsii.String("my-app-id"),
 //   		StagingBucketEncryption: awscdk.BucketEncryption_S3_MANAGED,
-//   		DeploymentIdentities: *awscdkappstagingsynthesizeralpha.DeploymentIdentities_CliCredentials(),
+//   		FileAssetPublishingRole: *awscdkappstagingsynthesizeralpha.BootstrapRole_FromRoleArn(jsii.String("arn:aws:iam::123456789012:role/S3Access")),
+//   		ImageAssetPublishingRole: *awscdkappstagingsynthesizeralpha.BootstrapRole_*FromRoleArn(jsii.String("arn:aws:iam::123456789012:role/ECRAccess")),
 //   	}),
 //   })
 //

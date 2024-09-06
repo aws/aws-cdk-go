@@ -4,37 +4,31 @@ package awsec2
 // Construction properties for a GatewayVpcEndpoint.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
+//   routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+//   	Vpc: myVpc,
+//   })
+//   subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+//   	Vpc: myVpc,
+//   	AvailabilityZone: jsii.String("eu-west-2a"),
+//   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+//   	SubnetType: ec2.SubnetType_PRIVATE,
+//   })
 //
-//   var gatewayVpcEndpointService iGatewayVpcEndpointService
-//   var subnet subnet
-//   var subnetFilter subnetFilter
-//   var vpc vpc
-//
-//   gatewayVpcEndpointProps := &GatewayVpcEndpointProps{
-//   	Service: gatewayVpcEndpointService,
-//   	Vpc: vpc,
-//
-//   	// the properties below are optional
+//   dynamoEndpoint := ec2.NewGatewayVpcEndpoint(this, jsii.String("DynamoEndpoint"), &GatewayVpcEndpointProps{
+//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
+//   	Vpc: myVpc,
 //   	Subnets: []subnetSelection{
-//   		&subnetSelection{
-//   			AvailabilityZones: []*string{
-//   				jsii.String("availabilityZones"),
-//   			},
-//   			OnePerAz: jsii.Boolean(false),
-//   			SubnetFilters: []*subnetFilter{
-//   				subnetFilter,
-//   			},
-//   			SubnetGroupName: jsii.String("subnetGroupName"),
-//   			Subnets: []iSubnet{
-//   				subnet,
-//   			},
-//   			SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
-//   		},
+//   		subnet,
 //   	},
-//   }
+//   })
+//   vpc_v2.NewRoute(this, jsii.String("DynamoDBRoute"), &RouteProps{
+//   	RouteTable: RouteTable,
+//   	Destination: jsii.String("0.0.0.0/0"),
+//   	Target: map[string]iVpcEndpoint{
+//   		"endpoint": dynamoEndpoint,
+//   	},
+//   })
 //
 type GatewayVpcEndpointProps struct {
 	// The service to use for this gateway VPC endpoint.

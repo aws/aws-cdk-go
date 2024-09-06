@@ -19,6 +19,11 @@ const (
 	//
 	// Experimental.
 	DataSource_ESRI DataSource = "ESRI"
+	// Grab provides routing functionality for Southeast Asia.
+	// See: https://docs.aws.amazon.com/location/latest/developerguide/grab.html
+	//
+	// Experimental.
+	DataSource_GRAB DataSource = "GRAB"
 	// HERE.
 	// See: https://docs.aws.amazon.com/location/latest/developerguide/HERE.html
 	//

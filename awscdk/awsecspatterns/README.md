@@ -1263,7 +1263,48 @@ queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateServic
 })
 ```
 
-### Use dualstack NLB
+### Use dualstack Load Balancer
+
+You can use dualstack IP address type for Application Load Balancer and Network Load Balancer.
+
+To use dualstack IP address type, you must have associated IPv6 CIDR blocks with the VPC and subnets and set the `ipAddressType` to `IpAddressType.DUAL_STACK` when creating the load balancer.
+
+### Application Load Balancer
+
+You can use dualstack Application Load Balancer for Fargate and EC2 services.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+// The VPC and subnet must have associated IPv6 CIDR blocks.
+vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+	IpProtocol: ec2.IpProtocol_DUAL_STACK,
+})
+cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
+	Vpc: Vpc,
+})
+
+service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("myService"), &ApplicationLoadBalancedFargateServiceProps{
+	Cluster: Cluster,
+	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+})
+
+applicationLoadBalancedEc2Service := ecsPatterns.NewApplicationLoadBalancedEc2Service(this, jsii.String("myService"), &ApplicationLoadBalancedEc2ServiceProps{
+	Cluster: Cluster,
+	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
+		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	},
+	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+})
+```
+
+### Network Load Balancer
+
+You can use dualstack Network Load Balancer for Fargate and EC2 services.
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"

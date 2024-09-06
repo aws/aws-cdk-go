@@ -17,28 +17,30 @@ import (
 // A regional grouping of one or more container instances on which you can run tasks and services.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
-//   	MaxAzs: jsii.Number(1),
+//   vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
+//   	IsDefault: jsii.Boolean(true),
 //   })
-//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
+//   cluster := ecs.NewCluster(this, jsii.String("ECSCluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
-//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
-//   	MemoryLimitMiB: jsii.Number(512),
-//   	Cpu: jsii.Number(256),
+//
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
+//   	Compatibility: ecs.Compatibility_FARGATE,
+//   	Cpu: jsii.String("256"),
+//   	MemoryMiB: jsii.String("512"),
 //   })
-//   taskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//
+//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
 //   })
-//   awscdk.Tags_Of(taskDefinition).Add(jsii.String("my-tag"), jsii.String("my-tag-value"))
-//   scheduledFargateTask := ecsPatterns.NewScheduledFargateTask(this, jsii.String("ScheduledFargateTask"), &ScheduledFargateTaskProps{
+//
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
+//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
 //   	Cluster: Cluster,
-//   	TaskDefinition: taskDefinition,
-//   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),
-//   	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
+//   	TaskDefinition: TaskDefinition,
+//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
+//   	Cpu: jsii.String("1024"),
+//   	MemoryMiB: jsii.String("1048"),
 //   })
 //
 type Cluster interface {

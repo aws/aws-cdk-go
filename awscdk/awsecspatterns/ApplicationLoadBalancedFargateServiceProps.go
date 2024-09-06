@@ -22,12 +22,19 @@ import (
 //   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
-//   	TaskSubnets: &SubnetSelection{
-//   		Subnets: []iSubnet{
-//   			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
-//   		},
-//   	},
-//   	LoadBalancerName: jsii.String("application-lb-name"),
+//   })
+//
+//   scalableTarget := loadBalancedFargateService.Service.AutoScaleTaskCount(&EnableScalingProps{
+//   	MinCapacity: jsii.Number(1),
+//   	MaxCapacity: jsii.Number(20),
+//   })
+//
+//   scalableTarget.ScaleOnCpuUtilization(jsii.String("CpuScaling"), &CpuUtilizationScalingProps{
+//   	TargetUtilizationPercent: jsii.Number(50),
+//   })
+//
+//   scalableTarget.ScaleOnMemoryUtilization(jsii.String("MemoryScaling"), &MemoryUtilizationScalingProps{
+//   	TargetUtilizationPercent: jsii.Number(50),
 //   })
 //
 type ApplicationLoadBalancedFargateServiceProps struct {
@@ -104,6 +111,10 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// Default: - CloudFormation sets idle timeout to 60 seconds.
 	//
 	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
+	// The type of IP address to use.
+	// Default: - IpAddressType.IPV4
+	//
+	IpAddressType awselasticloadbalancingv2.IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Listener port of the application load balancer that will serve traffic to the service.
 	// Default: - The default listener port is determined from the protocol (port 80 for HTTP,
 	// port 443 for HTTPS). A domain name and zone must be also be specified if using HTTPS.
