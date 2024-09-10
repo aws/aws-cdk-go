@@ -41,7 +41,11 @@ type CfnService_DeploymentConfigurationProperty struct {
 	//
 	// This parameter enables you to define the deployment batch size. For example, if your service is using the `REPLICA` service scheduler and has a `desiredCount` of four tasks and a `maximumPercent` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default `maximumPercent` value for a service using the `REPLICA` service scheduler is 200%.
 	//
-	// If a service is using either the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the `RUNNING` state while the container instances are in the `DRAINING` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+	// If a service is using either the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the `RUNNING` state while the container instances are in the `DRAINING` state.
+	//
+	// > You can't specify a custom `maximumPercent` value for a service that uses either the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and has tasks that use the EC2 launch type.
+	//
+	// If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
 	//
 	MaximumPercent *float64 `field:"optional" json:"maximumPercent" yaml:"maximumPercent"`
@@ -64,7 +68,11 @@ type CfnService_DeploymentConfigurationProperty struct {
 	//
 	// The minimum number of healthy tasks during a deployment is the `desiredCount` multiplied by the `minimumHealthyPercent` /100, rounded up to the nearest integer value.
 	//
-	// If a service is using either the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the `RUNNING` state while the container instances are in the `DRAINING` state. If a service is using either the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+	// If a service is using either the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value. The *minimum healthy percent* value is used to define the lower limit on the number of the tasks in the service that remain in the `RUNNING` state while the container instances are in the `DRAINING` state.
+	//
+	// > You can't specify a custom `minimumHealthyPercent` value for a service that uses either the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and has tasks that use the EC2 launch type.
+	//
+	// If a service is using either the blue/green ( `CODE_DEPLOY` ) or `EXTERNAL` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
 	//
 	MinimumHealthyPercent *float64 `field:"optional" json:"minimumHealthyPercent" yaml:"minimumHealthyPercent"`

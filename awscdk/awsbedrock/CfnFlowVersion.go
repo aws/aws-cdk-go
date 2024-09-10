@@ -32,6 +32,8 @@ type CfnFlowVersion interface {
 	awscdk.IInspectable
 	// The time at the version was created.
 	AttrCreatedAt() *string
+	// A KMS key ARN.
+	AttrCustomerEncryptionKeyArn() *string
 	// Flow definition.
 	AttrDefinition() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) of the service role with permissions to create a flow.
@@ -233,6 +235,16 @@ func (j *jsiiProxy_CfnFlowVersion) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowVersion) AttrCustomerEncryptionKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCustomerEncryptionKeyArn",
 		&returns,
 	)
 	return returns

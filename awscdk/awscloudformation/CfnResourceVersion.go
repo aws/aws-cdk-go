@@ -51,7 +51,7 @@ type CfnResourceVersion interface {
 	AttrIsDefaultVersion() awscdk.IResolvable
 	// For resource type extensions, the provisioning behavior of the resource type.
 	//
-	// AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
+	// CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
 	//
 	// Valid values include:
 	//
@@ -75,7 +75,7 @@ type CfnResourceVersion interface {
 	//
 	// Valid values include:
 	//
-	// - `PRIVATE` : The extension is only visible and usable within the account in which it is registered. AWS CloudFormation marks any extensions you register as `PRIVATE` .
+	// - `PRIVATE` : The extension is only visible and usable within the account in which it is registered. CloudFormation marks any extensions you register as `PRIVATE` .
 	// - `PUBLIC` : The extension is publicly visible and usable within any AWS account.
 	AttrVisibility() *string
 	// Options for this resource, such as condition, update policy etc.

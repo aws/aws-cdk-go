@@ -44,6 +44,8 @@ import (
 type CfnSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// Arn of the subscription.
+	AttrArn() *string
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -252,6 +254,16 @@ type CfnSubscription interface {
 type jsiiProxy_CfnSubscription struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnSubscription) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSubscription) AttrId() *string {

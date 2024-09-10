@@ -38,6 +38,20 @@ package awsmedialive
 //   			Username: jsii.String("username"),
 //   		},
 //   	},
+//   	SrtSettings: &SrtSettingsRequestProperty{
+//   		SrtCallerSources: []interface{}{
+//   			&SrtCallerSourceRequestProperty{
+//   				Decryption: &SrtCallerDecryptionRequestProperty{
+//   					Algorithm: jsii.String("algorithm"),
+//   					PassphraseSecretArn: jsii.String("passphraseSecretArn"),
+//   				},
+//   				MinimumLatency: jsii.Number(123),
+//   				SrtListenerAddress: jsii.String("srtListenerAddress"),
+//   				SrtListenerPort: jsii.String("srtListenerPort"),
+//   				StreamId: jsii.String("streamId"),
+//   			},
+//   		},
+//   	},
 //   	Tags: tags,
 //   	Type: jsii.String("type"),
 //   	Vpc: &InputVpcRequestProperty{
@@ -83,6 +97,9 @@ type CfnInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sources
 	//
 	Sources interface{} `field:"optional" json:"sources" yaml:"sources"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-srtsettings
+	//
+	SrtSettings interface{} `field:"optional" json:"srtSettings" yaml:"srtSettings"`
 	// A collection of tags for this input.
 	//
 	// Each tag is a key-value pair.

@@ -413,6 +413,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrValidations", GoGetter: "AttrValidations"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -455,6 +456,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.AgentFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_AgentFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.ConditionFlowNodeConfigurationProperty",
@@ -501,6 +506,10 @@ func init() {
 		reflect.TypeOf((*CfnFlow_FlowNodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.FlowValidationProperty",
+		reflect.TypeOf((*CfnFlow_FlowValidationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.KnowledgeBaseFlowNodeConfigurationProperty",
 		reflect.TypeOf((*CfnFlow_KnowledgeBaseFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
@@ -545,8 +554,32 @@ func init() {
 		reflect.TypeOf((*CfnFlow_PromptTemplateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.RetrievalFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_RetrievalFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.RetrievalFlowNodeS3ConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_RetrievalFlowNodeS3ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.RetrievalFlowNodeServiceConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_RetrievalFlowNodeServiceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.S3LocationProperty",
 		reflect.TypeOf((*CfnFlow_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.StorageFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_StorageFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.StorageFlowNodeS3ConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_StorageFlowNodeS3ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlow.StorageFlowNodeServiceConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_StorageFlowNodeServiceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlow.TextPromptTemplateConfigurationProperty",
@@ -631,6 +664,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCustomerEncryptionKeyArn", GoGetter: "AttrCustomerEncryptionKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDefinition", GoGetter: "AttrDefinition"},
 			_jsii_.MemberProperty{JsiiProperty: "attrExecutionRoleArn", GoGetter: "AttrExecutionRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFlowId", GoGetter: "AttrFlowId"},
@@ -668,6 +702,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.AgentFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_AgentFlowNodeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.ConditionFlowNodeConfigurationProperty",
@@ -756,6 +794,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.PromptTemplateConfigurationProperty",
 		reflect.TypeOf((*CfnFlowVersion_PromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.RetrievalFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_RetrievalFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.RetrievalFlowNodeS3ConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_RetrievalFlowNodeS3ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.RetrievalFlowNodeServiceConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_RetrievalFlowNodeServiceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.StorageFlowNodeConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_StorageFlowNodeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.StorageFlowNodeS3ConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_StorageFlowNodeS3ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.StorageFlowNodeServiceConfigurationProperty",
+		reflect.TypeOf((*CfnFlowVersion_StorageFlowNodeServiceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnFlowVersion.TextPromptTemplateConfigurationProperty",
@@ -1136,12 +1198,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCustomerEncryptionKeyArn", GoGetter: "AttrCustomerEncryptionKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDefaultVariant", GoGetter: "AttrDefaultVariant"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPromptId", GoGetter: "AttrPromptId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVariants", GoGetter: "AttrVariants"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -1162,6 +1226,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -1171,6 +1236,7 @@ func init() {
 			j := jsiiProxy_CfnPromptVersion{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

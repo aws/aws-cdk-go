@@ -1434,7 +1434,7 @@ connection := events.NewConnection(this, jsii.String("Connection"), &ConnectionP
 
 tasks.NewHttpInvoke(this, jsii.String("Invoke HTTP API"), &HttpInvokeProps{
 	ApiRoot: jsii.String("https://api.example.com"),
-	ApiEndpoint: sfn.TaskInput_FromText(jsii.String("https://api.example.com/path/to/resource")),
+	ApiEndpoint: sfn.TaskInput_FromText(jsii.String("path/to/resource")),
 	Body: sfn.TaskInput_FromObject(map[string]interface{}{
 		"foo": jsii.String("bar"),
 	}),

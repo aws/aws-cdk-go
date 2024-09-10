@@ -28,6 +28,12 @@ import (
 //   		AnonymousAuthEnabled: jsii.Boolean(false),
 //   		Enabled: jsii.Boolean(false),
 //   		InternalUserDatabaseEnabled: jsii.Boolean(false),
+//   		JwtOptions: &JWTOptionsProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			PublicKey: jsii.String("publicKey"),
+//   			RolesKey: jsii.String("rolesKey"),
+//   			SubjectKey: jsii.String("subjectKey"),
+//   		},
 //   		MasterUserOptions: &MasterUserOptionsProperty{
 //   			MasterUserArn: jsii.String("masterUserArn"),
 //   			MasterUserName: jsii.String("masterUserName"),
@@ -110,6 +116,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SkipShardMigrationWait: jsii.Boolean(false),
 //   	SnapshotOptions: &SnapshotOptionsProperty{
 //   		AutomatedSnapshotStartHour: jsii.Number(123),
 //   	},
@@ -234,6 +241,8 @@ type CfnDomain interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	SkipShardMigrationWait() interface{}
+	SetSkipShardMigrationWait(val interface{})
 	// *DEPRECATED* .
 	SnapshotOptions() interface{}
 	SetSnapshotOptions(val interface{})
@@ -769,6 +778,16 @@ func (j *jsiiProxy_CfnDomain) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) SkipShardMigrationWait() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"skipShardMigrationWait",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) SnapshotOptions() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1023,6 +1042,17 @@ func (j *jsiiProxy_CfnDomain)SetOffPeakWindowOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"offPeakWindowOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetSkipShardMigrationWait(val interface{}) {
+	if err := j.validateSetSkipShardMigrationWaitParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"skipShardMigrationWait",
 		val,
 	)
 }

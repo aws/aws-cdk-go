@@ -8,7 +8,9 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var collector interface{}
 //   var input interface{}
+//   var iterator interface{}
 //   var output interface{}
 //
 //   cfnFlowProps := &CfnFlowProps{
@@ -44,6 +46,10 @@ package awsbedrock
 //
 //   				// the properties below are optional
 //   				Configuration: &FlowNodeConfigurationProperty{
+//   					Agent: &AgentFlowNodeConfigurationProperty{
+//   						AgentAliasArn: jsii.String("agentAliasArn"),
+//   					},
+//   					Collector: collector,
 //   					Condition: &ConditionFlowNodeConfigurationProperty{
 //   						Conditions: []interface{}{
 //   							&FlowConditionProperty{
@@ -55,6 +61,7 @@ package awsbedrock
 //   						},
 //   					},
 //   					Input: input,
+//   					Iterator: iterator,
 //   					KnowledgeBase: &KnowledgeBaseFlowNodeConfigurationProperty{
 //   						KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //
@@ -102,6 +109,20 @@ package awsbedrock
 //   							},
 //   							Resource: &PromptFlowNodeResourceConfigurationProperty{
 //   								PromptArn: jsii.String("promptArn"),
+//   							},
+//   						},
+//   					},
+//   					Retrieval: &RetrievalFlowNodeConfigurationProperty{
+//   						ServiceConfiguration: &RetrievalFlowNodeServiceConfigurationProperty{
+//   							S3: &RetrievalFlowNodeS3ConfigurationProperty{
+//   								BucketName: jsii.String("bucketName"),
+//   							},
+//   						},
+//   					},
+//   					Storage: &StorageFlowNodeConfigurationProperty{
+//   						ServiceConfiguration: &StorageFlowNodeServiceConfigurationProperty{
+//   							S3: &StorageFlowNodeS3ConfigurationProperty{
+//   								BucketName: jsii.String("bucketName"),
 //   							},
 //   						},
 //   					},

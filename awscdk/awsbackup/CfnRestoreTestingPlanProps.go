@@ -32,6 +32,7 @@ import (
 //
 //   	// the properties below are optional
 //   	ScheduleExpressionTimezone: jsii.String("scheduleExpressionTimezone"),
+//   	ScheduleStatus: jsii.String("scheduleStatus"),
 //   	StartWindowHours: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -64,6 +65,9 @@ type CfnRestoreTestingPlanProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-scheduleexpressiontimezone
 	//
 	ScheduleExpressionTimezone *string `field:"optional" json:"scheduleExpressionTimezone" yaml:"scheduleExpressionTimezone"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html#cfn-backup-restoretestingplan-schedulestatus
+	//
+	ScheduleStatus *string `field:"optional" json:"scheduleStatus" yaml:"scheduleStatus"`
 	// Defaults to 24 hours.
 	//
 	// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).

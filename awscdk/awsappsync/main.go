@@ -982,6 +982,8 @@ func init() {
 		map[string]interface{}{
 			"NONE": FieldLogLevel_NONE,
 			"ERROR": FieldLogLevel_ERROR,
+			"INFO": FieldLogLevel_INFO,
+			"DEBUG": FieldLogLevel_DEBUG,
 			"ALL": FieldLogLevel_ALL,
 		},
 	)

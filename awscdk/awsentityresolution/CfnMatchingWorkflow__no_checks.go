@@ -80,6 +80,10 @@ func validateCfnMatchingWorkflow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnMatchingWorkflow) validateSetIncrementalRunConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMatchingWorkflow) validateSetInputSourceConfigParameters(val interface{}) error {
 	return nil
 }

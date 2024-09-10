@@ -44,6 +44,7 @@ import (
 //   					BucketName: jsii.String("bucketName"),
 //
 //   					// the properties below are optional
+//   					IamRoleArn: jsii.String("iamRoleArn"),
 //   					KmsKeyArn: jsii.String("kmsKeyArn"),
 //   					ObjectKeyPrefix: jsii.String("objectKeyPrefix"),
 //   					TopicArn: jsii.String("topicArn"),

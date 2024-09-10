@@ -57,6 +57,9 @@ type CfnDashboard_LineChartConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartconfiguration.html#cfn-quicksight-dashboard-linechartconfiguration-series
 	//
 	Series interface{} `field:"optional" json:"series" yaml:"series"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartconfiguration.html#cfn-quicksight-dashboard-linechartconfiguration-singleaxisoptions
+	//
+	SingleAxisOptions interface{} `field:"optional" json:"singleAxisOptions" yaml:"singleAxisOptions"`
 	// The small multiples setup for the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartconfiguration.html#cfn-quicksight-dashboard-linechartconfiguration-smallmultiplesoptions
 	//

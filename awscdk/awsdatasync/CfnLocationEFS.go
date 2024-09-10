@@ -46,7 +46,7 @@ type CfnLocationEFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+	// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to mount your Amazon EFS file system.
 	AccessPointArn() *string
 	SetAccessPointArn(val *string)
 	// The Amazon Resource Name (ARN) of the Amazon EFS file system.
@@ -62,16 +62,16 @@ type CfnLocationEFS interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+	// Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
 	Ec2Config() interface{}
 	SetEc2Config(val interface{})
-	// Specifies the ARN for the Amazon EFS file system.
+	// Specifies the ARN for your Amazon EFS file system.
 	EfsFilesystemArn() *string
 	SetEfsFilesystemArn(val *string)
-	// Specifies an AWS Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+	// Specifies an AWS Identity and Access Management (IAM) role that allows DataSync to access your Amazon EFS file system.
 	FileSystemAccessRoleArn() *string
 	SetFileSystemAccessRoleArn(val *string)
-	// Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption when it copies data to or from the Amazon EFS file system.
+	// Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption when it transfers data to or from your Amazon EFS file system.
 	InTransitEncryption() *string
 	SetInTransitEncryption(val *string)
 	// The logical ID for this CloudFormation stack element.

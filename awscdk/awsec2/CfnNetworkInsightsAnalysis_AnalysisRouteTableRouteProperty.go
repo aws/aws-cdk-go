@@ -29,7 +29,7 @@ type CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationcidr
 	//
 	DestinationCidr *string `field:"optional" json:"destinationCidr" yaml:"destinationCidr"`
-	// The prefix of the AWS-service .
+	// The prefix of the AWS service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysisroutetableroute.html#cfn-ec2-networkinsightsanalysis-analysisroutetableroute-destinationprefixlistid
 	//
 	DestinationPrefixListId *string `field:"optional" json:"destinationPrefixListId" yaml:"destinationPrefixListId"`

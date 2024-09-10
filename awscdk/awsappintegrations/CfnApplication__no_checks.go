@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnApplication) validateSetNameParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetNamespaceParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

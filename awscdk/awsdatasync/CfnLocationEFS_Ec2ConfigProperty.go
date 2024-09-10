@@ -1,7 +1,7 @@
 package awsdatasync
 
 
-// The subnet and security groups that AWS DataSync uses to access your Amazon EFS file system.
+// The subnet and security groups that AWS DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

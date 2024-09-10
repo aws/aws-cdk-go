@@ -11,16 +11,15 @@ import (
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   logConfig := &LogConfig{
-//   	Retention: logs.RetentionDays_ONE_WEEK,
-//   }
-//
 //   appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
 //   	AuthorizationConfig: &AuthorizationConfig{
 //   	},
 //   	Name: jsii.String("myApi"),
 //   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("myApi.graphql"))),
-//   	LogConfig: LogConfig,
+//   	LogConfig: &LogConfig{
+//   		FieldLogLevel: appsync.FieldLogLevel_INFO,
+//   		Retention: logs.RetentionDays_ONE_WEEK,
+//   	},
 //   })
 //
 type LogConfig struct {

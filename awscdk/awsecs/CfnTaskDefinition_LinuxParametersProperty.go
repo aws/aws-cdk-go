@@ -54,7 +54,7 @@ type CfnTaskDefinition_LinuxParametersProperty struct {
 	Capabilities interface{} `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// Any host devices to expose to the container.
 	//
-	// This parameter maps to `Devices` in tthe docker conainer create command and the `--device` option to docker run.
+	// This parameter maps to `Devices` in tthe docker container create command and the `--device` option to docker run.
 	//
 	// > If you're using tasks that use the Fargate launch type, the `devices` parameter isn't supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices

@@ -1361,6 +1361,29 @@ fn := lambda.NewFunction(this, jsii.String("Lambda_with_IPv6_VPC"), &FunctionPro
 })
 ```
 
+## Outbound traffic
+
+By default, when creating a Lambda function, it would add a security group outbound rule to allow sending all network traffic (except IPv6). This is controlled by `allowAllOutbound` in function properties, which has a default value of `true`.
+
+To allow outbound IPv6 traffic by default, explicitly set `allowAllIpv6Outbound` to `true` in function properties as shown below (the default value for `allowAllIpv6Outbound` is `false`):
+
+```go
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("Vpc"))
+
+fn := lambda.NewFunction(this, jsii.String("LambdaWithIpv6Outbound"), &FunctionProps{
+	Code: lambda.NewInlineCode(jsii.String("def main(event, context): pass")),
+	Handler: jsii.String("index.main"),
+	Runtime: lambda.Runtime_PYTHON_3_9(),
+	Vpc: vpc,
+	AllowAllIpv6Outbound: jsii.Boolean(true),
+})
+```
+
+Do not specify `allowAllOutbound` or `allowAllIpv6Outbound` property if the `securityGroups` or `securityGroup` property is set. Instead, configure these properties directly on the security group.
+
 ## Ephemeral Storage
 
 You can configure ephemeral storage on a function to control the amount of storage it gets for reading

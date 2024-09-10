@@ -30,6 +30,7 @@ package awsquicksight
 //   		},
 //   	},
 //   	Label: jsii.String("label"),
+//   	TooltipTarget: jsii.String("tooltipTarget"),
 //   	Visibility: jsii.String("visibility"),
 //   }
 //
@@ -48,6 +49,9 @@ type CfnDashboard_ColumnTooltipItemProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columntooltipitem.html#cfn-quicksight-dashboard-columntooltipitem-label
 	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columntooltipitem.html#cfn-quicksight-dashboard-columntooltipitem-tooltiptarget
+	//
+	TooltipTarget *string `field:"optional" json:"tooltipTarget" yaml:"tooltipTarget"`
 	// The visibility of the tooltip item.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columntooltipitem.html#cfn-quicksight-dashboard-columntooltipitem-visibility
 	//

@@ -18,6 +18,7 @@ package awsses
 //   	BucketName: jsii.String("bucketName"),
 //
 //   	// the properties below are optional
+//   	IamRoleArn: jsii.String("iamRoleArn"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ObjectKeyPrefix: jsii.String("objectKeyPrefix"),
 //   	TopicArn: jsii.String("topicArn"),
@@ -30,6 +31,18 @@ type CfnReceiptRule_S3ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-bucketname
 	//
 	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
+	// The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic.
+	//
+	// This role should have access to the following APIs:
+	//
+	// - `s3:PutObject` , `kms:Encrypt` and `kms:GenerateDataKey` for the given Amazon S3 bucket.
+	// - `kms:GenerateDataKey` for the given AWS KMS customer managed key.
+	// - `sns:Publish` for the given Amazon SNS topic.
+	//
+	// > If an IAM role ARN is provided, the role (and only the role) is used to access all the given resources (Amazon S3 bucket, AWS KMS customer managed key and Amazon SNS topic). Therefore, setting up individual resource access permissions is not required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-iamrolearn
+	//
+	IamRoleArn *string `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The customer managed key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket.
 	//
 	// You can use the AWS managed key or a customer managed key that you created in AWS KMS as follows:

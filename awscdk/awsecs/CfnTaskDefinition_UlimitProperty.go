@@ -22,6 +22,8 @@ package awsecs
 //
 type CfnTaskDefinition_UlimitProperty struct {
 	// The hard limit for the `ulimit` type.
+	//
+	// The value can be specified in bytes, seconds, or as a count, depending on the `type` of the `ulimit` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html#cfn-ecs-taskdefinition-ulimit-hardlimit
 	//
 	HardLimit *float64 `field:"required" json:"hardLimit" yaml:"hardLimit"`
@@ -30,6 +32,8 @@ type CfnTaskDefinition_UlimitProperty struct {
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The soft limit for the `ulimit` type.
+	//
+	// The value can be specified in bytes, seconds, or as a count, depending on the `type` of the `ulimit` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html#cfn-ecs-taskdefinition-ulimit-softlimit
 	//
 	SoftLimit *float64 `field:"required" json:"softLimit" yaml:"softLimit"`

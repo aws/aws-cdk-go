@@ -139,7 +139,7 @@ type CfnDBCluster interface {
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled() interface{}
 	SetIamAuthEnabled(val interface{})
-	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
+	// The Amazon Resource Name (ARN) of the KMS key that is used to encrypt the database instances in the DB cluster, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef` .
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.

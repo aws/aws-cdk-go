@@ -43,6 +43,10 @@ import (
 //   	Compression: jsii.String("compression"),
 //   	DataDestinationConfigs: []interface{}{
 //   		&DataDestinationConfigProperty{
+//   			MqttTopicConfig: &MqttTopicConfigProperty{
+//   				ExecutionRoleArn: jsii.String("executionRoleArn"),
+//   				MqttTopicArn: jsii.String("mqttTopicArn"),
+//   			},
 //   			S3Config: &S3ConfigProperty{
 //   				BucketArn: jsii.String("bucketArn"),
 //

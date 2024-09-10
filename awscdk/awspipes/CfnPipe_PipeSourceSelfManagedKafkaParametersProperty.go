@@ -69,7 +69,7 @@ type CfnPipe_PipeSourceSelfManagedKafkaParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-serverrootcacertificate
 	//
 	ServerRootCaCertificate *string `field:"optional" json:"serverRootCaCertificate" yaml:"serverRootCaCertificate"`
-	// (Streams only) The position in a stream from which to start reading.
+	// The position in a stream from which to start reading.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html#cfn-pipes-pipe-pipesourceselfmanagedkafkaparameters-startingposition
 	//
 	StartingPosition *string `field:"optional" json:"startingPosition" yaml:"startingPosition"`

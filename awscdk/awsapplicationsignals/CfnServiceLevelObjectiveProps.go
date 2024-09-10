@@ -71,6 +71,102 @@ import (
 //   		},
 //   		WarningThreshold: jsii.Number(123),
 //   	},
+//   	RequestBasedSli: &RequestBasedSliProperty{
+//   		RequestBasedSliMetric: &RequestBasedSliMetricProperty{
+//   			KeyAttributes: map[string]*string{
+//   				"keyAttributesKey": jsii.String("keyAttributes"),
+//   			},
+//   			MetricType: jsii.String("metricType"),
+//   			MonitoredRequestCountMetric: &MonitoredRequestCountMetricProperty{
+//   				BadCountMetric: []interface{}{
+//   					&MetricDataQueryProperty{
+//   						Id: jsii.String("id"),
+//
+//   						// the properties below are optional
+//   						AccountId: jsii.String("accountId"),
+//   						Expression: jsii.String("expression"),
+//   						MetricStat: &MetricStatProperty{
+//   							Metric: &MetricProperty{
+//   								Dimensions: []interface{}{
+//   									&DimensionProperty{
+//   										Name: jsii.String("name"),
+//   										Value: jsii.String("value"),
+//   									},
+//   								},
+//   								MetricName: jsii.String("metricName"),
+//   								Namespace: jsii.String("namespace"),
+//   							},
+//   							Period: jsii.Number(123),
+//   							Stat: jsii.String("stat"),
+//
+//   							// the properties below are optional
+//   							Unit: jsii.String("unit"),
+//   						},
+//   						ReturnData: jsii.Boolean(false),
+//   					},
+//   				},
+//   				GoodCountMetric: []interface{}{
+//   					&MetricDataQueryProperty{
+//   						Id: jsii.String("id"),
+//
+//   						// the properties below are optional
+//   						AccountId: jsii.String("accountId"),
+//   						Expression: jsii.String("expression"),
+//   						MetricStat: &MetricStatProperty{
+//   							Metric: &MetricProperty{
+//   								Dimensions: []interface{}{
+//   									&DimensionProperty{
+//   										Name: jsii.String("name"),
+//   										Value: jsii.String("value"),
+//   									},
+//   								},
+//   								MetricName: jsii.String("metricName"),
+//   								Namespace: jsii.String("namespace"),
+//   							},
+//   							Period: jsii.Number(123),
+//   							Stat: jsii.String("stat"),
+//
+//   							// the properties below are optional
+//   							Unit: jsii.String("unit"),
+//   						},
+//   						ReturnData: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
+//   			OperationName: jsii.String("operationName"),
+//   			TotalRequestCountMetric: []interface{}{
+//   				&MetricDataQueryProperty{
+//   					Id: jsii.String("id"),
+//
+//   					// the properties below are optional
+//   					AccountId: jsii.String("accountId"),
+//   					Expression: jsii.String("expression"),
+//   					MetricStat: &MetricStatProperty{
+//   						Metric: &MetricProperty{
+//   							Dimensions: []interface{}{
+//   								&DimensionProperty{
+//   									Name: jsii.String("name"),
+//   									Value: jsii.String("value"),
+//   								},
+//   							},
+//   							MetricName: jsii.String("metricName"),
+//   							Namespace: jsii.String("namespace"),
+//   						},
+//   						Period: jsii.Number(123),
+//   						Stat: jsii.String("stat"),
+//
+//   						// the properties below are optional
+//   						Unit: jsii.String("unit"),
+//   					},
+//   					ReturnData: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		ComparisonOperator: jsii.String("comparisonOperator"),
+//   		MetricThreshold: jsii.Number(123),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -102,6 +198,10 @@ type CfnServiceLevelObjectiveProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-goal
 	//
 	Goal interface{} `field:"optional" json:"goal" yaml:"goal"`
+	// This structure contains information about the performance metric that a request-based SLO monitors.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli
+	//
+	RequestBasedSli interface{} `field:"optional" json:"requestBasedSli" yaml:"requestBasedSli"`
 	// A list of key-value pairs to associate with the SLO.
 	//
 	// You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.

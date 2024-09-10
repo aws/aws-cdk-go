@@ -42,7 +42,10 @@ type CfnThreatIntelSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-activate
 	//
 	Activate interface{} `field:"optional" json:"activate" yaml:"activate"`
-	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html#cfn-guardduty-threatintelset-detectorid
 	//
 	DetectorId *string `field:"optional" json:"detectorId" yaml:"detectorId"`

@@ -153,7 +153,7 @@ type CfnTargetGroup interface {
 	// The tags.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The attributes.
+	// The target group attributes.
 	TargetGroupAttributes() interface{}
 	SetTargetGroupAttributes(val interface{})
 	// The targets.

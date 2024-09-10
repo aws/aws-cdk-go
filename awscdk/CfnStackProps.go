@@ -28,7 +28,7 @@ package awscdk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html
 //
 type CfnStackProps struct {
-	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events.
+	// The Amazon SNS topic ARNs to publish stack related events.
 	//
 	// You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html#cfn-cloudformation-stack-notificationarns
@@ -48,7 +48,7 @@ type CfnStackProps struct {
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// Key-value pairs to associate with this stack.
 	//
-	// AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+	// CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html#cfn-cloudformation-stack-tags
 	//
 	Tags *[]*CfnTag `field:"optional" json:"tags" yaml:"tags"`

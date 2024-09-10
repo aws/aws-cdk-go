@@ -88,7 +88,19 @@ func (j *jsiiProxy_CfnAutomationRule) validateSetCriteriaParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutomationRule) validateSetDescriptionParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutomationRule) validateSetIsTerminalParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnAutomationRule) validateSetRuleNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnAutomationRule) validateSetRuleOrderParameters(val *float64) error {
 	return nil
 }
 

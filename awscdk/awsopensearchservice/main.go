@@ -74,6 +74,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "skipShardMigrationWait", GoGetter: "SkipShardMigrationWait"},
 			_jsii_.MemberProperty{JsiiProperty: "snapshotOptions", GoGetter: "SnapshotOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "softwareUpdateOptions", GoGetter: "SoftwareUpdateOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -124,6 +125,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain.IdpProperty",
 		reflect.TypeOf((*CfnDomain_IdpProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain.JWTOptionsProperty",
+		reflect.TypeOf((*CfnDomain_JWTOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain.LogPublishingOptionProperty",

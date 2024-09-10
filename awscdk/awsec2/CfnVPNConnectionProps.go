@@ -17,6 +17,11 @@ import (
 //
 //   	// the properties below are optional
 //   	EnableAcceleration: jsii.Boolean(false),
+//   	LocalIpv4NetworkCidr: jsii.String("localIpv4NetworkCidr"),
+//   	LocalIpv6NetworkCidr: jsii.String("localIpv6NetworkCidr"),
+//   	OutsideIpAddressType: jsii.String("outsideIpAddressType"),
+//   	RemoteIpv4NetworkCidr: jsii.String("remoteIpv4NetworkCidr"),
+//   	RemoteIpv6NetworkCidr: jsii.String("remoteIpv6NetworkCidr"),
 //   	StaticRoutesOnly: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -25,6 +30,8 @@ import (
 //   		},
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
+//   	TransportTransitGatewayAttachmentId: jsii.String("transportTransitGatewayAttachmentId"),
+//   	TunnelInsideIpVersion: jsii.String("tunnelInsideIpVersion"),
 //   	VpnGatewayId: jsii.String("vpnGatewayId"),
 //   	VpnTunnelOptionsSpecifications: []interface{}{
 //   		&VpnTunnelOptionsSpecificationProperty{
@@ -51,6 +58,21 @@ type CfnVPNConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-enableacceleration
 	//
 	EnableAcceleration interface{} `field:"optional" json:"enableAcceleration" yaml:"enableAcceleration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-localipv4networkcidr
+	//
+	LocalIpv4NetworkCidr *string `field:"optional" json:"localIpv4NetworkCidr" yaml:"localIpv4NetworkCidr"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-localipv6networkcidr
+	//
+	LocalIpv6NetworkCidr *string `field:"optional" json:"localIpv6NetworkCidr" yaml:"localIpv6NetworkCidr"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-outsideipaddresstype
+	//
+	OutsideIpAddressType *string `field:"optional" json:"outsideIpAddressType" yaml:"outsideIpAddressType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-remoteipv4networkcidr
+	//
+	RemoteIpv4NetworkCidr *string `field:"optional" json:"remoteIpv4NetworkCidr" yaml:"remoteIpv4NetworkCidr"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-remoteipv6networkcidr
+	//
+	RemoteIpv6NetworkCidr *string `field:"optional" json:"remoteIpv6NetworkCidr" yaml:"remoteIpv6NetworkCidr"`
 	// Indicates whether the VPN connection uses static routes only.
 	//
 	// Static routes must be used for devices that don't support BGP.
@@ -69,6 +91,12 @@ type CfnVPNConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-transitgatewayid
 	//
 	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-transporttransitgatewayattachmentid
+	//
+	TransportTransitGatewayAttachmentId *string `field:"optional" json:"transportTransitGatewayAttachmentId" yaml:"transportTransitGatewayAttachmentId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-tunnelinsideipversion
+	//
+	TunnelInsideIpVersion *string `field:"optional" json:"tunnelInsideIpVersion" yaml:"tunnelInsideIpVersion"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	//
 	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.

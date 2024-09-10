@@ -10,10 +10,16 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var collector interface{}
 //   var input interface{}
+//   var iterator interface{}
 //   var output interface{}
 //
 //   flowNodeConfigurationProperty := &FlowNodeConfigurationProperty{
+//   	Agent: &AgentFlowNodeConfigurationProperty{
+//   		AgentAliasArn: jsii.String("agentAliasArn"),
+//   	},
+//   	Collector: collector,
 //   	Condition: &ConditionFlowNodeConfigurationProperty{
 //   		Conditions: []interface{}{
 //   			&FlowConditionProperty{
@@ -25,6 +31,7 @@ package awsbedrock
 //   		},
 //   	},
 //   	Input: input,
+//   	Iterator: iterator,
 //   	KnowledgeBase: &KnowledgeBaseFlowNodeConfigurationProperty{
 //   		KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //
@@ -75,11 +82,37 @@ package awsbedrock
 //   			},
 //   		},
 //   	},
+//   	Retrieval: &RetrievalFlowNodeConfigurationProperty{
+//   		ServiceConfiguration: &RetrievalFlowNodeServiceConfigurationProperty{
+//   			S3: &RetrievalFlowNodeS3ConfigurationProperty{
+//   				BucketName: jsii.String("bucketName"),
+//   			},
+//   		},
+//   	},
+//   	Storage: &StorageFlowNodeConfigurationProperty{
+//   		ServiceConfiguration: &StorageFlowNodeServiceConfigurationProperty{
+//   			S3: &StorageFlowNodeS3ConfigurationProperty{
+//   				BucketName: jsii.String("bucketName"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html
 //
 type CfnFlowVersion_FlowNodeConfigurationProperty struct {
+	// Contains configurations for an agent node in your flow.
+	//
+	// Invokes an alias of an agent and returns the response.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-agent
+	//
+	Agent interface{} `field:"optional" json:"agent" yaml:"agent"`
+	// Contains configurations for a collector node in your flow.
+	//
+	// Collects an iteration of inputs and consolidates them into an array of outputs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-collector
+	//
+	Collector interface{} `field:"optional" json:"collector" yaml:"collector"`
 	// Contains configurations for a Condition node in your flow.
 	//
 	// Defines conditions that lead to different branches of the flow.
@@ -92,6 +125,14 @@ type CfnFlowVersion_FlowNodeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-input
 	//
 	Input interface{} `field:"optional" json:"input" yaml:"input"`
+	// Contains configurations for an iterator node in your flow.
+	//
+	// Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output.
+	//
+	// The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-iterator
+	//
+	Iterator interface{} `field:"optional" json:"iterator" yaml:"iterator"`
 	// Contains configurations for a knowledge base node in your flow.
 	//
 	// Queries a knowledge base and returns the retrieved results or generated response.
@@ -122,5 +163,17 @@ type CfnFlowVersion_FlowNodeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-prompt
 	//
 	Prompt interface{} `field:"optional" json:"prompt" yaml:"prompt"`
+	// Contains configurations for a Retrieval node in your flow.
+	//
+	// Retrieves data from an Amazon S3 location and returns it as the output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-retrieval
+	//
+	Retrieval interface{} `field:"optional" json:"retrieval" yaml:"retrieval"`
+	// Contains configurations for a Storage node in your flow.
+	//
+	// Stores an input in an Amazon S3 location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html#cfn-bedrock-flowversion-flownodeconfiguration-storage
+	//
+	Storage interface{} `field:"optional" json:"storage" yaml:"storage"`
 }
 

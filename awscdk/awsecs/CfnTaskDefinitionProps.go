@@ -165,6 +165,13 @@ import (
 //   					Value: jsii.String("value"),
 //   				},
 //   			},
+//   			RestartPolicy: &RestartPolicyProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				IgnoredExitCodes: []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   				RestartAttemptPeriod: jsii.Number(123),
+//   			},
 //   			Secrets: []interface{}{
 //   				&SecretProperty{
 //   					Name: jsii.String("name"),

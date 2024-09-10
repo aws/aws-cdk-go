@@ -27,7 +27,7 @@ type CfnCapacityProvider_ManagedScalingProperty struct {
 	InstanceWarmupPeriod *float64 `field:"optional" json:"instanceWarmupPeriod" yaml:"instanceWarmupPeriod"`
 	// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
 	//
-	// The scale in process is not affected by this parameter. If this parameter is omitted, the default value of `10000` is used.
+	// If this parameter is omitted, the default value of `10000` is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
 	//
 	MaximumScalingStepSize *float64 `field:"optional" json:"maximumScalingStepSize" yaml:"maximumScalingStepSize"`

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnOriginEndpoint) validateSetChannelNameParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) validateSetContainerTypeParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) validateSetDashManifestsParameters(val interface{}) error {
 	return nil
 }

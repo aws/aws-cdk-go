@@ -78,6 +78,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	IncrementalRunConfig: &IncrementalRunConfigProperty{
+//   		IncrementalRunType: jsii.String("incrementalRunType"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -112,6 +115,9 @@ type CfnMatchingWorkflow interface {
 	// A description of the workflow.
 	Description() *string
 	SetDescription(val *string)
+	// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+	IncrementalRunConfig() interface{}
+	SetIncrementalRunConfig(val interface{})
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig() interface{}
 	SetInputSourceConfig(val interface{})
@@ -388,6 +394,16 @@ func (j *jsiiProxy_CfnMatchingWorkflow) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMatchingWorkflow) IncrementalRunConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"incrementalRunConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMatchingWorkflow) InputSourceConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -540,6 +556,17 @@ func (j *jsiiProxy_CfnMatchingWorkflow)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMatchingWorkflow)SetIncrementalRunConfig(val interface{}) {
+	if err := j.validateSetIncrementalRunConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"incrementalRunConfig",
 		val,
 	)
 }

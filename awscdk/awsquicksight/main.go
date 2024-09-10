@@ -267,6 +267,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_CategoryFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.CategoryInnerFilterProperty",
+		reflect.TypeOf((*CfnAnalysis_CategoryInnerFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ChartAxisLabelOptionsProperty",
 		reflect.TypeOf((*CfnAnalysis_ChartAxisLabelOptionsProperty)(nil)).Elem(),
 	)
@@ -991,6 +995,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_HistogramVisualProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.InnerFilterProperty",
+		reflect.TypeOf((*CfnAnalysis_InnerFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.InsightConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_InsightConfigurationProperty)(nil)).Elem(),
 	)
@@ -1185,6 +1193,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.NegativeValueConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_NegativeValueConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.NestedFilterProperty",
+		reflect.TypeOf((*CfnAnalysis_NestedFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.NullValueFormatConfigurationProperty",
@@ -1649,6 +1661,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SimpleClusterMarkerProperty",
 		reflect.TypeOf((*CfnAnalysis_SimpleClusterMarkerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SingleAxisOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_SingleAxisOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SliderControlDisplayOptionsProperty",
@@ -2262,6 +2278,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.CategoryFilterProperty",
 		reflect.TypeOf((*CfnDashboard_CategoryFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.CategoryInnerFilterProperty",
+		reflect.TypeOf((*CfnDashboard_CategoryInnerFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ChartAxisLabelOptionsProperty",
@@ -3040,6 +3060,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_HistogramVisualProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.InnerFilterProperty",
+		reflect.TypeOf((*CfnDashboard_InnerFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.InsightConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_InsightConfigurationProperty)(nil)).Elem(),
 	)
@@ -3238,6 +3262,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.NegativeValueConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_NegativeValueConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.NestedFilterProperty",
+		reflect.TypeOf((*CfnDashboard_NestedFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.NullValueFormatConfigurationProperty",
@@ -3710,6 +3738,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.SimpleClusterMarkerProperty",
 		reflect.TypeOf((*CfnDashboard_SimpleClusterMarkerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.SingleAxisOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_SingleAxisOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.SliderControlDisplayOptionsProperty",
@@ -4826,6 +4858,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_CategoryFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.CategoryInnerFilterProperty",
+		reflect.TypeOf((*CfnTemplate_CategoryInnerFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.ChartAxisLabelOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_ChartAxisLabelOptionsProperty)(nil)).Elem(),
 	)
@@ -5558,6 +5594,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_HistogramVisualProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.InnerFilterProperty",
+		reflect.TypeOf((*CfnTemplate_InnerFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.InsightConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_InsightConfigurationProperty)(nil)).Elem(),
 	)
@@ -5748,6 +5788,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.NegativeValueConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_NegativeValueConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.NestedFilterProperty",
+		reflect.TypeOf((*CfnTemplate_NestedFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.NullValueFormatConfigurationProperty",
@@ -6208,6 +6252,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.SimpleClusterMarkerProperty",
 		reflect.TypeOf((*CfnTemplate_SimpleClusterMarkerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.SingleAxisOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_SingleAxisOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.SliderControlDisplayOptionsProperty",

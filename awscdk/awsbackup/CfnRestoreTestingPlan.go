@@ -39,6 +39,7 @@ import (
 //
 //   	// the properties below are optional
 //   	ScheduleExpressionTimezone: jsii.String("scheduleExpressionTimezone"),
+//   	ScheduleStatus: jsii.String("scheduleStatus"),
 //   	StartWindowHours: jsii.Number(123),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -96,6 +97,8 @@ type CfnRestoreTestingPlan interface {
 	// Optional.
 	ScheduleExpressionTimezone() *string
 	SetScheduleExpressionTimezone(val *string)
+	ScheduleStatus() *string
+	SetScheduleStatus(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -383,6 +386,16 @@ func (j *jsiiProxy_CfnRestoreTestingPlan) ScheduleExpressionTimezone() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRestoreTestingPlan) ScheduleStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scheduleStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRestoreTestingPlan) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -498,6 +511,14 @@ func (j *jsiiProxy_CfnRestoreTestingPlan)SetScheduleExpressionTimezone(val *stri
 	_jsii_.Set(
 		j,
 		"scheduleExpressionTimezone",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRestoreTestingPlan)SetScheduleStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"scheduleStatus",
 		val,
 	)
 }

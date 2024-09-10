@@ -98,6 +98,102 @@ import (
 //   		},
 //   		WarningThreshold: jsii.Number(123),
 //   	},
+//   	RequestBasedSli: &RequestBasedSliProperty{
+//   		RequestBasedSliMetric: &RequestBasedSliMetricProperty{
+//   			KeyAttributes: map[string]*string{
+//   				"keyAttributesKey": jsii.String("keyAttributes"),
+//   			},
+//   			MetricType: jsii.String("metricType"),
+//   			MonitoredRequestCountMetric: &MonitoredRequestCountMetricProperty{
+//   				BadCountMetric: []interface{}{
+//   					&MetricDataQueryProperty{
+//   						Id: jsii.String("id"),
+//
+//   						// the properties below are optional
+//   						AccountId: jsii.String("accountId"),
+//   						Expression: jsii.String("expression"),
+//   						MetricStat: &MetricStatProperty{
+//   							Metric: &MetricProperty{
+//   								Dimensions: []interface{}{
+//   									&DimensionProperty{
+//   										Name: jsii.String("name"),
+//   										Value: jsii.String("value"),
+//   									},
+//   								},
+//   								MetricName: jsii.String("metricName"),
+//   								Namespace: jsii.String("namespace"),
+//   							},
+//   							Period: jsii.Number(123),
+//   							Stat: jsii.String("stat"),
+//
+//   							// the properties below are optional
+//   							Unit: jsii.String("unit"),
+//   						},
+//   						ReturnData: jsii.Boolean(false),
+//   					},
+//   				},
+//   				GoodCountMetric: []interface{}{
+//   					&MetricDataQueryProperty{
+//   						Id: jsii.String("id"),
+//
+//   						// the properties below are optional
+//   						AccountId: jsii.String("accountId"),
+//   						Expression: jsii.String("expression"),
+//   						MetricStat: &MetricStatProperty{
+//   							Metric: &MetricProperty{
+//   								Dimensions: []interface{}{
+//   									&DimensionProperty{
+//   										Name: jsii.String("name"),
+//   										Value: jsii.String("value"),
+//   									},
+//   								},
+//   								MetricName: jsii.String("metricName"),
+//   								Namespace: jsii.String("namespace"),
+//   							},
+//   							Period: jsii.Number(123),
+//   							Stat: jsii.String("stat"),
+//
+//   							// the properties below are optional
+//   							Unit: jsii.String("unit"),
+//   						},
+//   						ReturnData: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
+//   			OperationName: jsii.String("operationName"),
+//   			TotalRequestCountMetric: []interface{}{
+//   				&MetricDataQueryProperty{
+//   					Id: jsii.String("id"),
+//
+//   					// the properties below are optional
+//   					AccountId: jsii.String("accountId"),
+//   					Expression: jsii.String("expression"),
+//   					MetricStat: &MetricStatProperty{
+//   						Metric: &MetricProperty{
+//   							Dimensions: []interface{}{
+//   								&DimensionProperty{
+//   									Name: jsii.String("name"),
+//   									Value: jsii.String("value"),
+//   								},
+//   							},
+//   							MetricName: jsii.String("metricName"),
+//   							Namespace: jsii.String("namespace"),
+//   						},
+//   						Period: jsii.Number(123),
+//   						Stat: jsii.String("stat"),
+//
+//   						// the properties below are optional
+//   						Unit: jsii.String("unit"),
+//   					},
+//   					ReturnData: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		ComparisonOperator: jsii.String("comparisonOperator"),
+//   		MetricThreshold: jsii.Number(123),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -116,6 +212,8 @@ type CfnServiceLevelObjective interface {
 	AttrArn() *string
 	// The date and time that this SLO was created.
 	AttrCreatedTime() *float64
+	// Displays whether this is a period-based SLO or a request-based SLO.
+	AttrEvaluationType() *string
 	// The time that this SLO was most recently updated.
 	AttrLastUpdatedTime() *float64
 	// Tag Manager which manages the tags for this resource.
@@ -155,6 +253,9 @@ type CfnServiceLevelObjective interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// This structure contains information about the performance metric that a request-based SLO monitors.
+	RequestBasedSli() interface{}
+	SetRequestBasedSli(val interface{})
 	// A structure containing information about the performance metric that this SLO monitors.
 	Sli() interface{}
 	SetSli(val interface{})
@@ -332,6 +433,16 @@ func (j *jsiiProxy_CfnServiceLevelObjective) AttrCreatedTime() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServiceLevelObjective) AttrEvaluationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEvaluationType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServiceLevelObjective) AttrLastUpdatedTime() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -452,6 +563,16 @@ func (j *jsiiProxy_CfnServiceLevelObjective) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServiceLevelObjective) RequestBasedSli() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"requestBasedSli",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServiceLevelObjective) Sli() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -556,6 +677,17 @@ func (j *jsiiProxy_CfnServiceLevelObjective)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServiceLevelObjective)SetRequestBasedSli(val interface{}) {
+	if err := j.validateSetRequestBasedSliParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"requestBasedSli",
 		val,
 	)
 }

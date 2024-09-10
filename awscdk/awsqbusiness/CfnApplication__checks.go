@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnApplication) validateSetAttachmentsConfigurationParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetAutoSubscriptionConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnApplication_AutoSubscriptionConfigurationProperty:
+		val := val.(*CfnApplication_AutoSubscriptionConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnApplication_AutoSubscriptionConfigurationProperty:
+		val_ := val.(CfnApplication_AutoSubscriptionConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplication_AutoSubscriptionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetDisplayNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -229,6 +253,30 @@ func (j *jsiiProxy_CfnApplication) validateSetEncryptionConfigurationParameters(
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplication_EncryptionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplication) validateSetPersonalizationConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnApplication_PersonalizationConfigurationProperty:
+		val := val.(*CfnApplication_PersonalizationConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnApplication_PersonalizationConfigurationProperty:
+		val_ := val.(CfnApplication_PersonalizationConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplication_PersonalizationConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

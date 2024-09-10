@@ -48,7 +48,7 @@ type CfnPublicTypeVersionProps struct {
 	//
 	// If you don't specify a version number, CloudFormation increments the version number by one minor version release.
 	//
-	// You cannot specify a version number the first time you publish a type. AWS CloudFormation automatically sets the first version number to be `1.0.0` .
+	// You cannot specify a version number the first time you publish a type. CloudFormation automatically sets the first version number to be `1.0.0` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
 	//
 	PublicVersionNumber *string `field:"optional" json:"publicVersionNumber" yaml:"publicVersionNumber"`

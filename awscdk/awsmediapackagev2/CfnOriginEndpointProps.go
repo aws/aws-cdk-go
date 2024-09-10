@@ -14,10 +14,10 @@ import (
 //   cfnOriginEndpointProps := &CfnOriginEndpointProps{
 //   	ChannelGroupName: jsii.String("channelGroupName"),
 //   	ChannelName: jsii.String("channelName"),
+//   	ContainerType: jsii.String("containerType"),
 //   	OriginEndpointName: jsii.String("originEndpointName"),
 //
 //   	// the properties below are optional
-//   	ContainerType: jsii.String("containerType"),
 //   	DashManifests: []interface{}{
 //   		&DashManifestConfigurationProperty{
 //   			ManifestName: jsii.String("manifestName"),
@@ -147,14 +147,14 @@ type CfnOriginEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelname
 	//
 	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
+	// The container type associated with the origin endpoint configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-containertype
+	//
+	ContainerType *string `field:"required" json:"containerType" yaml:"containerType"`
 	// The name of the origin endpoint associated with the origin endpoint configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-originendpointname
 	//
 	OriginEndpointName *string `field:"required" json:"originEndpointName" yaml:"originEndpointName"`
-	// The container type associated with the origin endpoint configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-containertype
-	//
-	ContainerType *string `field:"optional" json:"containerType" yaml:"containerType"`
 	// A DASH manifest configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-dashmanifests
 	//

@@ -46,6 +46,9 @@ import (
 //   		Username: jsii.String("username"),
 //   	},
 //   	BuildSpec: jsii.String("buildSpec"),
+//   	CacheConfig: &CacheConfigProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   	CustomHeaders: jsii.String("customHeaders"),
 //   	CustomRules: []interface{}{
 //   		&CustomRuleProperty{
@@ -110,6 +113,9 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
 	//
 	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-cacheconfig
+	//
+	CacheConfig interface{} `field:"optional" json:"cacheConfig" yaml:"cacheConfig"`
 	// The custom HTTP headers for an Amplify app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
 	//

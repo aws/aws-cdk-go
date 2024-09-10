@@ -17,6 +17,10 @@ type CfnAnalysis_FilterProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filter.html#cfn-quicksight-analysis-filter-categoryfilter
 	//
 	CategoryFilter interface{} `field:"optional" json:"categoryFilter" yaml:"categoryFilter"`
+	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filter.html#cfn-quicksight-analysis-filter-nestedfilter
+	//
+	NestedFilter interface{} `field:"optional" json:"nestedFilter" yaml:"nestedFilter"`
 	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filter.html#cfn-quicksight-analysis-filter-numericequalityfilter
 	//

@@ -71,6 +71,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	IncrementalRunConfig: &IncrementalRunConfigProperty{
+//   		IncrementalRunType: jsii.String("incrementalRunType"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -110,6 +113,10 @@ type CfnMatchingWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html#cfn-entityresolution-matchingworkflow-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html#cfn-entityresolution-matchingworkflow-incrementalrunconfig
+	//
+	IncrementalRunConfig interface{} `field:"optional" json:"incrementalRunConfig" yaml:"incrementalRunConfig"`
 	// The tags used to organize, track, or control access for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html#cfn-entityresolution-matchingworkflow-tags
 	//

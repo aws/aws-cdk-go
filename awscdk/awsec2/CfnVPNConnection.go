@@ -28,6 +28,11 @@ import (
 //
 //   	// the properties below are optional
 //   	EnableAcceleration: jsii.Boolean(false),
+//   	LocalIpv4NetworkCidr: jsii.String("localIpv4NetworkCidr"),
+//   	LocalIpv6NetworkCidr: jsii.String("localIpv6NetworkCidr"),
+//   	OutsideIpAddressType: jsii.String("outsideIpAddressType"),
+//   	RemoteIpv4NetworkCidr: jsii.String("remoteIpv4NetworkCidr"),
+//   	RemoteIpv6NetworkCidr: jsii.String("remoteIpv6NetworkCidr"),
 //   	StaticRoutesOnly: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -36,6 +41,8 @@ import (
 //   		},
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
+//   	TransportTransitGatewayAttachmentId: jsii.String("transportTransitGatewayAttachmentId"),
+//   	TunnelInsideIpVersion: jsii.String("tunnelInsideIpVersion"),
 //   	VpnGatewayId: jsii.String("vpnGatewayId"),
 //   	VpnTunnelOptionsSpecifications: []interface{}{
 //   		&VpnTunnelOptionsSpecificationProperty{
@@ -68,6 +75,10 @@ type CfnVPNConnection interface {
 	// Indicate whether to enable acceleration for the VPN connection.
 	EnableAcceleration() interface{}
 	SetEnableAcceleration(val interface{})
+	LocalIpv4NetworkCidr() *string
+	SetLocalIpv4NetworkCidr(val *string)
+	LocalIpv6NetworkCidr() *string
+	SetLocalIpv6NetworkCidr(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -80,11 +91,17 @@ type CfnVPNConnection interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	OutsideIpAddressType() *string
+	SetOutsideIpAddressType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	RemoteIpv4NetworkCidr() *string
+	SetRemoteIpv4NetworkCidr(val *string)
+	RemoteIpv6NetworkCidr() *string
+	SetRemoteIpv6NetworkCidr(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -100,6 +117,10 @@ type CfnVPNConnection interface {
 	// The ID of the transit gateway associated with the VPN connection.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
+	TransportTransitGatewayAttachmentId() *string
+	SetTransportTransitGatewayAttachmentId(val *string)
+	TunnelInsideIpVersion() *string
+	SetTunnelInsideIpVersion(val *string)
 	// The type of VPN connection.
 	Type() *string
 	SetType(val *string)
@@ -326,6 +347,26 @@ func (j *jsiiProxy_CfnVPNConnection) EnableAcceleration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPNConnection) LocalIpv4NetworkCidr() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"localIpv4NetworkCidr",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNConnection) LocalIpv6NetworkCidr() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"localIpv6NetworkCidr",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPNConnection) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -346,11 +387,41 @@ func (j *jsiiProxy_CfnVPNConnection) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPNConnection) OutsideIpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outsideIpAddressType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPNConnection) Ref() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNConnection) RemoteIpv4NetworkCidr() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"remoteIpv4NetworkCidr",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNConnection) RemoteIpv6NetworkCidr() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"remoteIpv6NetworkCidr",
 		&returns,
 	)
 	return returns
@@ -401,6 +472,26 @@ func (j *jsiiProxy_CfnVPNConnection) TransitGatewayId() *string {
 	_jsii_.Get(
 		j,
 		"transitGatewayId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNConnection) TransportTransitGatewayAttachmentId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"transportTransitGatewayAttachmentId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPNConnection) TunnelInsideIpVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tunnelInsideIpVersion",
 		&returns,
 	)
 	return returns
@@ -506,6 +597,46 @@ func (j *jsiiProxy_CfnVPNConnection)SetEnableAcceleration(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnVPNConnection)SetLocalIpv4NetworkCidr(val *string) {
+	_jsii_.Set(
+		j,
+		"localIpv4NetworkCidr",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetLocalIpv6NetworkCidr(val *string) {
+	_jsii_.Set(
+		j,
+		"localIpv6NetworkCidr",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetOutsideIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"outsideIpAddressType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetRemoteIpv4NetworkCidr(val *string) {
+	_jsii_.Set(
+		j,
+		"remoteIpv4NetworkCidr",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetRemoteIpv6NetworkCidr(val *string) {
+	_jsii_.Set(
+		j,
+		"remoteIpv6NetworkCidr",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnVPNConnection)SetStaticRoutesOnly(val interface{}) {
 	if err := j.validateSetStaticRoutesOnlyParameters(val); err != nil {
 		panic(err)
@@ -532,6 +663,22 @@ func (j *jsiiProxy_CfnVPNConnection)SetTransitGatewayId(val *string) {
 	_jsii_.Set(
 		j,
 		"transitGatewayId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetTransportTransitGatewayAttachmentId(val *string) {
+	_jsii_.Set(
+		j,
+		"transportTransitGatewayAttachmentId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPNConnection)SetTunnelInsideIpVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"tunnelInsideIpVersion",
 		val,
 	)
 }

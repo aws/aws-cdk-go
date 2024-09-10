@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnWebExperience) validateSetApplicationIdParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebExperience) validateSetIdentityProviderConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebExperience) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

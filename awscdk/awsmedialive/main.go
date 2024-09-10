@@ -766,6 +766,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sources", GoGetter: "Sources"},
+			_jsii_.MemberProperty{JsiiProperty: "srtSettings", GoGetter: "SrtSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -807,6 +808,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.MediaConnectFlowRequestProperty",
 		reflect.TypeOf((*CfnInput_MediaConnectFlowRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtCallerDecryptionRequestProperty",
+		reflect.TypeOf((*CfnInput_SrtCallerDecryptionRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtCallerSourceRequestProperty",
+		reflect.TypeOf((*CfnInput_SrtCallerSourceRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtSettingsRequestProperty",
+		reflect.TypeOf((*CfnInput_SrtSettingsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInputProps",

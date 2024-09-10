@@ -15,6 +15,12 @@ package awsopensearchservice
 //   	AnonymousAuthEnabled: jsii.Boolean(false),
 //   	Enabled: jsii.Boolean(false),
 //   	InternalUserDatabaseEnabled: jsii.Boolean(false),
+//   	JwtOptions: &JWTOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		PublicKey: jsii.String("publicKey"),
+//   		RolesKey: jsii.String("rolesKey"),
+//   		SubjectKey: jsii.String("subjectKey"),
+//   	},
 //   	MasterUserOptions: &MasterUserOptionsProperty{
 //   		MasterUserArn: jsii.String("masterUserArn"),
 //   		MasterUserName: jsii.String("masterUserName"),
@@ -59,6 +65,10 @@ type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-internaluserdatabaseenabled
 	//
 	InternalUserDatabaseEnabled interface{} `field:"optional" json:"internalUserDatabaseEnabled" yaml:"internalUserDatabaseEnabled"`
+	// Container for information about the JWT configuration of the Amazon OpenSearch Service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-jwtoptions
+	//
+	JwtOptions interface{} `field:"optional" json:"jwtOptions" yaml:"jwtOptions"`
 	// Specifies information about the master user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-masteruseroptions
 	//

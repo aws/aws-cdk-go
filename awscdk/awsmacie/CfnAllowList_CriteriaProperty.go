@@ -5,7 +5,7 @@ package awsmacie
 //
 // The criteria can be:
 //
-// - The location and name of an Amazon Simple Storage Service ( Amazon S3 ) object that lists specific, predefined text to ignore ( `S3WordsList` ), or
+// - The location and name of an Amazon Simple Storage Service ( Amazon S3 ) object that lists specific predefined text to ignore ( `S3WordsList` ), or
 // - A regular expression ( `Regex` ) that defines a text pattern to ignore.
 //
 // The criteria must specify either an S3 object or a regular expression. It can't specify both.

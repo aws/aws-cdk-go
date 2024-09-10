@@ -3,7 +3,7 @@ package awsecs
 
 // The log configuration for the container.
 //
-// This parameter maps to `LogConfig` in the docker conainer create command and the `--log-driver` option to docker run.
+// This parameter maps to `LogConfig` in the docker container create command and the `--log-driver` option to docker run.
 //
 // By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
 //

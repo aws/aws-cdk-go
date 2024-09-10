@@ -869,6 +869,10 @@ func init() {
 		reflect.TypeOf((*CfnTaskDefinition_ResourceRequirementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.RestartPolicyProperty",
+		reflect.TypeOf((*CfnTaskDefinition_RestartPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.RuntimePlatformProperty",
 		reflect.TypeOf((*CfnTaskDefinition_RuntimePlatformProperty)(nil)).Elem(),
 	)

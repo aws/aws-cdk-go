@@ -25,11 +25,25 @@ import (
 //   	AttachmentsConfiguration: &AttachmentsConfigurationProperty{
 //   		AttachmentsControlMode: jsii.String("attachmentsControlMode"),
 //   	},
+//   	AutoSubscriptionConfiguration: &AutoSubscriptionConfigurationProperty{
+//   		AutoSubscribe: jsii.String("autoSubscribe"),
+//
+//   		// the properties below are optional
+//   		DefaultSubscriptionType: jsii.String("defaultSubscriptionType"),
+//   	},
+//   	ClientIdsForOidc: []*string{
+//   		jsii.String("clientIdsForOidc"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	EncryptionConfiguration: &EncryptionConfigurationProperty{
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	IamIdentityProviderArn: jsii.String("iamIdentityProviderArn"),
 //   	IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   	IdentityType: jsii.String("identityType"),
+//   	PersonalizationConfiguration: &PersonalizationConfigurationProperty{
+//   		PersonalizationControlMode: jsii.String("personalizationControlMode"),
+//   	},
 //   	QAppsConfiguration: &QAppsConfigurationProperty{
 //   		QAppsControlMode: jsii.String("qAppsControlMode"),
 //   	},
@@ -65,6 +79,9 @@ type CfnApplication interface {
 	AttrStatus() *string
 	// The Unix timestamp when the Amazon Q Business application was last updated.
 	AttrUpdatedAt() *string
+	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+	AutoSubscriptionConfiguration() interface{}
+	SetAutoSubscriptionConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -72,6 +89,8 @@ type CfnApplication interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	ClientIdsForOidc() *[]*string
+	SetClientIdsForOidc(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -85,9 +104,15 @@ type CfnApplication interface {
 	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business.
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
+	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+	IamIdentityProviderArn() *string
+	SetIamIdentityProviderArn(val *string)
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
 	IdentityCenterInstanceArn() *string
 	SetIdentityCenterInstanceArn(val *string)
+	// The authentication type being used by a Amazon Q Business application.
+	IdentityType() *string
+	SetIdentityType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -100,6 +125,9 @@ type CfnApplication interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Configuration information about chat response personalization.
+	PersonalizationConfiguration() interface{}
+	SetPersonalizationConfiguration(val interface{})
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration() interface{}
 	SetQAppsConfiguration(val interface{})
@@ -335,6 +363,16 @@ func (j *jsiiProxy_CfnApplication) AttrUpdatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) AutoSubscriptionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"autoSubscriptionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -370,6 +408,16 @@ func (j *jsiiProxy_CfnApplication) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) ClientIdsForOidc() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"clientIdsForOidc",
 		&returns,
 	)
 	return returns
@@ -415,11 +463,31 @@ func (j *jsiiProxy_CfnApplication) EncryptionConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) IamIdentityProviderArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"iamIdentityProviderArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) IdentityCenterInstanceArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"identityCenterInstanceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) IdentityType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"identityType",
 		&returns,
 	)
 	return returns
@@ -440,6 +508,16 @@ func (j *jsiiProxy_CfnApplication) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) PersonalizationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"personalizationConfiguration",
 		&returns,
 	)
 	return returns
@@ -554,6 +632,25 @@ func (j *jsiiProxy_CfnApplication)SetAttachmentsConfiguration(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnApplication)SetAutoSubscriptionConfiguration(val interface{}) {
+	if err := j.validateSetAutoSubscriptionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"autoSubscriptionConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetClientIdsForOidc(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"clientIdsForOidc",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnApplication)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -584,10 +681,37 @@ func (j *jsiiProxy_CfnApplication)SetEncryptionConfiguration(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnApplication)SetIamIdentityProviderArn(val *string) {
+	_jsii_.Set(
+		j,
+		"iamIdentityProviderArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnApplication)SetIdentityCenterInstanceArn(val *string) {
 	_jsii_.Set(
 		j,
 		"identityCenterInstanceArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetIdentityType(val *string) {
+	_jsii_.Set(
+		j,
+		"identityType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetPersonalizationConfiguration(val interface{}) {
+	if err := j.validateSetPersonalizationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"personalizationConfiguration",
 		val,
 	)
 }

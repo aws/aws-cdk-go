@@ -27,6 +27,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "autoBranchCreationConfig", GoGetter: "AutoBranchCreationConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "basicAuthConfig", GoGetter: "BasicAuthConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "buildSpec", GoGetter: "BuildSpec"},
+			_jsii_.MemberProperty{JsiiProperty: "cacheConfig", GoGetter: "CacheConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -77,6 +78,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_amplify.CfnApp.BasicAuthConfigProperty",
 		reflect.TypeOf((*CfnApp_BasicAuthConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_amplify.CfnApp.CacheConfigProperty",
+		reflect.TypeOf((*CfnApp_CacheConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_amplify.CfnApp.CustomRuleProperty",

@@ -294,9 +294,11 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
-//   	IsTerminal: jsii.Boolean(false),
 //   	RuleName: jsii.String("ruleName"),
 //   	RuleOrder: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	IsTerminal: jsii.Boolean(false),
 //   	RuleStatus: jsii.String("ruleStatus"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -809,6 +811,9 @@ func (j *jsiiProxy_CfnAutomationRule)SetCriteria(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnAutomationRule)SetDescription(val *string) {
+	if err := j.validateSetDescriptionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"description",
@@ -828,6 +833,9 @@ func (j *jsiiProxy_CfnAutomationRule)SetIsTerminal(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnAutomationRule)SetRuleName(val *string) {
+	if err := j.validateSetRuleNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ruleName",
@@ -836,6 +844,9 @@ func (j *jsiiProxy_CfnAutomationRule)SetRuleName(val *string) {
 }
 
 func (j *jsiiProxy_CfnAutomationRule)SetRuleOrder(val *float64) {
+	if err := j.validateSetRuleOrderParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"ruleOrder",

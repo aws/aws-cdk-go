@@ -233,6 +233,28 @@ func EngineVersion_V1_2_1_0() EngineVersion {
 	return returns
 }
 
+func EngineVersion_V1_2_1_1() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.EngineVersion",
+		"V1_2_1_1",
+		&returns,
+	)
+	return returns
+}
+
+func EngineVersion_V1_2_1_2() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.EngineVersion",
+		"V1_2_1_2",
+		&returns,
+	)
+	return returns
+}
+
 func EngineVersion_V1_3_0_0() EngineVersion {
 	_init_.Initialize()
 	var returns EngineVersion
@@ -250,6 +272,39 @@ func EngineVersion_V1_3_1_0() EngineVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-neptune-alpha.EngineVersion",
 		"V1_3_1_0",
+		&returns,
+	)
+	return returns
+}
+
+func EngineVersion_V1_3_2_0() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.EngineVersion",
+		"V1_3_2_0",
+		&returns,
+	)
+	return returns
+}
+
+func EngineVersion_V1_3_2_1() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.EngineVersion",
+		"V1_3_2_1",
+		&returns,
+	)
+	return returns
+}
+
+func EngineVersion_V1_3_3_0() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.EngineVersion",
+		"V1_3_3_0",
 		&returns,
 	)
 	return returns

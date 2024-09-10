@@ -48,6 +48,20 @@ import (
 //   			Username: jsii.String("username"),
 //   		},
 //   	},
+//   	SrtSettings: &SrtSettingsRequestProperty{
+//   		SrtCallerSources: []interface{}{
+//   			&SrtCallerSourceRequestProperty{
+//   				Decryption: &SrtCallerDecryptionRequestProperty{
+//   					Algorithm: jsii.String("algorithm"),
+//   					PassphraseSecretArn: jsii.String("passphraseSecretArn"),
+//   				},
+//   				MinimumLatency: jsii.Number(123),
+//   				SrtListenerAddress: jsii.String("srtListenerAddress"),
+//   				SrtListenerPort: jsii.String("srtListenerPort"),
+//   				StreamId: jsii.String("streamId"),
+//   			},
+//   		},
+//   	},
 //   	Tags: tags,
 //   	Type: jsii.String("type"),
 //   	Vpc: &InputVpcRequestProperty{
@@ -127,6 +141,8 @@ type CfnInput interface {
 	// Settings that apply only if the input is a pull type of input.
 	Sources() interface{}
 	SetSources(val interface{})
+	SrtSettings() interface{}
+	SetSrtSettings(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -469,6 +485,16 @@ func (j *jsiiProxy_CfnInput) Sources() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInput) SrtSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"srtSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInput) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -631,6 +657,17 @@ func (j *jsiiProxy_CfnInput)SetSources(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sources",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInput)SetSrtSettings(val interface{}) {
+	if err := j.validateSetSrtSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"srtSettings",
 		val,
 	)
 }

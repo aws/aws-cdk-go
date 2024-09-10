@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > After you create a solution, you can’t change its configuration.
+// > By default, all new solutions use automatic training.
 //
-// By default, all new solutions use automatic training. With automatic training, you incur training costs while your solution is active. You can't stop automatic training for a solution. To avoid unnecessary costs, make sure to delete the solution when you are finished. For information about training costs, see [Amazon Personalize pricing](https://docs.aws.amazon.com/https://aws.amazon.com/personalize/pricing/) .
+// With automatic training, you incur training costs while your solution is active. To avoid unnecessary costs, when you are finished you can [update the solution](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html) to turn off automatic training. For information about training costs, see [Amazon Personalize pricing](https://docs.aws.amazon.com/https://aws.amazon.com/personalize/pricing/) .
 //
 // An object that provides information about a solution. A solution includes the custom recipe, customized parameters, and trained models (Solution Versions) that Amazon Personalize uses to generate recommendations.
 //

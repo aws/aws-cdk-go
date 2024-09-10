@@ -11,6 +11,10 @@ package awsiotfleetwise
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dataDestinationConfigProperty := &DataDestinationConfigProperty{
+//   	MqttTopicConfig: &MqttTopicConfigProperty{
+//   		ExecutionRoleArn: jsii.String("executionRoleArn"),
+//   		MqttTopicArn: jsii.String("mqttTopicArn"),
+//   	},
 //   	S3Config: &S3ConfigProperty{
 //   		BucketArn: jsii.String("bucketArn"),
 //
@@ -28,6 +32,9 @@ package awsiotfleetwise
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html
 //
 type CfnCampaign_DataDestinationConfigProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-mqtttopicconfig
+	//
+	MqttTopicConfig interface{} `field:"optional" json:"mqttTopicConfig" yaml:"mqttTopicConfig"`
 	// (Optional) The Amazon S3 bucket where the AWS IoT FleetWise campaign sends data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-s3config
 	//

@@ -33,7 +33,7 @@ type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 	Autoprovision interface{} `field:"optional" json:"autoprovision" yaml:"autoprovision"`
 	// The Docker volume driver to use.
 	//
-	// The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use `docker plugin ls` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to `Driver` in the docker conainer create command and the `xxdriver` option to docker volume create.
+	// The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use `docker plugin ls` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to `Driver` in the docker container create command and the `xxdriver` option to docker volume create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
 	//
 	Driver *string `field:"optional" json:"driver" yaml:"driver"`
@@ -45,7 +45,7 @@ type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 	DriverOpts interface{} `field:"optional" json:"driverOpts" yaml:"driverOpts"`
 	// Custom metadata to add to your Docker volume.
 	//
-	// This parameter maps to `Labels` in the docker conainer create command and the `xxlabel` option to docker volume create.
+	// This parameter maps to `Labels` in the docker container create command and the `xxlabel` option to docker volume create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
 	//
 	Labels interface{} `field:"optional" json:"labels" yaml:"labels"`

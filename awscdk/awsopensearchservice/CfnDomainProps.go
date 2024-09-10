@@ -23,6 +23,12 @@ import (
 //   		AnonymousAuthEnabled: jsii.Boolean(false),
 //   		Enabled: jsii.Boolean(false),
 //   		InternalUserDatabaseEnabled: jsii.Boolean(false),
+//   		JwtOptions: &JWTOptionsProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			PublicKey: jsii.String("publicKey"),
+//   			RolesKey: jsii.String("rolesKey"),
+//   			SubjectKey: jsii.String("subjectKey"),
+//   		},
 //   		MasterUserOptions: &MasterUserOptionsProperty{
 //   			MasterUserArn: jsii.String("masterUserArn"),
 //   			MasterUserName: jsii.String("masterUserName"),
@@ -105,6 +111,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SkipShardMigrationWait: jsii.Boolean(false),
 //   	SnapshotOptions: &SnapshotOptionsProperty{
 //   		AutomatedSnapshotStartHour: jsii.Number(123),
 //   	},
@@ -217,6 +224,9 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-offpeakwindowoptions
 	//
 	OffPeakWindowOptions interface{} `field:"optional" json:"offPeakWindowOptions" yaml:"offPeakWindowOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-skipshardmigrationwait
+	//
+	SkipShardMigrationWait interface{} `field:"optional" json:"skipShardMigrationWait" yaml:"skipShardMigrationWait"`
 	// *DEPRECATED* .
 	//
 	// The automated snapshot configuration for the OpenSearch Service domain indexes.

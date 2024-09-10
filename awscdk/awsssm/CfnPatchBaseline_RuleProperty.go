@@ -34,9 +34,11 @@ type CfnPatchBaseline_RuleProperty struct {
 	//
 	// For example, a value of `7` means that patches are approved seven days after they are released.
 	//
-	// > This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
+	// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 	//
 	// Not supported for Debian Server or Ubuntu Server.
+	//
+	// > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
 	//
 	ApproveAfterDays *float64 `field:"optional" json:"approveAfterDays" yaml:"approveAfterDays"`
@@ -46,9 +48,11 @@ type CfnPatchBaseline_RuleProperty struct {
 	//
 	// Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
 	//
-	// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+	// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
 	//
 	// Not supported for Debian Server or Ubuntu Server.
+	//
+	// > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
 	//
 	ApproveUntilDate *string `field:"optional" json:"approveUntilDate" yaml:"approveUntilDate"`

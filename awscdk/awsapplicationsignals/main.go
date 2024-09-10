@@ -21,6 +21,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedTime", GoGetter: "AttrCreatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEvaluationType", GoGetter: "AttrEvaluationType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedTime", GoGetter: "AttrLastUpdatedTime"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -42,6 +43,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "requestBasedSli", GoGetter: "RequestBasedSli"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sli", GoGetter: "Sli"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -86,6 +88,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.MetricStatProperty",
 		reflect.TypeOf((*CfnServiceLevelObjective_MetricStatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.MonitoredRequestCountMetricProperty",
+		reflect.TypeOf((*CfnServiceLevelObjective_MonitoredRequestCountMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.RequestBasedSliMetricProperty",
+		reflect.TypeOf((*CfnServiceLevelObjective_RequestBasedSliMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.RequestBasedSliProperty",
+		reflect.TypeOf((*CfnServiceLevelObjective_RequestBasedSliProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.RollingIntervalProperty",

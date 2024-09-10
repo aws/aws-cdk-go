@@ -42,7 +42,10 @@ type CfnIPSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-activate
 	//
 	Activate interface{} `field:"optional" json:"activate" yaml:"activate"`
-	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-detectorid
 	//
 	DetectorId *string `field:"optional" json:"detectorId" yaml:"detectorId"`

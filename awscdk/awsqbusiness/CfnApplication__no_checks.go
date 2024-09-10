@@ -84,11 +84,19 @@ func (j *jsiiProxy_CfnApplication) validateSetAttachmentsConfigurationParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetAutoSubscriptionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetDisplayNameParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnApplication) validateSetEncryptionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplication) validateSetPersonalizationConfigurationParameters(val interface{}) error {
 	return nil
 }
 

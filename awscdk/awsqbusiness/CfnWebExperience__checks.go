@@ -187,6 +187,30 @@ func (j *jsiiProxy_CfnWebExperience) validateSetApplicationIdParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebExperience) validateSetIdentityProviderConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnWebExperience_IdentityProviderConfigurationProperty:
+		val := val.(*CfnWebExperience_IdentityProviderConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnWebExperience_IdentityProviderConfigurationProperty:
+		val_ := val.(CfnWebExperience_IdentityProviderConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWebExperience_IdentityProviderConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebExperience) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

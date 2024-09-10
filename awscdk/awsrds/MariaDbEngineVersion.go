@@ -132,6 +132,17 @@ func MariaDbEngineVersion_VER_10_11_8() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_11_9() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_11_9",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_2() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -759,6 +770,17 @@ func MariaDbEngineVersion_VER_10_5_25() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_5_26() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_5_26",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_5_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -886,6 +908,17 @@ func MariaDbEngineVersion_VER_10_6_18() MariaDbEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
 		"VER_10_6_18",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_6_19() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"VER_10_6_19",
 		&returns,
 	)
 	return returns

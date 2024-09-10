@@ -194,6 +194,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "incrementalRunConfig", GoGetter: "IncrementalRunConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "inputSourceConfig", GoGetter: "InputSourceConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -224,6 +225,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.IncrementalRunConfigProperty",
+		reflect.TypeOf((*CfnMatchingWorkflow_IncrementalRunConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.InputSourceProperty",

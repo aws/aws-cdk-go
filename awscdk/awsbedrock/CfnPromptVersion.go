@@ -23,6 +23,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-promptversion.html
@@ -30,10 +33,13 @@ import (
 type CfnPromptVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the prompt or the prompt version (if you specified a version in the request).
 	AttrArn() *string
 	// The time at which the prompt was created.
 	AttrCreatedAt() *string
+	// A KMS key ARN.
+	AttrCustomerEncryptionKeyArn() *string
 	// The name of the default variant for the prompt.
 	//
 	// This value must match the `name` field in the relevant [PromptVariant](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptVariant.html) object.
@@ -48,6 +54,8 @@ type CfnPromptVersion interface {
 	AttrVariants() awscdk.IResolvable
 	// The version of the prompt that this summary applies to.
 	AttrVersion() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -84,6 +92,9 @@ type CfnPromptVersion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A map of tag keys and values.
+	Tags() *map[string]*string
+	SetTags(val *map[string]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +239,7 @@ type CfnPromptVersion interface {
 type jsiiProxy_CfnPromptVersion struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnPromptVersion) AttrArn() *string {
@@ -245,6 +257,16 @@ func (j *jsiiProxy_CfnPromptVersion) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPromptVersion) AttrCustomerEncryptionKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCustomerEncryptionKeyArn",
 		&returns,
 	)
 	return returns
@@ -305,6 +327,16 @@ func (j *jsiiProxy_CfnPromptVersion) AttrVersion() *string {
 	_jsii_.Get(
 		j,
 		"attrVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPromptVersion) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -410,6 +442,16 @@ func (j *jsiiProxy_CfnPromptVersion) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPromptVersion) Tags() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPromptVersion) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -473,6 +515,14 @@ func (j *jsiiProxy_CfnPromptVersion)SetPromptArn(val *string) {
 	_jsii_.Set(
 		j,
 		"promptArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPromptVersion)SetTags(val *map[string]*string) {
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

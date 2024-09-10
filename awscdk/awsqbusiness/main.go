@@ -26,23 +26,28 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrIdentityCenterApplicationArn", GoGetter: "AttrIdentityCenterApplicationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "autoSubscriptionConfiguration", GoGetter: "AutoSubscriptionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "clientIdsForOidc", GoGetter: "ClientIdsForOidc"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "iamIdentityProviderArn", GoGetter: "IamIdentityProviderArn"},
 			_jsii_.MemberProperty{JsiiProperty: "identityCenterInstanceArn", GoGetter: "IdentityCenterInstanceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "identityType", GoGetter: "IdentityType"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "personalizationConfiguration", GoGetter: "PersonalizationConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "qAppsConfiguration", GoGetter: "QAppsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -70,8 +75,16 @@ func init() {
 		reflect.TypeOf((*CfnApplication_AttachmentsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnApplication.AutoSubscriptionConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_AutoSubscriptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnApplication.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnApplication.PersonalizationConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_PersonalizationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnApplication.QAppsConfigurationProperty",
@@ -432,6 +445,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "identityProviderConfiguration", GoGetter: "IdentityProviderConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -462,6 +476,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnWebExperience.IdentityProviderConfigurationProperty",
+		reflect.TypeOf((*CfnWebExperience_IdentityProviderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnWebExperience.OpenIDConnectProviderConfigurationProperty",
+		reflect.TypeOf((*CfnWebExperience_OpenIDConnectProviderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnWebExperience.SamlProviderConfigurationProperty",
+		reflect.TypeOf((*CfnWebExperience_SamlProviderConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnWebExperienceProps",

@@ -55,6 +55,7 @@ package awsbatch
 //   		},
 //   		UpdateToLatestImageVersion: jsii.Boolean(false),
 //   	},
+//   	Context: jsii.String("context"),
 //   	EksConfiguration: &EksConfigurationProperty{
 //   		EksClusterArn: jsii.String("eksClusterArn"),
 //   		KubernetesNamespace: jsii.String("kubernetesNamespace"),
@@ -93,6 +94,10 @@ type CfnComputeEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-computeresources
 	//
 	ComputeResources interface{} `field:"optional" json:"computeResources" yaml:"computeResources"`
+	// Reserved.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-context
+	//
+	Context *string `field:"optional" json:"context" yaml:"context"`
 	// The details for the Amazon EKS cluster that supports the compute environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-eksconfiguration
 	//

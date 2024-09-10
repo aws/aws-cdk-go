@@ -26,9 +26,6 @@ import (
 //   	Ipv4IpamPoolId: jsii.String("ipv4IpamPoolId"),
 //   	Ipv4NetmaskLength: jsii.Number(123),
 //   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
-//   	Ipv6CidrBlocks: []*string{
-//   		jsii.String("ipv6CidrBlocks"),
-//   	},
 //   	Ipv6IpamPoolId: jsii.String("ipv6IpamPoolId"),
 //   	Ipv6Native: jsii.Boolean(false),
 //   	Ipv6NetmaskLength: jsii.Number(123),
@@ -100,10 +97,6 @@ type CfnSubnetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblock
 	//
 	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
-	// The IPv6 network ranges for the subnet, in CIDR notation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblocks
-	//
-	Ipv6CidrBlocks *[]*string `field:"optional" json:"ipv6CidrBlocks" yaml:"ipv6CidrBlocks"`
 	// An IPv6 IPAM pool ID for the subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6ipampoolid
 	//

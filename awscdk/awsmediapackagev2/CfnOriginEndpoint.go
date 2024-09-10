@@ -19,10 +19,10 @@ import (
 //   cfnOriginEndpoint := awscdk.Aws_mediapackagev2.NewCfnOriginEndpoint(this, jsii.String("MyCfnOriginEndpoint"), &CfnOriginEndpointProps{
 //   	ChannelGroupName: jsii.String("channelGroupName"),
 //   	ChannelName: jsii.String("channelName"),
+//   	ContainerType: jsii.String("containerType"),
 //   	OriginEndpointName: jsii.String("originEndpointName"),
 //
 //   	// the properties below are optional
-//   	ContainerType: jsii.String("containerType"),
 //   	DashManifests: []interface{}{
 //   		&DashManifestConfigurationProperty{
 //   			ManifestName: jsii.String("manifestName"),
@@ -712,6 +712,9 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetChannelName(val *string) {
 }
 
 func (j *jsiiProxy_CfnOriginEndpoint)SetContainerType(val *string) {
+	if err := j.validateSetContainerTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"containerType",

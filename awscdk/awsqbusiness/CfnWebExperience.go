@@ -20,6 +20,15 @@ import (
 //   	ApplicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
+//   	IdentityProviderConfiguration: &IdentityProviderConfigurationProperty{
+//   		OpenIdConnectConfiguration: &OpenIDConnectProviderConfigurationProperty{
+//   			SecretsArn: jsii.String("secretsArn"),
+//   			SecretsRole: jsii.String("secretsRole"),
+//   		},
+//   		SamlConfiguration: &SamlProviderConfigurationProperty{
+//   			AuthenticationUrl: jsii.String("authenticationUrl"),
+//   		},
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	SamplePromptsControlMode: jsii.String("samplePromptsControlMode"),
 //   	Subtitle: jsii.String("subtitle"),
@@ -67,6 +76,9 @@ type CfnWebExperience interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+	IdentityProviderConfiguration() interface{}
+	SetIdentityProviderConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -373,6 +385,16 @@ func (j *jsiiProxy_CfnWebExperience) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebExperience) IdentityProviderConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"identityProviderConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebExperience) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -528,6 +550,17 @@ func (j *jsiiProxy_CfnWebExperience)SetApplicationId(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWebExperience)SetIdentityProviderConfiguration(val interface{}) {
+	if err := j.validateSetIdentityProviderConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"identityProviderConfiguration",
 		val,
 	)
 }

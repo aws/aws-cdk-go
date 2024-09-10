@@ -284,9 +284,11 @@ package awssecurityhub
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
-//   	IsTerminal: jsii.Boolean(false),
 //   	RuleName: jsii.String("ruleName"),
 //   	RuleOrder: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	IsTerminal: jsii.Boolean(false),
 //   	RuleStatus: jsii.String("ruleStatus"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -299,31 +301,31 @@ type CfnAutomationRuleProps struct {
 	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-actions
 	//
-	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
+	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
 	// A set of [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that Security Hub uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, Security Hub applies the rule action to the finding.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-criteria
 	//
-	Criteria interface{} `field:"optional" json:"criteria" yaml:"criteria"`
+	Criteria interface{} `field:"required" json:"criteria" yaml:"criteria"`
 	// A description of the rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-description
 	//
-	Description *string `field:"optional" json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
+	// The name of the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-rulename
+	//
+	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
+	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings.
+	//
+	// Security Hub applies rules with lower values for this parameter first.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-ruleorder
+	//
+	RuleOrder *float64 `field:"required" json:"ruleOrder" yaml:"ruleOrder"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria.
 	//
 	// This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-isterminal
 	//
 	IsTerminal interface{} `field:"optional" json:"isTerminal" yaml:"isTerminal"`
-	// The name of the rule.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-rulename
-	//
-	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings.
-	//
-	// Security Hub applies rules with lower values for this parameter first.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html#cfn-securityhub-automationrule-ruleorder
-	//
-	RuleOrder *float64 `field:"optional" json:"ruleOrder" yaml:"ruleOrder"`
 	// Whether the rule is active after it is created.
 	//
 	// If this parameter is equal to `ENABLED` , Security Hub applies the rule to findings and finding updates after the rule is created.

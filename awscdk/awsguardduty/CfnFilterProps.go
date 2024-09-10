@@ -57,7 +57,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html
 //
 type CfnFilterProps struct {
-	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	// The detector ID associated with the GuardDuty account for which you want to create a filter.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
 	//
 	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`

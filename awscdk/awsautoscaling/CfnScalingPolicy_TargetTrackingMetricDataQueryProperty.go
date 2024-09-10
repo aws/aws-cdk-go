@@ -5,7 +5,7 @@ package awsautoscaling
 //
 // Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
 //
-// `TargetTrackingMetricDataQuery` is used with the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type.
+// You can use `TargetTrackingMetricDataQuery` structures with a `PutScalingPolicy` operation when you specify a `TargetTrackingConfiguration` in the request.
 //
 // You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
 //

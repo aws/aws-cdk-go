@@ -85,6 +85,10 @@ func init() {
 		reflect.TypeOf((*CfnCampaign_DataDestinationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.MqttTopicConfigProperty",
+		reflect.TypeOf((*CfnCampaign_MqttTopicConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.S3ConfigProperty",
 		reflect.TypeOf((*CfnCampaign_S3ConfigProperty)(nil)).Elem(),
 	)

@@ -44,7 +44,7 @@ type CfnModuleVersion interface {
 	AttrIsDefaultVersion() awscdk.IResolvable
 	// The schema that defines the extension.
 	//
-	// For more information about extension schemas, see [Resource Provider Schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) in the *CloudFormation CLI User Guide* .
+	// For more information about extension schemas, see [Resource Provider Schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) in the *AWS CloudFormation Command Line Interface (CLI) User Guide* .
 	AttrSchema() *string
 	// When the specified private extension version was registered or activated in your account.
 	AttrTimeCreated() *string
@@ -54,7 +54,7 @@ type CfnModuleVersion interface {
 	//
 	// Valid values include:
 	//
-	// - `PRIVATE` : The extension is only visible and usable within the account in which it is registered. AWS CloudFormation marks any extensions you register as `PRIVATE` .
+	// - `PRIVATE` : The extension is only visible and usable within the account in which it is registered. CloudFormation marks any extensions you register as `PRIVATE` .
 	// - `PUBLIC` : The extension is publicly visible and usable within any AWS account.
 	AttrVisibility() *string
 	// Options for this resource, such as condition, update policy etc.

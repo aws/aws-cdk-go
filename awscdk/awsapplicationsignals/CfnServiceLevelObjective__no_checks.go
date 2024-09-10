@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnServiceLevelObjective) validateSetNameParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnServiceLevelObjective) validateSetRequestBasedSliParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnServiceLevelObjective) validateSetSliParameters(val interface{}) error {
 	return nil
 }

@@ -73,6 +73,7 @@ type CfnSubnet interface {
 	AttrAvailabilityZoneId() *string
 	// The IPv4 CIDR blocks that are associated with the subnet.
 	AttrCidrBlock() *string
+	// The IPv6 CIDR blocks that are associated with the subnet.
 	AttrIpv6CidrBlocks() *[]*string
 	// The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
 	AttrNetworkAclAssociationId() *string
@@ -115,9 +116,6 @@ type CfnSubnet interface {
 	// The IPv6 CIDR block.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
-	// The IPv6 network ranges for the subnet, in CIDR notation.
-	Ipv6CidrBlocks() *[]*string
-	SetIpv6CidrBlocks(val *[]*string)
 	// An IPv6 IPAM pool ID for the subnet.
 	Ipv6IpamPoolId() *string
 	SetIpv6IpamPoolId(val *string)
@@ -524,16 +522,6 @@ func (j *jsiiProxy_CfnSubnet) Ipv6CidrBlock() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubnet) Ipv6CidrBlocks() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"ipv6CidrBlocks",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnSubnet) Ipv6IpamPoolId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -786,14 +774,6 @@ func (j *jsiiProxy_CfnSubnet)SetIpv6CidrBlock(val *string) {
 	_jsii_.Set(
 		j,
 		"ipv6CidrBlock",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnSubnet)SetIpv6CidrBlocks(val *[]*string) {
-	_jsii_.Set(
-		j,
-		"ipv6CidrBlocks",
 		val,
 	)
 }

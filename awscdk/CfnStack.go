@@ -122,7 +122,7 @@ type CfnStack interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events.
+	// The Amazon SNS topic ARNs to publish stack related events.
 	NotificationArns() *[]*string
 	SetNotificationArns(val *[]*string)
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.

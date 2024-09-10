@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnApp) validateSetBasicAuthConfigParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnApp) validateSetCacheConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApp) validateSetCustomRulesParameters(val interface{}) error {
 	return nil
 }

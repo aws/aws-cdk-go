@@ -24,9 +24,9 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
+//   	Namespace: jsii.String("namespace"),
 //
 //   	// the properties below are optional
-//   	Namespace: jsii.String("namespace"),
 //   	Permissions: []*string{
 //   		jsii.String("permissions"),
 //   	},
@@ -56,7 +56,7 @@ type CfnApplicationProps struct {
 	// The namespace of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-namespace
 	//
-	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The configuration of events or requests that the application has access to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-permissions
 	//

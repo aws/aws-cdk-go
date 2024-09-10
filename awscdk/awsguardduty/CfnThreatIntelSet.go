@@ -54,7 +54,7 @@ type CfnThreatIntelSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
 	DetectorId() *string
 	SetDetectorId(val *string)
 	// The format of the file that contains the ThreatIntelSet.

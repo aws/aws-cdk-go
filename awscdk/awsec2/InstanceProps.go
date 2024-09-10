@@ -225,7 +225,7 @@ type InstanceProps struct {
 	// Setting this to `true` will make the instance's Logical ID depend on the
 	// UserData, which will cause CloudFormation to replace it if the UserData
 	// changes.
-	// Default: - true iff `initOptions` is specified, false otherwise.
+	// Default: - true if `initOptions` is specified, false otherwise.
 	//
 	UserDataCausesReplacement *bool `field:"optional" json:"userDataCausesReplacement" yaml:"userDataCausesReplacement"`
 	// Where to place the instance within the VPC.

@@ -521,6 +521,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "restoreTestingPlanName", GoGetter: "RestoreTestingPlanName"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleExpression", GoGetter: "ScheduleExpression"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleExpressionTimezone", GoGetter: "ScheduleExpressionTimezone"},
+			_jsii_.MemberProperty{JsiiProperty: "scheduleStatus", GoGetter: "ScheduleStatus"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "startWindowHours", GoGetter: "StartWindowHours"},

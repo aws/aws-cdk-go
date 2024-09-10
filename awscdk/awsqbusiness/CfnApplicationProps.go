@@ -18,11 +18,25 @@ import (
 //   	AttachmentsConfiguration: &AttachmentsConfigurationProperty{
 //   		AttachmentsControlMode: jsii.String("attachmentsControlMode"),
 //   	},
+//   	AutoSubscriptionConfiguration: &AutoSubscriptionConfigurationProperty{
+//   		AutoSubscribe: jsii.String("autoSubscribe"),
+//
+//   		// the properties below are optional
+//   		DefaultSubscriptionType: jsii.String("defaultSubscriptionType"),
+//   	},
+//   	ClientIdsForOidc: []*string{
+//   		jsii.String("clientIdsForOidc"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	EncryptionConfiguration: &EncryptionConfigurationProperty{
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	IamIdentityProviderArn: jsii.String("iamIdentityProviderArn"),
 //   	IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   	IdentityType: jsii.String("identityType"),
+//   	PersonalizationConfiguration: &PersonalizationConfigurationProperty{
+//   		PersonalizationControlMode: jsii.String("personalizationControlMode"),
+//   	},
 //   	QAppsConfiguration: &QAppsConfigurationProperty{
 //   		QAppsControlMode: jsii.String("qAppsControlMode"),
 //   	},
@@ -46,6 +60,13 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-attachmentsconfiguration
 	//
 	AttachmentsConfiguration interface{} `field:"optional" json:"attachmentsConfiguration" yaml:"attachmentsConfiguration"`
+	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-autosubscriptionconfiguration
+	//
+	AutoSubscriptionConfiguration interface{} `field:"optional" json:"autoSubscriptionConfiguration" yaml:"autoSubscriptionConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-clientidsforoidc
+	//
+	ClientIdsForOidc *[]*string `field:"optional" json:"clientIdsForOidc" yaml:"clientIdsForOidc"`
 	// A description for the Amazon Q Business application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-description
 	//
@@ -56,15 +77,27 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-encryptionconfiguration
 	//
 	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-iamidentityproviderarn
+	//
+	IamIdentityProviderArn *string `field:"optional" json:"iamIdentityProviderArn" yaml:"iamIdentityProviderArn"`
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
 	//
 	// *Required* : `Yes`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-identitycenterinstancearn
 	//
 	IdentityCenterInstanceArn *string `field:"optional" json:"identityCenterInstanceArn" yaml:"identityCenterInstanceArn"`
-	// Configuration information about Amazon Q Apps.
+	// The authentication type being used by a Amazon Q Business application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-identitytype
 	//
-	// (preview feature).
+	IdentityType *string `field:"optional" json:"identityType" yaml:"identityType"`
+	// Configuration information about chat response personalization.
+	//
+	// For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-personalizationconfiguration
+	//
+	PersonalizationConfiguration interface{} `field:"optional" json:"personalizationConfiguration" yaml:"personalizationConfiguration"`
+	// Configuration information about Amazon Q Apps.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-qappsconfiguration
 	//
 	QAppsConfiguration interface{} `field:"optional" json:"qAppsConfiguration" yaml:"qAppsConfiguration"`

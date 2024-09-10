@@ -53,6 +53,9 @@ import (
 //   		Username: jsii.String("username"),
 //   	},
 //   	BuildSpec: jsii.String("buildSpec"),
+//   	CacheConfig: &CacheConfigProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   	CustomHeaders: jsii.String("customHeaders"),
 //   	CustomRules: []interface{}{
 //   		&CustomRuleProperty{
@@ -110,6 +113,8 @@ type CfnApp interface {
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec() *string
 	SetBuildSpec(val *string)
+	CacheConfig() interface{}
+	SetCacheConfig(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -402,6 +407,16 @@ func (j *jsiiProxy_CfnApp) BuildSpec() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApp) CacheConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"cacheConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApp) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -684,6 +699,17 @@ func (j *jsiiProxy_CfnApp)SetBuildSpec(val *string) {
 	_jsii_.Set(
 		j,
 		"buildSpec",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApp)SetCacheConfig(val interface{}) {
+	if err := j.validateSetCacheConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"cacheConfig",
 		val,
 	)
 }

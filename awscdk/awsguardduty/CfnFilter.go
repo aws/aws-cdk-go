@@ -80,7 +80,7 @@ type CfnFilter interface {
 	// The description of the filter.
 	Description() *string
 	SetDescription(val *string)
-	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	// The detector ID associated with the GuardDuty account for which you want to create a filter.
 	DetectorId() *string
 	SetDetectorId(val *string)
 	// Represents the criteria to be used in the filter for querying findings.

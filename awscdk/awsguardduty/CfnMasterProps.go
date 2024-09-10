@@ -20,6 +20,9 @@ package awsguardduty
 //
 type CfnMasterProps struct {
 	// The unique ID of the detector of the GuardDuty member account.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-detectorid
 	//
 	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`

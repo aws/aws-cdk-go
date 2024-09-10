@@ -26,7 +26,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var collector interface{}
 //   var input interface{}
+//   var iterator interface{}
 //   var output interface{}
 //
 //   cfnFlow := awscdk.Aws_bedrock.NewCfnFlow(this, jsii.String("MyCfnFlow"), &CfnFlowProps{
@@ -62,6 +64,10 @@ import (
 //
 //   				// the properties below are optional
 //   				Configuration: &FlowNodeConfigurationProperty{
+//   					Agent: &AgentFlowNodeConfigurationProperty{
+//   						AgentAliasArn: jsii.String("agentAliasArn"),
+//   					},
+//   					Collector: collector,
 //   					Condition: &ConditionFlowNodeConfigurationProperty{
 //   						Conditions: []interface{}{
 //   							&FlowConditionProperty{
@@ -73,6 +79,7 @@ import (
 //   						},
 //   					},
 //   					Input: input,
+//   					Iterator: iterator,
 //   					KnowledgeBase: &KnowledgeBaseFlowNodeConfigurationProperty{
 //   						KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //
@@ -120,6 +127,20 @@ import (
 //   							},
 //   							Resource: &PromptFlowNodeResourceConfigurationProperty{
 //   								PromptArn: jsii.String("promptArn"),
+//   							},
+//   						},
+//   					},
+//   					Retrieval: &RetrievalFlowNodeConfigurationProperty{
+//   						ServiceConfiguration: &RetrievalFlowNodeServiceConfigurationProperty{
+//   							S3: &RetrievalFlowNodeS3ConfigurationProperty{
+//   								BucketName: jsii.String("bucketName"),
+//   							},
+//   						},
+//   					},
+//   					Storage: &StorageFlowNodeConfigurationProperty{
+//   						ServiceConfiguration: &StorageFlowNodeServiceConfigurationProperty{
+//   							S3: &StorageFlowNodeS3ConfigurationProperty{
+//   								BucketName: jsii.String("bucketName"),
 //   							},
 //   						},
 //   					},
@@ -181,6 +202,8 @@ type CfnFlow interface {
 	AttrStatus() *string
 	// The time at which the flow was last updated.
 	AttrUpdatedAt() *string
+	// List of flow validations.
+	AttrValidations() awscdk.IResolvable
 	// The latest version of the flow.
 	AttrVersion() *string
 	// Tag Manager which manages the tags for this resource.
@@ -439,6 +462,16 @@ func (j *jsiiProxy_CfnFlow) AttrUpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) AttrValidations() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrValidations",
 		&returns,
 	)
 	return returns

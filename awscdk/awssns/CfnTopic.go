@@ -61,7 +61,7 @@ type CfnTopic interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The archive policy determines the number of days Amazon SNS retains messages.
+	// The `ArchivePolicy` determines the number of days Amazon SNS retains messages in FIFO topics.
 	ArchivePolicy() interface{}
 	SetArchivePolicy(val interface{})
 	// Returns the ARN of an Amazon SNS topic.
@@ -73,7 +73,7 @@ type CfnTopic interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Enables content-based deduplication for FIFO topics.
+	// `ContentBasedDeduplication` enables deduplication of messages based on their content for FIFO topics.
 	ContentBasedDeduplication() interface{}
 	SetContentBasedDeduplication(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

@@ -92,6 +92,7 @@ import (
 //   		},
 //   		UpdateToLatestImageVersion: jsii.Boolean(false),
 //   	},
+//   	Context: jsii.String("context"),
 //   	EksConfiguration: &EksConfigurationProperty{
 //   		EksClusterArn: jsii.String("eksClusterArn"),
 //   		KubernetesNamespace: jsii.String("kubernetesNamespace"),
@@ -128,6 +129,9 @@ type CfnComputeEnvironment interface {
 	// The ComputeResources property type specifies details of the compute resources managed by the compute environment.
 	ComputeResources() interface{}
 	SetComputeResources(val interface{})
+	// Reserved.
+	Context() *string
+	SetContext(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -386,6 +390,16 @@ func (j *jsiiProxy_CfnComputeEnvironment) ComputeResources() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComputeEnvironment) Context() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"context",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComputeEnvironment) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -589,6 +603,14 @@ func (j *jsiiProxy_CfnComputeEnvironment)SetComputeResources(val interface{}) {
 	_jsii_.Set(
 		j,
 		"computeResources",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComputeEnvironment)SetContext(val *string) {
+	_jsii_.Set(
+		j,
+		"context",
 		val,
 	)
 }

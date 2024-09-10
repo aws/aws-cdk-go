@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnInput) validateSetSourcesParameters(val interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnInput) validateSetSrtSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnInput) validateSetVpcParameters(val interface{}) error {
 	return nil
 }

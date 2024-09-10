@@ -29,9 +29,9 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
+//   	Namespace: jsii.String("namespace"),
 //
 //   	// the properties below are optional
-//   	Namespace: jsii.String("namespace"),
 //   	Permissions: []*string{
 //   		jsii.String("permissions"),
 //   	},
@@ -502,6 +502,9 @@ func (j *jsiiProxy_CfnApplication)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnApplication)SetNamespace(val *string) {
+	if err := j.validateSetNamespaceParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"namespace",

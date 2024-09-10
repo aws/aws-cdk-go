@@ -57,7 +57,6 @@ import (
 type CfnDatabase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrId() *string
 	// The AWS account ID for the account in which to create the catalog object.
 	CatalogId() *string
 	SetCatalogId(val *string)
@@ -241,16 +240,6 @@ type CfnDatabase interface {
 type jsiiProxy_CfnDatabase struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
-}
-
-func (j *jsiiProxy_CfnDatabase) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnDatabase) CatalogId() *string {

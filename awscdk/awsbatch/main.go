@@ -43,6 +43,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "computeEnvironmentName", GoGetter: "ComputeEnvironmentName"},
 			_jsii_.MemberProperty{JsiiProperty: "computeResources", GoGetter: "ComputeResources"},
+			_jsii_.MemberProperty{JsiiProperty: "context", GoGetter: "Context"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "eksConfiguration", GoGetter: "EksConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},

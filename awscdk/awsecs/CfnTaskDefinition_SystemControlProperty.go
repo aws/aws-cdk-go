@@ -3,7 +3,7 @@ package awsecs
 
 // A list of namespaced kernel parameters to set in the container.
 //
-// This parameter maps to `Sysctls` in tthe docker conainer create command and the `--sysctl` option to docker run. For example, you can configure `net.ipv4.tcp_keepalive_time` setting to maintain longer lived connections.
+// This parameter maps to `Sysctls` in tthe docker container create command and the `--sysctl` option to docker run. For example, you can configure `net.ipv4.tcp_keepalive_time` setting to maintain longer lived connections.
 //
 // We don't recommend that you specify network-related `systemControls` parameters for multiple containers in a single task that also uses either the `awsvpc` or `host` network mode. Doing this has the following disadvantages:
 //

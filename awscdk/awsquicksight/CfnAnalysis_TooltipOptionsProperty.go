@@ -35,6 +35,7 @@ package awsquicksight
 //   						},
 //   					},
 //   					Label: jsii.String("label"),
+//   					TooltipTarget: jsii.String("tooltipTarget"),
 //   					Visibility: jsii.String("visibility"),
 //   				},
 //   				FieldTooltipItem: &FieldTooltipItemProperty{
@@ -42,6 +43,7 @@ package awsquicksight
 //
 //   					// the properties below are optional
 //   					Label: jsii.String("label"),
+//   					TooltipTarget: jsii.String("tooltipTarget"),
 //   					Visibility: jsii.String("visibility"),
 //   				},
 //   			},

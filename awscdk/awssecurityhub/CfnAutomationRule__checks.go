@@ -180,6 +180,9 @@ func validateCfnAutomationRule_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnAutomationRule) validateSetActionsParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -240,6 +243,9 @@ func (j *jsiiProxy_CfnAutomationRule) validateSetActionsParameters(val interface
 }
 
 func (j *jsiiProxy_CfnAutomationRule) validateSetCriteriaParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -263,6 +269,14 @@ func (j *jsiiProxy_CfnAutomationRule) validateSetCriteriaParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutomationRule) validateSetDescriptionParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutomationRule) validateSetIsTerminalParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -280,6 +294,22 @@ func (j *jsiiProxy_CfnAutomationRule) validateSetIsTerminalParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutomationRule) validateSetRuleNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnAutomationRule) validateSetRuleOrderParameters(val *float64) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnAutomationRuleParameters(scope constructs.Construct, id *string, props *CfnAutomationRuleProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -289,6 +319,9 @@ func validateNewCfnAutomationRuleParameters(scope constructs.Construct, id *stri
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnDomain) validateSetOffPeakWindowOptionsParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetSkipShardMigrationWaitParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetSnapshotOptionsParameters(val interface{}) error {
 	return nil
 }

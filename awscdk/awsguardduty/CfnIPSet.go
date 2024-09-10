@@ -53,7 +53,7 @@ type CfnIPSet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
 	DetectorId() *string
 	SetDetectorId(val *string)
 	// The format of the file that contains the IPSet.

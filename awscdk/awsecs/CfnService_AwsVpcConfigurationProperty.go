@@ -31,7 +31,7 @@ type CfnService_AwsVpcConfigurationProperty struct {
 	AssignPublicIp *string `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service.
 	//
-	// If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per `AwsVpcConfiguration` .
+	// If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per `awsvpcConfiguration` .
 	//
 	// > All specified security groups must be from the same VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
@@ -39,7 +39,7 @@ type CfnService_AwsVpcConfigurationProperty struct {
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The IDs of the subnets associated with the task or service.
 	//
-	// There's a limit of 16 subnets that can be specified per `AwsVpcConfiguration` .
+	// There's a limit of 16 subnets that can be specified per `awsvpcConfiguration` .
 	//
 	// > All specified subnets must be from the same VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
