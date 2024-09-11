@@ -21,6 +21,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-iot-alpha.ILogging",
+		reflect.TypeOf((*ILogging)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "logId", GoGetter: "LogId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ILogging{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-iot-alpha.ITopicRule",
 		reflect.TypeOf((*ITopicRule)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -50,6 +66,43 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-iot-alpha.IotSqlConfig",
 		reflect.TypeOf((*IotSqlConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-iot-alpha.LogLevel",
+		reflect.TypeOf((*LogLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"ERROR": LogLevel_ERROR,
+			"WARN": LogLevel_WARN,
+			"INFO": LogLevel_INFO,
+			"DEBUG": LogLevel_DEBUG,
+			"DISABLED": LogLevel_DISABLED,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iot-alpha.Logging",
+		reflect.TypeOf((*Logging)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "logId", GoGetter: "LogId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Logging{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogging)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-alpha.LoggingProps",
+		reflect.TypeOf((*LoggingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-iot-alpha.TopicRule",

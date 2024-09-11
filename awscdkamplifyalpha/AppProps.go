@@ -62,6 +62,11 @@ type AppProps struct {
 	//
 	// Experimental.
 	BuildSpec awscodebuild.BuildSpec `field:"optional" json:"buildSpec" yaml:"buildSpec"`
+	// The type of cache configuration to use for an Amplify app.
+	// Default: CacheConfigType.AMPLIFY_MANAGED
+	//
+	// Experimental.
+	CacheConfigType CacheConfigType `field:"optional" json:"cacheConfigType" yaml:"cacheConfigType"`
 	// The custom HTTP response headers for an Amplify app.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html
 	//

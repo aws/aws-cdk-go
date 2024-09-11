@@ -98,6 +98,14 @@ func init() {
 		"@aws-cdk/aws-amplify-alpha.BranchProps",
 		reflect.TypeOf((*BranchProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-amplify-alpha.CacheConfigType",
+		reflect.TypeOf((*CacheConfigType)(nil)).Elem(),
+		map[string]interface{}{
+			"AMPLIFY_MANAGED": CacheConfigType_AMPLIFY_MANAGED,
+			"AMPLIFY_MANAGED_NO_COOKIES": CacheConfigType_AMPLIFY_MANAGED_NO_COOKIES,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-amplify-alpha.CodeCommitSourceCodeProvider",
 		reflect.TypeOf((*CodeCommitSourceCodeProvider)(nil)).Elem(),

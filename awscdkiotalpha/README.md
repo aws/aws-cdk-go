@@ -81,3 +81,17 @@ iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
 ```
 
 See also [@aws-cdk/aws-iot-actions-alpha](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-iot-actions-alpha-readme.html) for other actions.
+
+## Logging
+
+AWS IoT provides a [logging feature](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html) that allows you to monitor and log AWS IoT activity.
+
+You can enable IoT logging with the following code:
+
+```go
+iot.NewLogging(this, jsii.String("Logging"), &LoggingProps{
+	LogLevel: iot.LogLevel_INFO,
+})
+```
+
+**Note**: All logs are forwarded to the `AWSIotLogsV2` log group in CloudWatch.
