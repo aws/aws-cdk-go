@@ -18,7 +18,21 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var sqsNotificationConfiguration interface{}
+//
 //   cfnSubscriberNotification := awscdk.Aws_securitylake.NewCfnSubscriberNotification(this, jsii.String("MyCfnSubscriberNotification"), &CfnSubscriberNotificationProps{
+//   	NotificationConfiguration: &NotificationConfigurationProperty{
+//   		HttpsNotificationConfiguration: &HttpsNotificationConfigurationProperty{
+//   			Endpoint: jsii.String("endpoint"),
+//   			TargetRoleArn: jsii.String("targetRoleArn"),
+//
+//   			// the properties below are optional
+//   			AuthorizationApiKeyName: jsii.String("authorizationApiKeyName"),
+//   			AuthorizationApiKeyValue: jsii.String("authorizationApiKeyValue"),
+//   			HttpMethod: jsii.String("httpMethod"),
+//   		},
+//   		SqsNotificationConfiguration: sqsNotificationConfiguration,
+//   	},
 //   	SubscriberArn: jsii.String("subscriberArn"),
 //   })
 //
@@ -50,6 +64,9 @@ type CfnSubscriberNotification interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Specify the configurations you want to use for subscriber notification.
+	NotificationConfiguration() interface{}
+	SetNotificationConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -278,6 +295,16 @@ func (j *jsiiProxy_CfnSubscriberNotification) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubscriberNotification) NotificationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"notificationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubscriberNotification) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -353,6 +380,17 @@ func NewCfnSubscriberNotification_Override(c CfnSubscriberNotification, scope co
 		"aws-cdk-lib.aws_securitylake.CfnSubscriberNotification",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnSubscriberNotification)SetNotificationConfiguration(val interface{}) {
+	if err := j.validateSetNotificationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"notificationConfiguration",
+		val,
 	)
 }
 

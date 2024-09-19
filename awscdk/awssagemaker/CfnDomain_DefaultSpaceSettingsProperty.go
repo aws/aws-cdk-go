@@ -27,6 +27,14 @@ package awssagemaker
 //   		Uid: jsii.Number(123),
 //   	},
 //   	JupyterLabAppSettings: &JupyterLabAppSettingsProperty{
+//   		AppLifecycleManagement: &AppLifecycleManagementProperty{
+//   			IdleSettings: &IdleSettingsProperty{
+//   				IdleTimeoutInMinutes: jsii.Number(123),
+//   				LifecycleManagement: jsii.String("lifecycleManagement"),
+//   				MaxIdleTimeoutInMinutes: jsii.Number(123),
+//   				MinIdleTimeoutInMinutes: jsii.Number(123),
+//   			},
+//   		},
 //   		CodeRepositories: []interface{}{
 //   			&CodeRepositoryProperty{
 //   				RepositoryUrl: jsii.String("repositoryUrl"),

@@ -1,8 +1,6 @@
 package awsmsk
 
 
-// The broker logs configuration for this MSK cluster.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -33,15 +31,12 @@ package awsmsk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html
 //
 type CfnCluster_BrokerLogsProperty struct {
-	// Details of the CloudWatch Logs destination for broker logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-cloudwatchlogs
 	//
 	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
-	// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-firehose
 	//
 	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
-	// Details of the Amazon S3 destination for broker logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html#cfn-msk-cluster-brokerlogs-s3
 	//
 	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`

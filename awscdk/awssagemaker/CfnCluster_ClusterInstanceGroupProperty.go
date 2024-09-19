@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// Details of an instance group in a SageMaker HyperPod cluster.
+// The configuration information of the instance group within the HyperPod cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,7 +40,7 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-executionrole
 	//
 	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
-	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
+	// The number of instances in an instance group of the SageMaker HyperPod cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancecount
 	//
 	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
@@ -60,17 +60,17 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-currentcount
 	//
 	CurrentCount *float64 `field:"optional" json:"currentCount" yaml:"currentCount"`
-	// The instance storage configuration for the instance group.
+	// The configurations of additional storage specified to the instance group where the instance (node) is launched.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancestorageconfigs
 	//
 	InstanceStorageConfigs interface{} `field:"optional" json:"instanceStorageConfigs" yaml:"instanceStorageConfigs"`
-	// Nodes will undergo advanced stress test to detect and replace faulty instances, based on the type of deep health check(s) passed in.
+	// A flag indicating whether deep health checks should be performed when the HyperPod cluster instance group is created or updated.
+	//
+	// Deep health checks are comprehensive, invasive tests that validate the health of the underlying hardware and infrastructure components.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-onstartdeephealthchecks
 	//
 	OnStartDeepHealthChecks *[]*string `field:"optional" json:"onStartDeepHealthChecks" yaml:"onStartDeepHealthChecks"`
-	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading.
-	//
-	// For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+	// The number of threads per CPU core you specified under `CreateCluster` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-threadspercore
 	//
 	ThreadsPerCore *float64 `field:"optional" json:"threadsPerCore" yaml:"threadsPerCore"`

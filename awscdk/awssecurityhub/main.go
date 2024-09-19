@@ -641,6 +641,10 @@ func init() {
 		reflect.TypeOf((*CfnSecurityControl_ParameterConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_securityhub.CfnSecurityControl.ParameterValueProperty",
+		reflect.TypeOf((*CfnSecurityControl_ParameterValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_securityhub.CfnSecurityControlProps",
 		reflect.TypeOf((*CfnSecurityControlProps)(nil)).Elem(),
 	)

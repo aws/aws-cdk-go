@@ -1,6 +1,8 @@
 package awsmsk
 
 
+// Details about topic replication.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -45,11 +47,11 @@ type CfnReplicator_TopicReplicationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-detectandcopynewtopics
 	//
 	DetectAndCopyNewTopics interface{} `field:"optional" json:"detectAndCopyNewTopics" yaml:"detectAndCopyNewTopics"`
-	// Configuration for specifying the position in the topics to start replicating from.
+	// Specifies the position in the topics to start replicating from.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-startingposition
 	//
 	StartingPosition interface{} `field:"optional" json:"startingPosition" yaml:"startingPosition"`
-	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+	// Configuration for specifying replicated topic names will be the same as their corresponding upstream topics or prefixed with source cluster alias.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html#cfn-msk-replicator-topicreplication-topicnameconfiguration
 	//
 	TopicNameConfiguration interface{} `field:"optional" json:"topicNameConfiguration" yaml:"topicNameConfiguration"`

@@ -68,6 +68,29 @@ import (
 //   							PatternSet: jsii.String("patternSet"),
 //   						},
 //   					},
+//   					NetWeaverPrometheusExporter: &NetWeaverPrometheusExporterProperty{
+//   						InstanceNumbers: []*string{
+//   							jsii.String("instanceNumbers"),
+//   						},
+//   						Sapsid: jsii.String("sapsid"),
+//
+//   						// the properties below are optional
+//   						PrometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					Processes: []interface{}{
+//   						&ProcessProperty{
+//   							AlarmMetrics: []interface{}{
+//   								&AlarmMetricProperty{
+//   									AlarmMetricName: jsii.String("alarmMetricName"),
+//   								},
+//   							},
+//   							ProcessName: jsii.String("processName"),
+//   						},
+//   					},
+//   					SqlServerPrometheusExporter: &SQLServerPrometheusExporterProperty{
+//   						PrometheusPort: jsii.String("prometheusPort"),
+//   						SqlSecretName: jsii.String("sqlSecretName"),
+//   					},
 //   					WindowsEvents: []interface{}{
 //   						&WindowsEventProperty{
 //   							EventLevels: []*string{
@@ -98,6 +121,16 @@ import (
 //   									LogGroupName: jsii.String("logGroupName"),
 //   									LogPath: jsii.String("logPath"),
 //   									PatternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   							Processes: []interface{}{
+//   								&ProcessProperty{
+//   									AlarmMetrics: []interface{}{
+//   										&AlarmMetricProperty{
+//   											AlarmMetricName: jsii.String("alarmMetricName"),
+//   										},
+//   									},
+//   									ProcessName: jsii.String("processName"),
 //   								},
 //   							},
 //   							WindowsEvents: []interface{}{
@@ -160,6 +193,29 @@ import (
 //   							PatternSet: jsii.String("patternSet"),
 //   						},
 //   					},
+//   					NetWeaverPrometheusExporter: &NetWeaverPrometheusExporterProperty{
+//   						InstanceNumbers: []*string{
+//   							jsii.String("instanceNumbers"),
+//   						},
+//   						Sapsid: jsii.String("sapsid"),
+//
+//   						// the properties below are optional
+//   						PrometheusPort: jsii.String("prometheusPort"),
+//   					},
+//   					Processes: []interface{}{
+//   						&ProcessProperty{
+//   							AlarmMetrics: []interface{}{
+//   								&AlarmMetricProperty{
+//   									AlarmMetricName: jsii.String("alarmMetricName"),
+//   								},
+//   							},
+//   							ProcessName: jsii.String("processName"),
+//   						},
+//   					},
+//   					SqlServerPrometheusExporter: &SQLServerPrometheusExporterProperty{
+//   						PrometheusPort: jsii.String("prometheusPort"),
+//   						SqlSecretName: jsii.String("sqlSecretName"),
+//   					},
 //   					WindowsEvents: []interface{}{
 //   						&WindowsEventProperty{
 //   							EventLevels: []*string{
@@ -190,6 +246,16 @@ import (
 //   									LogGroupName: jsii.String("logGroupName"),
 //   									LogPath: jsii.String("logPath"),
 //   									PatternSet: jsii.String("patternSet"),
+//   								},
+//   							},
+//   							Processes: []interface{}{
+//   								&ProcessProperty{
+//   									AlarmMetrics: []interface{}{
+//   										&AlarmMetricProperty{
+//   											AlarmMetricName: jsii.String("alarmMetricName"),
+//   										},
+//   									},
+//   									ProcessName: jsii.String("processName"),
 //   								},
 //   							},
 //   							WindowsEvents: []interface{}{
@@ -259,6 +325,8 @@ type CfnApplicationProps struct {
 	//
 	AutoConfigurationEnabled interface{} `field:"optional" json:"autoConfigurationEnabled" yaml:"autoConfigurationEnabled"`
 	// The monitoring settings of the components.
+	//
+	// Not required to set up default monitoring for all components. To set up default monitoring for all components, set `AutoConfigurationEnabled` to `true` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
 	//
 	ComponentMonitoringSettings interface{} `field:"optional" json:"componentMonitoringSettings" yaml:"componentMonitoringSettings"`

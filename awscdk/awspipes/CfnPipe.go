@@ -43,6 +43,7 @@ import (
 //   		},
 //   		InputTemplate: jsii.String("inputTemplate"),
 //   	},
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	LogConfiguration: &PipeLogConfigurationProperty{
 //   		CloudwatchLogsLogDestination: &CloudwatchLogsLogDestinationProperty{
 //   			LogGroupArn: jsii.String("logGroupArn"),
@@ -438,6 +439,9 @@ type CfnPipe interface {
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters() interface{}
 	SetEnrichmentParameters(val interface{})
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data.
+	KmsKeyIdentifier() *string
+	SetKmsKeyIdentifier(val *string)
 	// The logging configuration settings for the pipe.
 	LogConfiguration() interface{}
 	SetLogConfiguration(val interface{})
@@ -762,6 +766,16 @@ func (j *jsiiProxy_CfnPipe) EnrichmentParameters() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPipe) KmsKeyIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPipe) LogConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -971,6 +985,14 @@ func (j *jsiiProxy_CfnPipe)SetEnrichmentParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enrichmentParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPipe)SetKmsKeyIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyIdentifier",
 		val,
 	)
 }

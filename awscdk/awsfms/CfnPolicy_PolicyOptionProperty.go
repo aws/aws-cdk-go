@@ -9,6 +9,8 @@ package awsfms
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   policyOptionProperty := &PolicyOptionProperty{
+//   	NetworkAclCommonPolicy: &NetworkAclCommonPolicyProperty{
+//   	},
 //   	NetworkFirewallPolicy: &NetworkFirewallPolicyProperty{
 //   		FirewallDeploymentModel: jsii.String("firewallDeploymentModel"),
 //   	},
@@ -20,6 +22,10 @@ package awsfms
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html
 //
 type CfnPolicy_PolicyOptionProperty struct {
+	// Defines a Firewall Manager network ACL policy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-networkaclcommonpolicy
+	//
+	NetworkAclCommonPolicy interface{} `field:"optional" json:"networkAclCommonPolicy" yaml:"networkAclCommonPolicy"`
 	// Defines the deployment model to use for the firewall policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html#cfn-fms-policy-policyoption-networkfirewallpolicy
 	//

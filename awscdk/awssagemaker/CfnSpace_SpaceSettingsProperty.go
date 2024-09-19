@@ -11,6 +11,11 @@ package awssagemaker
 //   spaceSettingsProperty := &SpaceSettingsProperty{
 //   	AppType: jsii.String("appType"),
 //   	CodeEditorAppSettings: &SpaceCodeEditorAppSettingsProperty{
+//   		AppLifecycleManagement: &SpaceAppLifecycleManagementProperty{
+//   			IdleSettings: &SpaceIdleSettingsProperty{
+//   				IdleTimeoutInMinutes: jsii.Number(123),
+//   			},
+//   		},
 //   		DefaultResourceSpec: &ResourceSpecProperty{
 //   			InstanceType: jsii.String("instanceType"),
 //   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
@@ -26,6 +31,11 @@ package awssagemaker
 //   		},
 //   	},
 //   	JupyterLabAppSettings: &SpaceJupyterLabAppSettingsProperty{
+//   		AppLifecycleManagement: &SpaceAppLifecycleManagementProperty{
+//   			IdleSettings: &SpaceIdleSettingsProperty{
+//   				IdleTimeoutInMinutes: jsii.Number(123),
+//   			},
+//   		},
 //   		CodeRepositories: []interface{}{
 //   			&CodeRepositoryProperty{
 //   				RepositoryUrl: jsii.String("repositoryUrl"),

@@ -8,6 +8,10 @@ func (v *jsiiProxy_VpcV2) validateAddClientVpnEndpointParameters(id *string, opt
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2) validateAddEgressOnlyInternetGatewayParameters(options *EgressOnlyInternetGatewayOptions) error {
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2) validateAddFlowLogParameters(id *string, options *awsec2.FlowLogOptions) error {
 	return nil
 }
@@ -20,6 +24,14 @@ func (v *jsiiProxy_VpcV2) validateAddInterfaceEndpointParameters(id *string, opt
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2) validateAddInternetGatewayParameters(options *InternetGatewayOptions) error {
+	return nil
+}
+
+func (v *jsiiProxy_VpcV2) validateAddNatGatewayParameters(options *NatGatewayOptions) error {
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2) validateAddVpnConnectionParameters(id *string, options *awsec2.VpnConnectionOptions) error {
 	return nil
 }
@@ -29,6 +41,10 @@ func (v *jsiiProxy_VpcV2) validateApplyRemovalPolicyParameters(policy awscdk.Rem
 }
 
 func (v *jsiiProxy_VpcV2) validateEnableVpnGatewayParameters(options *awsec2.EnableVpnGatewayOptions) error {
+	return nil
+}
+
+func (v *jsiiProxy_VpcV2) validateEnableVpnGatewayV2Parameters(options *VPNGatewayV2Options) error {
 	return nil
 }
 

@@ -84,10 +84,6 @@ func (j *jsiiProxy_CfnEnvironment) validateSetDomainIdentifierParameters(val *st
 	return nil
 }
 
-func (j *jsiiProxy_CfnEnvironment) validateSetEnvironmentProfileIdentifierParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnEnvironment) validateSetNameParameters(val *string) error {
 	return nil
 }

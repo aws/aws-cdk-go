@@ -120,6 +120,10 @@ func init() {
 		reflect.TypeOf((*CfnPolicy_IEMapProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.NetworkAclCommonPolicyProperty",
+		reflect.TypeOf((*CfnPolicy_NetworkAclCommonPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnPolicy.NetworkFirewallPolicyProperty",
 		reflect.TypeOf((*CfnPolicy_NetworkFirewallPolicyProperty)(nil)).Elem(),
 	)

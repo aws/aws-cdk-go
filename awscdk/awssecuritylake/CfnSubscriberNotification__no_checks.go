@@ -80,6 +80,10 @@ func validateCfnSubscriberNotification_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnSubscriberNotification) validateSetNotificationConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSubscriberNotification) validateSetSubscriberArnParameters(val *string) error {
 	return nil
 }

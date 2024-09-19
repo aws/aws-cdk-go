@@ -21,7 +21,7 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
 //
 type CfnFleet_ServerProcessProperty struct {
-	// The number of server processes using this configuration that run concurrently on each instance.
+	// The number of server processes using this configuration that run concurrently on each instance or container..
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
 	//
 	ConcurrentExecutions *float64 `field:"required" json:"concurrentExecutions" yaml:"concurrentExecutions"`

@@ -1,8 +1,6 @@
 package awsmsk
 
 
-// Details for client authentication using TLS.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,11 +16,9 @@ package awsmsk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html
 //
 type CfnCluster_TlsProperty struct {
-	// List of AWS Private CA Amazon Resource Name (ARN)s.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html#cfn-msk-cluster-tls-certificateauthorityarnlist
 	//
 	CertificateAuthorityArnList *[]*string `field:"optional" json:"certificateAuthorityArnList" yaml:"certificateAuthorityArnList"`
-	// TLS authentication is enabled or not.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html#cfn-msk-cluster-tls-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`

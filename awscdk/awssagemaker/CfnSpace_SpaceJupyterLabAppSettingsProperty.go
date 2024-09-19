@@ -9,6 +9,11 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   spaceJupyterLabAppSettingsProperty := &SpaceJupyterLabAppSettingsProperty{
+//   	AppLifecycleManagement: &SpaceAppLifecycleManagementProperty{
+//   		IdleSettings: &SpaceIdleSettingsProperty{
+//   			IdleTimeoutInMinutes: jsii.Number(123),
+//   		},
+//   	},
 //   	CodeRepositories: []interface{}{
 //   		&CodeRepositoryProperty{
 //   			RepositoryUrl: jsii.String("repositoryUrl"),
@@ -25,6 +30,10 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html
 //
 type CfnSpace_SpaceJupyterLabAppSettingsProperty struct {
+	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html#cfn-sagemaker-space-spacejupyterlabappsettings-applifecyclemanagement
+	//
+	AppLifecycleManagement interface{} `field:"optional" json:"appLifecycleManagement" yaml:"appLifecycleManagement"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html#cfn-sagemaker-space-spacejupyterlabappsettings-coderepositories
 	//

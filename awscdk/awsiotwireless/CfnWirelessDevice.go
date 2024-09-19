@@ -42,6 +42,15 @@ import (
 //   		},
 //   		DevEui: jsii.String("devEui"),
 //   		DeviceProfileId: jsii.String("deviceProfileId"),
+//   		FPorts: &FPortsProperty{
+//   			Applications: []interface{}{
+//   				&ApplicationProperty{
+//   					DestinationName: jsii.String("destinationName"),
+//   					FPort: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
 //   		OtaaV10X: &OtaaV10xProperty{
 //   			AppEui: jsii.String("appEui"),
 //   			AppKey: jsii.String("appKey"),

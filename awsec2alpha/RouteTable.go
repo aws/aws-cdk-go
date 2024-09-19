@@ -14,33 +14,32 @@ import (
 //
 // Example:
 //   stack := awscdk.Newstack()
-//   myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-//   routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
-//   	Vpc: myVpc,
-//   })
-//   subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
-//   	Vpc: myVpc,
-//   	AvailabilityZone: jsii.String("eu-west-2a"),
-//   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+//   vpnGateway := myVpc.EnableVpnGatewayV2(&VPNGatewayV2Options{
+//   	VpnRoutePropagation: []subnetSelection{
+//   		&subnetSelection{
+//   			SubnetType: awscdk.SubnetType_PUBLIC,
+//   		},
+//   	},
+//   	Type: awscdk.VpnConnectionType_IPSEC_1,
 //   })
 //
-//   igw := vpc_v2.NewInternetGateway(this, jsii.String("IGW"), &InternetGatewayProps{
+//   routeTable := awsec2alpha.NewRouteTable(stack, jsii.String("routeTable"), &RouteTableProps{
 //   	Vpc: myVpc,
 //   })
-//   vpc_v2.NewRoute(this, jsii.String("IgwRoute"), &RouteProps{
-//   	RouteTable: RouteTable,
-//   	Destination: jsii.String("0.0.0.0/0"),
+//
+//   awsec2alpha.NewRoute(stack, jsii.String("route"), &RouteProps{
+//   	Destination: jsii.String("172.31.0.0/24"),
 //   	Target: map[string]iRouteTarget{
-//   		"gateway": igw,
+//   		"gateway": vpnGateway,
 //   	},
+//   	RouteTable: routeTable,
 //   })
 //
 // Experimental.
 type RouteTable interface {
 	awscdk.Resource
 	awsec2.IRouteTable
-	constructs.IDependable
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -72,6 +71,9 @@ type RouteTable interface {
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
+	// Adds a new custom route to the route table.
+	// Experimental.
+	AddRoute(id *string, destination *string, target RouteTargetType)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -109,7 +111,6 @@ type RouteTable interface {
 type jsiiProxy_RouteTable struct {
 	internal.Type__awscdkResource
 	internal.Type__awsec2IRouteTable
-	internal.Type__constructsIDependable
 }
 
 func (j *jsiiProxy_RouteTable) Env() *awscdk.ResourceEnvironment {
@@ -276,6 +277,17 @@ func RouteTable_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (r *jsiiProxy_RouteTable) AddRoute(id *string, destination *string, target RouteTargetType) {
+	if err := r.validateAddRouteParameters(id, destination, target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"addRoute",
+		[]interface{}{id, destination, target},
+	)
 }
 
 func (r *jsiiProxy_RouteTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

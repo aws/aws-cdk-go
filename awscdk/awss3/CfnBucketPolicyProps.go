@@ -4,16 +4,39 @@ package awss3
 // Properties for defining a `CfnBucketPolicy`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   bucketName := "my-favorite-bucket-name"
+//   accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"), &BucketProps{
+//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
+//   	BucketName: jsii.String(BucketName),
+//   })
 //
-//   var policyDocument interface{}
+//   // Creating a bucket policy using L1
+//   bucketPolicy := s3.NewCfnBucketPolicy(this, jsii.String("BucketPolicy"), &CfnBucketPolicyProps{
+//   	Bucket: bucketName,
+//   	PolicyDocument: map[string]interface{}{
+//   		"Statement": []map[string]interface{}{
+//   			map[string]interface{}{
+//   				"Action": jsii.String("s3:*"),
+//   				"Effect": jsii.String("Deny"),
+//   				"Principal": map[string]*string{
+//   					"AWS": jsii.String("*"),
+//   				},
+//   				"Resource": []*string{
+//   					accessLogsBucket.bucketArn,
+//   					fmt.Sprintf("%v/*", accessLogsBucket.bucketArn),
+//   				},
+//   			},
+//   		},
+//   		"Version": jsii.String("2012-10-17"),
+//   	},
+//   })
 //
-//   cfnBucketPolicyProps := &CfnBucketPolicyProps{
-//   	Bucket: jsii.String("bucket"),
-//   	PolicyDocument: policyDocument,
-//   }
+//   // 'serverAccessLogsBucket' will create a new L2 bucket policy
+//   // to allow log delivery and overwrite the L1 bucket policy.
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+//   	ServerAccessLogsBucket: accessLogsBucket,
+//   	ServerAccessLogsPrefix: jsii.String("logs"),
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucketpolicy.html
 //

@@ -112,6 +112,18 @@ func init() {
 		reflect.TypeOf((*CfnApplication_LogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationinsights.CfnApplication.NetWeaverPrometheusExporterProperty",
+		reflect.TypeOf((*CfnApplication_NetWeaverPrometheusExporterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationinsights.CfnApplication.ProcessProperty",
+		reflect.TypeOf((*CfnApplication_ProcessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationinsights.CfnApplication.SQLServerPrometheusExporterProperty",
+		reflect.TypeOf((*CfnApplication_SQLServerPrometheusExporterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationinsights.CfnApplication.SubComponentConfigurationDetailsProperty",
 		reflect.TypeOf((*CfnApplication_SubComponentConfigurationDetailsProperty)(nil)).Elem(),
 	)

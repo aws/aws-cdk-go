@@ -136,13 +136,24 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterEnum(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-kinesisfirehose-alpha.StreamEncryption",
 		reflect.TypeOf((*StreamEncryption)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			return &jsiiProxy_StreamEncryption{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-kinesisfirehose-alpha.StreamEncryptionType",
+		reflect.TypeOf((*StreamEncryptionType)(nil)).Elem(),
 		map[string]interface{}{
-			"UNENCRYPTED": StreamEncryption_UNENCRYPTED,
-			"CUSTOMER_MANAGED": StreamEncryption_CUSTOMER_MANAGED,
-			"AWS_OWNED": StreamEncryption_AWS_OWNED,
+			"UNENCRYPTED": StreamEncryptionType_UNENCRYPTED,
+			"CUSTOMER_MANAGED": StreamEncryptionType_CUSTOMER_MANAGED,
+			"AWS_OWNED": StreamEncryptionType_AWS_OWNED,
 		},
 	)
 }

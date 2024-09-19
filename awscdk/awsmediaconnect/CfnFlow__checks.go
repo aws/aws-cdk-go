@@ -322,6 +322,30 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceFailoverConfigParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlow) validateSetSourceMonitoringConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFlow_SourceMonitoringConfigProperty:
+		val := val.(*CfnFlow_SourceMonitoringConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFlow_SourceMonitoringConfigProperty:
+		val_ := val.(CfnFlow_SourceMonitoringConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlow_SourceMonitoringConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlow) validateSetVpcInterfacesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

@@ -9,7 +9,6 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnMultiplexprogramProps := &CfnMultiplexprogramProps{
-//   	ChannelId: jsii.String("channelId"),
 //   	MultiplexId: jsii.String("multiplexId"),
 //   	MultiplexProgramSettings: &MultiplexProgramSettingsProperty{
 //   		ProgramNumber: jsii.Number(123),
@@ -65,10 +64,6 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html
 //
 type CfnMultiplexprogramProps struct {
-	// The MediaLive channel associated with the program.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#cfn-medialive-multiplexprogram-channelid
-	//
-	ChannelId *string `field:"optional" json:"channelId" yaml:"channelId"`
 	// The unique id of the multiplex.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#cfn-medialive-multiplexprogram-multiplexid
 	//

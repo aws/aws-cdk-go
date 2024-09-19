@@ -108,7 +108,7 @@ package awsapplicationsignals
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html
 //
 type CfnServiceLevelObjective_RequestBasedSliProperty struct {
-	// This structure contains the information about the metric that is used for a request-based SLO.
+	// A structure that contains information about the metric that the SLO monitors.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli-requestbasedslimetric
 	//
 	RequestBasedSliMetric interface{} `field:"required" json:"requestBasedSliMetric" yaml:"requestBasedSliMetric"`
@@ -116,7 +116,7 @@ type CfnServiceLevelObjective_RequestBasedSliProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli-comparisonoperator
 	//
 	ComparisonOperator *string `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
-	// The value that the SLI metric is compared to.
+	// This value is the threshold that the observed metric values of the SLI metric are compared to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli-metricthreshold
 	//
 	MetricThreshold *float64 `field:"optional" json:"metricThreshold" yaml:"metricThreshold"`

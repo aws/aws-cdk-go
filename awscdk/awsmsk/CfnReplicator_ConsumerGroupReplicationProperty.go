@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Configuration relating to consumer group replication.
+// Details about consumer group replication.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,11 +32,13 @@ type CfnReplicator_ConsumerGroupReplicationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-consumergroupreplication.html#cfn-msk-replicator-consumergroupreplication-consumergroupstoexclude
 	//
 	ConsumerGroupsToExclude *[]*string `field:"optional" json:"consumerGroupsToExclude" yaml:"consumerGroupsToExclude"`
-	// Whether to periodically check for new consumer groups.
+	// Enables synchronization of consumer groups to target cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-consumergroupreplication.html#cfn-msk-replicator-consumergroupreplication-detectandcopynewconsumergroups
 	//
 	DetectAndCopyNewConsumerGroups interface{} `field:"optional" json:"detectAndCopyNewConsumerGroups" yaml:"detectAndCopyNewConsumerGroups"`
-	// Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
+	// Enables synchronization of consumer group offsets to target cluster.
+	//
+	// The translated offsets will be written to topic __consumer_offsets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-consumergroupreplication.html#cfn-msk-replicator-consumergroupreplication-synchroniseconsumergroupoffsets
 	//
 	SynchroniseConsumerGroupOffsets interface{} `field:"optional" json:"synchroniseConsumerGroupOffsets" yaml:"synchroniseConsumerGroupOffsets"`

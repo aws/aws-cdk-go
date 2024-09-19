@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Represents a SCEP Challenge that is used for certificate enrollment.
+// For general-purpose connectors.
+//
+// Creates a *challenge password* for the specified connector. The SCEP protocol uses a challenge password to authenticate a request before issuing a certificate from a certificate authority (CA). Your SCEP clients include the challenge password as part of their certificate request to Connector for SCEP. To retrieve the connector Amazon Resource Names (ARNs) for the connectors in your account, call [ListConnectors](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_ListConnectors.html) .
+//
+// To create additional challenge passwords for the connector, call `CreateChallenge` again. We recommend frequently rotating your challenge passwords.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,6 +35,7 @@ type CfnChallenge interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the challenge.
 	AttrChallengeArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -39,6 +44,7 @@ type CfnChallenge interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The Amazon Resource Name (ARN) of the connector.
 	ConnectorArn() *string
 	SetConnectorArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

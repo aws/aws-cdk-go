@@ -27,6 +27,9 @@ import (
 //   		GreengrassV2: &GreengrassV2Property{
 //   			CoreDeviceThingName: jsii.String("coreDeviceThingName"),
 //   		},
+//   		SiemensIe: &SiemensIEProperty{
+//   			IotCoreThingName: jsii.String("iotCoreThingName"),
+//   		},
 //   	},
 //
 //   	// the properties below are optional

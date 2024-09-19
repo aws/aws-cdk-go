@@ -1,5 +1,8 @@
 package awslambda
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnCodeSigningConfig`.
 //
@@ -20,6 +23,12 @@ package awslambda
 //   		UntrustedArtifactOnDeployment: jsii.String("untrustedArtifactOnDeployment"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
@@ -37,5 +46,9 @@ type CfnCodeSigningConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// A list of tags to apply to CodeSigningConfig resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

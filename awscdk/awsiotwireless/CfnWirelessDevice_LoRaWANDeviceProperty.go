@@ -27,6 +27,15 @@ package awsiotwireless
 //   	},
 //   	DevEui: jsii.String("devEui"),
 //   	DeviceProfileId: jsii.String("deviceProfileId"),
+//   	FPorts: &FPortsProperty{
+//   		Applications: []interface{}{
+//   			&ApplicationProperty{
+//   				DestinationName: jsii.String("destinationName"),
+//   				FPort: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	OtaaV10X: &OtaaV10xProperty{
 //   		AppEui: jsii.String("appEui"),
 //   		AppKey: jsii.String("appKey"),
@@ -58,6 +67,10 @@ type CfnWirelessDevice_LoRaWANDeviceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deviceprofileid
 	//
 	DeviceProfileId *string `field:"optional" json:"deviceProfileId" yaml:"deviceProfileId"`
+	// List of FPort assigned for different LoRaWAN application packages to use.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-fports
+	//
+	FPorts interface{} `field:"optional" json:"fPorts" yaml:"fPorts"`
 	// OTAA device object for create APIs for v1.0.x.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav10x
 	//

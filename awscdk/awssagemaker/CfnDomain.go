@@ -44,6 +44,14 @@ import (
 //
 //   		// the properties below are optional
 //   		CodeEditorAppSettings: &CodeEditorAppSettingsProperty{
+//   			AppLifecycleManagement: &AppLifecycleManagementProperty{
+//   				IdleSettings: &IdleSettingsProperty{
+//   					IdleTimeoutInMinutes: jsii.Number(123),
+//   					LifecycleManagement: jsii.String("lifecycleManagement"),
+//   					MaxIdleTimeoutInMinutes: jsii.Number(123),
+//   					MinIdleTimeoutInMinutes: jsii.Number(123),
+//   				},
+//   			},
 //   			CustomImages: []interface{}{
 //   				&CustomImageProperty{
 //   					AppImageConfigName: jsii.String("appImageConfigName"),
@@ -79,6 +87,14 @@ import (
 //   		},
 //   		DefaultLandingUri: jsii.String("defaultLandingUri"),
 //   		JupyterLabAppSettings: &JupyterLabAppSettingsProperty{
+//   			AppLifecycleManagement: &AppLifecycleManagementProperty{
+//   				IdleSettings: &IdleSettingsProperty{
+//   					IdleTimeoutInMinutes: jsii.Number(123),
+//   					LifecycleManagement: jsii.String("lifecycleManagement"),
+//   					MaxIdleTimeoutInMinutes: jsii.Number(123),
+//   					MinIdleTimeoutInMinutes: jsii.Number(123),
+//   				},
+//   			},
 //   			CodeRepositories: []interface{}{
 //   				&CodeRepositoryProperty{
 //   					RepositoryUrl: jsii.String("repositoryUrl"),
@@ -207,6 +223,14 @@ import (
 //   			Uid: jsii.Number(123),
 //   		},
 //   		JupyterLabAppSettings: &JupyterLabAppSettingsProperty{
+//   			AppLifecycleManagement: &AppLifecycleManagementProperty{
+//   				IdleSettings: &IdleSettingsProperty{
+//   					IdleTimeoutInMinutes: jsii.Number(123),
+//   					LifecycleManagement: jsii.String("lifecycleManagement"),
+//   					MaxIdleTimeoutInMinutes: jsii.Number(123),
+//   					MinIdleTimeoutInMinutes: jsii.Number(123),
+//   				},
+//   			},
 //   			CodeRepositories: []interface{}{
 //   				&CodeRepositoryProperty{
 //   					RepositoryUrl: jsii.String("repositoryUrl"),

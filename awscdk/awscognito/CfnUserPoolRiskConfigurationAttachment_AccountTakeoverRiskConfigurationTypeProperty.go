@@ -1,7 +1,9 @@
 package awscognito
 
 
-// Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+//
+// This data type is a request parameter of [SetRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.html) and a response parameter of [DescribeRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -58,11 +60,13 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html
 //
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty struct {
-	// Account takeover risk configuration actions.
+	// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-actions
 	//
 	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
-	// The notify configuration used to construct email notifications.
+	// The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication.
+	//
+	// When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype-notifyconfiguration
 	//
 	NotifyConfiguration interface{} `field:"optional" json:"notifyConfiguration" yaml:"notifyConfiguration"`

@@ -1,7 +1,9 @@
 package awscognito
 
 
-// The notify configuration type.
+// The configuration for Amazon SES email messages that advanced security features sends to a user when your adaptive authentication automated response has a *Notify* action.
+//
+// This data type is a request parameter of [SetRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.html) and a response parameter of [DescribeRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,25 +48,25 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-sourcearn
 	//
 	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
-	// Email template used when a detected risk event is blocked.
+	// The template for the email message that your user pool sends when a detected risk event is blocked.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-blockemail
 	//
 	BlockEmail interface{} `field:"optional" json:"blockEmail" yaml:"blockEmail"`
-	// The email address that is sending the email.
+	// The email address that sends the email message.
 	//
 	// The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-from
 	//
 	From *string `field:"optional" json:"from" yaml:"from"`
-	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
+	// The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-mfaemail
 	//
 	MfaEmail interface{} `field:"optional" json:"mfaEmail" yaml:"mfaEmail"`
-	// The email template used when a detected risk event is allowed.
+	// The template for the email message that your user pool sends when no action is taken in response to a detected risk.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-noactionemail
 	//
 	NoActionEmail interface{} `field:"optional" json:"noActionEmail" yaml:"noActionEmail"`
-	// The destination to which the receiver of an email should reply to.
+	// The reply-to email address of an email template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype-replyto
 	//
 	ReplyTo *string `field:"optional" json:"replyTo" yaml:"replyTo"`

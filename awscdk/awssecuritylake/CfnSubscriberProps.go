@@ -57,7 +57,7 @@ type CfnSubscriberProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-datalakearn
 	//
 	DataLakeArn *string `field:"required" json:"dataLakeArn" yaml:"dataLakeArn"`
-	// Amazon Security Lake supports log and event collection for natively supported AWS-services .
+	// Amazon Security Lake supports log and event collection for natively supported AWS services .
 	//
 	// For more information, see the [Amazon Security Lake User Guide](https://docs.aws.amazon.com//security-lake/latest/userguide/source-management.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html#cfn-securitylake-subscriber-sources

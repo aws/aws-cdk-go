@@ -446,7 +446,11 @@ func StringParameter_ValueForTypedStringParameterV2(scope constructs.Construct, 
 //
 // Requires that the stack this scope is defined in will have explicit
 // account/region information. Otherwise, it will fail during synthesis.
-func StringParameter_ValueFromLookup(scope constructs.Construct, parameterName *string) *string {
+//
+// If defaultValue is provided, it will be used as the dummyValue
+// and the ContextProvider will be told NOT to raise an error on synthesis
+// if the SSM Parameter is not found in the account at synth time.
+func StringParameter_ValueFromLookup(scope constructs.Construct, parameterName *string, defaultValue *string) *string {
 	_init_.Initialize()
 
 	if err := validateStringParameter_ValueFromLookupParameters(scope, parameterName); err != nil {
@@ -457,7 +461,7 @@ func StringParameter_ValueFromLookup(scope constructs.Construct, parameterName *
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ssm.StringParameter",
 		"valueFromLookup",
-		[]interface{}{scope, parameterName},
+		[]interface{}{scope, parameterName, defaultValue},
 		&returns,
 	)
 

@@ -1,7 +1,9 @@
 package awssagemaker
 
 
-// Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,.
+// The configuration for the Amazon EKS cluster that is used as the orchestrator for the SageMaker HyperPod cluster.
+//
+// This includes the Amazon Resource Name (ARN) of the EKS cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +17,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterorchestratoreksconfig.html
 //
 type CfnCluster_ClusterOrchestratorEksConfigProperty struct {
-	// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster.
+	// The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterorchestratoreksconfig.html#cfn-sagemaker-cluster-clusterorchestratoreksconfig-clusterarn
 	//
 	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`

@@ -14,6 +14,7 @@ package awscdk
 //   	Provider: jsii.String("provider"),
 //
 //   	// the properties below are optional
+//   	IgnoreErrorOnMissingContext: jsii.Boolean(false),
 //   	IncludeEnvironment: jsii.Boolean(false),
 //   	Props: map[string]interface{}{
 //   		"propsKey": props,
@@ -30,9 +31,10 @@ type GetContextValueOptions struct {
 	// Provider-specific properties.
 	Props *map[string]interface{} `field:"optional" json:"props" yaml:"props"`
 	// The value to return if the context value was not found and a missing context is reported.
-	//
-	// This should be a dummy value that should preferably
-	// fail during deployment since it represents an invalid state.
 	DummyValue interface{} `field:"required" json:"dummyValue" yaml:"dummyValue"`
+	// When True, the context provider will not throw an error if missing context is reported.
+	// Default: false.
+	//
+	IgnoreErrorOnMissingContext *bool `field:"optional" json:"ignoreErrorOnMissingContext" yaml:"ignoreErrorOnMissingContext"`
 }
 

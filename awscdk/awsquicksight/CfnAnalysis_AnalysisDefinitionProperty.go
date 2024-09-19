@@ -46,6 +46,9 @@ type CfnAnalysis_AnalysisDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-parameterdeclarations
 	//
 	ParameterDeclarations interface{} `field:"optional" json:"parameterDeclarations" yaml:"parameterDeclarations"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html#cfn-quicksight-analysis-analysisdefinition-queryexecutionoptions
+	//
+	QueryExecutionOptions interface{} `field:"optional" json:"queryExecutionOptions" yaml:"queryExecutionOptions"`
 	// An array of sheet definitions for an analysis.
 	//
 	// Each `SheetDefinition` provides detailed information about a sheet within this analysis.

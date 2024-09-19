@@ -54,6 +54,18 @@ myChannel := ivs.NewChannel(this, jsii.String("myChannel"), &ChannelProps{
 })
 ```
 
+If you want to use RTMP ingest, set `insecureIngest` property to `true`.
+By default, `insecureIngest` is `false` which means using RTMPS ingest.
+
+**⚠ Note:** RTMP ingest might result in reduced security for your streams. AWS recommends that you use RTMPS for ingest, unless you have specific and verified use cases. For more information, see [Encoder Settings](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/streaming-config.html#streaming-config-settings).
+
+```go
+myRtmpChannel := ivs.NewChannel(this, jsii.String("myRtmpChannel"), &ChannelProps{
+	Type: ivs.ChannelType_STANDARD,
+	InsecureIngest: jsii.Boolean(true),
+})
+```
+
 ### Importing an existing channel
 
 You can reference an existing channel, for example, if you need to create a

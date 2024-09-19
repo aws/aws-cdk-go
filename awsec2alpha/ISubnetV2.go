@@ -14,6 +14,9 @@ type ISubnetV2 interface {
 	// The IPv6 CIDR block for this subnet.
 	// Experimental.
 	Ipv6CidrBlock() *string
+	// The type of subnet (public or private) that this subnet represents.
+	// Experimental.
+	SubnetType() awsec2.SubnetType
 }
 
 // The jsii proxy for ISubnetV2
@@ -26,6 +29,16 @@ func (j *jsiiProxy_ISubnetV2) Ipv6CidrBlock() *string {
 	_jsii_.Get(
 		j,
 		"ipv6CidrBlock",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISubnetV2) SubnetType() awsec2.SubnetType {
+	var returns awsec2.SubnetType
+	_jsii_.Get(
+		j,
+		"subnetType",
 		&returns,
 	)
 	return returns

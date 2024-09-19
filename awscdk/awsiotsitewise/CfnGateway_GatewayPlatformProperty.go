@@ -15,6 +15,9 @@ package awsiotsitewise
 //   	GreengrassV2: &GreengrassV2Property{
 //   		CoreDeviceThingName: jsii.String("coreDeviceThingName"),
 //   	},
+//   	SiemensIe: &SiemensIEProperty{
+//   		IotCoreThingName: jsii.String("iotCoreThingName"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
@@ -28,5 +31,9 @@ type CfnGateway_GatewayPlatformProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrassv2
 	//
 	GreengrassV2 interface{} `field:"optional" json:"greengrassV2" yaml:"greengrassV2"`
+	// A AWS IoT SiteWise Edge gateway that runs on a Siemens Industrial Edge Device.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-siemensie
+	//
+	SiemensIe interface{} `field:"optional" json:"siemensIe" yaml:"siemensIe"`
 }
 

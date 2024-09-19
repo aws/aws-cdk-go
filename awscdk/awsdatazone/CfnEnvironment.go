@@ -18,12 +18,15 @@ import (
 //
 //   cfnEnvironment := awscdk.Aws_datazone.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &CfnEnvironmentProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	EnvironmentProfileIdentifier: jsii.String("environmentProfileIdentifier"),
 //   	Name: jsii.String("name"),
 //   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EnvironmentAccountIdentifier: jsii.String("environmentAccountIdentifier"),
+//   	EnvironmentAccountRegion: jsii.String("environmentAccountRegion"),
+//   	EnvironmentProfileIdentifier: jsii.String("environmentProfileIdentifier"),
+//   	EnvironmentRoleArn: jsii.String("environmentRoleArn"),
 //   	GlossaryTerms: []*string{
 //   		jsii.String("glossaryTerms"),
 //   	},
@@ -79,9 +82,18 @@ type CfnEnvironment interface {
 	// The identifier of the Amazon DataZone domain in which the environment is created.
 	DomainIdentifier() *string
 	SetDomainIdentifier(val *string)
+	// The identifier of the AWS account in which an environment exists.
+	EnvironmentAccountIdentifier() *string
+	SetEnvironmentAccountIdentifier(val *string)
+	// The AWS Region in which an environment exists.
+	EnvironmentAccountRegion() *string
+	SetEnvironmentAccountRegion(val *string)
 	// The identifier of the environment profile that is used to create this Amazon DataZone environment.
 	EnvironmentProfileIdentifier() *string
 	SetEnvironmentProfileIdentifier(val *string)
+	// The ARN of the environment role.
+	EnvironmentRoleArn() *string
+	SetEnvironmentRoleArn(val *string)
 	// The glossary terms that can be used in this Amazon DataZone environment.
 	GlossaryTerms() *[]*string
 	SetGlossaryTerms(val *[]*string)
@@ -441,11 +453,41 @@ func (j *jsiiProxy_CfnEnvironment) DomainIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) EnvironmentAccountIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environmentAccountIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) EnvironmentAccountRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environmentAccountRegion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) EnvironmentProfileIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"environmentProfileIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) EnvironmentRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environmentRoleArn",
 		&returns,
 	)
 	return returns
@@ -598,13 +640,34 @@ func (j *jsiiProxy_CfnEnvironment)SetDomainIdentifier(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnEnvironment)SetEnvironmentAccountIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"environmentAccountIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetEnvironmentAccountRegion(val *string) {
+	_jsii_.Set(
+		j,
+		"environmentAccountRegion",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEnvironment)SetEnvironmentProfileIdentifier(val *string) {
-	if err := j.validateSetEnvironmentProfileIdentifierParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"environmentProfileIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetEnvironmentRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"environmentRoleArn",
 		val,
 	)
 }

@@ -145,6 +145,12 @@ type EmrCreateClusterProps struct {
 	// Default: - A role will be created.
 	//
 	AutoScalingRole awsiam.IRole `field:"optional" json:"autoScalingRole" yaml:"autoScalingRole"`
+	// The amount of idle time after which the cluster automatically terminates.
+	//
+	// You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days).
+	// Default: - No timeout.
+	//
+	AutoTerminationPolicyIdleTimeout awscdk.Duration `field:"optional" json:"autoTerminationPolicyIdleTimeout" yaml:"autoTerminationPolicyIdleTimeout"`
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
 	// Default: - None.
 	//

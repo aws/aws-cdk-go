@@ -1782,6 +1782,17 @@ func InterfaceVpcEndpointAwsService_HEALTHLAKE() InterfaceVpcEndpointAwsService 
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_IAM() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"IAM",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_IAM_IDENTITY_CENTER() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -2112,6 +2123,17 @@ func InterfaceVpcEndpointAwsService_LAMBDA() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_LAUNCH_WIZARD() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"LAUNCH_WIZARD",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_LEX_MODELS() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -2371,6 +2393,28 @@ func InterfaceVpcEndpointAwsService_NEPTUNE_ANALYTICS() InterfaceVpcEndpointAwsS
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"NEPTUNE_ANALYTICS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_NETWORK_FIREWALL() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"NETWORK_FIREWALL",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_NETWORK_FIREWALL_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"NETWORK_FIREWALL_FIPS",
 		&returns,
 	)
 	return returns
@@ -2673,6 +2717,17 @@ func InterfaceVpcEndpointAwsService_PRIVATE_CERTIFICATE_AUTHORITY_CONNECTOR_AD()
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_PRIVATE_CERTIFICATE_AUTHORITY_CONNECTOR_SCEP() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"PRIVATE_CERTIFICATE_AUTHORITY_CONNECTOR_SCEP",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_PROMETHEUS() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -2954,6 +3009,17 @@ func InterfaceVpcEndpointAwsService_REPOST_SPACE() InterfaceVpcEndpointAwsServic
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"REPOST_SPACE",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_RESOURCE_ACCESS_MANAGER() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"RESOURCE_ACCESS_MANAGER",
 		&returns,
 	)
 	return returns

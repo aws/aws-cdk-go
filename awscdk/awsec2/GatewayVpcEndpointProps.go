@@ -4,15 +4,16 @@ package awsec2
 // Construction properties for a GatewayVpcEndpoint.
 //
 // Example:
-//   myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-//   routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+//   stack := awscdk.Newstack()
+//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+//   routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 //   	Vpc: myVpc,
 //   })
-//   subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+//   subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 //   	Vpc: myVpc,
 //   	AvailabilityZone: jsii.String("eu-west-2a"),
 //   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: ec2.SubnetType_PRIVATE,
+//   	SubnetType: awscdk.SubnetType_PRIVATE,
 //   })
 //
 //   dynamoEndpoint := ec2.NewGatewayVpcEndpoint(this, jsii.String("DynamoEndpoint"), &GatewayVpcEndpointProps{
@@ -22,7 +23,7 @@ package awsec2
 //   		subnet,
 //   	},
 //   })
-//   vpc_v2.NewRoute(this, jsii.String("DynamoDBRoute"), &RouteProps{
+//   awsec2alpha.NewRoute(this, jsii.String("DynamoDBRoute"), &RouteProps{
 //   	RouteTable: RouteTable,
 //   	Destination: jsii.String("0.0.0.0/0"),
 //   	Target: map[string]iVpcEndpoint{

@@ -10,12 +10,15 @@ package awsdatazone
 //
 //   cfnEnvironmentProps := &CfnEnvironmentProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	EnvironmentProfileIdentifier: jsii.String("environmentProfileIdentifier"),
 //   	Name: jsii.String("name"),
 //   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EnvironmentAccountIdentifier: jsii.String("environmentAccountIdentifier"),
+//   	EnvironmentAccountRegion: jsii.String("environmentAccountRegion"),
+//   	EnvironmentProfileIdentifier: jsii.String("environmentProfileIdentifier"),
+//   	EnvironmentRoleArn: jsii.String("environmentRoleArn"),
 //   	GlossaryTerms: []*string{
 //   		jsii.String("glossaryTerms"),
 //   	},
@@ -34,10 +37,6 @@ type CfnEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-domainidentifier
 	//
 	DomainIdentifier *string `field:"required" json:"domainIdentifier" yaml:"domainIdentifier"`
-	// The identifier of the environment profile that is used to create this Amazon DataZone environment.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier
-	//
-	EnvironmentProfileIdentifier *string `field:"required" json:"environmentProfileIdentifier" yaml:"environmentProfileIdentifier"`
 	// The name of the Amazon DataZone environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-name
 	//
@@ -50,6 +49,22 @@ type CfnEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The identifier of the AWS account in which an environment exists.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentaccountidentifier
+	//
+	EnvironmentAccountIdentifier *string `field:"optional" json:"environmentAccountIdentifier" yaml:"environmentAccountIdentifier"`
+	// The AWS Region in which an environment exists.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentaccountregion
+	//
+	EnvironmentAccountRegion *string `field:"optional" json:"environmentAccountRegion" yaml:"environmentAccountRegion"`
+	// The identifier of the environment profile that is used to create this Amazon DataZone environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier
+	//
+	EnvironmentProfileIdentifier *string `field:"optional" json:"environmentProfileIdentifier" yaml:"environmentProfileIdentifier"`
+	// The ARN of the environment role.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentrolearn
+	//
+	EnvironmentRoleArn *string `field:"optional" json:"environmentRoleArn" yaml:"environmentRoleArn"`
 	// The glossary terms that can be used in this Amazon DataZone environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-glossaryterms
 	//

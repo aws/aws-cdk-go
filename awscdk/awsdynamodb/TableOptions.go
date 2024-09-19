@@ -172,7 +172,7 @@ type TableOptions struct {
 	// Default: - TTL is disabled.
 	//
 	TimeToLiveAttribute *string `field:"optional" json:"timeToLiveAttribute" yaml:"timeToLiveAttribute"`
-	// Indicates whether CloudFormation stack waits for replication to finish.
+	// [WARNING: Use this flag with caution, misusing this flag may cause deleting existing replicas, refer to the detailed documentation for more information] Indicates whether CloudFormation stack waits for replication to finish.
 	//
 	// If set to false, the CloudFormation resource will mark the resource as
 	// created and replication will be completed asynchronously. This property is

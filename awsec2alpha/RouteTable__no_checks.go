@@ -4,6 +4,10 @@ package awsec2alpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (r *jsiiProxy_RouteTable) validateAddRouteParameters(id *string, destination *string, target RouteTargetType) error {
+	return nil
+}
+
 func (r *jsiiProxy_RouteTable) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Settings for a foundation model used to parse documents for a data source.
+// Settings for a foundation model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) used to parse documents for a data source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,7 +20,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html
 //
 type CfnDataSource_BedrockFoundationModelConfigurationProperty struct {
-	// The model's ARN.
+	// The ARN of the foundation model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html#cfn-bedrock-datasource-bedrockfoundationmodelconfiguration-modelarn
 	//
 	ModelArn *string `field:"required" json:"modelArn" yaml:"modelArn"`

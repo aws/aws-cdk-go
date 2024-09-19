@@ -214,6 +214,8 @@ If you do not provide any options for this method, it redirects HTTP port 80 to 
 By default all ingress traffic will be allowed on the source port. If you want to be more selective with your
 ingress rules then set `open: false` and use the listener's `connections` object to selectively grant access to the listener.
 
+**Note**: The `path` parameter must start with a `/`.
+
 ### Application Load Balancer attributes
 
 You can modify attributes of Application Load Balancers:
@@ -307,6 +309,32 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 	Vpc: Vpc,
 })
 lb.LogConnectionLogs(bucket)
+```
+
+### Dualstack Application Load Balancer
+
+You can create a dualstack Network Load Balancer using the `ipAddressType` property:
+
+```go
+var vpc vpc
+
+
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+})
+```
+
+By setting `DUAL_STACK_WITHOUT_PUBLIC_IPV4`, you can provision load balancers without public IPv4s
+
+```go
+var vpc vpc
+
+
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	IpAddressType: elbv2.IpAddressType_DUAL_STACK_WITHOUT_PUBLIC_IPV4,
+})
 ```
 
 ## Defining a Network Load Balancer

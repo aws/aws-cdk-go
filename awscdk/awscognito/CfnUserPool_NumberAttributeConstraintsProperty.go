@@ -1,7 +1,9 @@
 package awscognito
 
 
-// The minimum and maximum values of an attribute that is of the number data type.
+// The minimum and maximum values of an attribute that is of the number type, for example `custom:age` .
+//
+// This data type is part of [SchemaAttributeType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SchemaAttributeType.html) . It defines the length constraints on number-type attributes that you configure in [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and displays the length constraints of all number-type attributes in the response to [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

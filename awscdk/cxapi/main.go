@@ -187,6 +187,7 @@ func init() {
 		map[string]interface{}{
 			"IPV4": LoadBalancerIpAddressType_IPV4,
 			"DUAL_STACK": LoadBalancerIpAddressType_DUAL_STACK,
+			"DUAL_STACK_WITHOUT_PUBLIC_IPV4": LoadBalancerIpAddressType_DUAL_STACK_WITHOUT_PUBLIC_IPV4,
 		},
 	)
 	_jsii_.RegisterStruct(

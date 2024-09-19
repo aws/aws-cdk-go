@@ -35,10 +35,8 @@ import (
 //   	},
 //   	Resources: []interface{}{
 //   		&ResourceProperty{
-//   			EndpointId: jsii.String("endpointId"),
-//
-//   			// the properties below are optional
 //   			Cidr: jsii.String("cidr"),
+//   			EndpointId: jsii.String("endpointId"),
 //   			Region: jsii.String("region"),
 //   		},
 //   	},

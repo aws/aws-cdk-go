@@ -8,6 +8,20 @@ package awss3
 //   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   })
 //
+//   accessLogsBucket.AddToResourcePolicy(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Actions: []*string{
+//   		jsii.String("s3:*"),
+//   	},
+//   	Resources: []*string{
+//   		accessLogsBucket.BucketArn,
+//   		accessLogsBucket.ArnForObjects(jsii.String("*")),
+//   	},
+//   	Principals: []iPrincipal{
+//   		iam.NewAnyPrincipal(),
+//   	},
+//   }))
+//
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 //   	ServerAccessLogsBucket: accessLogsBucket,
 //   	ServerAccessLogsPrefix: jsii.String("logs"),

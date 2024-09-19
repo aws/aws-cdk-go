@@ -10,6 +10,24 @@ package awssecurityhub
 //
 //   parameterConfigurationProperty := &ParameterConfigurationProperty{
 //   	ValueType: jsii.String("valueType"),
+//
+//   	// the properties below are optional
+//   	Value: &ParameterValueProperty{
+//   		Boolean: jsii.Boolean(false),
+//   		Double: jsii.Number(123),
+//   		Enum: jsii.String("enum"),
+//   		EnumList: []*string{
+//   			jsii.String("enumList"),
+//   		},
+//   		Integer: jsii.Number(123),
+//   		IntegerList: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   		String: jsii.String("string"),
+//   		StringList: []*string{
+//   			jsii.String("stringList"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parameterconfiguration.html
@@ -23,5 +41,9 @@ type CfnSecurityControl_ParameterConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parameterconfiguration.html#cfn-securityhub-securitycontrol-parameterconfiguration-valuetype
 	//
 	ValueType *string `field:"required" json:"valueType" yaml:"valueType"`
+	// The current value of a control parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parameterconfiguration.html#cfn-securityhub-securitycontrol-parameterconfiguration-value
+	//
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

@@ -1,9 +1,7 @@
 package awsgamelift
 
 
-// *This data type is currently not available.
-//
-// It is under improvement as we respond to customer feedback from the Containers public preview.*
+// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
 //
 // An environment variable to set inside a container, in the form of a key-value pair.
 //

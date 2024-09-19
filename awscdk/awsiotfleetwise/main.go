@@ -53,6 +53,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "signalCatalogArn", GoGetter: "SignalCatalogArn"},
 			_jsii_.MemberProperty{JsiiProperty: "signalsToCollect", GoGetter: "SignalsToCollect"},
+			_jsii_.MemberProperty{JsiiProperty: "signalsToFetch", GoGetter: "SignalsToFetch"},
 			_jsii_.MemberProperty{JsiiProperty: "spoolingMode", GoGetter: "SpoolingMode"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "startTime", GoGetter: "StartTime"},
@@ -81,6 +82,10 @@ func init() {
 		reflect.TypeOf((*CfnCampaign_ConditionBasedCollectionSchemeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.ConditionBasedSignalFetchConfigProperty",
+		reflect.TypeOf((*CfnCampaign_ConditionBasedSignalFetchConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.DataDestinationConfigProperty",
 		reflect.TypeOf((*CfnCampaign_DataDestinationConfigProperty)(nil)).Elem(),
 	)
@@ -93,12 +98,24 @@ func init() {
 		reflect.TypeOf((*CfnCampaign_S3ConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.SignalFetchConfigProperty",
+		reflect.TypeOf((*CfnCampaign_SignalFetchConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.SignalFetchInformationProperty",
+		reflect.TypeOf((*CfnCampaign_SignalFetchInformationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.SignalInformationProperty",
 		reflect.TypeOf((*CfnCampaign_SignalInformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.TimeBasedCollectionSchemeProperty",
 		reflect.TypeOf((*CfnCampaign_TimeBasedCollectionSchemeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.TimeBasedSignalFetchConfigProperty",
+		reflect.TypeOf((*CfnCampaign_TimeBasedSignalFetchConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.TimestreamConfigProperty",

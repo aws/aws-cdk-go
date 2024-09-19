@@ -44,7 +44,7 @@ import (
 type CfnDataRepositoryAssociationProps struct {
 	// The path to the Amazon S3 data repository that will be linked to the file system.
 	//
-	// The path can be an S3 bucket or prefix in the format `s3://myBucket/myPrefix/` . This path specifies where in the S3 data repository files will be imported from or exported to.
+	// The path can be an S3 bucket or prefix in the format `s3://bucket-name/prefix/` . This path specifies where in the S3 data repository files will be imported from or exported to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html#cfn-fsx-datarepositoryassociation-datarepositorypath
 	//
 	DataRepositoryPath *string `field:"required" json:"dataRepositoryPath" yaml:"dataRepositoryPath"`

@@ -12,6 +12,24 @@ package awssecurityhub
 //   	Parameters: map[string]interface{}{
 //   		"parametersKey": &ParameterConfigurationProperty{
 //   			"valueType": jsii.String("valueType"),
+//
+//   			// the properties below are optional
+//   			"value": &ParameterValueProperty{
+//   				"boolean": jsii.Boolean(false),
+//   				"double": jsii.Number(123),
+//   				"enum": jsii.String("enum"),
+//   				"enumList": []*string{
+//   					jsii.String("enumList"),
+//   				},
+//   				"integer": jsii.Number(123),
+//   				"integerList": []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   				"string": jsii.String("string"),
+//   				"stringList": []*string{
+//   					jsii.String("stringList"),
+//   				},
+//   			},
 //   		},
 //   	},
 //
@@ -40,7 +58,7 @@ type CfnSecurityControlProps struct {
 	SecurityControlArn *string `field:"optional" json:"securityControlArn" yaml:"securityControlArn"`
 	// The unique identifier of a security control across standards.
 	//
-	// Values for this field typically consist of an AWS-service name and a number, such as APIGateway.3.
+	// Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html#cfn-securityhub-securitycontrol-securitycontrolid
 	//
 	SecurityControlId *string `field:"optional" json:"securityControlId" yaml:"securityControlId"`

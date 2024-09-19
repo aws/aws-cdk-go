@@ -88,6 +88,12 @@ import (
 //   	},
 //   	StartingPosition: jsii.String("startingPosition"),
 //   	StartingPositionTimestamp: jsii.Number(123),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Topics: []*string{
 //   		jsii.String("topics"),
 //   	},
@@ -99,9 +105,11 @@ import (
 type CfnEventSourceMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Specific configuration settings for an MSK event source.
 	AmazonManagedKafkaEventSourceConfig() interface{}
 	SetAmazonManagedKafkaEventSourceConfig(val interface{})
+	AttrEventSourceMappingArn() *string
 	// Event Source Mapping Identifier UUID.
 	AttrId() *string
 	// The maximum number of items to retrieve in a single batch.
@@ -110,6 +118,8 @@ type CfnEventSourceMapping interface {
 	// (Streams) If the function returns an error, split the batch in two and retry.
 	BisectBatchOnFunctionError() interface{}
 	SetBisectBatchOnFunctionError(val interface{})
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -197,6 +207,8 @@ type CfnEventSourceMapping interface {
 	// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
 	StartingPositionTimestamp() *float64
 	SetStartingPositionTimestamp(val *float64)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// (Kafka) A list of Kafka topics.
 	Topics() *[]*string
 	SetTopics(val *[]*string)
@@ -347,6 +359,7 @@ type CfnEventSourceMapping interface {
 type jsiiProxy_CfnEventSourceMapping struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnEventSourceMapping) AmazonManagedKafkaEventSourceConfig() interface{} {
@@ -354,6 +367,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) AmazonManagedKafkaEventSourceConfig() 
 	_jsii_.Get(
 		j,
 		"amazonManagedKafkaEventSourceConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) AttrEventSourceMappingArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEventSourceMappingArn",
 		&returns,
 	)
 	return returns
@@ -384,6 +407,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) BisectBatchOnFunctionError() interface
 	_jsii_.Get(
 		j,
 		"bisectBatchOnFunctionError",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -654,6 +687,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) StartingPositionTimestamp() *float64 {
 	_jsii_.Get(
 		j,
 		"startingPositionTimestamp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -932,6 +975,17 @@ func (j *jsiiProxy_CfnEventSourceMapping)SetStartingPositionTimestamp(val *float
 	_jsii_.Set(
 		j,
 		"startingPositionTimestamp",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -48,6 +48,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.EgressOnlyInternetGatewayOptions",
+		reflect.TypeOf((*EgressOnlyInternetGatewayOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-ec2-alpha.EgressOnlyInternetGatewayProps",
 		reflect.TypeOf((*EgressOnlyInternetGatewayProps)(nil)).Elem(),
 	)
@@ -94,19 +98,27 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "routerType", GoGetter: "RouterType"},
 		},
 		func() interface{} {
-			return &jsiiProxy_IRouteTarget{}
+			j := jsiiProxy_IRouteTarget{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIDependable)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-ec2-alpha.IRouteV2",
 		reflect.TypeOf((*IRouteV2)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "destination", GoGetter: "Destination"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
 		},
 		func() interface{} {
-			return &jsiiProxy_IRouteV2{}
+			j := jsiiProxy_IRouteV2{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -124,6 +136,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "routeTable", GoGetter: "RouteTable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetType", GoGetter: "SubnetType"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetV2{}
@@ -136,13 +149,17 @@ func init() {
 		reflect.TypeOf((*IVpcV2)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addEgressOnlyInternetGateway", GoMethod: "AddEgressOnlyInternetGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "addFlowLog", GoMethod: "AddFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayEndpoint", GoMethod: "AddGatewayEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterfaceEndpoint", GoMethod: "AddInterfaceEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addInternetGateway", GoMethod: "AddInternetGateway"},
+			_jsii_.MemberMethod{JsiiMethod: "addNatGateway", GoMethod: "AddNatGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGateway", GoMethod: "EnableVpnGateway"},
+			_jsii_.MemberMethod{JsiiMethod: "enableVpnGatewayV2", GoMethod: "EnableVpnGatewayV2"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "internetConnectivityEstablished", GoGetter: "InternetConnectivityEstablished"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
@@ -188,6 +205,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRouteTarget)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.InternetGatewayOptions",
+		reflect.TypeOf((*InternetGatewayOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-ec2-alpha.InternetGatewayProps",
@@ -304,6 +325,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.NatGatewayOptions",
+		reflect.TypeOf((*NatGatewayOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-ec2-alpha.NatGatewayProps",
 		reflect.TypeOf((*NatGatewayProps)(nil)).Elem(),
 	)
@@ -345,6 +370,7 @@ func init() {
 		"@aws-cdk/aws-ec2-alpha.RouteTable",
 		reflect.TypeOf((*RouteTable)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addRoute", GoMethod: "AddRoute"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -361,7 +387,6 @@ func init() {
 			j := jsiiProxy_RouteTable{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IRouteTable)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIDependable)
 			return &j
 		},
 	)
@@ -423,8 +448,8 @@ func init() {
 		reflect.TypeOf((*SubnetV2Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/aws-ec2-alpha.VPNGateway",
-		reflect.TypeOf((*VPNGateway)(nil)).Elem(),
+		"@aws-cdk/aws-ec2-alpha.VPNGatewayV2",
+		reflect.TypeOf((*VPNGatewayV2)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -441,15 +466,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 		},
 		func() interface{} {
-			j := jsiiProxy_VPNGateway{}
+			j := jsiiProxy_VPNGatewayV2{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRouteTarget)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-ec2-alpha.VPNGatewayProps",
-		reflect.TypeOf((*VPNGatewayProps)(nil)).Elem(),
+		"@aws-cdk/aws-ec2-alpha.VPNGatewayV2Options",
+		reflect.TypeOf((*VPNGatewayV2Options)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.VPNGatewayV2Props",
+		reflect.TypeOf((*VPNGatewayV2Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-ec2-alpha.VpcCidrOptions",
@@ -460,21 +489,26 @@ func init() {
 		reflect.TypeOf((*VpcV2)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addEgressOnlyInternetGateway", GoMethod: "AddEgressOnlyInternetGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "addFlowLog", GoMethod: "AddFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayEndpoint", GoMethod: "AddGatewayEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterfaceEndpoint", GoMethod: "AddInterfaceEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addInternetGateway", GoMethod: "AddInternetGateway"},
+			_jsii_.MemberMethod{JsiiMethod: "addNatGateway", GoMethod: "AddNatGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsHostnamesEnabled", GoGetter: "DnsHostnamesEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsSupportEnabled", GoGetter: "DnsSupportEnabled"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGateway", GoMethod: "EnableVpnGateway"},
+			_jsii_.MemberMethod{JsiiMethod: "enableVpnGatewayV2", GoMethod: "EnableVpnGatewayV2"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "incompleteSubnetDefinition", GoGetter: "IncompleteSubnetDefinition"},
 			_jsii_.MemberProperty{JsiiProperty: "internetConnectivityEstablished", GoGetter: "InternetConnectivityEstablished"},
+			_jsii_.MemberProperty{JsiiProperty: "internetGatewayId", GoGetter: "InternetGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "ipAddresses", GoGetter: "IpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6CidrBlocks", GoGetter: "Ipv6CidrBlocks"},
@@ -506,19 +540,24 @@ func init() {
 		reflect.TypeOf((*VpcV2Base)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addClientVpnEndpoint", GoMethod: "AddClientVpnEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addEgressOnlyInternetGateway", GoMethod: "AddEgressOnlyInternetGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "addFlowLog", GoMethod: "AddFlowLog"},
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayEndpoint", GoMethod: "AddGatewayEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterfaceEndpoint", GoMethod: "AddInterfaceEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addInternetGateway", GoMethod: "AddInternetGateway"},
+			_jsii_.MemberMethod{JsiiMethod: "addNatGateway", GoMethod: "AddNatGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGateway", GoMethod: "EnableVpnGateway"},
+			_jsii_.MemberMethod{JsiiMethod: "enableVpnGatewayV2", GoMethod: "EnableVpnGatewayV2"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "incompleteSubnetDefinition", GoGetter: "IncompleteSubnetDefinition"},
 			_jsii_.MemberProperty{JsiiProperty: "internetConnectivityEstablished", GoGetter: "InternetConnectivityEstablished"},
+			_jsii_.MemberProperty{JsiiProperty: "internetGatewayId", GoGetter: "InternetGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "isolatedSubnets", GoGetter: "IsolatedSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},

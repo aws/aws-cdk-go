@@ -3,7 +3,6 @@ package awscdkkinesisfirehosealpha
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Properties for a new delivery stream.
@@ -43,15 +42,10 @@ type DeliveryStreamProps struct {
 	// Experimental.
 	DeliveryStreamName *string `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// Indicates the type of customer master key (CMK) to use for server-side encryption, if any.
-	// Default: StreamEncryption.UNENCRYPTED - unless `encryptionKey` is provided, in which case this will be implicitly set to `StreamEncryption.CUSTOMER_MANAGED`
+	// Default: StreamEncryption.unencrypted()
 	//
 	// Experimental.
 	Encryption StreamEncryption `field:"optional" json:"encryption" yaml:"encryption"`
-	// Customer managed key to server-side encrypt data in the stream.
-	// Default: - no KMS key will be used; if `encryption` is set to `CUSTOMER_MANAGED`, a KMS key will be created for you.
-	//
-	// Experimental.
-	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The IAM role associated with this delivery stream.
 	//
 	// Assumed by Kinesis Data Firehose to read from sources and encrypt data server-side.

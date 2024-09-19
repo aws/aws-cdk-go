@@ -32,23 +32,20 @@ type CfnVpcConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html#cfn-msk-vpcconnection-authentication
 	//
 	Authentication *string `field:"required" json:"authentication" yaml:"authentication"`
-	// The list of subnets in the client VPC to connect to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html#cfn-msk-vpcconnection-clientsubnets
 	//
 	ClientSubnets *[]*string `field:"required" json:"clientSubnets" yaml:"clientSubnets"`
-	// The security groups to attach to the ENIs for the broker nodes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html#cfn-msk-vpcconnection-securitygroups
 	//
 	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`
-	// The Amazon Resource Name (ARN) of the cluster.
+	// The Amazon Resource Name (ARN) of the target cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html#cfn-msk-vpcconnection-targetclusterarn
 	//
 	TargetClusterArn *string `field:"required" json:"targetClusterArn" yaml:"targetClusterArn"`
-	// The VPC id of the remote client.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html#cfn-msk-vpcconnection-vpcid
 	//
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
-	// Create tags when creating the VPC connection.
+	// A key-value pair to associate with a resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html#cfn-msk-vpcconnection-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

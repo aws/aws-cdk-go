@@ -14,15 +14,16 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
+//   var secretValue secretValue
 //   var userPool userPool
 //
 //   userPoolIdentityProviderApple := awscdk.Aws_cognito.NewUserPoolIdentityProviderApple(this, jsii.String("MyUserPoolIdentityProviderApple"), &UserPoolIdentityProviderAppleProps{
 //   	ClientId: jsii.String("clientId"),
 //   	KeyId: jsii.String("keyId"),
-//   	PrivateKey: jsii.String("privateKey"),
 //   	TeamId: jsii.String("teamId"),
 //   	UserPool: userPool,
 //
@@ -49,6 +50,8 @@ import (
 //   		Timezone: providerAttribute,
 //   		Website: providerAttribute,
 //   	},
+//   	PrivateKey: jsii.String("privateKey"),
+//   	PrivateKeyValue: secretValue,
 //   	Scopes: []*string{
 //   		jsii.String("scopes"),
 //   	},

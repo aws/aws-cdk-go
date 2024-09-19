@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Create remote VPC connection.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -49,7 +49,6 @@ type CfnVpcConnection interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The list of subnets in the client VPC to connect to.
 	ClientSubnets() *[]*string
 	SetClientSubnets(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -73,7 +72,6 @@ type CfnVpcConnection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
 	// The stack in which this element is defined.
@@ -82,10 +80,10 @@ type CfnVpcConnection interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// Create tags when creating the VPC connection.
+	// A key-value pair to associate with a resource.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
-	// The Amazon Resource Name (ARN) of the cluster.
+	// The Amazon Resource Name (ARN) of the target cluster.
 	TargetClusterArn() *string
 	SetTargetClusterArn(val *string)
 	// Deprecated.
@@ -101,7 +99,6 @@ type CfnVpcConnection interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The VPC id of the remote client.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -9,14 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a new MSK cluster.
-//
-// The following Python 3.6 examples shows how you can create a cluster that's distributed over two Availability Zones. Before you run this Python script, replace the example subnet and security-group IDs with the IDs of your subnets and security group. When you create an MSK cluster, its brokers get evenly distributed over a number of Availability Zones that's equal to the number of subnets that you specify in the `BrokerNodeGroupInfo` parameter. In this example, you can add a third subnet to get a cluster that's distributed over three Availability Zones.
-//
-// ```PYTHON
-// import boto3 client = boto3.client('kafka') response = client.create_cluster( BrokerNodeGroupInfo={ 'BrokerAZDistribution': 'DEFAULT', 'ClientSubnets': [ 'subnet-012345678901fedcba', 'subnet-9876543210abcdef01' ], 'InstanceType': 'kafka.m5.large', 'SecurityGroups': [ 'sg-012345abcdef789789' ] }, ClusterName='SalesCluster', EncryptionInfo={ 'EncryptionInTransit': { 'ClientBroker': 'TLS_PLAINTEXT', 'InCluster': True } }, EnhancedMonitoring='PER_TOPIC_PER_BROKER', KafkaVersion='2.2.1', NumberOfBrokerNodes=2
-// ) print(response)
-// ```.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -150,7 +143,6 @@ type CfnCluster interface {
 	awscdk.IInspectable
 	awscdk.ITaggable
 	AttrArn() *string
-	// Information about the broker nodes in the cluster.
 	BrokerNodeGroupInfo() interface{}
 	SetBrokerNodeGroupInfo(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -158,32 +150,25 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Includes all client authentication related information.
 	ClientAuthentication() interface{}
 	SetClientAuthentication(val interface{})
-	// The name of the cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
-	// Represents the configuration that you want MSK to use for the cluster.
 	ConfigurationInfo() interface{}
 	SetConfigurationInfo(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The version of the cluster that you want to update.
+	// The current version of the MSK cluster.
 	CurrentVersion() *string
 	SetCurrentVersion(val *string)
-	// Includes all encryption-related information.
 	EncryptionInfo() interface{}
 	SetEncryptionInfo(val interface{})
-	// Specifies the level of monitoring for the MSK cluster.
 	EnhancedMonitoring() *string
 	SetEnhancedMonitoring(val *string)
-	// The version of Apache Kafka.
 	KafkaVersion() *string
 	SetKafkaVersion(val *string)
-	// Logging Info details.
 	LoggingInfo() interface{}
 	SetLoggingInfo(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -198,10 +183,8 @@ type CfnCluster interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The number of broker nodes in the cluster.
 	NumberOfBrokerNodes() *float64
 	SetNumberOfBrokerNodes(val *float64)
-	// The settings for open monitoring.
 	OpenMonitoring() interface{}
 	SetOpenMonitoring(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -213,12 +196,11 @@ type CfnCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// This controls storage mode for supported storage tiers.
 	StorageMode() *string
 	SetStorageMode(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// Create tags when creating the cluster.
+	// A key-value pair to associate with a resource.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
 	// Deprecated.

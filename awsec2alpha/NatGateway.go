@@ -13,24 +13,24 @@ import (
 // Creates a network address translation (NAT) gateway.
 //
 // Example:
-//   myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-//   routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+//   routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 //   	Vpc: myVpc,
 //   })
-//   subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+//   subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 //   	Vpc: myVpc,
 //   	AvailabilityZone: jsii.String("eu-west-2a"),
 //   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+//   	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 //   })
 //
-//   natgw := vpc_v2.NewNatGateway(this, jsii.String("NatGW"), &NatGatewayProps{
+//   natgw := awsec2alpha.NewNatGateway(this, jsii.String("NatGW"), &NatGatewayProps{
 //   	Subnet: subnet,
 //   	Vpc: myVpc,
 //   	ConnectivityType: awsec2alpha.NatConnectivityType_PRIVATE,
 //   	PrivateIpAddress: jsii.String("10.0.0.42"),
 //   })
-//   vpc_v2.NewRoute(this, jsii.String("NatGwRoute"), &RouteProps{
+//   awsec2alpha.NewRoute(this, jsii.String("NatGwRoute"), &RouteProps{
 //   	RouteTable: RouteTable,
 //   	Destination: jsii.String("0.0.0.0/0"),
 //   	Target: map[string]iRouteTarget{
@@ -46,7 +46,7 @@ type NatGateway interface {
 	// Default: public.
 	//
 	// Experimental.
-	ConnectivityType() *string
+	ConnectivityType() NatConnectivityType
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -58,7 +58,7 @@ type NatGateway interface {
 	// Experimental.
 	Env() *awscdk.ResourceEnvironment
 	// The maximum amount of time to wait before forcibly releasing the IP addresses if connections are still in progress.
-	// Default: 350 seconds.
+	// Default: '350 seconds'.
 	//
 	// Experimental.
 	MaxDrainDuration() awscdk.Duration
@@ -125,8 +125,8 @@ type jsiiProxy_NatGateway struct {
 	jsiiProxy_IRouteTarget
 }
 
-func (j *jsiiProxy_NatGateway) ConnectivityType() *string {
-	var returns *string
+func (j *jsiiProxy_NatGateway) ConnectivityType() NatConnectivityType {
+	var returns NatConnectivityType
 	_jsii_.Get(
 		j,
 		"connectivityType",

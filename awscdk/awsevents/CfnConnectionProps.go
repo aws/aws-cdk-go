@@ -10,8 +10,6 @@ package awsevents
 //
 //   cfnConnectionProps := &CfnConnectionProps{
 //   	AuthorizationType: jsii.String("authorizationType"),
-//
-//   	// the properties below are optional
 //   	AuthParameters: &AuthParametersProperty{
 //   		ApiKeyAuthParameters: &ApiKeyAuthParametersProperty{
 //   			ApiKeyName: jsii.String("apiKeyName"),
@@ -90,6 +88,8 @@ package awsevents
 //   			},
 //   		},
 //   	},
+//
+//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   }
@@ -106,7 +106,7 @@ type CfnConnectionProps struct {
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
 	//
-	AuthParameters interface{} `field:"optional" json:"authParameters" yaml:"authParameters"`
+	AuthParameters interface{} `field:"required" json:"authParameters" yaml:"authParameters"`
 	// A description for the connection to create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
 	//

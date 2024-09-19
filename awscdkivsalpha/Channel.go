@@ -12,7 +12,10 @@ import (
 // A new IVS channel.
 //
 // Example:
-//   myChannel := ivs.Channel_FromChannelArn(this, jsii.String("Channel"), myChannelArn)
+//   myRtmpChannel := ivs.NewChannel(this, jsii.String("myRtmpChannel"), &ChannelProps{
+//   	Type: ivs.ChannelType_STANDARD,
+//   	InsecureIngest: jsii.Boolean(true),
+//   })
 //
 // Experimental.
 type Channel interface {

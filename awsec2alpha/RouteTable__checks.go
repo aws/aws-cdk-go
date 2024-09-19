@@ -11,6 +11,22 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (r *jsiiProxy_RouteTable) validateAddRouteParameters(id *string, destination *string, target RouteTargetType) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if destination == nil {
+		return fmt.Errorf("parameter destination is required, but nil was provided")
+	}
+
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (r *jsiiProxy_RouteTable) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

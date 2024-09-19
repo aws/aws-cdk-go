@@ -5,26 +5,26 @@ package awsec2alpha
 //
 // Example:
 //   stack := awscdk.Newstack()
-//   myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-//   routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
-//   	Vpc: myVpc,
-//   })
-//   subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
-//   	Vpc: myVpc,
-//   	AvailabilityZone: jsii.String("eu-west-2a"),
-//   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+//   vpnGateway := myVpc.EnableVpnGatewayV2(&VPNGatewayV2Options{
+//   	VpnRoutePropagation: []subnetSelection{
+//   		&subnetSelection{
+//   			SubnetType: awscdk.SubnetType_PUBLIC,
+//   		},
+//   	},
+//   	Type: awscdk.VpnConnectionType_IPSEC_1,
 //   })
 //
-//   igw := vpc_v2.NewInternetGateway(this, jsii.String("IGW"), &InternetGatewayProps{
+//   routeTable := awsec2alpha.NewRouteTable(stack, jsii.String("routeTable"), &RouteTableProps{
 //   	Vpc: myVpc,
 //   })
-//   vpc_v2.NewRoute(this, jsii.String("IgwRoute"), &RouteProps{
-//   	RouteTable: RouteTable,
-//   	Destination: jsii.String("0.0.0.0/0"),
+//
+//   awsec2alpha.NewRoute(stack, jsii.String("route"), &RouteProps{
+//   	Destination: jsii.String("172.31.0.0/24"),
 //   	Target: map[string]iRouteTarget{
-//   		"gateway": igw,
+//   		"gateway": vpnGateway,
 //   	},
+//   	RouteTable: routeTable,
 //   })
 //
 // Experimental.
@@ -33,7 +33,7 @@ type RouteTableProps struct {
 	// Experimental.
 	Vpc IVpcV2 `field:"required" json:"vpc" yaml:"vpc"`
 	// The resource name of the route table.
-	// Default: none.
+	// Default: - provisioned without a route table name.
 	//
 	// Experimental.
 	RouteTableName *string `field:"optional" json:"routeTableName" yaml:"routeTableName"`

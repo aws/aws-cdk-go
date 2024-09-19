@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCodeSigningConfig) validateSetCodeSigningPoliciesParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnCodeSigningConfig) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnCodeSigningConfigParameters(scope constructs.Construct, id *string, props *CfnCodeSigningConfigProps) error {
 	return nil
 }

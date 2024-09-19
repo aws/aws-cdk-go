@@ -9,22 +9,14 @@ package awsglobalaccelerator
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   resourceProperty := &ResourceProperty{
-//   	EndpointId: jsii.String("endpointId"),
-//
-//   	// the properties below are optional
 //   	Cidr: jsii.String("cidr"),
+//   	EndpointId: jsii.String("endpointId"),
 //   	Region: jsii.String("region"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html
 //
 type CfnCrossAccountAttachment_ResourceProperty struct {
-	// The endpoint ID for the endpoint that is specified as a AWS resource.
-	//
-	// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html#cfn-globalaccelerator-crossaccountattachment-resource-endpointid
-	//
-	EndpointId *string `field:"required" json:"endpointId" yaml:"endpointId"`
 	// An IP address range, in CIDR format, that is specified as resource.
 	//
 	// The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
@@ -33,6 +25,12 @@ type CfnCrossAccountAttachment_ResourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html#cfn-globalaccelerator-crossaccountattachment-resource-cidr
 	//
 	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
+	// The endpoint ID for the endpoint that is specified as a AWS resource.
+	//
+	// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html#cfn-globalaccelerator-crossaccountattachment-resource-endpointid
+	//
+	EndpointId *string `field:"optional" json:"endpointId" yaml:"endpointId"`
 	// The AWS Region where a shared endpoint resource is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html#cfn-globalaccelerator-crossaccountattachment-resource-region
 	//

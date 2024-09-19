@@ -38,6 +38,13 @@ type CfnBot_BotLocaleProperty struct {
 	//
 	SlotTypes interface{} `field:"optional" json:"slotTypes" yaml:"slotTypes"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
+	//
+	// Valid values include:
+	//
+	// - `standard`
+	// - `neural`
+	// - `long-form`
+	// - `generative`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-voicesettings
 	//
 	VoiceSettings interface{} `field:"optional" json:"voiceSettings" yaml:"voiceSettings"`

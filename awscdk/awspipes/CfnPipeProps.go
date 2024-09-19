@@ -31,6 +31,7 @@ package awspipes
 //   		},
 //   		InputTemplate: jsii.String("inputTemplate"),
 //   	},
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	LogConfiguration: &PipeLogConfigurationProperty{
 //   		CloudwatchLogsLogDestination: &CloudwatchLogsLogDestinationProperty{
 //   			LogGroupArn: jsii.String("logGroupArn"),
@@ -420,6 +421,18 @@ type CfnPipeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichmentparameters
 	//
 	EnrichmentParameters interface{} `field:"optional" json:"enrichmentParameters" yaml:"enrichmentParameters"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data.
+	//
+	// The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	//
+	// To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+	//
+	// To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+	//
+	// For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-kmskeyidentifier
+	//
+	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// The logging configuration settings for the pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-logconfiguration
 	//

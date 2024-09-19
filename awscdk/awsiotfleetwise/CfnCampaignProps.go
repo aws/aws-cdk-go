@@ -69,6 +69,26 @@ import (
 //   			MinimumSamplingIntervalMs: jsii.Number(123),
 //   		},
 //   	},
+//   	SignalsToFetch: []interface{}{
+//   		&SignalFetchInformationProperty{
+//   			Actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			FullyQualifiedName: jsii.String("fullyQualifiedName"),
+//   			SignalFetchConfig: &SignalFetchConfigProperty{
+//   				ConditionBased: &ConditionBasedSignalFetchConfigProperty{
+//   					ConditionExpression: jsii.String("conditionExpression"),
+//   					TriggerMode: jsii.String("triggerMode"),
+//   				},
+//   				TimeBased: &TimeBasedSignalFetchConfigProperty{
+//   					ExecutionFrequencyMs: jsii.Number(123),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			ConditionLanguageVersion: jsii.Number(123),
+//   		},
+//   	},
 //   	SpoolingMode: jsii.String("spoolingMode"),
 //   	StartTime: jsii.String("startTime"),
 //   	Tags: []cfnTag{
@@ -185,6 +205,9 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-signalstocollect
 	//
 	SignalsToCollect interface{} `field:"optional" json:"signalsToCollect" yaml:"signalsToCollect"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-signalstofetch
+	//
+	SignalsToFetch interface{} `field:"optional" json:"signalsToFetch" yaml:"signalsToFetch"`
 	// (Optional) Whether to store collected data after a vehicle lost a connection with the cloud.
 	//
 	// After a connection is re-established, the data is automatically forwarded to AWS IoT FleetWise . If you want to store collected data when a vehicle loses connection with the cloud, use `TO_DISK` . If it's not specified, `OFF` is used.

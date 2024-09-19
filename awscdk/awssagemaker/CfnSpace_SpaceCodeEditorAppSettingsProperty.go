@@ -9,6 +9,11 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   spaceCodeEditorAppSettingsProperty := &SpaceCodeEditorAppSettingsProperty{
+//   	AppLifecycleManagement: &SpaceAppLifecycleManagementProperty{
+//   		IdleSettings: &SpaceIdleSettingsProperty{
+//   			IdleTimeoutInMinutes: jsii.Number(123),
+//   		},
+//   	},
 //   	DefaultResourceSpec: &ResourceSpecProperty{
 //   		InstanceType: jsii.String("instanceType"),
 //   		LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
@@ -20,6 +25,10 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html
 //
 type CfnSpace_SpaceCodeEditorAppSettingsProperty struct {
+	// Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html#cfn-sagemaker-space-spacecodeeditorappsettings-applifecyclemanagement
+	//
+	AppLifecycleManagement interface{} `field:"optional" json:"appLifecycleManagement" yaml:"appLifecycleManagement"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html#cfn-sagemaker-space-spacecodeeditorappsettings-defaultresourcespec
 	//

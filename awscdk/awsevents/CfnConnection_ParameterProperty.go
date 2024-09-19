@@ -32,6 +32,8 @@ type CfnConnection_ParameterProperty struct {
 	// Specifies whether the value is secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-parameter.html#cfn-events-connection-parameter-isvaluesecret
 	//
+	// Default: - true.
+	//
 	IsValueSecret interface{} `field:"optional" json:"isValueSecret" yaml:"isValueSecret"`
 }
 

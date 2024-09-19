@@ -599,6 +599,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.AppLifecycleManagementProperty",
+		reflect.TypeOf((*CfnDomain_AppLifecycleManagementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.CodeEditorAppSettingsProperty",
 		reflect.TypeOf((*CfnDomain_CodeEditorAppSettingsProperty)(nil)).Elem(),
 	)
@@ -641,6 +645,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.EFSFileSystemConfigProperty",
 		reflect.TypeOf((*CfnDomain_EFSFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.IdleSettingsProperty",
+		reflect.TypeOf((*CfnDomain_IdleSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.JupyterLabAppSettingsProperty",
@@ -2781,8 +2789,16 @@ func init() {
 		reflect.TypeOf((*CfnSpace_ResourceSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceAppLifecycleManagementProperty",
+		reflect.TypeOf((*CfnSpace_SpaceAppLifecycleManagementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceCodeEditorAppSettingsProperty",
 		reflect.TypeOf((*CfnSpace_SpaceCodeEditorAppSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceIdleSettingsProperty",
+		reflect.TypeOf((*CfnSpace_SpaceIdleSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.SpaceJupyterLabAppSettingsProperty",
@@ -2909,6 +2925,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.AppLifecycleManagementProperty",
+		reflect.TypeOf((*CfnUserProfile_AppLifecycleManagementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.CodeEditorAppSettingsProperty",
 		reflect.TypeOf((*CfnUserProfile_CodeEditorAppSettingsProperty)(nil)).Elem(),
 	)
@@ -2939,6 +2959,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.EFSFileSystemConfigProperty",
 		reflect.TypeOf((*CfnUserProfile_EFSFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.IdleSettingsProperty",
+		reflect.TypeOf((*CfnUserProfile_IdleSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.JupyterLabAppSettingsProperty",

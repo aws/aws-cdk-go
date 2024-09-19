@@ -159,7 +159,7 @@ type CfnUserPoolClient interface {
 	// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool.
 	PreventUserExistenceErrors() *string
 	SetPreventUserExistenceErrors(val *string)
-	// The list of user attributes that you want your app client to have read-only access to.
+	// The list of user attributes that you want your app client to have read access to.
 	ReadAttributes() *[]*string
 	SetReadAttributes(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

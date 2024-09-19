@@ -84,7 +84,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html
 //
 type CfnReplicatorProps struct {
-	// Specifies a list of Kafka clusters which are targets of the replicator.
+	// Kafka Clusters to use in setting up sources / targets for replication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-kafkaclusters
 	//
 	KafkaClusters interface{} `field:"required" json:"kafkaClusters" yaml:"kafkaClusters"`
@@ -93,14 +93,16 @@ type CfnReplicatorProps struct {
 	//
 	ReplicationInfoList interface{} `field:"required" json:"replicationInfoList" yaml:"replicationInfoList"`
 	// The name of the replicator.
+	//
+	// Alpha-numeric characters with '-' are allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-replicatorname
 	//
 	ReplicatorName *string `field:"required" json:"replicatorName" yaml:"replicatorName"`
-	// The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
+	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-serviceexecutionrolearn
 	//
 	ServiceExecutionRoleArn *string `field:"required" json:"serviceExecutionRoleArn" yaml:"serviceExecutionRoleArn"`
-	// The current version of the MSK replicator.
+	// The current version number of the replicator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-currentversion
 	//
 	CurrentVersion *string `field:"optional" json:"currentVersion" yaml:"currentVersion"`
@@ -108,7 +110,7 @@ type CfnReplicatorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// A collection of tags associated with a resource.
+	// List of tags to attach to created Replicator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

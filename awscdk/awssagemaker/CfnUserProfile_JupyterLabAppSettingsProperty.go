@@ -9,6 +9,14 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   jupyterLabAppSettingsProperty := &JupyterLabAppSettingsProperty{
+//   	AppLifecycleManagement: &AppLifecycleManagementProperty{
+//   		IdleSettings: &IdleSettingsProperty{
+//   			IdleTimeoutInMinutes: jsii.Number(123),
+//   			LifecycleManagement: jsii.String("lifecycleManagement"),
+//   			MaxIdleTimeoutInMinutes: jsii.Number(123),
+//   			MinIdleTimeoutInMinutes: jsii.Number(123),
+//   		},
+//   	},
 //   	CodeRepositories: []interface{}{
 //   		&CodeRepositoryProperty{
 //   			RepositoryUrl: jsii.String("repositoryUrl"),
@@ -37,6 +45,10 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html
 //
 type CfnUserProfile_JupyterLabAppSettingsProperty struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-applifecyclemanagement
+	//
+	AppLifecycleManagement interface{} `field:"optional" json:"appLifecycleManagement" yaml:"appLifecycleManagement"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-coderepositories
 	//

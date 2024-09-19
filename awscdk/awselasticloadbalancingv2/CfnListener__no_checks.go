@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnListener) validateSetDefaultActionsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnListener) validateSetListenerAttributesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnListener) validateSetLoadBalancerArnParameters(val *string) error {
 	return nil
 }

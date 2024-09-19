@@ -11,6 +11,14 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   codeEditorAppSettingsProperty := &CodeEditorAppSettingsProperty{
+//   	AppLifecycleManagement: &AppLifecycleManagementProperty{
+//   		IdleSettings: &IdleSettingsProperty{
+//   			IdleTimeoutInMinutes: jsii.Number(123),
+//   			LifecycleManagement: jsii.String("lifecycleManagement"),
+//   			MaxIdleTimeoutInMinutes: jsii.Number(123),
+//   			MinIdleTimeoutInMinutes: jsii.Number(123),
+//   		},
+//   	},
 //   	CustomImages: []interface{}{
 //   		&CustomImageProperty{
 //   			AppImageConfigName: jsii.String("appImageConfigName"),
@@ -34,6 +42,10 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html
 //
 type CfnDomain_CodeEditorAppSettingsProperty struct {
+	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-applifecyclemanagement
+	//
+	AppLifecycleManagement interface{} `field:"optional" json:"appLifecycleManagement" yaml:"appLifecycleManagement"`
 	// A list of custom SageMaker images that are configured to run as a Code Editor app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html#cfn-sagemaker-domain-codeeditorappsettings-customimages
 	//

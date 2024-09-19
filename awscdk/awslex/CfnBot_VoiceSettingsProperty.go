@@ -3,6 +3,13 @@ package awslex
 
 // Defines settings for using an Amazon Polly voice to communicate with a user.
 //
+// Valid values include:
+//
+// - `standard`
+// - `neural`
+// - `long-form`
+// - `generative`.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

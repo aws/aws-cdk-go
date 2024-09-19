@@ -587,6 +587,14 @@ func init() {
 		reflect.TypeOf((*CfnWirelessDevice_AbpV11Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice.ApplicationProperty",
+		reflect.TypeOf((*CfnWirelessDevice_ApplicationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice.FPortsProperty",
+		reflect.TypeOf((*CfnWirelessDevice_FPortsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotwireless.CfnWirelessDevice.LoRaWANDeviceProperty",
 		reflect.TypeOf((*CfnWirelessDevice_LoRaWANDeviceProperty)(nil)).Elem(),
 	)

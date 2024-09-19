@@ -38,6 +38,9 @@ type VpcV2Base interface {
 	// Dependable that can be depended upon to force internet connectivity established on the VPC.
 	// Experimental.
 	InternetConnectivityEstablished() constructs.IDependable
+	// Returns the id of the Internet Gateway (if enabled).
+	// Experimental.
+	InternetGatewayId() *string
 	// The primary IPv4 CIDR block associated with the VPC.
 	//
 	// Needed in order to validate the vpc range of subnet
@@ -87,6 +90,11 @@ type VpcV2Base interface {
 	// Adds a new client VPN endpoint to this VPC.
 	// Experimental.
 	AddClientVpnEndpoint(id *string, options *awsec2.ClientVpnEndpointOptions) awsec2.ClientVpnEndpoint
+	// Adds a new Egress Only Internet Gateway to this VPC and defines a new route to the route table of given subnets.
+	// Default: - in case of no input subnets, no route is created.
+	//
+	// Experimental.
+	AddEgressOnlyInternetGateway(options *EgressOnlyInternetGatewayOptions)
 	// Adds a new flow log to this VPC.
 	// Experimental.
 	AddFlowLog(id *string, options *awsec2.FlowLogOptions) awsec2.FlowLog
@@ -96,6 +104,14 @@ type VpcV2Base interface {
 	// Adds a new interface endpoint to this VPC.
 	// Experimental.
 	AddInterfaceEndpoint(id *string, options *awsec2.InterfaceVpcEndpointOptions) awsec2.InterfaceVpcEndpoint
+	// Adds a new Internet Gateway to this VPC.
+	// Default: - creates a new route for public subnets(with all outbound access) to the Internet Gateway.
+	//
+	// Experimental.
+	AddInternetGateway(options *InternetGatewayOptions)
+	// Adds a new NAT Gateway to the given subnet of this VPC of given subnets.
+	// Experimental.
+	AddNatGateway(options *NatGatewayOptions) NatGateway
 	// Adds a new VPN connection to this VPC.
 	// Experimental.
 	AddVpnConnection(id *string, options *awsec2.VpnConnectionOptions) awsec2.VpnConnection
@@ -111,8 +127,11 @@ type VpcV2Base interface {
 	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Adds a VPN Gateway to this VPC.
-	// Experimental.
+	// Deprecated: use enableVpnGatewayV2 for compatibility with VPCV2.Route
 	EnableVpnGateway(options *awsec2.EnableVpnGatewayOptions)
+	// Adds VPNGAtewayV2 to this VPC.
+	// Experimental.
+	EnableVpnGatewayV2(options *VPNGatewayV2Options) VPNGatewayV2
 	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -185,6 +204,16 @@ func (j *jsiiProxy_VpcV2Base) InternetConnectivityEstablished() constructs.IDepe
 	_jsii_.Get(
 		j,
 		"internetConnectivityEstablished",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcV2Base) InternetGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"internetGatewayId",
 		&returns,
 	)
 	return returns
@@ -425,6 +454,17 @@ func (v *jsiiProxy_VpcV2Base) AddClientVpnEndpoint(id *string, options *awsec2.C
 	return returns
 }
 
+func (v *jsiiProxy_VpcV2Base) AddEgressOnlyInternetGateway(options *EgressOnlyInternetGatewayOptions) {
+	if err := v.validateAddEgressOnlyInternetGatewayParameters(options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		v,
+		"addEgressOnlyInternetGateway",
+		[]interface{}{options},
+	)
+}
+
 func (v *jsiiProxy_VpcV2Base) AddFlowLog(id *string, options *awsec2.FlowLogOptions) awsec2.FlowLog {
 	if err := v.validateAddFlowLogParameters(id, options); err != nil {
 		panic(err)
@@ -473,6 +513,33 @@ func (v *jsiiProxy_VpcV2Base) AddInterfaceEndpoint(id *string, options *awsec2.I
 	return returns
 }
 
+func (v *jsiiProxy_VpcV2Base) AddInternetGateway(options *InternetGatewayOptions) {
+	if err := v.validateAddInternetGatewayParameters(options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		v,
+		"addInternetGateway",
+		[]interface{}{options},
+	)
+}
+
+func (v *jsiiProxy_VpcV2Base) AddNatGateway(options *NatGatewayOptions) NatGateway {
+	if err := v.validateAddNatGatewayParameters(options); err != nil {
+		panic(err)
+	}
+	var returns NatGateway
+
+	_jsii_.Invoke(
+		v,
+		"addNatGateway",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 func (v *jsiiProxy_VpcV2Base) AddVpnConnection(id *string, options *awsec2.VpnConnectionOptions) awsec2.VpnConnection {
 	if err := v.validateAddVpnConnectionParameters(id, options); err != nil {
 		panic(err)
@@ -509,6 +576,22 @@ func (v *jsiiProxy_VpcV2Base) EnableVpnGateway(options *awsec2.EnableVpnGatewayO
 		"enableVpnGateway",
 		[]interface{}{options},
 	)
+}
+
+func (v *jsiiProxy_VpcV2Base) EnableVpnGatewayV2(options *VPNGatewayV2Options) VPNGatewayV2 {
+	if err := v.validateEnableVpnGatewayV2Parameters(options); err != nil {
+		panic(err)
+	}
+	var returns VPNGatewayV2
+
+	_jsii_.Invoke(
+		v,
+		"enableVpnGatewayV2",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (v *jsiiProxy_VpcV2Base) GeneratePhysicalName() *string {

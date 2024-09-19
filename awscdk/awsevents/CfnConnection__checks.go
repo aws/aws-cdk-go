@@ -188,6 +188,9 @@ func (j *jsiiProxy_CfnConnection) validateSetAuthorizationTypeParameters(val *st
 }
 
 func (j *jsiiProxy_CfnConnection) validateSetAuthParametersParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

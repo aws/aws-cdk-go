@@ -4,27 +4,28 @@ package awsiam
 // Interface for creating a policy statement.
 //
 // Example:
-//   var destinationBucket bucket
-//
-//
-//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployFiles"), &BucketDeploymentProps{
-//   	Sources: []iSource{
-//   		s3deploy.Source_Asset(path.join(__dirname, jsii.String("source-files"))),
-//   	},
-//   	DestinationBucket: DestinationBucket,
+//   accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"), &BucketProps{
+//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   })
 //
-//   deployment.HandlerRole.AddToPolicy(
+//   accessLogsBucket.AddToResourcePolicy(
 //   iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Actions: []*string{
-//   		jsii.String("kms:Decrypt"),
-//   		jsii.String("kms:DescribeKey"),
+//   		jsii.String("s3:*"),
 //   	},
-//   	Effect: iam.Effect_ALLOW,
 //   	Resources: []*string{
-//   		jsii.String("<encryption key ARN>"),
+//   		accessLogsBucket.BucketArn,
+//   		accessLogsBucket.ArnForObjects(jsii.String("*")),
+//   	},
+//   	Principals: []iPrincipal{
+//   		iam.NewAnyPrincipal(),
 //   	},
 //   }))
+//
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+//   	ServerAccessLogsBucket: accessLogsBucket,
+//   	ServerAccessLogsPrefix: jsii.String("logs"),
+//   })
 //
 type PolicyStatementProps struct {
 	// List of actions to add to the statement.

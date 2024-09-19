@@ -118,6 +118,9 @@ import (
 //   		},
 //   		State: jsii.String("state"),
 //   	},
+//   	SourceMonitoringConfig: &SourceMonitoringConfigProperty{
+//   		ThumbnailState: jsii.String("thumbnailState"),
+//   	},
 //   	VpcInterfaces: []interface{}{
 //   		&VpcInterfaceProperty{
 //   			Name: jsii.String("name"),
@@ -201,6 +204,9 @@ type CfnFlow interface {
 	// The settings for source failover.
 	SourceFailoverConfig() interface{}
 	SetSourceFailoverConfig(val interface{})
+	// The settings for source monitoring.
+	SourceMonitoringConfig() interface{}
+	SetSourceMonitoringConfig(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -544,6 +550,16 @@ func (j *jsiiProxy_CfnFlow) SourceFailoverConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlow) SourceMonitoringConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sourceMonitoringConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlow) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -671,6 +687,17 @@ func (j *jsiiProxy_CfnFlow)SetSourceFailoverConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceFailoverConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlow)SetSourceMonitoringConfig(val interface{}) {
+	if err := j.validateSetSourceMonitoringConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sourceMonitoringConfig",
 		val,
 	)
 }

@@ -58,6 +58,29 @@ package awsapplicationinsights
 //   					PatternSet: jsii.String("patternSet"),
 //   				},
 //   			},
+//   			NetWeaverPrometheusExporter: &NetWeaverPrometheusExporterProperty{
+//   				InstanceNumbers: []*string{
+//   					jsii.String("instanceNumbers"),
+//   				},
+//   				Sapsid: jsii.String("sapsid"),
+//
+//   				// the properties below are optional
+//   				PrometheusPort: jsii.String("prometheusPort"),
+//   			},
+//   			Processes: []interface{}{
+//   				&ProcessProperty{
+//   					AlarmMetrics: []interface{}{
+//   						&AlarmMetricProperty{
+//   							AlarmMetricName: jsii.String("alarmMetricName"),
+//   						},
+//   					},
+//   					ProcessName: jsii.String("processName"),
+//   				},
+//   			},
+//   			SqlServerPrometheusExporter: &SQLServerPrometheusExporterProperty{
+//   				PrometheusPort: jsii.String("prometheusPort"),
+//   				SqlSecretName: jsii.String("sqlSecretName"),
+//   			},
 //   			WindowsEvents: []interface{}{
 //   				&WindowsEventProperty{
 //   					EventLevels: []*string{
@@ -88,6 +111,16 @@ package awsapplicationinsights
 //   							LogGroupName: jsii.String("logGroupName"),
 //   							LogPath: jsii.String("logPath"),
 //   							PatternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   					Processes: []interface{}{
+//   						&ProcessProperty{
+//   							AlarmMetrics: []interface{}{
+//   								&AlarmMetricProperty{
+//   									AlarmMetricName: jsii.String("alarmMetricName"),
+//   								},
+//   							},
+//   							ProcessName: jsii.String("processName"),
 //   						},
 //   					},
 //   					WindowsEvents: []interface{}{
@@ -150,6 +183,29 @@ package awsapplicationinsights
 //   					PatternSet: jsii.String("patternSet"),
 //   				},
 //   			},
+//   			NetWeaverPrometheusExporter: &NetWeaverPrometheusExporterProperty{
+//   				InstanceNumbers: []*string{
+//   					jsii.String("instanceNumbers"),
+//   				},
+//   				Sapsid: jsii.String("sapsid"),
+//
+//   				// the properties below are optional
+//   				PrometheusPort: jsii.String("prometheusPort"),
+//   			},
+//   			Processes: []interface{}{
+//   				&ProcessProperty{
+//   					AlarmMetrics: []interface{}{
+//   						&AlarmMetricProperty{
+//   							AlarmMetricName: jsii.String("alarmMetricName"),
+//   						},
+//   					},
+//   					ProcessName: jsii.String("processName"),
+//   				},
+//   			},
+//   			SqlServerPrometheusExporter: &SQLServerPrometheusExporterProperty{
+//   				PrometheusPort: jsii.String("prometheusPort"),
+//   				SqlSecretName: jsii.String("sqlSecretName"),
+//   			},
 //   			WindowsEvents: []interface{}{
 //   				&WindowsEventProperty{
 //   					EventLevels: []*string{
@@ -180,6 +236,16 @@ package awsapplicationinsights
 //   							LogGroupName: jsii.String("logGroupName"),
 //   							LogPath: jsii.String("logPath"),
 //   							PatternSet: jsii.String("patternSet"),
+//   						},
+//   					},
+//   					Processes: []interface{}{
+//   						&ProcessProperty{
+//   							AlarmMetrics: []interface{}{
+//   								&AlarmMetricProperty{
+//   									AlarmMetricName: jsii.String("alarmMetricName"),
+//   								},
+//   							},
+//   							ProcessName: jsii.String("processName"),
 //   						},
 //   					},
 //   					WindowsEvents: []interface{}{
@@ -219,10 +285,14 @@ type CfnApplication_ComponentMonitoringSettingProperty struct {
 	//
 	Tier *string `field:"required" json:"tier" yaml:"tier"`
 	// The ARN of the component.
+	//
+	// Either the component ARN or the component name is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
 	//
 	ComponentArn *string `field:"optional" json:"componentArn" yaml:"componentArn"`
 	// The name of the component.
+	//
+	// Either the component ARN or the component name is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
 	//
 	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`

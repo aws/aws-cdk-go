@@ -333,6 +333,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "deletionProtection", GoGetter: "DeletionProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "deviceConfiguration", GoGetter: "DeviceConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "emailAuthenticationMessage", GoGetter: "EmailAuthenticationMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "emailAuthenticationSubject", GoGetter: "EmailAuthenticationSubject"},
 			_jsii_.MemberProperty{JsiiProperty: "emailConfiguration", GoGetter: "EmailConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "emailVerificationMessage", GoGetter: "EmailVerificationMessage"},
 			_jsii_.MemberProperty{JsiiProperty: "emailVerificationSubject", GoGetter: "EmailVerificationSubject"},

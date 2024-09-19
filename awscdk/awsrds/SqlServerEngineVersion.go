@@ -827,6 +827,17 @@ func SqlServerEngineVersion_VER_15_00_4382_1_V1() SqlServerEngineVersion {
 	return returns
 }
 
+func SqlServerEngineVersion_VER_15_00_4385_2_V1() SqlServerEngineVersion {
+	_init_.Initialize()
+	var returns SqlServerEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"VER_15_00_4385_2_V1",
+		&returns,
+	)
+	return returns
+}
+
 func SqlServerEngineVersion_VER_16() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
@@ -910,6 +921,17 @@ func SqlServerEngineVersion_VER_16_00_4131_2_V1() SqlServerEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
 		"VER_16_00_4131_2_V1",
+		&returns,
+	)
+	return returns
+}
+
+func SqlServerEngineVersion_VER_16_00_4135_4_V1() SqlServerEngineVersion {
+	_init_.Initialize()
+	var returns SqlServerEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"VER_16_00_4135_4_V1",
 		&returns,
 	)
 	return returns

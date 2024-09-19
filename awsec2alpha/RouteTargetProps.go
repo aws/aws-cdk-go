@@ -26,7 +26,7 @@ type RouteTargetProps struct {
 	//
 	// This is used for targets such as
 	// VPC endpoints.
-	// Default: none.
+	// Default: - target is not set to an endpoint, in this case a gateway is needed.
 	//
 	// Experimental.
 	Endpoint awsec2.IVpcEndpoint `field:"optional" json:"endpoint" yaml:"endpoint"`
@@ -34,7 +34,7 @@ type RouteTargetProps struct {
 	//
 	// This is used for targets such as
 	// egress-only internet gateway or VPC peering connection.
-	// Default: none.
+	// Default: - target is not set to a gateway, in this case an endpoint is needed.
 	//
 	// Experimental.
 	Gateway IRouteTarget `field:"optional" json:"gateway" yaml:"gateway"`

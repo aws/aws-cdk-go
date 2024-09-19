@@ -449,6 +449,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSourceAccessConfigurationsP
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnEventSourceMappingParameters(scope constructs.Construct, id *string, props *CfnEventSourceMappingProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

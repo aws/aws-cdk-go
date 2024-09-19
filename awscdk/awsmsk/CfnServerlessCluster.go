@@ -56,7 +56,6 @@ type CfnServerlessCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Includes all client authentication information.
 	ClientAuthentication() interface{}
 	SetClientAuthentication(val interface{})
 	ClusterName() *string

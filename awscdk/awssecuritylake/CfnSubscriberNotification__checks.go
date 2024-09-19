@@ -179,6 +179,33 @@ func validateCfnSubscriberNotification_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnSubscriberNotification) validateSetNotificationConfigurationParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnSubscriberNotification_NotificationConfigurationProperty:
+		val := val.(*CfnSubscriberNotification_NotificationConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnSubscriberNotification_NotificationConfigurationProperty:
+		val_ := val.(CfnSubscriberNotification_NotificationConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSubscriberNotification_NotificationConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnSubscriberNotification) validateSetSubscriberArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

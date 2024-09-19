@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Details of an Amazon MSK cluster.
+// Details of an Amazon MSK Cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsmsk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-amazonmskcluster.html
 //
 type CfnReplicator_AmazonMskClusterProperty struct {
-	// The ARN of an Amazon MSK cluster.
+	// The Amazon Resource Name (ARN) of an Amazon MSK cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-amazonmskcluster.html#cfn-msk-replicator-amazonmskcluster-mskclusterarn
 	//
 	MskClusterArn *string `field:"required" json:"mskClusterArn" yaml:"mskClusterArn"`

@@ -9,26 +9,21 @@ import (
 //
 // Example:
 //   stack := awscdk.Newstack()
-//   myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-//   routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+//   routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 //   	Vpc: myVpc,
 //   })
-//   subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+//   subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 //   	Vpc: myVpc,
 //   	AvailabilityZone: jsii.String("eu-west-2a"),
 //   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+//   	SubnetType: awscdk.SubnetType_PUBLIC,
 //   })
 //
-//   igw := vpc_v2.NewInternetGateway(this, jsii.String("IGW"), &InternetGatewayProps{
-//   	Vpc: myVpc,
-//   })
-//   vpc_v2.NewRoute(this, jsii.String("IgwRoute"), &RouteProps{
-//   	RouteTable: RouteTable,
-//   	Destination: jsii.String("0.0.0.0/0"),
-//   	Target: map[string]iRouteTarget{
-//   		"gateway": igw,
-//   	},
+//   myVpc.AddInternetGateway()
+//   myVpc.AddNatGateway(&NatGatewayOptions{
+//   	Subnet: subnet,
+//   	ConnectivityType: awsec2alpha.NatConnectivityType_PUBLIC,
 //   })
 //
 // Experimental.

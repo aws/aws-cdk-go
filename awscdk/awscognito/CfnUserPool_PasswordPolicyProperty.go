@@ -1,7 +1,9 @@
 package awscognito
 
 
-// The password policy type.
+// The password policy settings for a user pool, including complexity, history, and length requirements.
+//
+// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -35,19 +37,19 @@ type CfnUserPool_PasswordPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-passwordhistorysize
 	//
 	PasswordHistorySize *float64 `field:"optional" json:"passwordHistorySize" yaml:"passwordHistorySize"`
-	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+	// The requirement in a password policy that users must include at least one lowercase letter in their password.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requirelowercase
 	//
 	RequireLowercase interface{} `field:"optional" json:"requireLowercase" yaml:"requireLowercase"`
-	// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+	// The requirement in a password policy that users must include at least one number in their password.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requirenumbers
 	//
 	RequireNumbers interface{} `field:"optional" json:"requireNumbers" yaml:"requireNumbers"`
-	// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
+	// The requirement in a password policy that users must include at least one symbol in their password.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requiresymbols
 	//
 	RequireSymbols interface{} `field:"optional" json:"requireSymbols" yaml:"requireSymbols"`
-	// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+	// The requirement in a password policy that users must include at least one uppercase letter in their password.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requireuppercase
 	//
 	RequireUppercase interface{} `field:"optional" json:"requireUppercase" yaml:"requireUppercase"`

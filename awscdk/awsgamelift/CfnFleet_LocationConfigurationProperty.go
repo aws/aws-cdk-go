@@ -1,6 +1,8 @@
 package awsgamelift
 
 
+// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*.
+//
 // A remote location where a multi-location fleet can deploy game servers for game hosting.
 //
 // Example:
@@ -28,7 +30,7 @@ type CfnFleet_LocationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
 	//
 	Location *string `field:"required" json:"location" yaml:"location"`
-	// Current resource capacity settings for managed EC2 fleets.
+	// Current resource capacity settings for managed EC2 fleets and container fleets.
 	//
 	// For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 	//

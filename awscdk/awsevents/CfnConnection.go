@@ -20,8 +20,6 @@ import (
 //
 //   cfnConnection := awscdk.Aws_events.NewCfnConnection(this, jsii.String("MyCfnConnection"), &CfnConnectionProps{
 //   	AuthorizationType: jsii.String("authorizationType"),
-//
-//   	// the properties below are optional
 //   	AuthParameters: &AuthParametersProperty{
 //   		ApiKeyAuthParameters: &ApiKeyAuthParametersProperty{
 //   			ApiKeyName: jsii.String("apiKeyName"),
@@ -100,6 +98,8 @@ import (
 //   			},
 //   		},
 //   	},
+//
+//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   })

@@ -40,7 +40,7 @@ type CfnPermissionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
 	//
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
-	// The AWS-service or AWS account that invokes the function.
+	// The AWS service or AWS account that invokes the function.
 	//
 	// If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal
@@ -62,13 +62,13 @@ type CfnPermissionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principalorgid
 	//
 	PrincipalOrgId *string `field:"optional" json:"principalOrgId" yaml:"principalOrgId"`
-	// For AWS-service , the ID of the AWS account that owns the resource.
+	// For AWS service , the ID of the AWS account that owns the resource.
 	//
 	// Use this together with `SourceArn` to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount
 	//
 	SourceAccount *string `field:"optional" json:"sourceAccount" yaml:"sourceAccount"`
-	// For AWS-services , the ARN of the AWS resource that invokes the function.
+	// For AWS services , the ARN of the AWS resource that invokes the function.
 	//
 	// For example, an Amazon S3 bucket or Amazon SNS topic.
 	//

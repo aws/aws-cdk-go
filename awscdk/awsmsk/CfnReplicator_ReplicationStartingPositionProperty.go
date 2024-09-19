@@ -1,7 +1,7 @@
 package awsmsk
 
 
-// Configuration for specifying the position in the topics to start replicating from.
+// Specifies the position in the topics to start replicating from.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

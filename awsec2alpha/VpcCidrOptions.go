@@ -24,7 +24,6 @@ import (
 //   	Ipv4CidrBlock: jsii.String("ipv4CidrBlock"),
 //   	Ipv4IpamPool: ipamPool,
 //   	Ipv4NetmaskLength: jsii.Number(123),
-//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	Ipv6IpamPool: ipamPool,
 //   	Ipv6NetmaskLength: jsii.Number(123),
 //   }
@@ -37,7 +36,7 @@ type VpcCidrOptions struct {
 	// Experimental.
 	AmazonProvided *bool `field:"optional" json:"amazonProvided" yaml:"amazonProvided"`
 	// Required to set Secondary cidr block resource name in order to generate unique logical id for the resource.
-	// Default: : no name for primary addresses.
+	// Default: - no name for primary addresses.
 	//
 	// Experimental.
 	CidrBlockName *string `field:"optional" json:"cidrBlockName" yaml:"cidrBlockName"`
@@ -47,7 +46,7 @@ type VpcCidrOptions struct {
 	// Experimental.
 	Dependencies *[]awscdk.CfnResource `field:"optional" json:"dependencies" yaml:"dependencies"`
 	// IPv4 CIDR Block.
-	// Default: - '10.0.0.0/16'
+	// Default: '10.0.0.0/16'
 	//
 	// Experimental.
 	Ipv4CidrBlock *string `field:"optional" json:"ipv4CidrBlock" yaml:"ipv4CidrBlock"`
@@ -61,11 +60,6 @@ type VpcCidrOptions struct {
 	//
 	// Experimental.
 	Ipv4NetmaskLength *float64 `field:"optional" json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
-	// Implementing Ipv6.
-	// Default: - No ipv6 address.
-	//
-	// Experimental.
-	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// Ipv6 IPAM pool id for VPC range, can only be defined under public scope.
 	// Default: - no pool id.
 	//

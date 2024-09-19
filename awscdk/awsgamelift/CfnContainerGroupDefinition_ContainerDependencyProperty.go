@@ -1,9 +1,7 @@
 package awsgamelift
 
 
-// *This data type is currently not available.
-//
-// It is under improvement as we respond to customer feedback from the Containers public preview.*
+// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
 //
 // A container's dependency on another container in the same container group. The dependency impacts how the dependent container is able to start or shut down based the status of the other container.
 //

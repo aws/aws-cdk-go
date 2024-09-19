@@ -3,12 +3,15 @@ package awsec2alpha
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
 )
 
 // Interface to define a route.
 // Experimental.
 type IRouteV2 interface {
+	awscdk.IResource
 	// The IPv4 or IPv6 CIDR block used for the destination match.
 	//
 	// Routing decisions are based on the most specific match.
@@ -25,7 +28,7 @@ type IRouteV2 interface {
 
 // The jsii proxy for IRouteV2
 type jsiiProxy_IRouteV2 struct {
-	_ byte // padding
+	internal.Type__awscdkIResource
 }
 
 func (j *jsiiProxy_IRouteV2) Destination() *string {

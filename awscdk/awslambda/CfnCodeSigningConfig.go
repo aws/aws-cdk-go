@@ -28,6 +28,12 @@ import (
 //   		UntrustedArtifactOnDeployment: jsii.String("untrustedArtifactOnDeployment"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
@@ -35,6 +41,7 @@ import (
 type CfnCodeSigningConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// List of allowed publishers.
 	AllowedPublishers() interface{}
 	SetAllowedPublishers(val interface{})
@@ -42,6 +49,8 @@ type CfnCodeSigningConfig interface {
 	AttrCodeSigningConfigArn() *string
 	// The code signing configuration ID.
 	AttrCodeSigningConfigId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -78,6 +87,9 @@ type CfnCodeSigningConfig interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of tags to apply to CodeSigningConfig resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -222,6 +234,7 @@ type CfnCodeSigningConfig interface {
 type jsiiProxy_CfnCodeSigningConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCodeSigningConfig) AllowedPublishers() interface{} {
@@ -249,6 +262,16 @@ func (j *jsiiProxy_CfnCodeSigningConfig) AttrCodeSigningConfigId() *string {
 	_jsii_.Get(
 		j,
 		"attrCodeSigningConfigId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCodeSigningConfig) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -354,6 +377,16 @@ func (j *jsiiProxy_CfnCodeSigningConfig) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCodeSigningConfig) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCodeSigningConfig) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -428,6 +461,17 @@ func (j *jsiiProxy_CfnCodeSigningConfig)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCodeSigningConfig)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

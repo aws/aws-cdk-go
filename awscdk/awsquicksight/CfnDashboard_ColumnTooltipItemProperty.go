@@ -49,6 +49,7 @@ type CfnDashboard_ColumnTooltipItemProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columntooltipitem.html#cfn-quicksight-dashboard-columntooltipitem-label
 	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
+	// Determines the target of the column tooltip item in a combo chart visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columntooltipitem.html#cfn-quicksight-dashboard-columntooltipitem-tooltiptarget
 	//
 	TooltipTarget *string `field:"optional" json:"tooltipTarget" yaml:"tooltipTarget"`

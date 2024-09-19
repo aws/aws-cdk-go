@@ -10,28 +10,26 @@ import (
 // The gateway or endpoint targeted by the route.
 //
 // Example:
-//   myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-//   routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+//   stack := awscdk.Newstack()
+//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+//   routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 //   	Vpc: myVpc,
 //   })
-//   subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+//   subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 //   	Vpc: myVpc,
 //   	AvailabilityZone: jsii.String("eu-west-2a"),
 //   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+//   	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 //   })
 //
-//   natgw := vpc_v2.NewNatGateway(this, jsii.String("NatGW"), &NatGatewayProps{
-//   	Subnet: subnet,
+//   igw := awsec2alpha.NewInternetGateway(this, jsii.String("IGW"), &InternetGatewayProps{
 //   	Vpc: myVpc,
-//   	ConnectivityType: awsec2alpha.NatConnectivityType_PRIVATE,
-//   	PrivateIpAddress: jsii.String("10.0.0.42"),
 //   })
-//   vpc_v2.NewRoute(this, jsii.String("NatGwRoute"), &RouteProps{
+//   awsec2alpha.NewRoute(this, jsii.String("IgwRoute"), &RouteProps{
 //   	RouteTable: RouteTable,
 //   	Destination: jsii.String("0.0.0.0/0"),
 //   	Target: map[string]iRouteTarget{
-//   		"gateway": natgw,
+//   		"gateway": igw,
 //   	},
 //   })
 //
@@ -41,7 +39,7 @@ type RouteTargetType interface {
 	//
 	// This is used for targets such as
 	// VPC endpoints.
-	// Default: none.
+	// Default: - target is not set to an endpoint, in this case a gateway is needed.
 	//
 	// Experimental.
 	Endpoint() awsec2.IVpcEndpoint
@@ -49,7 +47,7 @@ type RouteTargetType interface {
 	//
 	// This is used for targets such as
 	// egress-only internet gateway or VPC peering connection.
-	// Default: none.
+	// Default: - target is not set to a gateway, in this case an endpoint is needed.
 	//
 	// Experimental.
 	Gateway() IRouteTarget

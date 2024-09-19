@@ -103,16 +103,24 @@ package awsapplicationsignals
 //
 type CfnServiceLevelObjective_RequestBasedSliMetricProperty struct {
 	// This is a string-to-string map that contains information about the type of object that this SLO is related to.
+	//
+	// It can include the following fields.
+	//
+	// - `Type` designates the type of object that this SLO is related to.
+	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-keyattributes
 	//
 	KeyAttributes interface{} `field:"optional" json:"keyAttributes" yaml:"keyAttributes"`
-	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+	// If the SLO monitors either the `LATENCY` or `AVAILABILITY` metric that Application Signals collects, this field displays which of those metrics is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-metrictype
 	//
 	MetricType *string `field:"optional" json:"metricType" yaml:"metricType"`
-	// This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO.
+	// Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO.
 	//
-	// This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+	// This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-monitoredrequestcountmetric
 	//
 	MonitoredRequestCountMetric interface{} `field:"optional" json:"monitoredRequestCountMetric" yaml:"monitoredRequestCountMetric"`
@@ -120,7 +128,9 @@ type CfnServiceLevelObjective_RequestBasedSliMetricProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-operationname
 	//
 	OperationName *string `field:"optional" json:"operationName" yaml:"operationName"`
-	// If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, this structure includes the information about that metric or expression.
+	// This structure defines the metric that is used as the "total requests" number for a request-based SLO.
+	//
+	// The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-totalrequestcountmetric
 	//
 	TotalRequestCountMetric interface{} `field:"optional" json:"totalRequestCountMetric" yaml:"totalRequestCountMetric"`

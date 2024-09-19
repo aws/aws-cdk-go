@@ -45,6 +45,8 @@ import (
 //   		// the properties below are optional
 //   		ManagedServiceData: jsii.String("managedServiceData"),
 //   		PolicyOption: &PolicyOptionProperty{
+//   			NetworkAclCommonPolicy: &NetworkAclCommonPolicyProperty{
+//   			},
 //   			NetworkFirewallPolicy: &NetworkFirewallPolicyProperty{
 //   				FirewallDeploymentModel: jsii.String("firewallDeploymentModel"),
 //   			},

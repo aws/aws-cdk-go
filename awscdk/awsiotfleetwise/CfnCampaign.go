@@ -78,6 +78,26 @@ import (
 //   			MinimumSamplingIntervalMs: jsii.Number(123),
 //   		},
 //   	},
+//   	SignalsToFetch: []interface{}{
+//   		&SignalFetchInformationProperty{
+//   			Actions: []*string{
+//   				jsii.String("actions"),
+//   			},
+//   			FullyQualifiedName: jsii.String("fullyQualifiedName"),
+//   			SignalFetchConfig: &SignalFetchConfigProperty{
+//   				ConditionBased: &ConditionBasedSignalFetchConfigProperty{
+//   					ConditionExpression: jsii.String("conditionExpression"),
+//   					TriggerMode: jsii.String("triggerMode"),
+//   				},
+//   				TimeBased: &TimeBasedSignalFetchConfigProperty{
+//   					ExecutionFrequencyMs: jsii.Number(123),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			ConditionLanguageVersion: jsii.Number(123),
+//   		},
+//   	},
 //   	SpoolingMode: jsii.String("spoolingMode"),
 //   	StartTime: jsii.String("startTime"),
 //   	Tags: []cfnTag{
@@ -171,6 +191,8 @@ type CfnCampaign interface {
 	// (Optional) A list of information about signals to collect.
 	SignalsToCollect() interface{}
 	SetSignalsToCollect(val interface{})
+	SignalsToFetch() interface{}
+	SetSignalsToFetch(val interface{})
 	// (Optional) Whether to store collected data after a vehicle lost a connection with the cloud.
 	SpoolingMode() *string
 	SetSpoolingMode(val *string)
@@ -576,6 +598,16 @@ func (j *jsiiProxy_CfnCampaign) SignalsToCollect() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) SignalsToFetch() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"signalsToFetch",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) SpoolingMode() *string {
 	var returns *string
 	_jsii_.Get(
@@ -802,6 +834,17 @@ func (j *jsiiProxy_CfnCampaign)SetSignalsToCollect(val interface{}) {
 	_jsii_.Set(
 		j,
 		"signalsToCollect",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCampaign)SetSignalsToFetch(val interface{}) {
+	if err := j.validateSetSignalsToFetchParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"signalsToFetch",
 		val,
 	)
 }

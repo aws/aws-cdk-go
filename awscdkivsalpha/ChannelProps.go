@@ -4,9 +4,9 @@ package awscdkivsalpha
 // Properties for creating a new Channel.
 //
 // Example:
-//   myChannel := ivs.NewChannel(this, jsii.String("myChannel"), &ChannelProps{
-//   	Type: ivs.ChannelType_ADVANCED_HD,
-//   	Preset: ivs.Preset_CONSTRAINED_BANDWIDTH_DELIVERY,
+//   myRtmpChannel := ivs.NewChannel(this, jsii.String("myRtmpChannel"), &ChannelProps{
+//   	Type: ivs.ChannelType_STANDARD,
+//   	InsecureIngest: jsii.Boolean(true),
 //   })
 //
 // Experimental.
@@ -25,6 +25,11 @@ type ChannelProps struct {
 	//
 	// Experimental.
 	ChannelName *string `field:"optional" json:"channelName" yaml:"channelName"`
+	// Whether the channel allows insecure RTMP ingest.
+	// Default: false.
+	//
+	// Experimental.
+	InsecureIngest *bool `field:"optional" json:"insecureIngest" yaml:"insecureIngest"`
 	// Channel latency mode.
 	// Default: LatencyMode.LOW
 	//

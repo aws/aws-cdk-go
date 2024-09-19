@@ -1,9 +1,7 @@
 package awsgamelift
 
 
-// *This data type is currently not available.
-//
-// It is under improvement as we respond to customer feedback from the Containers public preview.*
+// *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*.
 //
 // The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
 //

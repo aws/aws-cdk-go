@@ -24,6 +24,24 @@ import (
 //   	Parameters: map[string]interface{}{
 //   		"parametersKey": &ParameterConfigurationProperty{
 //   			"valueType": jsii.String("valueType"),
+//
+//   			// the properties below are optional
+//   			"value": &ParameterValueProperty{
+//   				"boolean": jsii.Boolean(false),
+//   				"double": jsii.Number(123),
+//   				"enum": jsii.String("enum"),
+//   				"enumList": []*string{
+//   					jsii.String("enumList"),
+//   				},
+//   				"integer": jsii.Number(123),
+//   				"integerList": []interface{}{
+//   					jsii.Number(123),
+//   				},
+//   				"string": jsii.String("string"),
+//   				"stringList": []*string{
+//   					jsii.String("stringList"),
+//   				},
+//   			},
 //   		},
 //   	},
 //

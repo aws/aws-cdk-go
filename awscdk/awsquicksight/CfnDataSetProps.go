@@ -115,6 +115,9 @@ import (
 //   			"description": jsii.String("description"),
 //   		},
 //   	},
+//   	FolderArns: []*string{
+//   		jsii.String("folderArns"),
+//   	},
 //   	ImportMode: jsii.String("importMode"),
 //   	IngestionWaitPolicy: &IngestionWaitPolicyProperty{
 //   		IngestionWaitTimeInHours: jsii.Number(123),
@@ -123,24 +126,6 @@ import (
 //   	LogicalTableMap: map[string]interface{}{
 //   		"logicalTableMapKey": &LogicalTableProperty{
 //   			"alias": jsii.String("alias"),
-//   			"source": &LogicalTableSourceProperty{
-//   				"dataSetArn": jsii.String("dataSetArn"),
-//   				"joinInstruction": &JoinInstructionProperty{
-//   					"leftOperand": jsii.String("leftOperand"),
-//   					"onClause": jsii.String("onClause"),
-//   					"rightOperand": jsii.String("rightOperand"),
-//   					"type": jsii.String("type"),
-//
-//   					// the properties below are optional
-//   					"leftJoinKeyProperties": &JoinKeyPropertiesProperty{
-//   						"uniqueKey": jsii.Boolean(false),
-//   					},
-//   					"rightJoinKeyProperties": &JoinKeyPropertiesProperty{
-//   						"uniqueKey": jsii.Boolean(false),
-//   					},
-//   				},
-//   				"physicalTableId": jsii.String("physicalTableId"),
-//   			},
 //
 //   			// the properties below are optional
 //   			"dataTransforms": []interface{}{
@@ -212,6 +197,24 @@ import (
 //   						},
 //   					},
 //   				},
+//   			},
+//   			"source": &LogicalTableSourceProperty{
+//   				"dataSetArn": jsii.String("dataSetArn"),
+//   				"joinInstruction": &JoinInstructionProperty{
+//   					"leftOperand": jsii.String("leftOperand"),
+//   					"onClause": jsii.String("onClause"),
+//   					"rightOperand": jsii.String("rightOperand"),
+//   					"type": jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					"leftJoinKeyProperties": &JoinKeyPropertiesProperty{
+//   						"uniqueKey": jsii.Boolean(false),
+//   					},
+//   					"rightJoinKeyProperties": &JoinKeyPropertiesProperty{
+//   						"uniqueKey": jsii.Boolean(false),
+//   					},
+//   				},
+//   				"physicalTableId": jsii.String("physicalTableId"),
 //   			},
 //   		},
 //   	},
@@ -352,6 +355,10 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
 	//
 	FieldFolders interface{} `field:"optional" json:"fieldFolders" yaml:"fieldFolders"`
+	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-folderarns
+	//
+	FolderArns *[]*string `field:"optional" json:"folderArns" yaml:"folderArns"`
 	// Indicates whether you want to import the data into SPICE.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
 	//

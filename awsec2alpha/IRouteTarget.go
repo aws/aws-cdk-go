@@ -4,11 +4,14 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface to define a routing target, such as an egress-only internet gateway or VPC endpoint.
 // Experimental.
 type IRouteTarget interface {
+	constructs.IDependable
 	// The ID of the route target.
 	// Experimental.
 	RouterTargetId() *string
@@ -19,7 +22,7 @@ type IRouteTarget interface {
 
 // The jsii proxy for IRouteTarget
 type jsiiProxy_IRouteTarget struct {
-	_ byte // padding
+	internal.Type__constructsIDependable
 }
 
 func (j *jsiiProxy_IRouteTarget) RouterTargetId() *string {

@@ -12,24 +12,6 @@ package awsquicksight
 //
 //   logicalTableProperty := &LogicalTableProperty{
 //   	Alias: jsii.String("alias"),
-//   	Source: &LogicalTableSourceProperty{
-//   		DataSetArn: jsii.String("dataSetArn"),
-//   		JoinInstruction: &JoinInstructionProperty{
-//   			LeftOperand: jsii.String("leftOperand"),
-//   			OnClause: jsii.String("onClause"),
-//   			RightOperand: jsii.String("rightOperand"),
-//   			Type: jsii.String("type"),
-//
-//   			// the properties below are optional
-//   			LeftJoinKeyProperties: &JoinKeyPropertiesProperty{
-//   				UniqueKey: jsii.Boolean(false),
-//   			},
-//   			RightJoinKeyProperties: &JoinKeyPropertiesProperty{
-//   				UniqueKey: jsii.Boolean(false),
-//   			},
-//   		},
-//   		PhysicalTableId: jsii.String("physicalTableId"),
-//   	},
 //
 //   	// the properties below are optional
 //   	DataTransforms: []interface{}{
@@ -102,6 +84,24 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
+//   	Source: &LogicalTableSourceProperty{
+//   		DataSetArn: jsii.String("dataSetArn"),
+//   		JoinInstruction: &JoinInstructionProperty{
+//   			LeftOperand: jsii.String("leftOperand"),
+//   			OnClause: jsii.String("onClause"),
+//   			RightOperand: jsii.String("rightOperand"),
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			LeftJoinKeyProperties: &JoinKeyPropertiesProperty{
+//   				UniqueKey: jsii.Boolean(false),
+//   			},
+//   			RightJoinKeyProperties: &JoinKeyPropertiesProperty{
+//   				UniqueKey: jsii.Boolean(false),
+//   			},
+//   		},
+//   		PhysicalTableId: jsii.String("physicalTableId"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html
@@ -111,15 +111,15 @@ type CfnDataSet_LogicalTableProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
 	//
 	Alias *string `field:"required" json:"alias" yaml:"alias"`
-	// Source of this logical table.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-	//
-	Source interface{} `field:"required" json:"source" yaml:"source"`
 	// Transform operations that act on this logical table.
 	//
 	// For this structure to be valid, only one of the attributes can be non-null.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
 	//
 	DataTransforms interface{} `field:"optional" json:"dataTransforms" yaml:"dataTransforms"`
+	// Source of this logical table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
+	//
+	Source interface{} `field:"optional" json:"source" yaml:"source"`
 }
 

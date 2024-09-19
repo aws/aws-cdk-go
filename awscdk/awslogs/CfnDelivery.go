@@ -15,7 +15,7 @@ import (
 //
 // For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html) .
 //
-// You can't update an existing delivery. You can only create and delete deliveries.
+// To update an existing delivery configuration, use [UpdateDeliveryConfiguration](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

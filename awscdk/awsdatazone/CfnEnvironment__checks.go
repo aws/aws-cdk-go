@@ -187,14 +187,6 @@ func (j *jsiiProxy_CfnEnvironment) validateSetDomainIdentifierParameters(val *st
 	return nil
 }
 
-func (j *jsiiProxy_CfnEnvironment) validateSetEnvironmentProfileIdentifierParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnEnvironment) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

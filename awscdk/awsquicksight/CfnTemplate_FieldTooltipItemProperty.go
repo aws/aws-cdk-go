@@ -28,6 +28,7 @@ type CfnTemplate_FieldTooltipItemProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldtooltipitem.html#cfn-quicksight-template-fieldtooltipitem-label
 	//
 	Label *string `field:"optional" json:"label" yaml:"label"`
+	// Determines the target of the field tooltip item in a combo chart visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldtooltipitem.html#cfn-quicksight-template-fieldtooltipitem-tooltiptarget
 	//
 	TooltipTarget *string `field:"optional" json:"tooltipTarget" yaml:"tooltipTarget"`

@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP).
+// Connector for SCEP is a service that links AWS Private Certificate Authority to your SCEP-enabled devices.
+//
+// The connector brokers the exchange of certificates from AWS Private CA to your SCEP-enabled devices and mobile device management systems. The connector is a complex type that contains the connector's configuration settings.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,12 +39,16 @@ type CfnConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the connector.
 	AttrConnectorArn() *string
+	// The connector's HTTPS public SCEP URL.
 	AttrEndpoint() *string
 	AttrOpenIdConfiguration() awscdk.IResolvable
+	// The connector type.
 	AttrType() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
+	// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
 	CertificateAuthorityArn() *string
 	SetCertificateAuthorityArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -64,6 +70,7 @@ type CfnConnector interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Contains settings relevant to the mobile device management system that you chose for the connector.
 	MobileDeviceManagement() interface{}
 	SetMobileDeviceManagement(val interface{})
 	// The tree node.

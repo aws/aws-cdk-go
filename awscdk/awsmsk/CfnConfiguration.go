@@ -9,18 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a new MSK configuration.
-//
-// To see an example of how to use this operation, first save the following text to a file and name the file config-file.txt .
-//
-// `auto.create.topics.enable = true zookeeper.connection.timeout.ms = 1000 log.roll.ms = 604800000`
-//
-// Now run the following Python 3.6 script in the folder where you saved config-file.txt . This script uses the properties specified in config-file.txt to create a configuration named `SalesClusterConfiguration` . This configuration can work with Apache Kafka versions 1.1.1 and 2.1.0.
-//
-// ```PYTHON
-// import boto3 client = boto3.client('kafka') config_file = open('config-file.txt', 'r') server_properties = config_file.read() response = client.create_configuration( Name='SalesClusterConfiguration', Description='The configuration to use on all sales clusters.', KafkaVersions=['1.1.1', '2.1.0'], ServerProperties=server_properties
-// ) print(response)
-// ```.
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -49,11 +38,8 @@ type CfnConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrArn() *string
-	// The time when the configuration was created.
 	AttrLatestRevisionCreationTime() *string
-	// The description of the configuration.
 	AttrLatestRevisionDescription() *string
-	// A string that uniquely identifies a revision of an MSK configuration.
 	AttrLatestRevisionRevision() *float64
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -64,12 +50,10 @@ type CfnConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the configuration.
 	Description() *string
 	SetDescription(val *string)
 	KafkaVersionsList() *[]*string
 	SetKafkaVersionsList(val *[]*string)
-	// Latest revision of the configuration.
 	LatestRevision() interface{}
 	SetLatestRevision(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -82,7 +66,6 @@ type CfnConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the configuration.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -92,7 +75,6 @@ type CfnConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
 	ServerProperties() *string
 	SetServerProperties(val *string)
 	// The stack in which this element is defined.

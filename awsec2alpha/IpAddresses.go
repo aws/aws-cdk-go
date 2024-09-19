@@ -8,22 +8,11 @@ import (
 // IpAddress options to define VPC V2.
 //
 // Example:
-//   stack := awscdk.Newstack()
-//   myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
-//   	SecondaryAddressBlocks: []iIpAddresses{
-//   		vpc_v2.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
-//   			CidrBlockName: jsii.String("AmazonProvidedIp"),
-//   		}),
-//   	},
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
 //
-//   vpc_v2.NewSubnetV2(this, jsii.String("subnetA"), &SubnetV2Props{
-//   	Vpc: myVpc,
-//   	AvailabilityZone: jsii.String("us-east-1a"),
-//   	Ipv4CidrBlock: vpc_v2.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	Ipv6CidrBlock: vpc_v2.NewIpCidr(jsii.String("2a05:d02c:25:4000::/60")),
-//   	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
-//   })
+//   ipAddresses := ec2_alpha.NewIpAddresses()
 //
 // Experimental.
 type IpAddresses interface {

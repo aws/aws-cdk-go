@@ -51,6 +51,8 @@ import (
 //   		ChallengeRequiredOnNewDevice: jsii.Boolean(false),
 //   		DeviceOnlyRememberedOnUserPrompt: jsii.Boolean(false),
 //   	},
+//   	EmailAuthenticationMessage: jsii.String("emailAuthenticationMessage"),
+//   	EmailAuthenticationSubject: jsii.String("emailAuthenticationSubject"),
 //   	EmailConfiguration: &EmailConfigurationProperty{
 //   		ConfigurationSet: jsii.String("configurationSet"),
 //   		EmailSendingAccount: jsii.String("emailSendingAccount"),
@@ -162,7 +164,7 @@ type CfnUserPool interface {
 	// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` .
 	AccountRecoverySetting() interface{}
 	SetAccountRecoverySetting(val interface{})
-	// The configuration for creating a new user profile.
+	// The settings for administrator creation of users in a user pool.
 	AdminCreateUserConfig() interface{}
 	SetAdminCreateUserConfig(val interface{})
 	// Attributes supported as an alias for this user pool.
@@ -196,6 +198,10 @@ type CfnUserPool interface {
 	// The device-remembering configuration for a user pool.
 	DeviceConfiguration() interface{}
 	SetDeviceConfiguration(val interface{})
+	EmailAuthenticationMessage() *string
+	SetEmailAuthenticationMessage(val *string)
+	EmailAuthenticationSubject() *string
+	SetEmailAuthenticationSubject(val *string)
 	// The email configuration of your user pool.
 	EmailConfiguration() interface{}
 	SetEmailConfiguration(val interface{})
@@ -208,7 +214,7 @@ type CfnUserPool interface {
 	// Enables MFA on a specified user pool.
 	EnabledMfas() *[]*string
 	SetEnabledMfas(val *[]*string)
-	// The Lambda trigger configuration information for the new user pool.
+	// A collection of user pool Lambda triggers.
 	LambdaConfig() interface{}
 	SetLambdaConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -228,7 +234,9 @@ type CfnUserPool interface {
 	SetMfaConfiguration(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The policy associated with a user pool.
+	// A list of user pool policies.
+	//
+	// Contains the policy that sets password-complexity requirements.
 	Policies() interface{}
 	SetPolicies(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -287,7 +295,7 @@ type CfnUserPool interface {
 	// The tag keys and values to assign to the user pool.
 	UserPoolTagsRaw() interface{}
 	SetUserPoolTagsRaw(val interface{})
-	// The template for the verification message that the user sees when the app requests permission to access the user's information.
+	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 	VerificationMessageTemplate() interface{}
 	SetVerificationMessageTemplate(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -559,6 +567,26 @@ func (j *jsiiProxy_CfnUserPool) DeviceConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"deviceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPool) EmailAuthenticationMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"emailAuthenticationMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPool) EmailAuthenticationSubject() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"emailAuthenticationSubject",
 		&returns,
 	)
 	return returns
@@ -895,6 +923,22 @@ func (j *jsiiProxy_CfnUserPool)SetDeviceConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"deviceConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPool)SetEmailAuthenticationMessage(val *string) {
+	_jsii_.Set(
+		j,
+		"emailAuthenticationMessage",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPool)SetEmailAuthenticationSubject(val *string) {
+	_jsii_.Set(
+		j,
+		"emailAuthenticationSubject",
 		val,
 	)
 }

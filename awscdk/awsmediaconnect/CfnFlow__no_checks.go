@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceFailoverConfigParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlow) validateSetSourceMonitoringConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlow) validateSetVpcInterfacesParameters(val interface{}) error {
 	return nil
 }

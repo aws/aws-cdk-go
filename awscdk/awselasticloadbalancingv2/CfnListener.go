@@ -98,6 +98,12 @@ import (
 //   			CertificateArn: jsii.String("certificateArn"),
 //   		},
 //   	},
+//   	ListenerAttributes: []interface{}{
+//   		&ListenerAttributeProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	MutualAuthentication: &MutualAuthenticationProperty{
 //   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
 //   		Mode: jsii.String("mode"),
@@ -135,6 +141,8 @@ type CfnListener interface {
 	// You cannot define a condition for a default rule.
 	DefaultActions() interface{}
 	SetDefaultActions(val interface{})
+	ListenerAttributes() interface{}
+	SetListenerAttributes(val interface{})
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn() *string
 	SetLoadBalancerArn(val *string)
@@ -397,6 +405,16 @@ func (j *jsiiProxy_CfnListener) DefaultActions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnListener) ListenerAttributes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"listenerAttributes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnListener) LoadBalancerArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -561,6 +579,17 @@ func (j *jsiiProxy_CfnListener)SetDefaultActions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"defaultActions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnListener)SetListenerAttributes(val interface{}) {
+	if err := j.validateSetListenerAttributesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"listenerAttributes",
 		val,
 	)
 }

@@ -15,7 +15,7 @@ package awsec2alpha
 // Experimental.
 type IpamScopeOptions struct {
 	// IPAM scope name that will be used for tagging.
-	// Default: none.
+	// Default: - no tags will be added to the scope.
 	//
 	// Experimental.
 	IpamScopeName *string `field:"optional" json:"ipamScopeName" yaml:"ipamScopeName"`

@@ -75,8 +75,10 @@ type CfnVPNConnection interface {
 	// Indicate whether to enable acceleration for the VPN connection.
 	EnableAcceleration() interface{}
 	SetEnableAcceleration(val interface{})
+	// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv4NetworkCidr() *string
 	SetLocalIpv4NetworkCidr(val *string)
+	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv6NetworkCidr() *string
 	SetLocalIpv6NetworkCidr(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -91,6 +93,7 @@ type CfnVPNConnection interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The type of IPv4 address assigned to the outside interface of the customer gateway device.
 	OutsideIpAddressType() *string
 	SetOutsideIpAddressType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -98,8 +101,10 @@ type CfnVPNConnection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr() *string
 	SetRemoteIpv4NetworkCidr(val *string)
+	// The IPv6 CIDR on the AWS side of the VPN connection.
 	RemoteIpv6NetworkCidr() *string
 	SetRemoteIpv6NetworkCidr(val *string)
 	// The stack in which this element is defined.
@@ -117,8 +122,10 @@ type CfnVPNConnection interface {
 	// The ID of the transit gateway associated with the VPN connection.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
+	// The transit gateway attachment ID to use for the VPN tunnel.
 	TransportTransitGatewayAttachmentId() *string
 	SetTransportTransitGatewayAttachmentId(val *string)
+	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 	TunnelInsideIpVersion() *string
 	SetTunnelInsideIpVersion(val *string)
 	// The type of VPN connection.

@@ -31,7 +31,9 @@ package awsapplicationsignals
 type CfnServiceLevelObjective_GoalProperty struct {
 	// The threshold that determines if the goal is being met.
 	//
-	// An *attainment goal* is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
+	// If this is a period-based SLO, the attainment goal is the percentage of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
+	//
+	// If this is a request-based SLO, the attainment goal is the percentage of requests that must be successful to meet the attainment goal.
 	//
 	// If you omit this parameter, 99 is used to represent 99% as the attainment goal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html#cfn-applicationsignals-servicelevelobjective-goal-attainmentgoal

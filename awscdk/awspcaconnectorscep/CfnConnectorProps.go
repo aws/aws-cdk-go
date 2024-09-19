@@ -26,9 +26,13 @@ package awspcaconnectorscep
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html
 //
 type CfnConnectorProps struct {
+	// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html#cfn-pcaconnectorscep-connector-certificateauthorityarn
 	//
 	CertificateAuthorityArn *string `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
+	// Contains settings relevant to the mobile device management system that you chose for the connector.
+	//
+	// If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html#cfn-pcaconnectorscep-connector-mobiledevicemanagement
 	//
 	MobileDeviceManagement interface{} `field:"optional" json:"mobileDeviceManagement" yaml:"mobileDeviceManagement"`

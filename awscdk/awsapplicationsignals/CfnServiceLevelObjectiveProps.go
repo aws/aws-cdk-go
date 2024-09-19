@@ -13,46 +13,6 @@ import (
 //
 //   cfnServiceLevelObjectiveProps := &CfnServiceLevelObjectiveProps{
 //   	Name: jsii.String("name"),
-//   	Sli: &SliProperty{
-//   		ComparisonOperator: jsii.String("comparisonOperator"),
-//   		MetricThreshold: jsii.Number(123),
-//   		SliMetric: &SliMetricProperty{
-//   			KeyAttributes: map[string]*string{
-//   				"keyAttributesKey": jsii.String("keyAttributes"),
-//   			},
-//   			MetricDataQueries: []interface{}{
-//   				&MetricDataQueryProperty{
-//   					Id: jsii.String("id"),
-//
-//   					// the properties below are optional
-//   					AccountId: jsii.String("accountId"),
-//   					Expression: jsii.String("expression"),
-//   					MetricStat: &MetricStatProperty{
-//   						Metric: &MetricProperty{
-//   							Dimensions: []interface{}{
-//   								&DimensionProperty{
-//   									Name: jsii.String("name"),
-//   									Value: jsii.String("value"),
-//   								},
-//   							},
-//   							MetricName: jsii.String("metricName"),
-//   							Namespace: jsii.String("namespace"),
-//   						},
-//   						Period: jsii.Number(123),
-//   						Stat: jsii.String("stat"),
-//
-//   						// the properties below are optional
-//   						Unit: jsii.String("unit"),
-//   					},
-//   					ReturnData: jsii.Boolean(false),
-//   				},
-//   			},
-//   			MetricType: jsii.String("metricType"),
-//   			OperationName: jsii.String("operationName"),
-//   			PeriodSeconds: jsii.Number(123),
-//   			Statistic: jsii.String("statistic"),
-//   		},
-//   	},
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
@@ -167,6 +127,46 @@ import (
 //   		ComparisonOperator: jsii.String("comparisonOperator"),
 //   		MetricThreshold: jsii.Number(123),
 //   	},
+//   	Sli: &SliProperty{
+//   		ComparisonOperator: jsii.String("comparisonOperator"),
+//   		MetricThreshold: jsii.Number(123),
+//   		SliMetric: &SliMetricProperty{
+//   			KeyAttributes: map[string]*string{
+//   				"keyAttributesKey": jsii.String("keyAttributes"),
+//   			},
+//   			MetricDataQueries: []interface{}{
+//   				&MetricDataQueryProperty{
+//   					Id: jsii.String("id"),
+//
+//   					// the properties below are optional
+//   					AccountId: jsii.String("accountId"),
+//   					Expression: jsii.String("expression"),
+//   					MetricStat: &MetricStatProperty{
+//   						Metric: &MetricProperty{
+//   							Dimensions: []interface{}{
+//   								&DimensionProperty{
+//   									Name: jsii.String("name"),
+//   									Value: jsii.String("value"),
+//   								},
+//   							},
+//   							MetricName: jsii.String("metricName"),
+//   							Namespace: jsii.String("namespace"),
+//   						},
+//   						Period: jsii.Number(123),
+//   						Stat: jsii.String("stat"),
+//
+//   						// the properties below are optional
+//   						Unit: jsii.String("unit"),
+//   					},
+//   					ReturnData: jsii.Boolean(false),
+//   				},
+//   			},
+//   			MetricType: jsii.String("metricType"),
+//   			OperationName: jsii.String("operationName"),
+//   			PeriodSeconds: jsii.Number(123),
+//   			Statistic: jsii.String("statistic"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -182,10 +182,6 @@ type CfnServiceLevelObjectiveProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// A structure containing information about the performance metric that this SLO monitors.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-sli
-	//
-	Sli interface{} `field:"required" json:"sli" yaml:"sli"`
 	// An optional description for this SLO.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-description
 	//
@@ -198,10 +194,14 @@ type CfnServiceLevelObjectiveProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-goal
 	//
 	Goal interface{} `field:"optional" json:"goal" yaml:"goal"`
-	// This structure contains information about the performance metric that a request-based SLO monitors.
+	// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-requestbasedsli
 	//
 	RequestBasedSli interface{} `field:"optional" json:"requestBasedSli" yaml:"requestBasedSli"`
+	// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-sli
+	//
+	Sli interface{} `field:"optional" json:"sli" yaml:"sli"`
 	// A list of key-value pairs to associate with the SLO.
 	//
 	// You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.

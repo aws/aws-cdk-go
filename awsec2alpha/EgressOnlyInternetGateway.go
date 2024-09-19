@@ -13,17 +13,26 @@ import (
 // Creates an egress-only internet gateway.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import ec2_alpha "github.com/aws/aws-cdk-go/awsec2alpha"
+//   stack := awscdk.Newstack()
+//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+//   	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
+//   	SecondaryAddressBlocks: []iIpAddresses{
+//   		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
+//   			CidrBlockName: jsii.String("AmazonProvided"),
+//   		}),
+//   	},
+//   })
 //
-//   var vpcV2 vpcV2
+//   eigw := awsec2alpha.NewEgressOnlyInternetGateway(this, jsii.String("EIGW"), &EgressOnlyInternetGatewayProps{
+//   	Vpc: myVpc,
+//   })
 //
-//   egressOnlyInternetGateway := ec2_alpha.NewEgressOnlyInternetGateway(this, jsii.String("MyEgressOnlyInternetGateway"), &EgressOnlyInternetGatewayProps{
-//   	Vpc: vpcV2,
+//   routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+//   	Vpc: myVpc,
+//   })
 //
-//   	// the properties below are optional
-//   	EgressOnlyInternetGatewayName: jsii.String("egressOnlyInternetGatewayName"),
+//   routeTable.AddRoute(jsii.String("EIGW"), jsii.String("::/0"), map[string]iRouteTarget{
+//   	"gateway": eigw,
 //   })
 //
 // Experimental.

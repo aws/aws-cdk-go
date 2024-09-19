@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::MSK::Replicator.
+// Creates the replicator.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -105,13 +105,13 @@ type CfnReplicator interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The current version of the MSK replicator.
+	// The current version number of the replicator.
 	CurrentVersion() *string
 	SetCurrentVersion(val *string)
 	// A summary description of the replicator.
 	Description() *string
 	SetDescription(val *string)
-	// Specifies a list of Kafka clusters which are targets of the replicator.
+	// Kafka Clusters to use in setting up sources / targets for replication.
 	KafkaClusters() interface{}
 	SetKafkaClusters(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -137,14 +137,14 @@ type CfnReplicator interface {
 	// The name of the replicator.
 	ReplicatorName() *string
 	SetReplicatorName(val *string)
-	// The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
+	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn() *string
 	SetServiceExecutionRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of tags associated with a resource.
+	// List of tags to attach to created Replicator.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

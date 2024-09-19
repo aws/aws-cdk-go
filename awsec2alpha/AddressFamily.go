@@ -14,34 +14,34 @@ package awsec2alpha
 //   	},
 //   })
 //   ipamPublicPool := ipam.PublicScope.AddPool(jsii.String("PublicPoolA"), &PoolOptions{
-//   	AddressFamily: vpc_v2.AddressFamily_IP_V6,
+//   	AddressFamily: awsec2alpha.AddressFamily_IP_V6,
 //   	AwsService: awsec2alpha.AwsServiceName_EC2,
 //   	Locale: jsii.String("us-west-1"),
-//   	PublicIpSource: vpc_v2.IpamPoolPublicIpSource_AMAZON,
+//   	PublicIpSource: awsec2alpha.IpamPoolPublicIpSource_AMAZON,
 //   })
 //   ipamPublicPool.ProvisionCidr(jsii.String("PublicPoolACidrA"), &IpamPoolCidrProvisioningOptions{
 //   	NetmaskLength: jsii.Number(52),
 //   })
 //
 //   ipamPrivatePool := ipam.PrivateScope.AddPool(jsii.String("PrivatePoolA"), &PoolOptions{
-//   	AddressFamily: vpc_v2.AddressFamily_IP_V4,
+//   	AddressFamily: awsec2alpha.AddressFamily_IP_V4,
 //   })
 //   ipamPrivatePool.ProvisionCidr(jsii.String("PrivatePoolACidrA"), &IpamPoolCidrProvisioningOptions{
 //   	NetmaskLength: jsii.Number(8),
 //   })
 //
-//   vpc_v2.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
-//   	PrimaryAddressBlock: vpc_v2.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
+//   awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+//   	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
 //   	SecondaryAddressBlocks: []iIpAddresses{
-//   		vpc_v2.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
+//   		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 //   			CidrBlockName: jsii.String("AmazonIpv6"),
 //   		}),
-//   		vpc_v2.IpAddresses_Ipv6Ipam(&IpamOptions{
+//   		awsec2alpha.IpAddresses_Ipv6Ipam(&IpamOptions{
 //   			IpamPool: ipamPublicPool,
 //   			NetmaskLength: jsii.Number(52),
 //   			CidrBlockName: jsii.String("ipv6Ipam"),
 //   		}),
-//   		vpc_v2.IpAddresses_Ipv4Ipam(&IpamOptions{
+//   		awsec2alpha.IpAddresses_Ipv4Ipam(&IpamOptions{
 //   			IpamPool: ipamPrivatePool,
 //   			NetmaskLength: jsii.Number(8),
 //   			CidrBlockName: jsii.String("ipv4Ipam"),

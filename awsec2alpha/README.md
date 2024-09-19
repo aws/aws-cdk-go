@@ -24,10 +24,10 @@ To create a VPC with both IPv4 and IPv6 support:
 
 ```go
 stack := awscdk.Newstack()
-vpc_v2.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
-	PrimaryAddressBlock: vpc_v2.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
+awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
 	SecondaryAddressBlocks: []iIpAddresses{
-		vpc_v2.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
+		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 			CidrBlockName: jsii.String("AmazonProvidedIpv6"),
 		}),
 	},
@@ -45,20 +45,20 @@ This new construct can be used to add subnets to a `VpcV2` instance:
 
 ```go
 stack := awscdk.Newstack()
-myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 	SecondaryAddressBlocks: []iIpAddresses{
-		vpc_v2.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
+		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 			CidrBlockName: jsii.String("AmazonProvidedIp"),
 		}),
 	},
 })
 
-vpc_v2.NewSubnetV2(this, jsii.String("subnetA"), &SubnetV2Props{
+awsec2alpha.NewSubnetV2(this, jsii.String("subnetA"), &SubnetV2Props{
 	Vpc: myVpc,
 	AvailabilityZone: jsii.String("us-east-1a"),
-	Ipv4CidrBlock: vpc_v2.NewIpCidr(jsii.String("10.0.0.0/24")),
-	Ipv6CidrBlock: vpc_v2.NewIpCidr(jsii.String("2a05:d02c:25:4000::/60")),
-	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	Ipv6CidrBlock: awsec2alpha.NewIpCidr(jsii.String("2a05:d02c:25:4000::/60")),
+	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 })
 ```
 
@@ -78,34 +78,34 @@ ipam := awsec2alpha.NewIpam(this, jsii.String("Ipam"), &IpamProps{
 	},
 })
 ipamPublicPool := ipam.PublicScope.AddPool(jsii.String("PublicPoolA"), &PoolOptions{
-	AddressFamily: vpc_v2.AddressFamily_IP_V6,
+	AddressFamily: awsec2alpha.AddressFamily_IP_V6,
 	AwsService: awsec2alpha.AwsServiceName_EC2,
 	Locale: jsii.String("us-west-1"),
-	PublicIpSource: vpc_v2.IpamPoolPublicIpSource_AMAZON,
+	PublicIpSource: awsec2alpha.IpamPoolPublicIpSource_AMAZON,
 })
 ipamPublicPool.ProvisionCidr(jsii.String("PublicPoolACidrA"), &IpamPoolCidrProvisioningOptions{
 	NetmaskLength: jsii.Number(52),
 })
 
 ipamPrivatePool := ipam.PrivateScope.AddPool(jsii.String("PrivatePoolA"), &PoolOptions{
-	AddressFamily: vpc_v2.AddressFamily_IP_V4,
+	AddressFamily: awsec2alpha.AddressFamily_IP_V4,
 })
 ipamPrivatePool.ProvisionCidr(jsii.String("PrivatePoolACidrA"), &IpamPoolCidrProvisioningOptions{
 	NetmaskLength: jsii.Number(8),
 })
 
-vpc_v2.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
-	PrimaryAddressBlock: vpc_v2.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
+awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/24")),
 	SecondaryAddressBlocks: []iIpAddresses{
-		vpc_v2.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
+		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
 			CidrBlockName: jsii.String("AmazonIpv6"),
 		}),
-		vpc_v2.IpAddresses_Ipv6Ipam(&IpamOptions{
+		awsec2alpha.IpAddresses_Ipv6Ipam(&IpamOptions{
 			IpamPool: ipamPublicPool,
 			NetmaskLength: jsii.Number(52),
 			CidrBlockName: jsii.String("ipv6Ipam"),
 		}),
-		vpc_v2.IpAddresses_Ipv4Ipam(&IpamOptions{
+		awsec2alpha.IpAddresses_Ipv4Ipam(&IpamOptions{
 			IpamPool: ipamPrivatePool,
 			NetmaskLength: jsii.Number(8),
 			CidrBlockName: jsii.String("ipv4Ipam"),
@@ -121,38 +121,38 @@ Since `VpcV2` does not create subnets automatically, users have full control ove
 `RouteTable` is a new construct that allows for route tables to be customized in a variety of ways. For instance, the following example shows how a custom route table can be created and appended to a subnet:
 
 ```go
-myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 	Vpc: myVpc,
 })
-subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 	Vpc: myVpc,
 	RouteTable: RouteTable,
 	AvailabilityZone: jsii.String("eu-west-2a"),
 	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 })
 ```
 
-`Route`s can be created to link subnets to various different AWS services via gateways and endpoints. Each unique route target has its own dedicated construct that can be routed to a given subnet via the `Route` construct. An example using the `InternetGateway` construct can be seen below:
+`Routes` can be created to link subnets to various different AWS services via gateways and endpoints. Each unique route target has its own dedicated construct that can be routed to a given subnet via the `Route` construct. An example using the `InternetGateway` construct can be seen below:
 
 ```go
 stack := awscdk.Newstack()
-myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 	Vpc: myVpc,
 })
-subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 	Vpc: myVpc,
 	AvailabilityZone: jsii.String("eu-west-2a"),
 	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 })
 
-igw := vpc_v2.NewInternetGateway(this, jsii.String("IGW"), &InternetGatewayProps{
+igw := awsec2alpha.NewInternetGateway(this, jsii.String("IGW"), &InternetGatewayProps{
 	Vpc: myVpc,
 })
-vpc_v2.NewRoute(this, jsii.String("IgwRoute"), &RouteProps{
+awsec2alpha.NewRoute(this, jsii.String("IgwRoute"), &RouteProps{
 	RouteTable: RouteTable,
 	Destination: jsii.String("0.0.0.0/0"),
 	Target: map[string]iRouteTarget{
@@ -161,27 +161,54 @@ vpc_v2.NewRoute(this, jsii.String("IgwRoute"), &RouteProps{
 })
 ```
 
+Alternatively, `Routes` can also be created via method `addRoute` in the `RouteTable` class. An example using the `EgressOnlyInternetGateway` construct can be seen below:
+Note: `EgressOnlyInternetGateway` can only be used to set up outbound IPv6 routing.
+
+```go
+stack := awscdk.Newstack()
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
+	SecondaryAddressBlocks: []iIpAddresses{
+		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
+			CidrBlockName: jsii.String("AmazonProvided"),
+		}),
+	},
+})
+
+eigw := awsec2alpha.NewEgressOnlyInternetGateway(this, jsii.String("EIGW"), &EgressOnlyInternetGatewayProps{
+	Vpc: myVpc,
+})
+
+routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+	Vpc: myVpc,
+})
+
+routeTable.AddRoute(jsii.String("EIGW"), jsii.String("::/0"), map[string]iRouteTarget{
+	"gateway": eigw,
+})
+```
+
 Other route targets may require a deeper set of parameters to set up properly. For instance, the example below illustrates how to set up a `NatGateway`:
 
 ```go
-myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 	Vpc: myVpc,
 })
-subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 	Vpc: myVpc,
 	AvailabilityZone: jsii.String("eu-west-2a"),
 	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 })
 
-natgw := vpc_v2.NewNatGateway(this, jsii.String("NatGW"), &NatGatewayProps{
+natgw := awsec2alpha.NewNatGateway(this, jsii.String("NatGW"), &NatGatewayProps{
 	Subnet: subnet,
 	Vpc: myVpc,
 	ConnectivityType: awsec2alpha.NatConnectivityType_PRIVATE,
 	PrivateIpAddress: jsii.String("10.0.0.42"),
 })
-vpc_v2.NewRoute(this, jsii.String("NatGwRoute"), &RouteProps{
+awsec2alpha.NewRoute(this, jsii.String("NatGwRoute"), &RouteProps{
 	RouteTable: RouteTable,
 	Destination: jsii.String("0.0.0.0/0"),
 	Target: map[string]iRouteTarget{
@@ -193,15 +220,16 @@ vpc_v2.NewRoute(this, jsii.String("NatGwRoute"), &RouteProps{
 It is also possible to set up endpoints connecting other AWS services. For instance, the example below illustrates the linking of a Dynamo DB endpoint via the existing `ec2.GatewayVpcEndpoint` construct as a route target:
 
 ```go
-myVpc := vpc_v2.NewVpcV2(this, jsii.String("Vpc"))
-routeTable := vpc_v2.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+stack := awscdk.Newstack()
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 	Vpc: myVpc,
 })
-subnet := vpc_v2.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 	Vpc: myVpc,
 	AvailabilityZone: jsii.String("eu-west-2a"),
 	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-	SubnetType: ec2.SubnetType_PRIVATE,
+	SubnetType: awscdk.SubnetType_PRIVATE,
 })
 
 dynamoEndpoint := ec2.NewGatewayVpcEndpoint(this, jsii.String("DynamoEndpoint"), &GatewayVpcEndpointProps{
@@ -211,11 +239,158 @@ dynamoEndpoint := ec2.NewGatewayVpcEndpoint(this, jsii.String("DynamoEndpoint"),
 		subnet,
 	},
 })
-vpc_v2.NewRoute(this, jsii.String("DynamoDBRoute"), &RouteProps{
+awsec2alpha.NewRoute(this, jsii.String("DynamoDBRoute"), &RouteProps{
 	RouteTable: RouteTable,
 	Destination: jsii.String("0.0.0.0/0"),
 	Target: map[string]iVpcEndpoint{
 		"endpoint": dynamoEndpoint,
 	},
+})
+```
+
+## Adding Egress-Only Internet Gateway to VPC
+
+An egress-only internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows outbound communication over IPv6 from instances in your VPC to the internet, and prevents the internet from initiating an IPv6 connection with your instances.
+
+For more information see [Enable outbound IPv6 traffic using an egress-only internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html).
+
+VpcV2 supports adding an egress only internet gateway to VPC using the `addEgressOnlyInternetGateway` method.
+
+By default, this method sets up a route to all outbound IPv6 address ranges, unless a specific destination is provided by the user. It can only be configured for IPv6-enabled VPCs.
+The `Subnets` parameter accepts a `SubnetFilter`, which can be based on a `SubnetType` in VpcV2. A new route will be added to the route tables of all subnets that match this filter.
+
+```go
+stack := awscdk.Newstack()
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
+	SecondaryAddressBlocks: []iIpAddresses{
+		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
+			CidrBlockName: jsii.String("AmazonProvided"),
+		}),
+	},
+})
+routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+	Vpc: myVpc,
+})
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	Ipv6CidrBlock: awsec2alpha.NewIpCidr(jsii.String("2001:db8:1::/64")),
+	SubnetType: awscdk.SubnetType_PRIVATE,
+})
+
+myVpc.AddEgressOnlyInternetGateway(&EgressOnlyInternetGatewayOptions{
+	Subnets: []subnetSelection{
+		&subnetSelection{
+			SubnetType: awscdk.SubnetType_PRIVATE,
+		},
+	},
+	Destination: jsii.String("::/60"),
+})
+```
+
+## Adding NATGateway to the VPC
+
+A NAT gateway is a Network Address Translation (NAT) service.You can use a NAT gateway so that instances in a private subnet can connect to services outside your VPC but external services cannot initiate a connection with those instances.
+
+For more information, see [NAT gateway basics](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html).
+
+When you create a NAT gateway, you specify one of the following connectivity types:
+
+**Public – (Default)**: Instances in private subnets can connect to the internet through a public NAT gateway, but cannot receive unsolicited inbound connections from the internet
+
+**Private**: Instances in private subnets can connect to other VPCs or your on-premises network through a private NAT gateway.
+
+To define the NAT gateway connectivity type as `ConnectivityType.Public`, you need to ensure that there is an IGW(Internet Gateway) attached to the subnet's VPC.
+Since a NATGW is associated with a particular subnet, providing `subnet` field in the input props is mandatory.
+
+Additionally, you can set up a route in any route table with the target set to the NAT Gateway. The function `addNatGateway` returns a `NATGateway` object that you can reference later.
+
+The code example below provides the definition for adding a NAT gateway to your subnet:
+
+```go
+stack := awscdk.Newstack()
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+	Vpc: myVpc,
+})
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+myVpc.AddInternetGateway()
+myVpc.AddNatGateway(&NatGatewayOptions{
+	Subnet: subnet,
+	ConnectivityType: awsec2alpha.NatConnectivityType_PUBLIC,
+})
+```
+
+## Enable VPNGateway for the VPC
+
+A virtual private gateway is the endpoint on the VPC side of your VPN connection.
+
+For more information, see [What is AWS Site-to-Site VPN?](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html).
+
+VPN route propagation is a feature in Amazon Web Services (AWS) that automatically updates route tables in your Virtual Private Cloud (VPC) with routes learned from a VPN connection.
+
+To enable VPN route propogation, use the `vpnRoutePropagation` property to specify the subnets as an input to the function. VPN route propagation will then be enabled for each subnet with the corresponding route table IDs.
+
+Additionally, you can set up a route in any route table with the target set to the VPN Gateway. The function `enableVpnGatewayV2` returns a `VPNGatewayV2` object that you can reference later.
+
+The code example below provides the definition for setting up a VPN gateway with `vpnRoutePropogation` enabled:
+
+```go
+stack := awscdk.Newstack()
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+vpnGateway := myVpc.EnableVpnGatewayV2(&VPNGatewayV2Options{
+	VpnRoutePropagation: []subnetSelection{
+		&subnetSelection{
+			SubnetType: awscdk.SubnetType_PUBLIC,
+		},
+	},
+	Type: awscdk.VpnConnectionType_IPSEC_1,
+})
+
+routeTable := awsec2alpha.NewRouteTable(stack, jsii.String("routeTable"), &RouteTableProps{
+	Vpc: myVpc,
+})
+
+awsec2alpha.NewRoute(stack, jsii.String("route"), &RouteProps{
+	Destination: jsii.String("172.31.0.0/24"),
+	Target: map[string]iRouteTarget{
+		"gateway": vpnGateway,
+	},
+	RouteTable: routeTable,
+})
+```
+
+## Adding InternetGateway to the VPC
+
+An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between your VPC and the internet. It supports both IPv4 and IPv6 traffic.
+
+For more information, see [Enable VPC internet access using internet gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-igw-internet-access.html).
+
+You can add an internet gateway to a VPC using `addInternetGateway` method. By default, this method creates a route in all Public Subnets with outbound destination set to `0.0.0.0` for IPv4 and `::0` for IPv6 enabled VPC.
+Instead of using the default settings, you can configure a custom destinatation range by providing an optional input `destination` to the method.
+
+The code example below shows how to add an internet gateway with a custom outbound destination IP range:
+
+```go
+stack := awscdk.Newstack()
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+myVpc.AddInternetGateway(&InternetGatewayOptions{
+	Ipv4Destination: jsii.String("192.168.0.0/16"),
 })
 ```

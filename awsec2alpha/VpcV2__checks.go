@@ -27,6 +27,14 @@ func (v *jsiiProxy_VpcV2) validateAddClientVpnEndpointParameters(id *string, opt
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2) validateAddEgressOnlyInternetGatewayParameters(options *EgressOnlyInternetGatewayOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2) validateAddFlowLogParameters(id *string, options *awsec2.FlowLogOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
@@ -69,6 +77,25 @@ func (v *jsiiProxy_VpcV2) validateAddInterfaceEndpointParameters(id *string, opt
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2) validateAddInternetGatewayParameters(options *InternetGatewayOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_VpcV2) validateAddNatGatewayParameters(options *NatGatewayOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2) validateAddVpnConnectionParameters(id *string, options *awsec2.VpnConnectionOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
@@ -93,6 +120,17 @@ func (v *jsiiProxy_VpcV2) validateApplyRemovalPolicyParameters(policy awscdk.Rem
 }
 
 func (v *jsiiProxy_VpcV2) validateEnableVpnGatewayParameters(options *awsec2.EnableVpnGatewayOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_VpcV2) validateEnableVpnGatewayV2Parameters(options *VPNGatewayV2Options) error {
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")
 	}

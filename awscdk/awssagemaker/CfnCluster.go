@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::SageMaker::Cluster.
+// Creates a SageMaker HyperPod cluster.
+//
+// SageMaker HyperPod is a capability of SageMaker for creating and managing persistent clusters for developing large machine learning models, such as large language models (LLMs) and diffusion models. To learn more, see [Amazon SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html) in the *Amazon SageMaker Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -74,13 +76,13 @@ type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the HyperPod Cluster.
+	// The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.
 	AttrClusterArn() *string
-	// The status of the HyperPod Cluster.
+	// The status of the SageMaker HyperPod cluster.
 	AttrClusterStatus() *string
-	// The time at which the HyperPod cluster was created.
+	// The time when the SageMaker HyperPod cluster is created.
 	AttrCreationTime() *string
-	// The failure message of the HyperPod Cluster.
+	// The failure message of the SageMaker HyperPod cluster.
 	AttrFailureMessage() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -89,7 +91,7 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The name of the HyperPod Cluster.
+	// The name of the SageMaker HyperPod cluster.
 	ClusterName() *string
 	SetClusterName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -111,10 +113,10 @@ type CfnCluster interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected.
+	// Specifies whether to enable or disable the automatic node recovery feature of SageMaker HyperPod.
 	NodeRecovery() *string
 	SetNodeRecovery(val *string)
-	// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+	// The orchestrator type for the SageMaker HyperPod cluster.
 	Orchestrator() interface{}
 	SetOrchestrator(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -126,7 +128,7 @@ type CfnCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource.
+	// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

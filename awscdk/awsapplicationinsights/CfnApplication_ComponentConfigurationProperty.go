@@ -51,6 +51,29 @@ package awsapplicationinsights
 //   				PatternSet: jsii.String("patternSet"),
 //   			},
 //   		},
+//   		NetWeaverPrometheusExporter: &NetWeaverPrometheusExporterProperty{
+//   			InstanceNumbers: []*string{
+//   				jsii.String("instanceNumbers"),
+//   			},
+//   			Sapsid: jsii.String("sapsid"),
+//
+//   			// the properties below are optional
+//   			PrometheusPort: jsii.String("prometheusPort"),
+//   		},
+//   		Processes: []interface{}{
+//   			&ProcessProperty{
+//   				AlarmMetrics: []interface{}{
+//   					&AlarmMetricProperty{
+//   						AlarmMetricName: jsii.String("alarmMetricName"),
+//   					},
+//   				},
+//   				ProcessName: jsii.String("processName"),
+//   			},
+//   		},
+//   		SqlServerPrometheusExporter: &SQLServerPrometheusExporterProperty{
+//   			PrometheusPort: jsii.String("prometheusPort"),
+//   			SqlSecretName: jsii.String("sqlSecretName"),
+//   		},
 //   		WindowsEvents: []interface{}{
 //   			&WindowsEventProperty{
 //   				EventLevels: []*string{
@@ -81,6 +104,16 @@ package awsapplicationinsights
 //   						LogGroupName: jsii.String("logGroupName"),
 //   						LogPath: jsii.String("logPath"),
 //   						PatternSet: jsii.String("patternSet"),
+//   					},
+//   				},
+//   				Processes: []interface{}{
+//   					&ProcessProperty{
+//   						AlarmMetrics: []interface{}{
+//   							&AlarmMetricProperty{
+//   								AlarmMetricName: jsii.String("alarmMetricName"),
+//   							},
+//   						},
+//   						ProcessName: jsii.String("processName"),
 //   					},
 //   				},
 //   				WindowsEvents: []interface{}{

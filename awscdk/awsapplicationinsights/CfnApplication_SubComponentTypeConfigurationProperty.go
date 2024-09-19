@@ -26,6 +26,16 @@ package awsapplicationinsights
 //   				PatternSet: jsii.String("patternSet"),
 //   			},
 //   		},
+//   		Processes: []interface{}{
+//   			&ProcessProperty{
+//   				AlarmMetrics: []interface{}{
+//   					&AlarmMetricProperty{
+//   						AlarmMetricName: jsii.String("alarmMetricName"),
+//   					},
+//   				},
+//   				ProcessName: jsii.String("processName"),
+//   			},
+//   		},
 //   		WindowsEvents: []interface{}{
 //   			&WindowsEventProperty{
 //   				EventLevels: []*string{

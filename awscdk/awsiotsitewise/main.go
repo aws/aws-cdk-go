@@ -378,6 +378,10 @@ func init() {
 		reflect.TypeOf((*CfnGateway_GreengrassV2Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotsitewise.CfnGateway.SiemensIEProperty",
+		reflect.TypeOf((*CfnGateway_SiemensIEProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotsitewise.CfnGatewayProps",
 		reflect.TypeOf((*CfnGatewayProps)(nil)).Elem(),
 	)

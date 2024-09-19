@@ -101,7 +101,7 @@ type CfnSubscriber interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Amazon Security Lake supports log and event collection for natively supported AWS-services .
+	// Amazon Security Lake supports log and event collection for natively supported AWS services .
 	Sources() interface{}
 	SetSources(val interface{})
 	// The stack in which this element is defined.

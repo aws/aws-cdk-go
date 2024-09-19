@@ -1439,6 +1439,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_ProgressBarOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.QueryExecutionOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_QueryExecutionOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.RadarChartAggregatedFieldWellsProperty",
 		reflect.TypeOf((*CfnAnalysis_RadarChartAggregatedFieldWellsProperty)(nil)).Elem(),
 	)
@@ -2017,6 +2021,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.WordCloudVisualProperty",
 		reflect.TypeOf((*CfnAnalysis_WordCloudVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.YAxisOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_YAxisOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysisProps",
@@ -4104,6 +4112,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_WordCloudVisualProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.YAxisOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_YAxisOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboardProps",
 		reflect.TypeOf((*CfnDashboardProps)(nil)).Elem(),
 	)
@@ -4136,6 +4148,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataSetRefreshProperties", GoGetter: "DataSetRefreshProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "dataSetUsageConfiguration", GoGetter: "DataSetUsageConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "fieldFolders", GoGetter: "FieldFolders"},
+			_jsii_.MemberProperty{JsiiProperty: "folderArns", GoGetter: "FolderArns"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "importMode", GoGetter: "ImportMode"},
@@ -6030,6 +6043,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_ProgressBarOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.QueryExecutionOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_QueryExecutionOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.RadarChartAggregatedFieldWellsProperty",
 		reflect.TypeOf((*CfnTemplate_RadarChartAggregatedFieldWellsProperty)(nil)).Elem(),
 	)
@@ -6628,6 +6645,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.WordCloudVisualProperty",
 		reflect.TypeOf((*CfnTemplate_WordCloudVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.YAxisOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_YAxisOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplateProps",

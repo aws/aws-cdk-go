@@ -94,7 +94,7 @@ import (
 type CfnUserPoolRiskConfigurationAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+	// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
 	AccountTakeoverRiskConfiguration() interface{}
 	SetAccountTakeoverRiskConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -105,7 +105,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// The app client ID.
 	ClientId() *string
 	SetClientId(val *string)
-	// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+	// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
 	CompromisedCredentialsRiskConfiguration() interface{}
 	SetCompromisedCredentialsRiskConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -129,7 +129,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The configuration to override the risk decision.
+	// Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
 	RiskExceptionConfiguration() interface{}
 	SetRiskExceptionConfiguration(val interface{})
 	// The stack in which this element is defined.
@@ -149,7 +149,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user pool ID.
+	// The ID of the user pool that has the risk configuration applied.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

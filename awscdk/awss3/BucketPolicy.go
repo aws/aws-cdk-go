@@ -21,21 +21,55 @@ import (
 // policy if one doesn't exist yet, otherwise it will add to the existing
 // policy.
 //
-// Prefer to use `addToResourcePolicy()` instead.
+// The bucket policy method is implemented differently than `addToResourcePolicy()`
+// as `BucketPolicy()` creates a new policy without knowing one earlier existed.
+// e.g. if during Bucket creation, if `autoDeleteObject:true`, these policies are
+// added to the bucket policy:
+//    ["s3:DeleteObject*", "s3:GetBucket*", "s3:List*", "s3:PutBucketPolicy"],
+// and when you add a new BucketPolicy with ["s3:GetObject", "s3:ListBucket"] on
+// this existing bucket, invoking `BucketPolicy()` will create a new Policy
+// without knowing one earlier exists already, so it creates a new one.
+// In this case, the custom resource handler will not have access to
+// `s3:GetBucketTagging` action which will cause failure during deletion of stack.
+//
+// Hence its strongly recommended to use `addToResourcePolicy()` method to add
+// new permissions to existing policy.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   bucketName := "my-favorite-bucket-name"
+//   accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"), &BucketProps{
+//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
+//   	BucketName: jsii.String(BucketName),
+//   })
 //
-//   var bucket bucket
+//   bucketPolicy := s3.NewCfnBucketPolicy(this, jsii.String("BucketPolicy"), &CfnBucketPolicyProps{
+//   	Bucket: bucketName,
+//   	PolicyDocument: map[string]interface{}{
+//   		"Statement": []map[string]interface{}{
+//   			map[string]interface{}{
+//   				"Action": jsii.String("s3:*"),
+//   				"Effect": jsii.String("Deny"),
+//   				"Principal": map[string]*string{
+//   					"AWS": jsii.String("*"),
+//   				},
+//   				"Resource": []*string{
+//   					accessLogsBucket.bucketArn,
+//   					fmt.Sprintf("%v/*", accessLogsBucket.bucketArn),
+//   				},
+//   			},
+//   		},
+//   		"Version": jsii.String("2012-10-17"),
+//   	},
+//   })
 //
-//   bucketPolicy := awscdk.Aws_s3.NewBucketPolicy(this, jsii.String("MyBucketPolicy"), &BucketPolicyProps{
-//   	Bucket: bucket,
+//   // Wrap L1 Construct with L2 Bucket Policy Construct. Subsequent
+//   // generated bucket policy to allow access log delivery would append
+//   // to the current policy.
+//   s3.BucketPolicy_FromCfnBucketPolicy(bucketPolicy)
 //
-//   	// the properties below are optional
-//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+//   	ServerAccessLogsBucket: accessLogsBucket,
+//   	ServerAccessLogsPrefix: jsii.String("logs"),
 //   })
 //
 type BucketPolicy interface {

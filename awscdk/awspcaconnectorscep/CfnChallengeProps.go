@@ -20,6 +20,7 @@ package awspcaconnectorscep
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-challenge.html
 //
 type CfnChallengeProps struct {
+	// The Amazon Resource Name (ARN) of the connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-challenge.html#cfn-pcaconnectorscep-challenge-connectorarn
 	//
 	ConnectorArn *string `field:"required" json:"connectorArn" yaml:"connectorArn"`

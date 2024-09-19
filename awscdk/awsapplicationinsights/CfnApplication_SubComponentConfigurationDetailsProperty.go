@@ -25,6 +25,16 @@ package awsapplicationinsights
 //   			PatternSet: jsii.String("patternSet"),
 //   		},
 //   	},
+//   	Processes: []interface{}{
+//   		&ProcessProperty{
+//   			AlarmMetrics: []interface{}{
+//   				&AlarmMetricProperty{
+//   					AlarmMetricName: jsii.String("alarmMetricName"),
+//   				},
+//   			},
+//   			ProcessName: jsii.String("processName"),
+//   		},
+//   	},
 //   	WindowsEvents: []interface{}{
 //   		&WindowsEventProperty{
 //   			EventLevels: []*string{
@@ -54,6 +64,12 @@ type CfnApplication_SubComponentConfigurationDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
 	//
 	Logs interface{} `field:"optional" json:"logs" yaml:"logs"`
+	// A list of processes to monitor for the component.
+	//
+	// Only Windows EC2 instances can have a processes section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-processes
+	//
+	Processes interface{} `field:"optional" json:"processes" yaml:"processes"`
 	// A list of Windows Events to monitor for the component.
 	//
 	// Only Amazon EC2 instances running on Windows can use `WindowsEvents` .

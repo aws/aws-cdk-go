@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetSourceAccessConfigurationsP
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnEventSourceMappingParameters(scope constructs.Construct, id *string, props *CfnEventSourceMappingProps) error {
 	return nil
 }

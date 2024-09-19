@@ -1,20 +1,24 @@
 package awscognito
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties to initialize UserPoolAppleIdentityProvider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var providerAttribute providerAttribute
+//   var secretValue secretValue
 //   var userPool userPool
 //
 //   userPoolIdentityProviderAppleProps := &UserPoolIdentityProviderAppleProps{
 //   	ClientId: jsii.String("clientId"),
 //   	KeyId: jsii.String("keyId"),
-//   	PrivateKey: jsii.String("privateKey"),
 //   	TeamId: jsii.String("teamId"),
 //   	UserPool: userPool,
 //
@@ -41,6 +45,8 @@ package awscognito
 //   		Timezone: providerAttribute,
 //   		Website: providerAttribute,
 //   	},
+//   	PrivateKey: jsii.String("privateKey"),
+//   	PrivateKeyValue: secretValue,
 //   	Scopes: []*string{
 //   		jsii.String("scopes"),
 //   	},
@@ -59,10 +65,17 @@ type UserPoolIdentityProviderAppleProps struct {
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The keyId (of the same key, which content has to be later supplied as `privateKey`) for Apple APIs to authenticate the client.
 	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
-	// The privateKey content for Apple APIs to authenticate the client.
-	PrivateKey *string `field:"required" json:"privateKey" yaml:"privateKey"`
 	// The teamId for Apple APIs to authenticate the client.
 	TeamId *string `field:"required" json:"teamId" yaml:"teamId"`
+	// The privateKey content for Apple APIs to authenticate the client.
+	// Default: none.
+	//
+	// Deprecated: use privateKeyValue.
+	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
+	// The privateKey content for Apple APIs to authenticate the client.
+	// Default: none.
+	//
+	PrivateKeyValue awscdk.SecretValue `field:"optional" json:"privateKeyValue" yaml:"privateKeyValue"`
 	// The list of apple permissions to obtain for getting access to the apple profile.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope
 	//

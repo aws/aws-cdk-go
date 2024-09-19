@@ -215,8 +215,6 @@ type CfnDBClusterProps struct {
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
 	//
-	// Default: - "default.aurora5.6"
-	//
 	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
 	//
@@ -498,8 +496,6 @@ type CfnDBClusterProps struct {
 	// Default: `0`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-monitoringinterval
 	//
-	// Default: - 0.
-	//
 	MonitoringInterval *float64 `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
 	// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
 	//
@@ -661,8 +657,6 @@ type CfnDBClusterProps struct {
 	//
 	// Valid for: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-restoretype
-	//
-	// Default: - "full-copy".
 	//
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// The scaling configuration of an Aurora Serverless v1 DB cluster.

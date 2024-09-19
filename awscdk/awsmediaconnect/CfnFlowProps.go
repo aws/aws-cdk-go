@@ -108,6 +108,9 @@ package awsmediaconnect
 //   		},
 //   		State: jsii.String("state"),
 //   	},
+//   	SourceMonitoringConfig: &SourceMonitoringConfigProperty{
+//   		ThumbnailState: jsii.String("thumbnailState"),
+//   	},
 //   	VpcInterfaces: []interface{}{
 //   		&VpcInterfaceProperty{
 //   			Name: jsii.String("name"),
@@ -157,6 +160,10 @@ type CfnFlowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
 	//
 	SourceFailoverConfig interface{} `field:"optional" json:"sourceFailoverConfig" yaml:"sourceFailoverConfig"`
+	// The settings for source monitoring.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcemonitoringconfig
+	//
+	SourceMonitoringConfig interface{} `field:"optional" json:"sourceMonitoringConfig" yaml:"sourceMonitoringConfig"`
 	// The VPC interfaces that you added to this flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-vpcinterfaces
 	//

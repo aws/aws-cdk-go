@@ -66,5 +66,11 @@ type HttpApiProps struct {
 	// Default: false execute-api endpoint enabled.
 	//
 	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	// Whether to set the default route selection expression for the API.
+	//
+	// When enabled, "${request.method} ${request.path}" is set as the default route selection expression.
+	// Default: false.
+	//
+	RouteSelectionExpression *bool `field:"optional" json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
 }
 

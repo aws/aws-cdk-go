@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnCampaign) validateSetSignalsToCollectParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnCampaign) validateSetSignalsToFetchParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCampaign) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

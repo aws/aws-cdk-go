@@ -113,6 +113,7 @@ type CfnApp interface {
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec() *string
 	SetBuildSpec(val *string)
+	// The cache configuration for the Amplify app.
 	CacheConfig() interface{}
 	SetCacheConfig(val interface{})
 	// Options for this resource, such as condition, update policy etc.

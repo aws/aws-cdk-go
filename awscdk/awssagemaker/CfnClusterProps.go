@@ -70,29 +70,33 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-instancegroups
 	//
 	InstanceGroups interface{} `field:"required" json:"instanceGroups" yaml:"instanceGroups"`
-	// The name of the HyperPod Cluster.
+	// The name of the SageMaker HyperPod cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-clustername
 	//
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
-	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected.
+	// Specifies whether to enable or disable the automatic node recovery feature of SageMaker HyperPod.
 	//
-	// If set to false, nodes will be labelled when a fault is detected.
+	// Available values are `Automatic` for enabling and `None` for disabling.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-noderecovery
 	//
 	NodeRecovery *string `field:"optional" json:"nodeRecovery" yaml:"nodeRecovery"`
-	// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+	// The orchestrator type for the SageMaker HyperPod cluster.
+	//
+	// Currently, `'eks'` is the only available option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-orchestrator
 	//
 	Orchestrator interface{} `field:"optional" json:"orchestrator" yaml:"orchestrator"`
-	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource.
+	// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
 	//
-	// You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
+	// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .
+	//
+	// For more information on adding metadata to your AWS resources with tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) . For advice on best practices for managing AWS resources with tagging, see [Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to.
 	//
-	// You can control access to and from your resources by configuring a VPC.
+	// You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-vpcconfig
 	//
 	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`

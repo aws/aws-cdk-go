@@ -24,7 +24,7 @@ type CfnUserPool_StringAttributeConstraintsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html#cfn-cognito-userpool-stringattributeconstraints-maxlength
 	//
 	MaxLength *string `field:"optional" json:"maxLength" yaml:"maxLength"`
-	// The minimum length.
+	// The minimum length of a string attribute value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html#cfn-cognito-userpool-stringattributeconstraints-minlength
 	//
 	MinLength *string `field:"optional" json:"minLength" yaml:"minLength"`

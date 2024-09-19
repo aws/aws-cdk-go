@@ -1,7 +1,9 @@
 package awscognito
 
 
-// Specifies whether the attribute is standard or custom.
+// The name and value of a user attribute.
+//
+// This data type is a request parameter of [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) and [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

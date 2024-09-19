@@ -27,6 +27,14 @@ func (v *jsiiProxy_VpcV2Base) validateAddClientVpnEndpointParameters(id *string,
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2Base) validateAddEgressOnlyInternetGatewayParameters(options *EgressOnlyInternetGatewayOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2Base) validateAddFlowLogParameters(id *string, options *awsec2.FlowLogOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
@@ -69,6 +77,25 @@ func (v *jsiiProxy_VpcV2Base) validateAddInterfaceEndpointParameters(id *string,
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2Base) validateAddInternetGatewayParameters(options *InternetGatewayOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_VpcV2Base) validateAddNatGatewayParameters(options *NatGatewayOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2Base) validateAddVpnConnectionParameters(id *string, options *awsec2.VpnConnectionOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
@@ -93,6 +120,17 @@ func (v *jsiiProxy_VpcV2Base) validateApplyRemovalPolicyParameters(policy awscdk
 }
 
 func (v *jsiiProxy_VpcV2Base) validateEnableVpnGatewayParameters(options *awsec2.EnableVpnGatewayOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_VpcV2Base) validateEnableVpnGatewayV2Parameters(options *VPNGatewayV2Options) error {
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")
 	}

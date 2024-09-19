@@ -1,7 +1,9 @@
 package awscognito
 
 
-// The type of the configuration to override the risk decision.
+// Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
+//
+// This data type is a request parameter of [SetRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.html) and a response parameter of [DescribeRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,15 +22,15 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html
 //
 type CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProperty struct {
-	// Overrides the risk decision to always block the pre-authentication requests.
+	// An always-block IP address list.
 	//
-	// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+	// Overrides the risk decision and always blocks authentication requests. This parameter is displayed and set in CIDR notation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-blockediprangelist
 	//
 	BlockedIpRangeList *[]*string `field:"optional" json:"blockedIpRangeList" yaml:"blockedIpRangeList"`
-	// Risk detection isn't performed on the IP addresses in this range list.
+	// An always-allow IP address list.
 	//
-	// The IP range is in CIDR notation.
+	// Risk detection isn't performed on the IP addresses in this range list. This parameter is displayed and set in CIDR notation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype-skippediprangelist
 	//
 	SkippedIpRangeList *[]*string `field:"optional" json:"skippedIpRangeList" yaml:"skippedIpRangeList"`

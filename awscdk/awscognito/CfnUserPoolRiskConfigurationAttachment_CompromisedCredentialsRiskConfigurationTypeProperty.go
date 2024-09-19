@@ -1,7 +1,9 @@
 package awscognito
 
 
-// The compromised credentials risk configuration type.
+// Settings for compromised-credentials actions and authentication-event sources with advanced security features in full-function `ENFORCED` mode.
+//
+// This data type is a request parameter of [SetRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.html) and a response parameter of [DescribeRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,13 +24,13 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html
 //
 type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty struct {
-	// The compromised credentials risk configuration actions.
+	// Settings for the actions that you want your user pool to take when Amazon Cognito detects compromised credentials.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype-actions
 	//
 	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
-	// Perform the action for these events.
+	// Settings for the sign-in activity where you want to configure compromised-credentials actions.
 	//
-	// The default is to perform all events if no event filter is specified.
+	// Defaults to all events.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html#cfn-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype-eventfilter
 	//
 	EventFilter *[]*string `field:"optional" json:"eventFilter" yaml:"eventFilter"`

@@ -90,6 +90,12 @@ package awselasticloadbalancingv2
 //   			CertificateArn: jsii.String("certificateArn"),
 //   		},
 //   	},
+//   	ListenerAttributes: []interface{}{
+//   		&ListenerAttributeProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	MutualAuthentication: &MutualAuthenticationProperty{
 //   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
 //   		Mode: jsii.String("mode"),
@@ -125,6 +131,9 @@ type CfnListenerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
 	//
 	Certificates interface{} `field:"optional" json:"certificates" yaml:"certificates"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-listenerattributes
+	//
+	ListenerAttributes interface{} `field:"optional" json:"listenerAttributes" yaml:"listenerAttributes"`
 	// The mutual authentication configuration information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-mutualauthentication
 	//

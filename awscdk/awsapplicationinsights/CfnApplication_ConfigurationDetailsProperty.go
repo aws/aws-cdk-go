@@ -50,6 +50,29 @@ package awsapplicationinsights
 //   			PatternSet: jsii.String("patternSet"),
 //   		},
 //   	},
+//   	NetWeaverPrometheusExporter: &NetWeaverPrometheusExporterProperty{
+//   		InstanceNumbers: []*string{
+//   			jsii.String("instanceNumbers"),
+//   		},
+//   		Sapsid: jsii.String("sapsid"),
+//
+//   		// the properties below are optional
+//   		PrometheusPort: jsii.String("prometheusPort"),
+//   	},
+//   	Processes: []interface{}{
+//   		&ProcessProperty{
+//   			AlarmMetrics: []interface{}{
+//   				&AlarmMetricProperty{
+//   					AlarmMetricName: jsii.String("alarmMetricName"),
+//   				},
+//   			},
+//   			ProcessName: jsii.String("processName"),
+//   		},
+//   	},
+//   	SqlServerPrometheusExporter: &SQLServerPrometheusExporterProperty{
+//   		PrometheusPort: jsii.String("prometheusPort"),
+//   		SqlSecretName: jsii.String("sqlSecretName"),
+//   	},
 //   	WindowsEvents: []interface{}{
 //   		&WindowsEventProperty{
 //   			EventLevels: []*string{
@@ -97,6 +120,20 @@ type CfnApplication_ConfigurationDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
 	//
 	Logs interface{} `field:"optional" json:"logs" yaml:"logs"`
+	// The NetWeaver Prometheus Exporter Settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-netweaverprometheusexporter
+	//
+	NetWeaverPrometheusExporter interface{} `field:"optional" json:"netWeaverPrometheusExporter" yaml:"netWeaverPrometheusExporter"`
+	// A list of processes to monitor for the component.
+	//
+	// Only Windows EC2 instances can have a processes section.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-processes
+	//
+	Processes interface{} `field:"optional" json:"processes" yaml:"processes"`
+	// The SQL prometheus exporter settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-sqlserverprometheusexporter
+	//
+	SqlServerPrometheusExporter interface{} `field:"optional" json:"sqlServerPrometheusExporter" yaml:"sqlServerPrometheusExporter"`
 	// A list of Windows Events to monitor for the component.
 	//
 	// Only Amazon EC2 instances running on Windows can use `WindowsEvents` .

@@ -378,6 +378,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerAttributes", GoGetter: "ListenerAttributes"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "mutualAuthentication", GoGetter: "MutualAuthentication"},
@@ -429,6 +430,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener.ForwardConfigProperty",
 		reflect.TypeOf((*CfnListener_ForwardConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener.ListenerAttributeProperty",
+		reflect.TypeOf((*CfnListener_ListenerAttributeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener.MutualAuthenticationProperty",
@@ -1264,6 +1269,7 @@ func init() {
 		map[string]interface{}{
 			"IPV4": IpAddressType_IPV4,
 			"DUAL_STACK": IpAddressType_DUAL_STACK,
+			"DUAL_STACK_WITHOUT_PUBLIC_IPV4": IpAddressType_DUAL_STACK_WITHOUT_PUBLIC_IPV4,
 		},
 	)
 	_jsii_.RegisterClass(
