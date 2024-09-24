@@ -8,6 +8,8 @@ package cloudassemblyschema
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   artifactManifest := &ArtifactManifest{
 //   	Type: awscdk.Cloud_assembly_schema.ArtifactType_NONE,
 //
@@ -34,6 +36,9 @@ package cloudassemblyschema
 //   		TemplateFile: jsii.String("templateFile"),
 //
 //   		// the properties below are optional
+//   		AssumeRoleAdditionalOptions: map[string]interface{}{
+//   			"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   		},
 //   		AssumeRoleArn: jsii.String("assumeRoleArn"),
 //   		AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   		BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
@@ -42,9 +47,15 @@ package cloudassemblyschema
 //   			Arn: jsii.String("arn"),
 //
 //   			// the properties below are optional
+//   			AssumeRoleAdditionalOptions: map[string]interface{}{
+//   				"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   			},
 //   			AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   			BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
 //   			RequiresBootstrapStackVersion: jsii.Number(123),
+//   		},
+//   		NotificationArns: []*string{
+//   			jsii.String("notificationArns"),
 //   		},
 //   		Parameters: map[string]*string{
 //   			"parametersKey": jsii.String("parameters"),

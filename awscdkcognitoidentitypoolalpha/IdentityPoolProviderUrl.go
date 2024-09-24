@@ -150,7 +150,7 @@ func IdentityPoolProviderUrl_Saml(url *string) IdentityPoolProviderUrl {
 
 // User Pool Provider Url.
 // Experimental.
-func IdentityPoolProviderUrl_UserPool(userPool awscognito.UserPool, userPoolClient awscognito.UserPoolClient) IdentityPoolProviderUrl {
+func IdentityPoolProviderUrl_UserPool(userPool awscognito.IUserPool, userPoolClient awscognito.IUserPoolClient) IdentityPoolProviderUrl {
 	_init_.Initialize()
 
 	if err := validateIdentityPoolProviderUrl_UserPoolParameters(userPool, userPoolClient); err != nil {

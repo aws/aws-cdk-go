@@ -14,9 +14,14 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   synthesizeStackArtifactOptions := &SynthesizeStackArtifactOptions{
 //   	AdditionalDependencies: []*string{
 //   		jsii.String("additionalDependencies"),
+//   	},
+//   	AssumeRoleAdditionalOptions: map[string]interface{}{
+//   		"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
 //   	},
 //   	AssumeRoleArn: jsii.String("assumeRoleArn"),
 //   	AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
@@ -26,6 +31,9 @@ import (
 //   		Arn: jsii.String("arn"),
 //
 //   		// the properties below are optional
+//   		AssumeRoleAdditionalOptions: map[string]interface{}{
+//   			"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   		},
 //   		AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   		BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
 //   		RequiresBootstrapStackVersion: jsii.Number(123),
@@ -42,6 +50,16 @@ type SynthesizeStackArtifactOptions struct {
 	// Default: - No additional dependencies.
 	//
 	AdditionalDependencies *[]*string `field:"optional" json:"additionalDependencies" yaml:"additionalDependencies"`
+	// Additional options to pass to STS when assuming the role for cloudformation deployments.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `assumeRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `assumeRoleExternalId` instead.
+	// - `TransitiveTagKeys` defaults to use all keys (if any) specified in `Tags`. E.g, all tags are transitive by default.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	AssumeRoleAdditionalOptions *map[string]interface{} `field:"optional" json:"assumeRoleAdditionalOptions" yaml:"assumeRoleAdditionalOptions"`
 	// The role that needs to be assumed to deploy the stack.
 	// Default: - No role is assumed (current credentials are used).
 	//

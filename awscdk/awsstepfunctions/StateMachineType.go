@@ -4,13 +4,16 @@ package awsstepfunctions
 // Two types of state machines are available in AWS Step Functions: EXPRESS AND STANDARD.
 //
 // Example:
-//   distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
-//   	MapExecutionType: sfn.StateMachineType_EXPRESS,
-//   })
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")), &ProcessorConfig{
-//   	Mode: sfn.ProcessorMode_DISTRIBUTED,
-//   	ExecutionType: sfn.ProcessorType_STANDARD,
+//
+//   kmsKey := kms.NewKey(this, jsii.String("Key"))
+//   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachineWithCMKEncryptionConfiguration"), &StateMachineProps{
+//   	StateMachineName: jsii.String("StateMachineWithCMKEncryptionConfiguration"),
+//   	DefinitionBody: sfn.DefinitionBody_FromChainable(sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))),
+//   	StateMachineType: sfn.StateMachineType_STANDARD,
+//   	EncryptionConfiguration: sfn.NewCustomerManagedEncryptionConfiguration(kmsKey, cdk.Duration_Seconds(jsii.Number(60))),
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html

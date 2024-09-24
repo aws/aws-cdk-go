@@ -975,6 +975,142 @@ sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
 })
 ```
 
+## Encryption
+
+You can encrypt your data using a customer managed key for AWS Step Functions state machines and activities. You can configure a symmetric AWS KMS key and data key reuse period when creating or updating a State Machine or when creating an Activity. The execution history and state machine definition will be encrypted with the key applied to the State Machine. Activity inputs will be encrypted with the key applied to the Activity.
+
+### Encrypting state machines
+
+You can provide a symmetric KMS key to encrypt the state machine definition and execution history:
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+kmsKey := kms.NewKey(this, jsii.String("Key"))
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachineWithCMKEncryptionConfiguration"), &StateMachineProps{
+	StateMachineName: jsii.String("StateMachineWithCMKEncryptionConfiguration"),
+	DefinitionBody: sfn.DefinitionBody_FromChainable(sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))),
+	StateMachineType: sfn.StateMachineType_STANDARD,
+	EncryptionConfiguration: sfn.NewCustomerManagedEncryptionConfiguration(kmsKey, cdk.Duration_Seconds(jsii.Number(60))),
+})
+```
+
+### Encrypting state machine logs in Cloud Watch Logs
+
+If a state machine is encrypted with a customer managed key and has logging enabled, its decrypted execution history will be stored in CloudWatch Logs. If you want to encrypt the logs from the state machine using your own KMS key, you can do so by configuring the `LogGroup` associated with the state machine to use a KMS key.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import logs "github.com/aws/aws-cdk-go/awscdk"
+
+
+stateMachineKmsKey := kms.NewKey(this, jsii.String("StateMachine Key"))
+logGroupKey := kms.NewKey(this, jsii.String("LogGroup Key"))
+
+/*
+  Required KMS key policy which allows the CloudWatchLogs service principal to encrypt the entire log group using the
+  customer managed kms key. See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html#cmk-permissions
+*/
+logGroupKey.addToResourcePolicy(aws_iam.NewPolicyStatement(&PolicyStatementProps{
+	Resources: []*string{
+		jsii.String("*"),
+	},
+	Actions: []*string{
+		jsii.String("kms:Encrypt*"),
+		jsii.String("kms:Decrypt*"),
+		jsii.String("kms:ReEncrypt*"),
+		jsii.String("kms:GenerateDataKey*"),
+		jsii.String("kms:Describe*"),
+	},
+	Principals: []iPrincipal{
+		aws_iam.NewServicePrincipal(fmt.Sprintf("logs.%v.amazonaws.com", cdk.*stack_Of(this).Region)),
+	},
+	Conditions: map[string]interface{}{
+		"ArnEquals": map[string]*string{
+			"kms:EncryptionContext:aws:logs:arn": cdk.*stack_*Of(this).formatArn(&ArnComponents{
+				"service": jsii.String("logs"),
+				"resource": jsii.String("log-group"),
+				"sep": jsii.String(":"),
+				"resourceName": jsii.String("/aws/vendedlogs/states/MyLogGroup"),
+			}),
+		},
+	},
+}))
+
+// Create logGroup and provding encryptionKey which will be used to encrypt the log group
+logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"), &LogGroupProps{
+	LogGroupName: jsii.String("/aws/vendedlogs/states/MyLogGroup"),
+	EncryptionKey: logGroupKey,
+})
+
+// Create state machine with CustomerManagedEncryptionConfiguration
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachineWithCMKWithCWLEncryption"), &StateMachineProps{
+	StateMachineName: jsii.String("StateMachineWithCMKWithCWLEncryption"),
+	DefinitionBody: sfn.DefinitionBody_FromChainable(sfn.Chain_Start(sfn.NewPass(this, jsii.String("PassState"), &PassProps{
+		Result: sfn.Result_FromString(jsii.String("Hello World")),
+	}))),
+	StateMachineType: sfn.StateMachineType_STANDARD,
+	EncryptionConfiguration: sfn.NewCustomerManagedEncryptionConfiguration(stateMachineKmsKey),
+	Logs: &LogOptions{
+		Destination: logGroup,
+		Level: sfn.LogLevel_ALL,
+		IncludeExecutionData: jsii.Boolean(true),
+	},
+})
+```
+
+### Encrypting activity inputs
+
+When you provide a symmetric KMS key, all inputs from the Step Functions Activity will be encrypted using the provided KMS key:
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+kmsKey := kms.NewKey(this, jsii.String("Key"))
+activity := sfn.NewActivity(this, jsii.String("ActivityWithCMKEncryptionConfiguration"), &ActivityProps{
+	ActivityName: jsii.String("ActivityWithCMKEncryptionConfiguration"),
+	EncryptionConfiguration: sfn.NewCustomerManagedEncryptionConfiguration(kmsKey, cdk.Duration_Seconds(jsii.Number(75))),
+})
+```
+
+### Changing Encryption
+
+If you want to switch encryption from a customer provided key to a Step Functions owned key or vice-versa you must explicitly provide `encryptionConfiguration?`
+
+#### Example: Switching from a customer managed key to a Step Functions owned key for StateMachine
+
+#### Before
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+
+kmsKey := kms.NewKey(this, jsii.String("Key"))
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	StateMachineName: jsii.String("StateMachine"),
+	DefinitionBody: sfn.DefinitionBody_FromChainable(sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))),
+	StateMachineType: sfn.StateMachineType_STANDARD,
+	EncryptionConfiguration: sfn.NewCustomerManagedEncryptionConfiguration(kmsKey, cdk.Duration_Seconds(jsii.Number(60))),
+})
+```
+
+#### After
+
+```go
+stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	StateMachineName: jsii.String("StateMachine"),
+	DefinitionBody: sfn.DefinitionBody_FromChainable(sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))),
+	StateMachineType: sfn.StateMachineType_STANDARD,
+	EncryptionConfiguration: sfn.NewAwsOwnedEncryptionConfiguration(),
+})
+```
+
 ## X-Ray tracing
 
 Enable X-Ray tracing for StateMachine:

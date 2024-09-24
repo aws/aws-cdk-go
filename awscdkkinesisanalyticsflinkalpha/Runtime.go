@@ -8,26 +8,31 @@ import (
 // Available Flink runtimes for Kinesis Analytics.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
+//   var bucket bucket
 //
-//   app := core.NewApp()
-//   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
-//
-//   flinkApp := flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
-//   	Code: flink.ApplicationCode_FromAsset(path.join(__dirname, jsii.String("code-asset"))),
-//   	Runtime: flink.Runtime_FLINK_1_19(),
+//   flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
+//   	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
+//   	Runtime: flink.Runtime_FLINK_1_20(),
+//   	CheckpointingEnabled: jsii.Boolean(true),
+//   	 // default is true
+//   	CheckpointInterval: awscdk.Duration_Seconds(jsii.Number(30)),
+//   	 // default is 1 minute
+//   	MinPauseBetweenCheckpoints: awscdk.Duration_*Seconds(jsii.Number(10)),
+//   	 // default is 5 seconds
+//   	LogLevel: flink.LogLevel_ERROR,
+//   	 // default is INFO
+//   	MetricsLevel: flink.MetricsLevel_PARALLELISM,
+//   	 // default is APPLICATION
+//   	AutoScalingEnabled: jsii.Boolean(false),
+//   	 // default is true
+//   	Parallelism: jsii.Number(32),
+//   	 // default is 1
+//   	ParallelismPerKpu: jsii.Number(2),
+//   	 // default is 1
+//   	SnapshotsEnabled: jsii.Boolean(false),
+//   	 // default is true
+//   	LogGroup: logs.NewLogGroup(this, jsii.String("LogGroup")),
 //   })
-//
-//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: flinkApp.metricFullRestarts(),
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(3),
-//   })
-//
-//   app.Synth()
 //
 // Experimental.
 type Runtime interface {
@@ -122,6 +127,17 @@ func Runtime_FLINK_1_19() Runtime {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-kinesisanalytics-flink-alpha.Runtime",
 		"FLINK_1_19",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_FLINK_1_20() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-kinesisanalytics-flink-alpha.Runtime",
+		"FLINK_1_20",
 		&returns,
 	)
 	return returns

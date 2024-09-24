@@ -13,6 +13,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
 //   var cloudAssembly cloudAssembly
 //
 //   treeCloudArtifact := awscdk.Cx_api.NewTreeCloudArtifact(cloudAssembly, jsii.String("name"), &ArtifactManifest{
@@ -41,6 +42,9 @@ import (
 //   		TemplateFile: jsii.String("templateFile"),
 //
 //   		// the properties below are optional
+//   		AssumeRoleAdditionalOptions: map[string]interface{}{
+//   			"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   		},
 //   		AssumeRoleArn: jsii.String("assumeRoleArn"),
 //   		AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   		BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
@@ -49,9 +53,15 @@ import (
 //   			Arn: jsii.String("arn"),
 //
 //   			// the properties below are optional
+//   			AssumeRoleAdditionalOptions: map[string]interface{}{
+//   				"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   			},
 //   			AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   			BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
 //   			RequiresBootstrapStackVersion: jsii.Number(123),
+//   		},
+//   		NotificationArns: []*string{
+//   			jsii.String("notificationArns"),
 //   		},
 //   		Parameters: map[string]*string{
 //   			"parametersKey": jsii.String("parameters"),

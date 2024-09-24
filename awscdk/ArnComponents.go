@@ -2,28 +2,42 @@ package awscdk
 
 
 // Example:
-//   subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &PublicHostedZoneProps{
-//   	ZoneName: jsii.String("sub.someexample.com"),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   // This function handles your connect route
+//   var connectHandler function
+//
+//
+//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"))
+//
+//   webSocketApi.AddRoute(jsii.String("$connect"), &WebSocketRouteOptions{
+//   	Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("Integration"), connectHandler),
+//   	Authorizer: awscdk.NewWebSocketIamAuthorizer(),
 //   })
 //
-//   // import the delegation role by constructing the roleArn
-//   delegationRoleArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
-//   	Region: jsii.String(""),
-//   	 // IAM is global in each partition
-//   	Service: jsii.String("iam"),
-//   	Account: jsii.String("parent-account-id"),
-//   	Resource: jsii.String("role"),
-//   	ResourceName: jsii.String("MyDelegationRole"),
-//   })
-//   delegationRole := iam.Role_FromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
+//   // Create an IAM user (identity)
+//   user := iam.NewUser(this, jsii.String("User"))
 //
-//   route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &CrossAccountZoneDelegationRecordProps{
-//   	DelegatedZone: subZone,
-//   	ParentHostedZoneName: jsii.String("someexample.com"),
-//   	 // or you can use parentHostedZoneId
-//   	DelegationRole: DelegationRole,
-//   	AssumeRoleRegion: jsii.String("us-east-1"),
+//   webSocketArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
+//   	Service: jsii.String("execute-api"),
+//   	Resource: webSocketApi.ApiId,
 //   })
+//
+//   // Grant access to the IAM user
+//   user.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowInvoke"), &PolicyProps{
+//   	Statements: []policyStatement{
+//   		iam.NewPolicyStatement(&PolicyStatementProps{
+//   			Actions: []*string{
+//   				jsii.String("execute-api:Invoke"),
+//   			},
+//   			Effect: iam.Effect_ALLOW,
+//   			Resources: []*string{
+//   				webSocketArn,
+//   			},
+//   		}),
+//   	},
+//   }))
 //
 type ArnComponents struct {
 	// Resource type (e.g. "table", "autoScalingGroup", "certificate"). For some resource types, e.g. S3 buckets, this field defines the bucket name.

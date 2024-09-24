@@ -41,6 +41,10 @@ type StateMachineProps struct {
 	DefinitionBody DefinitionBody `field:"optional" json:"definitionBody" yaml:"definitionBody"`
 	// substitutions for the definition body as a key-value map.
 	DefinitionSubstitutions *map[string]*string `field:"optional" json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
+	// Configures server-side encryption of the state machine definition and execution history.
+	// Default: - data is transparently encrypted using an AWS owned key.
+	//
+	EncryptionConfiguration EncryptionConfiguration `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// Defines what execution history events are logged and where they are logged.
 	// Default: No logging.
 	//

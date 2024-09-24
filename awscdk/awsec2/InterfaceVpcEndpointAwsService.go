@@ -1023,6 +1023,17 @@ func InterfaceVpcEndpointAwsService_COMPREHEND_MEDICAL() InterfaceVpcEndpointAws
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_COMPUTE_OPTIMIZER() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"COMPUTE_OPTIMIZER",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_CONFIG() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -1716,6 +1727,17 @@ func InterfaceVpcEndpointAwsService_GROUNDSTATION() InterfaceVpcEndpointAwsServi
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_GUARDDUTY() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"GUARDDUTY",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_GUARDDUTY_DATA() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -1733,6 +1755,17 @@ func InterfaceVpcEndpointAwsService_GUARDDUTY_DATA_FIPS() InterfaceVpcEndpointAw
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"GUARDDUTY_DATA_FIPS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_GUARDDUTY_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"GUARDDUTY_FIPS",
 		&returns,
 	)
 	return returns
@@ -3207,6 +3240,17 @@ func InterfaceVpcEndpointAwsService_SERVER_MIGRATION_SERVICE_FIPS() InterfaceVpc
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"SERVER_MIGRATION_SERVICE_FIPS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_SERVERLESS_APPLICATION_REPOSITORY() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"SERVERLESS_APPLICATION_REPOSITORY",
 		&returns,
 	)
 	return returns

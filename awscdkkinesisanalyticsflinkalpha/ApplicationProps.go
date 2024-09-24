@@ -10,26 +10,19 @@ import (
 // Props for creating an Application construct.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
+//   var bucket bucket
 //
-//   app := core.NewApp()
-//   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
-//
-//   flinkApp := flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
-//   	Code: flink.ApplicationCode_FromAsset(path.join(__dirname, jsii.String("code-asset"))),
-//   	Runtime: flink.Runtime_FLINK_1_19(),
+//   flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
+//   	PropertyGroups: map[string]map[string]*string{
+//   		"FlinkApplicationProperties": map[string]*string{
+//   			"inputStreamName": jsii.String("my-input-kinesis-stream"),
+//   			"outputStreamName": jsii.String("my-output-kinesis-stream"),
+//   		},
+//   	},
+//   	// ...
+//   	Runtime: flink.Runtime_FLINK_1_20(),
+//   	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
 //   })
-//
-//   cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: flinkApp.metricFullRestarts(),
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(3),
-//   })
-//
-//   app.Synth()
 //
 // Experimental.
 type ApplicationProps struct {

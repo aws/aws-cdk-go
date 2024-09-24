@@ -1074,6 +1074,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolArn", GoGetter: "UserPoolArn"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolProviderName", GoGetter: "UserPoolProviderName"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserPool{}

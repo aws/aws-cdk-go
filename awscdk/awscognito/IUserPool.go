@@ -33,6 +33,8 @@ type IUserPool interface {
 	UserPoolArn() *string
 	// The physical ID of this user pool resource.
 	UserPoolId() *string
+	// The provider name of this user pool resource.
+	UserPoolProviderName() *string
 }
 
 // The jsii proxy for IUserPool
@@ -145,6 +147,16 @@ func (j *jsiiProxy_IUserPool) UserPoolId() *string {
 	_jsii_.Get(
 		j,
 		"userPoolId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPool) UserPoolProviderName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"userPoolProviderName",
 		&returns,
 	)
 	return returns

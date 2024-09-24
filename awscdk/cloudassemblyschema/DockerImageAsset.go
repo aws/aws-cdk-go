@@ -8,6 +8,8 @@ package cloudassemblyschema
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   dockerImageAsset := &DockerImageAsset{
 //   	Destinations: map[string]dockerImageDestination{
 //   		"destinationsKey": &dockerImageDestination{
@@ -15,6 +17,9 @@ package cloudassemblyschema
 //   			"repositoryName": jsii.String("repositoryName"),
 //
 //   			// the properties below are optional
+//   			"assumeRoleAdditionalOptions": map[string]interface{}{
+//   				"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   			},
 //   			"assumeRoleArn": jsii.String("assumeRoleArn"),
 //   			"assumeRoleExternalId": jsii.String("assumeRoleExternalId"),
 //   			"region": jsii.String("region"),

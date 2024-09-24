@@ -4,18 +4,24 @@ package awsstepfunctions
 // Properties for defining a new Step Functions Activity.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   activityProps := &ActivityProps{
-//   	ActivityName: jsii.String("activityName"),
-//   }
+//
+//   kmsKey := kms.NewKey(this, jsii.String("Key"))
+//   activity := sfn.NewActivity(this, jsii.String("ActivityWithCMKEncryptionConfiguration"), &ActivityProps{
+//   	ActivityName: jsii.String("ActivityWithCMKEncryptionConfiguration"),
+//   	EncryptionConfiguration: sfn.NewCustomerManagedEncryptionConfiguration(kmsKey, cdk.Duration_Seconds(jsii.Number(75))),
+//   })
 //
 type ActivityProps struct {
 	// The name for this activity.
 	// Default: - If not supplied, a name is generated.
 	//
 	ActivityName *string `field:"optional" json:"activityName" yaml:"activityName"`
+	// The encryptionConfiguration object used for server-side encryption of the activity inputs.
+	// Default: - data is transparently encrypted using an AWS owned key.
+	//
+	EncryptionConfiguration EncryptionConfiguration `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 }
 

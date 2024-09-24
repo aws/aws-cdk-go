@@ -123,7 +123,7 @@ type CliCredentialsStackSynthesizer interface {
 	// out to be >50KB, it will need to be uploaded to S3 anyway. At that point
 	// the credentials will be the same identity that is doing the `UpdateStack`
 	// call, which may not have the right permissions to write to S3.
-	SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string) *FileAssetSource
+	SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string, lookupRoleExternalId *string, lookupRoleAdditionalOptions *map[string]interface{}) *FileAssetSource
 }
 
 // The jsii proxy struct for CliCredentialsStackSynthesizer
@@ -337,7 +337,7 @@ func (c *jsiiProxy_CliCredentialsStackSynthesizer) SynthesizeStackTemplate(stack
 	)
 }
 
-func (c *jsiiProxy_CliCredentialsStackSynthesizer) SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string) *FileAssetSource {
+func (c *jsiiProxy_CliCredentialsStackSynthesizer) SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string, lookupRoleExternalId *string, lookupRoleAdditionalOptions *map[string]interface{}) *FileAssetSource {
 	if err := c.validateSynthesizeTemplateParameters(session); err != nil {
 		panic(err)
 	}
@@ -346,7 +346,7 @@ func (c *jsiiProxy_CliCredentialsStackSynthesizer) SynthesizeTemplate(session IS
 	_jsii_.Invoke(
 		c,
 		"synthesizeTemplate",
-		[]interface{}{session, lookupRoleArn},
+		[]interface{}{session, lookupRoleArn, lookupRoleExternalId, lookupRoleAdditionalOptions},
 		&returns,
 	)
 

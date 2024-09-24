@@ -12,17 +12,27 @@ import (
 // A Pass state can be used to transform the current execution's state.
 //
 // Example:
-//   choice := sfn.NewChoice(this, jsii.String("Did it work?"))
+//   // Define a state machine with one Pass state
+//   child := sfn.NewStateMachine(this, jsii.String("ChildStateMachine"), &StateMachineProps{
+//   	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("PassState"))),
+//   })
 //
-//   // Add conditions with .when()
-//   successState := sfn.NewPass(this, jsii.String("SuccessState"))
-//   failureState := sfn.NewPass(this, jsii.String("FailureState"))
-//   choice.When(sfn.Condition_StringEquals(jsii.String("$.status"), jsii.String("SUCCESS")), successState)
-//   choice.When(sfn.Condition_NumberGreaterThan(jsii.String("$.attempts"), jsii.Number(5)), failureState)
+//   // Include the state machine in a Task state with callback pattern
+//   task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &StepFunctionsStartExecutionProps{
+//   	StateMachine: child,
+//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
+//   	Input: sfn.TaskInput_FromObject(map[string]interface{}{
+//   		"token": sfn.JsonPath_taskToken(),
+//   		"foo": jsii.String("bar"),
+//   	}),
+//   	Name: jsii.String("MyExecutionName"),
+//   })
 //
-//   // Use .otherwise() to indicate what should be done if none of the conditions match
-//   tryAgainState := sfn.NewPass(this, jsii.String("TryAgainState"))
-//   choice.Otherwise(tryAgainState)
+//   // Define a second state machine with the Task state above
+//   // Define a second state machine with the Task state above
+//   sfn.NewStateMachine(this, jsii.String("ParentStateMachine"), &StateMachineProps{
+//   	Definition: task,
+//   })
 //
 type Pass interface {
 	State

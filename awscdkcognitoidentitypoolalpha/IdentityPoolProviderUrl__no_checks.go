@@ -16,7 +16,7 @@ func validateIdentityPoolProviderUrl_SamlParameters(url *string) error {
 	return nil
 }
 
-func validateIdentityPoolProviderUrl_UserPoolParameters(userPool awscognito.UserPool, userPoolClient awscognito.UserPoolClient) error {
+func validateIdentityPoolProviderUrl_UserPoolParameters(userPool awscognito.IUserPool, userPoolClient awscognito.IUserPoolClient) error {
 	return nil
 }
 

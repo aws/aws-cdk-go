@@ -8,6 +8,8 @@ package awscdk
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   assetManifestFileDestination := &AssetManifestFileDestination{
 //   	BucketName: jsii.String("bucketName"),
 //
@@ -17,6 +19,9 @@ package awscdk
 //   		AssumeRoleArn: jsii.String("assumeRoleArn"),
 //
 //   		// the properties below are optional
+//   		AssumeRoleAdditionalOptions: map[string]interface{}{
+//   			"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   		},
 //   		AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   	},
 //   }

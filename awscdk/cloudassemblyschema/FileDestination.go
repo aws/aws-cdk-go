@@ -8,17 +8,31 @@ package cloudassemblyschema
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   fileDestination := &FileDestination{
 //   	BucketName: jsii.String("bucketName"),
 //   	ObjectKey: jsii.String("objectKey"),
 //
 //   	// the properties below are optional
+//   	AssumeRoleAdditionalOptions: map[string]interface{}{
+//   		"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   	},
 //   	AssumeRoleArn: jsii.String("assumeRoleArn"),
 //   	AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   	Region: jsii.String("region"),
 //   }
 //
 type FileDestination struct {
+	// Additional options to pass to STS when assuming the role.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `assumeRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `assumeRoleExternalId` instead.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	AssumeRoleAdditionalOptions *map[string]interface{} `field:"optional" json:"assumeRoleAdditionalOptions" yaml:"assumeRoleAdditionalOptions"`
 	// The role that needs to be assumed while publishing this asset.
 	// Default: - No role will be assumed.
 	//

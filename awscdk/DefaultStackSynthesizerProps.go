@@ -31,6 +31,16 @@ type DefaultStackSynthesizerProps struct {
 	// Default: DefaultStackSynthesizer.DEFAULT_CLOUDFORMATION_ROLE_ARN
 	//
 	CloudFormationExecutionRole *string `field:"optional" json:"cloudFormationExecutionRole" yaml:"cloudFormationExecutionRole"`
+	// Additional options to pass to STS when assuming the deploy role.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `deployRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `deployRoleExternalId` instead.
+	// - `TransitiveTagKeys` defaults to use all keys (if any) specified in `Tags`. E.g, all tags are transitive by default.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	DeployRoleAdditionalOptions *map[string]interface{} `field:"optional" json:"deployRoleAdditionalOptions" yaml:"deployRoleAdditionalOptions"`
 	// The role to assume to initiate a deployment in this environment.
 	//
 	// You must supply this if you have given a non-standard name to the publishing role.
@@ -56,6 +66,16 @@ type DefaultStackSynthesizerProps struct {
 	// Default: - No external ID.
 	//
 	FileAssetPublishingExternalId *string `field:"optional" json:"fileAssetPublishingExternalId" yaml:"fileAssetPublishingExternalId"`
+	// Additional options to pass to STS when assuming the file asset publishing.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `fileAssetPublishingRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `fileAssetPublishingExternalId` instead.
+	// - `TransitiveTagKeys` defaults to use all keys (if any) specified in `Tags`. E.g, all tags are transitive by default.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	FileAssetPublishingRoleAdditionalOptions *map[string]interface{} `field:"optional" json:"fileAssetPublishingRoleAdditionalOptions" yaml:"fileAssetPublishingRoleAdditionalOptions"`
 	// The role to use to publish file assets to the S3 bucket in this environment.
 	//
 	// You must supply this if you have given a non-standard name to the publishing role.
@@ -87,6 +107,16 @@ type DefaultStackSynthesizerProps struct {
 	// Default: - No external ID.
 	//
 	ImageAssetPublishingExternalId *string `field:"optional" json:"imageAssetPublishingExternalId" yaml:"imageAssetPublishingExternalId"`
+	// Additional options to pass to STS when assuming the image asset publishing.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `imageAssetPublishingRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `imageAssetPublishingExternalId` instead.
+	// - `TransitiveTagKeys` defaults to use all keys (if any) specified in `Tags`. E.g, all tags are transitive by default.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	ImageAssetPublishingRoleAdditionalOptions *map[string]interface{} `field:"optional" json:"imageAssetPublishingRoleAdditionalOptions" yaml:"imageAssetPublishingRoleAdditionalOptions"`
 	// The role to use to publish image assets to the ECR repository in this environment.
 	//
 	// You must supply this if you have given a non-standard name to the publishing role.
@@ -107,6 +137,16 @@ type DefaultStackSynthesizerProps struct {
 	// Default: DefaultStackSynthesizer.DEFAULT_IMAGE_ASSETS_REPOSITORY_NAME
 	//
 	ImageAssetsRepositoryName *string `field:"optional" json:"imageAssetsRepositoryName" yaml:"imageAssetsRepositoryName"`
+	// Additional options to pass to STS when assuming the lookup role.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead.
+	// - `TransitiveTagKeys` defaults to use all keys (if any) specified in `Tags`. E.g, all tags are transitive by default.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	LookupRoleAdditionalOptions *map[string]interface{} `field:"optional" json:"lookupRoleAdditionalOptions" yaml:"lookupRoleAdditionalOptions"`
 	// The role to use to look up values from the target AWS account during synthesis.
 	// Default: - None.
 	//

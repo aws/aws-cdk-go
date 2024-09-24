@@ -101,7 +101,7 @@ type NestedStackSynthesizer interface {
 	// out to be >50KB, it will need to be uploaded to S3 anyway. At that point
 	// the credentials will be the same identity that is doing the `UpdateStack`
 	// call, which may not have the right permissions to write to S3.
-	SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string) *FileAssetSource
+	SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string, lookupRoleExternalId *string, lookupRoleAdditionalOptions *map[string]interface{}) *FileAssetSource
 }
 
 // The jsii proxy struct for NestedStackSynthesizer
@@ -297,7 +297,7 @@ func (n *jsiiProxy_NestedStackSynthesizer) SynthesizeStackTemplate(stack Stack, 
 	)
 }
 
-func (n *jsiiProxy_NestedStackSynthesizer) SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string) *FileAssetSource {
+func (n *jsiiProxy_NestedStackSynthesizer) SynthesizeTemplate(session ISynthesisSession, lookupRoleArn *string, lookupRoleExternalId *string, lookupRoleAdditionalOptions *map[string]interface{}) *FileAssetSource {
 	if err := n.validateSynthesizeTemplateParameters(session); err != nil {
 		panic(err)
 	}
@@ -306,7 +306,7 @@ func (n *jsiiProxy_NestedStackSynthesizer) SynthesizeTemplate(session ISynthesis
 	_jsii_.Invoke(
 		n,
 		"synthesizeTemplate",
-		[]interface{}{session, lookupRoleArn},
+		[]interface{}{session, lookupRoleArn, lookupRoleExternalId, lookupRoleAdditionalOptions},
 		&returns,
 	)
 

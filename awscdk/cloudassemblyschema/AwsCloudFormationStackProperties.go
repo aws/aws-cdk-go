@@ -8,10 +8,15 @@ package cloudassemblyschema
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   awsCloudFormationStackProperties := &AwsCloudFormationStackProperties{
 //   	TemplateFile: jsii.String("templateFile"),
 //
 //   	// the properties below are optional
+//   	AssumeRoleAdditionalOptions: map[string]interface{}{
+//   		"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   	},
 //   	AssumeRoleArn: jsii.String("assumeRoleArn"),
 //   	AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   	BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
@@ -20,9 +25,15 @@ package cloudassemblyschema
 //   		Arn: jsii.String("arn"),
 //
 //   		// the properties below are optional
+//   		AssumeRoleAdditionalOptions: map[string]interface{}{
+//   			"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   		},
 //   		AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   		BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
 //   		RequiresBootstrapStackVersion: jsii.Number(123),
+//   	},
+//   	NotificationArns: []*string{
+//   		jsii.String("notificationArns"),
 //   	},
 //   	Parameters: map[string]*string{
 //   		"parametersKey": jsii.String("parameters"),
@@ -40,6 +51,15 @@ package cloudassemblyschema
 type AwsCloudFormationStackProperties struct {
 	// A file relative to the assembly root which contains the CloudFormation template for this stack.
 	TemplateFile *string `field:"required" json:"templateFile" yaml:"templateFile"`
+	// Additional options to pass to STS when assuming the role.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `assumeRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `assumeRoleExternalId` instead.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	AssumeRoleAdditionalOptions *map[string]interface{} `field:"optional" json:"assumeRoleAdditionalOptions" yaml:"assumeRoleAdditionalOptions"`
 	// The role that needs to be assumed to deploy the stack.
 	// Default: - No role is assumed (current credentials are used).
 	//
@@ -68,6 +88,10 @@ type AwsCloudFormationStackProperties struct {
 	// Default: - No role is assumed (current credentials are used).
 	//
 	LookupRole *BootstrapRole `field:"optional" json:"lookupRole" yaml:"lookupRole"`
+	// SNS Notification ARNs that should receive CloudFormation Stack Events.
+	// Default: - No notification arns.
+	//
+	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
 	// Default: - No parameters.
 	//

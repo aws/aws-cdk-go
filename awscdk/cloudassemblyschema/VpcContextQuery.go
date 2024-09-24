@@ -8,6 +8,8 @@ package cloudassemblyschema
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   vpcContextQuery := &VpcContextQuery{
 //   	Account: jsii.String("account"),
 //   	Filter: map[string]*string{
@@ -16,7 +18,11 @@ package cloudassemblyschema
 //   	Region: jsii.String("region"),
 //
 //   	// the properties below are optional
+//   	AssumeRoleAdditionalOptions: map[string]interface{}{
+//   		"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   	},
 //   	LookupRoleArn: jsii.String("lookupRoleArn"),
+//   	LookupRoleExternalId: jsii.String("lookupRoleExternalId"),
 //   	ReturnAsymmetricSubnets: jsii.Boolean(false),
 //   	ReturnVpnGateways: jsii.Boolean(false),
 //   	SubnetGroupNameTag: jsii.String("subnetGroupNameTag"),
@@ -25,18 +31,31 @@ package cloudassemblyschema
 type VpcContextQuery struct {
 	// Query account.
 	Account *string `field:"required" json:"account" yaml:"account"`
+	// Query region.
+	Region *string `field:"required" json:"region" yaml:"region"`
+	// Additional options to pass to STS when assuming the lookup role.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `lookupRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `lookupRoleExternalId` instead.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	AssumeRoleAdditionalOptions *map[string]interface{} `field:"optional" json:"assumeRoleAdditionalOptions" yaml:"assumeRoleAdditionalOptions"`
+	// The ARN of the role that should be used to look up the missing values.
+	// Default: - None.
+	//
+	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
+	// The ExternalId that needs to be supplied while assuming this role.
+	// Default: - No ExternalId will be supplied.
+	//
+	LookupRoleExternalId *string `field:"optional" json:"lookupRoleExternalId" yaml:"lookupRoleExternalId"`
 	// Filters to apply to the VPC.
 	//
 	// Filter parameters are the same as passed to DescribeVpcs.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html
 	//
 	Filter *map[string]*string `field:"required" json:"filter" yaml:"filter"`
-	// Query region.
-	Region *string `field:"required" json:"region" yaml:"region"`
-	// The ARN of the role that should be used to look up the missing values.
-	// Default: - None.
-	//
-	LookupRoleArn *string `field:"optional" json:"lookupRoleArn" yaml:"lookupRoleArn"`
 	// Whether to populate the subnetGroups field of the `VpcContextResponse`, which contains potentially asymmetric subnet groups.
 	// Default: false.
 	//

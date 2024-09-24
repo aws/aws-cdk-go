@@ -102,6 +102,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
 			_jsii_.MemberProperty{JsiiProperty: "assets", GoGetter: "Assets"},
+			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAdditionalOptions", GoGetter: "AssumeRoleAdditionalOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleArn", GoGetter: "AssumeRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleExternalId", GoGetter: "AssumeRoleExternalId"},
 			_jsii_.MemberProperty{JsiiProperty: "bootstrapStackVersionSsmParameter", GoGetter: "BootstrapStackVersionSsmParameter"},
@@ -115,6 +116,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "lookupRole", GoGetter: "LookupRole"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
+			_jsii_.MemberProperty{JsiiProperty: "notificationArns", GoGetter: "NotificationArns"},
 			_jsii_.MemberProperty{JsiiProperty: "originalName", GoGetter: "OriginalName"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "requiresBootstrapStackVersion", GoGetter: "RequiresBootstrapStackVersion"},

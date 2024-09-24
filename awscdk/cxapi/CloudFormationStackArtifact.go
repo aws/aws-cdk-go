@@ -13,6 +13,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
 //   var cloudAssembly cloudAssembly
 //
 //   cloudFormationStackArtifact := awscdk.Cx_api.NewCloudFormationStackArtifact(cloudAssembly, jsii.String("artifactId"), &ArtifactManifest{
@@ -41,6 +42,9 @@ import (
 //   		TemplateFile: jsii.String("templateFile"),
 //
 //   		// the properties below are optional
+//   		AssumeRoleAdditionalOptions: map[string]interface{}{
+//   			"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   		},
 //   		AssumeRoleArn: jsii.String("assumeRoleArn"),
 //   		AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   		BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
@@ -49,9 +53,15 @@ import (
 //   			Arn: jsii.String("arn"),
 //
 //   			// the properties below are optional
+//   			AssumeRoleAdditionalOptions: map[string]interface{}{
+//   				"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   			},
 //   			AssumeRoleExternalId: jsii.String("assumeRoleExternalId"),
 //   			BootstrapStackVersionSsmParameter: jsii.String("bootstrapStackVersionSsmParameter"),
 //   			RequiresBootstrapStackVersion: jsii.Number(123),
+//   		},
+//   		NotificationArns: []*string{
+//   			jsii.String("notificationArns"),
 //   		},
 //   		Parameters: map[string]*string{
 //   			"parametersKey": jsii.String("parameters"),
@@ -72,6 +82,16 @@ type CloudFormationStackArtifact interface {
 	Assembly() CloudAssembly
 	// Any assets associated with this stack.
 	Assets() *[]interface{}
+	// Additional options to pass to STS when assuming the role for cloudformation deployments.
+	//
+	// - `RoleArn` should not be used. Use the dedicated `assumeRoleArn` property instead.
+	// - `ExternalId` should not be used. Use the dedicated `assumeRoleExternalId` instead.
+	// - `TransitiveTagKeys` defaults to use all keys (if any) specified in `Tags`. E.g, all tags are transitive by default.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
+	//
+	// Default: - No additional options.
+	//
+	AssumeRoleAdditionalOptions() *map[string]interface{}
 	// The role that needs to be assumed to deploy the stack.
 	// Default: - No role is assumed (current credentials are used).
 	//
@@ -113,6 +133,8 @@ type CloudFormationStackArtifact interface {
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	// The set of messages extracted from the artifact's metadata.
 	Messages() *[]*SynthesisMessage
+	// SNS Topics that will receive stack events.
+	NotificationArns() *[]*string
 	// The original name as defined in the CDK app.
 	OriginalName() *string
 	// CloudFormation parameters to pass to the stack.
@@ -165,6 +187,16 @@ func (j *jsiiProxy_CloudFormationStackArtifact) Assets() *[]interface{} {
 	_jsii_.Get(
 		j,
 		"assets",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFormationStackArtifact) AssumeRoleAdditionalOptions() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assumeRoleAdditionalOptions",
 		&returns,
 	)
 	return returns
@@ -285,6 +317,16 @@ func (j *jsiiProxy_CloudFormationStackArtifact) Messages() *[]*SynthesisMessage 
 	_jsii_.Get(
 		j,
 		"messages",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFormationStackArtifact) NotificationArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"notificationArns",
 		&returns,
 	)
 	return returns

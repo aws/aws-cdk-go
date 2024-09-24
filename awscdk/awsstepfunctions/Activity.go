@@ -29,6 +29,8 @@ type Activity interface {
 	ActivityArn() *string
 	// The name of the activity.
 	ActivityName() *string
+	// The encryptionConfiguration object used for server-side encryption of the activity inputs.
+	EncryptionConfiguration() EncryptionConfiguration
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -141,6 +143,16 @@ func (j *jsiiProxy_Activity) ActivityName() *string {
 	_jsii_.Get(
 		j,
 		"activityName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Activity) EncryptionConfiguration() EncryptionConfiguration {
+	var returns EncryptionConfiguration
+	_jsii_.Get(
+		j,
+		"encryptionConfiguration",
 		&returns,
 	)
 	return returns

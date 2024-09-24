@@ -24,6 +24,9 @@ import (
 //   		Account: jsii.String("account"),
 //   		Region: jsii.String("region"),
 //   	},
+//   	NotificationArns: []*string{
+//   		jsii.String("notificationArns"),
+//   	},
 //   	PermissionsBoundary: permissionsBoundary,
 //   	StackId: jsii.String("stackId"),
 //   	StackName: jsii.String("stackName"),
@@ -122,6 +125,11 @@ type TargetApplicationCommonOptions struct {
 	//
 	// Experimental.
 	Env *awscdk.Environment `field:"optional" json:"env" yaml:"env"`
+	// SNS Topic ARNs that will receive stack events.
+	// Default: - no notfication arns.
+	//
+	// Experimental.
+	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`
 	// Options for applying a permissions boundary to all IAM Roles and Users created within this Stage.
 	// Default: - no permissions boundary is applied.
 	//

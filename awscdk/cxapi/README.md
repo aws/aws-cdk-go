@@ -409,3 +409,19 @@ When this feature flag is enabled, we will only grant the necessary permissions 
   }
 }
 ```
+
+* `@aws-cdk/aws-ec2:ec2SumTImeoutEnabled`
+
+Currently is both initOptions.timeout and resourceSignalTimeout are both specified in the options for creating an EC2 Instance, only the value from 'resourceSignalTimeout' will be used.
+
+When this feature flag is enabled, if both initOptions.timeout and resourceSignalTimeout are specified, the values will to be summed together.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-ec2:ec2SumTImeoutEnabled": true
+  }
+}
+```

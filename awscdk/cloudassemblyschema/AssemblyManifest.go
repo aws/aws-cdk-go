@@ -8,6 +8,8 @@ package cloudassemblyschema
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   assemblyManifest := &AssemblyManifest{
 //   	Version: jsii.String("version"),
 //
@@ -39,6 +41,9 @@ package cloudassemblyschema
 //   				"templateFile": jsii.String("templateFile"),
 //
 //   				// the properties below are optional
+//   				"assumeRoleAdditionalOptions": map[string]interface{}{
+//   					"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   				},
 //   				"assumeRoleArn": jsii.String("assumeRoleArn"),
 //   				"assumeRoleExternalId": jsii.String("assumeRoleExternalId"),
 //   				"bootstrapStackVersionSsmParameter": jsii.String("bootstrapStackVersionSsmParameter"),
@@ -47,9 +52,15 @@ package cloudassemblyschema
 //   					"arn": jsii.String("arn"),
 //
 //   					// the properties below are optional
+//   					"assumeRoleAdditionalOptions": map[string]interface{}{
+//   						"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   					},
 //   					"assumeRoleExternalId": jsii.String("assumeRoleExternalId"),
 //   					"bootstrapStackVersionSsmParameter": jsii.String("bootstrapStackVersionSsmParameter"),
 //   					"requiresBootstrapStackVersion": jsii.Number(123),
+//   				},
+//   				"notificationArns": []*string{
+//   					jsii.String("notificationArns"),
 //   				},
 //   				"parameters": map[string]*string{
 //   					"parametersKey": jsii.String("parameters"),
@@ -78,7 +89,11 @@ package cloudassemblyschema
 //   				Region: jsii.String("region"),
 //
 //   				// the properties below are optional
+//   				AssumeRoleAdditionalOptions: map[string]interface{}{
+//   					"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   				},
 //   				LookupRoleArn: jsii.String("lookupRoleArn"),
+//   				LookupRoleExternalId: jsii.String("lookupRoleExternalId"),
 //   				Owners: []interface{}{
 //   					jsii.String("owners"),
 //   				},

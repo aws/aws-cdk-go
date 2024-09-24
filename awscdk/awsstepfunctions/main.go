@@ -14,6 +14,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "activityArn", GoGetter: "ActivityArn"},
 			_jsii_.MemberProperty{JsiiProperty: "activityName", GoGetter: "ActivityName"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -48,6 +49,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.AfterwardsOptions",
 		reflect.TypeOf((*AfterwardsOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.AwsOwnedEncryptionConfiguration",
+		reflect.TypeOf((*AwsOwnedEncryptionConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AwsOwnedEncryptionConfiguration{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_EncryptionConfiguration)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.CatchProps",
@@ -494,6 +507,20 @@ func init() {
 		reflect.TypeOf((*CustomStateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.CustomerManagedEncryptionConfiguration",
+		reflect.TypeOf((*CustomerManagedEncryptionConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "kmsDataKeyReusePeriodSeconds", GoGetter: "KmsDataKeyReusePeriodSeconds"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CustomerManagedEncryptionConfiguration{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_EncryptionConfiguration)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.DefinitionBody",
 		reflect.TypeOf((*DefinitionBody)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -566,6 +593,16 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.DistributedMapProps",
 		reflect.TypeOf((*DistributedMapProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.EncryptionConfiguration",
+		reflect.TypeOf((*EncryptionConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			return &jsiiProxy_EncryptionConfiguration{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.Errors",
@@ -660,6 +697,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "activityArn", GoGetter: "ActivityArn"},
 			_jsii_.MemberProperty{JsiiProperty: "activityName", GoGetter: "ActivityName"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},

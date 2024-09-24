@@ -27,23 +27,41 @@ To create a new Flink application, use the `Application` construct:
 import path "github.com/aws-samples/dummy/path"
 import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
+import integ "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 import "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
 
 app := core.NewApp()
 stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 
-flinkApp := flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
-	Code: flink.ApplicationCode_FromAsset(path.join(__dirname, jsii.String("code-asset"))),
-	Runtime: flink.Runtime_FLINK_1_19(),
+flinkRuntimes := []runtime{
+	flink.runtime_FLINK_1_6(),
+	flink.runtime_FLINK_1_8(),
+	flink.runtime_FLINK_1_11(),
+	flink.runtime_FLINK_1_13(),
+	flink.runtime_FLINK_1_15(),
+	flink.runtime_FLINK_1_18(),
+	flink.runtime_FLINK_1_19(),
+	flink.runtime_FLINK_1_20(),
+}
+
+flinkRuntimes.forEach((runtime) => {
+  const flinkApp = new flink.Application(stack, `App-${runtime.value}`, {
+    code: flink.ApplicationCode.fromAsset(path.join(__dirname, 'code-asset')),
+    runtime: runtime,
+  });
+
+  new cloudwatch.Alarm(stack, `Alarm-${runtime.value}`, {
+    metric: flinkApp.metricFullRestarts(),
+    evaluationPeriods: 1,
+    threshold: 3,
+  });
 })
 
-cloudwatch.NewAlarm(stack, jsii.String("Alarm"), &AlarmProps{
-	Metric: flinkApp.metricFullRestarts(),
-	EvaluationPeriods: jsii.Number(1),
-	Threshold: jsii.Number(3),
+integ.NewIntegTest(app, jsii.String("ApplicationTest"), &IntegTestProps{
+	TestCases: []stack{
+		stack,
+	},
 })
-
-app.Synth()
 ```
 
 The `code` property can use `fromAsset` as shown above to reference a local jar
@@ -88,7 +106,7 @@ flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationP
 		},
 	},
 	// ...
-	Runtime: flink.Runtime_FLINK_1_19(),
+	Runtime: flink.Runtime_FLINK_1_20(),
 	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
 })
 ```
@@ -102,7 +120,7 @@ var bucket bucket
 
 flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
-	Runtime: flink.Runtime_FLINK_1_19(),
+	Runtime: flink.Runtime_FLINK_1_20(),
 	CheckpointingEnabled: jsii.Boolean(true),
 	 // default is true
 	CheckpointInterval: awscdk.Duration_Seconds(jsii.Number(30)),
@@ -133,7 +151,7 @@ var vpc vpc
 
 flinkApp := flink.NewApplication(this, jsii.String("Application"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromBucket(bucket, jsii.String("my-app.jar")),
-	Runtime: flink.Runtime_FLINK_1_19(),
+	Runtime: flink.Runtime_FLINK_1_20(),
 	Vpc: Vpc,
 })
 ```

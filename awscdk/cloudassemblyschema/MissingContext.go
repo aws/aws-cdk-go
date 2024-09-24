@@ -8,6 +8,8 @@ package cloudassemblyschema
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var assumeRoleAdditionalOptions interface{}
+//
 //   missingContext := &MissingContext{
 //   	Key: jsii.String("key"),
 //   	Props: &AmiContextQuery{
@@ -20,7 +22,11 @@ package cloudassemblyschema
 //   		Region: jsii.String("region"),
 //
 //   		// the properties below are optional
+//   		AssumeRoleAdditionalOptions: map[string]interface{}{
+//   			"assumeRoleAdditionalOptionsKey": assumeRoleAdditionalOptions,
+//   		},
 //   		LookupRoleArn: jsii.String("lookupRoleArn"),
+//   		LookupRoleExternalId: jsii.String("lookupRoleExternalId"),
 //   		Owners: []interface{}{
 //   			jsii.String("owners"),
 //   		},

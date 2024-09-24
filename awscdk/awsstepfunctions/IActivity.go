@@ -14,6 +14,8 @@ type IActivity interface {
 	ActivityArn() *string
 	// The name of the activity.
 	ActivityName() *string
+	// The encryptionConfiguration object used for server-side encryption of the activity inputs.
+	EncryptionConfiguration() EncryptionConfiguration
 }
 
 // The jsii proxy for IActivity
@@ -36,6 +38,16 @@ func (j *jsiiProxy_IActivity) ActivityName() *string {
 	_jsii_.Get(
 		j,
 		"activityName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IActivity) EncryptionConfiguration() EncryptionConfiguration {
+	var returns EncryptionConfiguration
+	_jsii_.Get(
+		j,
+		"encryptionConfiguration",
 		&returns,
 	)
 	return returns

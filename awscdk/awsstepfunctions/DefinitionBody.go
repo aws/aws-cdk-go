@@ -10,17 +10,16 @@ import (
 )
 
 // Example:
-//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("SM"), &StateMachineProps{
-//   	DefinitionBody: stepfunctions.DefinitionBody_FromChainable(stepfunctions.NewWait(this, jsii.String("Hello"), &WaitProps{
-//   		Time: stepfunctions.WaitTime_Duration(awscdk.Duration_Seconds(jsii.Number(10))),
-//   	})),
-//   })
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
-//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT * FROM 'device/+/data'")),
-//   	Actions: []iAction{
-//   		actions.NewStepFunctionsStateMachineAction(stateMachine),
-//   	},
+//
+//   kmsKey := kms.NewKey(this, jsii.String("Key"))
+//   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachineWithCMKEncryptionConfiguration"), &StateMachineProps{
+//   	StateMachineName: jsii.String("StateMachineWithCMKEncryptionConfiguration"),
+//   	DefinitionBody: sfn.DefinitionBody_FromChainable(sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))),
+//   	StateMachineType: sfn.StateMachineType_STANDARD,
+//   	EncryptionConfiguration: sfn.NewCustomerManagedEncryptionConfiguration(kmsKey, cdk.Duration_Seconds(jsii.Number(60))),
 //   })
 //
 type DefinitionBody interface {
