@@ -235,6 +235,33 @@ cloudwatch.NewAlarm(this, jsii.String("alarm from metric filter"), &AlarmProps{
 })
 ```
 
+### Metrics for IncomingLogs and IncomingBytes
+
+Metric methods have been defined for IncomingLogs and IncomingBytes within LogGroups. These metrics allow for the creation of alarms on log ingestion, ensuring that the log ingestion process is functioning correctly.
+
+To define an alarm based on these metrics, you can use the following template:
+
+```go
+logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
+incomingEventsMetric := logGroup.metricIncomingLogEvents()
+cloudwatch.NewAlarm(this, jsii.String("HighLogVolumeAlarm"), &AlarmProps{
+	Metric: incomingEventsMetric,
+	Threshold: jsii.Number(1000),
+	EvaluationPeriods: jsii.Number(1),
+})
+```
+
+```go
+logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
+incomingBytesMetric := logGroup.metricIncomingBytes()
+cloudwatch.NewAlarm(this, jsii.String("HighDataVolumeAlarm"), &AlarmProps{
+	Metric: incomingBytesMetric,
+	Threshold: jsii.Number(5000000),
+	 // 5 MB
+	EvaluationPeriods: jsii.Number(1),
+})
+```
+
 ## Patterns
 
 Patterns describe which log events match a subscription or metric filter. There

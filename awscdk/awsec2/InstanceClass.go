@@ -397,6 +397,10 @@ const (
 	InstanceClass_GRAPHICS6 InstanceClass = "GRAPHICS6"
 	// Graphics-optimized instances, 6th generation.
 	InstanceClass_G6 InstanceClass = "G6"
+	// Cost-efficient GPU-based instances for AI inference and spatial computing workloads, 6th generation.
+	InstanceClass_GRAPHICS6_EFFICIENT InstanceClass = "GRAPHICS6_EFFICIENT"
+	// Cost-efficient GPU-based instances for AI inference and spatial computing workloads, 6th generation.
+	InstanceClass_G6E InstanceClass = "G6E"
 	// Parallel-processing optimized instances, 2nd generation.
 	InstanceClass_PARALLEL2 InstanceClass = "PARALLEL2"
 	// Parallel-processing optimized instances, 2nd generation.

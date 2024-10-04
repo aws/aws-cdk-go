@@ -57,6 +57,7 @@ import (
 //   	DockerSecurityOptions: []*string{
 //   		jsii.String("dockerSecurityOptions"),
 //   	},
+//   	EnableRestartPolicy: jsii.Boolean(false),
 //   	EntryPoint: []*string{
 //   		jsii.String("entryPoint"),
 //   	},
@@ -106,6 +107,10 @@ import (
 //   	Privileged: jsii.Boolean(false),
 //   	PseudoTerminal: jsii.Boolean(false),
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
+//   	RestartAttemptPeriod: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	RestartIgnoredExitCodes: []*f64{
+//   		jsii.Number(123),
+//   	},
 //   	Secrets: map[string]*secret{
 //   		"secretsKey": secret,
 //   	},
@@ -180,6 +185,14 @@ type FirelensLogRouterProps struct {
 	// Default: - No security labels.
 	//
 	DockerSecurityOptions *[]*string `field:"optional" json:"dockerSecurityOptions" yaml:"dockerSecurityOptions"`
+	// Enable a restart policy for a container.
+	//
+	// When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html
+	//
+	// Default: - false unless `restartIgnoredExitCodes` or `restartAttemptPeriod` is set.
+	//
+	EnableRestartPolicy *bool `field:"optional" json:"enableRestartPolicy" yaml:"enableRestartPolicy"`
 	// The ENTRYPOINT value to pass to the container.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
@@ -287,6 +300,26 @@ type FirelensLogRouterProps struct {
 	// Default: false.
 	//
 	ReadonlyRootFilesystem *bool `field:"optional" json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
+	// A period of time that the container must run for before a restart can be attempted.
+	//
+	// A container can be restarted only once every `restartAttemptPeriod` seconds.
+	// If a container isn't able to run for this time period and exits early, it will not be restarted.
+	//
+	// This property can't be used if `enableRestartPolicy` is set to false.
+	//
+	// You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod`
+	// of 1800 seconds.
+	// Default: - Duration.seconds(300) if `enableRestartPolicy` is true, otherwise no period.
+	//
+	RestartAttemptPeriod awscdk.Duration `field:"optional" json:"restartAttemptPeriod" yaml:"restartAttemptPeriod"`
+	// A list of exit codes that Amazon ECS will ignore and not attempt a restart on.
+	//
+	// This property can't be used if `enableRestartPolicy` is set to false.
+	//
+	// You can specify a maximum of 50 container exit codes.
+	// Default: - No exit codes are ignored.
+	//
+	RestartIgnoredExitCodes *[]*float64 `field:"optional" json:"restartIgnoredExitCodes" yaml:"restartIgnoredExitCodes"`
 	// The secret environment variables to pass to the container.
 	// Default: - No secret environment variables.
 	//

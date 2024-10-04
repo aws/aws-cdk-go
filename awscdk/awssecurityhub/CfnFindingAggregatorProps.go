@@ -35,9 +35,9 @@ type CfnFindingAggregatorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-findingaggregator.html#cfn-securityhub-findingaggregator-regionlinkingmode
 	//
 	RegionLinkingMode *string `field:"required" json:"regionLinkingMode" yaml:"regionLinkingMode"`
-	// If `RegionLinkingMode` is `ALL_REGIONS_EXCEPT_SPECIFIED` , then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
+	// If `RegionLinkingMode` is `ALL_REGIONS_EXCEPT_SPECIFIED` , then this is a space-separated list of Regions that don't replicate and send findings to the home Region.
 	//
-	// If `RegionLinkingMode` is `SPECIFIED_REGIONS` , then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
+	// If `RegionLinkingMode` is `SPECIFIED_REGIONS` , then this is a space-separated list of Regions that do replicate and send findings to the home Region.
 	//
 	// An `InvalidInputException` error results if you populate this field while `RegionLinkingMode` is `NO_REGIONS` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-findingaggregator.html#cfn-securityhub-findingaggregator-regions

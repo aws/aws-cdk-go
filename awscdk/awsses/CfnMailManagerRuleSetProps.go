@@ -100,6 +100,7 @@ import (
 //   					StringExpression: &RuleStringExpressionProperty{
 //   						Evaluate: &RuleStringToEvaluateProperty{
 //   							Attribute: jsii.String("attribute"),
+//   							MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   						},
 //   						Operator: jsii.String("operator"),
 //   						Values: []*string{
@@ -155,6 +156,7 @@ import (
 //   					StringExpression: &RuleStringExpressionProperty{
 //   						Evaluate: &RuleStringToEvaluateProperty{
 //   							Attribute: jsii.String("attribute"),
+//   							MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   						},
 //   						Operator: jsii.String("operator"),
 //   						Values: []*string{

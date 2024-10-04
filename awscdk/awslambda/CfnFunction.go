@@ -129,6 +129,7 @@ type CfnFunction interface {
 	// The instruction set architecture that the function supports.
 	Architectures() *[]*string
 	SetArchitectures(val *[]*string)
+	// The Amazon Resource Name (ARN) of the function.
 	AttrArn() *string
 	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 	AttrSnapStartResponse() awscdk.IResolvable
@@ -141,7 +142,9 @@ type CfnFunction interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.  Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
+	// The code for the function.
+	//
+	// You can define your function code in multiple ways:.
 	Code() interface{}
 	SetCode(val interface{})
 	// To enable code signing for this function, specify the ARN of a code-signing configuration.
@@ -151,16 +154,16 @@ type CfnFunction interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
+	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
 	DeadLetterConfig() interface{}
 	SetDeadLetterConfig(val interface{})
 	// A description of the function.
 	Description() *string
 	SetDescription(val *string)
-	// A function's environment variable settings.
+	// Environment variables that are accessible from function code during execution.
 	Environment() interface{}
 	SetEnvironment(val interface{})
-	// The size of the function's ``/tmp`` directory in MB.
+	// The size of the function's `/tmp` directory in MB.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
 	// Connection settings for an Amazon EFS file system.
@@ -175,7 +178,7 @@ type CfnFunction interface {
 	// Configuration values that override the container image Dockerfile settings.
 	ImageConfig() interface{}
 	SetImageConfig(val interface{})
-	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
+	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption) . When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry ( Amazon ECR ). If you don't provide a customer managed key, Lambda uses a default service key.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
@@ -202,7 +205,7 @@ type CfnFunction interface {
 	// The type of deployment package.
 	PackageType() *string
 	SetPackageType(val *string)
-	// This property is set to terminate unintended recursions.
+	// The status of your function's recursive loop detection configuration.
 	RecursiveLoop() *string
 	SetRecursiveLoop(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -216,13 +219,13 @@ type CfnFunction interface {
 	// The Amazon Resource Name (ARN) of the function's execution role.
 	Role() *string
 	SetRole(val *string)
-	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.  The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).  For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
 	Runtime() *string
 	SetRuntime(val *string)
 	// Sets the runtime management configuration for a function's version.
 	RuntimeManagementConfig() interface{}
 	SetRuntimeManagementConfig(val interface{})
-	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+	// The function's [AWS Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 	SnapStart() interface{}
 	SetSnapStart(val interface{})
 	// The stack in which this element is defined.
@@ -237,7 +240,7 @@ type CfnFunction interface {
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.
 	Timeout() *float64
 	SetTimeout(val *float64)
-	// The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
+	// Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) .
 	TracingConfig() interface{}
 	SetTracingConfig(val interface{})
 	// Deprecated.
@@ -253,7 +256,7 @@ type CfnFunction interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The VPC security groups and subnets that are attached to a Lambda function.
+	// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

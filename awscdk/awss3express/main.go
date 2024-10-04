@@ -68,6 +68,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAvailabilityZoneName", GoGetter: "AttrAvailabilityZoneName"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketEncryption", GoGetter: "BucketEncryption"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketName", GoGetter: "BucketName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -100,6 +102,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.BucketEncryptionProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_BucketEncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.ServerSideEncryptionByDefaultProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_ServerSideEncryptionByDefaultProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.ServerSideEncryptionRuleProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_ServerSideEncryptionRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucketProps",

@@ -9,6 +9,42 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-targets-alpha.ApiDestinationTarget",
+		reflect.TypeOf((*ApiDestinationTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+			_jsii_.MemberProperty{JsiiProperty: "targetArn", GoGetter: "TargetArn"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiDestinationTarget{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkpipesalphaITarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-pipes-targets-alpha.ApiDestinationTargetParameters",
+		reflect.TypeOf((*ApiDestinationTargetParameters)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-targets-alpha.KinesisTarget",
+		reflect.TypeOf((*KinesisTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+			_jsii_.MemberProperty{JsiiProperty: "targetArn", GoGetter: "TargetArn"},
+		},
+		func() interface{} {
+			j := jsiiProxy_KinesisTarget{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkpipesalphaITarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-pipes-targets-alpha.KinesisTargetParameters",
+		reflect.TypeOf((*KinesisTargetParameters)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-pipes-targets-alpha.LambdaFunction",
 		reflect.TypeOf((*LambdaFunction)(nil)).Elem(),
 		[]_jsii_.Member{

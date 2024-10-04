@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnIdentityProvider) validateSetIdentityProviderTypeParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnIdentityProvider) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIdentityProviderParameters(scope constructs.Construct, id *string, props *CfnIdentityProviderProps) error {
 	return nil
 }

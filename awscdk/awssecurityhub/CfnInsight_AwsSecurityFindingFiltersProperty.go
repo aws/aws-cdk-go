@@ -1116,7 +1116,7 @@ type CfnInsight_AwsSecurityFindingFiltersProperty struct {
 	//
 	// The value of `Normalized` can be an integer between `0` and `100` .
 	//
-	// If you provide `Label` and do not provide `Normalized` , then `Normalized` is set automatically as follows.
+	// If you provide `Label` and don't provide `Normalized` , then `Normalized` is set automatically as follows.
 	//
 	// - `INFORMATIONAL` - 0
 	// - `LOW` - 1
@@ -1222,7 +1222,7 @@ type CfnInsight_AwsSecurityFindingFiltersProperty struct {
 	//
 	// - `RecordState` changes from `ARCHIVED` to `ACTIVE` .
 	// - `Compliance.Status` changes from `PASSED` to `FAILED` , `WARNING` , or `NOT_AVAILABLE` .
-	// - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed.
+	// - `SUPPRESSED` - Indicates that you reviewed the finding and don't believe that any action is needed.
 	//
 	// The workflow status of a `SUPPRESSED` finding does not change if `RecordState` changes from `ARCHIVED` to `ACTIVE` .
 	// - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.

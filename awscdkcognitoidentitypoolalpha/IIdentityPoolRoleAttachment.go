@@ -11,7 +11,7 @@ import (
 // Experimental.
 type IIdentityPoolRoleAttachment interface {
 	awscdk.IResource
-	// Id of the Attachments Underlying Identity Pool.
+	// ID of the Attachment's underlying Identity Pool.
 	// Experimental.
 	IdentityPoolId() *string
 }

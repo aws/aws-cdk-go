@@ -25,6 +25,7 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
+//   	CommitMode: jsii.String("commitMode"),
 //   	DisplayOptions: &DropDownControlDisplayOptionsProperty{
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   			InfoIconText: jsii.String("infoIconText"),
@@ -76,6 +77,10 @@ type CfnTemplate_FilterDropDownControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdropdowncontrol.html#cfn-quicksight-template-filterdropdowncontrol-cascadingcontrolconfiguration
 	//
 	CascadingControlConfiguration interface{} `field:"optional" json:"cascadingControlConfiguration" yaml:"cascadingControlConfiguration"`
+	// The visibility configuration of the Apply button on a `FilterDropDownControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdropdowncontrol.html#cfn-quicksight-template-filterdropdowncontrol-commitmode
+	//
+	CommitMode *string `field:"optional" json:"commitMode" yaml:"commitMode"`
 	// The display options of the `FilterDropDownControl` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdropdowncontrol.html#cfn-quicksight-template-filterdropdowncontrol-displayoptions
 	//

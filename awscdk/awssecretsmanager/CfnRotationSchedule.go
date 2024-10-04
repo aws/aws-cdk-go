@@ -22,6 +22,8 @@ import (
 //
 // For database secrets, if you define both the secret and the database or service in the AWS CloudFormation template, then you need to define the [AWS::SecretsManager::SecretTargetAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html) resource to populate the secret with the connection details of the database or service before you attempt to configure rotation.
 //
+// For a single secret, you can only define one rotation schedule with it.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -100,6 +102,8 @@ type CfnRotationSchedule interface {
 	RotationRules() interface{}
 	SetRotationRules(val interface{})
 	// The ARN or name of the secret to rotate.
+	//
+	// This is unique for each rotation schedule definition.
 	SecretId() *string
 	SetSecretId(val *string)
 	// The stack in which this element is defined.

@@ -80,6 +80,14 @@ func validateCfnPartnership_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPartnership) validateSetCapabilitiesParameters(val *[]*string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnPartnership) validateSetCapabilityOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPartnership) validateSetEmailParameters(val *string) error {
 	return nil
 }

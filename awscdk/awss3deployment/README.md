@@ -537,6 +537,29 @@ cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &CfnOutputProps{
 })
 ```
 
+## Controlling the Output of Source Object Keys
+
+By default, the keys of the source objects copied to the destination bucket are returned in the Data property of the custom resource. However, you can disable this behavior by setting the outputObjectKeys property to false. This is particularly useful when the number of objects is too large and might exceed the size limit of the responseData property.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var destinationBucket bucket
+
+
+myBucketDeployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployMeWithoutExtractingFilesOnDestination"), &BucketDeploymentProps{
+	Sources: []iSource{
+		s3deploy.Source_Asset(path.join(__dirname, jsii.String("my-website"))),
+	},
+	DestinationBucket: DestinationBucket,
+	OutputObjectKeys: jsii.Boolean(false),
+})
+
+cdk.NewCfnOutput(this, jsii.String("ObjectKey"), &CfnOutputProps{
+	Value: cdk.Fn_Select(jsii.Number(0), myBucketDeployment.objectKeys),
+})
+```
+
 ## Notes
 
 * This library uses an AWS CloudFormation custom resource which is about 10MiB in

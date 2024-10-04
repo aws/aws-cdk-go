@@ -11,7 +11,7 @@ import (
 
 // The `AWS::DataSync::LocationS3` resource specifies an endpoint for an Amazon S3 bucket.
 //
-// For more information, see [Create an Amazon S3 location](https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli) in the *AWS DataSync User Guide* .
+// For more information, see the [*AWS DataSync User Guide*](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

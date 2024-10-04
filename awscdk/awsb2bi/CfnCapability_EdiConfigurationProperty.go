@@ -24,6 +24,9 @@ package awsb2bi
 //   			Version: jsii.String("version"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	CapabilityDirection: jsii.String("capabilityDirection"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html
@@ -47,5 +50,8 @@ type CfnCapability_EdiConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-type
 	//
 	Type interface{} `field:"required" json:"type" yaml:"type"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-capabilitydirection
+	//
+	CapabilityDirection *string `field:"optional" json:"capabilityDirection" yaml:"capabilityDirection"`
 }
 

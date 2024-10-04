@@ -42,6 +42,9 @@ import (
 //   	},
 //   	DeleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	FailureRetentionPeriod: jsii.Number(123),
+//   	ResourcesToReplicateTags: []*string{
+//   		jsii.String("resourcesToReplicateTags"),
+//   	},
 //   	RunConfig: &RunConfigProperty{
 //   		ActiveTracing: jsii.Boolean(false),
 //   		EnvironmentVariables: map[string]*string{
@@ -150,6 +153,12 @@ type CfnCanaryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
 	//
 	FailureRetentionPeriod *float64 `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
+	// To have the tags that you apply to this canary also be applied to the Lambda function that the canary uses, specify this property with the value `lambda-function` .
+	//
+	// If you do this, CloudWatch Synthetics will keep the tags of the canary and the Lambda function synchronized. Any future changes you make to the canary's tags will also be applied to the function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-resourcestoreplicatetags
+	//
+	ResourcesToReplicateTags *[]*string `field:"optional" json:"resourcesToReplicateTags" yaml:"resourcesToReplicateTags"`
 	// A structure that contains input information for a canary run.
 	//
 	// If you omit this structure, the frequency of the canary is used as canary's timeout value, up to a maximum of 900 seconds.

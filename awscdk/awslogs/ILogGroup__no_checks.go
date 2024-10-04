@@ -32,3 +32,15 @@ func (i *jsiiProxy_ILogGroup) validateGrantWriteParameters(grantee awsiam.IGrant
 	return nil
 }
 
+func (i *jsiiProxy_ILogGroup) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (i *jsiiProxy_ILogGroup) validateMetricIncomingBytesParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (i *jsiiProxy_ILogGroup) validateMetricIncomingLogEventsParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+

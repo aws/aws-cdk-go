@@ -400,6 +400,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "upgradePolicy", GoGetter: "UpgradePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+			_jsii_.MemberProperty{JsiiProperty: "zonalShiftConfig", GoGetter: "ZonalShiftConfig"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCluster{}
@@ -452,6 +453,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.UpgradePolicyProperty",
 		reflect.TypeOf((*CfnCluster_UpgradePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.ZonalShiftConfigProperty",
+		reflect.TypeOf((*CfnCluster_ZonalShiftConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnClusterProps",

@@ -180,9 +180,6 @@ func validateCfnTransformer_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnTransformer) validateSetEdiTypeParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -206,17 +203,49 @@ func (j *jsiiProxy_CfnTransformer) validateSetEdiTypeParameters(val interface{})
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransformer) validateSetFileFormatParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnTransformer) validateSetInputConversionParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTransformer_InputConversionProperty:
+		val := val.(*CfnTransformer_InputConversionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTransformer_InputConversionProperty:
+		val_ := val.(CfnTransformer_InputConversionProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTransformer_InputConversionProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransformer) validateSetMappingTemplateParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnTransformer) validateSetMappingParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTransformer_MappingProperty:
+		val := val.(*CfnTransformer_MappingProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTransformer_MappingProperty:
+		val_ := val.(CfnTransformer_MappingProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTransformer_MappingProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
@@ -225,6 +254,54 @@ func (j *jsiiProxy_CfnTransformer) validateSetMappingTemplateParameters(val *str
 func (j *jsiiProxy_CfnTransformer) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnTransformer) validateSetOutputConversionParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTransformer_OutputConversionProperty:
+		val := val.(*CfnTransformer_OutputConversionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTransformer_OutputConversionProperty:
+		val_ := val.(CfnTransformer_OutputConversionProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTransformer_OutputConversionProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnTransformer) validateSetSampleDocumentsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTransformer_SampleDocumentsProperty:
+		val := val.(*CfnTransformer_SampleDocumentsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTransformer_SampleDocumentsProperty:
+		val_ := val.(CfnTransformer_SampleDocumentsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTransformer_SampleDocumentsProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

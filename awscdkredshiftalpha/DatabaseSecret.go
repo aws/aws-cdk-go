@@ -27,6 +27,7 @@ import (
 //
 //   	// the properties below are optional
 //   	EncryptionKey: key,
+//   	ExcludeCharacters: jsii.String("excludeCharacters"),
 //   })
 //
 // Experimental.

@@ -60,10 +60,10 @@ type CfnDeliveryStream interface {
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput() interface{}
 	SetDeliveryStreamEncryptionConfigurationInput(val interface{})
-	// The name of the delivery stream.
+	// The name of the Firehose stream.
 	DeliveryStreamName() *string
 	SetDeliveryStreamName(val *string)
-	// The delivery stream type.
+	// The Firehose stream type.
 	//
 	// This can be one of the following values:.
 	DeliveryStreamType() *string
@@ -121,7 +121,7 @@ type CfnDeliveryStream interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// A set of tags to assign to the delivery stream.
+	// A set of tags to assign to the Firehose stream.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

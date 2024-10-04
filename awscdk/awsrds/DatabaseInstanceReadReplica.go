@@ -74,6 +74,8 @@ type DatabaseInstanceReadReplica interface {
 	// The AWS Region-unique, immutable identifier for the DB instance.
 	//
 	// This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values
+	//
 	InstanceResourceId() *string
 	InstanceType() awsec2.InstanceType
 	NewCfnProps() *CfnDBInstanceProps

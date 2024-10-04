@@ -1,9 +1,9 @@
 package awscloudtrail
 
 
-// Advanced event selectors let you create fine-grained selectors for CloudTrail management and data events.
+// Advanced event selectors let you create fine-grained selectors for AWS CloudTrail management, data, and network activity events.
 //
-// They help you control costs by logging only those events that are important to you. For more information about advanced event selectors, see [Logging management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide* .
+// They help you control costs by logging only those events that are important to you. For more information about configuring advanced event selectors, see the [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) , [Logging network activity events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html) , and [Logging management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) topics in the *AWS CloudTrail User Guide* .
 //
 // You cannot apply both event selectors and advanced event selectors to a trail.
 //
@@ -20,6 +20,16 @@ package awscloudtrail
 // - `readOnly`
 // - `eventName`
 // - `resources.ARN`
+//
+// *Supported CloudTrail event record fields for network activity events*
+//
+// > Network activity events is in preview release for CloudTrail and is subject to change.
+//
+// - `eventCategory` (required)
+// - `eventSource` (required)
+// - `eventName`
+// - `errorCode` - The only valid value for `errorCode` is `VpceAccessDenied` .
+// - `vpcEndpointId`
 //
 // > For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS , the only supported field is `eventCategory` .
 //

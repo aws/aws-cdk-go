@@ -21,7 +21,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCampaign := awscdk.Aws_iotfleetwise.NewCfnCampaign(this, jsii.String("MyCfnCampaign"), &CfnCampaignProps{
-//   	Action: jsii.String("action"),
 //   	CollectionScheme: &CollectionSchemeProperty{
 //   		ConditionBasedCollectionScheme: &ConditionBasedCollectionSchemeProperty{
 //   			Expression: jsii.String("expression"),
@@ -40,6 +39,7 @@ import (
 //   	TargetArn: jsii.String("targetArn"),
 //
 //   	// the properties below are optional
+//   	Action: jsii.String("action"),
 //   	Compression: jsii.String("compression"),
 //   	DataDestinationConfigs: []interface{}{
 //   		&DataDestinationConfigProperty{
@@ -717,9 +717,6 @@ func NewCfnCampaign_Override(c CfnCampaign, scope constructs.Construct, id *stri
 }
 
 func (j *jsiiProxy_CfnCampaign)SetAction(val *string) {
-	if err := j.validateSetActionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"action",

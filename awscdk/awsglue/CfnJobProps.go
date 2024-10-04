@@ -35,6 +35,8 @@ package awsglue
 //   		MaxConcurrentRuns: jsii.Number(123),
 //   	},
 //   	GlueVersion: jsii.String("glueVersion"),
+//   	JobMode: jsii.String("jobMode"),
+//   	JobRunQueuingEnabled: jsii.Boolean(false),
 //   	LogUri: jsii.String("logUri"),
 //   	MaintenanceWindow: jsii.String("maintenanceWindow"),
 //   	MaxCapacity: jsii.Number(123),
@@ -110,6 +112,20 @@ type CfnJobProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-glueversion
 	//
 	GlueVersion *string `field:"optional" json:"glueVersion" yaml:"glueVersion"`
+	// A mode that describes how a job was created. Valid values are:.
+	//
+	// - `SCRIPT` - The job was created using the AWS Glue Studio script editor.
+	// - `VISUAL` - The job was created using the AWS Glue Studio visual editor.
+	// - `NOTEBOOK` - The job was created using an interactive sessions notebook.
+	//
+	// When the `JobMode` field is missing or null, `SCRIPT` is assigned as the default value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-jobmode
+	//
+	JobMode *string `field:"optional" json:"jobMode" yaml:"jobMode"`
+	// Property description not available.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-jobrunqueuingenabled
+	//
+	JobRunQueuingEnabled interface{} `field:"optional" json:"jobRunQueuingEnabled" yaml:"jobRunQueuingEnabled"`
 	// This field is reserved for future use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-loguri
 	//

@@ -14,14 +14,16 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetQueue queue
+//   var targetStream stream
 //
 //
-//   pipeSource := sources.NewSqsSource(sourceQueue)
+//   streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{
+//   	PartitionKey: jsii.String("pk"),
+//   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: pipeSource,
-//   	Target: NewSomeTarget(targetQueue),
+//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+//   	Target: streamTarget,
 //   })
 //
 // Experimental.

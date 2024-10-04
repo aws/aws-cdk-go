@@ -48,6 +48,7 @@ package awsmedialive
 //   	LookAheadRateControl: jsii.String("lookAheadRateControl"),
 //   	MaxBitrate: jsii.Number(123),
 //   	MinIInterval: jsii.Number(123),
+//   	MinQp: jsii.Number(123),
 //   	MvOverPictureBoundaries: jsii.String("mvOverPictureBoundaries"),
 //   	MvTemporalPredictor: jsii.String("mvTemporalPredictor"),
 //   	ParDenominator: jsii.Number(123),
@@ -169,6 +170,9 @@ type CfnChannel_H265SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-miniinterval
 	//
 	MinIInterval *float64 `field:"optional" json:"minIInterval" yaml:"minIInterval"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-minqp
+	//
+	MinQp *float64 `field:"optional" json:"minQp" yaml:"minQp"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-mvoverpictureboundaries
 	//
 	MvOverPictureBoundaries *string `field:"optional" json:"mvOverPictureBoundaries" yaml:"mvOverPictureBoundaries"`

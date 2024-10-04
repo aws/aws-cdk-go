@@ -47,6 +47,7 @@ package awsmedialive
 //   	LookAheadRateControl: jsii.String("lookAheadRateControl"),
 //   	MaxBitrate: jsii.Number(123),
 //   	MinIInterval: jsii.Number(123),
+//   	MinQp: jsii.Number(123),
 //   	NumRefFrames: jsii.Number(123),
 //   	ParControl: jsii.String("parControl"),
 //   	ParDenominator: jsii.Number(123),
@@ -196,6 +197,9 @@ type CfnChannel_H264SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-miniinterval
 	//
 	MinIInterval *float64 `field:"optional" json:"minIInterval" yaml:"minIInterval"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-minqp
+	//
+	MinQp *float64 `field:"optional" json:"minQp" yaml:"minQp"`
 	// The number of reference frames to use.
 	//
 	// The encoder might use more than requested if you use B-frames or interlaced encoding.

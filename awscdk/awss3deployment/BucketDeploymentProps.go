@@ -156,6 +156,14 @@ type BucketDeploymentProps struct {
 	// Default: - No user metadata is set.
 	//
 	Metadata *map[string]*string `field:"optional" json:"metadata" yaml:"metadata"`
+	// If set to false, the custom resource will not send back the SourceObjectKeys.
+	//
+	// This is useful when you are facing the error `Response object is too long`
+	//
+	// See https://github.com/aws/aws-cdk/issues/28579
+	// Default: true.
+	//
+	OutputObjectKeys *bool `field:"optional" json:"outputObjectKeys" yaml:"outputObjectKeys"`
 	// If this is set to false, files in the destination bucket that do not exist in the asset, will NOT be deleted during deployment (create/update).
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
 	//

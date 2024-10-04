@@ -26,7 +26,7 @@ type CfnDeliveryStream_SnowflakeBufferingHintsProperty struct {
 	IntervalInSeconds *float64 `field:"optional" json:"intervalInSeconds" yaml:"intervalInSeconds"`
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination.
 	//
-	// The default value is 1.
+	// The default value is 128.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakebufferinghints.html#cfn-kinesisfirehose-deliverystream-snowflakebufferinghints-sizeinmbs
 	//
 	SizeInMBs *float64 `field:"optional" json:"sizeInMBs" yaml:"sizeInMBs"`

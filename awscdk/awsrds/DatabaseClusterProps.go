@@ -107,6 +107,14 @@ type DatabaseClusterProps struct {
 	// Default: - false.
 	//
 	EnableDataApi *bool `field:"optional" json:"enableDataApi" yaml:"enableDataApi"`
+	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster.
+	//
+	// This setting can only be enabled for Aurora MySQL 3.04 and higher clusters.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html
+	//
+	// Default: false.
+	//
+	EnableLocalWriteForwarding *bool `field:"optional" json:"enableLocalWriteForwarding" yaml:"enableLocalWriteForwarding"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	// Default: false.
 	//

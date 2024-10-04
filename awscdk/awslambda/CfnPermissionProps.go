@@ -40,7 +40,7 @@ type CfnPermissionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
 	//
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
-	// The AWS service or AWS account that invokes the function.
+	// The AWS service , AWS account , IAM user, or IAM role that invokes the function.
 	//
 	// If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal

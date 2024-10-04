@@ -19,8 +19,7 @@ import (
 //   		MasterPassword: cdk.SecretValue_UnsafePlainText(jsii.String("tooshort")),
 //   	},
 //   	Vpc: Vpc,
-//   	PubliclyAccessible: jsii.Boolean(true),
-//   	ElasticIp: jsii.String("10.123.123.255"),
+//   	EnhancedVpcRouting: jsii.Boolean(true),
 //   })
 //
 // Experimental.
@@ -33,6 +32,11 @@ type Login struct {
 	//
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// Characters to not include in the generated password.
+	// Default: '"@/\\\ \''.
+	//
+	// Experimental.
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.

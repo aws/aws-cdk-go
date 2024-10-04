@@ -12,7 +12,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCampaignProps := &CfnCampaignProps{
-//   	Action: jsii.String("action"),
 //   	CollectionScheme: &CollectionSchemeProperty{
 //   		ConditionBasedCollectionScheme: &ConditionBasedCollectionSchemeProperty{
 //   			Expression: jsii.String("expression"),
@@ -31,6 +30,7 @@ import (
 //   	TargetArn: jsii.String("targetArn"),
 //
 //   	// the properties below are optional
+//   	Action: jsii.String("action"),
 //   	Compression: jsii.String("compression"),
 //   	DataDestinationConfigs: []interface{}{
 //   		&DataDestinationConfigProperty{
@@ -102,15 +102,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html
 //
 type CfnCampaignProps struct {
-	// Specifies how to update a campaign. The action can be one of the following:.
-	//
-	// - `APPROVE` - To approve delivering a data collection scheme to vehicles.
-	// - `SUSPEND` - To suspend collecting signal data. The campaign is deleted from vehicles and all vehicles in the suspended campaign will stop sending data.
-	// - `RESUME` - To reactivate the `SUSPEND` campaign. The campaign is redeployed to all vehicles and the vehicles will resume sending data.
-	// - `UPDATE` - To update a campaign.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-action
-	//
-	Action *string `field:"required" json:"action" yaml:"action"`
 	// The data collection scheme associated with the campaign.
 	//
 	// You can specify a scheme that collects data based on time or an event.
@@ -129,6 +120,15 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-targetarn
 	//
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
+	// Specifies how to update a campaign. The action can be one of the following:.
+	//
+	// - `APPROVE` - To approve delivering a data collection scheme to vehicles.
+	// - `SUSPEND` - To suspend collecting signal data. The campaign is deleted from vehicles and all vehicles in the suspended campaign will stop sending data.
+	// - `RESUME` - To reactivate the `SUSPEND` campaign. The campaign is redeployed to all vehicles and the vehicles will resume sending data.
+	// - `UPDATE` - To update a campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-action
+	//
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// (Optional) Whether to compress signals before transmitting data to AWS IoT FleetWise .
 	//
 	// If you don't want to compress the signals, use `OFF` . If it's not specified, `SNAPPY` is used.

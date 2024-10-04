@@ -2,7 +2,6 @@ package awscdkkinesisfirehosedestinationsalpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha/v2"
 )
 
@@ -17,19 +16,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
 //   var compression compression
 //   var dataProcessor iDataProcessor
 //   var key key
-//   var logGroup logGroup
+//   var loggingConfig iLoggingConfig
 //   var role role
 //   var size size
 //
 //   commonDestinationProps := &CommonDestinationProps{
-//   	Logging: jsii.Boolean(false),
-//   	LogGroup: logGroup,
+//   	LoggingConfig: loggingConfig,
 //   	Processor: dataProcessor,
 //   	Role: role,
 //   	S3Backup: &DestinationS3BackupProps{
@@ -40,26 +37,18 @@ import (
 //   		DataOutputPrefix: jsii.String("dataOutputPrefix"),
 //   		EncryptionKey: key,
 //   		ErrorOutputPrefix: jsii.String("errorOutputPrefix"),
-//   		Logging: jsii.Boolean(false),
-//   		LogGroup: logGroup,
+//   		LoggingConfig: loggingConfig,
 //   		Mode: kinesisfirehose_destinations_alpha.BackupMode_ALL,
 //   	},
 //   }
 //
 // Experimental.
 type CommonDestinationProps struct {
-	// If true, log errors when data transformation or data delivery fails.
-	//
-	// If `logGroup` is provided, this will be implicitly set to `true`.
-	// Default: true - errors are logged.
+	// Configuration that determines whether to log errors during data transformation or delivery failures, and specifies the CloudWatch log group for storing error logs.
+	// Default: - errors will be logged and a log group will be created for you.
 	//
 	// Experimental.
-	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
-	// The CloudWatch log group where log streams will be created to hold error logs.
-	// Default: - if `logging` is set to `true`, a log group will be created for you.
-	//
-	// Experimental.
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LoggingConfig ILoggingConfig `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 	// The data transformation that should be performed on the data before writing to the destination.
 	// Default: - no data transformation will occur.
 	//

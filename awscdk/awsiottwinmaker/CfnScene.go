@@ -111,7 +111,7 @@ type CfnScene interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the scene.
+	// The ID of the workspace.
 	WorkspaceId() *string
 	SetWorkspaceId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

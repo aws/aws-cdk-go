@@ -130,6 +130,28 @@ func FoundationModelIdentifier_AI21_J2_ULTRA() FoundationModelIdentifier {
 	return returns
 }
 
+func FoundationModelIdentifier_AI21_JAMBA_1_5_LARGE_V_1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AI21_JAMBA_1_5_LARGE_V_1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AI21_JAMBA_1_5_MINI_V_1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AI21_JAMBA_1_5_MINI_V_1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AI21_LABS_JURASSIC_2_MID_V1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -763,6 +785,50 @@ func FoundationModelIdentifier_META_LLAMA_3_1_8B_INSTRUCT_V1() FoundationModelId
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"META_LLAMA_3_1_8B_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_3_2_11B_INSTRUCT_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_2_11B_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_3_2_1B_INSTRUCT_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_2_1B_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_3_2_3B_INSTRUCT_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_2_3B_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_3_2_90B_INSTRUCT_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_2_90B_INSTRUCT_V1",
 		&returns,
 	)
 	return returns

@@ -30,6 +30,12 @@ import (
 //   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	StorageEncrypted: jsii.Boolean(false),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
@@ -37,6 +43,9 @@ import (
 type CfnGlobalCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -88,6 +97,9 @@ type CfnGlobalCluster interface {
 	// Specifies whether to enable storage encryption for the new global database cluster.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +244,17 @@ type CfnGlobalCluster interface {
 type jsiiProxy_CfnGlobalCluster struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnGlobalCluster) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnGlobalCluster) CfnOptions() awscdk.ICfnResourceOptions {
@@ -384,6 +407,16 @@ func (j *jsiiProxy_CfnGlobalCluster) StorageEncrypted() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalCluster) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -490,6 +523,17 @@ func (j *jsiiProxy_CfnGlobalCluster)SetStorageEncrypted(val interface{}) {
 	_jsii_.Set(
 		j,
 		"storageEncrypted",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalCluster)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

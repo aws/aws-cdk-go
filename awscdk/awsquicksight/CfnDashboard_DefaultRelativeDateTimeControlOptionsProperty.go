@@ -9,6 +9,7 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   defaultRelativeDateTimeControlOptionsProperty := &DefaultRelativeDateTimeControlOptionsProperty{
+//   	CommitMode: jsii.String("commitMode"),
 //   	DisplayOptions: &RelativeDateTimeControlDisplayOptionsProperty{
 //   		DateTimeFormat: jsii.String("dateTimeFormat"),
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
@@ -36,6 +37,10 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultrelativedatetimecontroloptions.html
 //
 type CfnDashboard_DefaultRelativeDateTimeControlOptionsProperty struct {
+	// The visibility configuration of the Apply button on a `RelativeDateTimeControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultrelativedatetimecontroloptions.html#cfn-quicksight-dashboard-defaultrelativedatetimecontroloptions-commitmode
+	//
+	CommitMode *string `field:"optional" json:"commitMode" yaml:"commitMode"`
 	// The display options of a control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultrelativedatetimecontroloptions.html#cfn-quicksight-dashboard-defaultrelativedatetimecontroloptions-displayoptions
 	//

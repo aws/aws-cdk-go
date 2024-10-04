@@ -14,6 +14,7 @@ package awsquicksight
 //   	Title: jsii.String("title"),
 //
 //   	// the properties below are optional
+//   	CommitMode: jsii.String("commitMode"),
 //   	DisplayOptions: &RelativeDateTimeControlDisplayOptionsProperty{
 //   		DateTimeFormat: jsii.String("dateTimeFormat"),
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
@@ -53,6 +54,10 @@ type CfnTemplate_FilterRelativeDateTimeControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterrelativedatetimecontrol.html#cfn-quicksight-template-filterrelativedatetimecontrol-title
 	//
 	Title *string `field:"required" json:"title" yaml:"title"`
+	// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterrelativedatetimecontrol.html#cfn-quicksight-template-filterrelativedatetimecontrol-commitmode
+	//
+	CommitMode *string `field:"optional" json:"commitMode" yaml:"commitMode"`
 	// The display options of a control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterrelativedatetimecontrol.html#cfn-quicksight-template-filterrelativedatetimecontrol-displayoptions
 	//

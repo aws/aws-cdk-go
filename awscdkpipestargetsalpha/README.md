@@ -29,6 +29,8 @@ The following targets are supported:
 1. `targets.SqsTarget`: [Send event source to a Queue](#amazon-sqs)
 2. `targets.SfnStateMachine`: [Invoke a State Machine from an event source](#aws-step-functions-state-machine)
 3. `targets.LambdaFunction`: [Send event source to a Lambda Function](#aws-lambda-function)
+4. `targets.ApiDestinationTarget`: [Send event source to an EventBridge API Destination](#amazon-eventbridge-api-destination)
+5. `targets.KinesisTarget`: [Send event source to a Kinesis data stream](#amazon-kinesis-data-stream)
 
 ### Amazon SQS
 
@@ -172,5 +174,81 @@ pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameter
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: NewSomeSource(sourceQueue),
 	Target: pipeTarget,
+})
+```
+
+### Amazon EventBridge API Destination
+
+An EventBridge API destination can be used as a target for a pipe.
+The API destination will receive the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+var dest apiDestination
+
+
+apiTarget := targets.NewApiDestinationTarget(dest)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: apiTarget,
+})
+```
+
+The input to the target API destination can be transformed:
+
+```go
+var sourceQueue queue
+var dest apiDestination
+
+
+apiTarget := targets.NewApiDestinationTarget(dest, &ApiDestinationTargetParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("👀"),
+	}),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: apiTarget,
+})
+```
+
+### Amazon Kinesis Data Stream
+
+A data stream can be used as a target for a pipe. The data stream will receive the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+var targetStream stream
+
+
+streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{
+	PartitionKey: jsii.String("pk"),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: streamTarget,
+})
+```
+
+The input to the target data stream can be transformed:
+
+```go
+var sourceQueue queue
+var targetStream stream
+
+
+streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{
+	PartitionKey: jsii.String("pk"),
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("👀"),
+	}),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: streamTarget,
 })
 ```

@@ -37,6 +37,11 @@ type UserProps struct {
 	//
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// Characters to not include in the generated password.
+	// Default: '"@/\\\ \''.
+	//
+	// Experimental.
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The policy to apply when this resource is removed from the application.
 	// Default: cdk.RemovalPolicy.Destroy
 	//

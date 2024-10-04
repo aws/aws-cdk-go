@@ -1243,6 +1243,17 @@ func InterfaceVpcEndpointAwsService_DIRECTORY_SERVICE() InterfaceVpcEndpointAwsS
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_DYNAMODB() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"DYNAMODB",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_EBS_DIRECT() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -3108,6 +3119,17 @@ func InterfaceVpcEndpointAwsService_SAGEMAKER_API() InterfaceVpcEndpointAwsServi
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"SAGEMAKER_API",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_SAGEMAKER_EXPERIMENTS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"SAGEMAKER_EXPERIMENTS",
 		&returns,
 	)
 	return returns

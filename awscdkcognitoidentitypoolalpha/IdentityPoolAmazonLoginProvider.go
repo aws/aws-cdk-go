@@ -1,7 +1,7 @@
 package awscdkcognitoidentitypoolalpha
 
 
-// Login Provider for Identity Federation using Amazon Credentials.
+// Login Provider for identity federation using Amazon credentials.
 //
 // Example:
 //   awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
@@ -28,7 +28,7 @@ package awscdkcognitoidentitypoolalpha
 //
 // Experimental.
 type IdentityPoolAmazonLoginProvider struct {
-	// App Id for Amazon Identity Federation.
+	// App ID for Amazon identity federation.
 	// Experimental.
 	AppId *string `field:"required" json:"appId" yaml:"appId"`
 }

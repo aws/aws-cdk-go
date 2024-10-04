@@ -81,6 +81,9 @@ import (
 //   		SupportType: jsii.String("supportType"),
 //   	},
 //   	Version: jsii.String("version"),
+//   	ZonalShiftConfig: &ZonalShiftConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html
@@ -154,5 +157,9 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version
 	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
+	// The current zonal shift configuration to use for the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-zonalshiftconfig
+	//
+	ZonalShiftConfig interface{} `field:"optional" json:"zonalShiftConfig" yaml:"zonalShiftConfig"`
 }
 

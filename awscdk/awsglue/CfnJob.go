@@ -45,6 +45,8 @@ import (
 //   		MaxConcurrentRuns: jsii.Number(123),
 //   	},
 //   	GlueVersion: jsii.String("glueVersion"),
+//   	JobMode: jsii.String("jobMode"),
+//   	JobRunQueuingEnabled: jsii.Boolean(false),
 //   	LogUri: jsii.String("logUri"),
 //   	MaintenanceWindow: jsii.String("maintenanceWindow"),
 //   	MaxCapacity: jsii.Number(123),
@@ -104,6 +106,14 @@ type CfnJob interface {
 	// Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
 	GlueVersion() *string
 	SetGlueVersion(val *string)
+	// A mode that describes how a job was created.
+	//
+	// Valid values are:.
+	JobMode() *string
+	SetJobMode(val *string)
+	// Property description not available.
+	JobRunQueuingEnabled() interface{}
+	SetJobRunQueuingEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -443,6 +453,26 @@ func (j *jsiiProxy_CfnJob) GlueVersion() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJob) JobMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jobMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJob) JobRunQueuingEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"jobRunQueuingEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJob) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -740,6 +770,25 @@ func (j *jsiiProxy_CfnJob)SetGlueVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"glueVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJob)SetJobMode(val *string) {
+	_jsii_.Set(
+		j,
+		"jobMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJob)SetJobRunQueuingEnabled(val interface{}) {
+	if err := j.validateSetJobRunQueuingEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"jobRunQueuingEnabled",
 		val,
 	)
 }

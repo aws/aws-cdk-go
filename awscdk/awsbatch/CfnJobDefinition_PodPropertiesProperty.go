@@ -135,6 +135,8 @@ package awsbatch
 //
 type CfnJobDefinition_PodPropertiesProperty struct {
 	// The properties of the container that's used on the Amazon EKS pod.
+	//
+	// > This object is limited to 10 elements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-containers
 	//
 	Containers interface{} `field:"optional" json:"containers" yaml:"containers"`

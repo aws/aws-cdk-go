@@ -9,6 +9,7 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   defaultFilterDropDownControlOptionsProperty := &DefaultFilterDropDownControlOptionsProperty{
+//   	CommitMode: jsii.String("commitMode"),
 //   	DisplayOptions: &DropDownControlDisplayOptionsProperty{
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   			InfoIconText: jsii.String("infoIconText"),
@@ -44,6 +45,10 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfilterdropdowncontroloptions.html
 //
 type CfnTemplate_DefaultFilterDropDownControlOptionsProperty struct {
+	// The visibility configuration of the Apply button on a `FilterDropDownControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfilterdropdowncontroloptions.html#cfn-quicksight-template-defaultfilterdropdowncontroloptions-commitmode
+	//
+	CommitMode *string `field:"optional" json:"commitMode" yaml:"commitMode"`
 	// The display options of a control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfilterdropdowncontroloptions.html#cfn-quicksight-template-defaultfilterdropdowncontroloptions-displayoptions
 	//

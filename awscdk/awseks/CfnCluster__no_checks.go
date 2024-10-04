@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnCluster) validateSetUpgradePolicyParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetZonalShiftConfigParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnClusterParameters(scope constructs.Construct, id *string, props *CfnClusterProps) error {
 	return nil
 }

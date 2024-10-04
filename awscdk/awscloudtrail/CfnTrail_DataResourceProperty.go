@@ -51,7 +51,7 @@ type CfnTrail_DataResourceProperty struct {
 	// - `AWS::Lambda::Function`
 	// - `AWS::S3::Object`
 	//
-	// Additional resource types are available through *advanced* event selectors. For more information about these additional resource types, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) .
+	// Additional resource types are available through *advanced* event selectors. For more information, see [AdvancedEventSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

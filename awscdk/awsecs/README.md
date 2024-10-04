@@ -654,6 +654,26 @@ taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOption
 })
 ```
 
+### Restart policy
+
+To enable a restart policy for the container, set `enableRestartPolicy` to true and also specify
+`restartIgnoredExitCodes` and `restartAttemptPeriod` if necessary.
+
+```go
+var taskDefinition taskDefinition
+
+
+taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	EnableRestartPolicy: jsii.Boolean(true),
+	RestartIgnoredExitCodes: []*f64{
+		jsii.Number(0),
+		jsii.Number(127),
+	},
+	RestartAttemptPeriod: awscdk.Duration_Seconds(jsii.Number(360)),
+})
+```
+
 ## Docker labels
 
 You can add labels to the container with the `dockerLabels` property or with the `addDockerLabel` method:

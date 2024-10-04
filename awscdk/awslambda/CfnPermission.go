@@ -76,7 +76,7 @@ type CfnPermission interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The AWS service or AWS account that invokes the function.
+	// The AWS service , AWS account , IAM user, or IAM role that invokes the function.
 	Principal() *string
 	SetPrincipal(val *string)
 	// The identifier for your organization in AWS Organizations .

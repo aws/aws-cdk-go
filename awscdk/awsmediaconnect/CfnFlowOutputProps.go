@@ -115,7 +115,9 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// An indication of whether the output should transmit data or not.
+	// An indication of whether the new output should be enabled or disabled as soon as it is created.
+	//
+	// If you don't specify the outputStatus field in your request, MediaConnect sets it to ENABLED.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-outputstatus
 	//
 	OutputStatus *string `field:"optional" json:"outputStatus" yaml:"outputStatus"`

@@ -11,6 +11,7 @@ package awsses
 //   ruleStringExpressionProperty := &RuleStringExpressionProperty{
 //   	Evaluate: &RuleStringToEvaluateProperty{
 //   		Attribute: jsii.String("attribute"),
+//   		MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   	},
 //   	Operator: jsii.String("operator"),
 //   	Values: []*string{

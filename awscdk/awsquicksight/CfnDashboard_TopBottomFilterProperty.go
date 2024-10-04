@@ -44,6 +44,7 @@ package awsquicksight
 //   	DefaultFilterControlConfiguration: &DefaultFilterControlConfigurationProperty{
 //   		ControlOptions: &DefaultFilterControlOptionsProperty{
 //   			DefaultDateTimePickerOptions: &DefaultDateTimePickerControlOptionsProperty{
+//   				CommitMode: jsii.String("commitMode"),
 //   				DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
 //   					DateTimeFormat: jsii.String("dateTimeFormat"),
 //   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
@@ -69,6 +70,7 @@ package awsquicksight
 //   				Type: jsii.String("type"),
 //   			},
 //   			DefaultDropdownOptions: &DefaultFilterDropDownControlOptionsProperty{
+//   				CommitMode: jsii.String("commitMode"),
 //   				DisplayOptions: &DropDownControlDisplayOptionsProperty{
 //   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   						InfoIconText: jsii.String("infoIconText"),
@@ -136,6 +138,7 @@ package awsquicksight
 //   				Type: jsii.String("type"),
 //   			},
 //   			DefaultRelativeDateTimeOptions: &DefaultRelativeDateTimeControlOptionsProperty{
+//   				CommitMode: jsii.String("commitMode"),
 //   				DisplayOptions: &RelativeDateTimeControlDisplayOptionsProperty{
 //   					DateTimeFormat: jsii.String("dateTimeFormat"),
 //   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{

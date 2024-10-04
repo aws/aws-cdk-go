@@ -1,7 +1,7 @@
 package awscdkcognitoidentitypoolalpha
 
 
-// Login Provider for Identity Federation using Twitter Credentials.
+// Login Provider for identity federation using Twitter credentials.
 //
 // Example:
 //   awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
@@ -28,10 +28,10 @@ package awscdkcognitoidentitypoolalpha
 //
 // Experimental.
 type IdentityPoolTwitterLoginProvider struct {
-	// App Id for Twitter Identity Federation.
+	// Consumer key for Twitter identity federation.
 	// Experimental.
 	ConsumerKey *string `field:"required" json:"consumerKey" yaml:"consumerKey"`
-	// App Secret for Twitter Identity Federation.
+	// Consumer secret for identity federation.
 	// Experimental.
 	ConsumerSecret *string `field:"required" json:"consumerSecret" yaml:"consumerSecret"`
 }

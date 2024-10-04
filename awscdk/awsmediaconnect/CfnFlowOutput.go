@@ -127,7 +127,7 @@ type CfnFlowOutput interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// An indication of whether the output should transmit data or not.
+	// An indication of whether the new output should be enabled or disabled as soon as it is created.
 	OutputStatus() *string
 	SetOutputStatus(val *string)
 	// The port to use when MediaConnect distributes content to the output.

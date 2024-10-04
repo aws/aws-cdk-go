@@ -48,6 +48,18 @@ func (l *jsiiProxy_LogGroup) validateGrantWriteParameters(grantee awsiam.IGranta
 	return nil
 }
 
+func (l *jsiiProxy_LogGroup) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (l *jsiiProxy_LogGroup) validateMetricIncomingBytesParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
+func (l *jsiiProxy_LogGroup) validateMetricIncomingLogEventsParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func validateLogGroup_FromLogGroupArnParameters(scope constructs.Construct, id *string, logGroupArn *string) error {
 	return nil
 }

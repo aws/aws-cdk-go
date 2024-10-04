@@ -36,7 +36,9 @@ import (
 type CfnFindingAggregator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The aggregation Region.
+	// The home Region.
+	//
+	// Findings generated in linked Regions are replicated and sent to the home Region.
 	AttrFindingAggregationRegion() *string
 	// The ARN of the finding aggregator.
 	//
@@ -71,7 +73,7 @@ type CfnFindingAggregator interface {
 	// Indicates whether to aggregate findings from all of the available Regions in the current partition.
 	RegionLinkingMode() *string
 	SetRegionLinkingMode(val *string)
-	// If `RegionLinkingMode` is `ALL_REGIONS_EXCEPT_SPECIFIED` , then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
+	// If `RegionLinkingMode` is `ALL_REGIONS_EXCEPT_SPECIFIED` , then this is a space-separated list of Regions that don't replicate and send findings to the home Region.
 	Regions() *[]*string
 	SetRegions(val *[]*string)
 	// The stack in which this element is defined.

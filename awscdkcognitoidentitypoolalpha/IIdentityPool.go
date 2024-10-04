@@ -7,14 +7,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha/v2/internal"
 )
 
-// Represents a Cognito IdentityPool.
+// Represents a Cognito Identity Pool.
 // Experimental.
 type IIdentityPool interface {
 	awscdk.IResource
 	// The ARN of the Identity Pool.
 	// Experimental.
 	IdentityPoolArn() *string
-	// The id of the Identity Pool in the format REGION:GUID.
+	// The ID of the Identity Pool in the format REGION:GUID.
 	// Experimental.
 	IdentityPoolId() *string
 	// Name of the Identity Pool.

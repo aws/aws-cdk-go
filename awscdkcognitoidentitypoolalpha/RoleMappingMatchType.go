@@ -1,7 +1,7 @@
 package awscdkcognitoidentitypoolalpha
 
 
-// Types of matches allowed for Role Mapping.
+// Types of matches allowed for role mapping.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
@@ -36,16 +36,16 @@ package awscdkcognitoidentitypoolalpha
 type RoleMappingMatchType string
 
 const (
-	// The Claim from the token must equal the given value in order for a match.
+	// The claim from the token must equal the given value in order for a match.
 	// Experimental.
 	RoleMappingMatchType_EQUALS RoleMappingMatchType = "EQUALS"
-	// The Claim from the token must contain the given value in order for a match.
+	// The claim from the token must contain the given value in order for a match.
 	// Experimental.
 	RoleMappingMatchType_CONTAINS RoleMappingMatchType = "CONTAINS"
-	// The Claim from the token must start with the given value in order for a match.
+	// The claim from the token must start with the given value in order for a match.
 	// Experimental.
 	RoleMappingMatchType_STARTS_WITH RoleMappingMatchType = "STARTS_WITH"
-	// The Claim from the token must not equal the given value in order for a match.
+	// The claim from the token must not equal the given value in order for a match.
 	// Experimental.
 	RoleMappingMatchType_NOTEQUAL RoleMappingMatchType = "NOTEQUAL"
 )

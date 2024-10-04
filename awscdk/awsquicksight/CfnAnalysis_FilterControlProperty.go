@@ -34,6 +34,7 @@ package awsquicksight
 //   		Title: jsii.String("title"),
 //
 //   		// the properties below are optional
+//   		CommitMode: jsii.String("commitMode"),
 //   		DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
 //   			DateTimeFormat: jsii.String("dateTimeFormat"),
 //   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
@@ -75,6 +76,7 @@ package awsquicksight
 //   				},
 //   			},
 //   		},
+//   		CommitMode: jsii.String("commitMode"),
 //   		DisplayOptions: &DropDownControlDisplayOptionsProperty{
 //   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   				InfoIconText: jsii.String("infoIconText"),
@@ -163,6 +165,7 @@ package awsquicksight
 //   		Title: jsii.String("title"),
 //
 //   		// the properties below are optional
+//   		CommitMode: jsii.String("commitMode"),
 //   		DisplayOptions: &RelativeDateTimeControlDisplayOptionsProperty{
 //   			DateTimeFormat: jsii.String("dateTimeFormat"),
 //   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{

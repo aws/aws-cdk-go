@@ -31,7 +31,7 @@ type CfnKnowledgeBase_KnowledgeBaseConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// Contains details about the embeddings model that'sused to convert the data source.
+	// Contains details about the model that's used to convert the data source into vector embeddings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-vectorknowledgebaseconfiguration
 	//
 	VectorKnowledgeBaseConfiguration interface{} `field:"required" json:"vectorKnowledgeBaseConfiguration" yaml:"vectorKnowledgeBaseConfiguration"`

@@ -29,7 +29,7 @@ type CfnAutomationRule_SeverityUpdateProperty struct {
 	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
 	//
-	// If you provide `Normalized` and do not provide `Label` , `Label` is set automatically as follows.
+	// If you provide `Normalized` and don't provide `Label` , `Label` is set automatically as follows.
 	//
 	// - 0 - `INFORMATIONAL`
 	// - 1–39 - `LOW`

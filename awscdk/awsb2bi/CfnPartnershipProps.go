@@ -12,13 +12,41 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPartnershipProps := &CfnPartnershipProps{
+//   	Capabilities: []*string{
+//   		jsii.String("capabilities"),
+//   	},
 //   	Email: jsii.String("email"),
 //   	Name: jsii.String("name"),
 //   	ProfileId: jsii.String("profileId"),
 //
 //   	// the properties below are optional
-//   	Capabilities: []*string{
-//   		jsii.String("capabilities"),
+//   	CapabilityOptions: &CapabilityOptionsProperty{
+//   		OutboundEdi: &OutboundEdiOptionsProperty{
+//   			X12: &X12EnvelopeProperty{
+//   				Common: &X12OutboundEdiHeadersProperty{
+//   					Delimiters: &X12DelimitersProperty{
+//   						ComponentSeparator: jsii.String("componentSeparator"),
+//   						DataElementSeparator: jsii.String("dataElementSeparator"),
+//   						SegmentTerminator: jsii.String("segmentTerminator"),
+//   					},
+//   					FunctionalGroupHeaders: &X12FunctionalGroupHeadersProperty{
+//   						ApplicationReceiverCode: jsii.String("applicationReceiverCode"),
+//   						ApplicationSenderCode: jsii.String("applicationSenderCode"),
+//   						ResponsibleAgencyCode: jsii.String("responsibleAgencyCode"),
+//   					},
+//   					InterchangeControlHeaders: &X12InterchangeControlHeadersProperty{
+//   						AcknowledgmentRequestedCode: jsii.String("acknowledgmentRequestedCode"),
+//   						ReceiverId: jsii.String("receiverId"),
+//   						ReceiverIdQualifier: jsii.String("receiverIdQualifier"),
+//   						RepetitionSeparator: jsii.String("repetitionSeparator"),
+//   						SenderId: jsii.String("senderId"),
+//   						SenderIdQualifier: jsii.String("senderIdQualifier"),
+//   						UsageIndicatorCode: jsii.String("usageIndicatorCode"),
+//   					},
+//   					ValidateEdi: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	Phone: jsii.String("phone"),
 //   	Tags: []cfnTag{
@@ -32,6 +60,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html
 //
 type CfnPartnershipProps struct {
+	// Returns one or more capabilities associated with this partnership.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilities
+	//
+	Capabilities *[]*string `field:"required" json:"capabilities" yaml:"capabilities"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-email
 	//
 	Email *string `field:"required" json:"email" yaml:"email"`
@@ -43,10 +75,9 @@ type CfnPartnershipProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-profileid
 	//
 	ProfileId *string `field:"required" json:"profileId" yaml:"profileId"`
-	// Returns one or more capabilities associated with this partnership.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilities
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilityoptions
 	//
-	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
+	CapabilityOptions interface{} `field:"optional" json:"capabilityOptions" yaml:"capabilityOptions"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-phone
 	//
 	Phone *string `field:"optional" json:"phone" yaml:"phone"`

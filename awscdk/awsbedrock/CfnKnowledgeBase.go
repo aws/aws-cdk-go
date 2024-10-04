@@ -98,7 +98,7 @@ type CfnKnowledgeBase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The time at which the knowledge base was created.
+	// The time the knowledge base was created.
 	AttrCreatedAt() *string
 	// A list of reasons that the API operation on the knowledge base failed.
 	AttrFailureReasons() *[]*string
@@ -108,7 +108,7 @@ type CfnKnowledgeBase interface {
 	AttrKnowledgeBaseId() *string
 	// The status of the knowledge base.
 	AttrStatus() *string
-	// The time at which the knowledge base was last updated.
+	// The time the knowledge base was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager

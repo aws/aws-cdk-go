@@ -24,6 +24,7 @@ import (
 // - Read
 //
 // - s3express:ListAllMyDirectoryBuckets
+// - ec2:DescribeAvailabilityZones
 // - Delete
 //
 // - s3express:DeleteBucket
@@ -31,6 +32,16 @@ import (
 // - List
 //
 // - s3express:ListAllMyDirectoryBuckets
+// - PutBucketEncryption
+//
+// - s3express:PutEncryptionConfiguration
+// - To set a directory bucket default encryption with SSE-KMS, you must also have the kms:GenerateDataKey and kms:Decrypt permissions in IAM identity-based policies and AWS KMS key policies for the target AWS KMS key.
+// - GetBucketEncryption
+//
+// - s3express:GetBucketEncryption
+// - DeleteBucketEncryption
+//
+// - s3express:PutEncryptionConfiguration
 //
 // The following operations are related to `AWS::S3Express::DirectoryBucket` :
 //
@@ -48,6 +59,16 @@ import (
 //   	LocationName: jsii.String("locationName"),
 //
 //   	// the properties below are optional
+//   	BucketEncryption: &BucketEncryptionProperty{
+//   		ServerSideEncryptionConfiguration: []interface{}{
+//   			&ServerSideEncryptionRuleProperty{
+//   				BucketKeyEnabled: jsii.Boolean(false),
+//   				ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
+//   					SseAlgorithm: jsii.String("sseAlgorithm"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	BucketName: jsii.String("bucketName"),
 //   })
 //
@@ -58,8 +79,17 @@ type CfnDirectoryBucket interface {
 	awscdk.IInspectable
 	// Returns the Amazon Resource Name (ARN) of the specified bucket.
 	//
-	// Example: `arn:aws:s3express: *us-west-2* : *account_id* :bucket/ *DOC-EXAMPLE-BUCKET* -- *usw2-az1* --x-s3`.
+	// Example: `arn:aws:s3express: *us-west-2* : *account_id* :bucket/ *bucket_base_name* -- *usw2-az1* --x-s3`.
 	AttrArn() *string
+	// Returns the code for the Availability Zone where the directory bucket was created.
+	//
+	// Example: *us-east-1f*
+	//
+	// > An Availability Zone code might not represent the same physical location for different AWS accounts. For more information, see [Availability Zones and Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Endpoints.html) in the *Amazon S3 User Guide* .
+	AttrAvailabilityZoneName() *string
+	// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS).
+	BucketEncryption() interface{}
+	SetBucketEncryption(val interface{})
 	// A name for the bucket.
 	BucketName() *string
 	SetBucketName(val *string)
@@ -255,6 +285,26 @@ func (j *jsiiProxy_CfnDirectoryBucket) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDirectoryBucket) AttrAvailabilityZoneName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAvailabilityZoneName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectoryBucket) BucketEncryption() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"bucketEncryption",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDirectoryBucket) BucketName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -410,6 +460,17 @@ func NewCfnDirectoryBucket_Override(c CfnDirectoryBucket, scope constructs.Const
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDirectoryBucket)SetBucketEncryption(val interface{}) {
+	if err := j.validateSetBucketEncryptionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"bucketEncryption",
+		val,
 	)
 }
 

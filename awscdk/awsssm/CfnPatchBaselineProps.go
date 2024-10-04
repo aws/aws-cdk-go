@@ -123,6 +123,8 @@ type CfnPatchBaselineProps struct {
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A set of global filters used to include patches in the baseline.
+	//
+	// > The `GlobalFilters` parameter can be configured only by using the AWS CLI or an AWS SDK. It can't be configured from the Patch Manager console, and its value isn't displayed in the console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-globalfilters
 	//
 	GlobalFilters interface{} `field:"optional" json:"globalFilters" yaml:"globalFilters"`

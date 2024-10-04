@@ -30,23 +30,9 @@ type CfnResolverRule_TargetAddressProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port
 	//
 	Port *string `field:"optional" json:"port" yaml:"port"`
-	// The protocols for the Resolver endpoints. DoH-FIPS is applicable for inbound endpoints only.
+	// The protocols for the target address.
 	//
-	// For an inbound endpoint you can apply the protocols as follows:
-	//
-	// - Do53 and DoH in combination.
-	// - Do53 and DoH-FIPS in combination.
-	// - Do53 alone.
-	// - DoH alone.
-	// - DoH-FIPS alone.
-	// - None, which is treated as Do53.
-	//
-	// For an outbound endpoint you can apply the protocols as follows:
-	//
-	// - Do53 and DoH in combination.
-	// - Do53 alone.
-	// - DoH alone.
-	// - None, which is treated as Do53.
+	// The protocol you choose needs to be supported by the outbound endpoint of the Resolver rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-protocol
 	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`

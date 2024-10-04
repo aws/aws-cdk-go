@@ -93,10 +93,6 @@ func init() {
 		reflect.TypeOf((*IdentityPoolAuthenticationProviders)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolDigitsLoginProvider",
-		reflect.TypeOf((*IdentityPoolDigitsLoginProvider)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolFacebookLoginProvider",
 		reflect.TypeOf((*IdentityPoolFacebookLoginProvider)(nil)).Elem(),
 	)
@@ -117,7 +113,6 @@ func init() {
 			"AMAZON": IdentityPoolProviderType_AMAZON,
 			"APPLE": IdentityPoolProviderType_APPLE,
 			"TWITTER": IdentityPoolProviderType_TWITTER,
-			"DIGITS": IdentityPoolProviderType_DIGITS,
 			"OPEN_ID": IdentityPoolProviderType_OPEN_ID,
 			"SAML": IdentityPoolProviderType_SAML,
 			"USER_POOL": IdentityPoolProviderType_USER_POOL,
@@ -134,10 +129,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_IdentityPoolProviderUrl{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolProviders",
-		reflect.TypeOf((*IdentityPoolProviders)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolRoleAttachment",

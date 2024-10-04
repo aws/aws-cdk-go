@@ -3,8 +3,6 @@ package awskinesisfirehose
 
 // Specifies the destination configure settings for Apache Iceberg Table.
 //
-// Amazon Data Firehose is in preview release and is subject to change.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -88,14 +86,10 @@ package awskinesisfirehose
 //
 type CfnDeliveryStream_IcebergDestinationConfigurationProperty struct {
 	// Configuration describing where the destination Apache Iceberg Tables are persisted.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-catalogconfiguration
 	//
 	CatalogConfiguration interface{} `field:"required" json:"catalogConfiguration" yaml:"catalogConfiguration"`
-	// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
+	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
@@ -111,8 +105,6 @@ type CfnDeliveryStream_IcebergDestinationConfigurationProperty struct {
 	// Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables.
 	//
 	// Firehose will write data with insert if table specific configuration is not provided here.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-destinationtableconfigurationlist
 	//
 	DestinationTableConfigurationList interface{} `field:"optional" json:"destinationTableConfigurationList" yaml:"destinationTableConfigurationList"`
@@ -122,9 +114,9 @@ type CfnDeliveryStream_IcebergDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-retryoptions
 	//
 	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
-	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
+	// Describes how Firehose will backup records.
 	//
-	// Amazon Data Firehose is in preview release and is subject to change.
+	// Currently,S3 backup only supports `FailedDataOnly` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-s3backupmode
 	//
 	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`

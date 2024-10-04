@@ -34,6 +34,7 @@ import (
 //   	DnsSupport: jsii.String("dnsSupport"),
 //   	MulticastSupport: jsii.String("multicastSupport"),
 //   	PropagationDefaultRouteTableId: jsii.String("propagationDefaultRouteTableId"),
+//   	SecurityGroupReferencingSupport: jsii.String("securityGroupReferencingSupport"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -108,6 +109,9 @@ type CfnTransitGateway interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Enables you to reference a security group across VPCs attached to a transit gateway (TGW).
+	SecurityGroupReferencingSupport() *string
+	SetSecurityGroupReferencingSupport(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -450,6 +454,16 @@ func (j *jsiiProxy_CfnTransitGateway) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGateway) SecurityGroupReferencingSupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"securityGroupReferencingSupport",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGateway) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -616,6 +630,14 @@ func (j *jsiiProxy_CfnTransitGateway)SetPropagationDefaultRouteTableId(val *stri
 	_jsii_.Set(
 		j,
 		"propagationDefaultRouteTableId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGateway)SetSecurityGroupReferencingSupport(val *string) {
+	_jsii_.Set(
+		j,
+		"securityGroupReferencingSupport",
 		val,
 	)
 }

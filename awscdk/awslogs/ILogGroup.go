@@ -34,6 +34,18 @@ type ILogGroup interface {
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Public method to get the physical name of this log group.
 	LogGroupPhysicalName() *string
+	// Return the given named metric for this Log Group.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The volume of log events in uncompressed bytes uploaded to CloudWatch Logs.
+	//
+	// When used with the LogGroupName dimension, this is the volume of log events
+	// in uncompressed bytes uploaded to the log group.
+	MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of log events uploaded to CloudWatch Logs.
+	//
+	// When used with the LogGroupName dimension, this is the number of
+	// log events uploaded to the log group.
+	MetricIncomingLogEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The ARN of this log group, with ':*' appended.
 	LogGroupArn() *string
 	// The name of this log group.
@@ -169,6 +181,54 @@ func (i *jsiiProxy_ILogGroup) LogGroupPhysicalName() *string {
 		i,
 		"logGroupPhysicalName",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ILogGroup) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ILogGroup) MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricIncomingBytesParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricIncomingBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_ILogGroup) MetricIncomingLogEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricIncomingLogEventsParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricIncomingLogEvents",
+		[]interface{}{props},
 		&returns,
 	)
 

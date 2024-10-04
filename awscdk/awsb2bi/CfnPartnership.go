@@ -19,13 +19,41 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPartnership := awscdk.Aws_b2bi.NewCfnPartnership(this, jsii.String("MyCfnPartnership"), &CfnPartnershipProps{
+//   	Capabilities: []*string{
+//   		jsii.String("capabilities"),
+//   	},
 //   	Email: jsii.String("email"),
 //   	Name: jsii.String("name"),
 //   	ProfileId: jsii.String("profileId"),
 //
 //   	// the properties below are optional
-//   	Capabilities: []*string{
-//   		jsii.String("capabilities"),
+//   	CapabilityOptions: &CapabilityOptionsProperty{
+//   		OutboundEdi: &OutboundEdiOptionsProperty{
+//   			X12: &X12EnvelopeProperty{
+//   				Common: &X12OutboundEdiHeadersProperty{
+//   					Delimiters: &X12DelimitersProperty{
+//   						ComponentSeparator: jsii.String("componentSeparator"),
+//   						DataElementSeparator: jsii.String("dataElementSeparator"),
+//   						SegmentTerminator: jsii.String("segmentTerminator"),
+//   					},
+//   					FunctionalGroupHeaders: &X12FunctionalGroupHeadersProperty{
+//   						ApplicationReceiverCode: jsii.String("applicationReceiverCode"),
+//   						ApplicationSenderCode: jsii.String("applicationSenderCode"),
+//   						ResponsibleAgencyCode: jsii.String("responsibleAgencyCode"),
+//   					},
+//   					InterchangeControlHeaders: &X12InterchangeControlHeadersProperty{
+//   						AcknowledgmentRequestedCode: jsii.String("acknowledgmentRequestedCode"),
+//   						ReceiverId: jsii.String("receiverId"),
+//   						ReceiverIdQualifier: jsii.String("receiverIdQualifier"),
+//   						RepetitionSeparator: jsii.String("repetitionSeparator"),
+//   						SenderId: jsii.String("senderId"),
+//   						SenderIdQualifier: jsii.String("senderIdQualifier"),
+//   						UsageIndicatorCode: jsii.String("usageIndicatorCode"),
+//   					},
+//   					ValidateEdi: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	Phone: jsii.String("phone"),
 //   	Tags: []cfnTag{
@@ -55,6 +83,8 @@ type CfnPartnership interface {
 	// Returns one or more capabilities associated with this partnership.
 	Capabilities() *[]*string
 	SetCapabilities(val *[]*string)
+	CapabilityOptions() interface{}
+	SetCapabilityOptions(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -307,6 +337,16 @@ func (j *jsiiProxy_CfnPartnership) Capabilities() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPartnership) CapabilityOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"capabilityOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPartnership) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -496,9 +536,23 @@ func NewCfnPartnership_Override(c CfnPartnership, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnPartnership)SetCapabilities(val *[]*string) {
+	if err := j.validateSetCapabilitiesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"capabilities",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPartnership)SetCapabilityOptions(val interface{}) {
+	if err := j.validateSetCapabilityOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"capabilityOptions",
 		val,
 	)
 }

@@ -39,6 +39,42 @@ func init() {
 		reflect.TypeOf((*DestinationS3BackupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-kinesisfirehose-destinations-alpha.DisableLogging",
+		reflect.TypeOf((*DisableLogging)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DisableLogging{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoggingConfig)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-kinesisfirehose-destinations-alpha.EnableLogging",
+		reflect.TypeOf((*EnableLogging)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EnableLogging{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoggingConfig)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-kinesisfirehose-destinations-alpha.ILoggingConfig",
+		reflect.TypeOf((*ILoggingConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ILoggingConfig{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-kinesisfirehose-destinations-alpha.S3Bucket",
 		reflect.TypeOf((*S3Bucket)(nil)).Elem(),
 		[]_jsii_.Member{

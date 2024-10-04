@@ -39,7 +39,7 @@ package awssecretsmanager
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
 //
 type CfnRotationScheduleProps struct {
-	// The ARN or name of the secret to rotate.
+	// The ARN or name of the secret to rotate. This is unique for each rotation schedule definition.
 	//
 	// To reference a secret also created in this template, use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-secretid

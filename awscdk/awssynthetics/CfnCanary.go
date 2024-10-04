@@ -53,6 +53,9 @@ import (
 //   	},
 //   	DeleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	FailureRetentionPeriod: jsii.Number(123),
+//   	ResourcesToReplicateTags: []*string{
+//   		jsii.String("resourcesToReplicateTags"),
+//   	},
 //   	RunConfig: &RunConfigProperty{
 //   		ActiveTracing: jsii.Boolean(false),
 //   		EnvironmentVariables: map[string]*string{
@@ -160,6 +163,9 @@ type CfnCanary interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// To have the tags that you apply to this canary also be applied to the Lambda function that the canary uses, specify this property with the value `lambda-function` .
+	ResourcesToReplicateTags() *[]*string
+	SetResourcesToReplicateTags(val *[]*string)
 	// A structure that contains input information for a canary run.
 	RunConfig() interface{}
 	SetRunConfig(val interface{})
@@ -507,6 +513,16 @@ func (j *jsiiProxy_CfnCanary) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCanary) ResourcesToReplicateTags() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"resourcesToReplicateTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCanary) RunConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -725,6 +741,14 @@ func (j *jsiiProxy_CfnCanary)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCanary)SetResourcesToReplicateTags(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"resourcesToReplicateTags",
 		val,
 	)
 }

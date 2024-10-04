@@ -131,6 +131,7 @@ type CfnListenerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
 	//
 	Certificates interface{} `field:"optional" json:"certificates" yaml:"certificates"`
+	// The listener attributes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-listenerattributes
 	//
 	ListenerAttributes interface{} `field:"optional" json:"listenerAttributes" yaml:"listenerAttributes"`

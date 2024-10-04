@@ -57,6 +57,7 @@ package awsquicksight
 //   				},
 //   			},
 //   		},
+//   		CommitMode: jsii.String("commitMode"),
 //   		DisplayOptions: &DropDownControlDisplayOptionsProperty{
 //   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   				InfoIconText: jsii.String("infoIconText"),

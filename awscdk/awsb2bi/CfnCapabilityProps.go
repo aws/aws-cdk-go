@@ -29,6 +29,9 @@ import (
 //   					Version: jsii.String("version"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			CapabilityDirection: jsii.String("capabilityDirection"),
 //   		},
 //   	},
 //   	Name: jsii.String("name"),

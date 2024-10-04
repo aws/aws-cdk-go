@@ -141,6 +141,7 @@ type CfnListener interface {
 	// You cannot define a condition for a default rule.
 	DefaultActions() interface{}
 	SetDefaultActions(val interface{})
+	// The listener attributes.
 	ListenerAttributes() interface{}
 	SetListenerAttributes(val interface{})
 	// The Amazon Resource Name (ARN) of the load balancer.

@@ -7,7 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
 )
 
-// Keys for Login Providers - correspond to client id's of respective federation identity providers.
+// Keys for Login Providers - each correspond to the client IDs of their respective federation Identity Providers.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
@@ -25,10 +25,10 @@ import (
 //
 // Experimental.
 type IdentityPoolProviderUrl interface {
-	// type of Provider Url.
+	// The type of Identity Pool Provider.
 	// Experimental.
 	Type() IdentityPoolProviderType
-	// value of Provider Url.
+	// The value of the Identity Pool Provider.
 	// Experimental.
 	Value() *string
 }
@@ -88,7 +88,7 @@ func NewIdentityPoolProviderUrl_Override(i IdentityPoolProviderUrl, type_ Identi
 	)
 }
 
-// Custom Provider Url.
+// Custom Provider url.
 // Experimental.
 func IdentityPoolProviderUrl_Custom(url *string) IdentityPoolProviderUrl {
 	_init_.Initialize()
@@ -108,7 +108,7 @@ func IdentityPoolProviderUrl_Custom(url *string) IdentityPoolProviderUrl {
 	return returns
 }
 
-// OpenId Provider Url.
+// OpenId Provider url.
 // Experimental.
 func IdentityPoolProviderUrl_OpenId(url *string) IdentityPoolProviderUrl {
 	_init_.Initialize()
@@ -128,7 +128,7 @@ func IdentityPoolProviderUrl_OpenId(url *string) IdentityPoolProviderUrl {
 	return returns
 }
 
-// Saml Provider Url.
+// Saml Provider url.
 // Experimental.
 func IdentityPoolProviderUrl_Saml(url *string) IdentityPoolProviderUrl {
 	_init_.Initialize()
@@ -185,17 +185,6 @@ func IdentityPoolProviderUrl_APPLE() IdentityPoolProviderUrl {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolProviderUrl",
 		"APPLE",
-		&returns,
-	)
-	return returns
-}
-
-func IdentityPoolProviderUrl_DIGITS() IdentityPoolProviderUrl {
-	_init_.Initialize()
-	var returns IdentityPoolProviderUrl
-	_jsii_.StaticGet(
-		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolProviderUrl",
-		"DIGITS",
 		&returns,
 	)
 	return returns

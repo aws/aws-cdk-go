@@ -63,7 +63,7 @@ type IdentityPoolRoleAttachment interface {
 	// that might be different than the stack they were imported into.
 	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// Id of the underlying identity pool.
+	// ID of the underlying Identity Pool.
 	// Experimental.
 	IdentityPoolId() *string
 	// The tree node.

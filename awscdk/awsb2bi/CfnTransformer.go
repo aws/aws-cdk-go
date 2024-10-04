@@ -19,6 +19,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnTransformer := awscdk.Aws_b2bi.NewCfnTransformer(this, jsii.String("MyCfnTransformer"), &CfnTransformerProps{
+//   	Name: jsii.String("name"),
+//   	Status: jsii.String("status"),
+//
+//   	// the properties below are optional
 //   	EdiType: &EdiTypeProperty{
 //   		X12Details: &X12DetailsProperty{
 //   			TransactionSet: jsii.String("transactionSet"),
@@ -26,12 +30,45 @@ import (
 //   		},
 //   	},
 //   	FileFormat: jsii.String("fileFormat"),
-//   	MappingTemplate: jsii.String("mappingTemplate"),
-//   	Name: jsii.String("name"),
-//   	Status: jsii.String("status"),
+//   	InputConversion: &InputConversionProperty{
+//   		FromFormat: jsii.String("fromFormat"),
 //
-//   	// the properties below are optional
+//   		// the properties below are optional
+//   		FormatOptions: &FormatOptionsProperty{
+//   			X12: &X12DetailsProperty{
+//   				TransactionSet: jsii.String("transactionSet"),
+//   				Version: jsii.String("version"),
+//   			},
+//   		},
+//   	},
+//   	Mapping: &MappingProperty{
+//   		TemplateLanguage: jsii.String("templateLanguage"),
+//
+//   		// the properties below are optional
+//   		Template: jsii.String("template"),
+//   	},
+//   	MappingTemplate: jsii.String("mappingTemplate"),
+//   	OutputConversion: &OutputConversionProperty{
+//   		ToFormat: jsii.String("toFormat"),
+//
+//   		// the properties below are optional
+//   		FormatOptions: &FormatOptionsProperty{
+//   			X12: &X12DetailsProperty{
+//   				TransactionSet: jsii.String("transactionSet"),
+//   				Version: jsii.String("version"),
+//   			},
+//   		},
+//   	},
 //   	SampleDocument: jsii.String("sampleDocument"),
+//   	SampleDocuments: &SampleDocumentsProperty{
+//   		BucketName: jsii.String("bucketName"),
+//   		Keys: []interface{}{
+//   			&SampleDocumentKeysProperty{
+//   				Input: jsii.String("input"),
+//   				Output: jsii.String("output"),
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -68,11 +105,17 @@ type CfnTransformer interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Returns the details for the EDI standard that is being used for the transformer.
+	// Deprecated: this property has been deprecated.
 	EdiType() interface{}
+	// Deprecated: this property has been deprecated.
 	SetEdiType(val interface{})
 	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+	// Deprecated: this property has been deprecated.
 	FileFormat() *string
+	// Deprecated: this property has been deprecated.
 	SetFileFormat(val *string)
+	InputConversion() interface{}
+	SetInputConversion(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -83,22 +126,32 @@ type CfnTransformer interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	Mapping() interface{}
+	SetMapping(val interface{})
 	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// Deprecated: this property has been deprecated.
 	MappingTemplate() *string
+	// Deprecated: this property has been deprecated.
 	SetMappingTemplate(val *string)
 	// Returns the descriptive name for the transformer.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	OutputConversion() interface{}
+	SetOutputConversion(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// Deprecated: this property has been deprecated.
 	SampleDocument() *string
+	// Deprecated: this property has been deprecated.
 	SetSampleDocument(val *string)
+	SampleDocuments() interface{}
+	SetSampleDocuments(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -366,11 +419,31 @@ func (j *jsiiProxy_CfnTransformer) FileFormat() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransformer) InputConversion() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"inputConversion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransformer) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransformer) Mapping() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"mapping",
 		&returns,
 	)
 	return returns
@@ -406,6 +479,16 @@ func (j *jsiiProxy_CfnTransformer) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransformer) OutputConversion() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"outputConversion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransformer) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -421,6 +504,16 @@ func (j *jsiiProxy_CfnTransformer) SampleDocument() *string {
 	_jsii_.Get(
 		j,
 		"sampleDocument",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransformer) SampleDocuments() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sampleDocuments",
 		&returns,
 	)
 	return returns
@@ -516,9 +609,6 @@ func (j *jsiiProxy_CfnTransformer)SetEdiType(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTransformer)SetFileFormat(val *string) {
-	if err := j.validateSetFileFormatParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"fileFormat",
@@ -526,10 +616,29 @@ func (j *jsiiProxy_CfnTransformer)SetFileFormat(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnTransformer)SetMappingTemplate(val *string) {
-	if err := j.validateSetMappingTemplateParameters(val); err != nil {
+func (j *jsiiProxy_CfnTransformer)SetInputConversion(val interface{}) {
+	if err := j.validateSetInputConversionParameters(val); err != nil {
 		panic(err)
 	}
+	_jsii_.Set(
+		j,
+		"inputConversion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransformer)SetMapping(val interface{}) {
+	if err := j.validateSetMappingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"mapping",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransformer)SetMappingTemplate(val *string) {
 	_jsii_.Set(
 		j,
 		"mappingTemplate",
@@ -548,10 +657,32 @@ func (j *jsiiProxy_CfnTransformer)SetName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnTransformer)SetOutputConversion(val interface{}) {
+	if err := j.validateSetOutputConversionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"outputConversion",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTransformer)SetSampleDocument(val *string) {
 	_jsii_.Set(
 		j,
 		"sampleDocument",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransformer)SetSampleDocuments(val interface{}) {
+	if err := j.validateSetSampleDocumentsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sampleDocuments",
 		val,
 	)
 }

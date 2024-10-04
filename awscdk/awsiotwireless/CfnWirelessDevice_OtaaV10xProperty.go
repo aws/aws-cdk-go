@@ -1,6 +1,8 @@
 package awsiotwireless
 
 
+// OTAA device object for v1.0.x.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

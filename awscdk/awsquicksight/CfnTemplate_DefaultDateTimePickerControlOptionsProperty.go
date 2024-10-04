@@ -9,6 +9,7 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   defaultDateTimePickerControlOptionsProperty := &DefaultDateTimePickerControlOptionsProperty{
+//   	CommitMode: jsii.String("commitMode"),
 //   	DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
 //   		DateTimeFormat: jsii.String("dateTimeFormat"),
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
@@ -37,6 +38,10 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultdatetimepickercontroloptions.html
 //
 type CfnTemplate_DefaultDateTimePickerControlOptionsProperty struct {
+	// The visibility configuration of the Apply button on a `DateTimePickerControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultdatetimepickercontroloptions.html#cfn-quicksight-template-defaultdatetimepickercontroloptions-commitmode
+	//
+	CommitMode *string `field:"optional" json:"commitMode" yaml:"commitMode"`
 	// The display options of a control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultdatetimepickercontroloptions.html#cfn-quicksight-template-defaultdatetimepickercontroloptions-displayoptions
 	//

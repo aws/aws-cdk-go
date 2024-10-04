@@ -199,8 +199,8 @@ Kinesis Data Firehose will send logs to CloudWatch when data transformation or d
 delivery fails. The CDK will enable logging by default and create a CloudWatch LogGroup
 and LogStream for your Delivery Stream.
 
-When you create a destination, you can specify a log group. In this log group, The CDK
-will create log streams where log events will be sent:
+When creating a destination, you can provide an `ILoggingConfig`, which can either be an `EnableLogging` or `DisableLogging` instance.
+If you use `EnableLogging`, you can specify a log group where the CDK will create log streams to capture and store log events. For example:
 
 ```go
 import logs "github.com/aws/aws-cdk-go/awscdk"
@@ -209,7 +209,7 @@ var bucket bucket
 
 logGroup := logs.NewLogGroup(this, jsii.String("Log Group"))
 destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
-	LogGroup: logGroup,
+	LoggingConfig: destinations.NewEnableLogging(logGroup),
 })
 
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
@@ -225,7 +225,7 @@ Logging can also be disabled:
 var bucket bucket
 
 destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
-	Logging: jsii.Boolean(false),
+	LoggingConfig: destinations.NewDisableLogging(),
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
 	Destinations: []iDestination{
@@ -525,8 +525,7 @@ backupKey := kms.NewKey(stack, jsii.String("BackupKey"), &KeyProps{
 firehose.NewDeliveryStream(stack, jsii.String("Delivery Stream"), &DeliveryStreamProps{
 	Destinations: []iDestination{
 		destinations.NewS3Bucket(bucket, &S3BucketProps{
-			Logging: jsii.Boolean(true),
-			LogGroup: logGroup,
+			LoggingConfig: destinations.NewEnableLogging(logGroup),
 			Processor: processor,
 			Compression: destinations.Compression_GZIP(),
 			DataOutputPrefix: jsii.String("regularPrefix"),

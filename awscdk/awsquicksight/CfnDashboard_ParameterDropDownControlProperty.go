@@ -25,6 +25,7 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
+//   	CommitMode: jsii.String("commitMode"),
 //   	DisplayOptions: &DropDownControlDisplayOptionsProperty{
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   			InfoIconText: jsii.String("infoIconText"),
@@ -80,6 +81,10 @@ type CfnDashboard_ParameterDropDownControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdropdowncontrol.html#cfn-quicksight-dashboard-parameterdropdowncontrol-cascadingcontrolconfiguration
 	//
 	CascadingControlConfiguration interface{} `field:"optional" json:"cascadingControlConfiguration" yaml:"cascadingControlConfiguration"`
+	// The visibility configuration of the Apply button on a `ParameterDropDownControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdropdowncontrol.html#cfn-quicksight-dashboard-parameterdropdowncontrol-commitmode
+	//
+	CommitMode *string `field:"optional" json:"commitMode" yaml:"commitMode"`
 	// The display options of a control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameterdropdowncontrol.html#cfn-quicksight-dashboard-parameterdropdowncontrol-displayoptions
 	//

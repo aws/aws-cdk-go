@@ -58,3 +58,46 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Target: NewSomeTarget(targetQueue),
 })
 ```
+
+### Amazon Kinesis
+
+A Kinesis stream can be used as a source for a pipe. The stream will be polled for new messages and the messages will be sent to the pipe.
+
+```go
+var sourceStream stream
+var targetQueue queue
+
+
+pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{
+	StartingPosition: sources.KinesisStartingPosition_LATEST,
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: pipeSource,
+	Target: NewSomeTarget(targetQueue),
+})
+```
+
+### Amazon DynamoDB
+
+A DynamoDB stream can be used as a source for a pipe. The stream will be polled for new messages and the messages will be sent to the pipe.
+
+```go
+var targetQueue queue
+table := ddb.NewTableV2(this, jsii.String("MyTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: ddb.AttributeType_STRING,
+	},
+	DynamoStream: ddb.StreamViewType_NEW_IMAGE,
+})
+
+pipeSource := sources.NewDynamoDBSource(table, &DynamoDBSourceParameters{
+	StartingPosition: sources.DynamoDBStartingPosition_LATEST,
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: pipeSource,
+	Target: NewSomeTarget(targetQueue),
+})
+```

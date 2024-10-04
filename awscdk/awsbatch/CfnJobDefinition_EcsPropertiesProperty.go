@@ -151,7 +151,7 @@ package awsbatch
 type CfnJobDefinition_EcsPropertiesProperty struct {
 	// An object that contains the properties for the Amazon ECS task definition of a job.
 	//
-	// > This object is currently limited to one element.
+	// > This object is currently limited to one task element. However, the task element can run up to 10 containers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html#cfn-batch-jobdefinition-ecsproperties-taskproperties
 	//
 	TaskProperties interface{} `field:"required" json:"taskProperties" yaml:"taskProperties"`

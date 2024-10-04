@@ -1,7 +1,7 @@
 package awscdkcognitoidentitypoolalpha
 
 
-// Login Provider for Identity Federation using Google Credentials.
+// Login Provider for identity federation using Google credentials.
 //
 // Example:
 //   awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
@@ -28,7 +28,7 @@ package awscdkcognitoidentitypoolalpha
 //
 // Experimental.
 type IdentityPoolGoogleLoginProvider struct {
-	// App Id for Google Identity Federation.
+	// Client ID for Google identity federation.
 	// Experimental.
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 }

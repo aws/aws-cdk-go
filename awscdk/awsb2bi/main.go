@@ -102,6 +102,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrPartnershipId", GoGetter: "AttrPartnershipId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrTradingPartnerId", GoGetter: "AttrTradingPartnerId"},
 			_jsii_.MemberProperty{JsiiProperty: "capabilities", GoGetter: "Capabilities"},
+			_jsii_.MemberProperty{JsiiProperty: "capabilityOptions", GoGetter: "CapabilityOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -138,6 +139,34 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnPartnership.CapabilityOptionsProperty",
+		reflect.TypeOf((*CfnPartnership_CapabilityOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnPartnership.OutboundEdiOptionsProperty",
+		reflect.TypeOf((*CfnPartnership_OutboundEdiOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnPartnership.X12DelimitersProperty",
+		reflect.TypeOf((*CfnPartnership_X12DelimitersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnPartnership.X12EnvelopeProperty",
+		reflect.TypeOf((*CfnPartnership_X12EnvelopeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnPartnership.X12FunctionalGroupHeadersProperty",
+		reflect.TypeOf((*CfnPartnership_X12FunctionalGroupHeadersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnPartnership.X12InterchangeControlHeadersProperty",
+		reflect.TypeOf((*CfnPartnership_X12InterchangeControlHeadersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnPartnership.X12OutboundEdiHeadersProperty",
+		reflect.TypeOf((*CfnPartnership_X12OutboundEdiHeadersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_b2bi.CfnPartnershipProps",
@@ -227,19 +256,23 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "fileFormat", GoGetter: "FileFormat"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "inputConversion", GoGetter: "InputConversion"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "mapping", GoGetter: "Mapping"},
 			_jsii_.MemberProperty{JsiiProperty: "mappingTemplate", GoGetter: "MappingTemplate"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberProperty{JsiiProperty: "outputConversion", GoGetter: "OutputConversion"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "sampleDocument", GoGetter: "SampleDocument"},
+			_jsii_.MemberProperty{JsiiProperty: "sampleDocuments", GoGetter: "SampleDocuments"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
@@ -260,6 +293,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_b2bi.CfnTransformer.EdiTypeProperty",
 		reflect.TypeOf((*CfnTransformer_EdiTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.FormatOptionsProperty",
+		reflect.TypeOf((*CfnTransformer_FormatOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.InputConversionProperty",
+		reflect.TypeOf((*CfnTransformer_InputConversionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.MappingProperty",
+		reflect.TypeOf((*CfnTransformer_MappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.OutputConversionProperty",
+		reflect.TypeOf((*CfnTransformer_OutputConversionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.SampleDocumentKeysProperty",
+		reflect.TypeOf((*CfnTransformer_SampleDocumentKeysProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_b2bi.CfnTransformer.SampleDocumentsProperty",
+		reflect.TypeOf((*CfnTransformer_SampleDocumentsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_b2bi.CfnTransformer.X12DetailsProperty",

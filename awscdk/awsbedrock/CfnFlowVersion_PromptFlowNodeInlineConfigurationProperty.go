@@ -41,7 +41,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html
 //
 type CfnFlowVersion_PromptFlowNodeInlineConfigurationProperty struct {
-	// The unique identifier of the model to run inference with.
+	// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html#cfn-bedrock-flowversion-promptflownodeinlineconfiguration-modelid
 	//
 	ModelId *string `field:"required" json:"modelId" yaml:"modelId"`

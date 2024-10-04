@@ -41,9 +41,10 @@ type CfnPolicyProps struct {
 	// The text that you supply must adhere to the rules of the policy type you specify in the `Type` parameter. The following AWS Organizations quotas are enforced for the maximum size of a policy document:
 	//
 	// - Service control policies: 5,120 characters
-	// - AI services opt-out policies: 2,500 characters
 	// - Backup policies: 10,000 characters
 	// - Tag policies: 10,000 characters
+	// - Chatbot policies: 10,000 characters
+	// - AI services opt-out policies: 2,500 characters
 	//
 	// For more information about Organizations service quotas, see [Quotas for AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html) in the *AWS Organizations User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-policy.html#cfn-organizations-policy-content

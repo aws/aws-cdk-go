@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnGlobalCluster) validateSetStorageEncryptedParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnGlobalCluster) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGlobalClusterParameters(scope constructs.Construct, id *string, props *CfnGlobalClusterProps) error {
 	return nil
 }

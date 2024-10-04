@@ -33,6 +33,21 @@ cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &Cluste
 ```
 
 By default, the master password will be generated and stored in AWS Secrets Manager.
+You can specify characters to not include in generated passwords by setting `excludeCharacters` property.
+
+```go
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("Vpc"))
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+		ExcludeCharacters: jsii.String("\"@/\\ '`"),
+	},
+	Vpc: Vpc,
+})
+```
 
 A default database named `default_db` will be created in the cluster. To change the name of this database set the `defaultDatabaseName` attribute in the constructor properties.
 
@@ -153,6 +168,16 @@ plaintext for the password will never be present in the CDK application; instead
 [CloudFormation Dynamic
 Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html)
 will be used wherever the password value is required.
+
+You can specify characters to not include in generated passwords by setting `excludeCharacters` property.
+
+```go
+awscdkredshiftalpha.NewUser(this, jsii.String("User"), &UserProps{
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
+	ExcludeCharacters: jsii.String("\"@/\\ '`"),
+})
+```
 
 ### Creating Tables
 

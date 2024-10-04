@@ -19,7 +19,7 @@ package awskinesisfirehose
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html
 //
 type CfnDeliveryStream_SecretsManagerConfigurationProperty struct {
-	// Specifies whether you want to use the the secrets manager feature.
+	// Specifies whether you want to use the secrets manager feature.
 	//
 	// When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html#cfn-kinesisfirehose-deliverystream-secretsmanagerconfiguration-enabled
@@ -33,7 +33,7 @@ type CfnDeliveryStream_SecretsManagerConfigurationProperty struct {
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the secret that stores your credentials.
 	//
-	// It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+	// It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html#cfn-kinesisfirehose-deliverystream-secretsmanagerconfiguration-secretarn
 	//
 	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`

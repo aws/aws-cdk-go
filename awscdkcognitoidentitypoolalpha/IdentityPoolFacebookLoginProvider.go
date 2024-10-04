@@ -1,7 +1,7 @@
 package awscdkcognitoidentitypoolalpha
 
 
-// Login Provider for Identity Federation using Facebook Credentials.
+// Login Provider for identity federation using Facebook credentials.
 //
 // Example:
 //   awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
@@ -28,7 +28,7 @@ package awscdkcognitoidentitypoolalpha
 //
 // Experimental.
 type IdentityPoolFacebookLoginProvider struct {
-	// App Id for Facebook Identity Federation.
+	// App ID for Facebook identity federation.
 	// Experimental.
 	AppId *string `field:"required" json:"appId" yaml:"appId"`
 }

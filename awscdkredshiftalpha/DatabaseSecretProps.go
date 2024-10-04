@@ -19,6 +19,7 @@ import (
 //
 //   	// the properties below are optional
 //   	EncryptionKey: key,
+//   	ExcludeCharacters: jsii.String("excludeCharacters"),
 //   }
 //
 // Experimental.
@@ -31,5 +32,10 @@ type DatabaseSecretProps struct {
 	//
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// Characters to not include in the generated password.
+	// Default: '"@/\\\ \''.
+	//
+	// Experimental.
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 }
 

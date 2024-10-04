@@ -91,7 +91,7 @@ type CfnPipe_PipeTargetTimestreamParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargettimestreamparameters.html#cfn-pipes-pipe-pipetargettimestreamparameters-timefieldtype
 	//
 	TimeFieldType *string `field:"optional" json:"timeFieldType" yaml:"timeFieldType"`
-	// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+	// How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
 	//
 	// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargettimestreamparameters.html#cfn-pipes-pipe-pipetargettimestreamparameters-timestampformat

@@ -61,6 +61,7 @@ import (
 //   	DockerSecurityOptions: []*string{
 //   		jsii.String("dockerSecurityOptions"),
 //   	},
+//   	EnableRestartPolicy: jsii.Boolean(false),
 //   	EntryPoint: []*string{
 //   		jsii.String("entryPoint"),
 //   	},
@@ -110,6 +111,10 @@ import (
 //   	Privileged: jsii.Boolean(false),
 //   	PseudoTerminal: jsii.Boolean(false),
 //   	ReadonlyRootFilesystem: jsii.Boolean(false),
+//   	RestartAttemptPeriod: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	RestartIgnoredExitCodes: []*f64{
+//   		jsii.Number(123),
+//   	},
 //   	Secrets: map[string]*secret{
 //   		"secretsKey": secret,
 //   	},

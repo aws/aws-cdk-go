@@ -80,6 +80,10 @@ func validateCfnDirectoryBucket_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDirectoryBucket) validateSetBucketEncryptionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDirectoryBucket) validateSetDataRedundancyParameters(val *string) error {
 	return nil
 }

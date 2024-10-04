@@ -6,34 +6,31 @@ package awscdkcognitoidentitypoolalpha
 type IdentityPoolProviderType string
 
 const (
-	// Facebook Provider type.
+	// Facebook provider type.
 	// Experimental.
 	IdentityPoolProviderType_FACEBOOK IdentityPoolProviderType = "FACEBOOK"
-	// Google Provider Type.
+	// Google provider type.
 	// Experimental.
 	IdentityPoolProviderType_GOOGLE IdentityPoolProviderType = "GOOGLE"
-	// Amazon Provider Type.
+	// Amazon provider type.
 	// Experimental.
 	IdentityPoolProviderType_AMAZON IdentityPoolProviderType = "AMAZON"
-	// Apple Provider Type.
+	// Apple provider type.
 	// Experimental.
 	IdentityPoolProviderType_APPLE IdentityPoolProviderType = "APPLE"
-	// Twitter Provider Type.
+	// Twitter provider type.
 	// Experimental.
 	IdentityPoolProviderType_TWITTER IdentityPoolProviderType = "TWITTER"
-	// Digits Provider Type.
-	// Experimental.
-	IdentityPoolProviderType_DIGITS IdentityPoolProviderType = "DIGITS"
-	// Open Id Provider Type.
+	// Open Id provider type.
 	// Experimental.
 	IdentityPoolProviderType_OPEN_ID IdentityPoolProviderType = "OPEN_ID"
-	// Saml Provider Type.
+	// Saml provider type.
 	// Experimental.
 	IdentityPoolProviderType_SAML IdentityPoolProviderType = "SAML"
-	// User Pool Provider Type.
+	// User Pool provider type.
 	// Experimental.
 	IdentityPoolProviderType_USER_POOL IdentityPoolProviderType = "USER_POOL"
-	// Custom Provider Type.
+	// Custom provider type.
 	// Experimental.
 	IdentityPoolProviderType_CUSTOM IdentityPoolProviderType = "CUSTOM"
 )

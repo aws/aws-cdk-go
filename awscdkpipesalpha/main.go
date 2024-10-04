@@ -242,6 +242,23 @@ func init() {
 		"@aws-cdk/aws-pipes-alpha.SourceParameters",
 		reflect.TypeOf((*SourceParameters)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-alpha.SourceWithDeadLetterTarget",
+		reflect.TypeOf((*SourceWithDeadLetterTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "deadLetterTarget", GoGetter: "DeadLetterTarget"},
+			_jsii_.MemberMethod{JsiiMethod: "getDeadLetterTargetArn", GoMethod: "GetDeadLetterTargetArn"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceArn", GoGetter: "SourceArn"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SourceWithDeadLetterTarget{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISource)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-pipes-alpha.TargetConfig",
 		reflect.TypeOf((*TargetConfig)(nil)).Elem(),

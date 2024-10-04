@@ -32,7 +32,7 @@ import (
 type IdentityPool interface {
 	awscdk.Resource
 	IIdentityPool
-	// Default role for authenticated users.
+	// Default Role for authenticated users.
 	// Experimental.
 	AuthenticatedRole() awsiam.IRole
 	// The environment this resource belongs to.
@@ -48,7 +48,7 @@ type IdentityPool interface {
 	// The ARN of the Identity Pool.
 	// Experimental.
 	IdentityPoolArn() *string
-	// The id of the Identity Pool in the format REGION:GUID.
+	// The ID of the Identity Pool in the format REGION:GUID.
 	// Experimental.
 	IdentityPoolId() *string
 	// The name of the Identity Pool.
@@ -69,13 +69,13 @@ type IdentityPool interface {
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
-	// Default role for unauthenticated users.
+	// Default Role for unauthenticated users.
 	// Experimental.
 	UnauthenticatedRole() awsiam.IRole
-	// Adds Role Mappings to Identity Pool.
+	// Add Role Mappings to the Identity Pool.
 	// Experimental.
 	AddRoleMappings(roleMappings ...*IdentityPoolRoleMapping)
-	// Add a User Pool to the IdentityPool and configure User Pool Client to handle identities.
+	// Add a User Pool to the Identity Pool and configure the User Pool client to handle identities.
 	// Experimental.
 	AddUserPoolAuthentication(userPool IUserPoolAuthenticationProvider)
 	// Apply the given removal policy to this resource.
@@ -237,7 +237,7 @@ func NewIdentityPool_Override(i IdentityPool, scope constructs.Construct, id *st
 	)
 }
 
-// Import an existing Identity Pool from its Arn.
+// Import an existing Identity Pool from its ARN.
 // Experimental.
 func IdentityPool_FromIdentityPoolArn(scope constructs.Construct, id *string, identityPoolArn *string) IIdentityPool {
 	_init_.Initialize()
@@ -257,7 +257,7 @@ func IdentityPool_FromIdentityPoolArn(scope constructs.Construct, id *string, id
 	return returns
 }
 
-// Import an existing Identity Pool from its id.
+// Import an existing Identity Pool from its ID.
 // Experimental.
 func IdentityPool_FromIdentityPoolId(scope constructs.Construct, id *string, identityPoolId *string) IIdentityPool {
 	_init_.Initialize()

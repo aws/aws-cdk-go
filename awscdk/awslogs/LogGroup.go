@@ -120,6 +120,54 @@ type LogGroup interface {
 	//
 	// Returns: Physical name of log group.
 	LogGroupPhysicalName() *string
+	// Creates a CloudWatch metric for this log group.
+	//
+	// Returns: A CloudWatch Metric object representing the specified metric for this log group.
+	//
+	// This method creates a CloudWatch Metric object with predefined settings for the log group.
+	// It sets the namespace to 'AWS/Logs' and the statistic to 'Sum' by default.
+	//
+	// The created metric is automatically associated with this log group using the `attachTo` method.
+	//
+	// Common metric names for log groups include:
+	// - 'IncomingBytes': The volume of log data in bytes ingested into the log group.
+	// - 'IncomingLogEvents': The number of log events ingested into the log group.
+	// ```.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Creates a CloudWatch metric for the volume of incoming log data in bytes to this log group.
+	//
+	// Returns: A CloudWatch Metric object representing the IncomingBytes metric.
+	//
+	// This method allows you to monitor the volume of data being ingested into the log group.
+	// It's useful for understanding the size of your logs, which can impact storage costs
+	// and help in identifying unexpectedly large log entries.
+	//
+	// Example usage:
+	// ```
+	// const logGroup = new logs.LogGroup(this, 'MyLogGroup');
+	// logGroup.metricIncomingBytes().createAlarm(stack, 'IncomingBytesPerInstanceAlarm', {
+	// threshold: 1,
+	// evaluationPeriods: 1,
+	// });
+	// ```.
+	MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Creates a CloudWatch metric for the number of incoming log events to this log group.
+	//
+	// Returns: A CloudWatch Metric object representing the IncomingLogEvents metric.
+	//
+	// This method allows you to monitor the rate at which log events are being ingested
+	// into the log group. It's useful for understanding the volume of logging activity
+	// and can help in capacity planning or detecting unusual spikes in logging.
+	//
+	// Example usage:
+	// ```
+	// const logGroup = new logs.LogGroup(this, 'MyLogGroup');
+	// logGroup.metricIncomingLogEvents().createAlarm(stack, 'IncomingEventsPerInstanceAlarm', {
+	// threshold: 1,
+	// evaluationPeriods: 1,
+	// });
+	// ```.
+	MetricIncomingLogEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -525,6 +573,54 @@ func (l *jsiiProxy_LogGroup) LogGroupPhysicalName() *string {
 		l,
 		"logGroupPhysicalName",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LogGroup) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := l.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		l,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LogGroup) MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := l.validateMetricIncomingBytesParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		l,
+		"metricIncomingBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LogGroup) MetricIncomingLogEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := l.validateMetricIncomingLogEventsParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		l,
+		"metricIncomingLogEvents",
+		[]interface{}{props},
 		&returns,
 	)
 

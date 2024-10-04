@@ -87,7 +87,7 @@ type CfnCodeSigningConfig interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags to apply to CodeSigningConfig resource.
+	// A list of tags to add to the code signing configuration.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

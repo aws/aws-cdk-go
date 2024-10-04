@@ -28,6 +28,8 @@ import (
 type FunctionUrl interface {
 	awscdk.Resource
 	IFunctionUrl
+	// The authentication type used for this Function URL.
+	AuthType() FunctionUrlAuthType
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -87,6 +89,16 @@ type FunctionUrl interface {
 type jsiiProxy_FunctionUrl struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IFunctionUrl
+}
+
+func (j *jsiiProxy_FunctionUrl) AuthType() FunctionUrlAuthType {
+	var returns FunctionUrlAuthType
+	_jsii_.Get(
+		j,
+		"authType",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_FunctionUrl) Env() *awscdk.ResourceEnvironment {

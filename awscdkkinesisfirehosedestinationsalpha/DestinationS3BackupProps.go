@@ -3,7 +3,6 @@ package awscdkkinesisfirehosedestinationsalpha
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
@@ -103,18 +102,11 @@ type DestinationS3BackupProps struct {
 	//
 	// Experimental.
 	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
-	// If true, log errors when data transformation or data delivery fails.
-	//
-	// If `logGroup` is provided, this will be implicitly set to `true`.
-	// Default: true - errors are logged.
+	// Configuration that determines whether to log errors during data transformation or delivery failures, and specifies the CloudWatch log group for storing error logs.
+	// Default: - errors will be logged and a log group will be created for you.
 	//
 	// Experimental.
-	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
-	// The CloudWatch log group where log streams will be created to hold error logs.
-	// Default: - if `logging` is set to `true`, a log group will be created for you.
-	//
-	// Experimental.
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LoggingConfig ILoggingConfig `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 	// Indicates the mode by which incoming records should be backed up to S3, if any.
 	//
 	// If `bucket` is provided, this will be implicitly set to `BackupMode.ALL`.

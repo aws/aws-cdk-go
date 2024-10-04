@@ -179,6 +179,30 @@ func validateCfnDirectoryBucket_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDirectoryBucket) validateSetBucketEncryptionParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDirectoryBucket_BucketEncryptionProperty:
+		val := val.(*CfnDirectoryBucket_BucketEncryptionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDirectoryBucket_BucketEncryptionProperty:
+		val_ := val.(CfnDirectoryBucket_BucketEncryptionProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDirectoryBucket_BucketEncryptionProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDirectoryBucket) validateSetDataRedundancyParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

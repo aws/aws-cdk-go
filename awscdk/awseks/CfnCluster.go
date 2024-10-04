@@ -100,6 +100,9 @@ import (
 //   		SupportType: jsii.String("supportType"),
 //   	},
 //   	Version: jsii.String("version"),
+//   	ZonalShiftConfig: &ZonalShiftConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html
@@ -213,6 +216,9 @@ type CfnCluster interface {
 	// The desired Kubernetes version for your cluster.
 	Version() *string
 	SetVersion(val *string)
+	// The current zonal shift configuration to use for the cluster.
+	ZonalShiftConfig() interface{}
+	SetZonalShiftConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -657,6 +663,16 @@ func (j *jsiiProxy_CfnCluster) Version() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) ZonalShiftConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"zonalShiftConfig",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
@@ -807,6 +823,17 @@ func (j *jsiiProxy_CfnCluster)SetVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"version",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetZonalShiftConfig(val interface{}) {
+	if err := j.validateSetZonalShiftConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"zonalShiftConfig",
 		val,
 	)
 }

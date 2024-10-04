@@ -421,6 +421,30 @@ func (j *jsiiProxy_CfnCluster) validateSetUpgradePolicyParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetZonalShiftConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_ZonalShiftConfigProperty:
+		val := val.(*CfnCluster_ZonalShiftConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_ZonalShiftConfigProperty:
+		val_ := val.(CfnCluster_ZonalShiftConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_ZonalShiftConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnClusterParameters(scope constructs.Construct, id *string, props *CfnClusterProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

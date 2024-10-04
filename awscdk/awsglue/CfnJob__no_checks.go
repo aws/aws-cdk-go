@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnJob) validateSetExecutionPropertyParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnJob) validateSetJobRunQueuingEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnJob) validateSetNotificationPropertyParameters(val interface{}) error {
 	return nil
 }

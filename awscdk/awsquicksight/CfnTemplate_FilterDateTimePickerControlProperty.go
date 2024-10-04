@@ -14,6 +14,7 @@ package awsquicksight
 //   	Title: jsii.String("title"),
 //
 //   	// the properties below are optional
+//   	CommitMode: jsii.String("commitMode"),
 //   	DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
 //   		DateTimeFormat: jsii.String("dateTimeFormat"),
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
@@ -54,6 +55,10 @@ type CfnTemplate_FilterDateTimePickerControlProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdatetimepickercontrol.html#cfn-quicksight-template-filterdatetimepickercontrol-title
 	//
 	Title *string `field:"required" json:"title" yaml:"title"`
+	// The visibility configurationof the Apply button on a `DateTimePickerControl` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdatetimepickercontrol.html#cfn-quicksight-template-filterdatetimepickercontrol-commitmode
+	//
+	CommitMode *string `field:"optional" json:"commitMode" yaml:"commitMode"`
 	// The display options of a control.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdatetimepickercontrol.html#cfn-quicksight-template-filterdatetimepickercontrol-displayoptions
 	//

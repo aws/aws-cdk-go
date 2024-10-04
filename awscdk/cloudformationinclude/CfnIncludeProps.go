@@ -25,6 +25,14 @@ type CfnIncludeProps struct {
 	// Default: - will throw an error on detecting any cyclical references.
 	//
 	AllowCyclicalReferences *bool `field:"optional" json:"allowCyclicalReferences" yaml:"allowCyclicalReferences"`
+	// Specifies a list of LogicalIDs for resources that will be included in the CDK Stack, but will not be parsed and converted to CDK types.
+	//
+	// This allows you to use CFN templates
+	// that rely on Intrinsic placement that `cfn-include`
+	// would otherwise reject, such as non-primitive values in resource update policies.
+	// Default: - All resources are hydrated.
+	//
+	DehydratedResources *[]*string `field:"optional" json:"dehydratedResources" yaml:"dehydratedResources"`
 	// Specifies the template files that define nested stacks that should be included.
 	//
 	// If your template specifies a stack that isn't included here, it won't be created as a NestedStack

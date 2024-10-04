@@ -1,7 +1,7 @@
 package awscdkcognitoidentitypoolalpha
 
 
-// Login Provider for Identity Federation using Apple Credentials.
+// Login Provider for identity federation using Apple credentials.
 //
 // Example:
 //   awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool"), &IdentityPoolProps{
@@ -28,7 +28,7 @@ package awscdkcognitoidentitypoolalpha
 //
 // Experimental.
 type IdentityPoolAppleLoginProvider struct {
-	// App Id for Apple Identity Federation.
+	// Services ID for Apple identity federation.
 	// Experimental.
 	ServicesId *string `field:"required" json:"servicesId" yaml:"servicesId"`
 }

@@ -1,7 +1,7 @@
 package awscdkcognitoidentitypoolalpha
 
 
-// Map roles to users in the identity pool based on claims from the Identity Provider.
+// Map roles to users in the Identity Pool based on claims from the Identity Provider.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
@@ -18,13 +18,13 @@ package awscdkcognitoidentitypoolalpha
 //
 // Experimental.
 type IdentityPoolRoleMapping struct {
-	// The url of the provider of for which the role is mapped.
+	// The url of the Provider for which the role is mapped.
 	// Experimental.
 	ProviderUrl IdentityPoolProviderUrl `field:"required" json:"providerUrl" yaml:"providerUrl"`
 	// The key used for the role mapping in the role mapping hash.
 	//
 	// Required if the providerUrl is a token.
-	// Default: - the provided providerUrl.
+	// Default: - The provided providerUrl.
 	//
 	// Experimental.
 	MappingKey *string `field:"optional" json:"mappingKey" yaml:"mappingKey"`
@@ -36,11 +36,11 @@ type IdentityPoolRoleMapping struct {
 	// The claim and value that must be matched in order to assume the role.
 	//
 	// Required if useToken is false.
-	// Default: - No Rule Mapping Rule.
+	// Default: - No role mapping rule.
 	//
 	// Experimental.
 	Rules *[]*RoleMappingRule `field:"optional" json:"rules" yaml:"rules"`
-	// If true then mapped roles must be passed through the cognito:roles or cognito:preferred_role claims from identity provider.
+	// If true then mapped roles must be passed through the cognito:roles or cognito:preferred_role claims from Identity Provider.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/role-based-access-control.html#using-tokens-to-assign-roles-to-users
 	//
 	// Default: false.

@@ -27,6 +27,12 @@ import (
 //
 //   	// the properties below are optional
 //   	PortalArn: jsii.String("portalArn"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html
@@ -34,8 +40,11 @@ import (
 type CfnIdentityProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The ARN of the identity provider.
 	AttrIdentityProviderArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -80,6 +89,8 @@ type CfnIdentityProvider interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -224,6 +235,7 @@ type CfnIdentityProvider interface {
 type jsiiProxy_CfnIdentityProvider struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnIdentityProvider) AttrIdentityProviderArn() *string {
@@ -231,6 +243,16 @@ func (j *jsiiProxy_CfnIdentityProvider) AttrIdentityProviderArn() *string {
 	_jsii_.Get(
 		j,
 		"attrIdentityProviderArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdentityProvider) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -356,6 +378,16 @@ func (j *jsiiProxy_CfnIdentityProvider) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIdentityProvider) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIdentityProvider) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -441,6 +473,17 @@ func (j *jsiiProxy_CfnIdentityProvider)SetPortalArn(val *string) {
 	_jsii_.Set(
 		j,
 		"portalArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIdentityProvider)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

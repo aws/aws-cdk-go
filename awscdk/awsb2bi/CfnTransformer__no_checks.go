@@ -84,15 +84,23 @@ func (j *jsiiProxy_CfnTransformer) validateSetEdiTypeParameters(val interface{})
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransformer) validateSetFileFormatParameters(val *string) error {
+func (j *jsiiProxy_CfnTransformer) validateSetInputConversionParameters(val interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransformer) validateSetMappingTemplateParameters(val *string) error {
+func (j *jsiiProxy_CfnTransformer) validateSetMappingParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnTransformer) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTransformer) validateSetOutputConversionParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTransformer) validateSetSampleDocumentsParameters(val interface{}) error {
 	return nil
 }
 

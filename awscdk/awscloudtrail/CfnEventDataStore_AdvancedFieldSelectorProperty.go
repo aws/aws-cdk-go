@@ -39,19 +39,33 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	//
 	// For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS , the field is used only for selecting events as filtering is not supported.
 	//
-	// For CloudTrail management events, supported fields include `readOnly` , `eventCategory` , and `eventSource` .
+	// For CloudTrail management events, supported fields include `eventCategory` (required), `eventSource` , and `readOnly` .
 	//
-	// For CloudTrail data events, supported fields include `readOnly` , `eventCategory` , `eventName` , `resources.type` , and `resources.ARN` .
+	// For CloudTrail data events, supported fields include `eventCategory` (required), `resources.type` (required), `eventName` , `readOnly` , and `resources.ARN` .
+	//
+	// For CloudTrail network activity events, supported fields include `eventCategory` (required), `eventSource` (required), `eventName` , `errorCode` , and `vpcEndpointId` .
 	//
 	// For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS , the only supported field is `eventCategory` .
 	//
-	// - *`readOnly`* - Optional. Can be set to `Equals` a value of `true` or `false` . If you do not add this field, CloudTrail logs both `read` and `write` events. A value of `true` logs only `read` events. A value of `false` logs only `write` events.
-	// - *`eventSource`* - For filtering management events only. This can be set to `NotEquals` `kms.amazonaws.com` or `NotEquals` `rdsdata.amazonaws.com` .
-	// - *`eventName`* - Can use any operator. You can use it to ﬁlter in or ﬁlter out any data event logged to CloudTrail, such as `PutBucket` or `GetSnapshotBlock` . You can have multiple values for this ﬁeld, separated by commas.
-	// - *`eventCategory`* - This is required and must be set to `Equals` .
+	// - *`readOnly`* - This is an optional field that is only used for management events and data events. This field can be set to `Equals` with a value of `true` or `false` . If you do not add this field, CloudTrail logs both `read` and `write` events. A value of `true` logs only `read` events. A value of `false` logs only `write` events.
+	// - *`eventSource`* - This field is only used for management events and network activity events.
+	//
+	// For management events, this is an optional field that can be set to `NotEquals` `kms.amazonaws.com` to exclude KMS management events, or `NotEquals` `rdsdata.amazonaws.com` to exclude RDS management events.
+	//
+	// For network activity events, this is a required field that only uses the `Equals` operator. Set this field to the event source for which you want to log network activity events. If you want to log network activity events for multiple event sources, you must create a separate field selector for each event source.
+	//
+	// The following are valid values for network activity events:
+	//
+	// - `cloudtrail.amazonaws.com`
+	// - `ec2.amazonaws.com`
+	// - `kms.amazonaws.com`
+	// - `secretsmanager.amazonaws.com`
+	// - *`eventName`* - This is an optional field that is only used for data events and network activity events. You can use any operator with `eventName` . You can use it to ﬁlter in or ﬁlter out specific events. You can have multiple values for this ﬁeld, separated by commas.
+	// - *`eventCategory`* - This field is required and must be set to `Equals` .
 	//
 	// - For CloudTrail management events, the value must be `Management` .
 	// - For CloudTrail data events, the value must be `Data` .
+	// - For CloudTrail network activity events, the value must be `NetworkActivity` .
 	//
 	// The following are used only for event data stores:
 	//
@@ -59,88 +73,18 @@ type CfnEventDataStore_AdvancedFieldSelectorProperty struct {
 	// - For AWS Config configuration items, the value must be `ConfigurationItem` .
 	// - For Audit Manager evidence, the value must be `Evidence` .
 	// - For non- AWS events, the value must be `ActivityAuditLog` .
-	// - *`resources.type`* - This ﬁeld is required for CloudTrail data events. `resources.type` can only use the `Equals` operator, and the value can be one of the following:
+	// - *`errorCode`* - This ﬁeld is only used to filter CloudTrail network activity events and is optional. This is the error code to filter on. Currently, the only valid `errorCode` is `VpceAccessDenied` . `errorCode` can only use the `Equals` operator.
+	// - *`resources.type`* - This ﬁeld is required for CloudTrail data events. `resources.type` can only use the `Equals` operator.
 	//
-	// - `AWS::AppConfig::Configuration`
-	// - `AWS::B2BI::Transformer`
-	// - `AWS::Bedrock::AgentAlias`
-	// - `AWS::Bedrock::FlowAlias`
-	// - `AWS::Bedrock::Guardrail`
-	// - `AWS::Bedrock::KnowledgeBase`
-	// - `AWS::Cassandra::Table`
-	// - `AWS::CloudFront::KeyValueStore`
-	// - `AWS::CloudTrail::Channel`
-	// - `AWS::CloudWatch::Metric`
-	// - `AWS::CodeWhisperer::Customization`
-	// - `AWS::CodeWhisperer::Profile`
-	// - `AWS::Cognito::IdentityPool`
-	// - `AWS::DynamoDB::Stream`
-	// - `AWS::DynamoDB::Table`
-	// - `AWS::EC2::Snapshot`
-	// - `AWS::EMRWAL::Workspace`
-	// - `AWS::FinSpace::Environment`
-	// - `AWS::Glue::Table`
-	// - `AWS::GreengrassV2::ComponentVersion`
-	// - `AWS::GreengrassV2::Deployment`
-	// - `AWS::GuardDuty::Detector`
-	// - `AWS::IoT::Certificate`
-	// - `AWS::IoT::Thing`
-	// - `AWS::IoTSiteWise::Asset`
-	// - `AWS::IoTSiteWise::TimeSeries`
-	// - `AWS::IoTTwinMaker::Entity`
-	// - `AWS::IoTTwinMaker::Workspace`
-	// - `AWS::KendraRanking::ExecutionPlan`
-	// - `AWS::Kinesis::Stream`
-	// - `AWS::Kinesis::StreamConsumer`
-	// - `AWS::KinesisVideo::Stream`
-	// - `AWS::Lambda::Function`
-	// - `AWS::MachineLearning::MlModel`
-	// - `AWS::ManagedBlockchain::Network`
-	// - `AWS::ManagedBlockchain::Node`
-	// - `AWS::MedicalImaging::Datastore`
-	// - `AWS::NeptuneGraph::Graph`
-	// - `AWS::One::UKey`
-	// - `AWS::One::User`
-	// - `AWS::PaymentCryptography::Alias`
-	// - `AWS::PaymentCryptography::Key`
-	// - `AWS::PCAConnectorAD::Connector`
-	// - `AWS::PCAConnectorSCEP::Connector`
-	// - `AWS::QApps:QApp`
-	// - `AWS::QBusiness::Application`
-	// - `AWS::QBusiness::DataSource`
-	// - `AWS::QBusiness::Index`
-	// - `AWS::QBusiness::WebExperience`
-	// - `AWS::RDS::DBCluster`
-	// - `AWS::RUM::AppMonitor`
-	// - `AWS::S3::AccessPoint`
-	// - `AWS::S3::Object`
-	// - `AWS::S3Express::Object`
-	// - `AWS::S3ObjectLambda::AccessPoint`
-	// - `AWS::S3Outposts::Object`
-	// - `AWS::SageMaker::Endpoint`
-	// - `AWS::SageMaker::ExperimentTrialComponent`
-	// - `AWS::SageMaker::FeatureGroup`
-	// - `AWS::ServiceDiscovery::Namespace`
-	// - `AWS::ServiceDiscovery::Service`
-	// - `AWS::SCN::Instance`
-	// - `AWS::SNS::PlatformEndpoint`
-	// - `AWS::SNS::Topic`
-	// - `AWS::SQS::Queue`
-	// - `AWS::SSM::ManagedNode`
-	// - `AWS::SSMMessages::ControlChannel`
-	// - `AWS::StepFunctions::StateMachine`
-	// - `AWS::SWF::Domain`
-	// - `AWS::ThinClient::Device`
-	// - `AWS::ThinClient::Environment`
-	// - `AWS::Timestream::Database`
-	// - `AWS::Timestream::Table`
-	// - `AWS::VerifiedPermissions::PolicyStore`
-	// - `AWS::XRay::Trace`
+	// For a list of available resource types for data events, see [Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) in the *AWS CloudTrail User Guide* .
 	//
-	// You can have only one `resources.type` ﬁeld per selector. To log data events on more than one resource type, add another selector.
-	// - *`resources.ARN`* - You can use any operator with `resources.ARN` , but if you use `Equals` or `NotEquals` , the value must exactly match the ARN of a valid resource of the type you've speciﬁed in the template as the value of resources.type. To log all data events for all objects in a specific S3 bucket, use the `StartsWith` operator, and include only the bucket ARN as the matching value. For information about filtering on the `resources.ARN` field, see [Filtering data events by resources.ARN](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/filtering-data-events.html#filtering-data-events-resourcearn) in the *AWS CloudTrail User Guide* .
+	// You can have only one `resources.type` ﬁeld per selector. To log events on more than one resource type, add another selector.
+	// - *`resources.ARN`* - The `resources.ARN` is an optional field for data events. You can use any operator with `resources.ARN` , but if you use `Equals` or `NotEquals` , the value must exactly match the ARN of a valid resource of the type you've speciﬁed in the template as the value of resources.type. To log all data events for all objects in a specific S3 bucket, use the `StartsWith` operator, and include only the bucket ARN as the matching value.
+	//
+	// For information about filtering data events on the `resources.ARN` field, see [Filtering data events by resources.ARN](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/filtering-data-events.html#filtering-data-events-resourcearn) in the *AWS CloudTrail User Guide* .
 	//
 	// > You can't use the `resources.ARN` field to filter resource types that do not have ARNs.
+	// - *`vpcEndpointId`* - This ﬁeld is only used to filter CloudTrail network activity events and is optional. This field identifies the VPC endpoint that the request passed through. You can use any operator with `vpcEndpointId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html#cfn-cloudtrail-eventdatastore-advancedfieldselector-field
 	//
 	Field *string `field:"required" json:"field" yaml:"field"`
