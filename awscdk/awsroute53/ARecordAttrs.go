@@ -9,6 +9,7 @@ import (
 // Example:
 //   var myZone hostedZone
 //
+//
 //   targetRecord := "existing.record.cdk.local"
 //   record := route53.ARecord_FromARecordAttributes(this, jsii.String("A"), &ARecordAttrs{
 //   	Zone: myZone,

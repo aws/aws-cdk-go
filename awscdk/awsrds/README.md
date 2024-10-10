@@ -1589,6 +1589,7 @@ The following example shows granting Data API access to a Lamba function.
 ```go
 var vpc vpc
 var fn function
+var secret secret
 
 
 // Create a serverless V1 cluster
@@ -1607,6 +1608,14 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseCluster
 	EnableDataApi: jsii.Boolean(true),
 })
 cluster.GrantDataApiAccess(fn)
+
+// Import an Aurora cluster
+importedCluster := rds.DatabaseCluster_FromDatabaseClusterAttributes(this, jsii.String("ImportedCluster"), &DatabaseClusterAttributes{
+	ClusterIdentifier: jsii.String("clusterIdentifier"),
+	Secret: Secret,
+	DataApiEnabled: jsii.Boolean(true),
+})
+importedCluster.GrantDataApiAccess(fn)
 ```
 
 **Note**: To invoke the Data API, the resource will need to read the secret associated with the cluster.

@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnDomainConfiguration) validateSetAuthorizerConfigParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomainConfiguration) validateSetClientCertificateConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDomainConfiguration_ClientCertificateConfigProperty:
+		val := val.(*CfnDomainConfiguration_ClientCertificateConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomainConfiguration_ClientCertificateConfigProperty:
+		val_ := val.(CfnDomainConfiguration_ClientCertificateConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomainConfiguration_ClientCertificateConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomainConfiguration) validateSetServerCertificateConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

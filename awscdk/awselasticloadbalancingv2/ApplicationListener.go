@@ -142,6 +142,12 @@ type ApplicationListener interface {
 	//
 	// Don't call this directly. It is called by ApplicationTargetGroup.
 	RegisterConnectable(connectable awsec2.IConnectable, portRange awsec2.Port)
+	// Remove an attribute from the listener.
+	RemoveAttribute(key *string)
+	// Set a non-standard attribute on the listener.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-listenerattribute.html
+	//
+	SetAttribute(key *string, value *string)
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Validate this listener.
@@ -486,6 +492,28 @@ func (a *jsiiProxy_ApplicationListener) RegisterConnectable(connectable awsec2.I
 		a,
 		"registerConnectable",
 		[]interface{}{connectable, portRange},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListener) RemoveAttribute(key *string) {
+	if err := a.validateRemoveAttributeParameters(key); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"removeAttribute",
+		[]interface{}{key},
+	)
+}
+
+func (a *jsiiProxy_ApplicationListener) SetAttribute(key *string, value *string) {
+	if err := a.validateSetAttributeParameters(key); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"setAttribute",
+		[]interface{}{key, value},
 	)
 }
 

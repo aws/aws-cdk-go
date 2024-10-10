@@ -52,12 +52,20 @@ package awsemr
 //   				},
 //   				EbsOptimized: jsii.Boolean(false),
 //   			},
+//   			Priority: jsii.Number(123),
 //   			WeightedCapacity: jsii.Number(123),
 //   		},
 //   	},
 //   	LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
 //   		OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
 //   			AllocationStrategy: jsii.String("allocationStrategy"),
+//
+//   			// the properties below are optional
+//   			CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   				CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   				CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   				UsageStrategy: jsii.String("usageStrategy"),
+//   			},
 //   		},
 //   		SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   			TimeoutAction: jsii.String("timeoutAction"),
@@ -69,6 +77,21 @@ package awsemr
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	ResizeSpecifications: &InstanceFleetResizingSpecificationsProperty{
+//   		OnDemandResizeSpecification: &OnDemandResizingSpecificationProperty{
+//   			AllocationStrategy: jsii.String("allocationStrategy"),
+//   			CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   				CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   				CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   				UsageStrategy: jsii.String("usageStrategy"),
+//   			},
+//   			TimeoutDurationMinutes: jsii.Number(123),
+//   		},
+//   		SpotResizeSpecification: &SpotResizingSpecificationProperty{
+//   			AllocationStrategy: jsii.String("allocationStrategy"),
+//   			TimeoutDurationMinutes: jsii.Number(123),
+//   		},
+//   	},
 //   	TargetOnDemandCapacity: jsii.Number(123),
 //   	TargetSpotCapacity: jsii.Number(123),
 //   }
@@ -100,6 +123,9 @@ type CfnInstanceFleetConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancefleetconfig.html#cfn-emr-instancefleetconfig-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancefleetconfig.html#cfn-emr-instancefleetconfig-resizespecifications
+	//
+	ResizeSpecifications interface{} `field:"optional" json:"resizeSpecifications" yaml:"resizeSpecifications"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	//
 	// When the instance fleet launches, Amazon EMR tries to provision On-Demand instances as specified by `InstanceTypeConfig` . Each instance configuration has a specified `WeightedCapacity` . When an On-Demand instance is provisioned, the `WeightedCapacity` units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a `WeightedCapacity` of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.

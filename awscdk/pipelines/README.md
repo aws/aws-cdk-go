@@ -432,7 +432,7 @@ You can use a zip file in S3 as the source of the pipeline. The pipeline will be
 triggered every time the file in S3 is changed:
 
 ```go
-bucket := s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("my-bucket"))
+bucket := s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("amzn-s3-demo-bucket"))
 pipelines.CodePipelineSource_S3(bucket, jsii.String("my/source.zip"))
 ```
 

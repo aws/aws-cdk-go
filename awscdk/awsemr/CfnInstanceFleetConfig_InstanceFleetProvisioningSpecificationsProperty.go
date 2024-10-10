@@ -13,6 +13,13 @@ package awsemr
 //   instanceFleetProvisioningSpecificationsProperty := &InstanceFleetProvisioningSpecificationsProperty{
 //   	OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
+//
+//   		// the properties below are optional
+//   		CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   			CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   			CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   			UsageStrategy: jsii.String("usageStrategy"),
+//   		},
 //   	},
 //   	SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   		TimeoutAction: jsii.String("timeoutAction"),

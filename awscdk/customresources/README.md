@@ -660,7 +660,7 @@ cr.NewAwsCustomResource(this, jsii.String("ListObjects"), &AwsCustomResourceProp
 		Service: jsii.String("s3"),
 		Action: jsii.String("ListObjectsV2"),
 		Parameters: map[string]*string{
-			"Bucket": jsii.String("my-bucket"),
+			"Bucket": jsii.String("amzn-s3-demo-bucket"),
 		},
 		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("id")),
 		OutputPaths: []*string{

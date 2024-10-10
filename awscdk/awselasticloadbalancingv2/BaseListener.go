@@ -60,6 +60,12 @@ type BaseListener interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Remove an attribute from the listener.
+	RemoveAttribute(key *string)
+	// Set a non-standard attribute on the listener.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-listenerattribute.html
+	//
+	SetAttribute(key *string, value *string)
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Validate this listener.
@@ -260,6 +266,28 @@ func (b *jsiiProxy_BaseListener) GetResourceNameAttribute(nameAttr *string) *str
 	)
 
 	return returns
+}
+
+func (b *jsiiProxy_BaseListener) RemoveAttribute(key *string) {
+	if err := b.validateRemoveAttributeParameters(key); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"removeAttribute",
+		[]interface{}{key},
+	)
+}
+
+func (b *jsiiProxy_BaseListener) SetAttribute(key *string, value *string) {
+	if err := b.validateSetAttributeParameters(key); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"setAttribute",
+		[]interface{}{key, value},
+	)
 }
 
 func (b *jsiiProxy_BaseListener) ToString() *string {

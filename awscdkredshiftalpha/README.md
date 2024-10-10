@@ -64,7 +64,7 @@ import s3 "github.com/aws/aws-cdk-go/awscdk"
 
 
 vpc := ec2.NewVpc(this, jsii.String("Vpc"))
-bucket := s3.Bucket_FromBucketName(this, jsii.String("bucket"), jsii.String("logging-bucket"))
+bucket := s3.Bucket_FromBucketName(this, jsii.String("bucket"), jsii.String("amzn-s3-demo-bucket"))
 
 cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
 	MasterUser: &Login{

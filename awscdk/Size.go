@@ -30,9 +30,7 @@ import (
 //   	Processor: lambdaProcessor,
 //   })
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destinations: []iDestination{
-//   		s3Destination,
-//   	},
+//   	Destination: s3Destination,
 //   })
 //
 type Size interface {

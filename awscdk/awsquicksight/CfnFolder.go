@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of the AWS::QuickSight::Folder Resource Type.
+// Creates an empty shared folder.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,11 +45,11 @@ type CfnFolder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// <p>The Amazon Resource Name (ARN) for the folder.</p>.
+	// The Amazon Resource Name (ARN) for the folder.
 	AttrArn() *string
-	// <p>The time that the folder was created.</p>.
+	// The time that the folder was created.
 	AttrCreatedTime() *string
-	// <p>The time that the folder was last updated.</p>.
+	// The time that the folder was last updated.
 	AttrLastUpdatedTime() *string
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
@@ -64,8 +64,10 @@ type CfnFolder interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The ID of the folder.
 	FolderId() *string
 	SetFolderId(val *string)
+	// The type of folder it is.
 	FolderType() *string
 	SetFolderType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -78,10 +80,12 @@ type CfnFolder interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// A display name for the folder.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The Amazon Resource Name (ARN) for the folder.
 	ParentFolderArn() *string
 	SetParentFolderArn(val *string)
 	Permissions() interface{}
@@ -91,6 +95,7 @@ type CfnFolder interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The sharing scope of the folder.
 	SharingModel() *string
 	SetSharingModel(val *string)
 	// The stack in which this element is defined.

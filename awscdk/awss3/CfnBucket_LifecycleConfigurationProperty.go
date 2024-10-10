@@ -73,14 +73,20 @@ package awss3
 //   			},
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	TransitionDefaultMinimumObjectSize: jsii.String("transitionDefaultMinimumObjectSize"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html
 //
 type CfnBucket_LifecycleConfigurationProperty struct {
-	// A lifecycle rule for individual objects in an Amazon S3 bucket.
+	// Specifies lifecycle configuration rules for an Amazon S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html#cfn-s3-bucket-lifecycleconfiguration-rules
 	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html#cfn-s3-bucket-lifecycleconfiguration-transitiondefaultminimumobjectsize
+	//
+	TransitionDefaultMinimumObjectSize *string `field:"optional" json:"transitionDefaultMinimumObjectSize" yaml:"transitionDefaultMinimumObjectSize"`
 }
 

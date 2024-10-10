@@ -12,6 +12,13 @@ package awsemr
 //
 //   onDemandProvisioningSpecificationProperty := &OnDemandProvisioningSpecificationProperty{
 //   	AllocationStrategy: jsii.String("allocationStrategy"),
+//
+//   	// the properties below are optional
+//   	CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   		CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   		CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   		UsageStrategy: jsii.String("usageStrategy"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandprovisioningspecification.html
@@ -23,5 +30,8 @@ type CfnInstanceFleetConfig_OnDemandProvisioningSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandprovisioningspecification.html#cfn-emr-instancefleetconfig-ondemandprovisioningspecification-allocationstrategy
 	//
 	AllocationStrategy *string `field:"required" json:"allocationStrategy" yaml:"allocationStrategy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandprovisioningspecification.html#cfn-emr-instancefleetconfig-ondemandprovisioningspecification-capacityreservationoptions
+	//
+	CapacityReservationOptions interface{} `field:"optional" json:"capacityReservationOptions" yaml:"capacityReservationOptions"`
 }
 

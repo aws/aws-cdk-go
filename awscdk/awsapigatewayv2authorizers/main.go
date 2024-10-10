@@ -11,6 +11,7 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpIamAuthorizer",
 		reflect.TypeOf((*HttpIamAuthorizer)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "authorizationType", GoGetter: "AuthorizationType"},
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {
@@ -23,6 +24,8 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpJwtAuthorizer",
 		reflect.TypeOf((*HttpJwtAuthorizer)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "authorizationType", GoGetter: "AuthorizationType"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {
@@ -39,6 +42,8 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpLambdaAuthorizer",
 		reflect.TypeOf((*HttpLambdaAuthorizer)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "authorizationType", GoGetter: "AuthorizationType"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {
@@ -63,6 +68,8 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpUserPoolAuthorizer",
 		reflect.TypeOf((*HttpUserPoolAuthorizer)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "authorizationType", GoGetter: "AuthorizationType"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {

@@ -8,36 +8,35 @@ import (
 // Properties that describe an existing cluster instance.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var clusterEngine iClusterEngine
+//   var vpc vpc
+//   var fn function
 //   var secret secret
-//   var securityGroup securityGroup
 //
-//   databaseClusterAttributes := &DatabaseClusterAttributes{
+//
+//   // Create a serverless V1 cluster
+//   serverlessV1Cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
+//   	Vpc: Vpc,
+//   	 // this parameter is optional for serverless Clusters
+//   	EnableDataApi: jsii.Boolean(true),
+//   })
+//   serverlessV1Cluster.grantDataApiAccess(fn)
+//
+//   // Create an Aurora cluster
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AURORA_MYSQL(),
+//   	Vpc: Vpc,
+//   	EnableDataApi: jsii.Boolean(true),
+//   })
+//   cluster.GrantDataApiAccess(fn)
+//
+//   // Import an Aurora cluster
+//   importedCluster := rds.DatabaseCluster_FromDatabaseClusterAttributes(this, jsii.String("ImportedCluster"), &DatabaseClusterAttributes{
 //   	ClusterIdentifier: jsii.String("clusterIdentifier"),
-//
-//   	// the properties below are optional
-//   	ClusterEndpointAddress: jsii.String("clusterEndpointAddress"),
-//   	ClusterResourceIdentifier: jsii.String("clusterResourceIdentifier"),
-//   	Engine: clusterEngine,
-//   	InstanceEndpointAddresses: []*string{
-//   		jsii.String("instanceEndpointAddresses"),
-//   	},
-//   	InstanceIdentifiers: []*string{
-//   		jsii.String("instanceIdentifiers"),
-//   	},
-//   	Port: jsii.Number(123),
-//   	ReaderEndpointAddress: jsii.String("readerEndpointAddress"),
-//   	Secret: secret,
-//   	SecurityGroups: []iSecurityGroup{
-//   		securityGroup,
-//   	},
-//   }
+//   	Secret: Secret,
+//   	DataApiEnabled: jsii.Boolean(true),
+//   })
+//   importedCluster.GrantDataApiAccess(fn)
 //
 type DatabaseClusterAttributes struct {
 	// Identifier for the cluster.
@@ -52,6 +51,10 @@ type DatabaseClusterAttributes struct {
 	// Default: none.
 	//
 	ClusterResourceIdentifier *string `field:"optional" json:"clusterResourceIdentifier" yaml:"clusterResourceIdentifier"`
+	// Whether the Data API for the cluster is enabled.
+	// Default: false.
+	//
+	DataApiEnabled *bool `field:"optional" json:"dataApiEnabled" yaml:"dataApiEnabled"`
 	// The engine of the existing Cluster.
 	// Default: - the imported Cluster's engine is unknown.
 	//

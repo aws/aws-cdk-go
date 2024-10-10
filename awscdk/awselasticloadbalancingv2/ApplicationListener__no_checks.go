@@ -36,6 +36,14 @@ func (a *jsiiProxy_ApplicationListener) validateRegisterConnectableParameters(co
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationListener) validateRemoveAttributeParameters(key *string) error {
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListener) validateSetAttributeParameters(key *string) error {
+	return nil
+}
+
 func validateApplicationListener_FromApplicationListenerAttributesParameters(scope constructs.Construct, id *string, attrs *ApplicationListenerAttributes) error {
 	return nil
 }

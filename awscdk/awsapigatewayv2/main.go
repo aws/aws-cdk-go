@@ -1100,6 +1100,7 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2.HttpNoneAuthorizer",
 		reflect.TypeOf((*HttpNoneAuthorizer)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "authorizationType", GoGetter: "AuthorizationType"},
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {

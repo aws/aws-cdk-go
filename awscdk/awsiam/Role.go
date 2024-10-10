@@ -94,15 +94,9 @@ type Role interface {
 	//
 	// If there is no default policy attached to this role, it will be created.
 	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
-	// Apply the given removal policy to this resource.
+	// Skip applyRemovalPolicy if role synthesis is prevented by customizeRoles.
 	//
-	// The Removal Policy controls what happens to this resource when it stops
-	// being managed by CloudFormation, either because you've removed it from the
-	// CDK application or because you've made a change that requires the resource
-	// to be replaced.
-	//
-	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
-	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	// Because in this case, this construct does not have a CfnResource in the tree.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attaches a policy to this role.
 	AttachInlinePolicy(policy Policy)

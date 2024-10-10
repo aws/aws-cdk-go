@@ -170,6 +170,17 @@ func LambdaInsightsVersion_VERSION_1_0_317_0() LambdaInsightsVersion {
 	return returns
 }
 
+func LambdaInsightsVersion_VERSION_1_0_333_0() LambdaInsightsVersion {
+	_init_.Initialize()
+	var returns LambdaInsightsVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.LambdaInsightsVersion",
+		"VERSION_1_0_333_0",
+		&returns,
+	)
+	return returns
+}
+
 func LambdaInsightsVersion_VERSION_1_0_54_0() LambdaInsightsVersion {
 	_init_.Initialize()
 	var returns LambdaInsightsVersion

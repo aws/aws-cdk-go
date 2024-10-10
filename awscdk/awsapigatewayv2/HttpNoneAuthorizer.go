@@ -64,6 +64,8 @@ import (
 //
 type HttpNoneAuthorizer interface {
 	IHttpRouteAuthorizer
+	// The authorizationType used for IAM Authorizer.
+	AuthorizationType() *string
 	// Bind this authorizer to a specified Http route.
 	Bind(_options *HttpRouteAuthorizerBindOptions) *HttpRouteAuthorizerConfig
 }
@@ -72,6 +74,17 @@ type HttpNoneAuthorizer interface {
 type jsiiProxy_HttpNoneAuthorizer struct {
 	jsiiProxy_IHttpRouteAuthorizer
 }
+
+func (j *jsiiProxy_HttpNoneAuthorizer) AuthorizationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authorizationType",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewHttpNoneAuthorizer() HttpNoneAuthorizer {
 	_init_.Initialize()

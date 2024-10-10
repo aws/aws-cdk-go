@@ -25,7 +25,7 @@ import (
 // - [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 //
 // Example:
-//   bucketName := "my-favorite-bucket-name"
+//   bucketName := "amzn-s3-demo-bucket"
 //   accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"), &BucketProps{
 //   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   	BucketName: jsii.String(BucketName),

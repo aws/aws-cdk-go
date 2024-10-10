@@ -97,7 +97,7 @@ type CfnGlobalCluster interface {
 	// Specifies whether to enable storage encryption for the new global database cluster.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
-	// An array of key-value pairs to apply to this resource.
+	// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

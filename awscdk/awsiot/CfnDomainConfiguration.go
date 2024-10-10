@@ -17,9 +17,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDomainConfiguration := awscdk.Aws_iot.NewCfnDomainConfiguration(this, jsii.String("MyCfnDomainConfiguration"), &CfnDomainConfigurationProps{
+//   	ApplicationProtocol: jsii.String("applicationProtocol"),
+//   	AuthenticationType: jsii.String("authenticationType"),
 //   	AuthorizerConfig: &AuthorizerConfigProperty{
 //   		AllowAuthorizerOverride: jsii.Boolean(false),
 //   		DefaultAuthorizerName: jsii.String("defaultAuthorizerName"),
+//   	},
+//   	ClientCertificateConfig: &ClientCertificateConfigProperty{
+//   		ClientCertificateCallbackArn: jsii.String("clientCertificateCallbackArn"),
 //   	},
 //   	DomainConfigurationName: jsii.String("domainConfigurationName"),
 //   	DomainConfigurationStatus: jsii.String("domainConfigurationStatus"),
@@ -49,6 +54,8 @@ type CfnDomainConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	ApplicationProtocol() *string
+	SetApplicationProtocol(val *string)
 	// The Amazon Resource Name (ARN) of the domain configuration.
 	AttrArn() *string
 	// The type of service delivered by the domain.
@@ -57,6 +64,8 @@ type CfnDomainConfiguration interface {
 	//
 	// Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 	AttrServerCertificates() awscdk.IResolvable
+	AuthenticationType() *string
+	SetAuthenticationType(val *string)
 	// An object that specifies the authorization service for a domain.
 	AuthorizerConfig() interface{}
 	SetAuthorizerConfig(val interface{})
@@ -65,6 +74,8 @@ type CfnDomainConfiguration interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	ClientCertificateConfig() interface{}
+	SetClientCertificateConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -266,6 +277,16 @@ type jsiiProxy_CfnDomainConfiguration struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnDomainConfiguration) ApplicationProtocol() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"applicationProtocol",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainConfiguration) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -291,6 +312,16 @@ func (j *jsiiProxy_CfnDomainConfiguration) AttrServerCertificates() awscdk.IReso
 	_jsii_.Get(
 		j,
 		"attrServerCertificates",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomainConfiguration) AuthenticationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authenticationType",
 		&returns,
 	)
 	return returns
@@ -331,6 +362,16 @@ func (j *jsiiProxy_CfnDomainConfiguration) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomainConfiguration) ClientCertificateConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"clientCertificateConfig",
 		&returns,
 	)
 	return returns
@@ -534,6 +575,22 @@ func NewCfnDomainConfiguration_Override(c CfnDomainConfiguration, scope construc
 	)
 }
 
+func (j *jsiiProxy_CfnDomainConfiguration)SetApplicationProtocol(val *string) {
+	_jsii_.Set(
+		j,
+		"applicationProtocol",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainConfiguration)SetAuthenticationType(val *string) {
+	_jsii_.Set(
+		j,
+		"authenticationType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDomainConfiguration)SetAuthorizerConfig(val interface{}) {
 	if err := j.validateSetAuthorizerConfigParameters(val); err != nil {
 		panic(err)
@@ -541,6 +598,17 @@ func (j *jsiiProxy_CfnDomainConfiguration)SetAuthorizerConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"authorizerConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainConfiguration)SetClientCertificateConfig(val interface{}) {
+	if err := j.validateSetClientCertificateConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"clientCertificateConfig",
 		val,
 	)
 }

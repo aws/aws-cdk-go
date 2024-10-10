@@ -82,6 +82,8 @@ package awsiotsitewise
 //
 type CfnAssetModel_AssetModelPropertyProperty struct {
 	// The data type of the asset model property.
+	//
+	// If you specify `STRUCT` , you must also specify `dataTypeSpec` to identify the type of the structure for this property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
 	//
 	DataType *string `field:"required" json:"dataType" yaml:"dataType"`

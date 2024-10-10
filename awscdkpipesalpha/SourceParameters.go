@@ -8,17 +8,15 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetFunction iFunction
+//   var targetStateMachine iStateMachine
 //
 //
-//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
-//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-//   		"body": jsii.String("👀"),
-//   	}),
+//   pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
+//   	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSomeSource(sourceQueue),
+//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 //   	Target: pipeTarget,
 //   })
 //

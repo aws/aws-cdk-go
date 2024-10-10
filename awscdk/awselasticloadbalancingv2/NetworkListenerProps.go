@@ -1,11 +1,15 @@
 package awselasticloadbalancingv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for a Network Listener attached to a Load Balancer.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var listenerCertificate listenerCertificate
@@ -28,6 +32,7 @@ package awselasticloadbalancingv2
 //   	},
 //   	Protocol: awscdk.*Aws_elasticloadbalancingv2.Protocol_HTTP,
 //   	SslPolicy: awscdk.*Aws_elasticloadbalancingv2.SslPolicy_RECOMMENDED_TLS,
+//   	TcpIdleTimeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   }
 //
 type NetworkListenerProps struct {
@@ -75,6 +80,10 @@ type NetworkListenerProps struct {
 	// Default: - Current predefined security policy.
 	//
 	SslPolicy SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
+	// The load balancer TCP idle timeout.
+	// Default: Duration.seconds(350)
+	//
+	TcpIdleTimeout awscdk.Duration `field:"optional" json:"tcpIdleTimeout" yaml:"tcpIdleTimeout"`
 	// The load balancer to attach this listener to.
 	LoadBalancer INetworkLoadBalancer `field:"required" json:"loadBalancer" yaml:"loadBalancer"`
 }

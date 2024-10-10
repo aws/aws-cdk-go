@@ -17,7 +17,7 @@ import (
 //   			EncryptionOption: tasks.EncryptionOption_S3_MANAGED,
 //   		},
 //   		OutputLocation: &Location{
-//   			BucketName: jsii.String("query-results-bucket"),
+//   			BucketName: jsii.String("amzn-s3-demo-bucket"),
 //   			ObjectKey: jsii.String("folder"),
 //   		},
 //   	},

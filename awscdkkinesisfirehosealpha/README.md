@@ -39,9 +39,7 @@ used as a destination. More supported destinations are covered [below](#destinat
 ```go
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destinations.NewS3Bucket(bucket),
-	},
+	Destination: destinations.NewS3Bucket(bucket),
 })
 ```
 
@@ -72,9 +70,7 @@ var destination iDestination
 sourceStream := kinesis.NewStream(this, jsii.String("Source Stream"))
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
 	SourceStream: sourceStream,
-	Destinations: []*iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 ```
 
@@ -112,9 +108,7 @@ var bucket bucket
 s3Destination := destinations.NewS3Bucket(bucket)
 
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		s3Destination,
-	},
+	Destination: s3Destination,
 })
 ```
 
@@ -165,23 +159,17 @@ var key key
 // SSE with an AWS-owned key
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream AWS Owned"), &DeliveryStreamProps{
 	Encryption: firehose.StreamEncryption_AwsOwnedKey(),
-	Destinations: []*iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 // SSE with an customer-managed key that is created automatically by the CDK
 // SSE with an customer-managed key that is created automatically by the CDK
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Implicit Customer Managed"), &DeliveryStreamProps{
 	Encryption: firehose.StreamEncryption_CustomerManagedKey(),
-	Destinations: []*iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Explicit Customer Managed"), &DeliveryStreamProps{
 	Encryption: firehose.StreamEncryption_*CustomerManagedKey(key),
-	Destinations: []*iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 ```
 
@@ -213,9 +201,7 @@ destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 })
 
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 ```
 
@@ -228,9 +214,7 @@ destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 	LoggingConfig: destinations.NewDisableLogging(),
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 ```
 
@@ -297,9 +281,7 @@ s3Destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 	Compression: destinations.Compression_SNAPPY(),
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		s3Destination,
-	},
+	Destination: s3Destination,
 })
 ```
 
@@ -321,9 +303,7 @@ destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 	BufferingSize: awscdk.Size_Mebibytes(jsii.Number(8)),
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 ```
 
@@ -341,9 +321,7 @@ destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 	BufferingInterval: awscdk.Duration_Seconds(jsii.Number(0)),
 })
 firehose.NewDeliveryStream(this, jsii.String("ZeroBufferDeliveryStream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 ```
 
@@ -367,9 +345,7 @@ destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 	EncryptionKey: key,
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destination,
-	},
+	Destination: destination,
 })
 ```
 
@@ -390,34 +366,31 @@ var bucket bucket
 var backupBucket bucket
 
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destinations.NewS3Bucket(bucket, &S3BucketProps{
-			S3Backup: &DestinationS3BackupProps{
-				Mode: destinations.BackupMode_ALL,
-			},
-		}),
-	},
+	Destination:
+	destinations.NewS3Bucket(bucket, &S3BucketProps{
+		S3Backup: &DestinationS3BackupProps{
+			Mode: destinations.BackupMode_ALL,
+		},
+	}),
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All Explicit Bucket"), &DeliveryStreamProps{
-	Destinations: []*iDestination{
-		destinations.NewS3Bucket(bucket, &S3BucketProps{
-			S3Backup: &DestinationS3BackupProps{
-				Bucket: backupBucket,
-			},
-		}),
-	},
+	Destination:
+	destinations.NewS3Bucket(bucket, &S3BucketProps{
+		S3Backup: &DestinationS3BackupProps{
+			Bucket: backupBucket,
+		},
+	}),
 })
 // Explicitly provide an S3 prefix under which all source records will be backed up.
 // Explicitly provide an S3 prefix under which all source records will be backed up.
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All Explicit Prefix"), &DeliveryStreamProps{
-	Destinations: []*iDestination{
-		destinations.NewS3Bucket(bucket, &S3BucketProps{
-			S3Backup: &DestinationS3BackupProps{
-				Mode: destinations.BackupMode_ALL,
-				DataOutputPrefix: jsii.String("mybackup"),
-			},
-		}),
-	},
+	Destination:
+	destinations.NewS3Bucket(bucket, &S3BucketProps{
+		S3Backup: &DestinationS3BackupProps{
+			Mode: destinations.BackupMode_ALL,
+			DataOutputPrefix: jsii.String("mybackup"),
+		},
+	}),
 })
 ```
 
@@ -470,9 +443,7 @@ s3Destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 	Processor: lambdaProcessor,
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		s3Destination,
-	},
+	Destination: s3Destination,
 })
 ```
 
@@ -523,39 +494,35 @@ backupKey := kms.NewKey(stack, jsii.String("BackupKey"), &KeyProps{
 })
 
 firehose.NewDeliveryStream(stack, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destinations.NewS3Bucket(bucket, &S3BucketProps{
-			LoggingConfig: destinations.NewEnableLogging(logGroup),
-			Processor: processor,
-			Compression: destinations.Compression_GZIP(),
-			DataOutputPrefix: jsii.String("regularPrefix"),
-			ErrorOutputPrefix: jsii.String("errorPrefix"),
+	Destination: destinations.NewS3Bucket(bucket, &S3BucketProps{
+		LoggingConfig: destinations.NewEnableLogging(logGroup),
+		Processor: processor,
+		Compression: destinations.Compression_GZIP(),
+		DataOutputPrefix: jsii.String("regularPrefix"),
+		ErrorOutputPrefix: jsii.String("errorPrefix"),
+		BufferingInterval: cdk.Duration_*Seconds(jsii.Number(60)),
+		BufferingSize: cdk.Size_*Mebibytes(jsii.Number(1)),
+		EncryptionKey: key,
+		S3Backup: &DestinationS3BackupProps{
+			Mode: destinations.BackupMode_ALL,
+			Bucket: backupBucket,
+			Compression: destinations.Compression_ZIP(),
+			DataOutputPrefix: jsii.String("backupPrefix"),
+			ErrorOutputPrefix: jsii.String("backupErrorPrefix"),
 			BufferingInterval: cdk.Duration_*Seconds(jsii.Number(60)),
 			BufferingSize: cdk.Size_*Mebibytes(jsii.Number(1)),
-			EncryptionKey: key,
-			S3Backup: &DestinationS3BackupProps{
-				Mode: destinations.BackupMode_ALL,
-				Bucket: backupBucket,
-				Compression: destinations.Compression_ZIP(),
-				DataOutputPrefix: jsii.String("backupPrefix"),
-				ErrorOutputPrefix: jsii.String("backupErrorPrefix"),
-				BufferingInterval: cdk.Duration_*Seconds(jsii.Number(60)),
-				BufferingSize: cdk.Size_*Mebibytes(jsii.Number(1)),
-				EncryptionKey: backupKey,
-			},
-		}),
-	},
+			EncryptionKey: backupKey,
+		},
+	}),
 })
 
 firehose.NewDeliveryStream(stack, jsii.String("ZeroBufferingDeliveryStream"), &DeliveryStreamProps{
-	Destinations: []*iDestination{
-		destinations.NewS3Bucket(bucket, &S3BucketProps{
-			Compression: destinations.Compression_GZIP(),
-			DataOutputPrefix: jsii.String("regularPrefix"),
-			ErrorOutputPrefix: jsii.String("errorPrefix"),
-			BufferingInterval: cdk.Duration_*Seconds(jsii.Number(0)),
-		}),
-	},
+	Destination: destinations.NewS3Bucket(bucket, &S3BucketProps{
+		Compression: destinations.Compression_GZIP(),
+		DataOutputPrefix: jsii.String("regularPrefix"),
+		ErrorOutputPrefix: jsii.String("errorPrefix"),
+		BufferingInterval: cdk.Duration_*Seconds(jsii.Number(0)),
+	}),
 })
 
 app.Synth()
@@ -598,9 +565,7 @@ destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
 	Role: destinationRole,
 })
 firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destination,
-	},
+	Destination: destination,
 	Role: deliveryStreamRole,
 })
 ```

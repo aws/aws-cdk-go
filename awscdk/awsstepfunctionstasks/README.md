@@ -270,7 +270,7 @@ detectLabels := tasks.NewCallAwsService(this, jsii.String("DetectLabels"), &Call
 				jsii.String("s3:getObject"),
 			},
 			Resources: []*string{
-				jsii.String("arn:aws:s3:::my-bucket/*"),
+				jsii.String("arn:aws:s3:::amzn-s3-demo-bucket/*"),
 			},
 		}),
 	},
@@ -319,7 +319,7 @@ startQueryExecutionJob := tasks.NewAthenaStartQueryExecution(this, jsii.String("
 			EncryptionOption: tasks.EncryptionOption_S3_MANAGED,
 		},
 		OutputLocation: &Location{
-			BucketName: jsii.String("query-results-bucket"),
+			BucketName: jsii.String("amzn-s3-demo-bucket"),
 			ObjectKey: jsii.String("folder"),
 		},
 	},
@@ -1680,7 +1680,7 @@ tasks.NewSageMakerCreateTrainingJob(this, jsii.String("TrainSagemaker"), &SageMa
 		},
 	},
 	OutputDataConfig: &OutputDataConfig{
-		S3OutputLocation: tasks.S3Location_FromBucket(s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("mybucket")), jsii.String("myoutputpath")),
+		S3OutputLocation: tasks.S3Location_FromBucket(s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("amzn-s3-demo-bucket")), jsii.String("myoutputpath")),
 	},
 	ResourceConfig: &ResourceConfig{
 		InstanceCount: jsii.Number(1),

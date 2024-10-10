@@ -10,6 +10,9 @@ package awscdk
 //
 //   cfnCustomResourceProps := &CfnCustomResourceProps{
 //   	ServiceToken: jsii.String("serviceToken"),
+//
+//   	// the properties below are optional
+//   	ServiceTimeout: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html
@@ -23,5 +26,11 @@ type CfnCustomResourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html#cfn-cloudformation-customresource-servicetoken
 	//
 	ServiceToken *string `field:"required" json:"serviceToken" yaml:"serviceToken"`
+	// The maximum time, in seconds, that can elapse before a custom resource operation times out.
+	//
+	// The value must be an integer from 1 to 3600. The default value is 3600 seconds (1 hour).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html#cfn-cloudformation-customresource-servicetimeout
+	//
+	ServiceTimeout *float64 `field:"optional" json:"serviceTimeout" yaml:"serviceTimeout"`
 }
 

@@ -8,9 +8,55 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-iot-alpha.AccountAuditConfiguration",
+		reflect.TypeOf((*AccountAuditConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accountId", GoGetter: "AccountId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AccountAuditConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccountAuditConfiguration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-alpha.AccountAuditConfigurationProps",
+		reflect.TypeOf((*AccountAuditConfigurationProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-iot-alpha.ActionConfig",
 		reflect.TypeOf((*ActionConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-alpha.CheckConfiguration",
+		reflect.TypeOf((*CheckConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-iot-alpha.IAccountAuditConfiguration",
+		reflect.TypeOf((*IAccountAuditConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accountId", GoGetter: "AccountId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAccountAuditConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-iot-alpha.IAction",

@@ -22,6 +22,9 @@ package awscdkclilibalpha
 //   	CustomPermissionsBoundary: jsii.String("customPermissionsBoundary"),
 //   	Debug: jsii.Boolean(false),
 //   	Ec2Creds: jsii.Boolean(false),
+//   	Environments: []*string{
+//   		jsii.String("environments"),
+//   	},
 //   	ExamplePermissionsBoundary: jsii.Boolean(false),
 //   	Execute: jsii.Boolean(false),
 //   	Force: jsii.Boolean(false),
@@ -190,6 +193,17 @@ type BootstrapOptions struct {
 	//
 	// Experimental.
 	CustomPermissionsBoundary *string `field:"optional" json:"customPermissionsBoundary" yaml:"customPermissionsBoundary"`
+	// The target AWS environments to deploy the bootstrap stack to.
+	//
+	// Uses the following format: `aws://<account-id>/<region>`.
+	//
+	// Example:
+	//   "aws://123456789012/us-east-1"
+	//
+	// Default: - Bootstrap all environments referenced in the CDK app or determine an environment from local configuration.
+	//
+	// Experimental.
+	Environments *[]*string `field:"optional" json:"environments" yaml:"environments"`
 	// Use the example permissions boundary.
 	// Default: undefined.
 	//

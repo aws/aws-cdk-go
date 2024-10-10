@@ -32,6 +32,8 @@ import (
 //
 type HttpIamAuthorizer interface {
 	awsapigatewayv2.IHttpRouteAuthorizer
+	// The authorizationType used for IAM Authorizer.
+	AuthorizationType() awsapigatewayv2.HttpAuthorizerType
 	// Bind this authorizer to a specified Http route.
 	Bind(_options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig
 }
@@ -40,6 +42,17 @@ type HttpIamAuthorizer interface {
 type jsiiProxy_HttpIamAuthorizer struct {
 	internal.Type__awsapigatewayv2IHttpRouteAuthorizer
 }
+
+func (j *jsiiProxy_HttpIamAuthorizer) AuthorizationType() awsapigatewayv2.HttpAuthorizerType {
+	var returns awsapigatewayv2.HttpAuthorizerType
+	_jsii_.Get(
+		j,
+		"authorizationType",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewHttpIamAuthorizer() HttpIamAuthorizer {
 	_init_.Initialize()

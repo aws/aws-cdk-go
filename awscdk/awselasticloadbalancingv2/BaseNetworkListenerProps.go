@@ -1,36 +1,39 @@
 package awselasticloadbalancingv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Basic properties for a Network Listener.
 //
 // Example:
-//   import elb "github.com/aws/aws-cdk-go/awscdk"
-//   import elb2 "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var clb loadBalancer
-//   var alb applicationLoadBalancer
-//   var nlb networkLoadBalancer
+//   var vpc vpc
+//   var asg autoScalingGroup
+//   var sg1 iSecurityGroup
+//   var sg2 iSecurityGroup
 //
 //
-//   albListener := alb.AddListener(jsii.String("ALBListener"), &BaseApplicationListenerProps{
-//   	Port: jsii.Number(80),
+//   // Create the load balancer in a VPC. 'internetFacing' is 'false'
+//   // by default, which creates an internal load balancer.
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+//   	Vpc: Vpc,
+//   	InternetFacing: jsii.Boolean(true),
+//   	SecurityGroups: []*iSecurityGroup{
+//   		sg1,
+//   	},
 //   })
-//   albTargetGroup := albListener.AddTargets(jsii.String("ALBFleet"), &AddApplicationTargetsProps{
-//   	Port: jsii.Number(80),
+//   lb.AddSecurityGroup(sg2)
+//
+//   // Add a listener on a particular port.
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(443),
 //   })
 //
-//   nlbListener := nlb.AddListener(jsii.String("NLBListener"), &BaseNetworkListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   nlbTargetGroup := nlbListener.AddTargets(jsii.String("NLBFleet"), &AddNetworkTargetsProps{
-//   	Port: jsii.Number(80),
-//   })
-//
-//   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("DeploymentGroup"), &ServerDeploymentGroupProps{
-//   	LoadBalancers: []loadBalancer{
-//   		codedeploy.*loadBalancer_Classic(clb),
-//   		codedeploy.*loadBalancer_Application(albTargetGroup),
-//   		codedeploy.*loadBalancer_Network(nlbTargetGroup),
+//   // Add targets on a particular port.
+//   listener.AddTargets(jsii.String("AppFleet"), &AddNetworkTargetsProps{
+//   	Port: jsii.Number(443),
+//   	Targets: []iNetworkLoadBalancerTarget{
+//   		asg,
 //   	},
 //   })
 //
@@ -79,5 +82,9 @@ type BaseNetworkListenerProps struct {
 	// Default: - Current predefined security policy.
 	//
 	SslPolicy SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
+	// The load balancer TCP idle timeout.
+	// Default: Duration.seconds(350)
+	//
+	TcpIdleTimeout awscdk.Duration `field:"optional" json:"tcpIdleTimeout" yaml:"tcpIdleTimeout"`
 }
 

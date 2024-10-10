@@ -19,17 +19,18 @@ import (
 // by passing it in the `next` property.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var lb networkLoadBalancer
+//   var group networkTargetGroup
 //
-//   var networkTargetGroup networkTargetGroup
 //
-//   networkListenerAction := awscdk.Aws_elasticloadbalancingv2.NetworkListenerAction_Forward([]iNetworkTargetGroup{
-//   	networkTargetGroup,
-//   }, &NetworkForwardOptions{
-//   	StickinessDuration: cdk.Duration_Minutes(jsii.Number(30)),
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(80),
+//   	DefaultAction: elbv2.NetworkListenerAction_Forward([]iNetworkTargetGroup{
+//   		group,
+//   	}),
+//
+//   	// The tcp idle timeout value. The valid range is 60-6000 seconds. The default is 350 seconds.
+//   	TcpIdleTimeout: awscdk.Duration_Seconds(jsii.Number(100)),
 //   })
 //
 type NetworkListenerAction interface {

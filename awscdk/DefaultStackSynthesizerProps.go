@@ -6,7 +6,7 @@ package awscdk
 // Example:
 //   NewMyStack(app, jsii.String("MyStack"), &stackProps{
 //   	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
-//   		FileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),
+//   		FileAssetsBucketName: jsii.String("amzn-s3-demo-bucket"),
 //   	}),
 //   })
 //

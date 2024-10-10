@@ -114,7 +114,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 var fn function
 
 
-bucket := s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("bucket-name"))
+bucket := s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("amzn-s3-demo-bucket"))
 
 fn.AddEventSource(awscdk.NewS3EventSourceV2(bucket, &S3EventSourceProps{
 	Events: []eventType{

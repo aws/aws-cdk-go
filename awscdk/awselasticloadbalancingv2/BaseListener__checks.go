@@ -42,6 +42,22 @@ func (b *jsiiProxy_BaseListener) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
+func (b *jsiiProxy_BaseListener) validateRemoveAttributeParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (b *jsiiProxy_BaseListener) validateSetAttributeParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateBaseListener_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

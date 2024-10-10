@@ -20,6 +20,9 @@ import (
 //
 //   cfnCustomResource := cdk.NewCfnCustomResource(this, jsii.String("MyCfnCustomResource"), &CfnCustomResourceProps{
 //   	ServiceToken: jsii.String("serviceToken"),
+//
+//   	// the properties below are optional
+//   	ServiceTimeout: jsii.Number(123),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html
@@ -54,6 +57,9 @@ type CfnCustomResource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The maximum time, in seconds, that can elapse before a custom resource operation times out.
+	ServiceTimeout() *float64
+	SetServiceTimeout(val *float64)
 	// The service token, such as an Amazon SNS topic ARN or Lambda function ARN.
 	ServiceToken() *string
 	SetServiceToken(val *string)
@@ -287,6 +293,16 @@ func (j *jsiiProxy_CfnCustomResource) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomResource) ServiceTimeout() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"serviceTimeout",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomResource) ServiceToken() *string {
 	var returns *string
 	_jsii_.Get(
@@ -352,6 +368,14 @@ func NewCfnCustomResource_Override(c CfnCustomResource, scope constructs.Constru
 		"aws-cdk-lib.CfnCustomResource",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomResource)SetServiceTimeout(val *float64) {
+	_jsii_.Set(
+		j,
+		"serviceTimeout",
+		val,
 	)
 }
 

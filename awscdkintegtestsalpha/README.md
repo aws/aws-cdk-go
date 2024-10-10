@@ -571,11 +571,11 @@ var integ integTest
 
 
 integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("putObject"), map[string]*string{
-	"Bucket": jsii.String("my-bucket"),
+	"Bucket": jsii.String("amzn-s3-demo-bucket"),
 	"Key": jsii.String("my-key"),
 	"Body": jsii.String("helloWorld"),
 }).Next(integ.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("getObject"), map[string]*string{
-	"Bucket": jsii.String("my-bucket"),
+	"Bucket": jsii.String("amzn-s3-demo-bucket"),
 	"Key": jsii.String("my-key"),
 }))
 ```

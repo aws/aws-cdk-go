@@ -14,20 +14,25 @@ import (
 // A new Amazon SQS queue.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   import redshiftserverless "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var workgroup cfnWorkgroup
 //
 //
-//   pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
-//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-//   		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
-//   	}),
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSomeSource(sourceQueue),
-//   	Target: pipeTarget,
-//   })
+//   dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
+//
+//   rule.AddTarget(targets.NewRedshiftQuery(workgroup.AttrWorkgroupWorkgroupArn, &RedshiftQueryProps{
+//   	Database: jsii.String("dev"),
+//   	DeadLetterQueue: dlq,
+//   	Sql: []*string{
+//   		jsii.String("SELECT * FROM foo"),
+//   		jsii.String("SELECT * FROM baz"),
+//   	},
+//   }))
 //
 type Queue interface {
 	QueueBase

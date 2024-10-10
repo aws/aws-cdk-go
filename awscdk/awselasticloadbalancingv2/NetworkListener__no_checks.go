@@ -32,6 +32,14 @@ func (n *jsiiProxy_NetworkListener) validateGetResourceNameAttributeParameters(n
 	return nil
 }
 
+func (n *jsiiProxy_NetworkListener) validateRemoveAttributeParameters(key *string) error {
+	return nil
+}
+
+func (n *jsiiProxy_NetworkListener) validateSetAttributeParameters(key *string) error {
+	return nil
+}
+
 func validateNetworkListener_FromLookupParameters(scope constructs.Construct, id *string, options *NetworkListenerLookupOptions) error {
 	return nil
 }

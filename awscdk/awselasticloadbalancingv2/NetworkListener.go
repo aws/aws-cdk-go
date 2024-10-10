@@ -123,6 +123,12 @@ type NetworkListener interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Remove an attribute from the listener.
+	RemoveAttribute(key *string)
+	// Set a non-standard attribute on the listener.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-listenerattribute.html
+	//
+	SetAttribute(key *string, value *string)
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Validate this listener.
@@ -442,6 +448,28 @@ func (n *jsiiProxy_NetworkListener) GetResourceNameAttribute(nameAttr *string) *
 	)
 
 	return returns
+}
+
+func (n *jsiiProxy_NetworkListener) RemoveAttribute(key *string) {
+	if err := n.validateRemoveAttributeParameters(key); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"removeAttribute",
+		[]interface{}{key},
+	)
+}
+
+func (n *jsiiProxy_NetworkListener) SetAttribute(key *string, value *string) {
+	if err := n.validateSetAttributeParameters(key); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"setAttribute",
+		[]interface{}{key, value},
+	)
 }
 
 func (n *jsiiProxy_NetworkListener) ToString() *string {

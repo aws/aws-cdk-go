@@ -939,3 +939,16 @@ rule.AddTarget(targets.NewAppSync(api, &AppSyncGraphQLApiProps{
 	}),
 }))
 ```
+
+## Owner Contact
+
+You can set the owner contact information for an API resource.
+This field accepts any string input with a length of 0 - 256 characters.
+
+```go
+api := appsync.NewGraphqlApi(this, jsii.String("OwnerContact"), &GraphqlApiProps{
+	Name: jsii.String("OwnerContact"),
+	Definition: appsync.Definition_FromSchema(appsync.SchemaFile_FromAsset(path.join(__dirname, jsii.String("appsync.test.graphql")))),
+	OwnerContact: jsii.String("test-owner-contact"),
+})
+```

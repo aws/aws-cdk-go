@@ -1,0 +1,24 @@
+package awsemr
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   spotResizingSpecificationProperty := &SpotResizingSpecificationProperty{
+//   	AllocationStrategy: jsii.String("allocationStrategy"),
+//   	TimeoutDurationMinutes: jsii.Number(123),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-spotresizingspecification.html
+//
+type CfnCluster_SpotResizingSpecificationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-spotresizingspecification.html#cfn-emr-cluster-spotresizingspecification-allocationstrategy
+	//
+	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-spotresizingspecification.html#cfn-emr-cluster-spotresizingspecification-timeoutdurationminutes
+	//
+	TimeoutDurationMinutes *float64 `field:"optional" json:"timeoutDurationMinutes" yaml:"timeoutDurationMinutes"`
+}
+

@@ -40,21 +40,26 @@ type CfnFolderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-awsaccountid
 	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
+	// The ID of the folder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-folderid
 	//
 	FolderId *string `field:"optional" json:"folderId" yaml:"folderId"`
+	// The type of folder it is.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-foldertype
 	//
 	FolderType *string `field:"optional" json:"folderType" yaml:"folderType"`
+	// A display name for the folder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The Amazon Resource Name (ARN) for the folder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-parentfolderarn
 	//
 	ParentFolderArn *string `field:"optional" json:"parentFolderArn" yaml:"parentFolderArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-permissions
 	//
 	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
+	// The sharing scope of the folder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-sharingmodel
 	//
 	SharingModel *string `field:"optional" json:"sharingModel" yaml:"sharingModel"`

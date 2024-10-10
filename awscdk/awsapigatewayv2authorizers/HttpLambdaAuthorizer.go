@@ -35,6 +35,10 @@ import (
 //
 type HttpLambdaAuthorizer interface {
 	awsapigatewayv2.IHttpRouteAuthorizer
+	// The authorizationType used for Lambda Authorizer.
+	AuthorizationType() *string
+	// Return the id of the authorizer if it's been constructed.
+	AuthorizerId() *string
 	// Bind this authorizer to a specified Http route.
 	Bind(options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig
 }
@@ -43,6 +47,27 @@ type HttpLambdaAuthorizer interface {
 type jsiiProxy_HttpLambdaAuthorizer struct {
 	internal.Type__awsapigatewayv2IHttpRouteAuthorizer
 }
+
+func (j *jsiiProxy_HttpLambdaAuthorizer) AuthorizationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authorizationType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpLambdaAuthorizer) AuthorizerId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authorizerId",
+		&returns,
+	)
+	return returns
+}
+
 
 // Initialize a lambda authorizer to be bound with HTTP route.
 func NewHttpLambdaAuthorizer(id *string, handler awslambda.IFunction, props *HttpLambdaAuthorizerProps) HttpLambdaAuthorizer {

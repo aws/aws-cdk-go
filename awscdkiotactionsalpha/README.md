@@ -251,9 +251,7 @@ import destinations "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinations
 
 bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 stream := firehose.NewDeliveryStream(this, jsii.String("MyStream"), &DeliveryStreamProps{
-	Destinations: []iDestination{
-		destinations.NewS3Bucket(bucket),
-	},
+	Destination: destinations.NewS3Bucket(bucket),
 })
 
 topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{

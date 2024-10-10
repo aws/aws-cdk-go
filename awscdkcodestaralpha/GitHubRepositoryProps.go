@@ -18,7 +18,7 @@ import (
 //   	AccessToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token"), &SecretsManagerSecretOptions{
 //   		JsonField: jsii.String("token"),
 //   	}),
-//   	ContentsBucket: s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("bucket-name")),
+//   	ContentsBucket: s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("amzn-s3-demo-bucket")),
 //   	ContentsKey: jsii.String("import.zip"),
 //   })
 //

@@ -95,3 +95,52 @@ iot.NewLogging(this, jsii.String("Logging"), &LoggingProps{
 ```
 
 **Note**: All logs are forwarded to the `AWSIotLogsV2` log group in CloudWatch.
+
+## Audit
+
+An [AWS IoT Device Defender audit looks](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/device-defender-audit.html) at account- and device-related settings and policies to ensure security measures are in place.
+An audit can help you detect any drifts from security best practices or access policies.
+
+### Account Audit Configuration
+
+The IoT audit includes [various audit checks](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/device-defender-audit-checks.html), and it is necessary to configure settings to enable those checks.
+
+You can enable an account audit configuration with the following code:
+
+```go
+// Audit notification are sent to the SNS topic
+var targetTopic iTopic
+
+
+iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &AccountAuditConfigurationProps{
+	TargetTopic: TargetTopic,
+})
+```
+
+By default, all audit checks are enabled, but it is also possible to enable only specific audit checks.
+
+```go
+iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &AccountAuditConfigurationProps{
+	CheckConfiguration: &CheckConfiguration{
+		// enabled
+		AuthenticatedCognitoRoleOverlyPermissiveCheck: jsii.Boolean(true),
+		// enabled by default
+		CaCertificateExpiringCheck: undefined,
+		// disabled
+		CaCertificateKeyQualityCheck: jsii.Boolean(false),
+		ConflictingClientIdsCheck: jsii.Boolean(false),
+		DeviceCertificateExpiringCheck: jsii.Boolean(false),
+		DeviceCertificateKeyQualityCheck: jsii.Boolean(false),
+		DeviceCertificateSharedCheck: jsii.Boolean(false),
+		IntermediateCaRevokedForActiveDeviceCertificatesCheck: jsii.Boolean(false),
+		IoTPolicyPotentialMisConfigurationCheck: jsii.Boolean(false),
+		IotPolicyOverlyPermissiveCheck: jsii.Boolean(false),
+		IotRoleAliasAllowsAccessToUnusedServicesCheck: jsii.Boolean(false),
+		IotRoleAliasOverlyPermissiveCheck: jsii.Boolean(false),
+		LoggingDisabledCheck: jsii.Boolean(false),
+		RevokedCaCertificateStillActiveCheck: jsii.Boolean(false),
+		RevokedDeviceCertificateStillActiveCheck: jsii.Boolean(false),
+		UnauthenticatedCognitoRoleOverlyPermissiveCheck: jsii.Boolean(false),
+	},
+})
+```

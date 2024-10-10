@@ -31,6 +31,10 @@ import (
 //
 type HttpUserPoolAuthorizer interface {
 	awsapigatewayv2.IHttpRouteAuthorizer
+	// The authorizationType used for UserPool Authorizer.
+	AuthorizationType() *string
+	// Return the id of the authorizer if it's been constructed.
+	AuthorizerId() *string
 	// Bind this authorizer to a specified Http route.
 	Bind(options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig
 }
@@ -39,6 +43,27 @@ type HttpUserPoolAuthorizer interface {
 type jsiiProxy_HttpUserPoolAuthorizer struct {
 	internal.Type__awsapigatewayv2IHttpRouteAuthorizer
 }
+
+func (j *jsiiProxy_HttpUserPoolAuthorizer) AuthorizationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authorizationType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpUserPoolAuthorizer) AuthorizerId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authorizerId",
+		&returns,
+	)
+	return returns
+}
+
 
 // Initialize a Cognito user pool authorizer to be bound with HTTP route.
 func NewHttpUserPoolAuthorizer(id *string, pool awscognito.IUserPool, props *HttpUserPoolAuthorizerProps) HttpUserPoolAuthorizer {

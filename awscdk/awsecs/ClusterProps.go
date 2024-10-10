@@ -7,43 +7,30 @@ import (
 // The properties used to define an ECS cluster.
 //
 // Example:
-//   var vpc vpc
-//
-//
-//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+//   vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
+//   	IsDefault: jsii.Boolean(true),
+//   })
+//   cluster := ecs.NewCluster(this, jsii.String("ECSCluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
 //
-//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
-//   	Vpc: Vpc,
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-//   	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(),
-//   	MinCapacity: jsii.Number(0),
-//   	MaxCapacity: jsii.Number(100),
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
+//   	Compatibility: ecs.Compatibility_FARGATE,
+//   	Cpu: jsii.String("256"),
+//   	MemoryMiB: jsii.String("512"),
 //   })
 //
-//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
-//   	AutoScalingGroup: AutoScalingGroup,
-//   	InstanceWarmupPeriod: jsii.Number(300),
-//   })
-//   cluster.AddAsgCapacityProvider(capacityProvider)
-//
-//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
-//
-//   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	MemoryReservationMiB: jsii.Number(256),
+//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
 //   })
 //
-//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
+//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
+//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	CapacityProviderStrategies: []capacityProviderStrategy{
-//   		&capacityProviderStrategy{
-//   			CapacityProvider: capacityProvider.CapacityProviderName,
-//   			Weight: jsii.Number(1),
-//   		},
-//   	},
+//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
+//   	Cpu: jsii.String("1024"),
+//   	MemoryMiB: jsii.String("1048"),
 //   })
 //
 type ClusterProps struct {
@@ -72,6 +59,10 @@ type ClusterProps struct {
 	// Default: - no configuration will be provided.
 	//
 	ExecuteCommandConfiguration *ExecuteCommandConfiguration `field:"optional" json:"executeCommandConfiguration" yaml:"executeCommandConfiguration"`
+	// Encryption configuration for ECS Managed storage.
+	// Default: - no encryption will be applied.
+	//
+	ManagedStorageConfiguration *ManagedStorageConfiguration `field:"optional" json:"managedStorageConfiguration" yaml:"managedStorageConfiguration"`
 	// The VPC where your ECS instances will be running or your ENIs will be deployed.
 	// Default: - creates a new VPC with two AZs.
 	//

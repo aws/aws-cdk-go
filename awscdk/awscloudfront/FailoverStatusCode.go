@@ -10,7 +10,7 @@ package awscloudfront
 //   	OriginConfigs: []sourceConfiguration{
 //   		&sourceConfiguration{
 //   			S3OriginSource: &S3OriginConfig{
-//   				S3BucketSource: s3.Bucket_FromBucketName(this, jsii.String("aBucket"), jsii.String("myoriginbucket")),
+//   				S3BucketSource: s3.Bucket_FromBucketName(this, jsii.String("aBucket"), jsii.String("amzn-s3-demo-bucket")),
 //   				OriginPath: jsii.String("/"),
 //   				OriginHeaders: map[string]*string{
 //   					"myHeader": jsii.String("42"),
@@ -18,7 +18,7 @@ package awscloudfront
 //   				OriginShieldRegion: jsii.String("us-west-2"),
 //   			},
 //   			FailoverS3OriginSource: &S3OriginConfig{
-//   				S3BucketSource: s3.Bucket_*FromBucketName(this, jsii.String("aBucketFallback"), jsii.String("myoriginbucketfallback")),
+//   				S3BucketSource: s3.Bucket_*FromBucketName(this, jsii.String("aBucketFallback"), jsii.String("amzn-s3-demo-bucket1")),
 //   				OriginPath: jsii.String("/somewhere"),
 //   				OriginHeaders: map[string]*string{
 //   					"myHeader2": jsii.String("21"),

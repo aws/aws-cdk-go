@@ -88,6 +88,19 @@ cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 })
 ```
 
+To encrypt the fargate ephemeral storage configure a KMS key.
+
+```go
+var key key
+
+
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	ManagedStorageConfiguration: &ManagedStorageConfiguration{
+		FargateEphemeralStorageKmsKey: key,
+	},
+})
+```
+
 The following code imports an existing cluster using the ARN which can be used to
 import an Amazon ECS service either EC2 or Fargate.
 
@@ -1752,7 +1765,7 @@ to work, you need to have the SSM plugin for the AWS CLI installed locally. For 
 [Install Session Manager plugin for AWS CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html).
 
 To enable the ECS Exec feature for your containers, set the boolean flag `enableExecuteCommand` to `true` in
-your `Ec2Service` or `FargateService`.
+your `Ec2Service`, `FargateService` or `ExternalService`.
 
 ```go
 var cluster cluster

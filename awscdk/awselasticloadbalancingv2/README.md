@@ -440,6 +440,26 @@ lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancer
 })
 ```
 
+### Network Load Balancer Listener attributes
+
+You can modify attributes of Network Load Balancer Listener:
+
+```go
+var lb networkLoadBalancer
+var group networkTargetGroup
+
+
+listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+	Port: jsii.Number(80),
+	DefaultAction: elbv2.NetworkListenerAction_Forward([]iNetworkTargetGroup{
+		group,
+	}),
+
+	// The tcp idle timeout value. The valid range is 60-6000 seconds. The default is 350 seconds.
+	TcpIdleTimeout: awscdk.Duration_Seconds(jsii.Number(100)),
+})
+```
+
 ## Targets and Target Groups
 
 Application and Network Load Balancers organize load balancing targets in Target

@@ -48,6 +48,7 @@ package awsemr
 //   		},
 //   		EbsOptimized: jsii.Boolean(false),
 //   	},
+//   	Priority: jsii.Number(123),
 //   	WeightedCapacity: jsii.Number(123),
 //   }
 //
@@ -82,6 +83,9 @@ type CfnCluster_InstanceTypeConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancetypeconfig.html#cfn-emr-cluster-instancetypeconfig-ebsconfiguration
 	//
 	EbsConfiguration interface{} `field:"optional" json:"ebsConfiguration" yaml:"ebsConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancetypeconfig.html#cfn-emr-cluster-instancetypeconfig-priority
+	//
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `InstanceFleetConfig` .
 	//
 	// This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.

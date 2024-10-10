@@ -112,6 +112,22 @@ func (a *jsiiProxy_ApplicationListener) validateRegisterConnectableParameters(co
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationListener) validateRemoveAttributeParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (a *jsiiProxy_ApplicationListener) validateSetAttributeParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateApplicationListener_FromApplicationListenerAttributesParameters(scope constructs.Construct, id *string, attrs *ApplicationListenerAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

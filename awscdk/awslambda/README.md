@@ -303,7 +303,7 @@ resource policy.
 var fn function
 
 servicePrincipal := iam.NewServicePrincipal(jsii.String("my-service"))
-sourceArn := "arn:aws:s3:::my-bucket"
+sourceArn := "arn:aws:s3:::amzn-s3-demo-bucket"
 sourceAccount := "111122223333"
 servicePrincipalWithConditions := servicePrincipal.WithConditions(map[string]interface{}{
 	"ArnLike": map[string]*string{

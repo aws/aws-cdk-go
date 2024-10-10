@@ -146,7 +146,7 @@ a stack with a synthesizer, pass it as one of its properties:
 ```go
 NewMyStack(app, jsii.String("MyStack"), &stackProps{
 	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
-		FileAssetsBucketName: jsii.String("my-orgs-asset-bucket"),
+		FileAssetsBucketName: jsii.String("amzn-s3-demo-bucket"),
 	}),
 })
 ```
@@ -1173,7 +1173,7 @@ The `CfnResource` class allows emitting arbitrary entries in the
 awscdk.NewCfnResource(this, jsii.String("ResourceId"), &cfnResourceProps{
 	Type: jsii.String("AWS::S3::Bucket"),
 	Properties: map[string]interface{}{
-		"BucketName": jsii.String("bucket-name"),
+		"BucketName": jsii.String("amzn-s3-demo-bucket"),
 	},
 })
 ```
@@ -1195,7 +1195,7 @@ awscdk.NewCfnInclude(this, jsii.String("ID"), &cfnIncludeProps{
 			"Bucket": map[string]interface{}{
 				"Type": jsii.String("AWS::S3::Bucket"),
 				"Properties": map[string]*string{
-					"BucketName": jsii.String("my-shiny-bucket"),
+					"BucketName": jsii.String("amzn-s3-demo-bucket"),
 				},
 			},
 		},

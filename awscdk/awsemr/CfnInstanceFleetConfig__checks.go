@@ -279,6 +279,30 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetLaunchSpecificationsParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetResizeSpecificationsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnInstanceFleetConfig_InstanceFleetResizingSpecificationsProperty:
+		val := val.(*CfnInstanceFleetConfig_InstanceFleetResizingSpecificationsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnInstanceFleetConfig_InstanceFleetResizingSpecificationsProperty:
+		val_ := val.(CfnInstanceFleetConfig_InstanceFleetResizingSpecificationsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInstanceFleetConfig_InstanceFleetResizingSpecificationsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnInstanceFleetConfigParameters(scope constructs.Construct, id *string, props *CfnInstanceFleetConfigProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

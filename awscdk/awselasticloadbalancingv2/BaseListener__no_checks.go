@@ -16,6 +16,14 @@ func (b *jsiiProxy_BaseListener) validateGetResourceNameAttributeParameters(name
 	return nil
 }
 
+func (b *jsiiProxy_BaseListener) validateRemoveAttributeParameters(key *string) error {
+	return nil
+}
+
+func (b *jsiiProxy_BaseListener) validateSetAttributeParameters(key *string) error {
+	return nil
+}
+
 func validateBaseListener_IsConstructParameters(x interface{}) error {
 	return nil
 }

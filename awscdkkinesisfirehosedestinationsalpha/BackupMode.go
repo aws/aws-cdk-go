@@ -10,34 +10,31 @@ package awscdkkinesisfirehosedestinationsalpha
 //   var backupBucket bucket
 //
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All"), &DeliveryStreamProps{
-//   	Destinations: []iDestination{
-//   		destinations.NewS3Bucket(bucket, &S3BucketProps{
-//   			S3Backup: &DestinationS3BackupProps{
-//   				Mode: destinations.BackupMode_ALL,
-//   			},
-//   		}),
-//   	},
+//   	Destination:
+//   	destinations.NewS3Bucket(bucket, &S3BucketProps{
+//   		S3Backup: &DestinationS3BackupProps{
+//   			Mode: destinations.BackupMode_ALL,
+//   		},
+//   	}),
 //   })
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All Explicit Bucket"), &DeliveryStreamProps{
-//   	Destinations: []*iDestination{
-//   		destinations.NewS3Bucket(bucket, &S3BucketProps{
-//   			S3Backup: &DestinationS3BackupProps{
-//   				Bucket: backupBucket,
-//   			},
-//   		}),
-//   	},
+//   	Destination:
+//   	destinations.NewS3Bucket(bucket, &S3BucketProps{
+//   		S3Backup: &DestinationS3BackupProps{
+//   			Bucket: backupBucket,
+//   		},
+//   	}),
 //   })
 //   // Explicitly provide an S3 prefix under which all source records will be backed up.
 //   // Explicitly provide an S3 prefix under which all source records will be backed up.
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Backup All Explicit Prefix"), &DeliveryStreamProps{
-//   	Destinations: []*iDestination{
-//   		destinations.NewS3Bucket(bucket, &S3BucketProps{
-//   			S3Backup: &DestinationS3BackupProps{
-//   				Mode: destinations.BackupMode_ALL,
-//   				DataOutputPrefix: jsii.String("mybackup"),
-//   			},
-//   		}),
-//   	},
+//   	Destination:
+//   	destinations.NewS3Bucket(bucket, &S3BucketProps{
+//   		S3Backup: &DestinationS3BackupProps{
+//   			Mode: destinations.BackupMode_ALL,
+//   			DataOutputPrefix: jsii.String("mybackup"),
+//   		},
+//   	}),
 //   })
 //
 // Experimental.

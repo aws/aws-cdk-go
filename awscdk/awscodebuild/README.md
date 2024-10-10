@@ -374,7 +374,7 @@ codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 		BuildImage: codebuild.WindowsBuildImage_FromEcrRepository(ecrRepository, jsii.String("v1.0"), codebuild.WindowsImageType_SERVER_2019),
 		// optional certificate to include in the build image
 		Certificate: &BuildEnvironmentCertificate{
-			Bucket: s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("my-bucket")),
+			Bucket: s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("amzn-s3-demo-bucket")),
 			ObjectKey: jsii.String("path/to/cert.pem"),
 		},
 	},

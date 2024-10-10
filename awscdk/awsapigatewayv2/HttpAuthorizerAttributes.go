@@ -4,14 +4,17 @@ package awsapigatewayv2
 // Reference to an http authorizer.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   httpAuthorizerAttributes := &HttpAuthorizerAttributes{
-//   	AuthorizerId: jsii.String("authorizerId"),
-//   	AuthorizerType: jsii.String("authorizerType"),
-//   }
+//
+//   authorizerId := awscdk.Fn_ImportValue(jsii.String("authorizerId"))
+//   authorizerType := awscdk.Fn_ImportValue(jsii.String("authorizerType"))
+//
+//   authorizer := awscdk.HttpAuthorizer_FromHttpAuthorizerAttributes(this, jsii.String("HttpAuthorizer"), &HttpAuthorizerAttributes{
+//   	AuthorizerId: jsii.String(AuthorizerId),
+//   	AuthorizerType: jsii.String(AuthorizerType),
+//   })
 //
 type HttpAuthorizerAttributes struct {
 	// Id of the Authorizer.

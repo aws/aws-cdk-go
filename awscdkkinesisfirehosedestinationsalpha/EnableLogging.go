@@ -25,9 +25,7 @@ import (
 //   })
 //
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destinations: []iDestination{
-//   		destination,
-//   	},
+//   	Destination: destination,
 //   })
 //
 // Experimental.

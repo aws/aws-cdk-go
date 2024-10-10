@@ -30,7 +30,7 @@ import (
 //   }
 //
 //   userDefinedBucket := awscdk.NewBucket(this, jsii.String("UserDefinedBucket"), &BucketProps{
-//   	BucketName: jsii.String("user-defined-bucket-for-product-stack-assets"),
+//   	BucketName: jsii.String("amzn-s3-demo-bucket"),
 //   })
 //
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &CloudFormationProductProps{

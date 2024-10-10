@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnDomainConfiguration) validateSetAuthorizerConfigParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomainConfiguration) validateSetClientCertificateConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomainConfiguration) validateSetServerCertificateConfigParameters(val interface{}) error {
 	return nil
 }

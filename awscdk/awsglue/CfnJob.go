@@ -74,7 +74,6 @@ type CfnJob interface {
 	// Use `MaxCapacity` instead.
 	AllocatedCapacity() *float64
 	SetAllocatedCapacity(val *float64)
-	// The ID of this job run.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -111,7 +110,7 @@ type CfnJob interface {
 	// Valid values are:.
 	JobMode() *string
 	SetJobMode(val *string)
-	// Property description not available.
+	// Specifies whether job run queuing is enabled for the job runs for this job.
 	JobRunQueuingEnabled() interface{}
 	SetJobRunQueuingEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.

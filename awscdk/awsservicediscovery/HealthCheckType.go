@@ -18,7 +18,7 @@ package awsservicediscovery
 //
 //   service1.RegisterNonIpInstance(jsii.String("NonIpInstance"), &NonIpInstanceBaseProps{
 //   	CustomAttributes: map[string]*string{
-//   		"arn": jsii.String("arn:aws:s3:::mybucket"),
+//   		"arn": jsii.String("arn:aws:s3:::amzn-s3-demo-bucket"),
 //   	},
 //   })
 //

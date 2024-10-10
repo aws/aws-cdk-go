@@ -301,7 +301,7 @@ pipeline := codepipeline.NewPipeline(this, jsii.String("MyFirstPipeline"), &Pipe
 	CrossRegionReplicationBuckets: map[string]iBucket{
 		// note that a physical name of the replication Bucket must be known at synthesis time
 		"us-west-1": s3.Bucket_fromBucketAttributes(this, jsii.String("UsWest1ReplicationBucket"), &BucketAttributes{
-			"bucketName": jsii.String("my-us-west-1-replication-bucket"),
+			"bucketName": jsii.String("amzn-s3-demo-bucket"),
 			// optional KMS key
 			"encryptionKey": kms.Key_fromKeyArn(this, jsii.String("UsWest1ReplicationKey"), jsii.String("arn:aws:kms:us-west-1:123456789012:key/1234-5678-9012")),
 		}),

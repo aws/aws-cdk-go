@@ -85,7 +85,7 @@ func (j *jsiiProxy_TableEncryptionV2) Type() TableEncryption {
 }
 
 
-// Configure server-side encryption using a DynamoDB owned key.
+// Configure server-side encryption using an AWS managed key.
 func TableEncryptionV2_AwsManagedKey() TableEncryptionV2 {
 	_init_.Initialize()
 

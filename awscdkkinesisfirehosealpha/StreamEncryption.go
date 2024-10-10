@@ -19,23 +19,17 @@ import (
 //   // SSE with an AWS-owned key
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream AWS Owned"), &DeliveryStreamProps{
 //   	Encryption: firehose.StreamEncryption_AwsOwnedKey(),
-//   	Destinations: []*iDestination{
-//   		destination,
-//   	},
+//   	Destination: destination,
 //   })
 //   // SSE with an customer-managed key that is created automatically by the CDK
 //   // SSE with an customer-managed key that is created automatically by the CDK
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Implicit Customer Managed"), &DeliveryStreamProps{
 //   	Encryption: firehose.StreamEncryption_CustomerManagedKey(),
-//   	Destinations: []*iDestination{
-//   		destination,
-//   	},
+//   	Destination: destination,
 //   })
 //   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream Explicit Customer Managed"), &DeliveryStreamProps{
 //   	Encryption: firehose.StreamEncryption_*CustomerManagedKey(key),
-//   	Destinations: []*iDestination{
-//   		destination,
-//   	},
+//   	Destination: destination,
 //   })
 //
 // Experimental.

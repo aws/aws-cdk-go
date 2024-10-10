@@ -42,7 +42,7 @@ import (
 //   }
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_30(),
+//   	Version: eks.KubernetesVersion_V1_31(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
 //   	VpcSubnets: []subnetSelection{

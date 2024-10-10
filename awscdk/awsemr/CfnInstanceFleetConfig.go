@@ -64,12 +64,20 @@ import (
 //   				},
 //   				EbsOptimized: jsii.Boolean(false),
 //   			},
+//   			Priority: jsii.Number(123),
 //   			WeightedCapacity: jsii.Number(123),
 //   		},
 //   	},
 //   	LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
 //   		OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
 //   			AllocationStrategy: jsii.String("allocationStrategy"),
+//
+//   			// the properties below are optional
+//   			CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   				CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   				CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   				UsageStrategy: jsii.String("usageStrategy"),
+//   			},
 //   		},
 //   		SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   			TimeoutAction: jsii.String("timeoutAction"),
@@ -81,6 +89,21 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	ResizeSpecifications: &InstanceFleetResizingSpecificationsProperty{
+//   		OnDemandResizeSpecification: &OnDemandResizingSpecificationProperty{
+//   			AllocationStrategy: jsii.String("allocationStrategy"),
+//   			CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   				CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   				CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   				UsageStrategy: jsii.String("usageStrategy"),
+//   			},
+//   			TimeoutDurationMinutes: jsii.Number(123),
+//   		},
+//   		SpotResizeSpecification: &SpotResizingSpecificationProperty{
+//   			AllocationStrategy: jsii.String("allocationStrategy"),
+//   			TimeoutDurationMinutes: jsii.Number(123),
+//   		},
+//   	},
 //   	TargetOnDemandCapacity: jsii.Number(123),
 //   	TargetSpotCapacity: jsii.Number(123),
 //   })
@@ -132,6 +155,8 @@ type CfnInstanceFleetConfig interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ResizeSpecifications() interface{}
+	SetResizeSpecifications(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -418,6 +443,16 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInstanceFleetConfig) ResizeSpecifications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resizeSpecifications",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstanceFleetConfig) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -544,6 +579,17 @@ func (j *jsiiProxy_CfnInstanceFleetConfig)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInstanceFleetConfig)SetResizeSpecifications(val interface{}) {
+	if err := j.validateSetResizeSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resizeSpecifications",
 		val,
 	)
 }

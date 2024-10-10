@@ -33,7 +33,7 @@ import (
 //   		},
 //   	},
 //   	OutputDataConfig: &OutputDataConfig{
-//   		S3OutputLocation: tasks.S3Location_FromBucket(s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("mybucket")), jsii.String("myoutputpath")),
+//   		S3OutputLocation: tasks.S3Location_FromBucket(s3.Bucket_FromBucketName(this, jsii.String("Bucket"), jsii.String("amzn-s3-demo-bucket")), jsii.String("myoutputpath")),
 //   	},
 //   	ResourceConfig: &ResourceConfig{
 //   		InstanceCount: jsii.Number(1),

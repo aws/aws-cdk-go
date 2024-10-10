@@ -1,7 +1,7 @@
 package awsb2bi
 
 
-// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange.
+// Specifies the details for the Amazon S3 file location that is being used with AWS B2B Data Interchange.
 //
 // File locations in Amazon S3 are identified using a combination of the bucket and key.
 //

@@ -4,7 +4,7 @@ package awss3
 // Properties for defining a `CfnBucketPolicy`.
 //
 // Example:
-//   bucketName := "my-favorite-bucket-name"
+//   bucketName := "amzn-s3-demo-bucket"
 //   accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"), &BucketProps{
 //   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   	BucketName: jsii.String(BucketName),

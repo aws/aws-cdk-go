@@ -26,11 +26,12 @@ Pipe targets are the end point of a EventBridge Pipe.
 
 The following targets are supported:
 
-1. `targets.SqsTarget`: [Send event source to a Queue](#amazon-sqs)
+1. `targets.SqsTarget`: [Send event source to an SQS queue](#amazon-sqs)
 2. `targets.SfnStateMachine`: [Invoke a State Machine from an event source](#aws-step-functions-state-machine)
-3. `targets.LambdaFunction`: [Send event source to a Lambda Function](#aws-lambda-function)
-4. `targets.ApiDestinationTarget`: [Send event source to an EventBridge API Destination](#amazon-eventbridge-api-destination)
+3. `targets.LambdaFunction`: [Send event source to a Lambda function](#aws-lambda-function)
+4. `targets.ApiDestinationTarget`: [Send event source to an EventBridge API destination](#amazon-eventbridge-api-destination)
 5. `targets.KinesisTarget`: [Send event source to a Kinesis data stream](#amazon-kinesis-data-stream)
+6. `targets.EventBridgeTarget`: [Send event source to an EventBridge event bus](#amazon-eventbridge-event-bus)
 
 ### Amazon SQS
 
@@ -44,7 +45,7 @@ var targetQueue queue
 pipeTarget := targets.NewSqsTarget(targetQueue)
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: pipeTarget,
 })
 ```
@@ -63,7 +64,7 @@ pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
 })
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: pipeTarget,
 })
 ```
@@ -81,7 +82,7 @@ pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachinePar
 })
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: pipeTarget,
 })
 ```
@@ -98,7 +99,7 @@ pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachinePar
 })
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: pipeTarget,
 })
 ```
@@ -118,7 +119,7 @@ pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachinePar
 })
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: pipeTarget,
 })
 ```
@@ -136,7 +137,7 @@ pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameter
 })
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: pipeTarget,
 })
 ```
@@ -153,7 +154,7 @@ pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameter
 })
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: pipeTarget,
 })
 ```
@@ -172,7 +173,7 @@ pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameter
 })
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: pipeTarget,
 })
 ```
@@ -250,5 +251,41 @@ streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: streamTarget,
+})
+```
+
+### Amazon EventBridge Event Bus
+
+An event bus can be used as a target for a pipe. The event bus will receive the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+var targetEventBus eventBus
+
+
+eventBusTarget := targets.NewEventBridgeTarget(targetEventBus)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: eventBusTarget,
+})
+```
+
+The input to the target event bus can be transformed:
+
+```go
+var sourceQueue queue
+var targetEventBus eventBus
+
+
+eventBusTarget := targets.NewEventBridgeTarget(targetEventBus, &EventBridgeTargetParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("👀"),
+	}),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: eventBusTarget,
 })
 ```

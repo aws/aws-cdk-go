@@ -32,6 +32,10 @@ import (
 //
 type HttpJwtAuthorizer interface {
 	awsapigatewayv2.IHttpRouteAuthorizer
+	// The authorizationType used for JWT Authorizer.
+	AuthorizationType() *string
+	// Return the id of the authorizer if it's been constructed.
+	AuthorizerId() *string
 	// Bind this authorizer to a specified Http route.
 	Bind(options *awsapigatewayv2.HttpRouteAuthorizerBindOptions) *awsapigatewayv2.HttpRouteAuthorizerConfig
 }
@@ -40,6 +44,27 @@ type HttpJwtAuthorizer interface {
 type jsiiProxy_HttpJwtAuthorizer struct {
 	internal.Type__awsapigatewayv2IHttpRouteAuthorizer
 }
+
+func (j *jsiiProxy_HttpJwtAuthorizer) AuthorizationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authorizationType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpJwtAuthorizer) AuthorizerId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authorizerId",
+		&returns,
+	)
+	return returns
+}
+
 
 // Initialize a JWT authorizer to be bound with HTTP route.
 func NewHttpJwtAuthorizer(id *string, jwtIssuer *string, props *HttpJwtAuthorizerProps) HttpJwtAuthorizer {

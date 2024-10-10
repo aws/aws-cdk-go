@@ -129,6 +129,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_InstanceFleetProvisioningSpecificationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.InstanceFleetResizingSpecificationsProperty",
+		reflect.TypeOf((*CfnCluster_InstanceFleetResizingSpecificationsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.InstanceGroupConfigProperty",
 		reflect.TypeOf((*CfnCluster_InstanceGroupConfigProperty)(nil)).Elem(),
 	)
@@ -157,8 +161,16 @@ func init() {
 		reflect.TypeOf((*CfnCluster_MetricDimensionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.OnDemandCapacityReservationOptionsProperty",
+		reflect.TypeOf((*CfnCluster_OnDemandCapacityReservationOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.OnDemandProvisioningSpecificationProperty",
 		reflect.TypeOf((*CfnCluster_OnDemandProvisioningSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.OnDemandResizingSpecificationProperty",
+		reflect.TypeOf((*CfnCluster_OnDemandResizingSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.PlacementGroupConfigProperty",
@@ -195,6 +207,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.SpotProvisioningSpecificationProperty",
 		reflect.TypeOf((*CfnCluster_SpotProvisioningSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.SpotResizingSpecificationProperty",
+		reflect.TypeOf((*CfnCluster_SpotResizingSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.StepConfigProperty",
@@ -242,6 +258,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "resizeSpecifications", GoGetter: "ResizeSpecifications"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "targetOnDemandCapacity", GoGetter: "TargetOnDemandCapacity"},
@@ -275,16 +292,32 @@ func init() {
 		reflect.TypeOf((*CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig.InstanceFleetResizingSpecificationsProperty",
+		reflect.TypeOf((*CfnInstanceFleetConfig_InstanceFleetResizingSpecificationsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig.InstanceTypeConfigProperty",
 		reflect.TypeOf((*CfnInstanceFleetConfig_InstanceTypeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig.OnDemandCapacityReservationOptionsProperty",
+		reflect.TypeOf((*CfnInstanceFleetConfig_OnDemandCapacityReservationOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig.OnDemandProvisioningSpecificationProperty",
 		reflect.TypeOf((*CfnInstanceFleetConfig_OnDemandProvisioningSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig.OnDemandResizingSpecificationProperty",
+		reflect.TypeOf((*CfnInstanceFleetConfig_OnDemandResizingSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty",
 		reflect.TypeOf((*CfnInstanceFleetConfig_SpotProvisioningSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig.SpotResizingSpecificationProperty",
+		reflect.TypeOf((*CfnInstanceFleetConfig_SpotResizingSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnInstanceFleetConfig.VolumeSpecificationProperty",

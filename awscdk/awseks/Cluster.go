@@ -23,7 +23,7 @@ import (
 //   var vpc vpc
 //   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 //   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-//   	Version: eks.KubernetesVersion_V1_30(),
+//   	Version: eks.KubernetesVersion_V1_31(),
 //   })
 //   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
 //   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),

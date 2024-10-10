@@ -16,7 +16,7 @@ It could be in JSON format, in a file `my-template.json`:
     "Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "some-bucket-name"
+        "BucketName": "amzn-s3-demo-bucket"
       }
     }
   }
@@ -30,7 +30,7 @@ Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: some-bucket-name
+      BucketName: amzn-s3-demo-bucket
 ```
 
 It can be included in a CDK application with the following code:
@@ -84,7 +84,7 @@ for example, the name of the bucket can be changed:
 var cfnTemplate cfnInclude
 
 cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(cfnBucket)
-cfnBucket.BucketName = "my-bucket-name"
+cfnBucket.BucketName = "amzn-s3-demo-bucket"
 ```
 
 You can also refer to the resource when defining other constructs,
@@ -422,7 +422,7 @@ var childTemplate cfnInclude
 
 
 cfnBucket := childTemplate.GetResource(jsii.String("MyBucket")).(cfnBucket)
-cfnBucket.BucketName = "my-new-bucket-name"
+cfnBucket.BucketName = "amzn-s3-demo-bucket1"
 
 role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
 	AssumedBy: iam.NewAccountRootPrincipal(),

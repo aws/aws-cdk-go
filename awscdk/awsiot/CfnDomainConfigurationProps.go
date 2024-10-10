@@ -12,9 +12,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDomainConfigurationProps := &CfnDomainConfigurationProps{
+//   	ApplicationProtocol: jsii.String("applicationProtocol"),
+//   	AuthenticationType: jsii.String("authenticationType"),
 //   	AuthorizerConfig: &AuthorizerConfigProperty{
 //   		AllowAuthorizerOverride: jsii.Boolean(false),
 //   		DefaultAuthorizerName: jsii.String("defaultAuthorizerName"),
+//   	},
+//   	ClientCertificateConfig: &ClientCertificateConfigProperty{
+//   		ClientCertificateCallbackArn: jsii.String("clientCertificateCallbackArn"),
 //   	},
 //   	DomainConfigurationName: jsii.String("domainConfigurationName"),
 //   	DomainConfigurationStatus: jsii.String("domainConfigurationStatus"),
@@ -41,10 +46,19 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
 //
 type CfnDomainConfigurationProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-applicationprotocol
+	//
+	ApplicationProtocol *string `field:"optional" json:"applicationProtocol" yaml:"applicationProtocol"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authenticationtype
+	//
+	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
 	// An object that specifies the authorization service for a domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
 	//
 	AuthorizerConfig interface{} `field:"optional" json:"authorizerConfig" yaml:"authorizerConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-clientcertificateconfig
+	//
+	ClientCertificateConfig interface{} `field:"optional" json:"clientCertificateConfig" yaml:"clientCertificateConfig"`
 	// The name of the domain configuration.
 	//
 	// This value must be unique to a region.

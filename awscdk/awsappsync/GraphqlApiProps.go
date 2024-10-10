@@ -57,6 +57,12 @@ type GraphqlApiProps struct {
 	// Default: - None.
 	//
 	LogConfig *LogConfig `field:"optional" json:"logConfig" yaml:"logConfig"`
+	// The owner contact information for an API resource.
+	//
+	// This field accepts any string input with a length of 0 - 256 characters.
+	// Default: - No owner contact.
+	//
+	OwnerContact *string `field:"optional" json:"ownerContact" yaml:"ownerContact"`
 	// A number indicating the maximum depth resolvers should be accepted when handling queries.
 	//
 	// Value must be withing range of 0 to 75.

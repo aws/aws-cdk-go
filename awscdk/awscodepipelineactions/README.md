@@ -306,7 +306,7 @@ you can specify the region explicitly:
 
 ```go
 sourceBucket := s3.Bucket_FromBucketAttributes(this, jsii.String("SourceBucket"), &BucketAttributes{
-	BucketName: jsii.String("my-bucket"),
+	BucketName: jsii.String("amzn-s3-demo-bucket"),
 	Region: jsii.String("ap-southeast-1"),
 })
 ```

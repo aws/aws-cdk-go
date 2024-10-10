@@ -59,12 +59,20 @@ package awsemr
 //   					},
 //   					EbsOptimized: jsii.Boolean(false),
 //   				},
+//   				Priority: jsii.Number(123),
 //   				WeightedCapacity: jsii.Number(123),
 //   			},
 //   		},
 //   		LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
 //   			OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
 //   				AllocationStrategy: jsii.String("allocationStrategy"),
+//
+//   				// the properties below are optional
+//   				CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   					CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   					CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   					UsageStrategy: jsii.String("usageStrategy"),
+//   				},
 //   			},
 //   			SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   				TimeoutAction: jsii.String("timeoutAction"),
@@ -76,6 +84,21 @@ package awsemr
 //   			},
 //   		},
 //   		Name: jsii.String("name"),
+//   		ResizeSpecifications: &InstanceFleetResizingSpecificationsProperty{
+//   			OnDemandResizeSpecification: &OnDemandResizingSpecificationProperty{
+//   				AllocationStrategy: jsii.String("allocationStrategy"),
+//   				CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   					CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   					CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   					UsageStrategy: jsii.String("usageStrategy"),
+//   				},
+//   				TimeoutDurationMinutes: jsii.Number(123),
+//   			},
+//   			SpotResizeSpecification: &SpotResizingSpecificationProperty{
+//   				AllocationStrategy: jsii.String("allocationStrategy"),
+//   				TimeoutDurationMinutes: jsii.Number(123),
+//   			},
+//   		},
 //   		TargetOnDemandCapacity: jsii.Number(123),
 //   		TargetSpotCapacity: jsii.Number(123),
 //   	},
@@ -211,12 +234,20 @@ package awsemr
 //   					},
 //   					EbsOptimized: jsii.Boolean(false),
 //   				},
+//   				Priority: jsii.Number(123),
 //   				WeightedCapacity: jsii.Number(123),
 //   			},
 //   		},
 //   		LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
 //   			OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
 //   				AllocationStrategy: jsii.String("allocationStrategy"),
+//
+//   				// the properties below are optional
+//   				CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   					CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   					CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   					UsageStrategy: jsii.String("usageStrategy"),
+//   				},
 //   			},
 //   			SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   				TimeoutAction: jsii.String("timeoutAction"),
@@ -228,6 +259,21 @@ package awsemr
 //   			},
 //   		},
 //   		Name: jsii.String("name"),
+//   		ResizeSpecifications: &InstanceFleetResizingSpecificationsProperty{
+//   			OnDemandResizeSpecification: &OnDemandResizingSpecificationProperty{
+//   				AllocationStrategy: jsii.String("allocationStrategy"),
+//   				CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   					CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   					CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   					UsageStrategy: jsii.String("usageStrategy"),
+//   				},
+//   				TimeoutDurationMinutes: jsii.Number(123),
+//   			},
+//   			SpotResizeSpecification: &SpotResizingSpecificationProperty{
+//   				AllocationStrategy: jsii.String("allocationStrategy"),
+//   				TimeoutDurationMinutes: jsii.Number(123),
+//   			},
+//   		},
 //   		TargetOnDemandCapacity: jsii.Number(123),
 //   		TargetSpotCapacity: jsii.Number(123),
 //   	},
@@ -359,12 +405,20 @@ package awsemr
 //   						},
 //   						EbsOptimized: jsii.Boolean(false),
 //   					},
+//   					Priority: jsii.Number(123),
 //   					WeightedCapacity: jsii.Number(123),
 //   				},
 //   			},
 //   			LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
 //   				OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
 //   					AllocationStrategy: jsii.String("allocationStrategy"),
+//
+//   					// the properties below are optional
+//   					CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   						CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   						CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   						UsageStrategy: jsii.String("usageStrategy"),
+//   					},
 //   				},
 //   				SpotSpecification: &SpotProvisioningSpecificationProperty{
 //   					TimeoutAction: jsii.String("timeoutAction"),
@@ -376,6 +430,21 @@ package awsemr
 //   				},
 //   			},
 //   			Name: jsii.String("name"),
+//   			ResizeSpecifications: &InstanceFleetResizingSpecificationsProperty{
+//   				OnDemandResizeSpecification: &OnDemandResizingSpecificationProperty{
+//   					AllocationStrategy: jsii.String("allocationStrategy"),
+//   					CapacityReservationOptions: &OnDemandCapacityReservationOptionsProperty{
+//   						CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//   						CapacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
+//   						UsageStrategy: jsii.String("usageStrategy"),
+//   					},
+//   					TimeoutDurationMinutes: jsii.Number(123),
+//   				},
+//   				SpotResizeSpecification: &SpotResizingSpecificationProperty{
+//   					AllocationStrategy: jsii.String("allocationStrategy"),
+//   					TimeoutDurationMinutes: jsii.Number(123),
+//   				},
+//   			},
 //   			TargetOnDemandCapacity: jsii.Number(123),
 //   			TargetSpotCapacity: jsii.Number(123),
 //   		},

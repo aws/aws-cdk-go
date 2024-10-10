@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetLaunchSpecificationsParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnInstanceFleetConfig) validateSetResizeSpecificationsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnInstanceFleetConfigParameters(scope constructs.Construct, id *string, props *CfnInstanceFleetConfigProps) error {
 	return nil
 }

@@ -22,9 +22,7 @@ import (
 //   s3Destination := destinations.NewS3Bucket(bucket)
 //
 //   deliveryStream := kinesisfirehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destinations: []iDestination{
-//   		s3Destination,
-//   	},
+//   	Destination: s3Destination,
 //   })
 //
 //   dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{

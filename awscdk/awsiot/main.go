@@ -472,14 +472,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "applicationProtocol", GoGetter: "ApplicationProtocol"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainType", GoGetter: "AttrDomainType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServerCertificates", GoGetter: "AttrServerCertificates"},
+			_jsii_.MemberProperty{JsiiProperty: "authenticationType", GoGetter: "AuthenticationType"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerConfig", GoGetter: "AuthorizerConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "clientCertificateConfig", GoGetter: "ClientCertificateConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "domainConfigurationName", GoGetter: "DomainConfigurationName"},
 			_jsii_.MemberProperty{JsiiProperty: "domainConfigurationStatus", GoGetter: "DomainConfigurationStatus"},
@@ -521,6 +524,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnDomainConfiguration.AuthorizerConfigProperty",
 		reflect.TypeOf((*CfnDomainConfiguration_AuthorizerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnDomainConfiguration.ClientCertificateConfigProperty",
+		reflect.TypeOf((*CfnDomainConfiguration_ClientCertificateConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnDomainConfiguration.ServerCertificateConfigProperty",

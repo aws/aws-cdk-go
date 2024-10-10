@@ -339,3 +339,62 @@ import software.amazon.awscdk.aws_apigatewayv2_authorizers.*;
 // If you want to import a specific construct
 import software.amazon.awscdk.aws_apigatewayv2_authorizers.WebSocketIamAuthorizer;
 ```
+
+## Export HTTP Authorizer Id
+
+You can retrieve the authorizer's id once it has been bound to a route to export the value.
+
+`HttpAuthorizer.fromHttpAuthorizerAttributes`
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+// This function handles your auth logic
+var authHandler function
+
+
+authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
+	ResponseTypes: []httpLambdaResponseType{
+		awscdk.HttpLambdaResponseType_SIMPLE,
+	},
+})
+
+api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
+
+api.AddRoutes(&AddRoutesOptions{
+	Integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.example.com")),
+	Path: jsii.String("/books"),
+	Authorizer: Authorizer,
+})
+
+// You can only access authorizerId after it's been bound to a route
+// In this example we expect use CfnOutput
+// You can only access authorizerId after it's been bound to a route
+// In this example we expect use CfnOutput
+awscdk.NewCfnOutput(this, jsii.String("authorizerId"), &CfnOutputProps{
+	Value: authorizer.authorizerId,
+})
+awscdk.NewCfnOutput(this, jsii.String("authorizerType"), &CfnOutputProps{
+	Value: authorizer.AuthorizationType,
+})
+```
+
+## Import an existing HTTP Authorizer
+
+If you want to import av existing HTTP Authorizer you simply provide the authorizer id and authorizer type used when the authorizer was created.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+authorizerId := awscdk.Fn_ImportValue(jsii.String("authorizerId"))
+authorizerType := awscdk.Fn_ImportValue(jsii.String("authorizerType"))
+
+authorizer := awscdk.HttpAuthorizer_FromHttpAuthorizerAttributes(this, jsii.String("HttpAuthorizer"), &HttpAuthorizerAttributes{
+	AuthorizerId: jsii.String(AuthorizerId),
+	AuthorizerType: jsii.String(AuthorizerType),
+})
+```
