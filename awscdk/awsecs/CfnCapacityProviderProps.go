@@ -26,8 +26,6 @@ import (
 //   		},
 //   		ManagedTerminationProtection: jsii.String("managedTerminationProtection"),
 //   	},
-//
-//   	// the properties below are optional
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -43,7 +41,7 @@ type CfnCapacityProviderProps struct {
 	// The Auto Scaling group settings for the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
 	//
-	AutoScalingGroupProvider interface{} `field:"required" json:"autoScalingGroupProvider" yaml:"autoScalingGroupProvider"`
+	AutoScalingGroupProvider interface{} `field:"optional" json:"autoScalingGroupProvider" yaml:"autoScalingGroupProvider"`
 	// The name of the capacity provider.
 	//
 	// If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.

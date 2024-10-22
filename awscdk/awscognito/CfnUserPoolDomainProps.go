@@ -21,15 +21,15 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html
 //
 type CfnUserPoolDomainProps struct {
-	// The domain name for the domain that hosts the sign-up and sign-in pages for your application.
+	// The domain name for the custom domain that hosts the sign-up and sign-in pages for your application.
 	//
-	// For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+	// One example might be `auth.example.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-domain
 	//
 	Domain *string `field:"required" json:"domain" yaml:"domain"`
-	// The user pool ID for the user pool where you want to associate a user pool domain.
+	// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-userpoolid
 	//
 	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`

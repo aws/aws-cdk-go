@@ -20,6 +20,9 @@ package awscodepipeline
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	Commands: []*string{
+//   		jsii.String("commands"),
+//   	},
 //   	Configuration: configuration,
 //   	InputArtifacts: []interface{}{
 //   		&InputArtifactProperty{
@@ -30,7 +33,15 @@ package awscodepipeline
 //   	OutputArtifacts: []interface{}{
 //   		&OutputArtifactProperty{
 //   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			Files: []*string{
+//   				jsii.String("files"),
+//   			},
 //   		},
+//   	},
+//   	OutputVariables: []*string{
+//   		jsii.String("outputVariables"),
 //   	},
 //   	Region: jsii.String("region"),
 //   	RoleArn: jsii.String("roleArn"),
@@ -49,6 +60,14 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The shell commands to run with your compute action in CodePipeline.
+	//
+	// All commands are supported except multi-line formats. While CodeBuild logs and permissions are used, you do not need to create any resources in CodeBuild.
+	//
+	// > Using compute time for this action will incur separate charges in AWS CodeBuild .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-commands
+	//
+	Commands *[]*string `field:"optional" json:"commands" yaml:"commands"`
 	// The action's configuration.
 	//
 	// These are key-value pairs that specify input values for an action. For more information, see [Action Structure Requirements in CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) . For the list of configuration properties for the AWS CloudFormation action type in CodePipeline, see [Configuration Properties Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html) in the *AWS CloudFormation User Guide* . For template snippets with examples, see [Using Parameter Override Functions with CodePipeline Pipelines](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html) in the *AWS CloudFormation User Guide* .
@@ -81,6 +100,12 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-outputartifacts
 	//
 	OutputArtifacts interface{} `field:"optional" json:"outputArtifacts" yaml:"outputArtifacts"`
+	// The list of variables that are to be exported from the compute action.
+	//
+	// This is specifically CodeBuild environment variables as used for that action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-outputvariables
+	//
+	OutputVariables *[]*string `field:"optional" json:"outputVariables" yaml:"outputVariables"`
 	// The action declaration's AWS Region, such as us-east-1.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-region
 	//

@@ -83,6 +83,9 @@ type CfnCluster_InstanceTypeConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancetypeconfig.html#cfn-emr-cluster-instancetypeconfig-ebsconfiguration
 	//
 	EbsConfiguration interface{} `field:"optional" json:"ebsConfiguration" yaml:"ebsConfiguration"`
+	// The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+	//
+	// Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancetypeconfig.html#cfn-emr-cluster-instancetypeconfig-priority
 	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`

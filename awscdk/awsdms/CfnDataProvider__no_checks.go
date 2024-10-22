@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDataProvider) validateSetExactSettingsParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataProvider) validateSetSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataProvider) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

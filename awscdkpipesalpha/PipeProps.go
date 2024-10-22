@@ -7,19 +7,17 @@ import (
 // Properties for a pipe.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetFunction iFunction
+//   var sourceStream stream
+//   var targetQueue queue
 //
 //
-//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
-//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-//   		"body": jsii.String("👀"),
-//   	}),
+//   pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{
+//   	StartingPosition: sources.KinesisStartingPosition_LATEST,
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-//   	Target: pipeTarget,
+//   	Source: pipeSource,
+//   	Target: NewSomeTarget(targetQueue),
 //   })
 //
 // Experimental.

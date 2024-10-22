@@ -38,6 +38,10 @@ type AttributeMapping struct {
 	// Default: - not mapped.
 	//
 	Email ProviderAttribute `field:"optional" json:"email" yaml:"email"`
+	// The user's e-mail address is verification.
+	// Default: - not mapped.
+	//
+	EmailVerified ProviderAttribute `field:"optional" json:"emailVerified" yaml:"emailVerified"`
 	// The surname or last name of user.
 	// Default: - not mapped.
 	//

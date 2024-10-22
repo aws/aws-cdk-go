@@ -1,6 +1,8 @@
 package awsb2bi
 
 
+// A container for outbound EDI options.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -36,6 +38,7 @@ package awsb2bi
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-outboundedioptions.html
 //
 type CfnPartnership_OutboundEdiOptionsProperty struct {
+	// A structure that contains an X12 envelope structure.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-outboundedioptions.html#cfn-b2bi-partnership-outboundedioptions-x12
 	//
 	X12 interface{} `field:"required" json:"x12" yaml:"x12"`

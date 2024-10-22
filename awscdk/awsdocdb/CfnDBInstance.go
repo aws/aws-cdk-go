@@ -57,7 +57,7 @@ type CfnDBInstance interface {
 	// The Amazon EC2 Availability Zone that the instance is created in.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
-	// The CA certificate identifier to use for the DB instance's server certificate.
+	// The identifier of the CA certificate for this DB instance.
 	CaCertificateIdentifier() *string
 	SetCaCertificateIdentifier(val *string)
 	// Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.

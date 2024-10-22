@@ -14,169 +14,21 @@
 ---
 <!--END STABILITY BANNER-->
 
-EventBridge Pipes Targets let you create a target for a EventBridge Pipe.
+EventBridge Pipes Targets let you create a target for an EventBridge Pipe.
 
-For more details see the service documentation:
-
-[Documentation](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html)
+For more details see the [service documentation](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html).
 
 ## Targets
 
-Pipe targets are the end point of a EventBridge Pipe.
+Pipe targets are the end point of an EventBridge Pipe. The following targets are supported:
 
-The following targets are supported:
-
-1. `targets.SqsTarget`: [Send event source to an SQS queue](#amazon-sqs)
-2. `targets.SfnStateMachine`: [Invoke a State Machine from an event source](#aws-step-functions-state-machine)
-3. `targets.LambdaFunction`: [Send event source to a Lambda function](#aws-lambda-function)
-4. `targets.ApiDestinationTarget`: [Send event source to an EventBridge API destination](#amazon-eventbridge-api-destination)
-5. `targets.KinesisTarget`: [Send event source to a Kinesis data stream](#amazon-kinesis-data-stream)
-6. `targets.EventBridgeTarget`: [Send event source to an EventBridge event bus](#amazon-eventbridge-event-bus)
-
-### Amazon SQS
-
-A SQS message queue can be used as a target for a pipe. Messages will be pushed to the queue.
-
-```go
-var sourceQueue queue
-var targetQueue queue
-
-
-pipeTarget := targets.NewSqsTarget(targetQueue)
-
-pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: pipeTarget,
-})
-```
-
-The target input can be transformed:
-
-```go
-var sourceQueue queue
-var targetQueue queue
-
-
-pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
-	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
-	}),
-})
-
-pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: pipeTarget,
-})
-```
-
-### AWS Step Functions State Machine
-
-A State Machine can be used as a target for a pipe. The State Machine will be invoked with the (enriched) source payload.
-
-```go
-var sourceQueue queue
-var targetStateMachine iStateMachine
-
-
-pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
-})
-
-pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: pipeTarget,
-})
-```
-
-Specifying the Invocation Type when the target State Machine is invoked:
-
-```go
-var sourceQueue queue
-var targetStateMachine iStateMachine
-
-
-pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
-	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
-})
-
-pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: pipeTarget,
-})
-```
-
-The input to the target State Machine can be transformed:
-
-```go
-var sourceQueue queue
-var targetStateMachine iStateMachine
-
-
-pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
-	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-		"body": jsii.String("<$.body>"),
-	}),
-	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
-})
-
-pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: pipeTarget,
-})
-```
-
-### AWS Lambda Function
-
-A Lambda Function can be used as a target for a pipe. The Lambda Function will be invoked with the (enriched) source payload.
-
-```go
-var sourceQueue queue
-var targetFunction iFunction
-
-
-pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
-})
-
-pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: pipeTarget,
-})
-```
-
-The target Lambda Function is invoked synchronously by default. You can also choose to invoke the Lambda Function asynchronously by setting `invocationType` property to `FIRE_AND_FORGET`.
-
-```go
-var sourceQueue queue
-var targetFunction iFunction
-
-
-pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
-	InvocationType: targets.LambdaFunctionInvocationType_FIRE_AND_FORGET,
-})
-
-pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: pipeTarget,
-})
-```
-
-The input to the target Lambda Function can be transformed:
-
-```go
-var sourceQueue queue
-var targetFunction iFunction
-
-
-pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
-	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-		"body": jsii.String("👀"),
-	}),
-})
-
-pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: pipeTarget,
-})
-```
+* `targets.ApiDestinationTarget`: [Send event source to an EventBridge API destination](#amazon-eventbridge-api-destination)
+* `targets.CloudWatchLogsTarget`: [Send event source to a CloudWatch Logs log group](#amazon-cloudwatch-logs-log-group)
+* `targets.EventBridgeTarget`: [Send event source to an EventBridge event bus](#amazon-eventbridge-event-bus)
+* `targets.KinesisTarget`: [Send event source to a Kinesis data stream](#amazon-kinesis-data-stream)
+* `targets.LambdaFunction`: [Send event source to a Lambda function](#aws-lambda-function)
+* `targets.SfnStateMachine`: [Invoke a Step Functions state machine from an event source](#aws-step-functions-state-machine)
+* `targets.SqsTarget`: [Send event source to an SQS queue](#amazon-sqs)
 
 ### Amazon EventBridge API Destination
 
@@ -215,9 +67,84 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 })
 ```
 
+### Amazon CloudWatch Logs Log Group
+
+A CloudWatch Logs log group can be used as a target for a pipe.
+The log group will receive the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+var targetLogGroup logGroup
+
+
+logGroupTarget := targets.NewCloudWatchLogsTarget(targetLogGroup)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: logGroupTarget,
+})
+```
+
+The input to the target log group can be transformed:
+
+```go
+var sourceQueue queue
+var targetLogGroup logGroup
+
+
+logGroupTarget := targets.NewCloudWatchLogsTarget(targetLogGroup, &CloudWatchLogsTargetParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("👀"),
+	}),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: logGroupTarget,
+})
+```
+
+### Amazon EventBridge Event Bus
+
+An EventBridge event bus can be used as a target for a pipe.
+The event bus will receive the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+var targetEventBus eventBus
+
+
+eventBusTarget := targets.NewEventBridgeTarget(targetEventBus)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: eventBusTarget,
+})
+```
+
+The input to the target event bus can be transformed:
+
+```go
+var sourceQueue queue
+var targetEventBus eventBus
+
+
+eventBusTarget := targets.NewEventBridgeTarget(targetEventBus, &EventBridgeTargetParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("👀"),
+	}),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: eventBusTarget,
+})
+```
+
 ### Amazon Kinesis Data Stream
 
-A data stream can be used as a target for a pipe. The data stream will receive the (enriched/filtered) source payload.
+A Kinesis data stream can be used as a target for a pipe.
+The data stream will receive the (enriched/filtered) source payload.
 
 ```go
 var sourceQueue queue
@@ -254,31 +181,50 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 })
 ```
 
-### Amazon EventBridge Event Bus
+### AWS Lambda Function
 
-An event bus can be used as a target for a pipe. The event bus will receive the (enriched/filtered) source payload.
+A Lambda function can be used as a target for a pipe.
+The Lambda function will be invoked with the (enriched/filtered) source payload.
 
 ```go
 var sourceQueue queue
-var targetEventBus eventBus
+var targetFunction iFunction
 
 
-eventBusTarget := targets.NewEventBridgeTarget(targetEventBus)
+pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+})
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: eventBusTarget,
+	Target: pipeTarget,
 })
 ```
 
-The input to the target event bus can be transformed:
+The target Lambda function is invoked synchronously by default. You can also choose to invoke the Lambda Function asynchronously by setting `invocationType` property to `FIRE_AND_FORGET`.
 
 ```go
 var sourceQueue queue
-var targetEventBus eventBus
+var targetFunction iFunction
 
 
-eventBusTarget := targets.NewEventBridgeTarget(targetEventBus, &EventBridgeTargetParameters{
+pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+	InvocationType: targets.LambdaFunctionInvocationType_FIRE_AND_FORGET,
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: pipeTarget,
+})
+```
+
+The input to the target Lambda Function can be transformed:
+
+```go
+var sourceQueue queue
+var targetFunction iFunction
+
+
+pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
 	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
 		"body": jsii.String("👀"),
 	}),
@@ -286,6 +232,99 @@ eventBusTarget := targets.NewEventBridgeTarget(targetEventBus, &EventBridgeTarge
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-	Target: eventBusTarget,
+	Target: pipeTarget,
+})
+```
+
+### AWS Step Functions State Machine
+
+A Step Functions state machine can be used as a target for a pipe.
+The state machine will be invoked with the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+var targetStateMachine iStateMachine
+
+
+pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: pipeTarget,
+})
+```
+
+You can specify the invocation type when the target state machine is invoked:
+
+```go
+var sourceQueue queue
+var targetStateMachine iStateMachine
+
+
+pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
+	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: pipeTarget,
+})
+```
+
+The input to the target state machine can be transformed:
+
+```go
+var sourceQueue queue
+var targetStateMachine iStateMachine
+
+
+pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("<$.body>"),
+	}),
+	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: pipeTarget,
+})
+```
+
+### Amazon SQS Queue
+
+An SQS queue can be used as a target for a pipe.
+The queue will receive the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+var targetQueue queue
+
+
+pipeTarget := targets.NewSqsTarget(targetQueue)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: pipeTarget,
+})
+```
+
+The target input can be transformed:
+
+```go
+var sourceQueue queue
+var targetQueue queue
+
+
+pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
+	}),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: pipeTarget,
 })
 ```

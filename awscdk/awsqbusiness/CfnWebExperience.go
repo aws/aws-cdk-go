@@ -29,6 +29,9 @@ import (
 //   			AuthenticationUrl: jsii.String("authenticationUrl"),
 //   		},
 //   	},
+//   	Origins: []*string{
+//   		jsii.String("origins"),
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	SamplePromptsControlMode: jsii.String("samplePromptsControlMode"),
 //   	Subtitle: jsii.String("subtitle"),
@@ -91,6 +94,8 @@ type CfnWebExperience interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	Origins() *[]*string
+	SetOrigins(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -415,6 +420,16 @@ func (j *jsiiProxy_CfnWebExperience) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebExperience) Origins() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"origins",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebExperience) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -561,6 +576,14 @@ func (j *jsiiProxy_CfnWebExperience)SetIdentityProviderConfiguration(val interfa
 	_jsii_.Set(
 		j,
 		"identityProviderConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWebExperience)SetOrigins(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"origins",
 		val,
 	)
 }

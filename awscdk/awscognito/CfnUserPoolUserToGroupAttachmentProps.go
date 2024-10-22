@@ -21,6 +21,7 @@ type CfnUserPoolUserToGroupAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-groupname
 	//
 	GroupName *string `field:"required" json:"groupName" yaml:"groupName"`
+	// The user's username.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-username
 	//
 	Username *string `field:"required" json:"username" yaml:"username"`

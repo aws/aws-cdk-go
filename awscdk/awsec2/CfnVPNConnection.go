@@ -46,8 +46,60 @@ import (
 //   	VpnGatewayId: jsii.String("vpnGatewayId"),
 //   	VpnTunnelOptionsSpecifications: []interface{}{
 //   		&VpnTunnelOptionsSpecificationProperty{
+//   			DpdTimeoutAction: jsii.String("dpdTimeoutAction"),
+//   			DpdTimeoutSeconds: jsii.Number(123),
+//   			EnableTunnelLifecycleControl: jsii.Boolean(false),
+//   			IkeVersions: []interface{}{
+//   				map[string]*string{
+//   					"value": jsii.String("value"),
+//   				},
+//   			},
+//   			LogOptions: &VpnTunnelLogOptionsSpecificationProperty{
+//   				CloudwatchLogOptions: &CloudwatchLogOptionsSpecificationProperty{
+//   					LogEnabled: jsii.Boolean(false),
+//   					LogGroupArn: jsii.String("logGroupArn"),
+//   					LogOutputFormat: jsii.String("logOutputFormat"),
+//   				},
+//   			},
+//   			Phase1DhGroupNumbers: []interface{}{
+//   				&Phase1DHGroupNumbersRequestListValueProperty{
+//   					Value: jsii.Number(123),
+//   				},
+//   			},
+//   			Phase1EncryptionAlgorithms: []interface{}{
+//   				&Phase1EncryptionAlgorithmsRequestListValueProperty{
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			Phase1IntegrityAlgorithms: []interface{}{
+//   				&Phase1IntegrityAlgorithmsRequestListValueProperty{
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			Phase1LifetimeSeconds: jsii.Number(123),
+//   			Phase2DhGroupNumbers: []interface{}{
+//   				&Phase2DHGroupNumbersRequestListValueProperty{
+//   					Value: jsii.Number(123),
+//   				},
+//   			},
+//   			Phase2EncryptionAlgorithms: []interface{}{
+//   				&Phase2EncryptionAlgorithmsRequestListValueProperty{
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			Phase2IntegrityAlgorithms: []interface{}{
+//   				&Phase2IntegrityAlgorithmsRequestListValueProperty{
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			Phase2LifetimeSeconds: jsii.Number(123),
 //   			PreSharedKey: jsii.String("preSharedKey"),
+//   			RekeyFuzzPercentage: jsii.Number(123),
+//   			RekeyMarginTimeSeconds: jsii.Number(123),
+//   			ReplayWindowSize: jsii.Number(123),
+//   			StartupAction: jsii.String("startupAction"),
 //   			TunnelInsideCidr: jsii.String("tunnelInsideCidr"),
+//   			TunnelInsideIpv6Cidr: jsii.String("tunnelInsideIpv6Cidr"),
 //   		},
 //   	},
 //   })

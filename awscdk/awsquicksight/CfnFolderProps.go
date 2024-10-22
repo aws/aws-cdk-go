@@ -37,6 +37,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html
 //
 type CfnFolderProps struct {
+	// The ID for the AWS account where you want to create the folder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-awsaccountid
 	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
@@ -56,6 +57,9 @@ type CfnFolderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-parentfolderarn
 	//
 	ParentFolderArn *string `field:"optional" json:"parentFolderArn" yaml:"parentFolderArn"`
+	// A structure that describes the principals and the resource-level permissions of a folder.
+	//
+	// To specify no permissions, omit `Permissions` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-permissions
 	//
 	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
@@ -63,6 +67,7 @@ type CfnFolderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-sharingmodel
 	//
 	SharingModel *string `field:"optional" json:"sharingModel" yaml:"sharingModel"`
+	// A list of tags for the folders that you want to apply overrides to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html#cfn-quicksight-folder-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

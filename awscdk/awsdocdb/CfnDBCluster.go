@@ -90,6 +90,7 @@ type CfnDBCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Set to `true` to copy all tags from the source cluster snapshot to the target cluster snapshot, and otherwise `false` .
 	CopyTagsToSnapshot() interface{}
 	SetCopyTagsToSnapshot(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

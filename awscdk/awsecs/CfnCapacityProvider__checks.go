@@ -180,9 +180,6 @@ func validateCfnCapacityProvider_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnCapacityProvider) validateSetAutoScalingGroupProviderParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -225,9 +222,6 @@ func validateNewCfnCapacityProviderParameters(scope constructs.Construct, id *st
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

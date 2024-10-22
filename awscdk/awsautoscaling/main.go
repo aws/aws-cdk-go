@@ -196,6 +196,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupArns", GoGetter: "TargetGroupArns"},
 			_jsii_.MemberProperty{JsiiProperty: "terminationPolicies", GoGetter: "TerminationPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficSources", GoGetter: "TrafficSources"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
@@ -284,6 +285,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.TotalLocalStorageGBRequestProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_TotalLocalStorageGBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.TrafficSourceIdentifierProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_TrafficSourceIdentifierProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.VCpuCountRequestProperty",

@@ -103,7 +103,7 @@ type CfnUserPoolUser interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// An array of name-value pairs that contain user attributes and attribute values.
+	// An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created.
 	UserAttributes() interface{}
 	SetUserAttributes(val interface{})
 	// The value that you want to set as the username sign-in attribute.

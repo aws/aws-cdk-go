@@ -11,25 +11,39 @@ import (
 // Item Reader configuration for iterating over objects in an S3 bucket.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket bucket
 //
-//   s3ObjectsItemReader := awscdk.Aws_stepfunctions.NewS3ObjectsItemReader(&S3ObjectsItemReaderProps{
-//   	Bucket: bucket,
-//
-//   	// the properties below are optional
-//   	MaxItems: jsii.Number(123),
-//   	Prefix: jsii.String("prefix"),
+//   /**
+//    * Tree view of bucket:
+//    *  my-bucket
+//    *  |
+//    *  +--item1
+//    *  |
+//    *  +--otherItem
+//    *  |
+//    *  +--item2
+//    *  |
+//    *  ...
+//    */
+//   bucket := s3.NewBucket(this, jsii.String("Bucket"), &BucketProps{
+//   	BucketName: jsii.String("my-bucket"),
 //   })
+//
+//   distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
+//   	ItemReader: sfn.NewS3ObjectsItemReader(&S3ObjectsItemReaderProps{
+//   		Bucket: *Bucket,
+//   		Prefix: jsii.String("item"),
+//   	}),
+//   })
+//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")))
 //
 type S3ObjectsItemReader interface {
 	IItemReader
 	// S3 Bucket containing objects to iterate over.
 	Bucket() awss3.IBucket
+	// S3 bucket name containing objects to iterate over or a file with a list to iterate over, as JsonPath.
+	BucketNamePath() *string
 	// Limits the number of items passed to the Distributed Map state.
 	// Default: - Distributed Map state will iterate over all items provided by the ItemReader.
 	//
@@ -46,6 +60,10 @@ type S3ObjectsItemReader interface {
 	//
 	// Returns: - JSON object.
 	Render() interface{}
+	// Validate that ItemReader contains exactly either.
+	// See: bucketNamePath.
+	//
+	ValidateItemReader() *[]*string
 }
 
 // The jsii proxy struct for S3ObjectsItemReader
@@ -58,6 +76,16 @@ func (j *jsiiProxy_S3ObjectsItemReader) Bucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3ObjectsItemReader) BucketNamePath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bucketNamePath",
 		&returns,
 	)
 	return returns
@@ -140,6 +168,19 @@ func (s *jsiiProxy_S3ObjectsItemReader) Render() interface{} {
 	_jsii_.Invoke(
 		s,
 		"render",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_S3ObjectsItemReader) ValidateItemReader() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validateItemReader",
 		nil, // no parameters
 		&returns,
 	)

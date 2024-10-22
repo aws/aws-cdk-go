@@ -80,6 +80,10 @@ func validateCfnUsageProfile_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnUsageProfile) validateSetConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUsageProfile) validateSetNameParameters(val *string) error {
 	return nil
 }

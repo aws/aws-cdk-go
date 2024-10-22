@@ -63,6 +63,7 @@ import (
 //   	MaintenanceTrackName: jsii.String("maintenanceTrackName"),
 //   	ManageMasterPassword: jsii.Boolean(false),
 //   	ManualSnapshotRetentionPeriod: jsii.Number(123),
+//   	MasterPasswordSecretKmsKeyId: jsii.String("masterPasswordSecretKmsKeyId"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
 //   	MultiAz: jsii.Boolean(false),
 //   	NamespaceResourcePolicy: namespaceResourcePolicy,
@@ -134,7 +135,7 @@ type CfnClusterProps struct {
 	//
 	// For information about node types, go to [Working with Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes) in the *Amazon Redshift Cluster Management Guide* .
 	//
-	// Valid Values: `dc2.large` | `dc2.8xlarge` | `ra3.xlplus` | `ra3.4xlarge` | `ra3.16xlarge`
+	// Valid Values: `dc2.large` | `dc2.8xlarge` | `ra3.large` | `ra3.xlplus` | `ra3.4xlarge` | `ra3.16xlarge`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
 	//
 	NodeType *string `field:"required" json:"nodeType" yaml:"nodeType"`
@@ -330,6 +331,12 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
 	//
 	ManualSnapshotRetentionPeriod *float64 `field:"optional" json:"manualSnapshotRetentionPeriod" yaml:"manualSnapshotRetentionPeriod"`
+	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
+	//
+	// You can only use this parameter if `ManageMasterPassword` is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterpasswordsecretkmskeyid
+	//
+	MasterPasswordSecretKmsKeyId *string `field:"optional" json:"masterPasswordSecretKmsKeyId" yaml:"masterPasswordSecretKmsKeyId"`
 	// The password associated with the admin user account for the cluster that is being created.
 	//
 	// You can't use `MasterUserPassword` if `ManageMasterPassword` is `true` .

@@ -1,7 +1,11 @@
 package awscognito
 
 
-// The `UsernameConfiguration` property type specifies case sensitivity on the username input for the selected sign-in option.
+// Case sensitivity of the username input for the selected sign-in option.
+//
+// When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+//
+// This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -166,6 +166,14 @@ func validateKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateKey_IsLookupDummyParameters(key IKey) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateKey_IsOwnedResourceParameters(construct constructs.IConstruct) error {
 	if construct == nil {
 		return fmt.Errorf("parameter construct is required, but nil was provided")

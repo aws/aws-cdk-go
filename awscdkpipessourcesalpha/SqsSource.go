@@ -14,11 +14,11 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetStateMachine iStateMachine
+//   var targetFunction iFunction
 //
 //
-//   pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
-//   	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
+//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+//   	InvocationType: targets.LambdaFunctionInvocationType_FIRE_AND_FORGET,
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{

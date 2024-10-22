@@ -134,6 +134,10 @@ func init() {
 		reflect.TypeOf((*CfnFirewallPolicy_FirewallPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy.FlowTimeoutsProperty",
+		reflect.TypeOf((*CfnFirewallPolicy_FlowTimeoutsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy.IPSetProperty",
 		reflect.TypeOf((*CfnFirewallPolicy_IPSetProperty)(nil)).Elem(),
 	)

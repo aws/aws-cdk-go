@@ -50,6 +50,7 @@ type CfnCapability_EdiConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-type
 	//
 	Type interface{} `field:"required" json:"type" yaml:"type"`
+	// Specifies whether this is capability is for inbound or outbound transformations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html#cfn-b2bi-capability-ediconfiguration-capabilitydirection
 	//
 	CapabilityDirection *string `field:"optional" json:"capabilityDirection" yaml:"capabilityDirection"`

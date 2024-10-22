@@ -63,6 +63,8 @@ package awss3
 //
 type CfnStorageLens_AccountLevelProperty struct {
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+	//
+	// To enable bucket-level configurations, make sure to also set the same metrics at the account level.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
 	//
 	BucketLevel interface{} `field:"required" json:"bucketLevel" yaml:"bucketLevel"`

@@ -22,6 +22,7 @@ import (
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MultiAz: jsii.Boolean(false),
+//   	NetworkType: jsii.String("networkType"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	ReplicationInstanceIdentifier: jsii.String("replicationInstanceIdentifier"),
@@ -93,6 +94,12 @@ type CfnReplicationInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-multiaz
 	//
 	MultiAz interface{} `field:"optional" json:"multiAz" yaml:"multiAz"`
+	// The type of IP address protocol used by a replication instance, such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+	//
+	// IPv6 only is not yet supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// The weekly time range during which system maintenance can occur, in UTC.
 	//
 	// *Format* : `ddd:hh24:mi-ddd:hh24:mi`

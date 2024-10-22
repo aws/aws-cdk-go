@@ -53,6 +53,7 @@ type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 	// The following attributes are supported by only Network Load Balancers:
 	//
 	// - `dns_record.client_routing_policy` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are `availability_zone_affinity` with 100 percent zonal affinity, `partial_availability_zone_affinity` with 85 percent zonal affinity, and `any_availability_zone` with 0 percent zonal affinity.
+	// - `zonal_shift.config.enabled` - Indicates whether zonal shift is enabled. The possible values are `true` and `false` . The default is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattribute-key
 	//
 	Key *string `field:"optional" json:"key" yaml:"key"`

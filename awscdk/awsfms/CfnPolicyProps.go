@@ -19,6 +19,50 @@ package awsfms
 //   		ManagedServiceData: jsii.String("managedServiceData"),
 //   		PolicyOption: &PolicyOptionProperty{
 //   			NetworkAclCommonPolicy: &NetworkAclCommonPolicyProperty{
+//   				NetworkAclEntrySet: &NetworkAclEntrySetProperty{
+//   					ForceRemediateForFirstEntries: jsii.Boolean(false),
+//   					ForceRemediateForLastEntries: jsii.Boolean(false),
+//
+//   					// the properties below are optional
+//   					FirstEntries: []interface{}{
+//   						&NetworkAclEntryProperty{
+//   							Egress: jsii.Boolean(false),
+//   							Protocol: jsii.String("protocol"),
+//   							RuleAction: jsii.String("ruleAction"),
+//
+//   							// the properties below are optional
+//   							CidrBlock: jsii.String("cidrBlock"),
+//   							IcmpTypeCode: &IcmpTypeCodeProperty{
+//   								Code: jsii.Number(123),
+//   								Type: jsii.Number(123),
+//   							},
+//   							Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
+//   							PortRange: &PortRangeProperty{
+//   								From: jsii.Number(123),
+//   								To: jsii.Number(123),
+//   							},
+//   						},
+//   					},
+//   					LastEntries: []interface{}{
+//   						&NetworkAclEntryProperty{
+//   							Egress: jsii.Boolean(false),
+//   							Protocol: jsii.String("protocol"),
+//   							RuleAction: jsii.String("ruleAction"),
+//
+//   							// the properties below are optional
+//   							CidrBlock: jsii.String("cidrBlock"),
+//   							IcmpTypeCode: &IcmpTypeCodeProperty{
+//   								Code: jsii.Number(123),
+//   								Type: jsii.Number(123),
+//   							},
+//   							Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
+//   							PortRange: &PortRangeProperty{
+//   								From: jsii.Number(123),
+//   								To: jsii.Number(123),
+//   							},
+//   						},
+//   					},
+//   				},
 //   			},
 //   			NetworkFirewallPolicy: &NetworkFirewallPolicyProperty{
 //   				FirewallDeploymentModel: jsii.String("firewallDeploymentModel"),

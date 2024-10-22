@@ -188,10 +188,10 @@ func FilterRule_NotExists() *[]*map[string]*bool {
 }
 
 // Null comparison operator.
-func FilterRule_Null() *[]*string {
+func FilterRule_Null() interface{} {
 	_init_.Initialize()
 
-	var returns *[]*string
+	var returns interface{}
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.FilterRule",

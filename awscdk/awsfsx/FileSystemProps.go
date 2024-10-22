@@ -29,6 +29,7 @@ import (
 //   	KmsKey: key,
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	SecurityGroup: securityGroup,
+//   	StorageType: awscdk.Aws_fsx.StorageType_SSD,
 //   }
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
@@ -38,7 +39,8 @@ type FileSystemProps struct {
 	//
 	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
 	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
-	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
+	// For SCRATCH_2, PERSISTENT_2 and PERSISTENT_1 deployment types using SSD storage type, the valid values are 1200 GiB, 2400 GiB, and increments of 2400 GiB.
+	// For PERSISTENT_1 HDD file systems, valid values are increments of 6000 GiB for 12 MB/s/TiB file systems and increments of 1800 GiB for 40 MB/s/TiB file systems.
 	StorageCapacityGiB *float64 `field:"required" json:"storageCapacityGiB" yaml:"storageCapacityGiB"`
 	// The VPC to launch the file system in.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
@@ -60,5 +62,11 @@ type FileSystemProps struct {
 	// Default: - creates new security group which allows all outbound traffic.
 	//
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
+	// The storage type for the file system that you're creating.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagetype
+	//
+	// Default: StorageType.SSD
+	//
+	StorageType StorageType `field:"optional" json:"storageType" yaml:"storageType"`
 }
 

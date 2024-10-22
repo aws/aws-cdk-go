@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnSchema) validateSetRegistryParameters(val interface{}) err
 	return nil
 }
 
-func (j *jsiiProxy_CfnSchema) validateSetSchemaDefinitionParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnSchema) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

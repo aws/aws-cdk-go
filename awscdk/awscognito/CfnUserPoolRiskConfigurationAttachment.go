@@ -102,7 +102,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The app client ID.
+	// The app client where this configuration is applied.
 	ClientId() *string
 	SetClientId(val *string)
 	// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.

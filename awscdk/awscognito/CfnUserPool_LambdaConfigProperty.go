@@ -45,7 +45,9 @@ type CfnUserPool_LambdaConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-createauthchallenge
 	//
 	CreateAuthChallenge *string `field:"optional" json:"createAuthChallenge" yaml:"createAuthChallenge"`
-	// A custom email sender AWS Lambda trigger.
+	// The configuration of a custom email sender Lambda trigger.
+	//
+	// This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customemailsender
 	//
 	CustomEmailSender interface{} `field:"optional" json:"customEmailSender" yaml:"customEmailSender"`
@@ -55,7 +57,9 @@ type CfnUserPool_LambdaConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-custommessage
 	//
 	CustomMessage *string `field:"optional" json:"customMessage" yaml:"customMessage"`
-	// A custom SMS sender AWS Lambda trigger.
+	// The configuration of a custom SMS sender Lambda trigger.
+	//
+	// This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-customsmssender
 	//
 	CustomSmsSender interface{} `field:"optional" json:"customSmsSender" yaml:"customSmsSender"`
@@ -63,9 +67,7 @@ type CfnUserPool_LambdaConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
 	//
 	DefineAuthChallenge *string `field:"optional" json:"defineAuthChallenge" yaml:"defineAuthChallenge"`
-	// The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key.
-	//
-	// Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
+	// The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`

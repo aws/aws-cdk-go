@@ -35,7 +35,7 @@ package awsapigatewayv2
 type CfnDomainNameProps struct {
 	// The custom domain name for your API in Amazon API Gateway.
 	//
-	// Uppercase letters are not supported.
+	// Uppercase letters and the underscore ( `_` ) character are not supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainname
 	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`

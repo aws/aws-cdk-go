@@ -95,7 +95,8 @@ cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseCluste
 
 For more information about dual-stack mode, see [Working with a DB cluster in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html).
 
-If you want to issue read/write transactions directly on an Aurora Replica, you can use [local write forwarding](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html).
+If you want to issue read/write transactions directly on an Aurora Replica, you can use local write forwarding on [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html)
+and [Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-postgresql-write-forwarding.html).
 Local write forwarding allows read replicas to accept write transactions and forward them to the writer DB instance to be committed.
 
 To enable local write forwarding, set the `enableLocalWriteForwarding` property to `true`:
@@ -117,7 +118,8 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterPro
 })
 ```
 
-**Note**: Local write forwarding is only supported for Aurora MySQL 3.04 and higher.
+**Note**: Local write forwarding is supported only for Aurora MySQL 3.04 or higher, and for Aurora PostgreSQL
+16.4 or higher (for version 16), 15.8 or higher (for version 15), and 14.13 or higher (for version 14).
 
 Use `DatabaseClusterFromSnapshot` to create a cluster from a snapshot:
 
@@ -745,7 +747,7 @@ var vpc vpc
 
 iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+		Version: rds.MysqlEngineVersion_VER_8_0_39(),
 	}),
 	Vpc: Vpc,
 	StorageType: rds.StorageType_IO1,
@@ -754,7 +756,7 @@ iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &Data
 
 gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_*Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+		Version: rds.MysqlEngineVersion_VER_8_0_39(),
 	}),
 	Vpc: Vpc,
 	AllocatedStorage: jsii.Number(500),
@@ -777,7 +779,7 @@ var sourceInstance databaseInstance
 // Setting allocatedStorage for DatabaseInstance
 iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+		Version: rds.MysqlEngineVersion_VER_8_0_39(),
 	}),
 	Vpc: Vpc,
 	StorageType: rds.StorageType_IO1,
@@ -801,7 +803,7 @@ var vpc vpc
 
 rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+		Version: rds.MysqlEngineVersion_VER_8_0_39(),
 	}),
 	Vpc: Vpc,
 	CaCertificate: rds.CaCertificate_RDS_CA_RSA2048_G1(),
@@ -816,7 +818,7 @@ var vpc vpc
 
 rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
 	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-		Version: rds.MysqlEngineVersion_VER_8_0_30(),
+		Version: rds.MysqlEngineVersion_VER_8_0_39(),
 	}),
 	Vpc: Vpc,
 	CaCertificate: rds.CaCertificate_Of(jsii.String("future-rds-ca")),
@@ -1665,3 +1667,92 @@ rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterPro
 	PreferredMaintenanceWindow: jsii.String("Sat:22:15-Sat:22:45"),
 })
 ```
+
+## Performance Insights
+
+You can enable Performance Insights for a clustered database or an instance database.
+
+### Clustered Database
+
+You can enable Performance Insights at cluster level or instance level.
+
+To enable Performance Insights at the cluster level, set the `enablePerformanceInsights` property for the `DatabaseCluster` to `true`.
+If you want to specify the detailed settings, you can use the `performanceInsightRetention` and `performanceInsightEncryptionKey` properties.
+
+The settings are then applied to all instances in the cluster.
+
+```go
+var vpc vpc
+var kmsKey key
+
+rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA(),
+	Vpc: vpc,
+	EnablePerformanceInsights: jsii.Boolean(true),
+	PerformanceInsightRetention: rds.PerformanceInsightRetention_LONG_TERM,
+	PerformanceInsightEncryptionKey: kmsKey,
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("Writer"), &ProvisionedClusterInstanceProps{
+		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R7G, ec2.InstanceSize_LARGE),
+	}),
+})
+```
+
+To enable Performance Insights at the instance level, set the same properties for each instance of the `writer` and the `readers`.
+
+In this way, different settings can be applied to different instances in a cluster.
+
+**Note:** If Performance Insights is enabled at the cluster level, it is also automatically enabled for each instance. If specified, Performance Insights
+for each instance require the same retention period and encryption key as the cluster level.
+
+```go
+var vpc vpc
+var kmsKey key
+
+rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AURORA(),
+	Vpc: vpc,
+	Writer: rds.ClusterInstance_Provisioned(jsii.String("Writer"), &ProvisionedClusterInstanceProps{
+		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R7G, ec2.InstanceSize_LARGE),
+		EnablePerformanceInsights: jsii.Boolean(true),
+		PerformanceInsightRetention: rds.PerformanceInsightRetention_LONG_TERM,
+		PerformanceInsightEncryptionKey: kmsKey,
+	}),
+	Readers: []iClusterInstance{
+		rds.ClusterInstance_*Provisioned(jsii.String("Reader"), &ProvisionedClusterInstanceProps{
+			InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_R7G, ec2.InstanceSize_LARGE),
+			EnablePerformanceInsights: jsii.Boolean(false),
+		}),
+	},
+})
+```
+
+### Instance Database
+
+To enable Performance Insights for an instance database, set the `enablePerformanceInsights` property for the `DatabaseInstance` to `true`.
+If you want to specify the detailed settings, you can use the `performanceInsightRetention` and `performanceInsightEncryptionKey` properties.
+
+```go
+var vpc vpc
+var kmsKey key
+
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_39(),
+	}),
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R7G, ec2.InstanceSize_LARGE),
+	Vpc: Vpc,
+	EnablePerformanceInsights: jsii.Boolean(true),
+	PerformanceInsightRetention: rds.PerformanceInsightRetention_LONG_TERM,
+	PerformanceInsightEncryptionKey: kmsKey,
+})
+```
+
+### Supported Engines
+
+Performance Insights supports a limited number of engines.
+
+To see Amazon RDS DB engines that support Performance Insights, see [Amazon RDS DB engine, Region, and instance class support for Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.Engines.html).
+
+To see Amazon Aurora DB engines that support Performance Insights, see [Amazon Aurora DB engine, Region, and instance class support for Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Overview.Engines.html).
+
+For more information about Performance Insights, see [Monitoring DB load with Performance Insights on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html).

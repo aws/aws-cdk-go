@@ -111,6 +111,7 @@ type CfnCluster_InstanceFleetConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancefleetconfig.html#cfn-emr-cluster-instancefleetconfig-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The resize specification for the instance fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancefleetconfig.html#cfn-emr-cluster-instancefleetconfig-resizespecifications
 	//
 	ResizeSpecifications interface{} `field:"optional" json:"resizeSpecifications" yaml:"resizeSpecifications"`

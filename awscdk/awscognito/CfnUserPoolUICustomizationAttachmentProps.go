@@ -19,9 +19,9 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html
 //
 type CfnUserPoolUICustomizationAttachmentProps struct {
-	// The client ID for the client app.
+	// The app client ID for your UI customization.
 	//
-	// You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	// When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-clientid
 	//
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`

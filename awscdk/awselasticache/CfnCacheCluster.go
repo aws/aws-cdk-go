@@ -81,19 +81,19 @@ type CfnCacheCluster interface {
 	awscdk.ITaggable
 	// The DNS hostname of the cache node.
 	//
-	// > Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
+	// > Valkey and Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
 	AttrConfigurationEndpointAddress() *string
 	// The port number of the configuration endpoint for the Memcached cache cluster.
 	//
-	// > Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
+	// > Valkey and Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
 	AttrConfigurationEndpointPort() *string
 	// The resource name.
 	AttrId() *string
-	// The DNS address of the configuration endpoint for the Redis OSS cache cluster.
+	// The DNS address of the configuration endpoint for the Valkey or Redis OSS cache cluster.
 	AttrRedisEndpointAddress() *string
-	// The port number of the configuration endpoint for the Redis OSS cache cluster.
+	// The port number of the configuration endpoint for the Valkey or Redis OSS cache cluster.
 	AttrRedisEndpointPort() *string
-	// If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
+	// If you are running Valkey 7.2 or later, or Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
 	// Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
@@ -173,10 +173,10 @@ type CfnCacheCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis OSS RDB snapshot file stored in Amazon S3.
+	// A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Valkey or Redis OSS RDB snapshot file stored in Amazon S3.
 	SnapshotArns() *[]*string
 	SetSnapshotArns(val *[]*string)
-	// The name of a Redis OSS snapshot from which to restore data into the new node group (shard).
+	// The name of a Valkey or Redis OSS snapshot from which to restore data into the new node group (shard).
 	SnapshotName() *string
 	SetSnapshotName(val *string)
 	// The number of days for which ElastiCache retains automatic snapshots before deleting them.

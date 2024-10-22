@@ -66,6 +66,9 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-backupretentionperiod
 	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
+	// Set to `true` to copy all tags from the source cluster snapshot to the target cluster snapshot, and otherwise `false` .
+	//
+	// The default is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-copytagstosnapshot
 	//
 	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
@@ -108,6 +111,8 @@ type CfnDBClusterProps struct {
 	// The version number of the database engine to use.
 	//
 	// The `--engine-version` will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.
+	//
+	// Changing the `EngineVersion` will start an in-place engine version upgrade. Note that in-place engine version upgrade will cause downtime in the cluster. See [Amazon DocumentDB in-place major version upgrade](https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-mvu.html) before starting an in-place engine version upgrade.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
@@ -215,6 +220,8 @@ type CfnDBClusterProps struct {
 	//
 	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// Specifies whether the cluster is encrypted.
+	//
+	// If you specify `SourceDBClusterIdentifier` or `SnapshotIdentifier` and don’t specify `StorageEncrypted` , the encryption property is inherited from the source cluster or snapshot (unless `KMSKeyId` is specified, in which case the restored cluster will be encrypted with that KMS key). If the source is encrypted and `StorageEncrypted` is specified to be true, the restored cluster will be encrypted (if you want to use a different KMS key, specify the `KMSKeyId` property as well). If the source is unencrypted and `StorageEncrypted` is specified to be true, then the `KMSKeyId` property must be specified. If the source is encrypted, don’t specify `StorageEncrypted` to be false as opting out of encryption is not allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-storageencrypted
 	//
 	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`

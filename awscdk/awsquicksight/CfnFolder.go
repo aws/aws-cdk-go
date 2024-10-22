@@ -51,6 +51,7 @@ type CfnFolder interface {
 	AttrCreatedTime() *string
 	// The time that the folder was last updated.
 	AttrLastUpdatedTime() *string
+	// The ID for the AWS account where you want to create the folder.
 	AwsAccountId() *string
 	SetAwsAccountId(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -88,6 +89,7 @@ type CfnFolder interface {
 	// The Amazon Resource Name (ARN) for the folder.
 	ParentFolderArn() *string
 	SetParentFolderArn(val *string)
+	// A structure that describes the principals and the resource-level permissions of a folder.
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -102,6 +104,7 @@ type CfnFolder interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of tags for the folders that you want to apply overrides to.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

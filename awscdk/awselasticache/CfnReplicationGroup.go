@@ -9,13 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::ElastiCache::ReplicationGroup` resource creates an Amazon ElastiCache (Redis OSS) replication group.
+// The `AWS::ElastiCache::ReplicationGroup` resource creates an Amazon ElastiCache (Valkey or Redis OSS) replication group.
 //
-// A Redis OSS (cluster mode disabled) replication group is a collection of cache clusters, where one of the clusters is a primary read-write cluster and the others are read-only replicas.
+// A Valkey or Redis OSS (cluster mode disabled) replication group is a collection of cache clusters, where one of the clusters is a primary read-write cluster and the others are read-only replicas.
 //
-// A Redis OSS (cluster mode enabled) cluster is comprised of from 1 to 90 shards (API/CLI: node groups). Each shard has a primary node and up to 5 read-only replica nodes. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed.
+// A Valkey or Redis OSS (cluster mode enabled) cluster is comprised of from 1 to 90 shards (API/CLI: node groups). Each shard has a primary node and up to 5 read-only replica nodes. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed.
 //
-// The node or shard limit can be increased to a maximum of 500 per cluster if the Redis OSS engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node cluster that ranges between 83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see [Creating a Subnet Group](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html) . For versions below 5.0.6, the limit is 250 per cluster.
+// The node or shard limit can be increased to a maximum of 500 per cluster if the engine version is Valkey 7.2 or higher, or Redis OSS 5.0.6 or higher. For example, you can choose to configure a 500 node cluster that ranges between 83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see [Creating a Subnet Group](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.Creating.html) . For versions below 5.0.6, the limit is 250 per cluster.
 //
 // To request a limit increase, see [Amazon Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type *Nodes per cluster per instance type* .
 //
@@ -118,7 +118,7 @@ type CfnReplicationGroup interface {
 	SetAtRestEncryptionEnabled(val interface{})
 	// The DNS hostname of the cache node.
 	//
-	// > Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails. For Redis OSS (cluster mode disabled) replication groups, use the `PrimaryEndpoint` or `ReadEndpoint` attributes.
+	// > Valkey or Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails. For Valkey or Redis OSS (cluster mode disabled) replication groups, use the `PrimaryEndpoint` or `ReadEndpoint` attributes.
 	AttrConfigurationEndPointAddress() *string
 	// The port number that the cache engine is listening on.
 	AttrConfigurationEndPointPort() *string
@@ -152,7 +152,7 @@ type CfnReplicationGroup interface {
 	// Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
 	AutomaticFailoverEnabled() interface{}
 	SetAutomaticFailoverEnabled(val interface{})
-	// If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
+	// If you are running Valkey 7.2 or later, or Redis OSS 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
 	AutoMinorVersionUpgrade() interface{}
 	SetAutoMinorVersionUpgrade(val interface{})
 	// The compute and memory capacity of the nodes in the node group (shard).
@@ -218,7 +218,7 @@ type CfnReplicationGroup interface {
 	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Redis OSS cluster node group.
+	// `NodeGroupConfiguration` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache (ElastiCache) Valkey or Redis OSS cluster node group.
 	NodeGroupConfiguration() interface{}
 	SetNodeGroupConfiguration(val interface{})
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
@@ -227,7 +227,7 @@ type CfnReplicationGroup interface {
 	// The number of clusters this replication group initially has.
 	NumCacheClusters() *float64
 	SetNumCacheClusters(val *float64)
-	// An optional parameter that specifies the number of node groups (shards) for this Redis OSS (cluster mode enabled) replication group.
+	// An optional parameter that specifies the number of node groups (shards) for this Valkey or Redis OSS (cluster mode enabled) replication group.
 	NumNodeGroups() *float64
 	SetNumNodeGroups(val *float64)
 	// The port number on which each member of the replication group accepts connections.
@@ -261,7 +261,7 @@ type CfnReplicationGroup interface {
 	// One or more Amazon VPC security groups associated with this replication group.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
-	// A list of Amazon Resource Names (ARN) that uniquely identify the Redis OSS RDB snapshot files stored in Amazon S3.
+	// A list of Amazon Resource Names (ARN) that uniquely identify the Valkey or Redis OSS RDB snapshot files stored in Amazon S3.
 	SnapshotArns() *[]*string
 	SetSnapshotArns(val *[]*string)
 	// The name of a snapshot from which to restore data into the new replication group.

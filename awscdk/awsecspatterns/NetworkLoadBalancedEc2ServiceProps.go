@@ -11,13 +11,23 @@ import (
 // The properties for the NetworkLoadBalancedEc2Service service.
 //
 // Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var cluster cluster
 //
+//   certificate := awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
 //   loadBalancedEcsService := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsii.String("Service"), &NetworkLoadBalancedEc2ServiceProps{
 //   	Cluster: Cluster,
 //   	MemoryLimitMiB: jsii.Number(1024),
+//   	// The default value of listenerPort is 443 if you pass in listenerCertificate
+//   	// It is configured to port 4443 here
+//   	ListenerPort: jsii.Number(4443),
+//   	ListenerCertificate: certificate,
 //   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+//   		// The default value of containerPort is 443 if you pass in listenerCertificate
+//   		// It is configured to port 8443 here
+//   		ContainerPort: jsii.Number(8443),
 //   		Environment: map[string]*string{
 //   			"TEST_ENVIRONMENT_VARIABLE1": jsii.String("test environment variable 1 value"),
 //   			"TEST_ENVIRONMENT_VARIABLE2": jsii.String("test environment variable 2 value"),
@@ -94,8 +104,15 @@ type NetworkLoadBalancedEc2ServiceProps struct {
 	// Default: IpAddressType.IPV4
 	//
 	IpAddressType awselasticloadbalancingv2.IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// Listener certificate list of ACM cert ARNs.
+	//
+	// If you provide a certificate, the listener's protocol will be TLS.
+	// If not, the listener's protocol will be TCP.
+	// Default: - none.
+	//
+	ListenerCertificate awselasticloadbalancingv2.IListenerCertificate `field:"optional" json:"listenerCertificate" yaml:"listenerCertificate"`
 	// Listener port of the network load balancer that will serve traffic to the service.
-	// Default: 80.
+	// Default: 80 or 443 with listenerCertificate provided.
 	//
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// The network load balancer that will serve traffic to the service.

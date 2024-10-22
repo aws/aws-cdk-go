@@ -13,17 +13,20 @@ import (
 // A Fargate service running on an ECS cluster fronted by a network load balancer.
 //
 // Example:
-//   var vpc vpc
-//   var securityGroup securityGroup
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
-//   	Vpc: Vpc,
-//   	MemoryLimitMiB: jsii.Number(512),
+//
+//   certificate := awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
+//   loadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
+//   	// The default value of listenerPort is 443 if you pass in listenerCertificate
+//   	// It is configured to port 4443 here
+//   	ListenerPort: jsii.Number(4443),
+//   	ListenerCertificate: certificate,
 //   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	},
-//   	SecurityGroups: []iSecurityGroup{
-//   		securityGroup,
+//   		// The default value of containerPort is 443 if you pass in listenerCertificate
+//   		// It is configured to port 8443 here
+//   		ContainerPort: jsii.Number(8443),
 //   	},
 //   })
 //

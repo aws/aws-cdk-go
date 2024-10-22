@@ -30,6 +30,7 @@ type CfnCluster_OnDemandProvisioningSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-ondemandprovisioningspecification.html#cfn-emr-cluster-ondemandprovisioningspecification-allocationstrategy
 	//
 	AllocationStrategy *string `field:"required" json:"allocationStrategy" yaml:"allocationStrategy"`
+	// The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-ondemandprovisioningspecification.html#cfn-emr-cluster-ondemandprovisioningspecification-capacityreservationoptions
 	//
 	CapacityReservationOptions interface{} `field:"optional" json:"capacityReservationOptions" yaml:"capacityReservationOptions"`

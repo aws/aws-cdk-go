@@ -289,26 +289,6 @@ target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
 })
 ```
 
-## Overriding Target Properties
-
-If you wish to reuse the same target in multiple schedules, you can override target properties like `input`,
-`retryAttempts` and `maxEventAge` when creating a Schedule using the `targetOverrides` parameter:
-
-```go
-var target lambdaInvoke
-
-
-oneTimeSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
-	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(cdk.Duration_Hours(jsii.Number(12))),
-	Target: Target,
-	TargetOverrides: &ScheduleTargetProps{
-		Input: awscdkscheduleralpha.ScheduleTargetInput_FromText(jsii.String("Overriding Target Input")),
-		MaxEventAge: awscdk.Duration_Seconds(jsii.Number(180)),
-		RetryAttempts: jsii.Number(5),
-	},
-})
-```
-
 ## Monitoring
 
 You can monitor Amazon EventBridge Scheduler using CloudWatch, which collects raw data

@@ -139,7 +139,7 @@ func LinuxArmBuildImage_FromCodeBuildImageId(id *string) IBuildImage {
 	return returns
 }
 
-// Returns: a x86-64 Linux build image from a Docker Hub image.
+// Returns: a aarch-64 Linux build image from a Docker Hub image.
 func LinuxArmBuildImage_FromDockerRegistry(name *string, options *DockerImageOptions) IBuildImage {
 	_init_.Initialize()
 

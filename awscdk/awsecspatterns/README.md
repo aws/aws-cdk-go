@@ -1263,6 +1263,56 @@ queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateServic
 })
 ```
 
+### Set TLS for NetworkLoadBalancedFargateService / NetworkLoadBalancedEc2Service
+
+To set up TLS listener in Network Load Balancer, you need to pass extactly one ACM certificate into the option `listenerCertificate`. The listener port and the target group port will also become 443 by default. You can override the listener's port with `listenerPort` and the target group's port with `taskImageOptions.containerPort`.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+certificate := awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
+loadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
+	// The default value of listenerPort is 443 if you pass in listenerCertificate
+	// It is configured to port 4443 here
+	ListenerPort: jsii.Number(4443),
+	ListenerCertificate: certificate,
+	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+		// The default value of containerPort is 443 if you pass in listenerCertificate
+		// It is configured to port 8443 here
+		ContainerPort: jsii.Number(8443),
+	},
+})
+```
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var cluster cluster
+
+certificate := awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
+loadBalancedEcsService := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsii.String("Service"), &NetworkLoadBalancedEc2ServiceProps{
+	Cluster: Cluster,
+	MemoryLimitMiB: jsii.Number(1024),
+	// The default value of listenerPort is 443 if you pass in listenerCertificate
+	// It is configured to port 4443 here
+	ListenerPort: jsii.Number(4443),
+	ListenerCertificate: certificate,
+	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
+		Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+		// The default value of containerPort is 443 if you pass in listenerCertificate
+		// It is configured to port 8443 here
+		ContainerPort: jsii.Number(8443),
+		Environment: map[string]*string{
+			"TEST_ENVIRONMENT_VARIABLE1": jsii.String("test environment variable 1 value"),
+			"TEST_ENVIRONMENT_VARIABLE2": jsii.String("test environment variable 2 value"),
+		},
+	},
+	DesiredCount: jsii.Number(2),
+})
+```
+
 ### Use dualstack Load Balancer
 
 You can use dualstack IP address type for Application Load Balancer and Network Load Balancer.

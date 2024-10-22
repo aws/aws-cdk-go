@@ -35,6 +35,9 @@ type CfnAnalysisProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
 	//
 	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-folderarns
+	//
+	FolderArns *[]*string `field:"optional" json:"folderArns" yaml:"folderArns"`
 	// The parameter names and override values that you want to use.
 	//
 	// An analysis can have any parameter type, and some parameters might accept multiple values.

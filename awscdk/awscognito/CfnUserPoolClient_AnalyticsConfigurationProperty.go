@@ -25,9 +25,9 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html
 //
 type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
-	// The Amazon Resource Name (ARN) of an Amazon Pinpoint project.
+	// The Amazon Resource Name (ARN) of an Amazon Pinpoint project that you want to connect to your user pool app client.
 	//
-	// You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
+	// Amazon Cognito publishes events to the Amazon Pinpoint project that `ApplicationArn` declares. You can also configure your application to pass an endpoint ID in the `AnalyticsMetadata` parameter of sign-in operations. The endpoint ID is information about the destination for push notifications
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html#cfn-cognito-userpoolclient-analyticsconfiguration-applicationarn
 	//
 	ApplicationArn *string `field:"optional" json:"applicationArn" yaml:"applicationArn"`

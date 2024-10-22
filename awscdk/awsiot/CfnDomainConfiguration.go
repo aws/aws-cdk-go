@@ -54,6 +54,7 @@ type CfnDomainConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// An enumerated string that speciﬁes the application-layer protocol.
 	ApplicationProtocol() *string
 	SetApplicationProtocol(val *string)
 	// The Amazon Resource Name (ARN) of the domain configuration.
@@ -64,6 +65,7 @@ type CfnDomainConfiguration interface {
 	//
 	// Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 	AttrServerCertificates() awscdk.IResolvable
+	// An enumerated string that speciﬁes the authentication type.
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
 	// An object that specifies the authorization service for a domain.
@@ -74,6 +76,7 @@ type CfnDomainConfiguration interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// An object that speciﬁes the client certificate conﬁguration for a domain.
 	ClientCertificateConfig() interface{}
 	SetClientCertificateConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

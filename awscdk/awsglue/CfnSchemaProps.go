@@ -15,7 +15,6 @@ import (
 //   	Compatibility: jsii.String("compatibility"),
 //   	DataFormat: jsii.String("dataFormat"),
 //   	Name: jsii.String("name"),
-//   	SchemaDefinition: jsii.String("schemaDefinition"),
 //
 //   	// the properties below are optional
 //   	CheckpointVersion: &SchemaVersionProperty{
@@ -27,6 +26,7 @@ import (
 //   		Arn: jsii.String("arn"),
 //   		Name: jsii.String("name"),
 //   	},
+//   	SchemaDefinition: jsii.String("schemaDefinition"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -54,10 +54,6 @@ type CfnSchemaProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The schema definition using the `DataFormat` setting for `SchemaName` .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
-	//
-	SchemaDefinition *string `field:"required" json:"schemaDefinition" yaml:"schemaDefinition"`
 	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema.
 	//
 	// This is only required for updating a checkpoint.
@@ -72,6 +68,10 @@ type CfnSchemaProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
 	//
 	Registry interface{} `field:"optional" json:"registry" yaml:"registry"`
+	// The schema definition using the `DataFormat` setting for `SchemaName` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+	//
+	SchemaDefinition *string `field:"optional" json:"schemaDefinition" yaml:"schemaDefinition"`
 	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
 	//

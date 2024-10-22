@@ -744,6 +744,28 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 })
 ```
 
+When you use `Table`, you can enable contributor insights for a table or specific global secondary index by setting `contributorInsightsEnabled` to `true`.
+
+```go
+table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	ContributorInsightsEnabled: jsii.Boolean(true),
+})
+
+table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexProps{
+	ContributorInsightsEnabled: jsii.Boolean(true),
+	 // for a specific global secondary index
+	IndexName: jsii.String("gsi"),
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+})
+```
+
 Further reading:
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html
 

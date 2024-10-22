@@ -77,6 +77,16 @@ type InstanceProps struct {
 	// Default: - false.
 	//
 	DetailedMonitoring *bool `field:"optional" json:"detailedMonitoring" yaml:"detailedMonitoring"`
+	// If true, the instance will not be able to be terminated using the Amazon EC2 console, CLI, or API.
+	//
+	// To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html).
+	// Alternatively, if you set InstanceInitiatedShutdownBehavior to terminate, you can terminate the instance
+	// by running the shutdown command from the instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-disableapitermination
+	//
+	// Default: false.
+	//
+	DisableApiTermination *bool `field:"optional" json:"disableApiTermination" yaml:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
 	//
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance.

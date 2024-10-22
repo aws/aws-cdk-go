@@ -126,6 +126,10 @@ type CfnClusterProps struct {
 	//
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 	// The unique name to give to your cluster.
+	//
+	// The name can contain only alphanumeric characters (case-sensitive),
+	// hyphens, and underscores. It must start with an alphanumeric character and can't be longer than
+	// 100 characters. The name must be unique within the AWS Region and AWS account that you're creating the cluster in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

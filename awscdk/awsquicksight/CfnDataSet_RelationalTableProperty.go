@@ -10,6 +10,10 @@ package awsquicksight
 //
 //   relationalTableProperty := &RelationalTableProperty{
 //   	DataSourceArn: jsii.String("dataSourceArn"),
+//   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	Catalog: jsii.String("catalog"),
 //   	InputColumns: []interface{}{
 //   		&InputColumnProperty{
 //   			Name: jsii.String("name"),
@@ -19,10 +23,6 @@ package awsquicksight
 //   			SubType: jsii.String("subType"),
 //   		},
 //   	},
-//   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
-//   	Catalog: jsii.String("catalog"),
 //   	Schema: jsii.String("schema"),
 //   }
 //
@@ -33,10 +33,6 @@ type CfnDataSet_RelationalTableProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn
 	//
 	DataSourceArn *string `field:"required" json:"dataSourceArn" yaml:"dataSourceArn"`
-	// The column schema of the table.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
-	//
-	InputColumns interface{} `field:"required" json:"inputColumns" yaml:"inputColumns"`
 	// The name of the relational table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
 	//
@@ -45,6 +41,10 @@ type CfnDataSet_RelationalTableProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
 	//
 	Catalog *string `field:"optional" json:"catalog" yaml:"catalog"`
+	// The column schema of the table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
+	//
+	InputColumns interface{} `field:"optional" json:"inputColumns" yaml:"inputColumns"`
 	// The schema name.
 	//
 	// This name applies to certain relational database engines.

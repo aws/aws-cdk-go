@@ -220,6 +220,12 @@ import (
 //   	TerminationPolicies: []*string{
 //   		jsii.String("terminationPolicies"),
 //   	},
+//   	TrafficSources: []interface{}{
+//   		&TrafficSourceIdentifierProperty{
+//   			Identifier: jsii.String("identifier"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	VpcZoneIdentifier: []*string{
 //   		jsii.String("vpcZoneIdentifier"),
 //   	},
@@ -354,6 +360,8 @@ type CfnAutoScalingGroup interface {
 	// A policy or a list of policies that are used to select the instance to terminate.
 	TerminationPolicies() *[]*string
 	SetTerminationPolicies(val *[]*string)
+	TrafficSources() interface{}
+	SetTrafficSources(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -884,6 +892,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) TerminationPolicies() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) TrafficSources() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"trafficSources",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1206,6 +1224,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetTerminationPolicies(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"terminationPolicies",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetTrafficSources(val interface{}) {
+	if err := j.validateSetTrafficSourcesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"trafficSources",
 		val,
 	)
 }

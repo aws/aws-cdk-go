@@ -80,6 +80,10 @@ func validateCfnTaskSet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskSet) validateSetCapacityProviderStrategyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskSet) validateSetClusterParameters(val *string) error {
 	return nil
 }

@@ -24,7 +24,6 @@ package awssagemaker
 //   	ProgrammingLang: jsii.String("programmingLang"),
 //   	ReleaseNotes: jsii.String("releaseNotes"),
 //   	VendorGuidance: jsii.String("vendorGuidance"),
-//   	Version: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
@@ -78,9 +77,5 @@ type CfnImageVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-vendorguidance
 	//
 	VendorGuidance *string `field:"optional" json:"vendorGuidance" yaml:"vendorGuidance"`
-	// The version number.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-version
-	//
-	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 

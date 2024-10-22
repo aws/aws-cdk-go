@@ -76,9 +76,6 @@ type ScheduleProps struct {
 	//
 	// Experimental.
 	Start *time.Time `field:"optional" json:"start" yaml:"start"`
-	// Allows to override target properties when creating a new schedule.
-	// Experimental.
-	TargetOverrides *ScheduleTargetProps `field:"optional" json:"targetOverrides" yaml:"targetOverrides"`
 	// A time window during which EventBridge Scheduler invokes the schedule.
 	// See: https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-schedule-flexible-time-windows.html
 	//

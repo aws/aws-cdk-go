@@ -34,6 +34,7 @@ package awsec2
 //   		},
 //   	},
 //   	Tenancy: jsii.String("tenancy"),
+//   	UnusedReservationBillingOwnerId: jsii.String("unusedReservationBillingOwnerId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html
@@ -118,5 +119,8 @@ type CfnCapacityReservationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-tenancy
 	//
 	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-unusedreservationbillingownerid
+	//
+	UnusedReservationBillingOwnerId *string `field:"optional" json:"unusedReservationBillingOwnerId" yaml:"unusedReservationBillingOwnerId"`
 }
 

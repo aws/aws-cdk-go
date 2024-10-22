@@ -4,6 +4,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 )
 
@@ -20,7 +21,13 @@ type IAuroraClusterInstance interface {
 	InstanceIdentifier() *string
 	// The instance size if the instance is a provisioned type.
 	InstanceSize() *string
-	// Te promotion tier the instance was created in.
+	// The AWS KMS key for encryption of Performance Insights data.
+	PerformanceInsightEncryptionKey() awskms.IKey
+	// The amount of time, in days, to retain Performance Insights data.
+	PerformanceInsightRetention() PerformanceInsightRetention
+	// Whether Performance Insights is enabled.
+	PerformanceInsightsEnabled() *bool
+	// The promotion tier the instance was created in.
 	Tier() *float64
 	// The instance type (provisioned vs serverless v2).
 	Type() InstanceType
@@ -76,6 +83,36 @@ func (j *jsiiProxy_IAuroraClusterInstance) InstanceSize() *string {
 	_jsii_.Get(
 		j,
 		"instanceSize",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAuroraClusterInstance) PerformanceInsightEncryptionKey() awskms.IKey {
+	var returns awskms.IKey
+	_jsii_.Get(
+		j,
+		"performanceInsightEncryptionKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAuroraClusterInstance) PerformanceInsightRetention() PerformanceInsightRetention {
+	var returns PerformanceInsightRetention
+	_jsii_.Get(
+		j,
+		"performanceInsightRetention",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAuroraClusterInstance) PerformanceInsightsEnabled() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"performanceInsightsEnabled",
 		&returns,
 	)
 	return returns

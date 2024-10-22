@@ -460,6 +460,27 @@ listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
 })
 ```
 
+### Network Load Balancer and EC2 IConnectable interface
+
+Network Load Balancer implements EC2 `IConnectable` and exposes `connections` property. EC2 Connections allows manage the allowed network connections for constructs with Security Groups. This class makes it easy to allow network connections to and from security groups, and between security groups individually. One thing to keep in mind is that network load balancers do not have security groups, and no automatic security group configuration is done for you. You will have to configure the security groups of the target yourself to allow traffic by clients and/or load balancer instances, depending on your target types.
+
+```go
+var vpc vpc
+var sg1 iSecurityGroup
+var sg2 iSecurityGroup
+
+
+lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
+	SecurityGroups: []*iSecurityGroup{
+		sg1,
+	},
+})
+lb.AddSecurityGroup(sg2)
+lb.Connections.AllowFromAnyIpv4(ec2.Port_Tcp(jsii.Number(80)))
+```
+
 ## Targets and Target Groups
 
 Application and Network Load Balancers organize load balancing targets in Target

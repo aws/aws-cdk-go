@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var supportContainerDefinitions interface{}
+//
 //   cfnContainerGroupDefinitionProps := &CfnContainerGroupDefinitionProps{
 //   	ContainerDefinitions: []interface{}{
 //   		&ContainerDefinitionProperty{
@@ -73,6 +75,10 @@ import (
 //
 //   	// the properties below are optional
 //   	SchedulingStrategy: jsii.String("schedulingStrategy"),
+//   	SourceVersionNumber: jsii.Number(123),
+//   	SupportContainerDefinitions: []interface{}{
+//   		supportContainerDefinitions,
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -129,6 +135,14 @@ type CfnContainerGroupDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-schedulingstrategy
 	//
 	SchedulingStrategy *string `field:"optional" json:"schedulingStrategy" yaml:"schedulingStrategy"`
+	// A specific ContainerGroupDefinition version to be updated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-sourceversionnumber
+	//
+	SourceVersionNumber *float64 `field:"optional" json:"sourceVersionNumber" yaml:"sourceVersionNumber"`
+	// A collection of support container definitions that define the containers in this group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-supportcontainerdefinitions
+	//
+	SupportContainerDefinitions interface{} `field:"optional" json:"supportContainerDefinitions" yaml:"supportContainerDefinitions"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-tags
 	//

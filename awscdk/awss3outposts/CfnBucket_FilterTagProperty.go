@@ -1,6 +1,8 @@
 package awss3outposts
 
 
+// Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

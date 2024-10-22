@@ -111,16 +111,15 @@ type CfnTransformer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Returns the details for the EDI standard that is being used for the transformer.
 	// Deprecated: this property has been deprecated.
 	EdiType() interface{}
 	// Deprecated: this property has been deprecated.
 	SetEdiType(val interface{})
-	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 	// Deprecated: this property has been deprecated.
 	FileFormat() *string
 	// Deprecated: this property has been deprecated.
 	SetFileFormat(val *string)
+	// Returns a structure that contains the format options for the transformation.
 	InputConversion() interface{}
 	SetInputConversion(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -133,9 +132,10 @@ type CfnTransformer interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
 	Mapping() interface{}
 	SetMapping(val interface{})
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// This shape is deprecated: This is a legacy trait.
 	// Deprecated: this property has been deprecated.
 	MappingTemplate() *string
 	// Deprecated: this property has been deprecated.
@@ -145,6 +145,7 @@ type CfnTransformer interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
 	OutputConversion() interface{}
 	SetOutputConversion(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -152,11 +153,12 @@ type CfnTransformer interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// This shape is deprecated: This is a legacy trait.
 	// Deprecated: this property has been deprecated.
 	SampleDocument() *string
 	// Deprecated: this property has been deprecated.
 	SetSampleDocument(val *string)
+	// Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
 	SampleDocuments() interface{}
 	SetSampleDocuments(val interface{})
 	// The stack in which this element is defined.

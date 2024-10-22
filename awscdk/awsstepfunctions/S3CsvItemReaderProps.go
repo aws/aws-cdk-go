@@ -16,17 +16,28 @@ import (
 //   var csvHeaders csvHeaders
 //
 //   s3CsvItemReaderProps := &S3CsvItemReaderProps{
-//   	Bucket: bucket,
 //   	Key: jsii.String("key"),
 //
 //   	// the properties below are optional
+//   	Bucket: bucket,
+//   	BucketNamePath: jsii.String("bucketNamePath"),
 //   	CsvHeaders: csvHeaders,
 //   	MaxItems: jsii.Number(123),
 //   }
 //
 type S3CsvItemReaderProps struct {
 	// S3 Bucket containing objects to iterate over or a file with a list to iterate over.
-	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
+	// See: bucketNamePath.
+	//
+	// Default: - S3 bucket will be determined from.
+	//
+	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
+	// S3 bucket name containing objects to iterate over or a file with a list to iterate over, as JsonPath.
+	// See: bucket.
+	//
+	// Default: - S3 bucket will be determined from.
+	//
+	BucketNamePath *string `field:"optional" json:"bucketNamePath" yaml:"bucketNamePath"`
 	// Limits the number of items passed to the Distributed Map state.
 	// Default: - Distributed Map state will iterate over all items provided by the ItemReader.
 	//

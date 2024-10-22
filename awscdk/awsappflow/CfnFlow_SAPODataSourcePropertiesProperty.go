@@ -27,11 +27,11 @@ type CfnFlow_SAPODataSourcePropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-objectpath
 	//
 	ObjectPath *string `field:"required" json:"objectPath" yaml:"objectPath"`
-	// SAP Source connector page size.
+	// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-paginationconfig
 	//
 	PaginationConfig interface{} `field:"optional" json:"paginationConfig" yaml:"paginationConfig"`
-	// SAP Source connector parallelism factor.
+	// Sets the number of concurrent processes that transfers OData records from your SAP instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html#cfn-appflow-flow-sapodatasourceproperties-parallelismconfig
 	//
 	ParallelismConfig interface{} `field:"optional" json:"parallelismConfig" yaml:"parallelismConfig"`

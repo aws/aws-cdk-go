@@ -19,10 +19,11 @@ import (
 //   var bucket bucket
 //
 //   s3ManifestItemReader := awscdk.Aws_stepfunctions.NewS3ManifestItemReader(&S3FileItemReaderProps{
-//   	Bucket: bucket,
 //   	Key: jsii.String("key"),
 //
 //   	// the properties below are optional
+//   	Bucket: bucket,
+//   	BucketNamePath: jsii.String("bucketNamePath"),
 //   	MaxItems: jsii.Number(123),
 //   })
 //
@@ -30,6 +31,8 @@ type S3ManifestItemReader interface {
 	IItemReader
 	// S3 Bucket containing a file with a list to iterate over.
 	Bucket() awss3.IBucket
+	// S3 bucket name containing objects to iterate over or a file with a list to iterate over, as JsonPath.
+	BucketNamePath() *string
 	InputType() *string
 	// S3 key of a file with a list to iterate over.
 	Key() *string
@@ -45,6 +48,10 @@ type S3ManifestItemReader interface {
 	//
 	// Returns: - JSON object.
 	Render() interface{}
+	// Validate that ItemReader contains exactly either.
+	// See: bucketNamePath.
+	//
+	ValidateItemReader() *[]*string
 }
 
 // The jsii proxy struct for S3ManifestItemReader
@@ -57,6 +64,16 @@ func (j *jsiiProxy_S3ManifestItemReader) Bucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3ManifestItemReader) BucketNamePath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bucketNamePath",
 		&returns,
 	)
 	return returns
@@ -149,6 +166,19 @@ func (s *jsiiProxy_S3ManifestItemReader) Render() interface{} {
 	_jsii_.Invoke(
 		s,
 		"render",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_S3ManifestItemReader) ValidateItemReader() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validateItemReader",
 		nil, // no parameters
 		&returns,
 	)

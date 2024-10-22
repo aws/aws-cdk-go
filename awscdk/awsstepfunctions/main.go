@@ -725,10 +725,12 @@ func init() {
 		reflect.TypeOf((*IItemReader)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketNamePath", GoGetter: "BucketNamePath"},
 			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
 			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
 			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "validateItemReader", GoMethod: "ValidateItemReader"},
 		},
 		func() interface{} {
 			return &jsiiProxy_IItemReader{}
@@ -1129,6 +1131,7 @@ func init() {
 		reflect.TypeOf((*S3CsvItemReader)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketNamePath", GoGetter: "BucketNamePath"},
 			_jsii_.MemberProperty{JsiiProperty: "csvHeaders", GoGetter: "CsvHeaders"},
 			_jsii_.MemberProperty{JsiiProperty: "inputType", GoGetter: "InputType"},
 			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
@@ -1136,6 +1139,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
 			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "validateItemReader", GoMethod: "ValidateItemReader"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3CsvItemReader{}
@@ -1156,12 +1160,14 @@ func init() {
 		reflect.TypeOf((*S3JsonItemReader)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketNamePath", GoGetter: "BucketNamePath"},
 			_jsii_.MemberProperty{JsiiProperty: "inputType", GoGetter: "InputType"},
 			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
 			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
 			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
 			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "validateItemReader", GoMethod: "ValidateItemReader"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3JsonItemReader{}
@@ -1174,12 +1180,14 @@ func init() {
 		reflect.TypeOf((*S3ManifestItemReader)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketNamePath", GoGetter: "BucketNamePath"},
 			_jsii_.MemberProperty{JsiiProperty: "inputType", GoGetter: "InputType"},
 			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
 			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
 			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
 			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "validateItemReader", GoMethod: "ValidateItemReader"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3ManifestItemReader{}
@@ -1192,11 +1200,13 @@ func init() {
 		reflect.TypeOf((*S3ObjectsItemReader)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketNamePath", GoGetter: "BucketNamePath"},
 			_jsii_.MemberProperty{JsiiProperty: "maxItems", GoGetter: "MaxItems"},
 			_jsii_.MemberProperty{JsiiProperty: "prefix", GoGetter: "Prefix"},
 			_jsii_.MemberMethod{JsiiMethod: "providePolicyStatements", GoMethod: "ProvidePolicyStatements"},
 			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "validateItemReader", GoMethod: "ValidateItemReader"},
 		},
 		func() interface{} {
 			j := jsiiProxy_S3ObjectsItemReader{}

@@ -34,6 +34,8 @@ type CfnProfileAssociationProps struct {
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// ID of the Profile.
+	//
+	// Update to this property requires update to the `ResourceId` property as well, because you can only associate one Profile per VPC. For more information, see [Route 53 Profiles](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/profiles.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-profileid
 	//
 	ProfileId *string `field:"required" json:"profileId" yaml:"profileId"`

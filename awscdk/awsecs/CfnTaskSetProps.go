@@ -17,6 +17,13 @@ import (
 //   	TaskDefinition: jsii.String("taskDefinition"),
 //
 //   	// the properties below are optional
+//   	CapacityProviderStrategy: []interface{}{
+//   		&CapacityProviderStrategyItemProperty{
+//   			Base: jsii.Number(123),
+//   			CapacityProvider: jsii.String("capacityProvider"),
+//   			Weight: jsii.Number(123),
+//   		},
+//   	},
 //   	ExternalId: jsii.String("externalId"),
 //   	LaunchType: jsii.String("launchType"),
 //   	LoadBalancers: []interface{}{
@@ -77,6 +84,10 @@ type CfnTaskSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
 	//
 	TaskDefinition *string `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
+	// The capacity provider strategy that are associated with the task set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-capacityproviderstrategy
+	//
+	CapacityProviderStrategy interface{} `field:"optional" json:"capacityProviderStrategy" yaml:"capacityProviderStrategy"`
 	// An optional non-unique tag that identifies this task set in external systems.
 	//
 	// If the task set is associated with a service discovery registry, the tasks in this task set will have the `ECS_TASK_SET_EXTERNAL_ID` AWS Cloud Map attribute set to the provided value.

@@ -395,6 +395,9 @@ import (
 //   		Message: jsii.String("message"),
 //   		Type: jsii.String("type"),
 //   	},
+//   	FolderArns: []*string{
+//   		jsii.String("folderArns"),
+//   	},
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{
 //   			Actions: []*string{
@@ -461,6 +464,8 @@ type CfnDataSource interface {
 	// Error information from the last update or the creation of the data source.
 	ErrorInfo() interface{}
 	SetErrorInfo(val interface{})
+	FolderArns() *[]*string
+	SetFolderArns(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -791,6 +796,16 @@ func (j *jsiiProxy_CfnDataSource) ErrorInfo() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) FolderArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"folderArns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1005,6 +1020,14 @@ func (j *jsiiProxy_CfnDataSource)SetErrorInfo(val interface{}) {
 	_jsii_.Set(
 		j,
 		"errorInfo",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource)SetFolderArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"folderArns",
 		val,
 	)
 }

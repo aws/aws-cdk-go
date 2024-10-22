@@ -96,6 +96,10 @@ type CfnServer interface {
 	//
 	// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
 	AttrArn() *string
+	// The list of egress IP addresses of this server.
+	//
+	// These IP addresses are only relevant for servers that use the AS2 protocol. They are used for sending asynchronous MDNs. These IP addresses are assigned automatically when you create an AS2 server. Additionally, if you update an existing server and add the AS2 protocol, static IP addresses are assigned as well.
+	AttrAs2ServiceManagedEgressIpAddresses() *[]*string
 	// The service-assigned ID of the server that is created.
 	//
 	// An example `ServerId` is `s-01234567890abcdef` .
@@ -336,6 +340,16 @@ func (j *jsiiProxy_CfnServer) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServer) AttrAs2ServiceManagedEgressIpAddresses() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrAs2ServiceManagedEgressIpAddresses",
 		&returns,
 	)
 	return returns

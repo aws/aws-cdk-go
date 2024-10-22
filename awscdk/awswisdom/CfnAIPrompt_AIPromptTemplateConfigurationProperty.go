@@ -1,0 +1,22 @@
+package awswisdom
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   aIPromptTemplateConfigurationProperty := &AIPromptTemplateConfigurationProperty{
+//   	TextFullAiPromptEditTemplateConfiguration: &TextFullAIPromptEditTemplateConfigurationProperty{
+//   		Text: jsii.String("text"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html
+//
+type CfnAIPrompt_AIPromptTemplateConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html#cfn-wisdom-aiprompt-aiprompttemplateconfiguration-textfullaipromptedittemplateconfiguration
+	//
+	TextFullAiPromptEditTemplateConfiguration interface{} `field:"required" json:"textFullAiPromptEditTemplateConfiguration" yaml:"textFullAiPromptEditTemplateConfiguration"`
+}
+

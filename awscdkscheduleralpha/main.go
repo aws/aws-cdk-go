@@ -100,7 +100,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "group", GoGetter: "Group"},
-			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleArn", GoGetter: "ScheduleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleName", GoGetter: "ScheduleName"},
@@ -175,10 +174,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_ScheduleTargetInput{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-scheduler-alpha.ScheduleTargetProps",
-		reflect.TypeOf((*ScheduleTargetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-scheduler-alpha.TimeWindow",

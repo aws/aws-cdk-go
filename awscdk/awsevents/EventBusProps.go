@@ -2,6 +2,7 @@ package awsevents
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 )
 
 // Properties to define an event bus.
@@ -28,6 +29,12 @@ import (
 //   })
 //
 type EventBusProps struct {
+	// Dead-letter queue for the event bus.
+	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq
+	//
+	// Default: - no dead-letter queue.
+	//
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The event bus description.
 	//
 	// The description can be up to 512 characters long.

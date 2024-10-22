@@ -21,12 +21,12 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html
 //
 type CfnUserPool_EmailConfigurationProperty struct {
-	// The set of configuration rules that can be applied to emails sent using Amazon SES.
+	// The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service.
 	//
 	// A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
 	//
-	// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
-	// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
+	// - **Event publishing** - Amazon Simple Email Service can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as and Amazon CloudWatch
+	// - **IP pool management** - When leasing dedicated IP addresses with Amazon Simple Email Service, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-configurationset
 	//
 	ConfigurationSet *string `field:"optional" json:"configurationSet" yaml:"configurationSet"`
@@ -47,7 +47,7 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-emailsendingaccount
 	//
 	EmailSendingAccount *string `field:"optional" json:"emailSendingAccount" yaml:"emailSendingAccount"`
-	// Identifies either the sender's email address or the sender's name with their email address.
+	// Either the sender’s email address or the sender’s name with their email address.
 	//
 	// For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-from

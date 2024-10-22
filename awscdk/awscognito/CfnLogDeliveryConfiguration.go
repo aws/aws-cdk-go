@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The logging parameters of a user pool, as returned in the response to a [GetLogDeliveryConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetLogDeliveryConfiguration.html) request.
+// Sets up or modifies the logging configuration of a user pool.
+//
+// User pools can export user notification logs and advanced security features user activity logs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -44,6 +44,7 @@ import (
 //   		},
 //   	},
 //   	Tenancy: jsii.String("tenancy"),
+//   	UnusedReservationBillingOwnerId: jsii.String("unusedReservationBillingOwnerId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html
@@ -146,6 +147,8 @@ type CfnCapacityReservation interface {
 	// A Capacity Reservation can have one of the following tenancy settings:.
 	Tenancy() *string
 	SetTenancy(val *string)
+	UnusedReservationBillingOwnerId() *string
+	SetUnusedReservationBillingOwnerId(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -562,6 +565,16 @@ func (j *jsiiProxy_CfnCapacityReservation) Tenancy() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCapacityReservation) UnusedReservationBillingOwnerId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"unusedReservationBillingOwnerId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCapacityReservation) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -731,6 +744,14 @@ func (j *jsiiProxy_CfnCapacityReservation)SetTenancy(val *string) {
 	_jsii_.Set(
 		j,
 		"tenancy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservation)SetUnusedReservationBillingOwnerId(val *string) {
+	_jsii_.Set(
+		j,
+		"unusedReservationBillingOwnerId",
 		val,
 	)
 }

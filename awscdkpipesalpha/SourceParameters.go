@@ -8,16 +8,16 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetStateMachine iStateMachine
+//   var targetQueue queue
 //
 //
-//   pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
-//   	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
-//   })
+//   targetInputTransformation := pipes.inputTransformation_FromEventPath(jsii.String("$.body.payload"))
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-//   	Target: pipeTarget,
+//   	Source: NewSqsSource(sourceQueue),
+//   	Target: NewSqsTarget(targetQueue, map[string]*inputTransformation{
+//   		"inputTransformation": targetInputTransformation,
+//   	}),
 //   })
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-source.html

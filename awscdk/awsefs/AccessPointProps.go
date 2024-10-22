@@ -14,6 +14,7 @@ package awsefs
 //   	FileSystem: fileSystem,
 //
 //   	// the properties below are optional
+//   	ClientToken: jsii.String("clientToken"),
 //   	CreateAcl: &Acl{
 //   		OwnerGid: jsii.String("ownerGid"),
 //   		OwnerUid: jsii.String("ownerUid"),
@@ -32,6 +33,12 @@ package awsefs
 //   }
 //
 type AccessPointProps struct {
+	// The opaque string specified in the request to ensure idempotent creation.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
+	//
+	// Default: - No client token.
+	//
+	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
 	// Specifies the POSIX IDs and permissions to apply when creating the access point's root directory.
 	//
 	// If the

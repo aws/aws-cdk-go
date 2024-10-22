@@ -161,20 +161,18 @@ type CfnUserPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` .
+	// The available verified method a user can use to recover their password when they call `ForgotPassword` .
 	AccountRecoverySetting() interface{}
 	SetAccountRecoverySetting(val interface{})
 	// The settings for administrator creation of users in a user pool.
 	AdminCreateUserConfig() interface{}
 	SetAdminCreateUserConfig(val interface{})
 	// Attributes supported as an alias for this user pool.
-	//
-	// Possible values: *phone_number* , *email* , or *preferred_username* .
 	AliasAttributes() *[]*string
 	SetAliasAttributes(val *[]*string)
 	// The Amazon Resource Name (ARN) of the user pool, such as `arn:aws:cognito-idp:us-east-1:123412341234:userpool/us-east-1_123412341` .
 	AttrArn() *string
-	// The provider name of the Amazon Cognito user pool, specified as a `String` .
+	// A friendly name for the IdP.
 	AttrProviderName() *string
 	// The URL of the provider of the Amazon Cognito user pool, specified as a `String` .
 	AttrProviderUrl() *string
@@ -211,7 +209,7 @@ type CfnUserPool interface {
 	// This parameter is no longer used.
 	EmailVerificationSubject() *string
 	SetEmailVerificationSubject(val *string)
-	// Enables MFA on a specified user pool.
+	// Set enabled MFA options on a specified user pool.
 	EnabledMfas() *[]*string
 	SetEnabledMfas(val *[]*string)
 	// A collection of user pool Lambda triggers.
@@ -244,12 +242,10 @@ type CfnUserPool interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The schema attributes for the new user pool.
-	//
-	// These attributes can be standard or custom attributes.
+	// An array of schema attributes for the new user pool.
 	Schema() interface{}
 	SetSchema(val interface{})
-	// A string representing the SMS authentication message.
+	// The contents of the SMS authentication message.
 	SmsAuthenticationMessage() *string
 	SetSmsAuthenticationMessage(val *string)
 	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service.
@@ -280,10 +276,10 @@ type CfnUserPool interface {
 	// The settings for updates to user attributes.
 	UserAttributeUpdateSettings() interface{}
 	SetUserAttributeUpdateSettings(val interface{})
-	// Determines whether email addresses or phone numbers can be specified as user names when a user signs up.
+	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes() *[]*string
 	SetUsernameAttributes(val *[]*string)
-	// You can choose to set case sensitivity on the username input for the selected sign-in option.
+	// Case sensitivity on the username input for the selected sign-in option.
 	UsernameConfiguration() interface{}
 	SetUsernameConfiguration(val interface{})
 	// User pool add-ons.

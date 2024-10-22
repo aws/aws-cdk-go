@@ -4,14 +4,20 @@ package awsstepfunctions
 // Properties for configuring a Distribute Map state.
 //
 // Example:
+//   /**
+//    * JSON state input:
+//    *  {
+//    *    "bucketName": "my-bucket",
+//    *    "prefix": "item"
+//    *  }
+//    */
 //   distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
-//   	MapExecutionType: sfn.StateMachineType_EXPRESS,
+//   	ItemReader: sfn.NewS3ObjectsItemReader(&S3ObjectsItemReaderProps{
+//   		BucketNamePath: sfn.JsonPath_StringAt(jsii.String("$.bucketName")),
+//   		Prefix: sfn.JsonPath_*StringAt(jsii.String("$.prefix")),
+//   	}),
 //   })
-//
-//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")), &ProcessorConfig{
-//   	Mode: sfn.ProcessorMode_DISTRIBUTED,
-//   	ExecutionType: sfn.ProcessorType_STANDARD,
-//   })
+//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")))
 //
 type DistributedMapProps struct {
 	// An optional description for this state.

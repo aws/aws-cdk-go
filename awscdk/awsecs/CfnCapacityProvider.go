@@ -35,8 +35,6 @@ import (
 //   		},
 //   		ManagedTerminationProtection: jsii.String("managedTerminationProtection"),
 //   	},
-//
-//   	// the properties below are optional
 //   	Name: jsii.String("name"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{

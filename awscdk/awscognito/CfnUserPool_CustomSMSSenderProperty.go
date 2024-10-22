@@ -1,7 +1,9 @@
 package awscognito
 
 
-// A custom SMS sender AWS Lambda trigger.
+// The configuration of a custom SMS sender Lambda trigger.
+//
+// This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,13 +18,15 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html
 //
 type CfnUserPool_CustomSMSSenderProperty struct {
-	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaarn
 	//
 	LambdaArn *string `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
-	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function.
+	// The user pool trigger version of the request that Amazon Cognito sends to your Lambda function.
 	//
-	// The only supported value is `V1_0` .
+	// Higher-numbered versions add fields that support new features.
+	//
+	// You must use a `LambdaVersion` of `V1_0` with a custom sender function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaversion
 	//
 	LambdaVersion *string `field:"optional" json:"lambdaVersion" yaml:"lambdaVersion"`

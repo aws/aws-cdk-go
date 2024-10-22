@@ -67,3 +67,23 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Target: NewSomeTarget(targetQueue),
 })
 ```
+
+### API destination
+
+API destination can be used to enrich events of a pipe.
+
+```go
+var sourceQueue queue
+var targetQueue queue
+
+var apiDestination apiDestination
+
+
+enrichment := enrichments.NewApiDestinationEnrichment(apiDestination)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: NewSomeSource(sourceQueue),
+	Enrichment: Enrichment,
+	Target: NewSomeTarget(targetQueue),
+})
+```

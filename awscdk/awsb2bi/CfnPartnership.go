@@ -83,6 +83,7 @@ type CfnPartnership interface {
 	// Returns one or more capabilities associated with this partnership.
 	Capabilities() *[]*string
 	SetCapabilities(val *[]*string)
+	// Contains the details for an Outbound EDI capability.
 	CapabilityOptions() interface{}
 	SetCapabilityOptions(val interface{})
 	// Tag Manager which manages the tags for this resource.

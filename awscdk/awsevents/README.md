@@ -248,6 +248,23 @@ bus.archive(jsii.String("MyArchive"), &BaseArchiveProps{
 })
 ```
 
+## Dead-Letter Queue for EventBus
+
+It is possible to configure a [Dead Letter Queue for an EventBus](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq). This is useful when you want to capture events that could not be delivered to any of the targets.
+
+To configure a Dead Letter Queue for an EventBus, you can use the `deadLetterQueue` property of the `EventBus` construct.
+
+```go
+import sqs "github.com/aws/aws-cdk-go/awscdk"
+
+
+dlq := sqs.NewQueue(this, jsii.String("DLQ"))
+
+bus := events.NewEventBus(this, jsii.String("Bus"), &EventBusProps{
+	DeadLetterQueue: dlq,
+})
+```
+
 ## Granting PutEvents to an existing EventBus
 
 To import an existing EventBus into your CDK application, use `EventBus.fromEventBusArn`, `EventBus.fromEventBusAttributes`

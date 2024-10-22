@@ -4,31 +4,23 @@ package awsdynamodb
 // Properties for a global secondary index.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   globalSecondaryIndexProps := &GlobalSecondaryIndexProps{
-//   	IndexName: jsii.String("indexName"),
+//   table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 //   	PartitionKey: &Attribute{
-//   		Name: jsii.String("name"),
-//   		Type: awscdk.Aws_dynamodb.AttributeType_BINARY,
+//   		Name: jsii.String("pk"),
+//   		Type: dynamodb.AttributeType_STRING,
 //   	},
+//   	ContributorInsightsEnabled: jsii.Boolean(true),
+//   })
 //
-//   	// the properties below are optional
-//   	MaxReadRequestUnits: jsii.Number(123),
-//   	MaxWriteRequestUnits: jsii.Number(123),
-//   	NonKeyAttributes: []*string{
-//   		jsii.String("nonKeyAttributes"),
+//   table.AddGlobalSecondaryIndex(&GlobalSecondaryIndexProps{
+//   	ContributorInsightsEnabled: jsii.Boolean(true),
+//   	 // for a specific global secondary index
+//   	IndexName: jsii.String("gsi"),
+//   	PartitionKey: &Attribute{
+//   		Name: jsii.String("pk"),
+//   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	ProjectionType: awscdk.*Aws_dynamodb.ProjectionType_KEYS_ONLY,
-//   	ReadCapacity: jsii.Number(123),
-//   	SortKey: &Attribute{
-//   		Name: jsii.String("name"),
-//   		Type: awscdk.*Aws_dynamodb.AttributeType_BINARY,
-//   	},
-//   	WriteCapacity: jsii.Number(123),
-//   }
+//   })
 //
 type GlobalSecondaryIndexProps struct {
 	// The name of the secondary index.
@@ -47,6 +39,10 @@ type GlobalSecondaryIndexProps struct {
 	// Default: no sort key.
 	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
+	// Whether CloudWatch contributor insights is enabled for the specified global secondary index.
+	// Default: false.
+	//
+	ContributorInsightsEnabled *bool `field:"optional" json:"contributorInsightsEnabled" yaml:"contributorInsightsEnabled"`
 	// The maximum read request units for the global secondary index.
 	//
 	// Can only be provided if table billingMode is PAY_PER_REQUEST.

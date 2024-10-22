@@ -18,10 +18,6 @@ import (
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //
 //   distributedMap := sfn.NewDistributedMap(this, jsii.String("Distributed Map State"), &DistributedMapProps{
-//   	ItemReader: sfn.NewS3JsonItemReader(&S3FileItemReaderProps{
-//   		Bucket: bucket,
-//   		Key: jsii.String("my-key.json"),
-//   	}),
 //   	ResultWriter: sfn.NewResultWriter(&ResultWriterProps{
 //   		Bucket: bucket,
 //   		Prefix: jsii.String("my-prefix"),

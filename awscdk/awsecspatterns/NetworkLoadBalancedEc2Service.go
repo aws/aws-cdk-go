@@ -13,13 +13,23 @@ import (
 // An EC2 service running on an ECS cluster fronted by a network load balancer.
 //
 // Example:
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   var cluster cluster
 //
+//   certificate := awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
 //   loadBalancedEcsService := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsii.String("Service"), &NetworkLoadBalancedEc2ServiceProps{
 //   	Cluster: Cluster,
 //   	MemoryLimitMiB: jsii.Number(1024),
+//   	// The default value of listenerPort is 443 if you pass in listenerCertificate
+//   	// It is configured to port 4443 here
+//   	ListenerPort: jsii.Number(4443),
+//   	ListenerCertificate: certificate,
 //   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+//   		// The default value of containerPort is 443 if you pass in listenerCertificate
+//   		// It is configured to port 8443 here
+//   		ContainerPort: jsii.Number(8443),
 //   		Environment: map[string]*string{
 //   			"TEST_ENVIRONMENT_VARIABLE1": jsii.String("test environment variable 1 value"),
 //   			"TEST_ENVIRONMENT_VARIABLE2": jsii.String("test environment variable 2 value"),

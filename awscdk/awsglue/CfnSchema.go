@@ -20,7 +20,6 @@ import (
 //   	Compatibility: jsii.String("compatibility"),
 //   	DataFormat: jsii.String("dataFormat"),
 //   	Name: jsii.String("name"),
-//   	SchemaDefinition: jsii.String("schemaDefinition"),
 //
 //   	// the properties below are optional
 //   	CheckpointVersion: &SchemaVersionProperty{
@@ -32,6 +31,7 @@ import (
 //   		Arn: jsii.String("arn"),
 //   		Name: jsii.String("name"),
 //   	},
+//   	SchemaDefinition: jsii.String("schemaDefinition"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -555,9 +555,6 @@ func (j *jsiiProxy_CfnSchema)SetRegistry(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnSchema)SetSchemaDefinition(val *string) {
-	if err := j.validateSetSchemaDefinitionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"schemaDefinition",

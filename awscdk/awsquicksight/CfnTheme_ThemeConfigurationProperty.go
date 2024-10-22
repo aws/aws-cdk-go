@@ -73,6 +73,7 @@ type CfnTheme_ThemeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
 	//
 	Sheet interface{} `field:"optional" json:"sheet" yaml:"sheet"`
+	// Determines the typography options.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
 	//
 	Typography interface{} `field:"optional" json:"typography" yaml:"typography"`

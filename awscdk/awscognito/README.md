@@ -1057,3 +1057,20 @@ userpool := cognito.NewUserPool(this, jsii.String("UserPool"), &UserPoolProps{
 ```
 
 By default deletion protection is disabled.
+
+### `email_verified` Attribute Mapping
+
+If you use a third-party identity provider, you can specify the `email_verified` attribute in attributeMapping.
+
+```go
+userpool := cognito.NewUserPool(this, jsii.String("Pool"))
+
+cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("google"), &UserPoolIdentityProviderGoogleProps{
+	UserPool: userpool,
+	ClientId: jsii.String("google-client-id"),
+	AttributeMapping: &AttributeMapping{
+		Email: cognito.ProviderAttribute_GOOGLE_EMAIL(),
+		EmailVerified: cognito.ProviderAttribute_GOOGLE_EMAIL_VERIFIED(),
+	},
+})
+```

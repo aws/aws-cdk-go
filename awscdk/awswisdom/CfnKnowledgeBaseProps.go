@@ -70,7 +70,7 @@ type CfnKnowledgeBaseProps struct {
 	ServerSideEncryptionConfiguration interface{} `field:"optional" json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
 	// The source of the knowledge base content.
 	//
-	// Only set this argument for EXTERNAL knowledge bases.
+	// Only set this argument for EXTERNAL or Managed knowledge bases.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-sourceconfiguration
 	//
 	SourceConfiguration interface{} `field:"optional" json:"sourceConfiguration" yaml:"sourceConfiguration"`

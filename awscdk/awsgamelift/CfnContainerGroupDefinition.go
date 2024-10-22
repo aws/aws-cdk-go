@@ -22,6 +22,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var supportContainerDefinitions interface{}
+//
 //   cfnContainerGroupDefinition := awscdk.Aws_gamelift.NewCfnContainerGroupDefinition(this, jsii.String("MyCfnContainerGroupDefinition"), &CfnContainerGroupDefinitionProps{
 //   	ContainerDefinitions: []interface{}{
 //   		&ContainerDefinitionProperty{
@@ -84,6 +86,10 @@ import (
 //
 //   	// the properties below are optional
 //   	SchedulingStrategy: jsii.String("schedulingStrategy"),
+//   	SourceVersionNumber: jsii.Number(123),
+//   	SupportContainerDefinitions: []interface{}{
+//   		supportContainerDefinitions,
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -104,6 +110,20 @@ type CfnContainerGroupDefinition interface {
 	//
 	// Format is a number expressed in Unix time as milliseconds (for example `"1469498468.057"` ).
 	AttrCreationTime() *string
+	// Current status of the container group definition resource. Values include:.
+	//
+	// - `COPYING` -- Amazon GameLift is in the process of making copies of all container images that are defined in the group. While in this state, the resource can't be used to create a container fleet.
+	// - `READY` -- Amazon GameLift has copied the registry images for all containers that are defined in the group. You can use a container group definition in this status to create a container fleet.
+	// - `FAILED` -- Amazon GameLift failed to create a valid container group definition resource. For more details on the cause of the failure, see `StatusReason` . A container group definition resource in failed status will be deleted within a few minutes.
+	AttrStatus() *string
+	// Additional information about a container group definition that's in `FAILED` status. Possible reasons include:.
+	//
+	// - An internal issue prevented Amazon GameLift from creating the container group definition resource. Delete the failed resource and call `CreateContainerGroupDefinition` again.
+	// - An access-denied message means that you don't have permissions to access the container image on ECR. See [IAM permission examples](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html) for help setting up required IAM permissions for Amazon GameLift.
+	// - The `ImageUri` value for at least one of the containers in the container group definition was invalid or not found in the current AWS account.
+	// - At least one of the container images referenced in the container group definition exceeds the allowed size. For size limits, see [Amazon GameLift endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/gamelift.html) .
+	// - At least one of the container images referenced in the container group definition uses a different operating system than the one defined for the container group.
+	AttrStatusReason() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -144,10 +164,16 @@ type CfnContainerGroupDefinition interface {
 	// The method for deploying the container group across fleet instances.
 	SchedulingStrategy() *string
 	SetSchedulingStrategy(val *string)
+	// A specific ContainerGroupDefinition version to be updated.
+	SourceVersionNumber() *float64
+	SetSourceVersionNumber(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A collection of support container definitions that define the containers in this group.
+	SupportContainerDefinitions() interface{}
+	SetSupportContainerDefinitions(val interface{})
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -324,6 +350,26 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) AttrCreationTime() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContainerGroupDefinition) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerGroupDefinition) AttrStatusReason() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatusReason",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContainerGroupDefinition) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -444,11 +490,31 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) SchedulingStrategy() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContainerGroupDefinition) SourceVersionNumber() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"sourceVersionNumber",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContainerGroupDefinition) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerGroupDefinition) SupportContainerDefinitions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"supportContainerDefinitions",
 		&returns,
 	)
 	return returns
@@ -569,6 +635,25 @@ func (j *jsiiProxy_CfnContainerGroupDefinition)SetSchedulingStrategy(val *string
 	_jsii_.Set(
 		j,
 		"schedulingStrategy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainerGroupDefinition)SetSourceVersionNumber(val *float64) {
+	_jsii_.Set(
+		j,
+		"sourceVersionNumber",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainerGroupDefinition)SetSupportContainerDefinitions(val interface{}) {
+	if err := j.validateSetSupportContainerDefinitionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"supportContainerDefinitions",
 		val,
 	)
 }

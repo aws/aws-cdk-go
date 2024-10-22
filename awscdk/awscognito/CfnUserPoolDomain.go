@@ -47,7 +47,7 @@ type CfnUserPoolDomain interface {
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application.
 	CustomDomainConfig() interface{}
 	SetCustomDomainConfig(val interface{})
-	// The domain name for the domain that hosts the sign-up and sign-in pages for your application.
+	// The domain name for the custom domain that hosts the sign-up and sign-in pages for your application.
 	Domain() *string
 	SetDomain(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -84,7 +84,7 @@ type CfnUserPoolDomain interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user pool ID for the user pool where you want to associate a user pool domain.
+	// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

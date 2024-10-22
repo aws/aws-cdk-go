@@ -43,9 +43,7 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-basecapacity
 	//
 	BaseCapacity *float64 `field:"optional" json:"baseCapacity" yaml:"baseCapacity"`
-	// > Updating this field is not allowed for `MAC_ARM` .
-	//
-	// Information about the compute resources the compute fleet uses. Available values include:
+	// Information about the compute resources the compute fleet uses. Available values include:.
 	//
 	// - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
 	// - `BUILD_GENERAL1_MEDIUM` : Use up to 7 GB memory and 4 vCPUs for builds.
@@ -69,8 +67,6 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-computetype
 	//
 	ComputeType *string `field:"optional" json:"computeType" yaml:"computeType"`
-	// > Updating this field is not allowed for `MAC_ARM` .
-	//
 	// The environment type of the compute fleet.
 	//
 	// - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -89,14 +85,10 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetservicerole
 	//
 	FleetServiceRole *string `field:"optional" json:"fleetServiceRole" yaml:"fleetServiceRole"`
-	// > Updating this field is not allowed for `MAC_ARM` .
-	//
 	// Information about the VPC configuration that AWS CodeBuild accesses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetvpcconfig
 	//
 	FleetVpcConfig interface{} `field:"optional" json:"fleetVpcConfig" yaml:"fleetVpcConfig"`
-	// > Updating this field is not allowed for `MAC_ARM` .
-	//
 	// The Amazon Machine Image (AMI) of the compute fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-imageid
 	//

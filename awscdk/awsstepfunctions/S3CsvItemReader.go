@@ -20,10 +20,11 @@ import (
 //   var csvHeaders csvHeaders
 //
 //   s3CsvItemReader := awscdk.Aws_stepfunctions.NewS3CsvItemReader(&S3CsvItemReaderProps{
-//   	Bucket: bucket,
 //   	Key: jsii.String("key"),
 //
 //   	// the properties below are optional
+//   	Bucket: bucket,
+//   	BucketNamePath: jsii.String("bucketNamePath"),
 //   	CsvHeaders: csvHeaders,
 //   	MaxItems: jsii.Number(123),
 //   })
@@ -32,6 +33,8 @@ type S3CsvItemReader interface {
 	IItemReader
 	// S3 Bucket containing a file with a list to iterate over.
 	Bucket() awss3.IBucket
+	// S3 bucket name containing objects to iterate over or a file with a list to iterate over, as JsonPath.
+	BucketNamePath() *string
 	// CSV headers configuration.
 	CsvHeaders() CsvHeaders
 	InputType() *string
@@ -47,6 +50,10 @@ type S3CsvItemReader interface {
 	ProvidePolicyStatements() *[]awsiam.PolicyStatement
 	// Renders the ItemReader configuration as JSON object.
 	Render() interface{}
+	// Validate that ItemReader contains exactly either.
+	// See: bucketNamePath.
+	//
+	ValidateItemReader() *[]*string
 }
 
 // The jsii proxy struct for S3CsvItemReader
@@ -59,6 +66,16 @@ func (j *jsiiProxy_S3CsvItemReader) Bucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3CsvItemReader) BucketNamePath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bucketNamePath",
 		&returns,
 	)
 	return returns
@@ -161,6 +178,19 @@ func (s *jsiiProxy_S3CsvItemReader) Render() interface{} {
 	_jsii_.Invoke(
 		s,
 		"render",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_S3CsvItemReader) ValidateItemReader() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validateItemReader",
 		nil, // no parameters
 		&returns,
 	)

@@ -54,6 +54,33 @@ fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), 
 })
 ```
 
+### File System Type Version
+
+You can set [the Lustre version for the file system](https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtypeversion). To do this, use the `fileSystemTypeVersion` property:
+
+```go
+var vpc vpc
+
+
+fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
+	LustreConfiguration: &LustreConfiguration{
+		DeploymentType: fsx.LustreDeploymentType_SCRATCH_2,
+	},
+	StorageCapacityGiB: jsii.Number(1200),
+	Vpc: Vpc,
+	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
+	FileSystemTypeVersion: fsx.FileSystemTypeVersion_V_2_15,
+})
+```
+
+**Note**: The `fileSystemTypeVersion` has a restrictions on the values that can be set based on the `deploymentType`.
+
+* `V_2_10` is supported by the Scratch and `PERSISTENT_1` deployment types.
+* `V_2_12` is supported by all Lustre deployment types.
+* `V_2_15` is supported by all Lustre deployment types and is recommended for all new file systems.
+
+**Note**: The default value of `fileSystemTypeVersion` is `V_2_10` except for `PERSISTENT_2` deployment type where the default value is `V_2_12`.
+
 ### Connecting
 
 To control who can access the file system, use the `.connections` attribute. FSx has a fixed default port, so you don't
@@ -226,6 +253,45 @@ lustreConfiguration := map[string]interface{}{
 
 For more information, see [Working with backups
 ](https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html).
+
+### Storage Type
+
+By default, FSx for Lustre uses SSD storage. To use HDD storage, specify `storageType`:
+
+```go
+var vpc vpc
+
+
+fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
+	LustreConfiguration: &LustreConfiguration{
+		DeploymentType: fsx.LustreDeploymentType_PERSISTENT_1,
+	},
+	StorageCapacityGiB: jsii.Number(1200),
+	Vpc: Vpc,
+	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
+	StorageType: fsx.StorageType_HDD,
+})
+```
+
+**Note:** The HDD storage type is only supported for `PERSISTENT_1` deployment types.
+
+To improve the performance of frequently accessed files by caching up to 20% of the total storage capacity of the file system, set `driveCacheType` to `READ`:
+
+```go
+var vpc vpc
+
+
+fileSystem := fsx.NewLustreFileSystem(this, jsii.String("FsxLustreFileSystem"), &LustreFileSystemProps{
+	LustreConfiguration: &LustreConfiguration{
+		DeploymentType: fsx.LustreDeploymentType_PERSISTENT_1,
+		DriveCacheType: fsx.DriveCacheType_READ,
+	},
+	StorageCapacityGiB: jsii.Number(1200),
+	Vpc: Vpc,
+	VpcSubnet: vpc.PrivateSubnets[jsii.Number(0)],
+	StorageType: fsx.StorageType_HDD,
+})
+```
 
 ## FSx for Windows File Server
 

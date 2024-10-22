@@ -14,25 +14,38 @@ import (
 //   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   // create a bucket
-//   bucket := s3.NewBucket(this, jsii.String("Bucket"))
+//   /**
+//    * Tree view of bucket:
+//    *  my-bucket
+//    *  |
+//    *  +--input.json
+//    *  |
+//    *  ...
+//    *
+//    * File content of input.json:
+//    *  [
+//    *    "item1",
+//    *    "item2"
+//    *  ]
+//    */
+//   bucket := s3.NewBucket(this, jsii.String("Bucket"), &BucketProps{
+//   	BucketName: jsii.String("my-bucket"),
+//   })
 //
-//   distributedMap := sfn.NewDistributedMap(this, jsii.String("Distributed Map State"), &DistributedMapProps{
+//   distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
 //   	ItemReader: sfn.NewS3JsonItemReader(&S3FileItemReaderProps{
-//   		Bucket: bucket,
-//   		Key: jsii.String("my-key.json"),
-//   	}),
-//   	ResultWriter: sfn.NewResultWriter(&ResultWriterProps{
-//   		Bucket: bucket,
-//   		Prefix: jsii.String("my-prefix"),
+//   		Bucket: *Bucket,
+//   		Key: jsii.String("input.json"),
 //   	}),
 //   })
-//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")))
+//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")))
 //
 type S3JsonItemReader interface {
 	IItemReader
 	// S3 Bucket containing a file with a list to iterate over.
 	Bucket() awss3.IBucket
+	// S3 bucket name containing objects to iterate over or a file with a list to iterate over, as JsonPath.
+	BucketNamePath() *string
 	InputType() *string
 	// S3 key of a file with a list to iterate over.
 	Key() *string
@@ -48,6 +61,10 @@ type S3JsonItemReader interface {
 	//
 	// Returns: - JSON object.
 	Render() interface{}
+	// Validate that ItemReader contains exactly either.
+	// See: bucketNamePath.
+	//
+	ValidateItemReader() *[]*string
 }
 
 // The jsii proxy struct for S3JsonItemReader
@@ -60,6 +77,16 @@ func (j *jsiiProxy_S3JsonItemReader) Bucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3JsonItemReader) BucketNamePath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bucketNamePath",
 		&returns,
 	)
 	return returns
@@ -152,6 +179,19 @@ func (s *jsiiProxy_S3JsonItemReader) Render() interface{} {
 	_jsii_.Invoke(
 		s,
 		"render",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_S3JsonItemReader) ValidateItemReader() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validateItemReader",
 		nil, // no parameters
 		&returns,
 	)

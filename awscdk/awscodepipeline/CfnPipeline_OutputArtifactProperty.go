@@ -10,6 +10,11 @@ package awscodepipeline
 //
 //   outputArtifactProperty := &OutputArtifactProperty{
 //   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	Files: []*string{
+//   		jsii.String("files"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html
@@ -23,5 +28,9 @@ type CfnPipeline_OutputArtifactProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html#cfn-codepipeline-pipeline-outputartifact-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The files that you want to associate with the output artifact that will be exported from the compute action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html#cfn-codepipeline-pipeline-outputartifact-files
+	//
+	Files *[]*string `field:"optional" json:"files" yaml:"files"`
 }
 

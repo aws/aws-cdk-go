@@ -362,6 +362,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tagSpecifications", GoGetter: "TagSpecifications"},
 			_jsii_.MemberProperty{JsiiProperty: "tenancy", GoGetter: "Tenancy"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "unusedReservationBillingOwnerId", GoGetter: "UnusedReservationBillingOwnerId"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
@@ -5654,6 +5655,42 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.CloudwatchLogOptionsSpecificationProperty",
+		reflect.TypeOf((*CfnVPNConnection_CloudwatchLogOptionsSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.IKEVersionsRequestListValueProperty",
+		reflect.TypeOf((*CfnVPNConnection_IKEVersionsRequestListValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.Phase1DHGroupNumbersRequestListValueProperty",
+		reflect.TypeOf((*CfnVPNConnection_Phase1DHGroupNumbersRequestListValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.Phase1EncryptionAlgorithmsRequestListValueProperty",
+		reflect.TypeOf((*CfnVPNConnection_Phase1EncryptionAlgorithmsRequestListValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.Phase1IntegrityAlgorithmsRequestListValueProperty",
+		reflect.TypeOf((*CfnVPNConnection_Phase1IntegrityAlgorithmsRequestListValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.Phase2DHGroupNumbersRequestListValueProperty",
+		reflect.TypeOf((*CfnVPNConnection_Phase2DHGroupNumbersRequestListValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.Phase2EncryptionAlgorithmsRequestListValueProperty",
+		reflect.TypeOf((*CfnVPNConnection_Phase2EncryptionAlgorithmsRequestListValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.Phase2IntegrityAlgorithmsRequestListValueProperty",
+		reflect.TypeOf((*CfnVPNConnection_Phase2IntegrityAlgorithmsRequestListValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPNConnection.VpnTunnelLogOptionsSpecificationProperty",
+		reflect.TypeOf((*CfnVPNConnection_VpnTunnelLogOptionsSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnVPNConnection.VpnTunnelOptionsSpecificationProperty",

@@ -50,7 +50,7 @@ type CfnGlobalReplicationGroupProps struct {
 	Members interface{} `field:"required" json:"members" yaml:"members"`
 	// Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.
 	//
-	// `AutomaticFailoverEnabled` must be enabled for Redis OSS (cluster mode enabled) replication groups.
+	// `AutomaticFailoverEnabled` must be enabled for Valkey or Redis OSS (cluster mode enabled) replication groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
 	//
 	AutomaticFailoverEnabled interface{} `field:"optional" json:"automaticFailoverEnabled" yaml:"automaticFailoverEnabled"`
@@ -64,7 +64,7 @@ type CfnGlobalReplicationGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
 	//
 	CacheParameterGroupName *string `field:"optional" json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
-	// The Elasticache Redis OSS engine version.
+	// The Elasticache Valkey or Redis OSS engine version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`

@@ -151,6 +151,29 @@ func NewServicePrincipal_Override(s ServicePrincipal, service *string, opts *Ser
 	)
 }
 
+// Return the service principal using the service principal name as it is passed to the function without any change regardless of the region used in the stack if it is Opted in or not.
+//
+// Example:
+//   principalName := iam.ServicePrincipal_FromStaticServicePrincipleName(jsii.String("elasticmapreduce.amazonaws.com.cn"))
+//
+func ServicePrincipal_FromStaticServicePrincipleName(servicePrincipalName *string) ServicePrincipal {
+	_init_.Initialize()
+
+	if err := validateServicePrincipal_FromStaticServicePrincipleNameParameters(servicePrincipalName); err != nil {
+		panic(err)
+	}
+	var returns ServicePrincipal
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.ServicePrincipal",
+		"fromStaticServicePrincipleName",
+		[]interface{}{servicePrincipalName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return the service principal name based on the region it's used in.
 //
 // Some service principal names used to be different for different partitions,

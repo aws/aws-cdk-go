@@ -2251,6 +2251,23 @@ instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
 > NOTE: You must use an instance type and operating system that support Nitro Enclaves.
 > For more information, see [Requirements](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html#nitro-enclave-reqs).
 
+### Enabling Termination Protection
+
+You can enable [Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html) for
+your EC2 instances by setting the `disableApiTermination` property to `true`. Termination Protection controls whether the instance can be terminated using the AWS Management Console, AWS Command Line Interface (AWS CLI), or API.
+
+```go
+var vpc vpc
+
+
+instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_XLARGE),
+	MachineImage: ec2.NewAmazonLinuxImage(),
+	Vpc: vpc,
+	DisableApiTermination: jsii.Boolean(true),
+})
+```
+
 ### Enabling Instance Hibernation
 
 You can enable [Instance Hibernation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) for

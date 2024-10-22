@@ -190,6 +190,15 @@ type BucketProps struct {
 	// Default: false.
 	//
 	TransferAcceleration *bool `field:"optional" json:"transferAcceleration" yaml:"transferAcceleration"`
+	// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+	//
+	// To customize the minimum object size for any transition you can add a filter that specifies a custom
+	// `objectSizeGreaterThan` or `objectSizeLessThan` for `lifecycleRules` property. Custom filters always
+	// take precedence over the default transition behavior.
+	// Default: - TransitionDefaultMinimumObjectSize.VARIES_BY_STORAGE_CLASS before September 2024,
+	// otherwise TransitionDefaultMinimumObjectSize.ALL_STORAGE_CLASSES_128_K.
+	//
+	TransitionDefaultMinimumObjectSize TransitionDefaultMinimumObjectSize `field:"optional" json:"transitionDefaultMinimumObjectSize" yaml:"transitionDefaultMinimumObjectSize"`
 	// Whether this bucket should have versioning turned on or not.
 	// Default: false (unless object lock is enabled, then true).
 	//

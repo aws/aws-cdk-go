@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -82,6 +83,12 @@ type DatabaseCluster interface {
 	NewCfnProps() *CfnDBClusterProps
 	// The tree node.
 	Node() constructs.Node
+	// The AWS KMS key for encryption of Performance Insights data.
+	PerformanceInsightEncryptionKey() awskms.IKey
+	// The amount of time, in days, to retain Performance Insights data.
+	PerformanceInsightRetention() PerformanceInsightRetention
+	// Whether Performance Insights is enabled at cluster level.
+	PerformanceInsightsEnabled() *bool
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -376,6 +383,36 @@ func (j *jsiiProxy_DatabaseCluster) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseCluster) PerformanceInsightEncryptionKey() awskms.IKey {
+	var returns awskms.IKey
+	_jsii_.Get(
+		j,
+		"performanceInsightEncryptionKey",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseCluster) PerformanceInsightRetention() PerformanceInsightRetention {
+	var returns PerformanceInsightRetention
+	_jsii_.Get(
+		j,
+		"performanceInsightRetention",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseCluster) PerformanceInsightsEnabled() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"performanceInsightsEnabled",
 		&returns,
 	)
 	return returns

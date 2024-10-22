@@ -15,6 +15,28 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	Configuration: &ProfileConfigurationProperty{
+//   		JobConfiguration: map[string]interface{}{
+//   			"jobConfigurationKey": &ConfigurationObjectProperty{
+//   				"allowedValues": []*string{
+//   					jsii.String("allowedValues"),
+//   				},
+//   				"defaultValue": jsii.String("defaultValue"),
+//   				"maxValue": jsii.String("maxValue"),
+//   				"minValue": jsii.String("minValue"),
+//   			},
+//   		},
+//   		SessionConfiguration: map[string]interface{}{
+//   			"sessionConfigurationKey": &ConfigurationObjectProperty{
+//   				"allowedValues": []*string{
+//   					jsii.String("allowedValues"),
+//   				},
+//   				"defaultValue": jsii.String("defaultValue"),
+//   				"maxValue": jsii.String("maxValue"),
+//   				"minValue": jsii.String("minValue"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -31,6 +53,9 @@ type CfnUsageProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-usageprofile.html#cfn-glue-usageprofile-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-usageprofile.html#cfn-glue-usageprofile-configuration
+	//
+	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
 	// A description of the usage profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-usageprofile.html#cfn-glue-usageprofile-description
 	//

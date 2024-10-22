@@ -16,19 +16,17 @@ import (
 // with support for advanced transformations and enrichment.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetFunction iFunction
+//   var sourceStream stream
+//   var targetQueue queue
 //
 //
-//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
-//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-//   		"body": jsii.String("👀"),
-//   	}),
+//   pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{
+//   	StartingPosition: sources.KinesisStartingPosition_LATEST,
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-//   	Target: pipeTarget,
+//   	Source: pipeSource,
+//   	Target: NewSomeTarget(targetQueue),
 //   })
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html

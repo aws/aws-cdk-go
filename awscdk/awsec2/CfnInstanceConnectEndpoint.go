@@ -11,7 +11,9 @@ import (
 
 // Creates an EC2 Instance Connect Endpoint.
 //
-// An EC2 Instance Connect Endpoint allows you to connect to an instance, without requiring the instance to have a public IPv4 address. For more information, see [Connect to your instances without requiring a public IPv4 address using EC2 Instance Connect Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html) in the *Amazon EC2 User Guide* .
+// An EC2 Instance Connect Endpoint allows you to connect to an instance, without requiring the instance to have a public IPv4 address. For more information, see [Connect to your instances using EC2 Instance Connect Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html) in the *Amazon EC2 User Guide* .
+//
+// With the replacement update behavior, AWS CloudFormation usually creates the new resource first, changes references to point to the new resource, and then deletes the old resource. However, you can create only one EC2 Instance Connect Endpoint per VPC, so the replacement process fails. If you need to modify an EC2 Instance Connect Endpoint, you must replace the resource manually.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

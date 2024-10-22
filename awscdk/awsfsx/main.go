@@ -427,6 +427,14 @@ func init() {
 		"aws-cdk-lib.aws_fsx.DailyAutomaticBackupStartTimeProps",
 		reflect.TypeOf((*DailyAutomaticBackupStartTimeProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_fsx.DriveCacheType",
+		reflect.TypeOf((*DriveCacheType)(nil)).Elem(),
+		map[string]interface{}{
+			"NONE": DriveCacheType_NONE,
+			"READ": DriveCacheType_READ,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.FileSystemAttributes",
 		reflect.TypeOf((*FileSystemAttributes)(nil)).Elem(),
@@ -458,6 +466,15 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.FileSystemProps",
 		reflect.TypeOf((*FileSystemProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_fsx.FileSystemTypeVersion",
+		reflect.TypeOf((*FileSystemTypeVersion)(nil)).Elem(),
+		map[string]interface{}{
+			"V_2_10": FileSystemTypeVersion_V_2_10,
+			"V_2_12": FileSystemTypeVersion_V_2_12,
+			"V_2_15": FileSystemTypeVersion_V_2_15,
+		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_fsx.IFileSystem",
@@ -545,6 +562,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.LustreMaintenanceTimeProps",
 		reflect.TypeOf((*LustreMaintenanceTimeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_fsx.StorageType",
+		reflect.TypeOf((*StorageType)(nil)).Elem(),
+		map[string]interface{}{
+			"SSD": StorageType_SSD,
+			"HDD": StorageType_HDD,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_fsx.Weekday",

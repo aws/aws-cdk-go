@@ -94,8 +94,6 @@ type CfnDataSource interface {
 	SetApiId(val *string)
 	// The Amazon Resource Name (ARN) of the API key, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/datasources/datasourcename` .
 	AttrDataSourceArn() *string
-	// The ID value.
-	AttrId() *string
 	// Friendly name for you to identify your AWS AppSync data source after creation.
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -113,8 +111,9 @@ type CfnDataSource interface {
 	// AWS Region and TableName for an Amazon DynamoDB table in your account.
 	DynamoDbConfig() interface{}
 	SetDynamoDbConfig(val interface{})
-	// AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
+	// Deprecated: this property has been deprecated.
 	ElasticsearchConfig() interface{}
+	// Deprecated: this property has been deprecated.
 	SetElasticsearchConfig(val interface{})
 	// An EventBridge configuration that contains a valid ARN of an event bus.
 	EventBridgeConfig() interface{}
@@ -325,16 +324,6 @@ func (j *jsiiProxy_CfnDataSource) AttrDataSourceArn() *string {
 	_jsii_.Get(
 		j,
 		"attrDataSourceArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnDataSource) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

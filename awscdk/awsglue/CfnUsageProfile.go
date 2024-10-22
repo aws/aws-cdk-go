@@ -20,6 +20,28 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	Configuration: &ProfileConfigurationProperty{
+//   		JobConfiguration: map[string]interface{}{
+//   			"jobConfigurationKey": &ConfigurationObjectProperty{
+//   				"allowedValues": []*string{
+//   					jsii.String("allowedValues"),
+//   				},
+//   				"defaultValue": jsii.String("defaultValue"),
+//   				"maxValue": jsii.String("maxValue"),
+//   				"minValue": jsii.String("minValue"),
+//   			},
+//   		},
+//   		SessionConfiguration: map[string]interface{}{
+//   			"sessionConfigurationKey": &ConfigurationObjectProperty{
+//   				"allowedValues": []*string{
+//   					jsii.String("allowedValues"),
+//   				},
+//   				"defaultValue": jsii.String("defaultValue"),
+//   				"maxValue": jsii.String("maxValue"),
+//   				"minValue": jsii.String("minValue"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -44,6 +66,8 @@ type CfnUsageProfile interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	Configuration() interface{}
+	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -275,6 +299,16 @@ func (j *jsiiProxy_CfnUsageProfile) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUsageProfile) Configuration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"configuration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUsageProfile) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -400,6 +434,17 @@ func NewCfnUsageProfile_Override(c CfnUsageProfile, scope constructs.Construct, 
 		"aws-cdk-lib.aws_glue.CfnUsageProfile",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnUsageProfile)SetConfiguration(val interface{}) {
+	if err := j.validateSetConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"configuration",
+		val,
 	)
 }
 

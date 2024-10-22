@@ -24,6 +24,8 @@ import (
 //   	Subnet: Subnet,
 //   })
 //
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
+//
 // Experimental.
 type ConnectionType interface {
 	// The name of this ConnectionType, as expected by Connection resource.
@@ -79,6 +81,17 @@ func NewConnectionType_Override(c ConnectionType, name *string) {
 	)
 }
 
+func ConnectionType_CUSTOM() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"CUSTOM",
+		&returns,
+	)
+	return returns
+}
+
 func ConnectionType_JDBC() ConnectionType {
 	_init_.Initialize()
 	var returns ConnectionType
@@ -96,6 +109,17 @@ func ConnectionType_KAFKA() ConnectionType {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.ConnectionType",
 		"KAFKA",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_MARKETPLACE() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"MARKETPLACE",
 		&returns,
 	)
 	return returns

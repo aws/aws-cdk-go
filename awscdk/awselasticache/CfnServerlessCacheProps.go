@@ -78,7 +78,7 @@ type CfnServerlessCacheProps struct {
 	CacheUsageLimits interface{} `field:"optional" json:"cacheUsageLimits" yaml:"cacheUsageLimits"`
 	// The daily time that a cache snapshot will be created.
 	//
-	// Default is NULL, i.e. snapshots will not be created at a specific time on a daily basis. Available for Redis OSS and Serverless Memcached only.
+	// Default is NULL, i.e. snapshots will not be created at a specific time on a daily basis. Available for Valkey, Redis OSS, and Serverless Memcached only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-dailysnapshottime
 	//
 	DailySnapshotTime *string `field:"optional" json:"dailySnapshotTime" yaml:"dailySnapshotTime"`
@@ -120,7 +120,7 @@ type CfnServerlessCacheProps struct {
 	SnapshotArnsToRestore *[]*string `field:"optional" json:"snapshotArnsToRestore" yaml:"snapshotArnsToRestore"`
 	// The current setting for the number of serverless cache snapshots the system will retain.
 	//
-	// Available for Redis OSS and Serverless Memcached only.
+	// Available for Valkey, Redis OSS, and Serverless Memcached only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-snapshotretentionlimit
 	//
 	SnapshotRetentionLimit *float64 `field:"optional" json:"snapshotRetentionLimit" yaml:"snapshotRetentionLimit"`
@@ -136,7 +136,7 @@ type CfnServerlessCacheProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The identifier of the user group associated with the serverless cache.
 	//
-	// Available for Redis OSS only. Default is NULL.
+	// Available for Valkey and Redis OSS only. Default is NULL.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-usergroupid
 	//
 	UserGroupId *string `field:"optional" json:"userGroupId" yaml:"userGroupId"`

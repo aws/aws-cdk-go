@@ -12,27 +12,15 @@ import (
 // A Pass state can be used to transform the current execution's state.
 //
 // Example:
-//   // Define a state machine with one Pass state
-//   child := sfn.NewStateMachine(this, jsii.String("ChildStateMachine"), &StateMachineProps{
-//   	Definition: sfn.Chain_Start(sfn.NewPass(this, jsii.String("PassState"))),
+//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
+//   	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
+//   	Definition: stepfunctions.Chain_Start(stepfunctions.NewPass(this, jsii.String("Pass"))),
 //   })
 //
-//   // Include the state machine in a Task state with callback pattern
-//   task := tasks.NewStepFunctionsStartExecution(this, jsii.String("ChildTask"), &StepFunctionsStartExecutionProps{
-//   	StateMachine: child,
-//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-//   	Input: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"token": sfn.JsonPath_taskToken(),
-//   		"foo": jsii.String("bar"),
-//   	}),
-//   	Name: jsii.String("MyExecutionName"),
+//   api := apigateway.NewRestApi(this, jsii.String("Api"), &RestApiProps{
+//   	RestApiName: jsii.String("MyApi"),
 //   })
-//
-//   // Define a second state machine with the Task state above
-//   // Define a second state machine with the Task state above
-//   sfn.NewStateMachine(this, jsii.String("ParentStateMachine"), &StateMachineProps{
-//   	Definition: task,
-//   })
+//   api.Root.AddMethod(jsii.String("GET"), apigateway.StepFunctionsIntegration_StartExecution(stateMachine))
 //
 type Pass interface {
 	State

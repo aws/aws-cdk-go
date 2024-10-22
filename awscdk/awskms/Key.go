@@ -294,6 +294,12 @@ func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey
 // You can therefore not use any values that will only be available at
 // CloudFormation execution time (i.e., Tokens).
 //
+// If you set `returnDummyKeyOnMissing` to `true` in `options` and the key was not found,
+// this method will return a dummy key with a key id '1234abcd-12ab-34cd-56ef-1234567890ab'.
+// The value of the dummy key id can also be referenced using the `Key.DEFAULT_DUMMY_KEY_ID`
+// variable, and you can check if the key is a dummy key by using the `Key.isLookupDummy()`
+// method.
+//
 // The Key information will be cached in `cdk.context.json` and the same Key
 // will be used on future runs. To refresh the lookup, you will have to
 // evict the value from the cache using the `cdk context` command. See
@@ -351,6 +357,28 @@ func Key_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Checks if the key returned by the `Key.fromLookup()` method is a dummy key, i.e., a key that was not found.
+//
+// This method can only be used if the `returnDummyKeyOnMissing` option
+// is set to `true` in the `options` for the `Key.fromLookup()` method.
+func Key_IsLookupDummy(key IKey) *bool {
+	_init_.Initialize()
+
+	if err := validateKey_IsLookupDummyParameters(key); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_kms.Key",
+		"isLookupDummy",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns true if the construct was created by CDK, and false otherwise.
 func Key_IsOwnedResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
@@ -386,6 +414,17 @@ func Key_IsResource(construct constructs.IConstruct) *bool {
 		&returns,
 	)
 
+	return returns
+}
+
+func Key_DEFAULT_DUMMY_KEY_ID() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_kms.Key",
+		"DEFAULT_DUMMY_KEY_ID",
+		&returns,
+	)
 	return returns
 }
 

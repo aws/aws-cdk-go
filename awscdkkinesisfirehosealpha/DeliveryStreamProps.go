@@ -2,7 +2,6 @@ package awscdkkinesisfirehosealpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 )
 
 // Properties for a new delivery stream.
@@ -53,6 +52,6 @@ type DeliveryStreamProps struct {
 	// Default: - data must be written to the delivery stream via a direct put.
 	//
 	// Experimental.
-	SourceStream awskinesis.IStream `field:"optional" json:"sourceStream" yaml:"sourceStream"`
+	Source ISource `field:"optional" json:"source" yaml:"source"`
 }
 

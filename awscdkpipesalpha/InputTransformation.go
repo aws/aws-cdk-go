@@ -9,18 +9,19 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetQueue queue
+//   var targetStream stream
 //
 //
-//   pipeTarget := targets.NewSqsTarget(targetQueue, &SqsTargetParameters{
+//   streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{
+//   	PartitionKey: jsii.String("pk"),
 //   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-//   		"SomeKey": pipes.DynamicInput_fromEventPath(jsii.String("$.body")),
+//   		"body": jsii.String("👀"),
 //   	}),
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 //   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-//   	Target: pipeTarget,
+//   	Target: streamTarget,
 //   })
 //
 // Experimental.

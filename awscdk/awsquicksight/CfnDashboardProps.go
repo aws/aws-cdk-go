@@ -35,6 +35,9 @@ type CfnDashboardProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-definition
 	//
 	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-folderarns
+	//
+	FolderArns *[]*string `field:"optional" json:"folderArns" yaml:"folderArns"`
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-linkentities
 	//

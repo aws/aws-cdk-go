@@ -40,7 +40,6 @@ import (
 //   	ProgrammingLang: jsii.String("programmingLang"),
 //   	ReleaseNotes: jsii.String("releaseNotes"),
 //   	VendorGuidance: jsii.String("vendorGuidance"),
-//   	Version: jsii.Number(123),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
@@ -66,6 +65,7 @@ type CfnImageVersion interface {
 	//
 	// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])* /[0-9]+$`
 	AttrImageVersionArn() *string
+	// The version of the image.
 	AttrVersion() *float64
 	// The container image that the SageMaker image version is based on.
 	BaseImage() *string
@@ -137,9 +137,6 @@ type CfnImageVersion interface {
 	// The availability of the image version specified by the maintainer.
 	VendorGuidance() *string
 	SetVendorGuidance(val *string)
-	// The version number.
-	Version() *float64
-	SetVersion(val *float64)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -523,16 +520,6 @@ func (j *jsiiProxy_CfnImageVersion) VendorGuidance() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageVersion) Version() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"version",
-		&returns,
-	)
-	return returns
-}
-
 
 func NewCfnImageVersion(scope constructs.Construct, id *string, props *CfnImageVersionProps) CfnImageVersion {
 	_init_.Initialize()
@@ -654,14 +641,6 @@ func (j *jsiiProxy_CfnImageVersion)SetVendorGuidance(val *string) {
 	_jsii_.Set(
 		j,
 		"vendorGuidance",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnImageVersion)SetVersion(val *float64) {
-	_jsii_.Set(
-		j,
-		"version",
 		val,
 	)
 }

@@ -65,6 +65,9 @@ import (
 //   				BucketKeyEnabled: jsii.Boolean(false),
 //   				ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
 //   					SseAlgorithm: jsii.String("sseAlgorithm"),
+//
+//   					// the properties below are optional
+//   					KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
 //   				},
 //   			},
 //   		},

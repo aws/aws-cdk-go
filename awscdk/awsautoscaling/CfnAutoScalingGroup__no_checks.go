@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetTagsRawParameters(val *[]*Cfn
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetTrafficSourcesParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnAutoScalingGroupParameters(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) error {
 	return nil
 }

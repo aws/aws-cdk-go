@@ -19,6 +19,48 @@ import (
 //   	DataProviderName: jsii.String("dataProviderName"),
 //   	Description: jsii.String("description"),
 //   	ExactSettings: jsii.Boolean(false),
+//   	Settings: &SettingsProperty{
+//   		MicrosoftSqlServerSettings: &MicrosoftSqlServerSettingsProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   		},
+//   		MySqlSettings: &MySqlSettingsProperty{
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   		},
+//   		OracleSettings: &OracleSettingsProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			AsmServer: jsii.String("asmServer"),
+//   			CertificateArn: jsii.String("certificateArn"),
+//   			SecretsManagerOracleAsmAccessRoleArn: jsii.String("secretsManagerOracleAsmAccessRoleArn"),
+//   			SecretsManagerOracleAsmSecretId: jsii.String("secretsManagerOracleAsmSecretId"),
+//   			SecretsManagerSecurityDbEncryptionAccessRoleArn: jsii.String("secretsManagerSecurityDbEncryptionAccessRoleArn"),
+//   			SecretsManagerSecurityDbEncryptionSecretId: jsii.String("secretsManagerSecurityDbEncryptionSecretId"),
+//   		},
+//   		PostgreSqlSettings: &PostgreSqlSettingsProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -58,6 +100,10 @@ type CfnDataProviderProps struct {
 	// Default: - false.
 	//
 	ExactSettings interface{} `field:"optional" json:"exactSettings" yaml:"exactSettings"`
+	// The settings in JSON format for a data provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-settings
+	//
+	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-tags
 	//

@@ -96,7 +96,7 @@ type CfnDataSet_TransformOperationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
 	//
 	FilterOperation interface{} `field:"optional" json:"filterOperation" yaml:"filterOperation"`
-	// <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>.
+	// A transform operation that overrides the dataset parameter values that are defined in another dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-overridedatasetparameteroperation
 	//
 	OverrideDatasetParameterOperation interface{} `field:"optional" json:"overrideDatasetParameterOperation" yaml:"overrideDatasetParameterOperation"`

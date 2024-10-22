@@ -1372,6 +1372,14 @@ func init() {
 		"aws-cdk-lib.aws_s3.Transition",
 		reflect.TypeOf((*Transition)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_s3.TransitionDefaultMinimumObjectSize",
+		reflect.TypeOf((*TransitionDefaultMinimumObjectSize)(nil)).Elem(),
+		map[string]interface{}{
+			"ALL_STORAGE_CLASSES_128_K": TransitionDefaultMinimumObjectSize_ALL_STORAGE_CLASSES_128_K,
+			"VARIES_BY_STORAGE_CLASS": TransitionDefaultMinimumObjectSize_VARIES_BY_STORAGE_CLASS,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.VirtualHostedStyleUrlOptions",
 		reflect.TypeOf((*VirtualHostedStyleUrlOptions)(nil)).Elem(),

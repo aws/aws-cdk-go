@@ -27,6 +27,24 @@ func init() {
 		reflect.TypeOf((*ApiDestinationTargetParameters)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-targets-alpha.CloudWatchLogsTarget",
+		reflect.TypeOf((*CloudWatchLogsTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+			_jsii_.MemberProperty{JsiiProperty: "targetArn", GoGetter: "TargetArn"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CloudWatchLogsTarget{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkpipesalphaITarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-pipes-targets-alpha.CloudWatchLogsTargetParameters",
+		reflect.TypeOf((*CloudWatchLogsTargetParameters)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-pipes-targets-alpha.EventBridgeTarget",
 		reflect.TypeOf((*EventBridgeTarget)(nil)).Elem(),
 		[]_jsii_.Member{

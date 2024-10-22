@@ -894,6 +894,44 @@ bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
 })
 ```
 
+To indicate which default minimum object size behavior is applied to the lifecycle configuration, use the
+`transitionDefaultMinimumObjectSize` property.
+
+The default value of the property before September 2024 is `TransitionDefaultMinimumObjectSize.VARIES_BY_STORAGE_CLASS`
+that allows objects smaller than 128 KB to be transitioned only to the S3 Glacier and S3 Glacier Deep Archive storage classes,
+otherwise `TransitionDefaultMinimumObjectSize.ALL_STORAGE_CLASSES_128_K` that prevents objects smaller than 128 KB from being
+transitioned to any storage class.
+
+To customize the minimum object size for any transition you
+can add a filter that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` for `lifecycleRules`
+property. Custom filters always take precedence over the default transition behavior.
+
+```go
+s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+	TransitionDefaultMinimumObjectSize: s3.TransitionDefaultMinimumObjectSize_VARIES_BY_STORAGE_CLASS,
+	LifecycleRules: []lifecycleRule{
+		&lifecycleRule{
+			Transitions: []transition{
+				&transition{
+					StorageClass: s3.StorageClass_DEEP_ARCHIVE(),
+					TransitionAfter: awscdk.Duration_Days(jsii.Number(30)),
+				},
+			},
+		},
+		&lifecycleRule{
+			ObjectSizeLessThan: jsii.Number(300000),
+			ObjectSizeGreaterThan: jsii.Number(200000),
+			Transitions: []*transition{
+				&transition{
+					StorageClass: s3.StorageClass_ONE_ZONE_INFREQUENT_ACCESS(),
+					TransitionAfter: awscdk.Duration_*Days(jsii.Number(30)),
+				},
+			},
+		},
+	},
+})
+```
+
 ## Object Lock Configuration
 
 [Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html)

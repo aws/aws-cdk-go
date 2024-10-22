@@ -449,6 +449,25 @@ role.AssumeRolePolicy.AddStatements(iam.NewPolicyStatement(&PolicyStatementProps
 }))
 ```
 
+### Fixing the synthesized service principle for services that do not follow the IAM Pattern
+
+In some cases, certain AWS services may not use the standard `<service>.amazonaws.com` pattern for their service principals. For these services, you can define the ServicePrincipal as following where the provided service principle name will be used as is without any changing.
+
+```go
+sp := iam.ServicePrincipal_FromStaticServicePrincipleName(jsii.String("elasticmapreduce.amazonaws.com.cn"))
+```
+
+This principle can use as normal in defining any role, for example:
+
+```go
+emrServiceRole := iam.NewRole(this, jsii.String("EMRServiceRole"), &RoleProps{
+	AssumedBy: iam.ServicePrincipal_FromStaticServicePrincipleName(jsii.String("elasticmapreduce.amazonaws.com.cn")),
+	ManagedPolicies: []iManagedPolicy{
+		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("service-role/AmazonElasticMapReduceRole")),
+	},
+})
+```
+
 ## Parsing JSON Policy Documents
 
 The `PolicyDocument.fromJson` and `PolicyStatement.fromJson` static methods can be used to parse JSON objects. For example:

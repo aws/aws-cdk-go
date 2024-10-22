@@ -72,5 +72,21 @@ type BastionHostLinuxProps struct {
 	// Default: - private subnets of the supplied VPC.
 	//
 	SubnetSelection *SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
+	// Determines whether changes to the UserData will force instance replacement.
+	//
+	// Depending on the EC2 instance type, modifying the UserData may either restart
+	// or replace the instance:
+	//
+	// - Instance store-backed instances are replaced.
+	// - EBS-backed instances are restarted.
+	//
+	// Note that by default, restarting does not execute the updated UserData, so an alternative
+	// mechanism is needed to ensure the instance re-executes the UserData.
+	//
+	// When set to `true`, the instance's Logical ID will depend on the UserData, causing
+	// CloudFormation to replace the instance if the UserData changes.
+	// Default: - `true` if `initOptions` is specified, otherwise `false`.
+	//
+	UserDataCausesReplacement *bool `field:"optional" json:"userDataCausesReplacement" yaml:"userDataCausesReplacement"`
 }
 

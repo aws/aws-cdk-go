@@ -83,37 +83,41 @@ type CfnTransformerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-status
 	//
 	Status *string `field:"required" json:"status" yaml:"status"`
-	// Returns the details for the EDI standard that is being used for the transformer.
-	//
-	// Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-editype
 	//
 	// Deprecated: this property has been deprecated.
 	EdiType interface{} `field:"optional" json:"ediType" yaml:"ediType"`
-	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-fileformat
 	//
 	// Deprecated: this property has been deprecated.
 	FileFormat *string `field:"optional" json:"fileFormat" yaml:"fileFormat"`
+	// Returns a structure that contains the format options for the transformation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-inputconversion
 	//
 	InputConversion interface{} `field:"optional" json:"inputConversion" yaml:"inputConversion"`
+	// Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-mapping
 	//
 	Mapping interface{} `field:"optional" json:"mapping" yaml:"mapping"`
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// This shape is deprecated: This is a legacy trait.
+	//
+	// Please use input-conversion or output-conversion.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-mappingtemplate
 	//
 	// Deprecated: this property has been deprecated.
 	MappingTemplate *string `field:"optional" json:"mappingTemplate" yaml:"mappingTemplate"`
+	// Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-outputconversion
 	//
 	OutputConversion interface{} `field:"optional" json:"outputConversion" yaml:"outputConversion"`
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// This shape is deprecated: This is a legacy trait.
+	//
+	// Please use input-conversion or output-conversion.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-sampledocument
 	//
 	// Deprecated: this property has been deprecated.
 	SampleDocument *string `field:"optional" json:"sampleDocument" yaml:"sampleDocument"`
+	// Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html#cfn-b2bi-transformer-sampledocuments
 	//
 	SampleDocuments interface{} `field:"optional" json:"sampleDocuments" yaml:"sampleDocuments"`

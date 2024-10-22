@@ -68,6 +68,10 @@ func validateKey_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateKey_IsLookupDummyParameters(key IKey) error {
+	return nil
+}
+
 func validateKey_IsOwnedResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }

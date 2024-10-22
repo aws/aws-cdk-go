@@ -9,6 +9,9 @@ package awsnetworkfirewall
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   statefulEngineOptionsProperty := &StatefulEngineOptionsProperty{
+//   	FlowTimeouts: &FlowTimeoutsProperty{
+//   		TcpIdleTimeoutSeconds: jsii.Number(123),
+//   	},
 //   	RuleOrder: jsii.String("ruleOrder"),
 //   	StreamExceptionPolicy: jsii.String("streamExceptionPolicy"),
 //   }
@@ -16,6 +19,9 @@ package awsnetworkfirewall
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html
 //
 type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-flowtimeouts
+	//
+	FlowTimeouts interface{} `field:"optional" json:"flowTimeouts" yaml:"flowTimeouts"`
 	// Indicates how to manage the order of stateful rule evaluation for the policy.
 	//
 	// `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .

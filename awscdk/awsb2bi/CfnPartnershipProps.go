@@ -75,6 +75,7 @@ type CfnPartnershipProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-profileid
 	//
 	ProfileId *string `field:"required" json:"profileId" yaml:"profileId"`
+	// Contains the details for an Outbound EDI capability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilityoptions
 	//
 	CapabilityOptions interface{} `field:"optional" json:"capabilityOptions" yaml:"capabilityOptions"`

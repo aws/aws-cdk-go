@@ -37,6 +37,9 @@ import (
 //   					Name: jsii.String("name"),
 //
 //   					// the properties below are optional
+//   					Commands: []*string{
+//   						jsii.String("commands"),
+//   					},
 //   					Configuration: configuration,
 //   					InputArtifacts: []interface{}{
 //   						&InputArtifactProperty{
@@ -47,7 +50,15 @@ import (
 //   					OutputArtifacts: []interface{}{
 //   						&OutputArtifactProperty{
 //   							Name: jsii.String("name"),
+//
+//   							// the properties below are optional
+//   							Files: []*string{
+//   								jsii.String("files"),
+//   							},
 //   						},
+//   					},
+//   					OutputVariables: []*string{
+//   						jsii.String("outputVariables"),
 //   					},
 //   					Region: jsii.String("region"),
 //   					RoleArn: jsii.String("roleArn"),

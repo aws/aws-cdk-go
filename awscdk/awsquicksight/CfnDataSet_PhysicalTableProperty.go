@@ -12,6 +12,11 @@ package awsquicksight
 //
 //   physicalTableProperty := &PhysicalTableProperty{
 //   	CustomSql: &CustomSqlProperty{
+//   		DataSourceArn: jsii.String("dataSourceArn"),
+//   		Name: jsii.String("name"),
+//   		SqlQuery: jsii.String("sqlQuery"),
+//
+//   		// the properties below are optional
 //   		Columns: []interface{}{
 //   			&InputColumnProperty{
 //   				Name: jsii.String("name"),
@@ -21,12 +26,13 @@ package awsquicksight
 //   				SubType: jsii.String("subType"),
 //   			},
 //   		},
-//   		DataSourceArn: jsii.String("dataSourceArn"),
-//   		Name: jsii.String("name"),
-//   		SqlQuery: jsii.String("sqlQuery"),
 //   	},
 //   	RelationalTable: &RelationalTableProperty{
 //   		DataSourceArn: jsii.String("dataSourceArn"),
+//   		Name: jsii.String("name"),
+//
+//   		// the properties below are optional
+//   		Catalog: jsii.String("catalog"),
 //   		InputColumns: []interface{}{
 //   			&InputColumnProperty{
 //   				Name: jsii.String("name"),
@@ -36,10 +42,6 @@ package awsquicksight
 //   				SubType: jsii.String("subType"),
 //   			},
 //   		},
-//   		Name: jsii.String("name"),
-//
-//   		// the properties below are optional
-//   		Catalog: jsii.String("catalog"),
 //   		Schema: jsii.String("schema"),
 //   	},
 //   	S3Source: &S3SourceProperty{

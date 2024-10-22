@@ -182,7 +182,7 @@ type CfnOriginEndpoint interface {
 	// The description associated with the origin endpoint.
 	Description() *string
 	SetDescription(val *string)
-	// <p>The failover settings for the endpoint.</p>.
+	// The failover settings for the endpoint.
 	ForceEndpointErrorConfiguration() interface{}
 	SetForceEndpointErrorConfiguration(val interface{})
 	// The HLS manfiests associated with the origin endpoint configuration.

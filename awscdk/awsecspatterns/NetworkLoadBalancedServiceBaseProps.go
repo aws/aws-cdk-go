@@ -26,6 +26,7 @@ import (
 //   var containerDefinition containerDefinition
 //   var containerImage containerImage
 //   var hostedZone hostedZone
+//   var listenerCertificate listenerCertificate
 //   var logDriver logDriver
 //   var namespace iNamespace
 //   var networkLoadBalancer networkLoadBalancer
@@ -67,6 +68,7 @@ import (
 //   	EnableExecuteCommand: jsii.Boolean(false),
 //   	HealthCheckGracePeriod: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	IpAddressType: awscdk.Aws_elasticloadbalancingv2.IpAddressType_IPV4,
+//   	ListenerCertificate: listenerCertificate,
 //   	ListenerPort: jsii.Number(123),
 //   	LoadBalancer: networkLoadBalancer,
 //   	MaxHealthyPercent: jsii.Number(123),
@@ -167,8 +169,15 @@ type NetworkLoadBalancedServiceBaseProps struct {
 	// Default: IpAddressType.IPV4
 	//
 	IpAddressType awselasticloadbalancingv2.IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// Listener certificate list of ACM cert ARNs.
+	//
+	// If you provide a certificate, the listener's protocol will be TLS.
+	// If not, the listener's protocol will be TCP.
+	// Default: - none.
+	//
+	ListenerCertificate awselasticloadbalancingv2.IListenerCertificate `field:"optional" json:"listenerCertificate" yaml:"listenerCertificate"`
 	// Listener port of the network load balancer that will serve traffic to the service.
-	// Default: 80.
+	// Default: 80 or 443 with listenerCertificate provided.
 	//
 	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// The network load balancer that will serve traffic to the service.

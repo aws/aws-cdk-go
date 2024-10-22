@@ -50,6 +50,8 @@ type CfnAnalysis interface {
 	// Errors associated with the analysis.
 	Errors() interface{}
 	SetErrors(val interface{})
+	FolderArns() *[]*string
+	SetFolderArns(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -387,6 +389,16 @@ func (j *jsiiProxy_CfnAnalysis) Errors() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAnalysis) FolderArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"folderArns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAnalysis) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -615,6 +627,14 @@ func (j *jsiiProxy_CfnAnalysis)SetErrors(val interface{}) {
 	_jsii_.Set(
 		j,
 		"errors",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAnalysis)SetFolderArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"folderArns",
 		val,
 	)
 }

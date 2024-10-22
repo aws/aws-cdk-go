@@ -390,6 +390,9 @@ import (
 //   		Message: jsii.String("message"),
 //   		Type: jsii.String("type"),
 //   	},
+//   	FolderArns: []*string{
+//   		jsii.String("folderArns"),
+//   	},
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{
 //   			Actions: []*string{
@@ -458,6 +461,9 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
 	//
 	ErrorInfo interface{} `field:"optional" json:"errorInfo" yaml:"errorInfo"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-folderarns
+	//
+	FolderArns *[]*string `field:"optional" json:"folderArns" yaml:"folderArns"`
 	// A list of resource permissions on the data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
 	//

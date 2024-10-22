@@ -206,6 +206,12 @@ package awsautoscaling
 //   	TerminationPolicies: []*string{
 //   		jsii.String("terminationPolicies"),
 //   	},
+//   	TrafficSources: []interface{}{
+//   		&TrafficSourceIdentifierProperty{
+//   			Identifier: jsii.String("identifier"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	VpcZoneIdentifier: []*string{
 //   		jsii.String("vpcZoneIdentifier"),
 //   	},
@@ -409,6 +415,9 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-terminationpolicies
 	//
 	TerminationPolicies *[]*string `field:"optional" json:"terminationPolicies" yaml:"terminationPolicies"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-trafficsources
+	//
+	TrafficSources interface{} `field:"optional" json:"trafficSources" yaml:"trafficSources"`
 	// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
 	//
 	// If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html) .

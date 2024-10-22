@@ -59,23 +59,25 @@ type CfnFleet interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// > Updating this field is not allowed for `MAC_ARM` .
+	// Information about the compute resources the compute fleet uses.
+	//
+	// Available values include:.
 	ComputeType() *string
 	SetComputeType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// > Updating this field is not allowed for `MAC_ARM` .
+	// The environment type of the compute fleet.
 	EnvironmentType() *string
 	SetEnvironmentType(val *string)
 	// The service role associated with the compute fleet.
 	FleetServiceRole() *string
 	SetFleetServiceRole(val *string)
-	// > Updating this field is not allowed for `MAC_ARM` .
+	// Information about the VPC configuration that AWS CodeBuild accesses.
 	FleetVpcConfig() interface{}
 	SetFleetVpcConfig(val interface{})
-	// > Updating this field is not allowed for `MAC_ARM` .
+	// The Amazon Machine Image (AMI) of the compute fleet.
 	ImageId() *string
 	SetImageId(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -62,6 +62,8 @@ type CfnDashboard interface {
 	SetDashboardPublishOptions(val interface{})
 	Definition() interface{}
 	SetDefinition(val interface{})
+	FolderArns() *[]*string
+	SetFolderArns(val *[]*string)
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 	LinkEntities() *[]*string
 	SetLinkEntities(val *[]*string)
@@ -492,6 +494,16 @@ func (j *jsiiProxy_CfnDashboard) Definition() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDashboard) FolderArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"folderArns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDashboard) LinkEntities() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -730,6 +742,14 @@ func (j *jsiiProxy_CfnDashboard)SetDefinition(val interface{}) {
 	_jsii_.Set(
 		j,
 		"definition",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDashboard)SetFolderArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"folderArns",
 		val,
 	)
 }

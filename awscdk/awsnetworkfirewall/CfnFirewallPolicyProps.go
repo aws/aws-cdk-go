@@ -34,6 +34,9 @@ import (
 //   			jsii.String("statefulDefaultActions"),
 //   		},
 //   		StatefulEngineOptions: &StatefulEngineOptionsProperty{
+//   			FlowTimeouts: &FlowTimeoutsProperty{
+//   				TcpIdleTimeoutSeconds: jsii.Number(123),
+//   			},
 //   			RuleOrder: jsii.String("ruleOrder"),
 //   			StreamExceptionPolicy: jsii.String("streamExceptionPolicy"),
 //   		},

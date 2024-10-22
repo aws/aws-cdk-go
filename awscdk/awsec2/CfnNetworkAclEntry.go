@@ -13,6 +13,8 @@ import (
 //
 // Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules.
 //
+// To create the network ACL, see [AWS::EC2::NetworkAcl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html) .
+//
 // For information about the protocol value, see [Protocol Numbers](https://docs.aws.amazon.com/https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 //
 // Example:

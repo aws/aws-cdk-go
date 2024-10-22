@@ -9,7 +9,14 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Adds the specified user to the specified group.
+// Adds a user to a group.
+//
+// A user who is in a group can present a preferred-role claim to an identity pool, and populates a `cognito:groups` claim to their access and identity tokens.
+//
+// > Amazon Cognito evaluates AWS Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+// >
+// > **Learn more** - [Signing AWS API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+// > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -73,6 +80,7 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The user's username.
 	Username() *string
 	SetUsername(val *string)
 	// The user pool ID for the user pool.

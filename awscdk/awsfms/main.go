@@ -120,8 +120,20 @@ func init() {
 		reflect.TypeOf((*CfnPolicy_IEMapProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.IcmpTypeCodeProperty",
+		reflect.TypeOf((*CfnPolicy_IcmpTypeCodeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnPolicy.NetworkAclCommonPolicyProperty",
 		reflect.TypeOf((*CfnPolicy_NetworkAclCommonPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.NetworkAclEntryProperty",
+		reflect.TypeOf((*CfnPolicy_NetworkAclEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.NetworkAclEntrySetProperty",
+		reflect.TypeOf((*CfnPolicy_NetworkAclEntrySetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnPolicy.NetworkFirewallPolicyProperty",
@@ -134,6 +146,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnPolicy.PolicyTagProperty",
 		reflect.TypeOf((*CfnPolicy_PolicyTagProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fms.CfnPolicy.PortRangeProperty",
+		reflect.TypeOf((*CfnPolicy_PortRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fms.CfnPolicy.ResourceTagProperty",

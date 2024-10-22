@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetOperatingSystemParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetSupportContainerDefinitionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

@@ -20,6 +20,10 @@ func (s *jsiiProxy_ServicePrincipal) validateWithConditionsParameters(conditions
 	return nil
 }
 
+func validateServicePrincipal_FromStaticServicePrincipleNameParameters(servicePrincipalName *string) error {
+	return nil
+}
+
 func validateServicePrincipal_ServicePrincipalNameParameters(service *string) error {
 	return nil
 }

@@ -24,6 +24,48 @@ import (
 //   	DataProviderName: jsii.String("dataProviderName"),
 //   	Description: jsii.String("description"),
 //   	ExactSettings: jsii.Boolean(false),
+//   	Settings: &SettingsProperty{
+//   		MicrosoftSqlServerSettings: &MicrosoftSqlServerSettingsProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   		},
+//   		MySqlSettings: &MySqlSettingsProperty{
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   		},
+//   		OracleSettings: &OracleSettingsProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			AsmServer: jsii.String("asmServer"),
+//   			CertificateArn: jsii.String("certificateArn"),
+//   			SecretsManagerOracleAsmAccessRoleArn: jsii.String("secretsManagerOracleAsmAccessRoleArn"),
+//   			SecretsManagerOracleAsmSecretId: jsii.String("secretsManagerOracleAsmSecretId"),
+//   			SecretsManagerSecurityDbEncryptionAccessRoleArn: jsii.String("secretsManagerSecurityDbEncryptionAccessRoleArn"),
+//   			SecretsManagerSecurityDbEncryptionSecretId: jsii.String("secretsManagerSecurityDbEncryptionSecretId"),
+//   		},
+//   		PostgreSqlSettings: &PostgreSqlSettingsProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -85,6 +127,9 @@ type CfnDataProvider interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The settings in JSON format for a data provider.
+	Settings() interface{}
+	SetSettings(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -389,6 +434,16 @@ func (j *jsiiProxy_CfnDataProvider) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataProvider) Settings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"settings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataProvider) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -499,6 +554,17 @@ func (j *jsiiProxy_CfnDataProvider)SetExactSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"exactSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataProvider)SetSettings(val interface{}) {
+	if err := j.validateSetSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"settings",
 		val,
 	)
 }

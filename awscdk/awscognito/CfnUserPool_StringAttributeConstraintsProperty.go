@@ -1,9 +1,9 @@
 package awscognito
 
 
-// The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool.
+// The minimum and maximum length values of an attribute that is of the string type, for example `custom:department` .
 //
-// `StringAttributeConstraints` is a subproperty of the [SchemaAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html) property type.
+// This data type is part of [SchemaAttributeType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SchemaAttributeType.html) . It defines the length constraints on string-type attributes that you configure in [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and displays the length constraints of all string-type attributes in the response to [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

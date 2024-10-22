@@ -123,6 +123,28 @@ func init() {
 			return &jsiiProxy_IDestination{}
 		},
 	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-kinesisfirehose-alpha.ISource",
+		reflect.TypeOf((*ISource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ISource{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-kinesisfirehose-alpha.KinesisStreamSource",
+		reflect.TypeOf((*KinesisStreamSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+		},
+		func() interface{} {
+			j := jsiiProxy_KinesisStreamSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISource)
+			return &j
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-kinesisfirehose-alpha.LambdaFunctionProcessor",
 		reflect.TypeOf((*LambdaFunctionProcessor)(nil)).Elem(),

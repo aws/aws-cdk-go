@@ -13,8 +13,14 @@ type IItemReader interface {
 	ProvidePolicyStatements() *[]awsiam.PolicyStatement
 	// Render the ItemReader as JSON object.
 	Render() interface{}
+	// Validate that ItemReader contains exactly either.
+	// See: bucketNamePath.
+	//
+	ValidateItemReader() *[]*string
 	// S3 Bucket containing objects to iterate over or a file with a list to iterate over.
 	Bucket() awss3.IBucket
+	// S3 bucket name containing objects to iterate over or a file with a list to iterate over, as JsonPath.
+	BucketNamePath() *string
 	// Limits the number of items passed to the Distributed Map state.
 	// Default: - Distributed Map state will iterate over all items provided by the ItemReader.
 	//
@@ -54,11 +60,34 @@ func (i *jsiiProxy_IItemReader) Render() interface{} {
 	return returns
 }
 
+func (i *jsiiProxy_IItemReader) ValidateItemReader() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		i,
+		"validateItemReader",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IItemReader) Bucket() awss3.IBucket {
 	var returns awss3.IBucket
 	_jsii_.Get(
 		j,
 		"bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IItemReader) BucketNamePath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bucketNamePath",
 		&returns,
 	)
 	return returns

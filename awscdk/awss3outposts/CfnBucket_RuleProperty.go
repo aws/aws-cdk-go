@@ -48,6 +48,9 @@ type CfnBucket_RuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
 	//
 	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
+	// Unique identifier for the lifecycle rule.
+	//
+	// The value can't be longer than 255 characters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-id
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`

@@ -9,13 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::Cognito::UserPoolUICustomizationAttachment` resource sets the UI customization information for a user pool's built-in app UI.
+// A container for the UI customization information for the hosted UI in a user pool.
 //
-// You can specify app UI customization settings for a single client (with a specific `clientId` ) or for all clients (by setting the `clientId` to `ALL` ). If you specify `ALL` , the default configuration is used for every client that has had no UI customization set previously. If you specify UI customization settings for a particular client, it no longer falls back to the `ALL` configuration.
-//
-// > Before you create this resource, your user pool must have a domain associated with it. You can create an `AWS::Cognito::UserPoolDomain` resource first in this user pool.
-//
-// Setting a logo image isn't supported from AWS CloudFormation . Use the Amazon Cognito [SetUICustomization](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUICustomization.html#API_SetUICustomization_RequestSyntax) API operation to set the image.
+// This data type is a response parameter of [GetUICustomization](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,7 +36,7 @@ type CfnUserPoolUICustomizationAttachment interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The client ID for the client app.
+	// The app client ID for your UI customization.
 	ClientId() *string
 	SetClientId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

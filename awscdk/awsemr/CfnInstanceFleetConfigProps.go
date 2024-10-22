@@ -123,6 +123,7 @@ type CfnInstanceFleetConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancefleetconfig.html#cfn-emr-instancefleetconfig-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The resize specification for the instance fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancefleetconfig.html#cfn-emr-instancefleetconfig-resizespecifications
 	//
 	ResizeSpecifications interface{} `field:"optional" json:"resizeSpecifications" yaml:"resizeSpecifications"`

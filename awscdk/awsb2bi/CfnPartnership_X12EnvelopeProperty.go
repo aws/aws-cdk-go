@@ -1,6 +1,14 @@
 package awsb2bi
 
 
+// A wrapper structure for an X12 definition object.
+//
+// the X12 envelope ensures the integrity of the data and the efficiency of the information exchange. The X12 message structure has hierarchical levels. From highest to the lowest, they are:
+//
+// - Interchange Envelope
+// - Functional Group
+// - Transaction Set.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,6 +42,7 @@ package awsb2bi
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html
 //
 type CfnPartnership_X12EnvelopeProperty struct {
+	// A container for the X12 outbound EDI headers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html#cfn-b2bi-partnership-x12envelope-common
 	//
 	Common interface{} `field:"optional" json:"common" yaml:"common"`

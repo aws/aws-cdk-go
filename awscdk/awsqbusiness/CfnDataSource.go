@@ -147,7 +147,7 @@ type CfnDataSource interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Use this property to specify a JSON or YAML schema with configuration information specific to your data source connector to connect your data source repository to Amazon Q Business .
+	// Configuration information to connect your data source repository to Amazon Q Business.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

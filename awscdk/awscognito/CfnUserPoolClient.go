@@ -156,7 +156,7 @@ type CfnUserPoolClient interface {
 	SetLogoutUrLs(val *[]*string)
 	// The tree node.
 	Node() constructs.Node
-	// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool.
+	// Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool.
 	PreventUserExistenceErrors() *string
 	SetPreventUserExistenceErrors(val *string)
 	// The list of user attributes that you want your app client to have read access to.

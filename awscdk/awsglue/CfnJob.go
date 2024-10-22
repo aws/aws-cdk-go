@@ -74,7 +74,6 @@ type CfnJob interface {
 	// Use `MaxCapacity` instead.
 	AllocatedCapacity() *float64
 	SetAllocatedCapacity(val *float64)
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -327,16 +326,6 @@ func (j *jsiiProxy_CfnJob) AllocatedCapacity() *float64 {
 	_jsii_.Get(
 		j,
 		"allocatedCapacity",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnJob) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

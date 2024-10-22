@@ -78,7 +78,7 @@ type CfnClusterProps struct {
 	ClusterEndpoint interface{} `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
 	// Enables data tiering.
 	//
-	// Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html) .
+	// Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-datatiering
 	//
 	DataTiering *string `field:"optional" json:"dataTiering" yaml:"dataTiering"`
@@ -86,7 +86,7 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The Redis engine version used by the cluster .
+	// The Valkey or Redis OSS engine version used by the cluster .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`

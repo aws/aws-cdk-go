@@ -239,7 +239,10 @@ the access point can only access data in its own directory and below. To learn m
 Use the `addAccessPoint` API to create an access point from a fileSystem.
 
 ```go
-fileSystem.AddAccessPoint(jsii.String("AccessPoint"))
+fileSystem.AddAccessPoint(jsii.String("MyAccessPoint"), &AccessPointOptions{
+	// create a unique access point via an optional client token
+	ClientToken: jsii.String("client-token"),
+})
 ```
 
 By default, when you create an access point, the root(`/`) directory is exposed to the client

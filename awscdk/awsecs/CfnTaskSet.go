@@ -28,6 +28,13 @@ import (
 //   	TaskDefinition: jsii.String("taskDefinition"),
 //
 //   	// the properties below are optional
+//   	CapacityProviderStrategy: []interface{}{
+//   		&CapacityProviderStrategyItemProperty{
+//   			Base: jsii.Number(123),
+//   			CapacityProvider: jsii.String("capacityProvider"),
+//   			Weight: jsii.Number(123),
+//   		},
+//   	},
 //   	ExternalId: jsii.String("externalId"),
 //   	LaunchType: jsii.String("launchType"),
 //   	LoadBalancers: []interface{}{
@@ -79,6 +86,9 @@ type CfnTaskSet interface {
 	awscdk.ITaggableV2
 	// The ID of the task set.
 	AttrId() *string
+	// The capacity provider strategy that are associated with the task set.
+	CapacityProviderStrategy() interface{}
+	SetCapacityProviderStrategy(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -296,6 +306,16 @@ func (j *jsiiProxy_CfnTaskSet) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTaskSet) CapacityProviderStrategy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"capacityProviderStrategy",
 		&returns,
 	)
 	return returns
@@ -546,6 +566,17 @@ func NewCfnTaskSet_Override(c CfnTaskSet, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_ecs.CfnTaskSet",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskSet)SetCapacityProviderStrategy(val interface{}) {
+	if err := j.validateSetCapacityProviderStrategyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"capacityProviderStrategy",
+		val,
 	)
 }
 

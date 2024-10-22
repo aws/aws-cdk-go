@@ -19,14 +19,11 @@ import (
 // This serves to increase concurrency and allows for larger workloads to be run in a single state machine.
 //
 // Example:
-//   distributedMap := sfn.NewDistributedMap(this, jsii.String("DistributedMap"), &DistributedMapProps{
-//   	MapExecutionType: sfn.StateMachineType_EXPRESS,
+//   distributedMap := sfn.NewDistributedMap(this, jsii.String("Distributed Map State"), &DistributedMapProps{
+//   	MaxConcurrency: jsii.Number(1),
+//   	ItemsPath: sfn.JsonPath_StringAt(jsii.String("$.inputForMap")),
 //   })
-//
-//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")), &ProcessorConfig{
-//   	Mode: sfn.ProcessorMode_DISTRIBUTED,
-//   	ExecutionType: sfn.ProcessorType_STANDARD,
-//   })
+//   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass State")))
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-distributed.html
 //

@@ -65,6 +65,10 @@ type LustreConfiguration struct {
 	// Default: - no compression.
 	//
 	DataCompressionType LustreDataCompressionType `field:"optional" json:"dataCompressionType" yaml:"dataCompressionType"`
+	// The type of drive cache used by PERSISTENT_1 file systems that are provisioned with HDD storage devices.
+	// Default: - no drive cache.
+	//
+	DriveCacheType DriveCacheType `field:"optional" json:"driveCacheType" yaml:"driveCacheType"`
 	// The path in Amazon S3 where the root of your Amazon FSx file system is exported.
 	//
 	// The path must use the same
@@ -89,10 +93,15 @@ type LustreConfiguration struct {
 	// Default: - no bucket is imported.
 	//
 	ImportPath *string `field:"optional" json:"importPath" yaml:"importPath"`
-	// Required for the PERSISTENT_1 deployment type, describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB.
+	// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of file system storage capacity, in MB/s/TiB.
 	//
-	// Valid values are 50, 100, 200.
-	// Default: - no default, conditionally required for PERSISTENT_1 deployment type.
+	// Required with PERSISTENT_1 and PERSISTENT_2 deployment types.
+	//
+	// Valid values:
+	// - For PERSISTENT_1 SSD storage: 50, 100, 200 MB/s/TiB.
+	// - For PERSISTENT_1 HDD storage: 12, 40 MB/s/TiB.
+	// - For PERSISTENT_2 SSD storage: 125, 250, 500, 1000 MB/s/TiB.
+	// Default: - no default, conditionally required for PERSISTENT_1 and PERSISTENT_2 deployment type.
 	//
 	PerUnitStorageThroughput *float64 `field:"optional" json:"perUnitStorageThroughput" yaml:"perUnitStorageThroughput"`
 	// The preferred day and time to perform weekly maintenance.

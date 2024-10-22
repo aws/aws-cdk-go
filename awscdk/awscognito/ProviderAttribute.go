@@ -120,6 +120,17 @@ func ProviderAttribute_APPLE_EMAIL() ProviderAttribute {
 	return returns
 }
 
+func ProviderAttribute_APPLE_EMAIL_VERIFIED() ProviderAttribute {
+	_init_.Initialize()
+	var returns ProviderAttribute
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
+		"APPLE_EMAIL_VERIFIED",
+		&returns,
+	)
+	return returns
+}
+
 func ProviderAttribute_APPLE_FIRST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
@@ -269,6 +280,17 @@ func ProviderAttribute_GOOGLE_EMAIL() ProviderAttribute {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_EMAIL",
+		&returns,
+	)
+	return returns
+}
+
+func ProviderAttribute_GOOGLE_EMAIL_VERIFIED() ProviderAttribute {
+	_init_.Initialize()
+	var returns ProviderAttribute
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
+		"GOOGLE_EMAIL_VERIFIED",
 		&returns,
 	)
 	return returns

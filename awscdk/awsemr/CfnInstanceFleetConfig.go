@@ -155,6 +155,7 @@ type CfnInstanceFleetConfig interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The resize specification for the instance fleet.
 	ResizeSpecifications() interface{}
 	SetResizeSpecifications(val interface{})
 	// The stack in which this element is defined.

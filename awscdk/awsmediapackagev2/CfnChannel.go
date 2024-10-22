@@ -68,6 +68,7 @@ type CfnChannel interface {
 	// The description of the channel.
 	Description() *string
 	SetDescription(val *string)
+	// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest.
 	InputType() *string
 	SetInputType(val *string)
 	// The logical ID for this CloudFormation stack element.

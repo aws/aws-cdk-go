@@ -25,6 +25,7 @@ package awscognito
 //   			"customKey": providerAttribute,
 //   		},
 //   		Email: providerAttribute,
+//   		EmailVerified: providerAttribute,
 //   		FamilyName: providerAttribute,
 //   		Fullname: providerAttribute,
 //   		Gender: providerAttribute,

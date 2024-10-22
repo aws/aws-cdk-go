@@ -8,6 +8,22 @@ package awsrds
 // - 7 days (the default, free tier)
 // - month * 31, where month is a number of months from 1-23
 // - 731 (2 years).
+//
+// Example:
+//   var vpc vpc
+//   var kmsKey key
+//
+//   rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AURORA(),
+//   	Vpc: vpc,
+//   	EnablePerformanceInsights: jsii.Boolean(true),
+//   	PerformanceInsightRetention: rds.PerformanceInsightRetention_LONG_TERM,
+//   	PerformanceInsightEncryptionKey: kmsKey,
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Writer"), &ProvisionedClusterInstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R7G, ec2.InstanceSize_LARGE),
+//   	}),
+//   })
+//
 type PerformanceInsightRetention string
 
 const (

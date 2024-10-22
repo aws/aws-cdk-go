@@ -29,6 +29,7 @@ import (
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MultiAz: jsii.Boolean(false),
+//   	NetworkType: jsii.String("networkType"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	ReplicationInstanceIdentifier: jsii.String("replicationInstanceIdentifier"),
@@ -96,6 +97,9 @@ type CfnReplicationInstance interface {
 	// Specifies whether the replication instance is a Multi-AZ deployment.
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
+	// The type of IP address protocol used by a replication instance, such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The weekly time range during which system maintenance can occur, in UTC.
@@ -432,6 +436,16 @@ func (j *jsiiProxy_CfnReplicationInstance) MultiAz() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReplicationInstance) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReplicationInstance) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -661,6 +675,14 @@ func (j *jsiiProxy_CfnReplicationInstance)SetMultiAz(val interface{}) {
 	_jsii_.Set(
 		j,
 		"multiAz",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReplicationInstance)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

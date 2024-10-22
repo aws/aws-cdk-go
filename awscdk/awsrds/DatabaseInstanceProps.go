@@ -12,33 +12,26 @@ import (
 // Construction properties for a DatabaseInstance.
 //
 // Example:
-//   var vpc iVpc
+//   var vpc vpc
 //
 //
-//   instance1 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance1"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_POSTGRES(),
-//   	// Generate the secret with admin username `postgres` and random password
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres")),
+//   iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+//   		Version: rds.MysqlEngineVersion_VER_8_0_39(),
+//   	}),
 //   	Vpc: Vpc,
+//   	StorageType: rds.StorageType_IO1,
+//   	Iops: jsii.Number(5000),
 //   })
-//   // Templated secret with username and password fields
-//   templatedSecret := secretsmanager.NewSecret(this, jsii.String("TemplatedSecret"), &SecretProps{
-//   	GenerateSecretString: &SecretStringGenerator{
-//   		SecretStringTemplate: jSON.stringify(map[string]*string{
-//   			"username": jsii.String("postgres"),
-//   		}),
-//   		GenerateStringKey: jsii.String("password"),
-//   		ExcludeCharacters: jsii.String("/@\""),
-//   	},
-//   })
-//   // Using the templated secret as credentials
-//   instance2 := rds.NewDatabaseInstance(this, jsii.String("PostgresInstance2"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_POSTGRES(),
-//   	Credentials: map[string]interface{}{
-//   		"username": templatedSecret.secretValueFromJson(jsii.String("username")).toString(),
-//   		"password": templatedSecret.secretValueFromJson(jsii.String("password")),
-//   	},
+//
+//   gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_*Mysql(&MySqlInstanceEngineProps{
+//   		Version: rds.MysqlEngineVersion_VER_8_0_39(),
+//   	}),
 //   	Vpc: Vpc,
+//   	AllocatedStorage: jsii.Number(500),
+//   	StorageType: rds.StorageType_GP3,
+//   	StorageThroughput: jsii.Number(500),
 //   })
 //
 type DatabaseInstanceProps struct {

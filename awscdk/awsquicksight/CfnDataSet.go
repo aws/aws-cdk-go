@@ -237,6 +237,11 @@ import (
 //   	PhysicalTableMap: map[string]interface{}{
 //   		"physicalTableMapKey": &PhysicalTableProperty{
 //   			"customSql": &CustomSqlProperty{
+//   				"dataSourceArn": jsii.String("dataSourceArn"),
+//   				"name": jsii.String("name"),
+//   				"sqlQuery": jsii.String("sqlQuery"),
+//
+//   				// the properties below are optional
 //   				"columns": []interface{}{
 //   					&InputColumnProperty{
 //   						"name": jsii.String("name"),
@@ -246,12 +251,13 @@ import (
 //   						"subType": jsii.String("subType"),
 //   					},
 //   				},
-//   				"dataSourceArn": jsii.String("dataSourceArn"),
-//   				"name": jsii.String("name"),
-//   				"sqlQuery": jsii.String("sqlQuery"),
 //   			},
 //   			"relationalTable": &RelationalTableProperty{
 //   				"dataSourceArn": jsii.String("dataSourceArn"),
+//   				"name": jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				"catalog": jsii.String("catalog"),
 //   				"inputColumns": []interface{}{
 //   					&InputColumnProperty{
 //   						"name": jsii.String("name"),
@@ -261,10 +267,6 @@ import (
 //   						"subType": jsii.String("subType"),
 //   					},
 //   				},
-//   				"name": jsii.String("name"),
-//
-//   				// the properties below are optional
-//   				"catalog": jsii.String("catalog"),
 //   				"schema": jsii.String("schema"),
 //   			},
 //   			"s3Source": &S3SourceProperty{

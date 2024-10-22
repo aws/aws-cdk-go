@@ -40,6 +40,14 @@ func (s *jsiiProxy_ServicePrincipal) validateWithConditionsParameters(conditions
 	return nil
 }
 
+func validateServicePrincipal_FromStaticServicePrincipleNameParameters(servicePrincipalName *string) error {
+	if servicePrincipalName == nil {
+		return fmt.Errorf("parameter servicePrincipalName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateServicePrincipal_ServicePrincipalNameParameters(service *string) error {
 	if service == nil {
 		return fmt.Errorf("parameter service is required, but nil was provided")

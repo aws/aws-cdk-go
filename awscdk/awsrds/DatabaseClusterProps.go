@@ -109,12 +109,17 @@ type DatabaseClusterProps struct {
 	EnableDataApi *bool `field:"optional" json:"enableDataApi" yaml:"enableDataApi"`
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster.
 	//
-	// This setting can only be enabled for Aurora MySQL 3.04 and higher clusters.
-	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html
+	// This setting can only be enabled for Aurora MySQL 3.04 or higher, and for Aurora PostgreSQL 16.4
+	// or higher (for version 16), 15.8 or higher (for version 15), and 14.13 or higher (for version 14).
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-postgresql-write-forwarding.html
 	//
 	// Default: false.
 	//
 	EnableLocalWriteForwarding *bool `field:"optional" json:"enableLocalWriteForwarding" yaml:"enableLocalWriteForwarding"`
+	// Whether to enable Performance Insights for the DB cluster.
+	// Default: - false, unless `performanceInsightRetention` or `performanceInsightEncryptionKey` is set.
+	//
+	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
 	// Default: false.
 	//
@@ -163,6 +168,14 @@ type DatabaseClusterProps struct {
 	// Default: - None.
 	//
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
+	// The AWS KMS key for encryption of Performance Insights data.
+	// Default: - default master key.
+	//
+	PerformanceInsightEncryptionKey awskms.IKey `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
+	// The amount of time, in days, to retain Performance Insights data.
+	// Default: 7.
+	//
+	PerformanceInsightRetention PerformanceInsightRetention `field:"optional" json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// What port to listen on.
 	// Default: - The default for the engine is used.
 	//
@@ -235,7 +248,7 @@ type DatabaseClusterProps struct {
 	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
 	//
 	// You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on.
-	// The largest value that you can use is 128 (256GB).
+	// The largest value that you can use is 256.
 	//
 	// The maximum capacity must be higher than 0.5 ACUs.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations
