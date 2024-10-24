@@ -1418,6 +1418,10 @@ func init() {
 			return &jsiiProxy_UserPoolEmail{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.UserPoolEmailConfig",
+		reflect.TypeOf((*UserPoolEmailConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cognito.UserPoolIdentityProvider",
 		reflect.TypeOf((*UserPoolIdentityProvider)(nil)).Elem(),

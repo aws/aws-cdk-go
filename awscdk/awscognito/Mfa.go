@@ -10,6 +10,7 @@ package awscognito
 //   	MfaSecondFactor: &MfaSecondFactor{
 //   		Sms: jsii.Boolean(true),
 //   		Otp: jsii.Boolean(true),
+//   		Email: jsii.Boolean(false),
 //   	},
 //   })
 //

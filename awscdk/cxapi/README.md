@@ -475,3 +475,22 @@ occur between these tightly coupled dependencies when using the AWS SDK v3 in La
   }
 }
 ```
+
+* `@aws-cdk/aws-dynamodb:resourcePolicyPerReplica`
+
+If this flag is not set, the default behavior for `TableV2` is to use a different `resourcePolicy` for each replica.
+
+If this flag is set to false, the behavior is that each replica shares the same `resourcePolicy` as the source table.
+This will prevent you from creating a new table which has an additional replica and a resource policy.
+
+This is a feature flag as the old behavior was technically incorrect but users may have come to depend on it.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-dynamodb:resourcePolicyPerReplica": false,
+  },
+}
+```

@@ -71,7 +71,7 @@ type ProjectProps struct {
 	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Build environment to use for the build.
-	// Default: BuildEnvironment.LinuxBuildImage.STANDARD_1_0
+	// Default: BuildEnvironment.LinuxBuildImage.STANDARD_7_0
 	//
 	Environment *BuildEnvironment `field:"optional" json:"environment" yaml:"environment"`
 	// Additional environment variables to add to the build environment.

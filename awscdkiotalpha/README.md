@@ -144,3 +144,41 @@ iot.NewAccountAuditConfiguration(this, jsii.String("AuditConfiguration"), &Accou
 	},
 })
 ```
+
+### Scheduled Audit
+
+You can create a [scheduled audit](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/AuditCommands.html#device-defender-AuditCommandsManageSchedules) that is run at a specified time interval. Checks must be enabled for your account by creating `AccountAuditConfiguration`.
+
+```go
+var config accountAuditConfiguration
+
+
+// Daily audit
+dailyAudit := iot.NewScheduledAudit(this, jsii.String("DailyAudit"), &ScheduledAuditProps{
+	AccountAuditConfiguration: config,
+	Frequency: iot.Frequency_DAILY,
+	AuditChecks: []auditCheck{
+		iot.*auditCheck_AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK,
+	},
+})
+
+// Weekly audit
+weeklyAudit := iot.NewScheduledAudit(this, jsii.String("WeeklyAudit"), &ScheduledAuditProps{
+	AccountAuditConfiguration: config,
+	Frequency: iot.Frequency_WEEKLY,
+	DayOfWeek: iot.DayOfWeek_SUNDAY,
+	AuditChecks: []*auditCheck{
+		iot.*auditCheck_CA_CERTIFICATE_EXPIRING_CHECK,
+	},
+})
+
+// Monthly audit
+monthlyAudit := iot.NewScheduledAudit(this, jsii.String("MonthlyAudit"), &ScheduledAuditProps{
+	AccountAuditConfiguration: config,
+	Frequency: iot.Frequency_MONTHLY,
+	DayOfMonth: iot.DayOfMonth_Of(jsii.Number(1)),
+	AuditChecks: []*auditCheck{
+		iot.*auditCheck_CA_CERTIFICATE_KEY_QUALITY_CHECK,
+	},
+})
+```

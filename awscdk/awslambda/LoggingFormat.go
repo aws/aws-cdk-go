@@ -6,7 +6,7 @@ package awslambda
 // By setting this value to Text,
 // will result in the current structure of logs format, whereas, by setting this value to JSON,
 // Lambda will print the logs as Structured JSON Logs, with the corresponding timestamp and log level
-// of each event. Selecting ‘JSON’ format will only allow customer’s to have different log level
+// of each event. Selecting ‘JSON’ format will only allow customers to have different log level
 // Application log level and the System log level.
 //
 // Example:

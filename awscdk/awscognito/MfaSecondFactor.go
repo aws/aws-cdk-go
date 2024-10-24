@@ -10,6 +10,7 @@ package awscognito
 //   	MfaSecondFactor: &MfaSecondFactor{
 //   		Sms: jsii.Boolean(true),
 //   		Otp: jsii.Boolean(true),
+//   		Email: jsii.Boolean(false),
 //   	},
 //   })
 //
@@ -23,10 +24,19 @@ type MfaSecondFactor struct {
 	//
 	Otp *bool `field:"required" json:"otp" yaml:"otp"`
 	// The MFA token is sent to the user via SMS to their verified phone numbers.
-	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-sms-text-message.html
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-sms-email-message.html
 	//
 	// Default: true.
 	//
 	Sms *bool `field:"required" json:"sms" yaml:"sms"`
+	// The MFA token is sent to the user via EMAIL.
+	//
+	// To enable email-based MFA, set `email` property to the Amazon SES email-sending configuration
+	// and set `advancedSecurityMode` to `AdvancedSecurity.ENFORCED` or `AdvancedSecurity.AUDIT`
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-sms-email-message.html
+	//
+	// Default: false.
+	//
+	Email *bool `field:"optional" json:"email" yaml:"email"`
 }
 

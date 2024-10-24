@@ -267,7 +267,7 @@ type SingletonFunctionProps struct {
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// Sets the Recursive Loop Protection for Lambda Function.
 	//
-	// It lets Lambda detect and terminate unintended recusrive loops.
+	// It lets Lambda detect and terminate unintended recursive loops.
 	// Default: RecursiveLoop.Terminate
 	//
 	RecursiveLoop RecursiveLoop `field:"optional" json:"recursiveLoop" yaml:"recursiveLoop"`

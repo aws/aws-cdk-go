@@ -89,8 +89,8 @@ type UserPoolProps struct {
 	// Configure the MFA types that users can use in this user pool.
 	//
 	// Ignored if `mfa` is set to `OFF`.
-	// Default: - { sms: true, otp: false }, if `mfa` is set to `OPTIONAL` or `REQUIRED`.
-	// { sms: false, otp: false }, otherwise.
+	// Default: - { sms: true, otp: false, email: false }, if `mfa` is set to `OPTIONAL` or `REQUIRED`.
+	// { sms: false, otp: false, email:false }, otherwise.
 	//
 	MfaSecondFactor *MfaSecondFactor `field:"optional" json:"mfaSecondFactor" yaml:"mfaSecondFactor"`
 	// Password policy for this user pool.

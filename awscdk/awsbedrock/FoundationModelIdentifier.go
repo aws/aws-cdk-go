@@ -383,6 +383,17 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0() Found
 	return returns
 }
 
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_HAIKU_20240307_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier

@@ -35,7 +35,7 @@ type LambdaInvoke interface {
 	// Experimental.
 	TargetArn() *string
 	// Experimental.
-	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	AddTargetActionToRole(_schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
 	// Create a return a Schedule Target Configuration for the given schedule.
 	//
 	// Returns: a Schedule Target Configuration.
@@ -91,14 +91,14 @@ func NewLambdaInvoke_Override(l LambdaInvoke, func_ awslambda.IFunction, props *
 	)
 }
 
-func (l *jsiiProxy_LambdaInvoke) AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) {
-	if err := l.validateAddTargetActionToRoleParameters(schedule, role); err != nil {
+func (l *jsiiProxy_LambdaInvoke) AddTargetActionToRole(_schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) {
+	if err := l.validateAddTargetActionToRoleParameters(_schedule, role); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		l,
 		"addTargetActionToRole",
-		[]interface{}{schedule, role},
+		[]interface{}{_schedule, role},
 	)
 }
 

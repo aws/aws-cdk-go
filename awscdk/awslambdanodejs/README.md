@@ -175,8 +175,7 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
 })
 ```
 
-Includes AWS SDK in the bundle asset by setting `bundleAwsSDK` to `true`. This will be essentially exclude sdk from the external
-module and not be resolved to the Lambda provided sdk.
+Includes AWS SDK in the bundle asset by setting `bundleAwsSDK` to `true`. This will exclude SDK from the external module and would not be resolved to Lambda provided SDK.
 
 ```go
 nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{

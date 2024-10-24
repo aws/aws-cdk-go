@@ -37,7 +37,7 @@ package awscodebuild
 //
 type BuildEnvironment struct {
 	// The image used for the builds.
-	// Default: LinuxBuildImage.STANDARD_1_0
+	// Default: LinuxBuildImage.STANDARD_7_0
 	//
 	BuildImage IBuildImage `field:"optional" json:"buildImage" yaml:"buildImage"`
 	// The location of the PEM-encoded certificate for the build project.
