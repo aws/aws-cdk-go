@@ -27,6 +27,24 @@ func init() {
 		reflect.TypeOf((*ApiDestinationEnrichmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-enrichments-alpha.ApiGatewayEnrichment",
+		reflect.TypeOf((*ApiGatewayEnrichment)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "enrichmentArn", GoGetter: "EnrichmentArn"},
+			_jsii_.MemberMethod{JsiiMethod: "grantInvoke", GoMethod: "GrantInvoke"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiGatewayEnrichment{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkpipesalphaIEnrichment)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-pipes-enrichments-alpha.ApiGatewayEnrichmentProps",
+		reflect.TypeOf((*ApiGatewayEnrichmentProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-pipes-enrichments-alpha.LambdaEnrichment",
 		reflect.TypeOf((*LambdaEnrichment)(nil)).Elem(),
 		[]_jsii_.Member{

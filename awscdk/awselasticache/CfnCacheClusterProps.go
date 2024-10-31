@@ -134,7 +134,7 @@ type CfnCacheClusterProps struct {
 	CacheNodeType *string `field:"required" json:"cacheNodeType" yaml:"cacheNodeType"`
 	// The name of the cache engine to be used for this cluster.
 	//
-	// Valid values for this parameter are: `memcached` | `redis`.
+	// Valid values for this parameter are: `memcached` | valkey | `redis`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-engine
 	//
 	Engine *string `field:"required" json:"engine" yaml:"engine"`

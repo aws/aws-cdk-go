@@ -118,6 +118,22 @@ func (f *jsiiProxy_FilterGroup) validateAndHeadRefIsNotParameters(pattern *strin
 	return nil
 }
 
+func (f *jsiiProxy_FilterGroup) validateAndRepositoryNameIsParameters(pattern *string) error {
+	if pattern == nil {
+		return fmt.Errorf("parameter pattern is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (f *jsiiProxy_FilterGroup) validateAndRepositoryNameIsNotParameters(pattern *string) error {
+	if pattern == nil {
+		return fmt.Errorf("parameter pattern is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FilterGroup) validateAndTagIsParameters(tagName *string) error {
 	if tagName == nil {
 		return fmt.Errorf("parameter tagName is required, but nil was provided")

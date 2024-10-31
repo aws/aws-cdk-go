@@ -21,6 +21,7 @@ package awselasticache
 //   	AutomaticFailoverEnabled: jsii.Boolean(false),
 //   	CacheNodeType: jsii.String("cacheNodeType"),
 //   	CacheParameterGroupName: jsii.String("cacheParameterGroupName"),
+//   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalNodeGroupCount: jsii.Number(123),
 //   	GlobalReplicationGroupDescription: jsii.String("globalReplicationGroupDescription"),
@@ -64,6 +65,10 @@ type CfnGlobalReplicationGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
 	//
 	CacheParameterGroupName *string `field:"optional" json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
+	// The engine of the Global Datastore.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engine
+	//
+	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The Elasticache Valkey or Redis OSS engine version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
 	//

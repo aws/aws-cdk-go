@@ -303,6 +303,7 @@ import (
 //   				jsii.String("vpcOnlyTrustedAccounts"),
 //   			},
 //   		},
+//   		ExecutionRoleIdentityConfig: jsii.String("executionRoleIdentityConfig"),
 //   		RStudioServerProDomainSettings: &RStudioServerProDomainSettingsProperty{
 //   			DomainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -321,6 +322,7 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	TagPropagation: jsii.String("tagPropagation"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -410,6 +412,9 @@ type CfnDomain interface {
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
+	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+	TagPropagation() *string
+	SetTagPropagation(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Tags to associated with the Domain.
@@ -805,6 +810,16 @@ func (j *jsiiProxy_CfnDomain) SubnetIds() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) TagPropagation() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tagPropagation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -969,6 +984,14 @@ func (j *jsiiProxy_CfnDomain)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetTagPropagation(val *string) {
+	_jsii_.Set(
+		j,
+		"tagPropagation",
 		val,
 	)
 }

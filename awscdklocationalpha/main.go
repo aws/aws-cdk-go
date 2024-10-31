@@ -99,6 +99,23 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-location-alpha.ITracker",
+		reflect.TypeOf((*ITracker)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "trackerArn", GoGetter: "TrackerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "trackerName", GoGetter: "TrackerName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITracker{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-location-alpha.IntendedUse",
 		reflect.TypeOf((*IntendedUse)(nil)).Elem(),
@@ -138,6 +155,15 @@ func init() {
 		"@aws-cdk/aws-location-alpha.PlaceIndexProps",
 		reflect.TypeOf((*PlaceIndexProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-location-alpha.PositionFiltering",
+		reflect.TypeOf((*PositionFiltering)(nil)).Elem(),
+		map[string]interface{}{
+			"TIME_BASED": PositionFiltering_TIME_BASED,
+			"DISTANCE_BASED": PositionFiltering_DISTANCE_BASED,
+			"ACCURACY_BASED": PositionFiltering_ACCURACY_BASED,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-location-alpha.RouteCalculator",
 		reflect.TypeOf((*RouteCalculator)(nil)).Elem(),
@@ -168,5 +194,38 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-location-alpha.RouteCalculatorProps",
 		reflect.TypeOf((*RouteCalculatorProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-location-alpha.Tracker",
+		reflect.TypeOf((*Tracker)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addGeofenceCollections", GoMethod: "AddGeofenceCollections"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantUpdateDevicePositions", GoMethod: "GrantUpdateDevicePositions"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trackerArn", GoGetter: "TrackerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "trackerCreateTime", GoGetter: "TrackerCreateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "trackerName", GoGetter: "TrackerName"},
+			_jsii_.MemberProperty{JsiiProperty: "trackerUpdateTime", GoGetter: "TrackerUpdateTime"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Tracker{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITracker)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-location-alpha.TrackerProps",
+		reflect.TypeOf((*TrackerProps)(nil)).Elem(),
 	)
 }

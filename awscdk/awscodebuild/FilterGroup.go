@@ -18,6 +18,7 @@ import (
 //   gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 //   	Owner: jsii.String("awslabs"),
 //   	Repo: jsii.String("aws-cdk"),
+//   	 // optional, default: undefined if unspecified will create organization webhook
 //   	Webhook: jsii.Boolean(true),
 //   	 // optional, default: true if `webhookFilters` were provided, false otherwise
 //   	WebhookTriggersBatchBuild: jsii.Boolean(true),
@@ -71,6 +72,16 @@ type FilterGroup interface {
 	AndHeadRefIs(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must not affect a Git reference (ie., a branch or a tag) that matches the given pattern.
 	AndHeadRefIsNot(pattern *string) FilterGroup
+	// Create a new FilterGroup with an added condition: the push that is the source of the event affect only a repository name that matches the given pattern.
+	//
+	// Note that you can only use this method if this Group contains only the `WORKFLOW_JOB_QUEUED` event action,
+	// only for GitHub sources and only for organization webhook.
+	AndRepositoryNameIs(pattern *string) FilterGroup
+	// Create a new FilterGroup with an added condition: the push that is the source of the event must not affect a repository name that matches the given pattern.
+	//
+	// Note that you can only use this method if this Group contains only the `WORKFLOW_JOB_QUEUED` event action,
+	// only for GitHub sources and only for organization webhook.
+	AndRepositoryNameIsNot(pattern *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must affect the given tag.
 	AndTagIs(tagName *string) FilterGroup
 	// Create a new FilterGroup with an added condition: the event must not affect the given tag.
@@ -320,6 +331,38 @@ func (f *jsiiProxy_FilterGroup) AndHeadRefIsNot(pattern *string) FilterGroup {
 	_jsii_.Invoke(
 		f,
 		"andHeadRefIsNot",
+		[]interface{}{pattern},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FilterGroup) AndRepositoryNameIs(pattern *string) FilterGroup {
+	if err := f.validateAndRepositoryNameIsParameters(pattern); err != nil {
+		panic(err)
+	}
+	var returns FilterGroup
+
+	_jsii_.Invoke(
+		f,
+		"andRepositoryNameIs",
+		[]interface{}{pattern},
+		&returns,
+	)
+
+	return returns
+}
+
+func (f *jsiiProxy_FilterGroup) AndRepositoryNameIsNot(pattern *string) FilterGroup {
+	if err := f.validateAndRepositoryNameIsNotParameters(pattern); err != nil {
+		panic(err)
+	}
+	var returns FilterGroup
+
+	_jsii_.Invoke(
+		f,
+		"andRepositoryNameIsNot",
 		[]interface{}{pattern},
 		&returns,
 	)

@@ -24,6 +24,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html
 //
 type CfnEIPProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-address
+	//
+	Address *string `field:"optional" json:"address" yaml:"address"`
 	// The network ( `vpc` ).
 	//
 	// If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
@@ -36,6 +39,9 @@ type CfnEIPProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-instanceid
 	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-ipampoolid
+	//
+	IpamPoolId *string `field:"optional" json:"ipamPoolId" yaml:"ipamPoolId"`
 	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
 	//
 	// Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.

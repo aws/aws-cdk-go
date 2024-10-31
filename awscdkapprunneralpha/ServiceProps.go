@@ -94,6 +94,13 @@ type ServiceProps struct {
 	//
 	// Experimental.
 	IpAddressType IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// Specifies whether your App Runner service is publicly accessible.
+	//
+	// If you use `VpcIngressConnection`, you must set this property to `false`.
+	// Default: true.
+	//
+	// Experimental.
+	IsPubliclyAccessible *bool `field:"optional" json:"isPubliclyAccessible" yaml:"isPubliclyAccessible"`
 	// The customer managed key that AWS App Runner uses to encrypt copies of the source repository and service logs.
 	// Default: - Use an AWS managed key.
 	//

@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetNameParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetPlacementParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetResourceTagsParameters(val interface{}) error {
 	return nil
 }

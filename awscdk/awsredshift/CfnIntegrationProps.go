@@ -32,15 +32,17 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html
 //
 type CfnIntegrationProps struct {
-	// The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable.
+	// The Amazon Resource Name (ARN) of the database used as the source for replication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html#cfn-redshift-integration-sourcearn
 	//
 	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
-	// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf.
+	// The Amazon Resource Name (ARN) of the Amazon Redshift data warehouse to use as the target for replication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html#cfn-redshift-integration-targetarn
 	//
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
-	// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
+	// The encryption context for the integration.
+	//
+	// For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html#cfn-redshift-integration-additionalencryptioncontext
 	//
 	AdditionalEncryptionContext interface{} `field:"optional" json:"additionalEncryptionContext" yaml:"additionalEncryptionContext"`
@@ -48,13 +50,11 @@ type CfnIntegrationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html#cfn-redshift-integration-integrationname
 	//
 	IntegrationName *string `field:"optional" json:"integrationName" yaml:"integrationName"`
-	// An KMS key identifier for the key to use to encrypt the integration.
-	//
-	// If you don't specify an encryption key, the default AWS owned KMS key is used.
+	// The AWS Key Management Service ( AWS KMS ) key identifier for the key used to encrypt the integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html#cfn-redshift-integration-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
-	// An array of key-value pairs to apply to this resource.
+	// The list of tags associated with the integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html#cfn-redshift-integration-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

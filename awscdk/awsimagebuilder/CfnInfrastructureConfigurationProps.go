@@ -28,6 +28,12 @@ package awsimagebuilder
 //   			S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   		},
 //   	},
+//   	Placement: &PlacementProperty{
+//   		AvailabilityZone: jsii.String("availabilityZone"),
+//   		HostId: jsii.String("hostId"),
+//   		HostResourceGroupArn: jsii.String("hostResourceGroupArn"),
+//   		Tenancy: jsii.String("tenancy"),
+//   	},
 //   	ResourceTags: map[string]*string{
 //   		"resourceTagsKey": jsii.String("resourceTags"),
 //   	},
@@ -73,6 +79,10 @@ type CfnInfrastructureConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
 	//
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
+	// The instance placement settings that define where the instances that are launched from your image will run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-placement
+	//
+	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`
 	// The tags attached to the resource created by Image Builder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
 	//

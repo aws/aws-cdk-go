@@ -9,12 +9,17 @@ package awscdk
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   stageSynthesisOptions := &StageSynthesisOptions{
+//   	ErrorOnDuplicateSynth: jsii.Boolean(false),
 //   	Force: jsii.Boolean(false),
 //   	SkipValidation: jsii.Boolean(false),
 //   	ValidateOnSynthesis: jsii.Boolean(false),
 //   }
 //
 type StageSynthesisOptions struct {
+	// Whether or not to throw a warning instead of an error if the construct tree has been mutated since the last synth.
+	// Default: true.
+	//
+	ErrorOnDuplicateSynth *bool `field:"optional" json:"errorOnDuplicateSynth" yaml:"errorOnDuplicateSynth"`
 	// Force a re-synth, even if the stage has already been synthesized.
 	//
 	// This is used by tests to allow for incremental verification of the output.

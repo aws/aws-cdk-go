@@ -544,6 +544,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "andFilePathIsNot", GoMethod: "AndFilePathIsNot"},
 			_jsii_.MemberMethod{JsiiMethod: "andHeadRefIs", GoMethod: "AndHeadRefIs"},
 			_jsii_.MemberMethod{JsiiMethod: "andHeadRefIsNot", GoMethod: "AndHeadRefIsNot"},
+			_jsii_.MemberMethod{JsiiMethod: "andRepositoryNameIs", GoMethod: "AndRepositoryNameIs"},
+			_jsii_.MemberMethod{JsiiMethod: "andRepositoryNameIsNot", GoMethod: "AndRepositoryNameIsNot"},
 			_jsii_.MemberMethod{JsiiMethod: "andTagIs", GoMethod: "AndTagIs"},
 			_jsii_.MemberMethod{JsiiMethod: "andTagIsNot", GoMethod: "AndTagIsNot"},
 		},

@@ -64,6 +64,10 @@ func (v *jsiiProxy_VpcV2) validateSelectSubnetsParameters(selection *awsec2.Subn
 	return nil
 }
 
+func validateVpcV2_FromVpcV2AttributesParameters(scope constructs.Construct, id *string, attrs *VpcV2Attributes) error {
+	return nil
+}
+
 func validateVpcV2_IsConstructParameters(x interface{}) error {
 	return nil
 }

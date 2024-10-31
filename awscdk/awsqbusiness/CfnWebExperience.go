@@ -94,6 +94,7 @@ type CfnWebExperience interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience.
 	Origins() *[]*string
 	SetOrigins(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

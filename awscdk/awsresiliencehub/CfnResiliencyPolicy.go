@@ -71,7 +71,7 @@ type CfnResiliencyPolicy interface {
 	// The resiliency policy.
 	Policy() interface{}
 	SetPolicy(val interface{})
-	// The description for the policy.
+	// Description of the resiliency policy.
 	PolicyDescription() *string
 	SetPolicyDescription(val *string)
 	// The name of the policy.

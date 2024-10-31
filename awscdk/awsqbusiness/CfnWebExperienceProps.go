@@ -51,6 +51,11 @@ type CfnWebExperienceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-identityproviderconfiguration
 	//
 	IdentityProviderConfiguration interface{} `field:"optional" json:"identityProviderConfiguration" yaml:"identityProviderConfiguration"`
+	// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience.
+	//
+	// The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+	//
+	// > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-origins
 	//
 	Origins *[]*string `field:"optional" json:"origins" yaml:"origins"`

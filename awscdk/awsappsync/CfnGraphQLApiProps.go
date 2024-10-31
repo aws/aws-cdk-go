@@ -11,8 +11,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var environmentVariables interface{}
-//
 //   cfnGraphQLApiProps := &CfnGraphQLApiProps{
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   	Name: jsii.String("name"),
@@ -47,7 +45,9 @@ import (
 //   		OperationLevelMetricsConfig: jsii.String("operationLevelMetricsConfig"),
 //   		ResolverLevelMetricsBehavior: jsii.String("resolverLevelMetricsBehavior"),
 //   	},
-//   	EnvironmentVariables: environmentVariables,
+//   	EnvironmentVariables: map[string]*string{
+//   		"environmentVariablesKey": jsii.String("environmentVariables"),
+//   	},
 //   	IntrospectionConfig: jsii.String("introspectionConfig"),
 //   	LambdaAuthorizerConfig: &LambdaAuthorizerConfigProperty{
 //   		AuthorizerResultTtlInSeconds: jsii.Number(123),

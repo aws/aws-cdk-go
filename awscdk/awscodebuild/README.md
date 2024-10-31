@@ -78,6 +78,7 @@ Example:
 gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 	Owner: jsii.String("awslabs"),
 	Repo: jsii.String("aws-cdk"),
+	 // optional, default: undefined if unspecified will create organization webhook
 	Webhook: jsii.Boolean(true),
 	 // optional, default: true if `webhookFilters` were provided, false otherwise
 	WebhookTriggersBatchBuild: jsii.Boolean(true),
@@ -85,6 +86,20 @@ gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 	WebhookFilters: []filterGroup{
 		codebuild.*filterGroup_InEventOf(codebuild.EventAction_PUSH).AndBranchIs(jsii.String("main")).AndCommitMessageIs(jsii.String("the commit message")),
 		codebuild.*filterGroup_*InEventOf(codebuild.EventAction_RELEASED).*AndBranchIs(jsii.String("main")),
+	},
+})
+```
+
+The `GitHubSource` is also able to trigger all repos in GitHub Organizations
+Example:
+
+```go
+gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
+	Owner: jsii.String("aws"),
+	WebhookTriggersBatchBuild: jsii.Boolean(true),
+	 // optional, default is false
+	WebhookFilters: []filterGroup{
+		codebuild.*filterGroup_InEventOf(codebuild.EventAction_WORKFLOW_JOB_QUEUED).AndRepositoryNameIs(jsii.String("aws-.*")).AndRepositoryNameIsNot(jsii.String("aws-cdk-lib")),
 	},
 })
 ```

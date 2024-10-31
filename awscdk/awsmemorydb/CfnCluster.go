@@ -31,6 +31,7 @@ import (
 //   	},
 //   	DataTiering: jsii.String("dataTiering"),
 //   	Description: jsii.String("description"),
+//   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -105,6 +106,9 @@ type CfnCluster interface {
 	// A description of the cluster .
 	Description() *string
 	SetDescription(val *string)
+	// The Valkey or Redis OSS engine used by the cluster.
+	Engine() *string
+	SetEngine(val *string)
 	// The Valkey or Redis OSS engine version used by the cluster .
 	EngineVersion() *string
 	SetEngineVersion(val *string)
@@ -482,6 +486,16 @@ func (j *jsiiProxy_CfnCluster) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) Engine() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"engine",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) EngineVersion() *string {
 	var returns *string
 	_jsii_.Get(
@@ -826,6 +840,14 @@ func (j *jsiiProxy_CfnCluster)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetEngine(val *string) {
+	_jsii_.Set(
+		j,
+		"engine",
 		val,
 	)
 }

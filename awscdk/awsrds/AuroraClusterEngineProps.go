@@ -17,8 +17,10 @@ package awsrds
 //   	SnapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Deprecated: use `AuroraMysqlClusterEngineProps` instead.
 type AuroraClusterEngineProps struct {
 	// The version of the Aurora cluster engine.
+	// Deprecated: use `AuroraMysqlClusterEngineProps` instead.
 	Version AuroraEngineVersion `field:"required" json:"version" yaml:"version"`
 }
 

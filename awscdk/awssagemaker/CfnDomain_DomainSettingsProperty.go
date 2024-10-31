@@ -17,6 +17,7 @@ package awssagemaker
 //   			jsii.String("vpcOnlyTrustedAccounts"),
 //   		},
 //   	},
+//   	ExecutionRoleIdentityConfig: jsii.String("executionRoleIdentityConfig"),
 //   	RStudioServerProDomainSettings: &RStudioServerProDomainSettingsProperty{
 //   		DomainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -42,6 +43,10 @@ type CfnDomain_DomainSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-dockersettings
 	//
 	DockerSettings interface{} `field:"optional" json:"dockerSettings" yaml:"dockerSettings"`
+	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-executionroleidentityconfig
+	//
+	ExecutionRoleIdentityConfig *string `field:"optional" json:"executionRoleIdentityConfig" yaml:"executionRoleIdentityConfig"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-rstudioserverprodomainsettings
 	//

@@ -230,7 +230,7 @@ type CfnReplicationGroupProps struct {
 	DataTieringEnabled interface{} `field:"optional" json:"dataTieringEnabled" yaml:"dataTieringEnabled"`
 	// The name of the cache engine to be used for the clusters in this replication group.
 	//
-	// The value must be set to `Redis` .
+	// The value must be set to `valkey` or `redis` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-engine
 	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`

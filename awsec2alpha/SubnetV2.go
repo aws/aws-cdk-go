@@ -19,7 +19,6 @@ import (
 // and subnet types (e.g., public, private, isolated).
 //
 // Example:
-//   stack := awscdk.Newstack()
 //   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
 //   routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 //   	Vpc: myVpc,
@@ -28,13 +27,21 @@ import (
 //   	Vpc: myVpc,
 //   	AvailabilityZone: jsii.String("eu-west-2a"),
 //   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: awscdk.SubnetType_PUBLIC,
+//   	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 //   })
 //
-//   myVpc.AddInternetGateway()
-//   myVpc.AddNatGateway(&NatGatewayOptions{
+//   natgw := awsec2alpha.NewNatGateway(this, jsii.String("NatGW"), &NatGatewayProps{
 //   	Subnet: subnet,
-//   	ConnectivityType: awsec2alpha.NatConnectivityType_PUBLIC,
+//   	Vpc: myVpc,
+//   	ConnectivityType: awsec2alpha.NatConnectivityType_PRIVATE,
+//   	PrivateIpAddress: jsii.String("10.0.0.42"),
+//   })
+//   awsec2alpha.NewRoute(this, jsii.String("NatGwRoute"), &RouteProps{
+//   	RouteTable: RouteTable,
+//   	Destination: jsii.String("0.0.0.0/0"),
+//   	Target: map[string]iRouteTarget{
+//   		"gateway": natgw,
+//   	},
 //   })
 //
 // Experimental.
@@ -282,6 +289,26 @@ func NewSubnetV2_Override(s SubnetV2, scope constructs.Construct, id *string, pr
 		[]interface{}{scope, id, props},
 		s,
 	)
+}
+
+// Import an existing subnet to the VPC.
+// Experimental.
+func SubnetV2_FromSubnetV2Attributes(scope constructs.Construct, id *string, attrs *SubnetV2Attributes) ISubnetV2 {
+	_init_.Initialize()
+
+	if err := validateSubnetV2_FromSubnetV2AttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns ISubnetV2
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-ec2-alpha.SubnetV2",
+		"fromSubnetV2Attributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

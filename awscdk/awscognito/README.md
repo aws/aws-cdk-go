@@ -1078,3 +1078,30 @@ cognito.NewUserPoolIdentityProviderGoogle(this, jsii.String("google"), &UserPool
 	},
 })
 ```
+
+### User Pool Group
+
+Support for groups in Amazon Cognito user pools enables you to create and manage groups and add users to groups.
+Use groups to create collections of users to manage their permissions or to represent different types of users.
+
+You can assign an AWS Identity and Access Management (IAM) role to a group to define the permissions for members of a group.
+
+For more information, see [Adding groups to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html).
+
+```go
+var userPool userPool
+var role role
+
+
+cognito.NewUserPoolGroup(this, jsii.String("UserPoolGroup"), &UserPoolGroupProps{
+	UserPool: UserPool,
+	GroupName: jsii.String("my-group-name"),
+	Precedence: jsii.Number(1),
+	Role: Role,
+})
+
+// You can also add a group by using addGroup method.
+userPool.addGroup(jsii.String("AnotherUserPoolGroup"), &UserPoolGroupOptions{
+	GroupName: jsii.String("another-group-name"),
+})
+```

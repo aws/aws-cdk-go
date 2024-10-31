@@ -37,7 +37,7 @@ type CfnFlowVersion_PromptModelInferenceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptmodelinferenceconfiguration.html#cfn-bedrock-flowversion-promptmodelinferenceconfiguration-temperature
 	//
 	Temperature *float64 `field:"optional" json:"temperature" yaml:"temperature"`
-	// The number of most-likely candidates that the model considers for the next token during generation.
+	// Sample from the k most likely next tokens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptmodelinferenceconfiguration.html#cfn-bedrock-flowversion-promptmodelinferenceconfiguration-topk
 	//
 	TopK *float64 `field:"optional" json:"topK" yaml:"topK"`

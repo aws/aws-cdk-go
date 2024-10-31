@@ -33,6 +33,7 @@ import (
 //   	AutomaticFailoverEnabled: jsii.Boolean(false),
 //   	CacheNodeType: jsii.String("cacheNodeType"),
 //   	CacheParameterGroupName: jsii.String("cacheParameterGroupName"),
+//   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalNodeGroupCount: jsii.Number(123),
 //   	GlobalReplicationGroupDescription: jsii.String("globalReplicationGroupDescription"),
@@ -82,6 +83,9 @@ type CfnGlobalReplicationGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The engine of the Global Datastore.
+	Engine() *string
+	SetEngine(val *string)
 	// The Elasticache Valkey or Redis OSS engine version.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
@@ -357,6 +361,16 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalReplicationGroup) Engine() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"engine",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalReplicationGroup) EngineVersion() *string {
 	var returns *string
 	_jsii_.Get(
@@ -528,6 +542,14 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup)SetCacheParameterGroupName(val *str
 	_jsii_.Set(
 		j,
 		"cacheParameterGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalReplicationGroup)SetEngine(val *string) {
+	_jsii_.Set(
+		j,
+		"engine",
 		val,
 	)
 }

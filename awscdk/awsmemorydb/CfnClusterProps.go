@@ -24,6 +24,7 @@ import (
 //   	},
 //   	DataTiering: jsii.String("dataTiering"),
 //   	Description: jsii.String("description"),
+//   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -86,6 +87,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The Valkey or Redis OSS engine used by the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-engine
+	//
+	Engine *string `field:"optional" json:"engine" yaml:"engine"`
 	// The Valkey or Redis OSS engine version used by the cluster .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-engineversion
 	//

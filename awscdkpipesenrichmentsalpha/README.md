@@ -87,3 +87,24 @@ pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Target: NewSomeTarget(targetQueue),
 })
 ```
+
+### API Gateway (REST API)
+
+API Gateway can be used to enrich events of a pipe.
+Pipes only supports API Gateway REST APIs. HTTP APIs are not supported.
+
+```go
+var sourceQueue queue
+var targetQueue queue
+
+var restApi restApi
+
+
+enrichment := enrichments.NewApiGatewayEnrichment(restApi)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: NewSomeSource(sourceQueue),
+	Enrichment: Enrichment,
+	Target: NewSomeTarget(targetQueue),
+})
+```

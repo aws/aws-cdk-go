@@ -67,6 +67,7 @@ func NewDatabaseClusterEngine_Override(d DatabaseClusterEngine) {
 }
 
 // Creates a new plain Aurora database cluster engine.
+// Deprecated: use `auroraMysql()` instead.
 func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 

@@ -70,6 +70,8 @@ type UserPool interface {
 	AddClient(id *string, options *UserPoolClientOptions) UserPoolClient
 	// Associate a domain to this user pool.
 	AddDomain(id *string, options *UserPoolDomainOptions) UserPoolDomain
+	// Add a new group to this user pool.
+	AddGroup(id *string, options *UserPoolGroupOptions) UserPoolGroup
 	// Add a new resource server to this user pool.
 	AddResourceServer(id *string, options *UserPoolResourceServerOptions) UserPoolResourceServer
 	// Add a lambda trigger to a user pool operation.
@@ -368,6 +370,22 @@ func (u *jsiiProxy_UserPool) AddDomain(id *string, options *UserPoolDomainOption
 	_jsii_.Invoke(
 		u,
 		"addDomain",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (u *jsiiProxy_UserPool) AddGroup(id *string, options *UserPoolGroupOptions) UserPoolGroup {
+	if err := u.validateAddGroupParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns UserPoolGroup
+
+	_jsii_.Invoke(
+		u,
+		"addGroup",
 		[]interface{}{id, options},
 		&returns,
 	)

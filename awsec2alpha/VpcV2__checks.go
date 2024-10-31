@@ -180,6 +180,25 @@ func (v *jsiiProxy_VpcV2) validateSelectSubnetsParameters(selection *awsec2.Subn
 	return nil
 }
 
+func validateVpcV2_FromVpcV2AttributesParameters(scope constructs.Construct, id *string, attrs *VpcV2Attributes) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if attrs == nil {
+		return fmt.Errorf("parameter attrs is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateVpcV2_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

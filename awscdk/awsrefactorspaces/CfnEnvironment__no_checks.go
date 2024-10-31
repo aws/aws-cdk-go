@@ -80,14 +80,6 @@ func validateCfnEnvironment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnEnvironment) validateSetNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnEnvironment) validateSetNetworkFabricTypeParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnEnvironment) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

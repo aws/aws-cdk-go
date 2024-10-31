@@ -210,10 +210,6 @@ target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
 })
 ```
 
-### Cross-account and cross-region targets
-
-Executing cross-account and cross-region targets are not supported yet.
-
 ### Specifying Encryption key
 
 EventBridge Scheduler integrates with AWS Key Management Service (AWS KMS) to encrypt and decrypt your data using an AWS KMS key.

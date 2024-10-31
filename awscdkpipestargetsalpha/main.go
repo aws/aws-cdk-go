@@ -107,6 +107,24 @@ func init() {
 		reflect.TypeOf((*LambdaFunctionParameters)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-targets-alpha.SageMakerTarget",
+		reflect.TypeOf((*SageMakerTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+			_jsii_.MemberProperty{JsiiProperty: "targetArn", GoGetter: "TargetArn"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SageMakerTarget{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkpipesalphaITarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-pipes-targets-alpha.SageMakerTargetParameters",
+		reflect.TypeOf((*SageMakerTargetParameters)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-pipes-targets-alpha.SfnStateMachine",
 		reflect.TypeOf((*SfnStateMachine)(nil)).Elem(),
 		[]_jsii_.Member{

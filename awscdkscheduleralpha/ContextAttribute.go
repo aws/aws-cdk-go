@@ -5,7 +5,9 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Represents a field in the event pattern.
+// A set of convenient static methods representing the Scheduler Context Attributes.
+//
+// These Context Attributes keywords can be used inside a ScheduleTargetInput.
 // See: https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-schedule-context-attributes.html
 //
 // Experimental.
@@ -33,7 +35,7 @@ func (j *jsiiProxy_ContextAttribute) Name() *string {
 }
 
 
-// Escape hatch for other ContextAttribute that might be resolved in future.
+// Escape hatch for other Context Attributes that may be added in the future.
 // Experimental.
 func ContextAttribute_FromName(name *string) *string {
 	_init_.Initialize()

@@ -23,6 +23,9 @@ import (
 //   	},
 //   	Ipv4CidrBlock: jsii.String("ipv4CidrBlock"),
 //   	Ipv4IpamPool: ipamPool,
+//   	Ipv4IpamProvisionedCidrs: []*string{
+//   		jsii.String("ipv4IpamProvisionedCidrs"),
+//   	},
 //   	Ipv4NetmaskLength: jsii.Number(123),
 //   	Ipv6IpamPool: ipamPool,
 //   	Ipv6NetmaskLength: jsii.Number(123),
@@ -55,6 +58,11 @@ type VpcCidrOptions struct {
 	//
 	// Experimental.
 	Ipv4IpamPool IIpamPool `field:"optional" json:"ipv4IpamPool" yaml:"ipv4IpamPool"`
+	// IPv4 CIDR provisioned under pool Required to check for overlapping CIDRs after provisioning is complete under IPAM pool.
+	// Default: - no IPAM IPv4 CIDR range is provisioned using IPAM.
+	//
+	// Experimental.
+	Ipv4IpamProvisionedCidrs *[]*string `field:"optional" json:"ipv4IpamProvisionedCidrs" yaml:"ipv4IpamProvisionedCidrs"`
 	// CIDR Mask for Vpc.
 	// Default: - Only required when using IPAM Ipv4.
 	//

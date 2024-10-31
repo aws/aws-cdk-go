@@ -48,7 +48,7 @@ var role role
 
 
 placeIndex := location.NewPlaceIndex(this, jsii.String("PlaceIndex"))
-placeIndex.grantSearch(role)
+placeIndex.GrantSearch(role)
 ```
 
 ## Geofence Collection
@@ -109,4 +109,55 @@ routeCalculator := location.NewRouteCalculator(this, jsii.String("RouteCalculato
 	DataSource: location.DataSource_ESRI,
 })
 routeCalculator.GrantRead(role)
+```
+
+## Tracker
+
+A tracker stores position updates for a collection of devices. The tracker can be used to query the devices' current location or location history. It stores the updates, but reduces storage space and visual noise by filtering the locations before storing them.
+
+For more information, see [Trackers](https://docs.aws.amazon.com/location/latest/developerguide/geofence-tracker-concepts.html#tracking-overview).
+
+To create a tracker, define a `Tracker`:
+
+```go
+var key key
+
+
+location.NewTracker(this, jsii.String("Tracker"), &TrackerProps{
+	TrackerName: jsii.String("MyTracker"),
+	 // optional, defaults to a generated name
+	KmsKey: key,
+})
+```
+
+Use the `grant()`, `grantUpdateDevicePositions` or `grantRead()` method to grant the given identity permissions to perform actions
+on the geofence collection:
+
+```go
+var role role
+
+
+tracker := location.NewTracker(this, jsii.String("Tracker"), &TrackerProps{
+	TrackerName: jsii.String("MyTracker"),
+})
+
+tracker.GrantRead(role)
+```
+
+If you want to associate a tracker with geofence collections, define a `geofenceCollections` property or use `addGeofenceCollections` method.
+
+```go
+var geofenceCollection geofenceCollection
+var geofenceCollectionForAdd geofenceCollection
+var tracker tracker
+
+
+tracker := location.NewTracker(this, jsii.String("Tracker"), &TrackerProps{
+	TrackerName: jsii.String("MyTracker"),
+	GeofenceCollections: []iGeofenceCollection{
+		geofenceCollection,
+	},
+})
+
+tracker.AddGeofenceCollections(geofenceCollectionForAdd)
 ```

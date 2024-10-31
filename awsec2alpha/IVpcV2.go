@@ -46,11 +46,24 @@ type IVpcV2 interface {
 	// For more information, see the {@link https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html#vpc-sizing-ipv4}.
 	// Experimental.
 	Ipv4CidrBlock() *string
+	// IPv4 CIDR provisioned under pool Required to check for overlapping CIDRs after provisioning is complete under IPAM pool.
+	// Experimental.
+	Ipv4IpamProvisionedCidrs() *[]*string
+	// The ID of the AWS account that owns the VPC.
+	// Default: - the account id of the parent stack.
+	//
+	// Experimental.
+	OwnerAccountId() *string
+	// Optional to override inferred region.
+	// Default: - current stack's environment region.
+	//
+	// Experimental.
+	Region() *string
 	// The secondary CIDR blocks associated with the VPC.
 	//
 	// For more information, see the {@link https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html#vpc-resize}.
 	// Experimental.
-	SecondaryCidrBlock() *[]awsec2.CfnVPCCidrBlock
+	SecondaryCidrBlock() *[]IVPCCidrBlock
 }
 
 // The jsii proxy for IVpcV2
@@ -122,8 +135,38 @@ func (j *jsiiProxy_IVpcV2) Ipv4CidrBlock() *string {
 	return returns
 }
 
-func (j *jsiiProxy_IVpcV2) SecondaryCidrBlock() *[]awsec2.CfnVPCCidrBlock {
-	var returns *[]awsec2.CfnVPCCidrBlock
+func (j *jsiiProxy_IVpcV2) Ipv4IpamProvisionedCidrs() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"ipv4IpamProvisionedCidrs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcV2) OwnerAccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ownerAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcV2) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcV2) SecondaryCidrBlock() *[]IVPCCidrBlock {
+	var returns *[]IVPCCidrBlock
 	_jsii_.Get(
 		j,
 		"secondaryCidrBlock",

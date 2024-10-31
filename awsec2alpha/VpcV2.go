@@ -75,6 +75,9 @@ type VpcV2 interface {
 	// For more information, see the {@link https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html#vpc-sizing-ipv4}.
 	// Experimental.
 	Ipv4CidrBlock() *string
+	// IPv4 CIDR provisioned using IPAM pool Required to check for overlapping CIDRs after provisioning is complete under IPAM.
+	// Experimental.
+	Ipv4IpamProvisionedCidrs() *[]*string
 	// The IPv6 CIDR blocks for the VPC.
 	//
 	// See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#aws-resource-ec2-vpc-return-values
@@ -86,6 +89,9 @@ type VpcV2 interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// Identifier of the owner for this VPC.
+	// Experimental.
+	OwnerAccountId() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -101,12 +107,15 @@ type VpcV2 interface {
 	// Public Subnets that are part of this VPC.
 	// Experimental.
 	PublicSubnets() *[]awsec2.ISubnet
+	// Region for this VPC.
+	// Experimental.
+	Region() *string
 	// The AWS CloudFormation resource representing the VPC.
 	// Experimental.
 	Resource() awsec2.CfnVPC
 	// reference to all secondary blocks attached.
 	// Experimental.
-	SecondaryCidrBlock() *[]awsec2.CfnVPCCidrBlock
+	SecondaryCidrBlock() *[]IVPCCidrBlock
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
@@ -298,6 +307,16 @@ func (j *jsiiProxy_VpcV2) Ipv4CidrBlock() *string {
 	return returns
 }
 
+func (j *jsiiProxy_VpcV2) Ipv4IpamProvisionedCidrs() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"ipv4IpamProvisionedCidrs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_VpcV2) Ipv6CidrBlocks() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -323,6 +342,16 @@ func (j *jsiiProxy_VpcV2) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcV2) OwnerAccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ownerAccountId",
 		&returns,
 	)
 	return returns
@@ -358,6 +387,16 @@ func (j *jsiiProxy_VpcV2) PublicSubnets() *[]awsec2.ISubnet {
 	return returns
 }
 
+func (j *jsiiProxy_VpcV2) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_VpcV2) Resource() awsec2.CfnVPC {
 	var returns awsec2.CfnVPC
 	_jsii_.Get(
@@ -368,8 +407,8 @@ func (j *jsiiProxy_VpcV2) Resource() awsec2.CfnVPC {
 	return returns
 }
 
-func (j *jsiiProxy_VpcV2) SecondaryCidrBlock() *[]awsec2.CfnVPCCidrBlock {
-	var returns *[]awsec2.CfnVPCCidrBlock
+func (j *jsiiProxy_VpcV2) SecondaryCidrBlock() *[]IVPCCidrBlock {
+	var returns *[]IVPCCidrBlock
 	_jsii_.Get(
 		j,
 		"secondaryCidrBlock",
@@ -477,6 +516,26 @@ func (j *jsiiProxy_VpcV2)SetIncompleteSubnetDefinition(val *bool) {
 		"incompleteSubnetDefinition",
 		val,
 	)
+}
+
+// Create a VPC from existing attributes.
+// Experimental.
+func VpcV2_FromVpcV2Attributes(scope constructs.Construct, id *string, attrs *VpcV2Attributes) IVpcV2 {
+	_init_.Initialize()
+
+	if err := validateVpcV2_FromVpcV2AttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns IVpcV2
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-ec2-alpha.VpcV2",
+		"fromVpcV2Attributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

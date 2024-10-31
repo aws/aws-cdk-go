@@ -119,6 +119,7 @@ type CfnCapacityReservationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-tenancy
 	//
 	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`
+	// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-unusedreservationbillingownerid
 	//
 	UnusedReservationBillingOwnerId *string `field:"optional" json:"unusedReservationBillingOwnerId" yaml:"unusedReservationBillingOwnerId"`

@@ -7,6 +7,7 @@ package awscodebuild
 //   gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
 //   	Owner: jsii.String("awslabs"),
 //   	Repo: jsii.String("aws-cdk"),
+//   	 // optional, default: undefined if unspecified will create organization webhook
 //   	Webhook: jsii.Boolean(true),
 //   	 // optional, default: true if `webhookFilters` were provided, false otherwise
 //   	WebhookTriggersBatchBuild: jsii.Boolean(true),

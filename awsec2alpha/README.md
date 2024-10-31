@@ -36,8 +36,6 @@ awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 
 `VpcV2` does not automatically create subnets or allocate IP addresses, which is different from the `Vpc` construct.
 
-Importing existing VPC in an account into CDK as a `VpcV2` is not yet supported.
-
 ## SubnetV2
 
 `SubnetV2` is a re-write of the [`ec2.Subnet`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.Subnet.html) construct.
@@ -61,8 +59,6 @@ awsec2alpha.NewSubnetV2(this, jsii.String("subnetA"), &SubnetV2Props{
 	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 })
 ```
-
-Same as `VpcV2`, importing existing subnets is not yet supported.
 
 ## IP Addresses Management
 
@@ -394,3 +390,135 @@ myVpc.AddInternetGateway(&InternetGatewayOptions{
 	Ipv4Destination: jsii.String("192.168.0.0/16"),
 })
 ```
+
+## Importing an existing VPC
+
+You can import an existing VPC and its subnets using the `VpcV2.fromVpcV2Attributes()` method or an individual subnet using `SubnetV2.fromSubnetV2Attributes()` method.
+
+### Importing a VPC
+
+To import an existing VPC, use the `VpcV2.fromVpcV2Attributes()` method. You'll need to provide the VPC ID, primary CIDR block, and information about the subnets. You can import secondary address as well created through IPAM, BYOIP(IPv4) or enabled through Amazon Provided IPv6. You must provide VPC Id and its primary CIDR block for importing it.
+
+If you wish to add a new subnet to imported VPC, new subnet's IP range(IPv4) will be validated against provided secondary and primary address block to confirm that it is within the the range of VPC.
+
+Here's an example of importing a VPC with only the required parameters
+
+```go
+stack := awscdk.Newstack()
+
+importedVpc := awsec2alpha.VpcV2_FromVpcV2Attributes(stack, jsii.String("ImportedVpc"), &VpcV2Attributes{
+	VpcId: jsii.String("mockVpcID"),
+	VpcCidrBlock: jsii.String("10.0.0.0/16"),
+})
+```
+
+In case of cross account or cross region VPC, its recommended to provide region and ownerAccountId so that these values for the VPC can be used to populate correct arn value for the VPC. If a VPC region and account ID is not provided, then region and account configured in the stack will be used. Furthermore, these fields will be referenced later while setting up VPC peering connection, so its necessary to set these fields to a correct value.
+
+Below is an example of importing a cross region and cross acount VPC, VPC arn for this case would be 'arn:aws:ec2:us-west-2:123456789012:vpc/mockVpcID'
+
+```go
+stack := awscdk.Newstack()
+
+//Importing a cross acount or cross region VPC
+importedVpc := awsec2alpha.VpcV2_FromVpcV2Attributes(stack, jsii.String("ImportedVpc"), &VpcV2Attributes{
+	VpcId: jsii.String("mockVpcID"),
+	VpcCidrBlock: jsii.String("10.0.0.0/16"),
+	OwnerAccountId: jsii.String("123456789012"),
+	Region: jsii.String("us-west-2"),
+})
+```
+
+Here's an example of how to import a VPC with multiple CIDR blocks, IPv6 support, and different subnet types:
+
+In this example, we're importing a VPC with:
+
+* A primary CIDR block (10.1.0.0/16)
+* One secondary IPv4 CIDR block (10.2.0.0/16)
+* Two secondary address using IPAM pool (IPv4 and IPv6)
+* VPC has Amazon-provided IPv6 CIDR enabled
+* An isolated subnet in us-west-2a
+* A public subnet in us-west-2b
+
+```go
+stack := awscdk.Newstack()
+
+importedVpc := awsec2alpha.VpcV2_FromVpcV2Attributes(this, jsii.String("ImportedVPC"), &VpcV2Attributes{
+	VpcId: jsii.String("vpc-XXX"),
+	VpcCidrBlock: jsii.String("10.1.0.0/16"),
+	SecondaryCidrBlocks: []vPCCidrBlockattributes{
+		&vPCCidrBlockattributes{
+			CidrBlock: jsii.String("10.2.0.0/16"),
+			CidrBlockName: jsii.String("ImportedBlock1"),
+		},
+		&vPCCidrBlockattributes{
+			Ipv6IpamPoolId: jsii.String("ipam-pool-XXX"),
+			Ipv6NetmaskLength: jsii.Number(52),
+			CidrBlockName: jsii.String("ImportedIpamIpv6"),
+		},
+		&vPCCidrBlockattributes{
+			Ipv4IpamPoolId: jsii.String("ipam-pool-XXX"),
+			Ipv4IpamProvisionedCidrs: []*string{
+				jsii.String("10.2.0.0/16"),
+			},
+			CidrBlockName: jsii.String("ImportedIpamIpv4"),
+		},
+		&vPCCidrBlockattributes{
+			AmazonProvidedIpv6CidrBlock: jsii.Boolean(true),
+		},
+	},
+	Subnets: []subnetV2Attributes{
+		&subnetV2Attributes{
+			SubnetName: jsii.String("IsolatedSubnet2"),
+			SubnetId: jsii.String("subnet-03cd773c0fe08ed26"),
+			SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
+			AvailabilityZone: jsii.String("us-west-2a"),
+			Ipv4CidrBlock: jsii.String("10.2.0.0/24"),
+			RouteTableId: jsii.String("rtb-0871c310f98da2cbb"),
+		},
+		&subnetV2Attributes{
+			SubnetId: jsii.String("subnet-0fa477e01db27d820"),
+			SubnetType: awscdk.SubnetType_PUBLIC,
+			AvailabilityZone: jsii.String("us-west-2b"),
+			Ipv4CidrBlock: jsii.String("10.3.0.0/24"),
+			RouteTableId: jsii.String("rtb-014f3043098fe4b96"),
+		},
+	},
+})
+
+// You can now use the imported VPC in your stack
+
+// Adding a new subnet to the imported VPC
+importedSubnet := awsec2alpha.NewSubnetV2(this, jsii.String("NewSubnet"), &SubnetV2Props{
+	AvailabilityZone: jsii.String("us-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.2.2.0/24")),
+	Vpc: importedVpc,
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+// Adding gateways to the imported VPC
+importedVpc.AddInternetGateway()
+importedVpc.AddNatGateway(&NatGatewayOptions{
+	Subnet: importedSubnet,
+})
+importedVpc.AddEgressOnlyInternetGateway()
+```
+
+You can add more subnets as needed by including additional entries in the `isolatedSubnets`, `publicSubnets`, or other subnet type arrays (e.g., `privateSubnets`).
+
+### Importing Subnets
+
+You can also import individual subnets using the `SubnetV2.fromSubnetV2Attributes()` method. This is useful when you need to work with specific subnets independently of a VPC.
+
+Here's an example of how to import a subnet:
+
+```go
+awsec2alpha.SubnetV2_FromSubnetV2Attributes(this, jsii.String("ImportedSubnet"), &SubnetV2Attributes{
+	SubnetId: jsii.String("subnet-0123456789abcdef0"),
+	AvailabilityZone: jsii.String("us-west-2a"),
+	Ipv4CidrBlock: jsii.String("10.2.0.0/24"),
+	RouteTableId: jsii.String("rtb-0871c310f98da2cbb"),
+	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
+})
+```
+
+By importing existing VPCs and subnets, you can easily integrate your existing AWS infrastructure with new resources created through CDK. This is particularly useful when you need to work with pre-existing network configurations or when you're migrating existing infrastructure to CDK.

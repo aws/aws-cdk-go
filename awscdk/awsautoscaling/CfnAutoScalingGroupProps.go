@@ -14,6 +14,9 @@ package awsautoscaling
 //
 //   	// the properties below are optional
 //   	AutoScalingGroupName: jsii.String("autoScalingGroupName"),
+//   	AvailabilityZoneDistribution: &AvailabilityZoneDistributionProperty{
+//   		CapacityDistributionStrategy: jsii.String("capacityDistributionStrategy"),
+//   	},
 //   	AvailabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
 //   	},
@@ -238,6 +241,9 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname
 	//
 	AutoScalingGroupName *string `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzonedistribution
+	//
+	AvailabilityZoneDistribution interface{} `field:"optional" json:"availabilityZoneDistribution" yaml:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
 	//
 	// Used for launching into the default VPC subnet in each Availability Zone when not using the `VPCZoneIdentifier` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
@@ -415,6 +421,7 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-terminationpolicies
 	//
 	TerminationPolicies *[]*string `field:"optional" json:"terminationPolicies" yaml:"terminationPolicies"`
+	// The traffic sources associated with this Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-trafficsources
 	//
 	TrafficSources interface{} `field:"optional" json:"trafficSources" yaml:"trafficSources"`

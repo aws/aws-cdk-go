@@ -12,6 +12,10 @@ func (i *jsiiProxy_IUserPool) validateAddDomainParameters(id *string, options *U
 	return nil
 }
 
+func (i *jsiiProxy_IUserPool) validateAddGroupParameters(id *string, options *UserPoolGroupOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IUserPool) validateAddResourceServerParameters(id *string, options *UserPoolResourceServerOptions) error {
 	return nil
 }

@@ -277,6 +277,7 @@ import (
 //   				jsii.String("vpcOnlyTrustedAccounts"),
 //   			},
 //   		},
+//   		ExecutionRoleIdentityConfig: jsii.String("executionRoleIdentityConfig"),
 //   		RStudioServerProDomainSettings: &RStudioServerProDomainSettingsProperty{
 //   			DomainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -295,6 +296,7 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	TagPropagation: jsii.String("tagPropagation"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -375,6 +377,10 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tagpropagation
+	//
+	TagPropagation *string `field:"optional" json:"tagPropagation" yaml:"tagPropagation"`
 	// Tags to associated with the Domain.
 	//
 	// Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.

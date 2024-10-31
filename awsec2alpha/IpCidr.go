@@ -8,7 +8,6 @@ import (
 // IPv4 or IPv6 CIDR range for the subnet.
 //
 // Example:
-//   stack := awscdk.Newstack()
 //   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
 //   routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 //   	Vpc: myVpc,
@@ -17,13 +16,21 @@ import (
 //   	Vpc: myVpc,
 //   	AvailabilityZone: jsii.String("eu-west-2a"),
 //   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: awscdk.SubnetType_PUBLIC,
+//   	SubnetType: awscdk.SubnetType_PRIVATE_ISOLATED,
 //   })
 //
-//   myVpc.AddInternetGateway()
-//   myVpc.AddNatGateway(&NatGatewayOptions{
+//   natgw := awsec2alpha.NewNatGateway(this, jsii.String("NatGW"), &NatGatewayProps{
 //   	Subnet: subnet,
-//   	ConnectivityType: awsec2alpha.NatConnectivityType_PUBLIC,
+//   	Vpc: myVpc,
+//   	ConnectivityType: awsec2alpha.NatConnectivityType_PRIVATE,
+//   	PrivateIpAddress: jsii.String("10.0.0.42"),
+//   })
+//   awsec2alpha.NewRoute(this, jsii.String("NatGwRoute"), &RouteProps{
+//   	RouteTable: RouteTable,
+//   	Destination: jsii.String("0.0.0.0/0"),
+//   	Target: map[string]iRouteTarget{
+//   		"gateway": natgw,
+//   	},
 //   })
 //
 // Experimental.

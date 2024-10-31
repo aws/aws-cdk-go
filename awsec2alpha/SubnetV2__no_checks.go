@@ -20,6 +20,10 @@ func (s *jsiiProxy_SubnetV2) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
+func validateSubnetV2_FromSubnetV2AttributesParameters(scope constructs.Construct, id *string, attrs *SubnetV2Attributes) error {
+	return nil
+}
+
 func validateSubnetV2_IsConstructParameters(x interface{}) error {
 	return nil
 }

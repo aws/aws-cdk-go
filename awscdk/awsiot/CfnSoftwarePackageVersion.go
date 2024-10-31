@@ -47,6 +47,7 @@ type CfnSoftwarePackageVersion interface {
 	awscdk.ITaggableV2
 	// Error reason for a package version failure during creation or update.
 	AttrErrorReason() *string
+	// Metadata that can be used to define a package version’s configuration.
 	Attributes() interface{}
 	SetAttributes(val interface{})
 	// The Amazon Resource Name (ARN) for the package.
@@ -66,6 +67,7 @@ type CfnSoftwarePackageVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A summary of the package version being created.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,6 +82,7 @@ type CfnSoftwarePackageVersion interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The name of the associated software package.
 	PackageName() *string
 	SetPackageName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -91,7 +94,7 @@ type CfnSoftwarePackageVersion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// Metadata that can be used to manage the package version.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -107,6 +110,7 @@ type CfnSoftwarePackageVersion interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The name of the new package version.
 	VersionName() *string
 	SetVersionName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

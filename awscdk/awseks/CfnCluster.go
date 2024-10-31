@@ -216,7 +216,7 @@ type CfnCluster interface {
 	// The desired Kubernetes version for your cluster.
 	Version() *string
 	SetVersion(val *string)
-	// The current zonal shift configuration to use for the cluster.
+	// The configuration for zonal shift for the cluster.
 	ZonalShiftConfig() interface{}
 	SetZonalShiftConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

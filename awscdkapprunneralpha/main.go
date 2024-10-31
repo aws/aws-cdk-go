@@ -245,6 +245,23 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-apprunner-alpha.IVpcIngressConnection",
+		reflect.TypeOf((*IVpcIngressConnection)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionArn", GoGetter: "VpcIngressConnectionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionName", GoGetter: "VpcIngressConnectionName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IVpcIngressConnection{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apprunner-alpha.ImageConfiguration",
 		reflect.TypeOf((*ImageConfiguration)(nil)).Elem(),
@@ -437,5 +454,38 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apprunner-alpha.VpcConnectorProps",
 		reflect.TypeOf((*VpcConnectorProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apprunner-alpha.VpcIngressConnection",
+		reflect.TypeOf((*VpcIngressConnection)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionArn", GoGetter: "VpcIngressConnectionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionName", GoGetter: "VpcIngressConnectionName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_VpcIngressConnection{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IVpcIngressConnection)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apprunner-alpha.VpcIngressConnectionAttributes",
+		reflect.TypeOf((*VpcIngressConnectionAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apprunner-alpha.VpcIngressConnectionProps",
+		reflect.TypeOf((*VpcIngressConnectionProps)(nil)).Elem(),
 	)
 }

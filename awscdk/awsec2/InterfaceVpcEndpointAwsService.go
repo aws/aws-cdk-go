@@ -8,39 +8,31 @@ import (
 // An AWS service for an interface VPC endpoint.
 //
 // Example:
-//   // Add gateway endpoints when creating the VPC
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	GatewayEndpoints: map[string]gatewayVpcEndpointOptions{
-//   		"S3": &gatewayVpcEndpointOptions{
-//   			"service": ec2.GatewayVpcEndpointAwsService_S3(),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var vpc vpc
+//
+//
+//   interfaceVpcEndpoint := ec2.NewInterfaceVpcEndpoint(this, jsii.String("MyVpcEndpoint"), &InterfaceVpcEndpointProps{
+//   	Vpc: Vpc,
+//   	Service: ec2.InterfaceVpcEndpointAwsService_APP_RUNNER_REQUESTS(),
+//   	PrivateDnsEnabled: jsii.Boolean(false),
+//   })
+//
+//   service := apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+//   	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+//   		ImageConfiguration: &ImageConfiguration{
+//   			Port: jsii.Number(8000),
 //   		},
-//   	},
+//   		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+//   	}),
+//   	IsPubliclyAccessible: jsii.Boolean(false),
 //   })
 //
-//   // Alternatively gateway endpoints can be added on the VPC
-//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &gatewayVpcEndpointOptions{
-//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
-//   })
-//
-//   // This allows to customize the endpoint policy
-//   dynamoDbEndpoint.AddToPolicy(
-//   iam.NewPolicyStatement(&PolicyStatementProps{
-//   	 // Restrict to listing and describing tables
-//   	Principals: []iPrincipal{
-//   		iam.NewAnyPrincipal(),
-//   	},
-//   	Actions: []*string{
-//   		jsii.String("dynamodb:DescribeTable"),
-//   		jsii.String("dynamodb:ListTables"),
-//   	},
-//   	Resources: []*string{
-//   		jsii.String("*"),
-//   	},
-//   }))
-//
-//   // Add an interface endpoint
-//   vpc.addInterfaceEndpoint(jsii.String("EcrDockerEndpoint"), &InterfaceVpcEndpointOptions{
-//   	Service: ec2.InterfaceVpcEndpointAwsService_ECR_DOCKER(),
+//   apprunner.NewVpcIngressConnection(this, jsii.String("VpcIngressConnection"), &VpcIngressConnectionProps{
+//   	Vpc: Vpc,
+//   	InterfaceVpcEndpoint: InterfaceVpcEndpoint,
+//   	Service: Service,
 //   })
 //
 type InterfaceVpcEndpointAwsService interface {
@@ -1540,6 +1532,17 @@ func InterfaceVpcEndpointAwsService_EMR_WAL() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_END_USER_MESSAGING_SOCIAL() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"END_USER_MESSAGING_SOCIAL",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_ENTITY_RESOLUTION() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -2750,6 +2753,17 @@ func InterfaceVpcEndpointAwsService_POLLY() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_PRICE_LIST() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"PRICE_LIST",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_PRIVATE_5G() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -3669,6 +3683,17 @@ func InterfaceVpcEndpointAwsService_WELL_ARCHITECTED_TOOL() InterfaceVpcEndpoint
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"WELL_ARCHITECTED_TOOL",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_WORKMAIL() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"WORKMAIL",
 		&returns,
 	)
 	return returns

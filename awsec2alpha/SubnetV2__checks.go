@@ -55,6 +55,25 @@ func (s *jsiiProxy_SubnetV2) validateGetResourceNameAttributeParameters(nameAttr
 	return nil
 }
 
+func validateSubnetV2_FromSubnetV2AttributesParameters(scope constructs.Construct, id *string, attrs *SubnetV2Attributes) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if attrs == nil {
+		return fmt.Errorf("parameter attrs is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(attrs, func() string { return "parameter attrs" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateSubnetV2_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

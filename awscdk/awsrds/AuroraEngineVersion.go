@@ -19,12 +19,15 @@ import (
 //   	SnapshotIdentifier: jsii.String("mySnapshot"),
 //   })
 //
+// Deprecated: use `AuroraMysqlEngineVersion` instead.
 type AuroraEngineVersion interface {
 	// The full version string, for example, "5.6.mysql_aurora.1.78.3.6".
+	// Deprecated: use `AuroraMysqlEngineVersion` instead.
 	AuroraFullVersion() *string
 	// The major version of the engine.
 	//
 	// Currently, it's always "5.6".
+	// Deprecated: use `AuroraMysqlEngineVersion` instead.
 	AuroraMajorVersion() *string
 }
 
@@ -55,6 +58,7 @@ func (j *jsiiProxy_AuroraEngineVersion) AuroraMajorVersion() *string {
 
 
 // Create a new AuroraEngineVersion with an arbitrary version.
+// Deprecated: use `AuroraMysqlEngineVersion` instead.
 func AuroraEngineVersion_Of(auroraFullVersion *string, auroraMajorVersion *string) AuroraEngineVersion {
 	_init_.Initialize()
 

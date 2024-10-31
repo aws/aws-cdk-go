@@ -28,6 +28,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AutoScalingGroupName: jsii.String("autoScalingGroupName"),
+//   	AvailabilityZoneDistribution: &AvailabilityZoneDistributionProperty{
+//   		CapacityDistributionStrategy: jsii.String("capacityDistributionStrategy"),
+//   	},
 //   	AvailabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
 //   	},
@@ -242,6 +245,8 @@ type CfnAutoScalingGroup interface {
 	// This name must be unique per Region per account.
 	AutoScalingGroupName() *string
 	SetAutoScalingGroupName(val *string)
+	AvailabilityZoneDistribution() interface{}
+	SetAvailabilityZoneDistribution(val interface{})
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
@@ -360,6 +365,7 @@ type CfnAutoScalingGroup interface {
 	// A policy or a list of policies that are used to select the instance to terminate.
 	TerminationPolicies() *[]*string
 	SetTerminationPolicies(val *[]*string)
+	// The traffic sources associated with this Auto Scaling group.
 	TrafficSources() interface{}
 	SetTrafficSources(val interface{})
 	// Deprecated.
@@ -517,6 +523,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) AutoScalingGroupName() *string {
 	_jsii_.Get(
 		j,
 		"autoScalingGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) AvailabilityZoneDistribution() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"availabilityZoneDistribution",
 		&returns,
 	)
 	return returns
@@ -964,6 +980,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetAutoScalingGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"autoScalingGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetAvailabilityZoneDistribution(val interface{}) {
+	if err := j.validateSetAvailabilityZoneDistributionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"availabilityZoneDistribution",
 		val,
 	)
 }

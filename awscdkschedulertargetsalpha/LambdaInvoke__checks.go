@@ -45,9 +45,6 @@ func validateNewLambdaInvokeParameters(func_ awslambda.IFunction, props *Schedul
 		return fmt.Errorf("parameter func_ is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

@@ -34,6 +34,8 @@ type CfnEIP interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	Address() *string
+	SetAddress(val *string)
 	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC.
 	//
 	// This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
@@ -55,6 +57,8 @@ type CfnEIP interface {
 	// The ID of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
+	IpamPoolId() *string
+	SetIpamPoolId(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -237,6 +241,16 @@ type jsiiProxy_CfnEIP struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnEIP) Address() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"address",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEIP) AttrAllocationId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -312,6 +326,16 @@ func (j *jsiiProxy_CfnEIP) InstanceId() *string {
 	_jsii_.Get(
 		j,
 		"instanceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEIP) IpamPoolId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipamPoolId",
 		&returns,
 	)
 	return returns
@@ -455,6 +479,14 @@ func NewCfnEIP_Override(c CfnEIP, scope constructs.Construct, id *string, props 
 	)
 }
 
+func (j *jsiiProxy_CfnEIP)SetAddress(val *string) {
+	_jsii_.Set(
+		j,
+		"address",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEIP)SetDomain(val *string) {
 	_jsii_.Set(
 		j,
@@ -467,6 +499,14 @@ func (j *jsiiProxy_CfnEIP)SetInstanceId(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEIP)SetIpamPoolId(val *string) {
+	_jsii_.Set(
+		j,
+		"ipamPoolId",
 		val,
 	)
 }

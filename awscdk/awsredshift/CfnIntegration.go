@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Integration from a source AWS service to a Redshift cluster.
+// Describes a zero-ETL integration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,7 +40,7 @@ type CfnIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// An optional set of non-secret key–value pairs that contains additional contextual information about the data.
+	// The encryption context for the integration.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
 	// The time (UTC) when the integration was created.
@@ -61,7 +61,7 @@ type CfnIntegration interface {
 	// The name of the integration.
 	IntegrationName() *string
 	SetIntegrationName(val *string)
-	// An KMS key identifier for the key to use to encrypt the integration.
+	// The AWS Key Management Service ( AWS KMS ) key identifier for the key used to encrypt the integration.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -81,17 +81,17 @@ type CfnIntegration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable.
+	// The Amazon Resource Name (ARN) of the database used as the source for replication.
 	SourceArn() *string
 	SetSourceArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// The list of tags associated with the integration.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf.
+	// The Amazon Resource Name (ARN) of the Amazon Redshift data warehouse to use as the target for replication.
 	TargetArn() *string
 	SetTargetArn(val *string)
 	// Deprecated.

@@ -4,12 +4,13 @@ package awscodebuild
 // Construction properties for `GitHubSource` and `GitHubEnterpriseSource`.
 //
 // Example:
-//   project := codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
-//   	BuildSpec: codebuild.BuildSpec_FromSourceFilename(jsii.String("my-buildspec.yml")),
-//   	Source: codebuild.Source_GitHub(&GitHubSourceProps{
-//   		Owner: jsii.String("awslabs"),
-//   		Repo: jsii.String("aws-cdk"),
-//   	}),
+//   gitHubSource := codebuild.Source_GitHub(&GitHubSourceProps{
+//   	Owner: jsii.String("aws"),
+//   	WebhookTriggersBatchBuild: jsii.Boolean(true),
+//   	 // optional, default is false
+//   	WebhookFilters: []filterGroup{
+//   		codebuild.*filterGroup_InEventOf(codebuild.EventAction_WORKFLOW_JOB_QUEUED).AndRepositoryNameIs(jsii.String("aws-.*")).AndRepositoryNameIsNot(jsii.String("aws-cdk-lib")),
+//   	},
 //   })
 //
 type GitHubSourceProps struct {
@@ -17,18 +18,12 @@ type GitHubSourceProps struct {
 	//
 	// This property is required on secondary sources.
 	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
-	// The GitHub account/user that owns the repo.
+	// The GitHub Organization/user that owns the repo.
 	//
 	// Example:
 	//   "awslabs"
 	//
 	Owner *string `field:"required" json:"owner" yaml:"owner"`
-	// The name of the repo (without the username).
-	//
-	// Example:
-	//   "aws-cdk"
-	//
-	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build.
 	//
 	// Example:
@@ -71,6 +66,14 @@ type GitHubSourceProps struct {
 	// Default: false.
 	//
 	FetchSubmodules *bool `field:"optional" json:"fetchSubmodules" yaml:"fetchSubmodules"`
+	// The name of the repo (without the username).
+	//
+	// Example:
+	//   "aws-cdk"
+	//
+	// Default: undefined will create an organization webhook.
+	//
+	Repo *string `field:"optional" json:"repo" yaml:"repo"`
 	// Whether to send notifications on your build's start and end.
 	// Default: true.
 	//

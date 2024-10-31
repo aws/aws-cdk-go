@@ -68,5 +68,12 @@ type TableProps struct {
 	//
 	// Experimental.
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
+	// Handler timeout duration.
+	//
+	// Valid values are between 1 second and 15 minutes.
+	// Default: - 1 minute.
+	//
+	// Experimental.
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

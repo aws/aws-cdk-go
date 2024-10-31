@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnGraphQLApi) validateSetEnhancedMetricsConfigParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraphQLApi) validateSetEnvironmentVariablesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGraphQLApi) validateSetLambdaAuthorizerConfigParameters(val interface{}) error {
 	return nil
 }

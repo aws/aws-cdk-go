@@ -1,7 +1,7 @@
 package awseks
 
 
-// The current zonal shift configuration to use for the cluster.
+// The configuration for zonal shift for the cluster.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-zonalshiftconfig.html
 //
 type CfnCluster_ZonalShiftConfigProperty struct {
-	// Set this value to true to enable zonal shift for the cluster.
+	// If zonal shift is enabled, AWS configures zonal autoshift for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-zonalshiftconfig.html#cfn-eks-cluster-zonalshiftconfig-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`

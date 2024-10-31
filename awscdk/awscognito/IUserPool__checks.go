@@ -37,6 +37,21 @@ func (i *jsiiProxy_IUserPool) validateAddDomainParameters(id *string, options *U
 	return nil
 }
 
+func (i *jsiiProxy_IUserPool) validateAddGroupParameters(id *string, options *UserPoolGroupOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IUserPool) validateAddResourceServerParameters(id *string, options *UserPoolResourceServerOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")

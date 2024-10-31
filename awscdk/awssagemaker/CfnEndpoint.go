@@ -87,6 +87,8 @@ type CfnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// The Amazon Resource Name (ARN) of the endpoint.
+	AttrEndpointArn() *string
 	// The name of the endpoint, such as `MyEndpoint` .
 	AttrEndpointName() *string
 	AttrId() *string
@@ -288,6 +290,16 @@ type jsiiProxy_CfnEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnEndpoint) AttrEndpointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEndpointArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnEndpoint) AttrEndpointName() *string {

@@ -28,7 +28,7 @@ type CfnWirelessDeviceImportTask_SidewalkProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdeviceimporttask-sidewalk.html#cfn-iotwireless-wirelessdeviceimporttask-sidewalk-devicecreationfilelist
 	//
 	DeviceCreationFileList *[]*string `field:"optional" json:"deviceCreationFileList" yaml:"deviceCreationFileList"`
-	// The IAM role that allows AWS IoT Wireless to access the CSV file in the S3 bucket.
+	// The IAM role that allows  to access the CSV file in the S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdeviceimporttask-sidewalk.html#cfn-iotwireless-wirelessdeviceimporttask-sidewalk-role
 	//
 	Role *string `field:"optional" json:"role" yaml:"role"`

@@ -18,8 +18,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var environmentVariables interface{}
-//
 //   cfnGraphQLApi := awscdk.Aws_appsync.NewCfnGraphQLApi(this, jsii.String("MyCfnGraphQLApi"), &CfnGraphQLApiProps{
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   	Name: jsii.String("name"),
@@ -54,7 +52,9 @@ import (
 //   		OperationLevelMetricsConfig: jsii.String("operationLevelMetricsConfig"),
 //   		ResolverLevelMetricsBehavior: jsii.String("resolverLevelMetricsBehavior"),
 //   	},
-//   	EnvironmentVariables: environmentVariables,
+//   	EnvironmentVariables: map[string]*string{
+//   		"environmentVariablesKey": jsii.String("environmentVariables"),
+//   	},
 //   	IntrospectionConfig: jsii.String("introspectionConfig"),
 //   	LambdaAuthorizerConfig: &LambdaAuthorizerConfigProperty{
 //   		AuthorizerResultTtlInSeconds: jsii.Number(123),
@@ -114,7 +114,6 @@ type CfnGraphQLApi interface {
 	AttrGraphQlEndpointArn() *string
 	// The Endpoint URL of your GraphQL API.
 	AttrGraphQlUrl() *string
-	// The ID value.
 	AttrId() *string
 	// The fully qualified domain name (FQDN) of the real-time endpoint URL of your GraphQL API.
 	AttrRealtimeDns() *string
@@ -789,6 +788,9 @@ func (j *jsiiProxy_CfnGraphQLApi)SetEnhancedMetricsConfig(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnGraphQLApi)SetEnvironmentVariables(val interface{}) {
+	if err := j.validateSetEnvironmentVariablesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"environmentVariables",

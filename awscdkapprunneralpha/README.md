@@ -221,6 +221,44 @@ apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
 })
 ```
 
+## VPC Ingress Connection
+
+To make your App Runner service private and only accessible from within a VPC use the `isPubliclyAccessible` property and associate it to a `VpcIngressConnection` resource.
+
+To set up a `VpcIngressConnection`, specify a VPC, a VPC Interface Endpoint, and the App Runner service.
+Also you must set `isPubliclyAccessible` property in ther `Service` to `false`.
+
+For more information, see [Enabling Private endpoint for incoming traffic](https://docs.aws.amazon.com/apprunner/latest/dg/network-pl.html).
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var vpc vpc
+
+
+interfaceVpcEndpoint := ec2.NewInterfaceVpcEndpoint(this, jsii.String("MyVpcEndpoint"), &InterfaceVpcEndpointProps{
+	Vpc: Vpc,
+	Service: ec2.InterfaceVpcEndpointAwsService_APP_RUNNER_REQUESTS(),
+	PrivateDnsEnabled: jsii.Boolean(false),
+})
+
+service := apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+		ImageConfiguration: &ImageConfiguration{
+			Port: jsii.Number(8000),
+		},
+		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+	}),
+	IsPubliclyAccessible: jsii.Boolean(false),
+})
+
+apprunner.NewVpcIngressConnection(this, jsii.String("VpcIngressConnection"), &VpcIngressConnectionProps{
+	Vpc: Vpc,
+	InterfaceVpcEndpoint: InterfaceVpcEndpoint,
+	Service: Service,
+})
+```
+
 ## Dual Stack
 
 To use dual stack (IPv4 and IPv6) for your incoming public network configuration, set `ipAddressType` to `IpAddressType.DUAL_STACK`.

@@ -27,7 +27,7 @@ type SqsTargetParameters struct {
 	// The input transformation to apply to the message before sending it to the target.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html#cfn-pipes-pipe-pipetargetparameters-inputtemplate
 	//
-	// Default: none.
+	// Default: - none.
 	//
 	// Experimental.
 	InputTransformation awscdkpipesalpha.IInputTransformation `field:"optional" json:"inputTransformation" yaml:"inputTransformation"`
@@ -36,14 +36,14 @@ type SqsTargetParameters struct {
 	// The token used for deduplication of sent messages.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetsqsqueueparameters.html#cfn-pipes-pipe-pipetargetsqsqueueparameters-messagededuplicationid
 	//
-	// Default: none.
+	// Default: - none.
 	//
 	// Experimental.
 	MessageDeduplicationId *string `field:"optional" json:"messageDeduplicationId" yaml:"messageDeduplicationId"`
 	// The FIFO message group ID to use as the target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetsqsqueueparameters.html#cfn-pipes-pipe-pipetargetsqsqueueparameters-messagegroupid
 	//
-	// Default: none.
+	// Default: - none.
 	//
 	// Experimental.
 	MessageGroupId *string `field:"optional" json:"messageGroupId" yaml:"messageGroupId"`

@@ -48,12 +48,18 @@ type VpcV2Base interface {
 	// For more information, see the {@link https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html#vpc-sizing-ipv4}.
 	// Experimental.
 	Ipv4CidrBlock() *string
+	// IPv4 CIDR provisioned under pool Required to check for overlapping CIDRs after provisioning is complete under IPAM pool.
+	// Experimental.
+	Ipv4IpamProvisionedCidrs() *[]*string
 	// List of isolated subnets in this VPC.
 	// Experimental.
 	IsolatedSubnets() *[]awsec2.ISubnet
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// Identifier of the owner for this VPC.
+	// Experimental.
+	OwnerAccountId() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -69,9 +75,12 @@ type VpcV2Base interface {
 	// List of public subnets in this VPC.
 	// Experimental.
 	PublicSubnets() *[]awsec2.ISubnet
+	// Region for this VPC.
+	// Experimental.
+	Region() *string
 	// Secondary IPs for the VPC, can be multiple Ipv4 or Ipv6 Ipv4 should be within RFC#1918 range.
 	// Experimental.
-	SecondaryCidrBlock() *[]awsec2.CfnVPCCidrBlock
+	SecondaryCidrBlock() *[]IVPCCidrBlock
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
@@ -229,6 +238,16 @@ func (j *jsiiProxy_VpcV2Base) Ipv4CidrBlock() *string {
 	return returns
 }
 
+func (j *jsiiProxy_VpcV2Base) Ipv4IpamProvisionedCidrs() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"ipv4IpamProvisionedCidrs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_VpcV2Base) IsolatedSubnets() *[]awsec2.ISubnet {
 	var returns *[]awsec2.ISubnet
 	_jsii_.Get(
@@ -244,6 +263,16 @@ func (j *jsiiProxy_VpcV2Base) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcV2Base) OwnerAccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ownerAccountId",
 		&returns,
 	)
 	return returns
@@ -279,8 +308,18 @@ func (j *jsiiProxy_VpcV2Base) PublicSubnets() *[]awsec2.ISubnet {
 	return returns
 }
 
-func (j *jsiiProxy_VpcV2Base) SecondaryCidrBlock() *[]awsec2.CfnVPCCidrBlock {
-	var returns *[]awsec2.CfnVPCCidrBlock
+func (j *jsiiProxy_VpcV2Base) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcV2Base) SecondaryCidrBlock() *[]IVPCCidrBlock {
+	var returns *[]IVPCCidrBlock
 	_jsii_.Get(
 		j,
 		"secondaryCidrBlock",

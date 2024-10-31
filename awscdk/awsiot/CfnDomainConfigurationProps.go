@@ -47,14 +47,10 @@ import (
 //
 type CfnDomainConfigurationProps struct {
 	// An enumerated string that speciﬁes the application-layer protocol.
-	//
-	// > This property isn't available in China.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-applicationprotocol
 	//
 	ApplicationProtocol *string `field:"optional" json:"applicationProtocol" yaml:"applicationProtocol"`
 	// An enumerated string that speciﬁes the authentication type.
-	//
-	// > This property isn't available in China.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authenticationtype
 	//
 	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
@@ -63,8 +59,6 @@ type CfnDomainConfigurationProps struct {
 	//
 	AuthorizerConfig interface{} `field:"optional" json:"authorizerConfig" yaml:"authorizerConfig"`
 	// An object that speciﬁes the client certificate conﬁguration for a domain.
-	//
-	// > This property isn't available in China.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-clientcertificateconfig
 	//
 	ClientCertificateConfig interface{} `field:"optional" json:"clientCertificateConfig" yaml:"clientCertificateConfig"`

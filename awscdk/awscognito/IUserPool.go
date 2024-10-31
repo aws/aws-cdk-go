@@ -19,6 +19,10 @@ type IUserPool interface {
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html
 	//
 	AddDomain(id *string, options *UserPoolDomainOptions) UserPoolDomain
+	// Add a new group to this user pool.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html
+	//
+	AddGroup(id *string, options *UserPoolGroupOptions) UserPoolGroup
 	// Add a new resource server to this user pool.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-resource-servers.html
 	//
@@ -67,6 +71,22 @@ func (i *jsiiProxy_IUserPool) AddDomain(id *string, options *UserPoolDomainOptio
 	_jsii_.Invoke(
 		i,
 		"addDomain",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IUserPool) AddGroup(id *string, options *UserPoolGroupOptions) UserPoolGroup {
+	if err := i.validateAddGroupParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns UserPoolGroup
+
+	_jsii_.Invoke(
+		i,
+		"addGroup",
 		[]interface{}{id, options},
 		&returns,
 	)

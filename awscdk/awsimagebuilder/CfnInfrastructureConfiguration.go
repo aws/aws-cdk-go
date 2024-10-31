@@ -38,6 +38,12 @@ import (
 //   			S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   		},
 //   	},
+//   	Placement: &PlacementProperty{
+//   		AvailabilityZone: jsii.String("availabilityZone"),
+//   		HostId: jsii.String("hostId"),
+//   		HostResourceGroupArn: jsii.String("hostResourceGroupArn"),
+//   		Tenancy: jsii.String("tenancy"),
+//   	},
 //   	ResourceTags: map[string]*string{
 //   		"resourceTagsKey": jsii.String("resourceTags"),
 //   	},
@@ -106,6 +112,9 @@ type CfnInfrastructureConfiguration interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The instance placement settings that define where the instances that are launched from your image will run.
+	Placement() interface{}
+	SetPlacement(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -432,6 +441,16 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInfrastructureConfiguration) Placement() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"placement",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInfrastructureConfiguration) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -634,6 +653,17 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfrastructureConfiguration)SetPlacement(val interface{}) {
+	if err := j.validateSetPlacementParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"placement",
 		val,
 	)
 }

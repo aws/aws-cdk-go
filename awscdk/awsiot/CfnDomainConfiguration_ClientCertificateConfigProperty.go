@@ -3,8 +3,6 @@ package awsiot
 
 // An object that speciﬁes the client certificate conﬁguration for a domain.
 //
-// > This property isn't available in China.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,8 +16,6 @@ package awsiot
 //
 type CfnDomainConfiguration_ClientCertificateConfigProperty struct {
 	// The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-	//
-	// > This property isn't available in China.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-clientcertificateconfig.html#cfn-iot-domainconfiguration-clientcertificateconfig-clientcertificatecallbackarn
 	//
 	ClientCertificateCallbackArn *string `field:"optional" json:"clientCertificateCallbackArn" yaml:"clientCertificateCallbackArn"`

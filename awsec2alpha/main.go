@@ -70,6 +70,7 @@ func init() {
 		reflect.TypeOf((*IIpamPool)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "ipamCidrs", GoGetter: "IpamCidrs"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamIpv4Cidrs", GoGetter: "IpamIpv4Cidrs"},
 			_jsii_.MemberProperty{JsiiProperty: "ipamPoolId", GoGetter: "IpamPoolId"},
 			_jsii_.MemberMethod{JsiiMethod: "provisionCidr", GoMethod: "ProvisionCidr"},
 		},
@@ -145,6 +146,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-ec2-alpha.IVPCCidrBlock",
+		reflect.TypeOf((*IVPCCidrBlock)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "amazonProvidedIpv6CidrBlock", GoGetter: "AmazonProvidedIpv6CidrBlock"},
+			_jsii_.MemberProperty{JsiiProperty: "cidrBlock", GoGetter: "CidrBlock"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv4IpamPoolId", GoGetter: "Ipv4IpamPoolId"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv6IpamPoolId", GoGetter: "Ipv6IpamPoolId"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IVPCCidrBlock{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-ec2-alpha.IVpcV2",
 		reflect.TypeOf((*IVpcV2)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -163,10 +177,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "internetConnectivityEstablished", GoGetter: "InternetConnectivityEstablished"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv4IpamProvisionedCidrs", GoGetter: "Ipv4IpamProvisionedCidrs"},
 			_jsii_.MemberProperty{JsiiProperty: "isolatedSubnets", GoGetter: "IsolatedSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "ownerAccountId", GoGetter: "OwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "privateSubnets", GoGetter: "PrivateSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "publicSubnets", GoGetter: "PublicSubnets"},
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberProperty{JsiiProperty: "secondaryCidrBlock", GoGetter: "SecondaryCidrBlock"},
 			_jsii_.MemberMethod{JsiiMethod: "selectSubnets", GoMethod: "SelectSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -444,8 +461,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.SubnetV2Attributes",
+		reflect.TypeOf((*SubnetV2Attributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-ec2-alpha.SubnetV2Props",
 		reflect.TypeOf((*SubnetV2Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.VPCCidrBlockattributes",
+		reflect.TypeOf((*VPCCidrBlockattributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-ec2-alpha.VPNGatewayV2",
@@ -511,12 +536,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "internetGatewayId", GoGetter: "InternetGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "ipAddresses", GoGetter: "IpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv4IpamProvisionedCidrs", GoGetter: "Ipv4IpamProvisionedCidrs"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6CidrBlocks", GoGetter: "Ipv6CidrBlocks"},
 			_jsii_.MemberProperty{JsiiProperty: "isolatedSubnets", GoGetter: "IsolatedSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "ownerAccountId", GoGetter: "OwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "privateSubnets", GoGetter: "PrivateSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "publicSubnets", GoGetter: "PublicSubnets"},
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 			_jsii_.MemberProperty{JsiiProperty: "secondaryCidrBlock", GoGetter: "SecondaryCidrBlock"},
 			_jsii_.MemberMethod{JsiiMethod: "selectSubnetObjects", GoMethod: "SelectSubnetObjects"},
@@ -534,6 +562,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_VpcV2Base)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.VpcV2Attributes",
+		reflect.TypeOf((*VpcV2Attributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-ec2-alpha.VpcV2Base",
@@ -559,11 +591,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "internetConnectivityEstablished", GoGetter: "InternetConnectivityEstablished"},
 			_jsii_.MemberProperty{JsiiProperty: "internetGatewayId", GoGetter: "InternetGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4CidrBlock", GoGetter: "Ipv4CidrBlock"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv4IpamProvisionedCidrs", GoGetter: "Ipv4IpamProvisionedCidrs"},
 			_jsii_.MemberProperty{JsiiProperty: "isolatedSubnets", GoGetter: "IsolatedSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "ownerAccountId", GoGetter: "OwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "privateSubnets", GoGetter: "PrivateSubnets"},
 			_jsii_.MemberProperty{JsiiProperty: "publicSubnets", GoGetter: "PublicSubnets"},
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberProperty{JsiiProperty: "secondaryCidrBlock", GoGetter: "SecondaryCidrBlock"},
 			_jsii_.MemberMethod{JsiiMethod: "selectSubnetObjects", GoMethod: "SelectSubnetObjects"},
 			_jsii_.MemberMethod{JsiiMethod: "selectSubnets", GoMethod: "SelectSubnets"},

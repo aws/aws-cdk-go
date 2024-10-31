@@ -6,18 +6,20 @@ package awsec2
 // Example:
 //   var vpc vpc
 //
-//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	MasterUser: &Login{
 //   		Username: jsii.String("myuser"),
+//   		 // NOTE: 'admin' is reserved by DocumentDB
+//   		ExcludeCharacters: jsii.String("\"@/:"),
+//   		 // optional, defaults to the set "\"@/" and is also used for eventually created rotations
+//   		SecretName: jsii.String("/myapp/mydocdb/masteruser"),
 //   	},
 //   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
 //   	VpcSubnets: &SubnetSelection{
 //   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	},
 //   	Vpc: Vpc,
-//   	RemovalPolicy: awscdk.RemovalPolicy_SNAPSHOT,
-//   	InstanceRemovalPolicy: awscdk.RemovalPolicy_RETAIN,
+//   	CopyTagsToSnapshot: jsii.Boolean(true),
 //   })
 //
 type SubnetType string

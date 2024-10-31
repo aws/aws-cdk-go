@@ -179,6 +179,30 @@ func validateCfnAutoScalingGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetAvailabilityZoneDistributionParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAutoScalingGroup_AvailabilityZoneDistributionProperty:
+		val := val.(*CfnAutoScalingGroup_AvailabilityZoneDistributionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAutoScalingGroup_AvailabilityZoneDistributionProperty:
+		val_ := val.(CfnAutoScalingGroup_AvailabilityZoneDistributionProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_AvailabilityZoneDistributionProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetCapacityRebalanceParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

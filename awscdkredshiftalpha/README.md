@@ -337,6 +337,33 @@ awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
 })
 ```
 
+Query execution duration is limited to 1 minute by default. You can change this by setting the `timeout` property.
+
+Valid timeout values are between 1 seconds and 15 minutes.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
+	TableColumns: []column{
+		&column{
+			Id: jsii.String("col1"),
+			Name: jsii.String("col1"),
+			DataType: jsii.String("varchar(4)"),
+		},
+		&column{
+			Id: jsii.String("col2"),
+			Name: jsii.String("col2"),
+			DataType: jsii.String("float"),
+		},
+	},
+	Cluster: cluster,
+	DatabaseName: jsii.String("databaseName"),
+	Timeout: awscdk.Duration_Minutes(jsii.Number(15)),
+})
+```
+
 ### Granting Privileges
 
 You can give a user privileges to perform certain actions on a table by using the

@@ -10,9 +10,8 @@ package awsec2
 //   ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &InterfaceVpcEndpointProps{
 //   	Vpc: Vpc,
 //   	Service: ec2.NewInterfaceVpcEndpointService(jsii.String("com.amazonaws.vpce.us-east-1.vpce-svc-uuddlrlrbastrtsvc"), jsii.Number(443)),
-//   	// Choose which availability zones to place the VPC endpoint in, based on
-//   	// available AZs
 //   	Subnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
 //   		AvailabilityZones: []*string{
 //   			jsii.String("us-east-1a"),
 //   			jsii.String("us-east-1c"),

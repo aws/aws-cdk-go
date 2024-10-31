@@ -60,6 +60,14 @@ func (f *jsiiProxy_FilterGroup) validateAndHeadRefIsNotParameters(pattern *strin
 	return nil
 }
 
+func (f *jsiiProxy_FilterGroup) validateAndRepositoryNameIsParameters(pattern *string) error {
+	return nil
+}
+
+func (f *jsiiProxy_FilterGroup) validateAndRepositoryNameIsNotParameters(pattern *string) error {
+	return nil
+}
+
 func (f *jsiiProxy_FilterGroup) validateAndTagIsParameters(tagName *string) error {
 	return nil
 }

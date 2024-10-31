@@ -80,6 +80,10 @@ func validateCfnAutoScalingGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetAvailabilityZoneDistributionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetCapacityRebalanceParameters(val interface{}) error {
 	return nil
 }
