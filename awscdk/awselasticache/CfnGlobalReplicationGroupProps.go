@@ -65,7 +65,9 @@ type CfnGlobalReplicationGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
 	//
 	CacheParameterGroupName *string `field:"optional" json:"cacheParameterGroupName" yaml:"cacheParameterGroupName"`
-	// The engine of the Global Datastore.
+	// The ElastiCache engine.
+	//
+	// For Valkey or Redis OSS only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engine
 	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`

@@ -97,6 +97,7 @@ type CfnRestoreTestingPlan interface {
 	// Optional.
 	ScheduleExpressionTimezone() *string
 	SetScheduleExpressionTimezone(val *string)
+	// This parameter is not currently supported.
 	ScheduleStatus() *string
 	SetScheduleStatus(val *string)
 	// The stack in which this element is defined.

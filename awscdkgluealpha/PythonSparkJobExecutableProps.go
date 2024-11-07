@@ -4,13 +4,14 @@ package awscdkgluealpha
 // Props for creating a Python Spark (ETL or Streaming) job executable.
 //
 // Example:
-//   glue.NewJob(this, jsii.String("PythonSparkStreamingJob"), &JobProps{
-//   	Executable: glue.JobExecutable_PythonStreaming(&PythonSparkJobExecutableProps{
+//   glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
+//   	JobName: jsii.String("EtlJobWithRunQueuing"),
+//   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
 //   		GlueVersion: glue.GlueVersion_V4_0(),
 //   		PythonVersion: glue.PythonVersion_THREE,
 //   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 //   	}),
-//   	Description: jsii.String("an example Python Streaming job"),
+//   	JobRunQueuingEnabled: jsii.Boolean(true),
 //   })
 //
 // Experimental.

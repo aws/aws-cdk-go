@@ -63,7 +63,7 @@ type ReplicaTableProps struct {
 	// Default: TableClass.STANDARD
 	//
 	TableClass TableClass `field:"optional" json:"tableClass" yaml:"tableClass"`
-	// Tags to be applied to the table or replica table.
+	// Tags to be applied to the primary table (default replica table).
 	// Default: - no tags.
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

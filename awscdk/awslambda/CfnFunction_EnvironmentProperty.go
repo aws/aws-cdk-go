@@ -19,9 +19,9 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
 //
 type CfnFunction_EnvironmentProperty struct {
-	// Environment variable key-value pairs.
+	// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html) .
 	//
-	// For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html) .
+	// If the value of the environment variable is a time or a duration, enclose the value in quotes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
 	//
 	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`

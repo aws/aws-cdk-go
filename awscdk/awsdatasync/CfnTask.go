@@ -140,7 +140,7 @@ type CfnTask interface {
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer.
 	Excludes() interface{}
 	SetExcludes(val interface{})
-	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer.
+	// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer.
 	Includes() interface{}
 	SetIncludes(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -19,9 +19,9 @@ that allows you to create, run, and manage scheduled tasks at scale. With EventB
 of millions of tasks across many AWS services without provisioning or managing underlying infrastructure.
 
 1. **Schedule**: A schedule is the main resource you create, configure, and manage using Amazon EventBridge Scheduler. Every schedule has a schedule expression that determines when, and with what frequency, the schedule runs. EventBridge Scheduler supports three types of schedules: rate, cron, and one-time schedules. When you create a schedule, you configure a target for the schedule to invoke.
-2. **Targets**: A target is an API operation that EventBridge Scheduler calls on your behalf every time your schedule runs. EventBridge Scheduler
+2. **Target**: A target is an API operation that EventBridge Scheduler calls on your behalf every time your schedule runs. EventBridge Scheduler
    supports two types of targets: templated targets and universal targets. Templated targets invoke common API operations across a core groups of
-   services. For example, EventBridge Scheduler supports templated targets for invoking AWS Lambda Function or starting execution of Step Function state
+   services. For example, EventBridge Scheduler supports templated targets for invoking AWS Lambda Function or starting execution of Step Functions state
    machine. For API operations that are not supported by templated targets you can use customizable universal targets. Universal targets support calling
    more than 6,000 API operations across over 270 AWS services.
 3. **Schedule Group**: A schedule group is an Amazon EventBridge Scheduler resource that you use to organize your schedules. Your AWS account comes
@@ -57,8 +57,10 @@ schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &Sch
 
 You can choose from three schedule types when configuring your schedule: rate-based, cron-based, and one-time schedules.
 
-Both rate-based and cron-based schedules are recurring schedules. You can configure each recurring schedule type using a schedule expression. For
-cron-based schedule you can specify a time zone in which EventBridge Scheduler evaluates the expression.
+Both rate-based and cron-based schedules are recurring schedules. You can configure each recurring schedule type using a schedule expression.
+
+For
+cron-based schedules you can specify a time zone in which EventBridge Scheduler evaluates the expression.
 
 ```go
 var target lambdaInvoke
@@ -83,7 +85,7 @@ cronBasedSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedul
 })
 ```
 
-A one-time schedule is a schedule that invokes a target only once. You configure a one-time schedule when by specifying the time of the day, date,
+A one-time schedule is a schedule that invokes a target only once. You configure a one-time schedule by specifying the time of day, date,
 and time zone in which EventBridge Scheduler evaluates the schedule.
 
 ```go
@@ -100,13 +102,13 @@ oneTimeSchedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"
 
 ### Grouping Schedules
 
-Your AWS account comes with a default scheduler group. You can access default group in CDK with:
+Your AWS account comes with a default scheduler group. You can access the default group in CDK with:
 
 ```go
 defaultGroup := awscdkscheduleralpha.Group_FromDefaultGroup(this, jsii.String("DefaultGroup"))
 ```
 
-If not specified a schedule is added to the default group. However, you can also add the schedule to a custom scheduling group managed by you:
+You can add a schedule to a custom scheduling group managed by you. If a custom group is not specified, the schedule is added to the default group.
 
 ```go
 var target lambdaInvoke
@@ -157,13 +159,18 @@ awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 ## Scheduler Targets
 
 The `@aws-cdk/aws-scheduler-targets-alpha` module includes classes that implement the `IScheduleTarget` interface for
-various AWS services. EventBridge Scheduler supports two types of targets: templated targets invoke common API
-operations across a core groups of services, and customizable universal targets that you can use to call more
-than 6,000 operations across over 270 services. A list of supported targets can be found at `@aws-cdk/aws-scheduler-targets-alpha`.
+various AWS services. EventBridge Scheduler supports two types of targets:
+
+1. **Templated targets** which invoke common API
+   operations across a core groups of services, and
+2. **Universal targets** that you can customize to call more
+   than 6,000 operations across over 270 services.
+
+A list of supported targets can be found at `@aws-cdk/aws-scheduler-targets-alpha`.
 
 ### Input
 
-Target can be invoked with a custom input. Class `ScheduleTargetInput` supports free form text input and JSON-formatted object input:
+Targets can be invoked with a custom input. The `ScheduleTargetInput`class supports free-form text input and JSON-formatted object input:
 
 ```go
 input := awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
@@ -185,14 +192,14 @@ text := fmt.Sprintf("Attempt number: %v", awscdkscheduleralpha.ContextAttribute_
 input := awscdkscheduleralpha.ScheduleTargetInput_FromText(text)
 ```
 
-### Specifying Execution Role
+### Specifying an execution role
 
 An execution role is an IAM role that EventBridge Scheduler assumes in order to interact with other AWS services on your behalf.
 
 The classes for templated schedule targets automatically create an IAM role with all the minimum necessary
 permissions to interact with the templated target. If you wish you may specify your own IAM role, then the templated targets
-will grant minimal required permissions. For example: for invoking Lambda function target `LambdaInvoke` will grant
-execution IAM role permission to `lambda:InvokeFunction`.
+will grant minimal required permissions. For example, the target `LambdaInvoke` will grant the
+IAM execution role `lambda:InvokeFunction` permission to invoke the Lambda function.
 
 ```go
 var fn function
@@ -210,14 +217,14 @@ target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
 })
 ```
 
-### Specifying Encryption key
+### Specifying an encryption key
 
 EventBridge Scheduler integrates with AWS Key Management Service (AWS KMS) to encrypt and decrypt your data using an AWS KMS key.
 EventBridge Scheduler supports two types of KMS keys: AWS owned keys, and customer managed keys.
 
 By default, all events in Scheduler are encrypted with a key that AWS owns and manages.
 If you wish you can also provide a customer managed key to encrypt and decrypt the payload that your schedule delivers to its target using the `key` property.
-Target classes will automatically add AWS KMS Decrypt permission to your schedule's execution role permissions policy.
+Target classes will automatically add AWS `kms:Decrypt` permission to your schedule's execution role permissions policy.
 
 ```go
 var key key

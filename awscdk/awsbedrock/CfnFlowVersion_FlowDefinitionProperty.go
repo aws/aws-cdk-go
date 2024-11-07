@@ -60,6 +60,10 @@ package awsbedrock
 //   					KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //
 //   					// the properties below are optional
+//   					GuardrailConfiguration: &GuardrailConfigurationProperty{
+//   						GuardrailIdentifier: jsii.String("guardrailIdentifier"),
+//   						GuardrailVersion: jsii.String("guardrailVersion"),
+//   					},
 //   					ModelId: jsii.String("modelId"),
 //   				},
 //   				LambdaFunction: &LambdaFunctionFlowNodeConfigurationProperty{
@@ -96,7 +100,6 @@ package awsbedrock
 //   										jsii.String("stopSequences"),
 //   									},
 //   									Temperature: jsii.Number(123),
-//   									TopK: jsii.Number(123),
 //   									TopP: jsii.Number(123),
 //   								},
 //   							},
@@ -104,6 +107,12 @@ package awsbedrock
 //   						Resource: &PromptFlowNodeResourceConfigurationProperty{
 //   							PromptArn: jsii.String("promptArn"),
 //   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					GuardrailConfiguration: &GuardrailConfigurationProperty{
+//   						GuardrailIdentifier: jsii.String("guardrailIdentifier"),
+//   						GuardrailVersion: jsii.String("guardrailVersion"),
 //   					},
 //   				},
 //   				Retrieval: &RetrievalFlowNodeConfigurationProperty{

@@ -98,8 +98,6 @@ import (
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   })
@@ -490,9 +488,6 @@ func NewCfnConnection_Override(c CfnConnection, scope constructs.Construct, id *
 }
 
 func (j *jsiiProxy_CfnConnection)SetAuthorizationType(val *string) {
-	if err := j.validateSetAuthorizationTypeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"authorizationType",

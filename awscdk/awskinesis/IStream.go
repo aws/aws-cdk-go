@@ -13,6 +13,12 @@ import (
 // A Kinesis Stream.
 type IStream interface {
 	awscdk.IResource
+	// Adds a statement to the IAM resource policy associated with this stream.
+	//
+	// If this stream was created in this stack (`new Stream`), a resource policy
+	// will be automatically created upon the first call to `addToResourcePolicy`. If
+	// the stream is imported (`Stream.import`), then this is a no-op.
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant the indicated permissions on this stream to the provided IAM principal.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions for this stream and its contents to an IAM principal (Role/Group/User).
@@ -162,6 +168,22 @@ type IStream interface {
 // The jsii proxy for IStream
 type jsiiProxy_IStream struct {
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IStream) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		i,
+		"addToResourcePolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
 }
 
 func (i *jsiiProxy_IStream) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {

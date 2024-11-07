@@ -291,6 +291,10 @@ func init() {
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.SpekeKeyProviderProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_SpekeKeyProviderProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.StartTagProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_StartTagProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpointPolicy",
 		reflect.TypeOf((*CfnOriginEndpointPolicy)(nil)).Elem(),

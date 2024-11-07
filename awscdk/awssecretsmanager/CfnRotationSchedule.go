@@ -62,6 +62,7 @@ import (
 type CfnRotationSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the secret.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

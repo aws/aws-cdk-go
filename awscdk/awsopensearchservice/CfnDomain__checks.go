@@ -340,6 +340,30 @@ func (j *jsiiProxy_CfnDomain) validateSetEncryptionAtRestOptionsParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetIdentityCenterOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDomain_IdentityCenterOptionsProperty:
+		val := val.(*CfnDomain_IdentityCenterOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomain_IdentityCenterOptionsProperty:
+		val_ := val.(CfnDomain_IdentityCenterOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_IdentityCenterOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetLogPublishingOptionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

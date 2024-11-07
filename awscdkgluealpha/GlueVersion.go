@@ -8,16 +8,14 @@ import (
 // AWS Glue version determines the versions of Apache Spark and Python that are available to the job.
 //
 // Example:
-//   glue.NewJob(this, jsii.String("EnableSparkUI"), &JobProps{
-//   	JobName: jsii.String("EtlJobWithSparkUIPrefix"),
-//   	SparkUI: &SparkUIProps{
-//   		Enabled: jsii.Boolean(true),
-//   	},
+//   glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
+//   	JobName: jsii.String("EtlJobWithRunQueuing"),
 //   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V3_0(),
+//   		GlueVersion: glue.GlueVersion_V4_0(),
 //   		PythonVersion: glue.PythonVersion_THREE,
 //   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 //   	}),
+//   	JobRunQueuingEnabled: jsii.Boolean(true),
 //   })
 //
 // See: https://docs.aws.amazon.com/glue/latest/dg/add-job.html.

@@ -36,7 +36,6 @@ package awsbedrock
 //   						jsii.String("stopSequences"),
 //   					},
 //   					Temperature: jsii.Number(123),
-//   					TopK: jsii.Number(123),
 //   					TopP: jsii.Number(123),
 //   				},
 //   			},
@@ -44,6 +43,12 @@ package awsbedrock
 //   		Resource: &PromptFlowNodeResourceConfigurationProperty{
 //   			PromptArn: jsii.String("promptArn"),
 //   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	GuardrailConfiguration: &GuardrailConfigurationProperty{
+//   		GuardrailIdentifier: jsii.String("guardrailIdentifier"),
+//   		GuardrailVersion: jsii.String("guardrailVersion"),
 //   	},
 //   }
 //
@@ -54,5 +59,9 @@ type CfnFlowVersion_PromptFlowNodeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeconfiguration.html#cfn-bedrock-flowversion-promptflownodeconfiguration-sourceconfiguration
 	//
 	SourceConfiguration interface{} `field:"required" json:"sourceConfiguration" yaml:"sourceConfiguration"`
+	// Configuration for a guardrail.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeconfiguration.html#cfn-bedrock-flowversion-promptflownodeconfiguration-guardrailconfiguration
+	//
+	GuardrailConfiguration interface{} `field:"optional" json:"guardrailConfiguration" yaml:"guardrailConfiguration"`
 }
 

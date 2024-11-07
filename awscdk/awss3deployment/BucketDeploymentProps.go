@@ -75,9 +75,12 @@ type BucketDeploymentProps struct {
 	// Default: - Not set.
 	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
-	// Key prefix in the destination bucket.
+	// Key prefix in the destination bucket. Must be <=104 characters.
 	//
-	// Must be <=104 characters.
+	// If it's set with prune: true, it will only prune files with the prefix.
+	//
+	// We recommend to always configure the `destinationKeyPrefix` property. This will prevent the deployment
+	// from accidentally deleting data that wasn't uploaded by it.
 	// Default: "/" (unzip to root of the destination bucket).
 	//
 	DestinationKeyPrefix *string `field:"optional" json:"destinationKeyPrefix" yaml:"destinationKeyPrefix"`
@@ -164,7 +167,10 @@ type BucketDeploymentProps struct {
 	// Default: true.
 	//
 	OutputObjectKeys *bool `field:"optional" json:"outputObjectKeys" yaml:"outputObjectKeys"`
-	// If this is set to false, files in the destination bucket that do not exist in the asset, will NOT be deleted during deployment (create/update).
+	// By default, files in the destination bucket that don't exist in the source will be deleted when the BucketDeployment resource is created or updated.
+	//
+	// If this is set to false, files in the destination bucket that
+	// do not exist in the asset, will NOT be deleted during deployment (create/update).
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
 	//
 	// Default: true.

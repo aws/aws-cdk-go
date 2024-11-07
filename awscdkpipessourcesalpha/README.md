@@ -37,7 +37,7 @@ pipeSource := sources.NewSqsSource(sourceQueue)
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: pipeSource,
-	Target: NewSomeTarget(targetQueue),
+	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 })
 ```
 
@@ -55,7 +55,7 @@ pipeSource := sources.NewSqsSource(sourceQueue, &SqsSourceParameters{
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: pipeSource,
-	Target: NewSomeTarget(targetQueue),
+	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 })
 ```
 
@@ -74,7 +74,7 @@ pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: pipeSource,
-	Target: NewSomeTarget(targetQueue),
+	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 })
 ```
 
@@ -98,6 +98,6 @@ pipeSource := sources.NewDynamoDBSource(table, &DynamoDBSourceParameters{
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: pipeSource,
-	Target: NewSomeTarget(targetQueue),
+	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 })
 ```

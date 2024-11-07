@@ -79,6 +79,7 @@ type TableV2 interface {
 	TableName() *string
 	// The stream ARN of the table.
 	TableStreamArn() *string
+	Tags() awscdk.TagManager
 	// Add a global secondary index to the table.
 	//
 	// Note: Global secondary indexes will be inherited by all replica tables.
@@ -352,6 +353,16 @@ func (j *jsiiProxy_TableV2) TableStreamArn() *string {
 	_jsii_.Get(
 		j,
 		"tableStreamArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TableV2) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns

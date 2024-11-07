@@ -27,6 +27,7 @@ import (
 //   	Name: jsii.String("name"),
 //   	Organization: jsii.String("organization"),
 //   	Password: jsii.String("password"),
+//   	Port: jsii.Number(123),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -102,6 +103,10 @@ type CfnInfluxDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-password
 	//
 	Password *string `field:"optional" json:"password" yaml:"password"`
+	// The port number on which InfluxDB accepts connections.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-port
+	//
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Configures the DB instance with a public IP to facilitate access.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-publiclyaccessible
 	//

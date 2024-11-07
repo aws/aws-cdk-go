@@ -373,7 +373,7 @@ type CfnDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A collection of settings that apply to spaces created in the domain.
+	// The default settings for shared spaces that users create in the domain.
 	DefaultSpaceSettings() interface{}
 	SetDefaultSpaceSettings(val interface{})
 	// The default user settings.

@@ -106,11 +106,13 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// The type of network interface.
 	//
-	// To create an Elastic Fabric Adapter (EFA), specify `efa` . For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide* .
+	// To create an Elastic Fabric Adapter (EFA), specify `efa` or `efa` . For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide* .
 	//
 	// If you are not creating an EFA, specify `interface` or omit this parameter.
 	//
-	// Valid values: `interface` | `efa`.
+	// If you specify `efa-only` , do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
+	//
+	// Valid values: `interface` | `efa` | `efa-only`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-interfacetype
 	//
 	InterfaceType *string `field:"optional" json:"interfaceType" yaml:"interfaceType"`

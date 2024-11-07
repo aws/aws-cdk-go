@@ -48,12 +48,15 @@ type CfnLogicallyAirGappedBackupVault interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The backup vault access policy document in JSON format.
 	AccessPolicy() interface{}
 	SetAccessPolicy(val interface{})
 	AttrBackupVaultArn() *string
 	AttrEncryptionKeyArn() *string
+	// The name of a logical container where backups are stored.
 	BackupVaultName() *string
 	SetBackupVaultName(val *string)
+	// The tags to assign to the vault.
 	BackupVaultTags() *map[string]*string
 	SetBackupVaultTags(val *map[string]*string)
 	// Tag Manager which manages the tags for this resource.
@@ -77,12 +80,15 @@ type CfnLogicallyAirGappedBackupVault interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays() *float64
 	SetMaxRetentionDays(val *float64)
+	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	MinRetentionDays() *float64
 	SetMinRetentionDays(val *float64)
 	// The tree node.
 	Node() constructs.Node
+	// Returns event notifications for the specified backup vault.
 	Notifications() interface{}
 	SetNotifications(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -107,8 +113,10 @@ type CfnLogicallyAirGappedBackupVault interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The current state of the vault.
 	VaultState() *string
 	SetVaultState(val *string)
+	// The type of vault described.
 	VaultType() *string
 	SetVaultType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

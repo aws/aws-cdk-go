@@ -10,6 +10,7 @@ package awsses
 //
 //   cfnConfigurationSetProps := &CfnConfigurationSetProps{
 //   	DeliveryOptions: &DeliveryOptionsProperty{
+//   		MaxDeliverySeconds: jsii.Number(123),
 //   		SendingPoolName: jsii.String("sendingPoolName"),
 //   		TlsPolicy: jsii.String("tlsPolicy"),
 //   	},

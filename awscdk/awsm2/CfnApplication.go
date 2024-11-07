@@ -19,14 +19,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnApplication := awscdk.Aws_m2.NewCfnApplication(this, jsii.String("MyCfnApplication"), &CfnApplicationProps{
-//   	Definition: &DefinitionProperty{
-//   		Content: jsii.String("content"),
-//   		S3Location: jsii.String("s3Location"),
-//   	},
 //   	EngineType: jsii.String("engineType"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	Definition: &DefinitionProperty{
+//   		Content: jsii.String("content"),
+//   		S3Location: jsii.String("s3Location"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	RoleArn: jsii.String("roleArn"),

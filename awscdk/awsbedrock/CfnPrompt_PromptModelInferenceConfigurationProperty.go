@@ -16,7 +16,6 @@ package awsbedrock
 //   		jsii.String("stopSequences"),
 //   	},
 //   	Temperature: jsii.Number(123),
-//   	TopK: jsii.Number(123),
 //   	TopP: jsii.Number(123),
 //   }
 //
@@ -37,10 +36,6 @@ type CfnPrompt_PromptModelInferenceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptmodelinferenceconfiguration.html#cfn-bedrock-prompt-promptmodelinferenceconfiguration-temperature
 	//
 	Temperature *float64 `field:"optional" json:"temperature" yaml:"temperature"`
-	// Sample from the k most likely next tokens.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptmodelinferenceconfiguration.html#cfn-bedrock-prompt-promptmodelinferenceconfiguration-topk
-	//
-	TopK *float64 `field:"optional" json:"topK" yaml:"topK"`
 	// The percentage of most-likely candidates that the model considers for the next token.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptmodelinferenceconfiguration.html#cfn-bedrock-prompt-promptmodelinferenceconfiguration-topp
 	//

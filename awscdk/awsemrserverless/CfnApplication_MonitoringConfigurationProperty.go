@@ -1,7 +1,7 @@
 package awsemrserverless
 
 
-// The configuration setting for monitoring.
+// The configuration setting for monitoring logs.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

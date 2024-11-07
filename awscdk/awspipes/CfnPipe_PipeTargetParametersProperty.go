@@ -17,7 +17,7 @@ package awspipes
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 //   	Source: pipeSource,
-//   	Target: NewSomeTarget(targetQueue),
+//   	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html

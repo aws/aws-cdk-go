@@ -31,21 +31,6 @@ import (
 //   	Variants: []interface{}{
 //   		&PromptVariantProperty{
 //   			Name: jsii.String("name"),
-//   			TemplateType: jsii.String("templateType"),
-//
-//   			// the properties below are optional
-//   			InferenceConfiguration: &PromptInferenceConfigurationProperty{
-//   				Text: &PromptModelInferenceConfigurationProperty{
-//   					MaxTokens: jsii.Number(123),
-//   					StopSequences: []*string{
-//   						jsii.String("stopSequences"),
-//   					},
-//   					Temperature: jsii.Number(123),
-//   					TopK: jsii.Number(123),
-//   					TopP: jsii.Number(123),
-//   				},
-//   			},
-//   			ModelId: jsii.String("modelId"),
 //   			TemplateConfiguration: &PromptTemplateConfigurationProperty{
 //   				Text: &TextPromptTemplateConfigurationProperty{
 //   					InputVariables: []interface{}{
@@ -63,6 +48,20 @@ import (
 //   					},
 //   				},
 //   			},
+//   			TemplateType: jsii.String("templateType"),
+//
+//   			// the properties below are optional
+//   			InferenceConfiguration: &PromptInferenceConfigurationProperty{
+//   				Text: &PromptModelInferenceConfigurationProperty{
+//   					MaxTokens: jsii.Number(123),
+//   					StopSequences: []*string{
+//   						jsii.String("stopSequences"),
+//   					},
+//   					Temperature: jsii.Number(123),
+//   					TopP: jsii.Number(123),
+//   				},
+//   			},
+//   			ModelId: jsii.String("modelId"),
 //   		},
 //   	},
 //   })

@@ -35,6 +35,10 @@ import (
 type DatabaseClusterProps struct {
 	// What kind of database to start.
 	Engine IClusterEngine `field:"required" json:"engine" yaml:"engine"`
+	// Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window.
+	// Default: true.
+	//
+	AutoMinorVersionUpgrade *bool `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The number of seconds to set a cluster's target backtrack window to.
 	//
 	// This feature is only supported by the Aurora MySQL database engine and

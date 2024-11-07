@@ -10,21 +10,6 @@ package awsbedrock
 //
 //   promptVariantProperty := &PromptVariantProperty{
 //   	Name: jsii.String("name"),
-//   	TemplateType: jsii.String("templateType"),
-//
-//   	// the properties below are optional
-//   	InferenceConfiguration: &PromptInferenceConfigurationProperty{
-//   		Text: &PromptModelInferenceConfigurationProperty{
-//   			MaxTokens: jsii.Number(123),
-//   			StopSequences: []*string{
-//   				jsii.String("stopSequences"),
-//   			},
-//   			Temperature: jsii.Number(123),
-//   			TopK: jsii.Number(123),
-//   			TopP: jsii.Number(123),
-//   		},
-//   	},
-//   	ModelId: jsii.String("modelId"),
 //   	TemplateConfiguration: &PromptTemplateConfigurationProperty{
 //   		Text: &TextPromptTemplateConfigurationProperty{
 //   			InputVariables: []interface{}{
@@ -42,6 +27,20 @@ package awsbedrock
 //   			},
 //   		},
 //   	},
+//   	TemplateType: jsii.String("templateType"),
+//
+//   	// the properties below are optional
+//   	InferenceConfiguration: &PromptInferenceConfigurationProperty{
+//   		Text: &PromptModelInferenceConfigurationProperty{
+//   			MaxTokens: jsii.Number(123),
+//   			StopSequences: []*string{
+//   				jsii.String("stopSequences"),
+//   			},
+//   			Temperature: jsii.Number(123),
+//   			TopP: jsii.Number(123),
+//   		},
+//   	},
+//   	ModelId: jsii.String("modelId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html
@@ -51,6 +50,10 @@ type CfnPrompt_PromptVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Contains configurations for the prompt template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-templateconfiguration
+	//
+	TemplateConfiguration interface{} `field:"required" json:"templateConfiguration" yaml:"templateConfiguration"`
 	// The type of prompt template to use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-templatetype
 	//
@@ -63,9 +66,5 @@ type CfnPrompt_PromptVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-modelid
 	//
 	ModelId *string `field:"optional" json:"modelId" yaml:"modelId"`
-	// Contains configurations for the prompt template.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-templateconfiguration
-	//
-	TemplateConfiguration interface{} `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 

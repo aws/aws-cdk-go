@@ -16,6 +16,7 @@ intake and aggregation.
     * [Write Permissions](#write-permissions)
     * [Custom Permissions](#custom-permissions)
   * [Metrics](#metrics)
+  * [Resource Policy](#resource-policy)
 
 ## Streams
 
@@ -183,5 +184,64 @@ stream.metricGetRecordsSuccess()
 // using pre-defined and overriding the statistic
 stream.metricGetRecordsSuccess(&MetricOptions{
 	Statistic: jsii.String("Maximum"),
+})
+```
+
+### Resource Policy
+
+You can create a resource policy for a data stream.
+For more information, see [Controlling access to Amazon Kinesis Data Streams resources using IAM](https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html).
+
+A resource policy is automatically created when `addToResourcePolicy` is called, if one doesn't already exist.
+
+Using `addToResourcePolicy` is the simplest way to add a resource policy:
+
+```go
+stream := kinesis.NewStream(this, jsii.String("MyStream"))
+
+// create a resource policy via addToResourcePolicy method
+stream.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Resources: []*string{
+		stream.StreamArn,
+	},
+	Actions: []*string{
+		jsii.String("kinesis:GetRecords"),
+	},
+	Principals: []iPrincipal{
+		iam.NewAnyPrincipal(),
+	},
+}))
+```
+
+You can create a resource manually by using `ResourcePolicy`.
+Also, you can set a custom policy document to `ResourcePolicy`.
+If not, a blank policy document will be set.
+
+```go
+stream := kinesis.NewStream(this, jsii.String("MyStream"))
+
+// create a custom policy document
+policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
+	AssignSids: jsii.Boolean(true),
+	Statements: []policyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
+				jsii.String("kinesis:GetRecords"),
+			},
+			Resources: []*string{
+				stream.StreamArn,
+			},
+			Principals: []iPrincipal{
+				iam.NewAnyPrincipal(),
+			},
+		}),
+	},
+})
+
+// create a resource policy manually
+// create a resource policy manually
+kinesis.NewResourcePolicy(this, jsii.String("ResourcePolicy"), &ResourcePolicyProps{
+	Stream: Stream,
+	PolicyDocument: PolicyDocument,
 })
 ```

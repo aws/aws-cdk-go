@@ -18,7 +18,7 @@ import (
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 //   	Source: pipeSource,
-//   	Target: NewSomeTarget(targetQueue),
+//   	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 //   })
 //
 // Experimental.

@@ -1,7 +1,7 @@
 package awsemrserverless
 
 
-// Configuration for Auto Start of Application.
+// The configuration for an application to automatically start on job submission.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +15,7 @@ package awsemrserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostartconfiguration.html
 //
 type CfnApplication_AutoStartConfigurationProperty struct {
-	// If set to true, the Application will automatically start.
-	//
-	// Defaults to true.
+	// Enables the application to automatically start on job submission.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostartconfiguration.html#cfn-emrserverless-application-autostartconfiguration-enabled
 	//
 	// Default: - true.

@@ -83,7 +83,7 @@ type CfnGlobalReplicationGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The engine of the Global Datastore.
+	// The ElastiCache engine.
 	Engine() *string
 	SetEngine(val *string)
 	// The Elasticache Valkey or Redis OSS engine version.

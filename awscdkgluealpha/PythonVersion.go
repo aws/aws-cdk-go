@@ -4,16 +4,14 @@ package awscdkgluealpha
 // Python version.
 //
 // Example:
-//   glue.NewJob(this, jsii.String("EnableSparkUI"), &JobProps{
-//   	JobName: jsii.String("EtlJobWithSparkUIPrefix"),
-//   	SparkUI: &SparkUIProps{
-//   		Enabled: jsii.Boolean(true),
-//   	},
+//   glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
+//   	JobName: jsii.String("EtlJobWithRunQueuing"),
 //   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V3_0(),
+//   		GlueVersion: glue.GlueVersion_V4_0(),
 //   		PythonVersion: glue.PythonVersion_THREE,
 //   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 //   	}),
+//   	JobRunQueuingEnabled: jsii.Boolean(true),
 //   })
 //
 // Experimental.

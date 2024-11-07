@@ -34,6 +34,7 @@ type CfnEIP interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// Describes an Elastic IP address, or a carrier IP address.
 	Address() *string
 	SetAddress(val *string)
 	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC.

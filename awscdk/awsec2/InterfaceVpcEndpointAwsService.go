@@ -1125,6 +1125,17 @@ func InterfaceVpcEndpointAwsService_COST_EXPLORER() InterfaceVpcEndpointAwsServi
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_COST_OPTIMIZATION_HUB() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"COST_OPTIMIZATION_HUB",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_DATA_EXCHANGE() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

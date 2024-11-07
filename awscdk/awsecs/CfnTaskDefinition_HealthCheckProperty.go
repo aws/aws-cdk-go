@@ -45,7 +45,7 @@ type CfnTaskDefinition_HealthCheckProperty struct {
 	//
 	// `CMD-SHELL, curl -f http://localhost/ || exit 1`
 	//
-	// An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see `HealthCheck` in the docker container create command
+	// An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see `HealthCheck` in the docker container create command.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
 	//
 	Command *[]*string `field:"optional" json:"command" yaml:"command"`

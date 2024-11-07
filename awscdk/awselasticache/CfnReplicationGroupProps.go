@@ -231,6 +231,8 @@ type CfnReplicationGroupProps struct {
 	// The name of the cache engine to be used for the clusters in this replication group.
 	//
 	// The value must be set to `valkey` or `redis` .
+	//
+	// > Upgrading an existing engine from redis to valkey is done through in-place migration, and requires a parameter group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-engine
 	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`

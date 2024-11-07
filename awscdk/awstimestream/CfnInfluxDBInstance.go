@@ -34,6 +34,7 @@ import (
 //   	Name: jsii.String("name"),
 //   	Organization: jsii.String("organization"),
 //   	Password: jsii.String("password"),
+//   	Port: jsii.Number(123),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -129,6 +130,9 @@ type CfnInfluxDBInstance interface {
 	// The password of the initial admin user created in InfluxDB.
 	Password() *string
 	SetPassword(val *string)
+	// The port number on which InfluxDB accepts connections.
+	Port() *float64
+	SetPort(val *float64)
 	// Configures the DB instance with a public IP to facilitate access.
 	PubliclyAccessible() interface{}
 	SetPubliclyAccessible(val interface{})
@@ -540,6 +544,16 @@ func (j *jsiiProxy_CfnInfluxDBInstance) Password() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInfluxDBInstance) Port() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"port",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInfluxDBInstance) PubliclyAccessible() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -737,6 +751,14 @@ func (j *jsiiProxy_CfnInfluxDBInstance)SetPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"password",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance)SetPort(val *float64) {
+	_jsii_.Set(
+		j,
+		"port",
 		val,
 	)
 }

@@ -27,6 +27,10 @@ import (
 type Stream interface {
 	awscdk.Resource
 	IStream
+	// Indicates if a stream resource policy should automatically be created upon the first call to `addToResourcePolicy`.
+	//
+	// Set by subclasses.
+	AutoCreatePolicy() *bool
 	// Optional KMS encryption key associated with this stream.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
@@ -54,6 +58,12 @@ type Stream interface {
 	StreamArn() *string
 	// The name of the stream.
 	StreamName() *string
+	// Adds a statement to the IAM resource policy associated with this stream.
+	//
+	// If this stream was created in this stack (`new Strem`), a resource policy
+	// will be automatically created upon the first call to `addToResourcePolicy`. If
+	// the stream is imported (`Stream.import`), then this is a no-op.
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -225,6 +235,16 @@ type Stream interface {
 type jsiiProxy_Stream struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IStream
+}
+
+func (j *jsiiProxy_Stream) AutoCreatePolicy() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"autoCreatePolicy",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Stream) EncryptionKey() awskms.IKey {
@@ -430,6 +450,22 @@ func Stream_IsResource(construct constructs.IConstruct) *bool {
 		"aws-cdk-lib.aws_kinesis.Stream",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Stream) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := s.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		s,
+		"addToResourcePolicy",
+		[]interface{}{statement},
 		&returns,
 	)
 

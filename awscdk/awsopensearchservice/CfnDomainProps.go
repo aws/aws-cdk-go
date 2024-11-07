@@ -92,6 +92,14 @@ import (
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	EngineVersion: jsii.String("engineVersion"),
+//   	IdentityCenterOptions: &IdentityCenterOptionsProperty{
+//   		EnabledApiAccess: jsii.Boolean(false),
+//   		IdentityCenterApplicationArn: jsii.String("identityCenterApplicationArn"),
+//   		IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   		IdentityStoreId: jsii.String("identityStoreId"),
+//   		RolesKey: jsii.String("rolesKey"),
+//   		SubjectKey: jsii.String("subjectKey"),
+//   	},
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	LogPublishingOptions: map[string]interface{}{
 //   		"logPublishingOptionsKey": &LogPublishingOptionProperty{
@@ -202,6 +210,10 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
+	// Container for IAM Identity Center Option control for the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-identitycenteroptions
+	//
+	IdentityCenterOptions interface{} `field:"optional" json:"identityCenterOptions" yaml:"identityCenterOptions"`
 	// Choose either dual stack or IPv4 as your IP address type.
 	//
 	// Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.

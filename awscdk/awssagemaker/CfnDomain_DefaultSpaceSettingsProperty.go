@@ -1,7 +1,9 @@
 package awssagemaker
 
 
-// A collection of settings that apply to spaces created in the domain.
+// The default settings for shared spaces that users create in the domain.
+//
+// SageMaker applies these settings only to shared spaces. It doesn't apply them to private spaces.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

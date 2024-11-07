@@ -282,6 +282,10 @@ func init() {
 		reflect.TypeOf((*CfnPipeline_PipelineTriggerDeclarationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline.RetryConfigurationProperty",
+		reflect.TypeOf((*CfnPipeline_RetryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline.CfnPipeline.RuleDeclarationProperty",
 		reflect.TypeOf((*CfnPipeline_RuleDeclarationProperty)(nil)).Elem(),
 	)

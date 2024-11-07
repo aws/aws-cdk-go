@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnDomain) validateSetEncryptionAtRestOptionsParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetIdentityCenterOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetLogPublishingOptionsParameters(val interface{}) error {
 	return nil
 }

@@ -130,6 +130,24 @@ The `sparkUI` property also allows the specification of an s3 bucket and a bucke
 
 See [documentation](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) for more information on adding jobs in Glue.
 
+### Enable Job Run Queuing
+
+AWS Glue job queuing monitors your account level quotas and limits. If quotas or limits are insufficient to start a Glue job run, AWS Glue will automatically queue the job and wait for limits to free up. Once limits become available, AWS Glue will retry the job run. Glue jobs will queue for limits like max concurrent job runs per account, max concurrent Data Processing Units (DPU), and resource unavailable due to IP address exhaustion in Amazon Virtual Private Cloud (Amazon VPC).
+
+Enable job run queuing by setting the `jobRunQueuingEnabled` property to `true`.
+
+```go
+glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
+	JobName: jsii.String("EtlJobWithRunQueuing"),
+	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
+		GlueVersion: glue.GlueVersion_V4_0(),
+		PythonVersion: glue.PythonVersion_THREE,
+		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
+	}),
+	JobRunQueuingEnabled: jsii.Boolean(true),
+})
+```
+
 ## Connection
 
 A `Connection` allows Glue jobs, crawlers and development endpoints to access certain types of data stores. For example, to create a network connection to connect to a data source within a VPC:

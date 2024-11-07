@@ -16,20 +16,14 @@ import (
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
-//   	 // Optional - will default to 'admin' username and generated password
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-//   		PubliclyAccessible: jsii.Boolean(false),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("Instance"), &ProvisionedClusterInstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
 //   	}),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
-//   			PromotionTier: jsii.Number(1),
-//   		}),
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 //   	},
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-//   	},
+//   	InstanceUpdateBehaviour: rds.InstanceUpdateBehaviour_ROLLING,
+//   	 // Optional - defaults to rds.InstanceUpdateBehaviour.BULK
 //   	Vpc: Vpc,
 //   })
 //

@@ -26,7 +26,7 @@ import (
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 //   	Source: pipeSource,
-//   	Target: NewSomeTarget(targetQueue),
+//   	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 //   })
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html

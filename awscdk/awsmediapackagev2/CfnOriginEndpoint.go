@@ -30,6 +30,7 @@ import (
 //   			// the properties below are optional
 //   			DrmSignaling: jsii.String("drmSignaling"),
 //   			FilterConfiguration: &FilterConfigurationProperty{
+//   				ClipStartTime: jsii.String("clipStartTime"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -65,6 +66,7 @@ import (
 //   			// the properties below are optional
 //   			ChildManifestName: jsii.String("childManifestName"),
 //   			FilterConfiguration: &FilterConfigurationProperty{
+//   				ClipStartTime: jsii.String("clipStartTime"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -74,6 +76,12 @@ import (
 //   			ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   			ScteHls: &ScteHlsProperty{
 //   				AdMarkerHls: jsii.String("adMarkerHls"),
+//   			},
+//   			StartTag: &StartTagProperty{
+//   				TimeOffset: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				Precise: jsii.Boolean(false),
 //   			},
 //   			Url: jsii.String("url"),
 //   		},
@@ -85,6 +93,7 @@ import (
 //   			// the properties below are optional
 //   			ChildManifestName: jsii.String("childManifestName"),
 //   			FilterConfiguration: &FilterConfigurationProperty{
+//   				ClipStartTime: jsii.String("clipStartTime"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -94,6 +103,12 @@ import (
 //   			ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   			ScteHls: &ScteHlsProperty{
 //   				AdMarkerHls: jsii.String("adMarkerHls"),
+//   			},
+//   			StartTag: &StartTagProperty{
+//   				TimeOffset: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				Precise: jsii.Boolean(false),
 //   			},
 //   			Url: jsii.String("url"),
 //   		},

@@ -118,6 +118,9 @@ import (
 //   					},
 //   				},
 //   				Result: jsii.String("result"),
+//   				RetryConfiguration: &RetryConfigurationProperty{
+//   					RetryMode: jsii.String("retryMode"),
+//   				},
 //   			},
 //   			OnSuccess: &SuccessConditionsProperty{
 //   				Conditions: []interface{}{

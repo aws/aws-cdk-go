@@ -9,6 +9,7 @@ package awsses
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   deliveryOptionsProperty := &DeliveryOptionsProperty{
+//   	MaxDeliverySeconds: jsii.Number(123),
 //   	SendingPoolName: jsii.String("sendingPoolName"),
 //   	TlsPolicy: jsii.String("tlsPolicy"),
 //   }
@@ -16,6 +17,10 @@ package awsses
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html
 //
 type CfnConfigurationSet_DeliveryOptionsProperty struct {
+	// Specifies the maximum time until which SES will retry sending emails.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html#cfn-ses-configurationset-deliveryoptions-maxdeliveryseconds
+	//
+	MaxDeliverySeconds *float64 `field:"optional" json:"maxDeliverySeconds" yaml:"maxDeliverySeconds"`
 	// The name of the dedicated IP pool to associate with the configuration set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html#cfn-ses-configurationset-deliveryoptions-sendingpoolname
 	//

@@ -97,6 +97,14 @@ import (
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	EngineVersion: jsii.String("engineVersion"),
+//   	IdentityCenterOptions: &IdentityCenterOptionsProperty{
+//   		EnabledApiAccess: jsii.Boolean(false),
+//   		IdentityCenterApplicationArn: jsii.String("identityCenterApplicationArn"),
+//   		IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   		IdentityStoreId: jsii.String("identityStoreId"),
+//   		RolesKey: jsii.String("rolesKey"),
+//   		SubjectKey: jsii.String("subjectKey"),
+//   	},
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	LogPublishingOptions: map[string]interface{}{
 //   		"logPublishingOptionsKey": &LogPublishingOptionProperty{
@@ -171,6 +179,10 @@ type CfnDomain interface {
 	//
 	// For example, `123456789012/my-domain` .
 	AttrId() *string
+	// The ARN for IAM Identity Center Application which will integrate with Amazon OpenSearch Service.
+	AttrIdentityCenterOptionsIdentityCenterApplicationArn() *string
+	// The ID of IAM Identity Store.
+	AttrIdentityCenterOptionsIdentityStoreId() *string
 	AttrServiceSoftwareOptions() awscdk.IResolvable
 	AttrServiceSoftwareOptionsAutomatedUpdateDate() *string
 	AttrServiceSoftwareOptionsCancellable() awscdk.IResolvable
@@ -212,6 +224,9 @@ type CfnDomain interface {
 	// The version of OpenSearch to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
+	// Container for IAM Identity Center Option control for the domain.
+	IdentityCenterOptions() interface{}
+	SetIdentityCenterOptions(val interface{})
 	// Choose either dual stack or IPv4 as your IP address type.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
@@ -498,6 +513,26 @@ func (j *jsiiProxy_CfnDomain) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) AttrIdentityCenterOptionsIdentityCenterApplicationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIdentityCenterOptionsIdentityCenterApplicationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) AttrIdentityCenterOptionsIdentityStoreId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIdentityCenterOptionsIdentityStoreId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) AttrServiceSoftwareOptions() awscdk.IResolvable {
 	var returns awscdk.IResolvable
 	_jsii_.Get(
@@ -703,6 +738,16 @@ func (j *jsiiProxy_CfnDomain) EngineVersion() *string {
 	_jsii_.Get(
 		j,
 		"engineVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) IdentityCenterOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"identityCenterOptions",
 		&returns,
 	)
 	return returns
@@ -1001,6 +1046,17 @@ func (j *jsiiProxy_CfnDomain)SetEngineVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"engineVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetIdentityCenterOptions(val interface{}) {
+	if err := j.validateSetIdentityCenterOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"identityCenterOptions",
 		val,
 	)
 }

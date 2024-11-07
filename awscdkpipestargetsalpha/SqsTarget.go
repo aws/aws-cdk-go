@@ -17,11 +17,14 @@ import (
 //   var targetQueue queue
 //
 //
-//   pipeTarget := targets.NewSqsTarget(targetQueue)
+//   pipeSource := sources.NewSqsSource(sourceQueue, &SqsSourceParameters{
+//   	BatchSize: jsii.Number(10),
+//   	MaximumBatchingWindow: cdk.Duration_Seconds(jsii.Number(10)),
+//   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-//   	Target: pipeTarget,
+//   	Source: pipeSource,
+//   	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 //   })
 //
 // Experimental.

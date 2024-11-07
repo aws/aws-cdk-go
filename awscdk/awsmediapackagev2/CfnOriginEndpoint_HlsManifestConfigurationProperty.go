@@ -14,6 +14,7 @@ package awsmediapackagev2
 //   	// the properties below are optional
 //   	ChildManifestName: jsii.String("childManifestName"),
 //   	FilterConfiguration: &FilterConfigurationProperty{
+//   		ClipStartTime: jsii.String("clipStartTime"),
 //   		End: jsii.String("end"),
 //   		ManifestFilter: jsii.String("manifestFilter"),
 //   		Start: jsii.String("start"),
@@ -23,6 +24,12 @@ package awsmediapackagev2
 //   	ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   	ScteHls: &ScteHlsProperty{
 //   		AdMarkerHls: jsii.String("adMarkerHls"),
+//   	},
+//   	StartTag: &StartTagProperty{
+//   		TimeOffset: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		Precise: jsii.Boolean(false),
 //   	},
 //   	Url: jsii.String("url"),
 //   }
@@ -56,6 +63,12 @@ type CfnOriginEndpoint_HlsManifestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-sctehls
 	//
 	ScteHls interface{} `field:"optional" json:"scteHls" yaml:"scteHls"`
+	// <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset.
+	//
+	// When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-starttag
+	//
+	StartTag interface{} `field:"optional" json:"startTag" yaml:"startTag"`
 	// The URL of the HLS manifest configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-url
 	//

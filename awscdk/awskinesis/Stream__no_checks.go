@@ -4,6 +4,10 @@ package awskinesis
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_Stream) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (s *jsiiProxy_Stream) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

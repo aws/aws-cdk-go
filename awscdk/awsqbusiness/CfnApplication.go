@@ -12,6 +12,8 @@ import (
 // Creates an Amazon Q Business application.
 //
 // > There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro are also available in Amazon Q Business Lite. For information on what's included in Amazon Q Business Lite and what's included in Amazon Q Business Pro, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers) . You must use the Amazon Q Business console to assign subscription tiers to users.
+// >
+// > A Amazon Q Apps service linked role will be created if it's absent in the AWS account when the QAppsConfiguration is enabled in the request. For more information, see [Using service-linked roles for Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

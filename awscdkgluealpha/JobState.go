@@ -2,7 +2,7 @@ package awscdkgluealpha
 
 
 // Job states emitted by Glue to CloudWatch Events.
-// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types for more information.
+// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
 //
 // Experimental.
 type JobState string

@@ -33,6 +33,8 @@ type CfnStudioLifecycleConfigProps struct {
 	//
 	StudioLifecycleConfigAppType *string `field:"required" json:"studioLifecycleConfigAppType" yaml:"studioLifecycleConfigAppType"`
 	// The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+	//
+	// This content must be base64 encoded.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html#cfn-sagemaker-studiolifecycleconfig-studiolifecycleconfigcontent
 	//
 	StudioLifecycleConfigContent *string `field:"required" json:"studioLifecycleConfigContent" yaml:"studioLifecycleConfigContent"`
@@ -41,6 +43,8 @@ type CfnStudioLifecycleConfigProps struct {
 	//
 	StudioLifecycleConfigName *string `field:"required" json:"studioLifecycleConfigName" yaml:"studioLifecycleConfigName"`
 	// Tags to be associated with the Lifecycle Configuration.
+	//
+	// Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html#cfn-sagemaker-studiolifecycleconfig-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

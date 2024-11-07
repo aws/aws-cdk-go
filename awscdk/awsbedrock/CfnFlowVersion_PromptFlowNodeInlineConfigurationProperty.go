@@ -32,7 +32,6 @@ package awsbedrock
 //   				jsii.String("stopSequences"),
 //   			},
 //   			Temperature: jsii.Number(123),
-//   			TopK: jsii.Number(123),
 //   			TopP: jsii.Number(123),
 //   		},
 //   	},

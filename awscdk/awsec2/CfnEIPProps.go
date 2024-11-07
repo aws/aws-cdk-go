@@ -24,6 +24,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html
 //
 type CfnEIPProps struct {
+	// Describes an Elastic IP address, or a carrier IP address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-address
 	//
 	Address *string `field:"optional" json:"address" yaml:"address"`

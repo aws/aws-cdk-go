@@ -214,7 +214,7 @@ type CfnService interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 	DeploymentConfiguration() interface{}
 	SetDeploymentConfiguration(val interface{})
 	// The deployment controller to use for the service.

@@ -36,6 +36,9 @@ package awscodepipeline
 //   		},
 //   	},
 //   	Result: jsii.String("result"),
+//   	RetryConfiguration: &RetryConfigurationProperty{
+//   		RetryMode: jsii.String("retryMode"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html
@@ -49,5 +52,9 @@ type CfnPipeline_FailureConditionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-result
 	//
 	Result *string `field:"optional" json:"result" yaml:"result"`
+	// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-retryconfiguration
+	//
+	RetryConfiguration interface{} `field:"optional" json:"retryConfiguration" yaml:"retryConfiguration"`
 }
 

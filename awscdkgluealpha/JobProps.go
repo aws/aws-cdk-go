@@ -8,16 +8,14 @@ import (
 // Construction properties for `Job`.
 //
 // Example:
-//   glue.NewJob(this, jsii.String("EnableSparkUI"), &JobProps{
-//   	JobName: jsii.String("EtlJobWithSparkUIPrefix"),
-//   	SparkUI: &SparkUIProps{
-//   		Enabled: jsii.Boolean(true),
-//   	},
+//   glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
+//   	JobName: jsii.String("EtlJobWithRunQueuing"),
 //   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V3_0(),
+//   		GlueVersion: glue.GlueVersion_V4_0(),
 //   		PythonVersion: glue.PythonVersion_THREE,
 //   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 //   	}),
+//   	JobRunQueuingEnabled: jsii.Boolean(true),
 //   })
 //
 // Experimental.
@@ -40,7 +38,7 @@ type JobProps struct {
 	// Experimental.
 	ContinuousLogging *ContinuousLoggingProps `field:"optional" json:"continuousLogging" yaml:"continuousLogging"`
 	// The default arguments for this job, specified as name-value pairs.
-	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html for a list of reserved parameters
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Default: - no arguments.
 	//
@@ -72,6 +70,15 @@ type JobProps struct {
 	//
 	// Experimental.
 	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
+	// Specifies whether job run queuing is enabled for the job runs for this job.
+	//
+	// A value of true means job run queuing is enabled for the job runs.
+	// If false or not populated, the job runs will not be considered for queueing.
+	// If this field does not match the value set in the job run, then the value from the job run field will be used.
+	// Default: - no job run queuing.
+	//
+	// Experimental.
+	JobRunQueuingEnabled *bool `field:"optional" json:"jobRunQueuingEnabled" yaml:"jobRunQueuingEnabled"`
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	//
 	// Cannot be used for Glue version 2.0 and later - workerType and workerCount should be used instead.

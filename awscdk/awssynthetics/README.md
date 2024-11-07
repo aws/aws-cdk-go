@@ -310,3 +310,32 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 	},
 })
 ```
+
+Canary artifacts are encrypted at rest using an AWS-managed key by default.
+
+You can choose the encryption options SSE-S3 or SSE-KMS by setting the `artifactS3EncryptionMode` property.
+
+When you use SSE-KMS, you can also supply your own external KMS key by specifying the `kmsKey` property. If you don't, a KMS key will be automatically created and associated with the canary.
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+
+key := kms.NewKey(this, jsii.String("myKey"))
+
+canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
+	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
+	Test: synthetics.Test_Custom(&CustomTestOptions{
+		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
+		Handler: jsii.String("index.handler"),
+	}),
+	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_7_0(),
+	ArtifactsBucketLifecycleRules: []lifecycleRule{
+		&lifecycleRule{
+			Expiration: awscdk.Duration_Days(jsii.Number(30)),
+		},
+	},
+	ArtifactS3EncryptionMode: synthetics.ArtifactsEncryptionMode_KMS,
+	ArtifactS3KmsKey: key,
+})
+```

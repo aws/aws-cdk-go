@@ -1027,6 +1027,7 @@ func init() {
 			"CAA": RecordType_CAA,
 			"CNAME": RecordType_CNAME,
 			"DS": RecordType_DS,
+			"HTTPS": RecordType_HTTPS,
 			"MX": RecordType_MX,
 			"NAPTR": RecordType_NAPTR,
 			"NS": RecordType_NS,
@@ -1034,6 +1035,9 @@ func init() {
 			"SOA": RecordType_SOA,
 			"SPF": RecordType_SPF,
 			"SRV": RecordType_SRV,
+			"SSHFP": RecordType_SSHFP,
+			"SVCB": RecordType_SVCB,
+			"TLSA": RecordType_TLSA,
 			"TXT": RecordType_TXT,
 		},
 	)

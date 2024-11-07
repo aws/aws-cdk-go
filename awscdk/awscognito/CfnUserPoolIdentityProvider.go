@@ -40,7 +40,6 @@ type CfnUserPoolIdentityProvider interface {
 	// A mapping of IdP attributes to standard and custom user pool attributes.
 	AttributeMapping() interface{}
 	SetAttributeMapping(val interface{})
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -237,16 +236,6 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) AttributeMapping() interface{} {
 	_jsii_.Get(
 		j,
 		"attributeMapping",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnUserPoolIdentityProvider) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

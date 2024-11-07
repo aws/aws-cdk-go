@@ -9,6 +9,7 @@ package awsmediapackagev2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   filterConfigurationProperty := &FilterConfigurationProperty{
+//   	ClipStartTime: jsii.String("clipStartTime"),
 //   	End: jsii.String("end"),
 //   	ManifestFilter: jsii.String("manifestFilter"),
 //   	Start: jsii.String("start"),
@@ -18,6 +19,12 @@ package awsmediapackagev2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html
 //
 type CfnOriginEndpoint_FilterConfigurationProperty struct {
+	// Optionally specify the clip start time for all of your manifest egress requests.
+	//
+	// When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-clipstarttime
+	//
+	ClipStartTime *string `field:"optional" json:"clipStartTime" yaml:"clipStartTime"`
 	// Optionally specify the end time for all of your manifest egress requests.
 	//
 	// When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.

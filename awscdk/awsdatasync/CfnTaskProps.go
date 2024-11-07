@@ -114,7 +114,9 @@ type CfnTaskProps struct {
 	SourceLocationArn *string `field:"required" json:"sourceLocationArn" yaml:"sourceLocationArn"`
 	// Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring your task.
 	//
-	// For more information, see [Monitoring DataSync with Amazon CloudWatch](https://docs.aws.amazon.com/datasync/latest/userguide/monitor-datasync.html) .
+	// For Enhanced mode tasks, you don't need to specify anything. DataSync automatically sends logs to a CloudWatch log group named `/aws/datasync` .
+	//
+	// For more information, see [Monitoring data transfers with CloudWatch Logs](https://docs.aws.amazon.com/datasync/latest/userguide/configure-logging.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
 	//
 	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
@@ -124,7 +126,7 @@ type CfnTaskProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
 	//
 	Excludes interface{} `field:"optional" json:"excludes" yaml:"excludes"`
-	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer.
+	// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer.
 	//
 	// For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes

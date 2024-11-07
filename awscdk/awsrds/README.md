@@ -136,6 +136,23 @@ rds.NewDatabaseClusterFromSnapshot(this, jsii.String("Database"), &DatabaseClust
 })
 ```
 
+By default, automatic minor version upgrades for the engine type are enabled in a cluster, but you can also disable this.
+To do so, set `autoMinorVersionUpgrade` to `false`.
+
+```go
+var vpc iVpc
+
+
+rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_07_0(),
+	}),
+	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writerInstance")),
+	Vpc: Vpc,
+	AutoMinorVersionUpgrade: jsii.Boolean(false),
+})
+```
+
 ### Updating the database instances in a cluster
 
 Database cluster instances may be updated in bulk or on a rolling basis.

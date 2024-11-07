@@ -33,6 +33,7 @@ import (
 //
 //   cfnConfigurationSet := awscdk.Aws_ses.NewCfnConfigurationSet(this, jsii.String("MyCfnConfigurationSet"), &CfnConfigurationSetProps{
 //   	DeliveryOptions: &DeliveryOptionsProperty{
+//   		MaxDeliverySeconds: jsii.Number(123),
 //   		SendingPoolName: jsii.String("sendingPoolName"),
 //   		TlsPolicy: jsii.String("tlsPolicy"),
 //   	},

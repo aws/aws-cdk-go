@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 )
 
@@ -43,6 +44,19 @@ type CanaryProps struct {
 	// Default: false.
 	//
 	ActiveTracing *bool `field:"optional" json:"activeTracing" yaml:"activeTracing"`
+	// Canary Artifacts in S3 encryption mode.
+	//
+	// Artifact encryption is only supported for canaries that use Synthetics runtime
+	// version `syn-nodejs-puppeteer-3.3` or later.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_artifact_encryption.html
+	//
+	// Default: - Artifacts are encrypted at rest using an AWS managed key. `ArtifactsEncryptionMode.KMS` is set if you specify `artifactS3KmsKey`.
+	//
+	ArtifactS3EncryptionMode ArtifactsEncryptionMode `field:"optional" json:"artifactS3EncryptionMode" yaml:"artifactS3EncryptionMode"`
+	// The KMS key used to encrypt canary artifacts.
+	// Default: - no kms key if `artifactS3EncryptionMode` is set to `S3_MANAGED`. A key will be created if one is not provided and `artifactS3EncryptionMode` is set to `KMS`.
+	//
+	ArtifactS3KmsKey awskms.IKey `field:"optional" json:"artifactS3KmsKey" yaml:"artifactS3KmsKey"`
 	// Lifecycle rules for the generated canary artifact bucket.
 	//
 	// Has no effect

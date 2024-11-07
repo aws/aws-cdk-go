@@ -19,6 +19,7 @@ package awsnetworkfirewall
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html
 //
 type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
+	// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-flowtimeouts
 	//
 	FlowTimeouts interface{} `field:"optional" json:"flowTimeouts" yaml:"flowTimeouts"`

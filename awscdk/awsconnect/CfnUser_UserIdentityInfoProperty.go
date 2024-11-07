@@ -3,7 +3,7 @@ package awsconnect
 
 // Contains information about the identity of a user.
 //
-// > For Amazon Connect instances that are created with the `EXISTING_DIRECTORY` identity management type, `FirstName` , `LastName` , and `Email` cannot be updated from within Amazon Connect because they are managed by the directory.
+// > For Amazon Connect instances that are created with the `EXISTING_DIRECTORY` identity management type, `FirstName` , `LastName` , and `Email` cannot be updated from within Amazon Connect because they are managed by the directory. > The `FirstName` and `LastName` length constraints below apply only to instances using SAML for identity management. If you are using Amazon Connect for identity management, the length constraints are 1-255 for `FirstName` , and 1-256 for `LastName` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

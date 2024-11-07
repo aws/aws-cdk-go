@@ -14,6 +14,7 @@ package awsmediapackagev2
 //   	// the properties below are optional
 //   	DrmSignaling: jsii.String("drmSignaling"),
 //   	FilterConfiguration: &FilterConfigurationProperty{
+//   		ClipStartTime: jsii.String("clipStartTime"),
 //   		End: jsii.String("end"),
 //   		ManifestFilter: jsii.String("manifestFilter"),
 //   		Start: jsii.String("start"),

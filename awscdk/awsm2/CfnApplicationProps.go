@@ -9,14 +9,14 @@ package awsm2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnApplicationProps := &CfnApplicationProps{
-//   	Definition: &DefinitionProperty{
-//   		Content: jsii.String("content"),
-//   		S3Location: jsii.String("s3Location"),
-//   	},
 //   	EngineType: jsii.String("engineType"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	Definition: &DefinitionProperty{
+//   		Content: jsii.String("content"),
+//   		S3Location: jsii.String("s3Location"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	RoleArn: jsii.String("roleArn"),
@@ -28,12 +28,6 @@ package awsm2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html
 //
 type CfnApplicationProps struct {
-	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
-	//
-	// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html#cfn-m2-application-definition
-	//
-	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
 	// The type of the target platform for this application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html#cfn-m2-application-enginetype
 	//
@@ -42,6 +36,12 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html#cfn-m2-application-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+	//
+	// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html#cfn-m2-application-definition
+	//
+	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
 	// The description of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html#cfn-m2-application-description
 	//

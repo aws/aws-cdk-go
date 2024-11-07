@@ -11,6 +11,14 @@ func init() {
 		"aws-cdk-lib.aws_synthetics.ArtifactsBucketLocation",
 		reflect.TypeOf((*ArtifactsBucketLocation)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_synthetics.ArtifactsEncryptionMode",
+		reflect.TypeOf((*ArtifactsEncryptionMode)(nil)).Elem(),
+		map[string]interface{}{
+			"S3_MANAGED": ArtifactsEncryptionMode_S3_MANAGED,
+			"KMS": ArtifactsEncryptionMode_KMS,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_synthetics.AssetCode",
 		reflect.TypeOf((*AssetCode)(nil)).Elem(),
