@@ -1,7 +1,9 @@
 package awsgamelift
 
 
-// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
+// *This data type is currently not available.
+//
+// It is under improvement as we respond to customer feedback from the Containers public preview.*
 //
 // Describes a container in a container fleet, the resources available to the container, and the commands that are run when the container starts. Container properties can't be updated. To change a property, create a new container group definition. See also `ContainerDefinitionInput` .
 //

@@ -70,6 +70,22 @@ func validateS3Code_FromBucketParameters(bucket awss3.IBucket, key *string) erro
 	return nil
 }
 
+func validateS3Code_FromBucketV2Parameters(bucket awss3.IBucket, key *string, options *BucketOptions) error {
+	if bucket == nil {
+		return fmt.Errorf("parameter bucket is required, but nil was provided")
+	}
+
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateS3Code_FromCfnParametersParameters(props *CfnParametersCodeProps) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err

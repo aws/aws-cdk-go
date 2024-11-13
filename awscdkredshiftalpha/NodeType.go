@@ -2,6 +2,23 @@ package awscdkredshiftalpha
 
 
 // Possible Node Types to use in the cluster used for defining `ClusterProps.nodeType`.
+//
+// Example:
+//   // Example automatically generated from non-compiling source. May contain errors.
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var vpc iVpc
+//
+//
+//   cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+//   	MasterUser: &Login{
+//   		MasterUsername: jsii.String("admin"),
+//   	},
+//   	Vpc: Vpc,
+//   	NodeType: nodeType_RA3_XLPLUS,
+//   	AvailabilityZoneRelocation: jsii.Boolean(true),
+//   })
+//
 // Experimental.
 type NodeType string
 

@@ -29,6 +29,7 @@ import (
 //
 //   				// the properties below are optional
 //   				KeyPrefix: jsii.String("keyPrefix"),
+//   				SingleFileOutput: jsii.Boolean(false),
 //   			},
 //   		},
 //

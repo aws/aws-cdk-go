@@ -106,6 +106,20 @@ import (
 //   				Database: jsii.String("database"),
 //   				Host: jsii.String("host"),
 //   				Warehouse: jsii.String("warehouse"),
+//
+//   				// the properties below are optional
+//   				AuthenticationType: jsii.String("authenticationType"),
+//   				DatabaseAccessControlRole: jsii.String("databaseAccessControlRole"),
+//   				OAuthParameters: &OAuthParametersProperty{
+//   					TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   					// the properties below are optional
+//   					IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   					IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   						VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   					},
+//   					OAuthScope: jsii.String("oAuthScope"),
+//   				},
 //   			},
 //   			SparkParameters: &SparkParametersProperty{
 //   				Host: jsii.String("host"),
@@ -122,6 +136,18 @@ import (
 //   				Port: jsii.Number(123),
 //
 //   				// the properties below are optional
+//   				AuthenticationType: jsii.String("authenticationType"),
+//   				DatabaseAccessControlRole: jsii.String("databaseAccessControlRole"),
+//   				OAuthParameters: &OAuthParametersProperty{
+//   					TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   					// the properties below are optional
+//   					IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   					IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   						VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   					},
+//   					OAuthScope: jsii.String("oAuthScope"),
+//   				},
 //   				ProductType: jsii.String("productType"),
 //   			},
 //   			TeradataParameters: &TeradataParametersProperty{
@@ -234,6 +260,20 @@ import (
 //   						Database: jsii.String("database"),
 //   						Host: jsii.String("host"),
 //   						Warehouse: jsii.String("warehouse"),
+//
+//   						// the properties below are optional
+//   						AuthenticationType: jsii.String("authenticationType"),
+//   						DatabaseAccessControlRole: jsii.String("databaseAccessControlRole"),
+//   						OAuthParameters: &OAuthParametersProperty{
+//   							TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   							// the properties below are optional
+//   							IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   							IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   								VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   							},
+//   							OAuthScope: jsii.String("oAuthScope"),
+//   						},
 //   					},
 //   					SparkParameters: &SparkParametersProperty{
 //   						Host: jsii.String("host"),
@@ -250,6 +290,18 @@ import (
 //   						Port: jsii.Number(123),
 //
 //   						// the properties below are optional
+//   						AuthenticationType: jsii.String("authenticationType"),
+//   						DatabaseAccessControlRole: jsii.String("databaseAccessControlRole"),
+//   						OAuthParameters: &OAuthParametersProperty{
+//   							TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   							// the properties below are optional
+//   							IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   							IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   								VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   							},
+//   							OAuthScope: jsii.String("oAuthScope"),
+//   						},
 //   						ProductType: jsii.String("productType"),
 //   					},
 //   					TeradataParameters: &TeradataParametersProperty{
@@ -357,6 +409,20 @@ import (
 //   			Database: jsii.String("database"),
 //   			Host: jsii.String("host"),
 //   			Warehouse: jsii.String("warehouse"),
+//
+//   			// the properties below are optional
+//   			AuthenticationType: jsii.String("authenticationType"),
+//   			DatabaseAccessControlRole: jsii.String("databaseAccessControlRole"),
+//   			OAuthParameters: &OAuthParametersProperty{
+//   				TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   				// the properties below are optional
+//   				IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   				IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   					VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   				},
+//   				OAuthScope: jsii.String("oAuthScope"),
+//   			},
 //   		},
 //   		SparkParameters: &SparkParametersProperty{
 //   			Host: jsii.String("host"),
@@ -373,6 +439,18 @@ import (
 //   			Port: jsii.Number(123),
 //
 //   			// the properties below are optional
+//   			AuthenticationType: jsii.String("authenticationType"),
+//   			DatabaseAccessControlRole: jsii.String("databaseAccessControlRole"),
+//   			OAuthParameters: &OAuthParametersProperty{
+//   				TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   				// the properties below are optional
+//   				IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   				IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   					VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   				},
+//   				OAuthScope: jsii.String("oAuthScope"),
+//   			},
 //   			ProductType: jsii.String("productType"),
 //   		},
 //   		TeradataParameters: &TeradataParametersProperty{

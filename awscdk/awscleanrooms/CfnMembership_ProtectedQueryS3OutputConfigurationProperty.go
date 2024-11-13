@@ -14,6 +14,7 @@ package awscleanrooms
 //
 //   	// the properties below are optional
 //   	KeyPrefix: jsii.String("keyPrefix"),
+//   	SingleFileOutput: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html
@@ -31,5 +32,8 @@ type CfnMembership_ProtectedQueryS3OutputConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html#cfn-cleanrooms-membership-protectedquerys3outputconfiguration-keyprefix
 	//
 	KeyPrefix *string `field:"optional" json:"keyPrefix" yaml:"keyPrefix"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html#cfn-cleanrooms-membership-protectedquerys3outputconfiguration-singlefileoutput
+	//
+	SingleFileOutput interface{} `field:"optional" json:"singleFileOutput" yaml:"singleFileOutput"`
 }
 

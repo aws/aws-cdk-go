@@ -437,6 +437,9 @@ lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancer
 
 	// Indicates how traffic is distributed among the load balancer Availability Zones.
 	ClientRoutingPolicy: elbv2.ClientRoutingPolicy_AVAILABILITY_ZONE_AFFINITY,
+
+	// Indicates whether zonal shift is enabled.
+	ZonalShift: jsii.Boolean(true),
 })
 ```
 

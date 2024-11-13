@@ -43,6 +43,11 @@ type ChannelProps struct {
 	//
 	// Experimental.
 	Preset Preset `field:"optional" json:"preset" yaml:"preset"`
+	// A recording configuration for the channel.
+	// Default: - recording is disabled.
+	//
+	// Experimental.
+	RecordingConfiguration IRecordingConfiguration `field:"optional" json:"recordingConfiguration" yaml:"recordingConfiguration"`
 	// The channel type, which determines the allowable resolution and bitrate.
 	//
 	// If you exceed the allowable resolution or bitrate, the stream will disconnect immediately.

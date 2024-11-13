@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Wisdom::AIAgent Resource Type.
+// Creates an Amazon Q in Connect AI Agent.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -136,10 +136,14 @@ type CfnAIAgent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The identifier of the Amazon Q in Connect assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
+	// The Amazon Resource Name (ARN) of the AI agent.
 	AttrAiAgentArn() *string
+	// The identifier of the AI Agent.
 	AttrAiAgentId() *string
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AttrAssistantArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -148,12 +152,14 @@ type CfnAIAgent interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Configuration for the AI Agent.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The description of the AI Agent.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -166,6 +172,7 @@ type CfnAIAgent interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the AI Agent.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -179,8 +186,10 @@ type CfnAIAgent interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags used to organize, track, or control access for this resource.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
+	// The type of the AI Agent.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

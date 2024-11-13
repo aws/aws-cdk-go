@@ -24,7 +24,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html
 //
 type CfnEIPProps struct {
-	// Describes an Elastic IP address, or a carrier IP address.
+	// An Elastic IP address or a carrier IP address in a Wavelength Zone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-address
 	//
 	Address *string `field:"optional" json:"address" yaml:"address"`
@@ -40,6 +40,9 @@ type CfnEIPProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-instanceid
 	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+	//
+	// For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html#cfn-ec2-eip-ipampoolid
 	//
 	IpamPoolId *string `field:"optional" json:"ipamPoolId" yaml:"ipamPoolId"`

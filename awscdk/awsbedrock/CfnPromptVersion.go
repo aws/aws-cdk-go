@@ -38,7 +38,7 @@ type CfnPromptVersion interface {
 	AttrArn() *string
 	// The time at which the prompt was created.
 	AttrCreatedAt() *string
-	// A KMS key ARN.
+	// The Amazon Resource Name (ARN) of the KMS key that the prompt version is encrypted with.
 	AttrCustomerEncryptionKeyArn() *string
 	// The name of the default variant for the prompt.
 	//
@@ -92,7 +92,7 @@ type CfnPromptVersion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A map of tag keys and values.
+	// A map of tags attached to the prompt version and their values.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

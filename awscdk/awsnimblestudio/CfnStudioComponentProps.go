@@ -52,14 +52,12 @@ package awsnimblestudio
 //   			Script: jsii.String("script"),
 //   		},
 //   	},
-//   	RuntimeRoleArn: jsii.String("runtimeRoleArn"),
 //   	ScriptParameters: []interface{}{
 //   		&ScriptParameterKeyValueProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	SecureInitializationRoleArn: jsii.String("secureInitializationRoleArn"),
 //   	Subtype: jsii.String("subtype"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -99,18 +97,10 @@ type CfnStudioComponentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
 	//
 	InitializationScripts interface{} `field:"optional" json:"initializationScripts" yaml:"initializationScripts"`
-	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-runtimerolearn
-	//
-	RuntimeRoleArn *string `field:"optional" json:"runtimeRoleArn" yaml:"runtimeRoleArn"`
 	// Parameters for the studio component scripts.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
 	//
 	ScriptParameters interface{} `field:"optional" json:"scriptParameters" yaml:"scriptParameters"`
-	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-secureinitializationrolearn
-	//
-	SecureInitializationRoleArn *string `field:"optional" json:"secureInitializationRoleArn" yaml:"secureInitializationRoleArn"`
 	// The specific subtype of a studio component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-subtype
 	//

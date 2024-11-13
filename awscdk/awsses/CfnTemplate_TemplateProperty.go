@@ -3,7 +3,7 @@ package awsses
 
 // An object that defines the email template to use for an email message, and the values to use for any message variables in that template.
 //
-// An *email template* is a type of message template that contains content that you want to define, save, and reuse in email messages that you send.
+// An *email template* is a type of message template that contains content that you want to reuse in email messages that you send. You can specifiy the email template by providing the name or ARN of an *email template* previously saved in your Amazon SES account or by providing the full template content.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

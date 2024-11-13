@@ -125,21 +125,29 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html
 //
 type CfnAIAgentProps struct {
+	// The identifier of the Amazon Q in Connect assistant.
+	//
+	// Can be either the ID or the ARN. URLs cannot contain the ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html#cfn-wisdom-aiagent-assistantid
 	//
 	AssistantId *string `field:"required" json:"assistantId" yaml:"assistantId"`
+	// Configuration for the AI Agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html#cfn-wisdom-aiagent-configuration
 	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
+	// The type of the AI Agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html#cfn-wisdom-aiagent-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The description of the AI Agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html#cfn-wisdom-aiagent-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the AI Agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html#cfn-wisdom-aiagent-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The tags used to organize, track, or control access for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html#cfn-wisdom-aiagent-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

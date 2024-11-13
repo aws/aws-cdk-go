@@ -32,6 +32,7 @@ import (
 //   		// the properties below are optional
 //   		ObjectVersion: jsii.String("objectVersion"),
 //   	},
+//   	SourceKMSKeyArn: jsii.String("sourceKMSKeyArn"),
 //   }
 //
 type CodeConfig struct {
@@ -47,5 +48,9 @@ type CodeConfig struct {
 	// Default: - code is not an s3 location.
 	//
 	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
+	// The ARN of the KMS key used to encrypt the handler code.
+	// Default: - the default server-side encryption with Amazon S3 managed keys(SSE-S3) key will be used.
+	//
+	SourceKMSKeyArn *string `field:"optional" json:"sourceKMSKeyArn" yaml:"sourceKMSKeyArn"`
 }
 

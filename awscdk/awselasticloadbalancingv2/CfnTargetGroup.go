@@ -109,7 +109,7 @@ type CfnTargetGroup interface {
 	// The number of consecutive health check successes required before considering a target healthy.
 	HealthyThresholdCount() *float64
 	SetHealthyThresholdCount(val *float64)
-	// The type of IP address used for this target group.
+	// The IP address type.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.

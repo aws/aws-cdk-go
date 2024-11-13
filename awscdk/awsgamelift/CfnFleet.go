@@ -133,7 +133,7 @@ type CfnFleet interface {
 	// Amazon GameLift Anywhere configuration options.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
-	// Current resource capacity settings for managed EC2 fleets and container fleets.
+	// Current resource capacity settings for managed EC2 fleets.
 	ApplyCapacity() *string
 	SetApplyCapacity(val *string)
 	// The maximum possible number of replica container groups that each fleet instance can have.
@@ -154,7 +154,7 @@ type CfnFleet interface {
 	// The type of compute resource used to host your game servers.
 	ComputeType() *string
 	SetComputeType(val *string)
-	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*.
+	// *This data type is currently not available.
 	ContainerGroupsConfiguration() interface{}
 	SetContainerGroupsConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

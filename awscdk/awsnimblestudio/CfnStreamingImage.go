@@ -36,7 +36,6 @@ type CfnStreamingImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// <p>TODO</p>.
 	AttrEncryptionConfiguration() awscdk.IResolvable
 	AttrEncryptionConfigurationKeyArn() *string
 	AttrEncryptionConfigurationKeyType() *string

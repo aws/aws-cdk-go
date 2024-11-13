@@ -90,7 +90,9 @@ type CfnLoadBalancer interface {
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink .
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string
 	SetEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic(val *string)
-	// Note: Internal load balancers must use the `ipv4` IP address type.
+	// The IP address type.
+	//
+	// Internal load balancers must use `ipv4` .
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The load balancer attributes.

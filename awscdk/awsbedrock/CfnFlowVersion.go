@@ -32,7 +32,7 @@ type CfnFlowVersion interface {
 	awscdk.IInspectable
 	// The time at the version was created.
 	AttrCreatedAt() *string
-	// A KMS key ARN.
+	// The Amazon Resource Name (ARN) of the KMS key that the flow version is encrypted with.
 	AttrCustomerEncryptionKeyArn() *string
 	// Flow definition.
 	AttrDefinition() awscdk.IResolvable

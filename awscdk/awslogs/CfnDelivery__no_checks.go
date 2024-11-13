@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDelivery) validateSetDeliverySourceNameParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnDelivery) validateSetS3EnableHiveCompatiblePathParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDelivery) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

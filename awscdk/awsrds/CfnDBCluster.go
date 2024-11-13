@@ -59,6 +59,7 @@ import (
 //   	},
 //   	BacktrackWindow: jsii.Number(123),
 //   	BackupRetentionPeriod: jsii.Number(123),
+//   	ClusterScalabilityType: jsii.String("clusterScalabilityType"),
 //   	CopyTagsToSnapshot: jsii.Boolean(false),
 //   	DatabaseName: jsii.String("databaseName"),
 //   	DbClusterIdentifier: jsii.String("dbClusterIdentifier"),
@@ -198,6 +199,9 @@ type CfnDBCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Specifies the scalability mode of the Aurora DB cluster.
+	ClusterScalabilityType() *string
+	SetClusterScalabilityType(val *string)
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
 	CopyTagsToSnapshot() interface{}
 	SetCopyTagsToSnapshot(val interface{})
@@ -705,6 +709,16 @@ func (j *jsiiProxy_CfnDBCluster) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) ClusterScalabilityType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterScalabilityType",
 		&returns,
 	)
 	return returns
@@ -1368,6 +1382,14 @@ func (j *jsiiProxy_CfnDBCluster)SetBackupRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
 		"backupRetentionPeriod",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetClusterScalabilityType(val *string) {
+	_jsii_.Set(
+		j,
+		"clusterScalabilityType",
 		val,
 	)
 }

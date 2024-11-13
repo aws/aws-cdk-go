@@ -71,6 +71,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TaskMode: jsii.String("taskMode"),
 //   	TaskReportConfig: &TaskReportConfigProperty{
 //   		Destination: &DestinationProperty{
 //   			S3: &S3Property{
@@ -158,6 +159,17 @@ type CfnTaskProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Specifies one of the following task modes for your data transfer:.
+	//
+	// - `ENHANCED` - Transfer virtually unlimited numbers of objects with higher performance than Basic mode. Enhanced mode tasks optimize the data transfer process by listing, preparing, transferring, and verifying data in parallel. Enhanced mode is currently available for transfers between Amazon S3 locations.
+	//
+	// > To create an Enhanced mode task, the IAM role that you use to call the `CreateTask` operation must have the `iam:CreateServiceLinkedRole` permission.
+	// - `BASIC` (default) - Transfer files or objects between AWS storage and all other supported DataSync locations. Basic mode tasks are subject to [quotas](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html) on the number of files, objects, and directories in a dataset. Basic mode sequentially prepares, transfers, and verifies data, making it slower than Enhanced mode for most workloads.
+	//
+	// For more information, see [Understanding task mode differences](https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-taskmode
+	//
+	TaskMode *string `field:"optional" json:"taskMode" yaml:"taskMode"`
 	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer.
 	//
 	// For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .

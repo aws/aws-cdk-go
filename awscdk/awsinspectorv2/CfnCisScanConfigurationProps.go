@@ -42,8 +42,6 @@ package awsinspectorv2
 //   		AccountIds: []*string{
 //   			jsii.String("accountIds"),
 //   		},
-//
-//   		// the properties below are optional
 //   		TargetResourceTags: map[string][]*string{
 //   			"targetResourceTagsKey": []*string{
 //   				jsii.String("targetResourceTags"),

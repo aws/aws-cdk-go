@@ -24,6 +24,10 @@ func validateS3Code_FromBucketParameters(bucket awss3.IBucket, key *string) erro
 	return nil
 }
 
+func validateS3Code_FromBucketV2Parameters(bucket awss3.IBucket, key *string, options *BucketOptions) error {
+	return nil
+}
+
 func validateS3Code_FromCfnParametersParameters(props *CfnParametersCodeProps) error {
 	return nil
 }

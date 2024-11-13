@@ -1,7 +1,7 @@
 package awsecs
 
 
-// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

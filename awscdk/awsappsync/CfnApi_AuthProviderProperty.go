@@ -1,7 +1,7 @@
 package awsappsync
 
 
-// An auth provider for the AppSync API.
+// Describes an authorization provider.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,21 +39,21 @@ package awsappsync
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html
 //
 type CfnApi_AuthProviderProperty struct {
-	// Security configuration for your AppSync API.
+	// The authorization type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html#cfn-appsync-api-authprovider-authtype
 	//
 	AuthType *string `field:"required" json:"authType" yaml:"authType"`
-	// Optional authorization configuration for using Amazon Cognito user pools with your API endpoint.
+	// Describes an Amazon Cognito user pool configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html#cfn-appsync-api-authprovider-cognitoconfig
 	//
 	CognitoConfig interface{} `field:"optional" json:"cognitoConfig" yaml:"cognitoConfig"`
-	// A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode.
+	// A `LambdaAuthorizerConfig` specifies how to authorize AWS AppSync API access when using the `AWS_LAMBDA` authorizer mode.
 	//
-	// Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+	// Be aware that an AWS AppSync API can have only one AWS Lambda authorizer configured at a time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html#cfn-appsync-api-authprovider-lambdaauthorizerconfig
 	//
 	LambdaAuthorizerConfig interface{} `field:"optional" json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
-	// The OpenID Connect configuration.
+	// Describes an OpenID Connect (OIDC) configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html#cfn-appsync-api-authprovider-openidconnectconfig
 	//
 	OpenIdConnectConfig interface{} `field:"optional" json:"openIdConnectConfig" yaml:"openIdConnectConfig"`

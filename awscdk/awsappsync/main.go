@@ -188,6 +188,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrApiArn", GoGetter: "AttrApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrApiId", GoGetter: "AttrApiId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDns", GoGetter: "AttrDns"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDnsHttp", GoGetter: "AttrDnsHttp"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDnsRealtime", GoGetter: "AttrDnsRealtime"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -235,6 +237,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.CfnApi.CognitoConfigProperty",
 		reflect.TypeOf((*CfnApi_CognitoConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.CfnApi.DnsMapProperty",
+		reflect.TypeOf((*CfnApi_DnsMapProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.CfnApi.EventConfigProperty",

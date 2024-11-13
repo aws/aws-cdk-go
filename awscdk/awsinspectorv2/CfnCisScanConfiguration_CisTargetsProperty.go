@@ -12,8 +12,6 @@ package awsinspectorv2
 //   	AccountIds: []*string{
 //   		jsii.String("accountIds"),
 //   	},
-//
-//   	// the properties below are optional
 //   	TargetResourceTags: map[string][]*string{
 //   		"targetResourceTagsKey": []*string{
 //   			jsii.String("targetResourceTags"),
@@ -31,6 +29,6 @@ type CfnCisScanConfiguration_CisTargetsProperty struct {
 	// The CIS target resource tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-cistargets.html#cfn-inspectorv2-cisscanconfiguration-cistargets-targetresourcetags
 	//
-	TargetResourceTags interface{} `field:"optional" json:"targetResourceTags" yaml:"targetResourceTags"`
+	TargetResourceTags interface{} `field:"required" json:"targetResourceTags" yaml:"targetResourceTags"`
 }
 

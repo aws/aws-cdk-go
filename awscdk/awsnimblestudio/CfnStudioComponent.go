@@ -66,14 +66,12 @@ import (
 //   			Script: jsii.String("script"),
 //   		},
 //   	},
-//   	RuntimeRoleArn: jsii.String("runtimeRoleArn"),
 //   	ScriptParameters: []interface{}{
 //   		&ScriptParameterKeyValueProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	SecureInitializationRoleArn: jsii.String("secureInitializationRoleArn"),
 //   	Subtype: jsii.String("subtype"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -129,15 +127,9 @@ type CfnStudioComponent interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-	RuntimeRoleArn() *string
-	SetRuntimeRoleArn(val *string)
 	// Parameters for the studio component scripts.
 	ScriptParameters() interface{}
 	SetScriptParameters(val interface{})
-	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-	SecureInitializationRoleArn() *string
-	SetSecureInitializationRoleArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -433,31 +425,11 @@ func (j *jsiiProxy_CfnStudioComponent) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStudioComponent) RuntimeRoleArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"runtimeRoleArn",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnStudioComponent) ScriptParameters() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"scriptParameters",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnStudioComponent) SecureInitializationRoleArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"secureInitializationRoleArn",
 		&returns,
 	)
 	return returns
@@ -620,14 +592,6 @@ func (j *jsiiProxy_CfnStudioComponent)SetName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnStudioComponent)SetRuntimeRoleArn(val *string) {
-	_jsii_.Set(
-		j,
-		"runtimeRoleArn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnStudioComponent)SetScriptParameters(val interface{}) {
 	if err := j.validateSetScriptParametersParameters(val); err != nil {
 		panic(err)
@@ -635,14 +599,6 @@ func (j *jsiiProxy_CfnStudioComponent)SetScriptParameters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"scriptParameters",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnStudioComponent)SetSecureInitializationRoleArn(val *string) {
-	_jsii_.Set(
-		j,
-		"secureInitializationRoleArn",
 		val,
 	)
 }

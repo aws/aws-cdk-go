@@ -422,7 +422,8 @@ type CfnReplicationGroupProps struct {
 	//
 	// If you enable in-transit encryption, you must also specify a value for `CacheSubnetGroup` .
 	//
-	// *Required:* Only available when creating a replication group in an Amazon VPC using Redis OSS version `3.2.6` or `4.x` onward.
+	// > - TransitEncryptionEnabled is only available when creating a replication group in an Amazon VPC using Valkey version `7.2` and above, Redis OSS version `3.2.6` , or Redis OSS version `4.x` and above.
+	// > - TransitEncryptionEnabled is required when creating a new valkey replication group.
 	//
 	// Default: `false`
 	//

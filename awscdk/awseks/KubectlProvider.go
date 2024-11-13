@@ -158,7 +158,7 @@ type KubectlProvider interface {
 	// This can be used to define dependencies between any two stacks within an
 	// app, and also supports nested stacks.
 	AddDependency(target awscdk.Stack, reason *string)
-	// Adds an arbitary key-value pair, with information you want to record about the stack.
+	// Adds an arbitrary key-value pair, with information you want to record about the stack.
 	//
 	// These get translated to the Metadata section of the generated template.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html

@@ -40,11 +40,9 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	AppProtocol *string `field:"optional" json:"appProtocol" yaml:"appProtocol"`
 	// The port number on the container that's bound to the user-specified or automatically assigned host port.
 	//
-	// For tasks that use the Fargate launch type or EC2 tasks that use the `awsvpc` network mode, you use `containerPort` to specify the exposed ports.
+	// If you use containers in a task with the `awsvpc` or `host` network mode, specify the exposed ports using `containerPort` .
 	//
-	// For Windows containers on Fargate, you can't use port 3150 for the `containerPort` . This is because it's reserved.
-	//
-	// Suppose that you're using containers in a task with the EC2 launch type and you specify a container port and not a host port. Then, your container automatically receives a host port in the ephemeral port range. For more information, see `hostPort` . Port mappings that are automatically assigned in this way don't count toward the 100 reserved ports quota of a container instance.
+	// If you use containers in a task with the `bridge` network mode and you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range. For more information, see `hostPort` . Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-portmapping.html#cfn-ecs-taskdefinition-portmapping-containerport
 	//
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`

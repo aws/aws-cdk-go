@@ -20,6 +20,9 @@ package awselasticloadbalancingv2
 //
 //   	// Indicates how traffic is distributed among the load balancer Availability Zones.
 //   	ClientRoutingPolicy: elbv2.ClientRoutingPolicy_AVAILABILITY_ZONE_AFFINITY,
+//
+//   	// Indicates whether zonal shift is enabled.
+//   	ZonalShift: jsii.Boolean(true),
 //   })
 //
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity

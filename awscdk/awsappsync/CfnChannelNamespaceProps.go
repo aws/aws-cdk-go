@@ -39,15 +39,17 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html
 //
 type CfnChannelNamespaceProps struct {
-	// AppSync Api Id that this Channel Namespace belongs to.
+	// The `Api` ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-apiid
 	//
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
-	// Namespace indentifier.
+	// The name of the channel namespace.
+	//
+	// This name must be unique within the `Api` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// String of APPSYNC_JS code to be used by the handlers.
+	// The event handler functions that run custom business logic to process published events and subscribe requests.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-codehandlers
 	//
 	CodeHandlers *string `field:"optional" json:"codeHandlers" yaml:"codeHandlers"`
@@ -55,13 +57,19 @@ type CfnChannelNamespaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-codes3location
 	//
 	CodeS3Location *string `field:"optional" json:"codeS3Location" yaml:"codeS3Location"`
+	// The authorization mode to use for publishing messages on the channel namespace.
+	//
+	// This configuration overrides the default `Api` authorization configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-publishauthmodes
 	//
 	PublishAuthModes interface{} `field:"optional" json:"publishAuthModes" yaml:"publishAuthModes"`
+	// The authorization mode to use for subscribing to messages on the channel namespace.
+	//
+	// This configuration overrides the default `Api` authorization configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-subscribeauthmodes
 	//
 	SubscribeAuthModes interface{} `field:"optional" json:"subscribeAuthModes" yaml:"subscribeAuthModes"`
-	// An arbitrary set of tags (key-value pairs) for this AppSync API.
+	// A set of tags (key-value pairs) for this channel namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

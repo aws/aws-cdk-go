@@ -78,6 +78,32 @@ cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &Cluste
 })
 ```
 
+## Availability Zone Relocation
+
+By using [relocation in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-recovery.html), you allow Amazon Redshift to move a cluster to another Availability Zone (AZ) without any loss of data or changes to your applications.
+This feature can be applied to both new and existing clusters.
+
+To enable this feature, set the `availabilityZoneRelocation` property to `true`.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+
+var vpc iVpc
+
+
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+	},
+	Vpc: Vpc,
+	NodeType: nodeType_RA3_XLPLUS,
+	AvailabilityZoneRelocation: jsii.Boolean(true),
+})
+```
+
+**Note**: The `availabilityZoneRelocation` property is only available for RA3 node types.
+
 ## Connecting
 
 To control who can access the cluster, use the `.connections` attribute. Redshift Clusters have

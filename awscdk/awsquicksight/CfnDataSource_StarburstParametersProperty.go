@@ -14,6 +14,18 @@ package awsquicksight
 //   	Port: jsii.Number(123),
 //
 //   	// the properties below are optional
+//   	AuthenticationType: jsii.String("authenticationType"),
+//   	DatabaseAccessControlRole: jsii.String("databaseAccessControlRole"),
+//   	OAuthParameters: &OAuthParametersProperty{
+//   		TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   		// the properties below are optional
+//   		IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   		IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   			VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   		},
+//   		OAuthScope: jsii.String("oAuthScope"),
+//   	},
 //   	ProductType: jsii.String("productType"),
 //   }
 //
@@ -34,6 +46,15 @@ type CfnDataSource_StarburstParametersProperty struct {
 	// Default: - 0.
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-authenticationtype
+	//
+	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-databaseaccesscontrolrole
+	//
+	DatabaseAccessControlRole *string `field:"optional" json:"databaseAccessControlRole" yaml:"databaseAccessControlRole"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-oauthparameters
+	//
+	OAuthParameters interface{} `field:"optional" json:"oAuthParameters" yaml:"oAuthParameters"`
 	// The product type for the Starburst data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-producttype
 	//

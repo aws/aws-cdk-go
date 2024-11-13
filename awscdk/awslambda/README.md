@@ -15,8 +15,29 @@ fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
 The `lambda.Code` class includes static convenience methods for various types of
 runtime code.
 
-* `lambda.Code.fromBucket(bucket, key[, objectVersion])` - specify an S3 object
+* `lambda.Code.fromBucket(bucket, key, objectVersion)` - specify an S3 object
   that contains the archive of your runtime code.
+* `lambda.Code.fromBucketV2(bucket, key, {objectVersion: version, sourceKMSKey: key})` - specify an S3 object
+  that contains the archive of your runtime code.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+var key key
+
+
+bucket := s3.NewBucket(this, jsii.String("Bucket"))
+
+options := map[string]key{
+	"sourceKMSKey": key,
+}
+fnBucket := lambda.NewFunction(this, jsii.String("myFunction2"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromBucketV2(bucket, jsii.String("python-lambda-handler.zip"), options),
+})
+```
+
 * `lambda.Code.fromInline(code)` - inline the handle code as a string. This is
   limited to supported runtimes.
 * `lambda.Code.fromAsset(path)` - specify a directory or a .zip file in the local
@@ -1082,7 +1103,7 @@ https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html
 
 ## Lambda with SnapStart
 
-SnapStart is currently supported only on Java 11 and later [Java managed runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). SnapStart does not support provisioned concurrency, Amazon Elastic File System (Amazon EFS), or ephemeral storage greater than 512 MB. After you enable Lambda SnapStart for a particular Lambda function, publishing a new version of the function will trigger an optimization process.
+SnapStart is currently supported on Python 3.12, Python 3.13, .NET 8, and Java 11 and later [Java managed runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). SnapStart does not support provisioned concurrency, Amazon Elastic File System (Amazon EFS), or ephemeral storage greater than 512 MB. After you enable Lambda SnapStart for a particular Lambda function, publishing a new version of the function will trigger an optimization process.
 
 See [the AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) to learn more about AWS Lambda SnapStart
 

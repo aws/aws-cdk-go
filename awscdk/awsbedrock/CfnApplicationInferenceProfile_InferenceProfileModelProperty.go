@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Model configuration.
+// Contains information about a model.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +15,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodel.html
 //
 type CfnApplicationInferenceProfile_InferenceProfileModelProperty struct {
-	// ARN for Foundation Models in Bedrock.
-	//
-	// These models can be used as base models for model customization jobs.
+	// The Amazon Resource Name (ARN) of the model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodel.html#cfn-bedrock-applicationinferenceprofile-inferenceprofilemodel-modelarn
 	//
 	ModelArn *string `field:"optional" json:"modelArn" yaml:"modelArn"`

@@ -164,6 +164,25 @@ func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *stri
 	return returns
 }
 
+// Lambda handler code as an S3 object.
+func AssetCode_FromBucketV2(bucket awss3.IBucket, key *string, options *BucketOptions) S3CodeV2 {
+	_init_.Initialize()
+
+	if err := validateAssetCode_FromBucketV2Parameters(bucket, key, options); err != nil {
+		panic(err)
+	}
+	var returns S3CodeV2
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.AssetCode",
+		"fromBucketV2",
+		[]interface{}{bucket, key, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`.

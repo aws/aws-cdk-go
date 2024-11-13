@@ -47,10 +47,19 @@ import (
 //   })
 //
 type ProductStackProps struct {
+	// Include runtime versioning information in this Stack.
+	// Default: - `analyticsReporting` setting of containing `App`, or value of
+	// 'aws:cdk:version-reporting' context key.
+	//
+	AnalyticsReporting *bool `field:"optional" json:"analyticsReporting" yaml:"analyticsReporting"`
 	// A Bucket can be passed to store assets, enabling ProductStack Asset support.
 	// Default: - No Bucket provided and Assets will not be supported.
 	//
 	AssetBucket awss3.IBucket `field:"optional" json:"assetBucket" yaml:"assetBucket"`
+	// A description of the stack.
+	// Default: - No description.
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The amount of memory (in MiB) to allocate to the AWS Lambda function which replicates the files from the CDK bucket to the destination bucket.
 	//
 	// If you are deploying large files, you will need to increase this number

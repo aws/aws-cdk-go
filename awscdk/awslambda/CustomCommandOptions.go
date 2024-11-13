@@ -3,6 +3,7 @@ package awslambda
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Options for creating `AssetCode` with a custom command, such as running a buildfile.
@@ -13,10 +14,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var commandOptions interface{}
 //   var dockerImage dockerImage
 //   var grantable iGrantable
+//   var key key
 //   var localBundling iLocalBundling
 //
 //   customCommandOptions := &CustomCommandOptions{
@@ -68,6 +71,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
+//   	SourceKMSKey: key,
 //   }
 //
 type CustomCommandOptions struct {
@@ -139,6 +143,10 @@ type CustomCommandOptions struct {
 	// Default: - No principals that can read file asset.
 	//
 	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
+	// The ARN of the KMS key used to encrypt the handler code.
+	// Default: - the default server-side encryption with Amazon S3 managed keys(SSE-S3) key will be used.
+	//
+	SourceKMSKey awskms.IKey `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
 	// options that are passed to the spawned process, which determine the characteristics of the spawned process.
 	// Default: : see `child_process.SpawnSyncOptions` (https://nodejs.org/api/child_process.html#child_processspawnsynccommand-args-options).
 	//

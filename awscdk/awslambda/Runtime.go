@@ -507,6 +507,17 @@ func Runtime_PYTHON_3_12() Runtime {
 	return returns
 }
 
+func Runtime_PYTHON_3_13() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"PYTHON_3_13",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_PYTHON_3_6() Runtime {
 	_init_.Initialize()
 	var returns Runtime

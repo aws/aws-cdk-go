@@ -76,5 +76,11 @@ type NetworkLoadBalancerProps struct {
 	// Default: - No security groups associated with the load balancer.
 	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// Indicates whether zonal shift is enabled.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/network/zonal-shift.html
+	//
+	// Default: false.
+	//
+	ZonalShift *bool `field:"optional" json:"zonalShift" yaml:"zonalShift"`
 }
 

@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AppSync ChannelNamespace.
+// The `AWS::AppSync::ChannelNamespace` resource creates a channel namespace associated with an `Api` .
+//
+// The `ChannelNamespace` contains the definitions for code handlers for the `Api` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,10 +49,10 @@ type CfnChannelNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// AppSync Api Id that this Channel Namespace belongs to.
+	// The `Api` ID.
 	ApiId() *string
 	SetApiId(val *string)
-	// The Amazon Resource Name (ARN) for the Channel Namespace.
+	// The Amazon Resource Name (ARN) of the channel namespace.
 	AttrChannelNamespaceArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -59,7 +61,7 @@ type CfnChannelNamespace interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// String of APPSYNC_JS code to be used by the handlers.
+	// The event handler functions that run custom business logic to process published events and subscribe requests.
 	CodeHandlers() *string
 	SetCodeHandlers(val *string)
 	// The Amazon S3 endpoint where the code is located.
@@ -79,11 +81,12 @@ type CfnChannelNamespace interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Namespace indentifier.
+	// The name of the channel namespace.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The authorization mode to use for publishing messages on the channel namespace.
 	PublishAuthModes() interface{}
 	SetPublishAuthModes(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -95,9 +98,10 @@ type CfnChannelNamespace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The authorization mode to use for subscribing to messages on the channel namespace.
 	SubscribeAuthModes() interface{}
 	SetSubscribeAuthModes(val interface{})
-	// An arbitrary set of tags (key-value pairs) for this AppSync API.
+	// A set of tags (key-value pairs) for this channel namespace.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

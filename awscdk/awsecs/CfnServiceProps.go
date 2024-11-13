@@ -199,7 +199,7 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
 	//
 	Cluster *string `field:"optional" json:"cluster" yaml:"cluster"`
-	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
 	//
 	DeploymentConfiguration interface{} `field:"optional" json:"deploymentConfiguration" yaml:"deploymentConfiguration"`

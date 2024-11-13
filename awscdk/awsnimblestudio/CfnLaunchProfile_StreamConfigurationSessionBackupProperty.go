@@ -19,8 +19,6 @@ type CfnLaunchProfile_StreamConfigurationSessionBackupProperty struct {
 	// The maximum number of backups that each streaming session created from this launch profile can have.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionbackup.html#cfn-nimblestudio-launchprofile-streamconfigurationsessionbackup-maxbackupstoretain
 	//
-	// Default: - 0.
-	//
 	MaxBackupsToRetain *float64 `field:"optional" json:"maxBackupsToRetain" yaml:"maxBackupsToRetain"`
 	// Specifies how artists sessions are backed up.
 	//

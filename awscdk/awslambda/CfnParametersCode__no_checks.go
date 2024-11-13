@@ -28,6 +28,10 @@ func validateCfnParametersCode_FromBucketParameters(bucket awss3.IBucket, key *s
 	return nil
 }
 
+func validateCfnParametersCode_FromBucketV2Parameters(bucket awss3.IBucket, key *string, options *BucketOptions) error {
+	return nil
+}
+
 func validateCfnParametersCode_FromCfnParametersParameters(props *CfnParametersCodeProps) error {
 	return nil
 }

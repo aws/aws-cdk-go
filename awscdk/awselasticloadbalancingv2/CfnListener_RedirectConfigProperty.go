@@ -60,7 +60,7 @@ type CfnListener_RedirectConfigProperty struct {
 	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The protocol.
 	//
-	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-protocol
 	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`

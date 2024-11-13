@@ -335,6 +335,7 @@ func init() {
 			"ENCRYPT_DECRYPT": KeyUsage_ENCRYPT_DECRYPT,
 			"SIGN_VERIFY": KeyUsage_SIGN_VERIFY,
 			"GENERATE_VERIFY_MAC": KeyUsage_GENERATE_VERIFY_MAC,
+			"KEY_AGREEMENT": KeyUsage_KEY_AGREEMENT,
 		},
 	)
 	_jsii_.RegisterClass(

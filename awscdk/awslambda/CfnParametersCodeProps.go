@@ -2,6 +2,7 @@ package awslambda
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Construction properties for `CfnParametersCode`.
@@ -11,12 +12,15 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cfnParameter cfnParameter
+//   var key key
 //
 //   cfnParametersCodeProps := &CfnParametersCodeProps{
 //   	BucketNameParam: cfnParameter,
 //   	ObjectKeyParam: cfnParameter,
+//   	SourceKMSKey: key,
 //   }
 //
 type CfnParametersCodeProps struct {
@@ -32,5 +36,9 @@ type CfnParametersCodeProps struct {
 	// Default: a new parameter will be created.
 	//
 	ObjectKeyParam awscdk.CfnParameter `field:"optional" json:"objectKeyParam" yaml:"objectKeyParam"`
+	// The ARN of the KMS key used to encrypt the handler code.
+	// Default: - the default server-side encryption with Amazon S3 managed keys(SSE-S3) key will be used.
+	//
+	SourceKMSKey awskms.IKey `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
 }
 

@@ -21,7 +21,7 @@ type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 	// The following attributes are supported by all load balancers:
 	//
 	// - `deletion_protection.enabled` - Indicates whether deletion protection is enabled. The value is `true` or `false` . The default is `false` .
-	// - `load_balancing.cross_zone.enabled` - Indicates whether cross-zone load balancing is enabled. The possible values are `true` and `false` . The default for Network Load Balancers and Gateway Load Balancers is `false` . The default for Application Load Balancers is `true` , and cannot be changed.
+	// - `load_balancing.cross_zone.enabled` - Indicates whether cross-zone load balancing is enabled. The possible values are `true` and `false` . The default for Network Load Balancers and Gateway Load Balancers is `false` . The default for Application Load Balancers is `true` , and can't be changed.
 	//
 	// The following attributes are supported by both Application Load Balancers and Network Load Balancers:
 	//

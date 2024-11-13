@@ -16,9 +16,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
+//   var key key
 //   var localBundling iLocalBundling
 //
 //   s3ImportSource := awscdk.Aws_cloudfront.S3ImportSource_FromAsset(jsii.String("path"), &AssetOptions{
@@ -67,6 +69,7 @@ import (
 //   	Readers: []*iGrantable{
 //   		grantable,
 //   	},
+//   	SourceKMSKey: key,
 //   })
 //
 type S3ImportSource interface {

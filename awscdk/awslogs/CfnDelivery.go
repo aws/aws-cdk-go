@@ -27,6 +27,12 @@ import (
 //   	DeliverySourceName: jsii.String("deliverySourceName"),
 //
 //   	// the properties below are optional
+//   	FieldDelimiter: jsii.String("fieldDelimiter"),
+//   	RecordFields: []*string{
+//   		jsii.String("recordFields"),
+//   	},
+//   	S3EnableHiveCompatiblePath: jsii.Boolean(false),
+//   	S3SuffixPath: jsii.String("s3SuffixPath"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -64,6 +70,9 @@ type CfnDelivery interface {
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName() *string
 	SetDeliverySourceName(val *string)
+	// The field delimiter that is used between record fields when the final output format of a delivery is in `Plain` , `W3C` , or `Raw` format.
+	FieldDelimiter() *string
+	SetFieldDelimiter(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -76,11 +85,20 @@ type CfnDelivery interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The record fields used in this delivery.
+	RecordFields() *[]*string
+	SetRecordFields(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+	S3EnableHiveCompatiblePath() interface{}
+	SetS3EnableHiveCompatiblePath(val interface{})
+	// This string allows re-configuring the S3 object prefix to contain either static or variable sections.
+	S3SuffixPath() *string
+	SetS3SuffixPath(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -335,6 +353,16 @@ func (j *jsiiProxy_CfnDelivery) DeliverySourceName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDelivery) FieldDelimiter() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fieldDelimiter",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDelivery) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -355,11 +383,41 @@ func (j *jsiiProxy_CfnDelivery) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDelivery) RecordFields() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"recordFields",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDelivery) Ref() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDelivery) S3EnableHiveCompatiblePath() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"s3EnableHiveCompatiblePath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDelivery) S3SuffixPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"s3SuffixPath",
 		&returns,
 	)
 	return returns
@@ -451,6 +509,41 @@ func (j *jsiiProxy_CfnDelivery)SetDeliverySourceName(val *string) {
 	_jsii_.Set(
 		j,
 		"deliverySourceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDelivery)SetFieldDelimiter(val *string) {
+	_jsii_.Set(
+		j,
+		"fieldDelimiter",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDelivery)SetRecordFields(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"recordFields",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDelivery)SetS3EnableHiveCompatiblePath(val interface{}) {
+	if err := j.validateSetS3EnableHiveCompatiblePathParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"s3EnableHiveCompatiblePath",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDelivery)SetS3SuffixPath(val *string) {
+	_jsii_.Set(
+		j,
+		"s3SuffixPath",
 		val,
 	)
 }

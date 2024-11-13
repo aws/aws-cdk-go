@@ -213,6 +213,10 @@ func init() {
 		"aws-cdk-lib.aws_lambda.AutoScalingOptions",
 		reflect.TypeOf((*AutoScalingOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.BucketOptions",
+		reflect.TypeOf((*BucketOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.CfnAlias",
 		reflect.TypeOf((*CfnAlias)(nil)).Elem(),
@@ -1899,6 +1903,20 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_S3Code{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Code)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.S3CodeV2",
+		reflect.TypeOf((*S3CodeV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToResource", GoMethod: "BindToResource"},
+			_jsii_.MemberProperty{JsiiProperty: "isInline", GoGetter: "IsInline"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3CodeV2{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_Code)
 			return &j
 		},

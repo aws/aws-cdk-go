@@ -3,6 +3,7 @@ package awss3assets
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
 // Example:
@@ -90,5 +91,9 @@ type AssetOptions struct {
 	// Default: - No principals that can read file asset.
 	//
 	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
+	// The ARN of the KMS key used to encrypt the handler code.
+	// Default: - the default server-side encryption with Amazon S3 managed keys(SSE-S3) key will be used.
+	//
+	SourceKMSKey awskms.IKey `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
 }
 

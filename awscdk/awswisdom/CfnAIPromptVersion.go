@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Wisdom::AIPromptVersion Resource Type.
+// Creates an Amazon Q in Connect AI Prompt version.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,6 +36,7 @@ type CfnAIPromptVersion interface {
 	AttrAiPromptArn() *string
 	AttrAiPromptVersionId() *string
 	AttrAssistantArn() *string
+	// The version number for this AI Prompt version.
 	AttrVersionNumber() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

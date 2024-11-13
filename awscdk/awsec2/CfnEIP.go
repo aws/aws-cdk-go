@@ -34,7 +34,7 @@ type CfnEIP interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Describes an Elastic IP address, or a carrier IP address.
+	// An Elastic IP address or a carrier IP address in a Wavelength Zone.
 	Address() *string
 	SetAddress(val *string)
 	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC.
@@ -58,6 +58,7 @@ type CfnEIP interface {
 	// The ID of the instance.
 	InstanceId() *string
 	SetInstanceId(val *string)
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
 	IpamPoolId() *string
 	SetIpamPoolId(val *string)
 	// The logical ID for this CloudFormation stack element.

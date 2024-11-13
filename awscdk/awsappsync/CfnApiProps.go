@@ -79,11 +79,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-api.html
 //
 type CfnApiProps struct {
-	// The API name.
+	// The name of the `Api` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-api.html#cfn-appsync-api-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The configuration for an Event Api.
+	// Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-api.html#cfn-appsync-api-eventconfig
 	//
 	EventConfig interface{} `field:"optional" json:"eventConfig" yaml:"eventConfig"`
@@ -93,7 +93,7 @@ type CfnApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-api.html#cfn-appsync-api-ownercontact
 	//
 	OwnerContact *string `field:"optional" json:"ownerContact" yaml:"ownerContact"`
-	// The tags.
+	// A set of tags (key-value pairs) for this API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-api.html#cfn-appsync-api-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

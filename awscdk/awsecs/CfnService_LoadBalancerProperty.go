@@ -34,7 +34,7 @@ type CfnService_LoadBalancerProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
 	//
 	ContainerPort *float64 `field:"optional" json:"containerPort" yaml:"containerPort"`
-	// The name of the load balancer to associate with the service or task set.
+	// The name of the load balancer to associate with the Amazon ECS service or task set.
 	//
 	// If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-loadbalancername

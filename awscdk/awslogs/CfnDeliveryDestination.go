@@ -35,6 +35,7 @@ import (
 //   	// the properties below are optional
 //   	DeliveryDestinationPolicy: deliveryDestinationPolicy,
 //   	DestinationResourceArn: jsii.String("destinationResourceArn"),
+//   	OutputFormat: jsii.String("outputFormat"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -85,6 +86,9 @@ type CfnDeliveryDestination interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The format of the logs that are sent to this delivery destination.
+	OutputFormat() *string
+	SetOutputFormat(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -364,6 +368,16 @@ func (j *jsiiProxy_CfnDeliveryDestination) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliveryDestination) OutputFormat() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outputFormat",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliveryDestination) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -465,6 +479,14 @@ func (j *jsiiProxy_CfnDeliveryDestination)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryDestination)SetOutputFormat(val *string) {
+	_jsii_.Set(
+		j,
+		"outputFormat",
 		val,
 	)
 }

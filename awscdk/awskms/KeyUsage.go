@@ -19,5 +19,7 @@ const (
 	KeyUsage_SIGN_VERIFY KeyUsage = "SIGN_VERIFY"
 	// Generating and verifying MACs.
 	KeyUsage_GENERATE_VERIFY_MAC KeyUsage = "GENERATE_VERIFY_MAC"
+	// Deriving shared secrets.
+	KeyUsage_KEY_AGREEMENT KeyUsage = "KEY_AGREEMENT"
 )
 

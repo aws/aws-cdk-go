@@ -29,7 +29,7 @@ type CfnPromptVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-promptversion.html#cfn-bedrock-promptversion-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// A map of tag keys and values.
+	// A map of tags attached to the prompt version and their values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-promptversion.html#cfn-bedrock-promptversion-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

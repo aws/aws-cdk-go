@@ -111,8 +111,6 @@ type CfnContainerGroupDefinitionProps struct {
 	// All containers in the group share these resources. This property is an integer value in CPU units (1 vCPU is equal to 1024 CPU units).
 	//
 	// You can set additional limits for each `ContainerDefinition` in the group. If individual containers have limits, this value must be equal to or greater than the sum of all container-specific CPU limits in the group.
-	//
-	// For more details on memory allocation, see the [Container fleet design guide](https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-design-fleet) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalcpulimit
 	//
 	TotalCpuLimit *float64 `field:"required" json:"totalCpuLimit" yaml:"totalCpuLimit"`
@@ -124,8 +122,6 @@ type CfnContainerGroupDefinitionProps struct {
 	//
 	// - Equal to or greater than the sum of all container-specific soft memory limits in the group.
 	// - Equal to or greater than any container-specific hard limits in the group.
-	//
-	// For more details on memory allocation, see the [Container fleet design guide](https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-design-fleet) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimit
 	//
 	TotalMemoryLimit *float64 `field:"required" json:"totalMemoryLimit" yaml:"totalMemoryLimit"`

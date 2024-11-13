@@ -1,7 +1,7 @@
 package awsappsync
 
 
-// The configuration for an Event Api.
+// Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -64,23 +64,23 @@ package awsappsync
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html
 //
 type CfnApi_EventConfigProperty struct {
-	// A list of auth providers for the AppSync API.
+	// A list of authorization providers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-authproviders
 	//
 	AuthProviders interface{} `field:"required" json:"authProviders" yaml:"authProviders"`
-	// A list of auth modes for the AppSync API.
+	// A list of valid authorization modes for the Event API connections.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-connectionauthmodes
 	//
 	ConnectionAuthModes interface{} `field:"required" json:"connectionAuthModes" yaml:"connectionAuthModes"`
-	// A list of auth modes for the AppSync API.
+	// A list of valid authorization modes for the Event API publishing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-defaultpublishauthmodes
 	//
 	DefaultPublishAuthModes interface{} `field:"required" json:"defaultPublishAuthModes" yaml:"defaultPublishAuthModes"`
-	// A list of auth modes for the AppSync API.
+	// A list of valid authorization modes for the Event API subscriptions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-defaultsubscribeauthmodes
 	//
 	DefaultSubscribeAuthModes interface{} `field:"required" json:"defaultSubscribeAuthModes" yaml:"defaultSubscribeAuthModes"`
-	// The log config for the AppSync API.
+	// The CloudWatch Logs configuration for the Event API.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html#cfn-appsync-api-eventconfig-logconfig
 	//
 	LogConfig interface{} `field:"optional" json:"logConfig" yaml:"logConfig"`

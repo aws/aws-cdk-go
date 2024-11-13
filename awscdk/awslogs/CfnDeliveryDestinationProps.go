@@ -19,6 +19,7 @@ import (
 //   	// the properties below are optional
 //   	DeliveryDestinationPolicy: deliveryDestinationPolicy,
 //   	DestinationResourceArn: jsii.String("destinationResourceArn"),
+//   	OutputFormat: jsii.String("outputFormat"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -44,6 +45,10 @@ type CfnDeliveryDestinationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-destinationresourcearn
 	//
 	DestinationResourceArn *string `field:"optional" json:"destinationResourceArn" yaml:"destinationResourceArn"`
+	// The format of the logs that are sent to this delivery destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-outputformat
+	//
+	OutputFormat *string `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// The tags that have been assigned to this delivery destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-tags
 	//

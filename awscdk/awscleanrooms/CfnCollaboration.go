@@ -42,6 +42,7 @@ import (
 //   	QueryLogStatus: jsii.String("queryLogStatus"),
 //
 //   	// the properties below are optional
+//   	AnalyticsEngine: jsii.String("analyticsEngine"),
 //   	CreatorPaymentConfiguration: &PaymentConfigurationProperty{
 //   		QueryCompute: &QueryComputePaymentConfigProperty{
 //   			IsResponsible: jsii.Boolean(false),
@@ -67,6 +68,8 @@ type CfnCollaboration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	AnalyticsEngine() *string
+	SetAnalyticsEngine(val *string)
 	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
@@ -279,6 +282,16 @@ type jsiiProxy_CfnCollaboration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnCollaboration) AnalyticsEngine() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"analyticsEngine",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCollaboration) AttrArn() *string {
@@ -526,6 +539,14 @@ func NewCfnCollaboration_Override(c CfnCollaboration, scope constructs.Construct
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCollaboration)SetAnalyticsEngine(val *string) {
+	_jsii_.Set(
+		j,
+		"analyticsEngine",
+		val,
 	)
 }
 

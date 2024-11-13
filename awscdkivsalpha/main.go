@@ -81,6 +81,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-ivs-alpha.IRecordingConfiguration",
+		reflect.TypeOf((*IRecordingConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "recordingConfigurationArn", GoGetter: "RecordingConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "recordingConfigurationId", GoGetter: "RecordingConfigurationId"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRecordingConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-ivs-alpha.IStreamKey",
 		reflect.TypeOf((*IStreamKey)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -140,6 +157,79 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-ivs-alpha.RecordingConfiguration",
+		reflect.TypeOf((*RecordingConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "recordingConfigurationArn", GoGetter: "RecordingConfigurationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "recordingConfigurationId", GoGetter: "RecordingConfigurationId"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_RecordingConfiguration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRecordingConfiguration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ivs-alpha.RecordingConfigurationProps",
+		reflect.TypeOf((*RecordingConfigurationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-ivs-alpha.RecordingMode",
+		reflect.TypeOf((*RecordingMode)(nil)).Elem(),
+		map[string]interface{}{
+			"INTERVAL": RecordingMode_INTERVAL,
+			"DISABLED": RecordingMode_DISABLED,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-ivs-alpha.RenditionConfiguration",
+		reflect.TypeOf((*RenditionConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "renditions", GoGetter: "Renditions"},
+			_jsii_.MemberProperty{JsiiProperty: "renditionSelection", GoGetter: "RenditionSelection"},
+		},
+		func() interface{} {
+			return &jsiiProxy_RenditionConfiguration{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-ivs-alpha.RenditionSelection",
+		reflect.TypeOf((*RenditionSelection)(nil)).Elem(),
+		map[string]interface{}{
+			"ALL": RenditionSelection_ALL,
+			"NONE": RenditionSelection_NONE,
+			"CUSTOM": RenditionSelection_CUSTOM,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-ivs-alpha.Resolution",
+		reflect.TypeOf((*Resolution)(nil)).Elem(),
+		map[string]interface{}{
+			"FULL_HD": Resolution_FULL_HD,
+			"HD": Resolution_HD,
+			"SD": Resolution_SD,
+			"LOWEST_RESOLUTION": Resolution_LOWEST_RESOLUTION,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-ivs-alpha.Storage",
+		reflect.TypeOf((*Storage)(nil)).Elem(),
+		map[string]interface{}{
+			"SEQUENTIAL": Storage_SEQUENTIAL,
+			"LATEST": Storage_LATEST,
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-ivs-alpha.StreamKey",
 		reflect.TypeOf((*StreamKey)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -165,5 +255,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-ivs-alpha.StreamKeyProps",
 		reflect.TypeOf((*StreamKeyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-ivs-alpha.ThumbnailConfiguration",
+		reflect.TypeOf((*ThumbnailConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "recordingMode", GoGetter: "RecordingMode"},
+			_jsii_.MemberProperty{JsiiProperty: "resolution", GoGetter: "Resolution"},
+			_jsii_.MemberProperty{JsiiProperty: "storage", GoGetter: "Storage"},
+			_jsii_.MemberProperty{JsiiProperty: "targetInterval", GoGetter: "TargetInterval"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ThumbnailConfiguration{}
+		},
 	)
 }

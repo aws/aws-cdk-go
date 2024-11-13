@@ -24,6 +24,10 @@ func validateAssetCode_FromBucketParameters(bucket awss3.IBucket, key *string) e
 	return nil
 }
 
+func validateAssetCode_FromBucketV2Parameters(bucket awss3.IBucket, key *string, options *BucketOptions) error {
+	return nil
+}
+
 func validateAssetCode_FromCfnParametersParameters(props *CfnParametersCodeProps) error {
 	return nil
 }

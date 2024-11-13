@@ -54,15 +54,13 @@ type CfnLoadBalancerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enforcesecuritygroupinboundrulesonprivatelinktraffic
 	//
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `field:"optional" json:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic" yaml:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
-	// Note: Internal load balancers must use the `ipv4` IP address type.
+	// The IP address type. Internal load balancers must use `ipv4` .
 	//
-	// [Application Load Balancers] The IP address type. The possible values are `ipv4` (for only IPv4 addresses), `dualstack` (for IPv4 and IPv6 addresses), and `dualstack-without-public-ipv4` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
+	// [Application Load Balancers] The possible values are `ipv4` (IPv4 addresses), `dualstack` (IPv4 and IPv6 addresses), and `dualstack-without-public-ipv4` (public IPv6 addresses and private IPv4 and IPv6 addresses).
 	//
-	// Note: Application Load Balancer authentication only supports IPv4 addresses when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer cannot complete the authentication process, resulting in HTTP 500 errors.
+	// Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
 	//
-	// [Network Load Balancers] The IP address type. The possible values are `ipv4` (for only IPv4 addresses) and `dualstack` (for IPv4 and IPv6 addresses). You can’t specify `dualstack` for a load balancer with a UDP or TCP_UDP listener.
-	//
-	// [Gateway Load Balancers] The IP address type. The possible values are `ipv4` (for only IPv4 addresses) and `dualstack` (for IPv4 and IPv6 addresses).
+	// [Network Load Balancers and Gateway Load Balancers] The possible values are `ipv4` (IPv4 addresses) and `dualstack` (IPv4 and IPv6 addresses).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
@@ -86,7 +84,7 @@ type CfnLoadBalancerProps struct {
 	//
 	// The default is an Internet-facing load balancer.
 	//
-	// You cannot specify a scheme for a Gateway Load Balancer.
+	// You can't specify a scheme for a Gateway Load Balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
 	//
 	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
@@ -98,7 +96,7 @@ type CfnLoadBalancerProps struct {
 	//
 	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
 	//
-	// [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	// [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
 	//
 	// [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//
@@ -106,7 +104,7 @@ type CfnLoadBalancerProps struct {
 	//
 	// [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
 	//
-	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmappings
 	//
 	SubnetMappings interface{} `field:"optional" json:"subnetMappings" yaml:"subnetMappings"`
@@ -120,9 +118,7 @@ type CfnLoadBalancerProps struct {
 	//
 	// [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
 	//
-	// [Network Load Balancers] You can specify subnets from one or more Availability Zones.
-	//
-	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+	// [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
 	//
 	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`

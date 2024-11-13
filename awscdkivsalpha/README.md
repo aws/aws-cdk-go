@@ -114,3 +114,100 @@ myChannel := ivs.NewChannel(this, jsii.String("Channel"), &ChannelProps{
 	Authorized: jsii.Boolean(true),
 })
 ```
+
+## Recording Configurations
+
+An Amazon IVS Recording Configuration stores settings that specify how a channel's live streams should be recorded.
+You can configure video quality, thumbnail generation, and where recordings are stored in Amazon S3.
+
+For more information about IVS recording, see [IVS Auto-Record to Amazon S3 | Low-Latency Streaming](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/record-to-s3.html).
+
+You can create a recording configuration:
+
+```go
+// create an S3 bucket for storing recordings
+recordingBucket := s3.NewBucket(this, jsii.String("RecordingBucket"))
+
+// create a basic recording configuration
+recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
+	Bucket: recordingBucket,
+})
+```
+
+### Renditions of a Recording
+
+When you stream content to an Amazon IVS channel, auto-record-to-s3 uses the source video to generate multiple renditions.
+
+For more information, see [Discovering the Renditions of a Recording](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/record-to-s3.html#r2s3-recording-renditions).
+
+```go
+var recordingBucket bucket
+
+
+recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
+	Bucket: recordingBucket,
+
+	// set rendition configuration
+	RenditionConfiguration: ivs.RenditionConfiguration_Custom([]resolution{
+		ivs.*resolution_HD,
+		ivs.*resolution_SD,
+	}),
+})
+```
+
+### Thumbnail Generation
+
+You can enable or disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+
+Thumbnail intervals may range from 1 second to 60 seconds; by default, thumbnail recording is enabled, at an interval of 60 seconds.
+
+For more information, see [Thumbnails](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/record-to-s3.html#r2s3-thumbnails).
+
+```go
+var recordingBucket bucket
+
+
+recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
+	Bucket: recordingBucket,
+
+	// set thumbnail settings
+	ThumbnailConfiguration: ivs.ThumbnailConfiguration_Interval(ivs.Resolution_HD, []storage{
+		ivs.*storage_LATEST,
+		ivs.*storage_SEQUENTIAL,
+	}, awscdk.Duration_Seconds(jsii.Number(30))),
+})
+```
+
+### Merge Fragmented Streams
+
+The `recordingReconnectWindow` property allows you to specify a window of time (in seconds) during which, if your stream is interrupted and a new stream is started, Amazon IVS tries to record to the same S3 prefix as the previous stream.
+
+In other words, if a broadcast disconnects and then reconnects within the specified interval, the multiple streams are considered a single broadcast and merged together.
+
+For more information, see [Merge Fragmented Streams](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/record-to-s3.html#r2s3-merge-fragmented-streams).
+
+```go
+var recordingBucket bucket
+
+
+recordingConfiguration := ivs.NewRecordingConfiguration(this, jsii.String("RecordingConfiguration"), &RecordingConfigurationProps{
+	Bucket: recordingBucket,
+
+	// set recording reconnect window
+	RecordingReconnectWindow: awscdk.Duration_Seconds(jsii.Number(60)),
+})
+```
+
+### Attaching Recording Configuration to a Channel
+
+To enable recording for a channel, specify the recording configuration when creating the channel:
+
+```go
+var recordingConfiguration recordingConfiguration
+
+
+channel := ivs.NewChannel(this, jsii.String("Channel"), &ChannelProps{
+	// set recording configuration
+	RecordingConfiguration: recordingConfiguration,
+})
+```

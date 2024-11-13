@@ -24,6 +24,10 @@ func validateEcrImageCode_FromBucketParameters(bucket awss3.IBucket, key *string
 	return nil
 }
 
+func validateEcrImageCode_FromBucketV2Parameters(bucket awss3.IBucket, key *string, options *BucketOptions) error {
+	return nil
+}
+
 func validateEcrImageCode_FromCfnParametersParameters(props *CfnParametersCodeProps) error {
 	return nil
 }

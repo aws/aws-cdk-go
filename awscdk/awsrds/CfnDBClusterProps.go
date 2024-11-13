@@ -27,6 +27,7 @@ import (
 //   	},
 //   	BacktrackWindow: jsii.Number(123),
 //   	BackupRetentionPeriod: jsii.Number(123),
+//   	ClusterScalabilityType: jsii.String("clusterScalabilityType"),
 //   	CopyTagsToSnapshot: jsii.Boolean(false),
 //   	DatabaseName: jsii.String("databaseName"),
 //   	DbClusterIdentifier: jsii.String("dbClusterIdentifier"),
@@ -162,6 +163,12 @@ type CfnDBClusterProps struct {
 	// Default: - 1.
 	//
 	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
+	// Specifies the scalability mode of the Aurora DB cluster.
+	//
+	// When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-clusterscalabilitytype
+	//
+	ClusterScalabilityType *string `field:"optional" json:"clusterScalabilityType" yaml:"clusterScalabilityType"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
 	//
 	// The default is not to copy them.

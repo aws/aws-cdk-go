@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type.
+// Specifies an inference profile as a resource in a top-level template.
+//
+// Use the `ModelSource` field to specify the inference profile to copy into the resource. For more information about using inference profiles in Amazon Bedrock , see [Improve resilience with cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) .
+//
+// See the *Properties* section below for descriptions of both the required and optional properties.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,21 +42,26 @@ type CfnApplicationInferenceProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Time Stamp.
+	// The time at which the inference profile was created.
 	AttrCreatedAt() *string
+	// The Amazon Resource Name (ARN) of the inference profile.
 	AttrInferenceProfileArn() *string
+	// The unique identifier of the inference profile.
 	AttrInferenceProfileId() *string
-	// Inference profile identifier.
-	//
-	// Supports both system-defined inference profile ids, and inference profile ARNs.
+	// The ID or Amazon Resource Name (ARN) of the inference profile.
 	AttrInferenceProfileIdentifier() *string
-	// List of model configuration.
+	// A list of information about each model in the inference profile.
 	AttrModels() awscdk.IResolvable
-	// Status of the Inference Profile.
+	// The status of the inference profile.
+	//
+	// `ACTIVE` means that the inference profile is ready to be used.
 	AttrStatus() *string
-	// Type of the Inference Profile.
+	// The type of the inference profile. The following types are possible:.
+	//
+	// - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+	// - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
 	AttrType() *string
-	// Time Stamp.
+	// The time at which the inference profile was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -65,9 +74,10 @@ type CfnApplicationInferenceProfile interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Description of the inference profile.
+	// The description of the inference profile.
 	Description() *string
 	SetDescription(val *string)
+	// The name of the inference profile.
 	InferenceProfileName() *string
 	SetInferenceProfileName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,7 +90,7 @@ type CfnApplicationInferenceProfile interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Various ways to encode a list of models in a CreateInferenceProfile request.
+	// Contains configurations for the inference profile to copy as the resource.
 	ModelSource() interface{}
 	SetModelSource(val interface{})
 	// The tree node.
@@ -94,7 +104,7 @@ type CfnApplicationInferenceProfile interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// List of Tags.
+	// A list of tags associated with the inference profile.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

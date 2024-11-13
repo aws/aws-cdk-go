@@ -33,6 +33,13 @@ type ClusterProps struct {
 	// The VPC to place the cluster in.
 	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
+	// Whether to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is created.
+	// See: https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-recovery.html
+	//
+	// Default: - false.
+	//
+	// Experimental.
+	AvailabilityZoneRelocation *bool `field:"optional" json:"availabilityZoneRelocation" yaml:"availabilityZoneRelocation"`
 	// If this flag is set, the cluster resizing type will be set to classic.
 	//
 	// When resizing a cluster, classic resizing will always provision a new cluster and transfer the data there.

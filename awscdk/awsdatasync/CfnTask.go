@@ -78,6 +78,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TaskMode: jsii.String("taskMode"),
 //   	TaskReportConfig: &TaskReportConfigProperty{
 //   		Destination: &DestinationProperty{
 //   			S3: &S3Property{
@@ -184,6 +185,9 @@ type CfnTask interface {
 	// Specifies the tags that you want to apply to your task.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// Specifies one of the following task modes for your data transfer:.
+	TaskMode() *string
+	SetTaskMode(val *string)
 	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer.
 	TaskReportConfig() interface{}
 	SetTaskReportConfig(val interface{})
@@ -564,6 +568,16 @@ func (j *jsiiProxy_CfnTask) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTask) TaskMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"taskMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTask) TaskReportConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -722,6 +736,14 @@ func (j *jsiiProxy_CfnTask)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTask)SetTaskMode(val *string) {
+	_jsii_.Set(
+		j,
+		"taskMode",
 		val,
 	)
 }

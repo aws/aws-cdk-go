@@ -12,6 +12,20 @@ package awsquicksight
 //   	Database: jsii.String("database"),
 //   	Host: jsii.String("host"),
 //   	Warehouse: jsii.String("warehouse"),
+//
+//   	// the properties below are optional
+//   	AuthenticationType: jsii.String("authenticationType"),
+//   	DatabaseAccessControlRole: jsii.String("databaseAccessControlRole"),
+//   	OAuthParameters: &OAuthParametersProperty{
+//   		TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   		// the properties below are optional
+//   		IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   		IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   			VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   		},
+//   		OAuthScope: jsii.String("oAuthScope"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html
@@ -29,5 +43,14 @@ type CfnDataSource_SnowflakeParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
 	//
 	Warehouse *string `field:"required" json:"warehouse" yaml:"warehouse"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-authenticationtype
+	//
+	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-databaseaccesscontrolrole
+	//
+	DatabaseAccessControlRole *string `field:"optional" json:"databaseAccessControlRole" yaml:"databaseAccessControlRole"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-oauthparameters
+	//
+	OAuthParameters interface{} `field:"optional" json:"oAuthParameters" yaml:"oAuthParameters"`
 }
 

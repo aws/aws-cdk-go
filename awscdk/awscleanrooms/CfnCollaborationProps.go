@@ -37,6 +37,7 @@ import (
 //   	QueryLogStatus: jsii.String("queryLogStatus"),
 //
 //   	// the properties below are optional
+//   	AnalyticsEngine: jsii.String("analyticsEngine"),
 //   	CreatorPaymentConfiguration: &PaymentConfigurationProperty{
 //   		QueryCompute: &QueryComputePaymentConfigProperty{
 //   			IsResponsible: jsii.Boolean(false),
@@ -89,6 +90,9 @@ type CfnCollaborationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-querylogstatus
 	//
 	QueryLogStatus *string `field:"required" json:"queryLogStatus" yaml:"queryLogStatus"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-analyticsengine
+	//
+	AnalyticsEngine *string `field:"optional" json:"analyticsEngine" yaml:"analyticsEngine"`
 	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatorpaymentconfiguration
 	//
