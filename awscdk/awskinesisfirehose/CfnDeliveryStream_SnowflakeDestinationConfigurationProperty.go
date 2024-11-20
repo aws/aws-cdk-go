@@ -142,7 +142,17 @@ type CfnDeliveryStream_SnowflakeDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-keypassphrase
 	//
 	KeyPassphrase *string `field:"optional" json:"keyPassphrase" yaml:"keyPassphrase"`
-	// The name of the record metadata column.
+	// Specify a column name in the table, where the metadata information has to be loaded.
+	//
+	// When you enable this field, you will see the following column in the snowflake table, which differs based on the source type.
+	//
+	// For Direct PUT as source
+	//
+	// `{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }`
+	//
+	// For Kinesis Data Stream as source
+	//
+	// `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-snowflakedestinationconfiguration-metadatacolumnname
 	//
 	MetaDataColumnName *string `field:"optional" json:"metaDataColumnName" yaml:"metaDataColumnName"`

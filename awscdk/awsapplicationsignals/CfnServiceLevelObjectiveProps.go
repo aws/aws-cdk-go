@@ -15,6 +15,11 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	BurnRateConfigurations: []interface{}{
+//   		&BurnRateConfigurationProperty{
+//   			LookBackWindowMinutes: jsii.Number(123),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	Goal: &GoalProperty{
 //   		AttainmentGoal: jsii.Number(123),
@@ -182,6 +187,12 @@ type CfnServiceLevelObjectiveProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO.
+	//
+	// The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-burnrateconfigurations
+	//
+	BurnRateConfigurations interface{} `field:"optional" json:"burnRateConfigurations" yaml:"burnRateConfigurations"`
 	// An optional description for this SLO.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html#cfn-applicationsignals-servicelevelobjective-description
 	//

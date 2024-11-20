@@ -12,11 +12,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2"
 )
 
-func (i *jsiiProxy_InspectorStartAssessmentRun) validateAddTargetActionToRoleParameters(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) error {
-	if schedule == nil {
-		return fmt.Errorf("parameter schedule is required, but nil was provided")
-	}
-
+func (i *jsiiProxy_InspectorStartAssessmentRun) validateAddTargetActionToRoleParameters(role awsiam.IRole) error {
 	if role == nil {
 		return fmt.Errorf("parameter role is required, but nil was provided")
 	}

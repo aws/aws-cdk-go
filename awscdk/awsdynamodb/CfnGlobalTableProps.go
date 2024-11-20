@@ -133,6 +133,10 @@ package awsdynamodb
 //   			},
 //
 //   			// the properties below are optional
+//   			WarmThroughput: &WarmThroughputProperty{
+//   				ReadUnitsPerSecond: jsii.Number(123),
+//   				WriteUnitsPerSecond: jsii.Number(123),
+//   			},
 //   			WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
 //   				MaxWriteRequestUnits: jsii.Number(123),
 //   			},
@@ -187,6 +191,10 @@ package awsdynamodb
 //
 //   		// the properties below are optional
 //   		AttributeName: jsii.String("attributeName"),
+//   	},
+//   	WarmThroughput: &WarmThroughputProperty{
+//   		ReadUnitsPerSecond: jsii.Number(123),
+//   		WriteUnitsPerSecond: jsii.Number(123),
 //   	},
 //   	WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
 //   		MaxWriteRequestUnits: jsii.Number(123),
@@ -284,9 +292,12 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
 	//
 	TimeToLiveSpecification interface{} `field:"optional" json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-warmthroughput
+	//
+	WarmThroughput interface{} `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index.
 	//
-	// You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings
 	//
 	WriteOnDemandThroughputSettings interface{} `field:"optional" json:"writeOnDemandThroughputSettings" yaml:"writeOnDemandThroughputSettings"`

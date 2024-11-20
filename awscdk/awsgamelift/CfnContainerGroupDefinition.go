@@ -9,44 +9,79 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// *This data type is currently not available.
+// The properties that describe a container group resource.
 //
-// It is under improvement as we respond to customer feedback from the Containers public preview.*
-//
-// The properties that describe a container group resource. Container group definition properties can't be updated. To change a property, create a new container group definition.
+// You can update all properties of a container group definition properties. Updates to a container group definition are saved as new versions.
 //
 // *Used with:* `CreateContainerGroupDefinition`
 //
-// *Returned by:* `DescribeContainerGroupDefinition` , `ListContainerGroupDefinitions`.
+// *Returned by:* `DescribeContainerGroupDefinition` , `ListContainerGroupDefinitions` , `UpdateContainerGroupDefinition`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var supportContainerDefinitions interface{}
-//
 //   cfnContainerGroupDefinition := awscdk.Aws_gamelift.NewCfnContainerGroupDefinition(this, jsii.String("MyCfnContainerGroupDefinition"), &CfnContainerGroupDefinitionProps{
-//   	ContainerDefinitions: []interface{}{
-//   		&ContainerDefinitionProperty{
+//   	Name: jsii.String("name"),
+//   	OperatingSystem: jsii.String("operatingSystem"),
+//   	TotalMemoryLimitMebibytes: jsii.Number(123),
+//   	TotalVcpuLimit: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	ContainerGroupType: jsii.String("containerGroupType"),
+//   	GameServerContainerDefinition: &GameServerContainerDefinitionProperty{
+//   		ContainerName: jsii.String("containerName"),
+//   		ImageUri: jsii.String("imageUri"),
+//   		ServerSdkVersion: jsii.String("serverSdkVersion"),
+//
+//   		// the properties below are optional
+//   		DependsOn: []interface{}{
+//   			&ContainerDependencyProperty{
+//   				Condition: jsii.String("condition"),
+//   				ContainerName: jsii.String("containerName"),
+//   			},
+//   		},
+//   		EnvironmentOverride: []interface{}{
+//   			&ContainerEnvironmentProperty{
+//   				Name: jsii.String("name"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		MountPoints: []interface{}{
+//   			&ContainerMountPointProperty{
+//   				InstancePath: jsii.String("instancePath"),
+//
+//   				// the properties below are optional
+//   				AccessLevel: jsii.String("accessLevel"),
+//   				ContainerPath: jsii.String("containerPath"),
+//   			},
+//   		},
+//   		PortConfiguration: &PortConfigurationProperty{
+//   			ContainerPortRanges: []interface{}{
+//   				&ContainerPortRangeProperty{
+//   					FromPort: jsii.Number(123),
+//   					Protocol: jsii.String("protocol"),
+//   					ToPort: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		ResolvedImageDigest: jsii.String("resolvedImageDigest"),
+//   	},
+//   	SourceVersionNumber: jsii.Number(123),
+//   	SupportContainerDefinitions: []interface{}{
+//   		&SupportContainerDefinitionProperty{
 //   			ContainerName: jsii.String("containerName"),
 //   			ImageUri: jsii.String("imageUri"),
 //
 //   			// the properties below are optional
-//   			Command: []*string{
-//   				jsii.String("command"),
-//   			},
-//   			Cpu: jsii.Number(123),
 //   			DependsOn: []interface{}{
 //   				&ContainerDependencyProperty{
 //   					Condition: jsii.String("condition"),
 //   					ContainerName: jsii.String("containerName"),
 //   				},
 //   			},
-//   			EntryPoint: []*string{
-//   				jsii.String("entryPoint"),
-//   			},
-//   			Environment: []interface{}{
+//   			EnvironmentOverride: []interface{}{
 //   				&ContainerEnvironmentProperty{
 //   					Name: jsii.String("name"),
 //   					Value: jsii.String("value"),
@@ -64,9 +99,15 @@ import (
 //   				StartPeriod: jsii.Number(123),
 //   				Timeout: jsii.Number(123),
 //   			},
-//   			MemoryLimits: &MemoryLimitsProperty{
-//   				HardLimit: jsii.Number(123),
-//   				SoftLimit: jsii.Number(123),
+//   			MemoryHardLimitMebibytes: jsii.Number(123),
+//   			MountPoints: []interface{}{
+//   				&ContainerMountPointProperty{
+//   					InstancePath: jsii.String("instancePath"),
+//
+//   					// the properties below are optional
+//   					AccessLevel: jsii.String("accessLevel"),
+//   					ContainerPath: jsii.String("containerPath"),
+//   				},
 //   			},
 //   			PortConfiguration: &PortConfigurationProperty{
 //   				ContainerPortRanges: []interface{}{
@@ -78,19 +119,8 @@ import (
 //   				},
 //   			},
 //   			ResolvedImageDigest: jsii.String("resolvedImageDigest"),
-//   			WorkingDirectory: jsii.String("workingDirectory"),
+//   			Vcpu: jsii.Number(123),
 //   		},
-//   	},
-//   	Name: jsii.String("name"),
-//   	OperatingSystem: jsii.String("operatingSystem"),
-//   	TotalCpuLimit: jsii.Number(123),
-//   	TotalMemoryLimit: jsii.Number(123),
-//
-//   	// the properties below are optional
-//   	SchedulingStrategy: jsii.String("schedulingStrategy"),
-//   	SourceVersionNumber: jsii.Number(123),
-//   	SupportContainerDefinitions: []interface{}{
-//   		supportContainerDefinitions,
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -98,6 +128,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	VersionDescription: jsii.String("versionDescription"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html
@@ -106,7 +137,7 @@ type CfnContainerGroupDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to an Amazon GameLift `ContainerGroupDefinition` resource. It uniquely identifies the resource across all AWS Regions. Format is `arn:aws:gamelift:<region>::containergroupdefinition/[container group definition name]` .
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to an Amazon GameLift `ContainerGroupDefinition` resource. It uniquely identifies the resource across all AWS Regions. Format is `arn:aws:gamelift:[region]::containergroupdefinition/[container group definition name]:[version]` .
 	AttrContainerGroupDefinitionArn() *string
 	// A time stamp indicating when this data object was created.
 	//
@@ -126,6 +157,8 @@ type CfnContainerGroupDefinition interface {
 	// - At least one of the container images referenced in the container group definition exceeds the allowed size. For size limits, see [Amazon GameLift endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/gamelift.html) .
 	// - At least one of the container images referenced in the container group definition uses a different operating system than the one defined for the container group.
 	AttrStatusReason() *string
+	// The version of this ContainerGroupDefinition.
+	AttrVersionNumber() *float64
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -133,13 +166,16 @@ type CfnContainerGroupDefinition interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The set of container definitions that are included in the container group.
-	ContainerDefinitions() interface{}
-	SetContainerDefinitions(val interface{})
+	// The scope of the container group.
+	ContainerGroupType() *string
+	SetContainerGroupType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Specifies the information required to run game servers with this container group.
+	GameServerContainerDefinition() interface{}
+	SetGameServerContainerDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -155,7 +191,7 @@ type CfnContainerGroupDefinition interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The platform required for all containers in the container group definition.
+	// The platform that all containers in the container group definition run on.
 	OperatingSystem() *string
 	SetOperatingSystem(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -163,9 +199,6 @@ type CfnContainerGroupDefinition interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The method for deploying the container group across fleet instances.
-	SchedulingStrategy() *string
-	SetSchedulingStrategy(val *string)
 	// A specific ContainerGroupDefinition version to be updated.
 	SourceVersionNumber() *float64
 	SetSourceVersionNumber(val *float64)
@@ -173,18 +206,18 @@ type CfnContainerGroupDefinition interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A collection of support container definitions that define the containers in this group.
+	// The set of definitions for support containers in this group.
 	SupportContainerDefinitions() interface{}
 	SetSupportContainerDefinitions(val interface{})
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The amount of CPU units on a fleet instance to allocate for the container group.
-	TotalCpuLimit() *float64
-	SetTotalCpuLimit(val *float64)
-	// The amount of memory (in MiB) on a fleet instance to allocate for the container group.
-	TotalMemoryLimit() *float64
-	SetTotalMemoryLimit(val *float64)
+	// The total memory limit of container groups following this definition in MiB.
+	TotalMemoryLimitMebibytes() *float64
+	SetTotalMemoryLimitMebibytes(val *float64)
+	// The total amount of virtual CPUs on the container group definition.
+	TotalVcpuLimit() *float64
+	SetTotalVcpuLimit(val *float64)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -198,6 +231,9 @@ type CfnContainerGroupDefinition interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The description of this version.
+	VersionDescription() *string
+	SetVersionDescription(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -372,6 +408,16 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) AttrStatusReason() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContainerGroupDefinition) AttrVersionNumber() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrVersionNumber",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContainerGroupDefinition) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -412,11 +458,11 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) CfnResourceType() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) ContainerDefinitions() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnContainerGroupDefinition) ContainerGroupType() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
-		"containerDefinitions",
+		"containerGroupType",
 		&returns,
 	)
 	return returns
@@ -427,6 +473,16 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerGroupDefinition) GameServerContainerDefinition() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"gameServerContainerDefinition",
 		&returns,
 	)
 	return returns
@@ -482,16 +538,6 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) SchedulingStrategy() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"schedulingStrategy",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnContainerGroupDefinition) SourceVersionNumber() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -532,21 +578,21 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) TotalCpuLimit() *float64 {
+func (j *jsiiProxy_CfnContainerGroupDefinition) TotalMemoryLimitMebibytes() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
-		"totalCpuLimit",
+		"totalMemoryLimitMebibytes",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) TotalMemoryLimit() *float64 {
+func (j *jsiiProxy_CfnContainerGroupDefinition) TotalVcpuLimit() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
-		"totalMemoryLimit",
+		"totalVcpuLimit",
 		&returns,
 	)
 	return returns
@@ -567,6 +613,16 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) UpdatedProperties() *map[string]
 	_jsii_.Get(
 		j,
 		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContainerGroupDefinition) VersionDescription() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"versionDescription",
 		&returns,
 	)
 	return returns
@@ -600,13 +656,21 @@ func NewCfnContainerGroupDefinition_Override(c CfnContainerGroupDefinition, scop
 	)
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition)SetContainerDefinitions(val interface{}) {
-	if err := j.validateSetContainerDefinitionsParameters(val); err != nil {
+func (j *jsiiProxy_CfnContainerGroupDefinition)SetContainerGroupType(val *string) {
+	_jsii_.Set(
+		j,
+		"containerGroupType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainerGroupDefinition)SetGameServerContainerDefinition(val interface{}) {
+	if err := j.validateSetGameServerContainerDefinitionParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"containerDefinitions",
+		"gameServerContainerDefinition",
 		val,
 	)
 }
@@ -629,14 +693,6 @@ func (j *jsiiProxy_CfnContainerGroupDefinition)SetOperatingSystem(val *string) {
 	_jsii_.Set(
 		j,
 		"operatingSystem",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnContainerGroupDefinition)SetSchedulingStrategy(val *string) {
-	_jsii_.Set(
-		j,
-		"schedulingStrategy",
 		val,
 	)
 }
@@ -671,24 +727,32 @@ func (j *jsiiProxy_CfnContainerGroupDefinition)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition)SetTotalCpuLimit(val *float64) {
-	if err := j.validateSetTotalCpuLimitParameters(val); err != nil {
+func (j *jsiiProxy_CfnContainerGroupDefinition)SetTotalMemoryLimitMebibytes(val *float64) {
+	if err := j.validateSetTotalMemoryLimitMebibytesParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"totalCpuLimit",
+		"totalMemoryLimitMebibytes",
 		val,
 	)
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition)SetTotalMemoryLimit(val *float64) {
-	if err := j.validateSetTotalMemoryLimitParameters(val); err != nil {
+func (j *jsiiProxy_CfnContainerGroupDefinition)SetTotalVcpuLimit(val *float64) {
+	if err := j.validateSetTotalVcpuLimitParameters(val); err != nil {
 		panic(err)
 	}
 	_jsii_.Set(
 		j,
-		"totalMemoryLimit",
+		"totalVcpuLimit",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainerGroupDefinition)SetVersionDescription(val *string) {
+	_jsii_.Set(
+		j,
+		"versionDescription",
 		val,
 	)
 }

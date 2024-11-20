@@ -1,6 +1,8 @@
 package awswisdom
 
 
+// A typed union that specifies the configuration for a prompt template based on its type.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,6 +17,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html
 //
 type CfnAIPrompt_AIPromptTemplateConfigurationProperty struct {
+	// The configuration for a prompt template that supports full textual prompt configuration using a YAML prompt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html#cfn-wisdom-aiprompt-aiprompttemplateconfiguration-textfullaipromptedittemplateconfiguration
 	//
 	TextFullAiPromptEditTemplateConfiguration interface{} `field:"required" json:"textFullAiPromptEditTemplateConfiguration" yaml:"textFullAiPromptEditTemplateConfiguration"`

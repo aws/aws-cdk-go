@@ -191,6 +191,7 @@ package awsecs
 //   		},
 //   	},
 //   	User: jsii.String("user"),
+//   	VersionConsistency: jsii.String("versionConsistency"),
 //   	VolumesFrom: []interface{}{
 //   		&VolumeFromProperty{
 //   			ReadOnly: jsii.Boolean(false),
@@ -582,6 +583,11 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-user
 	//
 	User *string `field:"optional" json:"user" yaml:"user"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-versionconsistency
+	//
+	// Default: - "enabled".
+	//
+	VersionConsistency *string `field:"optional" json:"versionConsistency" yaml:"versionConsistency"`
 	// Data volumes to mount from another container.
 	//
 	// This parameter maps to `VolumesFrom` in the docker container create command and the `--volumes-from` option to docker run.

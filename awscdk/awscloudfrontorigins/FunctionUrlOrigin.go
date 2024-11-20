@@ -14,16 +14,16 @@ import (
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var fn function
 //
+//
 //   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
-//   	AuthType: lambda.FunctionUrlAuthType_NONE,
+//   	AuthType: lambda.FunctionUrlAuthType_AWS_IAM,
 //   })
 //
-//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+//   cloudfront.NewDistribution(this, jsii.String("MyDistribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewFunctionUrlOrigin(fnUrl),
+//   		Origin: origins.FunctionUrlOrigin_WithOriginAccessControl(fnUrl),
 //   	},
 //   })
 //
@@ -67,6 +67,25 @@ func NewFunctionUrlOrigin_Override(f FunctionUrlOrigin, lambdaFunctionUrl awslam
 		[]interface{}{lambdaFunctionUrl, props},
 		f,
 	)
+}
+
+// Create a Lambda Function URL Origin with Origin Access Control (OAC) configured.
+func FunctionUrlOrigin_WithOriginAccessControl(lambdaFunctionUrl awslambda.IFunctionUrl, props *FunctionUrlOriginWithOACProps) awscloudfront.IOrigin {
+	_init_.Initialize()
+
+	if err := validateFunctionUrlOrigin_WithOriginAccessControlParameters(lambdaFunctionUrl, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudfront.IOrigin
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront_origins.FunctionUrlOrigin",
+		"withOriginAccessControl",
+		[]interface{}{lambdaFunctionUrl, props},
+		&returns,
+	)
+
+	return returns
 }
 
 func (f *jsiiProxy_FunctionUrlOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {

@@ -15,8 +15,7 @@
 <!--END STABILITY BANNER-->
 
 [Amazon EventBridge Scheduler](https://aws.amazon.com/blogs/compute/introducing-amazon-eventbridge-scheduler/) is a feature from Amazon EventBridge
-that allows you to create, run, and manage scheduled tasks at scale. With EventBridge Scheduler, you can schedule one-time or recurrently tens
-of millions of tasks across many AWS services without provisioning or managing underlying infrastructure.
+that allows you to create, run, and manage scheduled tasks at scale. With EventBridge Scheduler, you can schedule millions of one-time or recurring tasks across various AWS services without provisioning or managing underlying infrastructure.
 
 1. **Schedule**: A schedule is the main resource you create, configure, and manage using Amazon EventBridge Scheduler. Every schedule has a schedule expression that determines when, and with what frequency, the schedule runs. EventBridge Scheduler supports three types of schedules: rate, cron, and one-time schedules. When you create a schedule, you configure a target for the schedule to invoke.
 2. **Target**: A target is an API operation that EventBridge Scheduler calls on your behalf every time your schedule runs. EventBridge Scheduler
@@ -27,12 +26,8 @@ of millions of tasks across many AWS services without provisioning or managing u
 3. **Schedule Group**: A schedule group is an Amazon EventBridge Scheduler resource that you use to organize your schedules. Your AWS account comes
    with a default scheduler group. A new schedule will always be added to a scheduling group. If you do not provide a scheduling group to add to, it
    will be added to the default scheduling group. You can create up to 500 schedule groups in your AWS account. Groups can be used to organize the
-   schedules logically, access the schedule metrics and manage permissions at group granularity (see details below). Scheduling groups support tagging:
-   with EventBridge Scheduler, you apply tags to schedule groups, not to individual schedules to organize your resources.
-
-This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project. It allows you to define Event Bridge Schedules.
-
-> This module is in active development. Some features may not be implemented yet.
+   schedules logically, access the schedule metrics and manage permissions at group granularity (see details below). Schedule groups support tagging.
+   With EventBridge Scheduler, you apply tags to schedule groups, not to individual schedules to organize your resources.
 
 ## Defining a schedule
 
@@ -49,7 +44,7 @@ target := targets.NewLambdaInvoke(fn, &ScheduleTargetBaseProps{
 schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
 	Target: Target,
-	Description: jsii.String("This is a test schedule that invokes lambda function every 10 minutes."),
+	Description: jsii.String("This is a test schedule that invokes a lambda function every 10 minutes."),
 })
 ```
 
@@ -170,7 +165,7 @@ A list of supported targets can be found at `@aws-cdk/aws-scheduler-targets-alph
 
 ### Input
 
-Targets can be invoked with a custom input. The `ScheduleTargetInput`class supports free-form text input and JSON-formatted object input:
+Targets can be invoked with a custom input. The `ScheduleTargetInput` class supports free-form text input and JSON-formatted object input:
 
 ```go
 input := awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
@@ -183,9 +178,9 @@ its respective value and deliver it to the target. See
 [full list of supported context attributes](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-schedule-context-attributes.html):
 
 1. `ContextAttribute.scheduleArn()` – The ARN of the schedule.
-2. `ContextAttribute.scheduledTime()` – The time you specified for the schedule to invoke its target, for example, 2022-03-22T18:59:43Z.
-3. `ContextAttribute.executionId()` – The unique ID that EventBridge Scheduler assigns for each attempted invocation of a target, for example, d32c5kddcf5bb8c3.
-4. `ContextAttribute.attemptNumber()` – A counter that identifies the attempt number for the current invocation, for example, 1.
+2. `ContextAttribute.scheduledTime()` – The time you specified for the schedule to invoke its target, e.g., 2022-03-22T18:59:43Z.
+3. `ContextAttribute.executionId()` – The unique ID that EventBridge Scheduler assigns for each attempted invocation of a target, e.g., d32c5kddcf5bb8c3.
+4. `ContextAttribute.attemptNumber()` – A counter that identifies the attempt number for the current invocation, e.g., 1.
 
 ```go
 text := fmt.Sprintf("Attempt number: %v", awscdkscheduleralpha.ContextAttribute_AttemptNumber())
@@ -198,7 +193,7 @@ An execution role is an IAM role that EventBridge Scheduler assumes in order to 
 
 The classes for templated schedule targets automatically create an IAM role with all the minimum necessary
 permissions to interact with the templated target. If you wish you may specify your own IAM role, then the templated targets
-will grant minimal required permissions. For example, the target `LambdaInvoke` will grant the
+will grant minimal required permissions. For example, the `LambdaInvoke` target will grant the
 IAM execution role `lambda:InvokeFunction` permission to invoke the Lambda function.
 
 ```go
@@ -244,12 +239,12 @@ schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &Sch
 })
 ```
 
-> Visit [Data protection in Amazon EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/data-protection.html) for more details.
+> See [Data protection in Amazon EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/data-protection.html) for more details.
 
 ## Configuring flexible time windows
 
 You can configure flexible time windows by specifying the `timeWindow` property.
-Flexible time windows is disabled by default.
+Flexible time windows are disabled by default.
 
 ```go
 var target lambdaInvoke
@@ -262,7 +257,7 @@ schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &Sch
 })
 ```
 
-> Visit [Configuring flexible time windows](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-schedule-flexible-time-windows.html) for more details.
+> See [Configuring flexible time windows](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-schedule-flexible-time-windows.html) for more details.
 
 ## Error-handling
 
@@ -302,8 +297,7 @@ EventBridge Scheduler publishes additional metrics when your schedule exhausts i
 
 ### Metrics for all schedules
 
-Class `Schedule` provides static methods for accessing all schedules metrics with default configuration,
-such as `metricAllErrors` for viewing errors when executing targets.
+The `Schedule` class provides static methods for accessing all schedules metrics with default configuration, such as `metricAllErrors` for viewing errors when executing targets.
 
 ```go
 cloudwatch.NewAlarm(this, jsii.String("SchedulesErrorAlarm"), &AlarmProps{
@@ -339,4 +333,4 @@ cloudwatch.NewAlarm(this, jsii.String("DefaultGroupErrorAlarm"), &AlarmProps{
 
 See full list of metrics and their description at
 [Monitoring Using CloudWatch Metrics](https://docs.aws.amazon.com/scheduler/latest/UserGuide/monitoring-cloudwatch.html)
-in the *AWS Event Bridge Scheduler User Guide*.
+in the *AWS EventBridge Scheduler User Guide*.

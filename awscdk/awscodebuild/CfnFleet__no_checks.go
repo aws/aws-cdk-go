@@ -80,7 +80,19 @@ func validateCfnFleet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetComputeConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFleet) validateSetFleetProxyConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetFleetVpcConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFleet) validateSetScalingConfigurationParameters(val interface{}) error {
 	return nil
 }
 

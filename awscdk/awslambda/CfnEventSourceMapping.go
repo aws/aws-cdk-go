@@ -63,7 +63,16 @@ import (
 //   	MaximumBatchingWindowInSeconds: jsii.Number(123),
 //   	MaximumRecordAgeInSeconds: jsii.Number(123),
 //   	MaximumRetryAttempts: jsii.Number(123),
+//   	MetricsConfig: &MetricsConfigProperty{
+//   		Metrics: []*string{
+//   			jsii.String("metrics"),
+//   		},
+//   	},
 //   	ParallelizationFactor: jsii.Number(123),
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfigProperty{
+//   		MaximumPollers: jsii.Number(123),
+//   		MinimumPollers: jsii.Number(123),
+//   	},
 //   	Queues: []*string{
 //   		jsii.String("queues"),
 //   	},
@@ -106,17 +115,17 @@ type CfnEventSourceMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+	// Specific configuration settings for an MSK event source.
 	AmazonManagedKafkaEventSourceConfig() interface{}
 	SetAmazonManagedKafkaEventSourceConfig(val interface{})
-	// The Amazon Resource Name (ARN) of the event source mapping.
+	// The Amazon Resource Name (ARN) of the event source mapping resource.
 	AttrEventSourceMappingArn() *string
-	// The event source mapping's ID.
+	// Event Source Mapping Identifier UUID.
 	AttrId() *string
-	// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function.
+	// The maximum number of items to retrieve in a single batch.
 	BatchSize() *float64
 	SetBatchSize(val *float64)
-	// (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry.
+	// (Streams) If the function returns an error, split the batch in two and retry.
 	BisectBatchOnFunctionError() interface{}
 	SetBisectBatchOnFunctionError(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -130,30 +139,28 @@ type CfnEventSourceMapping interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
+	// A configuration object that specifies the destination of an event after Lambda processes it.
 	DestinationConfig() interface{}
 	SetDestinationConfig(val interface{})
-	// Specific configuration settings for a DocumentDB event source.
+	// Document db event source config.
 	DocumentDbEventSourceConfig() interface{}
 	SetDocumentDbEventSourceConfig(val interface{})
-	// When true, the event source mapping is active.
-	//
-	// When false, Lambda pauses polling and invocation.
+	// Disables the event source mapping to pause polling and invocation.
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	// The Amazon Resource Name (ARN) of the event source.
 	EventSourceArn() *string
 	SetEventSourceArn(val *string)
-	// An object that defines the filter criteria that determine whether Lambda should process an event.
+	// The filter criteria to control event filtering.
 	FilterCriteria() interface{}
 	SetFilterCriteria(val interface{})
-	// The name or ARN of the Lambda function.
+	// The name of the Lambda function.
 	FunctionName() *string
 	SetFunctionName(val *string)
-	// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
+	// (Streams) A list of response types supported by the function.
 	FunctionResponseTypes() *[]*string
 	SetFunctionResponseTypes(val *[]*string)
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+	// The Amazon Resource Name (ARN) of the KMS key.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -166,21 +173,27 @@ type CfnEventSourceMapping interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
+	// (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
 	MaximumBatchingWindowInSeconds() *float64
 	SetMaximumBatchingWindowInSeconds(val *float64)
-	// (Kinesis and DynamoDB Streams only) Discard records older than the specified age.
+	// (Streams) The maximum age of a record that Lambda sends to a function for processing.
 	MaximumRecordAgeInSeconds() *float64
 	SetMaximumRecordAgeInSeconds(val *float64)
-	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries.
+	// (Streams) The maximum number of times to retry when the function returns an error.
 	MaximumRetryAttempts() *float64
 	SetMaximumRetryAttempts(val *float64)
+	// Metrics config for Event Source Mapping Metrics.
+	MetricsConfig() interface{}
+	SetMetricsConfig(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard.
+	// (Streams) The number of batches to process from each shard concurrently.
 	ParallelizationFactor() *float64
 	SetParallelizationFactor(val *float64)
-	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
+	// ProvisionedPollerConfig.
+	ProvisionedPollerConfig() interface{}
+	SetProvisionedPollerConfig(val interface{})
+	// (ActiveMQ) A list of ActiveMQ queues.
 	Queues() *[]*string
 	SetQueues(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -188,16 +201,16 @@ type CfnEventSourceMapping interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// (Amazon SQS only) The scaling configuration for the event source.
+	// The scaling configuration for the event source.
 	ScalingConfig() interface{}
 	SetScalingConfig(val interface{})
-	// The self-managed Apache Kafka cluster for your event source.
+	// The configuration used by AWS Lambda to access a self-managed event source.
 	SelfManagedEventSource() interface{}
 	SetSelfManagedEventSource(val interface{})
-	// Specific configuration settings for a self-managed Apache Kafka event source.
+	// Specific configuration settings for a Self-Managed Apache Kafka event source.
 	SelfManagedKafkaEventSourceConfig() interface{}
 	SetSelfManagedKafkaEventSourceConfig(val interface{})
-	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
+	// A list of SourceAccessConfiguration.
 	SourceAccessConfigurations() interface{}
 	SetSourceAccessConfigurations(val interface{})
 	// The stack in which this element is defined.
@@ -205,20 +218,18 @@ type CfnEventSourceMapping interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The position in a stream from which to start reading.
-	//
-	// Required for Amazon Kinesis and Amazon DynamoDB.
 	StartingPosition() *string
 	SetStartingPosition(val *string)
-	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
+	// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
 	StartingPositionTimestamp() *float64
 	SetStartingPositionTimestamp(val *float64)
-	// A list of tags to add to the event source mapping.
+	// A list of tags to apply to event source mapping resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The name of the Kafka topic.
+	// (Kafka) A list of Kafka topics.
 	Topics() *[]*string
 	SetTopics(val *[]*string)
-	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources.
+	// (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
 	TumblingWindowInSeconds() *float64
 	SetTumblingWindowInSeconds(val *float64)
 	// Deprecated.
@@ -588,6 +599,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) MaximumRetryAttempts() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) MetricsConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"metricsConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventSourceMapping) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -603,6 +624,16 @@ func (j *jsiiProxy_CfnEventSourceMapping) ParallelizationFactor() *float64 {
 	_jsii_.Get(
 		j,
 		"parallelizationFactor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) ProvisionedPollerConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"provisionedPollerConfig",
 		&returns,
 	)
 	return returns
@@ -909,10 +940,32 @@ func (j *jsiiProxy_CfnEventSourceMapping)SetMaximumRetryAttempts(val *float64) {
 	)
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping)SetMetricsConfig(val interface{}) {
+	if err := j.validateSetMetricsConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"metricsConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEventSourceMapping)SetParallelizationFactor(val *float64) {
 	_jsii_.Set(
 		j,
 		"parallelizationFactor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping)SetProvisionedPollerConfig(val interface{}) {
+	if err := j.validateSetProvisionedPollerConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"provisionedPollerConfig",
 		val,
 	)
 }

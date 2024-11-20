@@ -1,7 +1,7 @@
 package awslambda
 
 
-// A structure within a `FilterCriteria` object that defines an event filtering pattern.
+// The filter object that defines parameters for ESM filtering.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +15,7 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filter.html
 //
 type CfnEventSourceMapping_FilterProperty struct {
-	// A filter pattern.
-	//
-	// For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax) .
+	// The filter pattern that defines which events should be passed for invocations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filter.html#cfn-lambda-eventsourcemapping-filter-pattern
 	//
 	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`

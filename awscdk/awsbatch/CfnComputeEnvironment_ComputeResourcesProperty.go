@@ -39,6 +39,16 @@ package awsbatch
 //   	LaunchTemplate: &LaunchTemplateSpecificationProperty{
 //   		LaunchTemplateId: jsii.String("launchTemplateId"),
 //   		LaunchTemplateName: jsii.String("launchTemplateName"),
+//   		Overrides: []interface{}{
+//   			&LaunchTemplateSpecificationOverrideProperty{
+//   				LaunchTemplateId: jsii.String("launchTemplateId"),
+//   				LaunchTemplateName: jsii.String("launchTemplateName"),
+//   				TargetInstanceTypes: []*string{
+//   					jsii.String("targetInstanceTypes"),
+//   				},
+//   				Version: jsii.String("version"),
+//   			},
+//   		},
 //   		Version: jsii.String("version"),
 //   	},
 //   	MinvCpus: jsii.Number(123),

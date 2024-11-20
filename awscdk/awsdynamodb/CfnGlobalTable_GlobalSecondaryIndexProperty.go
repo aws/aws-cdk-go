@@ -26,6 +26,10 @@ package awsdynamodb
 //   	},
 //
 //   	// the properties below are optional
+//   	WarmThroughput: &WarmThroughputProperty{
+//   		ReadUnitsPerSecond: jsii.Number(123),
+//   		WriteUnitsPerSecond: jsii.Number(123),
+//   	},
 //   	WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
 //   		MaxWriteRequestUnits: jsii.Number(123),
 //   	},
@@ -71,9 +75,12 @@ type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
 	//
 	Projection interface{} `field:"required" json:"projection" yaml:"projection"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-warmthroughput
+	//
+	WarmThroughput interface{} `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index.
 	//
-	// You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeondemandthroughputsettings
 	//
 	WriteOnDemandThroughputSettings interface{} `field:"optional" json:"writeOnDemandThroughputSettings" yaml:"writeOnDemandThroughputSettings"`

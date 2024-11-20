@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnScalingPolicy) validateSetPolicyTypeParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnScalingPolicy) validateSetPredictiveScalingPolicyConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnScalingPolicy) validateSetStepScalingPolicyConfigurationParameters(val interface{}) error {
 	return nil
 }

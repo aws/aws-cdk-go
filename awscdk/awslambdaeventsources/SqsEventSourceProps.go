@@ -3,6 +3,7 @@ package awslambdaeventsources
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Example:
@@ -60,6 +61,10 @@ type SqsEventSourceProps struct {
 	// Default: - No specific limit.
 	//
 	MaxConcurrency *float64 `field:"optional" json:"maxConcurrency" yaml:"maxConcurrency"`
+	// Configuration for enhanced monitoring metrics collection When specified, enables collection of additional metrics for the stream event source.
+	// Default: - Enhanced monitoring is disabled.
+	//
+	MetricsConfig *awslambda.MetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-batchfailurereporting
 	//

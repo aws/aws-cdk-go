@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetAvailabilityZoneDistributionP
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetAvailabilityZoneImpairmentPolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetCapacityRebalanceParameters(val interface{}) error {
 	return nil
 }
@@ -125,6 +129,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationPara
 }
 
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetSkipZonalShiftValidationParameters(val interface{}) error {
 	return nil
 }
 

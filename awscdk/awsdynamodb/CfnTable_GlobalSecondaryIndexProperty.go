@@ -35,6 +35,10 @@ package awsdynamodb
 //   		ReadCapacityUnits: jsii.Number(123),
 //   		WriteCapacityUnits: jsii.Number(123),
 //   	},
+//   	WarmThroughput: &WarmThroughputProperty{
+//   		ReadUnitsPerSecond: jsii.Number(123),
+//   		WriteUnitsPerSecond: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html
@@ -76,5 +80,8 @@ type CfnTable_GlobalSecondaryIndexProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-provisionedthroughput
 	//
 	ProvisionedThroughput interface{} `field:"optional" json:"provisionedThroughput" yaml:"provisionedThroughput"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html#cfn-dynamodb-table-globalsecondaryindex-warmthroughput
+	//
+	WarmThroughput interface{} `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 }
 

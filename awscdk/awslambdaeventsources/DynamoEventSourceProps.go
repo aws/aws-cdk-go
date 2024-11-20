@@ -19,12 +19,13 @@ import (
 //   	},
 //   	Stream: dynamodb.StreamViewType_NEW_IMAGE,
 //   })
+//
 //   fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
 //   	StartingPosition: lambda.StartingPosition_LATEST,
-//   	Filters: []map[string]interface{}{
-//   		lambda.FilterCriteria_Filter(map[string]interface{}{
-//   			"eventName": lambda.FilterRule_isEqual(jsii.String("INSERT")),
-//   		}),
+//   	MetricsConfig: &MetricsConfig{
+//   		Metrics: []eVENT_COUNT{
+//   			lambda.MetricType_*eVENT_COUNT,
+//   		},
 //   	},
 //   }))
 //
@@ -82,6 +83,10 @@ type DynamoEventSourceProps struct {
 	// Default: -1.
 	//
 	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
+	// Configuration for enhanced monitoring metrics collection When specified, enables collection of additional metrics for the stream event source.
+	// Default: - Enhanced monitoring is disabled.
+	//
+	MetricsConfig *awslambda.MetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Default: - discarded records are ignored.
 	//

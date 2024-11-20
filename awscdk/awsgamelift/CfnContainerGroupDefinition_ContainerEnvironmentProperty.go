@@ -1,13 +1,7 @@
 package awsgamelift
 
 
-// *This data type is currently not available.
-//
-// It is under improvement as we respond to customer feedback from the Containers public preview.*
-//
 // An environment variable to set inside a container, in the form of a key-value pair.
-//
-// *Related data type:* `ContainerDefinition$Environment`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

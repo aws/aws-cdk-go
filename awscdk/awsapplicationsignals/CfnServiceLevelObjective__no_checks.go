@@ -80,6 +80,10 @@ func validateCfnServiceLevelObjective_IsConstructParameters(x interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnServiceLevelObjective) validateSetBurnRateConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnServiceLevelObjective) validateSetGoalParameters(val interface{}) error {
 	return nil
 }

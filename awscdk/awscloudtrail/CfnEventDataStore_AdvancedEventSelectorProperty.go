@@ -13,6 +13,13 @@ package awscloudtrail
 // - `eventSource`
 // - `readOnly`
 //
+// The following additional fields are available for event data stores:
+//
+// - `eventName`
+// - `eventType`
+// - `sessionCredentialFromConsole`
+// - `userIdentity.arn`
+//
 // *Supported CloudTrail event record fields for data events*
 //
 // - `eventCategory` (required)
@@ -20,6 +27,13 @@ package awscloudtrail
 // - `readOnly`
 // - `eventName`
 // - `resources.ARN`
+//
+// The following additional fields are available for event data stores:
+//
+// - `eventSource`
+// - `eventType`
+// - `sessionCredentialFromConsole`
+// - `userIdentity.arn`
 //
 // *Supported CloudTrail event record fields for network activity events*
 //

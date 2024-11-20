@@ -10,26 +10,22 @@ import (
 // Base properties for a Schedule Target.
 //
 // Example:
-//   import events "github.com/aws/aws-cdk-go/awscdk"
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   eventBus := events.NewEventBus(this, jsii.String("EventBus"), &EventBusProps{
-//   	EventBusName: jsii.String("DomainEvents"),
-//   })
+//   topic := sns.NewTopic(this, jsii.String("Topic"))
 //
-//   eventEntry := &EventBridgePutEventsEntry{
-//   	EventBus: EventBus,
-//   	Source: jsii.String("PetService"),
-//   	Detail: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
-//   		"Name": jsii.String("Fluffy"),
-//   	}),
-//   	DetailType: jsii.String("🐶"),
+//   payload := map[string]*string{
+//   	"message": jsii.String("Hello scheduler!"),
 //   }
+//
+//   target := targets.NewSnsPublish(topic, &ScheduleTargetBaseProps{
+//   	Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(payload),
+//   })
 //
 //   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 //   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
-//   	Target: targets.NewEventBridgePutEvents(eventEntry, &ScheduleTargetBaseProps{
-//   	}),
+//   	Target: Target,
 //   })
 //
 // Experimental.
@@ -69,10 +65,6 @@ type ScheduleTargetBaseProps struct {
 	// If none provided templates target will automatically create an IAM role with all the minimum necessary
 	// permissions to interact with the templated target. If you wish you may specify your own IAM role, then the templated targets
 	// will grant minimal required permissions.
-	//
-	// Universal target automatically create an IAM role if you do not specify your own IAM role.
-	// However, in comparison with templated targets, for universal targets you must grant the required
-	// IAM permissions yourself.
 	// Default: - created by target.
 	//
 	// Experimental.

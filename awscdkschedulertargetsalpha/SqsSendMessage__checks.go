@@ -12,11 +12,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2"
 )
 
-func (s *jsiiProxy_SqsSendMessage) validateAddTargetActionToRoleParameters(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) error {
-	if schedule == nil {
-		return fmt.Errorf("parameter schedule is required, but nil was provided")
-	}
-
+func (s *jsiiProxy_SqsSendMessage) validateAddTargetActionToRoleParameters(role awsiam.IRole) error {
 	if role == nil {
 		return fmt.Errorf("parameter role is required, but nil was provided")
 	}
@@ -45,9 +41,6 @@ func validateNewSqsSendMessageParameters(queue awssqs.IQueue, props *SqsSendMess
 		return fmt.Errorf("parameter queue is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

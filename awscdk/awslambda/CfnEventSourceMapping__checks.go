@@ -317,6 +317,54 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetFunctionNameParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetMetricsConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEventSourceMapping_MetricsConfigProperty:
+		val := val.(*CfnEventSourceMapping_MetricsConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEventSourceMapping_MetricsConfigProperty:
+		val_ := val.(CfnEventSourceMapping_MetricsConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_MetricsConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetProvisionedPollerConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEventSourceMapping_ProvisionedPollerConfigProperty:
+		val := val.(*CfnEventSourceMapping_ProvisionedPollerConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEventSourceMapping_ProvisionedPollerConfigProperty:
+		val_ := val.(CfnEventSourceMapping_ProvisionedPollerConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEventSourceMapping_ProvisionedPollerConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetScalingConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

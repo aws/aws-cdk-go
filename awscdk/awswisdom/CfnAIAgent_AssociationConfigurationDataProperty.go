@@ -1,6 +1,8 @@
 package awswisdom
 
 
+// A typed union of the data of the configuration for an Amazon Q in Connect Assistant Association.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -50,6 +52,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfigurationdata.html
 //
 type CfnAIAgent_AssociationConfigurationDataProperty struct {
+	// The data of the configuration for a `KNOWLEDGE_BASE` type Amazon Q in Connect Assistant Association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfigurationdata.html#cfn-wisdom-aiagent-associationconfigurationdata-knowledgebaseassociationconfigurationdata
 	//
 	KnowledgeBaseAssociationConfigurationData interface{} `field:"required" json:"knowledgeBaseAssociationConfigurationData" yaml:"knowledgeBaseAssociationConfigurationData"`

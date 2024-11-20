@@ -23,6 +23,7 @@ import (
 //
 //   	// the properties below are optional
 //   	ResourceIdentifier: jsii.String("resourceIdentifier"),
+//   	ServiceNetworkLogType: jsii.String("serviceNetworkLogType"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -77,6 +78,8 @@ type CfnAccessLogSubscription interface {
 	// The ID or Amazon Resource Name (ARN) of the service network or service.
 	ResourceIdentifier() *string
 	SetResourceIdentifier(val *string)
+	ServiceNetworkLogType() *string
+	SetServiceNetworkLogType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -363,6 +366,16 @@ func (j *jsiiProxy_CfnAccessLogSubscription) ResourceIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessLogSubscription) ServiceNetworkLogType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"serviceNetworkLogType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessLogSubscription) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -456,6 +469,14 @@ func (j *jsiiProxy_CfnAccessLogSubscription)SetResourceIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccessLogSubscription)SetServiceNetworkLogType(val *string) {
+	_jsii_.Set(
+		j,
+		"serviceNetworkLogType",
 		val,
 	)
 }

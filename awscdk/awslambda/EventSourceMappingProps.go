@@ -42,6 +42,11 @@ import (
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
 //   	MaxConcurrency: jsii.Number(123),
 //   	MaxRecordAge: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	MetricsConfig: &MetricsConfig{
+//   		Metrics: []eVENT_COUNT{
+//   			awscdk.Aws_lambda.MetricType_*eVENT_COUNT,
+//   		},
+//   	},
 //   	OnFailure: eventSourceDlq,
 //   	ParallelizationFactor: jsii.Number(123),
 //   	ReportBatchItemFailures: jsii.Boolean(false),
@@ -52,7 +57,7 @@ import (
 //   			Uri: jsii.String("uri"),
 //   		},
 //   	},
-//   	StartingPosition: awscdk.Aws_lambda.StartingPosition_TRIM_HORIZON,
+//   	StartingPosition: awscdk.*Aws_lambda.StartingPosition_TRIM_HORIZON,
 //   	StartingPositionTimestamp: jsii.Number(123),
 //   	SupportS3OnFailureDestination: jsii.Boolean(false),
 //   	TumblingWindow: cdk.Duration_*Minutes(jsii.Number(30)),
@@ -136,6 +141,10 @@ type EventSourceMappingProps struct {
 	// Default: - infinite or until the record expires.
 	//
 	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
+	// Configuration for enhanced monitoring metrics collection When specified, enables collection of additional metrics for the stream event source.
+	// Default: - Enhanced monitoring is disabled.
+	//
+	MetricsConfig *MetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Default: discarded records are ignored.
 	//

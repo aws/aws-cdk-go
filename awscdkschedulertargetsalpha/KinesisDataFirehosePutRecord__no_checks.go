@@ -4,7 +4,7 @@ package awscdkschedulertargetsalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (k *jsiiProxy_KinesisDataFirehosePutRecord) validateAddTargetActionToRoleParameters(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) error {
+func (k *jsiiProxy_KinesisDataFirehosePutRecord) validateAddTargetActionToRoleParameters(role awsiam.IRole) error {
 	return nil
 }
 
@@ -16,7 +16,7 @@ func (k *jsiiProxy_KinesisDataFirehosePutRecord) validateBindBaseTargetConfigPar
 	return nil
 }
 
-func validateNewKinesisDataFirehosePutRecordParameters(deliveryStream awskinesisfirehose.CfnDeliveryStream, props *ScheduleTargetBaseProps) error {
+func validateNewKinesisDataFirehosePutRecordParameters(deliveryStream awscdkkinesisfirehosealpha.IDeliveryStream, props *ScheduleTargetBaseProps) error {
 	return nil
 }
 

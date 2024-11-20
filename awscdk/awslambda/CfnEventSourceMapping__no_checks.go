@@ -108,6 +108,14 @@ func (j *jsiiProxy_CfnEventSourceMapping) validateSetFunctionNameParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetMetricsConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnEventSourceMapping) validateSetProvisionedPollerConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventSourceMapping) validateSetScalingConfigParameters(val interface{}) error {
 	return nil
 }

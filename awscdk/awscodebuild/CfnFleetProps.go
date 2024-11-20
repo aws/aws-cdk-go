@@ -13,8 +13,26 @@ import (
 //
 //   cfnFleetProps := &CfnFleetProps{
 //   	BaseCapacity: jsii.Number(123),
+//   	ComputeConfiguration: &ComputeConfigurationProperty{
+//   		Disk: jsii.Number(123),
+//   		MachineType: jsii.String("machineType"),
+//   		Memory: jsii.Number(123),
+//   		VCpu: jsii.Number(123),
+//   	},
 //   	ComputeType: jsii.String("computeType"),
 //   	EnvironmentType: jsii.String("environmentType"),
+//   	FleetProxyConfiguration: &ProxyConfigurationProperty{
+//   		DefaultBehavior: jsii.String("defaultBehavior"),
+//   		OrderedProxyRules: []interface{}{
+//   			&FleetProxyRuleProperty{
+//   				Effect: jsii.String("effect"),
+//   				Entities: []*string{
+//   					jsii.String("entities"),
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	FleetServiceRole: jsii.String("fleetServiceRole"),
 //   	FleetVpcConfig: &VpcConfigProperty{
 //   		SecurityGroupIds: []*string{
@@ -28,6 +46,16 @@ import (
 //   	ImageId: jsii.String("imageId"),
 //   	Name: jsii.String("name"),
 //   	OverflowBehavior: jsii.String("overflowBehavior"),
+//   	ScalingConfiguration: &ScalingConfigurationInputProperty{
+//   		MaxCapacity: jsii.Number(123),
+//   		ScalingType: jsii.String("scalingType"),
+//   		TargetTrackingScalingConfigs: []interface{}{
+//   			&TargetTrackingScalingConfigurationProperty{
+//   				MetricType: jsii.String("metricType"),
+//   				TargetValue: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -43,6 +71,12 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-basecapacity
 	//
 	BaseCapacity *float64 `field:"optional" json:"baseCapacity" yaml:"baseCapacity"`
+	// The compute configuration of the compute fleet.
+	//
+	// This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-computeconfiguration
+	//
+	ComputeConfiguration interface{} `field:"optional" json:"computeConfiguration" yaml:"computeConfiguration"`
 	// Information about the compute resources the compute fleet uses. Available values include:.
 	//
 	// - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
@@ -78,9 +112,12 @@ type CfnFleetProps struct {
 	// The environment type of the compute fleet.
 	//
 	// - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
+	// - The environment type `ARM_EC2` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia Pacific (Mumbai).
 	// - The environment type `LINUX_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia Pacific (Mumbai).
+	// - The environment type `LINUX_EC2` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia Pacific (Mumbai).
 	// - The environment type `LINUX_GPU_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo), and Asia Pacific (Sydney).
 	// - The environment type `MAC_ARM` is available only in regions US East (Ohio), US East (N. Virginia), US West (Oregon), Europe (Frankfurt), and Asia Pacific (Sydney).
+	// - The environment type `WINDOWS_EC2` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia Pacific (Mumbai).
 	// - The environment type `WINDOWS_SERVER_2019_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), Asia Pacific (Tokyo), Asia Pacific (Mumbai) and EU (Ireland).
 	// - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
 	//
@@ -88,6 +125,10 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-environmenttype
 	//
 	EnvironmentType *string `field:"optional" json:"environmentType" yaml:"environmentType"`
+	// Information about the proxy configurations that apply network access control to your reserved capacity instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetproxyconfiguration
+	//
+	FleetProxyConfiguration interface{} `field:"optional" json:"fleetProxyConfiguration" yaml:"fleetProxyConfiguration"`
 	// The service role associated with the compute fleet.
 	//
 	// For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
@@ -115,6 +156,10 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-overflowbehavior
 	//
 	OverflowBehavior *string `field:"optional" json:"overflowBehavior" yaml:"overflowBehavior"`
+	// The scaling configuration of the compute fleet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-scalingconfiguration
+	//
+	ScalingConfiguration interface{} `field:"optional" json:"scalingConfiguration" yaml:"scalingConfiguration"`
 	// A list of tag key and value pairs associated with this compute fleet.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.

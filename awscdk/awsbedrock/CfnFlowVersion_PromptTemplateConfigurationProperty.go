@@ -3,7 +3,7 @@ package awsbedrock
 
 // Contains the message for a prompt.
 //
-// For more information, see [Prompt management in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html) .
+// For more information, see [Construct and store reusable prompts with Prompt management in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

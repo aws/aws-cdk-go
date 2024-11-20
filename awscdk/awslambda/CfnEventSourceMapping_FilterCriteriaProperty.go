@@ -1,7 +1,7 @@
 package awslambda
 
 
-// An object that contains the filters for an event source.
+// The filter criteria to control event filtering.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,7 +19,7 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html
 //
 type CfnEventSourceMapping_FilterCriteriaProperty struct {
-	// A list of filters.
+	// List of filters of this FilterCriteria.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html#cfn-lambda-eventsourcemapping-filtercriteria-filters
 	//
 	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`

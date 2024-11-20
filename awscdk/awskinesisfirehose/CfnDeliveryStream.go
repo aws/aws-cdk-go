@@ -57,6 +57,8 @@ type CfnDeliveryStream interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	DatabaseSourceConfiguration() interface{}
+	SetDatabaseSourceConfiguration(val interface{})
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput() interface{}
 	SetDeliveryStreamEncryptionConfigurationInput(val interface{})
@@ -341,6 +343,16 @@ func (j *jsiiProxy_CfnDeliveryStream) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) DatabaseSourceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"databaseSourceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) DeliveryStreamEncryptionConfigurationInput() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -597,6 +609,17 @@ func (j *jsiiProxy_CfnDeliveryStream)SetAmazonopensearchserviceDestinationConfig
 	_jsii_.Set(
 		j,
 		"amazonopensearchserviceDestinationConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryStream)SetDatabaseSourceConfiguration(val interface{}) {
+	if err := j.validateSetDatabaseSourceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"databaseSourceConfiguration",
 		val,
 	)
 }

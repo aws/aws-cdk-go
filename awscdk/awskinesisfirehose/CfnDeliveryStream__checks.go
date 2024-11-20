@@ -227,6 +227,30 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetAmazonopensearchserviceDestinat
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) validateSetDatabaseSourceConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDeliveryStream_DatabaseSourceConfigurationProperty:
+		val := val.(*CfnDeliveryStream_DatabaseSourceConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDeliveryStream_DatabaseSourceConfigurationProperty:
+		val_ := val.(CfnDeliveryStream_DatabaseSourceConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeliveryStream_DatabaseSourceConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) validateSetDeliveryStreamEncryptionConfigurationInputParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

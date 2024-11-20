@@ -8,15 +8,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha/v2"
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2"
 )
 
-func (k *jsiiProxy_KinesisDataFirehosePutRecord) validateAddTargetActionToRoleParameters(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) error {
-	if schedule == nil {
-		return fmt.Errorf("parameter schedule is required, but nil was provided")
-	}
-
+func (k *jsiiProxy_KinesisDataFirehosePutRecord) validateAddTargetActionToRoleParameters(role awsiam.IRole) error {
 	if role == nil {
 		return fmt.Errorf("parameter role is required, but nil was provided")
 	}
@@ -40,7 +36,7 @@ func (k *jsiiProxy_KinesisDataFirehosePutRecord) validateBindBaseTargetConfigPar
 	return nil
 }
 
-func validateNewKinesisDataFirehosePutRecordParameters(deliveryStream awskinesisfirehose.CfnDeliveryStream, props *ScheduleTargetBaseProps) error {
+func validateNewKinesisDataFirehosePutRecordParameters(deliveryStream awscdkkinesisfirehosealpha.IDeliveryStream, props *ScheduleTargetBaseProps) error {
 	if deliveryStream == nil {
 		return fmt.Errorf("parameter deliveryStream is required, but nil was provided")
 	}

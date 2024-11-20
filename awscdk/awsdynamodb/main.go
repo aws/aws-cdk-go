@@ -107,6 +107,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "warmThroughput", GoGetter: "WarmThroughput"},
 			_jsii_.MemberProperty{JsiiProperty: "writeOnDemandThroughputSettings", GoGetter: "WriteOnDemandThroughputSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "writeProvisionedThroughputSettings", GoGetter: "WriteProvisionedThroughputSettings"},
 		},
@@ -198,6 +199,10 @@ func init() {
 		reflect.TypeOf((*CfnGlobalTable_TimeToLiveSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.WarmThroughputProperty",
+		reflect.TypeOf((*CfnGlobalTable_WarmThroughputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.WriteOnDemandThroughputSettingsProperty",
 		reflect.TypeOf((*CfnGlobalTable_WriteOnDemandThroughputSettingsProperty)(nil)).Elem(),
 	)
@@ -265,6 +270,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "warmThroughput", GoGetter: "WarmThroughput"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTable{}
@@ -345,6 +351,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnTable.TimeToLiveSpecificationProperty",
 		reflect.TypeOf((*CfnTable_TimeToLiveSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnTable.WarmThroughputProperty",
+		reflect.TypeOf((*CfnTable_WarmThroughputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnTableProps",

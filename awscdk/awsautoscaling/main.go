@@ -149,6 +149,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroupName", GoGetter: "AutoScalingGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneDistribution", GoGetter: "AvailabilityZoneDistribution"},
+			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneImpairmentPolicy", GoGetter: "AvailabilityZoneImpairmentPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "capacityRebalance", GoGetter: "CapacityRebalance"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -191,6 +192,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceLinkedRoleArn", GoGetter: "ServiceLinkedRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "skipZonalShiftValidation", GoGetter: "SkipZonalShiftValidation"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -224,8 +226,20 @@ func init() {
 		reflect.TypeOf((*CfnAutoScalingGroup_AvailabilityZoneDistributionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.AvailabilityZoneImpairmentPolicyProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_AvailabilityZoneImpairmentPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.BaselinePerformanceFactorsRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_BaselinePerformanceFactorsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.CpuPerformanceFactorRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.InstanceMaintenancePolicyProperty",
@@ -282,6 +296,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.NotificationConfigurationProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_NotificationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.PerformanceFactorReferenceRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_PerformanceFactorReferenceRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.TagPropertyProperty",

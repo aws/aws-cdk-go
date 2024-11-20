@@ -26,8 +26,7 @@ import (
 //
 //   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 //   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
-//   	Target: targets.NewEventBridgePutEvents(eventEntry, &ScheduleTargetBaseProps{
-//   	}),
+//   	Target: targets.NewEventBridgePutEvents(eventEntry),
 //   })
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html

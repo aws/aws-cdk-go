@@ -301,6 +301,7 @@ import (
 //   	},
 //   	OpsCenterEnabled: jsii.Boolean(false),
 //   	OpsItemSnsTopicArn: jsii.String("opsItemSnsTopicArn"),
+//   	SnsNotificationArn: jsii.String("snsNotificationArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -356,6 +357,10 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
 	//
 	OpsItemSnsTopicArn *string `field:"optional" json:"opsItemSnsTopicArn" yaml:"opsItemSnsTopicArn"`
+	// The SNS topic ARN that is associated with SNS notifications for updates or issues.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-snsnotificationarn
+	//
+	SnsNotificationArn *string `field:"optional" json:"snsNotificationArn" yaml:"snsNotificationArn"`
 	// An array of `Tags` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
 	//

@@ -13,6 +13,8 @@ type IFunctionUrl interface {
 	awscdk.IResource
 	// Grant the given identity permissions to invoke this Lambda Function URL.
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
+	// The authType of the function URL, used for access control.
+	AuthType() FunctionUrlAuthType
 	// The ARN of the function this URL refers to.
 	FunctionArn() *string
 	// The url of the Lambda function.
@@ -37,6 +39,16 @@ func (i *jsiiProxy_IFunctionUrl) GrantInvokeUrl(identity awsiam.IGrantable) awsi
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IFunctionUrl) AuthType() FunctionUrlAuthType {
+	var returns FunctionUrlAuthType
+	_jsii_.Get(
+		j,
+		"authType",
+		&returns,
+	)
 	return returns
 }
 

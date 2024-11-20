@@ -306,6 +306,7 @@ import (
 //   	},
 //   	OpsCenterEnabled: jsii.Boolean(false),
 //   	OpsItemSnsTopicArn: jsii.String("opsItemSnsTopicArn"),
+//   	SnsNotificationArn: jsii.String("snsNotificationArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -378,6 +379,9 @@ type CfnApplication interface {
 	// The name of the resource group used for the application.
 	ResourceGroupName() *string
 	SetResourceGroupName(val *string)
+	// The SNS topic ARN that is associated with SNS notifications for updates or issues.
+	SnsNotificationArn() *string
+	SetSnsNotificationArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -714,6 +718,16 @@ func (j *jsiiProxy_CfnApplication) ResourceGroupName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) SnsNotificationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"snsNotificationArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -892,6 +906,14 @@ func (j *jsiiProxy_CfnApplication)SetResourceGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetSnsNotificationArn(val *string) {
+	_jsii_.Set(
+		j,
+		"snsNotificationArn",
 		val,
 	)
 }

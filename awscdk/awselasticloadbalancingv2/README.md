@@ -606,6 +606,28 @@ tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &Applica
 })
 ```
 
+### Target Group level cross-zone load balancing setting for Application Load Balancers and Network Load Balancers
+
+You can set cross-zone load balancing setting at the target group level by setting `crossZone` property.
+
+If not specified, it will use the load balancer's configuration.
+
+For more infomation, see [How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html).
+
+```go
+var vpc vpc
+
+
+targetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"), &ApplicationTargetGroupProps{
+	Vpc: Vpc,
+	Port: jsii.Number(80),
+	TargetType: elbv2.TargetType_INSTANCE,
+
+	// Whether cross zone load balancing is enabled.
+	CrossZoneEnabled: jsii.Boolean(true),
+})
+```
+
 ## Using Lambda Targets
 
 To use a Lambda Function as a target, use the integration class in the

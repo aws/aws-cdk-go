@@ -21,8 +21,8 @@ type CfnFleet_CertificateConfigurationProperty struct {
 	//
 	// Valid values include:
 	//
-	// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-	// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+	// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+	// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
 	//
 	CertificateType *string `field:"required" json:"certificateType" yaml:"certificateType"`

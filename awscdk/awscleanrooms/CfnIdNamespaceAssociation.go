@@ -99,6 +99,7 @@ type CfnIdNamespaceAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An optional label that you can assign to a resource when you create it.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

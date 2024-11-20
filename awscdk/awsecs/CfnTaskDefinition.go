@@ -205,6 +205,7 @@ import (
 //   				},
 //   			},
 //   			User: jsii.String("user"),
+//   			VersionConsistency: jsii.String("versionConsistency"),
 //   			VolumesFrom: []interface{}{
 //   				&VolumeFromProperty{
 //   					ReadOnly: jsii.Boolean(false),

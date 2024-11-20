@@ -23,12 +23,13 @@ import (
 //   	},
 //   	Stream: dynamodb.StreamViewType_NEW_IMAGE,
 //   })
+//
 //   fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
 //   	StartingPosition: lambda.StartingPosition_LATEST,
-//   	Filters: []map[string]interface{}{
-//   		lambda.FilterCriteria_Filter(map[string]interface{}{
-//   			"eventName": lambda.FilterRule_isEqual(jsii.String("INSERT")),
-//   		}),
+//   	MetricsConfig: &MetricsConfig{
+//   		Metrics: []eVENT_COUNT{
+//   			lambda.MetricType_*eVENT_COUNT,
+//   		},
 //   	},
 //   }))
 //

@@ -13,6 +13,111 @@ package awsapplicationautoscaling
 //   	PolicyType: jsii.String("policyType"),
 //
 //   	// the properties below are optional
+//   	PredictiveScalingPolicyConfiguration: &PredictiveScalingPolicyConfigurationProperty{
+//   		MetricSpecifications: []interface{}{
+//   			&PredictiveScalingMetricSpecificationProperty{
+//   				TargetValue: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				CustomizedCapacityMetricSpecification: &PredictiveScalingCustomizedCapacityMetricProperty{
+//   					MetricDataQueries: []interface{}{
+//   						&PredictiveScalingMetricDataQueryProperty{
+//   							Expression: jsii.String("expression"),
+//   							Id: jsii.String("id"),
+//   							Label: jsii.String("label"),
+//   							MetricStat: &PredictiveScalingMetricStatProperty{
+//   								Metric: &PredictiveScalingMetricProperty{
+//   									Dimensions: []interface{}{
+//   										&PredictiveScalingMetricDimensionProperty{
+//   											Name: jsii.String("name"),
+//   											Value: jsii.String("value"),
+//   										},
+//   									},
+//   									MetricName: jsii.String("metricName"),
+//   									Namespace: jsii.String("namespace"),
+//   								},
+//   								Stat: jsii.String("stat"),
+//   								Unit: jsii.String("unit"),
+//   							},
+//   							ReturnData: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
+//   				CustomizedLoadMetricSpecification: &PredictiveScalingCustomizedLoadMetricProperty{
+//   					MetricDataQueries: []interface{}{
+//   						&PredictiveScalingMetricDataQueryProperty{
+//   							Expression: jsii.String("expression"),
+//   							Id: jsii.String("id"),
+//   							Label: jsii.String("label"),
+//   							MetricStat: &PredictiveScalingMetricStatProperty{
+//   								Metric: &PredictiveScalingMetricProperty{
+//   									Dimensions: []interface{}{
+//   										&PredictiveScalingMetricDimensionProperty{
+//   											Name: jsii.String("name"),
+//   											Value: jsii.String("value"),
+//   										},
+//   									},
+//   									MetricName: jsii.String("metricName"),
+//   									Namespace: jsii.String("namespace"),
+//   								},
+//   								Stat: jsii.String("stat"),
+//   								Unit: jsii.String("unit"),
+//   							},
+//   							ReturnData: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
+//   				CustomizedScalingMetricSpecification: &PredictiveScalingCustomizedScalingMetricProperty{
+//   					MetricDataQueries: []interface{}{
+//   						&PredictiveScalingMetricDataQueryProperty{
+//   							Expression: jsii.String("expression"),
+//   							Id: jsii.String("id"),
+//   							Label: jsii.String("label"),
+//   							MetricStat: &PredictiveScalingMetricStatProperty{
+//   								Metric: &PredictiveScalingMetricProperty{
+//   									Dimensions: []interface{}{
+//   										&PredictiveScalingMetricDimensionProperty{
+//   											Name: jsii.String("name"),
+//   											Value: jsii.String("value"),
+//   										},
+//   									},
+//   									MetricName: jsii.String("metricName"),
+//   									Namespace: jsii.String("namespace"),
+//   								},
+//   								Stat: jsii.String("stat"),
+//   								Unit: jsii.String("unit"),
+//   							},
+//   							ReturnData: jsii.Boolean(false),
+//   						},
+//   					},
+//   				},
+//   				PredefinedLoadMetricSpecification: &PredictiveScalingPredefinedLoadMetricProperty{
+//   					PredefinedMetricType: jsii.String("predefinedMetricType"),
+//
+//   					// the properties below are optional
+//   					ResourceLabel: jsii.String("resourceLabel"),
+//   				},
+//   				PredefinedMetricPairSpecification: &PredictiveScalingPredefinedMetricPairProperty{
+//   					PredefinedMetricType: jsii.String("predefinedMetricType"),
+//
+//   					// the properties below are optional
+//   					ResourceLabel: jsii.String("resourceLabel"),
+//   				},
+//   				PredefinedScalingMetricSpecification: &PredictiveScalingPredefinedScalingMetricProperty{
+//   					PredefinedMetricType: jsii.String("predefinedMetricType"),
+//
+//   					// the properties below are optional
+//   					ResourceLabel: jsii.String("resourceLabel"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		MaxCapacityBreachBehavior: jsii.String("maxCapacityBreachBehavior"),
+//   		MaxCapacityBuffer: jsii.Number(123),
+//   		Mode: jsii.String("mode"),
+//   		SchedulingBufferTime: jsii.Number(123),
+//   	},
 //   	ResourceId: jsii.String("resourceId"),
 //   	ScalableDimension: jsii.String("scalableDimension"),
 //   	ScalingTargetId: jsii.String("scalingTargetId"),
@@ -101,6 +206,9 @@ type CfnScalingPolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policytype
 	//
 	PolicyType *string `field:"required" json:"policyType" yaml:"policyType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-predictivescalingpolicyconfiguration
+	//
+	PredictiveScalingPolicyConfiguration interface{} `field:"optional" json:"predictiveScalingPolicyConfiguration" yaml:"predictiveScalingPolicyConfiguration"`
 	// The identifier of the resource associated with the scaling policy.
 	//
 	// This string consists of the resource type and unique identifier.

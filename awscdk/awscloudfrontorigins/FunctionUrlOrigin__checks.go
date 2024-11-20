@@ -27,6 +27,18 @@ func (f *jsiiProxy_FunctionUrlOrigin) validateBindParameters(_scope constructs.C
 	return nil
 }
 
+func validateFunctionUrlOrigin_WithOriginAccessControlParameters(lambdaFunctionUrl awslambda.IFunctionUrl, props *FunctionUrlOriginWithOACProps) error {
+	if lambdaFunctionUrl == nil {
+		return fmt.Errorf("parameter lambdaFunctionUrl is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateNewFunctionUrlOriginParameters(lambdaFunctionUrl awslambda.IFunctionUrl, props *FunctionUrlOriginProps) error {
 	if lambdaFunctionUrl == nil {
 		return fmt.Errorf("parameter lambdaFunctionUrl is required, but nil was provided")

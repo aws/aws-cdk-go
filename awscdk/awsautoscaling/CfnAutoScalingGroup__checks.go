@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetAvailabilityZoneDistributionP
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetAvailabilityZoneImpairmentPolicyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAutoScalingGroup_AvailabilityZoneImpairmentPolicyProperty:
+		val := val.(*CfnAutoScalingGroup_AvailabilityZoneImpairmentPolicyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAutoScalingGroup_AvailabilityZoneImpairmentPolicyProperty:
+		val_ := val.(CfnAutoScalingGroup_AvailabilityZoneImpairmentPolicyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAutoScalingGroup_AvailabilityZoneImpairmentPolicyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetCapacityRebalanceParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -523,6 +547,23 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetNotificationConfigurationsPar
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetSkipZonalShiftValidationParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -179,63 +179,24 @@ func validateCfnContainerGroupDefinition_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetContainerDefinitionsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
+func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetGameServerContainerDefinitionParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
-	case *[]interface{}:
-		val := val.(*[]interface{})
-		for idx_97dfc6, v := range *val {
-			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
-			case *CfnContainerGroupDefinition_ContainerDefinitionProperty:
-				v := v.(*CfnContainerGroupDefinition_ContainerDefinitionProperty)
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case CfnContainerGroupDefinition_ContainerDefinitionProperty:
-				v_ := v.(CfnContainerGroupDefinition_ContainerDefinitionProperty)
-				v := &v_
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			default:
-				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnContainerGroupDefinition_ContainerDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
-				}
-			}
+	case *CfnContainerGroupDefinition_GameServerContainerDefinitionProperty:
+		val := val.(*CfnContainerGroupDefinition_GameServerContainerDefinitionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
 		}
-	case []interface{}:
-		val_ := val.([]interface{})
+	case CfnContainerGroupDefinition_GameServerContainerDefinitionProperty:
+		val_ := val.(CfnContainerGroupDefinition_GameServerContainerDefinitionProperty)
 		val := &val_
-		for idx_97dfc6, v := range *val {
-			switch v.(type) {
-			case awscdk.IResolvable:
-				// ok
-			case *CfnContainerGroupDefinition_ContainerDefinitionProperty:
-				v := v.(*CfnContainerGroupDefinition_ContainerDefinitionProperty)
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			case CfnContainerGroupDefinition_ContainerDefinitionProperty:
-				v_ := v.(CfnContainerGroupDefinition_ContainerDefinitionProperty)
-				v := &v_
-				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
-					return err
-				}
-			default:
-				if !_jsii_.IsAnonymousProxy(v) {
-					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnContainerGroupDefinition_ContainerDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
-				}
-			}
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
 		}
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnContainerGroupDefinition_GameServerContainerDefinitionProperty; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -260,15 +221,58 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetOperatingSystemParame
 
 func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetSupportContainerDefinitionsParameters(val interface{}) error {
 	switch val.(type) {
-	case *[]interface{}:
-		// ok
-	case []interface{}:
-		// ok
 	case awscdk.IResolvable:
 		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnContainerGroupDefinition_SupportContainerDefinitionProperty:
+				v := v.(*CfnContainerGroupDefinition_SupportContainerDefinitionProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnContainerGroupDefinition_SupportContainerDefinitionProperty:
+				v_ := v.(CfnContainerGroupDefinition_SupportContainerDefinitionProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnContainerGroupDefinition_SupportContainerDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnContainerGroupDefinition_SupportContainerDefinitionProperty:
+				v := v.(*CfnContainerGroupDefinition_SupportContainerDefinitionProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnContainerGroupDefinition_SupportContainerDefinitionProperty:
+				v_ := v.(CfnContainerGroupDefinition_SupportContainerDefinitionProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnContainerGroupDefinition_SupportContainerDefinitionProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *[]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -285,7 +289,7 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTagsParameters(val *[
 	return nil
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalCpuLimitParameters(val *float64) error {
+func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalMemoryLimitMebibytesParameters(val *float64) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
@@ -293,7 +297,7 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalCpuLimitParamete
 	return nil
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalMemoryLimitParameters(val *float64) error {
+func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalVcpuLimitParameters(val *float64) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}

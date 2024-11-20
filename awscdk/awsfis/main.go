@@ -27,6 +27,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "experimentOptions", GoGetter: "ExperimentOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "experimentReportConfiguration", GoGetter: "ExperimentReportConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -61,8 +62,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.CloudWatchDashboardProperty",
+		reflect.TypeOf((*CfnExperimentTemplate_CloudWatchDashboardProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.CloudWatchLogsConfigurationProperty",
 		reflect.TypeOf((*CfnExperimentTemplate_CloudWatchLogsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.DataSourcesProperty",
+		reflect.TypeOf((*CfnExperimentTemplate_DataSourcesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.ExperimentReportS3ConfigurationProperty",
+		reflect.TypeOf((*CfnExperimentTemplate_ExperimentReportS3ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.ExperimentTemplateActionProperty",
@@ -71,6 +84,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.ExperimentTemplateExperimentOptionsProperty",
 		reflect.TypeOf((*CfnExperimentTemplate_ExperimentTemplateExperimentOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.ExperimentTemplateExperimentReportConfigurationProperty",
+		reflect.TypeOf((*CfnExperimentTemplate_ExperimentTemplateExperimentReportConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.ExperimentTemplateLogConfigurationProperty",
@@ -87,6 +104,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.ExperimentTemplateTargetProperty",
 		reflect.TypeOf((*CfnExperimentTemplate_ExperimentTemplateTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.OutputsProperty",
+		reflect.TypeOf((*CfnExperimentTemplate_OutputsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fis.CfnExperimentTemplate.S3ConfigurationProperty",

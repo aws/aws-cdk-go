@@ -18,8 +18,26 @@ import (
 //
 //   cfnFleet := awscdk.Aws_codebuild.NewCfnFleet(this, jsii.String("MyCfnFleet"), &CfnFleetProps{
 //   	BaseCapacity: jsii.Number(123),
+//   	ComputeConfiguration: &ComputeConfigurationProperty{
+//   		Disk: jsii.Number(123),
+//   		MachineType: jsii.String("machineType"),
+//   		Memory: jsii.Number(123),
+//   		VCpu: jsii.Number(123),
+//   	},
 //   	ComputeType: jsii.String("computeType"),
 //   	EnvironmentType: jsii.String("environmentType"),
+//   	FleetProxyConfiguration: &ProxyConfigurationProperty{
+//   		DefaultBehavior: jsii.String("defaultBehavior"),
+//   		OrderedProxyRules: []interface{}{
+//   			&FleetProxyRuleProperty{
+//   				Effect: jsii.String("effect"),
+//   				Entities: []*string{
+//   					jsii.String("entities"),
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	FleetServiceRole: jsii.String("fleetServiceRole"),
 //   	FleetVpcConfig: &VpcConfigProperty{
 //   		SecurityGroupIds: []*string{
@@ -33,6 +51,16 @@ import (
 //   	ImageId: jsii.String("imageId"),
 //   	Name: jsii.String("name"),
 //   	OverflowBehavior: jsii.String("overflowBehavior"),
+//   	ScalingConfiguration: &ScalingConfigurationInputProperty{
+//   		MaxCapacity: jsii.Number(123),
+//   		ScalingType: jsii.String("scalingType"),
+//   		TargetTrackingScalingConfigs: []interface{}{
+//   			&TargetTrackingScalingConfigurationProperty{
+//   				MetricType: jsii.String("metricType"),
+//   				TargetValue: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -59,6 +87,9 @@ type CfnFleet interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The compute configuration of the compute fleet.
+	ComputeConfiguration() interface{}
+	SetComputeConfiguration(val interface{})
 	// Information about the compute resources the compute fleet uses.
 	//
 	// Available values include:.
@@ -71,6 +102,9 @@ type CfnFleet interface {
 	// The environment type of the compute fleet.
 	EnvironmentType() *string
 	SetEnvironmentType(val *string)
+	// Information about the proxy configurations that apply network access control to your reserved capacity instances.
+	FleetProxyConfiguration() interface{}
+	SetFleetProxyConfiguration(val interface{})
 	// The service role associated with the compute fleet.
 	FleetServiceRole() *string
 	SetFleetServiceRole(val *string)
@@ -103,6 +137,9 @@ type CfnFleet interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The scaling configuration of the compute fleet.
+	ScalingConfiguration() interface{}
+	SetScalingConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -317,6 +354,16 @@ func (j *jsiiProxy_CfnFleet) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) ComputeConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"computeConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) ComputeType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -342,6 +389,16 @@ func (j *jsiiProxy_CfnFleet) EnvironmentType() *string {
 	_jsii_.Get(
 		j,
 		"environmentType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) FleetProxyConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"fleetProxyConfiguration",
 		&returns,
 	)
 	return returns
@@ -427,6 +484,16 @@ func (j *jsiiProxy_CfnFleet) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) ScalingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"scalingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -503,6 +570,17 @@ func (j *jsiiProxy_CfnFleet)SetBaseCapacity(val *float64) {
 	)
 }
 
+func (j *jsiiProxy_CfnFleet)SetComputeConfiguration(val interface{}) {
+	if err := j.validateSetComputeConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"computeConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFleet)SetComputeType(val *string) {
 	_jsii_.Set(
 		j,
@@ -515,6 +593,17 @@ func (j *jsiiProxy_CfnFleet)SetEnvironmentType(val *string) {
 	_jsii_.Set(
 		j,
 		"environmentType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetFleetProxyConfiguration(val interface{}) {
+	if err := j.validateSetFleetProxyConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"fleetProxyConfiguration",
 		val,
 	)
 }
@@ -558,6 +647,17 @@ func (j *jsiiProxy_CfnFleet)SetOverflowBehavior(val *string) {
 	_jsii_.Set(
 		j,
 		"overflowBehavior",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetScalingConfiguration(val interface{}) {
+	if err := j.validateSetScalingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"scalingConfiguration",
 		val,
 	)
 }

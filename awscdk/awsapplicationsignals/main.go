@@ -23,6 +23,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedTime", GoGetter: "AttrCreatedTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEvaluationType", GoGetter: "AttrEvaluationType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedTime", GoGetter: "AttrLastUpdatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "burnRateConfigurations", GoGetter: "BurnRateConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -60,6 +61,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.BurnRateConfigurationProperty",
+		reflect.TypeOf((*CfnServiceLevelObjective_BurnRateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.CalendarIntervalProperty",

@@ -11,11 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2"
 )
 
-func (e *jsiiProxy_EventBridgePutEvents) validateAddTargetActionToRoleParameters(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) error {
-	if schedule == nil {
-		return fmt.Errorf("parameter schedule is required, but nil was provided")
-	}
-
+func (e *jsiiProxy_EventBridgePutEvents) validateAddTargetActionToRoleParameters(role awsiam.IRole) error {
 	if role == nil {
 		return fmt.Errorf("parameter role is required, but nil was provided")
 	}
@@ -47,9 +43,6 @@ func validateNewEventBridgePutEventsParameters(entry *EventBridgePutEventsEntry,
 		return err
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

@@ -36,6 +36,18 @@ func init() {
 		reflect.TypeOf((*LambdaDestinationOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda_destinations.S3Destination",
+		reflect.TypeOf((*S3Destination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3Destination{}
+			_jsii_.InitJsiiProxy(&j.Type__awslambdaIDestination)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda_destinations.SnsDestination",
 		reflect.TypeOf((*SnsDestination)(nil)).Elem(),
 		[]_jsii_.Member{

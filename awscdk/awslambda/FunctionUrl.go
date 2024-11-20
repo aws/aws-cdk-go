@@ -13,16 +13,18 @@ import (
 // Defines a Lambda function url.
 //
 // Example:
-//   // Can be a Function or an Alias
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //   var fn function
 //
 //
 //   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
-//   	AuthType: lambda.FunctionUrlAuthType_NONE,
+//   	AuthType: lambda.FunctionUrlAuthType_AWS_IAM,
 //   })
 //
-//   awscdk.NewCfnOutput(this, jsii.String("TheUrl"), &CfnOutputProps{
-//   	Value: fnUrl.Url,
+//   cloudfront.NewDistribution(this, jsii.String("MyDistribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.FunctionUrlOrigin_WithOriginAccessControl(fnUrl),
+//   	},
 //   })
 //
 type FunctionUrl interface {

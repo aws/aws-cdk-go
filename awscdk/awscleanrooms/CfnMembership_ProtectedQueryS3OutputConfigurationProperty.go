@@ -32,6 +32,9 @@ type CfnMembership_ProtectedQueryS3OutputConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html#cfn-cleanrooms-membership-protectedquerys3outputconfiguration-keyprefix
 	//
 	KeyPrefix *string `field:"optional" json:"keyPrefix" yaml:"keyPrefix"`
+	// Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ).
+	//
+	// This parameter is only supported for analyses with the Spark analytics engine.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html#cfn-cleanrooms-membership-protectedquerys3outputconfiguration-singlefileoutput
 	//
 	SingleFileOutput interface{} `field:"optional" json:"singleFileOutput" yaml:"singleFileOutput"`

@@ -68,6 +68,7 @@ type CfnCollaboration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The analytics engine for the collaboration.
 	AnalyticsEngine() *string
 	SetAnalyticsEngine(val *string)
 	// Returns the Amazon Resource Name (ARN) of the specified collaboration.

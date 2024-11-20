@@ -4,16 +4,18 @@ package awslambda
 // Options to add a url to a Lambda function.
 //
 // Example:
-//   // Can be a Function or an Alias
-//   var fn function
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var fn function
 //
 //   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
 //   	AuthType: lambda.FunctionUrlAuthType_NONE,
 //   })
 //
-//   awscdk.NewCfnOutput(this, jsii.String("TheUrl"), &CfnOutputProps{
-//   	Value: fnUrl.Url,
+//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.NewFunctionUrlOrigin(fnUrl),
+//   	},
 //   })
 //
 type FunctionUrlOptions struct {

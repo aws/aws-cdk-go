@@ -14,8 +14,8 @@ import (
 // An EventBridge Schedule.
 //
 // Example:
-//   import firehose "github.com/aws/aws-cdk-go/awscdk"
-//   var deliveryStream cfnDeliveryStream
+//   import firehose "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+//   var deliveryStream iDeliveryStream
 //
 //
 //   payload := map[string]*string{

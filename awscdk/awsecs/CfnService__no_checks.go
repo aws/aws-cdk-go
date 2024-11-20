@@ -132,6 +132,10 @@ func (j *jsiiProxy_CfnService) validateSetVolumeConfigurationsParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetVpcLatticeConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnServiceParameters(scope constructs.Construct, id *string, props *CfnServiceProps) error {
 	return nil
 }

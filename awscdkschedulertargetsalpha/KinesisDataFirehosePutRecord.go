@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha/v2"
 	"github.com/aws/aws-cdk-go/awscdkscheduleralpha/v2"
 	"github.com/aws/aws-cdk-go/awscdkschedulertargetsalpha/v2/internal"
 )
@@ -13,8 +13,8 @@ import (
 // Use an Amazon Kinesis Data Firehose as a target for AWS EventBridge Scheduler.
 //
 // Example:
-//   import firehose "github.com/aws/aws-cdk-go/awscdk"
-//   var deliveryStream cfnDeliveryStream
+//   import firehose "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+//   var deliveryStream iDeliveryStream
 //
 //
 //   payload := map[string]*string{
@@ -35,7 +35,7 @@ type KinesisDataFirehosePutRecord interface {
 	// Experimental.
 	TargetArn() *string
 	// Experimental.
-	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	AddTargetActionToRole(role awsiam.IRole)
 	// Create a return a Schedule Target Configuration for the given schedule.
 	//
 	// Returns: a Schedule Target Configuration.
@@ -63,7 +63,7 @@ func (j *jsiiProxy_KinesisDataFirehosePutRecord) TargetArn() *string {
 
 
 // Experimental.
-func NewKinesisDataFirehosePutRecord(deliveryStream awskinesisfirehose.CfnDeliveryStream, props *ScheduleTargetBaseProps) KinesisDataFirehosePutRecord {
+func NewKinesisDataFirehosePutRecord(deliveryStream awscdkkinesisfirehosealpha.IDeliveryStream, props *ScheduleTargetBaseProps) KinesisDataFirehosePutRecord {
 	_init_.Initialize()
 
 	if err := validateNewKinesisDataFirehosePutRecordParameters(deliveryStream, props); err != nil {
@@ -81,7 +81,7 @@ func NewKinesisDataFirehosePutRecord(deliveryStream awskinesisfirehose.CfnDelive
 }
 
 // Experimental.
-func NewKinesisDataFirehosePutRecord_Override(k KinesisDataFirehosePutRecord, deliveryStream awskinesisfirehose.CfnDeliveryStream, props *ScheduleTargetBaseProps) {
+func NewKinesisDataFirehosePutRecord_Override(k KinesisDataFirehosePutRecord, deliveryStream awscdkkinesisfirehosealpha.IDeliveryStream, props *ScheduleTargetBaseProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -91,14 +91,14 @@ func NewKinesisDataFirehosePutRecord_Override(k KinesisDataFirehosePutRecord, de
 	)
 }
 
-func (k *jsiiProxy_KinesisDataFirehosePutRecord) AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) {
-	if err := k.validateAddTargetActionToRoleParameters(schedule, role); err != nil {
+func (k *jsiiProxy_KinesisDataFirehosePutRecord) AddTargetActionToRole(role awsiam.IRole) {
+	if err := k.validateAddTargetActionToRoleParameters(role); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		k,
 		"addTargetActionToRole",
-		[]interface{}{schedule, role},
+		[]interface{}{role},
 	)
 }
 

@@ -3,7 +3,7 @@ package awsdynamodb
 
 // Sets the read request settings for a replica table or a replica global secondary index.
 //
-// You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+// You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

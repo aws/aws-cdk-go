@@ -56,6 +56,11 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	BurnRateConfigurations: []interface{}{
+//   		&BurnRateConfigurationProperty{
+//   			LookBackWindowMinutes: jsii.Number(123),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	Goal: &GoalProperty{
 //   		AttainmentGoal: jsii.Number(123),
@@ -230,6 +235,9 @@ type CfnServiceLevelObjective interface {
 	AttrEvaluationType() *string
 	// The time that this SLO was most recently updated.
 	AttrLastUpdatedTime() *float64
+	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO.
+	BurnRateConfigurations() interface{}
+	SetBurnRateConfigurations(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -467,6 +475,16 @@ func (j *jsiiProxy_CfnServiceLevelObjective) AttrLastUpdatedTime() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServiceLevelObjective) BurnRateConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"burnRateConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServiceLevelObjective) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -662,6 +680,17 @@ func NewCfnServiceLevelObjective_Override(c CfnServiceLevelObjective, scope cons
 		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnServiceLevelObjective)SetBurnRateConfigurations(val interface{}) {
+	if err := j.validateSetBurnRateConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"burnRateConfigurations",
+		val,
 	)
 }
 

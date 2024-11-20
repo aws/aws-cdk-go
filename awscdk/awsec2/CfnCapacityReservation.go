@@ -147,7 +147,7 @@ type CfnCapacityReservation interface {
 	// A Capacity Reservation can have one of the following tenancy settings:.
 	Tenancy() *string
 	SetTenancy(val *string)
-	// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+	// The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation.
 	UnusedReservationBillingOwnerId() *string
 	SetUnusedReservationBillingOwnerId(val *string)
 	// Deprecated.

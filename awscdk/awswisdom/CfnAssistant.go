@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies an Amazon Connect Wisdom assistant.
+// Creates an Amazon Q in Connect assistant.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,7 +41,7 @@ type CfnAssistant interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the assistant.
 	AttrAssistantArn() *string
-	// The ID of the Wisdom assistant.
+	// The identifier of the Amazon Q in Connect assistant.
 	AttrAssistantId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -52,7 +52,7 @@ type CfnAssistant interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the assistant.
+	// The description.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -65,7 +65,7 @@ type CfnAssistant interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the assistant.
+	// The name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

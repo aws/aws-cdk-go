@@ -476,6 +476,17 @@ func InterfaceVpcEndpointAwsService_BEDROCK_RUNTIME() InterfaceVpcEndpointAwsSer
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_BILLING() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"BILLING",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_BILLING_AND_COST_MANAGEMENT_FREETIER() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

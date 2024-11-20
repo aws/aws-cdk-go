@@ -31,6 +31,10 @@ import (
 //   	AvailabilityZoneDistribution: &AvailabilityZoneDistributionProperty{
 //   		CapacityDistributionStrategy: jsii.String("capacityDistributionStrategy"),
 //   	},
+//   	AvailabilityZoneImpairmentPolicy: &AvailabilityZoneImpairmentPolicyProperty{
+//   		ImpairedZoneHealthCheckBehavior: jsii.String("impairedZoneHealthCheckBehavior"),
+//   		ZonalShiftEnabled: jsii.Boolean(false),
+//   	},
 //   	AvailabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
 //   	},
@@ -131,6 +135,15 @@ import (
 //   							Max: jsii.Number(123),
 //   							Min: jsii.Number(123),
 //   						},
+//   						BaselinePerformanceFactors: &BaselinePerformanceFactorsRequestProperty{
+//   							Cpu: &CpuPerformanceFactorRequestProperty{
+//   								References: []interface{}{
+//   									&PerformanceFactorReferenceRequestProperty{
+//   										InstanceFamily: jsii.String("instanceFamily"),
+//   									},
+//   								},
+//   							},
+//   						},
 //   						BurstablePerformance: jsii.String("burstablePerformance"),
 //   						CpuManufacturers: []*string{
 //   							jsii.String("cpuManufacturers"),
@@ -210,6 +223,7 @@ import (
 //   	},
 //   	PlacementGroup: jsii.String("placementGroup"),
 //   	ServiceLinkedRoleArn: jsii.String("serviceLinkedRoleArn"),
+//   	SkipZonalShiftValidation: jsii.Boolean(false),
 //   	Tags: []tagPropertyProperty{
 //   		&tagPropertyProperty{
 //   			Key: jsii.String("key"),
@@ -245,8 +259,11 @@ type CfnAutoScalingGroup interface {
 	// This name must be unique per Region per account.
 	AutoScalingGroupName() *string
 	SetAutoScalingGroupName(val *string)
+	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution() interface{}
 	SetAvailabilityZoneDistribution(val interface{})
+	AvailabilityZoneImpairmentPolicy() interface{}
+	SetAvailabilityZoneImpairmentPolicy(val interface{})
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
@@ -350,6 +367,8 @@ type CfnAutoScalingGroup interface {
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf.
 	ServiceLinkedRoleArn() *string
 	SetServiceLinkedRoleArn(val *string)
+	SkipZonalShiftValidation() interface{}
+	SetSkipZonalShiftValidation(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -533,6 +552,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) AvailabilityZoneDistribution() interface
 	_jsii_.Get(
 		j,
 		"availabilityZoneDistribution",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) AvailabilityZoneImpairmentPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"availabilityZoneImpairmentPolicy",
 		&returns,
 	)
 	return returns
@@ -858,6 +887,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) ServiceLinkedRoleArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) SkipZonalShiftValidation() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"skipZonalShiftValidation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -991,6 +1030,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetAvailabilityZoneDistribution(val inter
 	_jsii_.Set(
 		j,
 		"availabilityZoneDistribution",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetAvailabilityZoneImpairmentPolicy(val interface{}) {
+	if err := j.validateSetAvailabilityZoneImpairmentPolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"availabilityZoneImpairmentPolicy",
 		val,
 	)
 }
@@ -1224,6 +1274,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetServiceLinkedRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceLinkedRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetSkipZonalShiftValidation(val interface{}) {
+	if err := j.validateSetSkipZonalShiftValidationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"skipZonalShiftValidation",
 		val,
 	)
 }

@@ -118,6 +118,119 @@ func init() {
 		reflect.TypeOf((*CfnBuildProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet",
+		reflect.TypeOf((*CfnContainerFleet)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDeploymentDetails", GoGetter: "AttrDeploymentDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFleetArn", GoGetter: "AttrFleetArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFleetId", GoGetter: "AttrFleetId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrGameServerContainerGroupDefinitionArn", GoGetter: "AttrGameServerContainerGroupDefinitionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMaximumGameServerContainerGroupsPerInstance", GoGetter: "AttrMaximumGameServerContainerGroupsPerInstance"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPerInstanceContainerGroupDefinitionArn", GoGetter: "AttrPerInstanceContainerGroupDefinitionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "billingType", GoGetter: "BillingType"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentConfiguration", GoGetter: "DeploymentConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "fleetRoleArn", GoGetter: "FleetRoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "gameServerContainerGroupDefinitionName", GoGetter: "GameServerContainerGroupDefinitionName"},
+			_jsii_.MemberProperty{JsiiProperty: "gameServerContainerGroupsPerInstance", GoGetter: "GameServerContainerGroupsPerInstance"},
+			_jsii_.MemberProperty{JsiiProperty: "gameSessionCreationLimitPolicy", GoGetter: "GameSessionCreationLimitPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceConnectionPortRange", GoGetter: "InstanceConnectionPortRange"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceInboundPermissions", GoGetter: "InstanceInboundPermissions"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceType", GoGetter: "InstanceType"},
+			_jsii_.MemberProperty{JsiiProperty: "locations", GoGetter: "Locations"},
+			_jsii_.MemberProperty{JsiiProperty: "logConfiguration", GoGetter: "LogConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "metricGroups", GoGetter: "MetricGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "newGameSessionProtectionPolicy", GoGetter: "NewGameSessionProtectionPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "perInstanceContainerGroupDefinitionName", GoGetter: "PerInstanceContainerGroupDefinitionName"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "scalingPolicies", GoGetter: "ScalingPolicies"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnContainerFleet{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.ConnectionPortRangeProperty",
+		reflect.TypeOf((*CfnContainerFleet_ConnectionPortRangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.DeploymentConfigurationProperty",
+		reflect.TypeOf((*CfnContainerFleet_DeploymentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.DeploymentDetailsProperty",
+		reflect.TypeOf((*CfnContainerFleet_DeploymentDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.GameSessionCreationLimitPolicyProperty",
+		reflect.TypeOf((*CfnContainerFleet_GameSessionCreationLimitPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.IpPermissionProperty",
+		reflect.TypeOf((*CfnContainerFleet_IpPermissionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.LocationCapacityProperty",
+		reflect.TypeOf((*CfnContainerFleet_LocationCapacityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.LocationConfigurationProperty",
+		reflect.TypeOf((*CfnContainerFleet_LocationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.LogConfigurationProperty",
+		reflect.TypeOf((*CfnContainerFleet_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.ScalingPolicyProperty",
+		reflect.TypeOf((*CfnContainerFleet_ScalingPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleet.TargetConfigurationProperty",
+		reflect.TypeOf((*CfnContainerFleet_TargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerFleetProps",
+		reflect.TypeOf((*CfnContainerFleetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition",
 		reflect.TypeOf((*CfnContainerGroupDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -133,12 +246,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatusReason", GoGetter: "AttrStatusReason"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVersionNumber", GoGetter: "AttrVersionNumber"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "containerDefinitions", GoGetter: "ContainerDefinitions"},
+			_jsii_.MemberProperty{JsiiProperty: "containerGroupType", GoGetter: "ContainerGroupType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "gameServerContainerDefinition", GoGetter: "GameServerContainerDefinition"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -153,18 +268,18 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberProperty{JsiiProperty: "schedulingStrategy", GoGetter: "SchedulingStrategy"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceVersionNumber", GoGetter: "SourceVersionNumber"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "supportContainerDefinitions", GoGetter: "SupportContainerDefinitions"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "totalCpuLimit", GoGetter: "TotalCpuLimit"},
-			_jsii_.MemberProperty{JsiiProperty: "totalMemoryLimit", GoGetter: "TotalMemoryLimit"},
+			_jsii_.MemberProperty{JsiiProperty: "totalMemoryLimitMebibytes", GoGetter: "TotalMemoryLimitMebibytes"},
+			_jsii_.MemberProperty{JsiiProperty: "totalVcpuLimit", GoGetter: "TotalVcpuLimit"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "versionDescription", GoGetter: "VersionDescription"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnContainerGroupDefinition{}
@@ -173,10 +288,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.ContainerDefinitionProperty",
-		reflect.TypeOf((*CfnContainerGroupDefinition_ContainerDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.ContainerDependencyProperty",
@@ -191,16 +302,24 @@ func init() {
 		reflect.TypeOf((*CfnContainerGroupDefinition_ContainerHealthCheckProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.ContainerMountPointProperty",
+		reflect.TypeOf((*CfnContainerGroupDefinition_ContainerMountPointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.ContainerPortRangeProperty",
 		reflect.TypeOf((*CfnContainerGroupDefinition_ContainerPortRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.MemoryLimitsProperty",
-		reflect.TypeOf((*CfnContainerGroupDefinition_MemoryLimitsProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.GameServerContainerDefinitionProperty",
+		reflect.TypeOf((*CfnContainerGroupDefinition_GameServerContainerDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.PortConfigurationProperty",
 		reflect.TypeOf((*CfnContainerGroupDefinition_PortConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.SupportContainerDefinitionProperty",
+		reflect.TypeOf((*CfnContainerGroupDefinition_SupportContainerDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinitionProps",
@@ -220,7 +339,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "anywhereConfiguration", GoGetter: "AnywhereConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "applyCapacity", GoGetter: "ApplyCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance", GoGetter: "AttrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFleetId", GoGetter: "AttrFleetId"},
 			_jsii_.MemberProperty{JsiiProperty: "buildId", GoGetter: "BuildId"},
 			_jsii_.MemberProperty{JsiiProperty: "certificateConfiguration", GoGetter: "CertificateConfiguration"},
@@ -228,7 +346,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "computeType", GoGetter: "ComputeType"},
-			_jsii_.MemberProperty{JsiiProperty: "containerGroupsConfiguration", GoGetter: "ContainerGroupsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "desiredEc2Instances", GoGetter: "DesiredEc2Instances"},
@@ -285,18 +402,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnFleet.CertificateConfigurationProperty",
 		reflect.TypeOf((*CfnFleet_CertificateConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_gamelift.CfnFleet.ConnectionPortRangeProperty",
-		reflect.TypeOf((*CfnFleet_ConnectionPortRangeProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_gamelift.CfnFleet.ContainerGroupsConfigurationProperty",
-		reflect.TypeOf((*CfnFleet_ContainerGroupsConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_gamelift.CfnFleet.ContainerGroupsPerInstanceProperty",
-		reflect.TypeOf((*CfnFleet_ContainerGroupsPerInstanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnFleet.IpPermissionProperty",

@@ -23,7 +23,7 @@ package awslocation
 type CfnMap_MapConfigurationProperty struct {
 	// Specifies the map style selected from an available data provider.
 	//
-	// Valid [Esri map styles](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) :
+	// Valid [Esri map styles](https://docs.aws.amazon.com/location/previous/developerguide/esri.html) :
 	//
 	// - `VectorEsriDarkGrayCanvas` – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content.
 	// - `RasterEsriImagery` – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide.
@@ -32,7 +32,7 @@ type CfnMap_MapConfigurationProperty struct {
 	// - `VectorEsriStreets` – The Esri Street Map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.
 	// - `VectorEsriNavigation` – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices.
 	//
-	// Valid [HERE Technologies map styles](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) :
+	// Valid [HERE Technologies map styles](https://docs.aws.amazon.com/location/previous/developerguide/HERE.html) :
 	//
 	// - `VectorHereContrast` – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.
 	//
@@ -44,14 +44,14 @@ type CfnMap_MapConfigurationProperty struct {
 	//
 	// > Hybrid styles use both vector and raster tiles when rendering the map that you see. This means that more tiles are retrieved than when using either vector or raster tiles alone. Your charges will include all tiles retrieved.
 	//
-	// Valid [GrabMaps map styles](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) :
+	// Valid [GrabMaps map styles](https://docs.aws.amazon.com/location/previous/developerguide/grab.html) :
 	//
 	// - `VectorGrabStandardLight` – The Grab Standard Light map style provides a basemap with detailed land use coloring, area names, roads, landmarks, and points of interest covering Southeast Asia.
 	// - `VectorGrabStandardDark` – The Grab Standard Dark map style provides a dark variation of the standard basemap covering Southeast Asia.
 	//
-	// > Grab provides maps only for countries in Southeast Asia, and is only available in the Asia Pacific (Singapore) Region ( `ap-southeast-1` ). For more information, see [GrabMaps countries and area covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+	// > Grab provides maps only for countries in Southeast Asia, and is only available in the Asia Pacific (Singapore) Region ( `ap-southeast-1` ). For more information, see [GrabMaps countries and area covered](https://docs.aws.amazon.com/location/previous/developerguide/grab.html#grab-coverage-area) .
 	//
-	// Valid [Open Data map styles](https://docs.aws.amazon.com/location/latest/developerguide/open-data.html) :
+	// Valid [Open Data map styles](https://docs.aws.amazon.com/location/previous/developerguide/open-data.html) :
 	//
 	// - `VectorOpenDataStandardLight` – The Open Data Standard Light map style provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.
 	// - `VectorOpenDataStandardDark` – Open Data Standard Dark is a dark-themed map style that provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.

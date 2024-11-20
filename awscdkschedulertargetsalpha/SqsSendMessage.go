@@ -37,7 +37,7 @@ type SqsSendMessage interface {
 	// Experimental.
 	TargetArn() *string
 	// Experimental.
-	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	AddTargetActionToRole(role awsiam.IRole)
 	// Create a return a Schedule Target Configuration for the given schedule.
 	//
 	// Returns: a Schedule Target Configuration.
@@ -93,14 +93,14 @@ func NewSqsSendMessage_Override(s SqsSendMessage, queue awssqs.IQueue, props *Sq
 	)
 }
 
-func (s *jsiiProxy_SqsSendMessage) AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) {
-	if err := s.validateAddTargetActionToRoleParameters(schedule, role); err != nil {
+func (s *jsiiProxy_SqsSendMessage) AddTargetActionToRole(role awsiam.IRole) {
+	if err := s.validateAddTargetActionToRoleParameters(role); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"addTargetActionToRole",
-		[]interface{}{schedule, role},
+		[]interface{}{role},
 	)
 }
 

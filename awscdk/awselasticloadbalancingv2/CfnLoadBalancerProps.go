@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnLoadBalancerProps := &CfnLoadBalancerProps{
+//   	EnablePrefixForIpv6SourceNat: jsii.String("enablePrefixForIpv6SourceNat"),
 //   	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: jsii.String("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	LoadBalancerAttributes: []interface{}{
@@ -33,6 +34,7 @@ import (
 //   			AllocationId: jsii.String("allocationId"),
 //   			IPv6Address: jsii.String("iPv6Address"),
 //   			PrivateIPv4Address: jsii.String("privateIPv4Address"),
+//   			SourceNatIpv6Prefix: jsii.String("sourceNatIpv6Prefix"),
 //   		},
 //   	},
 //   	Subnets: []*string{
@@ -50,6 +52,12 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
 //
 type CfnLoadBalancerProps struct {
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT.
+	//
+	// The IP address type must be `dualstack` . The default value is `off` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enableprefixforipv6sourcenat
+	//
+	EnablePrefixForIpv6SourceNat *string `field:"optional" json:"enablePrefixForIpv6SourceNat" yaml:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enforcesecuritygroupinboundrulesonprivatelinktraffic
 	//

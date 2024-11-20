@@ -74,6 +74,10 @@ type KinesisEventSourceProps struct {
 	// Default: -1.
 	//
 	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
+	// Configuration for enhanced monitoring metrics collection When specified, enables collection of additional metrics for the stream event source.
+	// Default: - Enhanced monitoring is disabled.
+	//
+	MetricsConfig *awslambda.MetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Default: - discarded records are ignored.
 	//

@@ -17,6 +17,16 @@ package awsbatch
 //   launchTemplateSpecificationProperty := &LaunchTemplateSpecificationProperty{
 //   	LaunchTemplateId: jsii.String("launchTemplateId"),
 //   	LaunchTemplateName: jsii.String("launchTemplateName"),
+//   	Overrides: []interface{}{
+//   		&LaunchTemplateSpecificationOverrideProperty{
+//   			LaunchTemplateId: jsii.String("launchTemplateId"),
+//   			LaunchTemplateName: jsii.String("launchTemplateName"),
+//   			TargetInstanceTypes: []*string{
+//   				jsii.String("targetInstanceTypes"),
+//   			},
+//   			Version: jsii.String("version"),
+//   		},
+//   	},
 //   	Version: jsii.String("version"),
 //   }
 //
@@ -31,13 +41,25 @@ type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-launchtemplatename
 	//
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
-	// The version number of the launch template, `$Latest` , or `$Default` .
+	// A launch template to use in place of the default launch template.
 	//
-	// If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
+	// You must specify either the launch template ID or launch template name in the request, but not both.
 	//
-	// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Latest` or `$Default` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
 	//
-	// Default: `$Default` .
+	// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-overrides
+	//
+	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
+	// The version number of the launch template, `$Default` , or `$Latest` .
+	//
+	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
+	//
+	// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Default` or `$Latest` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	//
+	// Default: `$Default`
+	//
+	// Latest: `$Latest`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-version
 	//
 	Version *string `field:"optional" json:"version" yaml:"version"`

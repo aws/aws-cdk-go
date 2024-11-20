@@ -46,12 +46,17 @@ type CfnDataSource_StarburstParametersProperty struct {
 	// Default: - 0.
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
+	// The authentication type that you want to use for your connection.
+	//
+	// This parameter accepts OAuth and non-OAuth authentication types.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-authenticationtype
 	//
 	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
+	// The database access control role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-databaseaccesscontrolrole
 	//
 	DatabaseAccessControlRole *string `field:"optional" json:"databaseAccessControlRole" yaml:"databaseAccessControlRole"`
+	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html#cfn-quicksight-datasource-starburstparameters-oauthparameters
 	//
 	OAuthParameters interface{} `field:"optional" json:"oAuthParameters" yaml:"oAuthParameters"`

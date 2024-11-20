@@ -61,6 +61,10 @@ import (
 //   				ReadCapacityUnits: jsii.Number(123),
 //   				WriteCapacityUnits: jsii.Number(123),
 //   			},
+//   			WarmThroughput: &WarmThroughputProperty{
+//   				ReadUnitsPerSecond: jsii.Number(123),
+//   				WriteUnitsPerSecond: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   	ImportSourceSpecification: &ImportSourceSpecificationProperty{
@@ -149,6 +153,10 @@ import (
 //
 //   		// the properties below are optional
 //   		AttributeName: jsii.String("attributeName"),
+//   	},
+//   	WarmThroughput: &WarmThroughputProperty{
+//   		ReadUnitsPerSecond: jsii.Number(123),
+//   		WriteUnitsPerSecond: jsii.Number(123),
 //   	},
 //   }
 //
@@ -279,5 +287,8 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-timetolivespecification
 	//
 	TimeToLiveSpecification interface{} `field:"optional" json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-warmthroughput
+	//
+	WarmThroughput interface{} `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 }
 

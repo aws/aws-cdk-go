@@ -80,7 +80,7 @@ func validateCfnContainerGroupDefinition_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetContainerDefinitionsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetGameServerContainerDefinitionParameters(val interface{}) error {
 	return nil
 }
 
@@ -100,11 +100,11 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTagsParameters(val *[
 	return nil
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalCpuLimitParameters(val *float64) error {
+func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalMemoryLimitMebibytesParameters(val *float64) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalMemoryLimitParameters(val *float64) error {
+func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalVcpuLimitParameters(val *float64) error {
 	return nil
 }
 

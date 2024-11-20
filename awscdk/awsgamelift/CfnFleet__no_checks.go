@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnFleet) validateSetCertificateConfigurationParameters(val i
 	return nil
 }
 
-func (j *jsiiProxy_CfnFleet) validateSetContainerGroupsConfigurationParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnFleet) validateSetEc2InboundPermissionsParameters(val interface{}) error {
 	return nil
 }

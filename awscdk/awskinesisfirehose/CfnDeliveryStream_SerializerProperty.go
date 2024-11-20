@@ -3,7 +3,7 @@ package awskinesisfirehose
 
 // The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3.
 //
-// Firehose supports two types of serializers: the [ORC SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html) and the [Parquet SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html) .
+// Firehose supports two types of serializers: the ORC SerDe and the Parquet SerDe.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,7 +46,7 @@ type CfnDeliveryStream_SerializerProperty struct {
 	OrcSerDe interface{} `field:"optional" json:"orcSerDe" yaml:"orcSerDe"`
 	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3.
 	//
-	// For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+	// For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/contribution-guidelines/) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html#cfn-kinesisfirehose-deliverystream-serializer-parquetserde
 	//
 	ParquetSerDe interface{} `field:"optional" json:"parquetSerDe" yaml:"parquetSerDe"`

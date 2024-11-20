@@ -21,21 +21,6 @@ package awsgamelift
 //   		CertificateType: jsii.String("certificateType"),
 //   	},
 //   	ComputeType: jsii.String("computeType"),
-//   	ContainerGroupsConfiguration: &ContainerGroupsConfigurationProperty{
-//   		ConnectionPortRange: &ConnectionPortRangeProperty{
-//   			FromPort: jsii.Number(123),
-//   			ToPort: jsii.Number(123),
-//   		},
-//   		ContainerGroupDefinitionNames: []*string{
-//   			jsii.String("containerGroupDefinitionNames"),
-//   		},
-//
-//   		// the properties below are optional
-//   		ContainerGroupsPerInstance: &ContainerGroupsPerInstanceProperty{
-//   			DesiredReplicaContainerGroupsPerInstance: jsii.Number(123),
-//   			MaxReplicaContainerGroupsPerInstance: jsii.Number(123),
-//   		},
-//   	},
 //   	Description: jsii.String("description"),
 //   	DesiredEc2Instances: jsii.Number(123),
 //   	Ec2InboundPermissions: []interface{}{
@@ -128,7 +113,7 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-anywhereconfiguration
 	//
 	AnywhereConfiguration interface{} `field:"optional" json:"anywhereConfiguration" yaml:"anywhereConfiguration"`
-	// Current resource capacity settings for managed EC2 fleets.
+	// Current resource capacity settings for managed EC2 fleets and managed container fleets.
 	//
 	// For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 	//
@@ -155,21 +140,10 @@ type CfnFleetProps struct {
 	// The type of compute resource used to host your game servers.
 	//
 	// - `EC2` – The game server build is deployed to Amazon EC2 instances for cloud hosting. This is the default setting.
-	// - `CONTAINER` – Container images with your game server build and supporting software are deployed to Amazon EC2 instances for cloud hosting. With this compute type, you must specify the `ContainerGroupsConfiguration` parameter.
-	// - `ANYWHERE` – Game servers or container images with your game server and supporting software are deployed to compute resources that are provided and managed by you. With this compute type, you can also set the `AnywhereConfiguration` parameter.
+	// - `ANYWHERE` – Your game server and supporting software is deployed to compute resources that are provided and managed by you. With this compute type, you can also set the `AnywhereConfiguration` parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-computetype
 	//
 	ComputeType *string `field:"optional" json:"computeType" yaml:"computeType"`
-	// *This data type is currently not available.
-	//
-	// It is under improvement as we respond to customer feedback from the Containers public preview.*
-	//
-	// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
-	//
-	// *Used with:* `CreateFleet`.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-containergroupsconfiguration
-	//
-	ContainerGroupsConfiguration interface{} `field:"optional" json:"containerGroupsConfiguration" yaml:"containerGroupsConfiguration"`
 	// A description for the fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
 	//
@@ -182,13 +156,11 @@ type CfnFleetProps struct {
 	DesiredEc2Instances *float64 `field:"optional" json:"desiredEc2Instances" yaml:"desiredEc2Instances"`
 	// The IP address ranges and port settings that allow inbound traffic to access game server processes and other processes on this fleet.
 	//
-	// Set this parameter for EC2 and container fleets. You can leave this parameter empty when creating the fleet, but you must call `UpdateFleetPortSettings` to set it before players can connect to game sessions. As a best practice, we recommend opening ports for remote access only when you need them and closing them when you're finished. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges.
-	//
-	// To manage inbound access for a container fleet, set this parameter to the same port numbers that you set for the fleet's connection port range. During the life of the fleet, update this parameter to control which connection ports are open to inbound traffic.
+	// Set this parameter for managed EC2 fleets. You can leave this parameter empty when creating the fleet, but you must call `UpdateFleetPortSettings` to set it before players can connect to game sessions. As a best practice, we recommend opening ports for remote access only when you need them and closing them when you're finished. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
 	//
 	Ec2InboundPermissions interface{} `field:"optional" json:"ec2InboundPermissions" yaml:"ec2InboundPermissions"`
-	// The Amazon GameLift-supported Amazon EC2 instance type to use with EC2 and container fleets.
+	// The Amazon GameLift-supported Amazon EC2 instance type to use with managed EC2 fleets.
 	//
 	// Instance type determines the computing resources that will be used to host your game servers, including CPU, memory, storage, and networking capacity. See [Amazon Elastic Compute Cloud Instance Types](https://docs.aws.amazon.com/ec2/instance-types/) for detailed descriptions of Amazon EC2 instance types.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
@@ -200,9 +172,9 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
 	//
 	FleetType *string `field:"optional" json:"fleetType" yaml:"fleetType"`
-	// A unique identifier for an IAM role with access permissions to other AWS services.
+	// A unique identifier for an IAM role that manages access to your AWS services.
 	//
-	// Any application that runs on an instance in the fleet--including install scripts, server processes, and other processes--can use these permissions to interact with AWS resources that you own or have access to. For more information about using the role with your game server builds, see [Communicate with other AWS resources from your fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) . This attribute is used with fleets where `ComputeType` is "EC2".
+	// With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN by using the [IAM dashboard](https://docs.aws.amazon.com/iam/) in the AWS Management Console . Learn more about using on-box credentials for your game servers at [Access external resources from a game server](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html) . This attribute is used with fleets where `ComputeType` is "EC2".
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
 	//
 	InstanceRoleArn *string `field:"optional" json:"instanceRoleArn" yaml:"instanceRoleArn"`

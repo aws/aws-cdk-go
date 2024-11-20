@@ -32,7 +32,7 @@ type KinesisStreamPutRecord interface {
 	// Experimental.
 	TargetArn() *string
 	// Experimental.
-	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	AddTargetActionToRole(role awsiam.IRole)
 	// Create a return a Schedule Target Configuration for the given schedule.
 	//
 	// Returns: a Schedule Target Configuration.
@@ -88,14 +88,14 @@ func NewKinesisStreamPutRecord_Override(k KinesisStreamPutRecord, stream awskine
 	)
 }
 
-func (k *jsiiProxy_KinesisStreamPutRecord) AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) {
-	if err := k.validateAddTargetActionToRoleParameters(schedule, role); err != nil {
+func (k *jsiiProxy_KinesisStreamPutRecord) AddTargetActionToRole(role awsiam.IRole) {
+	if err := k.validateAddTargetActionToRoleParameters(role); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		k,
 		"addTargetActionToRole",
-		[]interface{}{schedule, role},
+		[]interface{}{role},
 	)
 }
 

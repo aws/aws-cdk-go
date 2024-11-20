@@ -30,8 +30,7 @@ import (
 //
 //   awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 //   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Hours(jsii.Number(1))),
-//   	Target: targets.NewEventBridgePutEvents(eventEntry, &ScheduleTargetBaseProps{
-//   	}),
+//   	Target: targets.NewEventBridgePutEvents(eventEntry),
 //   })
 //
 // Experimental.
@@ -41,7 +40,7 @@ type EventBridgePutEvents interface {
 	// Experimental.
 	TargetArn() *string
 	// Experimental.
-	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	AddTargetActionToRole(role awsiam.IRole)
 	// Create a return a Schedule Target Configuration for the given schedule.
 	//
 	// Returns: a Schedule Target Configuration.
@@ -97,14 +96,14 @@ func NewEventBridgePutEvents_Override(e EventBridgePutEvents, entry *EventBridge
 	)
 }
 
-func (e *jsiiProxy_EventBridgePutEvents) AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) {
-	if err := e.validateAddTargetActionToRoleParameters(schedule, role); err != nil {
+func (e *jsiiProxy_EventBridgePutEvents) AddTargetActionToRole(role awsiam.IRole) {
+	if err := e.validateAddTargetActionToRoleParameters(role); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		e,
 		"addTargetActionToRole",
-		[]interface{}{schedule, role},
+		[]interface{}{role},
 	)
 }
 

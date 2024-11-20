@@ -30,7 +30,7 @@ type CodePipelineStartPipelineExecution interface {
 	// Experimental.
 	TargetArn() *string
 	// Experimental.
-	AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	AddTargetActionToRole(role awsiam.IRole)
 	// Create a return a Schedule Target Configuration for the given schedule.
 	//
 	// Returns: a Schedule Target Configuration.
@@ -86,14 +86,14 @@ func NewCodePipelineStartPipelineExecution_Override(c CodePipelineStartPipelineE
 	)
 }
 
-func (c *jsiiProxy_CodePipelineStartPipelineExecution) AddTargetActionToRole(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) {
-	if err := c.validateAddTargetActionToRoleParameters(schedule, role); err != nil {
+func (c *jsiiProxy_CodePipelineStartPipelineExecution) AddTargetActionToRole(role awsiam.IRole) {
+	if err := c.validateAddTargetActionToRoleParameters(role); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
 		"addTargetActionToRole",
-		[]interface{}{schedule, role},
+		[]interface{}{role},
 	)
 }
 

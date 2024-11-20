@@ -563,6 +563,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServiceArn", GoGetter: "AttrServiceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneRebalancing", GoGetter: "AvailabilityZoneRebalancing"},
 			_jsii_.MemberProperty{JsiiProperty: "capacityProviderStrategy", GoGetter: "CapacityProviderStrategy"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -609,6 +610,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "volumeConfigurations", GoGetter: "VolumeConfigurations"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcLatticeConfigurations", GoGetter: "VpcLatticeConfigurations"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnService{}
@@ -705,6 +707,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.TimeoutConfigurationProperty",
 		reflect.TypeOf((*CfnService_TimeoutConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.VpcLatticeConfigurationProperty",
+		reflect.TypeOf((*CfnService_VpcLatticeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnServiceProps",

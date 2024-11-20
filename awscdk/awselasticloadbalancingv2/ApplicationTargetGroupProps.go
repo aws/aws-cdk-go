@@ -20,6 +20,12 @@ import (
 //   })
 //
 type ApplicationTargetGroupProps struct {
+	// Indicates whether cross zone load balancing is enabled.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html
+	//
+	// Default: - use load balancer configuration.
+	//
+	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.

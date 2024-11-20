@@ -19,6 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnService := awscdk.Aws_ecs.NewCfnService(this, jsii.String("MyCfnService"), &CfnServiceProps{
+//   	AvailabilityZoneRebalancing: jsii.String("availabilityZoneRebalancing"),
 //   	CapacityProviderStrategy: []interface{}{
 //   		&CapacityProviderStrategyItemProperty{
 //   			Base: jsii.Number(123),
@@ -187,6 +188,13 @@ import (
 //   			},
 //   		},
 //   	},
+//   	VpcLatticeConfigurations: []interface{}{
+//   		&VpcLatticeConfigurationProperty{
+//   			PortName: jsii.String("portName"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			TargetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
@@ -199,6 +207,8 @@ type CfnService interface {
 	AttrName() *string
 	// Not currently supported in AWS CloudFormation .
 	AttrServiceArn() *string
+	AvailabilityZoneRebalancing() *string
+	SetAvailabilityZoneRebalancing(val *string)
 	// The capacity provider strategy to use for the service.
 	CapacityProviderStrategy() interface{}
 	SetCapacityProviderStrategy(val interface{})
@@ -317,6 +327,8 @@ type CfnService interface {
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time.
 	VolumeConfigurations() interface{}
 	SetVolumeConfigurations(val interface{})
+	VpcLatticeConfigurations() interface{}
+	SetVpcLatticeConfigurations(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -466,6 +478,16 @@ func (j *jsiiProxy_CfnService) AttrServiceArn() *string {
 	_jsii_.Get(
 		j,
 		"attrServiceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) AvailabilityZoneRebalancing() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"availabilityZoneRebalancing",
 		&returns,
 	)
 	return returns
@@ -811,6 +833,16 @@ func (j *jsiiProxy_CfnService) VolumeConfigurations() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) VpcLatticeConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcLatticeConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnService(scope constructs.Construct, id *string, props *CfnServiceProps) CfnService {
 	_init_.Initialize()
@@ -836,6 +868,14 @@ func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_ecs.CfnService",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetAvailabilityZoneRebalancing(val *string) {
+	_jsii_.Set(
+		j,
+		"availabilityZoneRebalancing",
+		val,
 	)
 }
 
@@ -1058,6 +1098,17 @@ func (j *jsiiProxy_CfnService)SetVolumeConfigurations(val interface{}) {
 	_jsii_.Set(
 		j,
 		"volumeConfigurations",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetVpcLatticeConfigurations(val interface{}) {
+	if err := j.validateSetVpcLatticeConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vpcLatticeConfigurations",
 		val,
 	)
 }

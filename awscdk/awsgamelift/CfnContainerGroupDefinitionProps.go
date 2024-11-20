@@ -11,29 +11,66 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var supportContainerDefinitions interface{}
-//
 //   cfnContainerGroupDefinitionProps := &CfnContainerGroupDefinitionProps{
-//   	ContainerDefinitions: []interface{}{
-//   		&ContainerDefinitionProperty{
+//   	Name: jsii.String("name"),
+//   	OperatingSystem: jsii.String("operatingSystem"),
+//   	TotalMemoryLimitMebibytes: jsii.Number(123),
+//   	TotalVcpuLimit: jsii.Number(123),
+//
+//   	// the properties below are optional
+//   	ContainerGroupType: jsii.String("containerGroupType"),
+//   	GameServerContainerDefinition: &GameServerContainerDefinitionProperty{
+//   		ContainerName: jsii.String("containerName"),
+//   		ImageUri: jsii.String("imageUri"),
+//   		ServerSdkVersion: jsii.String("serverSdkVersion"),
+//
+//   		// the properties below are optional
+//   		DependsOn: []interface{}{
+//   			&ContainerDependencyProperty{
+//   				Condition: jsii.String("condition"),
+//   				ContainerName: jsii.String("containerName"),
+//   			},
+//   		},
+//   		EnvironmentOverride: []interface{}{
+//   			&ContainerEnvironmentProperty{
+//   				Name: jsii.String("name"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		MountPoints: []interface{}{
+//   			&ContainerMountPointProperty{
+//   				InstancePath: jsii.String("instancePath"),
+//
+//   				// the properties below are optional
+//   				AccessLevel: jsii.String("accessLevel"),
+//   				ContainerPath: jsii.String("containerPath"),
+//   			},
+//   		},
+//   		PortConfiguration: &PortConfigurationProperty{
+//   			ContainerPortRanges: []interface{}{
+//   				&ContainerPortRangeProperty{
+//   					FromPort: jsii.Number(123),
+//   					Protocol: jsii.String("protocol"),
+//   					ToPort: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		ResolvedImageDigest: jsii.String("resolvedImageDigest"),
+//   	},
+//   	SourceVersionNumber: jsii.Number(123),
+//   	SupportContainerDefinitions: []interface{}{
+//   		&SupportContainerDefinitionProperty{
 //   			ContainerName: jsii.String("containerName"),
 //   			ImageUri: jsii.String("imageUri"),
 //
 //   			// the properties below are optional
-//   			Command: []*string{
-//   				jsii.String("command"),
-//   			},
-//   			Cpu: jsii.Number(123),
 //   			DependsOn: []interface{}{
 //   				&ContainerDependencyProperty{
 //   					Condition: jsii.String("condition"),
 //   					ContainerName: jsii.String("containerName"),
 //   				},
 //   			},
-//   			EntryPoint: []*string{
-//   				jsii.String("entryPoint"),
-//   			},
-//   			Environment: []interface{}{
+//   			EnvironmentOverride: []interface{}{
 //   				&ContainerEnvironmentProperty{
 //   					Name: jsii.String("name"),
 //   					Value: jsii.String("value"),
@@ -51,9 +88,15 @@ import (
 //   				StartPeriod: jsii.Number(123),
 //   				Timeout: jsii.Number(123),
 //   			},
-//   			MemoryLimits: &MemoryLimitsProperty{
-//   				HardLimit: jsii.Number(123),
-//   				SoftLimit: jsii.Number(123),
+//   			MemoryHardLimitMebibytes: jsii.Number(123),
+//   			MountPoints: []interface{}{
+//   				&ContainerMountPointProperty{
+//   					InstancePath: jsii.String("instancePath"),
+//
+//   					// the properties below are optional
+//   					AccessLevel: jsii.String("accessLevel"),
+//   					ContainerPath: jsii.String("containerPath"),
+//   				},
 //   			},
 //   			PortConfiguration: &PortConfigurationProperty{
 //   				ContainerPortRanges: []interface{}{
@@ -65,19 +108,8 @@ import (
 //   				},
 //   			},
 //   			ResolvedImageDigest: jsii.String("resolvedImageDigest"),
-//   			WorkingDirectory: jsii.String("workingDirectory"),
+//   			Vcpu: jsii.Number(123),
 //   		},
-//   	},
-//   	Name: jsii.String("name"),
-//   	OperatingSystem: jsii.String("operatingSystem"),
-//   	TotalCpuLimit: jsii.Number(123),
-//   	TotalMemoryLimit: jsii.Number(123),
-//
-//   	// the properties below are optional
-//   	SchedulingStrategy: jsii.String("schedulingStrategy"),
-//   	SourceVersionNumber: jsii.Number(123),
-//   	SupportContainerDefinitions: []interface{}{
-//   		supportContainerDefinitions,
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -85,57 +117,47 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	VersionDescription: jsii.String("versionDescription"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html
 //
 type CfnContainerGroupDefinitionProps struct {
-	// The set of container definitions that are included in the container group.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-containerdefinitions
-	//
-	ContainerDefinitions interface{} `field:"required" json:"containerDefinitions" yaml:"containerDefinitions"`
 	// A descriptive identifier for the container group definition.
 	//
 	// The name value is unique in an AWS Region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The platform required for all containers in the container group definition.
+	// The platform that all containers in the container group definition run on.
 	//
-	// > Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the [Amazon Linux 2 FAQs](https://docs.aws.amazon.com/https://aws.amazon.com/amazon-linux-2/faqs/) . For game servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first update the game server build to server SDK 5.x, and then deploy to AL2023 instances. See [Migrate to Amazon GameLift server SDK version 5.](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html)
+	// > Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the [Amazon Linux 2 FAQs](https://docs.aws.amazon.com/https://aws.amazon.com/amazon-linux-2/faqs/) . For game servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x, first update the game server build to server SDK 5.x, and then deploy to AL2023 instances. See [Migrate to Amazon GameLift server SDK version 5.](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-operatingsystem
 	//
 	OperatingSystem *string `field:"required" json:"operatingSystem" yaml:"operatingSystem"`
-	// The amount of CPU units on a fleet instance to allocate for the container group.
+	// The total memory limit of container groups following this definition in MiB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimitmebibytes
 	//
-	// All containers in the group share these resources. This property is an integer value in CPU units (1 vCPU is equal to 1024 CPU units).
+	TotalMemoryLimitMebibytes *float64 `field:"required" json:"totalMemoryLimitMebibytes" yaml:"totalMemoryLimitMebibytes"`
+	// The total amount of virtual CPUs on the container group definition.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalvcpulimit
 	//
-	// You can set additional limits for each `ContainerDefinition` in the group. If individual containers have limits, this value must be equal to or greater than the sum of all container-specific CPU limits in the group.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalcpulimit
+	TotalVcpuLimit *float64 `field:"required" json:"totalVcpuLimit" yaml:"totalVcpuLimit"`
+	// The scope of the container group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-containergrouptype
 	//
-	TotalCpuLimit *float64 `field:"required" json:"totalCpuLimit" yaml:"totalCpuLimit"`
-	// The amount of memory (in MiB) on a fleet instance to allocate for the container group.
+	ContainerGroupType *string `field:"optional" json:"containerGroupType" yaml:"containerGroupType"`
+	// Specifies the information required to run game servers with this container group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition
 	//
-	// All containers in the group share these resources.
-	//
-	// You can set additional limits for each `ContainerDefinition` in the group. If individual containers have limits, this value must meet the following requirements:
-	//
-	// - Equal to or greater than the sum of all container-specific soft memory limits in the group.
-	// - Equal to or greater than any container-specific hard limits in the group.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimit
-	//
-	TotalMemoryLimit *float64 `field:"required" json:"totalMemoryLimit" yaml:"totalMemoryLimit"`
-	// The method for deploying the container group across fleet instances.
-	//
-	// A replica container group might have multiple copies on each fleet instance. A daemon container group maintains only one copy per fleet instance.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-schedulingstrategy
-	//
-	SchedulingStrategy *string `field:"optional" json:"schedulingStrategy" yaml:"schedulingStrategy"`
+	GameServerContainerDefinition interface{} `field:"optional" json:"gameServerContainerDefinition" yaml:"gameServerContainerDefinition"`
 	// A specific ContainerGroupDefinition version to be updated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-sourceversionnumber
 	//
 	SourceVersionNumber *float64 `field:"optional" json:"sourceVersionNumber" yaml:"sourceVersionNumber"`
-	// A collection of support container definitions that define the containers in this group.
+	// The set of definitions for support containers in this group.
+	//
+	// A container group definition might have zero support container definitions. Support container can be used in any type of container group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-supportcontainerdefinitions
 	//
 	SupportContainerDefinitions interface{} `field:"optional" json:"supportContainerDefinitions" yaml:"supportContainerDefinitions"`
@@ -143,5 +165,9 @@ type CfnContainerGroupDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The description of this version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-versiondescription
+	//
+	VersionDescription *string `field:"optional" json:"versionDescription" yaml:"versionDescription"`
 }
 

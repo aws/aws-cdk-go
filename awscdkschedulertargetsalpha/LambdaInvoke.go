@@ -25,7 +25,7 @@ import (
 //   schedule := awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 //   	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(10))),
 //   	Target: Target,
-//   	Description: jsii.String("This is a test schedule that invokes lambda function every 10 minutes."),
+//   	Description: jsii.String("This is a test schedule that invokes a lambda function every 10 minutes."),
 //   })
 //
 // Experimental.
@@ -35,7 +35,7 @@ type LambdaInvoke interface {
 	// Experimental.
 	TargetArn() *string
 	// Experimental.
-	AddTargetActionToRole(_schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole)
+	AddTargetActionToRole(role awsiam.IRole)
 	// Create a return a Schedule Target Configuration for the given schedule.
 	//
 	// Returns: a Schedule Target Configuration.
@@ -91,14 +91,14 @@ func NewLambdaInvoke_Override(l LambdaInvoke, func_ awslambda.IFunction, props *
 	)
 }
 
-func (l *jsiiProxy_LambdaInvoke) AddTargetActionToRole(_schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) {
-	if err := l.validateAddTargetActionToRoleParameters(_schedule, role); err != nil {
+func (l *jsiiProxy_LambdaInvoke) AddTargetActionToRole(role awsiam.IRole) {
+	if err := l.validateAddTargetActionToRoleParameters(role); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		l,
 		"addTargetActionToRole",
-		[]interface{}{_schedule, role},
+		[]interface{}{role},
 	)
 }
 

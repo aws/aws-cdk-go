@@ -64,7 +64,7 @@ type CfnBuild interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The operating system that your game server binaries run on.
+	// The environment that your game server binaries run on.
 	OperatingSystem() *string
 	SetOperatingSystem(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

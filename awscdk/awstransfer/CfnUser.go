@@ -66,7 +66,6 @@ type CfnUser interface {
 	//
 	// An example of a user ARN is: `arn:aws:transfer:us-east-1:123456789012:user/user1` .
 	AttrArn() *string
-	AttrId() *string
 	// The ID of the server to which the user is attached.
 	//
 	// An example `ServerId` is `s-01234567890abcdef` .
@@ -289,16 +288,6 @@ func (j *jsiiProxy_CfnUser) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnUser) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

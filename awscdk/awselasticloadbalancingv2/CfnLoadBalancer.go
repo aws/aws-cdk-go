@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnLoadBalancer := awscdk.Aws_elasticloadbalancingv2.NewCfnLoadBalancer(this, jsii.String("MyCfnLoadBalancer"), &CfnLoadBalancerProps{
+//   	EnablePrefixForIpv6SourceNat: jsii.String("enablePrefixForIpv6SourceNat"),
 //   	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: jsii.String("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	LoadBalancerAttributes: []interface{}{
@@ -38,6 +39,7 @@ import (
 //   			AllocationId: jsii.String("allocationId"),
 //   			IPv6Address: jsii.String("iPv6Address"),
 //   			PrivateIPv4Address: jsii.String("privateIPv4Address"),
+//   			SourceNatIpv6Prefix: jsii.String("sourceNatIpv6Prefix"),
 //   		},
 //   	},
 //   	Subnets: []*string{
@@ -87,6 +89,9 @@ type CfnLoadBalancer interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT.
+	EnablePrefixForIpv6SourceNat() *string
+	SetEnablePrefixForIpv6SourceNat(val *string)
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink .
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string
 	SetEnforceSecurityGroupInboundRulesOnPrivateLinkTraffic(val *string)
@@ -389,6 +394,16 @@ func (j *jsiiProxy_CfnLoadBalancer) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) EnablePrefixForIpv6SourceNat() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"enablePrefixForIpv6SourceNat",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic() *string {
 	var returns *string
 	_jsii_.Get(
@@ -584,6 +599,14 @@ func NewCfnLoadBalancer_Override(c CfnLoadBalancer, scope constructs.Construct, 
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnLoadBalancer)SetEnablePrefixForIpv6SourceNat(val *string) {
+	_jsii_.Set(
+		j,
+		"enablePrefixForIpv6SourceNat",
+		val,
 	)
 }
 

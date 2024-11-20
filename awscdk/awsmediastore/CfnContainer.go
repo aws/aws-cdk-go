@@ -85,14 +85,14 @@ type CfnContainer interface {
 	// The name for the container.
 	ContainerName() *string
 	SetContainerName(val *string)
-	// Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests.
+	// > End of support notice: On November 13, 2025, AWS will discontinue support for AWS Elemental MediaStore.
 	CorsPolicy() interface{}
 	SetCorsPolicy(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Writes an object lifecycle policy to a container.
+	// > End of support notice: On November 13, 2025, AWS will discontinue support for AWS Elemental MediaStore.
 	LifecyclePolicy() *string
 	SetLifecyclePolicy(val *string)
 	// The logical ID for this CloudFormation stack element.

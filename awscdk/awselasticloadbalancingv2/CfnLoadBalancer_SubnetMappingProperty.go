@@ -15,6 +15,7 @@ package awselasticloadbalancingv2
 //   	AllocationId: jsii.String("allocationId"),
 //   	IPv6Address: jsii.String("iPv6Address"),
 //   	PrivateIPv4Address: jsii.String("privateIPv4Address"),
+//   	SourceNatIpv6Prefix: jsii.String("sourceNatIpv6Prefix"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html
@@ -36,5 +37,11 @@ type CfnLoadBalancer_SubnetMappingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
 	//
 	PrivateIPv4Address *string `field:"optional" json:"privateIPv4Address" yaml:"privateIPv4Address"`
+	// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT.
+	//
+	// Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-sourcenatipv6prefix
+	//
+	SourceNatIpv6Prefix *string `field:"optional" json:"sourceNatIpv6Prefix" yaml:"sourceNatIpv6Prefix"`
 }
 

@@ -105,7 +105,7 @@ type CfnGameSessionQueue interface {
 	// An SNS topic ARN that is set up to receive game session placement notifications.
 	NotificationTarget() *string
 	SetNotificationTarget(val *string)
-	// A set of policies that act as a sliding cap on player latency.
+	// A set of policies that enforce a sliding cap on player latency when processing game sessions placement requests.
 	PlayerLatencyPolicies() interface{}
 	SetPlayerLatencyPolicies(val interface{})
 	// Custom settings to use when prioritizing destinations and locations for game session placements.

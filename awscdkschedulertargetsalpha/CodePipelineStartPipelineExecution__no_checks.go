@@ -4,7 +4,7 @@ package awscdkschedulertargetsalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CodePipelineStartPipelineExecution) validateAddTargetActionToRoleParameters(schedule awscdkscheduleralpha.ISchedule, role awsiam.IRole) error {
+func (c *jsiiProxy_CodePipelineStartPipelineExecution) validateAddTargetActionToRoleParameters(role awsiam.IRole) error {
 	return nil
 }
 

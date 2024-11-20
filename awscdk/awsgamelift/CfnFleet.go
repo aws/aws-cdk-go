@@ -31,21 +31,6 @@ import (
 //   		CertificateType: jsii.String("certificateType"),
 //   	},
 //   	ComputeType: jsii.String("computeType"),
-//   	ContainerGroupsConfiguration: &ContainerGroupsConfigurationProperty{
-//   		ConnectionPortRange: &ConnectionPortRangeProperty{
-//   			FromPort: jsii.Number(123),
-//   			ToPort: jsii.Number(123),
-//   		},
-//   		ContainerGroupDefinitionNames: []*string{
-//   			jsii.String("containerGroupDefinitionNames"),
-//   		},
-//
-//   		// the properties below are optional
-//   		ContainerGroupsPerInstance: &ContainerGroupsPerInstanceProperty{
-//   			DesiredReplicaContainerGroupsPerInstance: jsii.Number(123),
-//   			MaxReplicaContainerGroupsPerInstance: jsii.Number(123),
-//   		},
-//   	},
 //   	Description: jsii.String("description"),
 //   	DesiredEc2Instances: jsii.Number(123),
 //   	Ec2InboundPermissions: []interface{}{
@@ -133,11 +118,9 @@ type CfnFleet interface {
 	// Amazon GameLift Anywhere configuration options.
 	AnywhereConfiguration() interface{}
 	SetAnywhereConfiguration(val interface{})
-	// Current resource capacity settings for managed EC2 fleets.
+	// Current resource capacity settings for managed EC2 fleets and managed container fleets.
 	ApplyCapacity() *string
 	SetApplyCapacity(val *string)
-	// The maximum possible number of replica container groups that each fleet instance can have.
-	AttrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance() *float64
 	// A unique identifier for the fleet.
 	AttrFleetId() *string
 	// A unique identifier for a build to be deployed on the new fleet.
@@ -154,9 +137,6 @@ type CfnFleet interface {
 	// The type of compute resource used to host your game servers.
 	ComputeType() *string
 	SetComputeType(val *string)
-	// *This data type is currently not available.
-	ContainerGroupsConfiguration() interface{}
-	SetContainerGroupsConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -170,13 +150,13 @@ type CfnFleet interface {
 	// The IP address ranges and port settings that allow inbound traffic to access game server processes and other processes on this fleet.
 	Ec2InboundPermissions() interface{}
 	SetEc2InboundPermissions(val interface{})
-	// The Amazon GameLift-supported Amazon EC2 instance type to use with EC2 and container fleets.
+	// The Amazon GameLift-supported Amazon EC2 instance type to use with managed EC2 fleets.
 	Ec2InstanceType() *string
 	SetEc2InstanceType(val *string)
 	// Indicates whether to use On-Demand or Spot instances for this fleet.
 	FleetType() *string
 	SetFleetType(val *string)
-	// A unique identifier for an IAM role with access permissions to other AWS services.
+	// A unique identifier for an IAM role that manages access to your AWS services.
 	InstanceRoleArn() *string
 	SetInstanceRoleArn(val *string)
 	// Indicates that fleet instances maintain a shared credentials file for the IAM role defined in `InstanceRoleArn` .
@@ -420,16 +400,6 @@ func (j *jsiiProxy_CfnFleet) ApplyCapacity() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleet) AttrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"attrContainerGroupsConfigurationContainerGroupsPerInstanceMaxReplicaContainerGroupsPerInstance",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnFleet) AttrFleetId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -495,16 +465,6 @@ func (j *jsiiProxy_CfnFleet) ComputeType() *string {
 	_jsii_.Get(
 		j,
 		"computeType",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnFleet) ContainerGroupsConfiguration() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"containerGroupsConfiguration",
 		&returns,
 	)
 	return returns
@@ -870,17 +830,6 @@ func (j *jsiiProxy_CfnFleet)SetComputeType(val *string) {
 	_jsii_.Set(
 		j,
 		"computeType",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnFleet)SetContainerGroupsConfiguration(val interface{}) {
-	if err := j.validateSetContainerGroupsConfigurationParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"containerGroupsConfiguration",
 		val,
 	)
 }

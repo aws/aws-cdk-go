@@ -29,12 +29,15 @@ import (
 type CfnAIPromptVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The identifier of the Amazon Q in Connect AI prompt.
 	AiPromptId() *string
 	SetAiPromptId(val *string)
+	// The identifier of the Amazon Q in Connect assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
 	AttrAiPromptArn() *string
 	AttrAiPromptVersionId() *string
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AttrAssistantArn() *string
 	// The version number for this AI Prompt version.
 	AttrVersionNumber() awscdk.IResolvable
@@ -57,6 +60,7 @@ type CfnAIPromptVersion interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The time the AI Prompt version was last modified in seconds.
 	ModifiedTimeSeconds() *float64
 	SetModifiedTimeSeconds(val *float64)
 	// The tree node.

@@ -15,7 +15,7 @@ import (
 //
 // - AWS CloudFormation typically creates DynamoDB tables in parallel. However, if your template includes multiple DynamoDB tables with indexes, you must declare dependencies so that the tables are created sequentially. Amazon DynamoDB limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DynamoDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute) .
 //
-// > Our guidance is to use the latest schema documented here for your AWS CloudFormation templates. This schema supports the provisioning of all table settings below. When using this schema in your AWS CloudFormation templates, please ensure that your Identity and Access Management ( IAM ) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
+// > Our guidance is to use the latest schema documented for your AWS CloudFormation templates. This schema supports the provisioning of all table settings below. When using this schema in your AWS CloudFormation templates, please ensure that your Identity and Access Management ( IAM ) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -71,6 +71,10 @@ import (
 //   			ProvisionedThroughput: &ProvisionedThroughputProperty{
 //   				ReadCapacityUnits: jsii.Number(123),
 //   				WriteCapacityUnits: jsii.Number(123),
+//   			},
+//   			WarmThroughput: &WarmThroughputProperty{
+//   				ReadUnitsPerSecond: jsii.Number(123),
+//   				WriteUnitsPerSecond: jsii.Number(123),
 //   			},
 //   		},
 //   	},
@@ -160,6 +164,10 @@ import (
 //
 //   		// the properties below are optional
 //   		AttributeName: jsii.String("attributeName"),
+//   	},
+//   	WarmThroughput: &WarmThroughputProperty{
+//   		ReadUnitsPerSecond: jsii.Number(123),
+//   		WriteUnitsPerSecond: jsii.Number(123),
 //   	},
 //   })
 //
@@ -279,6 +287,8 @@ type CfnTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	WarmThroughput() interface{}
+	SetWarmThroughput(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -733,6 +743,16 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) WarmThroughput() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"warmThroughput",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
@@ -957,6 +977,17 @@ func (j *jsiiProxy_CfnTable)SetTimeToLiveSpecification(val interface{}) {
 	_jsii_.Set(
 		j,
 		"timeToLiveSpecification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetWarmThroughput(val interface{}) {
+	if err := j.validateSetWarmThroughputParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"warmThroughput",
 		val,
 	)
 }

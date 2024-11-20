@@ -81,9 +81,9 @@ type CfnGameSessionQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-notificationtarget
 	//
 	NotificationTarget *string `field:"optional" json:"notificationTarget" yaml:"notificationTarget"`
-	// A set of policies that act as a sliding cap on player latency.
+	// A set of policies that enforce a sliding cap on player latency when processing game sessions placement requests.
 	//
-	// FleetIQ works to deliver low latency for most players in a game session. These policies ensure that no individual player can be placed into a game with unreasonably high latency. Use multiple policies to gradually relax latency requirements a step at a time. Multiple policies are applied based on their maximum allowed latency, starting with the lowest value.
+	// Use multiple policies to gradually relax the cap over time if Amazon GameLift can't make a placement. Policies are evaluated in order starting with the lowest maximum latency value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-playerlatencypolicies
 	//
 	PlayerLatencyPolicies interface{} `field:"optional" json:"playerLatencyPolicies" yaml:"playerLatencyPolicies"`
@@ -101,7 +101,7 @@ type CfnGameSessionQueueProps struct {
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The maximum time, in seconds, that a new game session placement request remains in the queue.
 	//
-	// When a request exceeds this time, the game session placement changes to a `TIMED_OUT` status. By default, this property is set to `600` .
+	// When a request exceeds this time, the game session placement changes to a `TIMED_OUT` status.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-timeoutinseconds
 	//
 	TimeoutInSeconds *float64 `field:"optional" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`

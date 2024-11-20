@@ -69,9 +69,11 @@ type CfnContainerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-accessloggingenabled
 	//
 	AccessLoggingEnabled interface{} `field:"optional" json:"accessLoggingEnabled" yaml:"accessLoggingEnabled"`
-	// Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests.
+	// > End of support notice: On November 13, 2025, AWS will discontinue support for AWS Elemental MediaStore.
 	//
-	// For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.
+	// After November 13, 2025, you will no longer be able to access the AWS Elemental MediaStore console or AWS Elemental MediaStore resources. For more information, visit this [blog post](https://docs.aws.amazon.com/media/support-for-aws-elemental-mediastore-ending-soon/) .
+	//
+	// Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests. For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.
 	//
 	// To enable CORS on a container, you attach a CORS policy to the container. In the CORS policy, you configure rules that identify origins and the HTTP methods that can be executed on your container. The policy can contain up to 398,000 characters. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
 	//
@@ -79,9 +81,11 @@ type CfnContainerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-corspolicy
 	//
 	CorsPolicy interface{} `field:"optional" json:"corsPolicy" yaml:"corsPolicy"`
-	// Writes an object lifecycle policy to a container.
+	// > End of support notice: On November 13, 2025, AWS will discontinue support for AWS Elemental MediaStore.
 	//
-	// If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
+	// After November 13, 2025, you will no longer be able to access the AWS Elemental MediaStore console or AWS Elemental MediaStore resources. For more information, visit this [blog post](https://docs.aws.amazon.com/media/support-for-aws-elemental-mediastore-ending-soon/) .
+	//
+	// Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
 	//
 	// For information about how to construct an object lifecycle policy, see [Components of an Object Lifecycle Policy](https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html#cfn-mediastore-container-lifecyclepolicy

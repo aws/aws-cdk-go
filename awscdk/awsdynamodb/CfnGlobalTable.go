@@ -192,6 +192,10 @@ import (
 //   			},
 //
 //   			// the properties below are optional
+//   			WarmThroughput: &WarmThroughputProperty{
+//   				ReadUnitsPerSecond: jsii.Number(123),
+//   				WriteUnitsPerSecond: jsii.Number(123),
+//   			},
 //   			WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
 //   				MaxWriteRequestUnits: jsii.Number(123),
 //   			},
@@ -246,6 +250,10 @@ import (
 //
 //   		// the properties below are optional
 //   		AttributeName: jsii.String("attributeName"),
+//   	},
+//   	WarmThroughput: &WarmThroughputProperty{
+//   		ReadUnitsPerSecond: jsii.Number(123),
+//   		WriteUnitsPerSecond: jsii.Number(123),
 //   	},
 //   	WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
 //   		MaxWriteRequestUnits: jsii.Number(123),
@@ -361,6 +369,8 @@ type CfnGlobalTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	WarmThroughput() interface{}
+	SetWarmThroughput(val interface{})
 	// Sets the write request settings for a global table or a global secondary index.
 	WriteOnDemandThroughputSettings() interface{}
 	SetWriteOnDemandThroughputSettings(val interface{})
@@ -730,6 +740,16 @@ func (j *jsiiProxy_CfnGlobalTable) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalTable) WarmThroughput() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"warmThroughput",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalTable) WriteOnDemandThroughputSettings() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -878,6 +898,17 @@ func (j *jsiiProxy_CfnGlobalTable)SetTimeToLiveSpecification(val interface{}) {
 	_jsii_.Set(
 		j,
 		"timeToLiveSpecification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalTable)SetWarmThroughput(val interface{}) {
+	if err := j.validateSetWarmThroughputParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"warmThroughput",
 		val,
 	)
 }

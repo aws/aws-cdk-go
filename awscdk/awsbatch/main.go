@@ -94,6 +94,10 @@ func init() {
 		reflect.TypeOf((*CfnComputeEnvironment_EksConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.LaunchTemplateSpecificationOverrideProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_LaunchTemplateSpecificationOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.LaunchTemplateSpecificationProperty",
 		reflect.TypeOf((*CfnComputeEnvironment_LaunchTemplateSpecificationProperty)(nil)).Elem(),
 	)

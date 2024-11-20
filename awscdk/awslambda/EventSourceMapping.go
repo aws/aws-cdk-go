@@ -62,6 +62,11 @@ import (
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
 //   	MaxConcurrency: jsii.Number(123),
 //   	MaxRecordAge: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	MetricsConfig: &MetricsConfig{
+//   		Metrics: []eVENT_COUNT{
+//   			awscdk.*Aws_lambda.MetricType_*eVENT_COUNT,
+//   		},
+//   	},
 //   	OnFailure: eventSourceDlq,
 //   	ParallelizationFactor: jsii.Number(123),
 //   	ReportBatchItemFailures: jsii.Boolean(false),

@@ -444,11 +444,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "maximumBatchingWindowInSeconds", GoGetter: "MaximumBatchingWindowInSeconds"},
 			_jsii_.MemberProperty{JsiiProperty: "maximumRecordAgeInSeconds", GoGetter: "MaximumRecordAgeInSeconds"},
 			_jsii_.MemberProperty{JsiiProperty: "maximumRetryAttempts", GoGetter: "MaximumRetryAttempts"},
+			_jsii_.MemberProperty{JsiiProperty: "metricsConfig", GoGetter: "MetricsConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "parallelizationFactor", GoGetter: "ParallelizationFactor"},
+			_jsii_.MemberProperty{JsiiProperty: "provisionedPollerConfig", GoGetter: "ProvisionedPollerConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "queues", GoGetter: "Queues"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -503,8 +505,16 @@ func init() {
 		reflect.TypeOf((*CfnEventSourceMapping_FilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.MetricsConfigProperty",
+		reflect.TypeOf((*CfnEventSourceMapping_MetricsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.OnFailureProperty",
 		reflect.TypeOf((*CfnEventSourceMapping_OnFailureProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.ProvisionedPollerConfigProperty",
+		reflect.TypeOf((*CfnEventSourceMapping_ProvisionedPollerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.CfnEventSourceMapping.ScalingConfigProperty",
@@ -1567,6 +1577,7 @@ func init() {
 		reflect.TypeOf((*IFunctionUrl)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authType", GoGetter: "AuthType"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
 			_jsii_.MemberMethod{JsiiMethod: "grantInvokeUrl", GoMethod: "GrantInvokeUrl"},
@@ -1752,6 +1763,17 @@ func init() {
 			"TEXT": LoggingFormat_TEXT,
 			"JSON": LoggingFormat_JSON,
 		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.MetricType",
+		reflect.TypeOf((*MetricType)(nil)).Elem(),
+		map[string]interface{}{
+			"EVENT_COUNT": MetricType_EVENT_COUNT,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.MetricsConfig",
+		reflect.TypeOf((*MetricsConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.ParamsAndSecretsLayerVersion",

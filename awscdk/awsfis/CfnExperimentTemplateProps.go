@@ -70,6 +70,27 @@ package awsfis
 //   		AccountTargeting: jsii.String("accountTargeting"),
 //   		EmptyTargetResolutionMode: jsii.String("emptyTargetResolutionMode"),
 //   	},
+//   	ExperimentReportConfiguration: &ExperimentTemplateExperimentReportConfigurationProperty{
+//   		DataSources: &DataSourcesProperty{
+//   			CloudWatchDashboards: []interface{}{
+//   				&CloudWatchDashboardProperty{
+//   					DashboardIdentifier: jsii.String("dashboardIdentifier"),
+//   				},
+//   			},
+//   		},
+//   		Outputs: &OutputsProperty{
+//   			ExperimentReportS3Configuration: &ExperimentReportS3ConfigurationProperty{
+//   				BucketName: jsii.String("bucketName"),
+//
+//   				// the properties below are optional
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		PostExperimentDuration: jsii.String("postExperimentDuration"),
+//   		PreExperimentDuration: jsii.String("preExperimentDuration"),
+//   	},
 //   	LogConfiguration: &ExperimentTemplateLogConfigurationProperty{
 //   		LogSchemaVersion: jsii.Number(123),
 //
@@ -109,6 +130,10 @@ type CfnExperimentTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-experimentoptions
 	//
 	ExperimentOptions interface{} `field:"optional" json:"experimentOptions" yaml:"experimentOptions"`
+	// Describes the report configuration for the experiment template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-experimentreportconfiguration
+	//
+	ExperimentReportConfiguration interface{} `field:"optional" json:"experimentReportConfiguration" yaml:"experimentReportConfiguration"`
 	// The configuration for experiment logging.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-logconfiguration
 	//

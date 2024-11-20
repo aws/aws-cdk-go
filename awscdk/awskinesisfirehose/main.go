@@ -26,6 +26,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseSourceConfiguration", GoGetter: "DatabaseSourceConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamEncryptionConfigurationInput", GoGetter: "DeliveryStreamEncryptionConfigurationInput"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamName", GoGetter: "DeliveryStreamName"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamType", GoGetter: "DeliveryStreamType"},
@@ -115,6 +116,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DataFormatConversionConfigurationProperty",
 		reflect.TypeOf((*CfnDeliveryStream_DataFormatConversionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DatabaseColumnsProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DatabaseColumnsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DatabaseSourceAuthenticationConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DatabaseSourceAuthenticationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DatabaseSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DatabaseSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DatabaseSourceVPCConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DatabaseSourceVPCConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DatabaseTablesProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DatabaseTablesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DatabasesProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DatabasesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty",

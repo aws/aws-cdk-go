@@ -86,6 +86,27 @@ import (
 //   		AccountTargeting: jsii.String("accountTargeting"),
 //   		EmptyTargetResolutionMode: jsii.String("emptyTargetResolutionMode"),
 //   	},
+//   	ExperimentReportConfiguration: &ExperimentTemplateExperimentReportConfigurationProperty{
+//   		DataSources: &DataSourcesProperty{
+//   			CloudWatchDashboards: []interface{}{
+//   				&CloudWatchDashboardProperty{
+//   					DashboardIdentifier: jsii.String("dashboardIdentifier"),
+//   				},
+//   			},
+//   		},
+//   		Outputs: &OutputsProperty{
+//   			ExperimentReportS3Configuration: &ExperimentReportS3ConfigurationProperty{
+//   				BucketName: jsii.String("bucketName"),
+//
+//   				// the properties below are optional
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		PostExperimentDuration: jsii.String("postExperimentDuration"),
+//   		PreExperimentDuration: jsii.String("preExperimentDuration"),
+//   	},
 //   	LogConfiguration: &ExperimentTemplateLogConfigurationProperty{
 //   		LogSchemaVersion: jsii.Number(123),
 //
@@ -124,6 +145,9 @@ type CfnExperimentTemplate interface {
 	// The experiment options for an experiment template.
 	ExperimentOptions() interface{}
 	SetExperimentOptions(val interface{})
+	// Describes the report configuration for the experiment template.
+	ExperimentReportConfiguration() interface{}
+	SetExperimentReportConfiguration(val interface{})
 	// The configuration for experiment logging.
 	LogConfiguration() interface{}
 	SetLogConfiguration(val interface{})
@@ -389,6 +413,16 @@ func (j *jsiiProxy_CfnExperimentTemplate) ExperimentOptions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnExperimentTemplate) ExperimentReportConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"experimentReportConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnExperimentTemplate) LogConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -566,6 +600,17 @@ func (j *jsiiProxy_CfnExperimentTemplate)SetExperimentOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"experimentOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnExperimentTemplate)SetExperimentReportConfiguration(val interface{}) {
+	if err := j.validateSetExperimentReportConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"experimentReportConfiguration",
 		val,
 	)
 }

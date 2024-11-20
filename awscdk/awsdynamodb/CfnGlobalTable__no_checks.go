@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnGlobalTable) validateSetTimeToLiveSpecificationParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnGlobalTable) validateSetWarmThroughputParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGlobalTable) validateSetWriteOnDemandThroughputSettingsParameters(val interface{}) error {
 	return nil
 }

@@ -35,6 +35,11 @@ import (
 //   	},
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
 //   	MaxRecordAge: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	MetricsConfig: &MetricsConfig{
+//   		Metrics: []eVENT_COUNT{
+//   			awscdk.*Aws_lambda.MetricType_*eVENT_COUNT,
+//   		},
+//   	},
 //   	OnFailure: eventSourceDlq,
 //   	ParallelizationFactor: jsii.Number(123),
 //   	ReportBatchItemFailures: jsii.Boolean(false),
@@ -96,6 +101,10 @@ type StreamEventSourceProps struct {
 	// Default: -1.
 	//
 	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
+	// Configuration for enhanced monitoring metrics collection When specified, enables collection of additional metrics for the stream event source.
+	// Default: - Enhanced monitoring is disabled.
+	//
+	MetricsConfig *awslambda.MetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Default: - discarded records are ignored.
 	//

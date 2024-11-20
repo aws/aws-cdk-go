@@ -29,12 +29,15 @@ import (
 type CfnAIAgentVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The identifier of the AI Agent.
 	AiAgentId() *string
 	SetAiAgentId(val *string)
 	AssistantId() *string
 	SetAssistantId(val *string)
+	// The Amazon Resource Name (ARN) of the AI agent.
 	AttrAiAgentArn() *string
 	AttrAiAgentVersionId() *string
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AttrAssistantArn() *string
 	// The version number for this AI Agent version.
 	AttrVersionNumber() awscdk.IResolvable
@@ -57,6 +60,7 @@ type CfnAIAgentVersion interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The time the AI Agent version was last modified in seconds.
 	ModifiedTimeSeconds() *float64
 	SetModifiedTimeSeconds(val *float64)
 	// The tree node.

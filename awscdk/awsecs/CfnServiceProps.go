@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnServiceProps := &CfnServiceProps{
+//   	AvailabilityZoneRebalancing: jsii.String("availabilityZoneRebalancing"),
 //   	CapacityProviderStrategy: []interface{}{
 //   		&CapacityProviderStrategyItemProperty{
 //   			Base: jsii.Number(123),
@@ -180,11 +181,23 @@ import (
 //   			},
 //   		},
 //   	},
+//   	VpcLatticeConfigurations: []interface{}{
+//   		&VpcLatticeConfigurationProperty{
+//   			PortName: jsii.String("portName"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			TargetGroupArn: jsii.String("targetGroupArn"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 //
 type CfnServiceProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-availabilityzonerebalancing
+	//
+	// Default: - "DISABLED".
+	//
+	AvailabilityZoneRebalancing *string `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//
 	// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
@@ -360,5 +373,8 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-volumeconfigurations
 	//
 	VolumeConfigurations interface{} `field:"optional" json:"volumeConfigurations" yaml:"volumeConfigurations"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-vpclatticeconfigurations
+	//
+	VpcLatticeConfigurations interface{} `field:"optional" json:"vpcLatticeConfigurations" yaml:"vpcLatticeConfigurations"`
 }
 

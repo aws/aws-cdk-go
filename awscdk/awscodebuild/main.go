@@ -135,9 +135,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "computeConfiguration", GoGetter: "ComputeConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "computeType", GoGetter: "ComputeType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "environmentType", GoGetter: "EnvironmentType"},
+			_jsii_.MemberProperty{JsiiProperty: "fleetProxyConfiguration", GoGetter: "FleetProxyConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetServiceRole", GoGetter: "FleetServiceRole"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetVpcConfig", GoGetter: "FleetVpcConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -155,6 +157,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "scalingConfiguration", GoGetter: "ScalingConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -170,6 +173,26 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.CfnFleet.ComputeConfigurationProperty",
+		reflect.TypeOf((*CfnFleet_ComputeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.CfnFleet.FleetProxyRuleProperty",
+		reflect.TypeOf((*CfnFleet_FleetProxyRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.CfnFleet.ProxyConfigurationProperty",
+		reflect.TypeOf((*CfnFleet_ProxyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.CfnFleet.ScalingConfigurationInputProperty",
+		reflect.TypeOf((*CfnFleet_ScalingConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.CfnFleet.TargetTrackingScalingConfigurationProperty",
+		reflect.TypeOf((*CfnFleet_TargetTrackingScalingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codebuild.CfnFleet.VpcConfigProperty",

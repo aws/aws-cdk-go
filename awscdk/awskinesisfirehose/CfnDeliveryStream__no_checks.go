@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetAmazonopensearchserviceDestinat
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) validateSetDatabaseSourceConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) validateSetDeliveryStreamEncryptionConfigurationInputParameters(val interface{}) error {
 	return nil
 }

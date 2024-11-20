@@ -17,6 +17,10 @@ package awsautoscaling
 //   	AvailabilityZoneDistribution: &AvailabilityZoneDistributionProperty{
 //   		CapacityDistributionStrategy: jsii.String("capacityDistributionStrategy"),
 //   	},
+//   	AvailabilityZoneImpairmentPolicy: &AvailabilityZoneImpairmentPolicyProperty{
+//   		ImpairedZoneHealthCheckBehavior: jsii.String("impairedZoneHealthCheckBehavior"),
+//   		ZonalShiftEnabled: jsii.Boolean(false),
+//   	},
 //   	AvailabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
 //   	},
@@ -117,6 +121,15 @@ package awsautoscaling
 //   							Max: jsii.Number(123),
 //   							Min: jsii.Number(123),
 //   						},
+//   						BaselinePerformanceFactors: &BaselinePerformanceFactorsRequestProperty{
+//   							Cpu: &CpuPerformanceFactorRequestProperty{
+//   								References: []interface{}{
+//   									&PerformanceFactorReferenceRequestProperty{
+//   										InstanceFamily: jsii.String("instanceFamily"),
+//   									},
+//   								},
+//   							},
+//   						},
 //   						BurstablePerformance: jsii.String("burstablePerformance"),
 //   						CpuManufacturers: []*string{
 //   							jsii.String("cpuManufacturers"),
@@ -196,6 +209,7 @@ package awsautoscaling
 //   	},
 //   	PlacementGroup: jsii.String("placementGroup"),
 //   	ServiceLinkedRoleArn: jsii.String("serviceLinkedRoleArn"),
+//   	SkipZonalShiftValidation: jsii.Boolean(false),
 //   	Tags: []tagPropertyProperty{
 //   		&tagPropertyProperty{
 //   			Key: jsii.String("key"),
@@ -241,9 +255,13 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname
 	//
 	AutoScalingGroupName *string `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
+	// The instance capacity distribution across Availability Zones.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzonedistribution
 	//
 	AvailabilityZoneDistribution interface{} `field:"optional" json:"availabilityZoneDistribution" yaml:"availabilityZoneDistribution"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy
+	//
+	AvailabilityZoneImpairmentPolicy interface{} `field:"optional" json:"availabilityZoneImpairmentPolicy" yaml:"availabilityZoneImpairmentPolicy"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
 	//
 	// Used for launching into the default VPC subnet in each Availability Zone when not using the `VPCZoneIdentifier` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
@@ -401,6 +419,9 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn
 	//
 	ServiceLinkedRoleArn *string `field:"optional" json:"serviceLinkedRoleArn" yaml:"serviceLinkedRoleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-skipzonalshiftvalidation
+	//
+	SkipZonalShiftValidation interface{} `field:"optional" json:"skipZonalShiftValidation" yaml:"skipZonalShiftValidation"`
 	// One or more tags.
 	//
 	// You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide* .

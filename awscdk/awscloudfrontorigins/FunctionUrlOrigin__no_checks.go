@@ -8,6 +8,10 @@ func (f *jsiiProxy_FunctionUrlOrigin) validateBindParameters(_scope constructs.C
 	return nil
 }
 
+func validateFunctionUrlOrigin_WithOriginAccessControlParameters(lambdaFunctionUrl awslambda.IFunctionUrl, props *FunctionUrlOriginWithOACProps) error {
+	return nil
+}
+
 func validateNewFunctionUrlOriginParameters(lambdaFunctionUrl awslambda.IFunctionUrl, props *FunctionUrlOriginProps) error {
 	return nil
 }

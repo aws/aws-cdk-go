@@ -29,6 +29,7 @@ type CfnAIAgent_OrConditionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html#cfn-wisdom-aiagent-orcondition-andconditions
 	//
 	AndConditions interface{} `field:"optional" json:"andConditions" yaml:"andConditions"`
+	// A leaf node condition which can be used to specify a tag condition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html#cfn-wisdom-aiagent-orcondition-tagcondition
 	//
 	TagCondition interface{} `field:"optional" json:"tagCondition" yaml:"tagCondition"`

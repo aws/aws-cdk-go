@@ -147,6 +147,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
 			_jsii_.MemberProperty{JsiiProperty: "policyType", GoGetter: "PolicyType"},
+			_jsii_.MemberProperty{JsiiProperty: "predictiveScalingPolicyConfiguration", GoGetter: "PredictiveScalingPolicyConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -182,6 +183,54 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredefinedMetricSpecificationProperty",
 		reflect.TypeOf((*CfnScalingPolicy_PredefinedMetricSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingCustomizedCapacityMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingCustomizedCapacityMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingCustomizedLoadMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingCustomizedLoadMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingCustomizedScalingMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingCustomizedScalingMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingMetricDataQueryProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingMetricDataQueryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingMetricDimensionProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingMetricDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingMetricSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingMetricStatProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingMetricStatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingPolicyConfigurationProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingPolicyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingPredefinedLoadMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingPredefinedLoadMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingPredefinedMetricPairProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingPredefinedMetricPairProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingPredefinedScalingMetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy.StepAdjustmentProperty",
