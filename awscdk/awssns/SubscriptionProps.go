@@ -33,6 +33,10 @@ type SubscriptionProps struct {
 	// Default: - No dead letter queue enabled.
 	//
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	// The delivery policy.
+	// Default: - if the initial delivery of the message fails, three retries with a delay between failed attempts set at 20 seconds.
+	//
+	DeliveryPolicy *DeliveryPolicy `field:"optional" json:"deliveryPolicy" yaml:"deliveryPolicy"`
 	// The filter policy.
 	// Default: - all messages are delivered.
 	//

@@ -621,6 +621,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "nodegroupName", GoGetter: "NodegroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "nodeRepairConfig", GoGetter: "NodeRepairConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "nodeRole", GoGetter: "NodeRole"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -656,6 +657,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnNodegroup.LaunchTemplateSpecificationProperty",
 		reflect.TypeOf((*CfnNodegroup_LaunchTemplateSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnNodegroup.NodeRepairConfigProperty",
+		reflect.TypeOf((*CfnNodegroup_NodeRepairConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnNodegroup.RemoteAccessProperty",

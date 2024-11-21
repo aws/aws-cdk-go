@@ -80,6 +80,10 @@ func validateCfnServiceNetwork_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnServiceNetwork) validateSetSharingConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnServiceNetwork) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

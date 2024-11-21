@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCampaign) validateSetDataDestinationConfigsParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnCampaign) validateSetDataPartitionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCampaign) validateSetNameParameters(val *string) error {
 	return nil
 }

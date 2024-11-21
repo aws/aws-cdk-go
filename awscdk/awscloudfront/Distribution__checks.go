@@ -37,6 +37,14 @@ func (d *jsiiProxy_Distribution) validateApplyRemovalPolicyParameters(policy aws
 	return nil
 }
 
+func (d *jsiiProxy_Distribution) validateAttachWebAclIdParameters(webAclId *string) error {
+	if webAclId == nil {
+		return fmt.Errorf("parameter webAclId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_Distribution) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

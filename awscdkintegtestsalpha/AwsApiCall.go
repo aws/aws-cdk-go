@@ -11,12 +11,15 @@ import (
 // Construct that creates a custom resource that will perform a query using the AWS SDK.
 //
 // Example:
-//   var myAppStack stack
+//   var stack stack
 //
 //
-//   awscdkintegtestsalpha.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &AwsApiCallProps{
-//   	Service: jsii.String("S3"),
-//   	Api: jsii.String("getObject"),
+//   awscdkintegtestsalpha.NewAwsApiCall(stack, jsii.String("MyAssertion"), &AwsApiCallProps{
+//   	Service: jsii.String("SQS"),
+//   	Api: jsii.String("receiveMessage"),
+//   	Parameters: map[string]*string{
+//   		"QueueUrl": jsii.String("url"),
+//   	},
 //   })
 //
 // Experimental.

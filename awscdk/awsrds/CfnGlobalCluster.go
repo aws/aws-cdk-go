@@ -28,6 +28,9 @@ import (
 //   	EngineLifecycleSupport: jsii.String("engineLifecycleSupport"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   	GlobalEndpoint: &GlobalEndpointProperty{
+//   		Address: jsii.String("address"),
+//   	},
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	StorageEncrypted: jsii.Boolean(false),
 //   	Tags: []cfnTag{
@@ -70,6 +73,8 @@ type CfnGlobalCluster interface {
 	// The cluster identifier for this global database cluster.
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
+	GlobalEndpoint() interface{}
+	SetGlobalEndpoint(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -347,6 +352,16 @@ func (j *jsiiProxy_CfnGlobalCluster) GlobalClusterIdentifier() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalCluster) GlobalEndpoint() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"globalEndpoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalCluster) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -504,6 +519,17 @@ func (j *jsiiProxy_CfnGlobalCluster)SetGlobalClusterIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"globalClusterIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalCluster)SetGlobalEndpoint(val interface{}) {
+	if err := j.validateSetGlobalEndpointParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"globalEndpoint",
 		val,
 	)
 }

@@ -239,7 +239,7 @@ type CfnService interface {
 	// Determines whether the execute command functionality is turned on for the service.
 	EnableExecuteCommand() interface{}
 	SetEnableExecuteCommand(val interface{})
-	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.
 	HealthCheckGracePeriodSeconds() *float64
 	SetHealthCheckGracePeriodSeconds(val *float64)
 	// The launch type on which to run your service.
@@ -327,6 +327,7 @@ type CfnService interface {
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time.
 	VolumeConfigurations() interface{}
 	SetVolumeConfigurations(val interface{})
+	// The VPC Lattice configuration for the service being created.
 	VpcLatticeConfigurations() interface{}
 	SetVpcLatticeConfigurations(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -9,6 +9,13 @@ import (
 
 func init() {
 	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-location-alpha.CustomLayer",
+		reflect.TypeOf((*CustomLayer)(nil)).Elem(),
+		map[string]interface{}{
+			"POI": CustomLayer_POI,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-location-alpha.DataSource",
 		reflect.TypeOf((*DataSource)(nil)).Elem(),
 		map[string]interface{}{
@@ -61,6 +68,23 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IGeofenceCollection{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-location-alpha.IMap",
+		reflect.TypeOf((*IMap)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "mapArn", GoGetter: "MapArn"},
+			_jsii_.MemberProperty{JsiiProperty: "mapName", GoGetter: "MapName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IMap{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -125,6 +149,37 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-location-alpha.Map",
+		reflect.TypeOf((*Map)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRendering", GoMethod: "GrantRendering"},
+			_jsii_.MemberProperty{JsiiProperty: "mapArn", GoGetter: "MapArn"},
+			_jsii_.MemberProperty{JsiiProperty: "mapCreateTime", GoGetter: "MapCreateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "mapName", GoGetter: "MapName"},
+			_jsii_.MemberProperty{JsiiProperty: "mapUpdateTime", GoGetter: "MapUpdateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Map{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMap)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-location-alpha.MapProps",
+		reflect.TypeOf((*MapProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-location-alpha.PlaceIndex",
 		reflect.TypeOf((*PlaceIndex)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -154,6 +209,13 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-location-alpha.PlaceIndexProps",
 		reflect.TypeOf((*PlaceIndexProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-location-alpha.PoliticalView",
+		reflect.TypeOf((*PoliticalView)(nil)).Elem(),
+		map[string]interface{}{
+			"INDIA": PoliticalView_INDIA,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-location-alpha.PositionFiltering",
@@ -194,6 +256,29 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-location-alpha.RouteCalculatorProps",
 		reflect.TypeOf((*RouteCalculatorProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-location-alpha.Style",
+		reflect.TypeOf((*Style)(nil)).Elem(),
+		map[string]interface{}{
+			"VECTOR_ESRI_NAVIGATION": Style_VECTOR_ESRI_NAVIGATION,
+			"RASTER_ESRI_IMAGERY": Style_RASTER_ESRI_IMAGERY,
+			"VECTOR_ESRI_LIGHT_GRAY_CANVAS": Style_VECTOR_ESRI_LIGHT_GRAY_CANVAS,
+			"VECTOR_ESRI_TOPOGRAPHIC": Style_VECTOR_ESRI_TOPOGRAPHIC,
+			"VECTOR_ESRI_STREETS": Style_VECTOR_ESRI_STREETS,
+			"VECTOR_ESRI_DARK_GRAY_CANVAS": Style_VECTOR_ESRI_DARK_GRAY_CANVAS,
+			"VECTOR_HERE_EXPLORE": Style_VECTOR_HERE_EXPLORE,
+			"RASTER_HERE_EXPLORE_SATELLITE": Style_RASTER_HERE_EXPLORE_SATELLITE,
+			"HYBRID_HERE_EXPLORE_SATELLITE": Style_HYBRID_HERE_EXPLORE_SATELLITE,
+			"VECTOR_HERE_CONTRAST": Style_VECTOR_HERE_CONTRAST,
+			"VECTOR_HERE_EXPLORE_TRUCK": Style_VECTOR_HERE_EXPLORE_TRUCK,
+			"VECTOR_GRAB_STANDARD_LIGHT": Style_VECTOR_GRAB_STANDARD_LIGHT,
+			"VECTOR_GRAB_STANDARD_DARK": Style_VECTOR_GRAB_STANDARD_DARK,
+			"VECTOR_OPEN_DATA_STANDARD_LIGHT": Style_VECTOR_OPEN_DATA_STANDARD_LIGHT,
+			"VECTOR_OPEN_DATA_STANDARD_DARK": Style_VECTOR_OPEN_DATA_STANDARD_DARK,
+			"VECTOR_OPEN_DATA_VISUALIZATION_LIGHT": Style_VECTOR_OPEN_DATA_VISUALIZATION_LIGHT,
+			"VECTOR_OPEN_DATA_VISUALIZATION_DARK": Style_VECTOR_OPEN_DATA_VISUALIZATION_DARK,
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-location-alpha.Tracker",

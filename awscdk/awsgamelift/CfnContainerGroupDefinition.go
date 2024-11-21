@@ -13,9 +13,9 @@ import (
 //
 // You can update all properties of a container group definition properties. Updates to a container group definition are saved as new versions.
 //
-// *Used with:* `CreateContainerGroupDefinition`
+// *Used with:* [CreateContainerGroupDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html)
 //
-// *Returned by:* `DescribeContainerGroupDefinition` , `ListContainerGroupDefinitions` , `UpdateContainerGroupDefinition`.
+// *Returned by:* [DescribeContainerGroupDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html) , [ListContainerGroupDefinitions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitions.html) , [UpdateContainerGroupDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -151,13 +151,15 @@ type CfnContainerGroupDefinition interface {
 	AttrStatus() *string
 	// Additional information about a container group definition that's in `FAILED` status. Possible reasons include:.
 	//
-	// - An internal issue prevented Amazon GameLift from creating the container group definition resource. Delete the failed resource and call `CreateContainerGroupDefinition` again.
-	// - An access-denied message means that you don't have permissions to access the container image on ECR. See [IAM permission examples](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html) for help setting up required IAM permissions for Amazon GameLift.
+	// - An internal issue prevented Amazon GameLift from creating the container group definition resource. Delete the failed resource and call [CreateContainerGroupDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html) again.
+	// - An access-denied message means that you don't have permissions to access the container image on ECR. See [IAM permission examples](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html.html) for help setting up required IAM permissions for Amazon GameLift.
 	// - The `ImageUri` value for at least one of the containers in the container group definition was invalid or not found in the current AWS account.
 	// - At least one of the container images referenced in the container group definition exceeds the allowed size. For size limits, see [Amazon GameLift endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/gamelift.html) .
 	// - At least one of the container images referenced in the container group definition uses a different operating system than the one defined for the container group.
 	AttrStatusReason() *string
-	// The version of this ContainerGroupDefinition.
+	// Indicates the version of a particular container group definition.
+	//
+	// This number is incremented automatically when you update a container group definition. You can view, update, or delete individual versions or the entire container group definition.
 	AttrVersionNumber() *float64
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -166,14 +168,14 @@ type CfnContainerGroupDefinition interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The scope of the container group.
+	// The type of container group.
 	ContainerGroupType() *string
 	SetContainerGroupType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies the information required to run game servers with this container group.
+	// The definition for the game server container in this group.
 	GameServerContainerDefinition() interface{}
 	SetGameServerContainerDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -212,10 +214,10 @@ type CfnContainerGroupDefinition interface {
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The total memory limit of container groups following this definition in MiB.
+	// The amount of memory (in MiB) on a fleet instance to allocate for the container group.
 	TotalMemoryLimitMebibytes() *float64
 	SetTotalMemoryLimitMebibytes(val *float64)
-	// The total amount of virtual CPUs on the container group definition.
+	// The amount of vCPU units on a fleet instance to allocate for the container group (1 vCPU is equal to 1024 CPU units).
 	TotalVcpuLimit() *float64
 	SetTotalVcpuLimit(val *float64)
 	// Deprecated.
@@ -231,7 +233,7 @@ type CfnContainerGroupDefinition interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The description of this version.
+	// An optional description that was provided for a container group definition update.
 	VersionDescription() *string
 	SetVersionDescription(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

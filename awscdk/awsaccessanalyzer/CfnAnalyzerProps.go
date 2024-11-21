@@ -17,6 +17,23 @@ import (
 //   	// the properties below are optional
 //   	AnalyzerConfiguration: &AnalyzerConfigurationProperty{
 //   		UnusedAccessConfiguration: &UnusedAccessConfigurationProperty{
+//   			AnalysisRule: &AnalysisRuleProperty{
+//   				Exclusions: []interface{}{
+//   					&AnalysisRuleCriteriaProperty{
+//   						AccountIds: []*string{
+//   							jsii.String("accountIds"),
+//   						},
+//   						ResourceTags: []interface{}{
+//   							[]interface{}{
+//   								&CfnTag{
+//   									Key: jsii.String("key"),
+//   									Value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
 //   			UnusedAccessAge: jsii.Number(123),
 //   		},
 //   	},
@@ -60,7 +77,7 @@ type CfnAnalyzerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// Contains information about the configuration of an unused access analyzer for an AWS organization or account.
+	// Contains information about the configuration of an analyzer for an AWS organization or account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzerconfiguration
 	//
 	AnalyzerConfiguration interface{} `field:"optional" json:"analyzerConfiguration" yaml:"analyzerConfiguration"`
@@ -75,6 +92,12 @@ type CfnAnalyzerProps struct {
 	//
 	ArchiveRules interface{} `field:"optional" json:"archiveRules" yaml:"archiveRules"`
 	// An array of key-value pairs to apply to the analyzer.
+	//
+	// You can use the set of Unicode letters, digits, whitespace, `_` , `.` , `/` , `=` , `+` , and `-` .
+	//
+	// For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with `aws:` .
+	//
+	// For the tag value, you can specify a value that is 0 to 256 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

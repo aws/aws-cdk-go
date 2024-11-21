@@ -37,7 +37,6 @@ type CfnAIPromptVersion interface {
 	SetAssistantId(val *string)
 	AttrAiPromptArn() *string
 	AttrAiPromptVersionId() *string
-	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AttrAssistantArn() *string
 	// The version number for this AI Prompt version.
 	AttrVersionNumber() awscdk.IResolvable

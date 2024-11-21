@@ -1,7 +1,7 @@
 package awsdeadline
 
 
-// The range for memory, in MiB, to use for the accelerator.
+// Defines the maximum and minimum amount of memory, in MiB, to use for the accelerator.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

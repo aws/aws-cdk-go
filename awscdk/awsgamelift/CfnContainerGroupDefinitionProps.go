@@ -135,19 +135,29 @@ type CfnContainerGroupDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-operatingsystem
 	//
 	OperatingSystem *string `field:"required" json:"operatingSystem" yaml:"operatingSystem"`
-	// The total memory limit of container groups following this definition in MiB.
+	// The amount of memory (in MiB) on a fleet instance to allocate for the container group.
+	//
+	// All containers in the group share these resources.
+	//
+	// You can set a limit for each container definition in the group. If individual containers have limits, this total value must be greater than any individual container's memory limit.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimitmebibytes
 	//
 	TotalMemoryLimitMebibytes *float64 `field:"required" json:"totalMemoryLimitMebibytes" yaml:"totalMemoryLimitMebibytes"`
-	// The total amount of virtual CPUs on the container group definition.
+	// The amount of vCPU units on a fleet instance to allocate for the container group (1 vCPU is equal to 1024 CPU units).
+	//
+	// All containers in the group share these resources. You can set a limit for each container definition in the group. If individual containers have limits, this total value must be equal to or greater than the sum of the limits for each container in the group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalvcpulimit
 	//
 	TotalVcpuLimit *float64 `field:"required" json:"totalVcpuLimit" yaml:"totalVcpuLimit"`
-	// The scope of the container group.
+	// The type of container group.
+	//
+	// Container group type determines how Amazon GameLift deploys the container group on each fleet instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-containergrouptype
 	//
 	ContainerGroupType *string `field:"optional" json:"containerGroupType" yaml:"containerGroupType"`
-	// Specifies the information required to run game servers with this container group.
+	// The definition for the game server container in this group.
+	//
+	// This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition
 	//
 	GameServerContainerDefinition interface{} `field:"optional" json:"gameServerContainerDefinition" yaml:"gameServerContainerDefinition"`
@@ -165,7 +175,9 @@ type CfnContainerGroupDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The description of this version.
+	// An optional description that was provided for a container group definition update.
+	//
+	// Each version can have a unique description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-versiondescription
 	//
 	VersionDescription *string `field:"optional" json:"versionDescription" yaml:"versionDescription"`

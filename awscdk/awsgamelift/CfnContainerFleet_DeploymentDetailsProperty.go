@@ -1,7 +1,7 @@
 package awsgamelift
 
 
-// Provides information about the last deployment ID and its status.
+// Information about the most recent deployment for the container fleet.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +15,7 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentdetails.html
 //
 type CfnContainerFleet_DeploymentDetailsProperty struct {
-	// The ID of the last deployment on the container fleet.
-	//
-	// This field will be empty if the container fleet does not have a ContainerGroupDefinition attached.
+	// A unique identifier for a fleet deployment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentdetails.html#cfn-gamelift-containerfleet-deploymentdetails-latestdeploymentid
 	//
 	LatestDeploymentId *string `field:"optional" json:"latestDeploymentId" yaml:"latestDeploymentId"`

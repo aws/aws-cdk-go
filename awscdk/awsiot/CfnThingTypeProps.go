@@ -21,6 +21,17 @@ import (
 //   	},
 //   	ThingTypeName: jsii.String("thingTypeName"),
 //   	ThingTypeProperties: &ThingTypePropertiesProperty{
+//   		Mqtt5Configuration: &Mqtt5ConfigurationProperty{
+//   			PropagatingAttributes: []interface{}{
+//   				&PropagatingAttributeProperty{
+//   					UserPropertyKey: jsii.String("userPropertyKey"),
+//
+//   					// the properties below are optional
+//   					ConnectionAttribute: jsii.String("connectionAttribute"),
+//   					ThingAttribute: jsii.String("thingAttribute"),
+//   				},
+//   			},
+//   		},
 //   		SearchableAttributes: []*string{
 //   			jsii.String("searchableAttributes"),
 //   		},

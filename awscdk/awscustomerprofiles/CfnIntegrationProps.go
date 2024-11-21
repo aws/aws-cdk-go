@@ -15,6 +15,9 @@ import (
 //   	DomainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
+//   	EventTriggerNames: []*string{
+//   		jsii.String("eventTriggerNames"),
+//   	},
 //   	FlowDefinition: &FlowDefinitionProperty{
 //   		FlowName: jsii.String("flowName"),
 //   		KmsArn: jsii.String("kmsArn"),
@@ -120,6 +123,10 @@ type CfnIntegrationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
 	//
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
+	// A list of unique names for active event triggers associated with the integration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-eventtriggernames
+	//
+	EventTriggerNames *[]*string `field:"optional" json:"eventTriggerNames" yaml:"eventTriggerNames"`
 	// The configuration that controls how Customer Profiles retrieves data from the source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
 	//

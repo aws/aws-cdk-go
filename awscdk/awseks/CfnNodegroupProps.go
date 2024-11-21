@@ -32,6 +32,9 @@ package awseks
 //   		Version: jsii.String("version"),
 //   	},
 //   	NodegroupName: jsii.String("nodegroupName"),
+//   	NodeRepairConfig: &NodeRepairConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	ReleaseVersion: jsii.String("releaseVersion"),
 //   	RemoteAccess: &RemoteAccessProperty{
 //   		Ec2SshKey: jsii.String("ec2SshKey"),
@@ -128,6 +131,10 @@ type CfnNodegroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-nodegroupname
 	//
 	NodegroupName *string `field:"optional" json:"nodegroupName" yaml:"nodegroupName"`
+	// The node auto repair configuration for node group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderepairconfig
+	//
+	NodeRepairConfig interface{} `field:"optional" json:"nodeRepairConfig" yaml:"nodeRepairConfig"`
 	// The AMI version of the Amazon EKS optimized AMI to use with your node group (for example, `1.14.7- *YYYYMMDD*` ). By default, the latest available AMI version for the node group's current Kubernetes version is used. For more information, see [Amazon EKS optimized Linux AMI Versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html) in the *Amazon EKS User Guide* .
 	//
 	// > Changing this value triggers an update of the node group if one is available. You can't update other properties at the same time as updating `Release Version` .

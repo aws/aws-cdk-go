@@ -209,7 +209,7 @@ type CfnTable interface {
 	// You can create up to 20 global secondary indexes.
 	GlobalSecondaryIndexes() interface{}
 	SetGlobalSecondaryIndexes(val interface{})
-	// Specifies the properties of data being imported from the S3 bucket source to the table.
+	// Specifies the properties of data being imported from the S3 bucket source to the" table.
 	ImportSourceSpecification() interface{}
 	SetImportSourceSpecification(val interface{})
 	// Specifies the attributes that make up the primary key for the table.
@@ -287,6 +287,7 @@ type CfnTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 	WarmThroughput() interface{}
 	SetWarmThroughput(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

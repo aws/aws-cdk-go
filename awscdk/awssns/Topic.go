@@ -14,17 +14,18 @@ import (
 // A new SNS topic.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
-//   var stream deliveryStream
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("Topic"))
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
-//   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
-//   	Topic: Topic,
-//   	Endpoint: stream.DeliveryStreamArn,
-//   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
-//   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
+//   	Actions: []iAction{
+//   		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
+//   			MessageFormat: actions.SnsActionMessageFormat_JSON,
+//   		}),
+//   	},
 //   })
 //
 type Topic interface {

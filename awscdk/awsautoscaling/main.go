@@ -152,6 +152,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneImpairmentPolicy", GoGetter: "AvailabilityZoneImpairmentPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "capacityRebalance", GoGetter: "CapacityRebalance"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityReservationSpecification", GoGetter: "CapacityReservationSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -236,6 +237,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.BaselinePerformanceFactorsRequestProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_BaselinePerformanceFactorsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.CapacityReservationSpecificationProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_CapacityReservationSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.CapacityReservationTargetProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_CapacityReservationTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.CpuPerformanceFactorRequestProperty",

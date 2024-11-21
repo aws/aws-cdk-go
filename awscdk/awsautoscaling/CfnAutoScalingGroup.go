@@ -39,6 +39,19 @@ import (
 //   		jsii.String("availabilityZones"),
 //   	},
 //   	CapacityRebalance: jsii.Boolean(false),
+//   	CapacityReservationSpecification: &CapacityReservationSpecificationProperty{
+//   		CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//
+//   		// the properties below are optional
+//   		CapacityReservationTarget: &CapacityReservationTargetProperty{
+//   			CapacityReservationIds: []*string{
+//   				jsii.String("capacityReservationIds"),
+//   			},
+//   			CapacityReservationResourceGroupArns: []*string{
+//   				jsii.String("capacityReservationResourceGroupArns"),
+//   			},
+//   		},
+//   	},
 //   	Context: jsii.String("context"),
 //   	Cooldown: jsii.String("cooldown"),
 //   	DefaultInstanceWarmup: jsii.Number(123),
@@ -262,6 +275,7 @@ type CfnAutoScalingGroup interface {
 	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution() interface{}
 	SetAvailabilityZoneDistribution(val interface{})
+	// The Availability Zone impairment policy.
 	AvailabilityZoneImpairmentPolicy() interface{}
 	SetAvailabilityZoneImpairmentPolicy(val interface{})
 	// A list of Availability Zones where instances in the Auto Scaling group can be created.
@@ -270,6 +284,8 @@ type CfnAutoScalingGroup interface {
 	// Indicates whether Capacity Rebalancing is enabled.
 	CapacityRebalance() interface{}
 	SetCapacityRebalance(val interface{})
+	CapacityReservationSpecification() interface{}
+	SetCapacityReservationSpecification(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -582,6 +598,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) CapacityRebalance() interface{} {
 	_jsii_.Get(
 		j,
 		"capacityRebalance",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) CapacityReservationSpecification() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"capacityReservationSpecification",
 		&returns,
 	)
 	return returns
@@ -1060,6 +1086,17 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetCapacityRebalance(val interface{}) {
 	_jsii_.Set(
 		j,
 		"capacityRebalance",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetCapacityReservationSpecification(val interface{}) {
+	if err := j.validateSetCapacityReservationSpecificationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"capacityReservationSpecification",
 		val,
 	)
 }

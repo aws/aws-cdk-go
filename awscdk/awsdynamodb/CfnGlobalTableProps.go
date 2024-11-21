@@ -292,6 +292,9 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
 	//
 	TimeToLiveSpecification interface{} `field:"optional" json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
+	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support.
+	//
+	// The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-warmthroughput
 	//
 	WarmThroughput interface{} `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`

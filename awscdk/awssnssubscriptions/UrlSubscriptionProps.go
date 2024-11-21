@@ -8,27 +8,25 @@ import (
 // Options for URL subscriptions.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
-//   var filterOrPolicy filterOrPolicy
-//   var queue queue
-//   var subscriptionFilter subscriptionFilter
-//
-//   urlSubscriptionProps := &UrlSubscriptionProps{
-//   	DeadLetterQueue: queue,
-//   	FilterPolicy: map[string]*subscriptionFilter{
-//   		"filterPolicyKey": subscriptionFilter,
+//   myTopic.AddSubscription(
+//   subscriptions.NewUrlSubscription(jsii.String("https://foobar.com/"), &UrlSubscriptionProps{
+//   	DeliveryPolicy: &DeliveryPolicy{
+//   		HealthyRetryPolicy: &HealthyRetryPolicy{
+//   			MinDelayTarget: awscdk.Duration_Seconds(jsii.Number(5)),
+//   			MaxDelayTarget: awscdk.Duration_*Seconds(jsii.Number(10)),
+//   			NumRetries: jsii.Number(6),
+//   			BackoffFunction: sns.BackoffFunction_EXPONENTIAL,
+//   		},
+//   		ThrottlePolicy: &ThrottlePolicy{
+//   			MaxReceivesPerSecond: jsii.Number(10),
+//   		},
+//   		RequestPolicy: &RequestPolicy{
+//   			HeaderContentType: jsii.String("application/json"),
+//   		},
 //   	},
-//   	FilterPolicyWithMessageBody: map[string]*filterOrPolicy{
-//   		"filterPolicyWithMessageBodyKey": filterOrPolicy,
-//   	},
-//   	Protocol: awscdk.Aws_sns.SubscriptionProtocol_HTTP,
-//   	RawMessageDelivery: jsii.Boolean(false),
-//   }
+//   }))
 //
 type UrlSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
@@ -47,6 +45,10 @@ type UrlSubscriptionProps struct {
 	// Default: - all messages are delivered.
 	//
 	FilterPolicyWithMessageBody *map[string]awssns.FilterOrPolicy `field:"optional" json:"filterPolicyWithMessageBody" yaml:"filterPolicyWithMessageBody"`
+	// The delivery policy.
+	// Default: - if the initial delivery of the message fails, three retries with a delay between failed attempts set at 20 seconds.
+	//
+	DeliveryPolicy *awssns.DeliveryPolicy `field:"optional" json:"deliveryPolicy" yaml:"deliveryPolicy"`
 	// The subscription's protocol.
 	// Default: - Protocol is derived from url.
 	//

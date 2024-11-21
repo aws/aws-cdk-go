@@ -57,6 +57,7 @@ type CfnDeliveryStream interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The top level object for configuring streams with database as a source.
 	DatabaseSourceConfiguration() interface{}
 	SetDatabaseSourceConfiguration(val interface{})
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).

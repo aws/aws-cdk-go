@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnGlobalCluster) validateSetDeletionProtectionParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnGlobalCluster) validateSetGlobalEndpointParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGlobalCluster) validateSetStorageEncryptedParameters(val interface{}) error {
 	return nil
 }

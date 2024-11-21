@@ -45,12 +45,15 @@ package awsautoscaling
 //   					Stat: jsii.String("stat"),
 //
 //   					// the properties below are optional
+//   					Period: jsii.Number(123),
 //   					Unit: jsii.String("unit"),
 //   				},
+//   				Period: jsii.Number(123),
 //   				ReturnData: jsii.Boolean(false),
 //   			},
 //   		},
 //   		Namespace: jsii.String("namespace"),
+//   		Period: jsii.Number(123),
 //   		Statistic: jsii.String("statistic"),
 //   		Unit: jsii.String("unit"),
 //   	},

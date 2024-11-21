@@ -10,7 +10,6 @@ package awsroute53resolver
 //
 //   firewallRuleProperty := &FirewallRuleProperty{
 //   	Action: jsii.String("action"),
-//   	FirewallDomainListId: jsii.String("firewallDomainListId"),
 //   	Priority: jsii.Number(123),
 //
 //   	// the properties below are optional
@@ -18,7 +17,11 @@ package awsroute53resolver
 //   	BlockOverrideDomain: jsii.String("blockOverrideDomain"),
 //   	BlockOverrideTtl: jsii.Number(123),
 //   	BlockResponse: jsii.String("blockResponse"),
+//   	ConfidenceThreshold: jsii.String("confidenceThreshold"),
+//   	DnsThreatProtection: jsii.String("dnsThreatProtection"),
+//   	FirewallDomainListId: jsii.String("firewallDomainListId"),
 //   	FirewallDomainRedirectionAction: jsii.String("firewallDomainRedirectionAction"),
+//   	FirewallThreatProtectionId: jsii.String("firewallThreatProtectionId"),
 //   	Qtype: jsii.String("qtype"),
 //   }
 //
@@ -38,10 +41,6 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-action
 	//
 	Action *string `field:"required" json:"action" yaml:"action"`
-	// The ID of the domain list that's used in the rule.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainlistid
-	//
-	FirewallDomainListId *string `field:"required" json:"firewallDomainListId" yaml:"firewallDomainListId"`
 	// The priority of the rule in the rule group.
 	//
 	// This value must be unique within the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
@@ -74,6 +73,18 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockresponse
 	//
 	BlockResponse *string `field:"optional" json:"blockResponse" yaml:"blockResponse"`
+	// FirewallDomainRedirectionAction.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-confidencethreshold
+	//
+	ConfidenceThreshold *string `field:"optional" json:"confidenceThreshold" yaml:"confidenceThreshold"`
+	// FirewallDomainRedirectionAction.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-dnsthreatprotection
+	//
+	DnsThreatProtection *string `field:"optional" json:"dnsThreatProtection" yaml:"dnsThreatProtection"`
+	// The ID of the domain list that's used in the rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainlistid
+	//
+	FirewallDomainListId *string `field:"optional" json:"firewallDomainListId" yaml:"firewallDomainListId"`
 	// How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME, or DNAME.
 	//
 	// `Inspect_Redirection_Domain` (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be added to the domain list.
@@ -82,6 +93,10 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainredirectionaction
 	//
 	FirewallDomainRedirectionAction *string `field:"optional" json:"firewallDomainRedirectionAction" yaml:"firewallDomainRedirectionAction"`
+	// ResourceId.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewallthreatprotectionid
+	//
+	FirewallThreatProtectionId *string `field:"optional" json:"firewallThreatProtectionId" yaml:"firewallThreatProtectionId"`
 	// The DNS query type you want the rule to evaluate. Allowed values are;
 	//
 	// - A: Returns an IPv4 address.

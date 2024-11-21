@@ -1,7 +1,15 @@
 package awsgamelift
 
 
-// Specifies the information required to run game servers with this container group.
+// Describes the game server container in an existing game server container group.
+//
+// A game server container identifies a container image with your game server build. A game server container is automatically considered essential; if an essential container fails, the entire container group restarts.
+//
+// You can update a container definition and deploy the updates to an existing fleet. When creating or updating a game server container group definition, use the property [](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameServerContainerDefinitionInput) .
+//
+// *Part of:* [ContainerGroupDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html)
+//
+// *Returned by:* [DescribeContainerGroupDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html) , [ListContainerGroupDefinitions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitions.html) , [UpdateContainerGroupDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -50,39 +58,49 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html
 //
 type CfnContainerGroupDefinition_GameServerContainerDefinitionProperty struct {
-	// A descriptive label for the container definition.
+	// The container definition identifier.
 	//
-	// Container definition names must be unique with a container group definition.
+	// Container names are unique within a container group definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-containername
 	//
 	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
-	// Specifies the image URI of this container.
+	// The URI to the image that Amazon GameLift uses when deploying this container to a container fleet.
+	//
+	// For a more specific identifier, see `ResolvedImageDigest` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-imageuri
 	//
 	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
-	// The version of the server SDK used in this container group.
+	// The Amazon GameLift server SDK version that the game server is integrated with.
+	//
+	// Only game servers using 5.2.0 or higher are compatible with container fleets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-serversdkversion
 	//
 	ServerSdkVersion *string `field:"required" json:"serverSdkVersion" yaml:"serverSdkVersion"`
-	// A list of container dependencies that determines when this container starts up and shuts down.
+	// Indicates that the container relies on the status of other containers in the same container group during startup and shutdown sequences.
 	//
-	// For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+	// A container might have dependencies on multiple containers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-dependson
 	//
 	DependsOn interface{} `field:"optional" json:"dependsOn" yaml:"dependsOn"`
-	// The environment variables to pass to a container.
+	// A set of environment variables that's passed to the container on startup.
+	//
+	// See the [ContainerDefinition::environment](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-environment) parameter in the *Amazon Elastic Container Service API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-environmentoverride
 	//
 	EnvironmentOverride interface{} `field:"optional" json:"environmentOverride" yaml:"environmentOverride"`
-	// A list of mount point configurations to be used in a container.
+	// A mount point that binds a path inside the container to a file or directory on the host system and lets it access the file or directory.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-mountpoints
 	//
 	MountPoints interface{} `field:"optional" json:"mountPoints" yaml:"mountPoints"`
-	// Defines the ports on a container.
+	// The set of ports that are available to bind to processes in the container.
+	//
+	// For example, a game server process requires a container port to allow game clients to connect to it. Container ports aren't directly accessed by inbound traffic. Amazon GameLift maps these container ports to externally accessible connection ports, which are assigned as needed from the container fleet's `ConnectionPortRange` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-portconfiguration
 	//
 	PortConfiguration interface{} `field:"optional" json:"portConfiguration" yaml:"portConfiguration"`
-	// The digest of the container image.
+	// A unique and immutable identifier for the container image.
+	//
+	// The digest is a SHA 256 hash of the container image manifest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-resolvedimagedigest
 	//
 	ResolvedImageDigest *string `field:"optional" json:"resolvedImageDigest" yaml:"resolvedImageDigest"`

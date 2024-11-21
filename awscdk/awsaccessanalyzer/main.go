@@ -58,6 +58,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer.AnalysisRuleCriteriaProperty",
+		reflect.TypeOf((*CfnAnalyzer_AnalysisRuleCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer.AnalysisRuleProperty",
+		reflect.TypeOf((*CfnAnalyzer_AnalysisRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_accessanalyzer.CfnAnalyzer.AnalyzerConfigurationProperty",
 		reflect.TypeOf((*CfnAnalyzer_AnalyzerConfigurationProperty)(nil)).Elem(),
 	)

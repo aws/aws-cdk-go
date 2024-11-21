@@ -32,6 +32,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dataDestinationConfigs", GoGetter: "DataDestinationConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "dataExtraDimensions", GoGetter: "DataExtraDimensions"},
+			_jsii_.MemberProperty{JsiiProperty: "dataPartitions", GoGetter: "DataPartitions"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "diagnosticsMode", GoGetter: "DiagnosticsMode"},
 			_jsii_.MemberProperty{JsiiProperty: "expiryTime", GoGetter: "ExpiryTime"},
@@ -90,6 +91,18 @@ func init() {
 		reflect.TypeOf((*CfnCampaign_DataDestinationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.DataPartitionProperty",
+		reflect.TypeOf((*CfnCampaign_DataPartitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.DataPartitionStorageOptionsProperty",
+		reflect.TypeOf((*CfnCampaign_DataPartitionStorageOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.DataPartitionUploadOptionsProperty",
+		reflect.TypeOf((*CfnCampaign_DataPartitionUploadOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.MqttTopicConfigProperty",
 		reflect.TypeOf((*CfnCampaign_MqttTopicConfigProperty)(nil)).Elem(),
 	)
@@ -108,6 +121,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.SignalInformationProperty",
 		reflect.TypeOf((*CfnCampaign_SignalInformationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.StorageMaximumSizeProperty",
+		reflect.TypeOf((*CfnCampaign_StorageMaximumSizeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.StorageMinimumTimeToLiveProperty",
+		reflect.TypeOf((*CfnCampaign_StorageMinimumTimeToLiveProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotfleetwise.CfnCampaign.TimeBasedCollectionSchemeProperty",

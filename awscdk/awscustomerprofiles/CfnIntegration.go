@@ -20,6 +20,9 @@ import (
 //   	DomainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
+//   	EventTriggerNames: []*string{
+//   		jsii.String("eventTriggerNames"),
+//   	},
 //   	FlowDefinition: &FlowDefinitionProperty{
 //   		FlowName: jsii.String("flowName"),
 //   		KmsArn: jsii.String("kmsArn"),
@@ -140,6 +143,9 @@ type CfnIntegration interface {
 	// The unique name of the domain.
 	DomainName() *string
 	SetDomainName(val *string)
+	// A list of unique names for active event triggers associated with the integration.
+	EventTriggerNames() *[]*string
+	SetEventTriggerNames(val *[]*string)
 	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition() interface{}
 	SetFlowDefinition(val interface{})
@@ -395,6 +401,16 @@ func (j *jsiiProxy_CfnIntegration) DomainName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIntegration) EventTriggerNames() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"eventTriggerNames",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIntegration) FlowDefinition() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -550,6 +566,14 @@ func (j *jsiiProxy_CfnIntegration)SetDomainName(val *string) {
 	_jsii_.Set(
 		j,
 		"domainName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegration)SetEventTriggerNames(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"eventTriggerNames",
 		val,
 	)
 }

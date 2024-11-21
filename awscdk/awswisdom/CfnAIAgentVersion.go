@@ -34,10 +34,8 @@ type CfnAIAgentVersion interface {
 	SetAiAgentId(val *string)
 	AssistantId() *string
 	SetAssistantId(val *string)
-	// The Amazon Resource Name (ARN) of the AI agent.
 	AttrAiAgentArn() *string
 	AttrAiAgentVersionId() *string
-	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AttrAssistantArn() *string
 	// The version number for this AI Agent version.
 	AttrVersionNumber() awscdk.IResolvable

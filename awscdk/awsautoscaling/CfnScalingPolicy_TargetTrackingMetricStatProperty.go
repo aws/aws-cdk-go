@@ -28,6 +28,7 @@ package awsautoscaling
 //   	Stat: jsii.String("stat"),
 //
 //   	// the properties below are optional
+//   	Period: jsii.Number(123),
 //   	Unit: jsii.String("unit"),
 //   }
 //
@@ -46,6 +47,9 @@ type CfnScalingPolicy_TargetTrackingMetricStatProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-autoscaling-scalingpolicy-targettrackingmetricstat-stat
 	//
 	Stat *string `field:"required" json:"stat" yaml:"stat"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html#cfn-autoscaling-scalingpolicy-targettrackingmetricstat-period
+	//
+	Period *float64 `field:"optional" json:"period" yaml:"period"`
 	// The unit to use for the returned data points.
 	//
 	// For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .

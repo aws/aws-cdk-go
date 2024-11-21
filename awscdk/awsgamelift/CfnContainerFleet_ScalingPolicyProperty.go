@@ -30,6 +30,20 @@ package awsgamelift
 //
 type CfnContainerFleet_ScalingPolicyProperty struct {
 	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+	//
+	// For detailed descriptions of fleet metrics, see [Monitor Amazon GameLift with Amazon CloudWatch](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html) .
+	//
+	// - *ActivatingGameSessions* -- Game sessions in the process of being created.
+	// - *ActiveGameSessions* -- Game sessions that are currently running.
+	// - *ActiveInstances* -- Fleet instances that are currently running at least one game session.
+	// - *AvailableGameSessions* -- Additional game sessions that fleet could host simultaneously, given current capacity.
+	// - *AvailablePlayerSessions* -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.
+	// - *CurrentPlayerSessions* -- Player slots in active game sessions that are being used by a player or are reserved for a player.
+	// - *IdleInstances* -- Active instances that are currently hosting zero game sessions.
+	// - *PercentAvailableGameSessions* -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.
+	// - *PercentIdleInstances* -- Percentage of the total number of active instances that are hosting zero game sessions.
+	// - *QueueDepth* -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
+	// - *WaitTime* -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-metricname
 	//
 	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
@@ -49,7 +63,7 @@ type CfnContainerFleet_ScalingPolicyProperty struct {
 	EvaluationPeriods *float64 `field:"optional" json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// The type of scaling policy to create.
 	//
-	// For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+	// For a target-based policy, set the parameter *MetricName* to 'PercentAvailableGameSessions' and specify a *TargetConfiguration* . For a rule-based policy set the following parameters: *MetricName* , *ComparisonOperator* , *Threshold* , *EvaluationPeriods* , *ScalingAdjustmentType* , and *ScalingAdjustment* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-policytype
 	//
 	PolicyType *string `field:"optional" json:"policyType" yaml:"policyType"`
@@ -58,12 +72,14 @@ type CfnContainerFleet_ScalingPolicyProperty struct {
 	//
 	ScalingAdjustment *float64 `field:"optional" json:"scalingAdjustment" yaml:"scalingAdjustment"`
 	// The type of adjustment to make to a fleet's instance count.
+	//
+	// - *ChangeInCapacity* -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
+	// - *ExactCapacity* -- set the instance count to the scaling adjustment value.
+	// - *PercentChangeInCapacity* -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-scalingadjustmenttype
 	//
 	ScalingAdjustmentType *string `field:"optional" json:"scalingAdjustmentType" yaml:"scalingAdjustmentType"`
-	// Settings for a target-based scaling policy.
-	//
-	// A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+	// An object that contains settings for a target-based scaling policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-targetconfiguration
 	//
 	TargetConfiguration interface{} `field:"optional" json:"targetConfiguration" yaml:"targetConfiguration"`

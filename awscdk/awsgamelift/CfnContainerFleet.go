@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
+// Describes an Amazon GameLift managed container fleet.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -103,27 +103,32 @@ type CfnContainerFleet interface {
 	awscdk.ITaggableV2
 	// A time stamp indicating when this data object was created.
 	//
-	// Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+	// Format is a number expressed in Unix time as milliseconds (for example `"1469498468.057"` ).
 	AttrCreationTime() *string
 	// Provides information about the last deployment ID and its status.
 	AttrDeploymentDetails() awscdk.IResolvable
-	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container fleet resource and uniquely identifies it across all AWS Regions.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to a Amazon GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is `arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` . In a GameLift fleet ARN, the resource ID matches the `FleetId` value.
 	AttrFleetArn() *string
-	// Unique fleet ID.
+	// A unique identifier for the container fleet to retrieve.
 	AttrFleetId() *string
-	// The Amazon Resource Name (ARN) of the game server container group definition.
-	//
-	// This field will be empty if GameServerContainerGroupDefinitionName is not specified.
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to the fleet's game server container group. The ARN value also identifies the specific container group definition version in use.
 	AttrGameServerContainerGroupDefinitionArn() *string
-	// The maximum number of game server container groups per instance, a number between 1-5000.
-	AttrMaximumGameServerContainerGroupsPerInstance() *float64
-	// The Amazon Resource Name (ARN) of the per instance container group definition.
+	// The calculated maximum number of game server container group that can be deployed on each fleet instance.
 	//
-	// This field will be empty if PerInstanceContainerGroupDefinitionName is not specified.
+	// The calculation depends on the resource needs of the container group and the CPU and memory resources of the fleet's instance type.
+	AttrMaximumGameServerContainerGroupsPerInstance() *float64
+	// The Amazon Resource Name ( [ARN](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html) ) that is assigned to the fleet's per-instance container group. The ARN value also identifies the specific container group definition version in use.
 	AttrPerInstanceContainerGroupDefinitionArn() *string
 	// The current status of the container fleet.
+	//
+	// - `PENDING` -- A new container fleet has been requested.
+	// - `CREATING` -- A new container fleet resource is being created.
+	// - `CREATED` -- A new container fleet resource has been created. No fleet instances have been deployed.
+	// - `ACTIVATING` -- New container fleet instances are being deployed.
+	// - `ACTIVE` -- The container fleet has been deployed and is ready to host game sessions.
+	// - `UPDATING` -- Updates to the container fleet is being updated. A deployment is in progress.
 	AttrStatus() *string
-	// Indicates whether to use On-Demand instances or Spot instances for this fleet.
+	// Indicates whether the fleet uses On-Demand or Spot instances for this fleet.
 	BillingType() *string
 	SetBillingType(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -137,36 +142,36 @@ type CfnContainerFleet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Provides details about how to drain old tasks and replace them with new updated tasks.
+	// Set of rules for processing a deployment for a container fleet update.
 	DeploymentConfiguration() interface{}
 	SetDeploymentConfiguration(val interface{})
-	// A human-readable description of a fleet.
+	// A meaningful description of the container fleet.
 	Description() *string
 	SetDescription(val *string)
-	// A unique identifier for an AWS IAM role that manages access to your AWS services.
+	// The unique identifier for an AWS Identity and Access Management (IAM) role with permissions to run your containers on resources that are managed by Amazon GameLift.
 	FleetRoleArn() *string
 	SetFleetRoleArn(val *string)
-	// The name of the container group definition that will be created per game server.
+	// The name of the fleet's game server container group definition, which describes how to deploy containers with your game server build and support software onto each fleet instance.
 	GameServerContainerGroupDefinitionName() *string
 	SetGameServerContainerGroupDefinitionName(val *string)
-	// The number of desired game server container groups per instance, a number between 1-5000.
+	// The number of times to replicate the game server container group on each fleet instance.
 	GameServerContainerGroupsPerInstance() *float64
 	SetGameServerContainerGroupsPerInstance(val *float64)
-	// A policy that limits the number of game sessions a player can create on the same fleet.
+	// A policy that limits the number of game sessions that each individual player can create on instances in this fleet.
 	GameSessionCreationLimitPolicy() interface{}
 	SetGameSessionCreationLimitPolicy(val interface{})
-	// Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+	// The set of port numbers to open on each instance in a container fleet.
 	InstanceConnectionPortRange() interface{}
 	SetInstanceConnectionPortRange(val interface{})
-	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+	// The IP address ranges and port settings that allow inbound traffic to access game server processes and other processes on this fleet.
 	InstanceInboundPermissions() interface{}
 	SetInstanceInboundPermissions(val interface{})
-	// The name of an EC2 instance type that is supported in Amazon GameLift.
+	// The Amazon EC2 instance type to use for all instances in the fleet.
 	InstanceType() *string
 	SetInstanceType(val *string)
 	Locations() interface{}
 	SetLocations(val interface{})
-	// A policy the location and provider of logs from the fleet.
+	// The method that is used to collect container logs for the fleet.
 	LogConfiguration() interface{}
 	SetLogConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -179,15 +184,15 @@ type CfnContainerFleet interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of an Amazon CloudWatch metric group.
+	// The name of an AWS CloudWatch metric group to add this fleet to.
 	MetricGroups() *[]*string
 	SetMetricGroups(val *[]*string)
-	// A game session protection policy to apply to all game sessions hosted on instances in this fleet.
+	// Determines whether Amazon GameLift can shut down game sessions on the fleet that are actively running and hosting players.
 	NewGameSessionProtectionPolicy() *string
 	SetNewGameSessionProtectionPolicy(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The name of the container group definition that will be created per instance.
+	// The name of the fleet's per-instance container group definition.
 	PerInstanceContainerGroupDefinitionName() *string
 	SetPerInstanceContainerGroupDefinitionName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

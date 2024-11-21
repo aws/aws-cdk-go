@@ -13,6 +13,9 @@ package awsefs
 //   	FileSystemId: jsii.String("fileSystemId"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	Region: jsii.String("region"),
+//   	RoleArn: jsii.String("roleArn"),
+//   	Status: jsii.String("status"),
+//   	StatusMessage: jsii.String("statusMessage"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html
@@ -40,5 +43,14 @@ type CfnFileSystem_ReplicationDestinationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-rolearn
+	//
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-status
+	//
+	Status *string `field:"optional" json:"status" yaml:"status"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html#cfn-efs-filesystem-replicationdestination-statusmessage
+	//
+	StatusMessage *string `field:"optional" json:"statusMessage" yaml:"statusMessage"`
 }
 

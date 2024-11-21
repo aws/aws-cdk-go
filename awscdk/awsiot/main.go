@@ -1583,6 +1583,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnThingType.Mqtt5ConfigurationProperty",
+		reflect.TypeOf((*CfnThingType_Mqtt5ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnThingType.PropagatingAttributeProperty",
+		reflect.TypeOf((*CfnThingType_PropagatingAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnThingType.ThingTypePropertiesProperty",
 		reflect.TypeOf((*CfnThingType_ThingTypePropertiesProperty)(nil)).Elem(),
 	)

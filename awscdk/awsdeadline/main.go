@@ -119,8 +119,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnFleet.AcceleratorCapabilitiesProperty",
+		reflect.TypeOf((*CfnFleet_AcceleratorCapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnFleet.AcceleratorCountRangeProperty",
 		reflect.TypeOf((*CfnFleet_AcceleratorCountRangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnFleet.AcceleratorSelectionProperty",
+		reflect.TypeOf((*CfnFleet_AcceleratorSelectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnFleet.AcceleratorTotalMemoryMiBRangeProperty",

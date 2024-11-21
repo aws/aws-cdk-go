@@ -25,6 +25,19 @@ package awsautoscaling
 //   		jsii.String("availabilityZones"),
 //   	},
 //   	CapacityRebalance: jsii.Boolean(false),
+//   	CapacityReservationSpecification: &CapacityReservationSpecificationProperty{
+//   		CapacityReservationPreference: jsii.String("capacityReservationPreference"),
+//
+//   		// the properties below are optional
+//   		CapacityReservationTarget: &CapacityReservationTargetProperty{
+//   			CapacityReservationIds: []*string{
+//   				jsii.String("capacityReservationIds"),
+//   			},
+//   			CapacityReservationResourceGroupArns: []*string{
+//   				jsii.String("capacityReservationResourceGroupArns"),
+//   			},
+//   		},
+//   	},
 //   	Context: jsii.String("context"),
 //   	Cooldown: jsii.String("cooldown"),
 //   	DefaultInstanceWarmup: jsii.Number(123),
@@ -259,6 +272,7 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzonedistribution
 	//
 	AvailabilityZoneDistribution interface{} `field:"optional" json:"availabilityZoneDistribution" yaml:"availabilityZoneDistribution"`
+	// The Availability Zone impairment policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy
 	//
 	AvailabilityZoneImpairmentPolicy interface{} `field:"optional" json:"availabilityZoneImpairmentPolicy" yaml:"availabilityZoneImpairmentPolicy"`
@@ -274,6 +288,9 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-capacityrebalance
 	//
 	CapacityRebalance interface{} `field:"optional" json:"capacityRebalance" yaml:"capacityRebalance"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-capacityreservationspecification
+	//
+	CapacityReservationSpecification interface{} `field:"optional" json:"capacityReservationSpecification" yaml:"capacityReservationSpecification"`
 	// Reserved.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-context
 	//

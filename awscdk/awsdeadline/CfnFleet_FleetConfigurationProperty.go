@@ -83,6 +83,24 @@ package awsdeadline
 //   			},
 //
 //   			// the properties below are optional
+//   			AcceleratorCapabilities: &AcceleratorCapabilitiesProperty{
+//   				Selections: []interface{}{
+//   					&AcceleratorSelectionProperty{
+//   						Name: jsii.String("name"),
+//
+//   						// the properties below are optional
+//   						Runtime: jsii.String("runtime"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				Count: &AcceleratorCountRangeProperty{
+//   					Min: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					Max: jsii.Number(123),
+//   				},
+//   			},
 //   			AllowedInstanceTypes: []*string{
 //   				jsii.String("allowedInstanceTypes"),
 //   			},

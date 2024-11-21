@@ -35,6 +35,14 @@ import (
 //   			OnStartDeepHealthChecks: []*string{
 //   				jsii.String("onStartDeepHealthChecks"),
 //   			},
+//   			OverrideVpcConfig: &VpcConfigProperty{
+//   				SecurityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				Subnets: []*string{
+//   					jsii.String("subnets"),
+//   				},
+//   			},
 //   			ThreadsPerCore: jsii.Number(123),
 //   		},
 //   	},

@@ -74,6 +74,8 @@ type Distribution interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Attach WAF WebACL to this CloudFront distribution.
+	AttachWebAclId(webAclId *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -389,6 +391,17 @@ func (d *jsiiProxy_Distribution) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 		d,
 		"applyRemovalPolicy",
 		[]interface{}{policy},
+	)
+}
+
+func (d *jsiiProxy_Distribution) AttachWebAclId(webAclId *string) {
+	if err := d.validateAttachWebAclIdParameters(webAclId); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"attachWebAclId",
+		[]interface{}{webAclId},
 	)
 }
 

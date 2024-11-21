@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnNodegroup) validateSetLaunchTemplateParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnNodegroup) validateSetNodeRepairConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnNodegroup) validateSetNodeRoleParameters(val *string) error {
 	return nil
 }

@@ -12,6 +12,7 @@ package awsiotfleetwise
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DataPartitionId: jsii.String("dataPartitionId"),
 //   	MaxSampleCount: jsii.Number(123),
 //   	MinimumSamplingIntervalMs: jsii.Number(123),
 //   }
@@ -23,6 +24,9 @@ type CfnCampaign_SignalInformationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-datapartitionid
+	//
+	DataPartitionId *string `field:"optional" json:"dataPartitionId" yaml:"dataPartitionId"`
 	// (Optional) The maximum number of samples to collect.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-maxsamplecount
 	//

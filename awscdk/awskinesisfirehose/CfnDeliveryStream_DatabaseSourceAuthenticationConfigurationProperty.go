@@ -1,6 +1,10 @@
 package awskinesisfirehose
 
 
+// The structure to configure the authentication methods for Firehose to connect to source database endpoint.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

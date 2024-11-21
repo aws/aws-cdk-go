@@ -38,8 +38,10 @@ package awsautoscaling
 //   		Stat: jsii.String("stat"),
 //
 //   		// the properties below are optional
+//   		Period: jsii.Number(123),
 //   		Unit: jsii.String("unit"),
 //   	},
+//   	Period: jsii.Number(123),
 //   	ReturnData: jsii.Boolean(false),
 //   }
 //
@@ -72,6 +74,9 @@ type CfnScalingPolicy_TargetTrackingMetricDataQueryProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricdataquery.html#cfn-autoscaling-scalingpolicy-targettrackingmetricdataquery-metricstat
 	//
 	MetricStat interface{} `field:"optional" json:"metricStat" yaml:"metricStat"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricdataquery.html#cfn-autoscaling-scalingpolicy-targettrackingmetricdataquery-period
+	//
+	Period *float64 `field:"optional" json:"period" yaml:"period"`
 	// Indicates whether to return the timestamps and raw data values of this metric.
 	//
 	// If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.

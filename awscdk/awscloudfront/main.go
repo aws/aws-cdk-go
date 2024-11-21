@@ -1180,6 +1180,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBehavior", GoMethod: "AddBehavior"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "attachWebAclId", GoMethod: "AttachWebAclId"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionDomainName", GoGetter: "DistributionDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionId", GoGetter: "DistributionId"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},

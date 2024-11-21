@@ -369,6 +369,7 @@ type CfnGlobalTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support.
 	WarmThroughput() interface{}
 	SetWarmThroughput(val interface{})
 	// Sets the write request settings for a global table or a global secondary index.

@@ -24,6 +24,23 @@ import (
 //   	// the properties below are optional
 //   	AnalyzerConfiguration: &AnalyzerConfigurationProperty{
 //   		UnusedAccessConfiguration: &UnusedAccessConfigurationProperty{
+//   			AnalysisRule: &AnalysisRuleProperty{
+//   				Exclusions: []interface{}{
+//   					&AnalysisRuleCriteriaProperty{
+//   						AccountIds: []*string{
+//   							jsii.String("accountIds"),
+//   						},
+//   						ResourceTags: []interface{}{
+//   							[]interface{}{
+//   								&CfnTag{
+//   									Key: jsii.String("key"),
+//   									Value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
 //   			UnusedAccessAge: jsii.Number(123),
 //   		},
 //   	},
@@ -64,7 +81,7 @@ type CfnAnalyzer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// Contains information about the configuration of an unused access analyzer for an AWS organization or account.
+	// Contains information about the configuration of an analyzer for an AWS organization or account.
 	AnalyzerConfiguration() interface{}
 	SetAnalyzerConfiguration(val interface{})
 	// The name of the analyzer.

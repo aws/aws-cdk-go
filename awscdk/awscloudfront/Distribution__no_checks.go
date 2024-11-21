@@ -12,6 +12,10 @@ func (d *jsiiProxy_Distribution) validateApplyRemovalPolicyParameters(policy aws
 	return nil
 }
 
+func (d *jsiiProxy_Distribution) validateAttachWebAclIdParameters(webAclId *string) error {
+	return nil
+}
+
 func (d *jsiiProxy_Distribution) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

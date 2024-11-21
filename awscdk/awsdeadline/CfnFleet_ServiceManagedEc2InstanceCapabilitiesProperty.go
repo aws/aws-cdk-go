@@ -25,6 +25,24 @@ package awsdeadline
 //   	},
 //
 //   	// the properties below are optional
+//   	AcceleratorCapabilities: &AcceleratorCapabilitiesProperty{
+//   		Selections: []interface{}{
+//   			&AcceleratorSelectionProperty{
+//   				Name: jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				Runtime: jsii.String("runtime"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		Count: &AcceleratorCountRangeProperty{
+//   			Min: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			Max: jsii.Number(123),
+//   		},
+//   	},
 //   	AllowedInstanceTypes: []*string{
 //   		jsii.String("allowedInstanceTypes"),
 //   	},
@@ -74,6 +92,10 @@ type CfnFleet_ServiceManagedEc2InstanceCapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-vcpucount
 	//
 	VCpuCount interface{} `field:"required" json:"vCpuCount" yaml:"vCpuCount"`
+	// Describes the GPU accelerator capabilities required for worker host instances in this fleet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-acceleratorcapabilities
+	//
+	AcceleratorCapabilities interface{} `field:"optional" json:"acceleratorCapabilities" yaml:"acceleratorCapabilities"`
 	// The allowable Amazon EC2 instance types.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-allowedinstancetypes
 	//

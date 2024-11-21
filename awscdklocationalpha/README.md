@@ -23,6 +23,39 @@ global, trusted providers Esri and HERE. With affordable data, tracking and geof
 capabilities, and built-in metrics for health monitoring, you can build sophisticated
 location-enabled applications.
 
+## Map
+
+The Amazon Location Service Map resource gives you access to the underlying basemap data for a map.
+You use the Map resource with a map rendering library to add an interactive map to your application.
+You can add other functionality to your map, such as markers (or pins), routes, and polygon areas, as needed for your application.
+
+For information about how to use map resources in practice, see [Using Amazon Location Maps in your application](https://docs.aws.amazon.com/location/latest/developerguide/using-maps.html).
+
+To create a map, define a `Map`:
+
+```go
+location.NewMap(this, jsii.String("Map"), &MapProps{
+	MapName: jsii.String("my-map"),
+	Style: location.Style_VECTOR_ESRI_NAVIGATION,
+	CustomLayers: []pOI{
+		location.CustomLayer_*pOI,
+	},
+})
+```
+
+Use the `grant()` or `grantRendering()` method to grant the given identity permissions to perform actions
+on the map:
+
+```go
+var role role
+
+
+map := location.NewMap(this, jsii.String("Map"), &MapProps{
+	Style: location.Style_VECTOR_ESRI_NAVIGATION,
+})
+map.GrantRendering(role)
+```
+
 ## Place Index
 
 A key function of Amazon Location Service is the ability to search the geolocation information.

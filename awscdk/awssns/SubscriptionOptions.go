@@ -11,6 +11,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var filterOrPolicy filterOrPolicy
 //   var queue queue
@@ -22,6 +23,23 @@ import (
 //
 //   	// the properties below are optional
 //   	DeadLetterQueue: queue,
+//   	DeliveryPolicy: &DeliveryPolicy{
+//   		HealthyRetryPolicy: &HealthyRetryPolicy{
+//   			BackoffFunction: awscdk.*Aws_sns.BackoffFunction_ARITHMETIC,
+//   			MaxDelayTarget: cdk.Duration_Minutes(jsii.Number(30)),
+//   			MinDelayTarget: cdk.Duration_*Minutes(jsii.Number(30)),
+//   			NumMaxDelayRetries: jsii.Number(123),
+//   			NumMinDelayRetries: jsii.Number(123),
+//   			NumNoDelayRetries: jsii.Number(123),
+//   			NumRetries: jsii.Number(123),
+//   		},
+//   		RequestPolicy: &RequestPolicy{
+//   			HeaderContentType: jsii.String("headerContentType"),
+//   		},
+//   		ThrottlePolicy: &ThrottlePolicy{
+//   			MaxReceivesPerSecond: jsii.Number(123),
+//   		},
+//   	},
 //   	FilterPolicy: map[string]*subscriptionFilter{
 //   		"filterPolicyKey": subscriptionFilter,
 //   	},
@@ -46,6 +64,10 @@ type SubscriptionOptions struct {
 	// Default: - No dead letter queue enabled.
 	//
 	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	// The delivery policy.
+	// Default: - if the initial delivery of the message fails, three retries with a delay between failed attempts set at 20 seconds.
+	//
+	DeliveryPolicy *DeliveryPolicy `field:"optional" json:"deliveryPolicy" yaml:"deliveryPolicy"`
 	// The filter policy.
 	// Default: - all messages are delivered.
 	//

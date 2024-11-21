@@ -42,6 +42,7 @@ import (
 //   	},
 //   	DeleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	FailureRetentionPeriod: jsii.Number(123),
+//   	ProvisionedResourceCleanup: jsii.String("provisionedResourceCleanup"),
 //   	ResourcesToReplicateTags: []*string{
 //   		jsii.String("resourcesToReplicateTags"),
 //   	},
@@ -153,6 +154,12 @@ type CfnCanaryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
 	//
 	FailureRetentionPeriod *float64 `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
+	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary.
+	//
+	// Default is AUTOMATIC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-provisionedresourcecleanup
+	//
+	ProvisionedResourceCleanup *string `field:"optional" json:"provisionedResourceCleanup" yaml:"provisionedResourceCleanup"`
 	// To have the tags that you apply to this canary also be applied to the Lambda function that the canary uses, specify this property with the value `lambda-function` .
 	//
 	// If you do this, CloudWatch Synthetics will keep the tags of the canary and the Lambda function synchronized. Any future changes you make to the canary's tags will also be applied to the function.

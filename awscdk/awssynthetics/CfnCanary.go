@@ -53,6 +53,7 @@ import (
 //   	},
 //   	DeleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	FailureRetentionPeriod: jsii.Number(123),
+//   	ProvisionedResourceCleanup: jsii.String("provisionedResourceCleanup"),
 //   	ResourcesToReplicateTags: []*string{
 //   		jsii.String("resourcesToReplicateTags"),
 //   	},
@@ -158,6 +159,9 @@ type CfnCanary interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary.
+	ProvisionedResourceCleanup() *string
+	SetProvisionedResourceCleanup(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -503,6 +507,16 @@ func (j *jsiiProxy_CfnCanary) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCanary) ProvisionedResourceCleanup() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"provisionedResourceCleanup",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCanary) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -741,6 +755,14 @@ func (j *jsiiProxy_CfnCanary)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCanary)SetProvisionedResourceCleanup(val *string) {
+	_jsii_.Set(
+		j,
+		"provisionedResourceCleanup",
 		val,
 	)
 }

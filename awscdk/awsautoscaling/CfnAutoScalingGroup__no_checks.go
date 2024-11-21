@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnAutoScalingGroup) validateSetCapacityRebalanceParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnAutoScalingGroup) validateSetCapacityReservationSpecificationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAutoScalingGroup) validateSetInstanceMaintenancePolicyParameters(val interface{}) error {
 	return nil
 }

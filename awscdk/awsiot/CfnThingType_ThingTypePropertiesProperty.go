@@ -9,6 +9,17 @@ package awsiot
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   thingTypePropertiesProperty := &ThingTypePropertiesProperty{
+//   	Mqtt5Configuration: &Mqtt5ConfigurationProperty{
+//   		PropagatingAttributes: []interface{}{
+//   			&PropagatingAttributeProperty{
+//   				UserPropertyKey: jsii.String("userPropertyKey"),
+//
+//   				// the properties below are optional
+//   				ConnectionAttribute: jsii.String("connectionAttribute"),
+//   				ThingAttribute: jsii.String("thingAttribute"),
+//   			},
+//   		},
+//   	},
 //   	SearchableAttributes: []*string{
 //   		jsii.String("searchableAttributes"),
 //   	},
@@ -18,6 +29,9 @@ package awsiot
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html
 //
 type CfnThingType_ThingTypePropertiesProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-mqtt5configuration
+	//
+	Mqtt5Configuration interface{} `field:"optional" json:"mqtt5Configuration" yaml:"mqtt5Configuration"`
 	// A list of searchable thing attribute names.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-searchableattributes
 	//

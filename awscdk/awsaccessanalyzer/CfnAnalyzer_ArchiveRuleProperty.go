@@ -3,6 +3,8 @@ package awsaccessanalyzer
 
 // Contains information about an archive rule.
 //
+// Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

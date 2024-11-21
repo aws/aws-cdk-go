@@ -14,8 +14,9 @@ import (
 //
 // Example:
 //   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
+//   url := awscdk.NewCfnParameter(this, jsii.String("url-param"))
 //
-//   myTopic.AddSubscription(subscriptions.NewUrlSubscription(jsii.String("https://foobar.com/")))
+//   myTopic.AddSubscription(subscriptions.NewUrlSubscription(url.valueAsString))
 //
 // See: https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html
 //

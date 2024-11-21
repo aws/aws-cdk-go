@@ -55,6 +55,30 @@ import (
 //   	DataExtraDimensions: []*string{
 //   		jsii.String("dataExtraDimensions"),
 //   	},
+//   	DataPartitions: []interface{}{
+//   		&DataPartitionProperty{
+//   			Id: jsii.String("id"),
+//   			StorageOptions: &DataPartitionStorageOptionsProperty{
+//   				MaximumSize: &StorageMaximumSizeProperty{
+//   					Unit: jsii.String("unit"),
+//   					Value: jsii.Number(123),
+//   				},
+//   				MinimumTimeToLive: &StorageMinimumTimeToLiveProperty{
+//   					Unit: jsii.String("unit"),
+//   					Value: jsii.Number(123),
+//   				},
+//   				StorageLocation: jsii.String("storageLocation"),
+//   			},
+//
+//   			// the properties below are optional
+//   			UploadOptions: &DataPartitionUploadOptionsProperty{
+//   				Expression: jsii.String("expression"),
+//
+//   				// the properties below are optional
+//   				ConditionLanguageVersion: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DiagnosticsMode: jsii.String("diagnosticsMode"),
 //   	ExpiryTime: jsii.String("expiryTime"),
@@ -65,6 +89,7 @@ import (
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
+//   			DataPartitionId: jsii.String("dataPartitionId"),
 //   			MaxSampleCount: jsii.Number(123),
 //   			MinimumSamplingIntervalMs: jsii.Number(123),
 //   		},
@@ -157,6 +182,9 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-dataextradimensions
 	//
 	DataExtraDimensions *[]*string `field:"optional" json:"dataExtraDimensions" yaml:"dataExtraDimensions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-datapartitions
+	//
+	DataPartitions interface{} `field:"optional" json:"dataPartitions" yaml:"dataPartitions"`
 	// (Optional) The description of the campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-description
 	//

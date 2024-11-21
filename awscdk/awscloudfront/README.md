@@ -239,6 +239,43 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 })
 ```
 
+### Attaching WAF Web Acls
+
+You can attach the AWS WAF web ACL to a CloudFront distribution.
+
+To specify a web ACL created using the latest version of AWS WAF, use the ACL ARN, for example
+`arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a`.
+The web ACL must be in the `us-east-1` region.
+
+To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `473e64fd-f30b-4765-81a0-62ad96dd167a`.
+
+```go
+var bucketOrigin s3Origin
+var webAcl cfnWebACL
+
+distribution := cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+	},
+	WebAclId: webAcl.AttrArn,
+})
+```
+
+You can also attach a web ACL to a distribution after creation.
+
+```go
+var bucketOrigin s3Origin
+var webAcl cfnWebACL
+
+distribution := cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: bucketOrigin,
+	},
+})
+
+distribution.AttachWebAclId(webAcl.AttrArn)
+```
+
 ### Customizing Cache Keys and TTLs with Cache Policies
 
 You can use a cache policy to improve your cache hit ratio by controlling the values (URL query strings, HTTP headers, and cookies)

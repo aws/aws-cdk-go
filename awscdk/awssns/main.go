@@ -7,6 +7,16 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_sns.BackoffFunction",
+		reflect.TypeOf((*BackoffFunction)(nil)).Elem(),
+		map[string]interface{}{
+			"ARITHMETIC": BackoffFunction_ARITHMETIC,
+			"EXPONENTIAL": BackoffFunction_EXPONENTIAL,
+			"GEOMETRIC": BackoffFunction_GEOMETRIC,
+			"LINEAR": BackoffFunction_LINEAR,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sns.BetweenCondition",
 		reflect.TypeOf((*BetweenCondition)(nil)).Elem(),
@@ -236,6 +246,10 @@ func init() {
 		"aws-cdk-lib.aws_sns.CfnTopicProps",
 		reflect.TypeOf((*CfnTopicProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sns.DeliveryPolicy",
+		reflect.TypeOf((*DeliveryPolicy)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sns.Filter",
 		reflect.TypeOf((*Filter)(nil)).Elem(),
@@ -270,6 +284,10 @@ func init() {
 			"FILTER": FilterOrPolicyType_FILTER,
 			"POLICY": FilterOrPolicyType_POLICY,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sns.HealthyRetryPolicy",
+		reflect.TypeOf((*HealthyRetryPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_sns.ITopic",
@@ -351,6 +369,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sns.RequestPolicy",
+		reflect.TypeOf((*RequestPolicy)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sns.StringConditions",
 		reflect.TypeOf((*StringConditions)(nil)).Elem(),
 	)
@@ -407,6 +429,10 @@ func init() {
 			"LAMBDA": SubscriptionProtocol_LAMBDA,
 			"FIREHOSE": SubscriptionProtocol_FIREHOSE,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sns.ThrottlePolicy",
+		reflect.TypeOf((*ThrottlePolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sns.Topic",

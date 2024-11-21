@@ -31,7 +31,10 @@ import (
 type CfnDashboardProps struct {
 	// The dashboard definition specified in a JSON literal.
 	//
-	// For detailed information, see [Creating dashboards (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html) in the *AWS IoT SiteWise User Guide* .
+	// - AWS IoT SiteWise Monitor (Classic) see [Create dashboards ( AWS CLI )](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html)
+	// - AWS IoT SiteWise Monitor (AI-aware) see [Create dashboards ( AWS CLI )](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-ai-dashboard-cli.html)
+	//
+	// in the *AWS IoT SiteWise User Guide*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
 	//
 	DashboardDefinition *string `field:"required" json:"dashboardDefinition" yaml:"dashboardDefinition"`

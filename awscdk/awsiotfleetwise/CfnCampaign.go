@@ -64,6 +64,30 @@ import (
 //   	DataExtraDimensions: []*string{
 //   		jsii.String("dataExtraDimensions"),
 //   	},
+//   	DataPartitions: []interface{}{
+//   		&DataPartitionProperty{
+//   			Id: jsii.String("id"),
+//   			StorageOptions: &DataPartitionStorageOptionsProperty{
+//   				MaximumSize: &StorageMaximumSizeProperty{
+//   					Unit: jsii.String("unit"),
+//   					Value: jsii.Number(123),
+//   				},
+//   				MinimumTimeToLive: &StorageMinimumTimeToLiveProperty{
+//   					Unit: jsii.String("unit"),
+//   					Value: jsii.Number(123),
+//   				},
+//   				StorageLocation: jsii.String("storageLocation"),
+//   			},
+//
+//   			// the properties below are optional
+//   			UploadOptions: &DataPartitionUploadOptionsProperty{
+//   				Expression: jsii.String("expression"),
+//
+//   				// the properties below are optional
+//   				ConditionLanguageVersion: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DiagnosticsMode: jsii.String("diagnosticsMode"),
 //   	ExpiryTime: jsii.String("expiryTime"),
@@ -74,6 +98,7 @@ import (
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
+//   			DataPartitionId: jsii.String("dataPartitionId"),
 //   			MaxSampleCount: jsii.Number(123),
 //   			MinimumSamplingIntervalMs: jsii.Number(123),
 //   		},
@@ -150,6 +175,8 @@ type CfnCampaign interface {
 	// (Optional) A list of vehicle attributes to associate with a campaign.
 	DataExtraDimensions() *[]*string
 	SetDataExtraDimensions(val *[]*string)
+	DataPartitions() interface{}
+	SetDataPartitions(val interface{})
 	// (Optional) The description of the campaign.
 	Description() *string
 	SetDescription(val *string)
@@ -488,6 +515,16 @@ func (j *jsiiProxy_CfnCampaign) DataExtraDimensions() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) DataPartitions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dataPartitions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -758,6 +795,17 @@ func (j *jsiiProxy_CfnCampaign)SetDataExtraDimensions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"dataExtraDimensions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCampaign)SetDataPartitions(val interface{}) {
+	if err := j.validateSetDataPartitionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dataPartitions",
 		val,
 	)
 }

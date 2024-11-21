@@ -46,6 +46,9 @@ import (
 //   		Version: jsii.String("version"),
 //   	},
 //   	NodegroupName: jsii.String("nodegroupName"),
+//   	NodeRepairConfig: &NodeRepairConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	ReleaseVersion: jsii.String("releaseVersion"),
 //   	RemoteAccess: &RemoteAccessProperty{
 //   		Ec2SshKey: jsii.String("ec2SshKey"),
@@ -138,6 +141,9 @@ type CfnNodegroup interface {
 	// The unique name to give your node group.
 	NodegroupName() *string
 	SetNodegroupName(val *string)
+	// The node auto repair configuration for node group.
+	NodeRepairConfig() interface{}
+	SetNodeRepairConfig(val interface{})
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
 	NodeRole() *string
 	SetNodeRole(val *string)
@@ -513,6 +519,16 @@ func (j *jsiiProxy_CfnNodegroup) NodegroupName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNodegroup) NodeRepairConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"nodeRepairConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNodegroup) NodeRole() *string {
 	var returns *string
 	_jsii_.Get(
@@ -761,6 +777,17 @@ func (j *jsiiProxy_CfnNodegroup)SetNodegroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"nodegroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNodegroup)SetNodeRepairConfig(val interface{}) {
+	if err := j.validateSetNodeRepairConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"nodeRepairConfig",
 		val,
 	)
 }

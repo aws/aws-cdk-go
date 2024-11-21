@@ -15,6 +15,9 @@ package awsefs
 //   			FileSystemId: jsii.String("fileSystemId"),
 //   			KmsKeyId: jsii.String("kmsKeyId"),
 //   			Region: jsii.String("region"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			Status: jsii.String("status"),
+//   			StatusMessage: jsii.String("statusMessage"),
 //   		},
 //   	},
 //   }

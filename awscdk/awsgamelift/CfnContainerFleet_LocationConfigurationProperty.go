@@ -1,7 +1,7 @@
 package awsgamelift
 
 
-// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+// A remote location where a multi-location fleet can deploy game servers for game hosting.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,6 +25,9 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html
 //
 type CfnContainerFleet_LocationConfigurationProperty struct {
+	// An AWS Region code, such as `us-west-2` .
+	//
+	// For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html#cfn-gamelift-containerfleet-locationconfiguration-location
 	//
 	Location *string `field:"required" json:"location" yaml:"location"`

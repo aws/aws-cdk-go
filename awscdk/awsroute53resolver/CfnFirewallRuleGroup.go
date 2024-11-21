@@ -22,7 +22,6 @@ import (
 //   	FirewallRules: []interface{}{
 //   		&FirewallRuleProperty{
 //   			Action: jsii.String("action"),
-//   			FirewallDomainListId: jsii.String("firewallDomainListId"),
 //   			Priority: jsii.Number(123),
 //
 //   			// the properties below are optional
@@ -30,7 +29,11 @@ import (
 //   			BlockOverrideDomain: jsii.String("blockOverrideDomain"),
 //   			BlockOverrideTtl: jsii.Number(123),
 //   			BlockResponse: jsii.String("blockResponse"),
+//   			ConfidenceThreshold: jsii.String("confidenceThreshold"),
+//   			DnsThreatProtection: jsii.String("dnsThreatProtection"),
+//   			FirewallDomainListId: jsii.String("firewallDomainListId"),
 //   			FirewallDomainRedirectionAction: jsii.String("firewallDomainRedirectionAction"),
+//   			FirewallThreatProtectionId: jsii.String("firewallThreatProtectionId"),
 //   			Qtype: jsii.String("qtype"),
 //   		},
 //   	},

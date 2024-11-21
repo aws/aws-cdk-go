@@ -14,6 +14,9 @@ import (
 //   cfnServiceNetworkProps := &CfnServiceNetworkProps{
 //   	AuthType: jsii.String("authType"),
 //   	Name: jsii.String("name"),
+//   	SharingConfig: &SharingConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -42,6 +45,9 @@ type CfnServiceNetworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-sharingconfig
+	//
+	SharingConfig interface{} `field:"optional" json:"sharingConfig" yaml:"sharingConfig"`
 	// The tags for the service network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-tags
 	//

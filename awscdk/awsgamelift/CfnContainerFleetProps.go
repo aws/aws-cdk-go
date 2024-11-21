@@ -93,80 +93,87 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html
 //
 type CfnContainerFleetProps struct {
-	// A unique identifier for an AWS IAM role that manages access to your AWS services.
+	// The unique identifier for an AWS Identity and Access Management (IAM) role with permissions to run your containers on resources that are managed by Amazon GameLift.
 	//
-	// Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
+	// See [Set up an IAM service role](https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html) . This fleet property can't be changed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-fleetrolearn
 	//
 	FleetRoleArn *string `field:"required" json:"fleetRoleArn" yaml:"fleetRoleArn"`
-	// Indicates whether to use On-Demand instances or Spot instances for this fleet.
+	// Indicates whether the fleet uses On-Demand or Spot instances for this fleet.
 	//
-	// If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+	// Learn more about when to use [On-Demand versus Spot Instances](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot) . You can't update this fleet property.
+	//
+	// By default, this property is set to `ON_DEMAND` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-billingtype
 	//
 	BillingType *string `field:"optional" json:"billingType" yaml:"billingType"`
-	// Provides details about how to drain old tasks and replace them with new updated tasks.
+	// Set of rules for processing a deployment for a container fleet update.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-deploymentconfiguration
 	//
 	DeploymentConfiguration interface{} `field:"optional" json:"deploymentConfiguration" yaml:"deploymentConfiguration"`
-	// A human-readable description of a fleet.
+	// A meaningful description of the container fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the container group definition that will be created per game server.
-	//
-	// You must specify GAME_SERVER container group. You have the option to also specify one PER_INSTANCE container group.
+	// The name of the fleet's game server container group definition, which describes how to deploy containers with your game server build and support software onto each fleet instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-gameservercontainergroupdefinitionname
 	//
 	GameServerContainerGroupDefinitionName *string `field:"optional" json:"gameServerContainerGroupDefinitionName" yaml:"gameServerContainerGroupDefinitionName"`
-	// The number of desired game server container groups per instance, a number between 1-5000.
+	// The number of times to replicate the game server container group on each fleet instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-gameservercontainergroupsperinstance
 	//
 	GameServerContainerGroupsPerInstance *float64 `field:"optional" json:"gameServerContainerGroupsPerInstance" yaml:"gameServerContainerGroupsPerInstance"`
-	// A policy that limits the number of game sessions a player can create on the same fleet.
+	// A policy that limits the number of game sessions that each individual player can create on instances in this fleet.
 	//
-	// This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
-	//
-	// The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+	// The limit applies for a specified span of time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-gamesessioncreationlimitpolicy
 	//
 	GameSessionCreationLimitPolicy interface{} `field:"optional" json:"gameSessionCreationLimitPolicy" yaml:"gameSessionCreationLimitPolicy"`
-	// Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+	// The set of port numbers to open on each instance in a container fleet.
+	//
+	// Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-instanceconnectionportrange
 	//
 	InstanceConnectionPortRange interface{} `field:"optional" json:"instanceConnectionPortRange" yaml:"instanceConnectionPortRange"`
-	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+	// The IP address ranges and port settings that allow inbound traffic to access game server processes and other processes on this fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-instanceinboundpermissions
 	//
 	InstanceInboundPermissions interface{} `field:"optional" json:"instanceInboundPermissions" yaml:"instanceInboundPermissions"`
-	// The name of an EC2 instance type that is supported in Amazon GameLift.
+	// The Amazon EC2 instance type to use for all instances in the fleet.
 	//
-	// A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
+	// Instance type determines the computing resources and processing power that's available to host your game servers. This includes including CPU, memory, storage, and networking capacity. You can't update this fleet property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-instancetype
 	//
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-locations
 	//
 	Locations interface{} `field:"optional" json:"locations" yaml:"locations"`
-	// A policy the location and provider of logs from the fleet.
+	// The method that is used to collect container logs for the fleet.
+	//
+	// Amazon GameLift saves all standard output for each container in logs, including game session logs.
+	//
+	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+	// - `NONE` -- Don't collect container logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-logconfiguration
 	//
 	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
-	// The name of an Amazon CloudWatch metric group.
+	// The name of an AWS CloudWatch metric group to add this fleet to.
 	//
-	// A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
+	// Metric groups aggregate metrics for multiple fleets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-metricgroups
 	//
 	MetricGroups *[]*string `field:"optional" json:"metricGroups" yaml:"metricGroups"`
-	// A game session protection policy to apply to all game sessions hosted on instances in this fleet.
+	// Determines whether Amazon GameLift can shut down game sessions on the fleet that are actively running and hosting players.
 	//
-	// When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+	// Amazon GameLift might prompt an instance shutdown when scaling down fleet capacity or when retiring unhealthy instances. You can also set game session protection for individual game sessions using [UpdateGameSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html) .
+	//
+	// - *NoProtection* -- Game sessions can be shut down during active gameplay.
+	// - *FullProtection* -- Game sessions in `ACTIVE` status can't be shut down.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-newgamesessionprotectionpolicy
 	//
 	NewGameSessionProtectionPolicy *string `field:"optional" json:"newGameSessionProtectionPolicy" yaml:"newGameSessionProtectionPolicy"`
-	// The name of the container group definition that will be created per instance.
-	//
-	// This field is optional if you specify GameServerContainerGroupDefinitionName.
+	// The name of the fleet's per-instance container group definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-perinstancecontainergroupdefinitionname
 	//
 	PerInstanceContainerGroupDefinitionName *string `field:"optional" json:"perInstanceContainerGroupDefinitionName" yaml:"perInstanceContainerGroupDefinitionName"`

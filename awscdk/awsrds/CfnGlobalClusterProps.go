@@ -17,6 +17,9 @@ import (
 //   	EngineLifecycleSupport: jsii.String("engineLifecycleSupport"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   	GlobalEndpoint: &GlobalEndpointProperty{
+//   		Address: jsii.String("address"),
+//   	},
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	StorageEncrypted: jsii.Boolean(false),
 //   	Tags: []cfnTag{
@@ -74,6 +77,9 @@ type CfnGlobalClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
 	//
 	GlobalClusterIdentifier *string `field:"optional" json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalendpoint
+	//
+	GlobalEndpoint interface{} `field:"optional" json:"globalEndpoint" yaml:"globalEndpoint"`
 	// The Amazon Resource Name (ARN) to use as the primary cluster of the global database.
 	//
 	// If you provide a value for this parameter, don't specify values for the following settings because Amazon Aurora uses the values from the specified source DB cluster:
