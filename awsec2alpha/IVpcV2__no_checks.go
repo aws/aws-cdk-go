@@ -16,6 +16,14 @@ func (i *jsiiProxy_IVpcV2) validateAddNatGatewayParameters(options *NatGatewayOp
 	return nil
 }
 
+func (i *jsiiProxy_IVpcV2) validateCreateAcceptorVpcRoleParameters(requestorAccountId *string) error {
+	return nil
+}
+
+func (i *jsiiProxy_IVpcV2) validateCreatePeeringConnectionParameters(id *string, options *VPCPeeringConnectionOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IVpcV2) validateEnableVpnGatewayV2Parameters(options *VPNGatewayV2Options) error {
 	return nil
 }

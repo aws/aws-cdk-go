@@ -244,6 +244,167 @@ awsec2alpha.NewRoute(this, jsii.String("DynamoDBRoute"), &RouteProps{
 })
 ```
 
+## VPC Peering Connection
+
+VPC peering connection allows you to connect two VPCs and route traffic between them using private IP addresses. The VpcV2 construct supports creating VPC peering connections through the `VPCPeeringConnection` construct from the `route` module.
+
+Peering Connection cannot be established between two VPCs with overlapping CIDR ranges. Please make sure the two VPC CIDRs do not overlap with each other else it will throw an error.
+
+For more information, see [What is VPC peering?](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html).
+
+The following show examples of how to create a peering connection between two VPCs for all possible combinations of same-account or cross-account, and same-region or cross-region configurations.
+
+Note: You cannot create a VPC peering connection between VPCs that have matching or overlapping CIDR blocks
+
+**Case 1: Same Account and Same Region Peering Connection**
+
+```go
+stack := awscdk.Newstack()
+
+vpcA := awsec2alpha.NewVpcV2(this, jsii.String("VpcA"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/16")),
+})
+
+vpcB := awsec2alpha.NewVpcV2(this, jsii.String("VpcB"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_*Ipv4(jsii.String("10.1.0.0/16")),
+})
+
+peeringConnection := vpcA.CreatePeeringConnection(jsii.String("sameAccountSameRegionPeering"), &VPCPeeringConnectionOptions{
+	AcceptorVpc: vpcB,
+})
+```
+
+**Case 2: Same Account and Cross Region Peering Connection**
+
+There is no difference from Case 1 when calling `createPeeringConnection`. The only change is that one of the VPCs are created in another stack with a different region. To establish cross region VPC peering connection, acceptorVpc needs to be imported to the requestor VPC stack using `fromVpcV2Attributes` method.
+
+```go
+app := awscdk.NewApp()
+
+stackA := awscdk.Newstack(app, jsii.String("VpcStackA"), &StackProps{
+	Env: &Environment{
+		Account: jsii.String("000000000000"),
+		Region: jsii.String("us-east-1"),
+	},
+})
+stackB := awscdk.Newstack(app, jsii.String("VpcStackB"), &StackProps{
+	Env: &Environment{
+		Account: jsii.String("000000000000"),
+		Region: jsii.String("us-west-2"),
+	},
+})
+
+vpcA := awsec2alpha.NewVpcV2(stackA, jsii.String("VpcA"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/16")),
+})
+
+awsec2alpha.NewVpcV2(stackB, jsii.String("VpcB"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_*Ipv4(jsii.String("10.1.0.0/16")),
+})
+
+vpcB := awsec2alpha.VpcV2_FromVpcV2Attributes(stackA, jsii.String("ImportedVpcB"), &VpcV2Attributes{
+	VpcId: jsii.String("MockVpcBid"),
+	VpcCidrBlock: jsii.String("10.1.0.0/16"),
+	Region: jsii.String("us-west-2"),
+	OwnerAccountId: jsii.String("000000000000"),
+})
+
+peeringConnection := vpcA.CreatePeeringConnection(jsii.String("sameAccountCrossRegionPeering"), &VPCPeeringConnectionOptions{
+	AcceptorVpc: vpcB,
+})
+```
+
+**Case 3: Cross Account Peering Connection**
+
+For cross-account connections, the acceptor account needs an IAM role that grants the requestor account permission to initiate the connection. Create a new IAM role in the acceptor account using method `createAcceptorVpcRole` to provide the necessary permissions.
+
+Once role is created in account, provide role arn for field `peerRoleArn` under method `createPeeringConnection`
+
+```go
+stack := awscdk.Newstack()
+
+acceptorVpc := awsec2alpha.NewVpcV2(this, jsii.String("VpcA"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/16")),
+})
+
+acceptorRoleArn := acceptorVpc.CreateAcceptorVpcRole(jsii.String("000000000000"))
+```
+
+After creating an IAM role in the acceptor account, we can initiate the peering connection request from the requestor VPC. Import accpeptorVpc to the stack using `fromVpcV2Attributes` method, it is recommended to specify owner account id of the acceptor VPC in case of cross account peering connection, if acceptor VPC is hosted in different region provide region value for import as well.
+The following code snippet demonstrates how to set up VPC peering between two VPCs in different AWS accounts using CDK:
+
+```go
+stack := awscdk.Newstack()
+
+acceptorVpc := awsec2alpha.VpcV2_FromVpcV2Attributes(this, jsii.String("acceptorVpc"), &VpcV2Attributes{
+	VpcId: jsii.String("vpc-XXXX"),
+	VpcCidrBlock: jsii.String("10.0.0.0/16"),
+	Region: jsii.String("us-east-2"),
+	OwnerAccountId: jsii.String("111111111111"),
+})
+
+acceptorRoleArn := "arn:aws:iam::111111111111:role/VpcPeeringRole"
+
+requestorVpc := awsec2alpha.NewVpcV2(this, jsii.String("VpcB"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
+})
+
+peeringConnection := requestorVpc.CreatePeeringConnection(jsii.String("crossAccountCrossRegionPeering"), &VPCPeeringConnectionOptions{
+	AcceptorVpc: acceptorVpc,
+	PeerRoleArn: acceptorRoleArn,
+})
+```
+
+### Route Table Configuration
+
+After establishing the VPC peering connection, routes must be added to the respective route tables in the VPCs to enable traffic flow. If a route is added to the requestor stack, information will be able to flow from the requestor VPC to the acceptor VPC, but not in the reverse direction. For bi-directional communication, routes need to be added in both VPCs from their respective stacks.
+
+For more information, see [Update your route tables for a VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html).
+
+```go
+stack := awscdk.Newstack()
+
+acceptorVpc := awsec2alpha.NewVpcV2(this, jsii.String("VpcA"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.0.0.0/16")),
+})
+
+requestorVpc := awsec2alpha.NewVpcV2(this, jsii.String("VpcB"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_*Ipv4(jsii.String("10.1.0.0/16")),
+})
+
+peeringConnection := requestorVpc.CreatePeeringConnection(jsii.String("peeringConnection"), &VPCPeeringConnectionOptions{
+	AcceptorVpc: acceptorVpc,
+})
+
+routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
+	Vpc: requestorVpc,
+})
+
+routeTable.AddRoute(jsii.String("vpcPeeringRoute"), jsii.String("10.0.0.0/16"), map[string]iRouteTarget{
+	"gateway": peeringConnection,
+})
+```
+
+This can also be done using AWS CLI. For more information, see [create-route](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-route.html).
+
+```bash
+# Add a route to the requestor VPC route table
+aws ec2 create-route --route-table-id rtb-requestor --destination-cidr-block 10.0.0.0/16 --vpc-peering-connection-id pcx-xxxxxxxx
+
+# For bi-directional add a route in the acceptor vpc account as well
+aws ec2 create-route --route-table-id rtb-acceptor --destination-cidr-block 10.1.0.0/16 --vpc-peering-connection-id pcx-xxxxxxxx
+```
+
+### Deleting the Peering Connection
+
+To delete a VPC peering connection, use the following command:
+
+```bash
+aws ec2 delete-vpc-peering-connection --vpc-peering-connection-id pcx-xxxxxxxx
+```
+
+For more information, see [Delete a VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/create-vpc-peering-connection.html#delete-vpc-peering-connection).
+
 ## Adding Egress-Only Internet Gateway to VPC
 
 An egress-only internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows outbound communication over IPv6 from instances in your VPC to the internet, and prevents the internet from initiating an IPv6 connection with your instances.

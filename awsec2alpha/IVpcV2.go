@@ -4,6 +4,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
 )
 
@@ -32,6 +33,16 @@ type IVpcV2 interface {
 	//
 	// Experimental.
 	AddNatGateway(options *NatGatewayOptions) NatGateway
+	// Adds a new role to acceptor VPC account A cross account role is required for the VPC to peer with another account.
+	//
+	// For more information, see the {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/peer-with-vpc-in-another-account.html}.
+	// Experimental.
+	CreateAcceptorVpcRole(requestorAccountId *string) awsiam.Role
+	// Creates a new peering connection A peering connection is a private virtual network established between two VPCs.
+	//
+	// For more information, see the {@link https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html}.
+	// Experimental.
+	CreatePeeringConnection(id *string, options *VPCPeeringConnectionOptions) VPCPeeringConnection
 	// Adds VPN Gateway to VPC and set route propogation.
 	//
 	// For more information, see the {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html}.
@@ -103,6 +114,38 @@ func (i *jsiiProxy_IVpcV2) AddNatGateway(options *NatGatewayOptions) NatGateway 
 		i,
 		"addNatGateway",
 		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IVpcV2) CreateAcceptorVpcRole(requestorAccountId *string) awsiam.Role {
+	if err := i.validateCreateAcceptorVpcRoleParameters(requestorAccountId); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Role
+
+	_jsii_.Invoke(
+		i,
+		"createAcceptorVpcRole",
+		[]interface{}{requestorAccountId},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IVpcV2) CreatePeeringConnection(id *string, options *VPCPeeringConnectionOptions) VPCPeeringConnection {
+	if err := i.validateCreatePeeringConnectionParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns VPCPeeringConnection
+
+	_jsii_.Invoke(
+		i,
+		"createPeeringConnection",
+		[]interface{}{id, options},
 		&returns,
 	)
 

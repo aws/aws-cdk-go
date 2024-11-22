@@ -1809,6 +1809,10 @@ func init() {
 		"aws-cdk-lib.aws_lambda.Permission",
 		reflect.TypeOf((*Permission)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.ProvisionedPollerConfig",
+		reflect.TypeOf((*ProvisionedPollerConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.QualifiedFunctionBase",
 		reflect.TypeOf((*QualifiedFunctionBase)(nil)).Elem(),

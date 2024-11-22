@@ -69,6 +69,10 @@ import (
 //   	},
 //   	OnFailure: eventSourceDlq,
 //   	ParallelizationFactor: jsii.Number(123),
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+//   		MaximumPollers: jsii.Number(123),
+//   		MinimumPollers: jsii.Number(123),
+//   	},
 //   	ReportBatchItemFailures: jsii.Boolean(false),
 //   	RetryAttempts: jsii.Number(123),
 //   	SourceAccessConfigurations: []sourceAccessConfiguration{

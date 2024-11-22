@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -15,21 +16,25 @@ import (
 //
 // Example:
 //   stack := awscdk.Newstack()
-//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+//   myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+//   	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
+//   	SecondaryAddressBlocks: []iIpAddresses{
+//   		awsec2alpha.IpAddresses_AmazonProvidedIpv6(&SecondaryAddressProps{
+//   			CidrBlockName: jsii.String("AmazonProvided"),
+//   		}),
+//   	},
+//   })
+//
+//   eigw := awsec2alpha.NewEgressOnlyInternetGateway(this, jsii.String("EIGW"), &EgressOnlyInternetGatewayProps{
+//   	Vpc: myVpc,
+//   })
+//
 //   routeTable := awsec2alpha.NewRouteTable(this, jsii.String("RouteTable"), &RouteTableProps{
 //   	Vpc: myVpc,
 //   })
-//   subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
-//   	Vpc: myVpc,
-//   	AvailabilityZone: jsii.String("eu-west-2a"),
-//   	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
-//   	SubnetType: awscdk.SubnetType_PUBLIC,
-//   })
 //
-//   myVpc.AddInternetGateway()
-//   myVpc.AddNatGateway(&NatGatewayOptions{
-//   	Subnet: subnet,
-//   	ConnectivityType: awsec2alpha.NatConnectivityType_PUBLIC,
+//   routeTable.AddRoute(jsii.String("EIGW"), jsii.String("::/0"), map[string]iRouteTarget{
+//   	"gateway": eigw,
 //   })
 //
 // Experimental.
@@ -101,7 +106,7 @@ type VpcV2 interface {
 	//   cross-environment scenarios.
 	// Experimental.
 	PhysicalName() *string
-	// Pbulic Subnets that are part of this VPC.
+	// Public Subnets that are part of this VPC.
 	// Experimental.
 	PrivateSubnets() *[]awsec2.ISubnet
 	// Public Subnets that are part of this VPC.
@@ -175,6 +180,12 @@ type VpcV2 interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Creates peering connection role for acceptor VPC.
+	// Experimental.
+	CreateAcceptorVpcRole(requestorAccountId *string) awsiam.Role
+	// Creates a peering connection.
+	// Experimental.
+	CreatePeeringConnection(id *string, options *VPCPeeringConnectionOptions) VPCPeeringConnection
 	// Adds a VPN Gateway to this VPC.
 	// Deprecated: use enableVpnGatewayV2 for compatibility with VPCV2.Route
 	EnableVpnGateway(options *awsec2.EnableVpnGatewayOptions)
@@ -741,6 +752,38 @@ func (v *jsiiProxy_VpcV2) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (v *jsiiProxy_VpcV2) CreateAcceptorVpcRole(requestorAccountId *string) awsiam.Role {
+	if err := v.validateCreateAcceptorVpcRoleParameters(requestorAccountId); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Role
+
+	_jsii_.Invoke(
+		v,
+		"createAcceptorVpcRole",
+		[]interface{}{requestorAccountId},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcV2) CreatePeeringConnection(id *string, options *VPCPeeringConnectionOptions) VPCPeeringConnection {
+	if err := v.validateCreatePeeringConnectionParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns VPCPeeringConnection
+
+	_jsii_.Invoke(
+		v,
+		"createPeeringConnection",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (v *jsiiProxy_VpcV2) EnableVpnGateway(options *awsec2.EnableVpnGatewayOptions) {

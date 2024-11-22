@@ -119,6 +119,29 @@ func (v *jsiiProxy_VpcV2Base) validateApplyRemovalPolicyParameters(policy awscdk
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2Base) validateCreateAcceptorVpcRoleParameters(requestorAccountId *string) error {
+	if requestorAccountId == nil {
+		return fmt.Errorf("parameter requestorAccountId is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (v *jsiiProxy_VpcV2Base) validateCreatePeeringConnectionParameters(id *string, options *VPCPeeringConnectionOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2Base) validateEnableVpnGatewayParameters(options *awsec2.EnableVpnGatewayOptions) error {
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")

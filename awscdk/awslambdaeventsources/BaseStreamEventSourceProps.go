@@ -21,6 +21,10 @@ import (
 //   	BatchSize: jsii.Number(123),
 //   	Enabled: jsii.Boolean(false),
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+//   		MaximumPollers: jsii.Number(123),
+//   		MinimumPollers: jsii.Number(123),
+//   	},
 //   }
 //
 type BaseStreamEventSourceProps struct {
@@ -51,5 +55,12 @@ type BaseStreamEventSourceProps struct {
 	// Default: - Duration.seconds(0) for Kinesis, DynamoDB, and SQS event sources, Duration.millis(500) for MSK, self-managed Kafka, and Amazon MQ.
 	//
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	// Configuration for provisioned pollers that read from the event source.
+	//
+	// When specified, allows control over the minimum and maximum number of pollers
+	// that can be provisioned to process events from the source.
+	// Default: - no provisioned pollers.
+	//
+	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
 }
 

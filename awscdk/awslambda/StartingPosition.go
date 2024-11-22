@@ -5,7 +5,6 @@ package awslambda
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myFunction function
 //
@@ -15,9 +14,6 @@ package awslambda
 //
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
-//
-//   // Your self managed KMS key
-//   myKey := awscdk.Key_FromKeyArn(this, jsii.String("SourceBucketEncryptionKey"), jsii.String("arn:aws:kms:us-east-1:123456789012:key/<key-id>"))
 //   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
 //   	ClusterArn: jsii.String(ClusterArn),
 //   	Topic: jsii.String(Topic),
@@ -27,7 +23,6 @@ package awslambda
 //   			"stringEquals": lambda.FilterRule_isEqual(jsii.String("test")),
 //   		}),
 //   	},
-//   	FilterEncryption: myKey,
 //   }))
 //
 type StartingPosition string

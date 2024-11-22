@@ -6,12 +6,22 @@ package awsec2alpha
 // Example:
 //   stack := awscdk.Newstack()
 //
-//   //Importing a cross acount or cross region VPC
-//   importedVpc := awsec2alpha.VpcV2_FromVpcV2Attributes(stack, jsii.String("ImportedVpc"), &VpcV2Attributes{
-//   	VpcId: jsii.String("mockVpcID"),
+//   acceptorVpc := awsec2alpha.VpcV2_FromVpcV2Attributes(this, jsii.String("acceptorVpc"), &VpcV2Attributes{
+//   	VpcId: jsii.String("vpc-XXXX"),
 //   	VpcCidrBlock: jsii.String("10.0.0.0/16"),
-//   	OwnerAccountId: jsii.String("123456789012"),
-//   	Region: jsii.String("us-west-2"),
+//   	Region: jsii.String("us-east-2"),
+//   	OwnerAccountId: jsii.String("111111111111"),
+//   })
+//
+//   acceptorRoleArn := "arn:aws:iam::111111111111:role/VpcPeeringRole"
+//
+//   requestorVpc := awsec2alpha.NewVpcV2(this, jsii.String("VpcB"), &VpcV2Props{
+//   	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
+//   })
+//
+//   peeringConnection := requestorVpc.CreatePeeringConnection(jsii.String("crossAccountCrossRegionPeering"), &VPCPeeringConnectionOptions{
+//   	AcceptorVpc: acceptorVpc,
+//   	PeerRoleArn: acceptorRoleArn,
 //   })
 //
 // Experimental.

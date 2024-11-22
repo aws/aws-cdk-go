@@ -172,6 +172,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
+			_jsii_.MemberMethod{JsiiMethod: "createAcceptorVpcRole", GoMethod: "CreateAcceptorVpcRole"},
+			_jsii_.MemberMethod{JsiiMethod: "createPeeringConnection", GoMethod: "CreatePeeringConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGateway", GoMethod: "EnableVpnGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGatewayV2", GoMethod: "EnableVpnGatewayV2"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -473,6 +475,38 @@ func init() {
 		reflect.TypeOf((*VPCCidrBlockattributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-ec2-alpha.VPCPeeringConnection",
+		reflect.TypeOf((*VPCPeeringConnection)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "routerTargetId", GoGetter: "RouterTargetId"},
+			_jsii_.MemberProperty{JsiiProperty: "routerType", GoGetter: "RouterType"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_VPCPeeringConnection{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRouteTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.VPCPeeringConnectionOptions",
+		reflect.TypeOf((*VPCPeeringConnectionOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.VPCPeeringConnectionProps",
+		reflect.TypeOf((*VPCPeeringConnectionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-ec2-alpha.VPNGatewayV2",
 		reflect.TypeOf((*VPNGatewayV2)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -523,6 +557,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
+			_jsii_.MemberMethod{JsiiMethod: "createAcceptorVpcRole", GoMethod: "CreateAcceptorVpcRole"},
+			_jsii_.MemberMethod{JsiiMethod: "createPeeringConnection", GoMethod: "CreatePeeringConnection"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsHostnamesEnabled", GoGetter: "DnsHostnamesEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsSupportEnabled", GoGetter: "DnsSupportEnabled"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGateway", GoMethod: "EnableVpnGateway"},
@@ -581,6 +617,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
+			_jsii_.MemberMethod{JsiiMethod: "createAcceptorVpcRole", GoMethod: "CreateAcceptorVpcRole"},
+			_jsii_.MemberMethod{JsiiMethod: "createPeeringConnection", GoMethod: "CreatePeeringConnection"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGateway", GoMethod: "EnableVpnGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGatewayV2", GoMethod: "EnableVpnGatewayV2"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

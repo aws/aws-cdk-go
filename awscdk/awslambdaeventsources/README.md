@@ -431,6 +431,30 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 }))
 ```
 
+Set configuration for provisioned pollers that read from the event source.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+// Your MSK cluster arn
+var clusterArn string
+
+var myFunction function
+
+
+// The Kafka topic you want to subscribe to
+topic := "some-cool-topic"
+myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
+	ClusterArn: jsii.String(ClusterArn),
+	Topic: jsii.String(Topic),
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+		MinimumPollers: jsii.Number(1),
+		MaximumPollers: jsii.Number(3),
+	},
+}))
+```
+
 ## Roadmap
 
 Eventually, this module will support all the event sources described under

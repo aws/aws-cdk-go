@@ -98,6 +98,10 @@ func init() {
 		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSourceProps",
 		reflect.TypeOf((*ManagedKafkaEventSourceProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda_event_sources.ProvisionedPollerConfig",
+		reflect.TypeOf((*ProvisionedPollerConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda_event_sources.S3EventSource",
 		reflect.TypeOf((*S3EventSource)(nil)).Elem(),

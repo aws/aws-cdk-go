@@ -43,6 +43,10 @@ import (
 //   	},
 //   	OnFailure: eventSourceDlq,
 //   	ParallelizationFactor: jsii.Number(123),
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+//   		MaximumPollers: jsii.Number(123),
+//   		MinimumPollers: jsii.Number(123),
+//   	},
 //   	ReportBatchItemFailures: jsii.Boolean(false),
 //   	RetryAttempts: jsii.Number(123),
 //   	SourceAccessConfigurations: []sourceAccessConfiguration{
@@ -151,6 +155,13 @@ type EventSourceMappingOptions struct {
 	// Default: 1.
 	//
 	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
+	// Configuration for provisioned pollers that read from the event source.
+	//
+	// When specified, allows control over the minimum and maximum number of pollers
+	// that can be provisioned to process events from the source.
+	// Default: - no provisioned pollers.
+	//
+	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//

@@ -40,6 +40,14 @@ func (v *jsiiProxy_VpcV2Base) validateApplyRemovalPolicyParameters(policy awscdk
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2Base) validateCreateAcceptorVpcRoleParameters(requestorAccountId *string) error {
+	return nil
+}
+
+func (v *jsiiProxy_VpcV2Base) validateCreatePeeringConnectionParameters(id *string, options *VPCPeeringConnectionOptions) error {
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2Base) validateEnableVpnGatewayParameters(options *awsec2.EnableVpnGatewayOptions) error {
 	return nil
 }

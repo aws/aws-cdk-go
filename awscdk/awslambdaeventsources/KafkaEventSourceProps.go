@@ -39,6 +39,10 @@ import (
 //   	},
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
 //   	OnFailure: eventSourceDlq,
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+//   		MaximumPollers: jsii.Number(123),
+//   		MinimumPollers: jsii.Number(123),
+//   	},
 //   	Secret: secret,
 //   }
 //
@@ -70,6 +74,13 @@ type KafkaEventSourceProps struct {
 	// Default: - Duration.seconds(0) for Kinesis, DynamoDB, and SQS event sources, Duration.millis(500) for MSK, self-managed Kafka, and Amazon MQ.
 	//
 	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	// Configuration for provisioned pollers that read from the event source.
+	//
+	// When specified, allows control over the minimum and maximum number of pollers
+	// that can be provisioned to process events from the source.
+	// Default: - no provisioned pollers.
+	//
+	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
 	// The Kafka topic to subscribe to.
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// The identifier for the Kafka consumer group to join.

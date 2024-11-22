@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awsec2alpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -135,6 +136,12 @@ type VpcV2Base interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Creates peering connection role for acceptor VPC.
+	// Experimental.
+	CreateAcceptorVpcRole(requestorAccountId *string) awsiam.Role
+	// Creates a peering connection.
+	// Experimental.
+	CreatePeeringConnection(id *string, options *VPCPeeringConnectionOptions) VPCPeeringConnection
 	// Adds a VPN Gateway to this VPC.
 	// Deprecated: use enableVpnGatewayV2 for compatibility with VPCV2.Route
 	EnableVpnGateway(options *awsec2.EnableVpnGatewayOptions)
@@ -604,6 +611,38 @@ func (v *jsiiProxy_VpcV2Base) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (v *jsiiProxy_VpcV2Base) CreateAcceptorVpcRole(requestorAccountId *string) awsiam.Role {
+	if err := v.validateCreateAcceptorVpcRoleParameters(requestorAccountId); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Role
+
+	_jsii_.Invoke(
+		v,
+		"createAcceptorVpcRole",
+		[]interface{}{requestorAccountId},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VpcV2Base) CreatePeeringConnection(id *string, options *VPCPeeringConnectionOptions) VPCPeeringConnection {
+	if err := v.validateCreatePeeringConnectionParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns VPCPeeringConnection
+
+	_jsii_.Invoke(
+		v,
+		"createPeeringConnection",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (v *jsiiProxy_VpcV2Base) EnableVpnGateway(options *awsec2.EnableVpnGatewayOptions) {
