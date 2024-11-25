@@ -10,71 +10,26 @@ import (
 // https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html
 //
 // Example:
-//   // Build a data source for AppSync to access the database.
-//   var api graphqlApi
-//   // Create username and password secret for DB Cluster
-//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &DatabaseSecretProps{
-//   	Username: jsii.String("clusteradmin"),
-//   })
+//   var vpc vpc
 //
-//   // The VPC to place the cluster in
-//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
-//
-//   // Create the serverless cluster, provide all values needed to customise the database.
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("AuroraClusterV2"), &DatabaseClusterProps{
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraPostgres(&AuroraPostgresClusterEngineProps{
-//   		Version: rds.AuroraPostgresEngineVersion_VER_15_5(),
+//   		Version: rds.AuroraPostgresEngineVersion_VER_15_2(),
 //   	}),
-//   	Credentials: map[string]*string{
-//   		"username": jsii.String("clusteradmin"),
+//   	Credentials: rds.Credentials_FromUsername(jsii.String("adminuser"), &CredentialsFromUsernameOptions{
+//   		Password: awscdk.SecretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
+//   	}),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   		PubliclyAccessible: jsii.Boolean(false),
+//   	}),
+//   	Readers: []iClusterInstance{
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 //   	},
-//   	ClusterIdentifier: jsii.String("db-endpoint-test"),
-//   	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
-//   	ServerlessV2MinCapacity: jsii.Number(2),
-//   	ServerlessV2MaxCapacity: jsii.Number(10),
+//   	StorageType: rds.DBClusterStorageType_AURORA_IOPT1,
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	},
 //   	Vpc: Vpc,
-//   	DefaultDatabaseName: jsii.String("demos"),
-//   	EnableDataApi: jsii.Boolean(true),
-//   })
-//   rdsDS := api.AddRdsDataSourceV2(jsii.String("rds"), cluster, secret, jsii.String("demos"))
-//
-//   // Set up a resolver for an RDS query.
-//   rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Query"),
-//   	FieldName: jsii.String("getDemosRds"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jsii.String(`
-//   	  {
-//   	    "version": "2018-05-29",
-//   	    "statements": [
-//   	      "SELECT * FROM demos"
-//   	    ]
-//   	  }
-//   	  `)),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
-//   	  `)),
-//   })
-//
-//   // Set up a resolver for an RDS mutation.
-//   rdsDS.CreateResolver(jsii.String("MutationAddDemoRdsResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Mutation"),
-//   	FieldName: jsii.String("addDemoRds"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	  {
-//   	    "version": "2018-05-29",
-//   	    "statements": [
-//   	      "INSERT INTO demos VALUES (:id, :version)",
-//   	      "SELECT * WHERE id = :id"
-//   	    ],
-//   	    "variableMap": {
-//   	      ":id": $util.toJson($util.autoId()),
-//   	      ":version": $util.toJson($ctx.args.version)
-//   	    }
-//   	  }
-//   	  `)),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])
-//   	  `)),
 //   })
 //
 type AuroraPostgresEngineVersion interface {
@@ -580,6 +535,28 @@ func AuroraPostgresEngineVersion_VER_12_20() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_12_21() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_12_21",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_12_22() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_12_22",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_12_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -712,6 +689,28 @@ func AuroraPostgresEngineVersion_VER_13_16() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_13_17() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_13_17",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_13_18() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_13_18",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_13_3() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -833,6 +832,28 @@ func AuroraPostgresEngineVersion_VER_14_13() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_14_14() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_14_14",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_14_15() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_14_15",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_14_3() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -905,6 +926,17 @@ func AuroraPostgresEngineVersion_VER_14_9() AuroraPostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
 		"VER_14_9",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_15_10() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_15_10",
 		&returns,
 	)
 	return returns
@@ -987,6 +1019,17 @@ func AuroraPostgresEngineVersion_VER_15_8() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_15_9() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_15_9",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_16_0() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -1037,6 +1080,50 @@ func AuroraPostgresEngineVersion_VER_16_4() AuroraPostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
 		"VER_16_4",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_16_5() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_16_5",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_16_6() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_16_6",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_17_1() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_17_1",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_17_2() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_17_2",
 		&returns,
 	)
 	return returns

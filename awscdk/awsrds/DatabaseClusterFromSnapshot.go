@@ -69,6 +69,8 @@ type DatabaseClusterFromSnapshot interface {
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
 	InstanceIdentifiers() *[]*string
+	// The IAM role for the enhanced monitoring.
+	MonitoringRole() awsiam.IRole
 	// Application for multi user rotation to this cluster.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	NewCfnProps() *CfnDBClusterProps
@@ -344,6 +346,16 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) InstanceIdentifiers() *[]*string
 	_jsii_.Get(
 		j,
 		"instanceIdentifiers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) MonitoringRole() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"monitoringRole",
 		&returns,
 	)
 	return returns

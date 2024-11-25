@@ -107,6 +107,13 @@ type DatabaseClusterProps struct {
 	// Default: - If `DatabaseClusterBaseProps.domain` is specified, a role with the `AmazonRDSDirectoryServiceAccess` policy is automatically created.
 	//
 	DomainRole awsiam.IRole `field:"optional" json:"domainRole" yaml:"domainRole"`
+	// Whether to enable enhanced monitoring at the cluster level.
+	//
+	// If set to true, `monitoringInterval` and `monitoringRole` are applied to not the instances, but the cluster.
+	// `monitoringInterval` is required to be set if `enableClusterLevelEnhancedMonitoring` is set to true.
+	// Default: - When the `monitoringInterval` is set, enhanced monitoring is enabled for each instance.
+	//
+	EnableClusterLevelEnhancedMonitoring *bool `field:"optional" json:"enableClusterLevelEnhancedMonitoring" yaml:"enableClusterLevelEnhancedMonitoring"`
 	// Whether to enable the Data API for the cluster.
 	// Default: - false.
 	//
@@ -149,11 +156,17 @@ type DatabaseClusterProps struct {
 	// Default: InstanceUpdateBehaviour.BULK
 	//
 	InstanceUpdateBehaviour InstanceUpdateBehaviour `field:"optional" json:"instanceUpdateBehaviour" yaml:"instanceUpdateBehaviour"`
-	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
-	// Default: no enhanced monitoring.
+	// The interval between points when Amazon RDS collects enhanced monitoring metrics.
+	//
+	// If you enable `enableClusterLevelEnhancedMonitoring`, this property is applied to the cluster,
+	// otherwise it is applied to the instances.
+	// Default: - no enhanced monitoring.
 	//
 	MonitoringInterval awscdk.Duration `field:"optional" json:"monitoringInterval" yaml:"monitoringInterval"`
-	// Role that will be used to manage DB instances monitoring.
+	// Role that will be used to manage DB monitoring.
+	//
+	// If you enable `enableClusterLevelEnhancedMonitoring`, this property is applied to the cluster,
+	// otherwise it is applied to the instances.
 	// Default: - A role is automatically created for you.
 	//
 	MonitoringRole awsiam.IRole `field:"optional" json:"monitoringRole" yaml:"monitoringRole"`
@@ -246,7 +259,7 @@ type DatabaseClusterProps struct {
 	//
 	S3ImportRole awsiam.IRole `field:"optional" json:"s3ImportRole" yaml:"s3ImportRole"`
 	// Security group.
-	// Default: a new security group is created.
+	// Default: - a new security group is created.
 	//
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
@@ -263,8 +276,11 @@ type DatabaseClusterProps struct {
 	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
 	//
 	// You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on.
-	// The smallest value that you can use is 0.5.
-	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations
+	// The smallest value that you can use is 0.
+	//
+	// For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0.
+	// For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.min_capacity_considerations
 	//
 	// Default: 0.5
 	//
@@ -296,7 +312,7 @@ type DatabaseClusterProps struct {
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The instance to use for the cluster writer.
-	// Default: required if instanceProps is not provided.
+	// Default: - required if instanceProps is not provided.
 	//
 	Writer IClusterInstance `field:"optional" json:"writer" yaml:"writer"`
 }

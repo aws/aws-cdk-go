@@ -6,71 +6,26 @@ package awsrds
 // Used in `DatabaseClusterEngine.auroraPostgres`.
 //
 // Example:
-//   // Build a data source for AppSync to access the database.
-//   var api graphqlApi
-//   // Create username and password secret for DB Cluster
-//   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &DatabaseSecretProps{
-//   	Username: jsii.String("clusteradmin"),
-//   })
+//   var vpc vpc
 //
-//   // The VPC to place the cluster in
-//   vpc := ec2.NewVpc(this, jsii.String("AuroraVpc"))
-//
-//   // Create the serverless cluster, provide all values needed to customise the database.
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("AuroraClusterV2"), &DatabaseClusterProps{
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AuroraPostgres(&AuroraPostgresClusterEngineProps{
-//   		Version: rds.AuroraPostgresEngineVersion_VER_15_5(),
+//   		Version: rds.AuroraPostgresEngineVersion_VER_15_2(),
 //   	}),
-//   	Credentials: map[string]*string{
-//   		"username": jsii.String("clusteradmin"),
+//   	Credentials: rds.Credentials_FromUsername(jsii.String("adminuser"), &CredentialsFromUsernameOptions{
+//   		Password: awscdk.SecretValue_UnsafePlainText(jsii.String("7959866cacc02c2d243ecfe177464fe6")),
+//   	}),
+//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
+//   		PubliclyAccessible: jsii.Boolean(false),
+//   	}),
+//   	Readers: []iClusterInstance{
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader")),
 //   	},
-//   	ClusterIdentifier: jsii.String("db-endpoint-test"),
-//   	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
-//   	ServerlessV2MinCapacity: jsii.Number(2),
-//   	ServerlessV2MaxCapacity: jsii.Number(10),
+//   	StorageType: rds.DBClusterStorageType_AURORA_IOPT1,
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	},
 //   	Vpc: Vpc,
-//   	DefaultDatabaseName: jsii.String("demos"),
-//   	EnableDataApi: jsii.Boolean(true),
-//   })
-//   rdsDS := api.AddRdsDataSourceV2(jsii.String("rds"), cluster, secret, jsii.String("demos"))
-//
-//   // Set up a resolver for an RDS query.
-//   rdsDS.CreateResolver(jsii.String("QueryGetDemosRdsResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Query"),
-//   	FieldName: jsii.String("getDemosRds"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jsii.String(`
-//   	  {
-//   	    "version": "2018-05-29",
-//   	    "statements": [
-//   	      "SELECT * FROM demos"
-//   	    ]
-//   	  }
-//   	  `)),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
-//   	  `)),
-//   })
-//
-//   // Set up a resolver for an RDS mutation.
-//   rdsDS.CreateResolver(jsii.String("MutationAddDemoRdsResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Mutation"),
-//   	FieldName: jsii.String("addDemoRds"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	  {
-//   	    "version": "2018-05-29",
-//   	    "statements": [
-//   	      "INSERT INTO demos VALUES (:id, :version)",
-//   	      "SELECT * WHERE id = :id"
-//   	    ],
-//   	    "variableMap": {
-//   	      ":id": $util.toJson($util.autoId()),
-//   	      ":version": $util.toJson($ctx.args.version)
-//   	    }
-//   	  }
-//   	  `)),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`
-//   	    $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])
-//   	  `)),
 //   })
 //
 type AuroraPostgresClusterEngineProps struct {
