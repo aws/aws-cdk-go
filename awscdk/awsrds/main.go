@@ -1246,6 +1246,14 @@ func init() {
 			return &jsiiProxy_ClusterInstanceType{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_rds.ClusterScailabilityType",
+		reflect.TypeOf((*ClusterScailabilityType)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": ClusterScailabilityType_STANDARD,
+			"LIMITLESS": ClusterScailabilityType_LIMITLESS,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.CommonRotationUserOptions",
 		reflect.TypeOf((*CommonRotationUserOptions)(nil)).Elem(),

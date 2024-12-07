@@ -54,6 +54,13 @@ import (
 //   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
 //   	},
 //   	BootstrapSelfManagedAddons: jsii.Boolean(false),
+//   	ComputeConfig: &ComputeConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		NodePools: []*string{
+//   			jsii.String("nodePools"),
+//   		},
+//   		NodeRoleArn: jsii.String("nodeRoleArn"),
+//   	},
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -65,6 +72,9 @@ import (
 //   		},
 //   	},
 //   	KubernetesNetworkConfig: &KubernetesNetworkConfigProperty{
+//   		ElasticLoadBalancing: &ElasticLoadBalancingProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
 //   		IpFamily: jsii.String("ipFamily"),
 //   		ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   		ServiceIpv6Cidr: jsii.String("serviceIpv6Cidr"),
@@ -88,6 +98,29 @@ import (
 //   		// the properties below are optional
 //   		ControlPlanePlacement: &ControlPlanePlacementProperty{
 //   			GroupName: jsii.String("groupName"),
+//   		},
+//   	},
+//   	RemoteNetworkConfig: &RemoteNetworkConfigProperty{
+//   		RemoteNodeNetworks: []interface{}{
+//   			&RemoteNodeNetworkProperty{
+//   				Cidrs: []*string{
+//   					jsii.String("cidrs"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		RemotePodNetworks: []interface{}{
+//   			&RemotePodNetworkProperty{
+//   				Cidrs: []*string{
+//   					jsii.String("cidrs"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	StorageConfig: &StorageConfigProperty{
+//   		BlockStorage: &BlockStorageProperty{
+//   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   	Tags: []cfnTag{
@@ -146,6 +179,9 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Todo: add description.
+	ComputeConfig() interface{}
+	SetComputeConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -182,6 +218,9 @@ type CfnCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+	RemoteNetworkConfig() interface{}
+	SetRemoteNetworkConfig(val interface{})
 	// The VPC configuration that's used by the cluster control plane.
 	ResourcesVpcConfig() interface{}
 	SetResourcesVpcConfig(val interface{})
@@ -192,6 +231,9 @@ type CfnCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Todo: add description.
+	StorageConfig() interface{}
+	SetStorageConfig(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// The metadata that you apply to the cluster to assist with categorization and organization.
@@ -483,6 +525,16 @@ func (j *jsiiProxy_CfnCluster) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) ComputeConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"computeConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -573,6 +625,16 @@ func (j *jsiiProxy_CfnCluster) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) RemoteNetworkConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"remoteNetworkConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) ResourcesVpcConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -598,6 +660,16 @@ func (j *jsiiProxy_CfnCluster) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) StorageConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"storageConfig",
 		&returns,
 	)
 	return returns
@@ -723,6 +795,17 @@ func (j *jsiiProxy_CfnCluster)SetBootstrapSelfManagedAddons(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster)SetComputeConfig(val interface{}) {
+	if err := j.validateSetComputeConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"computeConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster)SetEncryptionConfig(val interface{}) {
 	if err := j.validateSetEncryptionConfigParameters(val); err != nil {
 		panic(err)
@@ -775,6 +858,17 @@ func (j *jsiiProxy_CfnCluster)SetOutpostConfig(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster)SetRemoteNetworkConfig(val interface{}) {
+	if err := j.validateSetRemoteNetworkConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"remoteNetworkConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster)SetResourcesVpcConfig(val interface{}) {
 	if err := j.validateSetResourcesVpcConfigParameters(val); err != nil {
 		panic(err)
@@ -793,6 +887,17 @@ func (j *jsiiProxy_CfnCluster)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetStorageConfig(val interface{}) {
+	if err := j.validateSetStorageConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"storageConfig",
 		val,
 	)
 }

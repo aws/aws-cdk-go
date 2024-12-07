@@ -207,6 +207,7 @@ type CfnService interface {
 	AttrName() *string
 	// Not currently supported in AWS CloudFormation .
 	AttrServiceArn() *string
+	// Indicates whether to use Availability Zone rebalancing for the service.
 	AvailabilityZoneRebalancing() *string
 	SetAvailabilityZoneRebalancing(val *string)
 	// The capacity provider strategy to use for the service.

@@ -37,11 +37,71 @@ import (
 //   				jsii.String("objectFields"),
 //   			},
 //   		},
+//   		ManagedSourceConfiguration: &ManagedSourceConfigurationProperty{
+//   			WebCrawlerConfiguration: &WebCrawlerConfigurationProperty{
+//   				UrlConfiguration: &UrlConfigurationProperty{
+//   					SeedUrls: []interface{}{
+//   						&SeedUrlProperty{
+//   							Url: jsii.String("url"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				CrawlerLimits: &CrawlerLimitsProperty{
+//   					RateLimit: jsii.Number(123),
+//   				},
+//   				ExclusionFilters: []*string{
+//   					jsii.String("exclusionFilters"),
+//   				},
+//   				InclusionFilters: []*string{
+//   					jsii.String("inclusionFilters"),
+//   				},
+//   				Scope: jsii.String("scope"),
+//   			},
+//   		},
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VectorIngestionConfiguration: &VectorIngestionConfigurationProperty{
+//   		ChunkingConfiguration: &ChunkingConfigurationProperty{
+//   			ChunkingStrategy: jsii.String("chunkingStrategy"),
+//
+//   			// the properties below are optional
+//   			FixedSizeChunkingConfiguration: &FixedSizeChunkingConfigurationProperty{
+//   				MaxTokens: jsii.Number(123),
+//   				OverlapPercentage: jsii.Number(123),
+//   			},
+//   			HierarchicalChunkingConfiguration: &HierarchicalChunkingConfigurationProperty{
+//   				LevelConfigurations: []interface{}{
+//   					&HierarchicalChunkingLevelConfigurationProperty{
+//   						MaxTokens: jsii.Number(123),
+//   					},
+//   				},
+//   				OverlapTokens: jsii.Number(123),
+//   			},
+//   			SemanticChunkingConfiguration: &SemanticChunkingConfigurationProperty{
+//   				BreakpointPercentileThreshold: jsii.Number(123),
+//   				BufferSize: jsii.Number(123),
+//   				MaxTokens: jsii.Number(123),
+//   			},
+//   		},
+//   		ParsingConfiguration: &ParsingConfigurationProperty{
+//   			ParsingStrategy: jsii.String("parsingStrategy"),
+//
+//   			// the properties below are optional
+//   			BedrockFoundationModelConfiguration: &BedrockFoundationModelConfigurationProperty{
+//   				ModelArn: jsii.String("modelArn"),
+//
+//   				// the properties below are optional
+//   				ParsingPrompt: &ParsingPromptProperty{
+//   					ParsingPromptText: jsii.String("parsingPromptText"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   })
@@ -122,6 +182,8 @@ type CfnKnowledgeBase interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	VectorIngestionConfiguration() interface{}
+	SetVectorIngestionConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -456,6 +518,16 @@ func (j *jsiiProxy_CfnKnowledgeBase) UpdatedProperties() *map[string]interface{}
 	return returns
 }
 
+func (j *jsiiProxy_CfnKnowledgeBase) VectorIngestionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vectorIngestionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 
 func NewCfnKnowledgeBase(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) CfnKnowledgeBase {
 	_init_.Initialize()
@@ -554,6 +626,17 @@ func (j *jsiiProxy_CfnKnowledgeBase)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKnowledgeBase)SetVectorIngestionConfiguration(val interface{}) {
+	if err := j.validateSetVectorIngestionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vectorIngestionConfiguration",
 		val,
 	)
 }

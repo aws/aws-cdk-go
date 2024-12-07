@@ -1,6 +1,10 @@
 package awsrds
 
 
+// The writer endpoint for the new global database cluster.
+//
+// This endpoint always points to the writer DB instance in the current primary cluster.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,7 +17,7 @@ package awsrds
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-globalcluster-globalendpoint.html
 //
 type CfnGlobalCluster_GlobalEndpointProperty struct {
-	// The writer endpoint for the global database cluster.
+	// The writer endpoint for the new global database cluster.
 	//
 	// This endpoint always points to the writer DB instance in the current primary cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-globalcluster-globalendpoint.html#cfn-rds-globalcluster-globalendpoint-address

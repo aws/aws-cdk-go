@@ -20,6 +20,9 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
   * [User Pools](#user-pools)
 
     * [Sign Up](#sign-up)
+
+      * [Code Verification](#code-verification)
+      * [Link Verification](#link-verification)
     * [Sign In](#sign-in)
     * [Attributes](#attributes)
     * [Attribute verification](#attribute-verification)
@@ -727,6 +730,9 @@ Custom authentication protocols can be configured by setting the `custom` proper
 functions for the corresponding user pool [triggers](#lambda-triggers). Learn more at [Custom Authentication
 Flow](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#amazon-cognito-user-pools-custom-authentication-flow).
 
+Choice-based authentication can be configured by setting the `user` property under `authFlow`. This enables the
+`USER_AUTH` authentication flow. Learn more at [Choice-based authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice).
+
 In addition to these authentication mechanisms, Cognito user pools also support using OAuth 2.0 framework for
 authenticating users. User pool clients can be configured with OAuth 2.0 authorization flows and scopes. Learn more
 about the [OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749) and [Cognito user pool's
@@ -1047,6 +1053,21 @@ Existing domains can be imported into CDK apps using `UserPoolDomain.fromDomainN
 
 ```go
 myUserPoolDomain := cognito.UserPoolDomain_FromDomainName(this, jsii.String("my-user-pool-domain"), jsii.String("domain-name"))
+```
+
+To get the domain name of the CloudFront distribution associated with the user pool domain, use `cloudFrontEndpoint` method.
+
+```go
+userpool := cognito.NewUserPool(this, jsii.String("UserPool"))
+domain := userpool.addDomain(jsii.String("Domain"), &UserPoolDomainOptions{
+	CognitoDomain: &CognitoDomainOptions{
+		DomainPrefix: jsii.String("my-awesome-app"),
+	},
+})
+
+awscdk.NewCfnOutput(this, jsii.String("CloudFrontEndpoint"), &CfnOutputProps{
+	Value: domain.cloudFrontEndpoint,
+})
 ```
 
 ### Deletion protection

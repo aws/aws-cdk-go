@@ -37,5 +37,8 @@ type CfnAnalysis_WordCloudVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-wordcloudvisual.html#cfn-quicksight-analysis-wordcloudvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-wordcloudvisual.html#cfn-quicksight-analysis-wordcloudvisual-visualcontentalttext
+	//
+	VisualContentAltText *string `field:"optional" json:"visualContentAltText" yaml:"visualContentAltText"`
 }
 

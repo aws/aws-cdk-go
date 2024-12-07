@@ -11,6 +11,88 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   sheetProperty := &SheetProperty{
+//   	Images: []interface{}{
+//   		&SheetImageProperty{
+//   			SheetImageId: jsii.String("sheetImageId"),
+//   			Source: &SheetImageSourceProperty{
+//   				SheetImageStaticFileSource: &SheetImageStaticFileSourceProperty{
+//   					StaticFileId: jsii.String("staticFileId"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			Actions: []interface{}{
+//   				&ImageCustomActionProperty{
+//   					ActionOperations: []interface{}{
+//   						&ImageCustomActionOperationProperty{
+//   							NavigationOperation: &CustomActionNavigationOperationProperty{
+//   								LocalNavigationConfiguration: &LocalNavigationConfigurationProperty{
+//   									TargetSheetId: jsii.String("targetSheetId"),
+//   								},
+//   							},
+//   							SetParametersOperation: &CustomActionSetParametersOperationProperty{
+//   								ParameterValueConfigurations: []interface{}{
+//   									&SetParameterValueConfigurationProperty{
+//   										DestinationParameterName: jsii.String("destinationParameterName"),
+//   										Value: &DestinationParameterValueConfigurationProperty{
+//   											CustomValuesConfiguration: &CustomValuesConfigurationProperty{
+//   												CustomValues: &CustomParameterValuesProperty{
+//   													DateTimeValues: []*string{
+//   														jsii.String("dateTimeValues"),
+//   													},
+//   													DecimalValues: []interface{}{
+//   														jsii.Number(123),
+//   													},
+//   													IntegerValues: []interface{}{
+//   														jsii.Number(123),
+//   													},
+//   													StringValues: []*string{
+//   														jsii.String("stringValues"),
+//   													},
+//   												},
+//
+//   												// the properties below are optional
+//   												IncludeNullValue: jsii.Boolean(false),
+//   											},
+//   											SelectAllValueOptions: jsii.String("selectAllValueOptions"),
+//   											SourceColumn: &ColumnIdentifierProperty{
+//   												ColumnName: jsii.String("columnName"),
+//   												DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   											},
+//   											SourceField: jsii.String("sourceField"),
+//   											SourceParameterName: jsii.String("sourceParameterName"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   							UrlOperation: &CustomActionURLOperationProperty{
+//   								UrlTarget: jsii.String("urlTarget"),
+//   								UrlTemplate: jsii.String("urlTemplate"),
+//   							},
+//   						},
+//   					},
+//   					CustomActionId: jsii.String("customActionId"),
+//   					Name: jsii.String("name"),
+//   					Trigger: jsii.String("trigger"),
+//
+//   					// the properties below are optional
+//   					Status: jsii.String("status"),
+//   				},
+//   			},
+//   			ImageContentAltText: jsii.String("imageContentAltText"),
+//   			Interactions: &ImageInteractionOptionsProperty{
+//   			},
+//   			Scaling: &SheetImageScalingConfigurationProperty{
+//   				ScalingType: jsii.String("scalingType"),
+//   			},
+//   			Tooltip: &SheetImageTooltipConfigurationProperty{
+//   				TooltipText: &SheetImageTooltipTextProperty{
+//   					PlainText: jsii.String("plainText"),
+//   				},
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	SheetId: jsii.String("sheetId"),
 //   }
@@ -18,6 +100,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html
 //
 type CfnAnalysis_SheetProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html#cfn-quicksight-analysis-sheet-images
+	//
+	Images interface{} `field:"optional" json:"images" yaml:"images"`
 	// The name of a sheet.
 	//
 	// This name is displayed on the sheet's tab in the Amazon QuickSight console.

@@ -105,6 +105,9 @@ type CfnTemplate_VisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-pivottablevisual
 	//
 	PivotTableVisual interface{} `field:"optional" json:"pivotTableVisual" yaml:"pivotTableVisual"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-pluginvisual
+	//
+	PluginVisual interface{} `field:"optional" json:"pluginVisual" yaml:"pluginVisual"`
 	// A radar chart visual.
 	//
 	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .

@@ -1,7 +1,9 @@
 package awscloudformation
 
 
-// List of stack names as filters.
+// Specifies the stack names for the `StackFilters` property type to include or exclude specific stacks from Hook invocations.
+//
+// For more information, see [AWS CloudFormation Hooks stack level filters](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-stack-level-filtering.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,11 +22,15 @@ package awscloudformation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stacknames.html
 //
 type CfnGuardHook_StackNamesProperty struct {
-	// List of stack names that the hook is going to be excluded from.
+	// The stack names to exclude.
+	//
+	// All stacks except those listed here will invoke the Hook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stacknames.html#cfn-cloudformation-guardhook-stacknames-exclude
 	//
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
-	// List of stack names that the hook is going to target.
+	// The stack names to include.
+	//
+	// Only the stacks specified in this list will invoke the Hook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stacknames.html#cfn-cloudformation-guardhook-stacknames-include
 	//
 	Include *[]*string `field:"optional" json:"include" yaml:"include"`

@@ -46,5 +46,8 @@ type CfnTemplate_BarChartVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartvisual.html#cfn-quicksight-template-barchartvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartvisual.html#cfn-quicksight-template-barchartvisual-visualcontentalttext
+	//
+	VisualContentAltText *string `field:"optional" json:"visualContentAltText" yaml:"visualContentAltText"`
 }
 

@@ -1,6 +1,8 @@
 package awslambdaeventsources
 
 
+// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
+//
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //

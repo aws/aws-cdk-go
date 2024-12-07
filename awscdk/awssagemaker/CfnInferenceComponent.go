@@ -20,20 +20,14 @@ import (
 //
 //   cfnInferenceComponent := awscdk.Aws_sagemaker.NewCfnInferenceComponent(this, jsii.String("MyCfnInferenceComponent"), &CfnInferenceComponentProps{
 //   	EndpointName: jsii.String("endpointName"),
-//   	RuntimeConfig: &InferenceComponentRuntimeConfigProperty{
-//   		CopyCount: jsii.Number(123),
-//   		CurrentCopyCount: jsii.Number(123),
-//   		DesiredCopyCount: jsii.Number(123),
-//   	},
 //   	Specification: &InferenceComponentSpecificationProperty{
+//   		BaseInferenceComponentName: jsii.String("baseInferenceComponentName"),
 //   		ComputeResourceRequirements: &InferenceComponentComputeResourceRequirementsProperty{
 //   			MaxMemoryRequiredInMb: jsii.Number(123),
 //   			MinMemoryRequiredInMb: jsii.Number(123),
 //   			NumberOfAcceleratorDevicesRequired: jsii.Number(123),
 //   			NumberOfCpuCoresRequired: jsii.Number(123),
 //   		},
-//
-//   		// the properties below are optional
 //   		Container: &InferenceComponentContainerSpecificationProperty{
 //   			ArtifactUrl: jsii.String("artifactUrl"),
 //   			DeployedImage: &DeployedImageProperty{
@@ -52,17 +46,22 @@ import (
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   		},
 //   	},
-//   	VariantName: jsii.String("variantName"),
 //
 //   	// the properties below are optional
 //   	EndpointArn: jsii.String("endpointArn"),
 //   	InferenceComponentName: jsii.String("inferenceComponentName"),
+//   	RuntimeConfig: &InferenceComponentRuntimeConfigProperty{
+//   		CopyCount: jsii.Number(123),
+//   		CurrentCopyCount: jsii.Number(123),
+//   		DesiredCopyCount: jsii.Number(123),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	VariantName: jsii.String("variantName"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html
@@ -635,9 +634,6 @@ func (j *jsiiProxy_CfnInferenceComponent)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnInferenceComponent)SetVariantName(val *string) {
-	if err := j.validateSetVariantNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"variantName",

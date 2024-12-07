@@ -11,11 +11,15 @@ import (
 //   var vpc vpc
 //
 //
-//   // Target group with slow start mode enabled
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{
-//   	TargetType: elbv2.TargetType_INSTANCE,
-//   	SlowStart: awscdk.Duration_Seconds(jsii.Number(60)),
-//   	Port: jsii.Number(80),
+//   	TargetType: elbv2.TargetType_IP,
+//   	Port: jsii.Number(50051),
+//   	Protocol: elbv2.ApplicationProtocol_HTTP,
+//   	ProtocolVersion: elbv2.ApplicationProtocolVersion_GRPC,
+//   	HealthCheck: &HealthCheck{
+//   		Enabled: jsii.Boolean(true),
+//   		HealthyGrpcCodes: jsii.String("0-99"),
+//   	},
 //   	Vpc: Vpc,
 //   })
 //
@@ -38,6 +42,10 @@ type ApplicationTargetGroupProps struct {
 	// Default: - The default value for each property in this configuration varies depending on the target.
 	//
 	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
+	// The type of IP addresses of the targets registered with the target group.
+	// Default: undefined - ELB defaults to IPv4.
+	//
+	IpAddressType TargetGroupIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of

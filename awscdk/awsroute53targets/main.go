@@ -44,6 +44,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53_targets.AppSyncTarget",
+		reflect.TypeOf((*AppSyncTarget)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AppSyncTarget{}
+			_jsii_.InitJsiiProxy(&j.Type__awsroute53IAliasRecordTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53_targets.BucketWebsiteTarget",
 		reflect.TypeOf((*BucketWebsiteTarget)(nil)).Elem(),
 		[]_jsii_.Member{

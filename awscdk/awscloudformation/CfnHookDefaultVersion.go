@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `HookDefaultVersion` resource specifies the default version of the hook.
+// The `HookDefaultVersion` resource specifies the default version of the Hook.
 //
-// The default version of the hook is used in CloudFormation operations for this AWS account and AWS Region .
+// The default version of the Hook is used in CloudFormation operations for this AWS account and AWS Region .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -61,7 +61,7 @@ type CfnHookDefaultVersion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The name of the hook.
+	// The name of the Hook.
 	TypeName() *string
 	SetTypeName(val *string)
 	// The version ID of the type configuration.

@@ -37,5 +37,8 @@ type CfnDashboard_TreeMapVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-treemapvisual.html#cfn-quicksight-dashboard-treemapvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-treemapvisual.html#cfn-quicksight-dashboard-treemapvisual-visualcontentalttext
+	//
+	VisualContentAltText *string `field:"optional" json:"visualContentAltText" yaml:"visualContentAltText"`
 }
 

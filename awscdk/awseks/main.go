@@ -370,6 +370,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "computeConfig", GoGetter: "ComputeConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionConfig", GoGetter: "EncryptionConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -385,6 +386,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "outpostConfig", GoGetter: "OutpostConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "remoteNetworkConfig", GoGetter: "RemoteNetworkConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
@@ -392,6 +394,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "storageConfig", GoGetter: "StorageConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -415,12 +418,24 @@ func init() {
 		reflect.TypeOf((*CfnCluster_AccessConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.BlockStorageProperty",
+		reflect.TypeOf((*CfnCluster_BlockStorageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.ClusterLoggingProperty",
 		reflect.TypeOf((*CfnCluster_ClusterLoggingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.ComputeConfigProperty",
+		reflect.TypeOf((*CfnCluster_ComputeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.ControlPlanePlacementProperty",
 		reflect.TypeOf((*CfnCluster_ControlPlanePlacementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.ElasticLoadBalancingProperty",
+		reflect.TypeOf((*CfnCluster_ElasticLoadBalancingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.EncryptionConfigProperty",
@@ -447,8 +462,24 @@ func init() {
 		reflect.TypeOf((*CfnCluster_ProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.RemoteNetworkConfigProperty",
+		reflect.TypeOf((*CfnCluster_RemoteNetworkConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.RemoteNodeNetworkProperty",
+		reflect.TypeOf((*CfnCluster_RemoteNodeNetworkProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.RemotePodNetworkProperty",
+		reflect.TypeOf((*CfnCluster_RemotePodNetworkProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.ResourcesVpcConfigProperty",
 		reflect.TypeOf((*CfnCluster_ResourcesVpcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.StorageConfigProperty",
+		reflect.TypeOf((*CfnCluster_StorageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.UpgradePolicyProperty",

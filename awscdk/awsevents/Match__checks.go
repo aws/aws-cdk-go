@@ -16,14 +16,6 @@ func (m *jsiiProxy_Match) validateResolveParameters(context awscdk.IResolveConte
 	return nil
 }
 
-func validateMatch_AnythingButPrefixParameters(prefix *string) error {
-	if prefix == nil {
-		return fmt.Errorf("parameter prefix is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateMatch_CidrParameters(range_ *string) error {
 	if range_ == nil {
 		return fmt.Errorf("parameter range_ is required, but nil was provided")
@@ -116,7 +108,31 @@ func validateMatch_PrefixParameters(value *string) error {
 	return nil
 }
 
+func validateMatch_PrefixEqualsIgnoreCaseParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateMatch_SuffixParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateMatch_SuffixEqualsIgnoreCaseParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateMatch_WildcardParameters(value *string) error {
 	if value == nil {
 		return fmt.Errorf("parameter value is required, but nil was provided")
 	}

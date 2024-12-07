@@ -20,6 +20,11 @@ package awscognito
 //   		RequireUppercase: jsii.Boolean(false),
 //   		TemporaryPasswordValidityDays: jsii.Number(123),
 //   	},
+//   	SignInPolicy: &SignInPolicyProperty{
+//   		AllowedFirstAuthFactors: []*string{
+//   			jsii.String("allowedFirstAuthFactors"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html
@@ -29,5 +34,8 @@ type CfnUserPool_PoliciesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-passwordpolicy
 	//
 	PasswordPolicy interface{} `field:"optional" json:"passwordPolicy" yaml:"passwordPolicy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-signinpolicy
+	//
+	SignInPolicy interface{} `field:"optional" json:"signInPolicy" yaml:"signInPolicy"`
 }
 

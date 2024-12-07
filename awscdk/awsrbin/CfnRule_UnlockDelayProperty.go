@@ -1,6 +1,10 @@
 package awsrbin
 
 
+// Information about the retention rule unlock delay.
+//
+// The unlock delay is the period after which a retention rule can be modified or edited after it has been unlocked by a user with the required permissions. The retention rule can't be modified or deleted during the unlock delay.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,7 +24,7 @@ type CfnRule_UnlockDelayProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-unlockdelay.html#cfn-rbin-rule-unlockdelay-unlockdelayunit
 	//
 	UnlockDelayUnit *string `field:"optional" json:"unlockDelayUnit" yaml:"unlockDelayUnit"`
-	// The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+	// The unlock delay period, measured in the unit specified for *UnlockDelayUnit* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-unlockdelay.html#cfn-rbin-rule-unlockdelay-unlockdelayvalue
 	//
 	UnlockDelayValue *float64 `field:"optional" json:"unlockDelayValue" yaml:"unlockDelayValue"`

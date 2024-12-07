@@ -20,6 +20,11 @@ type DatabaseInstanceProps struct {
 	// What type of instance to start for the replicas.
 	// Experimental.
 	InstanceType InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
+	// Indicates that minor version patches are applied automatically.
+	// Default: undefined.
+	//
+	// Experimental.
+	AutoMinorVersionUpgrade *bool `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
 	// Default: - no preference.
 	//

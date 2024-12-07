@@ -23,6 +23,7 @@ For more details see the [service documentation](https://docs.aws.amazon.com/eve
 Pipe targets are the end point of an EventBridge Pipe. The following targets are supported:
 
 * `targets.ApiDestinationTarget`: [Send event source to an EventBridge API destination](#amazon-eventbridge-api-destination)
+* `targets.ApiGatewayTarget`: [Send event source to an API Gateway REST API](#amazon-api-gateway-rest-api)
 * `targets.CloudWatchLogsTarget`: [Send event source to a CloudWatch Logs log group](#amazon-cloudwatch-logs-log-group)
 * `targets.EventBridgeTarget`: [Send event source to an EventBridge event bus](#amazon-eventbridge-event-bus)
 * `targets.KinesisTarget`: [Send event source to a Kinesis data stream](#amazon-kinesis-data-stream)
@@ -57,6 +58,59 @@ var dest apiDestination
 
 
 apiTarget := targets.NewApiDestinationTarget(dest, &ApiDestinationTargetParameters{
+	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+		"body": jsii.String("👀"),
+	}),
+})
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: apiTarget,
+})
+```
+
+### Amazon API Gateway Rest API
+
+A REST API can be used as a target for a pipe.
+The REST API will receive the (enriched/filtered) source payload.
+
+```go
+var sourceQueue queue
+
+
+fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+	Handler: jsii.String("index.handler"),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
+	Code: lambda.Code_FromInline(jsii.String("exports.handler = e => {}")),
+})
+
+restApi := api.NewLambdaRestApi(this, jsii.String("MyRestAPI"), &LambdaRestApiProps{
+	Handler: fn,
+})
+apiTarget := targets.NewApiGatewayTarget(restApi)
+
+pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+	Target: apiTarget,
+})
+```
+
+The input to the target REST API can be transformed:
+
+```go
+var sourceQueue queue
+
+
+fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+	Handler: jsii.String("index.handler"),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
+	Code: lambda.Code_FromInline(jsii.String("exports.handler = e => {}")),
+})
+
+restApi := api.NewLambdaRestApi(this, jsii.String("MyRestAPI"), &LambdaRestApiProps{
+	Handler: fn,
+})
+apiTarget := targets.NewApiGatewayTarget(restApi, &ApiGatewayTargetParameters{
 	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
 		"body": jsii.String("👀"),
 	}),

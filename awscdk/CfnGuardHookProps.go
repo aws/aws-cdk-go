@@ -70,47 +70,56 @@ package awscdk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html
 //
 type CfnGuardHookProps struct {
-	// The typename alias for the hook.
+	// The type name alias for the Hook. This alias must be unique per account and Region.
+	//
+	// The alias must be in the form `Name1::Name2::Name3` and must not begin with `AWS` . For example, `Private::Guard::MyTestHook` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-alias
 	//
 	Alias *string `field:"required" json:"alias" yaml:"alias"`
-	// IAM Role ARN.
+	// The IAM role that the Hook assumes to retrieve your Guard rules from S3 and optionally write a detailed Guard output report back.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-executionrole
 	//
 	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
-	// Attribute to specify CloudFormation behavior on hook failure.
+	// Specifies how the Hook responds when rules fail their evaluation.
+	//
+	// - `FAIL` : Prevents the action from proceeding. This is helpful for enforcing strict compliance or security policies.
+	// - `WARN` : Issues warnings to users but allows actions to continue. This is useful for non-critical validations or informational checks.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-failuremode
 	//
 	// Default: - "WARN".
 	//
 	FailureMode *string `field:"required" json:"failureMode" yaml:"failureMode"`
-	// Attribute to specify which stacks this hook applies to or should get invoked for.
+	// Specifies if the Hook is `ENABLED` or `DISABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-hookstatus
 	//
 	// Default: - "DISABLED".
 	//
 	HookStatus *string `field:"required" json:"hookStatus" yaml:"hookStatus"`
-	// S3 Source Location for the Guard files.
+	// Specifies the S3 location of your Guard rules.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-rulelocation
 	//
 	RuleLocation interface{} `field:"required" json:"ruleLocation" yaml:"ruleLocation"`
-	// Which operations should this Hook run against?
+	// Specifies which type of operation the Hook is run against.
 	//
-	// Resource changes, stacks or change sets.
+	// Valid values: `STACK` | `RESOURCE` | `CHANGE_SET` | `CLOUD_CONTROL`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-targetoperations
 	//
 	TargetOperations *[]*string `field:"required" json:"targetOperations" yaml:"targetOperations"`
-	// S3 Bucket where the guard validate report will be uploaded to.
+	// Specifies the name of an S3 bucket to store the Guard output report.
+	//
+	// This report contains the results of your Guard rule validations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-logbucket
 	//
 	LogBucket *string `field:"optional" json:"logBucket" yaml:"logBucket"`
+	// Specifies the S3 location of your input parameters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-options
 	//
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
-	// Filters to allow hooks to target specific stack attributes.
+	// Specifies the stack level filters for the Hook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-stackfilters
 	//
 	StackFilters interface{} `field:"optional" json:"stackFilters" yaml:"stackFilters"`
+	// Specifies the target filters for the Hook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html#cfn-cloudformation-guardhook-targetfilters
 	//
 	TargetFilters interface{} `field:"optional" json:"targetFilters" yaml:"targetFilters"`

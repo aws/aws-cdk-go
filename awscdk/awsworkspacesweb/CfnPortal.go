@@ -27,6 +27,7 @@ import (
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   	BrowserSettingsArn: jsii.String("browserSettingsArn"),
 //   	CustomerManagedKey: jsii.String("customerManagedKey"),
+//   	DataProtectionSettingsArn: jsii.String("dataProtectionSettingsArn"),
 //   	DisplayName: jsii.String("displayName"),
 //   	InstanceType: jsii.String("instanceType"),
 //   	IpAccessSettingsArn: jsii.String("ipAccessSettingsArn"),
@@ -90,6 +91,8 @@ type CfnPortal interface {
 	// The customer managed key of the web portal.
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
+	DataProtectionSettingsArn() *string
+	SetDataProtectionSettingsArn(val *string)
 	// The name of the web portal.
 	DisplayName() *string
 	SetDisplayName(val *string)
@@ -455,6 +458,16 @@ func (j *jsiiProxy_CfnPortal) CustomerManagedKey() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortal) DataProtectionSettingsArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dataProtectionSettingsArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortal) DisplayName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -664,6 +677,14 @@ func (j *jsiiProxy_CfnPortal)SetCustomerManagedKey(val *string) {
 	_jsii_.Set(
 		j,
 		"customerManagedKey",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPortal)SetDataProtectionSettingsArn(val *string) {
+	_jsii_.Set(
+		j,
+		"dataProtectionSettingsArn",
 		val,
 	)
 }

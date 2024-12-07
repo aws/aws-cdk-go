@@ -32,6 +32,9 @@ type CfnDashboard_SheetDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetdefinition.html#cfn-quicksight-dashboard-sheetdefinition-filtercontrols
 	//
 	FilterControls interface{} `field:"optional" json:"filterControls" yaml:"filterControls"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetdefinition.html#cfn-quicksight-dashboard-sheetdefinition-images
+	//
+	Images interface{} `field:"optional" json:"images" yaml:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .

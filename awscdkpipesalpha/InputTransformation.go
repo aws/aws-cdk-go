@@ -9,19 +9,19 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetStream stream
+//   var targetStateMachine iStateMachine
 //
 //
-//   streamTarget := targets.NewKinesisTarget(targetStream, &KinesisTargetParameters{
-//   	PartitionKey: jsii.String("pk"),
+//   pipeTarget := targets.NewSfnStateMachine(targetStateMachine, &SfnStateMachineParameters{
 //   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
-//   		"body": jsii.String("👀"),
+//   		"body": jsii.String("<$.body>"),
 //   	}),
+//   	InvocationType: targets.StateMachineInvocationType_FIRE_AND_FORGET,
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 //   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-//   	Target: streamTarget,
+//   	Target: pipeTarget,
 //   })
 //
 // Experimental.

@@ -77,6 +77,9 @@ type CfnGlobalClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
 	//
 	GlobalClusterIdentifier *string `field:"optional" json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
+	// The writer endpoint for the new global database cluster.
+	//
+	// This endpoint always points to the writer DB instance in the current primary cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalendpoint
 	//
 	GlobalEndpoint interface{} `field:"optional" json:"globalEndpoint" yaml:"globalEndpoint"`

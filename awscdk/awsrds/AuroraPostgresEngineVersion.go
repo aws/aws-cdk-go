@@ -1085,6 +1085,17 @@ func AuroraPostgresEngineVersion_VER_16_4() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_16_4_LIMITLESS() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_16_4_LIMITLESS",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_16_5() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion

@@ -26,6 +26,9 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	MinimumLoadBalancerCapacity: &MinimumLoadBalancerCapacityProperty{
+//   		CapacityUnits: jsii.Number(123),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Scheme: jsii.String("scheme"),
 //   	SecurityGroups: []*string{
@@ -113,6 +116,8 @@ type CfnLoadBalancer interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	MinimumLoadBalancerCapacity() interface{}
+	SetMinimumLoadBalancerCapacity(val interface{})
 	// The name of the load balancer.
 	Name() *string
 	SetName(val *string)
@@ -444,6 +449,16 @@ func (j *jsiiProxy_CfnLoadBalancer) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) MinimumLoadBalancerCapacity() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"minimumLoadBalancerCapacity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -633,6 +648,17 @@ func (j *jsiiProxy_CfnLoadBalancer)SetLoadBalancerAttributes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"loadBalancerAttributes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLoadBalancer)SetMinimumLoadBalancerCapacity(val interface{}) {
+	if err := j.validateSetMinimumLoadBalancerCapacityParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"minimumLoadBalancerCapacity",
 		val,
 	)
 }

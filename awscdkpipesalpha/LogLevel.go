@@ -6,20 +6,20 @@ package awscdkpipesalpha
 // Example:
 //   var sourceQueue queue
 //   var targetQueue queue
-//   var loggroup logGroup
+//   var logGroup logGroup
 //
+//
+//   cwlLogDestination := pipes.NewCloudwatchLogsLogDestination(logGroup)
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue),
-//
+//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+//   	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 //   	LogLevel: pipes.LogLevel_TRACE,
 //   	LogIncludeExecutionData: []aLL{
 //   		pipes.IncludeExecutionData_*aLL,
 //   	},
-//
 //   	LogDestinations: []iLogDestination{
-//   		NewCloudwatchDestination(loggroup),
+//   		cwlLogDestination,
 //   	},
 //   })
 //

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnLoadBalancer) validateSetLoadBalancerAttributesParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoadBalancer) validateSetMinimumLoadBalancerCapacityParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLoadBalancer) validateSetSubnetMappingsParameters(val interface{}) error {
 	return nil
 }

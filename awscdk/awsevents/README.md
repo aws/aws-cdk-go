@@ -91,7 +91,12 @@ onCommitRule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
 }))
 ```
 
-To define a pattern, use the matcher API, which provides a number of factory methods to declare different logical predicates. For example, to match all S3 events for objects larger than 1024 bytes, stored using one of the storage classes Glacier, Glacier IR or Deep Archive and coming from any region other than the AWS GovCloud ones:
+### Matchers
+
+To define a pattern, use the `Match` class, which provides a number of factory methods to declare
+different logical predicates. For example, to match all S3 events for objects larger than 1024
+bytes, stored using one of the storage classes Glacier, Glacier IR or Deep Archive and coming from
+any region other than the AWS GovCloud ones:
 
 ```go
 rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
@@ -105,7 +110,6 @@ rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
 			// 'OR' condition
 			"source-storage-class": events.Match_anyOf(events.Match_prefix(jsii.String("GLACIER")), events.Match_exactString(jsii.String("DEEP_ARCHIVE"))),
 		},
-		DetailType: events.Match_EqualsIgnoreCase(jsii.String("object created")),
 
 		// If you prefer, you can use a low level array of strings, as directly consumed by EventBridge
 		Source: []*string{
@@ -113,6 +117,52 @@ rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
 		},
 
 		Region: events.Match_AnythingButPrefix(jsii.String("us-gov")),
+	},
+})
+```
+
+Matches can also be made case-insensitive, or make use of wildcard matches. For example, to match
+object create events for buckets whose name starts with `raw-`, for objects with key matching
+the pattern `path/to/object/*.txt` and the requester ends with `.AMAZONAWS.COM`:
+
+```go
+rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
+	EventPattern: &EventPattern{
+		Detail: map[string]interface{}{
+			"bucket": map[string][]*string{
+				"name": events.Match_prefixEqualsIgnoreCase(jsii.String("raw-")),
+			},
+
+			"object": map[string][]*string{
+				"key": events.Match_wildcard(jsii.String("path/to/object/*.txt")),
+			},
+
+			"requester": events.Match_suffixEqualsIgnoreCase(jsii.String(".AMAZONAWS.COM")),
+		},
+		DetailType: events.Match_EqualsIgnoreCase(jsii.String("object created")),
+	},
+})
+```
+
+The "anything but" matchers allow you to specify multiple arguments. For example:
+
+```go
+rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
+	EventPattern: &EventPattern{
+		Region: events.Match_AnythingBut(jsii.String("us-east-1"), jsii.String("us-east-2"), jsii.String("us-west-1"), jsii.String("us-west-2")),
+
+		Detail: map[string]interface{}{
+			"bucket": map[string][]*string{
+				"name": events.Match_anythingButPrefix(jsii.String("foo"), jsii.String("bar"), jsii.String("baz")),
+			},
+
+			"object": map[string][]*string{
+				"key": events.Match_anythingButSuffix(jsii.String(".gif"), jsii.String(".png"), jsii.String(".jpg")),
+			},
+
+			"requester": events.Match_anythingButWildcard(jsii.String("*.amazonaws.com"), jsii.String("123456789012")),
+		},
+		DetailType: events.Match_AnythingButEqualsIgnoreCase(jsii.String("object created"), jsii.String("object deleted")),
 	},
 })
 ```

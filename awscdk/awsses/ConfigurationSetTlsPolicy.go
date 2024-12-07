@@ -11,7 +11,6 @@ package awsses
 //
 //   ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
 //   	CustomTrackingRedirectDomain: jsii.String("track.cdk.dev"),
-//   	SuppressionReasons: ses.SuppressionReasons_COMPLAINTS_ONLY,
 //   	TlsPolicy: ses.ConfigurationSetTlsPolicy_REQUIRE,
 //   	DedicatedIpPool: myPool,
 //   	// Specify maximum delivery time

@@ -89,6 +89,11 @@ package awscognito
 //   			RequireUppercase: jsii.Boolean(false),
 //   			TemporaryPasswordValidityDays: jsii.Number(123),
 //   		},
+//   		SignInPolicy: &SignInPolicyProperty{
+//   			AllowedFirstAuthFactors: []*string{
+//   				jsii.String("allowedFirstAuthFactors"),
+//   			},
+//   		},
 //   	},
 //   	Schema: []interface{}{
 //   		&SchemaAttributeProperty{
@@ -133,6 +138,7 @@ package awscognito
 //   	},
 //   	UserPoolName: jsii.String("userPoolName"),
 //   	UserPoolTags: userPoolTags,
+//   	UserPoolTier: jsii.String("userPoolTier"),
 //   	VerificationMessageTemplate: &VerificationMessageTemplateProperty{
 //   		DefaultEmailOption: jsii.String("defaultEmailOption"),
 //   		EmailMessage: jsii.String("emailMessage"),
@@ -141,6 +147,8 @@ package awscognito
 //   		EmailSubjectByLink: jsii.String("emailSubjectByLink"),
 //   		SmsMessage: jsii.String("smsMessage"),
 //   	},
+//   	WebAuthnRelyingPartyId: jsii.String("webAuthnRelyingPartyId"),
+//   	WebAuthnUserVerification: jsii.String("webAuthnUserVerification"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html
@@ -305,11 +313,20 @@ type CfnUserPoolProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooltags
 	//
 	UserPoolTags interface{} `field:"optional" json:"userPoolTags" yaml:"userPoolTags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooltier
+	//
+	UserPoolTier *string `field:"optional" json:"userPoolTier" yaml:"userPoolTier"`
 	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-verificationmessagetemplate
 	//
 	VerificationMessageTemplate interface{} `field:"optional" json:"verificationMessageTemplate" yaml:"verificationMessageTemplate"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-webauthnrelyingpartyid
+	//
+	WebAuthnRelyingPartyId *string `field:"optional" json:"webAuthnRelyingPartyId" yaml:"webAuthnRelyingPartyId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-webauthnuserverification
+	//
+	WebAuthnUserVerification *string `field:"optional" json:"webAuthnUserVerification" yaml:"webAuthnUserVerification"`
 }
 

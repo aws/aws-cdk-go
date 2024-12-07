@@ -96,10 +96,6 @@ func (j *jsiiProxy_CfnInferenceComponent) validateSetTagsParameters(val *[]*awsc
 	return nil
 }
 
-func (j *jsiiProxy_CfnInferenceComponent) validateSetVariantNameParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnInferenceComponentParameters(scope constructs.Construct, id *string, props *CfnInferenceComponentProps) error {
 	return nil
 }

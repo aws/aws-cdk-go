@@ -1,7 +1,11 @@
 package awscdk
 
 
-// Filters to allow hooks to target specific stack attributes.
+// The `StackFilters` property type specifies stack level filters for a Hook.
+//
+// The `StackNames` or `StackRoles` properties are optional. However, you must specify at least one of these properties.
+//
+// For more information, see [AWS CloudFormation Hooks stack level filters](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-stack-level-filtering.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,19 +37,20 @@ package awscdk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html
 //
 type CfnGuardHook_StackFiltersProperty struct {
-	// Attribute to specify the filtering behavior.
+	// The filtering criteria.
 	//
-	// ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+	// - All stack names and stack roles ( `All` ): The Hook will only be invoked when all specified filters match.
+	// - Any stack names and stack roles ( `Any` ): The Hook will be invoked if at least one of the specified filters match.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-filteringcriteria
 	//
 	// Default: - "ALL".
 	//
 	FilteringCriteria *string `field:"required" json:"filteringCriteria" yaml:"filteringCriteria"`
-	// List of stack names as filters.
+	// Includes or excludes specific stacks from Hook invocations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-stacknames
 	//
 	StackNames interface{} `field:"optional" json:"stackNames" yaml:"stackNames"`
-	// List of stack roles that are performing the stack operations.
+	// Includes or excludes specific stacks from Hook invocations based on their associated IAM roles.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-stackfilters.html#cfn-cloudformation-guardhook-stackfilters-stackroles
 	//
 	StackRoles interface{} `field:"optional" json:"stackRoles" yaml:"stackRoles"`

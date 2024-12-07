@@ -308,6 +308,63 @@ func init() {
 		reflect.TypeOf((*CfnLogDeliveryConfigurationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cognito.CfnManagedLoginBranding",
+		reflect.TypeOf((*CfnManagedLoginBranding)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "assets", GoGetter: "Assets"},
+			_jsii_.MemberProperty{JsiiProperty: "attrManagedLoginBrandingId", GoGetter: "AttrManagedLoginBrandingId"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "clientId", GoGetter: "ClientId"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "returnMergedResources", GoGetter: "ReturnMergedResources"},
+			_jsii_.MemberProperty{JsiiProperty: "settings", GoGetter: "Settings"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "useCognitoProvidedValues", GoGetter: "UseCognitoProvidedValues"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolId", GoGetter: "UserPoolId"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnManagedLoginBranding{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnManagedLoginBranding.AssetTypeProperty",
+		reflect.TypeOf((*CfnManagedLoginBranding_AssetTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnManagedLoginBrandingProps",
+		reflect.TypeOf((*CfnManagedLoginBrandingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		reflect.TypeOf((*CfnUserPool)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -370,8 +427,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "userPoolAddOns", GoGetter: "UserPoolAddOns"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolName", GoGetter: "UserPoolName"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolTagsRaw", GoGetter: "UserPoolTagsRaw"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolTier", GoGetter: "UserPoolTier"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "verificationMessageTemplate", GoGetter: "VerificationMessageTemplate"},
+			_jsii_.MemberProperty{JsiiProperty: "webAuthnRelyingPartyId", GoGetter: "WebAuthnRelyingPartyId"},
+			_jsii_.MemberProperty{JsiiProperty: "webAuthnUserVerification", GoGetter: "WebAuthnUserVerification"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnUserPool{}
@@ -440,6 +500,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPool.SchemaAttributeProperty",
 		reflect.TypeOf((*CfnUserPool_SchemaAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnUserPool.SignInPolicyProperty",
+		reflect.TypeOf((*CfnUserPool_SignInPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPool.SmsConfigurationProperty",
@@ -1401,6 +1465,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "baseUrl", GoMethod: "BaseUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudFrontDomainName", GoGetter: "CloudFrontDomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudFrontEndpoint", GoGetter: "CloudFrontEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},

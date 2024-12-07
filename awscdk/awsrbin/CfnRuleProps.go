@@ -52,11 +52,11 @@ type CfnRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-resourcetype
 	//
 	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
-	// The retention period of the rule.
+	// Information about the retention period for which the retention rule is to retain resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-retentionperiod
 	//
 	RetentionPeriod interface{} `field:"required" json:"retentionPeriod" yaml:"retentionPeriod"`
-	// The description of the retention rule.
+	// The retention rule description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -64,16 +64,17 @@ type CfnRuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-excluderesourcetags
 	//
 	ExcludeResourceTags interface{} `field:"optional" json:"excludeResourceTags" yaml:"excludeResourceTags"`
+	// Information about the retention rule lock configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-lockconfiguration
 	//
 	LockConfiguration interface{} `field:"optional" json:"lockConfiguration" yaml:"lockConfiguration"`
-	// Information about the resource tags used to identify resources that are retained by the retention rule.
+	// [Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-resourcetags
 	//
 	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 	// The state of the retention rule.
 	//
-	// Only retention rules that are in the available state retain resources.
+	// Only retention rules that are in the `available` state retain resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html#cfn-rbin-rule-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

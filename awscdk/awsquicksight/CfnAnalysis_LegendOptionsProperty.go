@@ -17,6 +17,7 @@ package awsquicksight
 //   			FontColor: jsii.String("fontColor"),
 //   			FontDecoration: jsii.String("fontDecoration"),
 //   			FontSize: &FontSizeProperty{
+//   				Absolute: jsii.String("absolute"),
 //   				Relative: jsii.String("relative"),
 //   			},
 //   			FontStyle: jsii.String("fontStyle"),
@@ -25,6 +26,18 @@ package awsquicksight
 //   			},
 //   		},
 //   		Visibility: jsii.String("visibility"),
+//   	},
+//   	ValueFontConfiguration: &FontConfigurationProperty{
+//   		FontColor: jsii.String("fontColor"),
+//   		FontDecoration: jsii.String("fontDecoration"),
+//   		FontSize: &FontSizeProperty{
+//   			Absolute: jsii.String("absolute"),
+//   			Relative: jsii.String("relative"),
+//   		},
+//   		FontStyle: jsii.String("fontStyle"),
+//   		FontWeight: &FontWeightProperty{
+//   			Name: jsii.String("name"),
+//   		},
 //   	},
 //   	Visibility: jsii.String("visibility"),
 //   	Width: jsii.String("width"),
@@ -52,6 +65,9 @@ type CfnAnalysis_LegendOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-valuefontconfiguration
+	//
+	ValueFontConfiguration interface{} `field:"optional" json:"valueFontConfiguration" yaml:"valueFontConfiguration"`
 	// Determines whether or not the legend is visible.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-legendoptions.html#cfn-quicksight-analysis-legendoptions-visibility
 	//

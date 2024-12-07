@@ -31,6 +31,30 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	HoursOfOperationOverrides: []interface{}{
+//   		&HoursOfOperationOverrideProperty{
+//   			EffectiveFrom: jsii.String("effectiveFrom"),
+//   			EffectiveTill: jsii.String("effectiveTill"),
+//   			OverrideConfig: []interface{}{
+//   				&HoursOfOperationOverrideConfigProperty{
+//   					Day: jsii.String("day"),
+//   					EndTime: &OverrideTimeSliceProperty{
+//   						Hours: jsii.Number(123),
+//   						Minutes: jsii.Number(123),
+//   					},
+//   					StartTime: &OverrideTimeSliceProperty{
+//   						Hours: jsii.Number(123),
+//   						Minutes: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			OverrideName: jsii.String("overrideName"),
+//
+//   			// the properties below are optional
+//   			HoursOfOperationOverrideId: jsii.String("hoursOfOperationOverrideId"),
+//   			OverrideDescription: jsii.String("overrideDescription"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -62,6 +86,10 @@ type CfnHoursOfOperationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// One or more hours of operation overrides assigned to an hour of operation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-hoursofoperationoverrides
+	//
+	HoursOfOperationOverrides interface{} `field:"optional" json:"hoursOfOperationOverrides" yaml:"hoursOfOperationOverrides"`
 	// The tags used to organize, track, or control access for this resource.
 	//
 	// For example, { "Tags": {"key1":"value1", "key2":"value2"} }.

@@ -277,6 +277,30 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetTagsRawParameters(val *[]*awscdk
 	return nil
 }
 
+func (j *jsiiProxy_CfnKnowledgeBase) validateSetVectorIngestionConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnKnowledgeBase_VectorIngestionConfigurationProperty:
+		val := val.(*CfnKnowledgeBase_VectorIngestionConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnKnowledgeBase_VectorIngestionConfigurationProperty:
+		val_ := val.(CfnKnowledgeBase_VectorIngestionConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnKnowledgeBase_VectorIngestionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnKnowledgeBaseParameters(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -220,6 +220,30 @@ func (j *jsiiProxy_CfnCluster) validateSetBootstrapSelfManagedAddonsParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetComputeConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_ComputeConfigProperty:
+		val := val.(*CfnCluster_ComputeConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_ComputeConfigProperty:
+		val_ := val.(CfnCluster_ComputeConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_ComputeConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetEncryptionConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -352,6 +376,30 @@ func (j *jsiiProxy_CfnCluster) validateSetOutpostConfigParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetRemoteNetworkConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_RemoteNetworkConfigProperty:
+		val := val.(*CfnCluster_RemoteNetworkConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_RemoteNetworkConfigProperty:
+		val_ := val.(CfnCluster_RemoteNetworkConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_RemoteNetworkConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetResourcesVpcConfigParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -382,6 +430,30 @@ func (j *jsiiProxy_CfnCluster) validateSetResourcesVpcConfigParameters(val inter
 func (j *jsiiProxy_CfnCluster) validateSetRoleArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnCluster) validateSetStorageConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_StorageConfigProperty:
+		val := val.(*CfnCluster_StorageConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_StorageConfigProperty:
+		val_ := val.(CfnCluster_StorageConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_StorageConfigProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

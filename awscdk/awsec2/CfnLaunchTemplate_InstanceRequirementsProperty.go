@@ -51,6 +51,15 @@ package awsec2
 //   		Max: jsii.Number(123),
 //   		Min: jsii.Number(123),
 //   	},
+//   	BaselinePerformanceFactors: &BaselinePerformanceFactorsProperty{
+//   		Cpu: &CpuProperty{
+//   			References: []interface{}{
+//   				&ReferenceProperty{
+//   					InstanceFamily: jsii.String("instanceFamily"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	BurstablePerformance: jsii.String("burstablePerformance"),
 //   	CpuManufacturers: []*string{
 //   		jsii.String("cpuManufacturers"),
@@ -184,6 +193,9 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-baselineebsbandwidthmbps
 	//
 	BaselineEbsBandwidthMbps interface{} `field:"optional" json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-baselineperformancefactors
+	//
+	BaselinePerformanceFactors interface{} `field:"optional" json:"baselinePerformanceFactors" yaml:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required.
 	//
 	// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .

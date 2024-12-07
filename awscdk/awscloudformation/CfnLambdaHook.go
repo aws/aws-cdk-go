@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// This is a CloudFormation resource for the first-party AWS::Hooks::LambdaHook.
+// The `AWS::CloudFormation::LambdaHook` resource creates a Lambda Hook with the specified attributes within your CloudFormation template.
+//
+// You can use a Lambda Hook to evaluate your resources before allowing stack creation, modification, or deletion. This resource forwards requests for resource evaluation to a Lambda function. For more information, see [Lambda Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/lambda-hooks.html) in the *AWS CloudFormation Hooks User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -66,10 +68,12 @@ import (
 type CfnLambdaHook interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The typename alias for the hook.
+	// The type name alias for the Hook.
+	//
+	// This alias must be unique per account and Region.
 	Alias() *string
 	SetAlias(val *string)
-	// The Amazon Resource Name (ARN) of the activated hook.
+	// Returns the ARN of a Lambda Hook.
 	AttrHookArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -80,16 +84,18 @@ type CfnLambdaHook interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// IAM Role ARN.
+	// The IAM role that the Hook assumes to invoke your Lambda function.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
-	// Attribute to specify CloudFormation behavior on hook failure.
+	// Specifies how the Hook responds when the Lambda function invoked by the Hook returns a `FAILED` response.
 	FailureMode() *string
 	SetFailureMode(val *string)
-	// Attribute to specify which stacks this hook applies to or should get invoked for.
+	// Specifies if the Hook is `ENABLED` or `DISABLED` .
 	HookStatus() *string
 	SetHookStatus(val *string)
-	// Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
+	// Specifies the Lambda function for the Hook.
+	//
+	// You can use:.
 	LambdaFunction() *string
 	SetLambdaFunction(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -113,12 +119,13 @@ type CfnLambdaHook interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Filters to allow hooks to target specific stack attributes.
+	// Specifies the stack level filters for the Hook.
 	StackFilters() interface{}
 	SetStackFilters(val interface{})
+	// Specifies the target filters for the Hook.
 	TargetFilters() interface{}
 	SetTargetFilters(val interface{})
-	// Which operations should this Hook run against?
+	// Specifies which type of operation the Hook is run against.
 	TargetOperations() *[]*string
 	SetTargetOperations(val *[]*string)
 	// Deprecated.

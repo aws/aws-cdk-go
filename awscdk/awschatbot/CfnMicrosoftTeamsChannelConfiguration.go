@@ -26,6 +26,9 @@ import (
 //   	TeamsTenantId: jsii.String("teamsTenantId"),
 //
 //   	// the properties below are optional
+//   	CustomizationResourceArns: []*string{
+//   		jsii.String("customizationResourceArns"),
+//   	},
 //   	GuardrailPolicies: []*string{
 //   		jsii.String("guardrailPolicies"),
 //   	},
@@ -64,6 +67,9 @@ type CfnMicrosoftTeamsChannelConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	CustomizationResourceArns() *[]*string
+	SetCustomizationResourceArns(val *[]*string)
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	GuardrailPolicies() *[]*string
 	SetGuardrailPolicies(val *[]*string)
@@ -331,6 +337,16 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) CreationStack() *[]*st
 	return returns
 }
 
+func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) CustomizationResourceArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"customizationResourceArns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) GuardrailPolicies() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -516,6 +532,14 @@ func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration)SetConfigurationName(va
 	_jsii_.Set(
 		j,
 		"configurationName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration)SetCustomizationResourceArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"customizationResourceArns",
 		val,
 	)
 }

@@ -628,6 +628,47 @@ targetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("TargetGroup"),
 })
 ```
 
+### IP Address Type for Target Groups
+
+You can set the IP address type for the target group by setting the `ipAddressType` property for both Application and Network target groups.
+
+If you set the `ipAddressType` property to `IPV6`, the VPC for the target group must have an associated IPv6 CIDR block.
+
+For more information, see IP address type for [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-ip-address-type) and [Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-ip-address-type).
+
+```go
+var vpc vpc
+
+
+ipv4ApplicationTargetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("IPv4ApplicationTargetGroup"), &ApplicationTargetGroupProps{
+	Vpc: Vpc,
+	Port: jsii.Number(80),
+	TargetType: elbv2.TargetType_INSTANCE,
+	IpAddressType: elbv2.TargetGroupIpAddressType_IPV4,
+})
+
+ipv6ApplicationTargetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("Ipv6ApplicationTargetGroup"), &ApplicationTargetGroupProps{
+	Vpc: Vpc,
+	Port: jsii.Number(80),
+	TargetType: elbv2.TargetType_INSTANCE,
+	IpAddressType: elbv2.TargetGroupIpAddressType_IPV6,
+})
+
+ipv4NetworkTargetGroup := elbv2.NewNetworkTargetGroup(this, jsii.String("IPv4NetworkTargetGroup"), &NetworkTargetGroupProps{
+	Vpc: Vpc,
+	Port: jsii.Number(80),
+	TargetType: elbv2.TargetType_INSTANCE,
+	IpAddressType: elbv2.TargetGroupIpAddressType_IPV4,
+})
+
+ipv6NetworkTargetGroup := elbv2.NewNetworkTargetGroup(this, jsii.String("Ipv6NetworkTargetGroup"), &NetworkTargetGroupProps{
+	Vpc: Vpc,
+	Port: jsii.Number(80),
+	TargetType: elbv2.TargetType_INSTANCE,
+	IpAddressType: elbv2.TargetGroupIpAddressType_IPV6,
+})
+```
+
 ## Using Lambda Targets
 
 To use a Lambda Function as a target, use the integration class in the

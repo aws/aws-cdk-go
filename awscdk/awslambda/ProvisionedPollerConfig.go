@@ -1,6 +1,8 @@
 package awslambda
 
 
+// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

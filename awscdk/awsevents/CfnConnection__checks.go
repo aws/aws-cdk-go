@@ -203,6 +203,30 @@ func (j *jsiiProxy_CfnConnection) validateSetAuthParametersParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnection) validateSetInvocationConnectivityParametersParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnConnection_InvocationConnectivityParametersProperty:
+		val := val.(*CfnConnection_InvocationConnectivityParametersProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnConnection_InvocationConnectivityParametersProperty:
+		val_ := val.(CfnConnection_InvocationConnectivityParametersProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnection_InvocationConnectivityParametersProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnConnectionParameters(scope constructs.Construct, id *string, props *CfnConnectionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

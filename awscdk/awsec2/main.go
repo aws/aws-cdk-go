@@ -2196,6 +2196,10 @@ func init() {
 		reflect.TypeOf((*CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.BaselinePerformanceFactorsProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_BaselinePerformanceFactorsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.BlockDeviceMappingProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_BlockDeviceMappingProperty)(nil)).Elem(),
 	)
@@ -2214,6 +2218,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.CpuOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_CpuOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.CpuProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_CpuProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.CreditSpecificationProperty",
@@ -2326,6 +2334,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.PrivateIpAddProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_PrivateIpAddProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.ReferenceProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_ReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnLaunchTemplate.SpotOptionsProperty",
@@ -5224,6 +5236,107 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.CfnVPCBlockPublicAccessExclusion",
+		reflect.TypeOf((*CfnVPCBlockPublicAccessExclusion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrExclusionId", GoGetter: "AttrExclusionId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "internetGatewayExclusionMode", GoGetter: "InternetGatewayExclusionMode"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnVPCBlockPublicAccessExclusion{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPCBlockPublicAccessExclusionProps",
+		reflect.TypeOf((*CfnVPCBlockPublicAccessExclusionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.CfnVPCBlockPublicAccessOptions",
+		reflect.TypeOf((*CfnVPCBlockPublicAccessOptions)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAccountId", GoGetter: "AttrAccountId"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "internetGatewayBlockMode", GoGetter: "InternetGatewayBlockMode"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnVPCBlockPublicAccessOptions{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPCBlockPublicAccessOptionsProps",
+		reflect.TypeOf((*CfnVPCBlockPublicAccessOptionsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.CfnVPCCidrBlock",

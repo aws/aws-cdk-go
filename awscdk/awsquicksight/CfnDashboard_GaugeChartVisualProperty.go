@@ -37,5 +37,8 @@ type CfnDashboard_GaugeChartVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartvisual.html#cfn-quicksight-dashboard-gaugechartvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartvisual.html#cfn-quicksight-dashboard-gaugechartvisual-visualcontentalttext
+	//
+	VisualContentAltText *string `field:"optional" json:"visualContentAltText" yaml:"visualContentAltText"`
 }
 

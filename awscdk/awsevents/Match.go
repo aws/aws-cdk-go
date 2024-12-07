@@ -22,7 +22,6 @@ import (
 //   			// 'OR' condition
 //   			"source-storage-class": events.Match_anyOf(events.Match_prefix(jsii.String("GLACIER")), events.Match_exactString(jsii.String("DEEP_ARCHIVE"))),
 //   		},
-//   		DetailType: events.Match_EqualsIgnoreCase(jsii.String("object created")),
 //
 //   		// If you prefer, you can use a low level array of strings, as directly consumed by EventBridge
 //   		Source: []*string{
@@ -134,19 +133,84 @@ func Match_AnythingBut(values ...interface{}) *[]*string {
 	return returns
 }
 
-// Matches any string that doesn't start with the given prefix.
-func Match_AnythingButPrefix(prefix *string) *[]*string {
+// Matches any string that doesn't match with the given value regardless of character casing.
+func Match_AnythingButEqualsIgnoreCase(values ...*string) *[]*string {
 	_init_.Initialize()
 
-	if err := validateMatch_AnythingButPrefixParameters(prefix); err != nil {
-		panic(err)
+	args := []interface{}{}
+	for _, a := range values {
+		args = append(args, a)
 	}
+
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Match",
+		"anythingButEqualsIgnoreCase",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+// Matches any string that doesn't start with the given prefix.
+func Match_AnythingButPrefix(values ...*string) *[]*string {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range values {
+		args = append(args, a)
+	}
+
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.Match",
 		"anythingButPrefix",
-		[]interface{}{prefix},
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+// Matches any string that doesn't end with the given suffix.
+func Match_AnythingButSuffix(values ...*string) *[]*string {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range values {
+		args = append(args, a)
+	}
+
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Match",
+		"anythingButSuffix",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+// Matches any string that doesn't match with the given wildcard pattern.
+func Match_AnythingButWildcard(values ...*string) *[]*string {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range values {
+		args = append(args, a)
+	}
+
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Match",
+		"anythingButWildcard",
+		args,
 		&returns,
 	)
 
@@ -414,6 +478,25 @@ func Match_Prefix(value *string) *[]*string {
 	return returns
 }
 
+// Matches strings with the given prefix in the JSON of the event regardless of the casing.
+func Match_PrefixEqualsIgnoreCase(value *string) *[]*string {
+	_init_.Initialize()
+
+	if err := validateMatch_PrefixEqualsIgnoreCaseParameters(value); err != nil {
+		panic(err)
+	}
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Match",
+		"prefixEqualsIgnoreCase",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
 // Matches strings with the given suffix in the JSON of the event.
 func Match_Suffix(value *string) *[]*string {
 	_init_.Initialize()
@@ -426,6 +509,44 @@ func Match_Suffix(value *string) *[]*string {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.Match",
 		"suffix",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Matches strings with the given suffix in the JSON of the event regardless of the casing.
+func Match_SuffixEqualsIgnoreCase(value *string) *[]*string {
+	_init_.Initialize()
+
+	if err := validateMatch_SuffixEqualsIgnoreCaseParameters(value); err != nil {
+		panic(err)
+	}
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Match",
+		"suffixEqualsIgnoreCase",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Matches strings with the given wildcard pattern in the JSON of the event.
+func Match_Wildcard(value *string) *[]*string {
+	_init_.Initialize()
+
+	if err := validateMatch_WildcardParameters(value); err != nil {
+		panic(err)
+	}
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.Match",
+		"wildcard",
 		[]interface{}{value},
 		&returns,
 	)

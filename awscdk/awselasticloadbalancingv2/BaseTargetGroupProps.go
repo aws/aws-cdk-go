@@ -31,6 +31,7 @@ import (
 //   		Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   		UnhealthyThresholdCount: jsii.Number(123),
 //   	},
+//   	IpAddressType: awscdk.*Aws_elasticloadbalancingv2.TargetGroupIpAddressType_IPV4,
 //   	TargetGroupName: jsii.String("targetGroupName"),
 //   	TargetType: awscdk.*Aws_elasticloadbalancingv2.TargetType_INSTANCE,
 //   	Vpc: vpc,
@@ -55,6 +56,10 @@ type BaseTargetGroupProps struct {
 	// Default: - The default value for each property in this configuration varies depending on the target.
 	//
 	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
+	// The type of IP addresses of the targets registered with the target group.
+	// Default: undefined - ELB defaults to IPv4.
+	//
+	IpAddressType TargetGroupIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of

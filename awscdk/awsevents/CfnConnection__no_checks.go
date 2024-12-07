@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnConnection) validateSetAuthParametersParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnection) validateSetInvocationConnectivityParametersParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnConnectionParameters(scope constructs.Construct, id *string, props *CfnConnectionProps) error {
 	return nil
 }

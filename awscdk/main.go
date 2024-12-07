@@ -72,11 +72,36 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.AspectApplication",
+		reflect.TypeOf((*AspectApplication)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aspect", GoGetter: "Aspect"},
+			_jsii_.MemberProperty{JsiiProperty: "construct", GoGetter: "Construct"},
+			_jsii_.MemberProperty{JsiiProperty: "priority", GoGetter: "Priority"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AspectApplication{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.AspectOptions",
+		reflect.TypeOf((*AspectOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.AspectPriority",
+		reflect.TypeOf((*AspectPriority)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_AspectPriority{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.Aspects",
 		reflect.TypeOf((*Aspects)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "add", GoMethod: "Add"},
 			_jsii_.MemberProperty{JsiiProperty: "all", GoGetter: "All"},
+			_jsii_.MemberProperty{JsiiProperty: "applied", GoGetter: "Applied"},
 		},
 		func() interface{} {
 			return &jsiiProxy_Aspects{}

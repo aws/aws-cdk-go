@@ -18,6 +18,9 @@ import (
 //   	SlackWorkspaceId: jsii.String("slackWorkspaceId"),
 //
 //   	// the properties below are optional
+//   	CustomizationResourceArns: []*string{
+//   		jsii.String("customizationResourceArns"),
+//   	},
 //   	GuardrailPolicies: []*string{
 //   		jsii.String("guardrailPolicies"),
 //   	},
@@ -59,6 +62,10 @@ type CfnSlackChannelConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
 	//
 	SlackWorkspaceId *string `field:"required" json:"slackWorkspaceId" yaml:"slackWorkspaceId"`
+	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-customizationresourcearns
+	//
+	CustomizationResourceArns *[]*string `field:"optional" json:"customizationResourceArns" yaml:"customizationResourceArns"`
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	//
 	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.

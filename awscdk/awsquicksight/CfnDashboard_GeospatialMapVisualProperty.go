@@ -37,5 +37,8 @@ type CfnDashboard_GeospatialMapVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapvisual.html#cfn-quicksight-dashboard-geospatialmapvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapvisual.html#cfn-quicksight-dashboard-geospatialmapvisual-visualcontentalttext
+	//
+	VisualContentAltText *string `field:"optional" json:"visualContentAltText" yaml:"visualContentAltText"`
 }
 

@@ -14,16 +14,18 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetFunction iFunction
+//   var dest apiDestination
 //
 //
-//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
-//   	InvocationType: targets.LambdaFunctionInvocationType_FIRE_AND_FORGET,
+//   apiTarget := targets.NewApiDestinationTarget(dest, &ApiDestinationTargetParameters{
+//   	InputTransformation: pipes.InputTransformation_FromObject(map[string]interface{}{
+//   		"body": jsii.String("👀"),
+//   	}),
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 //   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
-//   	Target: pipeTarget,
+//   	Target: apiTarget,
 //   })
 //
 // Experimental.

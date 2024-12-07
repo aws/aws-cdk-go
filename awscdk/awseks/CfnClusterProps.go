@@ -35,6 +35,13 @@ import (
 //   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
 //   	},
 //   	BootstrapSelfManagedAddons: jsii.Boolean(false),
+//   	ComputeConfig: &ComputeConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		NodePools: []*string{
+//   			jsii.String("nodePools"),
+//   		},
+//   		NodeRoleArn: jsii.String("nodeRoleArn"),
+//   	},
 //   	EncryptionConfig: []interface{}{
 //   		&EncryptionConfigProperty{
 //   			Provider: &ProviderProperty{
@@ -46,6 +53,9 @@ import (
 //   		},
 //   	},
 //   	KubernetesNetworkConfig: &KubernetesNetworkConfigProperty{
+//   		ElasticLoadBalancing: &ElasticLoadBalancingProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
 //   		IpFamily: jsii.String("ipFamily"),
 //   		ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   		ServiceIpv6Cidr: jsii.String("serviceIpv6Cidr"),
@@ -69,6 +79,29 @@ import (
 //   		// the properties below are optional
 //   		ControlPlanePlacement: &ControlPlanePlacementProperty{
 //   			GroupName: jsii.String("groupName"),
+//   		},
+//   	},
+//   	RemoteNetworkConfig: &RemoteNetworkConfigProperty{
+//   		RemoteNodeNetworks: []interface{}{
+//   			&RemoteNodeNetworkProperty{
+//   				Cidrs: []*string{
+//   					jsii.String("cidrs"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		RemotePodNetworks: []interface{}{
+//   			&RemotePodNetworkProperty{
+//   				Cidrs: []*string{
+//   					jsii.String("cidrs"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	StorageConfig: &StorageConfigProperty{
+//   		BlockStorage: &BlockStorageProperty{
+//   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
 //   	Tags: []cfnTag{
@@ -113,6 +146,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-bootstrapselfmanagedaddons
 	//
 	BootstrapSelfManagedAddons interface{} `field:"optional" json:"bootstrapSelfManagedAddons" yaml:"bootstrapSelfManagedAddons"`
+	// Todo: add description.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-computeconfig
+	//
+	ComputeConfig interface{} `field:"optional" json:"computeConfig" yaml:"computeConfig"`
 	// The encryption configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
 	//
@@ -137,6 +174,14 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-outpostconfig
 	//
 	OutpostConfig interface{} `field:"optional" json:"outpostConfig" yaml:"outpostConfig"`
+	// Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-remotenetworkconfig
+	//
+	RemoteNetworkConfig interface{} `field:"optional" json:"remoteNetworkConfig" yaml:"remoteNetworkConfig"`
+	// Todo: add description.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-storageconfig
+	//
+	StorageConfig interface{} `field:"optional" json:"storageConfig" yaml:"storageConfig"`
 	// The metadata that you apply to the cluster to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Cluster tags don't propagate to any other resources associated with the cluster.

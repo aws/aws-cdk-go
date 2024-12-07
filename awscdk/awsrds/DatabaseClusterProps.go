@@ -76,6 +76,12 @@ type DatabaseClusterProps struct {
 	// Default: - A name is automatically generated.
 	//
 	ClusterIdentifier *string `field:"optional" json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	// Specifies the scalability mode of the Aurora DB cluster.
+	//
+	// Set LIMITLESS if you want to use a limitless database; otherwise, set it to STANDARD.
+	// Default: ClusterScailabilityType.STANDARD
+	//
+	ClusterScailabilityType ClusterScailabilityType `field:"optional" json:"clusterScailabilityType" yaml:"clusterScailabilityType"`
 	// Whether to copy tags to the snapshot when a snapshot is created.
 	// Default: - true.
 	//

@@ -185,6 +185,94 @@ func FoundationModelIdentifier_AI21_LABS_JURASSIC_2_ULTRA_V1_0_8K() FoundationMo
 	return returns
 }
 
+func FoundationModelIdentifier_AMAZON_NOVA_CANVAS_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_CANVAS_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_NOVA_LITE_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_LITE_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_NOVA_LITE_V1_0_300_K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_LITE_V1_0_300_K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_NOVA_MICRO_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_MICRO_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_NOVA_MICRO_V1_0_128_K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_MICRO_V1_0_128_K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_NOVA_PRO_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_PRO_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_NOVA_PRO_V1_0_300_K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_PRO_V1_0_300_K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_NOVA_REEL_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_REEL_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AMAZON_TITAN_EMBED_G1_TEXT_02() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier

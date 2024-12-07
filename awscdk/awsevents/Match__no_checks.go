@@ -8,10 +8,6 @@ func (m *jsiiProxy_Match) validateResolveParameters(context awscdk.IResolveConte
 	return nil
 }
 
-func validateMatch_AnythingButPrefixParameters(prefix *string) error {
-	return nil
-}
-
 func validateMatch_CidrParameters(range_ *string) error {
 	return nil
 }
@@ -56,7 +52,19 @@ func validateMatch_PrefixParameters(value *string) error {
 	return nil
 }
 
+func validateMatch_PrefixEqualsIgnoreCaseParameters(value *string) error {
+	return nil
+}
+
 func validateMatch_SuffixParameters(value *string) error {
+	return nil
+}
+
+func validateMatch_SuffixEqualsIgnoreCaseParameters(value *string) error {
+	return nil
+}
+
+func validateMatch_WildcardParameters(value *string) error {
 	return nil
 }
 

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnPortal) validateSetPortalNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnPortal) validateSetPortalTypeConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPortal) validateSetRoleArnParameters(val *string) error {
 	return nil
 }

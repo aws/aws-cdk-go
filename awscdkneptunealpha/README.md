@@ -139,6 +139,17 @@ neptune.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
 })
 ```
 
+You can also specify `autoMinorVersionUpgrade` to a database instance.
+Even within the same cluster, you can modify the `autoMinorVersionUpgrade` setting on a per-instance basis.
+
+```go
+neptune.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+	Cluster: Cluster,
+	InstanceType: neptune.InstanceType_R5_LARGE(),
+	AutoMinorVersionUpgrade: jsii.Boolean(true),
+})
+```
+
 ## Port
 
 By default, Neptune uses port `8182`. You can override the default port by specifying the `port` property:

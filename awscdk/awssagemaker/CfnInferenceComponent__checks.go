@@ -188,9 +188,6 @@ func (j *jsiiProxy_CfnInferenceComponent) validateSetEndpointNameParameters(val 
 }
 
 func (j *jsiiProxy_CfnInferenceComponent) validateSetRuntimeConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -246,14 +243,6 @@ func (j *jsiiProxy_CfnInferenceComponent) validateSetTagsParameters(val *[]*awsc
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnInferenceComponent) validateSetVariantNameParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

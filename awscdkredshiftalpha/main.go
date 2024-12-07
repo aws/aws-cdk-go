@@ -301,6 +301,15 @@ func init() {
 			"RA3_16XLARGE": NodeType_RA3_16XLARGE,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-redshift-alpha.ResourceAction",
+		reflect.TypeOf((*ResourceAction)(nil)).Elem(),
+		map[string]interface{}{
+			"PAUSE_CLUSTER": ResourceAction_PAUSE_CLUSTER,
+			"RESUME_CLUSTER": ResourceAction_RESUME_CLUSTER,
+			"FAILOVER_PRIMARY_COMPUTE": ResourceAction_FAILOVER_PRIMARY_COMPUTE,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-redshift-alpha.RotationMultiUserOptions",
 		reflect.TypeOf((*RotationMultiUserOptions)(nil)).Elem(),

@@ -65,6 +65,7 @@ package awsquicksight
 //   							FontColor: jsii.String("fontColor"),
 //   							FontDecoration: jsii.String("fontDecoration"),
 //   							FontSize: &FontSizeProperty{
+//   								Absolute: jsii.String("absolute"),
 //   								Relative: jsii.String("relative"),
 //   							},
 //   							FontStyle: jsii.String("fontStyle"),
@@ -93,6 +94,7 @@ package awsquicksight
 //   							FontColor: jsii.String("fontColor"),
 //   							FontDecoration: jsii.String("fontDecoration"),
 //   							FontSize: &FontSizeProperty{
+//   								Absolute: jsii.String("absolute"),
 //   								Relative: jsii.String("relative"),
 //   							},
 //   							FontStyle: jsii.String("fontStyle"),
@@ -128,6 +130,7 @@ package awsquicksight
 //   							FontColor: jsii.String("fontColor"),
 //   							FontDecoration: jsii.String("fontDecoration"),
 //   							FontSize: &FontSizeProperty{
+//   								Absolute: jsii.String("absolute"),
 //   								Relative: jsii.String("relative"),
 //   							},
 //   							FontStyle: jsii.String("fontStyle"),
@@ -159,6 +162,7 @@ package awsquicksight
 //   							FontColor: jsii.String("fontColor"),
 //   							FontDecoration: jsii.String("fontDecoration"),
 //   							FontSize: &FontSizeProperty{
+//   								Absolute: jsii.String("absolute"),
 //   								Relative: jsii.String("relative"),
 //   							},
 //   							FontStyle: jsii.String("fontStyle"),
@@ -187,6 +191,7 @@ package awsquicksight
 //   							FontColor: jsii.String("fontColor"),
 //   							FontDecoration: jsii.String("fontDecoration"),
 //   							FontSize: &FontSizeProperty{
+//   								Absolute: jsii.String("absolute"),
 //   								Relative: jsii.String("relative"),
 //   							},
 //   							FontStyle: jsii.String("fontStyle"),
@@ -215,6 +220,7 @@ package awsquicksight
 //   							FontColor: jsii.String("fontColor"),
 //   							FontDecoration: jsii.String("fontDecoration"),
 //   							FontSize: &FontSizeProperty{
+//   								Absolute: jsii.String("absolute"),
 //   								Relative: jsii.String("relative"),
 //   							},
 //   							FontStyle: jsii.String("fontStyle"),
@@ -241,6 +247,7 @@ package awsquicksight
 //   							FontColor: jsii.String("fontColor"),
 //   							FontDecoration: jsii.String("fontDecoration"),
 //   							FontSize: &FontSizeProperty{
+//   								Absolute: jsii.String("absolute"),
 //   								Relative: jsii.String("relative"),
 //   							},
 //   							FontStyle: jsii.String("fontStyle"),

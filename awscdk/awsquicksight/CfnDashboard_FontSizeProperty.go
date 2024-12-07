@@ -9,12 +9,17 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   fontSizeProperty := &FontSizeProperty{
+//   	Absolute: jsii.String("absolute"),
 //   	Relative: jsii.String("relative"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fontsize.html
 //
 type CfnDashboard_FontSizeProperty struct {
+	// String based length that is composed of value and unit in px.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fontsize.html#cfn-quicksight-dashboard-fontsize-absolute
+	//
+	Absolute *string `field:"optional" json:"absolute" yaml:"absolute"`
 	// The lexical name for the text size, proportional to its surrounding context.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fontsize.html#cfn-quicksight-dashboard-fontsize-relative
 	//

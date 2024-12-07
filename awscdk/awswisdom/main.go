@@ -436,6 +436,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vectorIngestionConfiguration", GoGetter: "VectorIngestionConfiguration"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnKnowledgeBase{}
@@ -450,8 +451,52 @@ func init() {
 		reflect.TypeOf((*CfnKnowledgeBase_AppIntegrationsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.BedrockFoundationModelConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_BedrockFoundationModelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.ChunkingConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_ChunkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.CrawlerLimitsProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_CrawlerLimitsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.FixedSizeChunkingConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_FixedSizeChunkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.HierarchicalChunkingConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_HierarchicalChunkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.HierarchicalChunkingLevelConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_HierarchicalChunkingLevelConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.ManagedSourceConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_ManagedSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.ParsingConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_ParsingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.ParsingPromptProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_ParsingPromptProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.RenderingConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_RenderingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.SeedUrlProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_SeedUrlProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.SemanticChunkingConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_SemanticChunkingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.ServerSideEncryptionConfigurationProperty",
@@ -462,7 +507,181 @@ func init() {
 		reflect.TypeOf((*CfnKnowledgeBase_SourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.UrlConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_UrlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.VectorIngestionConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_VectorIngestionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBase.WebCrawlerConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_WebCrawlerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnKnowledgeBaseProps",
 		reflect.TypeOf((*CfnKnowledgeBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate",
+		reflect.TypeOf((*CfnMessageTemplate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMessageTemplateArn", GoGetter: "AttrMessageTemplateArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMessageTemplateContentSha256", GoGetter: "AttrMessageTemplateContentSha256"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMessageTemplateId", GoGetter: "AttrMessageTemplateId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "channelSubtype", GoGetter: "ChannelSubtype"},
+			_jsii_.MemberProperty{JsiiProperty: "content", GoGetter: "Content"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultAttributes", GoGetter: "DefaultAttributes"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "groupingConfiguration", GoGetter: "GroupingConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "knowledgeBaseArn", GoGetter: "KnowledgeBaseArn"},
+			_jsii_.MemberProperty{JsiiProperty: "language", GoGetter: "Language"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMessageTemplate{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.AgentAttributesProperty",
+		reflect.TypeOf((*CfnMessageTemplate_AgentAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.ContentProperty",
+		reflect.TypeOf((*CfnMessageTemplate_ContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.CustomerProfileAttributesProperty",
+		reflect.TypeOf((*CfnMessageTemplate_CustomerProfileAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.EmailMessageTemplateContentBodyProperty",
+		reflect.TypeOf((*CfnMessageTemplate_EmailMessageTemplateContentBodyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.EmailMessageTemplateContentProperty",
+		reflect.TypeOf((*CfnMessageTemplate_EmailMessageTemplateContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.EmailMessageTemplateHeaderProperty",
+		reflect.TypeOf((*CfnMessageTemplate_EmailMessageTemplateHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.GroupingConfigurationProperty",
+		reflect.TypeOf((*CfnMessageTemplate_GroupingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.MessageTemplateAttributesProperty",
+		reflect.TypeOf((*CfnMessageTemplate_MessageTemplateAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.MessageTemplateBodyContentProviderProperty",
+		reflect.TypeOf((*CfnMessageTemplate_MessageTemplateBodyContentProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.SmsMessageTemplateContentBodyProperty",
+		reflect.TypeOf((*CfnMessageTemplate_SmsMessageTemplateContentBodyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.SmsMessageTemplateContentProperty",
+		reflect.TypeOf((*CfnMessageTemplate_SmsMessageTemplateContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.SystemAttributesProperty",
+		reflect.TypeOf((*CfnMessageTemplate_SystemAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplate.SystemEndpointAttributesProperty",
+		reflect.TypeOf((*CfnMessageTemplate_SystemEndpointAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplateProps",
+		reflect.TypeOf((*CfnMessageTemplateProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplateVersion",
+		reflect.TypeOf((*CfnMessageTemplateVersion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMessageTemplateVersionArn", GoGetter: "AttrMessageTemplateVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMessageTemplateVersionNumber", GoGetter: "AttrMessageTemplateVersionNumber"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "messageTemplateArn", GoGetter: "MessageTemplateArn"},
+			_jsii_.MemberProperty{JsiiProperty: "messageTemplateContentSha256", GoGetter: "MessageTemplateContentSha256"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMessageTemplateVersion{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnMessageTemplateVersionProps",
+		reflect.TypeOf((*CfnMessageTemplateVersionProps)(nil)).Elem(),
 	)
 }

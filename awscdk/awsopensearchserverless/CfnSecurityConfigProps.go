@@ -10,6 +10,16 @@ package awsopensearchserverless
 //
 //   cfnSecurityConfigProps := &CfnSecurityConfigProps{
 //   	Description: jsii.String("description"),
+//   	IamIdentityCenterOptions: &IamIdentityCenterConfigOptionsProperty{
+//   		InstanceArn: jsii.String("instanceArn"),
+//
+//   		// the properties below are optional
+//   		ApplicationArn: jsii.String("applicationArn"),
+//   		ApplicationDescription: jsii.String("applicationDescription"),
+//   		ApplicationName: jsii.String("applicationName"),
+//   		GroupAttribute: jsii.String("groupAttribute"),
+//   		UserAttribute: jsii.String("userAttribute"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	SamlOptions: &SamlConfigOptionsProperty{
 //   		Metadata: jsii.String("metadata"),
@@ -29,6 +39,10 @@ type CfnSecurityConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-iamidentitycenteroptions
+	//
+	IamIdentityCenterOptions interface{} `field:"optional" json:"iamIdentityCenterOptions" yaml:"iamIdentityCenterOptions"`
 	// The name of the security configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-name
 	//

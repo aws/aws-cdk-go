@@ -101,6 +101,11 @@ import (
 //   			RequireUppercase: jsii.Boolean(false),
 //   			TemporaryPasswordValidityDays: jsii.Number(123),
 //   		},
+//   		SignInPolicy: &SignInPolicyProperty{
+//   			AllowedFirstAuthFactors: []*string{
+//   				jsii.String("allowedFirstAuthFactors"),
+//   			},
+//   		},
 //   	},
 //   	Schema: []interface{}{
 //   		&SchemaAttributeProperty{
@@ -145,6 +150,7 @@ import (
 //   	},
 //   	UserPoolName: jsii.String("userPoolName"),
 //   	UserPoolTags: userPoolTags,
+//   	UserPoolTier: jsii.String("userPoolTier"),
 //   	VerificationMessageTemplate: &VerificationMessageTemplateProperty{
 //   		DefaultEmailOption: jsii.String("defaultEmailOption"),
 //   		EmailMessage: jsii.String("emailMessage"),
@@ -153,6 +159,8 @@ import (
 //   		EmailSubjectByLink: jsii.String("emailSubjectByLink"),
 //   		SmsMessage: jsii.String("smsMessage"),
 //   	},
+//   	WebAuthnRelyingPartyId: jsii.String("webAuthnRelyingPartyId"),
+//   	WebAuthnUserVerification: jsii.String("webAuthnUserVerification"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html
@@ -291,9 +299,15 @@ type CfnUserPool interface {
 	// The tag keys and values to assign to the user pool.
 	UserPoolTagsRaw() interface{}
 	SetUserPoolTagsRaw(val interface{})
+	UserPoolTier() *string
+	SetUserPoolTier(val *string)
 	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 	VerificationMessageTemplate() interface{}
 	SetVerificationMessageTemplate(val interface{})
+	WebAuthnRelyingPartyId() *string
+	SetWebAuthnRelyingPartyId(val *string)
+	WebAuthnUserVerification() *string
+	SetWebAuthnUserVerification(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -828,11 +842,41 @@ func (j *jsiiProxy_CfnUserPool) UserPoolTagsRaw() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPool) UserPoolTier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"userPoolTier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPool) VerificationMessageTemplate() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"verificationMessageTemplate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPool) WebAuthnRelyingPartyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"webAuthnRelyingPartyId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPool) WebAuthnUserVerification() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"webAuthnUserVerification",
 		&returns,
 	)
 	return returns
@@ -1099,6 +1143,14 @@ func (j *jsiiProxy_CfnUserPool)SetUserPoolTagsRaw(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnUserPool)SetUserPoolTier(val *string) {
+	_jsii_.Set(
+		j,
+		"userPoolTier",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnUserPool)SetVerificationMessageTemplate(val interface{}) {
 	if err := j.validateSetVerificationMessageTemplateParameters(val); err != nil {
 		panic(err)
@@ -1106,6 +1158,22 @@ func (j *jsiiProxy_CfnUserPool)SetVerificationMessageTemplate(val interface{}) {
 	_jsii_.Set(
 		j,
 		"verificationMessageTemplate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPool)SetWebAuthnRelyingPartyId(val *string) {
+	_jsii_.Set(
+		j,
+		"webAuthnRelyingPartyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPool)SetWebAuthnUserVerification(val *string) {
+	_jsii_.Set(
+		j,
+		"webAuthnUserVerification",
 		val,
 	)
 }

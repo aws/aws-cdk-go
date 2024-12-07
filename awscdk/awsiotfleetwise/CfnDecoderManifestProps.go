@@ -16,6 +16,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DefaultForUnmappedSignals: jsii.String("defaultForUnmappedSignals"),
 //   	Description: jsii.String("description"),
 //   	NetworkInterfaces: []interface{}{
 //   		&NetworkInterfacesItemsProperty{
@@ -97,6 +98,9 @@ type CfnDecoderManifestProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-defaultforunmappedsignals
+	//
+	DefaultForUnmappedSignals *string `field:"optional" json:"defaultForUnmappedSignals" yaml:"defaultForUnmappedSignals"`
 	// (Optional) A brief description of the decoder manifest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-description
 	//

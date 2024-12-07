@@ -18,6 +18,7 @@ import (
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   	BrowserSettingsArn: jsii.String("browserSettingsArn"),
 //   	CustomerManagedKey: jsii.String("customerManagedKey"),
+//   	DataProtectionSettingsArn: jsii.String("dataProtectionSettingsArn"),
 //   	DisplayName: jsii.String("displayName"),
 //   	InstanceType: jsii.String("instanceType"),
 //   	IpAccessSettingsArn: jsii.String("ipAccessSettingsArn"),
@@ -67,6 +68,9 @@ type CfnPortalProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-customermanagedkey
 	//
 	CustomerManagedKey *string `field:"optional" json:"customerManagedKey" yaml:"customerManagedKey"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-dataprotectionsettingsarn
+	//
+	DataProtectionSettingsArn *string `field:"optional" json:"dataProtectionSettingsArn" yaml:"dataProtectionSettingsArn"`
 	// The name of the web portal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-displayname
 	//

@@ -34,6 +34,8 @@ import (
 //   	},
 //   	ServerCertificateConfig: &ServerCertificateConfigProperty{
 //   		EnableOcspCheck: jsii.Boolean(false),
+//   		OcspAuthorizedResponderArn: jsii.String("ocspAuthorizedResponderArn"),
+//   		OcspLambdaArn: jsii.String("ocspLambdaArn"),
 //   	},
 //   	ServiceType: jsii.String("serviceType"),
 //   	Tags: []cfnTag{

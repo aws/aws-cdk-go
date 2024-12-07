@@ -195,6 +195,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAuthParametersConnectivityParametersResourceParametersResourceAssociationArn", GoGetter: "AttrAuthParametersConnectivityParametersResourceParametersResourceAssociationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrInvocationConnectivityParametersResourceParametersResourceAssociationArn", GoGetter: "AttrInvocationConnectivityParametersResourceParametersResourceAssociationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSecretArn", GoGetter: "AttrSecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizationType", GoGetter: "AuthorizationType"},
 			_jsii_.MemberProperty{JsiiProperty: "authParameters", GoGetter: "AuthParameters"},
@@ -206,6 +208,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "invocationConnectivityParameters", GoGetter: "InvocationConnectivityParameters"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -251,12 +254,24 @@ func init() {
 		reflect.TypeOf((*CfnConnection_ConnectionHttpParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.CfnConnection.ConnectivityParametersProperty",
+		reflect.TypeOf((*CfnConnection_ConnectivityParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.CfnConnection.InvocationConnectivityParametersProperty",
+		reflect.TypeOf((*CfnConnection_InvocationConnectivityParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.CfnConnection.OAuthParametersProperty",
 		reflect.TypeOf((*CfnConnection_OAuthParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.CfnConnection.ParameterProperty",
 		reflect.TypeOf((*CfnConnection_ParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events.CfnConnection.ResourceParametersProperty",
+		reflect.TypeOf((*CfnConnection_ResourceParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_events.CfnConnectionProps",

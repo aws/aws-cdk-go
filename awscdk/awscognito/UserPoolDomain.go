@@ -36,7 +36,12 @@ type UserPoolDomain interface {
 	awscdk.Resource
 	IUserPoolDomain
 	// The domain name of the CloudFront distribution associated with the user pool domain.
+	//
+	// This method creates a custom resource internally to get the CloudFront domain name.
+	// Deprecated: use `cloudFrontEndpoint` method instead.
 	CloudFrontDomainName() *string
+	// The domain name of the CloudFront distribution associated with the user pool domain.
+	CloudFrontEndpoint() *string
 	// The domain that was specified to be created.
 	//
 	// If `customDomain` was selected, this holds the full domain name that was specified.
@@ -106,6 +111,16 @@ func (j *jsiiProxy_UserPoolDomain) CloudFrontDomainName() *string {
 	_jsii_.Get(
 		j,
 		"cloudFrontDomainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolDomain) CloudFrontEndpoint() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cloudFrontEndpoint",
 		&returns,
 	)
 	return returns

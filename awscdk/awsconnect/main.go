@@ -417,6 +417,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "hoursOfOperationOverrides", GoGetter: "HoursOfOperationOverrides"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceArn", GoGetter: "InstanceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -452,8 +453,20 @@ func init() {
 		reflect.TypeOf((*CfnHoursOfOperation_HoursOfOperationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnHoursOfOperation.HoursOfOperationOverrideConfigProperty",
+		reflect.TypeOf((*CfnHoursOfOperation_HoursOfOperationOverrideConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnHoursOfOperation.HoursOfOperationOverrideProperty",
+		reflect.TypeOf((*CfnHoursOfOperation_HoursOfOperationOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnHoursOfOperation.HoursOfOperationTimeSliceProperty",
 		reflect.TypeOf((*CfnHoursOfOperation_HoursOfOperationTimeSliceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnHoursOfOperation.OverrideTimeSliceProperty",
+		reflect.TypeOf((*CfnHoursOfOperation_OverrideTimeSliceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnHoursOfOperationProps",

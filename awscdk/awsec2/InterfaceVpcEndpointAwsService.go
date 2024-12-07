@@ -311,6 +311,28 @@ func InterfaceVpcEndpointAwsService_APPLICATION_AUTOSCALING() InterfaceVpcEndpoi
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_APPLICATION_DISCOVERY_ARSENAL() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"APPLICATION_DISCOVERY_ARSENAL",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_APPLICATION_DISCOVERY_SERVICE() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"APPLICATION_DISCOVERY_SERVICE",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_APPLICATION_MIGRATION_SERVICE() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -790,6 +812,17 @@ func InterfaceVpcEndpointAwsService_CLOUDWATCH_SYNTHETICS() InterfaceVpcEndpoint
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"CLOUDWATCH_SYNTHETICS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_CLOUDWATCH_SYNTHETICS_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"CLOUDWATCH_SYNTHETICS_FIPS",
 		&returns,
 	)
 	return returns
@@ -2489,6 +2522,28 @@ func InterfaceVpcEndpointAwsService_NEPTUNE_ANALYTICS() InterfaceVpcEndpointAwsS
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_NEPTUNE_ANALYTICS_DATA() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"NEPTUNE_ANALYTICS_DATA",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_NEPTUNE_ANALYTICS_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"NEPTUNE_ANALYTICS_FIPS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_NETWORK_FIREWALL() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -2781,6 +2836,17 @@ func InterfaceVpcEndpointAwsService_PRICE_LIST() InterfaceVpcEndpointAwsService 
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"PRICE_LIST",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_PRICING_CALCULATOR() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"PRICING_CALCULATOR",
 		&returns,
 	)
 	return returns
@@ -3122,6 +3188,28 @@ func InterfaceVpcEndpointAwsService_RESOURCE_ACCESS_MANAGER() InterfaceVpcEndpoi
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"RESOURCE_ACCESS_MANAGER",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_RESOURCE_GROUPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"RESOURCE_GROUPS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_RESOURCE_GROUPS_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"RESOURCE_GROUPS_FIPS",
 		&returns,
 	)
 	return returns
@@ -3551,6 +3639,17 @@ func InterfaceVpcEndpointAwsService_SWF_FIPS() InterfaceVpcEndpointAwsService {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"SWF_FIPS",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_TAGGING() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"TAGGING",
 		&returns,
 	)
 	return returns

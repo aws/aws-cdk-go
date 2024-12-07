@@ -73,6 +73,23 @@ import (
 //   		},
 //   	},
 //   	BucketName: jsii.String("bucketName"),
+//   	LifecycleConfiguration: &LifecycleConfigurationProperty{
+//   		Rules: []interface{}{
+//   			&RuleProperty{
+//   				Status: jsii.String("status"),
+//
+//   				// the properties below are optional
+//   				AbortIncompleteMultipartUpload: &AbortIncompleteMultipartUploadProperty{
+//   					DaysAfterInitiation: jsii.Number(123),
+//   				},
+//   				ExpirationInDays: jsii.Number(123),
+//   				Id: jsii.String("id"),
+//   				ObjectSizeGreaterThan: jsii.String("objectSizeGreaterThan"),
+//   				ObjectSizeLessThan: jsii.String("objectSizeLessThan"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html
@@ -108,6 +125,11 @@ type CfnDirectoryBucket interface {
 	// The number of Availability Zone that's used for redundancy for the bucket.
 	DataRedundancy() *string
 	SetDataRedundancy(val *string)
+	// Container for lifecycle rules.
+	//
+	// You can add as many as 1000 rules.
+	LifecycleConfiguration() interface{}
+	SetLifecycleConfiguration(val interface{})
 	// The name of the location where the bucket will be created.
 	LocationName() *string
 	SetLocationName(val *string)
@@ -368,6 +390,16 @@ func (j *jsiiProxy_CfnDirectoryBucket) DataRedundancy() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDirectoryBucket) LifecycleConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"lifecycleConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDirectoryBucket) LocationName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -492,6 +524,17 @@ func (j *jsiiProxy_CfnDirectoryBucket)SetDataRedundancy(val *string) {
 	_jsii_.Set(
 		j,
 		"dataRedundancy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDirectoryBucket)SetLifecycleConfiguration(val interface{}) {
+	if err := j.validateSetLifecycleConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"lifecycleConfiguration",
 		val,
 	)
 }

@@ -26,6 +26,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DefaultForUnmappedSignals: jsii.String("defaultForUnmappedSignals"),
 //   	Description: jsii.String("description"),
 //   	NetworkInterfaces: []interface{}{
 //   		&NetworkInterfacesItemsProperty{
@@ -117,6 +118,8 @@ type CfnDecoderManifest interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	DefaultForUnmappedSignals() *string
+	SetDefaultForUnmappedSignals(val *string)
 	// (Optional) A brief description of the decoder manifest.
 	Description() *string
 	SetDescription(val *string)
@@ -378,6 +381,16 @@ func (j *jsiiProxy_CfnDecoderManifest) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDecoderManifest) DefaultForUnmappedSignals() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"defaultForUnmappedSignals",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDecoderManifest) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -543,6 +556,14 @@ func NewCfnDecoderManifest_Override(c CfnDecoderManifest, scope constructs.Const
 		"aws-cdk-lib.aws_iotfleetwise.CfnDecoderManifest",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDecoderManifest)SetDefaultForUnmappedSignals(val *string) {
+	_jsii_.Set(
+		j,
+		"defaultForUnmappedSignals",
+		val,
 	)
 }
 

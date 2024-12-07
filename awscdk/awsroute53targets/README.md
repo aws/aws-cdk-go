@@ -30,6 +30,20 @@ This library contains Route53 Alias Record targets for:
   	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.RegionalDomainName, domainName.RegionalHostedZoneId)),
   })
   ```
+* AppSync custom domains
+
+  ```go
+  import appsync "github.com/aws/aws-cdk-go/awscdk"
+
+  var zone hostedZone
+  var graphqlApi graphqlApi
+
+
+  route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
+  	Zone: Zone,
+  	Target: route53.RecordTarget_FromAlias(targets.NewAppSyncTarget(graphqlApi)),
+  })
+  ```
 * CloudFront distributions
 
   ```go

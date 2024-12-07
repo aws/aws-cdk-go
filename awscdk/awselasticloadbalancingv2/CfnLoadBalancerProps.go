@@ -21,6 +21,9 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	MinimumLoadBalancerCapacity: &MinimumLoadBalancerCapacityProperty{
+//   		CapacityUnits: jsii.Number(123),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Scheme: jsii.String("scheme"),
 //   	SecurityGroups: []*string{
@@ -76,6 +79,9 @@ type CfnLoadBalancerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes
 	//
 	LoadBalancerAttributes interface{} `field:"optional" json:"loadBalancerAttributes" yaml:"loadBalancerAttributes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity
+	//
+	MinimumLoadBalancerCapacity interface{} `field:"optional" json:"minimumLoadBalancerCapacity" yaml:"minimumLoadBalancerCapacity"`
 	// The name of the load balancer.
 	//
 	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".

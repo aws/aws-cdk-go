@@ -9,6 +9,9 @@ package awseks
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   kubernetesNetworkConfigProperty := &KubernetesNetworkConfigProperty{
+//   	ElasticLoadBalancing: &ElasticLoadBalancingProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	IpFamily: jsii.String("ipFamily"),
 //   	ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   	ServiceIpv6Cidr: jsii.String("serviceIpv6Cidr"),
@@ -17,6 +20,10 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html
 //
 type CfnCluster_KubernetesNetworkConfigProperty struct {
+	// Todo: add description.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-elasticloadbalancing
+	//
+	ElasticLoadBalancing interface{} `field:"optional" json:"elasticLoadBalancing" yaml:"elasticLoadBalancing"`
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	//
 	// If you don't specify a value, `ipv4` is used by default. You can only specify an IP family when you create a cluster and can't change this value once the cluster is created. If you specify `ipv6` , the VPC and subnets that you specify for cluster creation must have both `IPv4` and `IPv6` CIDR blocks assigned to them. You can't specify `ipv6` for clusters in China Regions.

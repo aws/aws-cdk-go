@@ -135,6 +135,12 @@ type InstanceProps struct {
 	// Default: - CDK generated name.
 	//
 	InstanceName *string `field:"optional" json:"instanceName" yaml:"instanceName"`
+	// The instance profile used to pass role information to EC2 instances.
+	//
+	// Note: You can provide an instanceProfile or a role, but not both.
+	// Default: - No instance profile.
+	//
+	InstanceProfile awsiam.IInstanceProfile `field:"optional" json:"instanceProfile" yaml:"instanceProfile"`
 	// The number of IPv6 addresses to associate with the primary network interface.
 	//
 	// Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -179,6 +185,7 @@ type InstanceProps struct {
 	// An IAM role to associate with the instance profile assigned to this Auto Scaling Group.
 	//
 	// The role must be assumable by the service principal `ec2.amazonaws.com`:
+	// Note: You can provide an instanceProfile or a role, but not both.
 	//
 	// Example:
 	//   role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{

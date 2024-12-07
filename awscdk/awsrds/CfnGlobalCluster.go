@@ -73,6 +73,7 @@ type CfnGlobalCluster interface {
 	// The cluster identifier for this global database cluster.
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
+	// The writer endpoint for the new global database cluster.
 	GlobalEndpoint() interface{}
 	SetGlobalEndpoint(val interface{})
 	// The logical ID for this CloudFormation stack element.

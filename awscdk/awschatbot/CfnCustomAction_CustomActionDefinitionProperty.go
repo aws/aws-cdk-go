@@ -1,0 +1,20 @@
+package awschatbot
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   customActionDefinitionProperty := &CustomActionDefinitionProperty{
+//   	CommandText: jsii.String("commandText"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactiondefinition.html
+//
+type CfnCustomAction_CustomActionDefinitionProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactiondefinition.html#cfn-chatbot-customaction-customactiondefinition-commandtext
+	//
+	CommandText *string `field:"required" json:"commandText" yaml:"commandText"`
+}
+

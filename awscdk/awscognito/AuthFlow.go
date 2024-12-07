@@ -23,6 +23,10 @@ type AuthFlow struct {
 	// Default: false.
 	//
 	Custom *bool `field:"optional" json:"custom" yaml:"custom"`
+	// Enable Choice-based authentication.
+	// Default: false.
+	//
+	User *bool `field:"optional" json:"user" yaml:"user"`
 	// Enable auth using username & password.
 	// Default: false.
 	//

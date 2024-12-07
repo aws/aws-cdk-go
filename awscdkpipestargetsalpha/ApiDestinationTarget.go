@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdkpipestargetsalpha/v2/internal"
 )
 
-// A EventBridge Pipes target that sends messages to an EventBridge API destination.
+// An EventBridge Pipes target that sends messages to an EventBridge API destination.
 //
 // Example:
 //   var sourceQueue queue

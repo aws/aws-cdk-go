@@ -87,6 +87,9 @@ type CfnDashboard_VisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-kpivisual
 	//
 	KpiVisual interface{} `field:"optional" json:"kpiVisual" yaml:"kpiVisual"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-layermapvisual
+	//
+	LayerMapVisual interface{} `field:"optional" json:"layerMapVisual" yaml:"layerMapVisual"`
 	// A line chart.
 	//
 	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon QuickSight User Guide* .
@@ -105,6 +108,9 @@ type CfnDashboard_VisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-pivottablevisual
 	//
 	PivotTableVisual interface{} `field:"optional" json:"pivotTableVisual" yaml:"pivotTableVisual"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-pluginvisual
+	//
+	PluginVisual interface{} `field:"optional" json:"pluginVisual" yaml:"pluginVisual"`
 	// A radar chart visual.
 	//
 	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .

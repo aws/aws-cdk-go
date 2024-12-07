@@ -6,13 +6,12 @@ package awspipes
 // For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
 //
 // Example:
-//   var sourceQueue queue
+//   var sourceStream stream
 //   var targetQueue queue
 //
 //
-//   pipeSource := sources.NewSqsSource(sourceQueue, &SqsSourceParameters{
-//   	BatchSize: jsii.Number(10),
-//   	MaximumBatchingWindow: cdk.Duration_Seconds(jsii.Number(10)),
+//   pipeSource := sources.NewKinesisSource(sourceStream, &KinesisSourceParameters{
+//   	StartingPosition: sources.KinesisStartingPosition_LATEST,
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{

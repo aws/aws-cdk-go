@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
+// The `AWS::CloudFormation::GuardHook` resource creates a Guard Hook with the specified attributes within your CloudFormation template.
+//
+// Using the Guard domain specific language (DSL), you can author Hooks to evaluate your resources before allowing stack creation, modification, or deletion. For more information, see [Guard Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/guard-hooks.html) in the *AWS CloudFormation Hooks User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -80,10 +82,12 @@ import (
 type CfnGuardHook interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The typename alias for the hook.
+	// The type name alias for the Hook.
+	//
+	// This alias must be unique per account and Region.
 	Alias() *string
 	SetAlias(val *string)
-	// The Amazon Resource Name (ARN) of the activated hook.
+	// Returns the ARN of a Guard Hook.
 	AttrHookArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -94,16 +98,16 @@ type CfnGuardHook interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// IAM Role ARN.
+	// The IAM role that the Hook assumes to retrieve your Guard rules from S3 and optionally write a detailed Guard output report back.
 	ExecutionRole() *string
 	SetExecutionRole(val *string)
-	// Attribute to specify CloudFormation behavior on hook failure.
+	// Specifies how the Hook responds when rules fail their evaluation.
 	FailureMode() *string
 	SetFailureMode(val *string)
-	// Attribute to specify which stacks this hook applies to or should get invoked for.
+	// Specifies if the Hook is `ENABLED` or `DISABLED` .
 	HookStatus() *string
 	SetHookStatus(val *string)
-	// S3 Bucket where the guard validate report will be uploaded to.
+	// Specifies the name of an S3 bucket to store the Guard output report.
 	LogBucket() *string
 	SetLogBucket(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -118,6 +122,7 @@ type CfnGuardHook interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Specifies the S3 location of your input parameters.
 	Options() interface{}
 	SetOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -125,19 +130,20 @@ type CfnGuardHook interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// S3 Source Location for the Guard files.
+	// Specifies the S3 location of your Guard rules.
 	RuleLocation() interface{}
 	SetRuleLocation(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Filters to allow hooks to target specific stack attributes.
+	// Specifies the stack level filters for the Hook.
 	StackFilters() interface{}
 	SetStackFilters(val interface{})
+	// Specifies the target filters for the Hook.
 	TargetFilters() interface{}
 	SetTargetFilters(val interface{})
-	// Which operations should this Hook run against?
+	// Specifies which type of operation the Hook is run against.
 	TargetOperations() *[]*string
 	SetTargetOperations(val *[]*string)
 	// Deprecated.

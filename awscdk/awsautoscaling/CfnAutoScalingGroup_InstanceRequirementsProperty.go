@@ -136,6 +136,7 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baselineebsbandwidthmbps
 	//
 	BaselineEbsBandwidthMbps interface{} `field:"optional" json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
+	// The baseline performance factors for the instance requirements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html#cfn-autoscaling-autoscalinggroup-instancerequirements-baselineperformancefactors
 	//
 	BaselinePerformanceFactors interface{} `field:"optional" json:"baselinePerformanceFactors" yaml:"baselinePerformanceFactors"`

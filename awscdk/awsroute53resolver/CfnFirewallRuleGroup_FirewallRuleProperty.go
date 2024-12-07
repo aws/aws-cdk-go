@@ -73,11 +73,20 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockresponse
 	//
 	BlockResponse *string `field:"optional" json:"blockResponse" yaml:"blockResponse"`
-	// FirewallDomainRedirectionAction.
+	// The confidence threshold for DNS Firewall Advanced.
+	//
+	// You must provide this value when you create a DNS Firewall Advanced rule. The confidence level values mean:
+	//
+	// - `LOW` : Provides the highest detection rate for threats, but also increases false positives.
+	// - `MEDIUM` : Provides a balance between detecting threats and false positives.
+	// - `HIGH` : Detects only the most well corroborated threats with a low rate of false positives.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-confidencethreshold
 	//
 	ConfidenceThreshold *string `field:"optional" json:"confidenceThreshold" yaml:"confidenceThreshold"`
-	// FirewallDomainRedirectionAction.
+	// The type of the DNS Firewall Advanced rule. Valid values are:.
+	//
+	// - `DGA` : Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains to to launch malware attacks.
+	// - `DNS_TUNNELING` : DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without making a network connection to the client.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-dnsthreatprotection
 	//
 	DnsThreatProtection *string `field:"optional" json:"dnsThreatProtection" yaml:"dnsThreatProtection"`
@@ -93,7 +102,7 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainredirectionaction
 	//
 	FirewallDomainRedirectionAction *string `field:"optional" json:"firewallDomainRedirectionAction" yaml:"firewallDomainRedirectionAction"`
-	// ResourceId.
+	// ID of the DNS Firewall Advanced rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewallthreatprotectionid
 	//
 	FirewallThreatProtectionId *string `field:"optional" json:"firewallThreatProtectionId" yaml:"firewallThreatProtectionId"`

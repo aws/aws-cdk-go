@@ -75,6 +75,8 @@ type Distribution interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	// Attach WAF WebACL to this CloudFront distribution.
+	//
+	// WebACL must be in the us-east-1 region.
 	AttachWebAclId(webAclId *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).

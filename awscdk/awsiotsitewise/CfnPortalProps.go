@@ -23,6 +23,14 @@ import (
 //   	NotificationSenderEmail: jsii.String("notificationSenderEmail"),
 //   	PortalAuthMode: jsii.String("portalAuthMode"),
 //   	PortalDescription: jsii.String("portalDescription"),
+//   	PortalType: jsii.String("portalType"),
+//   	PortalTypeConfiguration: map[string]interface{}{
+//   		"portalTypeConfigurationKey": &PortalTypeEntryProperty{
+//   			"portalTools": []*string{
+//   				jsii.String("portalTools"),
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -73,6 +81,14 @@ type CfnPortalProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
 	//
 	PortalDescription *string `field:"optional" json:"portalDescription" yaml:"portalDescription"`
+	// The type of portal.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaltype
+	//
+	PortalType *string `field:"optional" json:"portalType" yaml:"portalType"`
+	// Map to associate detail of configuration related with a PortalType.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaltypeconfiguration
+	//
+	PortalTypeConfiguration interface{} `field:"optional" json:"portalTypeConfiguration" yaml:"portalTypeConfiguration"`
 	// A list of key-value pairs that contain metadata for the portal.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .

@@ -25,8 +25,8 @@ import (
 //   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue),
+//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+//   	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
 //   	Filter: sourceFilter,
 //   })
 //

@@ -147,7 +147,6 @@ var myPool iDedicatedIpPool
 
 ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
 	CustomTrackingRedirectDomain: jsii.String("track.cdk.dev"),
-	SuppressionReasons: ses.SuppressionReasons_COMPLAINTS_ONLY,
 	TlsPolicy: ses.ConfigurationSetTlsPolicy_REQUIRE,
 	DedicatedIpPool: myPool,
 	// Specify maximum delivery time
@@ -166,6 +165,45 @@ var myTopic topic
 
 myConfigurationSet.AddEventDestination(jsii.String("ToSns"), &ConfigurationSetEventDestinationOptions{
 	Destination: ses.EventDestination_SnsTopic(myTopic),
+})
+```
+
+### Override account-level suppression list settings
+
+You can customize account-level suppression list separately for different configuration sets by overriding it
+with configuration set-level suppression.
+
+For details, see [Using configuration set-level suppression to override your account-level suppression list](https://docs.aws.amazon.com/ses/latest/dg/sending-email-suppression-list-config-level.html).
+
+By default, the configuration set uses your account-level suppression list settings.
+
+You can disable account-level suppression list by specifying `disableSuppressionList` to true. Email sent with this configuration set will not use any suppression settings at all.
+
+```go
+ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
+	DisableSuppressionList: jsii.Boolean(true),
+})
+```
+
+You can also override account level settings with configuration set-level suppression enabled. Email sent with this configuration set will only use the suppression conditions you enabled for it (bounces, complaints, or bounces and complaints) - regardless of what your account-level suppression list settings are, it will override them.
+
+```go
+// Only bounces will be suppressed.
+// Only bounces will be suppressed.
+ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
+	SuppressionReasons: ses.SuppressionReasons_BOUNCES_ONLY,
+})
+
+// Only complaints will be suppressed.
+// Only complaints will be suppressed.
+ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
+	SuppressionReasons: ses.SuppressionReasons_COMPLAINTS_ONLY,
+})
+
+// Both bounces and complaints will be suppressed.
+// Both bounces and complaints will be suppressed.
+ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
+	SuppressionReasons: ses.SuppressionReasons_BOUNCES_AND_COMPLAINTS,
 })
 ```
 

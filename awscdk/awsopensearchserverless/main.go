@@ -176,6 +176,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIamIdentityCenterOptionsApplicationArn", GoGetter: "AttrIamIdentityCenterOptionsApplicationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIamIdentityCenterOptionsApplicationDescription", GoGetter: "AttrIamIdentityCenterOptionsApplicationDescription"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIamIdentityCenterOptionsApplicationName", GoGetter: "AttrIamIdentityCenterOptionsApplicationName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -184,6 +187,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "iamIdentityCenterOptions", GoGetter: "IamIdentityCenterOptions"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -210,6 +214,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchserverless.CfnSecurityConfig.IamIdentityCenterConfigOptionsProperty",
+		reflect.TypeOf((*CfnSecurityConfig_IamIdentityCenterConfigOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchserverless.CfnSecurityConfig.SamlConfigOptionsProperty",

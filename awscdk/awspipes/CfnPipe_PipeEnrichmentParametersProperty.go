@@ -6,21 +6,15 @@ package awspipes
 // Example:
 //   var sourceQueue queue
 //   var targetQueue queue
-//   var loggroup logGroup
 //
+//
+//   targetInputTransformation := pipes.inputTransformation_FromEventPath(jsii.String("$.body.payload"))
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue),
-//
-//   	LogLevel: pipes.LogLevel_TRACE,
-//   	LogIncludeExecutionData: []aLL{
-//   		pipes.IncludeExecutionData_*aLL,
-//   	},
-//
-//   	LogDestinations: []iLogDestination{
-//   		NewCloudwatchDestination(loggroup),
-//   	},
+//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+//   	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue, &SqsTargetParameters{
+//   		InputTransformation: targetInputTransformation,
+//   	}),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html

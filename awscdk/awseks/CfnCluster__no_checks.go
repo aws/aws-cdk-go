@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCluster) validateSetBootstrapSelfManagedAddonsParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetComputeConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetEncryptionConfigParameters(val interface{}) error {
 	return nil
 }
@@ -104,11 +108,19 @@ func (j *jsiiProxy_CfnCluster) validateSetOutpostConfigParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetRemoteNetworkConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetResourcesVpcConfigParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnCluster) validateSetRoleArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCluster) validateSetStorageConfigParameters(val interface{}) error {
 	return nil
 }
 

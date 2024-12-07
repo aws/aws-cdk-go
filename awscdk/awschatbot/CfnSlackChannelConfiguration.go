@@ -25,6 +25,9 @@ import (
 //   	SlackWorkspaceId: jsii.String("slackWorkspaceId"),
 //
 //   	// the properties below are optional
+//   	CustomizationResourceArns: []*string{
+//   		jsii.String("customizationResourceArns"),
+//   	},
 //   	GuardrailPolicies: []*string{
 //   		jsii.String("guardrailPolicies"),
 //   	},
@@ -63,6 +66,9 @@ type CfnSlackChannelConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	CustomizationResourceArns() *[]*string
+	SetCustomizationResourceArns(val *[]*string)
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	GuardrailPolicies() *[]*string
 	SetGuardrailPolicies(val *[]*string)
@@ -327,6 +333,16 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSlackChannelConfiguration) CustomizationResourceArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"customizationResourceArns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSlackChannelConfiguration) GuardrailPolicies() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -502,6 +518,14 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration)SetConfigurationName(val *string
 	_jsii_.Set(
 		j,
 		"configurationName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSlackChannelConfiguration)SetCustomizationResourceArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"customizationResourceArns",
 		val,
 	)
 }

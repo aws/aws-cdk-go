@@ -12,6 +12,8 @@ package awsiot
 //
 //   serverCertificateConfigProperty := &ServerCertificateConfigProperty{
 //   	EnableOcspCheck: jsii.Boolean(false),
+//   	OcspAuthorizedResponderArn: jsii.String("ocspAuthorizedResponderArn"),
+//   	OcspLambdaArn: jsii.String("ocspLambdaArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificateconfig.html
@@ -23,5 +25,11 @@ type CfnDomainConfiguration_ServerCertificateConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificateconfig.html#cfn-iot-domainconfiguration-servercertificateconfig-enableocspcheck
 	//
 	EnableOcspCheck interface{} `field:"optional" json:"enableOcspCheck" yaml:"enableOcspCheck"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificateconfig.html#cfn-iot-domainconfiguration-servercertificateconfig-ocspauthorizedresponderarn
+	//
+	OcspAuthorizedResponderArn *string `field:"optional" json:"ocspAuthorizedResponderArn" yaml:"ocspAuthorizedResponderArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificateconfig.html#cfn-iot-domainconfiguration-servercertificateconfig-ocsplambdaarn
+	//
+	OcspLambdaArn *string `field:"optional" json:"ocspLambdaArn" yaml:"ocspLambdaArn"`
 }
 

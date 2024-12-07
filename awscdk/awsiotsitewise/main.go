@@ -419,6 +419,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "portalContactEmail", GoGetter: "PortalContactEmail"},
 			_jsii_.MemberProperty{JsiiProperty: "portalDescription", GoGetter: "PortalDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "portalName", GoGetter: "PortalName"},
+			_jsii_.MemberProperty{JsiiProperty: "portalType", GoGetter: "PortalType"},
+			_jsii_.MemberProperty{JsiiProperty: "portalTypeConfiguration", GoGetter: "PortalTypeConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -444,6 +446,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotsitewise.CfnPortal.AlarmsProperty",
 		reflect.TypeOf((*CfnPortal_AlarmsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotsitewise.CfnPortal.PortalTypeEntryProperty",
+		reflect.TypeOf((*CfnPortal_PortalTypeEntryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotsitewise.CfnPortalProps",

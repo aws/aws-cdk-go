@@ -29,6 +29,14 @@ import (
 //   			Password: jsii.String("password"),
 //   			Username: jsii.String("username"),
 //   		},
+//   		ConnectivityParameters: &ConnectivityParametersProperty{
+//   			ResourceParameters: &ResourceParametersProperty{
+//   				ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
+//
+//   				// the properties below are optional
+//   				ResourceAssociationArn: jsii.String("resourceAssociationArn"),
+//   			},
+//   		},
 //   		InvocationHttpParameters: &ConnectionHttpParametersProperty{
 //   			BodyParameters: []interface{}{
 //   				&ParameterProperty{
@@ -99,6 +107,14 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	InvocationConnectivityParameters: &InvocationConnectivityParametersProperty{
+//   		ResourceParameters: &ResourceParametersProperty{
+//   			ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
+//
+//   			// the properties below are optional
+//   			ResourceAssociationArn: jsii.String("resourceAssociationArn"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   })
 //
@@ -109,6 +125,8 @@ type CfnConnection interface {
 	awscdk.IInspectable
 	// The ARN of the connection that was created by the request.
 	AttrArn() *string
+	AttrAuthParametersConnectivityParametersResourceParametersResourceAssociationArn() *string
+	AttrInvocationConnectivityParametersResourceParametersResourceAssociationArn() *string
 	// The ARN for the secret created for the connection.
 	AttrSecretArn() *string
 	// The type of authorization to use for the connection.
@@ -129,6 +147,9 @@ type CfnConnection interface {
 	// A description for the connection to create.
 	Description() *string
 	SetDescription(val *string)
+	// The private resource the HTTP request will be sent to.
+	InvocationConnectivityParameters() interface{}
+	SetInvocationConnectivityParameters(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -309,6 +330,26 @@ func (j *jsiiProxy_CfnConnection) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnection) AttrAuthParametersConnectivityParametersResourceParametersResourceAssociationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAuthParametersConnectivityParametersResourceParametersResourceAssociationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnection) AttrInvocationConnectivityParametersResourceParametersResourceAssociationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInvocationConnectivityParametersResourceParametersResourceAssociationArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnection) AttrSecretArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -384,6 +425,16 @@ func (j *jsiiProxy_CfnConnection) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnection) InvocationConnectivityParameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"invocationConnectivityParameters",
 		&returns,
 	)
 	return returns
@@ -510,6 +561,17 @@ func (j *jsiiProxy_CfnConnection)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetInvocationConnectivityParameters(val interface{}) {
+	if err := j.validateSetInvocationConnectivityParametersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"invocationConnectivityParameters",
 		val,
 	)
 }

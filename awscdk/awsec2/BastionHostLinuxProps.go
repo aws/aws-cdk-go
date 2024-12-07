@@ -53,7 +53,7 @@ type BastionHostLinuxProps struct {
 	//
 	InstanceType InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The machine image to use, assumed to have SSM Agent preinstalled.
-	// Default: - An Amazon Linux 2 image which is kept up-to-date automatically (the instance
+	// Default: - An Amazon Linux 2023 image if the `@aws-cdk/aws-ec2:bastionHostUseAmazonLinux2023ByDefault` feature flag is enabled. Otherwise, an Amazon Linux 2 image. In both cases, the image is kept up-to-date automatically (the instance
 	// may be replaced on every deployment) and already has SSM Agent installed.
 	//
 	MachineImage IMachineImage `field:"optional" json:"machineImage" yaml:"machineImage"`

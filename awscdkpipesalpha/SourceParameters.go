@@ -8,16 +8,16 @@ import (
 //
 // Example:
 //   var sourceQueue queue
-//   var targetQueue queue
+//   var targetFunction iFunction
 //
 //
-//   targetInputTransformation := pipes.inputTransformation_FromEventPath(jsii.String("$.body.payload"))
+//   pipeTarget := targets.NewLambdaFunction(targetFunction, &LambdaFunctionParameters{
+//   	InvocationType: targets.LambdaFunctionInvocationType_FIRE_AND_FORGET,
+//   })
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue, map[string]*inputTransformation{
-//   		"inputTransformation": targetInputTransformation,
-//   	}),
+//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+//   	Target: pipeTarget,
 //   })
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-source.html

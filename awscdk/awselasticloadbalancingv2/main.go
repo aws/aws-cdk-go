@@ -658,6 +658,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerAttributes", GoGetter: "LoadBalancerAttributes"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "minimumLoadBalancerCapacity", GoGetter: "MinimumLoadBalancerCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -692,6 +693,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer.LoadBalancerAttributeProperty",
 		reflect.TypeOf((*CfnLoadBalancer_LoadBalancerAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer.MinimumLoadBalancerCapacityProperty",
+		reflect.TypeOf((*CfnLoadBalancer_MinimumLoadBalancerCapacityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer.SubnetMappingProperty",
@@ -1588,6 +1593,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITargetGroup)
 			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupIpAddressType",
+		reflect.TypeOf((*TargetGroupIpAddressType)(nil)).Elem(),
+		map[string]interface{}{
+			"IPV4": TargetGroupIpAddressType_IPV4,
+			"IPV6": TargetGroupIpAddressType_IPV6,
 		},
 	)
 	_jsii_.RegisterEnum(

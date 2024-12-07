@@ -16,23 +16,24 @@ import (
 // add resources and methods to the API.
 //
 // Example:
-//   var backend function
+//   var sourceQueue queue
 //
-//   api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &LambdaRestApiProps{
-//   	Handler: backend,
-//   	Proxy: jsii.Boolean(false),
+//
+//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+//   	Handler: jsii.String("index.handler"),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
+//   	Code: lambda.Code_FromInline(jsii.String("exports.handler = e => {}")),
 //   })
 //
-//   items := api.Root.AddResource(jsii.String("items"))
-//   items.AddMethod(jsii.String("GET")) // GET /items
-//   items.AddMethod(jsii.String("POST")) // POST /items
+//   restApi := api.NewLambdaRestApi(this, jsii.String("MyRestAPI"), &LambdaRestApiProps{
+//   	Handler: fn,
+//   })
+//   apiTarget := targets.NewApiGatewayTarget(restApi)
 //
-//   item := items.AddResource(jsii.String("{item}"))
-//   item.AddMethod(jsii.String("GET")) // GET /items/{item}
-//
-//   // the default integration for methods is "handler", but one can
-//   // customize this behavior per method or even a sub path.
-//   item.AddMethod(jsii.String("DELETE"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")))
+//   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
+//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+//   	Target: apiTarget,
+//   })
 //
 type LambdaRestApi interface {
 	RestApi

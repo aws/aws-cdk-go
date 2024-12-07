@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `HookTypeConfig` resource specifies the configuration of a hook.
+// The `HookTypeConfig` resource specifies the configuration of a Hook.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,17 +30,17 @@ import (
 type CfnHookTypeConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Number (ARN) of the activated hook type configuration, in this account and Region.
+	// The Amazon Resource Number (ARN) of the activated Hook type configuration, in this account and Region.
 	AttrConfigurationArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Specifies the activated hook type configuration, in this AWS account and AWS Region .
+	// Specifies the activated Hook type configuration, in this AWS account and AWS Region .
 	Configuration() *string
 	SetConfiguration(val *string)
-	// Specifies the activated hook type configuration, in this AWS account and AWS Region .
+	// Specifies the activated Hook type configuration, in this AWS account and AWS Region .
 	ConfigurationAlias() *string
 	SetConfigurationAlias(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -68,10 +68,10 @@ type CfnHookTypeConfig interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The Amazon Resource Number (ARN) for the hook to set `Configuration` for.
+	// The Amazon Resource Number (ARN) for the Hook to set `Configuration` for.
 	TypeArn() *string
 	SetTypeArn(val *string)
-	// The unique name for your hook.
+	// The unique name for your Hook.
 	TypeName() *string
 	SetTypeName(val *string)
 	// Deprecated.

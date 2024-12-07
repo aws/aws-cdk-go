@@ -4,7 +4,7 @@ package awscdk
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_Aspects) validateAddParameters(aspect IAspect) error {
+func (a *jsiiProxy_Aspects) validateAddParameters(aspect IAspect, options *AspectOptions) error {
 	return nil
 }
 

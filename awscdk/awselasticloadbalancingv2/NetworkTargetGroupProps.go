@@ -8,44 +8,36 @@ import (
 // Properties for a new Network Target Group.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var networkLoadBalancerTarget iNetworkLoadBalancerTarget
 //   var vpc vpc
 //
-//   networkTargetGroupProps := &NetworkTargetGroupProps{
-//   	Port: jsii.Number(123),
 //
-//   	// the properties below are optional
-//   	ConnectionTermination: jsii.Boolean(false),
-//   	CrossZoneEnabled: jsii.Boolean(false),
-//   	DeregistrationDelay: cdk.Duration_Minutes(jsii.Number(30)),
-//   	HealthCheck: &HealthCheck{
-//   		Enabled: jsii.Boolean(false),
-//   		HealthyGrpcCodes: jsii.String("healthyGrpcCodes"),
-//   		HealthyHttpCodes: jsii.String("healthyHttpCodes"),
-//   		HealthyThresholdCount: jsii.Number(123),
-//   		Interval: cdk.Duration_*Minutes(jsii.Number(30)),
-//   		Path: jsii.String("path"),
-//   		Port: jsii.String("port"),
-//   		Protocol: awscdk.Aws_elasticloadbalancingv2.Protocol_HTTP,
-//   		Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
-//   		UnhealthyThresholdCount: jsii.Number(123),
-//   	},
-//   	PreserveClientIp: jsii.Boolean(false),
-//   	Protocol: awscdk.*Aws_elasticloadbalancingv2.Protocol_HTTP,
-//   	ProxyProtocolV2: jsii.Boolean(false),
-//   	TargetGroupName: jsii.String("targetGroupName"),
-//   	Targets: []*iNetworkLoadBalancerTarget{
-//   		networkLoadBalancerTarget,
-//   	},
-//   	TargetType: awscdk.*Aws_elasticloadbalancingv2.TargetType_INSTANCE,
-//   	Vpc: vpc,
-//   }
+//   ipv4ApplicationTargetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("IPv4ApplicationTargetGroup"), &ApplicationTargetGroupProps{
+//   	Vpc: Vpc,
+//   	Port: jsii.Number(80),
+//   	TargetType: elbv2.TargetType_INSTANCE,
+//   	IpAddressType: elbv2.TargetGroupIpAddressType_IPV4,
+//   })
+//
+//   ipv6ApplicationTargetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("Ipv6ApplicationTargetGroup"), &ApplicationTargetGroupProps{
+//   	Vpc: Vpc,
+//   	Port: jsii.Number(80),
+//   	TargetType: elbv2.TargetType_INSTANCE,
+//   	IpAddressType: elbv2.TargetGroupIpAddressType_IPV6,
+//   })
+//
+//   ipv4NetworkTargetGroup := elbv2.NewNetworkTargetGroup(this, jsii.String("IPv4NetworkTargetGroup"), &NetworkTargetGroupProps{
+//   	Vpc: Vpc,
+//   	Port: jsii.Number(80),
+//   	TargetType: elbv2.TargetType_INSTANCE,
+//   	IpAddressType: elbv2.TargetGroupIpAddressType_IPV4,
+//   })
+//
+//   ipv6NetworkTargetGroup := elbv2.NewNetworkTargetGroup(this, jsii.String("Ipv6NetworkTargetGroup"), &NetworkTargetGroupProps{
+//   	Vpc: Vpc,
+//   	Port: jsii.Number(80),
+//   	TargetType: elbv2.TargetType_INSTANCE,
+//   	IpAddressType: elbv2.TargetGroupIpAddressType_IPV6,
+//   })
 //
 type NetworkTargetGroupProps struct {
 	// Indicates whether cross zone load balancing is enabled.
@@ -66,6 +58,10 @@ type NetworkTargetGroupProps struct {
 	// Default: - The default value for each property in this configuration varies depending on the target.
 	//
 	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
+	// The type of IP addresses of the targets registered with the target group.
+	// Default: undefined - ELB defaults to IPv4.
+	//
+	IpAddressType TargetGroupIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of

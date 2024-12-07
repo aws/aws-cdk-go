@@ -23,9 +23,9 @@ import (
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 //   	PipeName: jsii.String("MyPipe"),
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue, map[string]*inputTransformation{
-//   		"inputTransformation": targetInputTransformation,
+//   	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
+//   	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue, &SqsTargetParameters{
+//   		InputTransformation: targetInputTransformation,
 //   	}),
 //   })
 //

@@ -23,7 +23,7 @@ package awscdk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html
 //
 type CfnHookVersionProps struct {
-	// A URL to the Amazon S3 bucket containing the hook project package that contains the necessary files for the hook you want to register.
+	// A URL to the Amazon S3 bucket containing the Hook project package that contains the necessary files for the Hook you want to register.
 	//
 	// For information on generating a schema handler package for the resource you want to register, see [submit](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html) in the *CloudFormation CLI User Guide for Extension Development* .
 	//
@@ -47,7 +47,7 @@ type CfnHookVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html#cfn-cloudformation-hookversion-typename
 	//
 	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
-	// The Amazon Resource Name (ARN) of the task execution role that grants the hook permission.
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Hook permission.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html#cfn-cloudformation-hookversion-executionrolearn
 	//
 	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`

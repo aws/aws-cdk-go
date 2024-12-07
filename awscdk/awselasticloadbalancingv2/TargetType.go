@@ -7,11 +7,15 @@ package awselasticloadbalancingv2
 //   var vpc vpc
 //
 //
-//   // Target group with slow start mode enabled
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTargetGroupProps{
-//   	TargetType: elbv2.TargetType_INSTANCE,
-//   	SlowStart: awscdk.Duration_Seconds(jsii.Number(60)),
-//   	Port: jsii.Number(80),
+//   	TargetType: elbv2.TargetType_IP,
+//   	Port: jsii.Number(50051),
+//   	Protocol: elbv2.ApplicationProtocol_HTTP,
+//   	ProtocolVersion: elbv2.ApplicationProtocolVersion_GRPC,
+//   	HealthCheck: &HealthCheck{
+//   		Enabled: jsii.Boolean(true),
+//   		HealthyGrpcCodes: jsii.String("0-99"),
+//   	},
 //   	Vpc: Vpc,
 //   })
 //

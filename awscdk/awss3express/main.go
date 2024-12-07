@@ -79,6 +79,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "lifecycleConfiguration", GoGetter: "LifecycleConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "locationName", GoGetter: "LocationName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -104,8 +105,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.AbortIncompleteMultipartUploadProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_AbortIncompleteMultipartUploadProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.BucketEncryptionProperty",
 		reflect.TypeOf((*CfnDirectoryBucket_BucketEncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.LifecycleConfigurationProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_LifecycleConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.RuleProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_RuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.ServerSideEncryptionByDefaultProperty",

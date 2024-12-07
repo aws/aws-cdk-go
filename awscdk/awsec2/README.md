@@ -1773,6 +1773,19 @@ host := ec2.NewBastionHostLinux(this, jsii.String("BastionHost"), &BastionHostLi
 })
 ```
 
+It's recommended to set the `@aws-cdk/aws-ec2:bastionHostUseAmazonLinux2023ByDefault`
+[feature flag](https://docs.aws.amazon.com/cdk/v2/guide/featureflags.html) to `true` to use Amazon Linux 2023 as the
+bastion host AMI. Without this flag set, the bastion host will default to Amazon Linux 2, which will be unsupported in
+June 2025.
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-ec2:bastionHostUseAmazonLinux2023ByDefault": true
+  }
+}
+```
+
 ### Placement Group
 
 Specify `placementGroup` to enable the placement group support:
@@ -2767,3 +2780,27 @@ ec2.NewPrefixList(this, jsii.String("PrefixList"), &PrefixListProps{
 ```
 
 For more information see [Work with customer-managed prefix lists](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-managed-prefix-lists.html)
+
+### IAM instance profile
+
+Use `instanceProfile` to apply specific IAM Instance Profile. Cannot be used with role
+
+```go
+var instanceType instanceType
+var vpc vpc
+
+
+role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+})
+instanceProfile := iam.NewInstanceProfile(this, jsii.String("InstanceProfile"), &InstanceProfileProps{
+	Role: Role,
+})
+
+ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+	InstanceProfile: InstanceProfile,
+})
+```

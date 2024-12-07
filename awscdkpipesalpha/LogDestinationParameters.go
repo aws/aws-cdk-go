@@ -7,27 +7,24 @@ import (
 // Log destination configuration parameters.
 //
 // Example:
-//   var sourceQueue queue
-//   var targetQueue queue
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import pipes_alpha "github.com/aws/aws-cdk-go/awscdkpipesalpha"
 //
-//
-//   sourceFilter := pipes.NewFilter([]iFilterPattern{
-//   	pipes.FilterPattern_FromObject(map[string]interface{}{
-//   		"body": map[string][]*string{
-//   			// only forward events with customerType B2B or B2C
-//   			"customerType": []*string{
-//   				jsii.String("B2B"),
-//   				jsii.String("B2C"),
-//   			},
-//   		},
-//   	}),
-//   })
-//
-//   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSqsSource(sourceQueue),
-//   	Target: NewSqsTarget(targetQueue),
-//   	Filter: sourceFilter,
-//   })
+//   logDestinationParameters := &LogDestinationParameters{
+//   	CloudwatchLogsLogDestination: &CloudwatchLogsLogDestinationProperty{
+//   		LogGroupArn: jsii.String("logGroupArn"),
+//   	},
+//   	FirehoseLogDestination: &FirehoseLogDestinationProperty{
+//   		DeliveryStreamArn: jsii.String("deliveryStreamArn"),
+//   	},
+//   	S3LogDestination: &S3LogDestinationProperty{
+//   		BucketName: jsii.String("bucketName"),
+//   		BucketOwner: jsii.String("bucketOwner"),
+//   		OutputFormat: jsii.String("outputFormat"),
+//   		Prefix: jsii.String("prefix"),
+//   	},
+//   }
 //
 // Experimental.
 type LogDestinationParameters struct {

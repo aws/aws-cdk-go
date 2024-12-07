@@ -195,6 +195,66 @@ func (j *jsiiProxy_CfnPortal) validateSetPortalNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnPortal) validateSetPortalTypeConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *map[string]interface{}:
+		val := val.(*map[string]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnPortal_PortalTypeEntryProperty:
+				v := v.(*CfnPortal_PortalTypeEntryProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnPortal_PortalTypeEntryProperty:
+				v_ := v.(CfnPortal_PortalTypeEntryProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPortal_PortalTypeEntryProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case map[string]interface{}:
+		val_ := val.(map[string]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnPortal_PortalTypeEntryProperty:
+				v := v.(*CfnPortal_PortalTypeEntryProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnPortal_PortalTypeEntryProperty:
+				v_ := v.(CfnPortal_PortalTypeEntryProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnPortal_PortalTypeEntryProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnPortal) validateSetRoleArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

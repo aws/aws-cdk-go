@@ -1,7 +1,9 @@
 package awscloudfront
 
 
-// A complex type that controls whether access logs are written for the distribution.
+// A complex type that specifies whether access logs are written for the distribution.
+//
+// > If you already enabled standard logging (legacy) and you want to enable standard logging (v2) to send your access logs to Amazon S3, we recommend that you specify a *different* Amazon S3 bucket or use a *separate path* in the same bucket (for example, use a log prefix or partitioning). This helps you keep track of which log files are associated with which logging subscription and prevents log files from overwriting each other. For more information, see [Standard logging (access logs)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,7 +21,7 @@ package awscloudfront
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html
 //
 type CfnDistribution_LoggingProperty struct {
-	// The Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com` .
+	// The Amazon S3 bucket to store the access logs in, for example, `amzn-s3-demo-bucket.s3.amazonaws.com` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
 	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`

@@ -9,7 +9,12 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Rbin::Rule.
+// Creates a Recycle Bin retention rule. You can create two types of retention rules:.
+//
+// - *Tag-level retention rules* - These retention rules use resource tags to identify the resources to protect. For each retention rule, you specify one or more tag key and value pairs. Resources (of the specified type) that have at least one of these tag key and value pairs are automatically retained in the Recycle Bin upon deletion. Use this type of retention rule to protect specific resources in your account based on their tags.
+// - *Region-level retention rules* - These retention rules, by default, apply to all of the resources (of the specified type) in the Region, even if the resources are not tagged. However, you can specify exclusion tags to exclude resources that have specific tags. Use this type of retention rule to protect all resources of a specific type in a Region.
+//
+// For more information, see [Create Recycle Bin retention rules](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin.html) in the *Amazon EBS User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -56,11 +61,16 @@ type CfnRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Rule Arn is unique for each rule.
+	// The Amazon Resource Name (ARN) of the retention rule.
 	AttrArn() *string
 	// The unique ID of the retention rule.
 	AttrIdentifier() *string
-	// The lock state for the retention rule.
+	// [Region-level retention rules only] The lock state for the retention rule.
+	//
+	// - `locked` - The retention rule is locked and can't be modified or deleted.
+	// - `pending_unlock` - The retention rule has been unlocked but it is still within the unlock delay period. The retention rule can be modified or deleted only after the unlock delay period has expired.
+	// - `unlocked` - The retention rule is unlocked and it can be modified or deleted by any user with the required permissions.
+	// - `null` - The retention rule has never been locked. Once a retention rule has been locked, it can transition between the `locked` and `unlocked` states only; it can never transition back to `null` .
 	AttrLockState() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -73,12 +83,13 @@ type CfnRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the retention rule.
+	// The retention rule description.
 	Description() *string
 	SetDescription(val *string)
 	// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
 	ExcludeResourceTags() interface{}
 	SetExcludeResourceTags(val interface{})
+	// Information about the retention rule lock configuration.
 	LockConfiguration() interface{}
 	SetLockConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -98,13 +109,13 @@ type CfnRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Information about the resource tags used to identify resources that are retained by the retention rule.
+	// [Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention rule.
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
 	// The resource type retained by the retention rule.
 	ResourceType() *string
 	SetResourceType(val *string)
-	// The retention period of the rule.
+	// Information about the retention period for which the retention rule is to retain resources.
 	RetentionPeriod() interface{}
 	SetRetentionPeriod(val interface{})
 	// The stack in which this element is defined.

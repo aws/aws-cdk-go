@@ -390,15 +390,15 @@ type NodejsFunctionProps struct {
 	// Default: - the code is bundled by esbuild.
 	//
 	Code awslambda.Code `field:"optional" json:"code" yaml:"code"`
-	// The path to the dependencies lock file (`yarn.lock`, `pnpm-lock.yaml` or `package-lock.json`).
+	// The path to the dependencies lock file (`yarn.lock`, `pnpm-lock.yaml`, `bun.lockb` or `package-lock.json`).
 	//
 	// This will be used as the source for the volume mounted in the Docker
 	// container.
 	//
 	// Modules specified in `nodeModules` will be installed using the right
-	// installer (`yarn`, `pnpm` or `npm`) along with this lock file.
+	// installer (`yarn`, `pnpm`, `bun` or `npm`) along with this lock file.
 	// Default: - the path is found by walking up parent directories searching for
-	// a `yarn.lock`, `pnpm-lock.yaml` or `package-lock.json` file
+	// a `yarn.lock`, `pnpm-lock.yaml`, `bun.lockb` or `package-lock.json` file
 	//
 	DepsLockFilePath *string `field:"optional" json:"depsLockFilePath" yaml:"depsLockFilePath"`
 	// Path to the entry file (JavaScript or TypeScript).

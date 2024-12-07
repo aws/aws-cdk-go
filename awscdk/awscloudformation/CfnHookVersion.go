@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `HookVersion` resource publishes new or first hook version to the AWS CloudFormation registry.
+// The `HookVersion` resource publishes new or first Hook version to the AWS CloudFormation registry.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,13 +33,13 @@ import (
 type CfnHookVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Name (ARN) of the hook.
+	// The Amazon Resource Name (ARN) of the Hook.
 	AttrArn() *string
-	// Whether the specified hook version is set as the default version.
+	// Whether the specified Hook version is set as the default version.
 	AttrIsDefaultVersion() awscdk.IResolvable
-	// The Amazon Resource Number (ARN) assigned to this version of the hook.
+	// The Amazon Resource Number (ARN) assigned to this version of the Hook.
 	AttrTypeArn() *string
-	// The ID of this version of the hook.
+	// The ID of this version of the Hook.
 	AttrVersionId() *string
 	// The scope at which the resource is visible and usable in CloudFormation operations.
 	//
@@ -57,7 +57,7 @@ type CfnHookVersion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the task execution role that grants the hook permission.
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Hook permission.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// Contains logging configuration information for an extension.
@@ -80,7 +80,7 @@ type CfnHookVersion interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A URL to the Amazon S3 bucket containing the hook project package that contains the necessary files for the hook you want to register.
+	// A URL to the Amazon S3 bucket containing the Hook project package that contains the necessary files for the Hook you want to register.
 	SchemaHandlerPackage() *string
 	SetSchemaHandlerPackage(val *string)
 	// The stack in which this element is defined.

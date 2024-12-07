@@ -17,6 +17,14 @@ package awsevents
 //   		Password: jsii.String("password"),
 //   		Username: jsii.String("username"),
 //   	},
+//   	ConnectivityParameters: &ConnectivityParametersProperty{
+//   		ResourceParameters: &ResourceParametersProperty{
+//   			ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
+//
+//   			// the properties below are optional
+//   			ResourceAssociationArn: jsii.String("resourceAssociationArn"),
+//   		},
+//   	},
 //   	InvocationHttpParameters: &ConnectionHttpParametersProperty{
 //   		BodyParameters: []interface{}{
 //   			&ParameterProperty{
@@ -98,6 +106,9 @@ type CfnConnection_AuthParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-basicauthparameters
 	//
 	BasicAuthParameters interface{} `field:"optional" json:"basicAuthParameters" yaml:"basicAuthParameters"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-connectivityparameters
+	//
+	ConnectivityParameters interface{} `field:"optional" json:"connectivityParameters" yaml:"connectivityParameters"`
 	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-invocationhttpparameters
 	//

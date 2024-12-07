@@ -1,5 +1,8 @@
 package awsappsync
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+)
 
 // Properties for an AppSync http datasource.
 //
@@ -7,8 +10,10 @@ package awsappsync
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var graphqlApi graphqlApi
+//   var role role
 //
 //   httpDataSourceProps := &HttpDataSourceProps{
 //   	Api: graphqlApi,
@@ -21,6 +26,7 @@ package awsappsync
 //   	},
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
+//   	ServiceRole: role,
 //   }
 //
 type HttpDataSourceProps struct {
@@ -34,6 +40,10 @@ type HttpDataSourceProps struct {
 	// Default: - id of data source.
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The IAM service role to be assumed by AppSync to interact with the data source.
+	// Default: -  Create a new role.
+	//
+	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The http endpoint.
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The authorization config in case the HTTP endpoint requires authorization.

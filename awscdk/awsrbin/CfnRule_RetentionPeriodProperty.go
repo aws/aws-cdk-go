@@ -1,7 +1,7 @@
 package awsrbin
 
 
-// The retention period of the rule.
+// Information about the retention period for which the retention rule is to retain resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,15 @@ package awsrbin
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html
 //
 type CfnRule_RetentionPeriodProperty struct {
-	// The retention period unit of the rule.
+	// The unit of time in which the retention period is measured.
+	//
+	// Currently, only `DAYS` is supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html#cfn-rbin-rule-retentionperiod-retentionperiodunit
 	//
 	RetentionPeriodUnit *string `field:"required" json:"retentionPeriodUnit" yaml:"retentionPeriodUnit"`
-	// The retention period value of the rule.
+	// The period value for which the retention rule is to retain resources.
+	//
+	// The period is measured using the unit specified for *RetentionPeriodUnit* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html#cfn-rbin-rule-retentionperiod-retentionperiodvalue
 	//
 	RetentionPeriodValue *float64 `field:"required" json:"retentionPeriodValue" yaml:"retentionPeriodValue"`

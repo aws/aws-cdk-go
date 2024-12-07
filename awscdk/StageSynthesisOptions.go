@@ -9,6 +9,7 @@ package awscdk
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   stageSynthesisOptions := &StageSynthesisOptions{
+//   	AspectStabilization: jsii.Boolean(false),
 //   	ErrorOnDuplicateSynth: jsii.Boolean(false),
 //   	Force: jsii.Boolean(false),
 //   	SkipValidation: jsii.Boolean(false),
@@ -16,6 +17,15 @@ package awscdk
 //   }
 //
 type StageSynthesisOptions struct {
+	// Whether or not run the stabilization loop while invoking Aspects.
+	//
+	// The stabilization loop runs multiple passes of the construct tree when invoking
+	// Aspects. Without the stabilization loop, Aspects that are created by other Aspects
+	// are not run and new nodes that are created at higher points on the construct tree by
+	// an Aspect will not inherit their parent aspects.
+	// Default: false.
+	//
+	AspectStabilization *bool `field:"optional" json:"aspectStabilization" yaml:"aspectStabilization"`
 	// Whether or not to throw a warning instead of an error if the construct tree has been mutated since the last synth.
 	// Default: true.
 	//

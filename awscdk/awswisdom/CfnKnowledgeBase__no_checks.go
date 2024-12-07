@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetTagsRawParameters(val *[]*awscdk
 	return nil
 }
 
+func (j *jsiiProxy_CfnKnowledgeBase) validateSetVectorIngestionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnKnowledgeBaseParameters(scope constructs.Construct, id *string, props *CfnKnowledgeBaseProps) error {
 	return nil
 }

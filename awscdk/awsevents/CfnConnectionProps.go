@@ -19,6 +19,14 @@ package awsevents
 //   			Password: jsii.String("password"),
 //   			Username: jsii.String("username"),
 //   		},
+//   		ConnectivityParameters: &ConnectivityParametersProperty{
+//   			ResourceParameters: &ResourceParametersProperty{
+//   				ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
+//
+//   				// the properties below are optional
+//   				ResourceAssociationArn: jsii.String("resourceAssociationArn"),
+//   			},
+//   		},
 //   		InvocationHttpParameters: &ConnectionHttpParametersProperty{
 //   			BodyParameters: []interface{}{
 //   				&ParameterProperty{
@@ -89,6 +97,14 @@ package awsevents
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	InvocationConnectivityParameters: &InvocationConnectivityParametersProperty{
+//   		ResourceParameters: &ResourceParametersProperty{
+//   			ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
+//
+//   			// the properties below are optional
+//   			ResourceAssociationArn: jsii.String("resourceAssociationArn"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   }
 //
@@ -109,6 +125,10 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The private resource the HTTP request will be sent to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-invocationconnectivityparameters
+	//
+	InvocationConnectivityParameters interface{} `field:"optional" json:"invocationConnectivityParameters" yaml:"invocationConnectivityParameters"`
 	// The name for the connection to create.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
 	//

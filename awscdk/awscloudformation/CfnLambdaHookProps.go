@@ -56,38 +56,47 @@ package awscloudformation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html
 //
 type CfnLambdaHookProps struct {
-	// The typename alias for the hook.
+	// The type name alias for the Hook. This alias must be unique per account and Region.
+	//
+	// The alias must be in the form `Name1::Name2::Name3` and must not begin with `AWS` . For example, `Private::Lambda::MyTestHook` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-alias
 	//
 	Alias *string `field:"required" json:"alias" yaml:"alias"`
-	// IAM Role ARN.
+	// The IAM role that the Hook assumes to invoke your Lambda function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-executionrole
 	//
 	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
-	// Attribute to specify CloudFormation behavior on hook failure.
+	// Specifies how the Hook responds when the Lambda function invoked by the Hook returns a `FAILED` response.
+	//
+	// - `FAIL` : Prevents the action from proceeding. This is helpful for enforcing strict compliance or security policies.
+	// - `WARN` : Issues warnings to users but allows actions to continue. This is useful for non-critical validations or informational checks.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-failuremode
 	//
 	FailureMode *string `field:"required" json:"failureMode" yaml:"failureMode"`
-	// Attribute to specify which stacks this hook applies to or should get invoked for.
+	// Specifies if the Hook is `ENABLED` or `DISABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-hookstatus
 	//
 	// Default: - "ENABLED".
 	//
 	HookStatus *string `field:"required" json:"hookStatus" yaml:"hookStatus"`
-	// Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
+	// Specifies the Lambda function for the Hook. You can use:.
+	//
+	// - The full Amazon Resource Name (ARN) without a suffix.
+	// - A qualified ARN with a version or alias suffix.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-lambdafunction
 	//
 	LambdaFunction *string `field:"required" json:"lambdaFunction" yaml:"lambdaFunction"`
-	// Which operations should this Hook run against?
+	// Specifies which type of operation the Hook is run against.
 	//
-	// Resource changes, stacks or change sets.
+	// Valid values: `STACK` | `RESOURCE` | `CHANGE_SET` | `CLOUD_CONTROL`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-targetoperations
 	//
 	TargetOperations *[]*string `field:"required" json:"targetOperations" yaml:"targetOperations"`
-	// Filters to allow hooks to target specific stack attributes.
+	// Specifies the stack level filters for the Hook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-stackfilters
 	//
 	StackFilters interface{} `field:"optional" json:"stackFilters" yaml:"stackFilters"`
+	// Specifies the target filters for the Hook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-targetfilters
 	//
 	TargetFilters interface{} `field:"optional" json:"targetFilters" yaml:"targetFilters"`

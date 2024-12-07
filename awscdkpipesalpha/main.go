@@ -8,6 +8,19 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-alpha.CloudwatchLogsLogDestination",
+		reflect.TypeOf((*CloudwatchLogsLogDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CloudwatchLogsLogDestination{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogDestination)
+			return &j
+		},
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-pipes-alpha.DesiredState",
 		reflect.TypeOf((*DesiredState)(nil)).Elem(),
@@ -54,6 +67,19 @@ func init() {
 		nil, // no members
 		func() interface{} {
 			return &jsiiProxy_FilterPattern{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-alpha.FirehoseLogDestination",
+		reflect.TypeOf((*FirehoseLogDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+		},
+		func() interface{} {
+			j := jsiiProxy_FirehoseLogDestination{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogDestination)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -232,6 +258,32 @@ func init() {
 			"EVENT_INGESTION_TIME": PipeVariable_EVENT_INGESTION_TIME,
 			"EVENT": PipeVariable_EVENT,
 			"EVENT_JSON": PipeVariable_EVENT_JSON,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-pipes-alpha.S3LogDestination",
+		reflect.TypeOf((*S3LogDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPush", GoMethod: "GrantPush"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3LogDestination{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogDestination)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-pipes-alpha.S3LogDestinationProps",
+		reflect.TypeOf((*S3LogDestinationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-pipes-alpha.S3OutputFormat",
+		reflect.TypeOf((*S3OutputFormat)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": S3OutputFormat_PLAIN,
+			"JSON": S3OutputFormat_JSON,
+			"W3C": S3OutputFormat_W3C,
 		},
 	)
 	_jsii_.RegisterStruct(

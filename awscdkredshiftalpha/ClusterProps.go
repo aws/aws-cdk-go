@@ -11,19 +11,24 @@ import (
 //
 // Example:
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   var vpc vpc
 //
 //
-//   cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-//   	MasterUser: &Login{
-//   		MasterUsername: jsii.String("admin"),
-//   		MasterPassword: cdk.SecretValue_UnsafePlainText(jsii.String("tooshort")),
-//   	},
-//   	Vpc: Vpc,
+//   defaultRole := iam.NewRole(this, jsii.String("DefaultRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("redshift.amazonaws.com")),
 //   })
 //
-//   cluster.AddToParameterGroup(jsii.String("enable_user_activity_logging"), jsii.String("true"))
+//   awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+//   	MasterUser: &Login{
+//   		MasterUsername: jsii.String("admin"),
+//   	},
+//   	Vpc: Vpc,
+//   	Roles: []iRole{
+//   		defaultRole,
+//   	},
+//   	DefaultRole: defaultRole,
+//   })
 //
 // Experimental.
 type ClusterProps struct {
@@ -155,6 +160,11 @@ type ClusterProps struct {
 	//
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// The Amazon Redshift operation to be performed.
+	// Default: - no operation.
+	//
+	// Experimental.
+	ResourceAction ResourceAction `field:"optional" json:"resourceAction" yaml:"resourceAction"`
 	// A list of AWS Identity and Access Management (IAM) role that can be used by the cluster to access other AWS services.
 	//
 	// The maximum number of roles to attach to a cluster is subject to a quota.

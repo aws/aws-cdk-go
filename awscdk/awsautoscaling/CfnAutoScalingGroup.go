@@ -284,6 +284,7 @@ type CfnAutoScalingGroup interface {
 	// Indicates whether Capacity Rebalancing is enabled.
 	CapacityRebalance() interface{}
 	SetCapacityRebalance(val interface{})
+	// The capacity reservation specification.
 	CapacityReservationSpecification() interface{}
 	SetCapacityReservationSpecification(val interface{})
 	// Options for this resource, such as condition, update policy etc.

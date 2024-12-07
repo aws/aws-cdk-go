@@ -48,8 +48,12 @@ import (
 type Aspects interface {
 	// The list of aspects which were directly applied on this scope.
 	All() *[]IAspect
+	// The list of aspects with priority which were directly applied on this scope.
+	//
+	// Also returns inherited Aspects of this node.
+	Applied() *[]AspectApplication
 	// Adds an aspect to apply this scope before synthesis.
-	Add(aspect IAspect)
+	Add(aspect IAspect, options *AspectOptions)
 }
 
 // The jsii proxy struct for Aspects
@@ -62,6 +66,16 @@ func (j *jsiiProxy_Aspects) All() *[]IAspect {
 	_jsii_.Get(
 		j,
 		"all",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Aspects) Applied() *[]AspectApplication {
+	var returns *[]AspectApplication
+	_jsii_.Get(
+		j,
+		"applied",
 		&returns,
 	)
 	return returns
@@ -87,14 +101,14 @@ func Aspects_Of(scope constructs.IConstruct) Aspects {
 	return returns
 }
 
-func (a *jsiiProxy_Aspects) Add(aspect IAspect) {
-	if err := a.validateAddParameters(aspect); err != nil {
+func (a *jsiiProxy_Aspects) Add(aspect IAspect, options *AspectOptions) {
+	if err := a.validateAddParameters(aspect, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		a,
 		"add",
-		[]interface{}{aspect},
+		[]interface{}{aspect, options},
 	)
 }
 

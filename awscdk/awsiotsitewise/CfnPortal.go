@@ -32,6 +32,14 @@ import (
 //   	NotificationSenderEmail: jsii.String("notificationSenderEmail"),
 //   	PortalAuthMode: jsii.String("portalAuthMode"),
 //   	PortalDescription: jsii.String("portalDescription"),
+//   	PortalType: jsii.String("portalType"),
+//   	PortalTypeConfiguration: map[string]interface{}{
+//   		"portalTypeConfigurationKey": &PortalTypeEntryProperty{
+//   			"portalTools": []*string{
+//   				jsii.String("portalTools"),
+//   			},
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -97,6 +105,12 @@ type CfnPortal interface {
 	// A friendly name for the portal.
 	PortalName() *string
 	SetPortalName(val *string)
+	// The type of portal.
+	PortalType() *string
+	SetPortalType(val *string)
+	// Map to associate detail of configuration related with a PortalType.
+	PortalTypeConfiguration() interface{}
+	SetPortalTypeConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -421,6 +435,26 @@ func (j *jsiiProxy_CfnPortal) PortalName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPortal) PortalType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"portalType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPortal) PortalTypeConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"portalTypeConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPortal) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -569,6 +603,25 @@ func (j *jsiiProxy_CfnPortal)SetPortalName(val *string) {
 	_jsii_.Set(
 		j,
 		"portalName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPortal)SetPortalType(val *string) {
+	_jsii_.Set(
+		j,
+		"portalType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPortal)SetPortalTypeConfiguration(val interface{}) {
+	if err := j.validateSetPortalTypeConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"portalTypeConfiguration",
 		val,
 	)
 }

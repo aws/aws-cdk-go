@@ -17,7 +17,7 @@ package awscloudformation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html
 //
 type CfnHookDefaultVersionProps struct {
-	// The name of the hook.
+	// The name of the Hook.
 	//
 	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html#cfn-cloudformation-hookdefaultversion-typename

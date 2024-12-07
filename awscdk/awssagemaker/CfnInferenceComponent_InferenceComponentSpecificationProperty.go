@@ -9,14 +9,13 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   inferenceComponentSpecificationProperty := &InferenceComponentSpecificationProperty{
+//   	BaseInferenceComponentName: jsii.String("baseInferenceComponentName"),
 //   	ComputeResourceRequirements: &InferenceComponentComputeResourceRequirementsProperty{
 //   		MaxMemoryRequiredInMb: jsii.Number(123),
 //   		MinMemoryRequiredInMb: jsii.Number(123),
 //   		NumberOfAcceleratorDevicesRequired: jsii.Number(123),
 //   		NumberOfCpuCoresRequired: jsii.Number(123),
 //   	},
-//
-//   	// the properties below are optional
 //   	Container: &InferenceComponentContainerSpecificationProperty{
 //   		ArtifactUrl: jsii.String("artifactUrl"),
 //   		DeployedImage: &DeployedImageProperty{
@@ -39,10 +38,14 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html
 //
 type CfnInferenceComponent_InferenceComponentSpecificationProperty struct {
+	// The name of the base inference component.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-baseinferencecomponentname
+	//
+	BaseInferenceComponentName *string `field:"optional" json:"baseInferenceComponentName" yaml:"baseInferenceComponentName"`
 	// The compute resources allocated to run the model assigned to the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-computeresourcerequirements
 	//
-	ComputeResourceRequirements interface{} `field:"required" json:"computeResourceRequirements" yaml:"computeResourceRequirements"`
+	ComputeResourceRequirements interface{} `field:"optional" json:"computeResourceRequirements" yaml:"computeResourceRequirements"`
 	// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-container
 	//

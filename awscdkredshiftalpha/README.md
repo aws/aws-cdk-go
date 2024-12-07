@@ -575,6 +575,53 @@ cluster.AddToParameterGroup(jsii.String("enable_user_activity_logging"), jsii.St
 cluster.EnableRebootForParameterChanges()
 ```
 
+## Resource Action
+
+You can perform various actions on the Redshift resource by specifying the `resourceAction` property,
+including [pausing and resuming the cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/rs-mgmt-pause-resume-cluster.html), as well as initiating [failover for Multi-AZ clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/test-cluster-multi-az.html).
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
+
+var vpc iVpc
+
+
+// Pause the cluster
+// Pause the cluster
+awscdkredshiftalpha.NewCluster(this, jsii.String("PausedCluster"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+	},
+	Vpc: Vpc,
+	ResourceAction: awscdkredshiftalpha.ResourceAction_PAUSE,
+})
+
+// Resume the cluster
+// Resume the cluster
+awscdkredshiftalpha.NewCluster(this, jsii.String("ResumedCluster"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+	},
+	Vpc: Vpc,
+	ResourceAction: awscdkredshiftalpha.ResourceAction_RESUME,
+})
+
+// Failover the cluster
+// Failover the cluster
+awscdkredshiftalpha.NewCluster(this, jsii.String("FailOverCluster"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+	},
+	// VPC must have 3 AZs for the cluster which executes failover action
+	Vpc: Vpc,
+	// Must be a multi-AZ cluster to failover
+	MultiAz: jsii.Boolean(true),
+	ResourceAction: awscdkredshiftalpha.ResourceAction_FAILOVER_PRIMARY_COMPUTE,
+})
+```
+
 ## Elastic IP
 
 If you configure your cluster to be publicly accessible, you can optionally select an *elastic IP address* to use for the external IP address. An elastic IP address is a static IP address that is associated with your AWS account. You can use an elastic IP address to connect to your cluster from outside the VPC. An elastic IP address gives you the ability to change your underlying configuration without affecting the IP address that clients use to connect to your cluster. This approach can be helpful for situations such as recovery after a failure.

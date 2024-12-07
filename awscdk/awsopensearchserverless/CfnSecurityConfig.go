@@ -20,6 +20,16 @@ import (
 //
 //   cfnSecurityConfig := awscdk.Aws_opensearchserverless.NewCfnSecurityConfig(this, jsii.String("MyCfnSecurityConfig"), &CfnSecurityConfigProps{
 //   	Description: jsii.String("description"),
+//   	IamIdentityCenterOptions: &IamIdentityCenterConfigOptionsProperty{
+//   		InstanceArn: jsii.String("instanceArn"),
+//
+//   		// the properties below are optional
+//   		ApplicationArn: jsii.String("applicationArn"),
+//   		ApplicationDescription: jsii.String("applicationDescription"),
+//   		ApplicationName: jsii.String("applicationName"),
+//   		GroupAttribute: jsii.String("groupAttribute"),
+//   		UserAttribute: jsii.String("userAttribute"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	SamlOptions: &SamlConfigOptionsProperty{
 //   		Metadata: jsii.String("metadata"),
@@ -37,6 +47,12 @@ import (
 type CfnSecurityConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+	AttrIamIdentityCenterOptionsApplicationArn() *string
+	// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+	AttrIamIdentityCenterOptionsApplicationDescription() *string
+	// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+	AttrIamIdentityCenterOptionsApplicationName() *string
 	// The unique identifier of the security configuration.
 	//
 	// For example, `saml/123456789012/myprovider` .
@@ -53,6 +69,9 @@ type CfnSecurityConfig interface {
 	// The description of the security configuration.
 	Description() *string
 	SetDescription(val *string)
+	// Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map.
+	IamIdentityCenterOptions() interface{}
+	SetIamIdentityCenterOptions(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -229,6 +248,36 @@ type jsiiProxy_CfnSecurityConfig struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnSecurityConfig) AttrIamIdentityCenterOptionsApplicationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIamIdentityCenterOptionsApplicationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityConfig) AttrIamIdentityCenterOptionsApplicationDescription() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIamIdentityCenterOptionsApplicationDescription",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityConfig) AttrIamIdentityCenterOptionsApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIamIdentityCenterOptionsApplicationName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSecurityConfig) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -284,6 +333,16 @@ func (j *jsiiProxy_CfnSecurityConfig) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityConfig) IamIdentityCenterOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"iamIdentityCenterOptions",
 		&returns,
 	)
 	return returns
@@ -411,6 +470,17 @@ func (j *jsiiProxy_CfnSecurityConfig)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecurityConfig)SetIamIdentityCenterOptions(val interface{}) {
+	if err := j.validateSetIamIdentityCenterOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"iamIdentityCenterOptions",
 		val,
 	)
 }

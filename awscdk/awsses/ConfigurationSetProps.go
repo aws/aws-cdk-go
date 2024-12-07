@@ -7,20 +7,11 @@ import (
 // Properties for a configuration set.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var myPool iDedicatedIpPool
-//
-//
-//   ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
-//   	CustomTrackingRedirectDomain: jsii.String("track.cdk.dev"),
-//   	SuppressionReasons: ses.SuppressionReasons_COMPLAINTS_ONLY,
-//   	TlsPolicy: ses.ConfigurationSetTlsPolicy_REQUIRE,
-//   	DedicatedIpPool: myPool,
-//   	// Specify maximum delivery time
-//   	// This configuration can be useful in such cases as time-sensitive emails (like those containing a one-time-password),
-//   	// transactional emails, and email that you want to ensure isn't delivered during non-business hours.
-//   	MaxDeliveryDuration: awscdk.Duration_Minutes(jsii.Number(10)),
+//   ses.NewConfigurationSet(this, jsii.String("ConfigurationSetWithVdmOptions"), &ConfigurationSetProps{
+//   	VdmOptions: &VdmOptions{
+//   		EngagementMetrics: jsii.Boolean(true),
+//   		OptimizedSharedDelivery: jsii.Boolean(true),
+//   	},
 //   })
 //
 type ConfigurationSetProps struct {
@@ -36,6 +27,13 @@ type ConfigurationSetProps struct {
 	// Default: - do not use a dedicated IP pool.
 	//
 	DedicatedIpPool IDedicatedIpPool `field:"optional" json:"dedicatedIpPool" yaml:"dedicatedIpPool"`
+	// If true, account-level suppression list is disabled;
+	//
+	// email sent with this configuration set
+	// will not use any suppression settings at all.
+	// Default: false.
+	//
+	DisableSuppressionList *bool `field:"optional" json:"disableSuppressionList" yaml:"disableSuppressionList"`
 	// The maximum amount of time that Amazon SES API v2 will attempt delivery of email.
 	//
 	// This value must be greater than or equal to 5 minutes and less than or equal to 14 hours.

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnHoursOfOperation) validateSetConfigParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnHoursOfOperation) validateSetHoursOfOperationOverridesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnHoursOfOperation) validateSetInstanceArnParameters(val *string) error {
 	return nil
 }

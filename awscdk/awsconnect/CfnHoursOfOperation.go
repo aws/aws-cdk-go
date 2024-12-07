@@ -36,6 +36,30 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	HoursOfOperationOverrides: []interface{}{
+//   		&HoursOfOperationOverrideProperty{
+//   			EffectiveFrom: jsii.String("effectiveFrom"),
+//   			EffectiveTill: jsii.String("effectiveTill"),
+//   			OverrideConfig: []interface{}{
+//   				&HoursOfOperationOverrideConfigProperty{
+//   					Day: jsii.String("day"),
+//   					EndTime: &OverrideTimeSliceProperty{
+//   						Hours: jsii.Number(123),
+//   						Minutes: jsii.Number(123),
+//   					},
+//   					StartTime: &OverrideTimeSliceProperty{
+//   						Hours: jsii.Number(123),
+//   						Minutes: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			OverrideName: jsii.String("overrideName"),
+//
+//   			// the properties below are optional
+//   			HoursOfOperationOverrideId: jsii.String("hoursOfOperationOverrideId"),
+//   			OverrideDescription: jsii.String("overrideDescription"),
+//   		},
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -67,6 +91,9 @@ type CfnHoursOfOperation interface {
 	// The description for the hours of operation.
 	Description() *string
 	SetDescription(val *string)
+	// One or more hours of operation overrides assigned to an hour of operation.
+	HoursOfOperationOverrides() interface{}
+	SetHoursOfOperationOverrides(val interface{})
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -319,6 +346,16 @@ func (j *jsiiProxy_CfnHoursOfOperation) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHoursOfOperation) HoursOfOperationOverrides() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"hoursOfOperationOverrides",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHoursOfOperation) InstanceArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -472,6 +509,17 @@ func (j *jsiiProxy_CfnHoursOfOperation)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHoursOfOperation)SetHoursOfOperationOverrides(val interface{}) {
+	if err := j.validateSetHoursOfOperationOverridesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"hoursOfOperationOverrides",
 		val,
 	)
 }
