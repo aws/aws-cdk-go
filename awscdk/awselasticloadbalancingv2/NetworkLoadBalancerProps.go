@@ -7,22 +7,18 @@ import (
 // Properties for a network load balancer.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
 //
 //
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &NetworkLoadBalancerProps{
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
-//   })
-//   listener := lb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   listener.AddTargets(jsii.String("target"), &AddNetworkTargetsProps{
-//   	Port: jsii.Number(80),
+//   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+//   	EnablePrefixForIpv6SourceNat: jsii.Boolean(true),
 //   })
 //
-//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(1229),
+//   	Protocol: elbv2.Protocol_UDP,
 //   })
 //
 type NetworkLoadBalancerProps struct {
@@ -61,6 +57,12 @@ type NetworkLoadBalancerProps struct {
 	// Default: - AZ affinity is disabled.
 	//
 	ClientRoutingPolicy ClientRoutingPolicy `field:"optional" json:"clientRoutingPolicy" yaml:"clientRoutingPolicy"`
+	// Indicates whether to use an IPv6 prefix from each subnet for source NAT.
+	//
+	// The IP address type must be IpAddressType.DUALSTACK.
+	// Default: undefined - NLB default behavior is false.
+	//
+	EnablePrefixForIpv6SourceNat *bool `field:"optional" json:"enablePrefixForIpv6SourceNat" yaml:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through AWS PrivateLink.
 	// Default: true.
 	//

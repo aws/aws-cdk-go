@@ -105,7 +105,7 @@ type CfnPortal interface {
 	// A friendly name for the portal.
 	PortalName() *string
 	SetPortalName(val *string)
-	// The type of portal.
+	// Define the type of portal.
 	PortalType() *string
 	SetPortalType(val *string)
 	// Map to associate detail of configuration related with a PortalType.

@@ -37,7 +37,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 //
 type CfnDomainNameProps struct {
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name.
 	//
 	// AWS Certificate Manager is the only supported source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn

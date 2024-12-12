@@ -70,6 +70,8 @@ type CfnFlowOutputProps struct {
 	//
 	FlowArn *string `field:"required" json:"flowArn" yaml:"flowArn"`
 	// The protocol to use for the output.
+	//
+	// > AWS Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
 	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
@@ -95,7 +97,7 @@ type CfnFlowOutputProps struct {
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// The maximum latency in milliseconds.
 	//
-	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+	// This parameter applies only to RIST-based and Zixi-based streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
 	//
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`

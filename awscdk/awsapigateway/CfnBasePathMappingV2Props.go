@@ -20,19 +20,23 @@ package awsapigateway
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html
 //
 type CfnBasePathMappingV2Props struct {
-	// The Arn of an AWS::ApiGateway::DomainNameV2 resource.
+	// The ARN of the domain name for the BasePathMappingV2 resource to be described.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html#cfn-apigateway-basepathmappingv2-domainnamearn
 	//
 	DomainNameArn *string `field:"required" json:"domainNameArn" yaml:"domainNameArn"`
-	// The ID of the API.
+	// The private API's identifier.
+	//
+	// This identifier is unique across all of your APIs in API Gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html#cfn-apigateway-basepathmappingv2-restapiid
 	//
 	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the private API must provide as part of the URL after the domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html#cfn-apigateway-basepathmappingv2-basepath
 	//
 	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
-	// The name of the API's stage.
+	// Represents a unique identifier for a version of a deployed private RestApi that is callable by users.
+	//
+	// The Stage must depend on the `RestApi` 's stage. To create a dependency, add a DependsOn attribute to the BasePathMappingV2 resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html#cfn-apigateway-basepathmappingv2-stage
 	//
 	Stage *string `field:"optional" json:"stage" yaml:"stage"`

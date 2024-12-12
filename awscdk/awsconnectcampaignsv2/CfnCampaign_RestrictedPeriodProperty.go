@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Restricted period.
+// Contains information about a restricted period.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,15 +19,15 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiod.html
 //
 type CfnCampaign_RestrictedPeriodProperty struct {
-	// Date in ISO 8601 format, e.g. 2024-01-01.
+	// The end date of the restricted period.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiod.html#cfn-connectcampaignsv2-campaign-restrictedperiod-enddate
 	//
 	EndDate *string `field:"required" json:"endDate" yaml:"endDate"`
-	// Date in ISO 8601 format, e.g. 2024-01-01.
+	// The start date of the restricted period.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiod.html#cfn-connectcampaignsv2-campaign-restrictedperiod-startdate
 	//
 	StartDate *string `field:"required" json:"startDate" yaml:"startDate"`
-	// The name of a restricted period.
+	// The name of the restricted period.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiod.html#cfn-connectcampaignsv2-campaign-restrictedperiod-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

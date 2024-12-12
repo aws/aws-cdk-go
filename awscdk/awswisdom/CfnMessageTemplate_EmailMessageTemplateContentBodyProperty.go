@@ -20,11 +20,15 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontentbody.html
 //
 type CfnMessageTemplate_EmailMessageTemplateContentBodyProperty struct {
-	// The container of message template body.
+	// The message body, in HTML format, to use in email messages that are based on the message template.
+	//
+	// We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontentbody.html#cfn-wisdom-messagetemplate-emailmessagetemplatecontentbody-html
 	//
 	Html interface{} `field:"optional" json:"html" yaml:"html"`
-	// The container of message template body.
+	// The message body, in plain text format, to use in email messages that are based on the message template.
+	//
+	// We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontentbody.html#cfn-wisdom-messagetemplate-emailmessagetemplatecontentbody-plaintext
 	//
 	PlainText interface{} `field:"optional" json:"plainText" yaml:"plainText"`

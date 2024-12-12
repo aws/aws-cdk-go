@@ -17,7 +17,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-smsmessagetemplatecontentbody.html
 //
 type CfnMessageTemplate_SmsMessageTemplateContentBodyProperty struct {
-	// The container of message template body.
+	// The message body to use in SMS messages.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-smsmessagetemplatecontentbody.html#cfn-wisdom-messagetemplate-smsmessagetemplatecontentbody-plaintext
 	//
 	PlainText interface{} `field:"optional" json:"plainText" yaml:"plainText"`

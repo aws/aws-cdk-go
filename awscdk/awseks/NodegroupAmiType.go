@@ -46,6 +46,10 @@ const (
 	NodegroupAmiType_WINDOWS_FULL_2022_X86_64 NodegroupAmiType = "WINDOWS_FULL_2022_X86_64"
 	// Amazon Linux 2023 (x86-64).
 	NodegroupAmiType_AL2023_X86_64_STANDARD NodegroupAmiType = "AL2023_X86_64_STANDARD"
+	// Amazon Linux 2023 with AWS Neuron drivers (x86-64).
+	NodegroupAmiType_AL2023_X86_64_NEURON NodegroupAmiType = "AL2023_X86_64_NEURON"
+	// Amazon Linux 2023 with NVIDIA drivers (x86-64).
+	NodegroupAmiType_AL2023_X86_64_NVIDIA NodegroupAmiType = "AL2023_X86_64_NVIDIA"
 	// Amazon Linux 2023 (ARM-64).
 	NodegroupAmiType_AL2023_ARM_64_STANDARD NodegroupAmiType = "AL2023_ARM_64_STANDARD"
 )

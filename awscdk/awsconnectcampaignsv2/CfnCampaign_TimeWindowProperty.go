@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Time window config.
+// Contains information about a time window.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,11 +40,11 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timewindow.html
 //
 type CfnCampaign_TimeWindowProperty struct {
-	// Open Hours config.
+	// The open hours configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timewindow.html#cfn-connectcampaignsv2-campaign-timewindow-openhours
 	//
 	OpenHours interface{} `field:"required" json:"openHours" yaml:"openHours"`
-	// Restricted period config.
+	// The restricted periods configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timewindow.html#cfn-connectcampaignsv2-campaign-timewindow-restrictedperiods
 	//
 	RestrictedPeriods interface{} `field:"optional" json:"restrictedPeriods" yaml:"restrictedPeriods"`

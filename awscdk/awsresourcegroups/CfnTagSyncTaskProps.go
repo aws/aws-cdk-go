@@ -27,14 +27,10 @@ type CfnTagSyncTaskProps struct {
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The tag key.
-	//
-	// Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html#cfn-resourcegroups-tagsynctask-tagkey
 	//
 	TagKey *string `field:"required" json:"tagKey" yaml:"tagKey"`
 	// The tag value.
-	//
-	// Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html#cfn-resourcegroups-tagsynctask-tagvalue
 	//
 	TagValue *string `field:"required" json:"tagValue" yaml:"tagValue"`

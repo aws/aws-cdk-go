@@ -11,6 +11,9 @@ package awsroute53
 //   aliasRecordTargetConfig := &AliasRecordTargetConfig{
 //   	DnsName: jsii.String("dnsName"),
 //   	HostedZoneId: jsii.String("hostedZoneId"),
+//
+//   	// the properties below are optional
+//   	EvaluateTargetHealth: jsii.Boolean(false),
 //   }
 //
 type AliasRecordTargetConfig struct {
@@ -18,5 +21,9 @@ type AliasRecordTargetConfig struct {
 	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// Hosted zone ID of the target.
 	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
+	// Evaluate the target health.
+	// Default: - no health check configuration.
+	//
+	EvaluateTargetHealth *bool `field:"optional" json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
 }
 

@@ -154,7 +154,7 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-action
 	//
 	Action *string `field:"optional" json:"action" yaml:"action"`
-	// (Optional) Whether to compress signals before transmitting data to AWS IoT FleetWise .
+	// Whether to compress signals before transmitting data to AWS IoT FleetWise .
 	//
 	// If you don't want to compress the signals, use `OFF` . If it's not specified, `SNAPPY` is used.
 	//
@@ -164,7 +164,7 @@ type CfnCampaignProps struct {
 	// Default: - "OFF".
 	//
 	Compression *string `field:"optional" json:"compression" yaml:"compression"`
-	// (Optional) The destination where the campaign sends data.
+	// The destination where the campaign sends data.
 	//
 	// You can choose to send data to be stored in Amazon S3 or Amazon Timestream .
 	//
@@ -174,7 +174,7 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-datadestinationconfigs
 	//
 	DataDestinationConfigs interface{} `field:"optional" json:"dataDestinationConfigs" yaml:"dataDestinationConfigs"`
-	// (Optional) A list of vehicle attributes to associate with a campaign.
+	// A list of vehicle attributes to associate with a campaign.
 	//
 	// Enrich the data with specified vehicle attributes. For example, add `make` and `model` to the campaign, and AWS IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream . You can then query the data against `make` and `model` .
 	//
@@ -182,14 +182,15 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-dataextradimensions
 	//
 	DataExtraDimensions *[]*string `field:"optional" json:"dataExtraDimensions" yaml:"dataExtraDimensions"`
+	// The data partitions associated with the signals collected from the vehicle.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-datapartitions
 	//
 	DataPartitions interface{} `field:"optional" json:"dataPartitions" yaml:"dataPartitions"`
-	// (Optional) The description of the campaign.
+	// The description of the campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// (Optional) Option for a vehicle to send diagnostic trouble codes to AWS IoT FleetWise .
+	// Option for a vehicle to send diagnostic trouble codes to AWS IoT FleetWise .
 	//
 	// If you want to send diagnostic trouble codes, use `SEND_ACTIVE_DTCS` . If it's not specified, `OFF` is used.
 	//
@@ -199,7 +200,7 @@ type CfnCampaignProps struct {
 	// Default: - "OFF".
 	//
 	DiagnosticsMode *string `field:"optional" json:"diagnosticsMode" yaml:"diagnosticsMode"`
-	// (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
+	// The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	//
 	// Vehicle data isn't collected after the campaign expires.
 	//
@@ -209,7 +210,7 @@ type CfnCampaignProps struct {
 	// Default: - "253402214400".
 	//
 	ExpiryTime *string `field:"optional" json:"expiryTime" yaml:"expiryTime"`
-	// (Optional) How long (in milliseconds) to collect raw data after a triggering event initiates the collection.
+	// How long (in milliseconds) to collect raw data after a triggering event initiates the collection.
 	//
 	// If it's not specified, `0` is used.
 	//
@@ -219,7 +220,7 @@ type CfnCampaignProps struct {
 	// Default: - 0.
 	//
 	PostTriggerCollectionDuration *float64 `field:"optional" json:"postTriggerCollectionDuration" yaml:"postTriggerCollectionDuration"`
-	// (Optional) A number indicating the priority of one campaign over another campaign for a certain vehicle or fleet.
+	// A number indicating the priority of one campaign over another campaign for a certain vehicle or fleet.
 	//
 	// A campaign with the lowest value is deployed to vehicles before any other campaigns. If it's not specified, `0` is used.
 	//
@@ -229,14 +230,15 @@ type CfnCampaignProps struct {
 	// Default: - 0.
 	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
-	// (Optional) A list of information about signals to collect.
+	// A list of information about signals to collect.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-signalstocollect
 	//
 	SignalsToCollect interface{} `field:"optional" json:"signalsToCollect" yaml:"signalsToCollect"`
+	// A list of information about signals to fetch.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-signalstofetch
 	//
 	SignalsToFetch interface{} `field:"optional" json:"signalsToFetch" yaml:"signalsToFetch"`
-	// (Optional) Whether to store collected data after a vehicle lost a connection with the cloud.
+	// Whether to store collected data after a vehicle lost a connection with the cloud.
 	//
 	// After a connection is re-established, the data is automatically forwarded to AWS IoT FleetWise . If you want to store collected data when a vehicle loses connection with the cloud, use `TO_DISK` . If it's not specified, `OFF` is used.
 	//
@@ -246,9 +248,7 @@ type CfnCampaignProps struct {
 	// Default: - "OFF".
 	//
 	SpoolingMode *string `field:"optional" json:"spoolingMode" yaml:"spoolingMode"`
-	// (Optional) The time, in milliseconds, to deliver a campaign after it was approved.
-	//
-	// If it's not specified, `0` is used.
+	// The time, in milliseconds, to deliver a campaign after it was approved. If it's not specified, `0` is used.
 	//
 	// Default: `0`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-starttime
@@ -256,7 +256,7 @@ type CfnCampaignProps struct {
 	// Default: - "0".
 	//
 	StartTime *string `field:"optional" json:"startTime" yaml:"startTime"`
-	// (Optional) Metadata that can be used to manage the campaign.
+	// Metadata that can be used to manage the campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html#cfn-iotfleetwise-campaign-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

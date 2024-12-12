@@ -63,7 +63,7 @@ type CfnAuthPolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	// The ID or ARN of the service network or service for which the policy is created.
 	ResourceIdentifier() *string
 	SetResourceIdentifier(val *string)
 	// The stack in which this element is defined.

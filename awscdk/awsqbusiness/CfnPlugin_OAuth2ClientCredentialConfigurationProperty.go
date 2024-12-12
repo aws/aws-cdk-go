@@ -11,6 +11,10 @@ package awsqbusiness
 //   oAuth2ClientCredentialConfigurationProperty := &OAuth2ClientCredentialConfigurationProperty{
 //   	RoleArn: jsii.String("roleArn"),
 //   	SecretArn: jsii.String("secretArn"),
+//
+//   	// the properties below are optional
+//   	AuthorizationUrl: jsii.String("authorizationUrl"),
+//   	TokenUrl: jsii.String("tokenUrl"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html
@@ -24,5 +28,11 @@ type CfnPlugin_OAuth2ClientCredentialConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html#cfn-qbusiness-plugin-oauth2clientcredentialconfiguration-secretarn
 	//
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html#cfn-qbusiness-plugin-oauth2clientcredentialconfiguration-authorizationurl
+	//
+	AuthorizationUrl *string `field:"optional" json:"authorizationUrl" yaml:"authorizationUrl"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html#cfn-qbusiness-plugin-oauth2clientcredentialconfiguration-tokenurl
+	//
+	TokenUrl *string `field:"optional" json:"tokenUrl" yaml:"tokenUrl"`
 }
 

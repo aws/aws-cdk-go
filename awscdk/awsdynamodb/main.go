@@ -7,6 +7,14 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_dynamodb.ApproximateCreationDateTimePrecision",
+		reflect.TypeOf((*ApproximateCreationDateTimePrecision)(nil)).Elem(),
+		map[string]interface{}{
+			"MILLISECOND": ApproximateCreationDateTimePrecision_MILLISECOND,
+			"MICROSECOND": ApproximateCreationDateTimePrecision_MICROSECOND,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.Attribute",
 		reflect.TypeOf((*Attribute)(nil)).Elem(),
@@ -818,5 +826,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.UtilizationScalingProps",
 		reflect.TypeOf((*UtilizationScalingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.WarmThroughput",
+		reflect.TypeOf((*WarmThroughput)(nil)).Elem(),
 	)
 }

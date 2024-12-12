@@ -92,6 +92,7 @@ type CfnDataSourceProps struct {
 	// - *AMAZON_ELASTICSEARCH* : The data source is an Amazon OpenSearch Service domain.
 	// - *AMAZON_EVENTBRIDGE* : The data source is an Amazon EventBridge event bus.
 	// - *AMAZON_OPENSEARCH_SERVICE* : The data source is an Amazon OpenSearch Service domain.
+	// - *AMAZON_BEDROCK_RUNTIME* : The data source is the Amazon Bedrock runtime.
 	// - *NONE* : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
 	// - *HTTP* : The data source is an HTTP endpoint.
 	// - *RELATIONAL_DATABASE* : The data source is a relational database.

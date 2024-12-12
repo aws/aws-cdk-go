@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Communication limits.
+// Contains information about communication limits.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,7 +21,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimits.html
 //
 type CfnCampaign_CommunicationLimitsProperty struct {
-	// List of communication limit.
+	// The list of CommunicationLimits.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimits.html#cfn-connectcampaignsv2-campaign-communicationlimits-communicationlimitlist
 	//
 	CommunicationLimitList interface{} `field:"optional" json:"communicationLimitList" yaml:"communicationLimitList"`

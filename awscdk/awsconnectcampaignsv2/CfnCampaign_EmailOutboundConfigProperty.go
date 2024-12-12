@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Default SMS outbound config.
+// The outbound configuration for email.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,15 +19,15 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html
 //
 type CfnCampaign_EmailOutboundConfigProperty struct {
-	// Email address used for Email messages.
+	// The Amazon Connect source email address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html#cfn-connectcampaignsv2-campaign-emailoutboundconfig-connectsourceemailaddress
 	//
 	ConnectSourceEmailAddress *string `field:"required" json:"connectSourceEmailAddress" yaml:"connectSourceEmailAddress"`
-	// Arn.
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html#cfn-connectcampaignsv2-campaign-emailoutboundconfig-wisdomtemplatearn
 	//
 	WisdomTemplateArn *string `field:"required" json:"wisdomTemplateArn" yaml:"wisdomTemplateArn"`
-	// The name of the source email address display name.
+	// The display name for the Amazon Connect source email address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html#cfn-connectcampaignsv2-campaign-emailoutboundconfig-sourceemailaddressdisplayname
 	//
 	SourceEmailAddressDisplayName *string `field:"optional" json:"sourceEmailAddressDisplayName" yaml:"sourceEmailAddressDisplayName"`

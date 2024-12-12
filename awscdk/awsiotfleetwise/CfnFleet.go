@@ -55,7 +55,7 @@ type CfnFleet interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// (Optional) A brief description of the fleet.
+	// A brief description of the fleet.
 	Description() *string
 	SetDescription(val *string)
 	// The unique ID of the fleet.
@@ -87,7 +87,7 @@ type CfnFleet interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// (Optional) Metadata that can be used to manage the fleet.
+	// Metadata that can be used to manage the fleet.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

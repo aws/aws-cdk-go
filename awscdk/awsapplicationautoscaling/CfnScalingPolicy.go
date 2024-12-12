@@ -231,6 +231,7 @@ type CfnScalingPolicy interface {
 	// The scaling policy type.
 	PolicyType() *string
 	SetPolicyType(val *string)
+	// The predictive scaling policy configuration.
 	PredictiveScalingPolicyConfiguration() interface{}
 	SetPredictiveScalingPolicyConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

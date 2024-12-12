@@ -1,7 +1,7 @@
 package awsevents
 
 
-// Contains additional parameters for the connection.
+// Any additional parameters for the connection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,15 +41,15 @@ package awsevents
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html
 //
 type CfnConnection_ConnectionHttpParametersProperty struct {
-	// Contains additional body string parameters for the connection.
+	// Any additional body string parameters for the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-bodyparameters
 	//
 	BodyParameters interface{} `field:"optional" json:"bodyParameters" yaml:"bodyParameters"`
-	// Contains additional header parameters for the connection.
+	// Any additional header parameters for the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-headerparameters
 	//
 	HeaderParameters interface{} `field:"optional" json:"headerParameters" yaml:"headerParameters"`
-	// Contains additional query string parameters for the connection.
+	// Any additional query string parameters for the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html#cfn-events-connection-connectionhttpparameters-querystringparameters
 	//
 	QueryStringParameters interface{} `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`

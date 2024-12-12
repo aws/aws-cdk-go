@@ -71,6 +71,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "restoreToTime", GoGetter: "RestoreToTime"},
 			_jsii_.MemberProperty{JsiiProperty: "restoreType", GoGetter: "RestoreType"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessV2ScalingConfiguration", GoGetter: "ServerlessV2ScalingConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "snapshotIdentifier", GoGetter: "SnapshotIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceDbClusterIdentifier", GoGetter: "SourceDbClusterIdentifier"},
@@ -93,6 +94,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_docdb.CfnDBCluster.ServerlessV2ScalingConfigurationProperty",
+		reflect.TypeOf((*CfnDBCluster_ServerlessV2ScalingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_docdb.CfnDBClusterParameterGroup",

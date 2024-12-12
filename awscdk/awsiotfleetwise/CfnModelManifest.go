@@ -57,7 +57,7 @@ type CfnModelManifest interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// (Optional) A brief description of the vehicle model.
+	// A brief description of the vehicle model.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -75,7 +75,7 @@ type CfnModelManifest interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// (Optional) A list of nodes, which are a general abstraction of signals.
+	// A list of nodes, which are a general abstraction of signals.
 	Nodes() *[]*string
 	SetNodes(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -90,12 +90,12 @@ type CfnModelManifest interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// (Optional) The state of the vehicle model.
+	// The state of the vehicle model.
 	Status() *string
 	SetStatus(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// (Optional) Metadata that can be used to manage the vehicle model.
+	// Metadata that can be used to manage the vehicle model.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

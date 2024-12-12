@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Attaches a resource-based permission policy to a CloudTrail channel that is used for an integration with an event source outside of AWS .
+// Attaches a resource-based permission policy to a CloudTrail event data store, dashboard, or channel.
 //
 // For more information about resource-based policies, see [CloudTrail resource-based policy examples](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html) in the *CloudTrail User Guide* .
 //
@@ -56,7 +56,7 @@ type CfnResourcePolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy.
+	// The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// A JSON-formatted string for an AWS resource-based policy.

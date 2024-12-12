@@ -50,7 +50,7 @@ type CfnSlackChannelConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Amazon Resource Name (ARN) of the configuration.
+	// The ARN of the resource.
 	AttrArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -66,7 +66,7 @@ type CfnSlackChannelConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	// Links a list of resource ARNs (for example, custom action ARNs) to a Slack channel configuration for AWS Chatbot .
 	CustomizationResourceArns() *[]*string
 	SetCustomizationResourceArns(val *[]*string)
 	// The list of IAM policy ARNs that are applied as channel guardrails.

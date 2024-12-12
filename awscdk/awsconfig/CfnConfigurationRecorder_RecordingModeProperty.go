@@ -39,7 +39,7 @@ package awsconfig
 type CfnConfigurationRecorder_RecordingModeProperty struct {
 	// The default recording frequency that AWS Config uses to record configuration changes.
 	//
-	// > Daily recording is not supported for the following resource types:
+	// > Daily recording cannot be specified for the following resource types:
 	// >
 	// > - `AWS::Config::ResourceCompliance`
 	// > - `AWS::Config::ConformancePackCompliance`

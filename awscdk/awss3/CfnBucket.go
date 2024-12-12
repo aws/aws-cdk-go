@@ -119,7 +119,7 @@ type CfnBucket interface {
 	// Configuration that defines how Amazon S3 handles bucket notifications.
 	NotificationConfiguration() interface{}
 	SetNotificationConfiguration(val interface{})
-	// > This operation is not supported by directory buckets.
+	// > This operation is not supported for directory buckets.
 	ObjectLockConfiguration() interface{}
 	SetObjectLockConfiguration(val interface{})
 	// Indicates whether this bucket has an Object Lock configuration enabled.

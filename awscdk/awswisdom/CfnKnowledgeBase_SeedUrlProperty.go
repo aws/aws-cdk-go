@@ -1,6 +1,8 @@
 package awswisdom
 
 
+// A URL for crawling.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-seedurl.html
 //
 type CfnKnowledgeBase_SeedUrlProperty struct {
+	// URL for crawling.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-seedurl.html#cfn-wisdom-knowledgebase-seedurl-url
 	//
 	Url *string `field:"optional" json:"url" yaml:"url"`

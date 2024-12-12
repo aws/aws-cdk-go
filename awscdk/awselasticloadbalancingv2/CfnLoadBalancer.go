@@ -116,6 +116,7 @@ type CfnLoadBalancer interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The minimum capacity for a load balancer.
 	MinimumLoadBalancerCapacity() interface{}
 	SetMinimumLoadBalancerCapacity(val interface{})
 	// The name of the load balancer.

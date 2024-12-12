@@ -1017,6 +1017,10 @@ func init() {
 		reflect.TypeOf((*CfnReceiptRule_BounceActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnReceiptRule.ConnectActionProperty",
+		reflect.TypeOf((*CfnReceiptRule_ConnectActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnReceiptRule.LambdaActionProperty",
 		reflect.TypeOf((*CfnReceiptRule_LambdaActionProperty)(nil)).Elem(),
 	)

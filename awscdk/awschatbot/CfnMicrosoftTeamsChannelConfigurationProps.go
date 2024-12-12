@@ -69,7 +69,7 @@ type CfnMicrosoftTeamsChannelConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-teamstenantid
 	//
 	TeamsTenantId *string `field:"required" json:"teamsTenantId" yaml:"teamsTenantId"`
-	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	// Links a list of resource ARNs (for example, custom action ARNs) to a Miscrosoft Teams channel configuration for AWS Chatbot .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-customizationresourcearns
 	//
 	CustomizationResourceArns *[]*string `field:"optional" json:"customizationResourceArns" yaml:"customizationResourceArns"`

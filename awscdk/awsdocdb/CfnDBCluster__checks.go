@@ -213,6 +213,30 @@ func (j *jsiiProxy_CfnDBCluster) validateSetDeletionProtectionParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBCluster) validateSetServerlessV2ScalingConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDBCluster_ServerlessV2ScalingConfigurationProperty:
+		val := val.(*CfnDBCluster_ServerlessV2ScalingConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDBCluster_ServerlessV2ScalingConfigurationProperty:
+		val_ := val.(CfnDBCluster_ServerlessV2ScalingConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDBCluster_ServerlessV2ScalingConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBCluster) validateSetStorageEncryptedParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

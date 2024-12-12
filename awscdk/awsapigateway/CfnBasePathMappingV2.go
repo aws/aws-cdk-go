@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ApiGateway::BasePathMappingV2.
+// The `AWS::ApiGateway::BasePathMappingV2` resource creates a base path that clients who call your API must use in the invocation URL.
+//
+// Supported only for private custom domain names.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -32,7 +34,7 @@ type CfnBasePathMappingV2 interface {
 	awscdk.IInspectable
 	// Amazon Resource Name (ARN) of the resource.
 	AttrBasePathMappingArn() *string
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the private API must provide as part of the URL after the domain name.
 	BasePath() *string
 	SetBasePath(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -44,7 +46,7 @@ type CfnBasePathMappingV2 interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Arn of an AWS::ApiGateway::DomainNameV2 resource.
+	// The ARN of the domain name for the BasePathMappingV2 resource to be described.
 	DomainNameArn() *string
 	SetDomainNameArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -64,14 +66,14 @@ type CfnBasePathMappingV2 interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of the API.
+	// The private API's identifier.
 	RestApiId() *string
 	SetRestApiId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The name of the API's stage.
+	// Represents a unique identifier for a version of a deployed private RestApi that is callable by users.
 	Stage() *string
 	SetStage(val *string)
 	// Deprecated.

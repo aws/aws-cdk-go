@@ -49,6 +49,7 @@ type CfnKnowledgeBase_SourceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html#cfn-wisdom-knowledgebase-sourceconfiguration-appintegrations
 	//
 	AppIntegrations interface{} `field:"optional" json:"appIntegrations" yaml:"appIntegrations"`
+	// Source configuration for managed resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html#cfn-wisdom-knowledgebase-sourceconfiguration-managedsourceconfiguration
 	//
 	ManagedSourceConfiguration interface{} `field:"optional" json:"managedSourceConfiguration" yaml:"managedSourceConfiguration"`

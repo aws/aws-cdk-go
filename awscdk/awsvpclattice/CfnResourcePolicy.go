@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Retrieves information about the resource policy.
+// Retrieves information about the specified resource policy.
 //
 // The resource policy is an IAM policy created on behalf of the resource owner when they share a resource.
 //

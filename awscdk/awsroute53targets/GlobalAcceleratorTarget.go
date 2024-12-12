@@ -19,7 +19,10 @@ import (
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewGlobalAcceleratorTarget(accelerator)),
+//   	Target: route53.RecordTarget_FromAlias(
+//   	targets.NewGlobalAcceleratorTarget(accelerator, map[string]*bool{
+//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	})),
 //   })
 //
 type GlobalAcceleratorTarget interface {
@@ -34,7 +37,7 @@ type jsiiProxy_GlobalAcceleratorTarget struct {
 }
 
 // Create an Alias Target for a Global Accelerator instance.
-func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) GlobalAcceleratorTarget {
+func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator, props IAliasRecordTargetProps) GlobalAcceleratorTarget {
 	_init_.Initialize()
 
 	if err := validateNewGlobalAcceleratorTargetParameters(accelerator); err != nil {
@@ -44,7 +47,7 @@ func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) G
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
-		[]interface{}{accelerator},
+		[]interface{}{accelerator, props},
 		&j,
 	)
 
@@ -52,12 +55,12 @@ func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) G
 }
 
 // Create an Alias Target for a Global Accelerator instance.
-func NewGlobalAcceleratorTarget_Override(g GlobalAcceleratorTarget, accelerator awsglobalaccelerator.IAccelerator) {
+func NewGlobalAcceleratorTarget_Override(g GlobalAcceleratorTarget, accelerator awsglobalaccelerator.IAccelerator, props IAliasRecordTargetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
-		[]interface{}{accelerator},
+		[]interface{}{accelerator, props},
 		g,
 	)
 }

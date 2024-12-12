@@ -9,7 +9,10 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::ConnectCampaignsV2::Campaign Resource Type.
+// Creates an outbound campaign.
+//
+// > - For users to be able to view or edit a campaign at a later date by using the Amazon Connect user interface, you must add the instance ID as a tag. For example, `{ "tags": {"owner": "arn:aws:connect:{REGION}:{AWS_ACCOUNT_ID}:instance/{CONNECT_INSTANCE_ID}"}}` .
+// > - After a campaign is created, you can't add/remove source.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -209,7 +212,7 @@ type CfnCampaign interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// Amazon Connect Campaign Arn.
+	// The Amazon Resource Name (ARN).
 	AttrArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -218,19 +221,19 @@ type CfnCampaign interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The possible types of channel subtype config parameters.
+	// Contains channel subtype configuration for an outbound campaign.
 	ChannelSubtypeConfig() interface{}
 	SetChannelSubtypeConfig(val interface{})
-	// Communication limits config.
+	// Communication limits configuration for an outbound campaign.
 	CommunicationLimitsOverride() interface{}
 	SetCommunicationLimitsOverride(val interface{})
-	// Campaign communication time config.
+	// Contains communication time configuration for an outbound campaign.
 	CommunicationTimeConfig() interface{}
 	SetCommunicationTimeConfig(val interface{})
-	// Arn.
+	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
 	ConnectCampaignFlowArn() *string
 	SetConnectCampaignFlowArn(val *string)
-	// Amazon Connect Instance Id.
+	// The identifier of the Amazon Connect instance.
 	ConnectInstanceId() *string
 	SetConnectInstanceId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -247,7 +250,7 @@ type CfnCampaign interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Campaign name.
+	// The name of the outbound campaign.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -257,17 +260,17 @@ type CfnCampaign interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Campaign schedule.
+	// Contains the schedule configuration.
 	Schedule() interface{}
 	SetSchedule(val interface{})
-	// The possible types of channel config parameters.
+	// Contains source configuration.
 	Source() interface{}
 	SetSource(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

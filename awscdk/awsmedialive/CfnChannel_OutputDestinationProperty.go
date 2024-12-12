@@ -29,6 +29,13 @@ package awsmedialive
 //   			Username: jsii.String("username"),
 //   		},
 //   	},
+//   	SrtSettings: []interface{}{
+//   		&SrtOutputDestinationSettingsProperty{
+//   			EncryptionPassphraseSecretArn: jsii.String("encryptionPassphraseSecretArn"),
+//   			StreamId: jsii.String("streamId"),
+//   			Url: jsii.String("url"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html
@@ -52,5 +59,8 @@ type CfnChannel_OutputDestinationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-settings
 	//
 	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-srtsettings
+	//
+	SrtSettings interface{} `field:"optional" json:"srtSettings" yaml:"srtSettings"`
 }
 

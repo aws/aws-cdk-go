@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Associates a service with a service network.
+// Associates the specified service with the specified service network.
 //
 // For more information, see [Manage service associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations) in the *Amazon VPC Lattice User Guide* .
 //
@@ -98,10 +98,10 @@ type CfnServiceNetworkServiceAssociation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier() *string
 	SetServiceIdentifier(val *string)
-	// The ID or Amazon Resource Name (ARN) of the service network.
+	// The ID or ARN of the service network.
 	ServiceNetworkIdentifier() *string
 	SetServiceNetworkIdentifier(val *string)
 	// The stack in which this element is defined.

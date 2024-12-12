@@ -49,13 +49,13 @@ package awss3express
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html
 //
 type CfnDirectoryBucketProps struct {
-	// The number of Availability Zone that's used for redundancy for the bucket.
+	// The number of Zone (Availability Zone or Local Zone) that's used for redundancy for the bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-dataredundancy
 	//
 	DataRedundancy *string `field:"required" json:"dataRedundancy" yaml:"dataRedundancy"`
 	// The name of the location where the bucket will be created.
 	//
-	// For directory buckets, the name of the location is the AZ ID of the Availability Zone where the bucket will be created. An example AZ ID value is `usw2-az1` .
+	// For directory buckets, the name of the location is the Zone ID of the Availability Zone (AZ) or Local Zone (LZ) where the bucket will be created. An example AZ ID value is `usw2-az1` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-locationname
 	//
 	LocationName *string `field:"required" json:"locationName" yaml:"locationName"`
@@ -75,7 +75,7 @@ type CfnDirectoryBucketProps struct {
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// Container for lifecycle rules. You can add as many as 1000 rules.
 	//
-	// For more information see, [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide* .
+	// For more information see, [Creating and managing a lifecycle configuration for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-objects-lifecycle.html          ) in the *Amazon S3 User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-lifecycleconfiguration
 	//
 	LifecycleConfiguration interface{} `field:"optional" json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`

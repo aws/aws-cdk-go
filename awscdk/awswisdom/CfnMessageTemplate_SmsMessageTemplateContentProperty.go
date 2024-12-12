@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// The content of message template that applies to SMS channel subtype.
+// The content of the message template that applies to the SMS channel subtype.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

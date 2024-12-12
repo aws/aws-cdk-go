@@ -30,9 +30,11 @@ package awsiotfleetwise
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignaldecoder.html
 //
 type CfnDecoderManifest_ObdSignalDecoderProperty struct {
+	// The fully qualified name of a signal decoder as defined in a vehicle model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignaldecoder.html#cfn-iotfleetwise-decodermanifest-obdsignaldecoder-fullyqualifiedname
 	//
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
+	// The ID of a network interface that specifies what network protocol a vehicle follows.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignaldecoder.html#cfn-iotfleetwise-decodermanifest-obdsignaldecoder-interfaceid
 	//
 	InterfaceId *string `field:"required" json:"interfaceId" yaml:"interfaceId"`
@@ -40,6 +42,9 @@ type CfnDecoderManifest_ObdSignalDecoderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignaldecoder.html#cfn-iotfleetwise-decodermanifest-obdsignaldecoder-obdsignal
 	//
 	ObdSignal interface{} `field:"required" json:"obdSignal" yaml:"obdSignal"`
+	// The network protocol for the vehicle.
+	//
+	// For example, `CAN_SIGNAL` specifies a protocol that defines how data is communicated between electronic control units (ECUs). `OBD_SIGNAL` specifies a protocol that defines how self-diagnostic data is communicated between ECUs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignaldecoder.html#cfn-iotfleetwise-decodermanifest-obdsignaldecoder-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

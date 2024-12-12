@@ -80,10 +80,6 @@ func validateCfnPlugin_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnPlugin) validateSetApplicationIdParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPlugin) validateSetAuthConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -95,7 +95,7 @@ type CfnFlowSourceProps struct {
 	MaxBitrate *float64 `field:"optional" json:"maxBitrate" yaml:"maxBitrate"`
 	// The maximum latency in milliseconds.
 	//
-	// This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+	// This parameter applies only to RIST-based and Zixi-based streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
 	//
 	MaxLatency *float64 `field:"optional" json:"maxLatency" yaml:"maxLatency"`

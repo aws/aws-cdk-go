@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::IVS::IngestConfiguration.
+// The `AWS::IVS::IngestConfiguration` resource specifies an ingest protocol to be used for a stage.
+//
+// For more information, see [Stream Ingest](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-stream-ingest.html) in the *Amazon IVS Real-Time Streaming User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,13 +38,21 @@ type CfnIngestConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// IngestConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
+	// The ingest-configuration ARN.
+	//
+	// For example: `arn:aws:ivs:us-west-2:123456789012:ingest-configuration/abcdABCDefgh`.
 	AttrArn() *string
-	// Participant Id is automatically generated on creation and assigned.
+	// ID of the participant within the stage.
+	//
+	// For example: `abCDEf12GHIj`.
 	AttrParticipantId() *string
-	// State of IngestConfiguration which determines whether IngestConfiguration is in use or not.
+	// State of the ingest configuration.
+	//
+	// It is `ACTIVE` if a publisher currently is publishing to the stage associated with the ingest configuration. Valid values: `ACTIVE` | `INACTIVE` .
 	AttrState() *string
-	// Stream-key value.
+	// Ingest-key value for the RTMP(S) protocol.
+	//
+	// For example: `skSKABCDefgh`.
 	AttrStreamKey() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -55,10 +65,10 @@ type CfnIngestConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Ingest Protocol.
+	// Type of ingest protocol that the user employs for broadcasting.
 	IngestProtocol() *string
 	SetIngestProtocol(val *string)
-	// Whether ingest configuration allows insecure ingest.
+	// Whether the channel allows insecure RTMP ingest.
 	InsecureIngest() interface{}
 	SetInsecureIngest(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -71,7 +81,7 @@ type CfnIngestConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// IngestConfiguration.
+	// Ingest name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -85,10 +95,10 @@ type CfnIngestConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Stage ARN.
+	// ARN of the stage with which the IngestConfiguration is associated.
 	StageArn() *string
 	SetStageArn(val *string)
-	// A list of key-value pairs that contain metadata for the asset model.
+	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -104,7 +114,7 @@ type CfnIngestConfiguration interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// User defined indentifier for participant associated with IngestConfiguration.
+	// Customer-assigned name to help identify the participant using the IngestConfiguration;.
 	UserId() *string
 	SetUserId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

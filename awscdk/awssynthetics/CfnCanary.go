@@ -159,7 +159,7 @@ type CfnCanary interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary.
+	// Specifies whether to also delete the Lambda functions and layers used by this canary when the canary is deleted.
 	ProvisionedResourceCleanup() *string
 	SetProvisionedResourceCleanup(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

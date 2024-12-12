@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Represents a deployment resource of an AWS Mainframe Modernization (M2) application to a specified environment.
+// Creates and starts a deployment to deploy an application into a runtime environment.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,15 +27,15 @@ import (
 type CfnDeployment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The application ID.
+	// The unique identifier of the application.
 	ApplicationId() *string
 	SetApplicationId(val *string)
-	// The version number of the application to deploy.
+	// The version of the application.
 	ApplicationVersion() *float64
 	SetApplicationVersion(val *float64)
-	// The deployment ID.
+	// The unique identifier of the deployment.
 	AttrDeploymentId() *string
-	// The status of the deployment.
+	// The current status of the deployment.
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -46,7 +46,7 @@ type CfnDeployment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The environment ID.
+	// The unique identifier of the runtime environment.
 	EnvironmentId() *string
 	SetEnvironmentId(val *string)
 	// The logical ID for this CloudFormation stack element.

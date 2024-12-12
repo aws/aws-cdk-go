@@ -38,11 +38,19 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html
 //
 type CfnInferenceComponent_InferenceComponentSpecificationProperty struct {
-	// The name of the base inference component.
+	// The name of an existing inference component that is to contain the inference component that you're creating with your request.
+	//
+	// Specify this parameter only if your request is meant to create an adapter inference component. An adapter inference component contains the path to an adapter model. The purpose of the adapter model is to tailor the inference output of a base foundation model, which is hosted by the base inference component. The adapter inference component uses the compute resources that you assigned to the base inference component.
+	//
+	// When you create an adapter inference component, use the `Container` parameter to specify the location of the adapter artifacts. In the parameter value, use the `ArtifactUrl` parameter of the `InferenceComponentContainerSpecification` data type.
+	//
+	// Before you can create an adapter inference component, you must have an existing inference component that contains the foundation model that you want to adapt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-baseinferencecomponentname
 	//
 	BaseInferenceComponentName *string `field:"optional" json:"baseInferenceComponentName" yaml:"baseInferenceComponentName"`
-	// The compute resources allocated to run the model assigned to the inference component.
+	// The compute resources allocated to run the model, plus any adapter models, that you assign to the inference component.
+	//
+	// Omit this parameter if your request is meant to create an adapter inference component. An adapter inference component is loaded by a base inference component, and it uses the compute resources of the base inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-computeresourcerequirements
 	//
 	ComputeResourceRequirements interface{} `field:"optional" json:"computeResourceRequirements" yaml:"computeResourceRequirements"`

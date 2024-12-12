@@ -67,7 +67,7 @@ type CfnUser interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The current supported value is redis.
+	// The current supported values are valkey and redis.
 	Engine() *string
 	SetEngine(val *string)
 	// The logical ID for this CloudFormation stack element.

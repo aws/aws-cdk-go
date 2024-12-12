@@ -171,6 +171,10 @@ func init() {
 		reflect.TypeOf((*CfnFileSystem_OpenZFSConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnFileSystem.ReadCacheConfigurationProperty",
+		reflect.TypeOf((*CfnFileSystem_ReadCacheConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnFileSystem.RootVolumeConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_RootVolumeConfigurationProperty)(nil)).Elem(),
 	)

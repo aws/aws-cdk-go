@@ -1977,6 +1977,14 @@ func init() {
 		reflect.TypeOf((*Environment)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.Errors",
+		reflect.TypeOf((*Errors)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Errors{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.Expiration",
 		reflect.TypeOf((*Expiration)(nil)).Elem(),
 		[]_jsii_.Member{

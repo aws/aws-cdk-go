@@ -166,7 +166,7 @@ type CfnMessageTemplate_CustomerProfileAttributesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-customerprofileattributes.html#cfn-wisdom-messagetemplate-customerprofileattributes-county
 	//
 	County *string `field:"optional" json:"county" yaml:"county"`
-	// The custom attributes that are used with the message template.
+	// The custom attributes in customer profile attributes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-customerprofileattributes.html#cfn-wisdom-messagetemplate-customerprofileattributes-custom
 	//
 	Custom interface{} `field:"optional" json:"custom" yaml:"custom"`
@@ -182,7 +182,7 @@ type CfnMessageTemplate_CustomerProfileAttributesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-customerprofileattributes.html#cfn-wisdom-messagetemplate-customerprofileattributes-gender
 	//
 	Gender *string `field:"optional" json:"gender" yaml:"gender"`
-	// The customer's home phone number.
+	// The customer's mobile phone number.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-customerprofileattributes.html#cfn-wisdom-messagetemplate-customerprofileattributes-homephonenumber
 	//
 	HomePhoneNumber *string `field:"optional" json:"homePhoneNumber" yaml:"homePhoneNumber"`

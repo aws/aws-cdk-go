@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Time range in 24 hour format.
+// Contains information about a time range.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timerange.html
 //
 type CfnCampaign_TimeRangeProperty struct {
-	// Time in ISO 8601 format, e.g. T23:11.
+	// The end time of the time range.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timerange.html#cfn-connectcampaignsv2-campaign-timerange-endtime
 	//
 	EndTime *string `field:"required" json:"endTime" yaml:"endTime"`
-	// Time in ISO 8601 format, e.g. T23:11.
+	// The start time of the time range.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timerange.html#cfn-connectcampaignsv2-campaign-timerange-starttime
 	//
 	StartTime *string `field:"required" json:"startTime" yaml:"startTime"`

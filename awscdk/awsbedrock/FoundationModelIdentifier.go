@@ -273,6 +273,17 @@ func FoundationModelIdentifier_AMAZON_NOVA_REEL_V1_0() FoundationModelIdentifier
 	return returns
 }
 
+func FoundationModelIdentifier_AMAZON_RERANK_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_RERANK_V1",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AMAZON_TITAN_EMBED_G1_TEXT_02() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -774,6 +785,17 @@ func FoundationModelIdentifier_COHERE_EMBED_MULTILINGUAL_V3_0_512() FoundationMo
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"COHERE_EMBED_MULTILINGUAL_V3_0_512",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_COHERE_RERANK_V3_5() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"COHERE_RERANK_V3_5",
 		&returns,
 	)
 	return returns

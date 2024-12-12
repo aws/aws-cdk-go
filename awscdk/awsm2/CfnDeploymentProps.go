@@ -17,15 +17,15 @@ package awsm2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html
 //
 type CfnDeploymentProps struct {
-	// The application ID.
+	// The unique identifier of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html#cfn-m2-deployment-applicationid
 	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
-	// The version number of the application to deploy.
+	// The version of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html#cfn-m2-deployment-applicationversion
 	//
 	ApplicationVersion *float64 `field:"required" json:"applicationVersion" yaml:"applicationVersion"`
-	// The environment ID.
+	// The unique identifier of the runtime environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html#cfn-m2-deployment-environmentid
 	//
 	EnvironmentId *string `field:"required" json:"environmentId" yaml:"environmentId"`

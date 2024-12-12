@@ -49,9 +49,9 @@ type CfnPhoneNumberProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-prefix
 	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
-	// The claimed phone number ARN that was previously imported from the external service, such as Amazon Pinpoint.
+	// The claimed phone number ARN that was previously imported from the external service, such as AWS End User Messaging.
 	//
-	// If it is from Amazon Pinpoint, it looks like the ARN of the phone number that was imported from Amazon Pinpoint.
+	// If it is from AWS End User Messaging, it looks like the ARN of the phone number that was imported from AWS End User Messaging.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-sourcephonenumberarn
 	//
 	SourcePhoneNumberArn *string `field:"optional" json:"sourcePhoneNumberArn" yaml:"sourcePhoneNumberArn"`

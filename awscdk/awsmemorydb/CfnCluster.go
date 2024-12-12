@@ -36,6 +36,7 @@ import (
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MaintenanceWindow: jsii.String("maintenanceWindow"),
+//   	MultiRegionClusterName: jsii.String("multiRegionClusterName"),
 //   	NumReplicasPerShard: jsii.Number(123),
 //   	NumShards: jsii.Number(123),
 //   	ParameterGroupName: jsii.String("parameterGroupName"),
@@ -106,7 +107,7 @@ type CfnCluster interface {
 	// A description of the cluster .
 	Description() *string
 	SetDescription(val *string)
-	// The Valkey or Redis OSS engine used by the cluster.
+	// The name of the engine used by the cluster.
 	Engine() *string
 	SetEngine(val *string)
 	// The Valkey or Redis OSS engine version used by the cluster .
@@ -131,6 +132,9 @@ type CfnCluster interface {
 	// Specifies the weekly time range during which maintenance on the cluster is performed.
 	MaintenanceWindow() *string
 	SetMaintenanceWindow(val *string)
+	// The name of the multi-Region cluster that this cluster belongs to.
+	MultiRegionClusterName() *string
+	SetMultiRegionClusterName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The cluster 's node type.
@@ -546,6 +550,16 @@ func (j *jsiiProxy_CfnCluster) MaintenanceWindow() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) MultiRegionClusterName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"multiRegionClusterName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -880,6 +894,14 @@ func (j *jsiiProxy_CfnCluster)SetMaintenanceWindow(val *string) {
 	_jsii_.Set(
 		j,
 		"maintenanceWindow",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetMultiRegionClusterName(val *string) {
+	_jsii_.Set(
+		j,
+		"multiRegionClusterName",
 		val,
 	)
 }

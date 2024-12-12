@@ -29,7 +29,10 @@ package awsroute53
 //   	Zone: Zone,
 //   	RecordName: jsii.String(RecordName),
 //   	 // www
-//   	Target: route53.RecordTarget_FromAlias(targets.NewBucketWebsiteTarget(bucketWebsite)),
+//   	Target: route53.RecordTarget_FromAlias(
+//   	targets.NewBucketWebsiteTarget(bucketWebsite, map[string]*bool{
+//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	})),
 //   })
 //
 type HostedZoneProviderProps struct {

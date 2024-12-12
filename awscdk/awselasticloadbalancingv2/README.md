@@ -414,7 +414,24 @@ lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancer
 })
 ```
 
-You cannot add UDP or TCP_UDP listeners to a dualstack Network Load Balancer.
+You can configure whether to use an IPv6 prefix from each subnet for source NAT by setting `enablePrefixForIpv6SourceNat` to `true`.
+This must be enabled if you want to create a dualstack Network Load Balancer with a listener that uses UDP protocol.
+
+```go
+var vpc vpc
+
+
+lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+	EnablePrefixForIpv6SourceNat: jsii.Boolean(true),
+})
+
+listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+	Port: jsii.Number(1229),
+	Protocol: elbv2.Protocol_UDP,
+})
+```
 
 ### Network Load Balancer attributes
 

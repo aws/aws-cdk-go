@@ -296,6 +296,7 @@ func init() {
 			"DC1_8XLARGE": NodeType_DC1_8XLARGE,
 			"DC2_LARGE": NodeType_DC2_LARGE,
 			"DC2_8XLARGE": NodeType_DC2_8XLARGE,
+			"RA3_LARGE": NodeType_RA3_LARGE,
 			"RA3_XLPLUS": NodeType_RA3_XLPLUS,
 			"RA3_4XLARGE": NodeType_RA3_4XLARGE,
 			"RA3_16XLARGE": NodeType_RA3_16XLARGE,

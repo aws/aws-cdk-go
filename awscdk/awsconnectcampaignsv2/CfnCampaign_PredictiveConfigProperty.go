@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Predictive config.
+// Contains predictive outbound mode configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-predictiveconfig.html
 //
 type CfnCampaign_PredictiveConfigProperty struct {
-	// The bandwidth allocation of a queue resource.
+	// Bandwidth allocation for the predictive outbound mode.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-predictiveconfig.html#cfn-connectcampaignsv2-campaign-predictiveconfig-bandwidthallocation
 	//
 	BandwidthAllocation *float64 `field:"required" json:"bandwidthAllocation" yaml:"bandwidthAllocation"`

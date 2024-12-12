@@ -18,7 +18,7 @@ package awsimagebuilder
 type CfnDistributionConfiguration_TargetContainerRepositoryProperty struct {
 	// The name of the container repository where the output container image is stored.
 	//
-	// This name is prefixed by the repository location.
+	// This name is prefixed by the repository location. For example, `<repository location url>/repository_name` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-targetcontainerrepository.html#cfn-imagebuilder-distributionconfiguration-targetcontainerrepository-repositoryname
 	//
 	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`

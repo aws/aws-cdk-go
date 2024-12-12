@@ -23,11 +23,11 @@ type CfnDecoderManifest_CanInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html#cfn-iotfleetwise-decodermanifest-caninterface-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// (Optional) The name of the communication protocol for the interface.
+	// The name of the communication protocol for the interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html#cfn-iotfleetwise-decodermanifest-caninterface-protocolname
 	//
 	ProtocolName *string `field:"optional" json:"protocolName" yaml:"protocolName"`
-	// (Optional) The version of the communication protocol for the interface.
+	// The version of the communication protocol for the interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html#cfn-iotfleetwise-decodermanifest-caninterface-protocolversion
 	//
 	ProtocolVersion *string `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`

@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var geoLocation geoLocation
+//   var healthCheck healthCheck
 //   var hostedZone hostedZone
 //
 //   mxRecord := awscdk.Aws_route53.NewMxRecord(this, jsii.String("MyMxRecord"), &MxRecordProps{
@@ -32,6 +33,7 @@ import (
 //   	Comment: jsii.String("comment"),
 //   	DeleteExisting: jsii.Boolean(false),
 //   	GeoLocation: geoLocation,
+//   	HealthCheck: healthCheck,
 //   	MultiValueAnswer: jsii.Boolean(false),
 //   	RecordName: jsii.String("recordName"),
 //   	Region: jsii.String("region"),

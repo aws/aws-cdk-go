@@ -24,15 +24,22 @@ import (
 // alarms and graphs.
 //
 // Example:
-//   var fn function
+//   var matchmakingRuleSet matchmakingRuleSet
 //
-//
-//   allProblems := cloudwatch.NewMathExpression(&MathExpressionProps{
-//   	Expression: jsii.String("errors + throttles"),
+//   // Alarm that triggers when the per-second average of not placed matches exceed 10%
+//   ruleEvaluationRatio := cloudwatch.NewMathExpression(&MathExpressionProps{
+//   	Expression: jsii.String("1 - (ruleEvaluationsPassed / ruleEvaluationsFailed)"),
 //   	UsingMetrics: map[string]iMetric{
-//   		"errors": fn.metricErrors(),
-//   		"throttles": fn.metricThrottles(),
+//   		"ruleEvaluationsPassed": matchmakingRuleSet.metricRuleEvaluationsPassed(&MetricOptions{
+//   			"statistic": cloudwatch.Statistic_SUM,
+//   		}),
+//   		"ruleEvaluationsFailed": matchmakingRuleSet.metric(jsii.String("ruleEvaluationsFailed")),
 //   	},
+//   })
+//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
+//   	Metric: ruleEvaluationRatio,
+//   	Threshold: jsii.Number(0.1),
+//   	EvaluationPeriods: jsii.Number(3),
 //   })
 //
 type MathExpression interface {

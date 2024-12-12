@@ -182,6 +182,7 @@ type CfnKnowledgeBase interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Contains details about how to ingest the documents in a data source.
 	VectorIngestionConfiguration() interface{}
 	SetVectorIngestionConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

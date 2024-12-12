@@ -1752,6 +1752,17 @@ func InterfaceVpcEndpointAwsService_GLUE() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_GLUE_DASHBOARD() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"GLUE_DASHBOARD",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_GLUE_DATABREW() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -1945,6 +1956,17 @@ func InterfaceVpcEndpointAwsService_INSPECTOR_SCAN() InterfaceVpcEndpointAwsServ
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"INSPECTOR_SCAN",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_INVOICING() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"INVOICING",
 		&returns,
 	)
 	return returns
@@ -2506,6 +2528,17 @@ func InterfaceVpcEndpointAwsService_MIGRATIONHUB_STRATEGY() InterfaceVpcEndpoint
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"MIGRATIONHUB_STRATEGY",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_MQ() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"MQ",
 		&returns,
 	)
 	return returns
@@ -3259,12 +3292,34 @@ func InterfaceVpcEndpointAwsService_S3_OUTPOSTS() InterfaceVpcEndpointAwsService
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_S3_TABLES() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"S3_TABLES",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_SAGEMAKER_API() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"SAGEMAKER_API",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_SAGEMAKER_DATA_SCIENCE_ASSISTANT() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"SAGEMAKER_DATA_SCIENCE_ASSISTANT",
 		&returns,
 	)
 	return returns
@@ -3325,6 +3380,17 @@ func InterfaceVpcEndpointAwsService_SAGEMAKER_NOTEBOOK() InterfaceVpcEndpointAws
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_SAGEMAKER_PARTNER_APP() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"SAGEMAKER_PARTNER_APP",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_SAGEMAKER_RUNTIME() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -3353,6 +3419,17 @@ func InterfaceVpcEndpointAwsService_SAGEMAKER_STUDIO() InterfaceVpcEndpointAwsSe
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"SAGEMAKER_STUDIO",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_SAVINGS_PLANS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"SAVINGS_PLANS",
 		&returns,
 	)
 	return returns

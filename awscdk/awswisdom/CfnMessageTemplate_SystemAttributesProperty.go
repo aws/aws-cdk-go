@@ -21,7 +21,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html
 //
 type CfnMessageTemplate_SystemAttributesProperty struct {
-	// The system endpoint attributes that are used with the message template.
+	// The CustomerEndpoint attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html#cfn-wisdom-messagetemplate-systemattributes-customerendpoint
 	//
 	CustomerEndpoint interface{} `field:"optional" json:"customerEndpoint" yaml:"customerEndpoint"`
@@ -29,7 +29,7 @@ type CfnMessageTemplate_SystemAttributesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html#cfn-wisdom-messagetemplate-systemattributes-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The system endpoint attributes that are used with the message template.
+	// The SystemEndpoint attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html#cfn-wisdom-messagetemplate-systemattributes-systemendpoint
 	//
 	SystemEndpoint interface{} `field:"optional" json:"systemEndpoint" yaml:"systemEndpoint"`

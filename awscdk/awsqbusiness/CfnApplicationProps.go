@@ -40,6 +40,9 @@ import (
 //   	QAppsConfiguration: &QAppsConfigurationProperty{
 //   		QAppsControlMode: jsii.String("qAppsControlMode"),
 //   	},
+//   	QuickSightConfiguration: &QuickSightConfigurationProperty{
+//   		ClientNamespace: jsii.String("clientNamespace"),
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -101,6 +104,9 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-qappsconfiguration
 	//
 	QAppsConfiguration interface{} `field:"optional" json:"qAppsConfiguration" yaml:"qAppsConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-quicksightconfiguration
+	//
+	QuickSightConfiguration interface{} `field:"optional" json:"quickSightConfiguration" yaml:"quickSightConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	//
 	// If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.

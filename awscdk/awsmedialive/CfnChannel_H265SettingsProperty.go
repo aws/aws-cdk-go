@@ -32,6 +32,10 @@ package awsmedialive
 //   		},
 //   	},
 //   	FilterSettings: &H265FilterSettingsProperty{
+//   		BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
+//   			PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   			Strength: jsii.String("strength"),
+//   		},
 //   		TemporalFilterSettings: &TemporalFilterSettingsProperty{
 //   			PostFilterSharpening: jsii.String("postFilterSharpening"),
 //   			Strength: jsii.String("strength"),

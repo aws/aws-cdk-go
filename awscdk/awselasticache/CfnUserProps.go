@@ -36,7 +36,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
 //
 type CfnUserProps struct {
-	// The current supported value is redis.
+	// The current supported values are valkey and redis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
 	//
 	Engine *string `field:"required" json:"engine" yaml:"engine"`

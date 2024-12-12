@@ -41,6 +41,7 @@ import (
 //   		DataCompressionType: jsii.String("dataCompressionType"),
 //   		DeploymentType: jsii.String("deploymentType"),
 //   		DriveCacheType: jsii.String("driveCacheType"),
+//   		EfaEnabled: jsii.Boolean(false),
 //   		ExportPath: jsii.String("exportPath"),
 //   		ImportedFileChunkSize: jsii.Number(123),
 //   		ImportPath: jsii.String("importPath"),
@@ -89,6 +90,10 @@ import (
 //   			jsii.String("options"),
 //   		},
 //   		PreferredSubnetId: jsii.String("preferredSubnetId"),
+//   		ReadCacheConfiguration: &ReadCacheConfigurationProperty{
+//   			SizeGiB: jsii.Number(123),
+//   			SizingMode: jsii.String("sizingMode"),
+//   		},
 //   		RootVolumeConfiguration: &RootVolumeConfigurationProperty{
 //   			CopyTagsToSnapshots: jsii.Boolean(false),
 //   			DataCompressionType: jsii.String("dataCompressionType"),
@@ -251,9 +256,7 @@ type CfnFileSystem interface {
 	// Sets the storage capacity of the file system that you're creating.
 	StorageCapacity() *float64
 	SetStorageCapacity(val *float64)
-	// Sets the storage type for the file system that you're creating.
-	//
-	// Valid values are `SSD` and `HDD` .
+	// Sets the storage class for the file system that you're creating.
 	StorageType() *string
 	SetStorageType(val *string)
 	// Specifies the IDs of the subnets that the file system will be accessible from.

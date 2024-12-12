@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Contains details about an action group.
+// Contains details of the inline agent's action group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -65,17 +65,15 @@ type CfnAgent_AgentActionGroupProperty struct {
 	ActionGroupState *string `field:"optional" json:"actionGroupState" yaml:"actionGroupState"`
 	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
 	//
-	// For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+	// For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-apischema
 	//
 	ApiSchema interface{} `field:"optional" json:"apiSchema" yaml:"apiSchema"`
-	// The description of the action group.
+	// A description of the action group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Defines functions that each define parameters that the agent needs to invoke from the user.
-	//
-	// Each function represents an action in an action group.
+	// Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html#cfn-bedrock-agent-agentactiongroup-functionschema
 	//
 	FunctionSchema interface{} `field:"optional" json:"functionSchema" yaml:"functionSchema"`

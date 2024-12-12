@@ -23,6 +23,14 @@ import (
 //   cfnInput := awscdk.Aws_medialive.NewCfnInput(this, jsii.String("MyCfnInput"), &CfnInputProps{
 //   	Destinations: []interface{}{
 //   		&InputDestinationRequestProperty{
+//   			Network: jsii.String("network"),
+//   			NetworkRoutes: []interface{}{
+//   				&InputRequestDestinationRouteProperty{
+//   					Cidr: jsii.String("cidr"),
+//   					Gateway: jsii.String("gateway"),
+//   				},
+//   			},
+//   			StaticIpAddress: jsii.String("staticIpAddress"),
 //   			StreamName: jsii.String("streamName"),
 //   		},
 //   	},
@@ -31,12 +39,21 @@ import (
 //   			Id: jsii.String("id"),
 //   		},
 //   	},
+//   	InputNetworkLocation: jsii.String("inputNetworkLocation"),
 //   	InputSecurityGroups: []*string{
 //   		jsii.String("inputSecurityGroups"),
 //   	},
 //   	MediaConnectFlows: []interface{}{
 //   		&MediaConnectFlowRequestProperty{
 //   			FlowArn: jsii.String("flowArn"),
+//   		},
+//   	},
+//   	MulticastSettings: &MulticastSettingsCreateRequestProperty{
+//   		Sources: []interface{}{
+//   			&MulticastSourceCreateRequestProperty{
+//   				SourceIp: jsii.String("sourceIp"),
+//   				Url: jsii.String("url"),
+//   			},
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
@@ -109,6 +126,8 @@ type CfnInput interface {
 	// Settings that apply only if the input is an Elemental Link input.
 	InputDevices() interface{}
 	SetInputDevices(val interface{})
+	InputNetworkLocation() *string
+	SetInputNetworkLocation(val *string)
 	// The list of input security groups (referenced by IDs) to attach to the input if the input is a push type.
 	InputSecurityGroups() *[]*string
 	SetInputSecurityGroups(val *[]*string)
@@ -125,6 +144,8 @@ type CfnInput interface {
 	// Settings that apply only if the input is a MediaConnect input.
 	MediaConnectFlows() interface{}
 	SetMediaConnectFlows(val interface{})
+	MulticastSettings() interface{}
+	SetMulticastSettings(val interface{})
 	// A name for the input.
 	Name() *string
 	SetName(val *string)
@@ -405,6 +426,16 @@ func (j *jsiiProxy_CfnInput) InputDevices() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInput) InputNetworkLocation() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"inputNetworkLocation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInput) InputSecurityGroups() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -430,6 +461,16 @@ func (j *jsiiProxy_CfnInput) MediaConnectFlows() interface{} {
 	_jsii_.Get(
 		j,
 		"mediaConnectFlows",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) MulticastSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"multicastSettings",
 		&returns,
 	)
 	return returns
@@ -615,6 +656,14 @@ func (j *jsiiProxy_CfnInput)SetInputDevices(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnInput)SetInputNetworkLocation(val *string) {
+	_jsii_.Set(
+		j,
+		"inputNetworkLocation",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnInput)SetInputSecurityGroups(val *[]*string) {
 	_jsii_.Set(
 		j,
@@ -630,6 +679,17 @@ func (j *jsiiProxy_CfnInput)SetMediaConnectFlows(val interface{}) {
 	_jsii_.Set(
 		j,
 		"mediaConnectFlows",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInput)SetMulticastSettings(val interface{}) {
+	if err := j.validateSetMulticastSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"multicastSettings",
 		val,
 	)
 }

@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Default Telephone Outbound config.
+// The outbound configuration for telephony.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,15 +24,15 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html
 //
 type CfnCampaign_TelephonyOutboundConfigProperty struct {
-	// The identifier of the contact flow for the outbound call.
+	// The identifier of the published Amazon Connect contact flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-connectcontactflowid
 	//
 	ConnectContactFlowId *string `field:"required" json:"connectContactFlowId" yaml:"connectContactFlowId"`
-	// The configuration used for answering machine detection during outbound calls.
+	// The answering machine detection configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-answermachinedetectionconfig
 	//
 	AnswerMachineDetectionConfig interface{} `field:"optional" json:"answerMachineDetectionConfig" yaml:"answerMachineDetectionConfig"`
-	// The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
+	// The Amazon Connect source phone number.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-connectsourcephonenumber
 	//
 	ConnectSourcePhoneNumber *string `field:"optional" json:"connectSourcePhoneNumber" yaml:"connectSourcePhoneNumber"`

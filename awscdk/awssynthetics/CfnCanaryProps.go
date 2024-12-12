@@ -154,9 +154,11 @@ type CfnCanaryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
 	//
 	FailureRetentionPeriod *float64 `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
-	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary.
+	// Specifies whether to also delete the Lambda functions and layers used by this canary when the canary is deleted.
 	//
-	// Default is AUTOMATIC.
+	// If it is `AUTOMATIC` , the Lambda functions and layers will be deleted when the canary is deleted.
+	//
+	// If the value of this parameter is `OFF` , then the value of the `DeleteLambda` parameter of the [DeleteCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html) operation determines whether the Lambda functions and layers will be deleted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-provisionedresourcecleanup
 	//
 	ProvisionedResourceCleanup *string `field:"optional" json:"provisionedResourceCleanup" yaml:"provisionedResourceCleanup"`

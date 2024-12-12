@@ -61,6 +61,10 @@ type GlobalSecondaryIndexProps struct {
 	// Default: 5.
 	//
 	ReadCapacity *float64 `field:"optional" json:"readCapacity" yaml:"readCapacity"`
+	// The warm throughput configuration for the global secondary index.
+	// Default: - no warm throughput is configured.
+	//
+	WarmThroughput *WarmThroughput `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 	// The write capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.

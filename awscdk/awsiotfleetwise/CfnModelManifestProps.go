@@ -40,15 +40,15 @@ type CfnModelManifestProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html#cfn-iotfleetwise-modelmanifest-signalcatalogarn
 	//
 	SignalCatalogArn *string `field:"required" json:"signalCatalogArn" yaml:"signalCatalogArn"`
-	// (Optional) A brief description of the vehicle model.
+	// A brief description of the vehicle model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html#cfn-iotfleetwise-modelmanifest-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// (Optional) A list of nodes, which are a general abstraction of signals.
+	// A list of nodes, which are a general abstraction of signals.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html#cfn-iotfleetwise-modelmanifest-nodes
 	//
 	Nodes *[]*string `field:"optional" json:"nodes" yaml:"nodes"`
-	// (Optional) The state of the vehicle model.
+	// The state of the vehicle model.
 	//
 	// If the status is `ACTIVE` , the vehicle model can't be edited. If the status is `DRAFT` , you can edit the vehicle model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html#cfn-iotfleetwise-modelmanifest-status
@@ -56,7 +56,7 @@ type CfnModelManifestProps struct {
 	// Default: - "DRAFT".
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// (Optional) Metadata that can be used to manage the vehicle model.
+	// Metadata that can be used to manage the vehicle model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html#cfn-iotfleetwise-modelmanifest-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -37,23 +37,23 @@ type CfnSignalCatalog_SensorProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-sensor.html#cfn-iotfleetwise-signalcatalog-sensor-fullyqualifiedname
 	//
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// (Optional) A list of possible values a sensor can take.
+	// A list of possible values a sensor can take.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-sensor.html#cfn-iotfleetwise-signalcatalog-sensor-allowedvalues
 	//
 	AllowedValues *[]*string `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// (Optional) A brief description of a sensor.
+	// A brief description of a sensor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-sensor.html#cfn-iotfleetwise-signalcatalog-sensor-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// (Optional) The specified possible maximum value of the sensor.
+	// The specified possible maximum value of the sensor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-sensor.html#cfn-iotfleetwise-signalcatalog-sensor-max
 	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
-	// (Optional) The specified possible minimum value of the sensor.
+	// The specified possible minimum value of the sensor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-sensor.html#cfn-iotfleetwise-signalcatalog-sensor-min
 	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
-	// (Optional) The scientific unit of measurement for data collected by the sensor.
+	// The scientific unit of measurement for data collected by the sensor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-sensor.html#cfn-iotfleetwise-signalcatalog-sensor-unit
 	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`

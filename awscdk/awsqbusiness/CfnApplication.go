@@ -51,6 +51,9 @@ import (
 //   	QAppsConfiguration: &QAppsConfigurationProperty{
 //   		QAppsControlMode: jsii.String("qAppsControlMode"),
 //   	},
+//   	QuickSightConfiguration: &QuickSightConfigurationProperty{
+//   		ClientNamespace: jsii.String("clientNamespace"),
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -135,6 +138,8 @@ type CfnApplication interface {
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration() interface{}
 	SetQAppsConfiguration(val interface{})
+	QuickSightConfiguration() interface{}
+	SetQuickSightConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -537,6 +542,16 @@ func (j *jsiiProxy_CfnApplication) QAppsConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) QuickSightConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"quickSightConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -727,6 +742,17 @@ func (j *jsiiProxy_CfnApplication)SetQAppsConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"qAppsConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetQuickSightConfiguration(val interface{}) {
+	if err := j.validateSetQuickSightConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"quickSightConfiguration",
 		val,
 	)
 }

@@ -25,6 +25,10 @@ package awsses
 //   					StatusCode: jsii.String("statusCode"),
 //   					TopicArn: jsii.String("topicArn"),
 //   				},
+//   				ConnectAction: &ConnectActionProperty{
+//   					IamRoleArn: jsii.String("iamRoleArn"),
+//   					InstanceArn: jsii.String("instanceArn"),
+//   				},
 //   				LambdaAction: &LambdaActionProperty{
 //   					FunctionArn: jsii.String("functionArn"),
 //

@@ -97,6 +97,7 @@ package awselasticloadbalancingv2
 //   		},
 //   	},
 //   	MutualAuthentication: &MutualAuthenticationProperty{
+//   		AdvertiseTrustStoreCaNames: jsii.String("advertiseTrustStoreCaNames"),
 //   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
 //   		Mode: jsii.String("mode"),
 //   		TrustStoreArn: jsii.String("trustStoreArn"),

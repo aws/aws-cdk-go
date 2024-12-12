@@ -150,7 +150,7 @@ type CfnMessageTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-content
 	//
 	Content interface{} `field:"required" json:"content" yaml:"content"`
-	// The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
+	// The Amazon Resource Name (ARN) of the knowledge base.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-knowledgebasearn
 	//
 	KnowledgeBaseArn *string `field:"required" json:"knowledgeBaseArn" yaml:"knowledgeBaseArn"`
@@ -168,19 +168,17 @@ type CfnMessageTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The configuration information of the user groups that the message template is accessible to.
+	// The configuration information of the external data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-groupingconfiguration
 	//
 	GroupingConfiguration interface{} `field:"optional" json:"groupingConfiguration" yaml:"groupingConfiguration"`
-	// The language code value for the language in which the message template is written.
+	// The language code value for the language in which the quick response is written.
 	//
-	// The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW.
+	// The supported language codes include `de_DE` , `en_US` , `es_ES` , `fr_FR` , `id_ID` , `it_IT` , `ja_JP` , `ko_KR` , `pt_BR` , `zh_CN` , `zh_TW`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-language
 	//
 	Language *string `field:"optional" json:"language" yaml:"language"`
 	// The tags used to organize, track, or control access for this resource.
-	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html#cfn-wisdom-messagetemplate-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

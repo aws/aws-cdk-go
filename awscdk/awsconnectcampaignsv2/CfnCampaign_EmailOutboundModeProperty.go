@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Email Outbound Mode.
+// Contains information about email outbound mode.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundmode.html
 //
 type CfnCampaign_EmailOutboundModeProperty struct {
-	// Agentless config.
+	// The agentless outbound mode configuration for email.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundmode.html#cfn-connectcampaignsv2-campaign-emailoutboundmode-agentlessconfig
 	//
 	AgentlessConfig interface{} `field:"optional" json:"agentlessConfig" yaml:"agentlessConfig"`

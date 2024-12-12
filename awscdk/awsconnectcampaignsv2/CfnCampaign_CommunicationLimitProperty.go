@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Communication Limit.
+// Contains information about a communication limit.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,13 +17,15 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimit.html
 //
 type CfnCampaign_CommunicationLimitProperty struct {
+	// The frequency of communication limit evaluation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimit.html#cfn-connectcampaignsv2-campaign-communicationlimit-frequency
 	//
 	Frequency *float64 `field:"required" json:"frequency" yaml:"frequency"`
+	// The maximum outreaching count for each recipient.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimit.html#cfn-connectcampaignsv2-campaign-communicationlimit-maxcountperrecipient
 	//
 	MaxCountPerRecipient *float64 `field:"required" json:"maxCountPerRecipient" yaml:"maxCountPerRecipient"`
-	// The communication limit time unit.
+	// The unit of communication limit evaluation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimit.html#cfn-connectcampaignsv2-campaign-communicationlimit-unit
 	//
 	Unit *string `field:"required" json:"unit" yaml:"unit"`

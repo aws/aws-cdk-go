@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::WorkSpacesWeb::DataProtectionSettings Resource Type.
+// The data protection settings resource that can be associated with a web portal.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -76,10 +76,14 @@ type CfnDataProtectionSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The additional encryption context of the data protection settings.
 	AdditionalEncryptionContext() interface{}
 	SetAdditionalEncryptionContext(val interface{})
+	// A list of web portal ARNs that this data protection settings resource is associated with.
 	AttrAssociatedPortalArns() *[]*string
+	// The creation date timestamp of the data protection settings.
 	AttrCreationDate() *string
+	// The ARN of the data protection settings resource.
 	AttrDataProtectionSettingsArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -92,12 +96,16 @@ type CfnDataProtectionSettings interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The customer managed key used to encrypt sensitive information in the data protection settings.
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
+	// The description of the data protection settings.
 	Description() *string
 	SetDescription(val *string)
+	// The display name of the data protection settings.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	// The inline redaction configuration for the data protection settings.
 	InlineRedactionConfiguration() interface{}
 	SetInlineRedactionConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -121,6 +129,7 @@ type CfnDataProtectionSettings interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags of the data protection settings.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Progressive config.
+// Contains the progressive outbound mode configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-progressiveconfig.html
 //
 type CfnCampaign_ProgressiveConfigProperty struct {
-	// The bandwidth allocation of a queue resource.
+	// Bandwidth allocation for the progressive outbound mode.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-progressiveconfig.html#cfn-connectcampaignsv2-campaign-progressiveconfig-bandwidthallocation
 	//
 	BandwidthAllocation *float64 `field:"required" json:"bandwidthAllocation" yaml:"bandwidthAllocation"`

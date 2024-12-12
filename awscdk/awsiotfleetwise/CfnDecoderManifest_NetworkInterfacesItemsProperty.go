@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 
-// (Optional) A list of information about available network interfaces.
+// A list of information about available network interfaces.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

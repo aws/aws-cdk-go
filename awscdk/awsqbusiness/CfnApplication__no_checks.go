@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnApplication) validateSetQAppsConfigurationParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetQuickSightConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

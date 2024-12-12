@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A version for the specified customer-managed message template within the specified knowledge base.
+// Creates a new Amazon Q in Connect message template version from the current content and configuration of a message template.
+//
+// Versions are immutable and monotonically increasing. Once a version is created, you can reference a specific version of the message template by passing in `<messageTemplateArn>:<versionNumber>` as the message template identifier. An error is displayed if the supplied `messageTemplateContentSha256` is different from the `messageTemplateContentSha256` of the message template with `$LATEST` qualifier. If multiple `CreateMessageTemplateVersion` requests are made while the message template remains the same, only the first invocation creates a new version and the succeeding requests will return the same response as the first invocation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,9 +30,9 @@ import (
 type CfnMessageTemplateVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The unqualified Amazon Resource Name (ARN) of the message template version.
+	// The Amazon Resource Name (ARN) of the Message Template Version.
 	AttrMessageTemplateVersionArn() *string
-	// Current version number of the message template.
+	// The version number for this Message Template Version.
 	AttrMessageTemplateVersionNumber() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -51,7 +53,7 @@ type CfnMessageTemplateVersion interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The unqualified Amazon Resource Name (ARN) of the message template.
+	// The Amazon Resource Name (ARN) of the message template.
 	MessageTemplateArn() *string
 	SetMessageTemplateArn(val *string)
 	// The content SHA256 of the message template.

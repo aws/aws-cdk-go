@@ -20,7 +20,10 @@ import (
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewClassicLoadBalancerTarget(lb)),
+//   	Target: route53.RecordTarget_FromAlias(
+//   	targets.NewClassicLoadBalancerTarget(lb, map[string]*bool{
+//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	})),
 //   })
 //
 type ClassicLoadBalancerTarget interface {
@@ -34,7 +37,7 @@ type jsiiProxy_ClassicLoadBalancerTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-func NewClassicLoadBalancerTarget(loadBalancer awselasticloadbalancing.LoadBalancer) ClassicLoadBalancerTarget {
+func NewClassicLoadBalancerTarget(loadBalancer awselasticloadbalancing.LoadBalancer, props IAliasRecordTargetProps) ClassicLoadBalancerTarget {
 	_init_.Initialize()
 
 	if err := validateNewClassicLoadBalancerTargetParameters(loadBalancer); err != nil {
@@ -44,19 +47,19 @@ func NewClassicLoadBalancerTarget(loadBalancer awselasticloadbalancing.LoadBalan
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.ClassicLoadBalancerTarget",
-		[]interface{}{loadBalancer},
+		[]interface{}{loadBalancer, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewClassicLoadBalancerTarget_Override(c ClassicLoadBalancerTarget, loadBalancer awselasticloadbalancing.LoadBalancer) {
+func NewClassicLoadBalancerTarget_Override(c ClassicLoadBalancerTarget, loadBalancer awselasticloadbalancing.LoadBalancer, props IAliasRecordTargetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.ClassicLoadBalancerTarget",
-		[]interface{}{loadBalancer},
+		[]interface{}{loadBalancer, props},
 		c,
 	)
 }

@@ -25,6 +25,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var serviceAttributes interface{}
+//
 //   cfnService := awscdk.Aws_servicediscovery.NewCfnService(this, jsii.String("MyCfnService"), &CfnServiceProps{
 //   	Description: jsii.String("description"),
 //   	DnsConfig: &DnsConfigProperty{
@@ -51,6 +53,7 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	NamespaceId: jsii.String("namespaceId"),
+//   	ServiceAttributes: serviceAttributes,
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -116,6 +119,8 @@ type CfnService interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ServiceAttributes() interface{}
+	SetServiceAttributes(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -435,6 +440,16 @@ func (j *jsiiProxy_CfnService) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) ServiceAttributes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"serviceAttributes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -576,6 +591,14 @@ func (j *jsiiProxy_CfnService)SetNamespaceId(val *string) {
 	_jsii_.Set(
 		j,
 		"namespaceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetServiceAttributes(val interface{}) {
+	_jsii_.Set(
+		j,
+		"serviceAttributes",
 		val,
 	)
 }

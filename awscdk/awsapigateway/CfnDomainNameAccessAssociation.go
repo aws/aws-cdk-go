@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
+// The `AWS::ApiGateway::DomainNameAccessAssociation` resource creates a domain name access association between an access association source and a private custom domain name.
+//
+// Use a domain name access association to invoke a private custom domain name while isolated from the public internet.
+//
+// You can only create or delete a DomainNameAccessAssociation using CloudFormation. To reject a domain name access association, use the AWS CLI.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,13 +40,15 @@ type CfnDomainNameAccessAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The source of the domain name access association resource.
+	// The identifier of the domain name access association source.
 	AccessAssociationSource() *string
 	SetAccessAssociationSource(val *string)
-	// The source type of the domain name access association resource.
+	// The type of the domain name access association source.
 	AccessAssociationSourceType() *string
 	SetAccessAssociationSourceType(val *string)
-	// The amazon resource name (ARN) of the domain name access association resource.
+	// The access association ARN.
+	//
+	// For example: `arn:aws:apigateway:us-west-2:111122223333:/accessassociations/domainname/private.example.com+abcd1234/vpcesource/vpce-abcd1234efg` .
 	AttrDomainNameAccessAssociationArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -55,7 +61,7 @@ type CfnDomainNameAccessAssociation interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The amazon resource name (ARN) of the domain name resource.
+	// The ARN of the domain name.
 	DomainNameArn() *string
 	SetDomainNameArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -79,7 +85,7 @@ type CfnDomainNameAccessAssociation interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of arbitrary tags (key-value pairs) to associate with the domainname access association.
+	// The collection of tags.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

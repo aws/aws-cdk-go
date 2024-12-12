@@ -81,7 +81,9 @@ type CfnPortalProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
 	//
 	PortalDescription *string `field:"optional" json:"portalDescription" yaml:"portalDescription"`
-	// The type of portal.
+	// Define the type of portal.
+	//
+	// The value for AWS IoT SiteWise Monitor (Classic) is `SITEWISE_PORTAL_V1` . The value for AWS IoT SiteWise Monitor (AI-aware) is `SITEWISE_PORTAL_V2` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaltype
 	//
 	PortalType *string `field:"optional" json:"portalType" yaml:"portalType"`

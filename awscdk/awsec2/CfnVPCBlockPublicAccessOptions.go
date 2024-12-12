@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions.
+// VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways.
+//
+// To learn more about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html) in the *Amazon VPC User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,7 +27,7 @@ import (
 type CfnVPCBlockPublicAccessOptions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The identifier for the specified AWS account.
+	// The ID of the AWS account.
 	AttrAccountId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -36,7 +38,7 @@ type CfnVPCBlockPublicAccessOptions interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The desired Block Public Access mode for Internet Gateways in your account.
+	// The desired VPC Block Public Access mode for internet gateways in your account.
 	InternetGatewayBlockMode() *string
 	SetInternetGatewayBlockMode(val *string)
 	// The logical ID for this CloudFormation stack element.

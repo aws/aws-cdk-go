@@ -201,39 +201,43 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html
 //
 type CfnCampaignProps struct {
-	// The possible types of channel subtype config parameters.
+	// Contains channel subtype configuration for an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig
 	//
 	ChannelSubtypeConfig interface{} `field:"required" json:"channelSubtypeConfig" yaml:"channelSubtypeConfig"`
-	// Amazon Connect Instance Id.
+	// The identifier of the Amazon Connect instance.
+	//
+	// You can find the `instanceId` in the ARN of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-connectinstanceid
 	//
 	ConnectInstanceId *string `field:"required" json:"connectInstanceId" yaml:"connectInstanceId"`
-	// Campaign name.
+	// The name of the outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Communication limits config.
+	// Communication limits configuration for an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-communicationlimitsoverride
 	//
 	CommunicationLimitsOverride interface{} `field:"optional" json:"communicationLimitsOverride" yaml:"communicationLimitsOverride"`
-	// Campaign communication time config.
+	// Contains communication time configuration for an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-communicationtimeconfig
 	//
 	CommunicationTimeConfig interface{} `field:"optional" json:"communicationTimeConfig" yaml:"communicationTimeConfig"`
-	// Arn.
+	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-connectcampaignflowarn
 	//
 	ConnectCampaignFlowArn *string `field:"optional" json:"connectCampaignFlowArn" yaml:"connectCampaignFlowArn"`
-	// Campaign schedule.
+	// Contains the schedule configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-schedule
 	//
 	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
-	// The possible types of channel config parameters.
+	// Contains source configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-source
 	//
 	Source interface{} `field:"optional" json:"source" yaml:"source"`
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource.
+	//
+	// For example, `{ "tags": {"key1":"value1", "key2":"value2"} }` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

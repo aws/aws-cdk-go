@@ -32,7 +32,7 @@ type CfnConfigurationRecorder_RecordingModeOverrideProperty struct {
 	RecordingFrequency *string `field:"required" json:"recordingFrequency" yaml:"recordingFrequency"`
 	// A comma-separated list that specifies which resource types AWS Config includes in the override.
 	//
-	// > Daily recording is not supported for the following resource types:
+	// > Daily recording cannot be specified for the following resource types:
 	// >
 	// > - `AWS::Config::ResourceCompliance`
 	// > - `AWS::Config::ConformancePackCompliance`

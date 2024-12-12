@@ -7,15 +7,18 @@ import (
 // Construction properties for a ARecord.
 //
 // Example:
-//   import apigw "github.com/aws/aws-cdk-go/awscdk"
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var zone hostedZone
-//   var restApi lambdaRestApi
+//   var lb applicationLoadBalancer
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGateway(restApi)),
+//   	Target: route53.RecordTarget_FromAlias(
+//   	targets.NewLoadBalancerTarget(lb, map[string]*bool{
+//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	})),
 //   })
 //
 type ARecordProps struct {
@@ -40,6 +43,12 @@ type ARecordProps struct {
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The geographical origin for this record to return DNS records based on the user's location.
 	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`
+	// The health check to associate with the record set.
+	//
+	// Route53 will return this record set in response to DNS queries only if the health check is passing.
+	// Default: - No health check configured.
+	//
+	HealthCheck IHealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Whether to return multiple values, such as IP addresses for your web servers, in response to DNS queries.
 	// Default: false.
 	//

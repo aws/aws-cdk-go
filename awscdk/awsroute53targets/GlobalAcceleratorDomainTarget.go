@@ -15,7 +15,9 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   globalAcceleratorDomainTarget := awscdk.Aws_route53_targets.NewGlobalAcceleratorDomainTarget(jsii.String("acceleratorDomainName"))
+//   var aliasRecordTargetProps iAliasRecordTargetProps
+//
+//   globalAcceleratorDomainTarget := awscdk.Aws_route53_targets.NewGlobalAcceleratorDomainTarget(jsii.String("acceleratorDomainName"), aliasRecordTargetProps)
 //
 type GlobalAcceleratorDomainTarget interface {
 	awsroute53.IAliasRecordTarget
@@ -29,7 +31,7 @@ type jsiiProxy_GlobalAcceleratorDomainTarget struct {
 }
 
 // Create an Alias Target for a Global Accelerator domain name.
-func NewGlobalAcceleratorDomainTarget(acceleratorDomainName *string) GlobalAcceleratorDomainTarget {
+func NewGlobalAcceleratorDomainTarget(acceleratorDomainName *string, props IAliasRecordTargetProps) GlobalAcceleratorDomainTarget {
 	_init_.Initialize()
 
 	if err := validateNewGlobalAcceleratorDomainTargetParameters(acceleratorDomainName); err != nil {
@@ -39,7 +41,7 @@ func NewGlobalAcceleratorDomainTarget(acceleratorDomainName *string) GlobalAccel
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorDomainTarget",
-		[]interface{}{acceleratorDomainName},
+		[]interface{}{acceleratorDomainName, props},
 		&j,
 	)
 
@@ -47,12 +49,12 @@ func NewGlobalAcceleratorDomainTarget(acceleratorDomainName *string) GlobalAccel
 }
 
 // Create an Alias Target for a Global Accelerator domain name.
-func NewGlobalAcceleratorDomainTarget_Override(g GlobalAcceleratorDomainTarget, acceleratorDomainName *string) {
+func NewGlobalAcceleratorDomainTarget_Override(g GlobalAcceleratorDomainTarget, acceleratorDomainName *string, props IAliasRecordTargetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorDomainTarget",
-		[]interface{}{acceleratorDomainName},
+		[]interface{}{acceleratorDomainName, props},
 		g,
 	)
 }

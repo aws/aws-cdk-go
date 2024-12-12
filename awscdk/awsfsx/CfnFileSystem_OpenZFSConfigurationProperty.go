@@ -25,6 +25,10 @@ package awsfsx
 //   		jsii.String("options"),
 //   	},
 //   	PreferredSubnetId: jsii.String("preferredSubnetId"),
+//   	ReadCacheConfiguration: &ReadCacheConfigurationProperty{
+//   		SizeGiB: jsii.Number(123),
+//   		SizingMode: jsii.String("sizingMode"),
+//   	},
 //   	RootVolumeConfiguration: &RootVolumeConfigurationProperty{
 //   		CopyTagsToSnapshots: jsii.Boolean(false),
 //   		DataCompressionType: jsii.String("dataCompressionType"),
@@ -120,6 +124,9 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-preferredsubnetid
 	//
 	PreferredSubnetId *string `field:"optional" json:"preferredSubnetId" yaml:"preferredSubnetId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-readcacheconfiguration
+	//
+	ReadCacheConfiguration interface{} `field:"optional" json:"readCacheConfiguration" yaml:"readCacheConfiguration"`
 	// The configuration Amazon FSx uses when creating the root value of the Amazon FSx for OpenZFS file system.
 	//
 	// All volumes are children of the root volume.

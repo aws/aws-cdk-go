@@ -41,6 +41,9 @@ const (
 	// dc2.8xlarge.
 	// Experimental.
 	NodeType_DC2_8XLARGE NodeType = "DC2_8XLARGE"
+	// ra3.large.
+	// Experimental.
+	NodeType_RA3_LARGE NodeType = "RA3_LARGE"
 	// ra3.xlplus.
 	// Experimental.
 	NodeType_RA3_XLPLUS NodeType = "RA3_XLPLUS"

@@ -127,6 +127,16 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_route53_targets.IAliasRecordTargetProps",
+		reflect.TypeOf((*IAliasRecordTargetProps)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "evaluateTargetHealth", GoGetter: "EvaluateTargetHealth"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IAliasRecordTargetProps{}
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53_targets.InterfaceVpcEndpointTarget",
 		reflect.TypeOf((*InterfaceVpcEndpointTarget)(nil)).Elem(),

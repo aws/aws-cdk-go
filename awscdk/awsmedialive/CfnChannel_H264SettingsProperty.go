@@ -27,6 +27,10 @@ package awsmedialive
 //   	},
 //   	EntropyEncoding: jsii.String("entropyEncoding"),
 //   	FilterSettings: &H264FilterSettingsProperty{
+//   		BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
+//   			PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   			Strength: jsii.String("strength"),
+//   		},
 //   		TemporalFilterSettings: &TemporalFilterSettingsProperty{
 //   			PostFilterSharpening: jsii.String("postFilterSharpening"),
 //   			Strength: jsii.String("strength"),

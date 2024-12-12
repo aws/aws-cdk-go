@@ -91,6 +91,7 @@ type CfnPortal interface {
 	// The customer managed key of the web portal.
 	CustomerManagedKey() *string
 	SetCustomerManagedKey(val *string)
+	// The ARN of the data protection settings.
 	DataProtectionSettingsArn() *string
 	SetDataProtectionSettingsArn(val *string)
 	// The name of the web portal.

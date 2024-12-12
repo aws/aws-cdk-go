@@ -9,12 +9,12 @@ package awsamazonmq
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnConfigurationProps := &CfnConfigurationProps{
-//   	Data: jsii.String("data"),
 //   	EngineType: jsii.String("engineType"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	AuthenticationStrategy: jsii.String("authenticationStrategy"),
+//   	Data: jsii.String("data"),
 //   	Description: jsii.String("description"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	Tags: []tagsEntryProperty{
@@ -28,10 +28,6 @@ package awsamazonmq
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html
 //
 type CfnConfigurationProps struct {
-	// The base64-encoded XML configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-data
-	//
-	Data *string `field:"required" json:"data" yaml:"data"`
 	// The type of broker engine.
 	//
 	// Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
@@ -50,6 +46,10 @@ type CfnConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-authenticationstrategy
 	//
 	AuthenticationStrategy *string `field:"optional" json:"authenticationStrategy" yaml:"authenticationStrategy"`
+	// The base64-encoded XML configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-data
+	//
+	Data *string `field:"optional" json:"data" yaml:"data"`
 	// The description of the configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-description
 	//

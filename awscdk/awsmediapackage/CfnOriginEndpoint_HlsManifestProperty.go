@@ -89,8 +89,6 @@ type CfnOriginEndpoint_HlsManifestProperty struct {
 	PlaylistWindowSeconds *float64 `field:"optional" json:"playlistWindowSeconds" yaml:"playlistWindowSeconds"`
 	// Inserts `EXT-X-PROGRAM-DATE-TIME` tags in the output manifest at the interval that you specify.
 	//
-	// Additionally, ID3Timed metadata messages are generated every 5 seconds starting when the content was ingested.
-	//
 	// Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.
 	//
 	// Omit this attribute or enter `0` to indicate that the `EXT-X-PROGRAM-DATE-TIME` tags are not included in the manifest.

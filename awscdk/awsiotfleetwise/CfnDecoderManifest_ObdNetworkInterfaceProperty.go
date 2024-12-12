@@ -31,7 +31,7 @@ type CfnDecoderManifest_ObdNetworkInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdnetworkinterface.html#cfn-iotfleetwise-decodermanifest-obdnetworkinterface-interfaceid
 	//
 	InterfaceId *string `field:"required" json:"interfaceId" yaml:"interfaceId"`
-	// (Optional) Information about a network interface specified by the On-board diagnostic (OBD) II protocol.
+	// Information about a network interface specified by the On-board diagnostic (OBD) II protocol.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdnetworkinterface.html#cfn-iotfleetwise-decodermanifest-obdnetworkinterface-obdinterface
 	//
 	ObdInterface interface{} `field:"required" json:"obdInterface" yaml:"obdInterface"`

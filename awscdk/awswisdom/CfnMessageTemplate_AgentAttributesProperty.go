@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// The agent attributes that are used with the message template.
+// Information about an agent.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

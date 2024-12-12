@@ -1,6 +1,8 @@
 package awswisdom
 
 
+// Instructions for interpreting the contents of a document.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-parsingprompt.html
 //
 type CfnKnowledgeBase_ParsingPromptProperty struct {
+	// Instructions for interpreting the contents of a document.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-parsingprompt.html#cfn-wisdom-knowledgebase-parsingprompt-parsingprompttext
 	//
 	ParsingPromptText *string `field:"required" json:"parsingPromptText" yaml:"parsingPromptText"`

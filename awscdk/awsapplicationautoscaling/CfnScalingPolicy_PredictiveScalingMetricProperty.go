@@ -1,6 +1,8 @@
 package awsapplicationautoscaling
 
 
+// Describes the scaling metric.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,7 +22,7 @@ package awsapplicationautoscaling
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html
 //
 type CfnScalingPolicy_PredictiveScalingMetricProperty struct {
-	// The dimensions for the metric.
+	// Describes the dimensions of the metric.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html#cfn-applicationautoscaling-scalingpolicy-predictivescalingmetric-dimensions
 	//
 	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`

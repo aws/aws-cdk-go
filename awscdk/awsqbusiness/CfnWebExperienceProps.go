@@ -15,6 +15,12 @@ import (
 //   	ApplicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
+//   	CustomizationConfiguration: &CustomizationConfigurationProperty{
+//   		CustomCssUrl: jsii.String("customCssUrl"),
+//   		FaviconUrl: jsii.String("faviconUrl"),
+//   		FontUrl: jsii.String("fontUrl"),
+//   		LogoUrl: jsii.String("logoUrl"),
+//   	},
 //   	IdentityProviderConfiguration: &IdentityProviderConfigurationProperty{
 //   		OpenIdConnectConfiguration: &OpenIDConnectProviderConfigurationProperty{
 //   			SecretsArn: jsii.String("secretsArn"),
@@ -47,6 +53,9 @@ type CfnWebExperienceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-applicationid
 	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-customizationconfiguration
+	//
+	CustomizationConfiguration interface{} `field:"optional" json:"customizationConfiguration" yaml:"customizationConfiguration"`
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-identityproviderconfiguration
 	//

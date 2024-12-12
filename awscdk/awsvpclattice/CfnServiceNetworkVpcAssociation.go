@@ -89,7 +89,7 @@ type CfnServiceNetworkVpcAssociation interface {
 	// The IDs of the security groups.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
-	// The ID or Amazon Resource Name (ARN) of the service network.
+	// The ID or ARN of the service network.
 	ServiceNetworkIdentifier() *string
 	SetServiceNetworkIdentifier(val *string)
 	// The stack in which this element is defined.

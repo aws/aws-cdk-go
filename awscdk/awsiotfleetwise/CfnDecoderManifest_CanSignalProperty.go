@@ -1,7 +1,7 @@
 package awsiotfleetwise
 
 
-// (Optional) Information about a single controller area network (CAN) signal and the messages it receives and transmits.
+// Information about a single controller area network (CAN) signal and the messages it receives and transmits.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -54,7 +54,7 @@ type CfnDecoderManifest_CanSignalProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-startbit
 	//
 	StartBit *string `field:"required" json:"startBit" yaml:"startBit"`
-	// (Optional) The name of the signal.
+	// The name of the signal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

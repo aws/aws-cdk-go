@@ -122,7 +122,7 @@ type CfnDirectoryBucket interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The number of Availability Zone that's used for redundancy for the bucket.
+	// The number of Zone (Availability Zone or Local Zone) that's used for redundancy for the bucket.
 	DataRedundancy() *string
 	SetDataRedundancy(val *string)
 	// Container for lifecycle rules.

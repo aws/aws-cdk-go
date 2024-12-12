@@ -46,24 +46,29 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-dashboard.html
 //
 type CfnDashboardProps struct {
-	// The name of the dashboard.
+	// The name of the dashboard. The name must be unique to your account.
+	//
+	// To create the Highlights dashboard, the name must be `AWSCloudTrail-Highlights` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-dashboard.html#cfn-cloudtrail-dashboard-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Configures the automatic refresh schedule for the dashboard.
-	//
-	// Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+	// The schedule for a dashboard refresh.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-dashboard.html#cfn-cloudtrail-dashboard-refreshschedule
 	//
 	RefreshSchedule interface{} `field:"optional" json:"refreshSchedule" yaml:"refreshSchedule"`
+	// A list of tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-dashboard.html#cfn-cloudtrail-dashboard-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// Indicates whether the dashboard is protected from termination.
+	// Specifies whether termination protection is enabled for the dashboard.
+	//
+	// If termination protection is enabled, you cannot delete the dashboard until termination protection is disabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-dashboard.html#cfn-cloudtrail-dashboard-terminationprotectionenabled
 	//
 	TerminationProtectionEnabled interface{} `field:"optional" json:"terminationProtectionEnabled" yaml:"terminationProtectionEnabled"`
-	// List of widgets on the dashboard.
+	// An array of widgets for a custom dashboard. A custom dashboard can have a maximum of ten widgets.
+	//
+	// You do not need to specify widgets for the Highlights dashboard.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-dashboard.html#cfn-cloudtrail-dashboard-widgets
 	//
 	Widgets interface{} `field:"optional" json:"widgets" yaml:"widgets"`

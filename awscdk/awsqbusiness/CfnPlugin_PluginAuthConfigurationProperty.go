@@ -19,6 +19,10 @@ package awsqbusiness
 //   	OAuth2ClientCredentialConfiguration: &OAuth2ClientCredentialConfigurationProperty{
 //   		RoleArn: jsii.String("roleArn"),
 //   		SecretArn: jsii.String("secretArn"),
+//
+//   		// the properties below are optional
+//   		AuthorizationUrl: jsii.String("authorizationUrl"),
+//   		TokenUrl: jsii.String("tokenUrl"),
 //   	},
 //   }
 //

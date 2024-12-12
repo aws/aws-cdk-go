@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Connect::EmailAddress.
+// Create new email address in the specified Amazon Connect instance.
+//
+// For more information about email addresses, see [Create email addresses](https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html) in the Amazon Connect Administrator Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,7 +39,7 @@ type CfnEmailAddress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The identifier of the email address.
+	// The Amazon Resource Name (ARN) of the email address.
 	AttrEmailAddressArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -50,16 +52,16 @@ type CfnEmailAddress interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A description for the email address.
+	// The description of the email address.
 	Description() *string
 	SetDescription(val *string)
-	// The display name for the email address.
+	// The display name of email address.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// Email address to be created for this instance.
+	// The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.
 	EmailAddress() *string
 	SetEmailAddress(val *string)
-	// The identifier of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::EC2::VPCBlockPublicAccessExclusion.
+// Create a VPC Block Public Access (BPA) exclusion.
+//
+// A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html) in the *Amazon VPC User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -49,7 +51,7 @@ type CfnVPCBlockPublicAccessExclusion interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
+	// The desired VPC Block Public Access mode for a specific VPC or subnet exclusion.
 	InternetGatewayExclusionMode() *string
 	SetInternetGatewayExclusionMode(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -73,7 +75,7 @@ type CfnVPCBlockPublicAccessExclusion interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ID of the subnet.
+	// The ID of the subnet you want to exclude.
 	SubnetId() *string
 	SetSubnetId(val *string)
 	// An array of key-value pairs to apply to this resource.
@@ -92,7 +94,7 @@ type CfnVPCBlockPublicAccessExclusion interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the vpc.
+	// The ID of the VPC you want to exclude.
 	VpcId() *string
 	SetVpcId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

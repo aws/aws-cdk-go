@@ -20,7 +20,7 @@ import (
 //   tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
 //   	GlueJobName: jsii.String("my-glue-job"),
 //   	WorkerConfiguration: &WorkerConfigurationProperty{
-//   		WorkerType: tasks.WorkerType_G_1X,
+//   		WorkerTypeV2: tasks.WorkerTypeV2_G_1X(),
 //   		 // Worker type
 //   		NumberOfWorkers: jsii.Number(2),
 //   	},

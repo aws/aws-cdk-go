@@ -75,9 +75,10 @@ type CfnAccessLogSubscription interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID or Amazon Resource Name (ARN) of the service network or service.
+	// The ID or ARN of the service network or service.
 	ResourceIdentifier() *string
 	SetResourceIdentifier(val *string)
+	// Log type of the service network.
 	ServiceNetworkLogType() *string
 	SetServiceNetworkLogType(val *string)
 	// The stack in which this element is defined.

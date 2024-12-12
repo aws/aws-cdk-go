@@ -116,6 +116,9 @@ package awsmedialive
 //   				RetryInterval: jsii.Number(123),
 //   				Scte35Source: jsii.String("scte35Source"),
 //   			},
+//   			MulticastInputSettings: &MulticastInputSettingsProperty{
+//   				SourceIpAddress: jsii.String("sourceIpAddress"),
+//   			},
 //   			ServerValidation: jsii.String("serverValidation"),
 //   		},
 //   		Scte35Pid: jsii.Number(123),
@@ -140,6 +143,9 @@ package awsmedialive
 //   			},
 //   		},
 //   	},
+//   	LogicalInterfaceNames: []*string{
+//   		jsii.String("logicalInterfaceNames"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html
@@ -163,5 +169,8 @@ type CfnChannel_InputAttachmentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputsettings
 	//
 	InputSettings interface{} `field:"optional" json:"inputSettings" yaml:"inputSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-logicalinterfacenames
+	//
+	LogicalInterfaceNames *[]*string `field:"optional" json:"logicalInterfaceNames" yaml:"logicalInterfaceNames"`
 }
 

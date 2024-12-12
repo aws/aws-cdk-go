@@ -20,6 +20,7 @@ import (
 //   	AssistantId: jsii.String("assistantId"),
 //   	Configuration: &AIAgentConfigurationProperty{
 //   		AnswerRecommendationAiAgentConfiguration: &AnswerRecommendationAIAgentConfigurationProperty{
+//   			AnswerGenerationAiGuardrailId: jsii.String("answerGenerationAiGuardrailId"),
 //   			AnswerGenerationAiPromptId: jsii.String("answerGenerationAiPromptId"),
 //   			AssociationConfigurations: []interface{}{
 //   				&AssociationConfigurationProperty{
@@ -71,6 +72,7 @@ import (
 //   			QueryReformulationAiPromptId: jsii.String("queryReformulationAiPromptId"),
 //   		},
 //   		ManualSearchAiAgentConfiguration: &ManualSearchAIAgentConfigurationProperty{
+//   			AnswerGenerationAiGuardrailId: jsii.String("answerGenerationAiGuardrailId"),
 //   			AnswerGenerationAiPromptId: jsii.String("answerGenerationAiPromptId"),
 //   			AssociationConfigurations: []interface{}{
 //   				&AssociationConfigurationProperty{
@@ -118,6 +120,57 @@ import (
 //   					AssociationType: jsii.String("associationType"),
 //   				},
 //   			},
+//   		},
+//   		SelfServiceAiAgentConfiguration: &SelfServiceAIAgentConfigurationProperty{
+//   			AssociationConfigurations: []interface{}{
+//   				&AssociationConfigurationProperty{
+//   					AssociationConfigurationData: &AssociationConfigurationDataProperty{
+//   						KnowledgeBaseAssociationConfigurationData: &KnowledgeBaseAssociationConfigurationDataProperty{
+//   							ContentTagFilter: &TagFilterProperty{
+//   								AndConditions: []interface{}{
+//   									&TagConditionProperty{
+//   										Key: jsii.String("key"),
+//
+//   										// the properties below are optional
+//   										Value: jsii.String("value"),
+//   									},
+//   								},
+//   								OrConditions: []interface{}{
+//   									&OrConditionProperty{
+//   										AndConditions: []interface{}{
+//   											&TagConditionProperty{
+//   												Key: jsii.String("key"),
+//
+//   												// the properties below are optional
+//   												Value: jsii.String("value"),
+//   											},
+//   										},
+//   										TagCondition: &TagConditionProperty{
+//   											Key: jsii.String("key"),
+//
+//   											// the properties below are optional
+//   											Value: jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   								TagCondition: &TagConditionProperty{
+//   									Key: jsii.String("key"),
+//
+//   									// the properties below are optional
+//   									Value: jsii.String("value"),
+//   								},
+//   							},
+//   							MaxResults: jsii.Number(123),
+//   							OverrideKnowledgeBaseSearchType: jsii.String("overrideKnowledgeBaseSearchType"),
+//   						},
+//   					},
+//   					AssociationId: jsii.String("associationId"),
+//   					AssociationType: jsii.String("associationType"),
+//   				},
+//   			},
+//   			SelfServiceAiGuardrailId: jsii.String("selfServiceAiGuardrailId"),
+//   			SelfServiceAnswerGenerationAiPromptId: jsii.String("selfServiceAnswerGenerationAiPromptId"),
+//   			SelfServicePreProcessingAiPromptId: jsii.String("selfServicePreProcessingAiPromptId"),
 //   		},
 //   	},
 //   	Type: jsii.String("type"),

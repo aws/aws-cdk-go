@@ -63,6 +63,10 @@ import (
 //   	TableClass: awscdk.*Aws_dynamodb.TableClass_STANDARD,
 //   	TimeToLiveAttribute: jsii.String("timeToLiveAttribute"),
 //   	WaitForReplicationToFinish: jsii.Boolean(false),
+//   	WarmThroughput: &WarmThroughput{
+//   		ReadUnitsPerSecond: jsii.Number(123),
+//   		WriteUnitsPerSecond: jsii.Number(123),
+//   	},
 //   	WriteCapacity: jsii.Number(123),
 //   }
 //
@@ -194,6 +198,14 @@ type TableOptions struct {
 	// Default: true.
 	//
 	WaitForReplicationToFinish *bool `field:"optional" json:"waitForReplicationToFinish" yaml:"waitForReplicationToFinish"`
+	// Specify values to pre-warm you DynamoDB Table Warm Throughput feature is not available for Global Table replicas using the `Table` construct.
+	//
+	// To enable Warm Throughput, use the `TableV2` construct instead.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-warmthroughput
+	//
+	// Default: - warm throughput is not configured.
+	//
+	WarmThroughput *WarmThroughput `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 	// The write capacity for the table.
 	//
 	// Careful if you add Global Secondary Indexes, as

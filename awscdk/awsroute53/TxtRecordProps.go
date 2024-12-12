@@ -46,6 +46,12 @@ type TxtRecordProps struct {
 	DeleteExisting *bool `field:"optional" json:"deleteExisting" yaml:"deleteExisting"`
 	// The geographical origin for this record to return DNS records based on the user's location.
 	GeoLocation GeoLocation `field:"optional" json:"geoLocation" yaml:"geoLocation"`
+	// The health check to associate with the record set.
+	//
+	// Route53 will return this record set in response to DNS queries only if the health check is passing.
+	// Default: - No health check configured.
+	//
+	HealthCheck IHealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Whether to return multiple values, such as IP addresses for your web servers, in response to DNS queries.
 	// Default: false.
 	//

@@ -16,6 +16,7 @@ package awsfsx
 //   	DataCompressionType: jsii.String("dataCompressionType"),
 //   	DeploymentType: jsii.String("deploymentType"),
 //   	DriveCacheType: jsii.String("driveCacheType"),
+//   	EfaEnabled: jsii.Boolean(false),
 //   	ExportPath: jsii.String("exportPath"),
 //   	ImportedFileChunkSize: jsii.Number(123),
 //   	ImportPath: jsii.String("importPath"),
@@ -100,6 +101,9 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
 	//
 	DriveCacheType *string `field:"optional" json:"driveCacheType" yaml:"driveCacheType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-efaenabled
+	//
+	EfaEnabled interface{} `field:"optional" json:"efaEnabled" yaml:"efaEnabled"`
 	// (Optional) Specifies the path in the Amazon S3 bucket where the root of your Amazon FSx file system is exported.
 	//
 	// The path must use the same Amazon S3 bucket as specified in ImportPath. You can provide an optional prefix to which new and changed data is to be exported from your Amazon FSx for Lustre file system. If an `ExportPath` value is not provided, Amazon FSx sets a default export path, `s3://import-bucket/FSxLustre[creation-timestamp]` . The timestamp is in UTC format, for example `s3://import-bucket/FSxLustre20181105T222312Z` .

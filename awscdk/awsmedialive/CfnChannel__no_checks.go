@@ -80,6 +80,10 @@ func validateCfnChannel_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetAnywhereSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetCdiInputSpecificationParameters(val interface{}) error {
 	return nil
 }

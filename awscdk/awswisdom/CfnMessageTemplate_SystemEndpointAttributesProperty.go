@@ -15,7 +15,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemendpointattributes.html
 //
 type CfnMessageTemplate_SystemEndpointAttributesProperty struct {
-	// The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+	// The customer's phone number if used with `customerEndpoint` , or the number the customer dialed to call your contact center if used with `systemEndpoint` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemendpointattributes.html#cfn-wisdom-messagetemplate-systemendpointattributes-address
 	//
 	Address *string `field:"optional" json:"address" yaml:"address"`

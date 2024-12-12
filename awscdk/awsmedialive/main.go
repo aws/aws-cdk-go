@@ -18,6 +18,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "anywhereSettings", GoGetter: "AnywhereSettings"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
@@ -77,6 +78,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.AncillarySourceSettingsProperty",
 		reflect.TypeOf((*CfnChannel_AncillarySourceSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.AnywhereSettingsProperty",
+		reflect.TypeOf((*CfnChannel_AnywhereSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.ArchiveCdnSettingsProperty",
@@ -171,6 +176,14 @@ func init() {
 		reflect.TypeOf((*CfnChannel_AutomaticInputFailoverSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.Av1ColorSpaceSettingsProperty",
+		reflect.TypeOf((*CfnChannel_Av1ColorSpaceSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.Av1SettingsProperty",
+		reflect.TypeOf((*CfnChannel_Av1SettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.AvailBlankingProperty",
 		reflect.TypeOf((*CfnChannel_AvailBlankingProperty)(nil)).Elem(),
 	)
@@ -181,6 +194,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.AvailSettingsProperty",
 		reflect.TypeOf((*CfnChannel_AvailSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.BandwidthReductionFilterSettingsProperty",
+		reflect.TypeOf((*CfnChannel_BandwidthReductionFilterSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.BlackoutSlateProperty",
@@ -507,8 +524,20 @@ func init() {
 		reflect.TypeOf((*CfnChannel_MsSmoothOutputSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MulticastInputSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MulticastInputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MultiplexContainerSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MultiplexContainerSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.MultiplexGroupSettingsProperty",
 		reflect.TypeOf((*CfnChannel_MultiplexGroupSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MultiplexM2tsSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MultiplexM2tsSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.MultiplexOutputSettingsProperty",
@@ -629,6 +658,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.SmpteTtDestinationSettingsProperty",
 		reflect.TypeOf((*CfnChannel_SmpteTtDestinationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.SrtGroupSettingsProperty",
+		reflect.TypeOf((*CfnChannel_SrtGroupSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.SrtOutputDestinationSettingsProperty",
+		reflect.TypeOf((*CfnChannel_SrtOutputDestinationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.SrtOutputSettingsProperty",
+		reflect.TypeOf((*CfnChannel_SrtOutputSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.StandardHlsSettingsProperty",
@@ -1114,10 +1155,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "inputDevices", GoGetter: "InputDevices"},
+			_jsii_.MemberProperty{JsiiProperty: "inputNetworkLocation", GoGetter: "InputNetworkLocation"},
 			_jsii_.MemberProperty{JsiiProperty: "inputSecurityGroups", GoGetter: "InputSecurityGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "mediaConnectFlows", GoGetter: "MediaConnectFlows"},
+			_jsii_.MemberProperty{JsiiProperty: "multicastSettings", GoGetter: "MulticastSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -1162,6 +1205,10 @@ func init() {
 		reflect.TypeOf((*CfnInput_InputDeviceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.InputRequestDestinationRouteProperty",
+		reflect.TypeOf((*CfnInput_InputRequestDestinationRouteProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.InputSourceRequestProperty",
 		reflect.TypeOf((*CfnInput_InputSourceRequestProperty)(nil)).Elem(),
 	)
@@ -1172,6 +1219,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.MediaConnectFlowRequestProperty",
 		reflect.TypeOf((*CfnInput_MediaConnectFlowRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.MulticastSettingsCreateRequestProperty",
+		reflect.TypeOf((*CfnInput_MulticastSettingsCreateRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.MulticastSourceCreateRequestProperty",
+		reflect.TypeOf((*CfnInput_MulticastSourceCreateRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.SrtCallerDecryptionRequestProperty",

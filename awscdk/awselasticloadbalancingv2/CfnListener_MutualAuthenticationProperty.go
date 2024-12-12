@@ -9,6 +9,7 @@ package awselasticloadbalancingv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mutualAuthenticationProperty := &MutualAuthenticationProperty{
+//   	AdvertiseTrustStoreCaNames: jsii.String("advertiseTrustStoreCaNames"),
 //   	IgnoreClientCertificateExpiry: jsii.Boolean(false),
 //   	Mode: jsii.String("mode"),
 //   	TrustStoreArn: jsii.String("trustStoreArn"),
@@ -17,6 +18,9 @@ package awselasticloadbalancingv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html
 //
 type CfnListener_MutualAuthenticationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html#cfn-elasticloadbalancingv2-listener-mutualauthentication-advertisetruststorecanames
+	//
+	AdvertiseTrustStoreCaNames *string `field:"optional" json:"advertiseTrustStoreCaNames" yaml:"advertiseTrustStoreCaNames"`
 	// Indicates whether expired client certificates are ignored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html#cfn-elasticloadbalancingv2-listener-mutualauthentication-ignoreclientcertificateexpiry
 	//

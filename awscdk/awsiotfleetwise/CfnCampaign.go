@@ -13,7 +13,9 @@ import (
 //
 // The AWS IoT FleetWise Edge Agent software running in vehicles uses campaigns to decide how to collect and transfer data to the cloud. You create campaigns in the cloud. After you or your team approve campaigns, AWS IoT FleetWise automatically deploys them to vehicles.
 //
-// For more information, see [Collect and transfer data with campaigns](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html) in the *AWS IoT FleetWise Developer Guide* .
+// For more information, see [Campaigns](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html) in the *AWS IoT FleetWise Developer Guide* .
+//
+// > Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html) in the *AWS IoT FleetWise Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -162,28 +164,29 @@ type CfnCampaign interface {
 	// The data collection scheme associated with the campaign.
 	CollectionScheme() interface{}
 	SetCollectionScheme(val interface{})
-	// (Optional) Whether to compress signals before transmitting data to AWS IoT FleetWise .
+	// Whether to compress signals before transmitting data to AWS IoT FleetWise .
 	Compression() *string
 	SetCompression(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// (Optional) The destination where the campaign sends data.
+	// The destination where the campaign sends data.
 	DataDestinationConfigs() interface{}
 	SetDataDestinationConfigs(val interface{})
-	// (Optional) A list of vehicle attributes to associate with a campaign.
+	// A list of vehicle attributes to associate with a campaign.
 	DataExtraDimensions() *[]*string
 	SetDataExtraDimensions(val *[]*string)
+	// The data partitions associated with the signals collected from the vehicle.
 	DataPartitions() interface{}
 	SetDataPartitions(val interface{})
-	// (Optional) The description of the campaign.
+	// The description of the campaign.
 	Description() *string
 	SetDescription(val *string)
-	// (Optional) Option for a vehicle to send diagnostic trouble codes to AWS IoT FleetWise .
+	// Option for a vehicle to send diagnostic trouble codes to AWS IoT FleetWise .
 	DiagnosticsMode() *string
 	SetDiagnosticsMode(val *string)
-	// (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
+	// The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	ExpiryTime() *string
 	SetExpiryTime(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -201,10 +204,10 @@ type CfnCampaign interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// (Optional) How long (in milliseconds) to collect raw data after a triggering event initiates the collection.
+	// How long (in milliseconds) to collect raw data after a triggering event initiates the collection.
 	PostTriggerCollectionDuration() *float64
 	SetPostTriggerCollectionDuration(val *float64)
-	// (Optional) A number indicating the priority of one campaign over another campaign for a certain vehicle or fleet.
+	// A number indicating the priority of one campaign over another campaign for a certain vehicle or fleet.
 	Priority() *float64
 	SetPriority(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -215,24 +218,27 @@ type CfnCampaign interface {
 	// The Amazon Resource Name (ARN) of the signal catalog associated with the campaign.
 	SignalCatalogArn() *string
 	SetSignalCatalogArn(val *string)
-	// (Optional) A list of information about signals to collect.
+	// A list of information about signals to collect.
 	SignalsToCollect() interface{}
 	SetSignalsToCollect(val interface{})
+	// A list of information about signals to fetch.
 	SignalsToFetch() interface{}
 	SetSignalsToFetch(val interface{})
-	// (Optional) Whether to store collected data after a vehicle lost a connection with the cloud.
+	// Whether to store collected data after a vehicle lost a connection with the cloud.
 	SpoolingMode() *string
 	SetSpoolingMode(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// (Optional) The time, in milliseconds, to deliver a campaign after it was approved.
+	// The time, in milliseconds, to deliver a campaign after it was approved.
+	//
+	// If it's not specified, `0` is used.
 	StartTime() *string
 	SetStartTime(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// (Optional) Metadata that can be used to manage the campaign.
+	// Metadata that can be used to manage the campaign.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// The Amazon Resource Name (ARN) of a vehicle or fleet to which the campaign is deployed.

@@ -26,6 +26,10 @@ package awsses
 //   		StatusCode: jsii.String("statusCode"),
 //   		TopicArn: jsii.String("topicArn"),
 //   	},
+//   	ConnectAction: &ConnectActionProperty{
+//   		IamRoleArn: jsii.String("iamRoleArn"),
+//   		InstanceArn: jsii.String("instanceArn"),
+//   	},
 //   	LambdaAction: &LambdaActionProperty{
 //   		FunctionArn: jsii.String("functionArn"),
 //
@@ -71,6 +75,9 @@ type CfnReceiptRule_ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-bounceaction
 	//
 	BounceAction interface{} `field:"optional" json:"bounceAction" yaml:"bounceAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-connectaction
+	//
+	ConnectAction interface{} `field:"optional" json:"connectAction" yaml:"connectAction"`
 	// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-lambdaaction
 	//

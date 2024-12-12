@@ -88,7 +88,7 @@ type CfnKnowledgeBaseProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-storageconfiguration
 	//
 	StorageConfiguration interface{} `field:"required" json:"storageConfiguration" yaml:"storageConfiguration"`
-	// The description of the knowledge base.
+	// The description of the knowledge base associated with the inline agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

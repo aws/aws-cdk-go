@@ -100,7 +100,7 @@ type CfnListener interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier() *string
 	SetServiceIdentifier(val *string)
 	// The stack in which this element is defined.

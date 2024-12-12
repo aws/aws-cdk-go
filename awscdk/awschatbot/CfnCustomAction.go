@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Chatbot::CustomAction Resource Type.
+// The `AWS::Chatbot::CustomAction` resource creates a custom action that can be invoked as an alias or as a button on a notification.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -56,12 +56,16 @@ type CfnCustomAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The name of the custom action.
 	ActionName() *string
 	SetActionName(val *string)
+	// The name used to invoke this action in a chat channel.
 	AliasName() *string
 	SetAliasName(val *string)
+	// Defines when this custom action button should be attached to a notification.
 	Attachments() interface{}
 	SetAttachments(val interface{})
+	// The fully defined ARN of the custom action.
 	AttrCustomActionArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -74,6 +78,7 @@ type CfnCustomAction interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The definition of the command to run when invoked as an alias or as an action button.
 	Definition() interface{}
 	SetDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -97,6 +102,7 @@ type CfnCustomAction interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to add to the configuration.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

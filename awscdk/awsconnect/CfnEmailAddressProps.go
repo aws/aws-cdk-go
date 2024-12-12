@@ -29,19 +29,19 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html
 //
 type CfnEmailAddressProps struct {
-	// Email address to be created for this instance.
+	// The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-emailaddress
 	//
 	EmailAddress *string `field:"required" json:"emailAddress" yaml:"emailAddress"`
-	// The identifier of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-instancearn
 	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// A description for the email address.
+	// The description of the email address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The display name for the email address.
+	// The display name of email address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`

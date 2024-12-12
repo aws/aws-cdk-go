@@ -1,7 +1,7 @@
 package awsevents
 
 
-// Contains the API key authorization parameters for the connection.
+// The API key authorization parameters for the connection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

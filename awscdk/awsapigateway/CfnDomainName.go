@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::ApiGateway::DomainName` resource specifies a custom domain name for your API in API Gateway.
+// The `AWS::ApiGateway::DomainName` resource specifies a public custom domain name for your API in API Gateway.
 //
 // You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide* .
 //
@@ -63,7 +63,7 @@ type CfnDomainName interface {
 	AttrRegionalDomainName() *string
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 	AttrRegionalHostedZoneId() *string
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name.
 	CertificateArn() *string
 	SetCertificateArn(val *string)
 	// Options for this resource, such as condition, update policy etc.

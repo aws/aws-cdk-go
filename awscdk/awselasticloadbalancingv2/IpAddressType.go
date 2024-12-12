@@ -7,9 +7,15 @@ package awselasticloadbalancingv2
 //   var vpc vpc
 //
 //
-//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
 //   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+//   	EnablePrefixForIpv6SourceNat: jsii.Boolean(true),
+//   })
+//
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(1229),
+//   	Protocol: elbv2.Protocol_UDP,
 //   })
 //
 type IpAddressType string

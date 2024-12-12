@@ -11,6 +11,8 @@ import (
 
 // Creates a collection of standardized signals that can be reused to create vehicle models.
 //
+// For more information, see [Signal catalogs](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/signal-catalogs.html) in the *AWS IoT FleetWise Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -117,7 +119,7 @@ type CfnSignalCatalog interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// (Optional) A brief description of the signal catalog.
+	// A brief description of the signal catalog.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -130,15 +132,15 @@ type CfnSignalCatalog interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// (Optional) The name of the signal catalog.
+	// The name of the signal catalog.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// (Optional) Information about the number of nodes and node types in a vehicle network.
+	// Information about the number of nodes and node types in a vehicle network.
 	NodeCounts() interface{}
 	SetNodeCounts(val interface{})
-	// (Optional) A list of information about nodes, which are a general abstraction of signals.
+	// A list of information about nodes, which are a general abstraction of signals.
 	Nodes() interface{}
 	SetNodes(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -152,7 +154,7 @@ type CfnSignalCatalog interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// (Optional) Metadata that can be used to manage the signal catalog.
+	// Metadata that can be used to manage the signal catalog.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

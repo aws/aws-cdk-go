@@ -101,7 +101,9 @@ type CfnConfigurationRecorder interface {
 	// Specifies which resource types AWS Config records for configuration changes.
 	RecordingGroup() interface{}
 	SetRecordingGroup(val interface{})
-	// Specifies the default recording frequency that AWS Config uses to record configuration changes.
+	// Specifies the default recording frequency for the configuration recorder.
+	//
+	// AWS Config supports *Continuous recording* and *Daily recording* .
 	RecordingMode() interface{}
 	SetRecordingMode(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

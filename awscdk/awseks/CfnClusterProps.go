@@ -146,7 +146,9 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-bootstrapselfmanagedaddons
 	//
 	BootstrapSelfManagedAddons interface{} `field:"optional" json:"bootstrapSelfManagedAddons" yaml:"bootstrapSelfManagedAddons"`
-	// Todo: add description.
+	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster.
+	//
+	// For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-computeconfig
 	//
 	ComputeConfig interface{} `field:"optional" json:"computeConfig" yaml:"computeConfig"`
@@ -174,11 +176,15 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-outpostconfig
 	//
 	OutpostConfig interface{} `field:"optional" json:"outpostConfig" yaml:"outpostConfig"`
-	// Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+	// The configuration in the cluster for EKS Hybrid Nodes.
+	//
+	// You can't change or update this configuration after the cluster is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-remotenetworkconfig
 	//
 	RemoteNetworkConfig interface{} `field:"optional" json:"remoteNetworkConfig" yaml:"remoteNetworkConfig"`
-	// Todo: add description.
+	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster.
+	//
+	// For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-storageconfig
 	//
 	StorageConfig interface{} `field:"optional" json:"storageConfig" yaml:"storageConfig"`

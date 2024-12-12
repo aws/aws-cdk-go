@@ -1,7 +1,7 @@
 package awsevents
 
 
-// Contains the Basic authorization parameters for the connection.
+// The Basic authorization parameters for the connection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

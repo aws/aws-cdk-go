@@ -16,6 +16,10 @@ import (
 // - Each network interface has a unique ID.
 // - The signal decoders are specified in the model manifest.
 //
+// For more information, see [Decoder manifests](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/decoder-manifests.html) in the *AWS IoT FleetWise Developer Guide* .
+//
+// > Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html) in the *AWS IoT FleetWise Developer Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -118,9 +122,10 @@ type CfnDecoderManifest interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Use default decoders for all unmapped signals in the model.
 	DefaultForUnmappedSignals() *string
 	SetDefaultForUnmappedSignals(val *string)
-	// (Optional) A brief description of the decoder manifest.
+	// A brief description of the decoder manifest.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -139,7 +144,7 @@ type CfnDecoderManifest interface {
 	// The name of the decoder manifest.
 	Name() *string
 	SetName(val *string)
-	// (Optional) A list of information about available network interfaces.
+	// A list of information about available network interfaces.
 	NetworkInterfaces() interface{}
 	SetNetworkInterfaces(val interface{})
 	// The tree node.
@@ -149,19 +154,19 @@ type CfnDecoderManifest interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// (Optional) A list of information about signal decoders.
+	// A list of information about signal decoders.
 	SignalDecoders() interface{}
 	SetSignalDecoders(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// (Optional) The state of the decoder manifest.
+	// The state of the decoder manifest.
 	Status() *string
 	SetStatus(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// (Optional) Metadata that can be used to manage the decoder manifest.
+	// Metadata that can be used to manage the decoder manifest.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

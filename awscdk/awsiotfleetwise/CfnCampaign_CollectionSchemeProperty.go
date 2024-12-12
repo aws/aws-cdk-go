@@ -25,11 +25,11 @@ package awsiotfleetwise
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-collectionscheme.html
 //
 type CfnCampaign_CollectionSchemeProperty struct {
-	// (Optional) Information about a collection scheme that uses a simple logical expression to recognize what data to collect.
+	// Information about a collection scheme that uses a simple logical expression to recognize what data to collect.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-collectionscheme.html#cfn-iotfleetwise-campaign-collectionscheme-conditionbasedcollectionscheme
 	//
 	ConditionBasedCollectionScheme interface{} `field:"optional" json:"conditionBasedCollectionScheme" yaml:"conditionBasedCollectionScheme"`
-	// (Optional) Information about a collection scheme that uses a time period to decide how often to collect data.
+	// Information about a collection scheme that uses a time period to decide how often to collect data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-collectionscheme.html#cfn-iotfleetwise-campaign-collectionscheme-timebasedcollectionscheme
 	//
 	TimeBasedCollectionScheme interface{} `field:"optional" json:"timeBasedCollectionScheme" yaml:"timeBasedCollectionScheme"`

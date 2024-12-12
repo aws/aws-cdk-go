@@ -87,6 +87,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoRetryLimit: jsii.Number(123),
 //   	BadgeEnabled: jsii.Boolean(false),
 //   	BuildBatchConfig: &ProjectBuildBatchConfigProperty{
 //   		BatchReportMode: jsii.String("batchReportMode"),
@@ -241,6 +242,8 @@ type CfnProject interface {
 	// The ARN of the AWS CodeBuild project, such as `arn:aws:codebuild:us-west-2:123456789012:project/myProjectName` .
 	AttrArn() *string
 	AttrId() *string
+	AutoRetryLimit() *float64
+	SetAutoRetryLimit(val *float64)
 	// Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
 	BadgeEnabled() interface{}
 	SetBadgeEnabled(val interface{})
@@ -516,6 +519,16 @@ func (j *jsiiProxy_CfnProject) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) AutoRetryLimit() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"autoRetryLimit",
 		&returns,
 	)
 	return returns
@@ -896,6 +909,14 @@ func (j *jsiiProxy_CfnProject)SetArtifacts(val interface{}) {
 	_jsii_.Set(
 		j,
 		"artifacts",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetAutoRetryLimit(val *float64) {
+	_jsii_.Set(
+		j,
+		"autoRetryLimit",
 		val,
 	)
 }

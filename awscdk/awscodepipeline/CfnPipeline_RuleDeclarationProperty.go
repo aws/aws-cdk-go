@@ -3,7 +3,7 @@ package awscodepipeline
 
 // Represents information about the rule to be created for an associated condition.
 //
-// An example would be creating a new rule for an entry condition, such as a rule that checks for a test result before allowing the run to enter the deployment stage.
+// An example would be creating a new rule for an entry condition, such as a rule that checks for a test result before allowing the run to enter the deployment stage. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) . For more information about rules, see the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,7 +41,7 @@ type CfnPipeline_RuleDeclarationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-inputartifacts
 	//
 	InputArtifacts interface{} `field:"optional" json:"inputArtifacts" yaml:"inputArtifacts"`
-	// The name of the rule that is created for the condition, such as CheckAllResults.
+	// The name of the rule that is created for the condition, such as `VariableCheck` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

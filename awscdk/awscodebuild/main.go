@@ -217,6 +217,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "artifacts", GoGetter: "Artifacts"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "autoRetryLimit", GoGetter: "AutoRetryLimit"},
 			_jsii_.MemberProperty{JsiiProperty: "badgeEnabled", GoGetter: "BadgeEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "buildBatchConfig", GoGetter: "BuildBatchConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cache", GoGetter: "Cache"},

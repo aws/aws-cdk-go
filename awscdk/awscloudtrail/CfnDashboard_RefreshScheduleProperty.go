@@ -1,9 +1,7 @@
 package awscloudtrail
 
 
-// Configures the automatic refresh schedule for the dashboard.
-//
-// Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+// The schedule for a dashboard refresh.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,16 +20,19 @@ package awscloudtrail
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html
 //
 type CfnDashboard_RefreshScheduleProperty struct {
+	// The frequency at which you want the dashboard refreshed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html#cfn-cloudtrail-dashboard-refreshschedule-frequency
 	//
 	Frequency interface{} `field:"optional" json:"frequency" yaml:"frequency"`
-	// The status of the schedule.
+	// Specifies whether the refresh schedule is enabled.
 	//
-	// Supported values are ENABLED and DISABLED.
+	// Set the value to `ENABLED` to enable the refresh schedule, or to `DISABLED` to turn off the refresh schedule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html#cfn-cloudtrail-dashboard-refreshschedule-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// StartTime of the automatic schedule refresh.
+	// The time of day in UTC to run the schedule;
+	//
+	// for hourly only refer to minutes; default is 00:00.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html#cfn-cloudtrail-dashboard-refreshschedule-timeofday
 	//
 	TimeOfDay *string `field:"optional" json:"timeOfDay" yaml:"timeOfDay"`

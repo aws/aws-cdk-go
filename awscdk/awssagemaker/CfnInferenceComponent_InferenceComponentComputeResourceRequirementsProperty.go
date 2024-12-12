@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// Defines the compute resources to allocate to run a model that you assign to an inference component.
+// Defines the compute resources to allocate to run a model, plus any adapter models, that you assign to an inference component.
 //
 // These resources include CPU cores, accelerators, and memory.
 //

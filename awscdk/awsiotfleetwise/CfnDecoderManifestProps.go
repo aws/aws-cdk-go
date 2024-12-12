@@ -98,22 +98,25 @@ type CfnDecoderManifestProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// Use default decoders for all unmapped signals in the model.
+	//
+	// You don't need to provide any detailed decoding information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-defaultforunmappedsignals
 	//
 	DefaultForUnmappedSignals *string `field:"optional" json:"defaultForUnmappedSignals" yaml:"defaultForUnmappedSignals"`
-	// (Optional) A brief description of the decoder manifest.
+	// A brief description of the decoder manifest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// (Optional) A list of information about available network interfaces.
+	// A list of information about available network interfaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-networkinterfaces
 	//
 	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
-	// (Optional) A list of information about signal decoders.
+	// A list of information about signal decoders.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-signaldecoders
 	//
 	SignalDecoders interface{} `field:"optional" json:"signalDecoders" yaml:"signalDecoders"`
-	// (Optional) The state of the decoder manifest.
+	// The state of the decoder manifest.
 	//
 	// If the status is `ACTIVE` , the decoder manifest can't be edited. If the status is marked `DRAFT` , you can edit the decoder manifest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-status
@@ -121,7 +124,7 @@ type CfnDecoderManifestProps struct {
 	// Default: - "DRAFT".
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
-	// (Optional) Metadata that can be used to manage the decoder manifest.
+	// Metadata that can be used to manage the decoder manifest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html#cfn-iotfleetwise-decodermanifest-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

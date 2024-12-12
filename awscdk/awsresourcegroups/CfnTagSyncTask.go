@@ -9,7 +9,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Schema for ResourceGroups::TagSyncTask.
+// Onboards and syncs resources tagged with a specific tag key-value pair to an application.
+//
+// *Minimum permissions*
+//
+// To run this command, you must have the following permissions:
+//
+// - `resource-groups:StartTagSyncTask`
+// - `resource-groups:CreateGroup`
+// - `iam:PassRole` for the role you provide to create a tag-sync task.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,13 +36,18 @@ import (
 type CfnTagSyncTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon resource name (ARN) of the ApplicationGroup for which the TagSyncTask is created.
+	// The Amazon resource name (ARN) of the application group.
 	AttrGroupArn() *string
-	// The Name of the application group for which the TagSyncTask is created.
+	// The name of the application group.
 	AttrGroupName() *string
-	// The status of the TagSyncTask.
+	// The status of the tag-sync task.
+	//
+	// Valid values include:
+	//
+	// - `ACTIVE` - The tag-sync task is actively managing resources in the application by adding or removing the `awsApplication` tag from resources when they are tagged or untagged with the specified tag key-value pair.
+	// - `ERROR` - The tag-sync task is not actively managing resources in the application. Review the `ErrorMessage` for more information about resolving the error.
 	AttrStatus() *string
-	// The ARN of the TagSyncTask resource.
+	// The Amazon resource name (ARN) of the tag-sync task.
 	AttrTaskArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

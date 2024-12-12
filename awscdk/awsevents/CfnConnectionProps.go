@@ -117,7 +117,9 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
 	//
 	AuthorizationType *string `field:"optional" json:"authorizationType" yaml:"authorizationType"`
-	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+	// The authorization parameters to use to authorize with the endpoint.
+	//
+	// You must include only authorization parameters for the `AuthorizationType` you specify.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
 	//
 	AuthParameters interface{} `field:"optional" json:"authParameters" yaml:"authParameters"`

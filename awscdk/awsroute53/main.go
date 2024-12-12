@@ -62,6 +62,10 @@ func init() {
 		reflect.TypeOf((*AaaaRecordProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.AlarmIdentifier",
+		reflect.TypeOf((*AlarmIdentifier)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.AliasRecordTargetConfig",
 		reflect.TypeOf((*AliasRecordTargetConfig)(nil)).Elem(),
 	)
@@ -667,6 +671,46 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_route53.HealthCheck",
+		reflect.TypeOf((*HealthCheck)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "healthCheckId", GoGetter: "HealthCheckId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_HealthCheck{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IHealthCheck)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53.HealthCheckProps",
+		reflect.TypeOf((*HealthCheckProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_route53.HealthCheckType",
+		reflect.TypeOf((*HealthCheckType)(nil)).Elem(),
+		map[string]interface{}{
+			"HTTP": HealthCheckType_HTTP,
+			"HTTPS": HealthCheckType_HTTPS,
+			"HTTP_STR_MATCH": HealthCheckType_HTTP_STR_MATCH,
+			"HTTPS_STR_MATCH": HealthCheckType_HTTPS_STR_MATCH,
+			"TCP": HealthCheckType_TCP,
+			"CLOUDWATCH_METRIC": HealthCheckType_CLOUDWATCH_METRIC,
+			"CALCULATED": HealthCheckType_CALCULATED,
+			"RECOVERY_CONTROL": HealthCheckType_RECOVERY_CONTROL,
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.HostedZone",
 		reflect.TypeOf((*HostedZone)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -715,6 +759,22 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IAliasRecordTarget{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_route53.IHealthCheck",
+		reflect.TypeOf((*IHealthCheck)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "healthCheckId", GoGetter: "HealthCheckId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IHealthCheck{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -809,6 +869,15 @@ func init() {
 			j := jsiiProxy_IRecordSet{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_route53.InsufficientDataHealthStatusEnum",
+		reflect.TypeOf((*InsufficientDataHealthStatusEnum)(nil)).Elem(),
+		map[string]interface{}{
+			"HEALTHY": InsufficientDataHealthStatusEnum_HEALTHY,
+			"UNHEALTHY": InsufficientDataHealthStatusEnum_UNHEALTHY,
+			"LAST_KNOWN_STATUS": InsufficientDataHealthStatusEnum_LAST_KNOWN_STATUS,
 		},
 	)
 	_jsii_.RegisterClass(

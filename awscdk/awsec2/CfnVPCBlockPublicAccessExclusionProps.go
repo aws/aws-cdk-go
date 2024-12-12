@@ -28,11 +28,14 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessexclusion.html
 //
 type CfnVPCBlockPublicAccessExclusionProps struct {
-	// The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
+	// The desired VPC Block Public Access mode for a specific VPC or subnet exclusion.
+	//
+	// - `allow-bidirectional` : Allow all internet traffic to and from the excluded VPCs and subnets.
+	// - `allow-egress` : Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to `block-bidirectional` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessexclusion.html#cfn-ec2-vpcblockpublicaccessexclusion-internetgatewayexclusionmode
 	//
 	InternetGatewayExclusionMode *string `field:"required" json:"internetGatewayExclusionMode" yaml:"internetGatewayExclusionMode"`
-	// The ID of the subnet.
+	// The ID of the subnet you want to exclude.
 	//
 	// Required only if you don't specify VpcId.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessexclusion.html#cfn-ec2-vpcblockpublicaccessexclusion-subnetid
@@ -42,7 +45,7 @@ type CfnVPCBlockPublicAccessExclusionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessexclusion.html#cfn-ec2-vpcblockpublicaccessexclusion-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The ID of the vpc.
+	// The ID of the VPC you want to exclude.
 	//
 	// Required only if you don't specify SubnetId.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessexclusion.html#cfn-ec2-vpcblockpublicaccessexclusion-vpcid

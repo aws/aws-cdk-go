@@ -7,15 +7,22 @@ import (
 // Properties for a MathExpression.
 //
 // Example:
-//   var fn function
+//   var matchmakingRuleSet matchmakingRuleSet
 //
-//
-//   allProblems := cloudwatch.NewMathExpression(&MathExpressionProps{
-//   	Expression: jsii.String("errors + throttles"),
+//   // Alarm that triggers when the per-second average of not placed matches exceed 10%
+//   ruleEvaluationRatio := cloudwatch.NewMathExpression(&MathExpressionProps{
+//   	Expression: jsii.String("1 - (ruleEvaluationsPassed / ruleEvaluationsFailed)"),
 //   	UsingMetrics: map[string]iMetric{
-//   		"errors": fn.metricErrors(),
-//   		"throttles": fn.metricThrottles(),
+//   		"ruleEvaluationsPassed": matchmakingRuleSet.metricRuleEvaluationsPassed(&MetricOptions{
+//   			"statistic": cloudwatch.Statistic_SUM,
+//   		}),
+//   		"ruleEvaluationsFailed": matchmakingRuleSet.metric(jsii.String("ruleEvaluationsFailed")),
 //   	},
+//   })
+//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
+//   	Metric: ruleEvaluationRatio,
+//   	Threshold: jsii.Number(0.1),
+//   	EvaluationPeriods: jsii.Number(3),
 //   })
 //
 type MathExpressionProps struct {
@@ -78,6 +85,35 @@ type MathExpressionProps struct {
 	//
 	// The key is the identifier that represents the given metric in the
 	// expression, and the value is the actual Metric object.
+	//
+	// The `period` of each metric in `usingMetrics` is ignored and instead overridden
+	// by the `period` specified for the `MathExpression` construct. Even if no `period`
+	// is specified for the `MathExpression`, it will be overridden by the default
+	// value (`Duration.minutes(5)`).
+	//
+	// Example:
+	//
+	// ```ts
+	// declare const metrics: elbv2.IApplicationLoadBalancerMetrics;
+	// new cloudwatch.MathExpression({
+	//   expression:  'm1+m2',
+	//   label: 'AlbErrors',
+	//   usingMetrics: {
+	//     m1: metrics.custom('HTTPCode_ELB_500_Count', {
+	//       period: Duration.minutes(1), // <- This period will be ignored
+	//       statistic: 'Sum',
+	//       label: 'HTTPCode_ELB_500_Count',
+	//     }),
+	//     m2: metrics.custom('HTTPCode_ELB_502_Count', {
+	//       period: Duration.minutes(1), // <- This period will be ignored
+	//       statistic: 'Sum',
+	//       label: 'HTTPCode_ELB_502_Count',
+	//     }),
+	//   },
+	//   period: Duration.minutes(3), // <- This overrides the period of each metric in `usingMetrics`
+	//                                //    (Even if not specified, it is overridden by the default value)
+	// });
+	// ```.
 	// Default: - Empty map.
 	//
 	UsingMetrics *map[string]IMetric `field:"optional" json:"usingMetrics" yaml:"usingMetrics"`

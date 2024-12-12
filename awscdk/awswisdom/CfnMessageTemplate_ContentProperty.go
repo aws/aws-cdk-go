@@ -38,7 +38,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-content.html
 //
 type CfnMessageTemplate_ContentProperty struct {
-	// The content of message template that applies to email channel subtype.
+	// The content of the message template that applies to the email channel subtype.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-content.html#cfn-wisdom-messagetemplate-content-emailmessagetemplatecontent
 	//
 	EmailMessageTemplateContent interface{} `field:"optional" json:"emailMessageTemplateContent" yaml:"emailMessageTemplateContent"`

@@ -164,6 +164,14 @@ type TableProps struct {
 	// Default: true.
 	//
 	WaitForReplicationToFinish *bool `field:"optional" json:"waitForReplicationToFinish" yaml:"waitForReplicationToFinish"`
+	// Specify values to pre-warm you DynamoDB Table Warm Throughput feature is not available for Global Table replicas using the `Table` construct.
+	//
+	// To enable Warm Throughput, use the `TableV2` construct instead.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-warmthroughput
+	//
+	// Default: - warm throughput is not configured.
+	//
+	WarmThroughput *WarmThroughput `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 	// The write capacity for the table.
 	//
 	// Careful if you add Global Secondary Indexes, as
@@ -173,6 +181,10 @@ type TableProps struct {
 	// Default: 5.
 	//
 	WriteCapacity *float64 `field:"optional" json:"writeCapacity" yaml:"writeCapacity"`
+	// Kinesis Data Stream approximate creation timestamp prescision.
+	// Default: ApproximateCreationDateTimePrecision.MICROSECOND
+	//
+	KinesisPrecisionTimestamp ApproximateCreationDateTimePrecision `field:"optional" json:"kinesisPrecisionTimestamp" yaml:"kinesisPrecisionTimestamp"`
 	// Kinesis Data Stream to capture item-level changes for the table.
 	// Default: - no Kinesis Data Stream.
 	//

@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnInput) validateSetMediaConnectFlowsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnInput) validateSetMulticastSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnInput) validateSetSourcesParameters(val interface{}) error {
 	return nil
 }

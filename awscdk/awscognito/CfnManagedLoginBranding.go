@@ -9,7 +9,20 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Cognito::ManagedLoginBranding.
+// Creates a new set of branding settings for a user pool style and associates it with an app client.
+//
+// This operation is the programmatic option for the creation of a new style in the branding designer.
+//
+// Provides values for UI customization in a `Settings` JSON object and image files in an `Assets` array. To send the JSON object `Document` type parameter in `Settings` , you might need to update to the most recent version of your AWS SDK.
+//
+// This operation has a 2-megabyte request-size limit and include the CSS settings and image assets for your app client. Your branding settings might exceed 2MB in size. Amazon Cognito doesn't require that you pass all parameters in one request and preserves existing style settings that you don't specify. If your request is larger than 2MB, separate it into multiple requests, each with a size smaller than the limit.
+//
+// As a best practice, modify the output of [DescribeManagedLoginBrandingByClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html) into the request parameters for this operation. To get all settings, set `ReturnMergedResources` to `true` . For more information, see [API and SDK operations for managed login branding](https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api)
+//
+// > Amazon Cognito evaluates AWS Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+// >
+// > **Learn more** - [Signing AWS API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+// > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,8 +57,10 @@ import (
 type CfnManagedLoginBranding interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// An array of image files that you want to apply to roles like backgrounds, logos, and icons.
 	Assets() interface{}
 	SetAssets(val interface{})
+	// The ID of the managed login branding style.
 	AttrManagedLoginBrandingId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -77,6 +92,7 @@ type CfnManagedLoginBranding interface {
 	Ref() *string
 	ReturnMergedResources() interface{}
 	SetReturnMergedResources(val interface{})
+	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
 	Settings() interface{}
 	SetSettings(val interface{})
 	// The stack in which this element is defined.
@@ -96,8 +112,10 @@ type CfnManagedLoginBranding interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// When true, applies the default branding style options.
 	UseCognitoProvidedValues() interface{}
 	SetUseCognitoProvidedValues(val interface{})
+	// The user pool where the branding style is assigned.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

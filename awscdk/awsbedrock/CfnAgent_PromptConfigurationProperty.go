@@ -54,7 +54,7 @@ type CfnAgent_PromptConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html#cfn-bedrock-agent-promptconfiguration-promptcreationmode
 	//
 	PromptCreationMode *string `field:"optional" json:"promptCreationMode" yaml:"promptCreationMode"`
-	// Specifies whether to allow the agent to carry out the step specified in the `promptType` .
+	// Specifies whether to allow the inline agent to carry out the step specified in the `promptType` .
 	//
 	// If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
 	//

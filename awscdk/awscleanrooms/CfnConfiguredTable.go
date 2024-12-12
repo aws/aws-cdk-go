@@ -177,7 +177,7 @@ type CfnConfiguredTable interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The AWS Glue table that this configured table represents.
+	// The table that this configured table represents.
 	TableReference() interface{}
 	SetTableReference(val interface{})
 	// An optional label that you can assign to a resource when you create it.

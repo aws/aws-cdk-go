@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// SMS Outbound Mode.
+// Contains information about the SMS outbound mode.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smsoutboundmode.html
 //
 type CfnCampaign_SmsOutboundModeProperty struct {
-	// Agentless config.
+	// Contains agentless outbound mode configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smsoutboundmode.html#cfn-connectcampaignsv2-campaign-smsoutboundmode-agentlessconfig
 	//
 	AgentlessConfig interface{} `field:"optional" json:"agentlessConfig" yaml:"agentlessConfig"`

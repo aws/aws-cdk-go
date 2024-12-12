@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Communication limits config.
+// Contains the communication limits configuration for an outbound campaign.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,7 +23,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimitsconfig.html
 //
 type CfnCampaign_CommunicationLimitsConfigProperty struct {
-	// Communication limits.
+	// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimitsconfig.html#cfn-connectcampaignsv2-campaign-communicationlimitsconfig-allchannelssubtypes
 	//
 	AllChannelsSubtypes interface{} `field:"optional" json:"allChannelsSubtypes" yaml:"allChannelsSubtypes"`

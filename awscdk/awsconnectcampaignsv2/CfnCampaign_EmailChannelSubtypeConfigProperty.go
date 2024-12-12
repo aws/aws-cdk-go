@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Email Channel Subtype config.
+// The configuration for the email channel subtype.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,15 +29,15 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html
 //
 type CfnCampaign_EmailChannelSubtypeConfigProperty struct {
-	// Default SMS outbound config.
+	// The default email outbound configuration of an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-emailchannelsubtypeconfig-defaultoutboundconfig
 	//
 	DefaultOutboundConfig interface{} `field:"required" json:"defaultOutboundConfig" yaml:"defaultOutboundConfig"`
-	// Email Outbound Mode.
+	// The outbound mode for email of an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-emailchannelsubtypeconfig-outboundmode
 	//
 	OutboundMode interface{} `field:"required" json:"outboundMode" yaml:"outboundMode"`
-	// Allocates outbound capacity for the specific channel of this campaign between multiple active campaigns.
+	// The allocation of email capacity between multiple running outbound campaigns.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-emailchannelsubtypeconfig-capacity
 	//
 	Capacity *float64 `field:"optional" json:"capacity" yaml:"capacity"`

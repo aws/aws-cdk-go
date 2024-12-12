@@ -179,7 +179,7 @@ type CfnCluster interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Todo: add description.
+	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster.
 	ComputeConfig() interface{}
 	SetComputeConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -218,7 +218,7 @@ type CfnCluster interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+	// The configuration in the cluster for EKS Hybrid Nodes.
 	RemoteNetworkConfig() interface{}
 	SetRemoteNetworkConfig(val interface{})
 	// The VPC configuration that's used by the cluster control plane.
@@ -231,7 +231,7 @@ type CfnCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Todo: add description.
+	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster.
 	StorageConfig() interface{}
 	SetStorageConfig(val interface{})
 	// Tag Manager which manages the tags for this resource.

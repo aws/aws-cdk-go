@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Restricted period config.
+// Contains information about restricted periods.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,7 +23,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiods.html
 //
 type CfnCampaign_RestrictedPeriodsProperty struct {
-	// List of restricted period.
+	// The restricted period list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiods.html#cfn-connectcampaignsv2-campaign-restrictedperiods-restrictedperiodlist
 	//
 	RestrictedPeriodList interface{} `field:"required" json:"restrictedPeriodList" yaml:"restrictedPeriodList"`

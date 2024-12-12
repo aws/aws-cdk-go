@@ -22,6 +22,8 @@ type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	AnywhereSettings() interface{}
+	SetAnywhereSettings(val interface{})
 	// The ARN of the MediaLive channel.
 	//
 	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:channel:1234567.
@@ -247,6 +249,16 @@ type jsiiProxy_CfnChannel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnChannel) AnywhereSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"anywhereSettings",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnChannel) AttrArn() *string {
@@ -534,6 +546,17 @@ func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_medialive.CfnChannel",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetAnywhereSettings(val interface{}) {
+	if err := j.validateSetAnywhereSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"anywhereSettings",
+		val,
 	)
 }
 

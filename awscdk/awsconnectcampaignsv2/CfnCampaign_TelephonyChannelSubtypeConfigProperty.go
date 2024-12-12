@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Telephony Channel Subtype config.
+// The configuration for the telephony channel subtype.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,19 +41,19 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html
 //
 type CfnCampaign_TelephonyChannelSubtypeConfigProperty struct {
-	// Default Telephone Outbound config.
+	// The default telephony outbound configuration of an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-telephonychannelsubtypeconfig-defaultoutboundconfig
 	//
 	DefaultOutboundConfig interface{} `field:"required" json:"defaultOutboundConfig" yaml:"defaultOutboundConfig"`
-	// Telephony Outbound Mode.
+	// The outbound mode of telephony for an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-telephonychannelsubtypeconfig-outboundmode
 	//
 	OutboundMode interface{} `field:"required" json:"outboundMode" yaml:"outboundMode"`
-	// Allocates outbound capacity for the specific channel of this campaign between multiple active campaigns.
+	// The allocation of telephony capacity between multiple running outbound campaigns.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-telephonychannelsubtypeconfig-capacity
 	//
 	Capacity *float64 `field:"optional" json:"capacity" yaml:"capacity"`
-	// The queue for the call.
+	// The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-telephonychannelsubtypeconfig-connectqueueid
 	//
 	ConnectQueueId *string `field:"optional" json:"connectQueueId" yaml:"connectQueueId"`

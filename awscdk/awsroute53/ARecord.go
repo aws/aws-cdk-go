@@ -11,15 +11,18 @@ import (
 // A DNS A record.
 //
 // Example:
-//   import apigw "github.com/aws/aws-cdk-go/awscdk"
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var zone hostedZone
-//   var restApi lambdaRestApi
+//   var lb applicationLoadBalancer
 //
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewApiGateway(restApi)),
+//   	Target: route53.RecordTarget_FromAlias(
+//   	targets.NewLoadBalancerTarget(lb, map[string]*bool{
+//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	})),
 //   })
 //
 type ARecord interface {

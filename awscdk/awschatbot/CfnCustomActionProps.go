@@ -48,18 +48,27 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html
 //
 type CfnCustomActionProps struct {
+	// The name of the custom action.
+	//
+	// This name is included in the Amazon Resource Name (ARN).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-actionname
 	//
 	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
+	// The definition of the command to run when invoked as an alias or as an action button.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-definition
 	//
 	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
+	// The name used to invoke this action in a chat channel.
+	//
+	// For example, `@aws run my-alias` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-aliasname
 	//
 	AliasName *string `field:"optional" json:"aliasName" yaml:"aliasName"`
+	// Defines when this custom action button should be attached to a notification.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-attachments
 	//
 	Attachments interface{} `field:"optional" json:"attachments" yaml:"attachments"`
+	// The tags to add to the configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html#cfn-chatbot-customaction-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

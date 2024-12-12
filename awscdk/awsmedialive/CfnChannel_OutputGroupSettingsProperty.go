@@ -181,6 +181,9 @@ package awsmedialive
 //   		InputLossAction: jsii.String("inputLossAction"),
 //   		RestartDelay: jsii.Number(123),
 //   	},
+//   	SrtGroupSettings: &SrtGroupSettingsProperty{
+//   		InputLossAction: jsii.String("inputLossAction"),
+//   	},
 //   	UdpGroupSettings: &UdpGroupSettingsProperty{
 //   		InputLossAction: jsii.String("inputLossAction"),
 //   		TimedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
@@ -224,6 +227,9 @@ type CfnChannel_OutputGroupSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-rtmpgroupsettings
 	//
 	RtmpGroupSettings interface{} `field:"optional" json:"rtmpGroupSettings" yaml:"rtmpGroupSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-srtgroupsettings
+	//
+	SrtGroupSettings interface{} `field:"optional" json:"srtGroupSettings" yaml:"srtGroupSettings"`
 	// The configuration of a UDP output group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-udpgroupsettings
 	//

@@ -3,7 +3,7 @@ package awssecretsmanager
 
 // Creates a new Lambda rotation function based on one of the [Secrets Manager rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) .
 //
-// You must specify `Transform: AWS::SecretsManager-2020-07-23` at the beginning of the CloudFormation template.
+// You must specify `Transform: AWS::SecretsManager-2024-09-16` at the beginning of the CloudFormation template.
 //
 // For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
 //
@@ -84,10 +84,19 @@ type CfnRotationSchedule_HostedRotationLambdaProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-rotationlambdaname
 	//
 	RotationLambdaName *string `field:"optional" json:"rotationLambdaName" yaml:"rotationLambdaName"`
-	// By default, CloudFormation deploys Python 3.9 binaries for the rotation function. To use a different version of Python, you must do the following two steps:.
+	// > Do not set this value if you are using `Transform: AWS::SecretsManager-2024-09-16` .
+	//
+	// Over time, the updated rotation lambda artifacts vended by AWS may not be compatible with the code or shared object files defined in the rotation function deployment package.
+	// >
+	// > Only define the `Runtime` key if:
+	// >
+	// > - You are using `Transform: AWS::SecretsManager-2020-07-23` .
+	// > - The code or shared object files defined in the rotation function deployment package are incompatible with Python 3.9.
+	//
+	// The Python Runtime version for with the rotation function. By default, CloudFormation deploys Python 3.9 binaries for the rotation function. To use a different version of Python, you must do the following two steps:
 	//
 	// - Deploy the matching version Python binaries with your rotation function.
-	// - Set the version number in this field. For example, for Python 3.7, enter *python3.7*
+	// - Set the version number in this field. For example, for Python 3.7, enter *python3.7* .
 	//
 	// If you only do one of the steps, your rotation function will be incompatible with the binaries. For more information, see [Why did my Lambda rotation function fail with a "pg module not found" error](https://docs.aws.amazon.com/https://repost.aws/knowledge-center/secrets-manager-lambda-rotation) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda-runtime

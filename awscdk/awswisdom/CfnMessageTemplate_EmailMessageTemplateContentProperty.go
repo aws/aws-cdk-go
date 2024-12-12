@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// The content of message template that applies to email channel subtype.
+// The content of the message template that applies to the email channel subtype.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

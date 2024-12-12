@@ -37,7 +37,10 @@ import (
 //   	Zone: Zone,
 //   	RecordName: jsii.String(RecordName),
 //   	 // www
-//   	Target: route53.RecordTarget_FromAlias(targets.NewBucketWebsiteTarget(bucketWebsite)),
+//   	Target: route53.RecordTarget_FromAlias(
+//   	targets.NewBucketWebsiteTarget(bucketWebsite, map[string]*bool{
+//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	})),
 //   })
 //
 type BucketWebsiteTarget interface {
@@ -51,7 +54,7 @@ type jsiiProxy_BucketWebsiteTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-func NewBucketWebsiteTarget(bucket awss3.IBucket) BucketWebsiteTarget {
+func NewBucketWebsiteTarget(bucket awss3.IBucket, props IAliasRecordTargetProps) BucketWebsiteTarget {
 	_init_.Initialize()
 
 	if err := validateNewBucketWebsiteTargetParameters(bucket); err != nil {
@@ -61,19 +64,19 @@ func NewBucketWebsiteTarget(bucket awss3.IBucket) BucketWebsiteTarget {
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.BucketWebsiteTarget",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewBucketWebsiteTarget_Override(b BucketWebsiteTarget, bucket awss3.IBucket) {
+func NewBucketWebsiteTarget_Override(b BucketWebsiteTarget, bucket awss3.IBucket, props IAliasRecordTargetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.BucketWebsiteTarget",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		b,
 	)
 }

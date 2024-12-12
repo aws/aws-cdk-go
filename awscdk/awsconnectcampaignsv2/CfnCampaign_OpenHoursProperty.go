@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Open Hours config.
+// Contains information about open hours.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,7 +25,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-openhours.html
 //
 type CfnCampaign_OpenHoursProperty struct {
-	// Daily Hours map.
+	// The daily hours configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-openhours.html#cfn-connectcampaignsv2-campaign-openhours-dailyhours
 	//
 	DailyHours interface{} `field:"required" json:"dailyHours" yaml:"dailyHours"`

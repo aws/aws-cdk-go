@@ -13,6 +13,14 @@ package awsmedialive
 //   cfnInputProps := &CfnInputProps{
 //   	Destinations: []interface{}{
 //   		&InputDestinationRequestProperty{
+//   			Network: jsii.String("network"),
+//   			NetworkRoutes: []interface{}{
+//   				&InputRequestDestinationRouteProperty{
+//   					Cidr: jsii.String("cidr"),
+//   					Gateway: jsii.String("gateway"),
+//   				},
+//   			},
+//   			StaticIpAddress: jsii.String("staticIpAddress"),
 //   			StreamName: jsii.String("streamName"),
 //   		},
 //   	},
@@ -21,12 +29,21 @@ package awsmedialive
 //   			Id: jsii.String("id"),
 //   		},
 //   	},
+//   	InputNetworkLocation: jsii.String("inputNetworkLocation"),
 //   	InputSecurityGroups: []*string{
 //   		jsii.String("inputSecurityGroups"),
 //   	},
 //   	MediaConnectFlows: []interface{}{
 //   		&MediaConnectFlowRequestProperty{
 //   			FlowArn: jsii.String("flowArn"),
+//   		},
+//   	},
+//   	MulticastSettings: &MulticastSettingsCreateRequestProperty{
+//   		Sources: []interface{}{
+//   			&MulticastSourceCreateRequestProperty{
+//   				SourceIp: jsii.String("sourceIp"),
+//   				Url: jsii.String("url"),
+//   			},
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
@@ -75,6 +92,9 @@ type CfnInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
 	//
 	InputDevices interface{} `field:"optional" json:"inputDevices" yaml:"inputDevices"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputnetworklocation
+	//
+	InputNetworkLocation *string `field:"optional" json:"inputNetworkLocation" yaml:"inputNetworkLocation"`
 	// The list of input security groups (referenced by IDs) to attach to the input if the input is a push type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups
 	//
@@ -83,6 +103,9 @@ type CfnInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-mediaconnectflows
 	//
 	MediaConnectFlows interface{} `field:"optional" json:"mediaConnectFlows" yaml:"mediaConnectFlows"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-multicastsettings
+	//
+	MulticastSettings interface{} `field:"optional" json:"multicastSettings" yaml:"multicastSettings"`
 	// A name for the input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-name
 	//

@@ -97,7 +97,7 @@ type CfnRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The ID or Amazon Resource Name (ARN) of the listener.
+	// The ID or ARN of the listener.
 	ListenerIdentifier() *string
 	SetListenerIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -126,7 +126,7 @@ type CfnRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier() *string
 	SetServiceIdentifier(val *string)
 	// The stack in which this element is defined.

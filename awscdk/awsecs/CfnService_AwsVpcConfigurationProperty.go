@@ -25,7 +25,7 @@ package awsecs
 type CfnService_AwsVpcConfigurationProperty struct {
 	// Whether the task's elastic network interface receives a public IP address.
 	//
-	// The default value is `DISABLED` .
+	// The default value is `ENABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
 	//
 	AssignPublicIp *string `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`

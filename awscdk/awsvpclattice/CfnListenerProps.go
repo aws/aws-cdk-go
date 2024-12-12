@@ -68,7 +68,7 @@ type CfnListenerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html#cfn-vpclattice-listener-serviceidentifier
 	//
 	ServiceIdentifier *string `field:"optional" json:"serviceIdentifier" yaml:"serviceIdentifier"`

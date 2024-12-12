@@ -28,19 +28,25 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnameaccessassociation.html
 //
 type CfnDomainNameAccessAssociationProps struct {
-	// The source of the domain name access association resource.
+	// The identifier of the domain name access association source.
+	//
+	// For a `VPCE` , the value is the VPC endpoint ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnameaccessassociation.html#cfn-apigateway-domainnameaccessassociation-accessassociationsource
 	//
 	AccessAssociationSource *string `field:"required" json:"accessAssociationSource" yaml:"accessAssociationSource"`
-	// The source type of the domain name access association resource.
+	// The type of the domain name access association source.
+	//
+	// Only `VPCE` is currently supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnameaccessassociation.html#cfn-apigateway-domainnameaccessassociation-accessassociationsourcetype
 	//
 	AccessAssociationSourceType *string `field:"required" json:"accessAssociationSourceType" yaml:"accessAssociationSourceType"`
-	// The amazon resource name (ARN) of the domain name resource.
+	// The ARN of the domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnameaccessassociation.html#cfn-apigateway-domainnameaccessassociation-domainnamearn
 	//
 	DomainNameArn *string `field:"required" json:"domainNameArn" yaml:"domainNameArn"`
-	// An array of arbitrary tags (key-value pairs) to associate with the domainname access association.
+	// The collection of tags.
+	//
+	// Each tag element is associated with a given resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnameaccessassociation.html#cfn-apigateway-domainnameaccessassociation-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

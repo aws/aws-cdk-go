@@ -80,7 +80,7 @@ type CfnPhoneNumber interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The claimed phone number ARN that was previously imported from the external service, such as Amazon Pinpoint.
+	// The claimed phone number ARN that was previously imported from the external service, such as AWS End User Messaging.
 	SourcePhoneNumberArn() *string
 	SetSourcePhoneNumberArn(val *string)
 	// The stack in which this element is defined.

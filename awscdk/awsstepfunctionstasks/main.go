@@ -4085,4 +4085,14 @@ func init() {
 			"Z_2X": WorkerType_Z_2X,
 		},
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.WorkerTypeV2",
+		reflect.TypeOf((*WorkerTypeV2)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WorkerTypeV2{}
+		},
+	)
 }

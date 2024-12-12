@@ -55,11 +55,11 @@ type CfnDecoderManifest_ObdSignalProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-startbyte
 	//
 	StartByte *string `field:"required" json:"startByte" yaml:"startByte"`
-	// (Optional) The number of bits to mask in a message.
+	// The number of bits to mask in a message.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-bitmasklength
 	//
 	BitMaskLength *string `field:"optional" json:"bitMaskLength" yaml:"bitMaskLength"`
-	// (Optional) The number of positions to shift bits in the message.
+	// The number of positions to shift bits in the message.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-bitrightshift
 	//
 	BitRightShift *string `field:"optional" json:"bitRightShift" yaml:"bitRightShift"`

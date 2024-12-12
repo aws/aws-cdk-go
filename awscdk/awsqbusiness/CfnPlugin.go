@@ -19,7 +19,6 @@ import (
 //   var noAuthConfiguration interface{}
 //
 //   cfnPlugin := awscdk.Aws_qbusiness.NewCfnPlugin(this, jsii.String("MyCfnPlugin"), &CfnPluginProps{
-//   	ApplicationId: jsii.String("applicationId"),
 //   	AuthConfiguration: &PluginAuthConfigurationProperty{
 //   		BasicAuthConfiguration: &BasicAuthConfigurationProperty{
 //   			RoleArn: jsii.String("roleArn"),
@@ -29,12 +28,17 @@ import (
 //   		OAuth2ClientCredentialConfiguration: &OAuth2ClientCredentialConfigurationProperty{
 //   			RoleArn: jsii.String("roleArn"),
 //   			SecretArn: jsii.String("secretArn"),
+//
+//   			// the properties below are optional
+//   			AuthorizationUrl: jsii.String("authorizationUrl"),
+//   			TokenUrl: jsii.String("tokenUrl"),
 //   		},
 //   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	ApplicationId: jsii.String("applicationId"),
 //   	CustomPluginConfiguration: &CustomPluginConfigurationProperty{
 //   		ApiSchema: &APISchemaProperty{
 //   			Payload: jsii.String("payload"),
@@ -546,9 +550,6 @@ func NewCfnPlugin_Override(c CfnPlugin, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnPlugin)SetApplicationId(val *string) {
-	if err := j.validateSetApplicationIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"applicationId",

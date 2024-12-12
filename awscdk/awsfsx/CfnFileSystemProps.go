@@ -29,6 +29,7 @@ import (
 //   		DataCompressionType: jsii.String("dataCompressionType"),
 //   		DeploymentType: jsii.String("deploymentType"),
 //   		DriveCacheType: jsii.String("driveCacheType"),
+//   		EfaEnabled: jsii.Boolean(false),
 //   		ExportPath: jsii.String("exportPath"),
 //   		ImportedFileChunkSize: jsii.Number(123),
 //   		ImportPath: jsii.String("importPath"),
@@ -77,6 +78,10 @@ import (
 //   			jsii.String("options"),
 //   		},
 //   		PreferredSubnetId: jsii.String("preferredSubnetId"),
+//   		ReadCacheConfiguration: &ReadCacheConfigurationProperty{
+//   			SizeGiB: jsii.Number(123),
+//   			SizingMode: jsii.String("sizingMode"),
+//   		},
 //   		RootVolumeConfiguration: &RootVolumeConfigurationProperty{
 //   			CopyTagsToSnapshots: jsii.Boolean(false),
 //   			DataCompressionType: jsii.String("dataCompressionType"),
@@ -254,12 +259,15 @@ type CfnFileSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagecapacity
 	//
 	StorageCapacity *float64 `field:"optional" json:"storageCapacity" yaml:"storageCapacity"`
-	// Sets the storage type for the file system that you're creating. Valid values are `SSD` and `HDD` .
+	// Sets the storage class for the file system that you're creating.
+	//
+	// Valid values are `SSD` , `HDD` , and `INTELLIGENT_TIERING` .
 	//
 	// - Set to `SSD` to use solid state drive storage. SSD is supported on all Windows, Lustre, ONTAP, and OpenZFS deployment types.
 	// - Set to `HDD` to use hard disk drive storage. HDD is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types, and on `PERSISTENT_1` Lustre file system deployment types.
+	// - Set to `INTELLIGENT_TIERING` to use fully elastic, intelligently-tiered storage. Intelligent-Tiering is only available for OpenZFS file systems with the Multi-AZ deployment type.
 	//
-	// Default value is `SSD` . For more information, see [Storage type options](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options) in the *FSx for Windows File Server User Guide* and [Multiple storage options](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options) in the *FSx for Lustre User Guide* .
+	// Default value is `SSD` . For more information, see [Storage type options](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options) in the *FSx for Windows File Server User Guide* , [Multiple storage options](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options) in the *FSx for Lustre User Guide* , and [Working with Intelligent-Tiering](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering) in the *Amazon FSx for OpenZFS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`

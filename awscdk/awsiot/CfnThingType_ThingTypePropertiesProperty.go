@@ -29,6 +29,7 @@ package awsiot
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html
 //
 type CfnThingType_ThingTypePropertiesProperty struct {
+	// The configuration to add user-defined properties to enrich MQTT 5 messages.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html#cfn-iot-thingtype-thingtypeproperties-mqtt5configuration
 	//
 	Mqtt5Configuration interface{} `field:"optional" json:"mqtt5Configuration" yaml:"mqtt5Configuration"`

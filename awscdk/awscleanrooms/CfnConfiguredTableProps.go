@@ -128,7 +128,7 @@ type CfnConfiguredTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The AWS Glue table that this configured table represents.
+	// The table that this configured table represents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html#cfn-cleanrooms-configuredtable-tablereference
 	//
 	TableReference interface{} `field:"required" json:"tableReference" yaml:"tableReference"`

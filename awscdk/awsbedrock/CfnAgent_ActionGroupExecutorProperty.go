@@ -16,7 +16,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-actiongroupexecutor.html
 //
 type CfnAgent_ActionGroupExecutorProperty struct {
-	// To return the action group invocation results directly in the `InvokeAgent` response, specify `RETURN_CONTROL` .
+	// To return the action group invocation results directly in the `InvokeInlineAgent` response, specify `RETURN_CONTROL` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-actiongroupexecutor.html#cfn-bedrock-agent-actiongroupexecutor-customcontrol
 	//
 	CustomControl *string `field:"optional" json:"customControl" yaml:"customControl"`

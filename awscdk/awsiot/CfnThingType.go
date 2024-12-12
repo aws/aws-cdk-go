@@ -64,8 +64,6 @@ type CfnThingType interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// Deprecates a thing type.
-	//
-	// You can not associate new things with deprecated thing type.
 	DeprecateThingType() interface{}
 	SetDeprecateThingType(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -299,6 +299,7 @@ type CfnUserPool interface {
 	// The tag keys and values to assign to the user pool.
 	UserPoolTagsRaw() interface{}
 	SetUserPoolTagsRaw(val interface{})
+	// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
 	UserPoolTier() *string
 	SetUserPoolTier(val *string)
 	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.

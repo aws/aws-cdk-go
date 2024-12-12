@@ -40,6 +40,10 @@ import (
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	RestoreToTime: jsii.String("restoreToTime"),
 //   	RestoreType: jsii.String("restoreType"),
+//   	ServerlessV2ScalingConfiguration: &ServerlessV2ScalingConfigurationProperty{
+//   		MaxCapacity: jsii.Number(123),
+//   		MinCapacity: jsii.Number(123),
+//   	},
 //   	SnapshotIdentifier: jsii.String("snapshotIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
 //   	StorageEncrypted: jsii.Boolean(false),
@@ -160,6 +164,8 @@ type CfnDBCluster interface {
 	// You can specify one of the following values:.
 	RestoreType() *string
 	SetRestoreType(val *string)
+	ServerlessV2ScalingConfiguration() interface{}
+	SetServerlessV2ScalingConfiguration(val interface{})
 	// The identifier for the snapshot or cluster snapshot to restore from.
 	SnapshotIdentifier() *string
 	SetSnapshotIdentifier(val *string)
@@ -624,6 +630,16 @@ func (j *jsiiProxy_CfnDBCluster) RestoreType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) ServerlessV2ScalingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"serverlessV2ScalingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) SnapshotIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -900,6 +916,17 @@ func (j *jsiiProxy_CfnDBCluster)SetRestoreType(val *string) {
 	_jsii_.Set(
 		j,
 		"restoreType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetServerlessV2ScalingConfiguration(val interface{}) {
+	if err := j.validateSetServerlessV2ScalingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"serverlessV2ScalingConfiguration",
 		val,
 	)
 }

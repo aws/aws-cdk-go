@@ -104,7 +104,7 @@ type CfnKnowledgeBase interface {
 	AttrFailureReasons() *[]*string
 	// The Amazon Resource Name (ARN) of the knowledge base.
 	AttrKnowledgeBaseArn() *string
-	// The unique identifier of the knowledge base.
+	// The unique identifier for a knowledge base associated with the inline agent.
 	AttrKnowledgeBaseId() *string
 	// The status of the knowledge base.
 	AttrStatus() *string
@@ -121,7 +121,7 @@ type CfnKnowledgeBase interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The description of the knowledge base.
+	// The description of the knowledge base associated with the inline agent.
 	Description() *string
 	SetDescription(val *string)
 	// Contains details about the embeddings configuration of the knowledge base.

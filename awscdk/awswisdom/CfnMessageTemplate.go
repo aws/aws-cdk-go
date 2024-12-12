@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Wisdom::MessageTemplate Resource Type.
+// Creates an Amazon Q in Connect message template.
+//
+// The name of the message template has to be unique for each knowledge base. The channel subtype of the message template is immutable and cannot be modified after creation. After the message template is created, you can use the `$LATEST` qualifier to reference the created message template.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -152,9 +154,11 @@ type CfnMessageTemplate interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the message template.
 	AttrMessageTemplateArn() *string
-	// The content SHA256 of the message template.
+	// The checksum value of the message template content that is referenced by the `$LATEST` qualifier.
+	//
+	// It can be returned in `MessageTemplateData` or `ExtendedMessageTemplateData` . It’s calculated by content, language, `defaultAttributes` and `Attachments` of the message template.
 	AttrMessageTemplateContentSha256() *string
-	// The unique identifier of the message template.
+	// The identifier of the message template.
 	AttrMessageTemplateId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -179,13 +183,13 @@ type CfnMessageTemplate interface {
 	// The description of the message template.
 	Description() *string
 	SetDescription(val *string)
-	// The configuration information of the user groups that the message template is accessible to.
+	// The configuration information of the external data source.
 	GroupingConfiguration() interface{}
 	SetGroupingConfiguration(val interface{})
-	// The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
+	// The Amazon Resource Name (ARN) of the knowledge base.
 	KnowledgeBaseArn() *string
 	SetKnowledgeBaseArn(val *string)
-	// The language code value for the language in which the message template is written.
+	// The language code value for the language in which the quick response is written.
 	Language() *string
 	SetLanguage(val *string)
 	// The logical ID for this CloudFormation stack element.

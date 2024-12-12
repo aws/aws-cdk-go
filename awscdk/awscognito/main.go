@@ -632,6 +632,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "managedLoginVersion", GoGetter: "ManagedLoginVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -1110,6 +1111,15 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.EmailSettings",
 		reflect.TypeOf((*EmailSettings)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cognito.FeaturePlan",
+		reflect.TypeOf((*FeaturePlan)(nil)).Elem(),
+		map[string]interface{}{
+			"LITE": FeaturePlan_LITE,
+			"ESSENTIALS": FeaturePlan_ESSENTIALS,
+			"PLUS": FeaturePlan_PLUS,
+		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_cognito.ICustomAttribute",

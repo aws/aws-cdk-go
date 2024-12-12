@@ -135,6 +135,8 @@ type CfnFlow_SourceProperty struct {
 	// The protocol that is used by the source.
 	//
 	// AWS CloudFormation does not currently support CDI or ST 2110 JPEG XS source protocols.
+	//
+	// > AWS Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference is maintained for legacy purposes only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-protocol
 	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`

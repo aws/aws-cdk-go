@@ -241,6 +241,43 @@ Constructs are available for A, AAAA, CAA, CNAME, MX, NS, SRV and TXT records.
 Use the `CaaAmazonRecord` construct to easily restrict certificate authorities
 allowed to issue certificates for a domain to Amazon only.
 
+### Health Checks
+
+See the [Route 53 Health Checks documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-type) for possible types of health checks.
+
+Route 53 has the ability to monitor the health of your application and only return records for healthy endpoints.
+This is done using a `HealthCheck` construct.
+
+In the following example, the `ARecord` will be returned by Route 53 in response to DNS queries only if the HTTP requests to the `example.com/health` endpoint return a 2XX or 3XX status code.
+
+In case, when the endpoint is not healthy, the `ARecord2` will be returned by Route 53 in response to DNS queries.
+
+```go
+var myZone hostedZone
+
+
+healthCheck := route53.NewHealthCheck(this, jsii.String("HealthCheck"), &HealthCheckProps{
+	Type: route53.HealthCheckType_HTTP,
+	Fqdn: jsii.String("example.com"),
+	Port: jsii.Number(80),
+	ResourcePath: jsii.String("/health"),
+	FailureThreshold: jsii.Number(3),
+	RequestInterval: awscdk.Duration_Seconds(jsii.Number(30)),
+})
+
+route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
+	Zone: myZone,
+	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4")),
+	HealthCheck: HealthCheck,
+	Weight: jsii.Number(100),
+})
+route53.NewARecord(this, jsii.String("ARecord2"), &ARecordProps{
+	Zone: myZone,
+	Target: route53.RecordTarget_*FromIpAddresses(jsii.String("5.6.7.8")),
+	Weight: jsii.Number(0),
+})
+```
+
 ### Replacing existing record sets (dangerous!)
 
 Use the `deleteExisting` prop to delete an existing record set before deploying the new one.

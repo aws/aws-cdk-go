@@ -9,6 +9,7 @@ package awswisdom
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   answerRecommendationAIAgentConfigurationProperty := &AnswerRecommendationAIAgentConfigurationProperty{
+//   	AnswerGenerationAiGuardrailId: jsii.String("answerGenerationAiGuardrailId"),
 //   	AnswerGenerationAiPromptId: jsii.String("answerGenerationAiPromptId"),
 //   	AssociationConfigurations: []interface{}{
 //   		&AssociationConfigurationProperty{
@@ -63,6 +64,9 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html
 //
 type CfnAIAgent_AnswerRecommendationAIAgentConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html#cfn-wisdom-aiagent-answerrecommendationaiagentconfiguration-answergenerationaiguardrailid
+	//
+	AnswerGenerationAiGuardrailId *string `field:"optional" json:"answerGenerationAiGuardrailId" yaml:"answerGenerationAiGuardrailId"`
 	// The AI Prompt identifier for the Answer Generation prompt used by the `ANSWER_RECOMMENDATION` AI Agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html#cfn-wisdom-aiagent-answerrecommendationaiagentconfiguration-answergenerationaipromptid
 	//

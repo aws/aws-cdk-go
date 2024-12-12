@@ -9,7 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::IoTFleetWise::StateTemplate Resource Type.
+// Creates a mechanism for vehicle owners to track the state of their vehicles.
+//
+// State templates determine which signal updates the vehicle sends to the cloud.
+//
+// For more information, see [State templates](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/state-templates.html) in the *AWS IoT FleetWise Developer Guide* .
+//
+// > Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html) in the *AWS IoT FleetWise Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -45,8 +51,11 @@ type CfnStateTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the state template.
 	AttrArn() *string
+	// The time the state template was created, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
+	// The time the state template was last updated, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrLastModificationTime() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -59,8 +68,10 @@ type CfnStateTemplate interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A list of vehicle attributes associated with the payload published on the state template's MQTT topic.
 	DataExtraDimensions() *[]*string
 	SetDataExtraDimensions(val *[]*string)
+	// A brief description of the state template.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -73,8 +84,10 @@ type CfnStateTemplate interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// A list of vehicle attributes to associate with the user properties of the messages published on the state template's MQTT topic.
 	MetadataExtraDimensions() *[]*string
 	SetMetadataExtraDimensions(val *[]*string)
+	// The unique alias of the state template.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -84,14 +97,17 @@ type CfnStateTemplate interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the signal catalog associated with the state template.
 	SignalCatalogArn() *string
 	SetSignalCatalogArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of signals from which data is collected.
 	StateTemplateProperties() *[]*string
 	SetStateTemplateProperties(val *[]*string)
+	// Metadata that can be used to manage the state template.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

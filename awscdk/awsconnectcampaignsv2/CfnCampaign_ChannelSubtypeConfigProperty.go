@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// The possible types of channel subtype config parameters.
+// Contains channel subtype configuration for an outbound campaign.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -70,15 +70,15 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html
 //
 type CfnCampaign_ChannelSubtypeConfigProperty struct {
-	// Email Channel Subtype config.
+	// The configuration of the email channel subtype.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-email
 	//
 	Email interface{} `field:"optional" json:"email" yaml:"email"`
-	// SMS Channel Subtype config.
+	// The configuration of the SMS channel subtype.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-sms
 	//
 	Sms interface{} `field:"optional" json:"sms" yaml:"sms"`
-	// Telephony Channel Subtype config.
+	// The configuration of the telephony channel subtype.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-telephony
 	//
 	Telephony interface{} `field:"optional" json:"telephony" yaml:"telephony"`

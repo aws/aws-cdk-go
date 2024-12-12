@@ -37,31 +37,31 @@ type CfnSignalCatalog_AttributeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html#cfn-iotfleetwise-signalcatalog-attribute-fullyqualifiedname
 	//
 	FullyQualifiedName *string `field:"required" json:"fullyQualifiedName" yaml:"fullyQualifiedName"`
-	// (Optional) A list of possible values an attribute can be assigned.
+	// A list of possible values an attribute can be assigned.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html#cfn-iotfleetwise-signalcatalog-attribute-allowedvalues
 	//
 	AllowedValues *[]*string `field:"optional" json:"allowedValues" yaml:"allowedValues"`
-	// (Optional) A specified value for the attribute.
+	// A specified value for the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html#cfn-iotfleetwise-signalcatalog-attribute-assignedvalue
 	//
 	AssignedValue *string `field:"optional" json:"assignedValue" yaml:"assignedValue"`
-	// (Optional) The default value of the attribute.
+	// The default value of the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html#cfn-iotfleetwise-signalcatalog-attribute-defaultvalue
 	//
 	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
-	// (Optional) A brief description of the attribute.
+	// A brief description of the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html#cfn-iotfleetwise-signalcatalog-attribute-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// (Optional) The specified possible maximum value of the attribute.
+	// The specified possible maximum value of the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html#cfn-iotfleetwise-signalcatalog-attribute-max
 	//
 	Max *float64 `field:"optional" json:"max" yaml:"max"`
-	// (Optional) The specified possible minimum value of the attribute.
+	// The specified possible minimum value of the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html#cfn-iotfleetwise-signalcatalog-attribute-min
 	//
 	Min *float64 `field:"optional" json:"min" yaml:"min"`
-	// (Optional) The scientific unit for the attribute.
+	// The scientific unit for the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html#cfn-iotfleetwise-signalcatalog-attribute-unit
 	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`

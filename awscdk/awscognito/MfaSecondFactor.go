@@ -32,7 +32,7 @@ type MfaSecondFactor struct {
 	// The MFA token is sent to the user via EMAIL.
 	//
 	// To enable email-based MFA, set `email` property to the Amazon SES email-sending configuration
-	// and set `advancedSecurityMode` to `AdvancedSecurity.ENFORCED` or `AdvancedSecurity.AUDIT`
+	// and set `feturePlan` to `FeaturePlan.ESSENTIALS` or `FeaturePlan.PLUS`
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-sms-email-message.html
 	//
 	// Default: false.

@@ -9,9 +9,16 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The Amazon CloudTrail dashboard resource allows customers to manage managed dashboards and create custom dashboards.
+// Creates a custom dashboard or the Highlights dashboard.
 //
-// You can manually refresh custom and managed dashboards. For custom dashboards, you can also set up an automatic refresh schedule and modify dashboard widgets.
+// - *Custom dashboards* - Custom dashboards allow you to query events in any event data store type. You can add up to 10 widgets to a custom dashboard. You can manually refresh a custom dashboard, or you can set a refresh schedule.
+// - *Highlights dashboard* - You can create the Highlights dashboard to see a summary of key user activities and API usage across all your event data stores. CloudTrail Lake manages the Highlights dashboard and refreshes the dashboard every 6 hours. To create the Highlights dashboard, you must set and enable a refresh schedule.
+//
+// CloudTrail runs queries to populate the dashboard's widgets during a manual or scheduled refresh. CloudTrail must be granted permissions to run the `StartQuery` operation on your behalf. To provide permissions, run the `PutResourcePolicy` operation to attach a resource-based policy to each event data store. For more information, see [Example: Allow CloudTrail to run queries to populate a dashboard](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard) in the *AWS CloudTrail User Guide* .
+//
+// To set a refresh schedule, CloudTrail must be granted permissions to run the `StartDashboardRefresh` operation to refresh the dashboard on your behalf. To provide permissions, run the `PutResourcePolicy` operation to attach a resource-based policy to the dashboard. For more information, see [Resource-based policy example for a dashboard](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-dashboards) in the *AWS CloudTrail User Guide* .
+//
+// For more information about dashboards, see [CloudTrail Lake dashboards](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-dashboard.html) in the *AWS CloudTrail User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -56,17 +63,15 @@ type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The timestamp that shows when the dashboard was created.
 	AttrCreatedTimestamp() *string
-	// The ARN of the dashboard.
+	// The ARN for the dashboard.
 	AttrDashboardArn() *string
 	// The status of the dashboard.
-	//
-	// Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
 	AttrStatus() *string
-	// The type of the dashboard.
-	//
-	// Values are CUSTOM and MANAGED.
+	// The type of dashboard.
 	AttrType() *string
+	// The timestamp that shows when the dashboard was updated.
 	AttrUpdatedTimestamp() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -90,6 +95,8 @@ type CfnDashboard interface {
 	// resolved during synthesis.
 	LogicalId() *string
 	// The name of the dashboard.
+	//
+	// The name must be unique to your account.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -99,16 +106,17 @@ type CfnDashboard interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Configures the automatic refresh schedule for the dashboard.
+	// The schedule for a dashboard refresh.
 	RefreshSchedule() interface{}
 	SetRefreshSchedule(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of tags.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// Indicates whether the dashboard is protected from termination.
+	// Specifies whether termination protection is enabled for the dashboard.
 	TerminationProtectionEnabled() interface{}
 	SetTerminationProtectionEnabled(val interface{})
 	// Deprecated.
@@ -124,7 +132,9 @@ type CfnDashboard interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// List of widgets on the dashboard.
+	// An array of widgets for a custom dashboard.
+	//
+	// A custom dashboard can have a maximum of ten widgets.
 	Widgets() interface{}
 	SetWidgets(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

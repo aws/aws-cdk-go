@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ApiGateway::DomainNameV2.
+// The `AWS::ApiGateway::DomainNameV2` resource specifies a custom domain name for your private APIs in API Gateway.
+//
+// You can use a private custom domain name to provide a URL for your private API that's more intuitive and easier to recall.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,11 +46,13 @@ type CfnDomainNameV2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
-	// The amazon resource name (ARN) of the domain name resource.
+	// The ARN of the domain name.
 	AttrDomainNameArn() *string
+	// The domain name ID.
 	AttrDomainNameId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
+	// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name.
 	CertificateArn() *string
 	SetCertificateArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -60,8 +64,10 @@ type CfnDomainNameV2 interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Represents a custom domain name as a user-friendly host name of an API (RestApi).
 	DomainName() *string
 	SetDomainName(val *string)
+	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 	EndpointConfiguration() interface{}
 	SetEndpointConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -78,6 +84,7 @@ type CfnDomainNameV2 interface {
 	SetManagementPolicy(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration.
 	Policy() interface{}
 	SetPolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -85,12 +92,14 @@ type CfnDomainNameV2 interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy() *string
 	SetSecurityPolicy(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The collection of tags.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

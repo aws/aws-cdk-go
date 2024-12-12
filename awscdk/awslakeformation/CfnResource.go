@@ -33,6 +33,7 @@ import (
 type CfnResource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// An identifier for the catalog resource.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -91,6 +91,9 @@ package awsmedialive
 //   			RetryInterval: jsii.Number(123),
 //   			Scte35Source: jsii.String("scte35Source"),
 //   		},
+//   		MulticastInputSettings: &MulticastInputSettingsProperty{
+//   			SourceIpAddress: jsii.String("sourceIpAddress"),
+//   		},
 //   		ServerValidation: jsii.String("serverValidation"),
 //   	},
 //   	Scte35Pid: jsii.Number(123),

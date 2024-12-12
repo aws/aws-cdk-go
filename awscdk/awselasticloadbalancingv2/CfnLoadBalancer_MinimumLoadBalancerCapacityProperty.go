@@ -1,6 +1,8 @@
 package awselasticloadbalancingv2
 
 
+// The minimum capacity for a load balancer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awselasticloadbalancingv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity.html
 //
 type CfnLoadBalancer_MinimumLoadBalancerCapacityProperty struct {
+	// The number of capacity units.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity.html#cfn-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity-capacityunits
 	//
 	CapacityUnits *float64 `field:"required" json:"capacityUnits" yaml:"capacityUnits"`

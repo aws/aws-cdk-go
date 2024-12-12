@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDBCluster) validateSetDeletionProtectionParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBCluster) validateSetServerlessV2ScalingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBCluster) validateSetStorageEncryptedParameters(val interface{}) error {
 	return nil
 }

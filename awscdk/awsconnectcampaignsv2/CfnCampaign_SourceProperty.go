@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// The possible types of channel config parameters.
+// Contains source configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-source.html
 //
 type CfnCampaign_SourceProperty struct {
-	// Arn.
+	// The Amazon Resource Name (ARN) of the Customer Profiles segment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-source.html#cfn-connectcampaignsv2-campaign-source-customerprofilessegmentarn
 	//
 	CustomerProfilesSegmentArn *string `field:"required" json:"customerProfilesSegmentArn" yaml:"customerProfilesSegmentArn"`

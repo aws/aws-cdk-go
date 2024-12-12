@@ -63,6 +63,10 @@ type GlobalSecondaryIndexPropsV2 struct {
 	// Default: - no sort key.
 	//
 	SortKey *Attribute `field:"optional" json:"sortKey" yaml:"sortKey"`
+	// The warm throughput configuration for the global secondary index.
+	// Default: - no warm throughput is configured.
+	//
+	WarmThroughput *WarmThroughput `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 	// The write capacity.
 	//
 	// Note: This can only be configured if the primary table billing is provisioned.

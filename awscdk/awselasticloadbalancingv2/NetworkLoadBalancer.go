@@ -15,22 +15,18 @@ import (
 // Define a new network load balancer.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
 //
 //
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &NetworkLoadBalancerProps{
+//   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
 //   	Vpc: Vpc,
-//   })
-//   listener := lb.AddListener(jsii.String("listener"), &BaseNetworkListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   listener.AddTargets(jsii.String("target"), &AddNetworkTargetsProps{
-//   	Port: jsii.Number(80),
+//   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+//   	EnablePrefixForIpv6SourceNat: jsii.Boolean(true),
 //   })
 //
-//   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &HttpApiProps{
-//   	DefaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseNetworkListenerProps{
+//   	Port: jsii.Number(1229),
+//   	Protocol: elbv2.Protocol_UDP,
 //   })
 //
 type NetworkLoadBalancer interface {

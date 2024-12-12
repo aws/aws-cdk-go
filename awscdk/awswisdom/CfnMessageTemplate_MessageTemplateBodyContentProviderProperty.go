@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// The container of message template body.
+// The container of the message template body.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,6 +15,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplatebodycontentprovider.html
 //
 type CfnMessageTemplate_MessageTemplateBodyContentProviderProperty struct {
+	// The content of the message template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplatebodycontentprovider.html#cfn-wisdom-messagetemplate-messagetemplatebodycontentprovider-content
 	//
 	Content *string `field:"optional" json:"content" yaml:"content"`

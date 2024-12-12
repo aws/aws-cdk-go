@@ -35,7 +35,7 @@ type CfnTaskSet_AwsVpcConfigurationProperty struct {
 	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 	// Whether the task's elastic network interface receives a public IP address.
 	//
-	// The default value is `DISABLED` .
+	// The default value is `ENABLED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
 	//
 	AssignPublicIp *string `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`

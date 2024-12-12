@@ -15,7 +15,7 @@ import (
 //
 // > If you have an existing AWS IoT thing, you can use AWS IoT FleetWise to create a vehicle and collect data from your thing.
 //
-// For more information, see [Create a vehicle (console)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-console.html) in the *AWS IoT FleetWise Developer Guide* .
+// For more information, see [Vehicles](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicles.html) in the *AWS IoT FleetWise Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,14 +46,14 @@ type CfnVehicle interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// (Optional) An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
+	// An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.
 	AssociationBehavior() *string
 	SetAssociationBehavior(val *string)
 	// The Amazon Resource Name (ARN) of the vehicle.
 	AttrArn() *string
 	// The time the vehicle was created in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
-	// (Optional) Static information about a vehicle in a key-value pair.
+	// Static information about a vehicle in a key-value pair.
 	Attributes() interface{}
 	SetAttributes(val interface{})
 	// The time the vehicle was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).
@@ -99,7 +99,7 @@ type CfnVehicle interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// (Optional) Metadata which can be used to manage the vehicle.
+	// Metadata which can be used to manage the vehicle.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

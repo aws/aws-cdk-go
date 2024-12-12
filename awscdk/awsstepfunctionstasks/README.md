@@ -1432,15 +1432,31 @@ tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
 })
 ```
 
-You can configure workers by setting the `workerType` and `numberOfWorkers` properties.
+You can configure workers by setting the `workerTypeV2` and `numberOfWorkers` properties.
+`workerType` is deprecated and no longer recommended. Use `workerTypeV2` which is
+a ENUM-like class for more powerful worker configuration around using pre-defined values or
+dynamic values.
 
 ```go
 tasks.NewGlueStartJobRun(this, jsii.String("Task"), &GlueStartJobRunProps{
 	GlueJobName: jsii.String("my-glue-job"),
 	WorkerConfiguration: &WorkerConfigurationProperty{
-		WorkerType: tasks.WorkerType_G_1X,
+		WorkerTypeV2: tasks.WorkerTypeV2_G_1X(),
 		 // Worker type
 		NumberOfWorkers: jsii.Number(2),
+	},
+})
+```
+
+To configure the worker type or number of workers dynamically from StateMachine's input,
+you can configure it using JSON Path values using `workerTypeV2` like this:
+
+```go
+tasks.NewGlueStartJobRun(this, jsii.String("Glue Job Task"), &GlueStartJobRunProps{
+	GlueJobName: jsii.String("my-glue-job"),
+	WorkerConfiguration: &WorkerConfigurationProperty{
+		WorkerTypeV2: tasks.WorkerTypeV2_Of(sfn.JsonPath_StringAt(jsii.String("$.glue_jobs_configs.executor_type"))),
+		NumberOfWorkers: sfn.JsonPath_NumberAt(jsii.String("$.glue_jobs_configs.max_number_workers")),
 	},
 })
 ```

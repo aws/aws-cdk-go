@@ -24,6 +24,7 @@ import (
 //   	CustomDomainConfig: &CustomDomainConfigTypeProperty{
 //   		CertificateArn: jsii.String("certificateArn"),
 //   	},
+//   	ManagedLoginVersion: jsii.Number(123),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html
@@ -60,6 +61,9 @@ type CfnUserPoolDomain interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// A version number that indicates the state of managed login for your domain.
+	ManagedLoginVersion() *float64
+	SetManagedLoginVersion(val *float64)
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -310,6 +314,16 @@ func (j *jsiiProxy_CfnUserPoolDomain) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPoolDomain) ManagedLoginVersion() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"managedLoginVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolDomain) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -416,6 +430,14 @@ func (j *jsiiProxy_CfnUserPoolDomain)SetDomain(val *string) {
 	_jsii_.Set(
 		j,
 		"domain",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPoolDomain)SetManagedLoginVersion(val *float64) {
+	_jsii_.Set(
+		j,
+		"managedLoginVersion",
 		val,
 	)
 }

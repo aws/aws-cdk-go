@@ -13,6 +13,8 @@ import (
 //
 // A connection defines the authorization type and credentials to use for authorization with an API destination HTTP endpoint.
 //
+// For more information, see [Connections for endpoint targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection.html) in the *Amazon EventBridge User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -125,14 +127,20 @@ type CfnConnection interface {
 	awscdk.IInspectable
 	// The ARN of the connection that was created by the request.
 	AttrArn() *string
+	// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+	//
+	// For more information, see [Managing service network resource associations for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html#connection-private-snra) in the **Amazon EventBridge User Guide** .
 	AttrAuthParametersConnectivityParametersResourceParametersResourceAssociationArn() *string
+	// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+	//
+	// For more information, see [Managing service network resource associations for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html#connection-private-snra) in the **Amazon EventBridge User Guide** .
 	AttrInvocationConnectivityParametersResourceParametersResourceAssociationArn() *string
 	// The ARN for the secret created for the connection.
 	AttrSecretArn() *string
 	// The type of authorization to use for the connection.
 	AuthorizationType() *string
 	SetAuthorizationType(val *string)
-	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+	// The authorization parameters to use to authorize with the endpoint.
 	AuthParameters() interface{}
 	SetAuthParameters(val interface{})
 	// Options for this resource, such as condition, update policy etc.

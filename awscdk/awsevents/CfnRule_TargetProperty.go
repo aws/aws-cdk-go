@@ -222,7 +222,7 @@ type CfnRule_TargetProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-redshiftdataparameters
 	//
 	RedshiftDataParameters interface{} `field:"optional" json:"redshiftDataParameters" yaml:"redshiftDataParameters"`
-	// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+	// The retry policy configuration to use for the dead-letter queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy
 	//
 	RetryPolicy interface{} `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`

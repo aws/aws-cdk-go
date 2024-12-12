@@ -78,6 +78,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoRetryLimit: jsii.Number(123),
 //   	BadgeEnabled: jsii.Boolean(false),
 //   	BuildBatchConfig: &ProjectBuildBatchConfigProperty{
 //   		BatchReportMode: jsii.String("batchReportMode"),
@@ -239,6 +240,9 @@ type CfnProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-source
 	//
 	Source interface{} `field:"required" json:"source" yaml:"source"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-autoretrylimit
+	//
+	AutoRetryLimit *float64 `field:"optional" json:"autoRetryLimit" yaml:"autoRetryLimit"`
 	// Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
 	//
 	// For more information, see [Build Badges Sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-badges.html) in the *AWS CodeBuild User Guide* .

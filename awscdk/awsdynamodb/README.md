@@ -325,6 +325,30 @@ globalTable := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 Further reading:
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html
 
+## Warm Throughput
+
+Warm throughput refers to the number of read and write operations your DynamoDB table can instantaneously support.
+
+This optional configuration allows you to pre-warm your table or index to handle anticipated throughput, ensuring optimal performance under expected load.
+
+The Warm Throughput configuration settings are automatically replicated across all Global Table replicas.
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("id"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	WarmThroughput: &WarmThroughput{
+		ReadUnitsPerSecond: jsii.Number(15000),
+		WriteUnitsPerSecond: jsii.Number(20000),
+	},
+})
+```
+
+Further reading:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/warm-throughput.html
+
 ## Encryption
 
 All user data stored in a DynamoDB table is fully encrypted at rest. When creating an instance of the `TableV2` construct, you can select the following table encryption options:

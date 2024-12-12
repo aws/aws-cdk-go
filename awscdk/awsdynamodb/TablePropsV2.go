@@ -119,5 +119,9 @@ type TablePropsV2 struct {
 	// Default: - TTL is disabled.
 	//
 	TimeToLiveAttribute *string `field:"optional" json:"timeToLiveAttribute" yaml:"timeToLiveAttribute"`
+	// The warm throughput configuration for the table.
+	// Default: - no warm throughput is configured.
+	//
+	WarmThroughput *WarmThroughput `field:"optional" json:"warmThroughput" yaml:"warmThroughput"`
 }
 

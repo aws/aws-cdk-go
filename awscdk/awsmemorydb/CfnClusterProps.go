@@ -29,6 +29,7 @@ import (
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MaintenanceWindow: jsii.String("maintenanceWindow"),
+//   	MultiRegionClusterName: jsii.String("multiRegionClusterName"),
 //   	NumReplicasPerShard: jsii.Number(123),
 //   	NumShards: jsii.Number(123),
 //   	ParameterGroupName: jsii.String("parameterGroupName"),
@@ -87,7 +88,7 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The Valkey or Redis OSS engine used by the cluster.
+	// The name of the engine used by the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-engine
 	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
@@ -113,6 +114,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-maintenancewindow
 	//
 	MaintenanceWindow *string `field:"optional" json:"maintenanceWindow" yaml:"maintenanceWindow"`
+	// The name of the multi-Region cluster that this cluster belongs to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-multiregionclustername
+	//
+	MultiRegionClusterName *string `field:"optional" json:"multiRegionClusterName" yaml:"multiRegionClusterName"`
 	// The number of replicas to apply to each shard.
 	//
 	// *Default value* : `1`

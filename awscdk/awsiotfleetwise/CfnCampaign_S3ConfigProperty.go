@@ -26,7 +26,7 @@ type CfnCampaign_S3ConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html#cfn-iotfleetwise-campaign-s3config-bucketarn
 	//
 	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
-	// (Optional) Specify the format that files are saved in the Amazon S3 bucket.
+	// Specify the format that files are saved in the Amazon S3 bucket.
 	//
 	// You can save files in an Apache Parquet or JSON format.
 	//
@@ -35,7 +35,7 @@ type CfnCampaign_S3ConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html#cfn-iotfleetwise-campaign-s3config-dataformat
 	//
 	DataFormat *string `field:"optional" json:"dataFormat" yaml:"dataFormat"`
-	// (Optional) Enter an S3 bucket prefix.
+	// Enter an S3 bucket prefix.
 	//
 	// The prefix is the string of characters after the bucket name and before the object name. You can use the prefix to organize data stored in Amazon S3 buckets. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html) in the *Amazon Simple Storage Service User Guide* .
 	//
@@ -43,7 +43,7 @@ type CfnCampaign_S3ConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html#cfn-iotfleetwise-campaign-s3config-prefix
 	//
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
-	// (Optional) By default, stored data is compressed as a .gzip file. Compressed files have a reduced file size, which can optimize the cost of data storage.
+	// By default, stored data is compressed as a .gzip file. Compressed files have a reduced file size, which can optimize the cost of data storage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html#cfn-iotfleetwise-campaign-s3config-storagecompressionformat
 	//
 	StorageCompressionFormat *string `field:"optional" json:"storageCompressionFormat" yaml:"storageCompressionFormat"`

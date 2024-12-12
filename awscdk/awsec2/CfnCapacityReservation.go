@@ -124,10 +124,10 @@ type CfnCapacityReservation interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	// > Not supported for future-dated Capacity Reservations.
 	OutPostArn() *string
 	SetOutPostArn(val *string)
-	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+	// > Not supported for future-dated Capacity Reservations.
 	PlacementGroupArn() *string
 	SetPlacementGroupArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

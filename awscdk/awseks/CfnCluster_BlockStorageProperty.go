@@ -1,7 +1,9 @@
 package awseks
 
 
-// Todo: add description.
+// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster.
+//
+// For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +17,9 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-blockstorage.html
 //
 type CfnCluster_BlockStorageProperty struct {
-	// Todo: add description.
+	// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster.
+	//
+	// If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-blockstorage.html#cfn-eks-cluster-blockstorage-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`

@@ -10,7 +10,42 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var colorSpacePassthroughSettings interface{}
+//   var rec601Settings interface{}
+//   var rec709Settings interface{}
+//
 //   videoCodecSettingsProperty := &VideoCodecSettingsProperty{
+//   	Av1Settings: &Av1SettingsProperty{
+//   		AfdSignaling: jsii.String("afdSignaling"),
+//   		BufSize: jsii.Number(123),
+//   		ColorSpaceSettings: &Av1ColorSpaceSettingsProperty{
+//   			ColorSpacePassthroughSettings: colorSpacePassthroughSettings,
+//   			Hdr10Settings: &Hdr10SettingsProperty{
+//   				MaxCll: jsii.Number(123),
+//   				MaxFall: jsii.Number(123),
+//   			},
+//   			Rec601Settings: rec601Settings,
+//   			Rec709Settings: rec709Settings,
+//   		},
+//   		FixedAfd: jsii.String("fixedAfd"),
+//   		FramerateDenominator: jsii.Number(123),
+//   		FramerateNumerator: jsii.Number(123),
+//   		GopSize: jsii.Number(123),
+//   		GopSizeUnits: jsii.String("gopSizeUnits"),
+//   		Level: jsii.String("level"),
+//   		LookAheadRateControl: jsii.String("lookAheadRateControl"),
+//   		MaxBitrate: jsii.Number(123),
+//   		MinIInterval: jsii.Number(123),
+//   		ParDenominator: jsii.Number(123),
+//   		ParNumerator: jsii.Number(123),
+//   		QvbrQualityLevel: jsii.Number(123),
+//   		SceneChangeDetect: jsii.String("sceneChangeDetect"),
+//   		TimecodeBurninSettings: &TimecodeBurninSettingsProperty{
+//   			FontSize: jsii.String("fontSize"),
+//   			Position: jsii.String("position"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
 //   	FrameCaptureSettings: &FrameCaptureSettingsProperty{
 //   		CaptureInterval: jsii.Number(123),
 //   		CaptureIntervalUnits: jsii.String("captureIntervalUnits"),
@@ -37,6 +72,10 @@ package awsmedialive
 //   		},
 //   		EntropyEncoding: jsii.String("entropyEncoding"),
 //   		FilterSettings: &H264FilterSettingsProperty{
+//   			BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
+//   				PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   				Strength: jsii.String("strength"),
+//   			},
 //   			TemporalFilterSettings: &TemporalFilterSettingsProperty{
 //   				PostFilterSharpening: jsii.String("postFilterSharpening"),
 //   				Strength: jsii.String("strength"),
@@ -103,6 +142,10 @@ package awsmedialive
 //   			},
 //   		},
 //   		FilterSettings: &H265FilterSettingsProperty{
+//   			BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
+//   				PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   				Strength: jsii.String("strength"),
+//   			},
 //   			TemporalFilterSettings: &TemporalFilterSettingsProperty{
 //   				PostFilterSharpening: jsii.String("postFilterSharpening"),
 //   				Strength: jsii.String("strength"),
@@ -175,6 +218,9 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html
 //
 type CfnChannel_VideoCodecSettingsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-av1settings
+	//
+	Av1Settings interface{} `field:"optional" json:"av1Settings" yaml:"av1Settings"`
 	// The settings for the video codec in a frame capture output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-framecapturesettings
 	//

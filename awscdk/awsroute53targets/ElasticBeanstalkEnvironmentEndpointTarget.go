@@ -19,7 +19,10 @@ import (
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 //   	Zone: Zone,
-//   	Target: route53.RecordTarget_FromAlias(targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl)),
+//   	Target: route53.RecordTarget_FromAlias(
+//   	targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl, map[string]*bool{
+//   		"evaluateTargetHealth": jsii.Boolean(true),
+//   	})),
 //   })
 //
 type ElasticBeanstalkEnvironmentEndpointTarget interface {
@@ -33,7 +36,7 @@ type jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-func NewElasticBeanstalkEnvironmentEndpointTarget(environmentEndpoint *string) ElasticBeanstalkEnvironmentEndpointTarget {
+func NewElasticBeanstalkEnvironmentEndpointTarget(environmentEndpoint *string, props IAliasRecordTargetProps) ElasticBeanstalkEnvironmentEndpointTarget {
 	_init_.Initialize()
 
 	if err := validateNewElasticBeanstalkEnvironmentEndpointTargetParameters(environmentEndpoint); err != nil {
@@ -43,19 +46,19 @@ func NewElasticBeanstalkEnvironmentEndpointTarget(environmentEndpoint *string) E
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.ElasticBeanstalkEnvironmentEndpointTarget",
-		[]interface{}{environmentEndpoint},
+		[]interface{}{environmentEndpoint, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewElasticBeanstalkEnvironmentEndpointTarget_Override(e ElasticBeanstalkEnvironmentEndpointTarget, environmentEndpoint *string) {
+func NewElasticBeanstalkEnvironmentEndpointTarget_Override(e ElasticBeanstalkEnvironmentEndpointTarget, environmentEndpoint *string, props IAliasRecordTargetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_route53_targets.ElasticBeanstalkEnvironmentEndpointTarget",
-		[]interface{}{environmentEndpoint},
+		[]interface{}{environmentEndpoint, props},
 		e,
 	)
 }

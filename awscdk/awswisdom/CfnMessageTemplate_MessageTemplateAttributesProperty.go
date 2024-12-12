@@ -1,9 +1,7 @@
 package awswisdom
 
 
-// An object that specifies the default values to use for variables in the message template.
-//
-// This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+// The attributes that are used with the message template.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

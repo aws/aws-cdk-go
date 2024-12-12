@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Telephony Outbound Mode.
+// Contains information about telephony outbound mode.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,15 +23,15 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html
 //
 type CfnCampaign_TelephonyOutboundModeProperty struct {
-	// Agentless config.
+	// The agentless outbound mode configuration for telephony.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-agentlessconfig
 	//
 	AgentlessConfig interface{} `field:"optional" json:"agentlessConfig" yaml:"agentlessConfig"`
-	// Predictive config.
+	// Contains predictive outbound mode configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-predictiveconfig
 	//
 	PredictiveConfig interface{} `field:"optional" json:"predictiveConfig" yaml:"predictiveConfig"`
-	// Progressive config.
+	// Contains progressive telephony outbound mode configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-progressiveconfig
 	//
 	ProgressiveConfig interface{} `field:"optional" json:"progressiveConfig" yaml:"progressiveConfig"`

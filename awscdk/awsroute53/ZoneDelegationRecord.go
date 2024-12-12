@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var geoLocation geoLocation
+//   var healthCheck healthCheck
 //   var hostedZone hostedZone
 //
 //   zoneDelegationRecord := awscdk.Aws_route53.NewZoneDelegationRecord(this, jsii.String("MyZoneDelegationRecord"), &ZoneDelegationRecordProps{
@@ -29,6 +30,7 @@ import (
 //   	Comment: jsii.String("comment"),
 //   	DeleteExisting: jsii.Boolean(false),
 //   	GeoLocation: geoLocation,
+//   	HealthCheck: healthCheck,
 //   	MultiValueAnswer: jsii.Boolean(false),
 //   	RecordName: jsii.String("recordName"),
 //   	Region: jsii.String("region"),

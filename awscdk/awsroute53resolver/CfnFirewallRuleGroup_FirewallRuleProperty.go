@@ -28,8 +28,9 @@ package awsroute53resolver
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html
 //
 type CfnFirewallRuleGroup_FirewallRuleProperty struct {
-	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:  - `ALLOW` - Permit the request to go through.
+	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advvanced rule:  - `ALLOW` - Permit the request to go through.
 	//
+	// Not available for DNS Firewall Advanced rules.
 	// - `ALERT` - Permit the request to go through but send an alert to the logs.
 	// - `BLOCK` - Disallow the request. If this is specified,then `BlockResponse` must also be specified.
 	//

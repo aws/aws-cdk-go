@@ -55,7 +55,7 @@ type CfnConnection_OAuthParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-authorizationendpoint
 	//
 	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
-	// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+	// The client parameters for OAuth authorization.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-clientparameters
 	//
 	ClientParameters interface{} `field:"required" json:"clientParameters" yaml:"clientParameters"`
@@ -63,7 +63,7 @@ type CfnConnection_OAuthParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-httpmethod
 	//
 	HttpMethod *string `field:"required" json:"httpMethod" yaml:"httpMethod"`
-	// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+	// Details about the additional parameters to use for the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html#cfn-events-connection-oauthparameters-oauthhttpparameters
 	//
 	OAuthHttpParameters interface{} `field:"optional" json:"oAuthHttpParameters" yaml:"oAuthHttpParameters"`

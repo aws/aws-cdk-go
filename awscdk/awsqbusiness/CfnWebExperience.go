@@ -20,6 +20,12 @@ import (
 //   	ApplicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
+//   	CustomizationConfiguration: &CustomizationConfigurationProperty{
+//   		CustomCssUrl: jsii.String("customCssUrl"),
+//   		FaviconUrl: jsii.String("faviconUrl"),
+//   		FontUrl: jsii.String("fontUrl"),
+//   		LogoUrl: jsii.String("logoUrl"),
+//   	},
 //   	IdentityProviderConfiguration: &IdentityProviderConfigurationProperty{
 //   		OpenIdConnectConfiguration: &OpenIDConnectProviderConfigurationProperty{
 //   			SecretsArn: jsii.String("secretsArn"),
@@ -79,6 +85,8 @@ type CfnWebExperience interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	CustomizationConfiguration() interface{}
+	SetCustomizationConfiguration(val interface{})
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration() interface{}
 	SetIdentityProviderConfiguration(val interface{})
@@ -391,6 +399,16 @@ func (j *jsiiProxy_CfnWebExperience) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebExperience) CustomizationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customizationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebExperience) IdentityProviderConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -566,6 +584,17 @@ func (j *jsiiProxy_CfnWebExperience)SetApplicationId(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWebExperience)SetCustomizationConfiguration(val interface{}) {
+	if err := j.validateSetCustomizationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"customizationConfiguration",
 		val,
 	)
 }

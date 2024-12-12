@@ -14,7 +14,6 @@ import (
 //   var noAuthConfiguration interface{}
 //
 //   cfnPluginProps := &CfnPluginProps{
-//   	ApplicationId: jsii.String("applicationId"),
 //   	AuthConfiguration: &PluginAuthConfigurationProperty{
 //   		BasicAuthConfiguration: &BasicAuthConfigurationProperty{
 //   			RoleArn: jsii.String("roleArn"),
@@ -24,12 +23,17 @@ import (
 //   		OAuth2ClientCredentialConfiguration: &OAuth2ClientCredentialConfigurationProperty{
 //   			RoleArn: jsii.String("roleArn"),
 //   			SecretArn: jsii.String("secretArn"),
+//
+//   			// the properties below are optional
+//   			AuthorizationUrl: jsii.String("authorizationUrl"),
+//   			TokenUrl: jsii.String("tokenUrl"),
 //   		},
 //   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	ApplicationId: jsii.String("applicationId"),
 //   	CustomPluginConfiguration: &CustomPluginConfigurationProperty{
 //   		ApiSchema: &APISchemaProperty{
 //   			Payload: jsii.String("payload"),
@@ -54,10 +58,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html
 //
 type CfnPluginProps struct {
-	// The identifier of the application that will contain the plugin.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html#cfn-qbusiness-plugin-applicationid
-	//
-	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// Authentication configuration information for an Amazon Q Business plugin.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html#cfn-qbusiness-plugin-authconfiguration
 	//
@@ -70,6 +70,10 @@ type CfnPluginProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html#cfn-qbusiness-plugin-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The identifier of the application that will contain the plugin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html#cfn-qbusiness-plugin-applicationid
+	//
+	ApplicationId *string `field:"optional" json:"applicationId" yaml:"applicationId"`
 	// Configuration information required to create a custom plugin.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html#cfn-qbusiness-plugin-custompluginconfiguration
 	//

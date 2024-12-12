@@ -1,7 +1,7 @@
 package awsconnectcampaignsv2
 
 
-// Campaign communication time config.
+// Communication time configuration for an outbound campaign.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -106,19 +106,19 @@ package awsconnectcampaignsv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html
 //
 type CfnCampaign_CommunicationTimeConfigProperty struct {
-	// Local time zone config.
+	// The local timezone configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html#cfn-connectcampaignsv2-campaign-communicationtimeconfig-localtimezoneconfig
 	//
 	LocalTimeZoneConfig interface{} `field:"required" json:"localTimeZoneConfig" yaml:"localTimeZoneConfig"`
-	// Time window config.
+	// The communication time configuration for the email channel subtype.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html#cfn-connectcampaignsv2-campaign-communicationtimeconfig-email
 	//
 	Email interface{} `field:"optional" json:"email" yaml:"email"`
-	// Time window config.
+	// The communication time configuration for the SMS channel subtype.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html#cfn-connectcampaignsv2-campaign-communicationtimeconfig-sms
 	//
 	Sms interface{} `field:"optional" json:"sms" yaml:"sms"`
-	// Time window config.
+	// The communication time configuration for the telephony channel subtype.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html#cfn-connectcampaignsv2-campaign-communicationtimeconfig-telephony
 	//
 	Telephony interface{} `field:"optional" json:"telephony" yaml:"telephony"`

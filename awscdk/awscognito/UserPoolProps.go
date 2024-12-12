@@ -28,6 +28,7 @@ type UserPoolProps struct {
 	// The user pool's Advanced Security Mode.
 	// Default: - no value.
 	//
+	// Deprecated: Advanced Security Mode is deprecated in favor of user pool feature plans.
 	AdvancedSecurityMode AdvancedSecurityMode `field:"optional" json:"advancedSecurityMode" yaml:"advancedSecurityMode"`
 	// Attributes which Cognito will look to verify automatically upon user sign up.
 	//
@@ -64,6 +65,14 @@ type UserPoolProps struct {
 	// Default: - CDK will determine based on other properties of the user pool if an SMS role should be created or not.
 	//
 	EnableSmsRole *bool `field:"optional" json:"enableSmsRole" yaml:"enableSmsRole"`
+	// The user pool feature plan, or tier.
+	//
+	// This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html
+	//
+	// Default: - FeaturePlan.ESSENTIALS for a newly created user pool; FeaturePlan.LITE otherwise
+	//
+	FeaturePlan FeaturePlan `field:"optional" json:"featurePlan" yaml:"featurePlan"`
 	// Attributes which Cognito will look to handle changes to the value of your users' email address and phone number attributes.
 	//
 	// EMAIL and PHONE are the only available options.

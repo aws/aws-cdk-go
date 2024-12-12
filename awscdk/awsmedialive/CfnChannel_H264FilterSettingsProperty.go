@@ -11,6 +11,10 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   h264FilterSettingsProperty := &H264FilterSettingsProperty{
+//   	BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
+//   		PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   		Strength: jsii.String("strength"),
+//   	},
 //   	TemporalFilterSettings: &TemporalFilterSettingsProperty{
 //   		PostFilterSharpening: jsii.String("postFilterSharpening"),
 //   		Strength: jsii.String("strength"),
@@ -20,6 +24,9 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html
 //
 type CfnChannel_H264FilterSettingsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html#cfn-medialive-channel-h264filtersettings-bandwidthreductionfiltersettings
+	//
+	BandwidthReductionFilterSettings interface{} `field:"optional" json:"bandwidthReductionFilterSettings" yaml:"bandwidthReductionFilterSettings"`
 	// Settings for applying the temporal filter to the video.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html#cfn-medialive-channel-h264filtersettings-temporalfiltersettings
 	//
