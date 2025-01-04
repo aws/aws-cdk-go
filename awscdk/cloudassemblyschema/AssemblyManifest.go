@@ -76,6 +76,7 @@ package cloudassemblyschema
 //   			},
 //   		},
 //   	},
+//   	MinimumCliVersion: jsii.String("minimumCliVersion"),
 //   	Missing: []missingContext{
 //   		&missingContext{
 //   			Key: jsii.String("key"),
@@ -115,6 +116,15 @@ type AssemblyManifest struct {
 	// Default: - no artifacts.
 	//
 	Artifacts *map[string]*ArtifactManifest `field:"optional" json:"artifacts" yaml:"artifacts"`
+	// Required CLI version, if available.
+	//
+	// If the manifest producer knows, it can put the minimum version of the CLI
+	// here that supports reading this assembly.
+	//
+	// If set, it can be used to show a more informative error message to users.
+	// Default: - Minimum CLI version unknown.
+	//
+	MinimumCliVersion *string `field:"optional" json:"minimumCliVersion" yaml:"minimumCliVersion"`
 	// Missing context information.
 	//
 	// If this field has values, it means that the

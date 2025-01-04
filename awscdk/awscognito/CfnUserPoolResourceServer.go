@@ -89,7 +89,7 @@ type CfnUserPoolResourceServer interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a resource server.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -54,9 +54,19 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	IntervalUnit *string `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
 	// *[Custom snapshot policies only]* Specifies the destination for snapshots created by the policy.
 	//
-	// To create snapshots in the same Region as the source resource, specify `CLOUD` . To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL` . If you omit this parameter, `CLOUD` is used by default.
+	// The allowed destinations depend on the location of the targeted resources.
 	//
-	// If the policy targets resources in an AWS Region , then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.
+	// - If the policy targets resources in a Region, then you must create snapshots in the same Region as the source resource.
+	// - If the policy targets resources in a Local Zone, you can create snapshots in the same Local Zone or in its parent Region.
+	// - If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost or in its parent Region.
+	//
+	// Specify one of the following values:
+	//
+	// - To create snapshots in the same Region as the source resource, specify `CLOUD` .
+	// - To create snapshots in the same Local Zone as the source resource, specify `LOCAL_ZONE` .
+	// - To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL` .
+	//
+	// Default: `CLOUD`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-location
 	//
 	Location *string `field:"optional" json:"location" yaml:"location"`

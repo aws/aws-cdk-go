@@ -116,6 +116,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_RelationalFilterConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnDataSource.SageMakerRunConfigurationInputProperty",
+		reflect.TypeOf((*CfnDataSource_SageMakerRunConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnDataSource.ScheduleConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ScheduleConfigurationProperty)(nil)).Elem(),
 	)

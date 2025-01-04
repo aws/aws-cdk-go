@@ -28,6 +28,7 @@ import (
 //   		DesiredCapacity: jsii.Number(123),
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	NetworkType: jsii.String("networkType"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
@@ -103,6 +104,9 @@ type CfnEnvironment interface {
 	// The name of the runtime environment.
 	Name() *string
 	SetName(val *string)
+	// The network type supported by the runtime environment.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Configures the maintenance window that you want for the runtime environment.
@@ -421,6 +425,16 @@ func (j *jsiiProxy_CfnEnvironment) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -633,6 +647,14 @@ func (j *jsiiProxy_CfnEnvironment)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

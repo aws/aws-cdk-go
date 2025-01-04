@@ -106,6 +106,9 @@ type CfnConnection_AuthParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-basicauthparameters
 	//
 	BasicAuthParameters interface{} `field:"optional" json:"basicAuthParameters" yaml:"basicAuthParameters"`
+	// For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+	//
+	// For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html#cfn-events-connection-authparameters-connectivityparameters
 	//
 	ConnectivityParameters interface{} `field:"optional" json:"connectivityParameters" yaml:"connectivityParameters"`

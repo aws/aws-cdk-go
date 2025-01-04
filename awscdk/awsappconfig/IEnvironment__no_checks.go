@@ -12,6 +12,10 @@ func (i *jsiiProxy_IEnvironment) validateAddExtensionParameters(extension IExten
 	return nil
 }
 
+func (i *jsiiProxy_IEnvironment) validateAtDeploymentTickParameters(eventDestination IEventDestination, options *ExtensionOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IEnvironment) validateGrantParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

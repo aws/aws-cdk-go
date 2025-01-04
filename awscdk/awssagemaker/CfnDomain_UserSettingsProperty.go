@@ -52,6 +52,12 @@ package awssagemaker
 //   				// the properties below are optional
 //   				FileSystemPath: jsii.String("fileSystemPath"),
 //   			},
+//   			FSxLustreFileSystemConfig: &FSxLustreFileSystemConfigProperty{
+//   				FileSystemId: jsii.String("fileSystemId"),
+//
+//   				// the properties below are optional
+//   				FileSystemPath: jsii.String("fileSystemPath"),
+//   			},
 //   		},
 //   	},
 //   	CustomPosixUserConfig: &CustomPosixUserConfigProperty{
@@ -186,7 +192,7 @@ type CfnDomain_UserSettingsProperty struct {
 	CodeEditorAppSettings interface{} `field:"optional" json:"codeEditorAppSettings" yaml:"codeEditorAppSettings"`
 	// The settings for assigning a custom file system to a user profile.
 	//
-	// Permitted users can access this file system in Amazon SageMaker Studio.
+	// Permitted users can access this file system in Amazon SageMaker AI Studio.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-customfilesystemconfigs
@@ -233,13 +239,13 @@ type CfnDomain_UserSettingsProperty struct {
 	//
 	// Required when the `CreateDomain.AppNetworkAccessType` parameter is set to `VpcOnly` , unless specified as part of the `DefaultUserSettings` for the domain.
 	//
-	// Amazon SageMaker adds a security group to allow NFS traffic from Amazon SageMaker Studio. Therefore, the number of security groups that you can specify is one less than the maximum number shown.
+	// Amazon SageMaker AI adds a security group to allow NFS traffic from Amazon SageMaker AI Studio. Therefore, the number of security groups that you can specify is one less than the maximum number shown.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
-	// Specifies options for sharing Amazon SageMaker Studio notebooks.
+	// Specifies options for sharing Amazon SageMaker AI Studio notebooks.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
 	//
 	SharingSettings interface{} `field:"optional" json:"sharingSettings" yaml:"sharingSettings"`

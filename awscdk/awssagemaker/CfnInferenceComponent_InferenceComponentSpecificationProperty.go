@@ -58,7 +58,7 @@ type CfnInferenceComponent_InferenceComponentSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-container
 	//
 	Container interface{} `field:"optional" json:"container" yaml:"container"`
-	// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+	// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-modelname
 	//
 	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`

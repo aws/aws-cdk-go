@@ -85,6 +85,7 @@ type CfnWebExperience interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	CustomizationConfiguration() interface{}
 	SetCustomizationConfiguration(val interface{})
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.

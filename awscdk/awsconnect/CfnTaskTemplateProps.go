@@ -44,6 +44,7 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	SelfAssignContactFlowArn: jsii.String("selfAssignContactFlowArn"),
 //   	Status: jsii.String("status"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -94,6 +95,10 @@ type CfnTaskTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The Amazon Resource Name (ARN) of the flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-selfassigncontactflowarn
+	//
+	SelfAssignContactFlowArn *string `field:"optional" json:"selfAssignContactFlowArn" yaml:"selfAssignContactFlowArn"`
 	// The status of the task template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-status
 	//

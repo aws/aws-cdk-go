@@ -15,6 +15,8 @@ type IDistribution interface {
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant to create invalidations for this bucket to an IAM principal (Role/Group/User).
 	GrantCreateInvalidation(identity awsiam.IGrantable) awsiam.Grant
+	// The distribution ARN for this distribution.
+	DistributionArn() *string
 	// The domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
 	DistributionDomainName() *string
 	// The distribution ID for this distribution.
@@ -60,6 +62,16 @@ func (i *jsiiProxy_IDistribution) GrantCreateInvalidation(identity awsiam.IGrant
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IDistribution) DistributionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"distributionArn",
+		&returns,
+	)
 	return returns
 }
 

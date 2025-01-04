@@ -32,6 +32,7 @@ package awsbedrock
 //   			"required": jsii.Boolean(false),
 //   		},
 //   	},
+//   	RequireConfirmation: jsii.String("requireConfirmation"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html
@@ -49,5 +50,9 @@ type CfnAgent_FunctionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-parameters
 	//
 	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
+	// Contains information if user confirmation is required to invoke the function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-requireconfirmation
+	//
+	RequireConfirmation *string `field:"optional" json:"requireConfirmation" yaml:"requireConfirmation"`
 }
 

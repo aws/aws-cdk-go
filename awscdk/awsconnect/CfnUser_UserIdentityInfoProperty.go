@@ -29,13 +29,13 @@ type CfnUser_UserIdentityInfoProperty struct {
 	Email *string `field:"optional" json:"email" yaml:"email"`
 	// The first name.
 	//
-	// This is required if you are using Amazon Connect or SAML for identity management.
+	// This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-firstname
 	//
 	FirstName *string `field:"optional" json:"firstName" yaml:"firstName"`
 	// The last name.
 	//
-	// This is required if you are using Amazon Connect or SAML for identity management.
+	// This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html#cfn-connect-user-useridentityinfo-lastname
 	//
 	LastName *string `field:"optional" json:"lastName" yaml:"lastName"`

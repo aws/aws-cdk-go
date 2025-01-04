@@ -219,6 +219,15 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	PerformanceConfiguration: &PerformanceConfigurationProperty{
+//   		UniqueKeys: []interface{}{
+//   			&UniqueKeyProperty{
+//   				ColumnNames: []*string{
+//   					jsii.String("columnNames"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{
 //   			Actions: []*string{
@@ -379,6 +388,10 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The performance optimization configuration of a dataset.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-performanceconfiguration
+	//
+	PerformanceConfiguration interface{} `field:"optional" json:"performanceConfiguration" yaml:"performanceConfiguration"`
 	// A list of resource permissions on the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
 	//

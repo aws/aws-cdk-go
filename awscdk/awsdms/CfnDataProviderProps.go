@@ -20,6 +20,23 @@ import (
 //   	Description: jsii.String("description"),
 //   	ExactSettings: jsii.Boolean(false),
 //   	Settings: &SettingsProperty{
+//   		DocDbSettings: &DocDbSettingsProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   			SslMode: jsii.String("sslMode"),
+//   		},
+//   		MariaDbSettings: &MariaDbSettingsProperty{
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   		},
 //   		MicrosoftSqlServerSettings: &MicrosoftSqlServerSettingsProperty{
 //   			DatabaseName: jsii.String("databaseName"),
 //   			Port: jsii.Number(123),
@@ -28,6 +45,18 @@ import (
 //
 //   			// the properties below are optional
 //   			CertificateArn: jsii.String("certificateArn"),
+//   		},
+//   		MongoDbSettings: &MongoDbSettingsProperty{
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//
+//   			// the properties below are optional
+//   			AuthMechanism: jsii.String("authMechanism"),
+//   			AuthSource: jsii.String("authSource"),
+//   			AuthType: jsii.String("authType"),
+//   			CertificateArn: jsii.String("certificateArn"),
+//   			DatabaseName: jsii.String("databaseName"),
+//   			SslMode: jsii.String("sslMode"),
 //   		},
 //   		MySqlSettings: &MySqlSettingsProperty{
 //   			Port: jsii.Number(123),
@@ -59,6 +88,11 @@ import (
 //
 //   			// the properties below are optional
 //   			CertificateArn: jsii.String("certificateArn"),
+//   		},
+//   		RedshiftSettings: &RedshiftSettingsProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
 //   		},
 //   	},
 //   	Tags: []cfnTag{

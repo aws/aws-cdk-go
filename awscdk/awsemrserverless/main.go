@@ -49,6 +49,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "runtimeConfiguration", GoGetter: "RuntimeConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "schedulerConfiguration", GoGetter: "SchedulerConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -123,6 +124,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.S3MonitoringConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_S3MonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.SchedulerConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_SchedulerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.WorkerConfigurationProperty",

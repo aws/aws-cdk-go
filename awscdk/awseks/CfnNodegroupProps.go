@@ -131,7 +131,7 @@ type CfnNodegroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-nodegroupname
 	//
 	NodegroupName *string `field:"optional" json:"nodegroupName" yaml:"nodegroupName"`
-	// The node auto repair configuration for node group.
+	// The node auto repair configuration for the node group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderepairconfig
 	//
 	NodeRepairConfig interface{} `field:"optional" json:"nodeRepairConfig" yaml:"nodeRepairConfig"`

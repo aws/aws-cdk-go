@@ -177,8 +177,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dms.CfnDataProvider.DocDbSettingsProperty",
+		reflect.TypeOf((*CfnDataProvider_DocDbSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dms.CfnDataProvider.MariaDbSettingsProperty",
+		reflect.TypeOf((*CfnDataProvider_MariaDbSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dms.CfnDataProvider.MicrosoftSqlServerSettingsProperty",
 		reflect.TypeOf((*CfnDataProvider_MicrosoftSqlServerSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dms.CfnDataProvider.MongoDbSettingsProperty",
+		reflect.TypeOf((*CfnDataProvider_MongoDbSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dms.CfnDataProvider.MySqlSettingsProperty",
@@ -191,6 +203,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dms.CfnDataProvider.PostgreSqlSettingsProperty",
 		reflect.TypeOf((*CfnDataProvider_PostgreSqlSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dms.CfnDataProvider.RedshiftSettingsProperty",
+		reflect.TypeOf((*CfnDataProvider_RedshiftSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dms.CfnDataProvider.SettingsProperty",

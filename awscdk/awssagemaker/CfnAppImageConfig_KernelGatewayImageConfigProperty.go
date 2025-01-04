@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
+// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,7 +33,7 @@ type CfnAppImageConfig_KernelGatewayImageConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
 	//
 	KernelSpecs interface{} `field:"required" json:"kernelSpecs" yaml:"kernelSpecs"`
-	// The Amazon Elastic File System storage configuration for a SageMaker image.
+	// The Amazon Elastic File System storage configuration for a SageMaker AI image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
 	//
 	FileSystemConfig interface{} `field:"optional" json:"fileSystemConfig" yaml:"fileSystemConfig"`

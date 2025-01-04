@@ -38,6 +38,8 @@ type CfnApp_PermissionModelProperty struct {
 	CrossAccountRoleArns *[]*string `field:"optional" json:"crossAccountRoleArns" yaml:"crossAccountRoleArns"`
 	// Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
 	//
+	// If your IAM role includes a path, you must include the path in the `invokerRoleName` parameter. For example, if your IAM role's ARN is `arn:aws:iam:123456789012:role/my-path/role-name` , you should pass `my-path/role-name` .
+	//
 	// > - You must have `iam:passRole` permission for this role while creating or updating the application.
 	// > - Currently, `invokerRoleName` accepts only `[A-Za-z0-9_+=,.@-]` characters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html#cfn-resiliencehub-app-permissionmodel-invokerrolename

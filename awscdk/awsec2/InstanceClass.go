@@ -141,6 +141,34 @@ const (
 	InstanceClass_HIGH_MEMORY_24TB_1 InstanceClass = "HIGH_MEMORY_24TB_1"
 	// High memory instances (24TB) based on Intel Xeon Scalable (Cascade Lake) processors, 1st generation.
 	InstanceClass_U_24TB1 InstanceClass = "U_24TB1"
+	// High memory instances (6TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_HIGH_MEMORY_6TB_7 InstanceClass = "HIGH_MEMORY_6TB_7"
+	// High memory instances (6TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_U7I_6TB InstanceClass = "U7I_6TB"
+	// High memory instances (8TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_HIGH_MEMORY_8TB_7 InstanceClass = "HIGH_MEMORY_8TB_7"
+	// High memory instances (8TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_U7I_8TB InstanceClass = "U7I_8TB"
+	// High memory instances (12TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_HIGH_MEMORY_12TB_7 InstanceClass = "HIGH_MEMORY_12TB_7"
+	// High memory instances (12TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_U7I_12TB InstanceClass = "U7I_12TB"
+	// High memory, network-intensive instances (16TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_HIGH_MEMORY_HIGH_NETWORK_16TB_7 InstanceClass = "HIGH_MEMORY_HIGH_NETWORK_16TB_7"
+	// High memory, network-intensive instances (16TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_U7IN_16TB InstanceClass = "U7IN_16TB"
+	// High memory, network-intensive instances (24TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_HIGH_MEMORY_HIGH_NETWORK_24TB_7 InstanceClass = "HIGH_MEMORY_HIGH_NETWORK_24TB_7"
+	// High memory, network-intensive instances (24TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_U7IN_24TB InstanceClass = "U7IN_24TB"
+	// High memory, network-intensive instances (32TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_HIGH_MEMORY_HIGH_NETWORK_32TB_7 InstanceClass = "HIGH_MEMORY_HIGH_NETWORK_32TB_7"
+	// High memory, network-intensive instances (32TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation.
+	InstanceClass_U7IN_32TB InstanceClass = "U7IN_32TB"
+	// High memory, network-intensive instances (32TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation U7inh instances use Hewlett Packard Enterprise (HPE) Compute Scale Up Server 3200.
+	InstanceClass_HIGH_MEMORY_HIGH_NETWORK_HPE_32TB_7 InstanceClass = "HIGH_MEMORY_HIGH_NETWORK_HPE_32TB_7"
+	// High memory, network-intensive instances (32TB) based on 4th Generation Intel Xeon Scalable processors (Sapphire Rapids), 7th generation U7inh instances use Hewlett Packard Enterprise (HPE) Compute Scale Up Server 3200.
+	InstanceClass_U7INH_32TB InstanceClass = "U7INH_32TB"
 	// Memory optimized instances that are also EBS-optimized, 5th generation.
 	InstanceClass_MEMORY5_EBS_OPTIMIZED InstanceClass = "MEMORY5_EBS_OPTIMIZED"
 	// Memory optimized instances that are also EBS-optimized, 5th generation.
@@ -237,6 +265,14 @@ const (
 	InstanceClass_COMPUTE7_GRAVITON3 InstanceClass = "COMPUTE7_GRAVITON3"
 	// Compute optimized instances for high performance computing, 7th generation with Graviton3 processors.
 	InstanceClass_C7G InstanceClass = "C7G"
+	// Compute optimized instances for high performance computing, 8th generation with Graviton4 processors.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Frankfurt).
+	InstanceClass_COMPUTE8_GRAVITON4 InstanceClass = "COMPUTE8_GRAVITON4"
+	// Compute optimized instances for high performance computing, 8th generation with Graviton4 processors.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Frankfurt).
+	InstanceClass_C8G InstanceClass = "C8G"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and local NVME drive.
 	InstanceClass_COMPUTE6_GRAVITON2_NVME_DRIVE InstanceClass = "COMPUTE6_GRAVITON2_NVME_DRIVE"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and local NVME drive.
@@ -261,6 +297,10 @@ const (
 	InstanceClass_COMPUTE7_INTEL InstanceClass = "COMPUTE7_INTEL"
 	// Compute optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation.
 	InstanceClass_C7I InstanceClass = "C7I"
+	// Compute optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation C7i-flex instances efficiently use compute resources to deliver a baseline level of performance with the ability to scale up to the full compute performance a majority of the time.
+	InstanceClass_COMPUTE7_INTEL_FLEX InstanceClass = "COMPUTE7_INTEL_FLEX"
+	// Compute optimized instances based on Intel Xeon Scalable (Sapphire Rapids) processors, 7th generation C7i-flex instances efficiently use compute resources to deliver a baseline level of performance with the ability to scale up to the full compute performance a majority of the time.
+	InstanceClass_C7I_FLEX InstanceClass = "C7I_FLEX"
 	// Compute optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
 	InstanceClass_COMPUTE7_AMD InstanceClass = "COMPUTE7_AMD"
 	// Compute optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
@@ -289,6 +329,14 @@ const (
 	InstanceClass_TRAINING_ACCELERATOR1_ENHANCED_NETWORK InstanceClass = "TRAINING_ACCELERATOR1_ENHANCED_NETWORK"
 	// Network-optimized high performance computing powered by AWS Trainium.
 	InstanceClass_TRN1N InstanceClass = "TRN1N"
+	// High performance computing powered by AWS Trainium2, 2nd generation.
+	InstanceClass_TRAINING_ACCELERATOR2 InstanceClass = "TRAINING_ACCELERATOR2"
+	// High performance computing powered by AWS Trainium2, 2nd generation.
+	InstanceClass_TRN2 InstanceClass = "TRN2"
+	// High performance computing powered by AWS Trainium2 and EC2 Ultra Servers, 2nd generation UltraServers connect multiple EC2 instances using a dedicated, high-bandwidth, low-latency accelerator interconnect.
+	InstanceClass_TRAINING_ACCELERATOR2_ULTRASERVER InstanceClass = "TRAINING_ACCELERATOR2_ULTRASERVER"
+	// High performance computing powered by AWS Trainium2 and EC2 Ultra Servers, 2nd generation UltraServers connect multiple EC2 instances using a dedicated, high-bandwidth, low-latency accelerator interconnect.
+	InstanceClass_TRN2U InstanceClass = "TRN2U"
 	// I/O-optimized instances, 3rd generation.
 	InstanceClass_IO3 InstanceClass = "IO3"
 	// I/O-optimized instances, 3rd generation.
@@ -313,6 +361,14 @@ const (
 	InstanceClass_STORAGE4_GRAVITON_NETWORK_STORAGE_OPTIMIZED InstanceClass = "STORAGE4_GRAVITON_NETWORK_STORAGE_OPTIMIZED"
 	// Storage optimized instances powered by Graviton2 processor, 4th generation.
 	InstanceClass_IS4GEN InstanceClass = "IS4GEN"
+	// Storage optimized instances powered by 5th generation Intel Xeon Scalable processors, 7th generation.
+	InstanceClass_STORAGE7_INTEL_STORAGE_OPTIMIZED InstanceClass = "STORAGE7_INTEL_STORAGE_OPTIMIZED"
+	// Storage optimized instances powered by 5th generation Intel Xeon Scalable processors, 7th generation.
+	InstanceClass_I7IE InstanceClass = "I7IE"
+	// Storage optimized instances powered by Graviton4 processor, 8th generation.
+	InstanceClass_STORAGE8_GRAVITON InstanceClass = "STORAGE8_GRAVITON"
+	// Storage optimized instances powered by Graviton4 processor, 8th generation.
+	InstanceClass_I8G InstanceClass = "I8G"
 	// Burstable instances, 2nd generation.
 	InstanceClass_BURSTABLE2 InstanceClass = "BURSTABLE2"
 	// Burstable instances, 2nd generation.
@@ -365,10 +421,18 @@ const (
 	InstanceClass_MEMORY_INTENSIVE_2_XTZ_INTEL InstanceClass = "MEMORY_INTENSIVE_2_XTZ_INTEL"
 	// Memory-intensive instances with higher network bandwith and single-threaded performance, Intel Xeon Scalable (Cascade Lake) processors.
 	InstanceClass_X2IEZN InstanceClass = "X2IEZN"
+	// Memory-intensive instances powered by Graviton4 processors, 8th generation.
+	InstanceClass_MEMORY_INTENSIVE_8_GRAVITON InstanceClass = "MEMORY_INTENSIVE_8_GRAVITON"
+	// Memory-intensive instances powered by Graviton4 processors, 8th generation.
+	InstanceClass_X8G InstanceClass = "X8G"
 	// Instances with customizable hardware acceleration, 1st generation.
 	InstanceClass_FPGA1 InstanceClass = "FPGA1"
 	// Instances with customizable hardware acceleration, 1st generation.
 	InstanceClass_F1 InstanceClass = "F1"
+	// Instances with customizable hardware acceleration, 2nd generation.
+	InstanceClass_FPGA2 InstanceClass = "FPGA2"
+	// Instances with customizable hardware acceleration, 2nd generation.
+	InstanceClass_F2 InstanceClass = "F2"
 	// Graphics-optimized instances, 3rd generation.
 	InstanceClass_GRAPHICS3_SMALL InstanceClass = "GRAPHICS3_SMALL"
 	// Graphics-optimized instances, 3rd generation.
@@ -401,6 +465,10 @@ const (
 	InstanceClass_GRAPHICS6_EFFICIENT InstanceClass = "GRAPHICS6_EFFICIENT"
 	// Cost-efficient GPU-based instances for AI inference and spatial computing workloads, 6th generation.
 	InstanceClass_G6E InstanceClass = "G6E"
+	// Graphics-optimized instances, 6th generation Gr6 instances offer a 1:8 vCPU to RAM ratio, making them better suited for graphics workloads with higher memory requirements.
+	InstanceClass_GRAPHICS_RAM_6 InstanceClass = "GRAPHICS_RAM_6"
+	// Graphics-optimized instances, 6th generation Gr6 instances offer a 1:8 vCPU to RAM ratio, making them better suited for graphics workloads with higher memory requirements.
+	InstanceClass_GR6 InstanceClass = "GR6"
 	// Parallel-processing optimized instances, 2nd generation.
 	InstanceClass_PARALLEL2 InstanceClass = "PARALLEL2"
 	// Parallel-processing optimized instances, 2nd generation.
@@ -421,10 +489,18 @@ const (
 	InstanceClass_PARALLEL4 InstanceClass = "PARALLEL4"
 	// Parallel-processing optimized instances, 4th generation.
 	InstanceClass_P4D InstanceClass = "P4D"
-	// Parallel-processing optimized instances, 5th generation.
+	// Parallel-processing optimized instances powered by NVIDIA H100 Tensor Core GPUs, 5th generation.
 	InstanceClass_PARALLEL5 InstanceClass = "PARALLEL5"
-	// Parallel-processing optimized instances, 5th generation.
+	// Parallel-processing optimized instances powered by NVIDIA H100 Tensor Core GPUs, 5th generation.
 	InstanceClass_P5 InstanceClass = "P5"
+	// Parallel-processing optimized instances powered by NVIDIA H200 Tensor Core GPUs, 5th generation.
+	InstanceClass_PARALLEL5_EXTENDED InstanceClass = "PARALLEL5_EXTENDED"
+	// Parallel-processing optimized instances, 5th generation.
+	InstanceClass_P5E InstanceClass = "P5E"
+	// Parallel-processing, network-optimized instances powered by NVIDIA H200 Tensor Core GPUs, 5th generation P5en instances pair NVIDIA H200 Tensor Core GPUs with Intel Sapphire Rapids CPU, enabling Gen5 PCIe between CPU and GPU.
+	InstanceClass_PARALLEL5_EXTENDED_NETWORK InstanceClass = "PARALLEL5_EXTENDED_NETWORK"
+	// Parallel-processing optimized instances, 5th generation.
+	InstanceClass_P5EN InstanceClass = "P5EN"
 	// Arm processor based instances, 1st generation.
 	InstanceClass_ARM1 InstanceClass = "ARM1"
 	// Arm processor based instances, 1st generation.
@@ -465,6 +541,14 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).
 	InstanceClass_M7G InstanceClass = "M7G"
+	// Standard instances, 8th generation with Graviton4 processors.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Frankfurt).
+	InstanceClass_STANDARD8_GRAVITON InstanceClass = "STANDARD8_GRAVITON"
+	// Standard instances, 8th generation with Graviton4 processors.
+	//
+	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Frankfurt).
+	InstanceClass_M8G InstanceClass = "M8G"
 	// Standard instances, 7th generation with Graviton3 processors and local NVME drive.
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Ireland).

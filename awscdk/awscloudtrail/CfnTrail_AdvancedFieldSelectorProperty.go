@@ -47,6 +47,8 @@ type CfnTrail_AdvancedFieldSelectorProperty struct {
 	//
 	// For event data stores for CloudTrail Insights events, AWS Config configuration items, Audit Manager evidence, or events outside of AWS , the only supported field is `eventCategory` .
 	//
+	// > Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition, you may use `StartsWith` , `EndsWith` , `NotStartsWith` , or `NotEndsWith` to explicitly match the beginning or end of the event field.
+	//
 	// - *`readOnly`* - This is an optional field that is only used for management events and data events. This field can be set to `Equals` with a value of `true` or `false` . If you do not add this field, CloudTrail logs both `read` and `write` events. A value of `true` logs only `read` events. A value of `false` logs only `write` events.
 	// - *`eventSource`* - This field is only used for management events, data events (for event data stores only), and network activity events.
 	//

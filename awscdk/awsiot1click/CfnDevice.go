@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::IoT1Click::Device` resource controls the enabled state of an AWS IoT 1-Click compatible device.
+// > AWS IoT 1-Click was discontinued on Dec 16, 2024. For more information, see [AWS IoT 1-Click](https://docs.aws.amazon.com//iot/latest/developerguide/iot-legacy-services.html) .
 //
-// For more information, see [Device](https://docs.aws.amazon.com/iot-1-click/1.0/devices-apireference/devices-deviceid.html) in the *AWS IoT 1-Click Devices API Reference* .
+// The `AWS::IoT1Click::Device` resource controls the enabled state of an AWS IoT 1-Click compatible device. For more information, see [Device](https://docs.aws.amazon.com/iot-1-click/1.0/devices-apireference/devices-deviceid.html) in the *AWS IoT 1-Click Devices API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

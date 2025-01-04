@@ -86,6 +86,7 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		Ipv6AllowedForDualStack: jsii.Boolean(false),
 //   		VpcId: jsii.String("vpcId"),
 //   	},
 //   }
@@ -151,6 +152,8 @@ type CfnCanaryProps struct {
 	// The number of days to retain data about failed runs of this canary.
 	//
 	// If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+	//
+	// This setting affects the range of information returned by [GetCanaryRuns](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html) , as well as the range of information displayed in the Synthetics console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
 	//
 	FailureRetentionPeriod *float64 `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
@@ -183,6 +186,8 @@ type CfnCanaryProps struct {
 	// The number of days to retain data about successful runs of this canary.
 	//
 	// If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+	//
+	// This setting affects the range of information returned by [GetCanaryRuns](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html) , as well as the range of information displayed in the Synthetics console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
 	//
 	SuccessRetentionPeriod *float64 `field:"optional" json:"successRetentionPeriod" yaml:"successRetentionPeriod"`

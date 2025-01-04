@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The Amazon Elastic File System storage configuration for a SageMaker image.
+// The Amazon Elastic File System storage configuration for a SageMaker AI image.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

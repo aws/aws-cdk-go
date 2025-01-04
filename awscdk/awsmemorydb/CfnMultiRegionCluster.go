@@ -78,7 +78,7 @@ type CfnMultiRegionCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the Multi Region cluster.
+	// A suffix to be added to the Multi-Region cluster name.
 	MultiRegionClusterNameSuffix() *string
 	SetMultiRegionClusterNameSuffix(val *string)
 	// The name of the multi-Region parameter group associated with the cluster.
@@ -89,7 +89,7 @@ type CfnMultiRegionCluster interface {
 	// The node type used by the multi-Region cluster.
 	NodeType() *string
 	SetNodeType(val *string)
-	// The number of shards the multi region cluster will contain.
+	// TBD.
 	NumShards() *float64
 	SetNumShards(val *float64)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -101,7 +101,7 @@ type CfnMultiRegionCluster interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this multi region cluster.
+	// A list of tags to be applied to the multi-Region cluster.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Indiciates if the multi-Region cluster is TLS enabled.
@@ -120,7 +120,7 @@ type CfnMultiRegionCluster interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// An enum string value that determines the update strategy for scaling.
+	// The strategy to use for the update operation.
 	UpdateStrategy() *string
 	SetUpdateStrategy(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

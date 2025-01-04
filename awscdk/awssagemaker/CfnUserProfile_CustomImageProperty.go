@@ -1,9 +1,9 @@
 package awssagemaker
 
 
-// A custom SageMaker image.
+// A custom SageMaker AI image.
 //
-// For more information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
+// For more information, see [Bring your own SageMaker AI image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

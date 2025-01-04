@@ -115,6 +115,17 @@ type AwsCustomResourceProps struct {
 	// Default: - a new role is created.
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// The maximum time that can elapse before a custom resource operation times out.
+	//
+	// You should not need to set this property. It is intended to allow quick turnaround
+	// even if the implementor of the custom resource forgets to include a `try/catch`.
+	// We have included the `try/catch`, and AWS service calls usually do not take an hour
+	// to complete.
+	//
+	// The value must be between 1 second and 3600 seconds.
+	// Default: Duration.seconds(3600)
+	//
+	ServiceTimeout awscdk.Duration `field:"optional" json:"serviceTimeout" yaml:"serviceTimeout"`
 	// The timeout for the singleton Lambda function implementing this custom resource.
 	// Default: Duration.minutes(2)
 	//

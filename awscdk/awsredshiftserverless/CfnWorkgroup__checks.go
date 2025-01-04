@@ -256,6 +256,30 @@ func (j *jsiiProxy_CfnWorkgroup) validateSetEnhancedVpcRoutingParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkgroup) validateSetPricePerformanceTargetParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnWorkgroup_PerformanceTargetProperty:
+		val := val.(*CfnWorkgroup_PerformanceTargetProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnWorkgroup_PerformanceTargetProperty:
+		val_ := val.(CfnWorkgroup_PerformanceTargetProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWorkgroup_PerformanceTargetProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkgroup) validateSetPubliclyAccessibleParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

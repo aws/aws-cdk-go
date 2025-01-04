@@ -1,6 +1,8 @@
 package awsqbusiness
 
 
+// Specifies filters to apply to an allowed action.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -100,6 +102,7 @@ package awsqbusiness
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-actionfilterconfiguration.html
 //
 type CfnDataAccessor_ActionFilterConfigurationProperty struct {
+	// Enables filtering of responses based on document attributes or metadata fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-actionfilterconfiguration.html#cfn-qbusiness-dataaccessor-actionfilterconfiguration-documentattributefilter
 	//
 	DocumentAttributeFilter interface{} `field:"required" json:"documentAttributeFilter" yaml:"documentAttributeFilter"`

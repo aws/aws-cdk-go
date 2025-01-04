@@ -1966,6 +1966,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "configureAsyncInvoke", GoMethod: "ConfigureAsyncInvoke"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "considerWarningOnInvokeFunctionPermissions", GoMethod: "ConsiderWarningOnInvokeFunctionPermissions"},
+			_jsii_.MemberProperty{JsiiProperty: "constructName", GoGetter: "ConstructName"},
 			_jsii_.MemberProperty{JsiiProperty: "currentVersion", GoGetter: "CurrentVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "dependOn", GoMethod: "DependOn"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

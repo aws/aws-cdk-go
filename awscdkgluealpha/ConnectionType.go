@@ -92,6 +92,83 @@ func ConnectionType_CUSTOM() ConnectionType {
 	return returns
 }
 
+func ConnectionType_FACEBOOKADS() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"FACEBOOKADS",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_GOOGLEADS() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"GOOGLEADS",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_GOOGLEANALYTICS4() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"GOOGLEANALYTICS4",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_GOOGLESHEETS() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"GOOGLESHEETS",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_HUBSPOT() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"HUBSPOT",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_INSTAGRAMADS() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"INSTAGRAMADS",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_INTERCOM() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"INTERCOM",
+		&returns,
+	)
+	return returns
+}
+
 func ConnectionType_JDBC() ConnectionType {
 	_init_.Initialize()
 	var returns ConnectionType
@@ -103,12 +180,34 @@ func ConnectionType_JDBC() ConnectionType {
 	return returns
 }
 
+func ConnectionType_JIRACLOUD() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"JIRACLOUD",
+		&returns,
+	)
+	return returns
+}
+
 func ConnectionType_KAFKA() ConnectionType {
 	_init_.Initialize()
 	var returns ConnectionType
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.ConnectionType",
 		"KAFKA",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_MARKETO() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"MARKETO",
 		&returns,
 	)
 	return returns
@@ -136,12 +235,155 @@ func ConnectionType_MONGODB() ConnectionType {
 	return returns
 }
 
+func ConnectionType_NETSUITEERP() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"NETSUITEERP",
+		&returns,
+	)
+	return returns
+}
+
 func ConnectionType_NETWORK() ConnectionType {
 	_init_.Initialize()
 	var returns ConnectionType
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.ConnectionType",
 		"NETWORK",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_SALESFORCE() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SALESFORCE",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_SALESFORCEMARKETINGCLOUD() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SALESFORCEMARKETINGCLOUD",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_SALESFORCEPARDOT() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SALESFORCEPARDOT",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_SAPODATA() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SAPODATA",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_SERVICENOW() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SERVICENOW",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_SLACK() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SLACK",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_SNAPCHATADS() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SNAPCHATADS",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_STRIPE() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"STRIPE",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_VIEW_VALIDATION_ATHENA() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"VIEW_VALIDATION_ATHENA",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_VIEW_VALIDATION_REDSHIFT() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"VIEW_VALIDATION_REDSHIFT",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_ZENDESK() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"ZENDESK",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_ZOHOCRM() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"ZOHOCRM",
 		&returns,
 	)
 	return returns

@@ -17,7 +17,6 @@ package awsdatazone
 //   	},
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
-//   	ManageAccessRole: jsii.String("manageAccessRole"),
 //   	Name: jsii.String("name"),
 //   	SubscriptionTargetConfig: []interface{}{
 //   		&SubscriptionTargetFormProperty{
@@ -28,6 +27,7 @@ package awsdatazone
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	ManageAccessRole: jsii.String("manageAccessRole"),
 //   	Provider: jsii.String("provider"),
 //   }
 //
@@ -50,10 +50,6 @@ type CfnSubscriptionTargetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-environmentidentifier
 	//
 	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
-	// The manage access role that is used to create the subscription target.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-manageaccessrole
-	//
-	ManageAccessRole *string `field:"required" json:"manageAccessRole" yaml:"manageAccessRole"`
 	// The name of the subscription target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-name
 	//
@@ -66,6 +62,10 @@ type CfnSubscriptionTargetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The manage access role that is used to create the subscription target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-manageaccessrole
+	//
+	ManageAccessRole *string `field:"optional" json:"manageAccessRole" yaml:"manageAccessRole"`
 	// The provider of the subscription target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html#cfn-datazone-subscriptiontarget-provider
 	//

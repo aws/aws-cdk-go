@@ -35,7 +35,7 @@ type CfnLogDeliveryConfiguration_LogConfigurationProperty struct {
 	CloudWatchLogsConfiguration interface{} `field:"optional" json:"cloudWatchLogsConfiguration" yaml:"cloudWatchLogsConfiguration"`
 	// The source of events that your user pool sends for logging.
 	//
-	// To send error-level logs about user notification activity, set to `userNotification` . To send info-level logs about advanced security features user activity, set to `userAuthEvents` .
+	// To send error-level logs about user notification activity, set to `userNotification` . To send info-level logs about threat-protection user activity in user pools with the Plus feature plan, set to `userAuthEvents` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfiguration-eventsource
 	//
 	EventSource *string `field:"optional" json:"eventSource" yaml:"eventSource"`
@@ -45,7 +45,7 @@ type CfnLogDeliveryConfiguration_LogConfigurationProperty struct {
 	FirehoseConfiguration interface{} `field:"optional" json:"firehoseConfiguration" yaml:"firehoseConfiguration"`
 	// The `errorlevel` selection of logs that a user pool sends for detailed activity logging.
 	//
-	// To send `userNotification` activity with [information about message delivery](https://docs.aws.amazon.com/cognito/latest/developerguide/tracking-quotas-and-usage-in-cloud-watch-logs.html) , choose `ERROR` with `CloudWatchLogsConfiguration` . To send `userAuthEvents` activity with user logs from advanced security features, choose `INFO` with one of `CloudWatchLogsConfiguration` , `FirehoseConfiguration` , or `S3Configuration` .
+	// To send `userNotification` activity with [information about message delivery](https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html) , choose `ERROR` with `CloudWatchLogsConfiguration` . To send `userAuthEvents` activity with user logs from threat protection with the Plus feature plan, choose `INFO` with one of `CloudWatchLogsConfiguration` , `FirehoseConfiguration` , or `S3Configuration` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfiguration-loglevel
 	//
 	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`

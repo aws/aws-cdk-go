@@ -317,7 +317,7 @@ type CfnInstance interface {
 	// You must specify a value from the IPv4 address range of the subnet.
 	PrivateIpAddress() *string
 	SetPrivateIpAddress(val *string)
-	// Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch.
+	// Indicates whether to assign the tags specified in the `Tags` property to the volumes specified in the `BlockDeviceMappings` property.
 	PropagateTagsToVolumeOnCreation() interface{}
 	SetPropagateTagsToVolumeOnCreation(val interface{})
 	// The ID of the RAM disk to select.

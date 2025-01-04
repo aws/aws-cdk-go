@@ -104,6 +104,7 @@ type CfnServer interface {
 	//
 	// An example `ServerId` is `s-01234567890abcdef` .
 	AttrServerId() *string
+	AttrState() *string
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate.
 	Certificate() *string
 	SetCertificate(val *string)
@@ -360,6 +361,16 @@ func (j *jsiiProxy_CfnServer) AttrServerId() *string {
 	_jsii_.Get(
 		j,
 		"attrServerId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServer) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
 		&returns,
 	)
 	return returns

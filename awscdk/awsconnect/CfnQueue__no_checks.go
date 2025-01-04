@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnQueue) validateSetOutboundCallerConfigParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnQueue) validateSetOutboundEmailConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnQueue) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

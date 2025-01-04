@@ -45,7 +45,9 @@ type CfnIdMappingTable interface {
 	AttrArn() *string
 	// The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
 	AttrCollaborationArn() *string
+	// The unique identifier of the collaboration that contains this ID mapping table.
 	AttrCollaborationIdentifier() *string
+	// The unique identifier of the ID mapping table identifier that you want to retrieve.
 	AttrIdMappingTableIdentifier() *string
 	AttrInputReferenceProperties() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) of the membership resource for the ID mapping table.

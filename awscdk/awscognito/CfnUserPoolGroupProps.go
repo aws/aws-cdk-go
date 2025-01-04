@@ -21,17 +21,17 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html
 //
 type CfnUserPoolGroupProps struct {
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a user group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-userpoolid
 	//
 	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
-	// A string containing the description of the group.
+	// A description of the group that you're creating.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The name of the group.
+	// A name for the group.
 	//
-	// Must be unique.
+	// This name must be unique in your user pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-groupname
 	//
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
@@ -45,7 +45,9 @@ type CfnUserPoolGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-precedence
 	//
 	Precedence *float64 `field:"optional" json:"precedence" yaml:"precedence"`
-	// The role Amazon Resource Name (ARN) for the group.
+	// The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group.
+	//
+	// A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`

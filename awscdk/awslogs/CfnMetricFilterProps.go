@@ -30,6 +30,7 @@ package awslogs
 //   	},
 //
 //   	// the properties below are optional
+//   	ApplyOnTransformedLogs: jsii.Boolean(false),
 //   	FilterName: jsii.String("filterName"),
 //   }
 //
@@ -50,6 +51,14 @@ type CfnMetricFilterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-metrictransformations
 	//
 	MetricTransformations interface{} `field:"required" json:"metricTransformations" yaml:"metricTransformations"`
+	// This parameter is valid only for log groups that have an active log transformer.
+	//
+	// For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+	//
+	// If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-applyontransformedlogs
+	//
+	ApplyOnTransformedLogs interface{} `field:"optional" json:"applyOnTransformedLogs" yaml:"applyOnTransformedLogs"`
 	// The name of the metric filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-filtername
 	//

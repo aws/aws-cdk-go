@@ -26,6 +26,7 @@ import (
 //   	LogGroupNames: []*string{
 //   		jsii.String("logGroupNames"),
 //   	},
+//   	QueryLanguage: jsii.String("queryLanguage"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
@@ -62,6 +63,9 @@ type CfnQueryDefinition interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The query language used for this query.
+	QueryLanguage() *string
+	SetQueryLanguage(val *string)
 	// The query string to use for this query definition.
 	QueryString() *string
 	SetQueryString(val *string)
@@ -310,6 +314,16 @@ func (j *jsiiProxy_CfnQueryDefinition) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueryDefinition) QueryLanguage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"queryLanguage",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueryDefinition) QueryString() *string {
 	var returns *string
 	_jsii_.Get(
@@ -403,6 +417,14 @@ func (j *jsiiProxy_CfnQueryDefinition)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueryDefinition)SetQueryLanguage(val *string) {
+	_jsii_.Set(
+		j,
+		"queryLanguage",
 		val,
 	)
 }

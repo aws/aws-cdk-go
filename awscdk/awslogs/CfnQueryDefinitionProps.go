@@ -16,6 +16,7 @@ package awslogs
 //   	LogGroupNames: []*string{
 //   		jsii.String("logGroupNames"),
 //   	},
+//   	QueryLanguage: jsii.String("queryLanguage"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
@@ -37,5 +38,13 @@ type CfnQueryDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
 	//
 	LogGroupNames *[]*string `field:"optional" json:"logGroupNames" yaml:"logGroupNames"`
+	// The query language used for this query.
+	//
+	// For more information about the query languages that CloudWatch Logs supports, see [Supported query languages](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querylanguage
+	//
+	// Default: - "CWLI".
+	//
+	QueryLanguage *string `field:"optional" json:"queryLanguage" yaml:"queryLanguage"`
 }
 

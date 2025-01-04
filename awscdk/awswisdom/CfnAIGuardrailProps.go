@@ -85,44 +85,49 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html
 //
 type CfnAIGuardrailProps struct {
+	// The identifier of the Amazon Q in Connect assistant.
+	//
+	// Can be either the ID or the ARN. URLs cannot contain the ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-assistantid
 	//
 	AssistantId *string `field:"required" json:"assistantId" yaml:"assistantId"`
-	// Messaging for when violations are detected in text.
+	// The message to return when the AI Guardrail blocks a prompt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-blockedinputmessaging
 	//
 	BlockedInputMessaging *string `field:"required" json:"blockedInputMessaging" yaml:"blockedInputMessaging"`
-	// Messaging for when violations are detected in text.
+	// The message to return when the AI Guardrail blocks a model response.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-blockedoutputsmessaging
 	//
 	BlockedOutputsMessaging *string `field:"required" json:"blockedOutputsMessaging" yaml:"blockedOutputsMessaging"`
-	// Content policy config for a guardrail.
+	// Contains details about how to handle harmful content.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-contentpolicyconfig
 	//
 	ContentPolicyConfig interface{} `field:"optional" json:"contentPolicyConfig" yaml:"contentPolicyConfig"`
-	// Contextual grounding policy config for a guardrail.
+	// The policy configuration details for the AI Guardrail's contextual grounding policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-contextualgroundingpolicyconfig
 	//
 	ContextualGroundingPolicyConfig interface{} `field:"optional" json:"contextualGroundingPolicyConfig" yaml:"contextualGroundingPolicyConfig"`
-	// Description of the guardrail or its version.
+	// A description of the AI Guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the AI Guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// Sensitive information policy config for a guardrail.
+	// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-sensitiveinformationpolicyconfig
 	//
 	SensitiveInformationPolicyConfig interface{} `field:"optional" json:"sensitiveInformationPolicyConfig" yaml:"sensitiveInformationPolicyConfig"`
+	// The tags used to organize, track, or control access for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// Topic policy config for a guardrail.
+	// Contains details about topics that the AI Guardrail should identify and deny.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-topicpolicyconfig
 	//
 	TopicPolicyConfig interface{} `field:"optional" json:"topicPolicyConfig" yaml:"topicPolicyConfig"`
-	// Word policy config for a guardrail.
+	// Contains details about the word policy to configured for the AI Guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html#cfn-wisdom-aiguardrail-wordpolicyconfig
 	//
 	WordPolicyConfig interface{} `field:"optional" json:"wordPolicyConfig" yaml:"wordPolicyConfig"`

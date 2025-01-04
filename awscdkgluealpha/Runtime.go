@@ -10,7 +10,7 @@ import (
 // Example:
 //   glue.NewJob(this, jsii.String("RayJob"), &JobProps{
 //   	Executable: glue.JobExecutable_PythonRay(&PythonRayExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V4_0(),
+//   		GlueVersion: glue.GlueVersion_V5_0(),
 //   		PythonVersion: glue.PythonVersion_THREE_NINE,
 //   		Runtime: glue.Runtime_RAY_TWO_FOUR(),
 //   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),

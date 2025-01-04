@@ -28,6 +28,9 @@ package awssagemaker
 //   			EfsFileSystem: &EFSFileSystemProperty{
 //   				FileSystemId: jsii.String("fileSystemId"),
 //   			},
+//   			FSxLustreFileSystem: &FSxLustreFileSystemProperty{
+//   				FileSystemId: jsii.String("fileSystemId"),
+//   			},
 //   		},
 //   	},
 //   	JupyterLabAppSettings: &SpaceJupyterLabAppSettingsProperty{
@@ -90,6 +93,8 @@ package awssagemaker
 //
 type CfnSpace_SpaceSettingsProperty struct {
 	// The type of app created within the space.
+	//
+	// If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-apptype
 	//
 	AppType *string `field:"optional" json:"appType" yaml:"appType"`
@@ -97,9 +102,9 @@ type CfnSpace_SpaceSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-codeeditorappsettings
 	//
 	CodeEditorAppSettings interface{} `field:"optional" json:"codeEditorAppSettings" yaml:"codeEditorAppSettings"`
-	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain.
+	// A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain.
 	//
-	// Permitted users can access this file system in Amazon SageMaker Studio.
+	// Permitted users can access this file system in Amazon SageMaker AI Studio.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-customfilesystems
 	//
 	CustomFileSystems interface{} `field:"optional" json:"customFileSystems" yaml:"customFileSystems"`

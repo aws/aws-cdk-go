@@ -65,7 +65,7 @@ type CfnDeliveryDestination interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A structure that contains information about one delivery destination policy.
+	// An IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 	DeliveryDestinationPolicy() interface{}
 	SetDeliveryDestinationPolicy(val interface{})
 	// The ARN of the AWS destination that this delivery destination represents.
@@ -98,7 +98,7 @@ type CfnDeliveryDestination interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags that have been assigned to this delivery destination.
+	// An array of key-value pairs to apply to the delivery destination.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

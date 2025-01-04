@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `HookTypeConfig` resource specifies the configuration of a Hook.
+// The `AWS::CloudFormation::HookTypeConfig` resource specifies the configuration of an activated Hook.
+//
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,7 +42,7 @@ type CfnHookTypeConfig interface {
 	// Specifies the activated Hook type configuration, in this AWS account and AWS Region .
 	Configuration() *string
 	SetConfiguration(val *string)
-	// Specifies the activated Hook type configuration, in this AWS account and AWS Region .
+	// An alias by which to refer to this configuration data.
 	ConfigurationAlias() *string
 	SetConfigurationAlias(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

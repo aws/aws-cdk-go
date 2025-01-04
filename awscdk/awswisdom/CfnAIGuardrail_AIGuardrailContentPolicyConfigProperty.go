@@ -21,7 +21,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-aiguardrailcontentpolicyconfig.html
 //
 type CfnAIGuardrail_AIGuardrailContentPolicyConfigProperty struct {
-	// List of content filter configs in content policy.
+	// List of content filter configurations in a content policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-aiguardrailcontentpolicyconfig.html#cfn-wisdom-aiguardrail-aiguardrailcontentpolicyconfig-filtersconfig
 	//
 	FiltersConfig interface{} `field:"required" json:"filtersConfig" yaml:"filtersConfig"`

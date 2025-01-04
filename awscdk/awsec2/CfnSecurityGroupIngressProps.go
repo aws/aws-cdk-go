@@ -70,11 +70,9 @@ type CfnSecurityGroupIngressProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-groupid
 	//
 	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
-	// The name of the security group.
+	// [Default VPC] The name of the security group.
 	//
-	// Constraints: Up to 255 characters in length. Cannot start with `sg-` .
-	//
-	// Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+	// For security groups for a default VPC you can specify either the ID or the name of the security group. For security groups for a nondefault VPC, you must specify the ID of the security group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-groupname
 	//
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`

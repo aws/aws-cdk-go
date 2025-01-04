@@ -1,7 +1,7 @@
 package awsevents
 
 
-// These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+// These are custom parameters to use when the target is a SageMaker AI Model Building Pipeline that starts based on EventBridge events.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,7 +20,7 @@ package awsevents
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameters.html
 //
 type CfnRule_SageMakerPipelineParametersProperty struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameters.html#cfn-events-rule-sagemakerpipelineparameters-pipelineparameterlist
 	//
 	PipelineParameterList interface{} `field:"optional" json:"pipelineParameterList" yaml:"pipelineParameterList"`

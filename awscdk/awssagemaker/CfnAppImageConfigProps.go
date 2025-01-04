@@ -89,7 +89,7 @@ type CfnAppImageConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-jupyterlabappimageconfig
 	//
 	JupyterLabAppImageConfig interface{} `field:"optional" json:"jupyterLabAppImageConfig" yaml:"jupyterLabAppImageConfig"`
-	// The configuration for the file system and kernels in the SageMaker image.
+	// The configuration for the file system and kernels in the SageMaker AI image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
 	//
 	KernelGatewayImageConfig interface{} `field:"optional" json:"kernelGatewayImageConfig" yaml:"kernelGatewayImageConfig"`

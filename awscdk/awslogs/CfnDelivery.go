@@ -49,7 +49,7 @@ type CfnDelivery interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery.
 	AttrArn() *string
-	// Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Firehose.
+	// Displays whether the delivery destination associated with this delivery is CloudWatch Logs , Amazon S3 , or Firehose .
 	AttrDeliveryDestinationType() *string
 	// The unique ID that identifies this delivery in your account.
 	AttrDeliveryId() *string
@@ -85,7 +85,7 @@ type CfnDelivery interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The record fields used in this delivery.
+	// The list of record fields to be delivered to the destination, in order.
 	RecordFields() *[]*string
 	SetRecordFields(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -93,17 +93,17 @@ type CfnDelivery interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+	// Use this parameter to cause the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
 	S3EnableHiveCompatiblePath() interface{}
 	SetS3EnableHiveCompatiblePath(val interface{})
-	// This string allows re-configuring the S3 object prefix to contain either static or variable sections.
+	// Use this to reconfigure the S3 object prefix to contain either static or variable sections.
 	S3SuffixPath() *string
 	SetS3SuffixPath(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags that have been assigned to this delivery.
+	// An array of key-value pairs to apply to the delivery.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

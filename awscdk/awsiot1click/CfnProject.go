@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::IoT1Click::Project` resource creates an empty project with a placement template.
+// > AWS IoT 1-Click was discontinued on Dec 16, 2024. For more information, see [AWS IoT 1-Click](https://docs.aws.amazon.com//iot/latest/developerguide/iot-legacy-services.html) .
 //
-// A project contains zero or more placements that adhere to the placement template defined in the project. For more information, see [CreateProject](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_CreateProject.html) in the *AWS IoT 1-Click Projects API Reference* .
+// The `AWS::IoT1Click::Project` resource creates an empty project with a placement template. A project contains zero or more placements that adhere to the placement template defined in the project. For more information, see [CreateProject](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_CreateProject.html) in the *AWS IoT 1-Click Projects API Reference* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

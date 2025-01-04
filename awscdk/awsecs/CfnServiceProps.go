@@ -205,7 +205,7 @@ type CfnServiceProps struct {
 	//
 	// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
 	//
-	// A capacity provider strategy may contain a maximum of 6 capacity providers.
+	// A capacity provider strategy can contain a maximum of 20 capacity providers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
 	//
 	CapacityProviderStrategy interface{} `field:"optional" json:"capacityProviderStrategy" yaml:"capacityProviderStrategy"`

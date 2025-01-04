@@ -44,10 +44,10 @@ type CfnUserPoolGroup interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A string containing the description of the group.
+	// A description of the group that you're creating.
 	Description() *string
 	SetDescription(val *string)
-	// The name of the group.
+	// A name for the group.
 	GroupName() *string
 	SetGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -70,7 +70,7 @@ type CfnUserPoolGroup interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The role Amazon Resource Name (ARN) for the group.
+	// The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -90,7 +90,7 @@ type CfnUserPoolGroup interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a user group.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

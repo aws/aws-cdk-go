@@ -8,6 +8,10 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var any interface{}
+//   var auto interface{}
+//   var json interface{}
+//
 //   cfnPromptProps := &CfnPromptProps{
 //   	Name: jsii.String("name"),
 //
@@ -22,6 +26,54 @@ package awsbedrock
 //   		&PromptVariantProperty{
 //   			Name: jsii.String("name"),
 //   			TemplateConfiguration: &PromptTemplateConfigurationProperty{
+//   				Chat: &ChatPromptTemplateConfigurationProperty{
+//   					Messages: []interface{}{
+//   						&MessageProperty{
+//   							Content: []interface{}{
+//   								&ContentBlockProperty{
+//   									Text: jsii.String("text"),
+//   								},
+//   							},
+//   							Role: jsii.String("role"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					InputVariables: []interface{}{
+//   						&PromptInputVariableProperty{
+//   							Name: jsii.String("name"),
+//   						},
+//   					},
+//   					System: []interface{}{
+//   						&SystemContentBlockProperty{
+//   							Text: jsii.String("text"),
+//   						},
+//   					},
+//   					ToolConfiguration: &ToolConfigurationProperty{
+//   						Tools: []interface{}{
+//   							&ToolProperty{
+//   								ToolSpec: &ToolSpecificationProperty{
+//   									InputSchema: &ToolInputSchemaProperty{
+//   										Json: json,
+//   									},
+//   									Name: jsii.String("name"),
+//
+//   									// the properties below are optional
+//   									Description: jsii.String("description"),
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						ToolChoice: &ToolChoiceProperty{
+//   							Any: any,
+//   							Auto: auto,
+//   							Tool: &SpecificToolChoiceProperty{
+//   								Name: jsii.String("name"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Text: &TextPromptTemplateConfigurationProperty{
 //   					InputVariables: []interface{}{
 //   						&PromptInputVariableProperty{
@@ -41,6 +93,11 @@ package awsbedrock
 //   			TemplateType: jsii.String("templateType"),
 //
 //   			// the properties below are optional
+//   			GenAiResource: &PromptGenAiResourceProperty{
+//   				Agent: &PromptAgentResourceProperty{
+//   					AgentIdentifier: jsii.String("agentIdentifier"),
+//   				},
+//   			},
 //   			InferenceConfiguration: &PromptInferenceConfigurationProperty{
 //   				Text: &PromptModelInferenceConfigurationProperty{
 //   					MaxTokens: jsii.Number(123),

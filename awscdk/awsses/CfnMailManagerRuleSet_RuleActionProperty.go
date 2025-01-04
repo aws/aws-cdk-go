@@ -30,6 +30,14 @@ package awsses
 //   		// the properties below are optional
 //   		ActionFailurePolicy: jsii.String("actionFailurePolicy"),
 //   	},
+//   	DeliverToQBusiness: &DeliverToQBusinessActionProperty{
+//   		ApplicationId: jsii.String("applicationId"),
+//   		IndexId: jsii.String("indexId"),
+//   		RoleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		ActionFailurePolicy: jsii.String("actionFailurePolicy"),
+//   	},
 //   	Drop: drop,
 //   	Relay: &RelayActionProperty{
 //   		Relay: jsii.String("relay"),
@@ -79,6 +87,10 @@ type CfnMailManagerRuleSet_RuleActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-delivertomailbox
 	//
 	DeliverToMailbox interface{} `field:"optional" json:"deliverToMailbox" yaml:"deliverToMailbox"`
+	// This action delivers an email to an Amazon Q Business application for ingestion into its knowledge base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-delivertoqbusiness
+	//
+	DeliverToQBusiness interface{} `field:"optional" json:"deliverToQBusiness" yaml:"deliverToQBusiness"`
 	// This action terminates the evaluation of rules in the rule set.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-drop
 	//

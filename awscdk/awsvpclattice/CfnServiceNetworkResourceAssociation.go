@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// VpcLattice ServiceNetworkResourceAssociation CFN resource.
+// Associates the specified service network with the specified resource configuration.
+//
+// This allows the resource configuration to receive connections through the service network, including through a service network VPC endpoint.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,7 +35,9 @@ type CfnServiceNetworkResourceAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the association.
 	AttrArn() *string
+	// The ID of the association between the service network and resource configuration.
 	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -63,14 +67,17 @@ type CfnServiceNetworkResourceAssociation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The ID of the resource configuration associated with the service network.
 	ResourceConfigurationId() *string
 	SetResourceConfigurationId(val *string)
+	// The ID of the service network associated with the resource configuration.
 	ServiceNetworkId() *string
 	SetServiceNetworkId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A key-value pair to associate with a resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

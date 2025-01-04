@@ -70,6 +70,12 @@ import (
 //   					// the properties below are optional
 //   					FileSystemPath: jsii.String("fileSystemPath"),
 //   				},
+//   				FSxLustreFileSystemConfig: &FSxLustreFileSystemConfigProperty{
+//   					FileSystemId: jsii.String("fileSystemId"),
+//
+//   					// the properties below are optional
+//   					FileSystemPath: jsii.String("fileSystemPath"),
+//   				},
 //   			},
 //   		},
 //   		CustomPosixUserConfig: &CustomPosixUserConfigProperty{

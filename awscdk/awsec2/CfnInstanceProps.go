@@ -360,9 +360,9 @@ type CfnInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-privateipaddress
 	//
 	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
-	// Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch.
+	// Indicates whether to assign the tags specified in the `Tags` property to the volumes specified in the `BlockDeviceMappings` property.
 	//
-	// If you specify `true` and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify `false` , those tags are not assigned to the attached volumes.
+	// Note that using this feature does not assign the tags to volumes that are created separately and then attached using `AWS::EC2::VolumeAttachment` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-propagatetagstovolumeoncreation
 	//
 	PropagateTagsToVolumeOnCreation interface{} `field:"optional" json:"propagateTagsToVolumeOnCreation" yaml:"propagateTagsToVolumeOnCreation"`

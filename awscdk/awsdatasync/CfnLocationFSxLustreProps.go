@@ -38,19 +38,19 @@ type CfnLocationFSxLustreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-securitygrouparns
 	//
 	SecurityGroupArns *[]*string `field:"required" json:"securityGroupArns" yaml:"securityGroupArns"`
-	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+	// Specifies the Amazon Resource Name (ARN) of the FSx for Lustre file system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-fsxfilesystemarn
 	//
 	FsxFilesystemArn *string `field:"optional" json:"fsxFilesystemArn" yaml:"fsxFilesystemArn"`
-	// A subdirectory in the location's path.
+	// Specifies a mount path for your FSx for Lustre file system. The path can include subdirectories.
 	//
-	// This subdirectory in the FSx for Lustre file system is used to read data from the FSx for Lustre source location or write data to the FSx for Lustre destination.
+	// When the location is used as a source, DataSync reads data from the mount path. When the location is used as a destination, DataSync writes data to the mount path. If you don't include this parameter, DataSync uses the file system's root directory ( `/` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-subdirectory
 	//
 	Subdirectory *string `field:"optional" json:"subdirectory" yaml:"subdirectory"`
-	// The key-value pair that represents a tag that you want to add to the resource.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
 	//
-	// The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.
+	// We recommend creating at least a name tag for your location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html#cfn-datasync-locationfsxlustre-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

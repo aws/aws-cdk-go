@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::QBusiness::Permission Resource Type.
+// Adds or updates a permission policy for a Amazon Q Business application, allowing cross-account access for an ISV.
+//
+// This operation creates a new policy statement for the specified Amazon Q Business application. The policy statement defines the IAM actions that the ISV is allowed to perform on the Amazon Q Business application's resources.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,8 +32,10 @@ import (
 type CfnPermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The list of Amazon Q Business actions that the ISV is allowed to perform.
 	Actions() *[]*string
 	SetActions(val *[]*string)
+	// The unique identifier of the Amazon Q Business application.
 	ApplicationId() *string
 	SetApplicationId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -55,6 +59,7 @@ type CfnPermission interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
 	Principal() *string
 	SetPrincipal(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -66,6 +71,7 @@ type CfnPermission interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A unique identifier for the policy statement.
 	StatementId() *string
 	SetStatementId(val *string)
 	// Deprecated.

@@ -109,6 +109,10 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SchedulerConfiguration: &SchedulerConfigurationProperty{
+//   		MaxConcurrentRuns: jsii.Number(123),
+//   		QueueTimeoutMinutes: jsii.Number(123),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -196,6 +200,9 @@ type CfnApplication interface {
 	// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 	RuntimeConfiguration() interface{}
 	SetRuntimeConfiguration(val interface{})
+	// The scheduler configuration for batch and streaming jobs running on this application.
+	SchedulerConfiguration() interface{}
+	SetSchedulerConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -568,6 +575,16 @@ func (j *jsiiProxy_CfnApplication) RuntimeConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) SchedulerConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"schedulerConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -788,6 +805,17 @@ func (j *jsiiProxy_CfnApplication)SetRuntimeConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"runtimeConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetSchedulerConfiguration(val interface{}) {
+	if err := j.validateSetSchedulerConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"schedulerConfiguration",
 		val,
 	)
 }

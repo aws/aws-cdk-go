@@ -317,6 +317,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.BedrockDataAutomationConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_BedrockDataAutomationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.BedrockFoundationModelConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_BedrockFoundationModelConfigurationProperty)(nil)).Elem(),
 	)
@@ -1134,6 +1138,10 @@ func init() {
 		reflect.TypeOf((*CfnKnowledgeBase_EmbeddingModelConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.KendraKnowledgeBaseConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_KendraKnowledgeBaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.KnowledgeBaseConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_KnowledgeBaseConfigurationProperty)(nil)).Elem(),
 	)
@@ -1162,8 +1170,20 @@ func init() {
 		reflect.TypeOf((*CfnKnowledgeBase_RdsFieldMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.S3LocationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.StorageConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_StorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.SupplementalDataStorageConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_SupplementalDataStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.SupplementalDataStorageLocationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_SupplementalDataStorageLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.VectorKnowledgeBaseConfigurationProperty",
@@ -1229,6 +1249,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.ChatPromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnPrompt_ChatPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.ContentBlockProperty",
+		reflect.TypeOf((*CfnPrompt_ContentBlockProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.MessageProperty",
+		reflect.TypeOf((*CfnPrompt_MessageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.PromptAgentResourceProperty",
+		reflect.TypeOf((*CfnPrompt_PromptAgentResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.PromptGenAiResourceProperty",
+		reflect.TypeOf((*CfnPrompt_PromptGenAiResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnPrompt.PromptInferenceConfigurationProperty",
 		reflect.TypeOf((*CfnPrompt_PromptInferenceConfigurationProperty)(nil)).Elem(),
 	)
@@ -1249,12 +1289,40 @@ func init() {
 		reflect.TypeOf((*CfnPrompt_PromptVariantProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.SpecificToolChoiceProperty",
+		reflect.TypeOf((*CfnPrompt_SpecificToolChoiceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.SystemContentBlockProperty",
+		reflect.TypeOf((*CfnPrompt_SystemContentBlockProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnPrompt.TextPromptTemplateConfigurationProperty",
 		reflect.TypeOf((*CfnPrompt_TextPromptTemplateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnPrompt.TextS3LocationProperty",
 		reflect.TypeOf((*CfnPrompt_TextS3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.ToolChoiceProperty",
+		reflect.TypeOf((*CfnPrompt_ToolChoiceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.ToolConfigurationProperty",
+		reflect.TypeOf((*CfnPrompt_ToolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.ToolInputSchemaProperty",
+		reflect.TypeOf((*CfnPrompt_ToolInputSchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.ToolProperty",
+		reflect.TypeOf((*CfnPrompt_ToolProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPrompt.ToolSpecificationProperty",
+		reflect.TypeOf((*CfnPrompt_ToolSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnPromptProps",

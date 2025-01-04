@@ -47,7 +47,7 @@ type CfnLocationFSxWindowsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
 	//
 	User *string `field:"required" json:"user" yaml:"user"`
-	// Specifies the name of the Microsoft Active Directory domain that the FSx for Windows File Server file system belongs to.
+	// Specifies the name of the Windows domain that the FSx for Windows File Server file system belongs to.
 	//
 	// If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right file system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain

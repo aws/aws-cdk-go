@@ -3,6 +3,8 @@ package awss3
 
 // Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
 //
+// For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide* .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

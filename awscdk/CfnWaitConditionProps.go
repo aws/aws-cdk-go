@@ -27,7 +27,7 @@ type CfnWaitConditionProps struct {
 	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// A reference to the wait condition handle used to signal this wait condition.
 	//
-	// Use the `Ref` intrinsic function to specify an [`AWS::CloudFormation::WaitConditionHandle`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html) resource.
+	// Use the `Ref` intrinsic function to specify an [AWS::CloudFormation::WaitConditionHandle](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-waitconditionhandle.html) resource.
 	//
 	// Anytime you add a `WaitCondition` resource during a stack update, you must associate the wait condition with a new WaitConditionHandle resource. Don't reuse an old wait condition handle that has already been defined in the template. If you reuse a wait condition handle, the wait condition might evaluate old signals from a previous create or update stack command.
 	//

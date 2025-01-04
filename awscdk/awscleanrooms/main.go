@@ -235,6 +235,10 @@ func init() {
 		reflect.TypeOf((*CfnConfiguredTable_AnalysisRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.AthenaTableReferenceProperty",
+		reflect.TypeOf((*CfnConfiguredTable_AthenaTableReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.ConfiguredTableAnalysisRulePolicyProperty",
 		reflect.TypeOf((*CfnConfiguredTable_ConfiguredTableAnalysisRulePolicyProperty)(nil)).Elem(),
 	)
@@ -253,6 +257,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.GlueTableReferenceProperty",
 		reflect.TypeOf((*CfnConfiguredTable_GlueTableReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.SnowflakeTableReferenceProperty",
+		reflect.TypeOf((*CfnConfiguredTable_SnowflakeTableReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.SnowflakeTableSchemaProperty",
+		reflect.TypeOf((*CfnConfiguredTable_SnowflakeTableSchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.SnowflakeTableSchemaV1Property",
+		reflect.TypeOf((*CfnConfiguredTable_SnowflakeTableSchemaV1Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.TableReferenceProperty",

@@ -36,6 +36,18 @@ func (e *jsiiProxy_Environment) validateApplyRemovalPolicyParameters(policy awsc
 	return nil
 }
 
+func (e *jsiiProxy_Environment) validateAtDeploymentTickParameters(eventDestination IEventDestination, options *ExtensionOptions) error {
+	if eventDestination == nil {
+		return fmt.Errorf("parameter eventDestination is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_Environment) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	if arnAttr == nil {
 		return fmt.Errorf("parameter arnAttr is required, but nil was provided")

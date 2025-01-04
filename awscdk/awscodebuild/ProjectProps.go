@@ -32,6 +32,12 @@ type ProjectProps struct {
 	// Default: true.
 	//
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	// CodeBuild will automatically call retry build using the project's service role up to the auto-retry limit.
+	//
+	// `autoRetryLimit` must be between 0 and 10.
+	// Default: - no retry.
+	//
+	AutoRetryLimit *float64 `field:"optional" json:"autoRetryLimit" yaml:"autoRetryLimit"`
 	// Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
 	//
 	// For more information, see Build Badges Sample

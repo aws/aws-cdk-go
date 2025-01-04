@@ -67,6 +67,7 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-autosubscriptionconfiguration
 	//
 	AutoSubscriptionConfiguration interface{} `field:"optional" json:"autoSubscriptionConfiguration" yaml:"autoSubscriptionConfiguration"`
+	// The OIDC client ID for a Amazon Q Business application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-clientidsforoidc
 	//
 	ClientIdsForOidc *[]*string `field:"optional" json:"clientIdsForOidc" yaml:"clientIdsForOidc"`
@@ -104,6 +105,7 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-qappsconfiguration
 	//
 	QAppsConfiguration interface{} `field:"optional" json:"qAppsConfiguration" yaml:"qAppsConfiguration"`
+	// The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-quicksightconfiguration
 	//
 	QuickSightConfiguration interface{} `field:"optional" json:"quickSightConfiguration" yaml:"quickSightConfiguration"`

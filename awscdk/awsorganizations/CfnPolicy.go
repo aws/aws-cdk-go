@@ -15,7 +15,7 @@ import (
 //
 // If the request includes tags, then the requester must have the `organizations:TagResource` permission.
 //
-// This operation can be called only from the organization's management account.
+// This operation can be called only from the organization's management account or a member account designated as a delegated administrator.
 //
 // > Before you can create a policy of a given type, you must first [enable that policy type](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_enable-disable.html) in your organization.
 //

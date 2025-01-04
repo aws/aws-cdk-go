@@ -33,6 +33,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DeletionProtectionCheck: jsii.String("deletionProtectionCheck"),
 //   	Description: jsii.String("description"),
 //   	Monitors: []interface{}{
 //   		&MonitorsProperty{
@@ -70,6 +71,9 @@ type CfnEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting.
+	DeletionProtectionCheck() *string
+	SetDeletionProtectionCheck(val *string)
 	// A description of the environment.
 	Description() *string
 	SetDescription(val *string)
@@ -320,6 +324,16 @@ func (j *jsiiProxy_CfnEnvironment) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) DeletionProtectionCheck() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deletionProtectionCheck",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -455,6 +469,14 @@ func (j *jsiiProxy_CfnEnvironment)SetApplicationId(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetDeletionProtectionCheck(val *string) {
+	_jsii_.Set(
+		j,
+		"deletionProtectionCheck",
 		val,
 	)
 }

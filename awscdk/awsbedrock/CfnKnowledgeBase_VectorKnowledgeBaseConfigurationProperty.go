@@ -17,6 +17,18 @@ package awsbedrock
 //   			Dimensions: jsii.Number(123),
 //   		},
 //   	},
+//   	SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{
+//   		SupplementalDataStorageLocations: []interface{}{
+//   			&SupplementalDataStorageLocationProperty{
+//   				SupplementalDataStorageLocationType: jsii.String("supplementalDataStorageLocationType"),
+//
+//   				// the properties below are optional
+//   				S3Location: &S3LocationProperty{
+//   					Uri: jsii.String("uri"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html
@@ -30,5 +42,11 @@ type CfnKnowledgeBase_VectorKnowledgeBaseConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-embeddingmodelconfiguration
 	//
 	EmbeddingModelConfiguration interface{} `field:"optional" json:"embeddingModelConfiguration" yaml:"embeddingModelConfiguration"`
+	// If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents.
+	//
+	// These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-supplementaldatastorageconfiguration
+	//
+	SupplementalDataStorageConfiguration interface{} `field:"optional" json:"supplementalDataStorageConfiguration" yaml:"supplementalDataStorageConfiguration"`
 }
 

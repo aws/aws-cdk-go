@@ -6,11 +6,19 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var availabilityStatus interface{}
+//
 //   imageInteractionOptionsProperty := &ImageInteractionOptionsProperty{
+//   	ImageMenuOption: &ImageMenuOptionProperty{
+//   		AvailabilityStatus: availabilityStatus,
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-imageinteractionoptions.html
 //
 type CfnAnalysis_ImageInteractionOptionsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-imageinteractionoptions.html#cfn-quicksight-analysis-imageinteractionoptions-imagemenuoption
+	//
+	ImageMenuOption interface{} `field:"optional" json:"imageMenuOption" yaml:"imageMenuOption"`
 }
 

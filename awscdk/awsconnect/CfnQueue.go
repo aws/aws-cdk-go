@@ -29,6 +29,9 @@ import (
 //   		OutboundCallerIdNumberArn: jsii.String("outboundCallerIdNumberArn"),
 //   		OutboundFlowArn: jsii.String("outboundFlowArn"),
 //   	},
+//   	OutboundEmailConfig: &OutboundEmailConfigProperty{
+//   		OutboundEmailAddressId: jsii.String("outboundEmailAddressId"),
+//   	},
 //   	QuickConnectArns: []*string{
 //   		jsii.String("quickConnectArns"),
 //   	},
@@ -92,6 +95,9 @@ type CfnQueue interface {
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig() interface{}
 	SetOutboundCallerConfig(val interface{})
+	// The outbound email address ID for a specified queue.
+	OutboundEmailConfig() interface{}
+	SetOutboundEmailConfig(val interface{})
 	// The Amazon Resource Names (ARN) of the of the quick connects available to agents who are working the queue.
 	QuickConnectArns() *[]*string
 	SetQuickConnectArns(val *[]*string)
@@ -407,6 +413,16 @@ func (j *jsiiProxy_CfnQueue) OutboundCallerConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) OutboundEmailConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"outboundEmailConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) QuickConnectArns() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -561,6 +577,17 @@ func (j *jsiiProxy_CfnQueue)SetOutboundCallerConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"outboundCallerConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue)SetOutboundEmailConfig(val interface{}) {
+	if err := j.validateSetOutboundEmailConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"outboundEmailConfig",
 		val,
 	)
 }

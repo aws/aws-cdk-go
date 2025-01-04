@@ -41,7 +41,7 @@ var bucket bucket
 
 glue.NewJob(this, jsii.String("ScalaSparkEtlJob"), &JobProps{
 	Executable: glue.JobExecutable_ScalaEtl(&ScalaJobExecutableProps{
-		GlueVersion: glue.GlueVersion_V4_0(),
+		GlueVersion: glue.GlueVersion_V5_0(),
 		Script: glue.Code_FromBucket(bucket, jsii.String("src/com/example/HelloWorld.scala")),
 		ClassName: jsii.String("com.example.HelloWorld"),
 		ExtraJars: []code{
@@ -60,7 +60,7 @@ A Streaming job is similar to an ETL job, except that it performs ETL on data st
 ```go
 glue.NewJob(this, jsii.String("PythonSparkStreamingJob"), &JobProps{
 	Executable: glue.JobExecutable_PythonStreaming(&PythonSparkJobExecutableProps{
-		GlueVersion: glue.GlueVersion_V4_0(),
+		GlueVersion: glue.GlueVersion_V5_0(),
 		PythonVersion: glue.PythonVersion_THREE,
 		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 	}),
@@ -97,7 +97,7 @@ These jobs run in a Ray environment managed by AWS Glue.
 ```go
 glue.NewJob(this, jsii.String("RayJob"), &JobProps{
 	Executable: glue.JobExecutable_PythonRay(&PythonRayExecutableProps{
-		GlueVersion: glue.GlueVersion_V4_0(),
+		GlueVersion: glue.GlueVersion_V5_0(),
 		PythonVersion: glue.PythonVersion_THREE_NINE,
 		Runtime: glue.Runtime_RAY_TWO_FOUR(),
 		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
@@ -140,7 +140,7 @@ Enable job run queuing by setting the `jobRunQueuingEnabled` property to `true`.
 glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
 	JobName: jsii.String("EtlJobWithRunQueuing"),
 	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
-		GlueVersion: glue.GlueVersion_V4_0(),
+		GlueVersion: glue.GlueVersion_V5_0(),
 		PythonVersion: glue.PythonVersion_THREE,
 		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 	}),

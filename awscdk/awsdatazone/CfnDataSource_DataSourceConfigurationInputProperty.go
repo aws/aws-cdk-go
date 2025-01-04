@@ -59,6 +59,13 @@ package awsdatazone
 //   		// the properties below are optional
 //   		DataAccessRole: jsii.String("dataAccessRole"),
 //   	},
+//   	SageMakerRunConfiguration: &SageMakerRunConfigurationInputProperty{
+//   		TrackingAssets: map[string][]*string{
+//   			"trackingAssetsKey": []*string{
+//   				jsii.String("trackingAssets"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html
@@ -72,5 +79,9 @@ type CfnDataSource_DataSourceConfigurationInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html#cfn-datazone-datasource-datasourceconfigurationinput-redshiftrunconfiguration
 	//
 	RedshiftRunConfiguration interface{} `field:"optional" json:"redshiftRunConfiguration" yaml:"redshiftRunConfiguration"`
+	// The configuration details of the Amazon SageMaker data source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html#cfn-datazone-datasource-datasourceconfigurationinput-sagemakerrunconfiguration
+	//
+	SageMakerRunConfiguration interface{} `field:"optional" json:"sageMakerRunConfiguration" yaml:"sageMakerRunConfiguration"`
 }
 

@@ -139,6 +139,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
+			_jsii_.MemberProperty{JsiiProperty: "pricePerformanceTarget", GoGetter: "PricePerformanceTarget"},
 			_jsii_.MemberProperty{JsiiProperty: "publiclyAccessible", GoGetter: "PubliclyAccessible"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -175,6 +176,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_redshiftserverless.CfnWorkgroup.NetworkInterfaceProperty",
 		reflect.TypeOf((*CfnWorkgroup_NetworkInterfaceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_redshiftserverless.CfnWorkgroup.PerformanceTargetProperty",
+		reflect.TypeOf((*CfnWorkgroup_PerformanceTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_redshiftserverless.CfnWorkgroup.VpcEndpointProperty",

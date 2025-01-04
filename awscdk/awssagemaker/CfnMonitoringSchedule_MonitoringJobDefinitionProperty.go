@@ -119,7 +119,7 @@ type CfnMonitoringSchedule_MonitoringJobDefinitionProperty struct {
 	MonitoringAppSpecification interface{} `field:"required" json:"monitoringAppSpecification" yaml:"monitoringAppSpecification"`
 	// The array of inputs for the monitoring job.
 	//
-	// Currently we support monitoring an Amazon SageMaker Endpoint.
+	// Currently we support monitoring an Amazon SageMaker AI Endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
 	//
 	MonitoringInputs interface{} `field:"required" json:"monitoringInputs" yaml:"monitoringInputs"`
@@ -133,7 +133,7 @@ type CfnMonitoringSchedule_MonitoringJobDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
 	//
 	MonitoringResources interface{} `field:"required" json:"monitoringResources" yaml:"monitoringResources"`
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`

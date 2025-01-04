@@ -45,7 +45,7 @@ type CfnEmailAddressProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
-	// One or more tags.
+	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html#cfn-connect-emailaddress-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

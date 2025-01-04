@@ -62,6 +62,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html
 //
 type CfnAIAgent_ManualSearchAIAgentConfigurationProperty struct {
+	// The ID of the answer generation AI guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html#cfn-wisdom-aiagent-manualsearchaiagentconfiguration-answergenerationaiguardrailid
 	//
 	AnswerGenerationAiGuardrailId *string `field:"optional" json:"answerGenerationAiGuardrailId" yaml:"answerGenerationAiGuardrailId"`

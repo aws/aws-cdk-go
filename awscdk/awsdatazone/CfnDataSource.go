@@ -85,6 +85,13 @@ import (
 //   			// the properties below are optional
 //   			DataAccessRole: jsii.String("dataAccessRole"),
 //   		},
+//   		SageMakerRunConfiguration: &SageMakerRunConfigurationInputProperty{
+//   			TrackingAssets: map[string][]*string{
+//   				"trackingAssetsKey": []*string{
+//   					jsii.String("trackingAssets"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	Description: jsii.String("description"),
 //   	EnableSetting: jsii.String("enableSetting"),

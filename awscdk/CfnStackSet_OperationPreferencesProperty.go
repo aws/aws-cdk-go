@@ -1,9 +1,9 @@
 package awscdk
 
 
-// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+// The user-specified preferences for how CloudFormation performs a stack set operation.
 //
-// For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
+// For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,19 +34,19 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-concurrencymode
 	//
 	ConcurrencyMode *string `field:"optional" json:"concurrencyMode" yaml:"concurrencyMode"`
-	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+	// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region.
 	//
-	// If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
 	//
 	FailureToleranceCount *float64 `field:"optional" json:"failureToleranceCount" yaml:"failureToleranceCount"`
-	// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+	// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region.
 	//
-	// If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
-	// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
+	// When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
@@ -64,7 +64,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	MaxConcurrentCount *float64 `field:"optional" json:"maxConcurrentCount" yaml:"maxConcurrentCount"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
-	// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
+	// When calculating the number of accounts based on the specified percentage, CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
 	//
 	// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 	//

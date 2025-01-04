@@ -72,7 +72,7 @@ type CfnSecurityGroupIngress interface {
 	// The ID of the security group.
 	GroupId() *string
 	SetGroupId(val *string)
-	// The name of the security group.
+	// [Default VPC] The name of the security group.
 	GroupName() *string
 	SetGroupName(val *string)
 	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).

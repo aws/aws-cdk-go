@@ -19,11 +19,6 @@ import (
 //
 // As a best practice, modify the output of [DescribeManagedLoginBrandingByClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html) into the request parameters for this operation. To get all settings, set `ReturnMergedResources` to `true` . For more information, see [API and SDK operations for managed login branding](https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api)
 //
-// > Amazon Cognito evaluates AWS Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
-// >
-// > **Learn more** - [Signing AWS API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
-// > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -67,6 +62,7 @@ type CfnManagedLoginBranding interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The app client that's assigned to the branding style that you want more information about.
 	ClientId() *string
 	SetClientId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -90,6 +86,7 @@ type CfnManagedLoginBranding interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults.
 	ReturnMergedResources() interface{}
 	SetReturnMergedResources(val interface{})
 	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.

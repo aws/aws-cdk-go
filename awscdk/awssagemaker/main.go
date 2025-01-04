@@ -648,6 +648,10 @@ func init() {
 		reflect.TypeOf((*CfnDomain_EFSFileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnDomain.FSxLustreFileSystemConfigProperty",
+		reflect.TypeOf((*CfnDomain_FSxLustreFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnDomain.IdleSettingsProperty",
 		reflect.TypeOf((*CfnDomain_IdleSettingsProperty)(nil)).Elem(),
 	)
@@ -2843,6 +2847,10 @@ func init() {
 		reflect.TypeOf((*CfnSpace_EbsStorageSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnSpace.FSxLustreFileSystemProperty",
+		reflect.TypeOf((*CfnSpace_FSxLustreFileSystemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnSpace.JupyterServerAppSettingsProperty",
 		reflect.TypeOf((*CfnSpace_JupyterServerAppSettingsProperty)(nil)).Elem(),
 	)
@@ -3029,6 +3037,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.EFSFileSystemConfigProperty",
 		reflect.TypeOf((*CfnUserProfile_EFSFileSystemConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.FSxLustreFileSystemConfigProperty",
+		reflect.TypeOf((*CfnUserProfile_FSxLustreFileSystemConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnUserProfile.IdleSettingsProperty",

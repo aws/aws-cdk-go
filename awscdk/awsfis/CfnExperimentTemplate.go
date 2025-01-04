@@ -87,13 +87,6 @@ import (
 //   		EmptyTargetResolutionMode: jsii.String("emptyTargetResolutionMode"),
 //   	},
 //   	ExperimentReportConfiguration: &ExperimentTemplateExperimentReportConfigurationProperty{
-//   		DataSources: &DataSourcesProperty{
-//   			CloudWatchDashboards: []interface{}{
-//   				&CloudWatchDashboardProperty{
-//   					DashboardIdentifier: jsii.String("dashboardIdentifier"),
-//   				},
-//   			},
-//   		},
 //   		Outputs: &OutputsProperty{
 //   			ExperimentReportS3Configuration: &ExperimentReportS3ConfigurationProperty{
 //   				BucketName: jsii.String("bucketName"),
@@ -104,6 +97,13 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		DataSources: &DataSourcesProperty{
+//   			CloudWatchDashboards: []interface{}{
+//   				&CloudWatchDashboardProperty{
+//   					DashboardIdentifier: jsii.String("dashboardIdentifier"),
+//   				},
+//   			},
+//   		},
 //   		PostExperimentDuration: jsii.String("postExperimentDuration"),
 //   		PreExperimentDuration: jsii.String("preExperimentDuration"),
 //   	},

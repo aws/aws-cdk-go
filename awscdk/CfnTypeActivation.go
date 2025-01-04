@@ -7,9 +7,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Activates a public third-party extension, making it available for use in stack templates.
+// The `AWS::CloudFormation::TypeActivation` resource activates a public third-party extension, making it available for use in stack templates.
 //
-// Once you have activated a public third-party extension in your account and Region, use [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see [Using public extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html) in the *AWS CloudFormation User Guide* .
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

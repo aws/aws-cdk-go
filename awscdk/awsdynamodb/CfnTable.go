@@ -128,6 +128,7 @@ import (
 //   	},
 //   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
 //   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//   		RecoveryPeriodInDays: jsii.Number(123),
 //   	},
 //   	ProvisionedThroughput: &ProvisionedThroughputProperty{
 //   		ReadCapacityUnits: jsii.Number(123),

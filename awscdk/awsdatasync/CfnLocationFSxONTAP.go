@@ -102,7 +102,7 @@ type CfnLocationFSxONTAP interface {
 	// Specifies the ARN of the storage virtual machine (SVM) in your file system where you want to copy data to or from.
 	StorageVirtualMachineArn() *string
 	SetStorageVirtualMachineArn(val *string)
-	// Specifies a path to the file share in the SVM where you'll copy your data.
+	// Specifies a path to the file share in the SVM where you want to transfer data to or from.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
 	// Tag Manager which manages the tags for this resource.

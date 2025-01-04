@@ -30,6 +30,9 @@ package awscloudfront
 //   		},
 //   		Quantity: jsii.Number(123),
 //   	},
+//
+//   	// the properties below are optional
+//   	SelectionCriteria: jsii.String("selectionCriteria"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html
@@ -47,5 +50,11 @@ type CfnDistribution_OriginGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
 	//
 	Members interface{} `field:"required" json:"members" yaml:"members"`
+	// The selection criteria for the origin group.
+	//
+	// For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-selectioncriteria
+	//
+	SelectionCriteria *string `field:"optional" json:"selectionCriteria" yaml:"selectionCriteria"`
 }
 

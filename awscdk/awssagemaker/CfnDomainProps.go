@@ -53,6 +53,12 @@ import (
 //   					// the properties below are optional
 //   					FileSystemPath: jsii.String("fileSystemPath"),
 //   				},
+//   				FSxLustreFileSystemConfig: &FSxLustreFileSystemConfigProperty{
+//   					FileSystemId: jsii.String("fileSystemId"),
+//
+//   					// the properties below are optional
+//   					FileSystemPath: jsii.String("fileSystemPath"),
+//   				},
 //   			},
 //   		},
 //   		CustomPosixUserConfig: &CustomPosixUserConfigProperty{
@@ -185,6 +191,12 @@ import (
 //   		CustomFileSystemConfigs: []interface{}{
 //   			&CustomFileSystemConfigProperty{
 //   				EfsFileSystemConfig: &EFSFileSystemConfigProperty{
+//   					FileSystemId: jsii.String("fileSystemId"),
+//
+//   					// the properties below are optional
+//   					FileSystemPath: jsii.String("fileSystemPath"),
+//   				},
+//   				FSxLustreFileSystemConfig: &FSxLustreFileSystemConfigProperty{
 //   					FileSystemId: jsii.String("fileSystemId"),
 //
 //   					// the properties below are optional
@@ -342,7 +354,7 @@ type CfnDomainProps struct {
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly` .
 	//
-	// - `PublicInternetOnly` - Non-EFS traffic is through a VPC managed by Amazon SageMaker , which allows direct internet access
+	// - `PublicInternetOnly` - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI , which allows direct internet access
 	// - `VpcOnly` - All Studio traffic is through the specified VPC and subnets
 	//
 	// *Valid Values* : `PublicInternetOnly | VpcOnly`.

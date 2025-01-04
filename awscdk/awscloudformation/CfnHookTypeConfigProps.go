@@ -26,7 +26,7 @@ type CfnHookTypeConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-configuration
 	//
 	Configuration *string `field:"required" json:"configuration" yaml:"configuration"`
-	// Specifies the activated Hook type configuration, in this AWS account and AWS Region .
+	// An alias by which to refer to this configuration data.
 	//
 	// Defaults to `default` alias. Hook types currently support default configuration alias.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html#cfn-cloudformation-hooktypeconfig-configurationalias

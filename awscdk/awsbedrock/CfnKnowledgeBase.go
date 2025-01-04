@@ -34,6 +34,11 @@ import (
 //   cfnKnowledgeBase := awscdk.Aws_bedrock.NewCfnKnowledgeBase(this, jsii.String("MyCfnKnowledgeBase"), &CfnKnowledgeBaseProps{
 //   	KnowledgeBaseConfiguration: &KnowledgeBaseConfigurationProperty{
 //   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		KendraKnowledgeBaseConfiguration: &KendraKnowledgeBaseConfigurationProperty{
+//   			KendraIndexArn: jsii.String("kendraIndexArn"),
+//   		},
 //   		VectorKnowledgeBaseConfiguration: &VectorKnowledgeBaseConfigurationProperty{
 //   			EmbeddingModelArn: jsii.String("embeddingModelArn"),
 //
@@ -43,10 +48,25 @@ import (
 //   					Dimensions: jsii.Number(123),
 //   				},
 //   			},
+//   			SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{
+//   				SupplementalDataStorageLocations: []interface{}{
+//   					&SupplementalDataStorageLocationProperty{
+//   						SupplementalDataStorageLocationType: jsii.String("supplementalDataStorageLocationType"),
+//
+//   						// the properties below are optional
+//   						S3Location: &S3LocationProperty{
+//   							Uri: jsii.String("uri"),
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   	RoleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	StorageConfiguration: &StorageConfigurationProperty{
 //   		Type: jsii.String("type"),
 //
@@ -84,9 +104,6 @@ import (
 //   			TableName: jsii.String("tableName"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},

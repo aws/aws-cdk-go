@@ -121,7 +121,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -178,6 +177,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.DeviceProperty",
 		reflect.TypeOf((*CfnJobDefinition_DeviceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.EFSAuthorizationConfigProperty",
+		reflect.TypeOf((*CfnJobDefinition_EFSAuthorizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.EFSVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnJobDefinition_EFSVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.EcsPropertiesProperty",
@@ -240,8 +247,16 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_HostPathProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.HostProperty",
+		reflect.TypeOf((*CfnJobDefinition_HostProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.ImagePullSecretProperty",
 		reflect.TypeOf((*CfnJobDefinition_ImagePullSecretProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.JobTimeoutProperty",
+		reflect.TypeOf((*CfnJobDefinition_JobTimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.LinuxParametersProperty",
@@ -256,8 +271,20 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_MetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.MountPointProperty",
+		reflect.TypeOf((*CfnJobDefinition_MountPointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.MountPointsProperty",
 		reflect.TypeOf((*CfnJobDefinition_MountPointsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.MultiNodeEcsPropertiesProperty",
+		reflect.TypeOf((*CfnJobDefinition_MultiNodeEcsPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.MultiNodeEcsTaskPropertiesProperty",
+		reflect.TypeOf((*CfnJobDefinition_MultiNodeEcsTaskPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.NetworkConfigurationProperty",
@@ -322,6 +349,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.UlimitProperty",
 		reflect.TypeOf((*CfnJobDefinition_UlimitProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.VolumeProperty",
+		reflect.TypeOf((*CfnJobDefinition_VolumeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.VolumesHostProperty",

@@ -25,6 +25,8 @@ type ExtensibleBase interface {
 	IExtensible
 	// Adds an extension association to the derived resource.
 	AddExtension(extension IExtension)
+	// Adds an AT_DEPLOYMENT_TICK extension with the provided event destination and also creates an extension association to the derived resource.
+	AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the derived resource.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an ON_DEPLOYMENT_BAKING extension with the provided event destination and also creates an extension association to the derived resource.
@@ -83,6 +85,17 @@ func (e *jsiiProxy_ExtensibleBase) AddExtension(extension IExtension) {
 		e,
 		"addExtension",
 		[]interface{}{extension},
+	)
+}
+
+func (e *jsiiProxy_ExtensibleBase) AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions) {
+	if err := e.validateAtDeploymentTickParameters(eventDestination, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"atDeploymentTick",
+		[]interface{}{eventDestination, options},
 	)
 }
 

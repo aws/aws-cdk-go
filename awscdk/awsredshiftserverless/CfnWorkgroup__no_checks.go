@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnWorkgroup) validateSetEnhancedVpcRoutingParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkgroup) validateSetPricePerformanceTargetParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkgroup) validateSetPubliclyAccessibleParameters(val interface{}) error {
 	return nil
 }

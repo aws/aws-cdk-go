@@ -30,7 +30,7 @@ type CfnResourceDefinitionVersion_SageMakerMachineLearningModelResourceDataPrope
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-destinationpath
 	//
 	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
-	// The Amazon Resource Name (ARN) of the Amazon SageMaker training job that represents the source model.
+	// The Amazon Resource Name (ARN) of the Amazon SageMaker AI training job that represents the source model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html#cfn-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata-sagemakerjobarn
 	//
 	SageMakerJobArn *string `field:"required" json:"sageMakerJobArn" yaml:"sageMakerJobArn"`

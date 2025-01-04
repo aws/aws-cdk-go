@@ -93,7 +93,7 @@ type CfnUserPoolClient interface {
 	// Set to `true` to use OAuth 2.0 features in your user pool app client.
 	AllowedOAuthFlowsUserPoolClient() interface{}
 	SetAllowedOAuthFlowsUserPoolClient(val interface{})
-	// The allowed OAuth scopes.
+	// The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
 	AllowedOAuthScopes() *[]*string
 	SetAllowedOAuthScopes(val *[]*string)
 	// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
@@ -114,7 +114,7 @@ type CfnUserPoolClient interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The client name for the user pool client you would like to create.
+	// A friendly name for the app client that you want to create.
 	ClientName() *string
 	SetClientName(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -135,7 +135,7 @@ type CfnUserPoolClient interface {
 	// The authentication flows that you want your user pool client to support.
 	ExplicitAuthFlows() *[]*string
 	SetExplicitAuthFlows(val *[]*string)
-	// Boolean to specify whether you want to generate a secret for the user pool client being created.
+	// When `true` , generates a client secret for the app client.
 	GenerateSecret() interface{}
 	SetGenerateSecret(val interface{})
 	// The ID token time limit.
@@ -151,7 +151,7 @@ type CfnUserPoolClient interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A list of allowed logout URLs for the IdPs.
+	// A list of allowed logout URLs for managed login authentication.
 	LogoutUrLs() *[]*string
 	SetLogoutUrLs(val *[]*string)
 	// The tree node.
@@ -177,7 +177,7 @@ type CfnUserPoolClient interface {
 	// A list of provider names for the identity providers (IdPs) that are supported on this client.
 	SupportedIdentityProviders() *[]*string
 	SetSupportedIdentityProviders(val *[]*string)
-	// The units in which the validity times are represented.
+	// The units that validity times are represented in.
 	TokenValidityUnits() interface{}
 	SetTokenValidityUnits(val interface{})
 	// Deprecated.
@@ -193,7 +193,7 @@ type CfnUserPoolClient interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user pool ID for the user pool where you want to create a user pool client.
+	// The ID of the user pool where you want to create an app client.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// The list of user attributes that you want your app client to have write access to.

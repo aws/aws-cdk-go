@@ -1290,12 +1290,34 @@ func InterfaceVpcEndpointAwsService_DIRECTORY_SERVICE() InterfaceVpcEndpointAwsS
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_DIRECTORY_SERVICE_DATA() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"DIRECTORY_SERVICE_DATA",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_DYNAMODB() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"DYNAMODB",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_DYNAMODB_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"DYNAMODB_FIPS",
 		&returns,
 	)
 	return returns
@@ -1961,6 +1983,28 @@ func InterfaceVpcEndpointAwsService_INSPECTOR_SCAN() InterfaceVpcEndpointAwsServ
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_INTERNET_MONITOR() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"INTERNET_MONITOR",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_INTERNET_MONITOR_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"INTERNET_MONITOR_FIPS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_INVOICING() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -2599,12 +2643,45 @@ func InterfaceVpcEndpointAwsService_NETWORK_FIREWALL_FIPS() InterfaceVpcEndpoint
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_NETWORK_FLOW_MONITOR() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"NETWORK_FLOW_MONITOR",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_NETWORK_FLOW_MONITOR_REPORTS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"NETWORK_FLOW_MONITOR_REPORTS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_NIMBLE_STUDIO() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"NIMBLE_STUDIO",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_OBSERVABILITY_ADMIN() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"OBSERVABILITY_ADMIN",
 		&returns,
 	)
 	return returns
@@ -3314,6 +3391,17 @@ func InterfaceVpcEndpointAwsService_SAGEMAKER_API() InterfaceVpcEndpointAwsServi
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_SAGEMAKER_API_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"SAGEMAKER_API_FIPS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_SAGEMAKER_DATA_SCIENCE_ASSISTANT() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService
@@ -3914,6 +4002,28 @@ func InterfaceVpcEndpointAwsService_WORKSPACES_THIN_CLIENT() InterfaceVpcEndpoin
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
 		"WORKSPACES_THIN_CLIENT",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_WORKSPACES_WEB() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"WORKSPACES_WEB",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_WORKSPACES_WEB_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"WORKSPACES_WEB_FIPS",
 		&returns,
 	)
 	return returns

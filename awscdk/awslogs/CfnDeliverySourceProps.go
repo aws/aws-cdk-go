@@ -38,11 +38,15 @@ type CfnDeliverySourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-logtype
 	//
 	LogType *string `field:"optional" json:"logType" yaml:"logType"`
-	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
+	// The ARN of the AWS resource that is generating and sending logs.
+	//
+	// For example, `arn:aws:workmail:us-east-1:123456789012:organization/m-1234EXAMPLEabcd1234abcd1234abcd1234`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-resourcearn
 	//
 	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
-	// The tags that have been assigned to this delivery source.
+	// An array of key-value pairs to apply to the delivery source.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

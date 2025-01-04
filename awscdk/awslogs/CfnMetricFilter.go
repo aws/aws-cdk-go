@@ -42,6 +42,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	ApplyOnTransformedLogs: jsii.Boolean(false),
 //   	FilterName: jsii.String("filterName"),
 //   })
 //
@@ -50,6 +51,9 @@ import (
 type CfnMetricFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// This parameter is valid only for log groups that have an active log transformer.
+	ApplyOnTransformedLogs() interface{}
+	SetApplyOnTransformedLogs(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -238,6 +242,16 @@ type jsiiProxy_CfnMetricFilter struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnMetricFilter) ApplyOnTransformedLogs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"applyOnTransformedLogs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMetricFilter) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -403,6 +417,17 @@ func NewCfnMetricFilter_Override(c CfnMetricFilter, scope constructs.Construct, 
 		"aws-cdk-lib.aws_logs.CfnMetricFilter",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnMetricFilter)SetApplyOnTransformedLogs(val interface{}) {
+	if err := j.validateSetApplyOnTransformedLogsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"applyOnTransformedLogs",
+		val,
 	)
 }
 

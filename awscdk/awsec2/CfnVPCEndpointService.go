@@ -33,6 +33,12 @@ import (
 //   		jsii.String("networkLoadBalancerArns"),
 //   	},
 //   	PayerResponsibility: jsii.String("payerResponsibility"),
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html
@@ -40,11 +46,14 @@ import (
 type CfnVPCEndpointService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
 	AcceptanceRequired() interface{}
 	SetAcceptanceRequired(val interface{})
 	// The ID of the endpoint service.
 	AttrServiceId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -87,6 +96,9 @@ type CfnVPCEndpointService interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to add to the VPC endpoint service.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -231,6 +243,7 @@ type CfnVPCEndpointService interface {
 type jsiiProxy_CfnVPCEndpointService struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnVPCEndpointService) AcceptanceRequired() interface{} {
@@ -248,6 +261,16 @@ func (j *jsiiProxy_CfnVPCEndpointService) AttrServiceId() *string {
 	_jsii_.Get(
 		j,
 		"attrServiceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -373,6 +396,16 @@ func (j *jsiiProxy_CfnVPCEndpointService) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEndpointService) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpointService) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -463,6 +496,17 @@ func (j *jsiiProxy_CfnVPCEndpointService)SetPayerResponsibility(val *string) {
 	_jsii_.Set(
 		j,
 		"payerResponsibility",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

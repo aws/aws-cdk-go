@@ -26,6 +26,18 @@ func (i *jsiiProxy_IEnvironment) validateAddExtensionParameters(extension IExten
 	return nil
 }
 
+func (i *jsiiProxy_IEnvironment) validateAtDeploymentTickParameters(eventDestination IEventDestination, options *ExtensionOptions) error {
+	if eventDestination == nil {
+		return fmt.Errorf("parameter eventDestination is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IEnvironment) validateGrantParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

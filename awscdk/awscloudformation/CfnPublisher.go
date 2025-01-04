@@ -9,11 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Registers your account as a publisher of public extensions in the CloudFormation registry.
+// The `AWS::CloudFormation::Publisher` resource registers your account as a publisher of public extensions in the CloudFormation registry.
 //
 // Public extensions are available for use by all CloudFormation users.
 //
-// For information on requirements for registering as a public extension publisher, see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs) in the *CloudFormation CLI User Guide* .
+// For information on requirements for registering as a public extension publisher, see [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.htm) in the *AWS CloudFormation Command Line Interface (CLI) User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -53,6 +53,20 @@ type CfnAccountPolicyProps struct {
 	// - *RoleArn* The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
 	// - *FilterPattern* A filter pattern for subscribing to a filtered stream of log events.
 	// - *Distribution* The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to `Random` for a more even distribution. This property is only applicable when the destination is an Kinesis Data Streams data stream.
+	//
+	// *Field index policy*
+	//
+	// A field index filter policy can include the following attribute in a JSON block:
+	//
+	// - *Fields* The array of field indexes to create.
+	//
+	// The following is an example of an index policy document that creates two indexes, `RequestId` and `TransactionId` .
+	//
+	// `"policyDocument": "{ \"Fields\": [ \"RequestId\", \"TransactionId\" ] }"`
+	//
+	// *Transformer policy*
+	//
+	// A transformer policy must include one JSON block with the array of processors and their configurations. For more information about available processors, see [Processors that you can use](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html#cfn-logs-accountpolicy-policydocument
 	//
 	PolicyDocument *string `field:"required" json:"policyDocument" yaml:"policyDocument"`
@@ -68,17 +82,21 @@ type CfnAccountPolicyProps struct {
 	PolicyType *string `field:"required" json:"policyType" yaml:"policyType"`
 	// Currently the only valid value for this parameter is `ALL` , which specifies that the policy applies to all log groups in the account.
 	//
-	// If you omit this parameter, the default of `ALL` is used. To scope down a subscription filter policy to a subset of log groups, use the `selectionCriteria` parameter.
+	// If you omit this parameter, the default of `ALL` is used. To scope down a subscription filter policy to a subset of log groups, use the `SelectionCriteria` parameter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html#cfn-logs-accountpolicy-scope
 	//
 	Scope *string `field:"optional" json:"scope" yaml:"scope"`
-	// Use this parameter to apply a subscription filter policy to a subset of log groups in the account.
+	// Use this parameter to apply the new policy to a subset of log groups in the account.
 	//
-	// Currently, the only supported filter is `LogGroupName NOT IN []` . The `selectionCriteria` string can be up to 25KB in length. The length is determined by using its UTF-8 bytes.
+	// You need to specify `SelectionCriteria` only when you specify `SUBSCRIPTION_FILTER_POLICY` , `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY` for `PolicyType` .
 	//
-	// Using the `selectionCriteria` parameter is useful to help prevent infinite loops. For more information, see [Log recursion prevention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html) .
+	// If `PolicyType` is `SUBSCRIPTION_FILTER_POLICY` , the only supported `SelectionCriteria` filter is `LogGroupName NOT IN []`
 	//
-	// Specifing `selectionCriteria` is valid only when you specify `SUBSCRIPTION_FILTER_POLICY` for `policyType` .
+	// If `PolicyType` is `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY` , the only supported `SelectionCriteria` filter is `LogGroupNamePrefix`
+	//
+	// The `SelectionCriteria` string can be up to 25KB in length. The length is determined by using its UTF-8 bytes.
+	//
+	// Using the `SelectionCriteria` parameter with `SUBSCRIPTION_FILTER_POLICY` is useful to help prevent infinite loops. For more information, see [Log recursion prevention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html#cfn-logs-accountpolicy-selectioncriteria
 	//
 	SelectionCriteria *string `field:"optional" json:"selectionCriteria" yaml:"selectionCriteria"`

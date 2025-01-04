@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a new Amazon SageMaker Studio Lifecycle Configuration.
+// Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -76,7 +76,7 @@ type CfnStudioLifecycleConfig interface {
 	// The content of your Amazon SageMaker Studio Lifecycle Configuration script.
 	StudioLifecycleConfigContent() *string
 	SetStudioLifecycleConfigContent(val *string)
-	// The name of the Amazon SageMaker Studio Lifecycle Configuration.
+	// The name of the Amazon SageMaker AI Studio Lifecycle Configuration.
 	StudioLifecycleConfigName() *string
 	SetStudioLifecycleConfigName(val *string)
 	// Tags to be associated with the Lifecycle Configuration.

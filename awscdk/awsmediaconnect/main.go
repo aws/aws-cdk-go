@@ -91,6 +91,10 @@ func init() {
 		reflect.TypeOf((*CfnBridge_IngressGatewayBridgeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnBridge.MulticastSourceSettingsProperty",
+		reflect.TypeOf((*CfnBridge_MulticastSourceSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnBridge.SourcePriorityProperty",
 		reflect.TypeOf((*CfnBridge_SourcePriorityProperty)(nil)).Elem(),
 	)
@@ -208,6 +212,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnBridgeSource.BridgeNetworkSourceProperty",
 		reflect.TypeOf((*CfnBridgeSource_BridgeNetworkSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnBridgeSource.MulticastSourceSettingsProperty",
+		reflect.TypeOf((*CfnBridgeSource_MulticastSourceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnBridgeSource.VpcInterfaceAttachmentProperty",

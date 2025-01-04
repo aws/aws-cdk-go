@@ -46,9 +46,11 @@ type CfnLocationFSxONTAP_SMBProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-user
 	//
 	User *string `field:"required" json:"user" yaml:"user"`
-	// Specifies the fully qualified domain name (FQDN) of the Microsoft Active Directory that your storage virtual machine (SVM) belongs to.
+	// Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.
 	//
 	// If you have multiple domains in your environment, configuring this setting makes sure that DataSync connects to the right SVM.
+	//
+	// If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right SVM.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`

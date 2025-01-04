@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker AI Domain.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,7 +22,7 @@ type CfnUserProfile_EFSFileSystemConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-efsfilesystemconfig.html#cfn-sagemaker-userprofile-efsfilesystemconfig-filesystemid
 	//
 	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
-	// The path to the file system directory that is accessible in Amazon SageMaker Studio.
+	// The path to the file system directory that is accessible in Amazon SageMaker AI Studio.
 	//
 	// Permitted users can access only this directory and below.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-efsfilesystemconfig.html#cfn-sagemaker-userprofile-efsfilesystemconfig-filesystempath

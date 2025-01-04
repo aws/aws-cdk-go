@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnDataSource) validateSetIndexIdParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSource) validateSetMediaExtractionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSource) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

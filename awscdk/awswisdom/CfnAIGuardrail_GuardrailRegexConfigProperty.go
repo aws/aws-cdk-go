@@ -20,11 +20,11 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailregexconfig.html
 //
 type CfnAIGuardrail_GuardrailRegexConfigProperty struct {
-	// Options for sensitive information action.
+	// The action of the guardrail regex configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailregexconfig.html#cfn-wisdom-aiguardrail-guardrailregexconfig-action
 	//
 	Action *string `field:"required" json:"action" yaml:"action"`
-	// The regex name.
+	// A regex configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailregexconfig.html#cfn-wisdom-aiguardrail-guardrailregexconfig-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`

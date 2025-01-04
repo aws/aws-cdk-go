@@ -102,6 +102,10 @@ import (
 //   			},
 //   		},
 //   	},
+//   	SchedulerConfiguration: &SchedulerConfigurationProperty{
+//   		MaxConcurrentRuns: jsii.Number(123),
+//   		QueueTimeoutMinutes: jsii.Number(123),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -176,6 +180,12 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-runtimeconfiguration
 	//
 	RuntimeConfiguration interface{} `field:"optional" json:"runtimeConfiguration" yaml:"runtimeConfiguration"`
+	// The scheduler configuration for batch and streaming jobs running on this application.
+	//
+	// Supported with release labels emr-7.0.0 and above.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-schedulerconfiguration
+	//
+	SchedulerConfiguration interface{} `field:"optional" json:"schedulerConfiguration" yaml:"schedulerConfiguration"`
 	// The tags assigned to the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-tags
 	//

@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// Sensitive information policy config for a guardrail.
+// Sensitive information policy configuration for a guardrail.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

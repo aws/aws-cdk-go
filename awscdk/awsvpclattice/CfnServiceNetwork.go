@@ -80,6 +80,7 @@ type CfnServiceNetwork interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Specify if the service network should be enabled for sharing.
 	SharingConfig() interface{}
 	SetSharingConfig(val interface{})
 	// The stack in which this element is defined.

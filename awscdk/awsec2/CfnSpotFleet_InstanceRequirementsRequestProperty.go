@@ -51,6 +51,15 @@ package awsec2
 //   		Max: jsii.Number(123),
 //   		Min: jsii.Number(123),
 //   	},
+//   	BaselinePerformanceFactors: &BaselinePerformanceFactorsRequestProperty{
+//   		Cpu: &CpuPerformanceFactorRequestProperty{
+//   			References: []interface{}{
+//   				&PerformanceFactorReferenceRequestProperty{
+//   					InstanceFamily: jsii.String("instanceFamily"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	BurstablePerformance: jsii.String("burstablePerformance"),
 //   	CpuManufacturers: []*string{
 //   		jsii.String("cpuManufacturers"),
@@ -184,6 +193,12 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-baselineebsbandwidthmbps
 	//
 	BaselineEbsBandwidthMbps interface{} `field:"optional" json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
+	// The baseline performance to consider, using an instance family as a baseline reference.
+	//
+	// The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-baselineperformancefactors
+	//
+	BaselinePerformanceFactors interface{} `field:"optional" json:"baselinePerformanceFactors" yaml:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required.
 	//
 	// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .

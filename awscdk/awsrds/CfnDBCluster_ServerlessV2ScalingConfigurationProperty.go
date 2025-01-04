@@ -19,6 +19,7 @@ package awsrds
 //   serverlessV2ScalingConfigurationProperty := &ServerlessV2ScalingConfigurationProperty{
 //   	MaxCapacity: jsii.Number(123),
 //   	MinCapacity: jsii.Number(123),
+//   	SecondsUntilAutoPause: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-serverlessv2scalingconfiguration.html
@@ -40,5 +41,11 @@ type CfnDBCluster_ServerlessV2ScalingConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-serverlessv2scalingconfiguration.html#cfn-rds-dbcluster-serverlessv2scalingconfiguration-mincapacity
 	//
 	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
+	// Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
+	//
+	// Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-serverlessv2scalingconfiguration.html#cfn-rds-dbcluster-serverlessv2scalingconfiguration-secondsuntilautopause
+	//
+	SecondsUntilAutoPause *float64 `field:"optional" json:"secondsUntilAutoPause" yaml:"secondsUntilAutoPause"`
 }
 

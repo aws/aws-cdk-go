@@ -572,7 +572,7 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
 	//
 	AggregateKeyType *string `field:"required" json:"aggregateKeyType" yaml:"aggregateKeyType"`
-	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule.
+	// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule.
 	//
 	// If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//

@@ -15,7 +15,7 @@ import (
 //
 //   glue.NewJob(this, jsii.String("ScalaSparkEtlJob"), &JobProps{
 //   	Executable: glue.JobExecutable_ScalaEtl(&ScalaJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V4_0(),
+//   		GlueVersion: glue.GlueVersion_V5_0(),
 //   		Script: glue.Code_FromBucket(bucket, jsii.String("src/com/example/HelloWorld.scala")),
 //   		ClassName: jsii.String("com.example.HelloWorld"),
 //   		ExtraJars: []code{

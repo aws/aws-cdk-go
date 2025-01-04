@@ -60,7 +60,7 @@ type CfnUserPoolUser interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specify `"EMAIL"` if email will be used to send the welcome message.
+	// Specify `EMAIL` if email will be used to send the welcome message.
 	DesiredDeliveryMediums() *[]*string
 	SetDesiredDeliveryMediums(val *[]*string)
 	// This parameter is used only if the `phone_number_verified` or `email_verified` attribute is set to `True` .
@@ -76,7 +76,7 @@ type CfnUserPoolUser interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account.
+	// Set to `RESEND` to resend the invitation message to a user that already exists, and to reset the temporary-password duration with a new temporary password.
 	MessageAction() *string
 	SetMessageAction(val *string)
 	// The tree node.
@@ -109,7 +109,7 @@ type CfnUserPoolUser interface {
 	// The value that you want to set as the username sign-in attribute.
 	Username() *string
 	SetUsername(val *string)
-	// The user pool ID for the user pool where the user will be created.
+	// The ID of the user pool where you want to create a user.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger.

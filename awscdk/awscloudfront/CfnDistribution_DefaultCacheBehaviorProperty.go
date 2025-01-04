@@ -50,6 +50,9 @@ package awscloudfront
 //   			FunctionArn: jsii.String("functionArn"),
 //   		},
 //   	},
+//   	GrpcConfig: &GrpcConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	LambdaFunctionAssociations: []interface{}{
 //   		&LambdaFunctionAssociationProperty{
 //   			EventType: jsii.String("eventType"),
@@ -169,6 +172,10 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
 	//
 	FunctionAssociations interface{} `field:"optional" json:"functionAssociations" yaml:"functionAssociations"`
+	// The gRPC configuration for your cache behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-grpcconfig
+	//
+	GrpcConfig interface{} `field:"optional" json:"grpcConfig" yaml:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
 	//

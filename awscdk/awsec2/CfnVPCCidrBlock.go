@@ -93,6 +93,9 @@ type CfnVPCCidrBlock interface {
 	// You must also specify `Ipv6Pool` in the request.
 	Ipv6CidrBlock() *string
 	SetIpv6CidrBlock(val *string)
+	// The name of the location from which we advertise the IPV6 CIDR block.
+	Ipv6CidrBlockNetworkBorderGroup() *string
+	SetIpv6CidrBlockNetworkBorderGroup(val *string)
 	// Associates a CIDR allocated from an IPv6 IPAM pool to a VPC.
 	Ipv6IpamPoolId() *string
 	SetIpv6IpamPoolId(val *string)
@@ -392,6 +395,16 @@ func (j *jsiiProxy_CfnVPCCidrBlock) Ipv6CidrBlock() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCCidrBlock) Ipv6CidrBlockNetworkBorderGroup() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv6CidrBlockNetworkBorderGroup",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCCidrBlock) Ipv6IpamPoolId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -559,6 +572,14 @@ func (j *jsiiProxy_CfnVPCCidrBlock)SetIpv6CidrBlock(val *string) {
 	_jsii_.Set(
 		j,
 		"ipv6CidrBlock",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCCidrBlock)SetIpv6CidrBlockNetworkBorderGroup(val *string) {
+	_jsii_.Set(
+		j,
+		"ipv6CidrBlockNetworkBorderGroup",
 		val,
 	)
 }

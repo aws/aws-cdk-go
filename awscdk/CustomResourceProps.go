@@ -91,5 +91,11 @@ type CustomResourceProps struct {
 	// Default: - AWS::CloudFormation::CustomResource.
 	//
 	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
+	// The maximum time that can elapse before a custom resource operation times out.
+	//
+	// The value must be between 1 second and 3600 seconds.
+	// Default: Duration.seconds(3600)
+	//
+	ServiceTimeout Duration `field:"optional" json:"serviceTimeout" yaml:"serviceTimeout"`
 }
 

@@ -12,6 +12,11 @@ package awsbedrock
 //
 //   knowledgeBaseConfigurationProperty := &KnowledgeBaseConfigurationProperty{
 //   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	KendraKnowledgeBaseConfiguration: &KendraKnowledgeBaseConfigurationProperty{
+//   		KendraIndexArn: jsii.String("kendraIndexArn"),
+//   	},
 //   	VectorKnowledgeBaseConfiguration: &VectorKnowledgeBaseConfigurationProperty{
 //   		EmbeddingModelArn: jsii.String("embeddingModelArn"),
 //
@@ -19,6 +24,18 @@ package awsbedrock
 //   		EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
 //   			BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
 //   				Dimensions: jsii.Number(123),
+//   			},
+//   		},
+//   		SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{
+//   			SupplementalDataStorageLocations: []interface{}{
+//   				&SupplementalDataStorageLocationProperty{
+//   					SupplementalDataStorageLocationType: jsii.String("supplementalDataStorageLocationType"),
+//
+//   					// the properties below are optional
+//   					S3Location: &S3LocationProperty{
+//   						Uri: jsii.String("uri"),
+//   					},
+//   				},
 //   			},
 //   		},
 //   	},
@@ -31,9 +48,13 @@ type CfnKnowledgeBase_KnowledgeBaseConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// Settings for an Amazon Kendra knowledge base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-kendraknowledgebaseconfiguration
+	//
+	KendraKnowledgeBaseConfiguration interface{} `field:"optional" json:"kendraKnowledgeBaseConfiguration" yaml:"kendraKnowledgeBaseConfiguration"`
 	// Contains details about the model that's used to convert the data source into vector embeddings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-vectorknowledgebaseconfiguration
 	//
-	VectorKnowledgeBaseConfiguration interface{} `field:"required" json:"vectorKnowledgeBaseConfiguration" yaml:"vectorKnowledgeBaseConfiguration"`
+	VectorKnowledgeBaseConfiguration interface{} `field:"optional" json:"vectorKnowledgeBaseConfiguration" yaml:"vectorKnowledgeBaseConfiguration"`
 }
 

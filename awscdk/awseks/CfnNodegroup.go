@@ -141,7 +141,7 @@ type CfnNodegroup interface {
 	// The unique name to give your node group.
 	NodegroupName() *string
 	SetNodegroupName(val *string)
-	// The node auto repair configuration for node group.
+	// The node auto repair configuration for the node group.
 	NodeRepairConfig() interface{}
 	SetNodeRepairConfig(val interface{})
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.

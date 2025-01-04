@@ -551,6 +551,30 @@ func (j *jsiiProxy_CfnDataSet) validateSetLogicalTableMapParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSet) validateSetPerformanceConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDataSet_PerformanceConfigurationProperty:
+		val := val.(*CfnDataSet_PerformanceConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDataSet_PerformanceConfigurationProperty:
+		val_ := val.(CfnDataSet_PerformanceConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDataSet_PerformanceConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSet) validateSetPermissionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

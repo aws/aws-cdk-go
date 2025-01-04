@@ -83,7 +83,7 @@ type CfnUserPoolUserToGroupAttachment interface {
 	// The user's username.
 	Username() *string
 	SetUsername(val *string)
-	// The user pool ID for the user pool.
+	// The ID of the user pool that contains the group that you want to add the user to.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

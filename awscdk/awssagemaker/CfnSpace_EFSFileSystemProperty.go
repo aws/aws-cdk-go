@@ -1,9 +1,9 @@
 package awssagemaker
 
 
-// A file system, created by you in Amazon EFS, that you assign to a user profile or space for an Amazon SageMaker Domain.
+// A file system, created by you in Amazon EFS, that you assign to a user profile or space for an Amazon SageMaker AI Domain.
 //
-// Permitted users can access this file system in Amazon SageMaker Studio.
+// Permitted users can access this file system in Amazon SageMaker AI Studio.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

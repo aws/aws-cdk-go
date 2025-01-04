@@ -735,6 +735,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "containerDefinitions", GoGetter: "ContainerDefinitions"},
 			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "enableFaultInjection", GoGetter: "EnableFaultInjection"},
 			_jsii_.MemberProperty{JsiiProperty: "ephemeralStorage", GoGetter: "EphemeralStorage"},
 			_jsii_.MemberProperty{JsiiProperty: "executionRoleArn", GoGetter: "ExecutionRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},

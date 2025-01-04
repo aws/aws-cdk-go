@@ -40,6 +40,32 @@ import (
 //
 // Each account can have one account-level subscription filter policy. If you are updating an existing filter, you must specify the correct name in `PolicyName` . To perform a `PutAccountPolicy` subscription filter operation for any destination except a Lambda function, you must also have the `iam:PassRole` permission.
 //
+// *Field index policy*
+//
+// You can use field index policies to create indexes on fields found in log events in the log group. Creating field indexes lowers the scan volume for CloudWatch Logs Insights queries that reference those fields, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for. Common examples of indexes include request ID, session ID, user IDs, or instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html)
+//
+// For example, suppose you have created a field index for `requestId` . Then, any CloudWatch Logs Insights query on that log group that includes `requestId = *value*` or `requestId IN [ *value* , *value* , ...]` will attempt to process only the log events where the indexed field matches the specified value.
+//
+// Matches of log events to the names of indexed fields are case-sensitive. For example, an indexed field of `RequestId` won't match a log event containing `requestId` .
+//
+// You can have one account-level field index policy that applies to all log groups in the account. Or you can create as many as 20 account-level field index policies that are each scoped to a subset of log groups with the `SelectionCriteria` parameter. If you have multiple account-level index policies with selection criteria, no two of them can use the same or overlapping log group name prefixes. For example, if you have one policy filtered to log groups that start with `my-log` , you can't have another field index policy filtered to `my-logpprod` or `my-logging` .
+//
+// *Transformer policy*
+//
+// A *log transformer policy* transforms ingested log events into a different format, making them easier for you to process and analyze. You can also transform logs from different sources into standardized formats that contain relevant, source-specific information. After you have created a transformer, CloudWatch Logs performs this transformation at the time of log ingestion. You can then refer to the transformed versions of the logs during operations such as querying with CloudWatch Logs Insights or creating metric filters or subscription filters.
+//
+// You can also use a transformer to copy metadata from metadata keys into the log events themselves. This metadata can include log group name, log stream name, account ID and Region.
+//
+// A transformer for a log group is a series of processors, where each processor applies one type of transformation to the log events ingested into this log group. For more information about the available processors to use in a transformer, see [Processors that you can use](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors) .
+//
+// Having log events in standardized format enables visibility across your applications for your log analysis, reporting, and alarming needs. CloudWatch Logs provides transformation for common log types with out-of-the-box transformation templates for major AWS log sources such as VPC flow logs, Lambda , and Amazon RDS . You can use pre-built transformation templates or create custom transformation policies.
+//
+// You can create transformers only for the log groups in the Standard log class.
+//
+// You can have one account-level transformer policy that applies to all log groups in the account. Or you can create as many as 20 account-level transformer policies that are each scoped to a subset of log groups with the `selectionCriteria` parameter. If you have multiple account-level transformer policies with selection criteria, no two of them can use the same or overlapping log group name prefixes. For example, if you have one policy filtered to log groups that start with `my-log` , you can't have another field index policy filtered to `my-logpprod` or `my-logging` .
+//
+// You can also set up a transformer at the log-group level. For more information, see [AWS::Logs::Transformer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-transformer.html) . If there is both a log-group level transformer created with `PutTransformer` and an account-level transformer that could apply to the same log group, the log group uses only the log-group level transformer. It ignores the account-level transformer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -102,7 +128,7 @@ type CfnAccountPolicy interface {
 	// Currently the only valid value for this parameter is `ALL` , which specifies that the policy applies to all log groups in the account.
 	Scope() *string
 	SetScope(val *string)
-	// Use this parameter to apply a subscription filter policy to a subset of log groups in the account.
+	// Use this parameter to apply the new policy to a subset of log groups in the account.
 	SelectionCriteria() *string
 	SetSelectionCriteria(val *string)
 	// The stack in which this element is defined.

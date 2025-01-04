@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// Topic config in topic policy.
+// Topic configuration in topic policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -34,7 +34,7 @@ type CfnAIGuardrail_GuardrailTopicConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailtopicconfig.html#cfn-wisdom-aiguardrail-guardrailtopicconfig-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// List of text examples.
+	// Text example in topic policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailtopicconfig.html#cfn-wisdom-aiguardrail-guardrailtopicconfig-examples
 	//
 	Examples *[]*string `field:"optional" json:"examples" yaml:"examples"`

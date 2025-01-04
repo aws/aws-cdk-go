@@ -19,6 +19,7 @@ package awssynthetics
 //   	},
 //
 //   	// the properties below are optional
+//   	Ipv6AllowedForDualStack: jsii.Boolean(false),
 //   	VpcId: jsii.String("vpcId"),
 //   }
 //
@@ -33,6 +34,10 @@ type CfnCanary_VPCConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
 	//
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	// Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-ipv6allowedfordualstack
+	//
+	Ipv6AllowedForDualStack interface{} `field:"optional" json:"ipv6AllowedForDualStack" yaml:"ipv6AllowedForDualStack"`
 	// The ID of the VPC where this canary is to run.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
 	//

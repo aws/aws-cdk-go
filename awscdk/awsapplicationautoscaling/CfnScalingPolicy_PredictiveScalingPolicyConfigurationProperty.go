@@ -3,6 +3,8 @@ package awsapplicationautoscaling
 
 // Represents a predictive scaling policy configuration.
 //
+// Predictive scaling is supported on Amazon ECS services.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

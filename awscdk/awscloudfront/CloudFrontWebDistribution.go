@@ -65,6 +65,9 @@ import (
 type CloudFrontWebDistribution interface {
 	awscdk.Resource
 	IDistribution
+	// The distribution ARN for this distribution.
+	// Deprecated: Use `Distribution` instead.
+	DistributionArn() *string
 	// The domain name created by CloudFront for this distribution.
 	//
 	// If you are using aliases for your distribution, this is the domainName your DNS records should point to.
@@ -147,6 +150,16 @@ type CloudFrontWebDistribution interface {
 type jsiiProxy_CloudFrontWebDistribution struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IDistribution
+}
+
+func (j *jsiiProxy_CloudFrontWebDistribution) DistributionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"distributionArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CloudFrontWebDistribution) DistributionDomainName() *string {

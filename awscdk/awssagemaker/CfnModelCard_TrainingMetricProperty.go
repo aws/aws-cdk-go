@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// A result from a SageMaker training job.
+// A result from a SageMaker AI training job.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,11 +19,11 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html
 //
 type CfnModelCard_TrainingMetricProperty struct {
-	// The name of the result from the SageMaker training job.
+	// The name of the result from the SageMaker AI training job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html#cfn-sagemaker-modelcard-trainingmetric-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The value of a result from the SageMaker training job.
+	// The value of a result from the SageMaker AI training job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html#cfn-sagemaker-modelcard-trainingmetric-value
 	//
 	Value *float64 `field:"required" json:"value" yaml:"value"`

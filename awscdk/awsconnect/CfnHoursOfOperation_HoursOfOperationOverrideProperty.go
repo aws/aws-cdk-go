@@ -1,7 +1,7 @@
 package awsconnect
 
 
-// Overrides attached to the hours of operation.
+// Information about the hours of operations override.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -50,7 +50,7 @@ type CfnHoursOfOperation_HoursOfOperationOverrideProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-overridename
 	//
 	OverrideName *string `field:"required" json:"overrideName" yaml:"overrideName"`
-	// The Resource Identifier for the hours of operation override.
+	// The identifier for the hours of operation override.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-hoursofoperationoverrideid
 	//
 	HoursOfOperationOverrideId *string `field:"optional" json:"hoursOfOperationOverrideId" yaml:"hoursOfOperationOverrideId"`

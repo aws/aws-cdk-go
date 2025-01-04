@@ -18,7 +18,7 @@ package awscdk
 type CfnStackSet_ParameterProperty struct {
 	// The key associated with the parameter.
 	//
-	// If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that's specified in your template.
+	// If you don't specify a key and value for a particular parameter, CloudFormation uses the default value that's specified in your template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
 	//
 	ParameterKey *string `field:"required" json:"parameterKey" yaml:"parameterKey"`

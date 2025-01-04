@@ -51,7 +51,7 @@ type CfnPartnerAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-executionrolearn
 	//
 	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
-	// A name for the PartnerApp.
+	// The name of the SageMaker Partner AI App.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
@@ -59,7 +59,9 @@ type CfnPartnerAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-tier
 	//
 	Tier *string `field:"required" json:"tier" yaml:"tier"`
-	// The type of PartnerApp.
+	// The type of SageMaker Partner AI App to create.
+	//
+	// Must be one of the following: `lakera-guard` , `comet` , `deepchecks-llm-evaluation` , or `fiddler` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
@@ -70,6 +72,7 @@ type CfnPartnerAppProps struct {
 	// The client token for the PartnerApp.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-clienttoken
 	//
+	// Deprecated: this property has been deprecated.
 	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
 	// Enables IAM Session based Identity for PartnerApp.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html#cfn-sagemaker-partnerapp-enableiamsessionbasedidentity

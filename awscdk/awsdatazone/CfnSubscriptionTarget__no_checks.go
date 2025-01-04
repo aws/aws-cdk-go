@@ -96,10 +96,6 @@ func (j *jsiiProxy_CfnSubscriptionTarget) validateSetEnvironmentIdentifierParame
 	return nil
 }
 
-func (j *jsiiProxy_CfnSubscriptionTarget) validateSetManageAccessRoleParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnSubscriptionTarget) validateSetNameParameters(val *string) error {
 	return nil
 }

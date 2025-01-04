@@ -24,6 +24,10 @@ func (i *jsiiProxy_IApplication) validateAddSourcedConfigurationParameters(id *s
 	return nil
 }
 
+func (i *jsiiProxy_IApplication) validateAtDeploymentTickParameters(eventDestination IEventDestination, options *ExtensionOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IApplication) validateOnParameters(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) error {
 	return nil
 }

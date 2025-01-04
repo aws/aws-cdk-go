@@ -28,6 +28,7 @@ import (
 //   				Bucket: jsii.String("bucket"),
 //
 //   				// the properties below are optional
+//   				BucketOwner: jsii.String("bucketOwner"),
 //   				Key: jsii.String("key"),
 //   			},
 //   		},
@@ -39,6 +40,7 @@ import (
 //   				Bucket: jsii.String("bucket"),
 //
 //   				// the properties below are optional
+//   				BucketOwner: jsii.String("bucketOwner"),
 //   				Key: jsii.String("key"),
 //   			},
 //   		},
@@ -49,6 +51,7 @@ import (
 //   			Bucket: jsii.String("bucket"),
 //
 //   			// the properties below are optional
+//   			BucketOwner: jsii.String("bucketOwner"),
 //   			Key: jsii.String("key"),
 //   		},
 //   	},
@@ -120,6 +123,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Source: jsii.String("source"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -175,6 +179,9 @@ type CfnDataset interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The location of the data for the dataset, either Amazon S3 or the AWS Glue Data Catalog .
+	Source() *string
+	SetSource(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -451,6 +458,16 @@ func (j *jsiiProxy_CfnDataset) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataset) Source() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"source",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataset) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -577,6 +594,14 @@ func (j *jsiiProxy_CfnDataset)SetPathOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"pathOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataset)SetSource(val *string) {
+	_jsii_.Set(
+		j,
+		"source",
 		val,
 	)
 }

@@ -15,6 +15,11 @@ package awsmediaconnect
 //   	NetworkName: jsii.String("networkName"),
 //   	Port: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
+//
+//   	// the properties below are optional
+//   	MulticastSourceSettings: &MulticastSourceSettingsProperty{
+//   		MulticastSourceIp: jsii.String("multicastSourceIp"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html
@@ -36,5 +41,9 @@ type CfnBridgeSource_BridgeNetworkSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-protocol
 	//
 	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
+	// The settings related to the multicast source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-multicastsourcesettings
+	//
+	MulticastSourceSettings interface{} `field:"optional" json:"multicastSourceSettings" yaml:"multicastSourceSettings"`
 }
 

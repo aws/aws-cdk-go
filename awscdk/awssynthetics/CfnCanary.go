@@ -97,6 +97,7 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		Ipv6AllowedForDualStack: jsii.Boolean(false),
 //   		VpcId: jsii.String("vpcId"),
 //   	},
 //   })

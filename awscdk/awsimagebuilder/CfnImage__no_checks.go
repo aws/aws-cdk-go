@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnImage) validateSetImageTestsConfigurationParameters(val in
 	return nil
 }
 
-func (j *jsiiProxy_CfnImage) validateSetInfrastructureConfigurationArnParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnImage) validateSetWorkflowsParameters(val interface{}) error {
 	return nil
 }

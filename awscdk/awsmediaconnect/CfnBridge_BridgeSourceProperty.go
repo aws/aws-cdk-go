@@ -24,6 +24,11 @@ package awsmediaconnect
 //   		NetworkName: jsii.String("networkName"),
 //   		Port: jsii.Number(123),
 //   		Protocol: jsii.String("protocol"),
+//
+//   		// the properties below are optional
+//   		MulticastSourceSettings: &MulticastSourceSettingsProperty{
+//   			MulticastSourceIp: jsii.String("multicastSourceIp"),
+//   		},
 //   	},
 //   }
 //

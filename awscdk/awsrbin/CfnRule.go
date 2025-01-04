@@ -86,7 +86,7 @@ type CfnRule interface {
 	// The retention rule description.
 	Description() *string
 	SetDescription(val *string)
-	// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+	// [Region-level retention rules only] Specifies the exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule.
 	ExcludeResourceTags() interface{}
 	SetExcludeResourceTags(val interface{})
 	// Information about the retention rule lock configuration.
@@ -109,10 +109,10 @@ type CfnRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// [Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention rule.
+	// [Tag-level retention rules only] Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule.
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
-	// The resource type retained by the retention rule.
+	// The resource type to be retained by the retention rule.
 	ResourceType() *string
 	SetResourceType(val *string)
 	// Information about the retention period for which the retention rule is to retain resources.
@@ -125,7 +125,7 @@ type CfnRule interface {
 	// The state of the retention rule.
 	Status() *string
 	SetStatus(val *string)
-	// Information about the tags assigned to the retention rule.
+	// Information about the tags to assign to the retention rule.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

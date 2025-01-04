@@ -110,7 +110,7 @@ type CfnCluster interface {
 	// The name of the engine used by the cluster.
 	Engine() *string
 	SetEngine(val *string)
-	// The Valkey or Redis OSS engine version used by the cluster .
+	// The Redis engine version used by the cluster .
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	// The user-supplied name of a final cluster snapshot.

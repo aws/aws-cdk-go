@@ -23,6 +23,7 @@ import (
 //   				Bucket: jsii.String("bucket"),
 //
 //   				// the properties below are optional
+//   				BucketOwner: jsii.String("bucketOwner"),
 //   				Key: jsii.String("key"),
 //   			},
 //   		},
@@ -34,6 +35,7 @@ import (
 //   				Bucket: jsii.String("bucket"),
 //
 //   				// the properties below are optional
+//   				BucketOwner: jsii.String("bucketOwner"),
 //   				Key: jsii.String("key"),
 //   			},
 //   		},
@@ -44,6 +46,7 @@ import (
 //   			Bucket: jsii.String("bucket"),
 //
 //   			// the properties below are optional
+//   			BucketOwner: jsii.String("bucketOwner"),
 //   			Key: jsii.String("key"),
 //   		},
 //   	},
@@ -115,6 +118,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Source: jsii.String("source"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -146,6 +150,10 @@ type CfnDatasetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
 	//
 	PathOptions interface{} `field:"optional" json:"pathOptions" yaml:"pathOptions"`
+	// The location of the data for the dataset, either Amazon S3 or the AWS Glue Data Catalog .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-source
+	//
+	Source *string `field:"optional" json:"source" yaml:"source"`
 	// Metadata tags that have been applied to the dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
 	//

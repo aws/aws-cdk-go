@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// An invoice unit is a set of mutually exclusive accounts that correspond to your business entity.
+// An invoice unit is a set of mutually exclusive account that correspond to your business entity.
 //
-// Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
+// Invoice units allow you separate AWS account costs and configures your invoice for each business entity going forward.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,7 +44,13 @@ type CfnInvoiceUnit interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The ARN to identify an invoice unit.
+	//
+	// This information can't be modified or deleted.
 	AttrInvoiceUnitArn() *string
+	// The last time the invoice unit was updated.
+	//
+	// This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
 	AttrLastModified() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -57,8 +63,10 @@ type CfnInvoiceUnit interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The assigned description for an invoice unit.
 	Description() *string
 	SetDescription(val *string)
+	// The account that receives invoices related to the invoice unit.
 	InvoiceReceiver() *string
 	SetInvoiceReceiver(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -71,6 +79,7 @@ type CfnInvoiceUnit interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// A unique name that is distinctive within your AWS .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -80,14 +89,17 @@ type CfnInvoiceUnit interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The tag structure that contains a tag key and value.
 	ResourceTags() *[]*CfnInvoiceUnit_ResourceTagProperty
 	SetResourceTags(val *[]*CfnInvoiceUnit_ResourceTagProperty)
+	// An `InvoiceUnitRule` object used the categorize invoice units.
 	Rule() interface{}
 	SetRule(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
 	TaxInheritanceDisabled() interface{}
 	SetTaxInheritanceDisabled(val interface{})
 	// Deprecated.

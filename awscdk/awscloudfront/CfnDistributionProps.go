@@ -53,6 +53,9 @@ import (
 //   					FunctionArn: jsii.String("functionArn"),
 //   				},
 //   			},
+//   			GrpcConfig: &GrpcConfigProperty{
+//   				Enabled: jsii.Boolean(false),
+//   			},
 //   			LambdaFunctionAssociations: []interface{}{
 //   				&LambdaFunctionAssociationProperty{
 //   					EventType: jsii.String("eventType"),
@@ -79,6 +82,7 @@ import (
 //   		Aliases: []*string{
 //   			jsii.String("aliases"),
 //   		},
+//   		AnycastIpListId: jsii.String("anycastIpListId"),
 //   		CacheBehaviors: []interface{}{
 //   			&CacheBehaviorProperty{
 //   				PathPattern: jsii.String("pathPattern"),
@@ -120,6 +124,9 @@ import (
 //   						EventType: jsii.String("eventType"),
 //   						FunctionArn: jsii.String("functionArn"),
 //   					},
+//   				},
+//   				GrpcConfig: &GrpcConfigProperty{
+//   					Enabled: jsii.Boolean(false),
 //   				},
 //   				LambdaFunctionAssociations: []interface{}{
 //   					&LambdaFunctionAssociationProperty{
@@ -173,8 +180,6 @@ import (
 //   		Ipv6Enabled: jsii.Boolean(false),
 //   		Logging: &LoggingProperty{
 //   			Bucket: jsii.String("bucket"),
-//
-//   			// the properties below are optional
 //   			IncludeCookies: jsii.Boolean(false),
 //   			Prefix: jsii.String("prefix"),
 //   		},
@@ -201,6 +206,9 @@ import (
 //   						},
 //   						Quantity: jsii.Number(123),
 //   					},
+//
+//   					// the properties below are optional
+//   					SelectionCriteria: jsii.String("selectionCriteria"),
 //   				},
 //   			},
 //   		},

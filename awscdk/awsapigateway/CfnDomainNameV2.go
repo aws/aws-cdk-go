@@ -18,7 +18,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var managementPolicy interface{}
 //   var policy interface{}
 //
 //   cfnDomainNameV2 := awscdk.Aws_apigateway.NewCfnDomainNameV2(this, jsii.String("MyCfnDomainNameV2"), &CfnDomainNameV2Props{
@@ -29,7 +28,6 @@ import (
 //   			jsii.String("types"),
 //   		},
 //   	},
-//   	ManagementPolicy: managementPolicy,
 //   	Policy: policy,
 //   	SecurityPolicy: jsii.String("securityPolicy"),
 //   	Tags: []cfnTag{
@@ -80,8 +78,6 @@ type CfnDomainNameV2 interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	ManagementPolicy() interface{}
-	SetManagementPolicy(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration.
@@ -359,16 +355,6 @@ func (j *jsiiProxy_CfnDomainNameV2) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomainNameV2) ManagementPolicy() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"managementPolicy",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDomainNameV2) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -500,14 +486,6 @@ func (j *jsiiProxy_CfnDomainNameV2)SetEndpointConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"endpointConfiguration",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDomainNameV2)SetManagementPolicy(val interface{}) {
-	_jsii_.Set(
-		j,
-		"managementPolicy",
 		val,
 	)
 }

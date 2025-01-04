@@ -1,7 +1,9 @@
 package awsevents
 
 
-// The private resource the HTTP request will be sent to.
+// For connections to private APIs, the parameters to use for invoking the API.
+//
+// For more information, see [Connecting to private APIs](https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html) in the **Amazon EventBridge User Guide** .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,6 +22,7 @@ package awsevents
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-invocationconnectivityparameters.html
 //
 type CfnConnection_InvocationConnectivityParametersProperty struct {
+	// The parameters for EventBridge to use when invoking the resource endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-invocationconnectivityparameters.html#cfn-events-connection-invocationconnectivityparameters-resourceparameters
 	//
 	ResourceParameters interface{} `field:"required" json:"resourceParameters" yaml:"resourceParameters"`

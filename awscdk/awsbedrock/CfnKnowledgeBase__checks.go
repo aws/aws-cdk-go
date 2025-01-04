@@ -223,9 +223,6 @@ func (j *jsiiProxy_CfnKnowledgeBase) validateSetRoleArnParameters(val *string) e
 }
 
 func (j *jsiiProxy_CfnKnowledgeBase) validateSetStorageConfigurationParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

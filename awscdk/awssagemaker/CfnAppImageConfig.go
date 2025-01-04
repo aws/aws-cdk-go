@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a configuration for running a SageMaker image as a KernelGateway app.
+// Creates a configuration for running a SageMaker AI image as a KernelGateway app.
 //
 // The configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the kernels in the image.
 //
@@ -105,7 +105,7 @@ type CfnAppImageConfig interface {
 	// The configuration for the file system and the runtime, such as the environment variables and entry point.
 	JupyterLabAppImageConfig() interface{}
 	SetJupyterLabAppImageConfig(val interface{})
-	// The configuration for the file system and kernels in the SageMaker image.
+	// The configuration for the file system and kernels in the SageMaker AI image.
 	KernelGatewayImageConfig() interface{}
 	SetKernelGatewayImageConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.

@@ -52,10 +52,14 @@ package awsbedrock
 //   		ParsingStrategy: jsii.String("parsingStrategy"),
 //
 //   		// the properties below are optional
+//   		BedrockDataAutomationConfiguration: &BedrockDataAutomationConfigurationProperty{
+//   			ParsingModality: jsii.String("parsingModality"),
+//   		},
 //   		BedrockFoundationModelConfiguration: &BedrockFoundationModelConfigurationProperty{
 //   			ModelArn: jsii.String("modelArn"),
 //
 //   			// the properties below are optional
+//   			ParsingModality: jsii.String("parsingModality"),
 //   			ParsingPrompt: &ParsingPromptProperty{
 //   				ParsingPromptText: jsii.String("parsingPromptText"),
 //   			},
@@ -76,7 +80,9 @@ type CfnDataSource_VectorIngestionConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-customtransformationconfiguration
 	//
 	CustomTransformationConfiguration interface{} `field:"optional" json:"customTransformationConfiguration" yaml:"customTransformationConfiguration"`
-	// A custom parser for data source documents.
+	// Configurations for a parser to use for parsing documents in your data source.
+	//
+	// If you exclude this field, the default parser will be used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-parsingconfiguration
 	//
 	ParsingConfiguration interface{} `field:"optional" json:"parsingConfiguration" yaml:"parsingConfiguration"`

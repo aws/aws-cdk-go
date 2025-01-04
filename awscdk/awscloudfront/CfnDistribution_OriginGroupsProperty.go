@@ -31,6 +31,9 @@ package awscloudfront
 //   				},
 //   				Quantity: jsii.Number(123),
 //   			},
+//
+//   			// the properties below are optional
+//   			SelectionCriteria: jsii.String("selectionCriteria"),
 //   		},
 //   	},
 //   }

@@ -12,9 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataProtectionPolicy interface{}
+//   var fieldIndexPolicies interface{}
 //
 //   cfnLogGroupProps := &CfnLogGroupProps{
 //   	DataProtectionPolicy: dataProtectionPolicy,
+//   	FieldIndexPolicies: []interface{}{
+//   		fieldIndexPolicies,
+//   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogGroupClass: jsii.String("logGroupClass"),
 //   	LogGroupName: jsii.String("logGroupName"),
@@ -38,6 +42,16 @@ type CfnLogGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-dataprotectionpolicy
 	//
 	DataProtectionPolicy interface{} `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
+	// Creates or updates a *field index policy* for the specified log group.
+	//
+	// Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html) .
+	//
+	// You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CloudWatch Logs Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html) .
+	//
+	// Currently, this array supports only one field index policy object.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-fieldindexpolicies
+	//
+	FieldIndexPolicies interface{} `field:"optional" json:"fieldIndexPolicies" yaml:"fieldIndexPolicies"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
 	//
 	// To associate an AWS KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CloudWatch Logs . This enables CloudWatch Logs to decrypt this data whenever it is requested.

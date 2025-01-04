@@ -22,6 +22,6 @@ type CfnJobDefinition_ImagePullSecretProperty struct {
 	// This object is required when `EksPodProperties$imagePullSecrets` is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-imagepullsecret.html#cfn-batch-jobdefinition-imagepullsecret-name
 	//
-	Name *string `field:"required" json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

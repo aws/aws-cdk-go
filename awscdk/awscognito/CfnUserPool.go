@@ -186,7 +186,7 @@ type CfnUserPool interface {
 	AttrProviderUrl() *string
 	// The ID of the user pool.
 	AttrUserPoolId() *string
-	// The attributes to be auto-verified.
+	// The attributes that you want your user pool to automatically verify.
 	AutoVerifiedAttributes() *[]*string
 	SetAutoVerifiedAttributes(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -250,7 +250,7 @@ type CfnUserPool interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// An array of schema attributes for the new user pool.
+	// An array of attributes for the new user pool.
 	Schema() interface{}
 	SetSchema(val interface{})
 	// The contents of the SMS authentication message.
@@ -287,13 +287,13 @@ type CfnUserPool interface {
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes() *[]*string
 	SetUsernameAttributes(val *[]*string)
-	// Case sensitivity on the username input for the selected sign-in option.
+	// Sets the case sensitivity option for sign-in usernames.
 	UsernameConfiguration() interface{}
 	SetUsernameConfiguration(val interface{})
 	// User pool add-ons.
 	UserPoolAddOns() interface{}
 	SetUserPoolAddOns(val interface{})
-	// A string used to name the user pool.
+	// A friendlhy name for your user pool.
 	UserPoolName() *string
 	SetUserPoolName(val *string)
 	// The tag keys and values to assign to the user pool.
@@ -305,8 +305,10 @@ type CfnUserPool interface {
 	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 	VerificationMessageTemplate() interface{}
 	SetVerificationMessageTemplate(val interface{})
+	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
 	WebAuthnRelyingPartyId() *string
 	SetWebAuthnRelyingPartyId(val *string)
+	// When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
 	WebAuthnUserVerification() *string
 	SetWebAuthnUserVerification(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -210,6 +210,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "indexId", GoGetter: "IndexId"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "mediaExtractionConfiguration", GoGetter: "MediaExtractionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -262,8 +263,16 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_HookConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnDataSource.ImageExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_ImageExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnDataSource.InlineDocumentEnrichmentConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_InlineDocumentEnrichmentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnDataSource.MediaExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_MediaExtractionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnDataSourceProps",

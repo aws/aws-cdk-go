@@ -926,12 +926,20 @@ func init() {
 		reflect.TypeOf((*CfnEC2Fleet_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.BaselinePerformanceFactorsRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_BaselinePerformanceFactorsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.CapacityRebalanceProperty",
 		reflect.TypeOf((*CfnEC2Fleet_CapacityRebalanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.CapacityReservationOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_CapacityReservationOptionsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.CpuPerformanceFactorRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateConfigRequestProperty",
@@ -972,6 +980,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.OnDemandOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_OnDemandOptionsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.PerformanceFactorReferenceRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_PerformanceFactorReferenceRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.PlacementProperty",
@@ -3881,6 +3893,10 @@ func init() {
 		reflect.TypeOf((*CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.BaselinePerformanceFactorsRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_BaselinePerformanceFactorsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnSpotFleet.BlockDeviceMappingProperty",
 		reflect.TypeOf((*CfnSpotFleet_BlockDeviceMappingProperty)(nil)).Elem(),
 	)
@@ -3891,6 +3907,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnSpotFleet.ClassicLoadBalancersConfigProperty",
 		reflect.TypeOf((*CfnSpotFleet_ClassicLoadBalancersConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.CpuPerformanceFactorRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnSpotFleet.EbsBlockDeviceProperty",
@@ -3947,6 +3967,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnSpotFleet.NetworkInterfaceCountRequestProperty",
 		reflect.TypeOf((*CfnSpotFleet_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnSpotFleet.PerformanceFactorReferenceRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_PerformanceFactorReferenceRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnSpotFleet.PrivateIpAddressSpecificationProperty",
@@ -5365,6 +5389,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipv4IpamPoolId", GoGetter: "Ipv4IpamPoolId"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4NetmaskLength", GoGetter: "Ipv4NetmaskLength"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6CidrBlock", GoGetter: "Ipv6CidrBlock"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv6CidrBlockNetworkBorderGroup", GoGetter: "Ipv6CidrBlockNetworkBorderGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6IpamPoolId", GoGetter: "Ipv6IpamPoolId"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6NetmaskLength", GoGetter: "Ipv6NetmaskLength"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6Pool", GoGetter: "Ipv6Pool"},
@@ -5460,13 +5485,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrDnsEntries", GoGetter: "AttrDnsEntries"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNetworkInterfaceIds", GoGetter: "AttrNetworkInterfaceIds"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "dnsOptions", GoGetter: "DnsOptions"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -5478,12 +5506,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceConfigurationArn", GoGetter: "ResourceConfigurationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "routeTableIds", GoGetter: "RouteTableIds"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroupIds", GoGetter: "SecurityGroupIds"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceNetworkArn", GoGetter: "ServiceNetworkArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -5495,8 +5526,13 @@ func init() {
 			j := jsiiProxy_CfnVPCEndpoint{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPCEndpoint.DnsOptionsSpecificationProperty",
+		reflect.TypeOf((*CfnVPCEndpoint_DnsOptionsSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.CfnVPCEndpointConnectionNotification",
@@ -5567,6 +5603,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServiceId", GoGetter: "AttrServiceId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -5589,6 +5626,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -5598,6 +5636,7 @@ func init() {
 			j := jsiiProxy_CfnVPCEndpointService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)
@@ -7644,6 +7683,20 @@ func init() {
 			"U_18TB1": InstanceClass_U_18TB1,
 			"HIGH_MEMORY_24TB_1": InstanceClass_HIGH_MEMORY_24TB_1,
 			"U_24TB1": InstanceClass_U_24TB1,
+			"HIGH_MEMORY_6TB_7": InstanceClass_HIGH_MEMORY_6TB_7,
+			"U7I_6TB": InstanceClass_U7I_6TB,
+			"HIGH_MEMORY_8TB_7": InstanceClass_HIGH_MEMORY_8TB_7,
+			"U7I_8TB": InstanceClass_U7I_8TB,
+			"HIGH_MEMORY_12TB_7": InstanceClass_HIGH_MEMORY_12TB_7,
+			"U7I_12TB": InstanceClass_U7I_12TB,
+			"HIGH_MEMORY_HIGH_NETWORK_16TB_7": InstanceClass_HIGH_MEMORY_HIGH_NETWORK_16TB_7,
+			"U7IN_16TB": InstanceClass_U7IN_16TB,
+			"HIGH_MEMORY_HIGH_NETWORK_24TB_7": InstanceClass_HIGH_MEMORY_HIGH_NETWORK_24TB_7,
+			"U7IN_24TB": InstanceClass_U7IN_24TB,
+			"HIGH_MEMORY_HIGH_NETWORK_32TB_7": InstanceClass_HIGH_MEMORY_HIGH_NETWORK_32TB_7,
+			"U7IN_32TB": InstanceClass_U7IN_32TB,
+			"HIGH_MEMORY_HIGH_NETWORK_HPE_32TB_7": InstanceClass_HIGH_MEMORY_HIGH_NETWORK_HPE_32TB_7,
+			"U7INH_32TB": InstanceClass_U7INH_32TB,
 			"MEMORY5_EBS_OPTIMIZED": InstanceClass_MEMORY5_EBS_OPTIMIZED,
 			"R5B": InstanceClass_R5B,
 			"MEMORY6_GRAVITON": InstanceClass_MEMORY6_GRAVITON,
@@ -7688,6 +7741,8 @@ func init() {
 			"C6G": InstanceClass_C6G,
 			"COMPUTE7_GRAVITON3": InstanceClass_COMPUTE7_GRAVITON3,
 			"C7G": InstanceClass_C7G,
+			"COMPUTE8_GRAVITON4": InstanceClass_COMPUTE8_GRAVITON4,
+			"C8G": InstanceClass_C8G,
 			"COMPUTE6_GRAVITON2_NVME_DRIVE": InstanceClass_COMPUTE6_GRAVITON2_NVME_DRIVE,
 			"C6GD": InstanceClass_C6GD,
 			"COMPUTE7_GRAVITON3_NVME_DRIVE": InstanceClass_COMPUTE7_GRAVITON3_NVME_DRIVE,
@@ -7698,6 +7753,8 @@ func init() {
 			"C7GN": InstanceClass_C7GN,
 			"COMPUTE7_INTEL": InstanceClass_COMPUTE7_INTEL,
 			"C7I": InstanceClass_C7I,
+			"COMPUTE7_INTEL_FLEX": InstanceClass_COMPUTE7_INTEL_FLEX,
+			"C7I_FLEX": InstanceClass_C7I_FLEX,
 			"COMPUTE7_AMD": InstanceClass_COMPUTE7_AMD,
 			"C7A": InstanceClass_C7A,
 			"STORAGE2": InstanceClass_STORAGE2,
@@ -7712,6 +7769,10 @@ func init() {
 			"TRN1": InstanceClass_TRN1,
 			"TRAINING_ACCELERATOR1_ENHANCED_NETWORK": InstanceClass_TRAINING_ACCELERATOR1_ENHANCED_NETWORK,
 			"TRN1N": InstanceClass_TRN1N,
+			"TRAINING_ACCELERATOR2": InstanceClass_TRAINING_ACCELERATOR2,
+			"TRN2": InstanceClass_TRN2,
+			"TRAINING_ACCELERATOR2_ULTRASERVER": InstanceClass_TRAINING_ACCELERATOR2_ULTRASERVER,
+			"TRN2U": InstanceClass_TRN2U,
 			"IO3": InstanceClass_IO3,
 			"I3": InstanceClass_I3,
 			"IO3_DENSE_NVME_DRIVE": InstanceClass_IO3_DENSE_NVME_DRIVE,
@@ -7724,6 +7785,10 @@ func init() {
 			"IM4GN": InstanceClass_IM4GN,
 			"STORAGE4_GRAVITON_NETWORK_STORAGE_OPTIMIZED": InstanceClass_STORAGE4_GRAVITON_NETWORK_STORAGE_OPTIMIZED,
 			"IS4GEN": InstanceClass_IS4GEN,
+			"STORAGE7_INTEL_STORAGE_OPTIMIZED": InstanceClass_STORAGE7_INTEL_STORAGE_OPTIMIZED,
+			"I7IE": InstanceClass_I7IE,
+			"STORAGE8_GRAVITON": InstanceClass_STORAGE8_GRAVITON,
+			"I8G": InstanceClass_I8G,
 			"BURSTABLE2": InstanceClass_BURSTABLE2,
 			"T2": InstanceClass_T2,
 			"BURSTABLE3": InstanceClass_BURSTABLE3,
@@ -7746,8 +7811,12 @@ func init() {
 			"X2IDN": InstanceClass_X2IDN,
 			"MEMORY_INTENSIVE_2_XTZ_INTEL": InstanceClass_MEMORY_INTENSIVE_2_XTZ_INTEL,
 			"X2IEZN": InstanceClass_X2IEZN,
+			"MEMORY_INTENSIVE_8_GRAVITON": InstanceClass_MEMORY_INTENSIVE_8_GRAVITON,
+			"X8G": InstanceClass_X8G,
 			"FPGA1": InstanceClass_FPGA1,
 			"F1": InstanceClass_F1,
+			"FPGA2": InstanceClass_FPGA2,
+			"F2": InstanceClass_F2,
 			"GRAPHICS3_SMALL": InstanceClass_GRAPHICS3_SMALL,
 			"G3S": InstanceClass_G3S,
 			"GRAPHICS3": InstanceClass_GRAPHICS3,
@@ -7764,6 +7833,8 @@ func init() {
 			"G6": InstanceClass_G6,
 			"GRAPHICS6_EFFICIENT": InstanceClass_GRAPHICS6_EFFICIENT,
 			"G6E": InstanceClass_G6E,
+			"GRAPHICS_RAM_6": InstanceClass_GRAPHICS_RAM_6,
+			"GR6": InstanceClass_GR6,
 			"PARALLEL2": InstanceClass_PARALLEL2,
 			"P2": InstanceClass_P2,
 			"PARALLEL3": InstanceClass_PARALLEL3,
@@ -7776,6 +7847,10 @@ func init() {
 			"P4D": InstanceClass_P4D,
 			"PARALLEL5": InstanceClass_PARALLEL5,
 			"P5": InstanceClass_P5,
+			"PARALLEL5_EXTENDED": InstanceClass_PARALLEL5_EXTENDED,
+			"P5E": InstanceClass_P5E,
+			"PARALLEL5_EXTENDED_NETWORK": InstanceClass_PARALLEL5_EXTENDED_NETWORK,
+			"P5EN": InstanceClass_P5EN,
 			"ARM1": InstanceClass_ARM1,
 			"A1": InstanceClass_A1,
 			"STANDARD6_GRAVITON": InstanceClass_STANDARD6_GRAVITON,
@@ -7794,6 +7869,8 @@ func init() {
 			"M6GD": InstanceClass_M6GD,
 			"STANDARD7_GRAVITON": InstanceClass_STANDARD7_GRAVITON,
 			"M7G": InstanceClass_M7G,
+			"STANDARD8_GRAVITON": InstanceClass_STANDARD8_GRAVITON,
+			"M8G": InstanceClass_M8G,
 			"STANDARD7_GRAVITON3_NVME_DRIVE": InstanceClass_STANDARD7_GRAVITON3_NVME_DRIVE,
 			"M7GD": InstanceClass_M7GD,
 			"STANDARD7_INTEL": InstanceClass_STANDARD7_INTEL,
@@ -7890,6 +7967,8 @@ func init() {
 			"XLARGE56": InstanceSize_XLARGE56,
 			"XLARGE96": InstanceSize_XLARGE96,
 			"XLARGE112": InstanceSize_XLARGE112,
+			"XLARGE224": InstanceSize_XLARGE224,
+			"XLARGE480": InstanceSize_XLARGE480,
 			"METAL": InstanceSize_METAL,
 			"XLARGE16METAL": InstanceSize_XLARGE16METAL,
 			"XLARGE24METAL": InstanceSize_XLARGE24METAL,

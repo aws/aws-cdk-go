@@ -205,6 +205,7 @@ import (
 //   		},
 //   	},
 //   	Cpu: jsii.String("cpu"),
+//   	EnableFaultInjection: jsii.Boolean(false),
 //   	EphemeralStorage: &EphemeralStorageProperty{
 //   		SizeInGiB: jsii.Number(123),
 //   	},
@@ -329,6 +330,12 @@ type CfnTaskDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
 	//
 	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers.
+	//
+	// The default value is `false` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-enablefaultinjection
+	//
+	EnableFaultInjection interface{} `field:"optional" json:"enableFaultInjection" yaml:"enableFaultInjection"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
 	//

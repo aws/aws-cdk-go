@@ -20,7 +20,9 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html
 //
 type CfnCluster_KubernetesNetworkConfigProperty struct {
-	// Todo: add description.
+	// Request to enable or disable the load balancing capability on your EKS Auto Mode cluster.
+	//
+	// For more information, see EKS Auto Mode load balancing capability in the *Amazon EKS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-elasticloadbalancing
 	//
 	ElasticLoadBalancing interface{} `field:"optional" json:"elasticLoadBalancing" yaml:"elasticLoadBalancing"`
@@ -28,7 +30,7 @@ type CfnCluster_KubernetesNetworkConfigProperty struct {
 	//
 	// If you don't specify a value, `ipv4` is used by default. You can only specify an IP family when you create a cluster and can't change this value once the cluster is created. If you specify `ipv6` , the VPC and subnets that you specify for cluster creation must have both `IPv4` and `IPv6` CIDR blocks assigned to them. You can't specify `ipv6` for clusters in China Regions.
 	//
-	// You can only specify `ipv6` for `1.21` and later clusters that use version `1.10.1` or later of the Amazon VPC CNI add-on. If you specify `ipv6` , then ensure that your VPC meets the requirements listed in the considerations listed in [Assigning IPv6 addresses to pods and services](https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html) in the Amazon EKS User Guide. Kubernetes assigns services `IPv6` addresses from the unique local address range `(fc00::/7)` . You can't specify a custom `IPv6` CIDR block. Pod addresses are assigned from the subnet's `IPv6` CIDR.
+	// You can only specify `ipv6` for `1.21` and later clusters that use version `1.10.1` or later of the Amazon VPC CNI add-on. If you specify `ipv6` , then ensure that your VPC meets the requirements listed in the considerations listed in [Assigning IPv6 addresses to pods and services](https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html) in the *Amazon EKS User Guide* . Kubernetes assigns services `IPv6` addresses from the unique local address range `(fc00::/7)` . You can't specify a custom `IPv6` CIDR block. Pod addresses are assigned from the subnet's `IPv6` CIDR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-ipfamily
 	//
 	IpFamily *string `field:"optional" json:"ipFamily" yaml:"ipFamily"`

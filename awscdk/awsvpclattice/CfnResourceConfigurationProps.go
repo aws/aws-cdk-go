@@ -36,33 +36,54 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html
 //
 type CfnResourceConfigurationProps struct {
+	// Specifies whether the resource configuration can be associated with a sharable service network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-allowassociationtosharableservicenetwork
 	//
 	AllowAssociationToSharableServiceNetwork interface{} `field:"optional" json:"allowAssociationToSharableServiceNetwork" yaml:"allowAssociationToSharableServiceNetwork"`
+	// The name of the resource configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535).
+	//
+	// You can separate port ranges using commas (for example: 1,2,22-30).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-portranges
 	//
 	PortRanges *[]*string `field:"optional" json:"portRanges" yaml:"portRanges"`
+	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-protocoltype
 	//
 	ProtocolType *string `field:"optional" json:"protocolType" yaml:"protocolType"`
+	// The auth type for the resource configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationauthtype
 	//
 	ResourceConfigurationAuthType *string `field:"optional" json:"resourceConfigurationAuthType" yaml:"resourceConfigurationAuthType"`
+	// Identifies the resource configuration in one of the following ways:.
+	//
+	// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+	// - *Domain name* - Any domain name that is publicly resolvable.
+	// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationdefinition
 	//
 	ResourceConfigurationDefinition interface{} `field:"optional" json:"resourceConfigurationDefinition" yaml:"resourceConfigurationDefinition"`
+	// The ID of the group resource configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationgroupid
 	//
 	ResourceConfigurationGroupId *string `field:"optional" json:"resourceConfigurationGroupId" yaml:"resourceConfigurationGroupId"`
+	// The type of resource configuration. A resource configuration can be one of the following types:.
+	//
+	// - *SINGLE* - A single resource.
+	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+	// - *CHILD* - A single resource that is part of a group resource configuration.
+	// - *ARN* - An AWS resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationtype
 	//
 	ResourceConfigurationType *string `field:"optional" json:"resourceConfigurationType" yaml:"resourceConfigurationType"`
+	// The ID of the resource gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-resourcegatewayid
 	//
 	ResourceGatewayId *string `field:"optional" json:"resourceGatewayId" yaml:"resourceGatewayId"`
+	// The tags for the resource configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html#cfn-vpclattice-resourceconfiguration-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

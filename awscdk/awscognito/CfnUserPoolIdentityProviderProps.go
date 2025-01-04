@@ -61,23 +61,31 @@ type CfnUserPoolIdentityProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providerdetails
 	//
 	ProviderDetails interface{} `field:"required" json:"providerDetails" yaml:"providerDetails"`
-	// The IdP name.
+	// The name that you want to assign to the IdP.
+	//
+	// You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providername
 	//
 	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
-	// The IdP type.
+	// The type of IdP that you want to add.
+	//
+	// Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-providertype
 	//
 	ProviderType *string `field:"required" json:"providerType" yaml:"providerType"`
-	// The user pool ID.
+	// The Id of the user pool where you want to create an IdP.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-userpoolid
 	//
 	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 	// A mapping of IdP attributes to standard and custom user pool attributes.
+	//
+	// Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-attributemapping
 	//
 	AttributeMapping interface{} `field:"optional" json:"attributeMapping" yaml:"attributeMapping"`
-	// A list of IdP identifiers.
+	// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` .
+	//
+	// Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#cfn-cognito-userpoolidentityprovider-idpidentifiers
 	//
 	IdpIdentifiers *[]*string `field:"optional" json:"idpIdentifiers" yaml:"idpIdentifiers"`

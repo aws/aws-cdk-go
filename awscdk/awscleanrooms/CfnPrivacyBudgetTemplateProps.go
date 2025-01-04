@@ -50,7 +50,9 @@ type CfnPrivacyBudgetTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html#cfn-cleanrooms-privacybudgettemplate-privacybudgettype
 	//
 	PrivacyBudgetType *string `field:"required" json:"privacyBudgetType" yaml:"privacyBudgetType"`
-	// An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
+	// An optional label that you can assign to a resource when you create it.
+	//
+	// Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html#cfn-cleanrooms-privacybudgettemplate-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

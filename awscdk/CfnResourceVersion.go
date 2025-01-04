@@ -7,7 +7,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Registers a resource version with the CloudFormation service.
+// The `AWS::CloudFormation::ResourceVersion` resource registers a resource version with the CloudFormation registry.
 //
 // Registering a resource version makes it available for use in CloudFormation templates in your AWS account , and includes:
 //
@@ -15,7 +15,7 @@ import (
 // - Determining which handlers, if any, have been specified for the resource.
 // - Making the resource available for use in your account.
 //
-// For more information on how to develop resources and ready them for registration, see [Creating Resource Providers](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html) in the *CloudFormation CLI User Guide* .
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
 //
 // You can have a maximum of 50 resource versions registered at a time. This maximum is per account and per Region.
 //
@@ -41,9 +41,9 @@ import (
 type CfnResourceVersion interface {
 	CfnResource
 	IInspectable
-	// The Amazon Resource Name (ARN) of the extension.
+	// The Amazon Resource Name (ARN) of the resource.
 	AttrArn() *string
-	// Whether the specified extension version is set as the default version.
+	// Whether the specified resource version is set as the default version.
 	//
 	// This applies only to private extensions you have registered in your account, and extensions published by AWS . For public third-party extensions, whether they are activated in your account, CloudFormation returns `null` .
 	AttrIsDefaultVersion() IResolvable
@@ -61,20 +61,18 @@ type CfnResourceVersion interface {
 	// - read
 	// - delete.
 	AttrProvisioningType() *string
-	// The Amazon Resource Name (ARN) of the extension.
+	// The Amazon Resource Name (ARN) for the extension.
 	AttrTypeArn() *string
-	// The ID of a specific version of the extension.
+	// The ID of a specific version of the resource.
 	//
-	// The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the extension version when it is registered.
-	//
-	// If you specify a `VersionId` , `DescribeType` returns information about that specific extension version. Otherwise, it returns information about the default extension version.
+	// The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the resource version when it is registered.
 	AttrVersionId() *string
-	// The scope at which the extension is visible and usable in CloudFormation operations.
+	// The scope at which the resource is visible and usable in CloudFormation operations.
 	//
 	// Valid values include:
 	//
-	// - `PRIVATE` : The extension is only visible and usable within the account in which it is registered. CloudFormation marks any extensions you register as `PRIVATE` .
-	// - `PUBLIC` : The extension is publicly visible and usable within any AWS account.
+	// - `PRIVATE` : The extension (resource) is only visible and usable within the account in which it is registered. CloudFormation marks any extensions you register as `PRIVATE` .
+	// - `PUBLIC` : The extension (resource) is publicly visible and usable within any AWS account.
 	AttrVisibility() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions

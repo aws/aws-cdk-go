@@ -22,6 +22,12 @@ package awssagemaker
 //   				// the properties below are optional
 //   				FileSystemPath: jsii.String("fileSystemPath"),
 //   			},
+//   			FSxLustreFileSystemConfig: &FSxLustreFileSystemConfigProperty{
+//   				FileSystemId: jsii.String("fileSystemId"),
+//
+//   				// the properties below are optional
+//   				FileSystemPath: jsii.String("fileSystemPath"),
+//   			},
 //   		},
 //   	},
 //   	CustomPosixUserConfig: &CustomPosixUserConfigProperty{
@@ -112,7 +118,7 @@ type CfnDomain_DefaultSpaceSettingsProperty struct {
 	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
 	// The settings for assigning a custom file system to a domain.
 	//
-	// Permitted users can access this file system in Amazon SageMaker Studio.
+	// Permitted users can access this file system in Amazon SageMaker AI Studio.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html#cfn-sagemaker-domain-defaultspacesettings-customfilesystemconfigs
 	//
 	CustomFileSystemConfigs interface{} `field:"optional" json:"customFileSystemConfigs" yaml:"customFileSystemConfigs"`

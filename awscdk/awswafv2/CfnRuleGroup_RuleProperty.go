@@ -589,6 +589,8 @@ type CfnRuleGroup_RuleProperty struct {
 	//
 	// AWS WAF applies fully qualified labels to matching web requests. A fully qualified label is the concatenation of a label namespace and a rule label. The rule's rule group or web ACL defines the label namespace.
 	//
+	// > Any rule that isn't a rule group reference statement or managed rule group statement can add labels to matching web requests.
+	//
 	// Rules that run after this rule in the web ACL can match against these labels using a `LabelMatchStatement` .
 	//
 	// For each label, provide a case-sensitive string containing optional namespaces and a label name, according to the following guidelines:

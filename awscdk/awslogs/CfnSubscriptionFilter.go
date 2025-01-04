@@ -31,6 +31,7 @@ import (
 //   	LogGroupName: jsii.String("logGroupName"),
 //
 //   	// the properties below are optional
+//   	ApplyOnTransformedLogs: jsii.Boolean(false),
 //   	Distribution: jsii.String("distribution"),
 //   	FilterName: jsii.String("filterName"),
 //   	RoleArn: jsii.String("roleArn"),
@@ -41,6 +42,9 @@ import (
 type CfnSubscriptionFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// This parameter is valid only for log groups that have an active log transformer.
+	ApplyOnTransformedLogs() interface{}
+	SetApplyOnTransformedLogs(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -235,6 +239,16 @@ type jsiiProxy_CfnSubscriptionFilter struct {
 	internal.Type__awscdkIInspectable
 }
 
+func (j *jsiiProxy_CfnSubscriptionFilter) ApplyOnTransformedLogs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"applyOnTransformedLogs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubscriptionFilter) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -420,6 +434,17 @@ func NewCfnSubscriptionFilter_Override(c CfnSubscriptionFilter, scope constructs
 		"aws-cdk-lib.aws_logs.CfnSubscriptionFilter",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnSubscriptionFilter)SetApplyOnTransformedLogs(val interface{}) {
+	if err := j.validateSetApplyOnTransformedLogsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"applyOnTransformedLogs",
+		val,
 	)
 }
 

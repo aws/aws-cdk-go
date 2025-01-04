@@ -31,10 +31,8 @@ type CfnPublicTypeVersionProps struct {
 	//
 	// The user initiating the stack operation must be able to access items in the specified S3 bucket. Specifically, the user needs the following permissions:
 	//
-	// - GetObject
-	// - PutObject
-	//
-	// For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
+	// - s3:GetObject
+	// - s3:PutObject.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
 	//
 	LogDeliveryBucket *string `field:"optional" json:"logDeliveryBucket" yaml:"logDeliveryBucket"`

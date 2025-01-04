@@ -18,6 +18,18 @@ func (e *jsiiProxy_ExtensibleBase) validateAddExtensionParameters(extension IExt
 	return nil
 }
 
+func (e *jsiiProxy_ExtensibleBase) validateAtDeploymentTickParameters(eventDestination IEventDestination, options *ExtensionOptions) error {
+	if eventDestination == nil {
+		return fmt.Errorf("parameter eventDestination is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_ExtensibleBase) validateOnParameters(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) error {
 	if actionPoint == "" {
 		return fmt.Errorf("parameter actionPoint is required, but nil was provided")

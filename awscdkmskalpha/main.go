@@ -113,12 +113,17 @@ func init() {
 		"@aws-cdk/aws-msk-alpha.KafkaVersion",
 		reflect.TypeOf((*KafkaVersion)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "features", GoGetter: "Features"},
 			_jsii_.MemberMethod{JsiiMethod: "isTieredStorageCompatible", GoMethod: "IsTieredStorageCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
 		func() interface{} {
 			return &jsiiProxy_KafkaVersion{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-msk-alpha.KafkaVersionFeatures",
+		reflect.TypeOf((*KafkaVersionFeatures)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-msk-alpha.MonitoringConfiguration",

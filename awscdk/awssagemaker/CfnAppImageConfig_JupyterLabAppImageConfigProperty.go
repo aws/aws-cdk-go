@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+// The configuration for the file system and kernels in a SageMaker AI image running as a JupyterLab app.
 //
 // The `FileSystemConfig` object is not supported.
 //

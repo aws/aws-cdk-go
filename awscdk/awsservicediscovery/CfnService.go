@@ -119,6 +119,7 @@ type CfnService interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// A string map that contains the following information for the service:.
 	ServiceAttributes() interface{}
 	SetServiceAttributes(val interface{})
 	// The stack in which this element is defined.

@@ -521,6 +521,9 @@ func init() {
 			"WINDOWS_SERVER_2019_CONTAINER": EnvironmentType_WINDOWS_SERVER_2019_CONTAINER,
 			"WINDOWS_SERVER_2022_CONTAINER": EnvironmentType_WINDOWS_SERVER_2022_CONTAINER,
 			"MAC_ARM": EnvironmentType_MAC_ARM,
+			"LINUX_EC2": EnvironmentType_LINUX_EC2,
+			"ARM_EC2": EnvironmentType_ARM_EC2,
+			"WINDOWS_EC2": EnvironmentType_WINDOWS_EC2,
 		},
 	)
 	_jsii_.RegisterEnum(

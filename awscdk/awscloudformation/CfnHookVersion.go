@@ -9,7 +9,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `HookVersion` resource publishes new or first Hook version to the AWS CloudFormation registry.
+// The `AWS::CloudFormation::HookVersion` resource publishes new or first version of a Hook to the CloudFormation registry.
+//
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
+//
+// This resource type is not compatible with Guard and Lambda Hooks.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -41,12 +45,12 @@ type CfnHookVersion interface {
 	AttrTypeArn() *string
 	// The ID of this version of the Hook.
 	AttrVersionId() *string
-	// The scope at which the resource is visible and usable in CloudFormation operations.
+	// The scope at which the Hook is visible and usable in CloudFormation operations.
 	//
 	// Valid values include:
 	//
-	// - `PRIVATE` : The resource is only visible and usable within the account in which it's registered. CloudFormation marks any resources you register as `PRIVATE` .
-	// - `PUBLIC` : The resource is publicly visible and usable within any Amazon account.
+	// - `PRIVATE` : The extension (Hook) is only visible and usable within the account in which it's registered. CloudFormation marks any resources you register as `PRIVATE` .
+	// - `PUBLIC` : The extension (Hook) is publicly visible and usable within any AWS account.
 	AttrVisibility() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

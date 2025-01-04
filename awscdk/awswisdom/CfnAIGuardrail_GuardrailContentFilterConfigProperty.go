@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// Content filter config in content policy.
+// Content filter configuration in content policy.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,15 +17,15 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailcontentfilterconfig.html
 //
 type CfnAIGuardrail_GuardrailContentFilterConfigProperty struct {
-	// Strength for filters.
+	// The strength of the input for the guardrail content filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailcontentfilterconfig.html#cfn-wisdom-aiguardrail-guardrailcontentfilterconfig-inputstrength
 	//
 	InputStrength *string `field:"required" json:"inputStrength" yaml:"inputStrength"`
-	// Strength for filters.
+	// The output strength of the guardrail content filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailcontentfilterconfig.html#cfn-wisdom-aiguardrail-guardrailcontentfilterconfig-outputstrength
 	//
 	OutputStrength *string `field:"required" json:"outputStrength" yaml:"outputStrength"`
-	// Type of text to text filter in content policy.
+	// The type of the guardrail content filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailcontentfilterconfig.html#cfn-wisdom-aiguardrail-guardrailcontentfilterconfig-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

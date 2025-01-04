@@ -197,6 +197,9 @@ import (
 //   	},
 //   	Source: &SourceProperty{
 //   		CustomerProfilesSegmentArn: jsii.String("customerProfilesSegmentArn"),
+//   		EventTrigger: &EventTriggerProperty{
+//   			CustomerProfilesDomainArn: jsii.String("customerProfilesDomainArn"),
+//   		},
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{

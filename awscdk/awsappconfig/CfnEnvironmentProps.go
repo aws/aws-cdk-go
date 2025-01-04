@@ -16,6 +16,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DeletionProtectionCheck: jsii.String("deletionProtectionCheck"),
 //   	Description: jsii.String("description"),
 //   	Monitors: []interface{}{
 //   		&MonitorsProperty{
@@ -42,6 +43,12 @@ type CfnEnvironmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting.
+	//
+	// See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-deletionprotectioncheck
+	//
+	DeletionProtectionCheck *string `field:"optional" json:"deletionProtectionCheck" yaml:"deletionProtectionCheck"`
 	// A description of the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-description
 	//

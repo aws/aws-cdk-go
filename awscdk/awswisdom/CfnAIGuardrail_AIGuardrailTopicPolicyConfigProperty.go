@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// Topic policy config for a guardrail.
+// Topic policy configuration for a guardrail.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

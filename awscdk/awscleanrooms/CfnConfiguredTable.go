@@ -23,9 +23,32 @@ import (
 //   	AnalysisMethod: jsii.String("analysisMethod"),
 //   	Name: jsii.String("name"),
 //   	TableReference: &TableReferenceProperty{
+//   		Athena: &AthenaTableReferenceProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			TableName: jsii.String("tableName"),
+//   			WorkGroup: jsii.String("workGroup"),
+//
+//   			// the properties below are optional
+//   			OutputLocation: jsii.String("outputLocation"),
+//   		},
 //   		Glue: &GlueTableReferenceProperty{
 //   			DatabaseName: jsii.String("databaseName"),
 //   			TableName: jsii.String("tableName"),
+//   		},
+//   		Snowflake: &SnowflakeTableReferenceProperty{
+//   			AccountIdentifier: jsii.String("accountIdentifier"),
+//   			DatabaseName: jsii.String("databaseName"),
+//   			SchemaName: jsii.String("schemaName"),
+//   			SecretArn: jsii.String("secretArn"),
+//   			TableName: jsii.String("tableName"),
+//   			TableSchema: &SnowflakeTableSchemaProperty{
+//   				V1: []interface{}{
+//   					&SnowflakeTableSchemaV1Property{
+//   						ColumnName: jsii.String("columnName"),
+//   						ColumnType: jsii.String("columnType"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //

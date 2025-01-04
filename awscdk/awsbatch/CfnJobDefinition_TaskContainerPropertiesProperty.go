@@ -71,7 +71,7 @@ package awsbatch
 //   		},
 //   	},
 //   	MountPoints: []interface{}{
-//   		&MountPointsProperty{
+//   		&MountPointProperty{
 //   			ContainerPath: jsii.String("containerPath"),
 //   			ReadOnly: jsii.Boolean(false),
 //   			SourceVolume: jsii.String("sourceVolume"),

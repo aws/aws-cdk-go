@@ -129,11 +129,11 @@ type CfnConnection interface {
 	AttrArn() *string
 	// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
 	//
-	// For more information, see [Managing service network resource associations for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html#connection-private-snra) in the **Amazon EventBridge User Guide** .
+	// > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
 	AttrAuthParametersConnectivityParametersResourceParametersResourceAssociationArn() *string
 	// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
 	//
-	// For more information, see [Managing service network resource associations for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html#connection-private-snra) in the **Amazon EventBridge User Guide** .
+	// > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
 	AttrInvocationConnectivityParametersResourceParametersResourceAssociationArn() *string
 	// The ARN for the secret created for the connection.
 	AttrSecretArn() *string
@@ -155,7 +155,7 @@ type CfnConnection interface {
 	// A description for the connection to create.
 	Description() *string
 	SetDescription(val *string)
-	// The private resource the HTTP request will be sent to.
+	// For connections to private APIs, the parameters to use for invoking the API.
 	InvocationConnectivityParameters() interface{}
 	SetInvocationConnectivityParameters(val interface{})
 	// The logical ID for this CloudFormation stack element.

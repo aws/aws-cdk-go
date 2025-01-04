@@ -184,11 +184,6 @@ type CfnJobDefinition_ContainerPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration
 	//
 	FargatePlatformConfiguration interface{} `field:"optional" json:"fargatePlatformConfiguration" yaml:"fargatePlatformConfiguration"`
-	// The instance type to use for a multi-node parallel job.
-	//
-	// All node groups in a multi-node parallel job must use the same instance type.
-	//
-	// > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-instancetype
 	//
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`

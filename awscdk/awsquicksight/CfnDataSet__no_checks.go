@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnDataSet) validateSetLogicalTableMapParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataSet) validateSetPerformanceConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataSet) validateSetPermissionsParameters(val interface{}) error {
 	return nil
 }

@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// The field of the case.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -23,11 +21,10 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html
 //
 type CfnRule_FieldProperty struct {
-	// The Id of the field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html#cfn-connect-rule-field-id
 	//
 	Id *string `field:"required" json:"id" yaml:"id"`
-	// The value of the field.
+	// Object for case field values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html#cfn-connect-rule-field-value
 	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`

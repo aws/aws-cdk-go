@@ -56,7 +56,6 @@ type CfnResourceShare interface {
 	SetAllowExternalPrincipals(val interface{})
 	// The Amazon Resource Name (ARN) of the resource share.
 	AttrArn() *string
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -97,6 +96,7 @@ type CfnResourceShare interface {
 	// Specifies a list of one or more ARNs of the resources to associate with the resource share.
 	ResourceArns() *[]*string
 	SetResourceArns(val *[]*string)
+	// Specifies from which source accounts the service principal has access to the resources in this resource share.
 	Sources() *[]*string
 	SetSources(val *[]*string)
 	// The stack in which this element is defined.
@@ -270,16 +270,6 @@ func (j *jsiiProxy_CfnResourceShare) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnResourceShare) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

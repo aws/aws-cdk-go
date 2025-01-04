@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnApplication) validateSetRuntimeConfigurationParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetSchedulerConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

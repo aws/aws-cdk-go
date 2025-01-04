@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// VpcLattice ResourceConfiguration CFN resource.
+// Creates a resource configuration.
+//
+// A resource configuration defines a specific resource. You can associate a resource configuration with a service network or a VPC endpoint.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -44,9 +46,12 @@ type CfnResourceConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// Specifies whether the resource configuration can be associated with a sharable service network.
 	AllowAssociationToSharableServiceNetwork() interface{}
 	SetAllowAssociationToSharableServiceNetwork(val interface{})
+	// The Amazon Resource Name (ARN) of the resource configuration.
 	AttrArn() *string
+	// The ID of the resource configuration.
 	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -69,12 +74,15 @@ type CfnResourceConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the resource configuration.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535).
 	PortRanges() *[]*string
 	SetPortRanges(val *[]*string)
+	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
 	ProtocolType() *string
 	SetProtocolType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -82,20 +90,28 @@ type CfnResourceConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The auth type for the resource configuration.
 	ResourceConfigurationAuthType() *string
 	SetResourceConfigurationAuthType(val *string)
+	// Identifies the resource configuration in one of the following ways:.
 	ResourceConfigurationDefinition() interface{}
 	SetResourceConfigurationDefinition(val interface{})
+	// The ID of the group resource configuration.
 	ResourceConfigurationGroupId() *string
 	SetResourceConfigurationGroupId(val *string)
+	// The type of resource configuration.
+	//
+	// A resource configuration can be one of the following types:.
 	ResourceConfigurationType() *string
 	SetResourceConfigurationType(val *string)
+	// The ID of the resource gateway.
 	ResourceGatewayId() *string
 	SetResourceGatewayId(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags for the resource configuration.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

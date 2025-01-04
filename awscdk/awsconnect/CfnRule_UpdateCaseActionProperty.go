@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// The definition for update case action.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

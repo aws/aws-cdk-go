@@ -96,6 +96,7 @@ type CfnApplication interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The OIDC client ID for a Amazon Q Business application.
 	ClientIdsForOidc() *[]*string
 	SetClientIdsForOidc(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -138,6 +139,7 @@ type CfnApplication interface {
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration() interface{}
 	SetQAppsConfiguration(val interface{})
+	// The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
 	QuickSightConfiguration() interface{}
 	SetQuickSightConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

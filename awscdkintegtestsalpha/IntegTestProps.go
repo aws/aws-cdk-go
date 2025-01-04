@@ -8,23 +8,30 @@ import (
 // Integration test properties.
 //
 // Example:
-//   var lambdaFunction iFunction
 //   var app app
+//   var stack stack
+//   var sm iStateMachine
 //
 //
-//   stack := awscdk.NewStack(app, jsii.String("cdk-integ-lambda-bundling"))
-//
-//   integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
-//   	TestCases: []stack{
+//   testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+//   	TestCases: []*stack{
 //   		stack,
 //   	},
 //   })
 //
-//   invoke := integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
-//   	FunctionName: lambdaFunction.FunctionName,
+//   // Start an execution
+//   start := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
+//   	"stateMachineArn": sm.stateMachineArn,
 //   })
-//   invoke.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
-//   	"Payload": jsii.String("200"),
+//
+//   // describe the results of the execution
+//   describe := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
+//   	"executionArn": start.getAttString(jsii.String("executionArn")),
+//   })
+//
+//   // assert the results
+//   describe.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
+//   	"status": jsii.String("SUCCEEDED"),
 //   }))
 //
 // Experimental.

@@ -66,7 +66,7 @@ type CfnLocationFSxONTAPProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-protocol
 	//
 	Protocol interface{} `field:"optional" json:"protocol" yaml:"protocol"`
-	// Specifies a path to the file share in the SVM where you'll copy your data.
+	// Specifies a path to the file share in the SVM where you want to transfer data to or from.
 	//
 	// You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares). For example, your mount path might be `/vol1` , `/vol1/tree1` , or `/share1` .
 	//

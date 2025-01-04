@@ -24,6 +24,9 @@ import (
 //
 // Experimental.
 type KafkaVersion interface {
+	// features for the cluster version.
+	// Experimental.
+	Features() *KafkaVersionFeatures
 	// cluster version number.
 	// Experimental.
 	Version() *string
@@ -35,6 +38,16 @@ type KafkaVersion interface {
 // The jsii proxy struct for KafkaVersion
 type jsiiProxy_KafkaVersion struct {
 	_ byte // padding
+}
+
+func (j *jsiiProxy_KafkaVersion) Features() *KafkaVersionFeatures {
+	var returns *KafkaVersionFeatures
+	_jsii_.Get(
+		j,
+		"features",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_KafkaVersion) Version() *string {
@@ -50,10 +63,10 @@ func (j *jsiiProxy_KafkaVersion) Version() *string {
 
 // Custom cluster version.
 // Experimental.
-func KafkaVersion_Of(version *string) KafkaVersion {
+func KafkaVersion_Of(version *string, features *KafkaVersionFeatures) KafkaVersion {
 	_init_.Initialize()
 
-	if err := validateKafkaVersion_OfParameters(version); err != nil {
+	if err := validateKafkaVersion_OfParameters(version, features); err != nil {
 		panic(err)
 	}
 	var returns KafkaVersion
@@ -61,7 +74,7 @@ func KafkaVersion_Of(version *string) KafkaVersion {
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-msk-alpha.KafkaVersion",
 		"of",
-		[]interface{}{version},
+		[]interface{}{version, features},
 		&returns,
 	)
 
@@ -327,6 +340,28 @@ func KafkaVersion_V3_6_0() KafkaVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-msk-alpha.KafkaVersion",
 		"V3_6_0",
+		&returns,
+	)
+	return returns
+}
+
+func KafkaVersion_V3_7_X() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V3_7_X",
+		&returns,
+	)
+	return returns
+}
+
+func KafkaVersion_V3_7_X_KRAFT() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V3_7_X_KRAFT",
 		&returns,
 	)
 	return returns

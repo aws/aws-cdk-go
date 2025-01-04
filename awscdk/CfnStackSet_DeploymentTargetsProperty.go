@@ -32,17 +32,21 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountfiltertype
 	//
 	AccountFilterType *string `field:"optional" json:"accountFilterType" yaml:"accountFilterType"`
-	// The names of one or more AWS accounts for which you want to deploy stack set updates.
+	// The account IDs of the AWS accounts .
+	//
+	// If you have many account numbers, you can provide those accounts using the `AccountsUrl` property instead.
 	//
 	// *Pattern* : `^[0-9]{12}$`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
 	//
 	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`
-	// Returns the value of the `AccountsUrl` property.
+	// The Amazon S3 URL path to a file that contains a list of AWS account IDs.
+	//
+	// The file format must be either `.csv` or `.txt` , and the data can be comma-separated or new-line-separated. There is currently a 10MB limit for the data (approximately 800,000 accounts).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accountsurl
 	//
 	AccountsUrl *string `field:"optional" json:"accountsUrl" yaml:"accountsUrl"`
-	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+	// The organization root ID or organizational unit (OU) IDs.
 	//
 	// *Pattern* : `^(ou-[a-z0-9]{4,32}-[a-z0-9]{8,32}|r-[a-z0-9]{4,32})$`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids

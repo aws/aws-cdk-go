@@ -16,6 +16,10 @@ func (e *jsiiProxy_Environment) validateApplyRemovalPolicyParameters(policy awsc
 	return nil
 }
 
+func (e *jsiiProxy_Environment) validateAtDeploymentTickParameters(eventDestination IEventDestination, options *ExtensionOptions) error {
+	return nil
+}
+
 func (e *jsiiProxy_Environment) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

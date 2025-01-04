@@ -48,7 +48,7 @@ type CfnMonitoringSchedule_ScheduleConfigProperty struct {
 	// - Every two hours starting at midnight: `cron(0 0/2 ? * * *)`
 	//
 	// > - Even though the cron expression is set to start at 5PM UTC, note that there could be a delay of 0-20 minutes from the actual requested time to run the execution.
-	// > - We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker will pick a time for running every day.
+	// > - We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker AI will pick a time for running every day.
 	//
 	// You can also specify the keyword `NOW` to run the monitoring job immediately, one time, without recurring.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression

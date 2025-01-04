@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a resource gateway for a service.
+// A resource gateway is a point of ingress into the VPC where a resource resides.
+//
+// It spans multiple Availability Zones. For your resource to be accessible from all Availability Zones, you should create your resource gateways to span as many Availability Zones as possible. A VPC can have multiple resource gateways.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,7 +42,9 @@ type CfnResourceGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the resource gateway.
 	AttrArn() *string
+	// The ID of the resource gateway.
 	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -53,6 +57,7 @@ type CfnResourceGateway interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The type of IP address used by the resource gateway.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -65,6 +70,7 @@ type CfnResourceGateway interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the resource gateway.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -74,16 +80,17 @@ type CfnResourceGateway interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ID of one or more security groups to associate with the endpoint network interface.
+	// The IDs of the security groups applied to the resource gateway.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The ID of one or more subnets in which to create an endpoint network interface.
+	// The IDs of the VPC subnets for the resource gateway.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
+	// The tags for the resource gateway.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -99,6 +106,7 @@ type CfnResourceGateway interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The ID of the VPC for the resource gateway.
 	VpcIdentifier() *string
 	SetVpcIdentifier(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

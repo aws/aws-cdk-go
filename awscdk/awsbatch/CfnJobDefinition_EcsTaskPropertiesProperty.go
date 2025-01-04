@@ -73,7 +73,7 @@ package awsbatch
 //   				},
 //   			},
 //   			MountPoints: []interface{}{
-//   				&MountPointsProperty{
+//   				&MountPointProperty{
 //   					ContainerPath: jsii.String("containerPath"),
 //   					ReadOnly: jsii.Boolean(false),
 //   					SourceVolume: jsii.String("sourceVolume"),
@@ -123,12 +123,12 @@ package awsbatch
 //   	},
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
 //   	Volumes: []interface{}{
-//   		&VolumesProperty{
-//   			EfsVolumeConfiguration: &EfsVolumeConfigurationProperty{
+//   		&VolumeProperty{
+//   			EfsVolumeConfiguration: &EFSVolumeConfigurationProperty{
 //   				FileSystemId: jsii.String("fileSystemId"),
 //
 //   				// the properties below are optional
-//   				AuthorizationConfig: &AuthorizationConfigProperty{
+//   				AuthorizationConfig: &EFSAuthorizationConfigProperty{
 //   					AccessPointId: jsii.String("accessPointId"),
 //   					Iam: jsii.String("iam"),
 //   				},
@@ -136,7 +136,7 @@ package awsbatch
 //   				TransitEncryption: jsii.String("transitEncryption"),
 //   				TransitEncryptionPort: jsii.Number(123),
 //   			},
-//   			Host: &VolumesHostProperty{
+//   			Host: &HostProperty{
 //   				SourcePath: jsii.String("sourcePath"),
 //   			},
 //   			Name: jsii.String("name"),

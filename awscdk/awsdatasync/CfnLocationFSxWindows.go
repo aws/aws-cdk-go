@@ -54,7 +54,7 @@ type CfnLocationFSxWindows interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies the name of the Microsoft Active Directory domain that the FSx for Windows File Server file system belongs to.
+	// Specifies the name of the Windows domain that the FSx for Windows File Server file system belongs to.
 	Domain() *string
 	SetDomain(val *string)
 	// Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file system.

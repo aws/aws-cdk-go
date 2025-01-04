@@ -84,6 +84,12 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-namespaceid
 	//
 	NamespaceId *string `field:"optional" json:"namespaceId" yaml:"namespaceId"`
+	// A string map that contains the following information for the service:.
+	//
+	// - The attributes that apply to the service
+	// - For each attribute, the applicable value.
+	//
+	// You can specify a total of 30 attributes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-serviceattributes
 	//
 	ServiceAttributes interface{} `field:"optional" json:"serviceAttributes" yaml:"serviceAttributes"`

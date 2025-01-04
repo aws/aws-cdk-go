@@ -46,6 +46,7 @@ package awsbedrock
 //   								"required": jsii.Boolean(false),
 //   							},
 //   						},
+//   						RequireConfirmation: jsii.String("requireConfirmation"),
 //   					},
 //   				},
 //   			},

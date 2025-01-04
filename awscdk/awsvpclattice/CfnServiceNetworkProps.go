@@ -45,6 +45,7 @@ type CfnServiceNetworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Specify if the service network should be enabled for sharing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html#cfn-vpclattice-servicenetwork-sharingconfig
 	//
 	SharingConfig interface{} `field:"optional" json:"sharingConfig" yaml:"sharingConfig"`

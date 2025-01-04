@@ -27,7 +27,6 @@ import (
 //   	},
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
-//   	ManageAccessRole: jsii.String("manageAccessRole"),
 //   	Name: jsii.String("name"),
 //   	SubscriptionTargetConfig: []interface{}{
 //   		&SubscriptionTargetFormProperty{
@@ -38,6 +37,7 @@ import (
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	ManageAccessRole: jsii.String("manageAccessRole"),
 //   	Provider: jsii.String("provider"),
 //   })
 //
@@ -608,9 +608,6 @@ func (j *jsiiProxy_CfnSubscriptionTarget)SetEnvironmentIdentifier(val *string) {
 }
 
 func (j *jsiiProxy_CfnSubscriptionTarget)SetManageAccessRole(val *string) {
-	if err := j.validateSetManageAccessRoleParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"manageAccessRole",

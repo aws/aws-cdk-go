@@ -20,6 +20,16 @@ package awsopensearchservice
 //   	InstanceCount: jsii.Number(123),
 //   	InstanceType: jsii.String("instanceType"),
 //   	MultiAzWithStandbyEnabled: jsii.Boolean(false),
+//   	NodeOptions: []interface{}{
+//   		&NodeOptionProperty{
+//   			NodeConfig: &NodeConfigProperty{
+//   				Count: jsii.Number(123),
+//   				Enabled: jsii.Boolean(false),
+//   				Type: jsii.String("type"),
+//   			},
+//   			NodeType: jsii.String("nodeType"),
+//   		},
+//   	},
 //   	WarmCount: jsii.Number(123),
 //   	WarmEnabled: jsii.Boolean(false),
 //   	WarmType: jsii.String("warmType"),
@@ -66,6 +76,10 @@ type CfnDomain_ClusterConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-multiazwithstandbyenabled
 	//
 	MultiAzWithStandbyEnabled interface{} `field:"optional" json:"multiAzWithStandbyEnabled" yaml:"multiAzWithStandbyEnabled"`
+	// List of node options for the domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-nodeoptions
+	//
+	NodeOptions interface{} `field:"optional" json:"nodeOptions" yaml:"nodeOptions"`
 	// The number of warm nodes in the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmcount
 	//

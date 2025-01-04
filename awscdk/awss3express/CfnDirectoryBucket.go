@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::S3Express::DirectoryBucket` resource creates an Amazon S3 directory bucket in the same AWS Region where you create the AWS CloudFormation stack.
+// The `AWS::S3Express::DirectoryBucket` resource defines an Amazon S3 directory bucket in the same AWS Region where you create the AWS CloudFormation stack.
 //
 // To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
 //
@@ -101,9 +101,9 @@ type CfnDirectoryBucket interface {
 	//
 	// Example: `arn:aws:s3express: *us-west-2* : *account_id* :bucket/ *bucket_base_name* -- *usw2-az1* --x-s3`.
 	AttrArn() *string
-	// Returns the code for the Availability Zone where the directory bucket was created.
+	// Returns the code for the Availability Zone or the Local Zone where the directory bucket was created.
 	//
-	// Example: *us-east-1f*
+	// Example value for an Availability Zone code: *us-east-1f*
 	//
 	// > An Availability Zone code might not represent the same physical location for different AWS accounts. For more information, see [Availability Zones and Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Endpoints.html) in the *Amazon S3 User Guide* .
 	AttrAvailabilityZoneName() *string

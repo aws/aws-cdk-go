@@ -25,7 +25,7 @@ type CfnUserPoolUICustomizationAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-clientid
 	//
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-userpoolid
 	//
 	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`

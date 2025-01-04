@@ -37,7 +37,7 @@ type CfnUserPoolResourceServerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a resource server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-userpoolid
 	//
 	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`

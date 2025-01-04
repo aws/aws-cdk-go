@@ -144,9 +144,9 @@ package awsbatch
 //   					},
 //   				},
 //   			},
-//   			EcsProperties: &EcsPropertiesProperty{
+//   			EcsProperties: &MultiNodeEcsPropertiesProperty{
 //   				TaskProperties: []interface{}{
-//   					&EcsTaskPropertiesProperty{
+//   					&MultiNodeEcsTaskPropertiesProperty{
 //   						Containers: []interface{}{
 //   							&TaskContainerPropertiesProperty{
 //   								Image: jsii.String("image"),
@@ -207,7 +207,7 @@ package awsbatch
 //   									},
 //   								},
 //   								MountPoints: []interface{}{
-//   									&MountPointsProperty{
+//   									&MountPointProperty{
 //   										ContainerPath: jsii.String("containerPath"),
 //   										ReadOnly: jsii.Boolean(false),
 //   										SourceVolume: jsii.String("sourceVolume"),
@@ -241,28 +241,17 @@ package awsbatch
 //   								User: jsii.String("user"),
 //   							},
 //   						},
-//   						EphemeralStorage: &EphemeralStorageProperty{
-//   							SizeInGiB: jsii.Number(123),
-//   						},
 //   						ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   						IpcMode: jsii.String("ipcMode"),
-//   						NetworkConfiguration: &NetworkConfigurationProperty{
-//   							AssignPublicIp: jsii.String("assignPublicIp"),
-//   						},
 //   						PidMode: jsii.String("pidMode"),
-//   						PlatformVersion: jsii.String("platformVersion"),
-//   						RuntimePlatform: &RuntimePlatformProperty{
-//   							CpuArchitecture: jsii.String("cpuArchitecture"),
-//   							OperatingSystemFamily: jsii.String("operatingSystemFamily"),
-//   						},
 //   						TaskRoleArn: jsii.String("taskRoleArn"),
 //   						Volumes: []interface{}{
-//   							&VolumesProperty{
-//   								EfsVolumeConfiguration: &EfsVolumeConfigurationProperty{
+//   							&VolumeProperty{
+//   								EfsVolumeConfiguration: &EFSVolumeConfigurationProperty{
 //   									FileSystemId: jsii.String("fileSystemId"),
 //
 //   									// the properties below are optional
-//   									AuthorizationConfig: &AuthorizationConfigProperty{
+//   									AuthorizationConfig: &EFSAuthorizationConfigProperty{
 //   										AccessPointId: jsii.String("accessPointId"),
 //   										Iam: jsii.String("iam"),
 //   									},
@@ -270,7 +259,7 @@ package awsbatch
 //   									TransitEncryption: jsii.String("transitEncryption"),
 //   									TransitEncryptionPort: jsii.Number(123),
 //   								},
-//   								Host: &VolumesHostProperty{
+//   								Host: &HostProperty{
 //   									SourcePath: jsii.String("sourcePath"),
 //   								},
 //   								Name: jsii.String("name"),

@@ -31,6 +31,10 @@ import (
 //   	MaxCapacity: jsii.Number(123),
 //   	NamespaceName: jsii.String("namespaceName"),
 //   	Port: jsii.Number(123),
+//   	PricePerformanceTarget: &PerformanceTargetProperty{
+//   		Level: jsii.Number(123),
+//   		Status: jsii.String("status"),
+//   	},
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -127,6 +131,9 @@ type CfnWorkgroup interface {
 	// The custom port to use when connecting to a workgroup.
 	Port() *float64
 	SetPort(val *float64)
+	// An object that represents the price performance target settings for the workgroup.
+	PricePerformanceTarget() interface{}
+	SetPricePerformanceTarget(val interface{})
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible() interface{}
 	SetPubliclyAccessible(val interface{})
@@ -600,6 +607,16 @@ func (j *jsiiProxy_CfnWorkgroup) Port() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkgroup) PricePerformanceTarget() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"pricePerformanceTarget",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkgroup) PubliclyAccessible() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -778,6 +795,17 @@ func (j *jsiiProxy_CfnWorkgroup)SetPort(val *float64) {
 	_jsii_.Set(
 		j,
 		"port",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkgroup)SetPricePerformanceTarget(val interface{}) {
+	if err := j.validateSetPricePerformanceTargetParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"pricePerformanceTarget",
 		val,
 	)
 }

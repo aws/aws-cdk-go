@@ -50,9 +50,9 @@ type CfnMultiRegionClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html#cfn-memorydb-multiregioncluster-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
-	// The name of the Multi Region cluster.
+	// A suffix to be added to the Multi-Region cluster name.
 	//
-	// This value must be unique as it also serves as the multi region cluster identifier.
+	// Amazon MemoryDB automatically applies a prefix to the Multi-Region cluster Name when it is created. Each Amazon Region has its own prefix. For instance, a Multi-Region cluster Name created in the US-West-1 region will begin with "virxk", along with the suffix name you provide. The suffix guarantees uniqueness of the Multi-Region cluster name across multiple regions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html#cfn-memorydb-multiregioncluster-multiregionclusternamesuffix
 	//
 	MultiRegionClusterNameSuffix *string `field:"optional" json:"multiRegionClusterNameSuffix" yaml:"multiRegionClusterNameSuffix"`
@@ -60,11 +60,11 @@ type CfnMultiRegionClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html#cfn-memorydb-multiregioncluster-multiregionparametergroupname
 	//
 	MultiRegionParameterGroupName *string `field:"optional" json:"multiRegionParameterGroupName" yaml:"multiRegionParameterGroupName"`
-	// The number of shards the multi region cluster will contain.
+	// TBD.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html#cfn-memorydb-multiregioncluster-numshards
 	//
 	NumShards *float64 `field:"optional" json:"numShards" yaml:"numShards"`
-	// An array of key-value pairs to apply to this multi region cluster.
+	// A list of tags to be applied to the multi-Region cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html#cfn-memorydb-multiregioncluster-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
@@ -72,9 +72,9 @@ type CfnMultiRegionClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html#cfn-memorydb-multiregioncluster-tlsenabled
 	//
 	TlsEnabled interface{} `field:"optional" json:"tlsEnabled" yaml:"tlsEnabled"`
-	// An enum string value that determines the update strategy for scaling.
+	// The strategy to use for the update operation.
 	//
-	// Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
+	// Supported values are "coordinated" or "uncoordinated".
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html#cfn-memorydb-multiregioncluster-updatestrategy
 	//
 	UpdateStrategy *string `field:"optional" json:"updateStrategy" yaml:"updateStrategy"`

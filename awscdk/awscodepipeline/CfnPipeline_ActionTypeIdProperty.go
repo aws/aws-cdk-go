@@ -27,7 +27,8 @@ type CfnPipeline_ActionTypeIdProperty struct {
 	// - `Test`
 	// - `Deploy`
 	// - `Invoke`
-	// - `Approval`.
+	// - `Approval`
+	// - `Compute`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiontypeid.html#cfn-codepipeline-pipeline-actiontypeid-category
 	//
 	Category *string `field:"required" json:"category" yaml:"category"`

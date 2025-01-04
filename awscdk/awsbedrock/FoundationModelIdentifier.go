@@ -493,12 +493,78 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0() Found
 	return returns
 }
 
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0_18K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0_18K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0_200K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0_200K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0_51K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_5_SONNET_20240620_V1_0_51K",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0_18K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0_18K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0_200K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0_200K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0_51K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0_51K",
 		&returns,
 	)
 	return returns
@@ -543,6 +609,39 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0() Foundatio
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0_12K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0_12K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0_200K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0_200K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0_28K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_3_OPUS_20240229_V1_0_28K",
 		&returns,
 	)
 	return returns
@@ -911,6 +1010,28 @@ func FoundationModelIdentifier_META_LLAMA_3_1_70_INSTRUCT_V1() FoundationModelId
 	return returns
 }
 
+func FoundationModelIdentifier_META_LLAMA_3_1_70_INSTRUCT_V1_128K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_1_70_INSTRUCT_V1_128K",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_3_1_8B_INSTRUCT_V_128K() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_1_8B_INSTRUCT_V_128K",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_META_LLAMA_3_1_8B_INSTRUCT_V1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -961,6 +1082,17 @@ func FoundationModelIdentifier_META_LLAMA_3_2_90B_INSTRUCT_V1() FoundationModelI
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"META_LLAMA_3_2_90B_INSTRUCT_V1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_META_LLAMA_3_3_70B_INSTRUCT_V1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"META_LLAMA_3_3_70B_INSTRUCT_V1",
 		&returns,
 	)
 	return returns
@@ -1043,6 +1175,17 @@ func FoundationModelIdentifier_MISTRAL_SMALL_V0_1() FoundationModelIdentifier {
 	return returns
 }
 
+func FoundationModelIdentifier_STABILITY_SD3_5_LARGE_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"STABILITY_SD3_5_LARGE_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_STABILITY_SD3_LARGE_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1109,12 +1252,34 @@ func FoundationModelIdentifier_STABILITY_STABLE_IMAGE_CORE_V1_0() FoundationMode
 	return returns
 }
 
+func FoundationModelIdentifier_STABILITY_STABLE_IMAGE_CORE_V1_1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"STABILITY_STABLE_IMAGE_CORE_V1_1",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_STABILITY_STABLE_IMAGE_ULTRA_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"STABILITY_STABLE_IMAGE_ULTRA_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_STABILITY_STABLE_IMAGE_ULTRA_V1_1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"STABILITY_STABLE_IMAGE_ULTRA_V1_1",
 		&returns,
 	)
 	return returns

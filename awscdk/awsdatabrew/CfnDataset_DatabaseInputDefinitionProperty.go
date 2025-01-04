@@ -18,6 +18,7 @@ package awsdatabrew
 //   		Bucket: jsii.String("bucket"),
 //
 //   		// the properties below are optional
+//   		BucketOwner: jsii.String("bucketOwner"),
 //   		Key: jsii.String("key"),
 //   	},
 //   }

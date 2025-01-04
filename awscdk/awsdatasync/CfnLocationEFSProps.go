@@ -64,7 +64,7 @@ type CfnLocationEFSProps struct {
 	InTransitEncryption *string `field:"optional" json:"inTransitEncryption" yaml:"inTransitEncryption"`
 	// Specifies a mount path for your Amazon EFS file system.
 	//
-	// This is where DataSync reads or writes data (depending on if this is a source or destination location) on your file system.
+	// This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).
 	//
 	// By default, DataSync uses the root directory (or [access point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) if you provide one by using `AccessPointArn` ). You can also include subdirectories using forward slashes (for example, `/path/to/folder` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-subdirectory

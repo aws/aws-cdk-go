@@ -220,10 +220,14 @@ import (
 //   			ParsingStrategy: jsii.String("parsingStrategy"),
 //
 //   			// the properties below are optional
+//   			BedrockDataAutomationConfiguration: &BedrockDataAutomationConfigurationProperty{
+//   				ParsingModality: jsii.String("parsingModality"),
+//   			},
 //   			BedrockFoundationModelConfiguration: &BedrockFoundationModelConfigurationProperty{
 //   				ModelArn: jsii.String("modelArn"),
 //
 //   				// the properties below are optional
+//   				ParsingModality: jsii.String("parsingModality"),
 //   				ParsingPrompt: &ParsingPromptProperty{
 //   					ParsingPromptText: jsii.String("parsingPromptText"),
 //   				},

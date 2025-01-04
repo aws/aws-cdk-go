@@ -57,7 +57,7 @@ type CfnModelCard_TrainingJobDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-hyperparameters
 	//
 	HyperParameters interface{} `field:"optional" json:"hyperParameters" yaml:"hyperParameters"`
-	// The SageMaker training job Amazon Resource Name (ARN).
+	// The SageMaker AI training job Amazon Resource Name (ARN).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-trainingarn
 	//
 	TrainingArn *string `field:"optional" json:"trainingArn" yaml:"trainingArn"`
@@ -65,11 +65,11 @@ type CfnModelCard_TrainingJobDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-trainingdatasets
 	//
 	TrainingDatasets *[]*string `field:"optional" json:"trainingDatasets" yaml:"trainingDatasets"`
-	// The SageMaker training job image URI.
+	// The SageMaker AI training job image URI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-trainingenvironment
 	//
 	TrainingEnvironment interface{} `field:"optional" json:"trainingEnvironment" yaml:"trainingEnvironment"`
-	// The SageMaker training job results.
+	// The SageMaker AI training job results.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html#cfn-sagemaker-modelcard-trainingjobdetails-trainingmetrics
 	//
 	TrainingMetrics interface{} `field:"optional" json:"trainingMetrics" yaml:"trainingMetrics"`

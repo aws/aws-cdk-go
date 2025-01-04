@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Wisdom::AIGuardrail Resource Type.
+// Creates an Amazon Q in Connect AI Guardrail.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -96,15 +96,19 @@ type CfnAIGuardrail interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The identifier of the Amazon Q in Connect assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
+	// The Amazon Resource Name (ARN) of the AI Guardrail.
 	AttrAiGuardrailArn() *string
+	// The identifier of the Amazon Q in Connect AI Guardrail.
 	AttrAiGuardrailId() *string
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AttrAssistantArn() *string
-	// Messaging for when violations are detected in text.
+	// The message to return when the AI Guardrail blocks a prompt.
 	BlockedInputMessaging() *string
 	SetBlockedInputMessaging(val *string)
-	// Messaging for when violations are detected in text.
+	// The message to return when the AI Guardrail blocks a model response.
 	BlockedOutputsMessaging() *string
 	SetBlockedOutputsMessaging(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -114,17 +118,17 @@ type CfnAIGuardrail interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Content policy config for a guardrail.
+	// Contains details about how to handle harmful content.
 	ContentPolicyConfig() interface{}
 	SetContentPolicyConfig(val interface{})
-	// Contextual grounding policy config for a guardrail.
+	// The policy configuration details for the AI Guardrail's contextual grounding policy.
 	ContextualGroundingPolicyConfig() interface{}
 	SetContextualGroundingPolicyConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Description of the guardrail or its version.
+	// A description of the AI Guardrail.
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -137,6 +141,7 @@ type CfnAIGuardrail interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the AI Guardrail.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -146,16 +151,17 @@ type CfnAIGuardrail interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Sensitive information policy config for a guardrail.
+	// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 	SensitiveInformationPolicyConfig() interface{}
 	SetSensitiveInformationPolicyConfig(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags used to organize, track, or control access for this resource.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
-	// Topic policy config for a guardrail.
+	// Contains details about topics that the AI Guardrail should identify and deny.
 	TopicPolicyConfig() interface{}
 	SetTopicPolicyConfig(val interface{})
 	// Deprecated.
@@ -171,7 +177,7 @@ type CfnAIGuardrail interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// Word policy config for a guardrail.
+	// Contains details about the word policy to configured for the AI Guardrail.
 	WordPolicyConfig() interface{}
 	SetWordPolicyConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

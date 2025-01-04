@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// A collection of settings that specify the maintenance schedule for the PartnerApp.
+// Maintenance configuration settings for the SageMaker Partner AI App.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,9 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappmaintenanceconfig.html
 //
 type CfnPartnerApp_PartnerAppMaintenanceConfigProperty struct {
-	// The maintenance window start day and time for the PartnerApp.
+	// The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled.
+	//
+	// This value must take the following format: `3-letter-day:24-h-hour:minute` . For example: `TUE:03:30` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappmaintenanceconfig.html#cfn-sagemaker-partnerapp-partnerappmaintenanceconfig-maintenancewindowstart
 	//
 	MaintenanceWindowStart *string `field:"required" json:"maintenanceWindowStart" yaml:"maintenanceWindowStart"`

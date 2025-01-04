@@ -31,7 +31,7 @@ type CfnGuardrail_PiiEntityConfigProperty struct {
 	// A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
 	// - *AGE*
 	//
-	// An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+	// An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
 	// - *NAME*
 	//
 	// An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
@@ -58,7 +58,7 @@ type CfnGuardrail_PiiEntityConfigProperty struct {
 	// A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
 	// - *Finance*
 	//
-	// - *REDIT_DEBIT_CARD_CVV*
+	// - *CREDIT_DEBIT_CARD_CVV*
 	//
 	// A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
 	// - *CREDIT_DEBIT_CARD_EXPIRY*

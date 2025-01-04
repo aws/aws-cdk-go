@@ -11,13 +11,17 @@ import (
 
 // The `AWS::CloudFormation::Stack` resource nests a stack as a resource in a top-level template.
 //
+// For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+//
 // You can add output values from a nested stack within the containing template. You use the [GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) function with the nested stack's logical name and the name of the output value in the nested stack in the format `Outputs. *NestedStackOutputName*` .
 //
-// > We strongly recommend that updates to nested stacks are run from the parent stack.
+// We strongly recommend that updates to nested stacks are run from the parent stack.
 //
-// When you apply template changes to update a top-level stack, CloudFormation updates the top-level stack and initiates an update to its nested stacks. CloudFormation updates the resources of modified nested stacks, but doesn't update the resources of unmodified nested stacks. For more information, see [CloudFormation stack updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html) .
+// When you apply template changes to update a top-level stack, CloudFormation updates the top-level stack and initiates an update to its nested stacks. CloudFormation updates the resources of modified nested stacks, but doesn't update the resources of unmodified nested stacks.
 //
-// > You must acknowledge IAM capabilities for nested stacks that contain IAM resources. Also, verify that you have cancel update stack permissions, which is required if an update rolls back. For more information about IAM and CloudFormation , see [Controlling access with AWS Identity and Access Management](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html) . > A subset of `AWS::CloudFormation::Stack` resource type properties listed below are available to customers using AWS CloudFormation , AWS CDK , and AWS Cloud Control API to configure.
+// You must acknowledge IAM capabilities for nested stacks that contain IAM resources. Also, verify that you have cancel update stack permissions, which is required if an update rolls back. For more information about IAM and CloudFormation , see [Controlling access with AWS Identity and Access Management](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html) in the *AWS CloudFormation User Guide* .
+//
+// > A subset of `AWS::CloudFormation::Stack` resource type properties listed below are available to customers using CloudFormation , AWS CDK , and AWS Cloud Control API to configure.
 // >
 // > - `NotificationARNs`
 // > - `Parameters`
@@ -25,7 +29,7 @@ import (
 // > - `TemplateURL`
 // > - `TimeoutInMinutes`
 // >
-// > These properties can be configured only when using AWS Cloud Control API . This is because the below properties are set by the parent stack, and thus cannot be configured using AWS CloudFormation or AWS CDK but only AWS Cloud Control API .
+// > These properties can be configured only when using AWS Cloud Control API . This is because the below properties are set by the parent stack, and thus cannot be configured using CloudFormation or AWS CDK but only AWS Cloud Control API .
 // >
 // > - `Capabilities`
 // > - `Description`
@@ -38,7 +42,7 @@ import (
 // > - `StackStatusReason`
 // > - `TemplateBody`
 // >
-// > Customers that configure `AWS::CloudFormation::Stack` using AWS CloudFormation and AWS CDK can do so for nesting a CloudFormation stack as a resource in their top-level template.
+// > Customers that configure `AWS::CloudFormation::Stack` using CloudFormation and AWS CDK can do so for nesting a CloudFormation stack as a resource in their top-level template.
 // >
 // > These read-only properties can be accessed only when using AWS Cloud Control API .
 // >
@@ -92,12 +96,8 @@ type CfnStack interface {
 	// For nested stacks--stacks created as resources for another stack--returns the stack ID of the direct parent of this stack.
 	//
 	// For the first level of nested stacks, the root stack is also the parent stack.
-	//
-	// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 	AttrParentId() *string
 	// For nested stacks--stacks created as resources for another stack--returns the stack ID of the top-level stack to which the nested stack ultimately belongs.
-	//
-	// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 	AttrRootId() *string
 	// Returns the unique identifier of the stack.
 	AttrStackId() *string
@@ -144,7 +144,7 @@ type CfnStack interface {
 	// Key-value pairs to associate with this stack.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// Location of file containing the template body.
+	// The URL of a file containing the template body.
 	TemplateUrl() *string
 	SetTemplateUrl(val *string)
 	// The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state.

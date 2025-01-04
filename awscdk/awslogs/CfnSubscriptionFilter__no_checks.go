@@ -80,6 +80,10 @@ func validateCfnSubscriptionFilter_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSubscriptionFilter) validateSetApplyOnTransformedLogsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSubscriptionFilter) validateSetDestinationArnParameters(val *string) error {
 	return nil
 }

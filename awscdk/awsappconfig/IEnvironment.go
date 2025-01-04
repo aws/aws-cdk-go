@@ -22,6 +22,8 @@ type IEnvironment interface {
 	AddDeployments(configurations ...IConfiguration)
 	// Adds an extension association to the environment.
 	AddExtension(extension IExtension)
+	// Adds an AT_DEPLOYMENT_TICK extension with the provided event destination and also creates an extension association to an application.
+	AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions)
 	// Adds an IAM policy statement associated with this environment to an IAM principal's policy.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits an IAM principal to perform read operations on this environment's configurations.
@@ -97,6 +99,17 @@ func (i *jsiiProxy_IEnvironment) AddExtension(extension IExtension) {
 		i,
 		"addExtension",
 		[]interface{}{extension},
+	)
+}
+
+func (i *jsiiProxy_IEnvironment) AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions) {
+	if err := i.validateAtDeploymentTickParameters(eventDestination, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"atDeploymentTick",
+		[]interface{}{eventDestination, options},
 	)
 }
 

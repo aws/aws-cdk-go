@@ -102,6 +102,10 @@ func init() {
 		reflect.TypeOf((*CfnCampaign_EmailOutboundModeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.EventTriggerProperty",
+		reflect.TypeOf((*CfnCampaign_EventTriggerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.LocalTimeZoneConfigProperty",
 		reflect.TypeOf((*CfnCampaign_LocalTimeZoneConfigProperty)(nil)).Elem(),
 	)

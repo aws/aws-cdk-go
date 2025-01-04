@@ -82,9 +82,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
 //
 type CfnIndexProps struct {
-	// Indicates whether the index is a Enterprise Edition index or a Developer Edition index.
-	//
-	// Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+	// Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
 	//
 	Edition *string `field:"required" json:"edition" yaml:"edition"`

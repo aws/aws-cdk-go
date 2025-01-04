@@ -45,21 +45,25 @@ type CfnDeliveryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html#cfn-logs-delivery-fielddelimiter
 	//
 	FieldDelimiter *string `field:"optional" json:"fieldDelimiter" yaml:"fieldDelimiter"`
-	// The record fields used in this delivery.
+	// The list of record fields to be delivered to the destination, in order.
+	//
+	// If the delivery's log source has mandatory fields, they must be included in this list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html#cfn-logs-delivery-recordfields
 	//
 	RecordFields *[]*string `field:"optional" json:"recordFields" yaml:"recordFields"`
-	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+	// Use this parameter to cause the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html#cfn-logs-delivery-s3enablehivecompatiblepath
 	//
 	S3EnableHiveCompatiblePath interface{} `field:"optional" json:"s3EnableHiveCompatiblePath" yaml:"s3EnableHiveCompatiblePath"`
-	// This string allows re-configuring the S3 object prefix to contain either static or variable sections.
+	// Use this to reconfigure the S3 object prefix to contain either static or variable sections.
 	//
-	// The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+	// The valid variables to use in the suffix path will vary by each log source. To find the values supported for the suffix path for each log source, use the [DescribeConfigurationTemplates](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.html) operation and check the `allowedSuffixPathFields` field in the response.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html#cfn-logs-delivery-s3suffixpath
 	//
 	S3SuffixPath *string `field:"optional" json:"s3SuffixPath" yaml:"s3SuffixPath"`
-	// The tags that have been assigned to this delivery.
+	// An array of key-value pairs to apply to the delivery.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html#cfn-logs-delivery-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

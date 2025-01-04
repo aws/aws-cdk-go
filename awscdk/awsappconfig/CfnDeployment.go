@@ -64,6 +64,8 @@ type CfnDeployment interface {
 	// The application ID.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The sequence number of the deployment.
+	AttrDeploymentNumber() *string
 	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -273,6 +275,16 @@ func (j *jsiiProxy_CfnDeployment) ApplicationId() *string {
 	_jsii_.Get(
 		j,
 		"applicationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeployment) AttrDeploymentNumber() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDeploymentNumber",
 		&returns,
 	)
 	return returns

@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// A config for grounding filter.
+// A configuration for grounding filter.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,7 +22,7 @@ type CfnAIGuardrail_GuardrailContextualGroundingFilterConfigProperty struct {
 	// Default: - 0.
 	//
 	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
-	// Type of contextual grounding filter.
+	// The type of this filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailcontextualgroundingfilterconfig.html#cfn-wisdom-aiguardrail-guardrailcontextualgroundingfilterconfig-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

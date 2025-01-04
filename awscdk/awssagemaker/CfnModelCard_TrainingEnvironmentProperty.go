@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// SageMaker training image.
+// SageMaker AI training image.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -17,7 +17,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingenvironment.html
 //
 type CfnModelCard_TrainingEnvironmentProperty struct {
-	// SageMaker inference image URI.
+	// SageMaker AI inference image URI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingenvironment.html#cfn-sagemaker-modelcard-trainingenvironment-containerimage
 	//
 	ContainerImage *[]*string `field:"optional" json:"containerImage" yaml:"containerImage"`

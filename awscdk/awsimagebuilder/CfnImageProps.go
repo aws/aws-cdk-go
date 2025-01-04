@@ -9,9 +9,6 @@ package awsimagebuilder
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnImageProps := &CfnImageProps{
-//   	InfrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
-//
-//   	// the properties below are optional
 //   	ContainerRecipeArn: jsii.String("containerRecipeArn"),
 //   	DistributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	EnhancedImageMetadataEnabled: jsii.Boolean(false),
@@ -30,6 +27,7 @@ package awsimagebuilder
 //   		ImageTestsEnabled: jsii.Boolean(false),
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
+//   	InfrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -53,10 +51,6 @@ package awsimagebuilder
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
 //
 type CfnImageProps struct {
-	// The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
-	//
-	InfrastructureConfigurationArn *string `field:"required" json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
 	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
 	//
@@ -87,6 +81,10 @@ type CfnImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
 	//
 	ImageTestsConfiguration interface{} `field:"optional" json:"imageTestsConfiguration" yaml:"imageTestsConfiguration"`
+	// The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+	//
+	InfrastructureConfigurationArn *string `field:"optional" json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
 	// The tags of the image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
 	//

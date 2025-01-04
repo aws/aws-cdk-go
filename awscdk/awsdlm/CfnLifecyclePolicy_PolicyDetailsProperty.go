@@ -259,9 +259,9 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	PolicyType *string `field:"optional" json:"policyType" yaml:"policyType"`
 	// *[Custom snapshot and AMI policies only]* The location of the resources to backup.
 	//
-	// If the source resources are located in an AWS Region , specify `CLOUD` . If the source resources are located on an Outpost in your account, specify `OUTPOST` .
-	//
-	// If you specify `OUTPOST` , Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account.
+	// - If the source resources are located in a Region, specify `CLOUD` . In this case, the policy targets all resources of the specified type with matching target tags across all Availability Zones in the Region.
+	// - *[Custom snapshot policies only]* If the source resources are located in a Local Zone, specify `LOCAL_ZONE` . In this case, the policy targets all resources of the specified type with matching target tags across all Local Zones in the Region.
+	// - If the source resources are located on an Outpost in your account, specify `OUTPOST` . In this case, the policy targets all resources of the specified type with matching target tags across all of the Outposts in your account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcelocations
 	//
 	ResourceLocations *[]*string `field:"optional" json:"resourceLocations" yaml:"resourceLocations"`

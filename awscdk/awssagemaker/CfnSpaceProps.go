@@ -40,6 +40,9 @@ import (
 //   				EfsFileSystem: &EFSFileSystemProperty{
 //   					FileSystemId: jsii.String("fileSystemId"),
 //   				},
+//   				FSxLustreFileSystem: &FSxLustreFileSystemProperty{
+//   					FileSystemId: jsii.String("fileSystemId"),
+//   				},
 //   			},
 //   		},
 //   		JupyterLabAppSettings: &SpaceJupyterLabAppSettingsProperty{

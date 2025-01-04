@@ -67,9 +67,9 @@ type CfnWorkspacesPoolProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The tags for the pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html#cfn-workspaces-workspacespool-tags
 	//
+	// Deprecated: this property has been deprecated.
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The amount of time that a pool session remains active after users disconnect.
 	//

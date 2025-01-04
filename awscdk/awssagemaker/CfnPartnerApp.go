@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::SageMaker::PartnerApp.
+// Creates an Amazon SageMaker Partner AI App.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -54,7 +54,7 @@ type CfnPartnerApp interface {
 	// A collection of configuration settings for the PartnerApp.
 	ApplicationConfig() interface{}
 	SetApplicationConfig(val interface{})
-	// The Amazon Resource Name (ARN) of the created PartnerApp.
+	// The ARN of the SageMaker Partner AI App.
 	AttrArn() *string
 	// The AppServerUrl based on app and account-info.
 	AttrBaseUrl() *string
@@ -69,7 +69,9 @@ type CfnPartnerApp interface {
 	// AWS resource type.
 	CfnResourceType() *string
 	// The client token for the PartnerApp.
+	// Deprecated: this property has been deprecated.
 	ClientToken() *string
+	// Deprecated: this property has been deprecated.
 	SetClientToken(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
@@ -94,7 +96,7 @@ type CfnPartnerApp interface {
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
 	MaintenanceConfig() interface{}
 	SetMaintenanceConfig(val interface{})
-	// A name for the PartnerApp.
+	// The name of the SageMaker Partner AI App.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -114,7 +116,7 @@ type CfnPartnerApp interface {
 	// The tier of the PartnerApp.
 	Tier() *string
 	SetTier(val *string)
-	// The type of PartnerApp.
+	// The type of SageMaker Partner AI App to create.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

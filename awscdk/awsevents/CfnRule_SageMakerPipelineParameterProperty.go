@@ -1,7 +1,7 @@
 package awsevents
 
 
-// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+// Name/Value pair of a parameter to start execution of a SageMaker AI Model Building Pipeline.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package awsevents
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameter.html
 //
 type CfnRule_SageMakerPipelineParameterProperty struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameter.html#cfn-events-rule-sagemakerpipelineparameter-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameter.html#cfn-events-rule-sagemakerpipelineparameter-value
 	//
 	Value *string `field:"required" json:"value" yaml:"value"`

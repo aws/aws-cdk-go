@@ -69,6 +69,7 @@ type CfnResourceShareProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns
 	//
 	ResourceArns *[]*string `field:"optional" json:"resourceArns" yaml:"resourceArns"`
+	// Specifies from which source accounts the service principal has access to the resources in this resource share.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-sources
 	//
 	Sources *[]*string `field:"optional" json:"sources" yaml:"sources"`

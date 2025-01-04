@@ -101,6 +101,8 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	//
 	// You specify one override for each rule whose action you want to change.
 	//
+	// > Take care to verify the rule names in your overrides. If you provide a rule name that doesn't match the name of any rule in the rule group, AWS WAF doesn't return an error and doesn't apply the override setting.
+	//
 	// You can use overrides for testing, for example you can override all of rule actions to `Count` and then monitor the resulting count metrics to understand how the rule group would handle your web traffic. You can also permanently override some or all actions, to modify how the rule group manages your web traffic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-ruleactionoverrides
 	//

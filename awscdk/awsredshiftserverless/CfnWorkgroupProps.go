@@ -26,6 +26,10 @@ import (
 //   	MaxCapacity: jsii.Number(123),
 //   	NamespaceName: jsii.String("namespaceName"),
 //   	Port: jsii.Number(123),
+//   	PricePerformanceTarget: &PerformanceTargetProperty{
+//   		Level: jsii.Number(123),
+//   		Status: jsii.String("status"),
+//   	},
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -80,6 +84,10 @@ type CfnWorkgroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	// An object that represents the price performance target settings for the workgroup.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-priceperformancetarget
+	//
+	PricePerformanceTarget interface{} `field:"optional" json:"pricePerformanceTarget" yaml:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-publiclyaccessible
 	//

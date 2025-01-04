@@ -11,7 +11,7 @@ import (
 
 // The `AWS::CloudFormation::Macro` resource is a CloudFormation resource type that creates a CloudFormation macro to perform custom processing on CloudFormation templates.
 //
-// For more information, see [Using AWS CloudFormation macros to perform custom processing on templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) .
+// For more information, see [Perform custom processing on CloudFormation templates with template macros](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,10 +46,10 @@ type CfnMacro interface {
 	// A description of the macro.
 	Description() *string
 	SetDescription(val *string)
-	// The Amazon Resource Name (ARN) of the underlying AWS Lambda function that you want AWS CloudFormation to invoke when the macro is run.
+	// The Amazon Resource Name (ARN) of the underlying Lambda function that you want CloudFormation to invoke when the macro is run.
 	FunctionName() *string
 	SetFunctionName(val *string)
-	// The CloudWatch Logs group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
+	// The CloudWatch Logs group to which CloudFormation sends error logging information when invoking the macro's underlying Lambda function.
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -62,7 +62,7 @@ type CfnMacro interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch Logs .
+	// The ARN of the role CloudFormation should assume when sending log entries to CloudWatch Logs .
 	LogRoleArn() *string
 	SetLogRoleArn(val *string)
 	// The name of the macro.

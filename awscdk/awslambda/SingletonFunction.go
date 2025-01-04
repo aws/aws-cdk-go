@@ -39,6 +39,10 @@ type SingletonFunction interface {
 	//
 	// Will fail if not a VPC-enabled Lambda Function.
 	Connections() awsec2.Connections
+	// The name of the singleton function.
+	//
+	// It acts as a unique ID within its CDK stack.
+	ConstructName() *string
 	// Returns a `lambda.Version` which represents the current version of this singleton Lambda function. A new version will be created every time the function's configuration changes.
 	//
 	// You can specify options for this version using the `currentVersionOptions`
@@ -231,6 +235,16 @@ func (j *jsiiProxy_SingletonFunction) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SingletonFunction) ConstructName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"constructName",
 		&returns,
 	)
 	return returns

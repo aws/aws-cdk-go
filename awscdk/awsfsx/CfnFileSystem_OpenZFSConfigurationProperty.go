@@ -124,6 +124,7 @@ type CfnFileSystem_OpenZFSConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-preferredsubnetid
 	//
 	PreferredSubnetId *string `field:"optional" json:"preferredSubnetId" yaml:"preferredSubnetId"`
+	// Specifies the optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-readcacheconfiguration
 	//
 	ReadCacheConfiguration interface{} `field:"optional" json:"readCacheConfiguration" yaml:"readCacheConfiguration"`

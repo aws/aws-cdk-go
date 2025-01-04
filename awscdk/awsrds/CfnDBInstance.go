@@ -84,6 +84,7 @@ import (
 //   	},
 //   	DbSnapshotIdentifier: jsii.String("dbSnapshotIdentifier"),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
+//   	DbSystemId: jsii.String("dbSystemId"),
 //   	DedicatedLogVolume: jsii.Boolean(false),
 //   	DeleteAutomatedBackups: jsii.Boolean(false),
 //   	DeletionProtection: jsii.Boolean(false),
@@ -183,6 +184,12 @@ type CfnDBInstance interface {
 	AttrCertificateDetailsCaIdentifier() *string
 	// The expiration date of the DB instance’s server certificate.
 	AttrCertificateDetailsValidTill() *string
+	// The mode of Database Insights to enable for the DB instance.
+	//
+	// This setting only applies to Amazon Aurora DB instances.
+	//
+	// > Currently, this value is inherited from the DB cluster and can't be changed.
+	AttrDatabaseInsightsMode() *string
 	// The Amazon Resource Name (ARN) for the DB instance.
 	AttrDbInstanceArn() *string
 	// The AWS Region-unique, immutable identifier for the DB instance.
@@ -278,6 +285,9 @@ type CfnDBInstance interface {
 	// A DB subnet group to associate with the DB instance.
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
+	// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files.
+	DbSystemId() *string
+	SetDbSystemId(val *string)
 	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
 	DedicatedLogVolume() interface{}
 	SetDedicatedLogVolume(val interface{})
@@ -671,6 +681,16 @@ func (j *jsiiProxy_CfnDBInstance) AttrCertificateDetailsValidTill() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBInstance) AttrDatabaseInsightsMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDatabaseInsightsMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBInstance) AttrDbInstanceArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -976,6 +996,16 @@ func (j *jsiiProxy_CfnDBInstance) DbSubnetGroupName() *string {
 	_jsii_.Get(
 		j,
 		"dbSubnetGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) DbSystemId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dbSystemId",
 		&returns,
 	)
 	return returns
@@ -1827,6 +1857,14 @@ func (j *jsiiProxy_CfnDBInstance)SetDbSubnetGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"dbSubnetGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetDbSystemId(val *string) {
+	_jsii_.Set(
+		j,
+		"dbSystemId",
 		val,
 	)
 }

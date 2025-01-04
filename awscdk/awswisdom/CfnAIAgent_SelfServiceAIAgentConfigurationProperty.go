@@ -1,6 +1,8 @@
 package awswisdom
 
 
+// The configuration of the self-service AI agent.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -61,15 +63,19 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-selfserviceaiagentconfiguration.html
 //
 type CfnAIAgent_SelfServiceAIAgentConfigurationProperty struct {
+	// The association configuration of the self-service AI agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-selfserviceaiagentconfiguration.html#cfn-wisdom-aiagent-selfserviceaiagentconfiguration-associationconfigurations
 	//
 	AssociationConfigurations interface{} `field:"optional" json:"associationConfigurations" yaml:"associationConfigurations"`
+	// The ID of the self-service AI guardrail.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-selfserviceaiagentconfiguration.html#cfn-wisdom-aiagent-selfserviceaiagentconfiguration-selfserviceaiguardrailid
 	//
 	SelfServiceAiGuardrailId *string `field:"optional" json:"selfServiceAiGuardrailId" yaml:"selfServiceAiGuardrailId"`
+	// The ID of the self-service answer generation AI prompt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-selfserviceaiagentconfiguration.html#cfn-wisdom-aiagent-selfserviceaiagentconfiguration-selfserviceanswergenerationaipromptid
 	//
 	SelfServiceAnswerGenerationAiPromptId *string `field:"optional" json:"selfServiceAnswerGenerationAiPromptId" yaml:"selfServiceAnswerGenerationAiPromptId"`
+	// The ID of the self-service preprocessing AI prompt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-selfserviceaiagentconfiguration.html#cfn-wisdom-aiagent-selfserviceaiagentconfiguration-selfservicepreprocessingaipromptid
 	//
 	SelfServicePreProcessingAiPromptId *string `field:"optional" json:"selfServicePreProcessingAiPromptId" yaml:"selfServicePreProcessingAiPromptId"`

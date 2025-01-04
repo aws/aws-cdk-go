@@ -24,6 +24,9 @@ import (
 //   		OutboundCallerIdNumberArn: jsii.String("outboundCallerIdNumberArn"),
 //   		OutboundFlowArn: jsii.String("outboundFlowArn"),
 //   	},
+//   	OutboundEmailConfig: &OutboundEmailConfigProperty{
+//   		OutboundEmailAddressId: jsii.String("outboundEmailAddressId"),
+//   	},
 //   	QuickConnectArns: []*string{
 //   		jsii.String("quickConnectArns"),
 //   	},
@@ -63,6 +66,10 @@ type CfnQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-outboundcallerconfig
 	//
 	OutboundCallerConfig interface{} `field:"optional" json:"outboundCallerConfig" yaml:"outboundCallerConfig"`
+	// The outbound email address ID for a specified queue.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-outboundemailconfig
+	//
+	OutboundEmailConfig interface{} `field:"optional" json:"outboundEmailConfig" yaml:"outboundEmailConfig"`
 	// The Amazon Resource Names (ARN) of the of the quick connects available to agents who are working the queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-quickconnectarns
 	//

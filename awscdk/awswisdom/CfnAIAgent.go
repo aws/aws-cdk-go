@@ -198,6 +198,7 @@ type CfnAIAgent interface {
 	AttrAiAgentId() *string
 	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AttrAssistantArn() *string
+	AttrModifiedTimeSeconds() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -427,6 +428,16 @@ func (j *jsiiProxy_CfnAIAgent) AttrAssistantArn() *string {
 	_jsii_.Get(
 		j,
 		"attrAssistantArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAIAgent) AttrModifiedTimeSeconds() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrModifiedTimeSeconds",
 		&returns,
 	)
 	return returns

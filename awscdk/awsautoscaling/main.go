@@ -135,6 +135,14 @@ func init() {
 			return &jsiiProxy_BlockDeviceVolume{}
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_autoscaling.CapacityDistributionStrategy",
+		reflect.TypeOf((*CapacityDistributionStrategy)(nil)).Elem(),
+		map[string]interface{}{
+			"BALANCED_ONLY": CapacityDistributionStrategy_BALANCED_ONLY,
+			"BALANCED_BEST_EFFORT": CapacityDistributionStrategy_BALANCED_BEST_EFFORT,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
 		reflect.TypeOf((*CfnAutoScalingGroup)(nil)).Elem(),

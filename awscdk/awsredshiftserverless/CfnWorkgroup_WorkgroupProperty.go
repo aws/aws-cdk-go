@@ -38,6 +38,10 @@ package awsredshiftserverless
 //   	EnhancedVpcRouting: jsii.Boolean(false),
 //   	MaxCapacity: jsii.Number(123),
 //   	NamespaceName: jsii.String("namespaceName"),
+//   	PricePerformanceTarget: &PerformanceTargetProperty{
+//   		Level: jsii.Number(123),
+//   		Status: jsii.String("status"),
+//   	},
 //   	PubliclyAccessible: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -86,6 +90,10 @@ type CfnWorkgroup_WorkgroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-namespacename
 	//
 	NamespaceName *string `field:"optional" json:"namespaceName" yaml:"namespaceName"`
+	// An object that represents the price performance target settings for the workgroup.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-priceperformancetarget
+	//
+	PricePerformanceTarget interface{} `field:"optional" json:"pricePerformanceTarget" yaml:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-publiclyaccessible
 	//

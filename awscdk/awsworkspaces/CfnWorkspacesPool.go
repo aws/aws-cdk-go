@@ -107,8 +107,9 @@ type CfnWorkspacesPool interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags for the pool.
+	// Deprecated: this property has been deprecated.
 	Tags() *[]*awscdk.CfnTag
+	// Deprecated: this property has been deprecated.
 	SetTags(val *[]*awscdk.CfnTag)
 	// The amount of time that a pool session remains active after users disconnect.
 	TimeoutSettings() interface{}

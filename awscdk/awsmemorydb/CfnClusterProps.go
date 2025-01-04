@@ -92,7 +92,7 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-engine
 	//
 	Engine *string `field:"optional" json:"engine" yaml:"engine"`
-	// The Valkey or Redis OSS engine version used by the cluster .
+	// The Redis engine version used by the cluster .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`

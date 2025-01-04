@@ -7,9 +7,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::CloudFormation::GuardHook` resource creates a Guard Hook with the specified attributes within your CloudFormation template.
+// The `AWS::CloudFormation::GuardHook` resource creates and activates a Guard Hook.
 //
-// Using the Guard domain specific language (DSL), you can author Hooks to evaluate your resources before allowing stack creation, modification, or deletion. For more information, see [Guard Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/guard-hooks.html) in the *AWS CloudFormation Hooks User Guide* .
+// Using the Guard domain specific language (DSL), you can author Guard Hooks to evaluate your resources before allowing stack operations.
+//
+// For more information, see [Guard Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/guard-hooks.html) in the *AWS CloudFormation Hooks User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

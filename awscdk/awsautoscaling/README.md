@@ -826,6 +826,30 @@ autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps
 })
 ```
 
+## Capacity Distribution Strategy
+
+If launches fail in an Availability Zone, the following strategies are available.
+
+* `BALANCED_BEST_EFFORT` (default) - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+* `BALANCED_ONLY` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+
+```go
+var vpc vpc
+var instanceType instanceType
+var machineImage iMachineImage
+
+
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
+
+	// ...
+
+	AzCapacityDistributionStrategy: autoscaling.CapacityDistributionStrategy_BALANCED_ONLY,
+})
+```
+
 ## Future work
 
 * [ ] CloudWatch Events (impossible to add currently as the AutoScalingGroup ARN is

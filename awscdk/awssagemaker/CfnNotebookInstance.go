@@ -79,7 +79,7 @@ type CfnNotebookInstance interface {
 	// The Git repository associated with the notebook instance as its default code repository.
 	DefaultCodeRepository() *string
 	SetDefaultCodeRepository(val *string)
-	// Sets whether SageMaker provides internet access to the notebook instance.
+	// Sets whether SageMaker AI provides internet access to the notebook instance.
 	DirectInternetAccess() *string
 	SetDirectInternetAccess(val *string)
 	// Information on the IMDS configuration of the notebook instance.
@@ -88,7 +88,7 @@ type CfnNotebookInstance interface {
 	// The type of ML compute instance to launch for the notebook instance.
 	InstanceType() *string
 	SetInstanceType(val *string)
-	// The Amazon Resource Name (ARN) of a AWS Key Management Service key that SageMaker uses to encrypt data on the storage volume attached to your notebook instance.
+	// The Amazon Resource Name (ARN) of a AWS Key Management Service key that SageMaker AI uses to encrypt data on the storage volume attached to your notebook instance.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	// The name of a lifecycle configuration to associate with the notebook instance.
@@ -117,7 +117,7 @@ type CfnNotebookInstance interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// When you send any requests to AWS resources from the notebook instance, SageMaker assumes this role to perform tasks on your behalf.
+	// When you send any requests to AWS resources from the notebook instance, SageMaker AI assumes this role to perform tasks on your behalf.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// Whether root access is enabled or disabled for users of the notebook instance.

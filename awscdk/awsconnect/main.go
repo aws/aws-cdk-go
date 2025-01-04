@@ -856,6 +856,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "outboundCallerConfig", GoGetter: "OutboundCallerConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "outboundEmailConfig", GoGetter: "OutboundEmailConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "quickConnectArns", GoGetter: "QuickConnectArns"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -882,6 +883,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnQueue.OutboundCallerConfigProperty",
 		reflect.TypeOf((*CfnQueue_OutboundCallerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnQueue.OutboundEmailConfigProperty",
+		reflect.TypeOf((*CfnQueue_OutboundEmailConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnQueueProps",
@@ -1286,6 +1291,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "selfAssignContactFlowArn", GoGetter: "SelfAssignContactFlowArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},

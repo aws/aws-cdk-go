@@ -64,6 +64,8 @@ type CfnSubscriptionProps struct {
 	//
 	// - `MessageAttributes` (default) - The filter is applied on the message attributes.
 	// - `MessageBody` - The filter is applied on the message body.
+	//
+	// > `Null` is not a valid value for `FilterPolicyScope` . To delete a filter policy, delete the `FilterPolicy` property but keep `FilterPolicyScope` property as is.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicyscope
 	//
 	FilterPolicyScope *string `field:"optional" json:"filterPolicyScope" yaml:"filterPolicyScope"`

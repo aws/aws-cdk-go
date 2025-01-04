@@ -35,6 +35,8 @@ import (
 type Distribution interface {
 	awscdk.Resource
 	IDistribution
+	// The distribution ARN for this distribution.
+	DistributionArn() *string
 	// The domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
 	DistributionDomainName() *string
 	// The distribution ID for this distribution.
@@ -182,6 +184,16 @@ type Distribution interface {
 type jsiiProxy_Distribution struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IDistribution
+}
+
+func (j *jsiiProxy_Distribution) DistributionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"distributionArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Distribution) DistributionDomainName() *string {

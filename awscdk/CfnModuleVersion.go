@@ -7,13 +7,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Registers the specified version of the module with the CloudFormation service.
+// The `AWS::CloudFormation::ModuleVersion` resource registers the specified version of the module with the CloudFormation registry.
 //
 // Registering a module makes it available for use in CloudFormation templates in your AWS account and Region.
 //
-// To specify a module version as the default version, use the `[`AWS::CloudFormation::ModuleDefaultVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html)` resource.
+// For more information, see [Create reusable resource configurations that can be included across templates with CloudFormation modules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html) in the *CloudFormation User Guide* .
 //
-// For more information using modules, see [Using modules to encapsulate and reuse resource configurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html) and [Registering extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-register) in the *CloudFormation User Guide* . For information on developing modules, see [Developing modules](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/modules.html) in the *CloudFormation CLI User Guide* .
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,30 +30,28 @@ import (
 type CfnModuleVersion interface {
 	CfnResource
 	IInspectable
-	// The Amazon Resource Name (ARN) of the extension.
+	// The Amazon Resource Name (ARN) of the module.
 	AttrArn() *string
-	// The description of the extension.
+	// The description of the module.
 	AttrDescription() *string
 	// The URL of a page providing detailed documentation for this module.
 	AttrDocumentationUrl() *string
-	// Whether the specified extension version is set as the default version.
+	// Whether the specified module version is set as the default version.
 	//
 	// This applies only to private extensions you have registered in your account, and extensions published by AWS . For public third-party extensions, whether they are activated in your account, CloudFormation returns `null` .
 	AttrIsDefaultVersion() IResolvable
-	// The schema that defines the extension.
-	//
-	// For more information about extension schemas, see [Resource type schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) in the *AWS CloudFormation Command Line Interface (CLI) User Guide* .
+	// The schema that defines the module.
 	AttrSchema() *string
-	// When the specified private extension version was registered or activated in your account.
+	// When the specified private module version was registered or activated in your account.
 	AttrTimeCreated() *string
 	// The ID of this version of the module.
 	AttrVersionId() *string
-	// The scope at which the extension is visible and usable in CloudFormation operations.
+	// The scope at which the module is visible and usable in CloudFormation operations.
 	//
 	// Valid values include:
 	//
-	// - `PRIVATE` : The extension is only visible and usable within the account in which it is registered. CloudFormation marks any extensions you register as `PRIVATE` .
-	// - `PUBLIC` : The extension is publicly visible and usable within any AWS account.
+	// - `PRIVATE` : The extension (module) is only visible and usable within the account in which it is registered. CloudFormation marks any extensions you register as `PRIVATE` .
+	// - `PUBLIC` : The extension (module) is publicly visible and usable within any AWS account.
 	AttrVisibility() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions

@@ -80,11 +80,15 @@ func validateCfnVPCEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPCEndpoint) validateSetDnsOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPCEndpoint) validateSetPrivateDnsEnabledParameters(val interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnVPCEndpoint) validateSetServiceNameParameters(val *string) error {
+func (j *jsiiProxy_CfnVPCEndpoint) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

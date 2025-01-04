@@ -50,7 +50,7 @@ type CfnModelCard_ModelOverviewProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modeloverview.html#cfn-sagemaker-modelcard-modeloverview-modeldescription
 	//
 	ModelDescription *string `field:"optional" json:"modelDescription" yaml:"modelDescription"`
-	// The SageMaker Model ARN or non- SageMaker Model ID.
+	// The SageMaker AI Model ARN or non- SageMaker AI Model ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modeloverview.html#cfn-sagemaker-modelcard-modeloverview-modelid
 	//
 	ModelId *string `field:"optional" json:"modelId" yaml:"modelId"`

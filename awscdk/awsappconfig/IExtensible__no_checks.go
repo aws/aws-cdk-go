@@ -8,6 +8,10 @@ func (i *jsiiProxy_IExtensible) validateAddExtensionParameters(extension IExtens
 	return nil
 }
 
+func (i *jsiiProxy_IExtensible) validateAtDeploymentTickParameters(eventDestination IEventDestination, options *ExtensionOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IExtensible) validateOnParameters(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions) error {
 	return nil
 }

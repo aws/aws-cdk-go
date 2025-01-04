@@ -70,6 +70,8 @@ type SourcedConfiguration interface {
 	AddExistingEnvironmentsToApplication()
 	// Adds an extension association to the configuration profile.
 	AddExtension(extension IExtension)
+	// Adds an AT_DEPLOYMENT_TICK extension with the provided event destination and also creates an extension association to an application.
+	AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions)
 	DeployConfigToEnvironments()
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the configuration profile.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
@@ -369,6 +371,17 @@ func (s *jsiiProxy_SourcedConfiguration) AddExtension(extension IExtension) {
 		s,
 		"addExtension",
 		[]interface{}{extension},
+	)
+}
+
+func (s *jsiiProxy_SourcedConfiguration) AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions) {
+	if err := s.validateAtDeploymentTickParameters(eventDestination, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"atDeploymentTick",
+		[]interface{}{eventDestination, options},
 	)
 }
 

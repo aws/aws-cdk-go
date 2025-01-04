@@ -51,7 +51,7 @@ type CfnLocationFSxLustre interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+	// Specifies the Amazon Resource Name (ARN) of the FSx for Lustre file system.
 	FsxFilesystemArn() *string
 	SetFsxFilesystemArn(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -78,12 +78,14 @@ type CfnLocationFSxLustre interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A subdirectory in the location's path.
+	// Specifies a mount path for your FSx for Lustre file system.
+	//
+	// The path can include subdirectories.
 	Subdirectory() *string
 	SetSubdirectory(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The key-value pair that represents a tag that you want to add to the resource.
+	// Specifies labels that help you categorize, filter, and search for your AWS resources.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
 	// Deprecated.

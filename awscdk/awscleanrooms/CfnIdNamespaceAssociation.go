@@ -47,7 +47,9 @@ type CfnIdNamespaceAssociation interface {
 	AttrArn() *string
 	// The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.
 	AttrCollaborationArn() *string
+	// The unique identifier of the collaboration that contains this ID namespace association.
 	AttrCollaborationIdentifier() *string
+	// The unique identifier of the ID namespace association that you want to retrieve.
 	AttrIdNamespaceAssociationIdentifier() *string
 	AttrInputReferenceProperties() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) of the membership resource for this ID namespace association.

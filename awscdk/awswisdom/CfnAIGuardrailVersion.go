@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Wisdom::AIGuardrailVersion Resource Type.
+// Creates an Amazon Q in Connect AI Guardrail version.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,13 +29,19 @@ import (
 type CfnAIGuardrailVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The ID of the AI guardrail version.
 	AiGuardrailId() *string
 	SetAiGuardrailId(val *string)
+	// The ID of the AI guardrail version assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
+	// The ARN of the AI guardrail version.
 	AttrAiGuardrailArn() *string
+	// The ID of the AI guardrail version.
 	AttrAiGuardrailVersionId() *string
+	// The ARN of the AI guardrail version assistant.
 	AttrAssistantArn() *string
+	// The version number for this AI Guardrail version.
 	AttrVersionNumber() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -56,6 +62,7 @@ type CfnAIGuardrailVersion interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The modified time of the AI guardrail version in seconds.
 	ModifiedTimeSeconds() *float64
 	SetModifiedTimeSeconds(val *float64)
 	// The tree node.

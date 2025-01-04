@@ -21,7 +21,7 @@ package awscloudformation
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
 //
 type CfnMacroProps struct {
-	// The Amazon Resource Name (ARN) of the underlying AWS Lambda function that you want AWS CloudFormation to invoke when the macro is run.
+	// The Amazon Resource Name (ARN) of the underlying Lambda function that you want CloudFormation to invoke when the macro is run.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-functionname
 	//
 	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
@@ -35,11 +35,11 @@ type CfnMacroProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The CloudWatch Logs group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
+	// The CloudWatch Logs group to which CloudFormation sends error logging information when invoking the macro's underlying Lambda function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-loggroupname
 	//
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
-	// The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch Logs .
+	// The ARN of the role CloudFormation should assume when sending log entries to CloudWatch Logs .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-logrolearn
 	//
 	LogRoleArn *string `field:"optional" json:"logRoleArn" yaml:"logRoleArn"`

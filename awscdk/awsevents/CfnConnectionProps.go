@@ -127,7 +127,9 @@ type CfnConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The private resource the HTTP request will be sent to.
+	// For connections to private APIs, the parameters to use for invoking the API.
+	//
+	// For more information, see [Connecting to private APIs](https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html) in the **Amazon EventBridge User Guide** .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-invocationconnectivityparameters
 	//
 	InvocationConnectivityParameters interface{} `field:"optional" json:"invocationConnectivityParameters" yaml:"invocationConnectivityParameters"`

@@ -49,6 +49,9 @@ package awscloudfront
 //   				FunctionArn: jsii.String("functionArn"),
 //   			},
 //   		},
+//   		GrpcConfig: &GrpcConfigProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
 //   		LambdaFunctionAssociations: []interface{}{
 //   			&LambdaFunctionAssociationProperty{
 //   				EventType: jsii.String("eventType"),
@@ -75,6 +78,7 @@ package awscloudfront
 //   	Aliases: []*string{
 //   		jsii.String("aliases"),
 //   	},
+//   	AnycastIpListId: jsii.String("anycastIpListId"),
 //   	CacheBehaviors: []interface{}{
 //   		&CacheBehaviorProperty{
 //   			PathPattern: jsii.String("pathPattern"),
@@ -116,6 +120,9 @@ package awscloudfront
 //   					EventType: jsii.String("eventType"),
 //   					FunctionArn: jsii.String("functionArn"),
 //   				},
+//   			},
+//   			GrpcConfig: &GrpcConfigProperty{
+//   				Enabled: jsii.Boolean(false),
 //   			},
 //   			LambdaFunctionAssociations: []interface{}{
 //   				&LambdaFunctionAssociationProperty{
@@ -169,8 +176,6 @@ package awscloudfront
 //   	Ipv6Enabled: jsii.Boolean(false),
 //   	Logging: &LoggingProperty{
 //   		Bucket: jsii.String("bucket"),
-//
-//   		// the properties below are optional
 //   		IncludeCookies: jsii.Boolean(false),
 //   		Prefix: jsii.String("prefix"),
 //   	},
@@ -197,6 +202,9 @@ package awscloudfront
 //   					},
 //   					Quantity: jsii.Number(123),
 //   				},
+//
+//   				// the properties below are optional
+//   				SelectionCriteria: jsii.String("selectionCriteria"),
 //   			},
 //   		},
 //   	},
@@ -282,6 +290,10 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
 	//
 	Aliases *[]*string `field:"optional" json:"aliases" yaml:"aliases"`
+	// ID of the Anycast static IP list that is associated with the distribution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-anycastiplistid
+	//
+	AnycastIpListId *string `field:"optional" json:"anycastIpListId" yaml:"anycastIpListId"`
 	// A complex type that contains zero or more `CacheBehavior` elements.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
 	//
@@ -321,9 +333,11 @@ type CfnDistribution_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
 	//
 	CustomOrigin interface{} `field:"optional" json:"customOrigin" yaml:"customOrigin"`
-	// The object that you want CloudFront to request from your origin (for example, `index.html` ) when a viewer requests the root URL for your distribution ( `https://www.example.com` ) instead of an object in your distribution ( `https://www.example.com/product-description.html` ). Specifying a default root object avoids exposing the contents of your distribution.
+	// When a viewer requests the root URL for your distribution, the default root object is the object that you want CloudFront to request from your origin.
 	//
-	// Specify only the object name, for example, `index.html` . Don't add a `/` before the object name.
+	// For example, if your root URL is `https://www.example.com` , you can specify CloudFront to return the `index.html` file as the default root object. You can specify a default root object so that viewers see a specific file or object, instead of another object in your distribution (for example, `https://www.example.com/product-description.html` ). A default root object avoids exposing the contents of your distribution.
+	//
+	// You can specify the object name or a path to the object name (for example, `index.html` or `exampleFolderName/index.html` ). Your string can't begin with a forward slash ( `/` ). Only specify the object name or the path to the object.
 	//
 	// If you don't want to specify a default root object when you create a distribution, include an empty `DefaultRootObject` element.
 	//
@@ -331,7 +345,7 @@ type CfnDistribution_DistributionConfigProperty struct {
 	//
 	// To replace the default root object, update the distribution configuration and specify the new object.
 	//
-	// For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide* .
+	// For more information about the default root object, see [Specify a default root object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
 	//
 	// Default: - "".

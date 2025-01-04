@@ -1,5 +1,8 @@
 package awsec2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnVPCEndpoint`.
 //
@@ -11,20 +14,33 @@ package awsec2
 //   var policyDocument interface{}
 //
 //   cfnVPCEndpointProps := &CfnVPCEndpointProps{
-//   	ServiceName: jsii.String("serviceName"),
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	DnsOptions: &DnsOptionsSpecificationProperty{
+//   		DnsRecordIpType: jsii.String("dnsRecordIpType"),
+//   		PrivateDnsOnlyForInboundResolverEndpoint: jsii.String("privateDnsOnlyForInboundResolverEndpoint"),
+//   	},
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	PolicyDocument: policyDocument,
 //   	PrivateDnsEnabled: jsii.Boolean(false),
+//   	ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
 //   	RouteTableIds: []*string{
 //   		jsii.String("routeTableIds"),
 //   	},
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
+//   	ServiceName: jsii.String("serviceName"),
+//   	ServiceNetworkArn: jsii.String("serviceNetworkArn"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   	VpcEndpointType: jsii.String("vpcEndpointType"),
 //   }
@@ -32,14 +48,18 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html
 //
 type CfnVPCEndpointProps struct {
-	// The name of the endpoint service.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename
-	//
-	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
 	//
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	// Describes the DNS options for an endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-dnsoptions
+	//
+	DnsOptions interface{} `field:"optional" json:"dnsOptions" yaml:"dnsOptions"`
+	// The supported IP address types.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-ipaddresstype
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// An endpoint policy, which controls access to the service from the VPC.
 	//
 	// The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
@@ -62,6 +82,10 @@ type CfnVPCEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled
 	//
 	PrivateDnsEnabled interface{} `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
+	// The Amazon Resource Name (ARN) of the resource configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-resourceconfigurationarn
+	//
+	ResourceConfigurationArn *string `field:"optional" json:"resourceConfigurationArn" yaml:"resourceConfigurationArn"`
 	// The IDs of the route tables.
 	//
 	// Routing is supported only for gateway endpoints.
@@ -74,12 +98,23 @@ type CfnVPCEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	// The name of the endpoint service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename
+	//
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
+	// The Amazon Resource Name (ARN) of the service network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicenetworkarn
+	//
+	ServiceNetworkArn *string `field:"optional" json:"serviceNetworkArn" yaml:"serviceNetworkArn"`
 	// The IDs of the subnets in which to create endpoint network interfaces.
 	//
 	// You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids
 	//
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of endpoint.
 	//
 	// Default: Gateway.

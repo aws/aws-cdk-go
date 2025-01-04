@@ -25,13 +25,13 @@ package awslogs
 type CfnIntegration_OpenSearchResourceConfigProperty struct {
 	// Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
 	//
-	// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see
+	// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-dashboardviewerprincipals
 	//
 	DashboardViewerPrincipals *[]*string `field:"required" json:"dashboardViewerPrincipals" yaml:"dashboardViewerPrincipals"`
 	// Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration.
 	//
-	// This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Create an IAM role to access the OpenSearch Service collection](https://docs.aws.amazon.com/OpenSearch-Dashboards-CreateRole) in the CloudWatch Logs User Guide.
+	// This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Permissions that the integration needs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html) in the CloudWatch Logs User Guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-datasourcerolearn
 	//
 	DataSourceRoleArn *string `field:"required" json:"dataSourceRoleArn" yaml:"dataSourceRoleArn"`

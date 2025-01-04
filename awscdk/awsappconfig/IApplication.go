@@ -19,6 +19,8 @@ type IApplication interface {
 	AddHostedConfiguration(id *string, options *HostedConfigurationOptions) HostedConfiguration
 	// Adds a sourced configuration.
 	AddSourcedConfiguration(id *string, options *SourcedConfigurationOptions) SourcedConfiguration
+	// Adds an AT_DEPLOYMENT_TICK extension with the provided event destination and also creates an extension association to an application.
+	AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions)
 	// Returns the list of associated environments.
 	Environments() *[]IEnvironment
 	// Adds an extension defined by the action point and event destination and also creates an extension association to an application.
@@ -120,6 +122,17 @@ func (i *jsiiProxy_IApplication) AddSourcedConfiguration(id *string, options *So
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IApplication) AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions) {
+	if err := i.validateAtDeploymentTickParameters(eventDestination, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"atDeploymentTick",
+		[]interface{}{eventDestination, options},
+	)
 }
 
 func (i *jsiiProxy_IApplication) Environments() *[]IEnvironment {

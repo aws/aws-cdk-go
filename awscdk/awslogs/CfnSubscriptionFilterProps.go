@@ -14,6 +14,7 @@ package awslogs
 //   	LogGroupName: jsii.String("logGroupName"),
 //
 //   	// the properties below are optional
+//   	ApplyOnTransformedLogs: jsii.Boolean(false),
 //   	Distribution: jsii.String("distribution"),
 //   	FilterName: jsii.String("filterName"),
 //   	RoleArn: jsii.String("roleArn"),
@@ -38,6 +39,14 @@ type CfnSubscriptionFilterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-loggroupname
 	//
 	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
+	// This parameter is valid only for log groups that have an active log transformer.
+	//
+	// For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+	//
+	// If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-applyontransformedlogs
+	//
+	ApplyOnTransformedLogs interface{} `field:"optional" json:"applyOnTransformedLogs" yaml:"applyOnTransformedLogs"`
 	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-distribution
 	//

@@ -263,6 +263,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAs2ServiceManagedEgressIpAddresses", GoGetter: "AttrAs2ServiceManagedEgressIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServerId", GoGetter: "AttrServerId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
 			_jsii_.MemberProperty{JsiiProperty: "certificate", GoGetter: "Certificate"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

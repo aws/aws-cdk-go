@@ -109,11 +109,11 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ApplicationId: jsii.String("applicationId"),
 //   	DisplayName: jsii.String("displayName"),
 //   	Principal: jsii.String("principal"),
 //
 //   	// the properties below are optional
-//   	ApplicationId: jsii.String("applicationId"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -125,18 +125,23 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html
 //
 type CfnDataAccessorProps struct {
+	// A list of action configurations specifying the allowed actions and any associated filters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-actionconfigurations
 	//
 	ActionConfigurations interface{} `field:"required" json:"actionConfigurations" yaml:"actionConfigurations"`
+	// The unique identifier of the Amazon Q Business application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-applicationid
+	//
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
+	// The friendly name of the data accessor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-displayname
 	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
+	// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-principal
 	//
 	Principal *string `field:"required" json:"principal" yaml:"principal"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-applicationid
-	//
-	ApplicationId *string `field:"optional" json:"applicationId" yaml:"applicationId"`
+	// The tags to associate with the data accessor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html#cfn-qbusiness-dataaccessor-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

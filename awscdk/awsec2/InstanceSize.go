@@ -67,6 +67,10 @@ const (
 	InstanceSize_XLARGE96 InstanceSize = "XLARGE96"
 	// Instance size XLARGE112 (112xlarge).
 	InstanceSize_XLARGE112 InstanceSize = "XLARGE112"
+	// Instance size XLARGE224 (224xlarge).
+	InstanceSize_XLARGE224 InstanceSize = "XLARGE224"
+	// Instance size XLARGE480 (480xlarge).
+	InstanceSize_XLARGE480 InstanceSize = "XLARGE480"
 	// Instance size METAL (metal).
 	InstanceSize_METAL InstanceSize = "METAL"
 	// Instance size XLARGE16METAL (metal-16xl).

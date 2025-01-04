@@ -425,6 +425,30 @@ func (j *jsiiProxy_CfnGlobalTable) validateSetLocalSecondaryIndexesParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnGlobalTable) validateSetPointInTimeRecoverySpecificationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnGlobalTable_PointInTimeRecoverySpecificationProperty:
+		val := val.(*CfnGlobalTable_PointInTimeRecoverySpecificationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnGlobalTable_PointInTimeRecoverySpecificationProperty:
+		val_ := val.(CfnGlobalTable_PointInTimeRecoverySpecificationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGlobalTable_PointInTimeRecoverySpecificationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnGlobalTable) validateSetReplicasParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::CloudFormation::StackSet` enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template.
+// The `AWS::CloudFormation::StackSet` resource enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template.
 //
 // In the stack set, you specify the template to use, in addition to any parameters and capabilities that the template requires.
 //
@@ -141,7 +141,7 @@ type CfnStackSet interface {
 	SetManagedExecution(val interface{})
 	// The tree node.
 	Node() constructs.Node
-	// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+	// The user-specified preferences for how CloudFormation performs a stack set operation.
 	OperationPreferences() interface{}
 	SetOperationPreferences(val interface{})
 	// The input parameters for the stack set template.
@@ -173,7 +173,7 @@ type CfnStackSet interface {
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody() *string
 	SetTemplateBody(val *string)
-	// Location of file containing the template body.
+	// The URL of a file containing the template body.
 	TemplateUrl() *string
 	SetTemplateUrl(val *string)
 	// Deprecated.

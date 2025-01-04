@@ -1,7 +1,7 @@
 package awswisdom
 
 
-// Pii entity configuration.
+// PII entity configuration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,7 +16,7 @@ package awswisdom
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailpiientityconfig.html
 //
 type CfnAIGuardrail_GuardrailPiiEntityConfigProperty struct {
-	// Options for sensitive information action.
+	// The action of guardrail PII entity configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailpiientityconfig.html#cfn-wisdom-aiguardrail-guardrailpiientityconfig-action
 	//
 	Action *string `field:"required" json:"action" yaml:"action"`

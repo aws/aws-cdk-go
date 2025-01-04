@@ -57,9 +57,6 @@ type CfnConnection_ConnectionInputProperty struct {
 	//
 	// - Required: `CONNECTION_URL` .
 	// - Required: All of ( `USERNAME` , `PASSWORD` ) or `SECRET_ID` .
-	// - `SALESFORCE` - Designates a connection to Salesforce using OAuth authencation.
-	//
-	// - Requires the `AuthenticationConfiguration` member to be configured.
 	// - `VIEW_VALIDATION_REDSHIFT` - Designates a connection used for view validation by Amazon Redshift.
 	// - `VIEW_VALIDATION_ATHENA` - Designates a connection used for view validation by Amazon Athena.
 	// - `NETWORK` - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
@@ -72,6 +69,31 @@ type CfnConnection_ConnectionInputProperty struct {
 	// - Required: `CONNECTOR_TYPE` , `CONNECTOR_URL` , `CONNECTOR_CLASS_NAME` , `CONNECTION_URL` .
 	// - Required for `JDBC` `CONNECTOR_TYPE` connections: All of ( `USERNAME` , `PASSWORD` ) or `SECRET_ID` .
 	// - `CUSTOM` - Uses configuration settings contained in a custom connector to read from and write to data stores that are not natively supported by AWS Glue .
+	//
+	// Additionally, a `ConnectionType` for the following SaaS connectors is supported:
+	//
+	// - `FACEBOOKADS` - Designates a connection to Facebook Ads.
+	// - `GOOGLEADS` - Designates a connection to Google Ads.
+	// - `GOOGLESHEETS` - Designates a connection to Google Sheets.
+	// - `GOOGLEANALYTICS4` - Designates a connection to Google Analytics 4.
+	// - `HUBSPOT` - Designates a connection to HubSpot.
+	// - `INSTAGRAMADS` - Designates a connection to Instagram Ads.
+	// - `INTERCOM` - Designates a connection to Intercom.
+	// - `JIRACLOUD` - Designates a connection to Jira Cloud.
+	// - `MARKETO` - Designates a connection to Adobe Marketo Engage.
+	// - `NETSUITEERP` - Designates a connection to Oracle NetSuite.
+	// - `SALESFORCE` - Designates a connection to Salesforce using OAuth authentication.
+	// - `SALESFORCEMARKETINGCLOUD` - Designates a connection to Salesforce Marketing Cloud.
+	// - `SALESFORCEPARDOT` - Designates a connection to Salesforce Marketing Cloud Account Engagement (MCAE).
+	// - `SAPODATA` - Designates a connection to SAP OData.
+	// - `SERVICENOW` - Designates a connection to ServiceNow.
+	// - `SLACK` - Designates a connection to Slack.
+	// - `SNAPCHATADS` - Designates a connection to Snapchat Ads.
+	// - `STRIPE` - Designates a connection to Stripe.
+	// - `ZENDESK` - Designates a connection to Zendesk.
+	// - `ZOHOCRM` - Designates a connection to Zoho CRM.
+	//
+	// For more information on the connection parameters needed for a particular connector, see the documentation for the connector in [Adding an AWS Glue connection](https://docs.aws.amazon.com/glue/latest/dg/console-connections.html) in the AWS Glue User Guide.
 	//
 	// `SFTP` is not supported.
 	//

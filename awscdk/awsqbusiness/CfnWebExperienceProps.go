@@ -53,6 +53,7 @@ type CfnWebExperienceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-applicationid
 	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
+	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-customizationconfiguration
 	//
 	CustomizationConfiguration interface{} `field:"optional" json:"customizationConfiguration" yaml:"customizationConfiguration"`

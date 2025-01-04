@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// The definition for create case action.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -32,7 +30,6 @@ type CfnRule_CreateCaseActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html#cfn-connect-rule-createcaseaction-fields
 	//
 	Fields interface{} `field:"required" json:"fields" yaml:"fields"`
-	// The Id of template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html#cfn-connect-rule-createcaseaction-templateid
 	//
 	TemplateId *string `field:"required" json:"templateId" yaml:"templateId"`

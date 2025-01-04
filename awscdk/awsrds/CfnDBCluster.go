@@ -61,6 +61,7 @@ import (
 //   	BackupRetentionPeriod: jsii.Number(123),
 //   	ClusterScalabilityType: jsii.String("clusterScalabilityType"),
 //   	CopyTagsToSnapshot: jsii.Boolean(false),
+//   	DatabaseInsightsMode: jsii.String("databaseInsightsMode"),
 //   	DatabaseName: jsii.String("databaseName"),
 //   	DbClusterIdentifier: jsii.String("dbClusterIdentifier"),
 //   	DbClusterInstanceClass: jsii.String("dbClusterInstanceClass"),
@@ -116,6 +117,7 @@ import (
 //   	ServerlessV2ScalingConfiguration: &ServerlessV2ScalingConfigurationProperty{
 //   		MaxCapacity: jsii.Number(123),
 //   		MinCapacity: jsii.Number(123),
+//   		SecondsUntilAutoPause: jsii.Number(123),
 //   	},
 //   	SnapshotIdentifier: jsii.String("snapshotIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
@@ -209,6 +211,9 @@ type CfnDBCluster interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The mode of Database Insights to enable for the DB cluster.
+	DatabaseInsightsMode() *string
+	SetDatabaseInsightsMode(val *string)
 	// The name of your database.
 	DatabaseName() *string
 	SetDatabaseName(val *string)
@@ -739,6 +744,16 @@ func (j *jsiiProxy_CfnDBCluster) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) DatabaseInsightsMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"databaseInsightsMode",
 		&returns,
 	)
 	return returns
@@ -1401,6 +1416,14 @@ func (j *jsiiProxy_CfnDBCluster)SetCopyTagsToSnapshot(val interface{}) {
 	_jsii_.Set(
 		j,
 		"copyTagsToSnapshot",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetDatabaseInsightsMode(val *string) {
+	_jsii_.Set(
+		j,
+		"databaseInsightsMode",
 		val,
 	)
 }

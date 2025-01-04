@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::QBusiness::DataAccessor Resource Type.
+// Creates a new data accessor for an ISV to access data from a Amazon Q Business application.
+//
+// The data accessor is an entity that represents the ISV's access to the Amazon Q Business application's data. It includes the IAM role ARN for the ISV, a friendly name, and a set of action configurations that define the specific actions the ISV is allowed to perform and any associated data filters. When the data accessor is created, an IAM Identity Center application is also created to manage the ISV's identity and authentication for accessing the Amazon Q Business application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -114,11 +116,11 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ApplicationId: jsii.String("applicationId"),
 //   	DisplayName: jsii.String("displayName"),
 //   	Principal: jsii.String("principal"),
 //
 //   	// the properties below are optional
-//   	ApplicationId: jsii.String("applicationId"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -133,14 +135,21 @@ type CfnDataAccessor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations() interface{}
 	SetActionConfigurations(val interface{})
+	// The unique identifier of the Amazon Q Business application.
 	ApplicationId() *string
 	SetApplicationId(val *string)
+	// The timestamp when the data accessor was created.
 	AttrCreatedAt() *string
+	// The Amazon Resource Name (ARN) of the data accessor.
 	AttrDataAccessorArn() *string
+	// The unique identifier of the data accessor.
 	AttrDataAccessorId() *string
+	// The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
 	AttrIdcApplicationArn() *string
+	// The timestamp when the data accessor was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -153,6 +162,7 @@ type CfnDataAccessor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The friendly name of the data accessor.
 	DisplayName() *string
 	SetDisplayName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -167,6 +177,7 @@ type CfnDataAccessor interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
 	Principal() *string
 	SetPrincipal(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -178,6 +189,7 @@ type CfnDataAccessor interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags to associate with the data accessor.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
@@ -577,6 +589,9 @@ func (j *jsiiProxy_CfnDataAccessor)SetActionConfigurations(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnDataAccessor)SetApplicationId(val *string) {
+	if err := j.validateSetApplicationIdParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"applicationId",

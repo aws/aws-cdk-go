@@ -25,9 +25,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataProtectionPolicy interface{}
+//   var fieldIndexPolicies interface{}
 //
 //   cfnLogGroup := awscdk.Aws_logs.NewCfnLogGroup(this, jsii.String("MyCfnLogGroup"), &CfnLogGroupProps{
 //   	DataProtectionPolicy: dataProtectionPolicy,
+//   	FieldIndexPolicies: []interface{}{
+//   		fieldIndexPolicies,
+//   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogGroupClass: jsii.String("logGroupClass"),
 //   	LogGroupName: jsii.String("logGroupName"),
@@ -60,6 +64,9 @@ type CfnLogGroup interface {
 	// Creates a data protection policy and assigns it to the log group.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
+	// Creates or updates a *field index policy* for the specified log group.
+	FieldIndexPolicies() interface{}
+	SetFieldIndexPolicies(val interface{})
 	// The Amazon Resource Name (ARN) of the AWS KMS key to use when encrypting log data.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -307,6 +314,16 @@ func (j *jsiiProxy_CfnLogGroup) DataProtectionPolicy() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLogGroup) FieldIndexPolicies() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"fieldIndexPolicies",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLogGroup) KmsKeyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -459,6 +476,17 @@ func (j *jsiiProxy_CfnLogGroup)SetDataProtectionPolicy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"dataProtectionPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLogGroup)SetFieldIndexPolicies(val interface{}) {
+	if err := j.validateSetFieldIndexPoliciesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"fieldIndexPolicies",
 		val,
 	)
 }

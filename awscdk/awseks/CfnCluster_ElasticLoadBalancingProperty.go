@@ -3,7 +3,7 @@ package awseks
 
 // Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster.
 //
-// For example, if the capability is enabled or disabled. For more information, see EKS Auto Mode load balancing capability in the EKS User Guide.
+// For example, if the capability is enabled or disabled. For more information, see EKS Auto Mode load balancing capability in the *Amazon EKS User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

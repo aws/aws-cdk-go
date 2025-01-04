@@ -36,6 +36,15 @@ package awsec2
 //   			Max: jsii.Number(123),
 //   			Min: jsii.Number(123),
 //   		},
+//   		BaselinePerformanceFactors: &BaselinePerformanceFactorsRequestProperty{
+//   			Cpu: &CpuPerformanceFactorRequestProperty{
+//   				References: []interface{}{
+//   					&PerformanceFactorReferenceRequestProperty{
+//   						InstanceFamily: jsii.String("instanceFamily"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		BurstablePerformance: jsii.String("burstablePerformance"),
 //   		CpuManufacturers: []*string{
 //   			jsii.String("cpuManufacturers"),

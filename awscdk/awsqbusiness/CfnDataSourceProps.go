@@ -94,6 +94,11 @@ import (
 //   			S3BucketName: jsii.String("s3BucketName"),
 //   		},
 //   	},
+//   	MediaExtractionConfiguration: &MediaExtractionConfigurationProperty{
+//   		ImageExtractionConfiguration: &ImageExtractionConfigurationProperty{
+//   			ImageExtractionStatus: jsii.String("imageExtractionStatus"),
+//   		},
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	SyncSchedule: jsii.String("syncSchedule"),
 //   	Tags: []cfnTag{
@@ -153,6 +158,10 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-documentenrichmentconfiguration
 	//
 	DocumentEnrichmentConfiguration interface{} `field:"optional" json:"documentEnrichmentConfiguration" yaml:"documentEnrichmentConfiguration"`
+	// The configuration for extracting information from media in documents.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-mediaextractionconfiguration
+	//
+	MediaExtractionConfiguration interface{} `field:"optional" json:"mediaExtractionConfiguration" yaml:"mediaExtractionConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-rolearn
 	//

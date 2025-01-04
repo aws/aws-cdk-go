@@ -1,6 +1,8 @@
 package awsec2
 
 
+// Specifies the CPU performance to consider when using an instance family as the baseline reference.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,9 +19,9 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpu.html
 //
 type CfnLaunchTemplate_CpuProperty struct {
-	// A list of references to be used as baseline for the CPU performance.
+	// The instance family to use as the baseline reference for CPU performance.
 	//
-	// Currently, you can only specify a single reference across different instance type variations such as CPU manufacturers, architectures etc.
+	// All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpu.html#cfn-ec2-launchtemplate-cpu-references
 	//
 	References interface{} `field:"optional" json:"references" yaml:"references"`

@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// An Amazon S3 location.
+// A storage location in an S3 bucket.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,9 +15,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-s3location.html
 //
 type CfnDataSource_S3LocationProperty struct {
-	// The location's URI.
-	//
-	// For example, `s3://my-bucket/chunk-processor/` .
+	// An object URI starting with `s3://` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-s3location.html#cfn-bedrock-datasource-s3location-uri
 	//
 	Uri *string `field:"required" json:"uri" yaml:"uri"`

@@ -17,20 +17,20 @@ import (
 //
 // When a domain is created, an EFS volume is created for use by all of the users within the domain. Each user receives a private home directory within the EFS volume for notebooks, Git repositories, and data files.
 //
-// SageMaker uses the AWS Key Management Service ( AWS KMS) to encrypt the EFS volume attached to the domain with an AWS managed key by default. For more control, you can specify a customer managed key. For more information, see [Protect Data at Rest Using Encryption](https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html) .
+// SageMaker AI uses the AWS Key Management Service ( AWS KMS) to encrypt the EFS volume attached to the domain with an AWS managed key by default. For more control, you can specify a customer managed key. For more information, see [Protect Data at Rest Using Encryption](https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html) .
 //
 // *VPC configuration*
 //
 // All traffic between the domain and the Amazon EFS volume is through the specified VPC and subnets. For other traffic, you can specify the `AppNetworkAccessType` parameter. `AppNetworkAccessType` corresponds to the network access type that you choose when you onboard to the domain. The following options are available:
 //
-// - `PublicInternetOnly` - Non-EFS traffic goes through a VPC managed by Amazon SageMaker, which allows internet access. This is the default value.
+// - `PublicInternetOnly` - Non-EFS traffic goes through a VPC managed by Amazon SageMaker AI, which allows internet access. This is the default value.
 // - `VpcOnly` - All traffic is through the specified VPC and subnets. Internet access is disabled by default. To allow internet access, you must specify a NAT gateway.
 //
-// When internet access is disabled, you won't be able to run a Amazon SageMaker Studio notebook or to train or host models unless your VPC has an interface endpoint to the SageMaker API and runtime or a NAT gateway and your security groups allow outbound connections.
+// When internet access is disabled, you won't be able to run a Amazon SageMaker AI Studio notebook or to train or host models unless your VPC has an interface endpoint to the SageMaker AI API and runtime or a NAT gateway and your security groups allow outbound connections.
 //
-// > NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound rules in order to launch a Amazon SageMaker Studio app successfully.
+// > NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound rules in order to launch a Amazon SageMaker AI Studio app successfully.
 //
-// For more information, see [Connect Amazon SageMaker Studio Notebooks to Resources in a VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html) .
+// For more information, see [Connect Amazon SageMaker AI Studio Notebooks to Resources in a VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -74,6 +74,12 @@ import (
 //   		CustomFileSystemConfigs: []interface{}{
 //   			&CustomFileSystemConfigProperty{
 //   				EfsFileSystemConfig: &EFSFileSystemConfigProperty{
+//   					FileSystemId: jsii.String("fileSystemId"),
+//
+//   					// the properties below are optional
+//   					FileSystemPath: jsii.String("fileSystemPath"),
+//   				},
+//   				FSxLustreFileSystemConfig: &FSxLustreFileSystemConfigProperty{
 //   					FileSystemId: jsii.String("fileSystemId"),
 //
 //   					// the properties below are optional
@@ -211,6 +217,12 @@ import (
 //   		CustomFileSystemConfigs: []interface{}{
 //   			&CustomFileSystemConfigProperty{
 //   				EfsFileSystemConfig: &EFSFileSystemConfigProperty{
+//   					FileSystemId: jsii.String("fileSystemId"),
+//
+//   					// the properties below are optional
+//   					FileSystemPath: jsii.String("fileSystemPath"),
+//   				},
+//   				FSxLustreFileSystemConfig: &FSxLustreFileSystemConfigProperty{
 //   					FileSystemId: jsii.String("fileSystemId"),
 //
 //   					// the properties below are optional

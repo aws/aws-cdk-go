@@ -179,6 +179,30 @@ func validateCfnVPCEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPCEndpoint) validateSetDnsOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnVPCEndpoint_DnsOptionsSpecificationProperty:
+		val := val.(*CfnVPCEndpoint_DnsOptionsSpecificationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnVPCEndpoint_DnsOptionsSpecificationProperty:
+		val_ := val.(CfnVPCEndpoint_DnsOptionsSpecificationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVPCEndpoint_DnsOptionsSpecificationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPCEndpoint) validateSetPrivateDnsEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -196,9 +220,11 @@ func (j *jsiiProxy_CfnVPCEndpoint) validateSetPrivateDnsEnabledParameters(val in
 	return nil
 }
 
-func (j *jsiiProxy_CfnVPCEndpoint) validateSetServiceNameParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnVPCEndpoint) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

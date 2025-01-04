@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetContainerDefinitionsParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) validateSetEnableFaultInjectionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) validateSetEphemeralStorageParameters(val interface{}) error {
 	return nil
 }

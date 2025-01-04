@@ -11,7 +11,7 @@ import (
 //   glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
 //   	JobName: jsii.String("EtlJobWithRunQueuing"),
 //   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V4_0(),
+//   		GlueVersion: glue.GlueVersion_V5_0(),
 //   		PythonVersion: glue.PythonVersion_THREE,
 //   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
 //   	}),
@@ -116,6 +116,17 @@ func GlueVersion_V4_0() GlueVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.GlueVersion",
 		"V4_0",
+		&returns,
+	)
+	return returns
+}
+
+func GlueVersion_V5_0() GlueVersion {
+	_init_.Initialize()
+	var returns GlueVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.GlueVersion",
+		"V5_0",
 		&returns,
 	)
 	return returns

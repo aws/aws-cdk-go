@@ -459,17 +459,18 @@ import logs "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosedestinationsalpha"
+import "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 
 app := cdk.NewApp()
 
 stack := cdk.NewStack(app, jsii.String("aws-cdk-firehose-delivery-stream-s3-all-properties"))
 
-bucket := s3.NewBucket(stack, jsii.String("Bucket"), &BucketProps{
+bucket := s3.NewBucket(stack, jsii.String("FirehoseDeliveryStreamS3AllPropertiesBucket"), &BucketProps{
 	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 	AutoDeleteObjects: jsii.Boolean(true),
 })
 
-backupBucket := s3.NewBucket(stack, jsii.String("BackupBucket"), &BucketProps{
+backupBucket := s3.NewBucket(stack, jsii.String("FirehoseDeliveryStreamS3AllPropertiesBackupBucket"), &BucketProps{
 	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 	AutoDeleteObjects: jsii.Boolean(true),
 })
@@ -496,7 +497,7 @@ backupKey := kms.NewKey(stack, jsii.String("BackupKey"), &KeyProps{
 	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 })
 
-firehose.NewDeliveryStream(stack, jsii.String("Delivery Stream"), &DeliveryStreamProps{
+deliveryStream := firehose.NewDeliveryStream(stack, jsii.String("DeliveryStream"), &DeliveryStreamProps{
 	Destination: destinations.NewS3Bucket(bucket, &S3BucketProps{
 		LoggingConfig: destinations.NewEnableLogging(logGroup),
 		Processor: processor,
@@ -528,7 +529,44 @@ firehose.NewDeliveryStream(stack, jsii.String("ZeroBufferingDeliveryStream"), &D
 	}),
 })
 
-app.Synth()
+testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("integ-tests"), &IntegTestProps{
+	TestCases: []stack{
+		stack,
+	},
+	Regions: []*string{
+		jsii.String("us-east-1"),
+	},
+})
+
+testCase.Assertions.AwsApiCall(jsii.String("Firehose"), jsii.String("putRecord"), map[string]interface{}{
+	"DeliveryStreamName": deliveryStream.deliveryStreamName,
+	"Record": map[string]*string{
+		"Data": jsii.String("testData123"),
+	},
+})
+
+s3ApiCall := testCase.Assertions.AwsApiCall(jsii.String("S3"), jsii.String("listObjectsV2"), map[string]interface{}{
+	"Bucket": bucket.bucketName,
+	"MaxKeys": jsii.Number(1),
+}).Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
+	"KeyCount": jsii.Number(1),
+})).WaitForAssertions(&WaiterStateMachineOptions{
+	Interval: cdk.Duration_*Seconds(jsii.Number(30)),
+	TotalTimeout: cdk.Duration_*Minutes(jsii.Number(10)),
+})
+
+if s3ApiCall instanceof awscdkintegtestsalpha.AwsApiCall && s3ApiCall.WaiterProvider {
+	s3ApiCall.WaiterProvider.AddToRolePolicy(map[string]interface{}{
+		"Effect": jsii.String("Allow"),
+		"Action": []*string{
+			jsii.String("s3:GetObject"),
+			jsii.String("s3:ListBucket"),
+		},
+		"Resource": []*string{
+			jsii.String("*"),
+		},
+	})
+}
 ```
 
 See: [Data Transformation](https://docs.aws.amazon.com/firehose/latest/dev/data-transformation.html)

@@ -7,9 +7,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::CloudFormation::LambdaHook` resource creates a Lambda Hook with the specified attributes within your CloudFormation template.
+// The `AWS::CloudFormation::LambdaHook` resource creates and activates a Lambda Hook.
 //
-// You can use a Lambda Hook to evaluate your resources before allowing stack creation, modification, or deletion. This resource forwards requests for resource evaluation to a Lambda function. For more information, see [Lambda Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/lambda-hooks.html) in the *AWS CloudFormation Hooks User Guide* .
+// You can use a Lambda Hook to evaluate your resources before allowing stack operations. This resource forwards requests for resource evaluation to a Lambda function.
+//
+// For more information, see [Lambda Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/lambda-hooks.html) in the *AWS CloudFormation Hooks User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

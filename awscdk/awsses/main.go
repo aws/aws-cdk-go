@@ -728,6 +728,10 @@ func init() {
 		reflect.TypeOf((*CfnMailManagerRuleSet_DeliverToMailboxActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.DeliverToQBusinessActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_DeliverToQBusinessActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RelayActionProperty",
 		reflect.TypeOf((*CfnMailManagerRuleSet_RelayActionProperty)(nil)).Elem(),
 	)

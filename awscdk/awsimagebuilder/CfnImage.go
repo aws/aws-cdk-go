@@ -19,9 +19,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnImage := awscdk.Aws_imagebuilder.NewCfnImage(this, jsii.String("MyCfnImage"), &CfnImageProps{
-//   	InfrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
-//
-//   	// the properties below are optional
 //   	ContainerRecipeArn: jsii.String("containerRecipeArn"),
 //   	DistributionConfigurationArn: jsii.String("distributionConfigurationArn"),
 //   	EnhancedImageMetadataEnabled: jsii.Boolean(false),
@@ -40,6 +37,7 @@ import (
 //   		ImageTestsEnabled: jsii.Boolean(false),
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
+//   	InfrastructureConfigurationArn: jsii.String("infrastructureConfigurationArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -633,9 +631,6 @@ func (j *jsiiProxy_CfnImage)SetImageTestsConfiguration(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnImage)SetInfrastructureConfigurationArn(val *string) {
-	if err := j.validateSetInfrastructureConfigurationArnParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"infrastructureConfigurationArn",

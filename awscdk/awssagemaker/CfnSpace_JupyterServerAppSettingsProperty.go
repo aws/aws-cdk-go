@@ -23,7 +23,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-jupyterserverappsettings.html
 //
 type CfnSpace_JupyterServerAppSettingsProperty struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app.
 	//
 	// If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-jupyterserverappsettings.html#cfn-sagemaker-space-jupyterserverappsettings-defaultresourcespec

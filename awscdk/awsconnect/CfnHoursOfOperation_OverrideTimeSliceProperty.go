@@ -1,7 +1,7 @@
 package awsconnect
 
 
-// The start time or end time for an an hours of operation override.
+// The start time or end time for an hours of operation override.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

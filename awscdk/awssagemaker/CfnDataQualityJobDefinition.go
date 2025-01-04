@@ -11,7 +11,7 @@ import (
 
 // Creates a definition for a job that monitors data quality and drift.
 //
-// For information about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html) .
+// For information about model monitor, see [Amazon SageMaker AI Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

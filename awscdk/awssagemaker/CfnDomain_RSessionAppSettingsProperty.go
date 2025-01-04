@@ -29,7 +29,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html
 //
 type CfnDomain_RSessionAppSettingsProperty struct {
-	// A list of custom SageMaker images that are configured to run as a RSession app.
+	// A list of custom SageMaker AI images that are configured to run as a RSession app.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html#cfn-sagemaker-domain-rsessionappsettings-customimages
 	//
 	CustomImages interface{} `field:"optional" json:"customImages" yaml:"customImages"`

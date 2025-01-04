@@ -11,7 +11,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var managementPolicy interface{}
 //   var policy interface{}
 //
 //   cfnDomainNameV2Props := &CfnDomainNameV2Props{
@@ -22,7 +21,6 @@ import (
 //   			jsii.String("types"),
 //   		},
 //   	},
-//   	ManagementPolicy: managementPolicy,
 //   	Policy: policy,
 //   	SecurityPolicy: jsii.String("securityPolicy"),
 //   	Tags: []cfnTag{
@@ -50,9 +48,6 @@ type CfnDomainNameV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-endpointconfiguration
 	//
 	EndpointConfiguration interface{} `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html#cfn-apigateway-domainnamev2-managementpolicy
-	//
-	ManagementPolicy interface{} `field:"optional" json:"managementPolicy" yaml:"managementPolicy"`
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration.
 	//
 	// You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .

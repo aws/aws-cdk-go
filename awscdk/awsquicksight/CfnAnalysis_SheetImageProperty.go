@@ -6,6 +6,8 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var availabilityStatus interface{}
+//
 //   sheetImageProperty := &SheetImageProperty{
 //   	SheetImageId: jsii.String("sheetImageId"),
 //   	Source: &SheetImageSourceProperty{
@@ -75,6 +77,9 @@ package awsquicksight
 //   	},
 //   	ImageContentAltText: jsii.String("imageContentAltText"),
 //   	Interactions: &ImageInteractionOptionsProperty{
+//   		ImageMenuOption: &ImageMenuOptionProperty{
+//   			AvailabilityStatus: availabilityStatus,
+//   		},
 //   	},
 //   	Scaling: &SheetImageScalingConfigurationProperty{
 //   		ScalingType: jsii.String("scalingType"),

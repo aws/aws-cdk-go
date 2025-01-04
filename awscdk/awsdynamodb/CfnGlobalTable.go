@@ -235,6 +235,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
+//   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//   	},
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),
 //
@@ -332,6 +335,9 @@ type CfnGlobalTable interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Represents the settings used to enable point in time recovery.
+	PointInTimeRecoverySpecification() interface{}
+	SetPointInTimeRecoverySpecification(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -651,6 +657,16 @@ func (j *jsiiProxy_CfnGlobalTable) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalTable) PointInTimeRecoverySpecification() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"pointInTimeRecoverySpecification",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalTable) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -847,6 +863,17 @@ func (j *jsiiProxy_CfnGlobalTable)SetLocalSecondaryIndexes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"localSecondaryIndexes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalTable)SetPointInTimeRecoverySpecification(val interface{}) {
+	if err := j.validateSetPointInTimeRecoverySpecificationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"pointInTimeRecoverySpecification",
 		val,
 	)
 }

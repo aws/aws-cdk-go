@@ -226,6 +226,15 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	PerformanceConfiguration: &PerformanceConfigurationProperty{
+//   		UniqueKeys: []interface{}{
+//   			&UniqueKeyProperty{
+//   				ColumnNames: []*string{
+//   					jsii.String("columnNames"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{
 //   			Actions: []*string{
@@ -407,6 +416,9 @@ type CfnDataSet interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The performance optimization configuration of a dataset.
+	PerformanceConfiguration() interface{}
+	SetPerformanceConfiguration(val interface{})
 	// A list of resource permissions on the dataset.
 	Permissions() interface{}
 	SetPermissions(val interface{})
@@ -820,6 +832,16 @@ func (j *jsiiProxy_CfnDataSet) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSet) PerformanceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"performanceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSet) Permissions() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1072,6 +1094,17 @@ func (j *jsiiProxy_CfnDataSet)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet)SetPerformanceConfiguration(val interface{}) {
+	if err := j.validateSetPerformanceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"performanceConfiguration",
 		val,
 	)
 }

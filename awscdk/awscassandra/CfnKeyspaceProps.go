@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnKeyspaceProps := &CfnKeyspaceProps{
+//   	ClientSideTimestampsEnabled: jsii.Boolean(false),
 //   	KeyspaceName: jsii.String("keyspaceName"),
 //   	ReplicationSpecification: &ReplicationSpecificationProperty{
 //   		RegionList: []*string{
@@ -30,6 +31,12 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
 //
 type CfnKeyspaceProps struct {
+	// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace.
+	//
+	// To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you've enabled client-side timestamps for a table, you can’t disable it again.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-clientsidetimestampsenabled
+	//
+	ClientSideTimestampsEnabled interface{} `field:"optional" json:"clientSideTimestampsEnabled" yaml:"clientSideTimestampsEnabled"`
 	// The name of the keyspace to be created.
 	//
 	// The keyspace name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the keyspace name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .

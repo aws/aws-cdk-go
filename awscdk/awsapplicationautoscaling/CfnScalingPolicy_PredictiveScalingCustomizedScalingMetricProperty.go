@@ -1,6 +1,8 @@
 package awsapplicationautoscaling
 
 
+// One or more metric data queries to provide data points for a metric specification.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -56,6 +56,10 @@ type IRepository interface {
 	//    ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[:TAG]
 	//    ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY[@DIGEST]
 	RepositoryUriForTagOrDigest(tagOrDigest *string) *string
+	// The URI of this repository's registry:.
+	//
+	// ACCOUNT.dkr.ecr.REGION.amazonaws.com
+	RegistryUri() *string
 	// The ARN of the repository.
 	RepositoryArn() *string
 	// The name of the repository.
@@ -272,6 +276,16 @@ func (i *jsiiProxy_IRepository) RepositoryUriForTagOrDigest(tagOrDigest *string)
 		&returns,
 	)
 
+	return returns
+}
+
+func (j *jsiiProxy_IRepository) RegistryUri() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"registryUri",
+		&returns,
+	)
 	return returns
 }
 

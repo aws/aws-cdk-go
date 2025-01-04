@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// A Git repository that SageMaker automatically displays to users for cloning in the JupyterServer application.
+// A Git repository that SageMaker AI automatically displays to users for cloning in the JupyterServer application.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

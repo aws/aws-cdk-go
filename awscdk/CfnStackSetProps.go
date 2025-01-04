@@ -84,8 +84,8 @@ package awscdk
 type CfnStackSetProps struct {
 	// Describes how the IAM roles required for stack set operations are created.
 	//
-	// - With `SELF_MANAGED` permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see [Grant Self-Managed Stack Set Permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) .
-	// - With `SERVICE_MANAGED` permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations .
+	// - With `SELF_MANAGED` permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see [Grant self-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) in the *AWS CloudFormation User Guide* .
+	// - With `SERVICE_MANAGED` permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations . For more information, see [Activate trusted access for stack sets with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html) in the *AWS CloudFormation User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
 	//
 	PermissionModel *string `field:"required" json:"permissionModel" yaml:"permissionModel"`
@@ -101,7 +101,7 @@ type CfnStackSetProps struct {
 	//
 	// Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
 	//
-	// Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see [Prerequisites: Granting Permissions for Stack Set Operations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) in the *AWS CloudFormation User Guide* .
+	// Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see [Grant self-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html) in the *AWS CloudFormation User Guide* .
 	//
 	// *Minimum* : `20`
 	//
@@ -130,7 +130,7 @@ type CfnStackSetProps struct {
 	CallAs *string `field:"optional" json:"callAs" yaml:"callAs"`
 	// The capabilities that are allowed in the stack set.
 	//
-	// Some stack set templates might include resources that can affect permissions in your AWS account —for example, by creating new AWS Identity and Access Management ( IAM ) users. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities) .
+	// Some stack set templates might include resources that can affect permissions in your AWS account —for example, by creating new IAM users. For more information, see [Acknowledging IAM resources in CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/control-access-with-iam.html#using-iam-capabilities) in the *AWS CloudFormation User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
 	//
 	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
@@ -144,7 +144,7 @@ type CfnStackSetProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the IAM execution role to use to create the stack set.
 	//
-	// If you don't specify an execution role, AWS CloudFormation uses the `AWSCloudFormationStackSetExecutionRole` role for the stack set operation.
+	// If you don't specify an execution role, CloudFormation uses the `AWSCloudFormationStackSetExecutionRole` role for the stack set operation.
 	//
 	// *Minimum* : `1`
 	//
@@ -166,7 +166,7 @@ type CfnStackSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-managedexecution
 	//
 	ManagedExecution interface{} `field:"optional" json:"managedExecution" yaml:"managedExecution"`
-	// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+	// The user-specified preferences for how CloudFormation performs a stack set operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
 	//
 	OperationPreferences interface{} `field:"optional" json:"operationPreferences" yaml:"operationPreferences"`
@@ -192,9 +192,9 @@ type CfnStackSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
 	//
 	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
-	// Location of file containing the template body.
+	// The URL of a file containing the template body.
 	//
-	// The URL must point to a template that's located in an Amazon S3 bucket or a Systems Manager document. For more information, go to [Template Anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
+	// The URL must point to a template (max size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The location for an Amazon S3 bucket must start with `https://` .
 	//
 	// Conditional: You must specify only one of the following parameters: `TemplateBody` , `TemplateURL` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl

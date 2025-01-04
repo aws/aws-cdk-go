@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnVPCEndpointService) validateSetContributorInsightsEnabledP
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPCEndpointService) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnVPCEndpointServiceParameters(scope constructs.Construct, id *string, props *CfnVPCEndpointServiceProps) error {
 	return nil
 }

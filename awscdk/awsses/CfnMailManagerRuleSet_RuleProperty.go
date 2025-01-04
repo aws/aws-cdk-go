@@ -32,6 +32,14 @@ package awsses
 //   				// the properties below are optional
 //   				ActionFailurePolicy: jsii.String("actionFailurePolicy"),
 //   			},
+//   			DeliverToQBusiness: &DeliverToQBusinessActionProperty{
+//   				ApplicationId: jsii.String("applicationId"),
+//   				IndexId: jsii.String("indexId"),
+//   				RoleArn: jsii.String("roleArn"),
+//
+//   				// the properties below are optional
+//   				ActionFailurePolicy: jsii.String("actionFailurePolicy"),
+//   			},
 //   			Drop: drop,
 //   			Relay: &RelayActionProperty{
 //   				Relay: jsii.String("relay"),

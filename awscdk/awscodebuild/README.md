@@ -1016,3 +1016,17 @@ codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
 	Visibility: codebuild.ProjectVisibility_PUBLIC_READ,
 })
 ```
+
+## Auto retry limit
+
+You can automatically retry your builds in AWS CodeBuild by setting `autoRetryLimit` property.
+
+With auto-retry enabled, CodeBuild will automatically call RetryBuild using the project's service role after a failed build up to a specified limit.
+
+For example, if the auto-retry limit is set to two, CodeBuild will call the RetryBuild API to automatically retry your build for up to two additional times.
+
+```go
+codebuild.NewProject(this, jsii.String("MyProject"), &ProjectProps{
+	AutoRetryLimit: jsii.Number(2),
+})
+```

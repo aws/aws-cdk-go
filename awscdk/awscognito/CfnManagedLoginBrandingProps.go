@@ -44,9 +44,13 @@ type CfnManagedLoginBrandingProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-assets
 	//
 	Assets interface{} `field:"optional" json:"assets" yaml:"assets"`
+	// The app client that's assigned to the branding style that you want more information about.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-clientid
 	//
 	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
+	// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults.
+	//
+	// When `false` or when you omit this parameter, returns only values that you customized in your branding style.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-returnmergedresources
 	//
 	ReturnMergedResources interface{} `field:"optional" json:"returnMergedResources" yaml:"returnMergedResources"`
@@ -56,7 +60,9 @@ type CfnManagedLoginBrandingProps struct {
 	Settings interface{} `field:"optional" json:"settings" yaml:"settings"`
 	// When true, applies the default branding style options.
 	//
-	// This option reverts to a "blank" style that you can modify later in the branding designer.
+	// This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+	//
+	// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html#cfn-cognito-managedloginbranding-usecognitoprovidedvalues
 	//
 	UseCognitoProvidedValues interface{} `field:"optional" json:"useCognitoProvidedValues" yaml:"useCognitoProvidedValues"`

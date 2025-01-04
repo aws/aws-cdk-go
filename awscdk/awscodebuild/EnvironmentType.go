@@ -34,5 +34,11 @@ const (
 	EnvironmentType_WINDOWS_SERVER_2022_CONTAINER EnvironmentType = "WINDOWS_SERVER_2022_CONTAINER"
 	// MacOS ARM container.
 	EnvironmentType_MAC_ARM EnvironmentType = "MAC_ARM"
+	// Linux EC2.
+	EnvironmentType_LINUX_EC2 EnvironmentType = "LINUX_EC2"
+	// ARM EC2.
+	EnvironmentType_ARM_EC2 EnvironmentType = "ARM_EC2"
+	// Windows EC2.
+	EnvironmentType_WINDOWS_EC2 EnvironmentType = "WINDOWS_EC2"
 )
 

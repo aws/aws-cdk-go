@@ -1,10 +1,6 @@
 package awsbatch
 
 
-// Details for a Docker volume mount point that's used in a job's container properties.
-//
-// This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerCreate) section of the *Docker Remote API* and the `--volume` option to docker run.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -19,17 +15,12 @@ package awsbatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html
 //
 type CfnJobDefinition_MountPointsProperty struct {
-	// The path on the container where the host volume is mounted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html#cfn-batch-jobdefinition-mountpoints-containerpath
 	//
 	ContainerPath *string `field:"optional" json:"containerPath" yaml:"containerPath"`
-	// If this value is `true` , the container has read-only access to the volume.
-	//
-	// Otherwise, the container can write to the volume. The default value is `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html#cfn-batch-jobdefinition-mountpoints-readonly
 	//
 	ReadOnly interface{} `field:"optional" json:"readOnly" yaml:"readOnly"`
-	// The name of the volume to mount.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html#cfn-batch-jobdefinition-mountpoints-sourcevolume
 	//
 	SourceVolume *string `field:"optional" json:"sourceVolume" yaml:"sourceVolume"`

@@ -214,6 +214,14 @@ func init() {
 		reflect.TypeOf((*CfnDomain_MasterUserOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain.NodeConfigProperty",
+		reflect.TypeOf((*CfnDomain_NodeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain.NodeOptionProperty",
+		reflect.TypeOf((*CfnDomain_NodeOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain.NodeToNodeEncryptionOptionsProperty",
 		reflect.TypeOf((*CfnDomain_NodeToNodeEncryptionOptionsProperty)(nil)).Elem(),
 	)

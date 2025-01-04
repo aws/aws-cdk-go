@@ -7,9 +7,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies the default version of a resource.
+// The `AWS::CloudFormation::ResourceDefaultVersion` resource specifies the default version of a resource.
 //
 // The default version of a resource will be used in CloudFormation operations.
+//
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

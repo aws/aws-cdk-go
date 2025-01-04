@@ -70,6 +70,8 @@ type HostedConfiguration interface {
 	AddExistingEnvironmentsToApplication()
 	// Adds an extension association to the configuration profile.
 	AddExtension(extension IExtension)
+	// Adds an AT_DEPLOYMENT_TICK extension with the provided event destination and also creates an extension association to an application.
+	AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions)
 	DeployConfigToEnvironments()
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the configuration profile.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)
@@ -389,6 +391,17 @@ func (h *jsiiProxy_HostedConfiguration) AddExtension(extension IExtension) {
 		h,
 		"addExtension",
 		[]interface{}{extension},
+	)
+}
+
+func (h *jsiiProxy_HostedConfiguration) AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions) {
+	if err := h.validateAtDeploymentTickParameters(eventDestination, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		h,
+		"atDeploymentTick",
+		[]interface{}{eventDestination, options},
 	)
 }
 

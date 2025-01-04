@@ -216,6 +216,7 @@ import (
 //   		},
 //   	},
 //   	Cpu: jsii.String("cpu"),
+//   	EnableFaultInjection: jsii.Boolean(false),
 //   	EphemeralStorage: &EphemeralStorageProperty{
 //   		SizeInGiB: jsii.Number(123),
 //   	},
@@ -332,6 +333,9 @@ type CfnTaskDefinition interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers.
+	EnableFaultInjection() interface{}
+	SetEnableFaultInjection(val interface{})
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage() interface{}
 	SetEphemeralStorage(val interface{})
@@ -617,6 +621,16 @@ func (j *jsiiProxy_CfnTaskDefinition) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) EnableFaultInjection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enableFaultInjection",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) EphemeralStorage() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -880,6 +894,17 @@ func (j *jsiiProxy_CfnTaskDefinition)SetCpu(val *string) {
 	_jsii_.Set(
 		j,
 		"cpu",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskDefinition)SetEnableFaultInjection(val interface{}) {
+	if err := j.validateSetEnableFaultInjectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enableFaultInjection",
 		val,
 	)
 }

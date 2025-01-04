@@ -9,21 +9,29 @@ import (
 //
 // Example:
 //   var app app
-//   var integ integTest
+//   var stack stack
+//   var sm iStateMachine
 //
-//   integ.Assertions.AwsApiCall(jsii.String("SQS"), jsii.String("sendMessage"), map[string]*string{
-//   	"QueueUrl": jsii.String("url"),
-//   	"MessageBody": jsii.String("hello"),
-//   })
-//   message := integ.Assertions.AwsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]*string{
-//   	"QueueUrl": jsii.String("url"),
-//   })
-//   message.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
-//   	"Messages": []interface{}{
-//   		map[string]*string{
-//   			"Body": jsii.String("hello"),
-//   		},
+//
+//   testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+//   	TestCases: []*stack{
+//   		stack,
 //   	},
+//   })
+//
+//   // Start an execution
+//   start := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
+//   	"stateMachineArn": sm.stateMachineArn,
+//   })
+//
+//   // describe the results of the execution
+//   describe := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
+//   	"executionArn": start.getAttString(jsii.String("executionArn")),
+//   })
+//
+//   // assert the results
+//   describe.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
+//   	"status": jsii.String("SUCCEEDED"),
 //   }))
 //
 // Experimental.

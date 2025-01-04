@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -30,7 +30,7 @@ type CfnUserProfile_ResourceSpecProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-lifecycleconfigarn
 	//
 	LifecycleConfigArn *string `field:"optional" json:"lifecycleConfigArn" yaml:"lifecycleConfigArn"`
-	// The ARN of the SageMaker image that the image version belongs to.
+	// The ARN of the SageMaker AI image that the image version belongs to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
 	//
 	SageMakerImageArn *string `field:"optional" json:"sageMakerImageArn" yaml:"sageMakerImageArn"`

@@ -176,6 +176,9 @@ package awsdynamodb
 //   			},
 //   		},
 //   	},
+//   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
+//   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//   	},
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),
 //
@@ -266,6 +269,10 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
 	//
 	LocalSecondaryIndexes interface{} `field:"optional" json:"localSecondaryIndexes" yaml:"localSecondaryIndexes"`
+	// Represents the settings used to enable point in time recovery.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification
+	//
+	PointInTimeRecoverySpecification interface{} `field:"optional" json:"pointInTimeRecoverySpecification" yaml:"pointInTimeRecoverySpecification"`
 	// Specifies the settings to enable server-side encryption.
 	//
 	// These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.

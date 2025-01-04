@@ -1,7 +1,7 @@
 package awssagemaker
 
 
-// A collection of configuration settings for the PartnerApp.
+// Configuration settings for the SageMaker Partner AI App.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,11 +20,13 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappconfig.html
 //
 type CfnPartnerApp_PartnerAppConfigProperty struct {
-	// A list of users with administrator privileges for the PartnerApp.
+	// The list of users that are given admin access to the SageMaker Partner AI App.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappconfig.html#cfn-sagemaker-partnerapp-partnerappconfig-adminusers
 	//
 	AdminUsers *[]*string `field:"optional" json:"adminUsers" yaml:"adminUsers"`
-	// A list of arguments to pass to the PartnerApp.
+	// This is a map of required inputs for a SageMaker Partner AI App.
+	//
+	// Based on the application type, the map is populated with a key and value pair that is specific to the user and application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappconfig.html#cfn-sagemaker-partnerapp-partnerappconfig-arguments
 	//
 	Arguments interface{} `field:"optional" json:"arguments" yaml:"arguments"`

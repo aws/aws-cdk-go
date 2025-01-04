@@ -101,6 +101,11 @@ import (
 //   			S3BucketName: jsii.String("s3BucketName"),
 //   		},
 //   	},
+//   	MediaExtractionConfiguration: &MediaExtractionConfigurationProperty{
+//   		ImageExtractionConfiguration: &ImageExtractionConfigurationProperty{
+//   			ImageExtractionStatus: jsii.String("imageExtractionStatus"),
+//   		},
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	SyncSchedule: jsii.String("syncSchedule"),
 //   	Tags: []cfnTag{
@@ -176,6 +181,9 @@ type CfnDataSource interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The configuration for extracting information from media in documents.
+	MediaExtractionConfiguration() interface{}
+	SetMediaExtractionConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -526,6 +534,16 @@ func (j *jsiiProxy_CfnDataSource) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) MediaExtractionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"mediaExtractionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -703,6 +721,17 @@ func (j *jsiiProxy_CfnDataSource)SetIndexId(val *string) {
 	_jsii_.Set(
 		j,
 		"indexId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource)SetMediaExtractionConfiguration(val interface{}) {
+	if err := j.validateSetMediaExtractionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"mediaExtractionConfiguration",
 		val,
 	)
 }

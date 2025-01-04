@@ -1,6 +1,8 @@
 package awsqbusiness
 
 
+// A document attribute or metadata field.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,9 +23,11 @@ package awsqbusiness
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-documentattribute.html
 //
 type CfnDataAccessor_DocumentAttributeProperty struct {
+	// The identifier for the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-documentattribute.html#cfn-qbusiness-dataaccessor-documentattribute-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The value of the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-documentattribute.html#cfn-qbusiness-dataaccessor-documentattribute-value
 	//
 	Value interface{} `field:"required" json:"value" yaml:"value"`

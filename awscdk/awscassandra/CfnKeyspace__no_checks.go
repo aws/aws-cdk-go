@@ -80,6 +80,10 @@ func validateCfnKeyspace_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnKeyspace) validateSetClientSideTimestampsEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnKeyspace) validateSetReplicationSpecificationParameters(val interface{}) error {
 	return nil
 }

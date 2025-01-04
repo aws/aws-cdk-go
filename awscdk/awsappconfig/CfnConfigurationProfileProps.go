@@ -17,6 +17,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DeletionProtectionCheck: jsii.String("deletionProtectionCheck"),
 //   	Description: jsii.String("description"),
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	RetrievalRoleArn: jsii.String("retrievalRoleArn"),
@@ -57,6 +58,12 @@ type CfnConfigurationProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting.
+	//
+	// See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-deletionprotectioncheck
+	//
+	DeletionProtectionCheck *string `field:"optional" json:"deletionProtectionCheck" yaml:"deletionProtectionCheck"`
 	// A description of the configuration profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-description
 	//

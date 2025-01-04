@@ -8,9 +8,61 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var any interface{}
+//   var auto interface{}
+//   var json interface{}
+//
 //   promptVariantProperty := &PromptVariantProperty{
 //   	Name: jsii.String("name"),
 //   	TemplateConfiguration: &PromptTemplateConfigurationProperty{
+//   		Chat: &ChatPromptTemplateConfigurationProperty{
+//   			Messages: []interface{}{
+//   				&MessageProperty{
+//   					Content: []interface{}{
+//   						&ContentBlockProperty{
+//   							Text: jsii.String("text"),
+//   						},
+//   					},
+//   					Role: jsii.String("role"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			InputVariables: []interface{}{
+//   				&PromptInputVariableProperty{
+//   					Name: jsii.String("name"),
+//   				},
+//   			},
+//   			System: []interface{}{
+//   				&SystemContentBlockProperty{
+//   					Text: jsii.String("text"),
+//   				},
+//   			},
+//   			ToolConfiguration: &ToolConfigurationProperty{
+//   				Tools: []interface{}{
+//   					&ToolProperty{
+//   						ToolSpec: &ToolSpecificationProperty{
+//   							InputSchema: &ToolInputSchemaProperty{
+//   								Json: json,
+//   							},
+//   							Name: jsii.String("name"),
+//
+//   							// the properties below are optional
+//   							Description: jsii.String("description"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				ToolChoice: &ToolChoiceProperty{
+//   					Any: any,
+//   					Auto: auto,
+//   					Tool: &SpecificToolChoiceProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		Text: &TextPromptTemplateConfigurationProperty{
 //   			InputVariables: []interface{}{
 //   				&PromptInputVariableProperty{
@@ -30,6 +82,11 @@ package awsbedrock
 //   	TemplateType: jsii.String("templateType"),
 //
 //   	// the properties below are optional
+//   	GenAiResource: &PromptGenAiResourceProperty{
+//   		Agent: &PromptAgentResourceProperty{
+//   			AgentIdentifier: jsii.String("agentIdentifier"),
+//   		},
+//   	},
 //   	InferenceConfiguration: &PromptInferenceConfigurationProperty{
 //   		Text: &PromptModelInferenceConfigurationProperty{
 //   			MaxTokens: jsii.Number(123),
@@ -58,6 +115,10 @@ type CfnPrompt_PromptVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-templatetype
 	//
 	TemplateType *string `field:"required" json:"templateType" yaml:"templateType"`
+	// Specifies a generative AI resource with which to use the prompt.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-genairesource
+	//
+	GenAiResource interface{} `field:"optional" json:"genAiResource" yaml:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptvariant.html#cfn-bedrock-prompt-promptvariant-inferenceconfiguration
 	//

@@ -1,8 +1,6 @@
 package awsconnect
 
 
-// The definition of submit auto evaluation action.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +13,6 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-submitautoevaluationaction.html
 //
 type CfnRule_SubmitAutoEvaluationActionProperty struct {
-	// The Amazon Resource Name (ARN) of the evaluation form.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-submitautoevaluationaction.html#cfn-connect-rule-submitautoevaluationaction-evaluationformarn
 	//
 	EvaluationFormArn *string `field:"required" json:"evaluationFormArn" yaml:"evaluationFormArn"`

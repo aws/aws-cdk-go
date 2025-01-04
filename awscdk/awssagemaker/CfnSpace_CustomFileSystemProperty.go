@@ -1,9 +1,9 @@
 package awssagemaker
 
 
-// A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker Domain.
+// A file system, created by you, that you assign to a user profile or space for an Amazon SageMaker AI Domain.
 //
-// Permitted users can access this file system in Amazon SageMaker Studio.
+// Permitted users can access this file system in Amazon SageMaker AI Studio.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -12,6 +12,9 @@ package awssagemaker
 //
 //   customFileSystemProperty := &CustomFileSystemProperty{
 //   	EfsFileSystem: &EFSFileSystemProperty{
+//   		FileSystemId: jsii.String("fileSystemId"),
+//   	},
+//   	FSxLustreFileSystem: &FSxLustreFileSystemProperty{
 //   		FileSystemId: jsii.String("fileSystemId"),
 //   	},
 //   }
@@ -23,5 +26,9 @@ type CfnSpace_CustomFileSystemProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html#cfn-sagemaker-space-customfilesystem-efsfilesystem
 	//
 	EfsFileSystem interface{} `field:"optional" json:"efsFileSystem" yaml:"efsFileSystem"`
+	// A custom file system in Amazon FSx for Lustre.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html#cfn-sagemaker-space-customfilesystem-fsxlustrefilesystem
+	//
+	FSxLustreFileSystem interface{} `field:"optional" json:"fSxLustreFileSystem" yaml:"fSxLustreFileSystem"`
 }
 

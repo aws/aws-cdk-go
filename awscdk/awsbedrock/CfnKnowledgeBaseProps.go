@@ -11,6 +11,11 @@ package awsbedrock
 //   cfnKnowledgeBaseProps := &CfnKnowledgeBaseProps{
 //   	KnowledgeBaseConfiguration: &KnowledgeBaseConfigurationProperty{
 //   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		KendraKnowledgeBaseConfiguration: &KendraKnowledgeBaseConfigurationProperty{
+//   			KendraIndexArn: jsii.String("kendraIndexArn"),
+//   		},
 //   		VectorKnowledgeBaseConfiguration: &VectorKnowledgeBaseConfigurationProperty{
 //   			EmbeddingModelArn: jsii.String("embeddingModelArn"),
 //
@@ -20,10 +25,25 @@ package awsbedrock
 //   					Dimensions: jsii.Number(123),
 //   				},
 //   			},
+//   			SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{
+//   				SupplementalDataStorageLocations: []interface{}{
+//   					&SupplementalDataStorageLocationProperty{
+//   						SupplementalDataStorageLocationType: jsii.String("supplementalDataStorageLocationType"),
+//
+//   						// the properties below are optional
+//   						S3Location: &S3LocationProperty{
+//   							Uri: jsii.String("uri"),
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   	RoleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	StorageConfiguration: &StorageConfigurationProperty{
 //   		Type: jsii.String("type"),
 //
@@ -61,9 +81,6 @@ package awsbedrock
 //   			TableName: jsii.String("tableName"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -84,14 +101,14 @@ type CfnKnowledgeBaseProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
-	// Contains details about the storage configuration of the knowledge base.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-storageconfiguration
-	//
-	StorageConfiguration interface{} `field:"required" json:"storageConfiguration" yaml:"storageConfiguration"`
 	// The description of the knowledge base associated with the inline agent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Contains details about the storage configuration of the knowledge base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-storageconfiguration
+	//
+	StorageConfiguration interface{} `field:"optional" json:"storageConfiguration" yaml:"storageConfiguration"`
 	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:.
 	//
 	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)

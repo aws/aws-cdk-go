@@ -12,6 +12,7 @@ package awsdatabrew
 //   	Bucket: jsii.String("bucket"),
 //
 //   	// the properties below are optional
+//   	BucketOwner: jsii.String("bucketOwner"),
 //   	Key: jsii.String("key"),
 //   }
 //
@@ -22,6 +23,10 @@ type CfnDataset_S3LocationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
 	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
+	// The AWS account ID of the bucket owner.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucketowner
+	//
+	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
 	// The unique name of the object in the bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
 	//

@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `AWS::IoT1Click::Placement` resource creates a placement to be associated with an AWS IoT 1-Click project.
+// > AWS IoT 1-Click was discontinued on Dec 16, 2024. For more information, see [AWS IoT 1-Click](https://docs.aws.amazon.com//iot/latest/developerguide/iot-legacy-services.html) .
 //
-// A placement is an instance of a device in a location. For more information, see [Projects, Templates, and Placements](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-PTP.html) in the *AWS IoT 1-Click Developer Guide* .
+// The `AWS::IoT1Click::Placement` resource creates a placement to be associated with an AWS IoT 1-Click project. A placement is an instance of a device in a location. For more information, see [Projects, Templates, and Placements](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-PTP.html) in the *AWS IoT 1-Click Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

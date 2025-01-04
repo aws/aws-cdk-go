@@ -49,7 +49,7 @@ type CfnUserPoolIdentityProvider interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// A list of IdP identifiers.
+	// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` .
 	IdpIdentifiers() *[]*string
 	SetIdpIdentifiers(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
@@ -67,10 +67,10 @@ type CfnUserPoolIdentityProvider interface {
 	// The scopes, URLs, and identifiers for your external identity provider.
 	ProviderDetails() interface{}
 	SetProviderDetails(val interface{})
-	// The IdP name.
+	// The name that you want to assign to the IdP.
 	ProviderName() *string
 	SetProviderName(val *string)
-	// The IdP type.
+	// The type of IdP that you want to add.
 	ProviderType() *string
 	SetProviderType(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -95,7 +95,7 @@ type CfnUserPoolIdentityProvider interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The user pool ID.
+	// The Id of the user pool where you want to create an IdP.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.

@@ -29,6 +29,7 @@ import (
 //   	BackupRetentionPeriod: jsii.Number(123),
 //   	ClusterScalabilityType: jsii.String("clusterScalabilityType"),
 //   	CopyTagsToSnapshot: jsii.Boolean(false),
+//   	DatabaseInsightsMode: jsii.String("databaseInsightsMode"),
 //   	DatabaseName: jsii.String("databaseName"),
 //   	DbClusterIdentifier: jsii.String("dbClusterIdentifier"),
 //   	DbClusterInstanceClass: jsii.String("dbClusterInstanceClass"),
@@ -84,6 +85,7 @@ import (
 //   	ServerlessV2ScalingConfiguration: &ServerlessV2ScalingConfigurationProperty{
 //   		MaxCapacity: jsii.Number(123),
 //   		MinCapacity: jsii.Number(123),
+//   		SecondsUntilAutoPause: jsii.Number(123),
 //   	},
 //   	SnapshotIdentifier: jsii.String("snapshotIdentifier"),
 //   	SourceDbClusterIdentifier: jsii.String("sourceDbClusterIdentifier"),
@@ -125,7 +127,7 @@ type CfnDBClusterProps struct {
 	//
 	// By default, minor engine upgrades are applied automatically.
 	//
-	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-autominorversionupgrade
 	//
 	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
@@ -177,6 +179,14 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-copytagstosnapshot
 	//
 	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
+	// The mode of Database Insights to enable for the DB cluster.
+	//
+	// If you set this value to `advanced` , you must also set the `PerformanceInsightsEnabled` parameter to `true` and the `PerformanceInsightsRetentionPeriod` parameter to 465.
+	//
+	// Valid for Cluster Type: Aurora DB clusters only.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databaseinsightsmode
+	//
+	DatabaseInsightsMode *string `field:"optional" json:"databaseInsightsMode" yaml:"databaseInsightsMode"`
 	// The name of your database.
 	//
 	// If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide* .
@@ -486,6 +496,8 @@ type CfnDBClusterProps struct {
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 	// The secret managed by RDS in AWS Secrets Manager for the master user password.
 	//
+	// > When you restore a DB cluster from a snapshot, Amazon RDS generates a new secret instead of reusing the secret specified in the `SecretArn` property. This ensures that the restored DB cluster is securely managed with a dedicated secret. To maintain consistent integration with your application, you might need to update resource configurations to reference the newly created secret.
+	//
 	// For more information, see [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with AWS Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusersecret
 	//
@@ -496,7 +508,7 @@ type CfnDBClusterProps struct {
 	//
 	// If `MonitoringRoleArn` is specified, also set `MonitoringInterval` to a value other than `0` .
 	//
-	// Valid for Cluster Type: Multi-AZ DB clusters only
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//
 	// Valid Values: `0 | 1 | 5 | 10 | 15 | 30 | 60`
 	//
@@ -510,7 +522,7 @@ type CfnDBClusterProps struct {
 	//
 	// If `MonitoringInterval` is set to a value other than `0` , supply a `MonitoringRoleArn` value.
 	//
-	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-monitoringrolearn
 	//
 	MonitoringRoleArn *string `field:"optional" json:"monitoringRoleArn" yaml:"monitoringRoleArn"`
@@ -533,7 +545,7 @@ type CfnDBClusterProps struct {
 	//
 	// For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide* .
 	//
-	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-performanceinsightsenabled
 	//
 	PerformanceInsightsEnabled interface{} `field:"optional" json:"performanceInsightsEnabled" yaml:"performanceInsightsEnabled"`
@@ -543,13 +555,13 @@ type CfnDBClusterProps struct {
 	//
 	// If you don't specify a value for `PerformanceInsightsKMSKeyId` , then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account . Your AWS account has a different default KMS key for each AWS Region .
 	//
-	// Valid for Cluster Type: Multi-AZ DB clusters only.
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-performanceinsightskmskeyid
 	//
 	PerformanceInsightsKmsKeyId *string `field:"optional" json:"performanceInsightsKmsKeyId" yaml:"performanceInsightsKmsKeyId"`
 	// The number of days to retain Performance Insights data.
 	//
-	// Valid for Cluster Type: Multi-AZ DB clusters only
+	// Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
 	//
 	// Valid Values:
 	//

@@ -118,7 +118,7 @@ type CfnIndex interface {
 	// Specifies the properties of an index field.
 	DocumentMetadataConfigurations() interface{}
 	SetDocumentMetadataConfigurations(val interface{})
-	// Indicates whether the index is a Enterprise Edition index or a Developer Edition index.
+	// Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
 	Edition() *string
 	SetEdition(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -11,7 +11,7 @@ import (
 
 // You can use the `AWS::Cassandra::Keyspace` resource to create a new keyspace in Amazon Keyspaces (for Apache Cassandra).
 //
-// For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide* .
+// For more information, see [Create a keyspace](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.keyspaces.html) in the *Amazon Keyspaces Developer Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -19,6 +19,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnKeyspace := awscdk.Aws_cassandra.NewCfnKeyspace(this, jsii.String("MyCfnKeyspace"), &CfnKeyspaceProps{
+//   	ClientSideTimestampsEnabled: jsii.Boolean(false),
 //   	KeyspaceName: jsii.String("keyspaceName"),
 //   	ReplicationSpecification: &ReplicationSpecificationProperty{
 //   		RegionList: []*string{
@@ -45,6 +46,9 @@ type CfnKeyspace interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace.
+	ClientSideTimestampsEnabled() interface{}
+	SetClientSideTimestampsEnabled(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -260,6 +264,16 @@ func (j *jsiiProxy_CfnKeyspace) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKeyspace) ClientSideTimestampsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"clientSideTimestampsEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKeyspace) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -395,6 +409,17 @@ func NewCfnKeyspace_Override(c CfnKeyspace, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_cassandra.CfnKeyspace",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnKeyspace)SetClientSideTimestampsEnabled(val interface{}) {
+	if err := j.validateSetClientSideTimestampsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"clientSideTimestampsEnabled",
+		val,
 	)
 }
 

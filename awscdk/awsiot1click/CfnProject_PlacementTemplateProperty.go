@@ -1,6 +1,8 @@
 package awsiot1click
 
 
+// > AWS IoT 1-Click was discontinued on Dec 16, 2024. For more information, see [AWS IoT 1-Click](https://docs.aws.amazon.com//iot/latest/developerguide/iot-legacy-services.html) .
+//
 // In AWS CloudFormation , use the `PlacementTemplate` property type to define the template for an AWS IoT 1-Click project.
 //
 // `PlacementTemplate` is a property of the `AWS::IoT1Click::Project` resource.

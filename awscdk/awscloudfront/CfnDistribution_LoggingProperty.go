@@ -12,8 +12,6 @@ package awscloudfront
 //
 //   loggingProperty := &LoggingProperty{
 //   	Bucket: jsii.String("bucket"),
-//
-//   	// the properties below are optional
 //   	IncludeCookies: jsii.Boolean(false),
 //   	Prefix: jsii.String("prefix"),
 //   }
@@ -24,7 +22,7 @@ type CfnDistribution_LoggingProperty struct {
 	// The Amazon S3 bucket to store the access logs in, for example, `amzn-s3-demo-bucket.s3.amazonaws.com` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
 	//
-	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
 	// Specifies whether you want CloudFront to include cookies in access logs, specify `true` for `IncludeCookies` .
 	//
 	// If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify `false` for `IncludeCookies` .

@@ -35,6 +35,7 @@ type CfnAIPromptVersion interface {
 	// The identifier of the Amazon Q in Connect assistant.
 	AssistantId() *string
 	SetAssistantId(val *string)
+	// The ARN of the AI prompt.
 	AttrAiPromptArn() *string
 	AttrAiPromptVersionId() *string
 	AttrAssistantArn() *string

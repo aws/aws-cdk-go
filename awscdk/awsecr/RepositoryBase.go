@@ -36,6 +36,10 @@ type RepositoryBase interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// The URI of this repository's registry:.
+	//
+	// ACCOUNT.dkr.ecr.REGION.amazonaws.com
+	RegistryUri() *string
 	// The ARN of the repository.
 	RepositoryArn() *string
 	// The name of the repository.
@@ -147,6 +151,16 @@ func (j *jsiiProxy_RepositoryBase) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RepositoryBase) RegistryUri() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"registryUri",
 		&returns,
 	)
 	return returns

@@ -13,7 +13,7 @@ package awsecs
 //
 // With `FARGATE_SPOT` , you can run interruption tolerant tasks at a rate that's discounted compared to the `FARGATE` price. `FARGATE_SPOT` runs tasks on spare compute capacity. When AWS needs the capacity back, your tasks are interrupted with a two-minute warning. `FARGATE_SPOT` supports Linux tasks with the X86_64 architecture on platform version 1.3.0 or later. `FARGATE_SPOT` supports Linux tasks with the ARM64 architecture on platform version 1.4.0 or later.
 //
-// A capacity provider strategy may contain a maximum of 6 capacity providers.
+// A capacity provider strategy can contain a maximum of 20 capacity providers.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

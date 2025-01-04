@@ -83,6 +83,8 @@ type Application interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Adds an AT_DEPLOYMENT_TICK extension with the provided event destination and also creates an extension association to an application.
+	AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions)
 	// Returns the list of associated environments.
 	Environments() *[]IEnvironment
 	GeneratePhysicalName() *string
@@ -479,6 +481,17 @@ func (a *jsiiProxy_Application) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 		a,
 		"applyRemovalPolicy",
 		[]interface{}{policy},
+	)
+}
+
+func (a *jsiiProxy_Application) AtDeploymentTick(eventDestination IEventDestination, options *ExtensionOptions) {
+	if err := a.validateAtDeploymentTickParameters(eventDestination, options); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"atDeploymentTick",
+		[]interface{}{eventDestination, options},
 	)
 }
 

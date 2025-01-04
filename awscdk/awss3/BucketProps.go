@@ -7,19 +7,27 @@ import (
 )
 
 // Example:
-//   import kms "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   myKmsKey := kms.NewKey(this, jsii.String("myKMSKey"))
-//   myBucket := s3.NewBucket(this, jsii.String("mySSEKMSEncryptedBucket"), &BucketProps{
-//   	Encryption: s3.BucketEncryption_KMS,
-//   	EncryptionKey: myKmsKey,
+//   accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"), &BucketProps{
 //   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
 //   })
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
+//
+//   accessLogsBucket.AddToResourcePolicy(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Actions: []*string{
+//   		jsii.String("s3:*"),
 //   	},
+//   	Resources: []*string{
+//   		accessLogsBucket.BucketArn,
+//   		accessLogsBucket.ArnForObjects(jsii.String("*")),
+//   	},
+//   	Principals: []iPrincipal{
+//   		iam.NewAnyPrincipal(),
+//   	},
+//   }))
+//
+//   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+//   	ServerAccessLogsBucket: accessLogsBucket,
+//   	ServerAccessLogsPrefix: jsii.String("logs"),
 //   })
 //
 type BucketProps struct {

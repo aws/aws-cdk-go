@@ -38,7 +38,7 @@ type CfnStudioLifecycleConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html#cfn-sagemaker-studiolifecycleconfig-studiolifecycleconfigcontent
 	//
 	StudioLifecycleConfigContent *string `field:"required" json:"studioLifecycleConfigContent" yaml:"studioLifecycleConfigContent"`
-	// The name of the Amazon SageMaker Studio Lifecycle Configuration.
+	// The name of the Amazon SageMaker AI Studio Lifecycle Configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html#cfn-sagemaker-studiolifecycleconfig-studiolifecycleconfigname
 	//
 	StudioLifecycleConfigName *string `field:"required" json:"studioLifecycleConfigName" yaml:"studioLifecycleConfigName"`

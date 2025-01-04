@@ -9,9 +9,13 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The `HookDefaultVersion` resource specifies the default version of the Hook.
+// The `AWS::CloudFormation::HookDefaultVersion` resource specifies the default version of a Hook.
 //
 // The default version of the Hook is used in CloudFormation operations for this AWS account and AWS Region .
+//
+// For information about the CloudFormation registry, see [Managing extensions with the CloudFormation registry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html) in the *AWS CloudFormation User Guide* .
+//
+// This resource type is not compatible with Guard and Lambda Hooks.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -29,7 +33,7 @@ import (
 type CfnHookDefaultVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The Amazon Resource Number (ARN) of the activated extension, in this account and Region.
+	// The Amazon Resource Number (ARN) of the activated Hook, in this account and Region.
 	AttrArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

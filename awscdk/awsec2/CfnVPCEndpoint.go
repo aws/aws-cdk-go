@@ -27,20 +27,33 @@ import (
 //   var policyDocument interface{}
 //
 //   cfnVPCEndpoint := awscdk.Aws_ec2.NewCfnVPCEndpoint(this, jsii.String("MyCfnVPCEndpoint"), &CfnVPCEndpointProps{
-//   	ServiceName: jsii.String("serviceName"),
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	DnsOptions: &DnsOptionsSpecificationProperty{
+//   		DnsRecordIpType: jsii.String("dnsRecordIpType"),
+//   		PrivateDnsOnlyForInboundResolverEndpoint: jsii.String("privateDnsOnlyForInboundResolverEndpoint"),
+//   	},
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	PolicyDocument: policyDocument,
 //   	PrivateDnsEnabled: jsii.Boolean(false),
+//   	ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
 //   	RouteTableIds: []*string{
 //   		jsii.String("routeTableIds"),
 //   	},
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
+//   	ServiceName: jsii.String("serviceName"),
+//   	ServiceNetworkArn: jsii.String("serviceNetworkArn"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
+//   	},
+//   	Tags: []cfnTag{
+//   		&cfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   	VpcEndpointType: jsii.String("vpcEndpointType"),
 //   })
@@ -50,6 +63,7 @@ import (
 type CfnVPCEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// The date and time the VPC endpoint was created.
 	//
 	// For example: `Fri Sep 28 23:34:36 UTC 2018.`
@@ -70,6 +84,8 @@ type CfnVPCEndpoint interface {
 	//
 	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
 	AttrNetworkInterfaceIds() *[]*string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -79,6 +95,12 @@ type CfnVPCEndpoint interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Describes the DNS options for an endpoint.
+	DnsOptions() interface{}
+	SetDnsOptions(val interface{})
+	// The supported IP address types.
+	IpAddressType() *string
+	SetIpAddressType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -102,6 +124,9 @@ type CfnVPCEndpoint interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the resource configuration.
+	ResourceConfigurationArn() *string
+	SetResourceConfigurationArn(val *string)
 	// The IDs of the route tables.
 	RouteTableIds() *[]*string
 	SetRouteTableIds(val *[]*string)
@@ -111,6 +136,9 @@ type CfnVPCEndpoint interface {
 	// The name of the endpoint service.
 	ServiceName() *string
 	SetServiceName(val *string)
+	// The Amazon Resource Name (ARN) of the service network.
+	ServiceNetworkArn() *string
+	SetServiceNetworkArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -118,6 +146,8 @@ type CfnVPCEndpoint interface {
 	// The IDs of the subnets in which to create endpoint network interfaces.
 	SubnetIds() *[]*string
 	SetSubnetIds(val *[]*string)
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -268,6 +298,7 @@ type CfnVPCEndpoint interface {
 type jsiiProxy_CfnVPCEndpoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnVPCEndpoint) AttrCreationTimestamp() *string {
@@ -310,6 +341,16 @@ func (j *jsiiProxy_CfnVPCEndpoint) AttrNetworkInterfaceIds() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEndpoint) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpoint) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -345,6 +386,26 @@ func (j *jsiiProxy_CfnVPCEndpoint) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpoint) DnsOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dnsOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpoint) IpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipAddressType",
 		&returns,
 	)
 	return returns
@@ -400,6 +461,16 @@ func (j *jsiiProxy_CfnVPCEndpoint) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEndpoint) ResourceConfigurationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resourceConfigurationArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpoint) RouteTableIds() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -430,6 +501,16 @@ func (j *jsiiProxy_CfnVPCEndpoint) ServiceName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEndpoint) ServiceNetworkArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"serviceNetworkArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpoint) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -445,6 +526,16 @@ func (j *jsiiProxy_CfnVPCEndpoint) SubnetIds() *[]*string {
 	_jsii_.Get(
 		j,
 		"subnetIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpoint) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -518,6 +609,25 @@ func NewCfnVPCEndpoint_Override(c CfnVPCEndpoint, scope constructs.Construct, id
 	)
 }
 
+func (j *jsiiProxy_CfnVPCEndpoint)SetDnsOptions(val interface{}) {
+	if err := j.validateSetDnsOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dnsOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpoint)SetIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"ipAddressType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnVPCEndpoint)SetPolicyDocument(val interface{}) {
 	_jsii_.Set(
 		j,
@@ -533,6 +643,14 @@ func (j *jsiiProxy_CfnVPCEndpoint)SetPrivateDnsEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"privateDnsEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpoint)SetResourceConfigurationArn(val *string) {
+	_jsii_.Set(
+		j,
+		"resourceConfigurationArn",
 		val,
 	)
 }
@@ -554,12 +672,17 @@ func (j *jsiiProxy_CfnVPCEndpoint)SetSecurityGroupIds(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnVPCEndpoint)SetServiceName(val *string) {
-	if err := j.validateSetServiceNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"serviceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpoint)SetServiceNetworkArn(val *string) {
+	_jsii_.Set(
+		j,
+		"serviceNetworkArn",
 		val,
 	)
 }
@@ -568,6 +691,17 @@ func (j *jsiiProxy_CfnVPCEndpoint)SetSubnetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpoint)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

@@ -3,14 +3,9 @@ package awsbedrock
 
 // Settings for parsing document contents.
 //
-// By default, the service converts the contents of each document into text before splitting it into chunks. To improve processing of PDF files with tables and images, you can configure the data source to convert the pages of text into images and use a model to describe the contents of each page.
+// If you exclude this field, the default parser converts the contents of each document into text before splitting it into chunks. Specify the parsing strategy to use in the `parsingStrategy` field and include the relevant configuration, or omit it to use the Amazon Bedrock default parser. For more information, see [Parsing options for your data source](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-advanced-parsing.html) .
 //
-// To use a model to parse PDF documents, set the parsing strategy to `BEDROCK_FOUNDATION_MODEL` and specify the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to use by ARN. You can also override the default parsing prompt with instructions for how to interpret images and tables in your documents. The following models are supported.
-//
-// - Anthropic Claude 3 Sonnet - `anthropic.claude-3-sonnet-20240229-v1:0`
-// - Anthropic Claude 3 Haiku - `anthropic.claude-3-haiku-20240307-v1:0`
-//
-// You can get the ARN of a model with the [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) action. Standard model usage charges apply for the foundation model parsing strategy.
+// > If you specify `BEDROCK_DATA_AUTOMATION` or `BEDROCK_FOUNDATION_MODEL` and it fails to parse a file, the Amazon Bedrock default parser will be used instead.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,10 +16,14 @@ package awsbedrock
 //   	ParsingStrategy: jsii.String("parsingStrategy"),
 //
 //   	// the properties below are optional
+//   	BedrockDataAutomationConfiguration: &BedrockDataAutomationConfigurationProperty{
+//   		ParsingModality: jsii.String("parsingModality"),
+//   	},
 //   	BedrockFoundationModelConfiguration: &BedrockFoundationModelConfigurationProperty{
 //   		ModelArn: jsii.String("modelArn"),
 //
 //   		// the properties below are optional
+//   		ParsingModality: jsii.String("parsingModality"),
 //   		ParsingPrompt: &ParsingPromptProperty{
 //   			ParsingPromptText: jsii.String("parsingPromptText"),
 //   		},
@@ -38,7 +37,11 @@ type CfnDataSource_ParsingConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-parsingstrategy
 	//
 	ParsingStrategy *string `field:"required" json:"parsingStrategy" yaml:"parsingStrategy"`
-	// Settings for a foundation model used to parse documents for a data source.
+	// If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-bedrockdataautomationconfiguration
+	//
+	BedrockDataAutomationConfiguration interface{} `field:"optional" json:"bedrockDataAutomationConfiguration" yaml:"bedrockDataAutomationConfiguration"`
+	// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html#cfn-bedrock-datasource-parsingconfiguration-bedrockfoundationmodelconfiguration
 	//
 	BedrockFoundationModelConfiguration interface{} `field:"optional" json:"bedrockFoundationModelConfiguration" yaml:"bedrockFoundationModelConfiguration"`

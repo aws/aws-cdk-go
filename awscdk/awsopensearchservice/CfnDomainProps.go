@@ -57,6 +57,16 @@ import (
 //   		InstanceCount: jsii.Number(123),
 //   		InstanceType: jsii.String("instanceType"),
 //   		MultiAzWithStandbyEnabled: jsii.Boolean(false),
+//   		NodeOptions: []interface{}{
+//   			&NodeOptionProperty{
+//   				NodeConfig: &NodeConfigProperty{
+//   					Count: jsii.Number(123),
+//   					Enabled: jsii.Boolean(false),
+//   					Type: jsii.String("type"),
+//   				},
+//   				NodeType: jsii.String("nodeType"),
+//   			},
+//   		},
 //   		WarmCount: jsii.Number(123),
 //   		WarmEnabled: jsii.Boolean(false),
 //   		WarmType: jsii.String("warmType"),
