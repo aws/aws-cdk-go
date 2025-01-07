@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The map state properties for a map.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -22,6 +24,7 @@ type CfnAnalysis_GeospatialMapStateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialmapstate.html#cfn-quicksight-analysis-geospatialmapstate-bounds
 	//
 	Bounds interface{} `field:"optional" json:"bounds" yaml:"bounds"`
+	// Enables or disables map navigation for a map.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialmapstate.html#cfn-quicksight-analysis-geospatialmapstate-mapnavigation
 	//
 	MapNavigation *string `field:"optional" json:"mapNavigation" yaml:"mapNavigation"`

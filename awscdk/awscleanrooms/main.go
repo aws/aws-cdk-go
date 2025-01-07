@@ -103,6 +103,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "creatorDisplayName", GoGetter: "CreatorDisplayName"},
 			_jsii_.MemberProperty{JsiiProperty: "creatorMemberAbilities", GoGetter: "CreatorMemberAbilities"},
+			_jsii_.MemberProperty{JsiiProperty: "creatorMlMemberAbilities", GoGetter: "CreatorMlMemberAbilities"},
 			_jsii_.MemberProperty{JsiiProperty: "creatorPaymentConfiguration", GoGetter: "CreatorPaymentConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "dataEncryptionMetadata", GoGetter: "DataEncryptionMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -142,8 +143,24 @@ func init() {
 		reflect.TypeOf((*CfnCollaboration_DataEncryptionMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.MLMemberAbilitiesProperty",
+		reflect.TypeOf((*CfnCollaboration_MLMemberAbilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.MLPaymentConfigProperty",
+		reflect.TypeOf((*CfnCollaboration_MLPaymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.MemberSpecificationProperty",
 		reflect.TypeOf((*CfnCollaboration_MemberSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.ModelInferencePaymentConfigProperty",
+		reflect.TypeOf((*CfnCollaboration_ModelInferencePaymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.ModelTrainingPaymentConfigProperty",
+		reflect.TypeOf((*CfnCollaboration_ModelTrainingPaymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnCollaboration.PaymentConfigurationProperty",
@@ -555,6 +572,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipMLPaymentConfigProperty",
+		reflect.TypeOf((*CfnMembership_MembershipMLPaymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipModelInferencePaymentConfigProperty",
+		reflect.TypeOf((*CfnMembership_MembershipModelInferencePaymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipModelTrainingPaymentConfigProperty",
+		reflect.TypeOf((*CfnMembership_MembershipModelTrainingPaymentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnMembership.MembershipPaymentConfigurationProperty",

@@ -148,6 +148,7 @@ type CfnTemplate_CustomContentVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcontentvisual.html#cfn-quicksight-template-customcontentvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// The alt text for the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcontentvisual.html#cfn-quicksight-template-customcontentvisual-visualcontentalttext
 	//
 	VisualContentAltText *string `field:"optional" json:"visualContentAltText" yaml:"visualContentAltText"`

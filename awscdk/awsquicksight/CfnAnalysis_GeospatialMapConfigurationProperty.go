@@ -13,6 +13,7 @@ type CfnAnalysis_GeospatialMapConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialmapconfiguration.html#cfn-quicksight-analysis-geospatialmapconfiguration-fieldwells
 	//
 	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
+	// The general visual interactions setup for a visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialmapconfiguration.html#cfn-quicksight-analysis-geospatialmapconfiguration-interactions
 	//
 	Interactions interface{} `field:"optional" json:"interactions" yaml:"interactions"`

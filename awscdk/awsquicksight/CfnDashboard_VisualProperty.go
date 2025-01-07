@@ -87,6 +87,7 @@ type CfnDashboard_VisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-kpivisual
 	//
 	KpiVisual interface{} `field:"optional" json:"kpiVisual" yaml:"kpiVisual"`
+	// The properties for a layer map visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-layermapvisual
 	//
 	LayerMapVisual interface{} `field:"optional" json:"layerMapVisual" yaml:"layerMapVisual"`
@@ -108,6 +109,7 @@ type CfnDashboard_VisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-pivottablevisual
 	//
 	PivotTableVisual interface{} `field:"optional" json:"pivotTableVisual" yaml:"pivotTableVisual"`
+	// The custom plugin visual type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html#cfn-quicksight-dashboard-visual-pluginvisual
 	//
 	PluginVisual interface{} `field:"optional" json:"pluginVisual" yaml:"pluginVisual"`

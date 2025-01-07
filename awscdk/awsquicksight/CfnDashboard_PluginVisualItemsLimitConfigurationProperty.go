@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A query limits configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualitemslimitconfiguration.html
 //
 type CfnDashboard_PluginVisualItemsLimitConfigurationProperty struct {
+	// Determines how many values are be fetched at once.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualitemslimitconfiguration.html#cfn-quicksight-dashboard-pluginvisualitemslimitconfiguration-itemslimit
 	//
 	ItemsLimit *float64 `field:"optional" json:"itemsLimit" yaml:"itemsLimit"`

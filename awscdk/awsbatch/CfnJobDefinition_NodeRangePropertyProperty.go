@@ -241,12 +241,12 @@ package awsbatch
 //   				PidMode: jsii.String("pidMode"),
 //   				TaskRoleArn: jsii.String("taskRoleArn"),
 //   				Volumes: []interface{}{
-//   					&VolumeProperty{
-//   						EfsVolumeConfiguration: &EFSVolumeConfigurationProperty{
+//   					&VolumesProperty{
+//   						EfsVolumeConfiguration: &EfsVolumeConfigurationProperty{
 //   							FileSystemId: jsii.String("fileSystemId"),
 //
 //   							// the properties below are optional
-//   							AuthorizationConfig: &EFSAuthorizationConfigProperty{
+//   							AuthorizationConfig: &AuthorizationConfigProperty{
 //   								AccessPointId: jsii.String("accessPointId"),
 //   								Iam: jsii.String("iam"),
 //   							},
@@ -254,7 +254,7 @@ package awsbatch
 //   							TransitEncryption: jsii.String("transitEncryption"),
 //   							TransitEncryptionPort: jsii.Number(123),
 //   						},
-//   						Host: &HostProperty{
+//   						Host: &VolumesHostProperty{
 //   							SourcePath: jsii.String("sourcePath"),
 //   						},
 //   						Name: jsii.String("name"),

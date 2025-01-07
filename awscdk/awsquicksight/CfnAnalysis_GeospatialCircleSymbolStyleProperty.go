@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The properties for a circle symbol style.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -110,15 +112,19 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialcirclesymbolstyle.html
 //
 type CfnAnalysis_GeospatialCircleSymbolStyleProperty struct {
+	// The radius of the circle.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialcirclesymbolstyle.html#cfn-quicksight-analysis-geospatialcirclesymbolstyle-circleradius
 	//
 	CircleRadius interface{} `field:"optional" json:"circleRadius" yaml:"circleRadius"`
+	// The color and opacity values for the fill color.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialcirclesymbolstyle.html#cfn-quicksight-analysis-geospatialcirclesymbolstyle-fillcolor
 	//
 	FillColor interface{} `field:"optional" json:"fillColor" yaml:"fillColor"`
+	// The color and opacity values for the stroke color.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialcirclesymbolstyle.html#cfn-quicksight-analysis-geospatialcirclesymbolstyle-strokecolor
 	//
 	StrokeColor interface{} `field:"optional" json:"strokeColor" yaml:"strokeColor"`
+	// The width of the stroke (border).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialcirclesymbolstyle.html#cfn-quicksight-analysis-geospatialcirclesymbolstyle-strokewidth
 	//
 	StrokeWidth interface{} `field:"optional" json:"strokeWidth" yaml:"strokeWidth"`

@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The properties for the visualization of null data.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,6 +19,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialnulldatasettings.html
 //
 type CfnAnalysis_GeospatialNullDataSettingsProperty struct {
+	// The symbol style for null data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialnulldatasettings.html#cfn-quicksight-analysis-geospatialnulldatasettings-symbolstyle
 	//
 	SymbolStyle interface{} `field:"required" json:"symbolStyle" yaml:"symbolStyle"`

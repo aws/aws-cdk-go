@@ -33,6 +33,7 @@ type CfnAnalysis_SankeyDiagramVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramvisual.html#cfn-quicksight-analysis-sankeydiagramvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// The alt text for the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramvisual.html#cfn-quicksight-analysis-sankeydiagramvisual-visualcontentalttext
 	//
 	VisualContentAltText *string `field:"optional" json:"visualContentAltText" yaml:"visualContentAltText"`

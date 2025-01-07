@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The polygon symbol style for a polygon layer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -107,12 +109,15 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpolygonsymbolstyle.html
 //
 type CfnAnalysis_GeospatialPolygonSymbolStyleProperty struct {
+	// The color and opacity values for the fill color.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpolygonsymbolstyle.html#cfn-quicksight-analysis-geospatialpolygonsymbolstyle-fillcolor
 	//
 	FillColor interface{} `field:"optional" json:"fillColor" yaml:"fillColor"`
+	// The color and opacity values for the stroke color.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpolygonsymbolstyle.html#cfn-quicksight-analysis-geospatialpolygonsymbolstyle-strokecolor
 	//
 	StrokeColor interface{} `field:"optional" json:"strokeColor" yaml:"strokeColor"`
+	// The width of the border stroke.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpolygonsymbolstyle.html#cfn-quicksight-analysis-geospatialpolygonsymbolstyle-strokewidth
 	//
 	StrokeWidth interface{} `field:"optional" json:"strokeWidth" yaml:"strokeWidth"`

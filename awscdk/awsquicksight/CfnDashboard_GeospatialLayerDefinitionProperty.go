@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The definition properties for a geospatial layer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -272,12 +274,15 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerdefinition.html
 //
 type CfnDashboard_GeospatialLayerDefinitionProperty struct {
+	// The definition for a line layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerdefinition.html#cfn-quicksight-dashboard-geospatiallayerdefinition-linelayer
 	//
 	LineLayer interface{} `field:"optional" json:"lineLayer" yaml:"lineLayer"`
+	// The definition for a point layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerdefinition.html#cfn-quicksight-dashboard-geospatiallayerdefinition-pointlayer
 	//
 	PointLayer interface{} `field:"optional" json:"pointLayer" yaml:"pointLayer"`
+	// The definition for a polygon layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerdefinition.html#cfn-quicksight-dashboard-geospatiallayerdefinition-polygonlayer
 	//
 	PolygonLayer interface{} `field:"optional" json:"polygonLayer" yaml:"polygonLayer"`

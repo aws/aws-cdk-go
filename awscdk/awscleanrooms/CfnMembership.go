@@ -40,6 +40,16 @@ import (
 //   		QueryCompute: &MembershipQueryComputePaymentConfigProperty{
 //   			IsResponsible: jsii.Boolean(false),
 //   		},
+//
+//   		// the properties below are optional
+//   		MachineLearning: &MembershipMLPaymentConfigProperty{
+//   			ModelInference: &MembershipModelInferencePaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
+//   			ModelTraining: &MembershipModelTrainingPaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
+//   		},
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{

@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The geospatial Point layer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -114,6 +116,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpointlayer.html
 //
 type CfnAnalysis_GeospatialPointLayerProperty struct {
+	// The visualization style for a point layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpointlayer.html#cfn-quicksight-analysis-geospatialpointlayer-style
 	//
 	Style interface{} `field:"required" json:"style" yaml:"style"`

@@ -33,13 +33,16 @@ import (
 //   	},
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	ManageMasterUserPassword: jsii.Boolean(false),
 //   	MasterUsername: jsii.String("masterUsername"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
+//   	MasterUserSecretKmsKeyId: jsii.String("masterUserSecretKmsKeyId"),
 //   	Port: jsii.Number(123),
 //   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	RestoreToTime: jsii.String("restoreToTime"),
 //   	RestoreType: jsii.String("restoreType"),
+//   	RotateMasterUserPassword: jsii.Boolean(false),
 //   	ServerlessV2ScalingConfiguration: &ServerlessV2ScalingConfigurationProperty{
 //   		MaxCapacity: jsii.Number(123),
 //   		MinCapacity: jsii.Number(123),
@@ -134,12 +137,16 @@ type CfnDBCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	ManageMasterUserPassword() interface{}
+	SetManageMasterUserPassword(val interface{})
 	// The name of the master user for the cluster.
 	MasterUsername() *string
 	SetMasterUsername(val *string)
 	// The password for the master database user.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
+	MasterUserSecretKmsKeyId() *string
+	SetMasterUserSecretKmsKeyId(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the port that the database engine is listening on.
@@ -164,6 +171,8 @@ type CfnDBCluster interface {
 	// You can specify one of the following values:.
 	RestoreType() *string
 	SetRestoreType(val *string)
+	RotateMasterUserPassword() interface{}
+	SetRotateMasterUserPassword(val interface{})
 	ServerlessV2ScalingConfiguration() interface{}
 	SetServerlessV2ScalingConfiguration(val interface{})
 	// The identifier for the snapshot or cluster snapshot to restore from.
@@ -540,6 +549,16 @@ func (j *jsiiProxy_CfnDBCluster) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) ManageMasterUserPassword() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"manageMasterUserPassword",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) MasterUsername() *string {
 	var returns *string
 	_jsii_.Get(
@@ -555,6 +574,16 @@ func (j *jsiiProxy_CfnDBCluster) MasterUserPassword() *string {
 	_jsii_.Get(
 		j,
 		"masterUserPassword",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) MasterUserSecretKmsKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"masterUserSecretKmsKeyId",
 		&returns,
 	)
 	return returns
@@ -625,6 +654,16 @@ func (j *jsiiProxy_CfnDBCluster) RestoreType() *string {
 	_jsii_.Get(
 		j,
 		"restoreType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) RotateMasterUserPassword() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rotateMasterUserPassword",
 		&returns,
 	)
 	return returns
@@ -864,6 +903,17 @@ func (j *jsiiProxy_CfnDBCluster)SetKmsKeyId(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBCluster)SetManageMasterUserPassword(val interface{}) {
+	if err := j.validateSetManageMasterUserPasswordParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"manageMasterUserPassword",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBCluster)SetMasterUsername(val *string) {
 	_jsii_.Set(
 		j,
@@ -876,6 +926,14 @@ func (j *jsiiProxy_CfnDBCluster)SetMasterUserPassword(val *string) {
 	_jsii_.Set(
 		j,
 		"masterUserPassword",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetMasterUserSecretKmsKeyId(val *string) {
+	_jsii_.Set(
+		j,
+		"masterUserSecretKmsKeyId",
 		val,
 	)
 }
@@ -916,6 +974,17 @@ func (j *jsiiProxy_CfnDBCluster)SetRestoreType(val *string) {
 	_jsii_.Set(
 		j,
 		"restoreType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetRotateMasterUserPassword(val interface{}) {
+	if err := j.validateSetRotateMasterUserPasswordParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rotateMasterUserPassword",
 		val,
 	)
 }

@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The table query sorting options for the plugin visual.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -46,9 +48,11 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualtablequerysort.html
 //
 type CfnDashboard_PluginVisualTableQuerySortProperty struct {
+	// The maximum amount of data to be returned by a query.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualtablequerysort.html#cfn-quicksight-dashboard-pluginvisualtablequerysort-itemslimitconfiguration
 	//
 	ItemsLimitConfiguration interface{} `field:"optional" json:"itemsLimitConfiguration" yaml:"itemsLimitConfiguration"`
+	// Determines how data is sorted in the response.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualtablequerysort.html#cfn-quicksight-dashboard-pluginvisualtablequerysort-rowsort
 	//
 	RowSort interface{} `field:"optional" json:"rowSort" yaml:"rowSort"`

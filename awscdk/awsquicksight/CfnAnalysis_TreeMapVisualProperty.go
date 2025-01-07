@@ -37,6 +37,7 @@ type CfnAnalysis_TreeMapVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-treemapvisual.html#cfn-quicksight-analysis-treemapvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// The alt text for the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-treemapvisual.html#cfn-quicksight-analysis-treemapvisual-visualcontentalttext
 	//
 	VisualContentAltText *string `field:"optional" json:"visualContentAltText" yaml:"visualContentAltText"`

@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The options and persisted properties for the plugin visual.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -18,6 +20,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualoptions.html
 //
 type CfnTemplate_PluginVisualOptionsProperty struct {
+	// The persisted properties and their values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualoptions.html#cfn-quicksight-template-pluginvisualoptions-visualproperties
 	//
 	VisualProperties interface{} `field:"optional" json:"visualProperties" yaml:"visualProperties"`

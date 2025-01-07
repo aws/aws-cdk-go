@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The symbol style for a line layer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -61,9 +63,11 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinesymbolstyle.html
 //
 type CfnDashboard_GeospatialLineSymbolStyleProperty struct {
+	// The color and opacity values for the fill color.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinesymbolstyle.html#cfn-quicksight-dashboard-geospatiallinesymbolstyle-fillcolor
 	//
 	FillColor interface{} `field:"optional" json:"fillColor" yaml:"fillColor"`
+	// The width value for a line.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinesymbolstyle.html#cfn-quicksight-dashboard-geospatiallinesymbolstyle-linewidth
 	//
 	LineWidth interface{} `field:"optional" json:"lineWidth" yaml:"lineWidth"`

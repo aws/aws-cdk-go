@@ -32,6 +32,7 @@ type CfnAnalysis_SheetDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheetdefinition.html#cfn-quicksight-analysis-sheetdefinition-filtercontrols
 	//
 	FilterControls interface{} `field:"optional" json:"filterControls" yaml:"filterControls"`
+	// A list of images on a sheet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheetdefinition.html#cfn-quicksight-analysis-sheetdefinition-images
 	//
 	Images interface{} `field:"optional" json:"images" yaml:"images"`

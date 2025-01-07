@@ -50,6 +50,7 @@ type CfnDashboard_DashboardVersionDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html#cfn-quicksight-dashboard-dashboardversiondefinition-sheets
 	//
 	Sheets interface{} `field:"optional" json:"sheets" yaml:"sheets"`
+	// The static files for the definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html#cfn-quicksight-dashboard-dashboardversiondefinition-staticfiles
 	//
 	StaticFiles interface{} `field:"optional" json:"staticFiles" yaml:"staticFiles"`

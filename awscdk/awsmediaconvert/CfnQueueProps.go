@@ -11,6 +11,7 @@ package awsmediaconvert
 //   var tags interface{}
 //
 //   cfnQueueProps := &CfnQueueProps{
+//   	ConcurrentJobs: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	PricingPlan: jsii.String("pricingPlan"),
@@ -21,6 +22,9 @@ package awsmediaconvert
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html
 //
 type CfnQueueProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-concurrentjobs
+	//
+	ConcurrentJobs *float64 `field:"optional" json:"concurrentJobs" yaml:"concurrentJobs"`
 	// Optional.
 	//
 	// A description of the queue that you are creating.

@@ -21,6 +21,7 @@ import (
 //   var tags interface{}
 //
 //   cfnQueue := awscdk.Aws_mediaconvert.NewCfnQueue(this, jsii.String("MyCfnQueue"), &CfnQueueProps{
+//   	ConcurrentJobs: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	PricingPlan: jsii.String("pricingPlan"),
@@ -44,6 +45,8 @@ type CfnQueue interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	ConcurrentJobs() *float64
+	SetConcurrentJobs(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -293,6 +296,16 @@ func (j *jsiiProxy_CfnQueue) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) ConcurrentJobs() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"concurrentJobs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -448,6 +461,14 @@ func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue)SetConcurrentJobs(val *float64) {
+	_jsii_.Set(
+		j,
+		"concurrentJobs",
+		val,
 	)
 }
 

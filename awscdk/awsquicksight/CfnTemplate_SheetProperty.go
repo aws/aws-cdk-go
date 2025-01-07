@@ -106,6 +106,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheet.html
 //
 type CfnTemplate_SheetProperty struct {
+	// A list of images on a sheet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheet.html#cfn-quicksight-template-sheet-images
 	//
 	Images interface{} `field:"optional" json:"images" yaml:"images"`

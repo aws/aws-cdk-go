@@ -1,6 +1,10 @@
 package awsquicksight
 
 
+// The operation that is defined by the custom action.
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

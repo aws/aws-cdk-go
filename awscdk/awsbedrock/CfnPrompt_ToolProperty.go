@@ -3,7 +3,7 @@ package awsbedrock
 
 // Information about a tool that you can use with the Converse API.
 //
-// For more information, see [Tool use (function calling)](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html) in the Amazon Bedrock User Guide.
+// For more information, see [Call a tool with the Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html) in the Amazon Bedrock User Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

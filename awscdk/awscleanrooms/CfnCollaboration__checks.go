@@ -195,6 +195,30 @@ func (j *jsiiProxy_CfnCollaboration) validateSetCreatorMemberAbilitiesParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnCollaboration) validateSetCreatorMlMemberAbilitiesParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCollaboration_MLMemberAbilitiesProperty:
+		val := val.(*CfnCollaboration_MLMemberAbilitiesProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCollaboration_MLMemberAbilitiesProperty:
+		val_ := val.(CfnCollaboration_MLMemberAbilitiesProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCollaboration_MLMemberAbilitiesProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCollaboration) validateSetCreatorPaymentConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

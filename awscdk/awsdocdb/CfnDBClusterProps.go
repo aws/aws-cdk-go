@@ -26,13 +26,16 @@ import (
 //   	},
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	ManageMasterUserPassword: jsii.Boolean(false),
 //   	MasterUsername: jsii.String("masterUsername"),
 //   	MasterUserPassword: jsii.String("masterUserPassword"),
+//   	MasterUserSecretKmsKeyId: jsii.String("masterUserSecretKmsKeyId"),
 //   	Port: jsii.Number(123),
 //   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	RestoreToTime: jsii.String("restoreToTime"),
 //   	RestoreType: jsii.String("restoreType"),
+//   	RotateMasterUserPassword: jsii.Boolean(false),
 //   	ServerlessV2ScalingConfiguration: &ServerlessV2ScalingConfigurationProperty{
 //   		MaxCapacity: jsii.Number(123),
 //   		MinCapacity: jsii.Number(123),
@@ -132,6 +135,9 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-managemasteruserpassword
+	//
+	ManageMasterUserPassword interface{} `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// The name of the master user for the cluster.
 	//
 	// Constraints:
@@ -150,6 +156,9 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masteruserpassword
 	//
 	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masterusersecretkmskeyid
+	//
+	MasterUserSecretKmsKeyId *string `field:"optional" json:"masterUserSecretKmsKeyId" yaml:"masterUserSecretKmsKeyId"`
 	// Specifies the port that the database engine is listening on.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-port
 	//
@@ -205,6 +214,9 @@ type CfnDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-restoretype
 	//
 	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-rotatemasteruserpassword
+	//
+	RotateMasterUserPassword interface{} `field:"optional" json:"rotateMasterUserPassword" yaml:"rotateMasterUserPassword"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-serverlessv2scalingconfiguration
 	//
 	ServerlessV2ScalingConfiguration interface{} `field:"optional" json:"serverlessV2ScalingConfiguration" yaml:"serverlessV2ScalingConfiguration"`

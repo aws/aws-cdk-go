@@ -26,9 +26,24 @@ import (
 //   			},
 //
 //   			// the properties below are optional
+//   			MlMemberAbilities: &MLMemberAbilitiesProperty{
+//   				CustomMlMemberAbilities: []*string{
+//   					jsii.String("customMlMemberAbilities"),
+//   				},
+//   			},
 //   			PaymentConfiguration: &PaymentConfigurationProperty{
 //   				QueryCompute: &QueryComputePaymentConfigProperty{
 //   					IsResponsible: jsii.Boolean(false),
+//   				},
+//
+//   				// the properties below are optional
+//   				MachineLearning: &MLPaymentConfigProperty{
+//   					ModelInference: &ModelInferencePaymentConfigProperty{
+//   						IsResponsible: jsii.Boolean(false),
+//   					},
+//   					ModelTraining: &ModelTrainingPaymentConfigProperty{
+//   						IsResponsible: jsii.Boolean(false),
+//   					},
 //   				},
 //   			},
 //   		},
@@ -38,9 +53,24 @@ import (
 //
 //   	// the properties below are optional
 //   	AnalyticsEngine: jsii.String("analyticsEngine"),
+//   	CreatorMlMemberAbilities: &MLMemberAbilitiesProperty{
+//   		CustomMlMemberAbilities: []*string{
+//   			jsii.String("customMlMemberAbilities"),
+//   		},
+//   	},
 //   	CreatorPaymentConfiguration: &PaymentConfigurationProperty{
 //   		QueryCompute: &QueryComputePaymentConfigProperty{
 //   			IsResponsible: jsii.Boolean(false),
+//   		},
+//
+//   		// the properties below are optional
+//   		MachineLearning: &MLPaymentConfigProperty{
+//   			ModelInference: &ModelInferencePaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
+//   			ModelTraining: &ModelTrainingPaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
 //   		},
 //   	},
 //   	DataEncryptionMetadata: &DataEncryptionMetadataProperty{
@@ -94,6 +124,9 @@ type CfnCollaborationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-analyticsengine
 	//
 	AnalyticsEngine *string `field:"optional" json:"analyticsEngine" yaml:"analyticsEngine"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatormlmemberabilities
+	//
+	CreatorMlMemberAbilities interface{} `field:"optional" json:"creatorMlMemberAbilities" yaml:"creatorMlMemberAbilities"`
 	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatorpaymentconfiguration
 	//

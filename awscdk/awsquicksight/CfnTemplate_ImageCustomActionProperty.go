@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A custom action defined on an image.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -66,18 +68,30 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html
 //
 type CfnTemplate_ImageCustomActionProperty struct {
+	// A list of `ImageCustomActionOperations` .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html#cfn-quicksight-template-imagecustomaction-actionoperations
 	//
 	ActionOperations interface{} `field:"required" json:"actionOperations" yaml:"actionOperations"`
+	// The ID of the custom action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html#cfn-quicksight-template-imagecustomaction-customactionid
 	//
 	CustomActionId *string `field:"required" json:"customActionId" yaml:"customActionId"`
+	// The name of the custom action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html#cfn-quicksight-template-imagecustomaction-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The trigger of the `VisualCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `MENU` : Initiates a custom action by right pointer click from the menu.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html#cfn-quicksight-template-imagecustomaction-trigger
 	//
 	Trigger *string `field:"required" json:"trigger" yaml:"trigger"`
+	// The status of the custom action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html#cfn-quicksight-template-imagecustomaction-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

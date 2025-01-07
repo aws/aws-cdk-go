@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnCollaboration) validateSetCreatorMemberAbilitiesParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnCollaboration) validateSetCreatorMlMemberAbilitiesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCollaboration) validateSetCreatorPaymentConfigurationParameters(val interface{}) error {
 	return nil
 }

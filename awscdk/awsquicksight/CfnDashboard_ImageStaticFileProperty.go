@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A static file that contains an image.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,9 +27,11 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagestaticfile.html
 //
 type CfnDashboard_ImageStaticFileProperty struct {
+	// The ID of the static file that contains an image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagestaticfile.html#cfn-quicksight-dashboard-imagestaticfile-staticfileid
 	//
 	StaticFileId *string `field:"required" json:"staticFileId" yaml:"staticFileId"`
+	// The source of the image static file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagestaticfile.html#cfn-quicksight-dashboard-imagestaticfile-source
 	//
 	Source interface{} `field:"optional" json:"source" yaml:"source"`

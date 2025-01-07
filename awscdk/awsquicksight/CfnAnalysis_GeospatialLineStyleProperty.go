@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The visualization style for a line layer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -63,6 +65,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatiallinestyle.html
 //
 type CfnAnalysis_GeospatialLineStyleProperty struct {
+	// The symbol style for a line style.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatiallinestyle.html#cfn-quicksight-analysis-geospatiallinestyle-linesymbolstyle
 	//
 	LineSymbolStyle interface{} `field:"optional" json:"lineSymbolStyle" yaml:"lineSymbolStyle"`

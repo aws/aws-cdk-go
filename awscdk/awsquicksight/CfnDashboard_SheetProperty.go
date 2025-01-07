@@ -103,6 +103,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html
 //
 type CfnDashboard_SheetProperty struct {
+	// A list of images on a sheet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html#cfn-quicksight-dashboard-sheet-images
 	//
 	Images interface{} `field:"optional" json:"images" yaml:"images"`

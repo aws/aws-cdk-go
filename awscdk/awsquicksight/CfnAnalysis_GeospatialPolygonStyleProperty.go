@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The polygon style for a polygon layer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -109,6 +111,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpolygonstyle.html
 //
 type CfnAnalysis_GeospatialPolygonStyleProperty struct {
+	// The polygon symbol style for a polygon layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpolygonstyle.html#cfn-quicksight-analysis-geospatialpolygonstyle-polygonsymbolstyle
 	//
 	PolygonSymbolStyle interface{} `field:"optional" json:"polygonSymbolStyle" yaml:"polygonSymbolStyle"`

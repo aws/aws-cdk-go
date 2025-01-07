@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The geospatial polygon layer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -111,6 +113,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpolygonlayer.html
 //
 type CfnAnalysis_GeospatialPolygonLayerProperty struct {
+	// The visualization style for a polygon layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatialpolygonlayer.html#cfn-quicksight-analysis-geospatialpolygonlayer-style
 	//
 	Style interface{} `field:"required" json:"style" yaml:"style"`

@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A layer custom action.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -88,18 +90,30 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html
 //
 type CfnDashboard_LayerCustomActionProperty struct {
+	// A list of `LayerCustomActionOperations` .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html#cfn-quicksight-dashboard-layercustomaction-actionoperations
 	//
 	ActionOperations interface{} `field:"required" json:"actionOperations" yaml:"actionOperations"`
+	// The ID of the custom action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html#cfn-quicksight-dashboard-layercustomaction-customactionid
 	//
 	CustomActionId *string `field:"required" json:"customActionId" yaml:"customActionId"`
+	// The name of the custom action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html#cfn-quicksight-dashboard-layercustomaction-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The trigger of the `LayerCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html#cfn-quicksight-dashboard-layercustomaction-trigger
 	//
 	Trigger *string `field:"required" json:"trigger" yaml:"trigger"`
+	// The status of the `LayerCustomAction` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html#cfn-quicksight-dashboard-layercustomaction-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`

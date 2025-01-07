@@ -16,7 +16,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fontsize.html
 //
 type CfnDashboard_FontSizeProperty struct {
-	// String based length that is composed of value and unit in px.
+	// The font size that you want to use in px.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fontsize.html#cfn-quicksight-dashboard-fontsize-absolute
 	//
 	Absolute *string `field:"optional" json:"absolute" yaml:"absolute"`

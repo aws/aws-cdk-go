@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// Determines how the plugin visual sorts the data during query.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -48,6 +50,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualsortconfiguration.html
 //
 type CfnTemplate_PluginVisualSortConfigurationProperty struct {
+	// The table query sorting options for the plugin visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualsortconfiguration.html#cfn-quicksight-template-pluginvisualsortconfiguration-pluginvisualtablequerysort
 	//
 	PluginVisualTableQuerySort interface{} `field:"optional" json:"pluginVisualTableQuerySort" yaml:"pluginVisualTableQuerySort"`

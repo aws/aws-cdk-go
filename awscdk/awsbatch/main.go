@@ -179,14 +179,6 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_DeviceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.EFSAuthorizationConfigProperty",
-		reflect.TypeOf((*CfnJobDefinition_EFSAuthorizationConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.EFSVolumeConfigurationProperty",
-		reflect.TypeOf((*CfnJobDefinition_EFSVolumeConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.EcsPropertiesProperty",
 		reflect.TypeOf((*CfnJobDefinition_EcsPropertiesProperty)(nil)).Elem(),
 	)
@@ -245,10 +237,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.HostPathProperty",
 		reflect.TypeOf((*CfnJobDefinition_HostPathProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.HostProperty",
-		reflect.TypeOf((*CfnJobDefinition_HostProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.ImagePullSecretProperty",
@@ -349,10 +337,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.UlimitProperty",
 		reflect.TypeOf((*CfnJobDefinition_UlimitProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.VolumeProperty",
-		reflect.TypeOf((*CfnJobDefinition_VolumeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.VolumesHostProperty",

@@ -12,6 +12,16 @@ package awscleanrooms
 //   	QueryCompute: &MembershipQueryComputePaymentConfigProperty{
 //   		IsResponsible: jsii.Boolean(false),
 //   	},
+//
+//   	// the properties below are optional
+//   	MachineLearning: &MembershipMLPaymentConfigProperty{
+//   		ModelInference: &MembershipModelInferencePaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
+//   		ModelTraining: &MembershipModelTrainingPaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html
@@ -21,5 +31,8 @@ type CfnMembership_MembershipPaymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html#cfn-cleanrooms-membership-membershippaymentconfiguration-querycompute
 	//
 	QueryCompute interface{} `field:"required" json:"queryCompute" yaml:"queryCompute"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html#cfn-cleanrooms-membership-membershippaymentconfiguration-machinelearning
+	//
+	MachineLearning interface{} `field:"optional" json:"machineLearning" yaml:"machineLearning"`
 }
 

@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// A static file that contains the geospatial data.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -25,9 +27,11 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-spatialstaticfile.html
 //
 type CfnAnalysis_SpatialStaticFileProperty struct {
+	// The ID of the spatial static file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-spatialstaticfile.html#cfn-quicksight-analysis-spatialstaticfile-staticfileid
 	//
 	StaticFileId *string `field:"required" json:"staticFileId" yaml:"staticFileId"`
+	// The source of the spatial static file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-spatialstaticfile.html#cfn-quicksight-analysis-spatialstaticfile-source
 	//
 	Source interface{} `field:"optional" json:"source" yaml:"source"`

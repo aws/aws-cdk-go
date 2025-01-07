@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// The point style for a point layer.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -112,6 +114,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointstyle.html
 //
 type CfnDashboard_GeospatialPointStyleProperty struct {
+	// The circle symbol style for a point layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointstyle.html#cfn-quicksight-dashboard-geospatialpointstyle-circlesymbolstyle
 	//
 	CircleSymbolStyle interface{} `field:"optional" json:"circleSymbolStyle" yaml:"circleSymbolStyle"`

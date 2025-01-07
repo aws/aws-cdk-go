@@ -12,6 +12,16 @@ package awscleanrooms
 //   	QueryCompute: &QueryComputePaymentConfigProperty{
 //   		IsResponsible: jsii.Boolean(false),
 //   	},
+//
+//   	// the properties below are optional
+//   	MachineLearning: &MLPaymentConfigProperty{
+//   		ModelInference: &ModelInferencePaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
+//   		ModelTraining: &ModelTrainingPaymentConfigProperty{
+//   			IsResponsible: jsii.Boolean(false),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html
@@ -21,5 +31,8 @@ type CfnCollaboration_PaymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html#cfn-cleanrooms-collaboration-paymentconfiguration-querycompute
 	//
 	QueryCompute interface{} `field:"required" json:"queryCompute" yaml:"queryCompute"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html#cfn-cleanrooms-collaboration-paymentconfiguration-machinelearning
+	//
+	MachineLearning interface{} `field:"optional" json:"machineLearning" yaml:"machineLearning"`
 }
 

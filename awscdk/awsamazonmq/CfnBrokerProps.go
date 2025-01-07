@@ -24,6 +24,7 @@ package awsamazonmq
 //   			Groups: []*string{
 //   				jsii.String("groups"),
 //   			},
+//   			JolokiaApiAccess: jsii.String("jolokiaApiAccess"),
 //   			ReplicationUser: jsii.Boolean(false),
 //   		},
 //   	},

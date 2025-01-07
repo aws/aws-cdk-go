@@ -31,9 +31,24 @@ import (
 //   			},
 //
 //   			// the properties below are optional
+//   			MlMemberAbilities: &MLMemberAbilitiesProperty{
+//   				CustomMlMemberAbilities: []*string{
+//   					jsii.String("customMlMemberAbilities"),
+//   				},
+//   			},
 //   			PaymentConfiguration: &PaymentConfigurationProperty{
 //   				QueryCompute: &QueryComputePaymentConfigProperty{
 //   					IsResponsible: jsii.Boolean(false),
+//   				},
+//
+//   				// the properties below are optional
+//   				MachineLearning: &MLPaymentConfigProperty{
+//   					ModelInference: &ModelInferencePaymentConfigProperty{
+//   						IsResponsible: jsii.Boolean(false),
+//   					},
+//   					ModelTraining: &ModelTrainingPaymentConfigProperty{
+//   						IsResponsible: jsii.Boolean(false),
+//   					},
 //   				},
 //   			},
 //   		},
@@ -43,9 +58,24 @@ import (
 //
 //   	// the properties below are optional
 //   	AnalyticsEngine: jsii.String("analyticsEngine"),
+//   	CreatorMlMemberAbilities: &MLMemberAbilitiesProperty{
+//   		CustomMlMemberAbilities: []*string{
+//   			jsii.String("customMlMemberAbilities"),
+//   		},
+//   	},
 //   	CreatorPaymentConfiguration: &PaymentConfigurationProperty{
 //   		QueryCompute: &QueryComputePaymentConfigProperty{
 //   			IsResponsible: jsii.Boolean(false),
+//   		},
+//
+//   		// the properties below are optional
+//   		MachineLearning: &MLPaymentConfigProperty{
+//   			ModelInference: &ModelInferencePaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
+//   			ModelTraining: &ModelTrainingPaymentConfigProperty{
+//   				IsResponsible: jsii.Boolean(false),
+//   			},
 //   		},
 //   	},
 //   	DataEncryptionMetadata: &DataEncryptionMetadataProperty{
@@ -96,6 +126,8 @@ type CfnCollaboration interface {
 	// The abilities granted to the collaboration creator.
 	CreatorMemberAbilities() *[]*string
 	SetCreatorMemberAbilities(val *[]*string)
+	CreatorMlMemberAbilities() interface{}
+	SetCreatorMlMemberAbilities(val interface{})
 	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	CreatorPaymentConfiguration() interface{}
 	SetCreatorPaymentConfiguration(val interface{})
@@ -385,6 +417,16 @@ func (j *jsiiProxy_CfnCollaboration) CreatorMemberAbilities() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollaboration) CreatorMlMemberAbilities() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"creatorMlMemberAbilities",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollaboration) CreatorPaymentConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -569,6 +611,17 @@ func (j *jsiiProxy_CfnCollaboration)SetCreatorMemberAbilities(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"creatorMemberAbilities",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollaboration)SetCreatorMlMemberAbilities(val interface{}) {
+	if err := j.validateSetCreatorMlMemberAbilitiesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"creatorMlMemberAbilities",
 		val,
 	)
 }

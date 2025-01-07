@@ -1,7 +1,7 @@
 package awsdms
 
 
-// DocDbSettings property identifier.
+// Provides information that defines a DocumentDB endpoint.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,12 +21,15 @@ package awsdms
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-docdbsettings.html
 //
 type CfnDataProvider_DocDbSettingsProperty struct {
+	// The database name on the DocumentDB source endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-docdbsettings.html#cfn-dms-dataprovider-docdbsettings-databasename
 	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// The port value for the DocumentDB source endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-docdbsettings.html#cfn-dms-dataprovider-docdbsettings-port
 	//
 	Port *float64 `field:"required" json:"port" yaml:"port"`
+	// The name of the server on the DocumentDB source endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-docdbsettings.html#cfn-dms-dataprovider-docdbsettings-servername
 	//
 	ServerName *string `field:"required" json:"serverName" yaml:"serverName"`

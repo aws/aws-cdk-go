@@ -314,11 +314,6 @@ type CfnDBClusterProps struct {
 	//
 	// When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.
 	//
-	// RDS Data API is supported with the following DB clusters:
-	//
-	// - Aurora PostgreSQL Serverless v2 and provisioned
-	// - Aurora PostgreSQL and Aurora MySQL Serverless v1
-	//
 	// For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide* .
 	//
 	// Valid for Cluster Type: Aurora DB clusters only.

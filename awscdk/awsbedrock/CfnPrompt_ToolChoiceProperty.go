@@ -3,7 +3,7 @@ package awsbedrock
 
 // Determines which tools the model should request in a call to `Converse` or `ConverseStream` .
 //
-// `ToolChoice` is only supported by Anthropic Claude 3 models and by Mistral AI Mistral Large.
+// `ToolChoice` is only supported by Anthropic Claude 3 models and by Mistral AI Mistral Large. For more information, see [Call a tool with the Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html) in the Amazon Bedrock User Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
