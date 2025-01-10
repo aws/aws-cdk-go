@@ -65,6 +65,14 @@ type MetricOptions struct {
 	// Default: - Deployment region.
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// Account of the stack this metric is attached to.
+	// Default: - Deployment account.
+	//
+	StackAccount *string `field:"optional" json:"stackAccount" yaml:"stackAccount"`
+	// Region of the stack this metric is attached to.
+	// Default: - Deployment region.
+	//
+	StackRegion *string `field:"optional" json:"stackRegion" yaml:"stackRegion"`
 	// What function to use for aggregating.
 	//
 	// Use the `aws_cloudwatch.Stats` helper class to construct valid input strings.

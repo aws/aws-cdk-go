@@ -73,7 +73,7 @@ type RouteTable interface {
 	Stack() awscdk.Stack
 	// Adds a new custom route to the route table.
 	// Experimental.
-	AddRoute(id *string, destination *string, target RouteTargetType)
+	AddRoute(id *string, destination *string, target RouteTargetType, routeName *string)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -279,14 +279,14 @@ func RouteTable_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-func (r *jsiiProxy_RouteTable) AddRoute(id *string, destination *string, target RouteTargetType) {
+func (r *jsiiProxy_RouteTable) AddRoute(id *string, destination *string, target RouteTargetType, routeName *string) {
 	if err := r.validateAddRouteParameters(id, destination, target); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		r,
 		"addRoute",
-		[]interface{}{id, destination, target},
+		[]interface{}{id, destination, target, routeName},
 	)
 }
 

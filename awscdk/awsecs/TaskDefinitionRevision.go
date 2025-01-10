@@ -16,6 +16,7 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	DesiredCount: jsii.Number(5),
+//   	MinHealthyPercent: jsii.Number(100),
 //   	TaskDefinitionRevision: ecs.TaskDefinitionRevision_Of(jsii.Number(1)),
 //   })
 //
@@ -23,6 +24,7 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	DesiredCount: jsii.Number(5),
+//   	MinHealthyPercent: jsii.Number(100),
 //   	TaskDefinitionRevision: ecs.TaskDefinitionRevision_LATEST(),
 //   })
 //

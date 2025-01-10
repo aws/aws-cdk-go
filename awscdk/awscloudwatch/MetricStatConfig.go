@@ -25,6 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Account: jsii.String("account"),
+//   	AccountOverride: jsii.String("accountOverride"),
 //   	Dimensions: []dimension{
 //   		&dimension{
 //   			Name: jsii.String("name"),
@@ -32,6 +33,7 @@ import (
 //   		},
 //   	},
 //   	Region: jsii.String("region"),
+//   	RegionOverride: jsii.String("regionOverride"),
 //   	UnitFilter: awscdk.Aws_cloudwatch.Unit_SECONDS,
 //   }
 //
@@ -48,6 +50,10 @@ type MetricStatConfig struct {
 	// Default: Deployment account.
 	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
+	// Account set directly on the metric, not inherited from the attached stack.
+	// Default: No override.
+	//
+	AccountOverride *string `field:"optional" json:"accountOverride" yaml:"accountOverride"`
 	// The dimensions to apply to the alarm.
 	// Default: [].
 	//
@@ -56,6 +62,10 @@ type MetricStatConfig struct {
 	// Default: Deployment region.
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// Region set directly on the metric, not inherited from the attached stack.
+	// Default: No override.
+	//
+	RegionOverride *string `field:"optional" json:"regionOverride" yaml:"regionOverride"`
 	// Unit used to filter the metric stream.
 	//
 	// Only refer to datums emitted to the metric stream with the given unit and

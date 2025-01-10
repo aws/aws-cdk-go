@@ -34,6 +34,7 @@ import (
 //   		},
 //   	},
 //   	DesiredCount: jsii.Number(2),
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 type ApplicationLoadBalancedEc2Service interface {

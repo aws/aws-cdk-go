@@ -114,6 +114,12 @@ type Key interface {
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant permissions to generating MACs to the given principal.
 	GrantGenerateMac(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant sign permissions using this key to the given principal.
+	GrantSign(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant sign and verify permissions using this key to the given principal.
+	GrantSignVerify(grantee awsiam.IGrantable) awsiam.Grant
+	// Grant verify permissions using this key to the given principal.
+	GrantVerify(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant permissions to verifying MACs to the given principal.
 	GrantVerifyMac(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
@@ -610,6 +616,54 @@ func (k *jsiiProxy_Key) GrantGenerateMac(grantee awsiam.IGrantable) awsiam.Grant
 	_jsii_.Invoke(
 		k,
 		"grantGenerateMac",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_Key) GrantSign(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := k.validateGrantSignParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		k,
+		"grantSign",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_Key) GrantSignVerify(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := k.validateGrantSignVerifyParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		k,
+		"grantSignVerify",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_Key) GrantVerify(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := k.validateGrantVerifyParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		k,
+		"grantVerify",
 		[]interface{}{grantee},
 		&returns,
 	)

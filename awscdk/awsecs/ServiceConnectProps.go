@@ -11,6 +11,7 @@ package awsecs
 //   customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   	ServiceConnectConfiguration: &ServiceConnectProps{
 //   		LogDriver: ecs.LogDrivers_AwsLogs(&AwsLogDriverProps{
 //   			StreamPrefix: jsii.String("sc-traffic"),

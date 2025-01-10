@@ -683,3 +683,21 @@ awsec2alpha.SubnetV2_FromSubnetV2Attributes(this, jsii.String("ImportedSubnet"),
 ```
 
 By importing existing VPCs and subnets, you can easily integrate your existing AWS infrastructure with new resources created through CDK. This is particularly useful when you need to work with pre-existing network configurations or when you're migrating existing infrastructure to CDK.
+
+### Tagging VPC and its components
+
+By default, when a resource name is given to the construct, it automatically adds a tag with the key `Name` and the value set to the provided resource name. To add additional custom tags, use the Tag Manager, like this: `Tags.of(myConstruct).add('key', 'value');`.
+
+For example, if the `vpcName` is set to `TestVpc`, the following code will add a tag to the VPC with `key: Name` and `value: TestVpc`.
+
+```go
+vpc := awsec2alpha.NewVpcV2(this, jsii.String("VPC-integ-test-tag"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
+	EnableDnsHostnames: jsii.Boolean(true),
+	EnableDnsSupport: jsii.Boolean(true),
+	VpcName: jsii.String("CDKintegTestVPC"),
+})
+
+// Add custom tags if needed
+awscdk.Tags_Of(vpc).Add(jsii.String("Environment"), jsii.String("Production"))
+```

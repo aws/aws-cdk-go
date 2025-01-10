@@ -4,26 +4,19 @@ package awsecs
 // The interface for Runtime Platform.
 //
 // Example:
-//   // Create a Task Definition for the Windows container to start
-//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"), &FargateTaskDefinitionProps{
-//   	RuntimePlatform: &RuntimePlatform{
-//   		OperatingSystemFamily: ecs.OperatingSystemFamily_WINDOWS_SERVER_2019_CORE(),
-//   		CpuArchitecture: ecs.CpuArchitecture_X86_64(),
-//   	},
-//   	Cpu: jsii.Number(1024),
-//   	MemoryLimitMiB: jsii.Number(2048),
-//   })
+//   var cluster cluster
 //
-//   taskDefinition.AddContainer(jsii.String("windowsservercore"), &ContainerDefinitionOptions{
-//   	Logging: ecs.LogDriver_AwsLogs(&AwsLogDriverProps{
-//   		StreamPrefix: jsii.String("win-iis-on-fargate"),
-//   	}),
-//   	PortMappings: []portMapping{
-//   		&portMapping{
-//   			ContainerPort: jsii.Number(80),
-//   		},
+//   applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
+//   	Cluster: Cluster,
+//   	MemoryLimitMiB: jsii.Number(512),
+//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019")),
+//   	MinHealthyPercent: jsii.Number(100),
+//   	RuntimePlatform: &RuntimePlatform{
+//   		CpuArchitecture: ecs.CpuArchitecture_ARM64(),
+//   		OperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
+//   	},
 //   })
 //
 type RuntimePlatform struct {

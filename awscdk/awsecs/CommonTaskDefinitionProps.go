@@ -19,6 +19,7 @@ import (
 //   var role role
 //
 //   commonTaskDefinitionProps := &CommonTaskDefinitionProps{
+//   	EnableFaultInjection: jsii.Boolean(false),
 //   	ExecutionRole: role,
 //   	Family: jsii.String("family"),
 //   	ProxyConfiguration: proxyConfiguration,
@@ -62,6 +63,12 @@ import (
 //   }
 //
 type CommonTaskDefinitionProps struct {
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers.
+	//
+	// Fault injection only works with tasks using the {@link NetworkMode.AWS_VPC} or {@link NetworkMode.HOST} network modes.
+	// Default: undefined - ECS default setting is false.
+	//
+	EnableFaultInjection *bool `field:"optional" json:"enableFaultInjection" yaml:"enableFaultInjection"`
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.

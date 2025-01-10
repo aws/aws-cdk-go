@@ -234,7 +234,7 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 	// The idle timeout value, in seconds
 	IdleTimeout: awscdk.Duration_Seconds(jsii.Number(1000)),
 
-	// Whether HTTP headers with header fields thatare not valid
+	// Whether HTTP headers with header fields that are not valid
 	// are removed by the load balancer (true), or routed to targets
 	DropInvalidHeaderFields: jsii.Boolean(true),
 
@@ -629,7 +629,7 @@ You can set cross-zone load balancing setting at the target group level by setti
 
 If not specified, it will use the load balancer's configuration.
 
-For more infomation, see [How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html).
+For more information, see [How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html).
 
 ```go
 var vpc vpc
@@ -892,7 +892,7 @@ constructs.Node_Of(resource).AddDependency(targetGroup.loadBalancerAttached)
 You may look up load balancers and load balancer listeners by using one of the
 following lookup methods:
 
-* `ApplicationLoadBalancer.fromlookup(options)` - Look up an application load
+* `ApplicationLoadBalancer.fromLookup(options)` - Look up an application load
   balancer.
 * `ApplicationListener.fromLookup(options)` - Look up an application load
   balancer listener.

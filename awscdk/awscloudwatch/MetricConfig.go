@@ -33,6 +33,7 @@ package awscloudwatch
 //
 //   		// the properties below are optional
 //   		Account: jsii.String("account"),
+//   		AccountOverride: jsii.String("accountOverride"),
 //   		Dimensions: []dimension{
 //   			&dimension{
 //   				Name: jsii.String("name"),
@@ -40,6 +41,7 @@ package awscloudwatch
 //   			},
 //   		},
 //   		Region: jsii.String("region"),
+//   		RegionOverride: jsii.String("regionOverride"),
 //   		UnitFilter: awscdk.Aws_cloudwatch.Unit_SECONDS,
 //   	},
 //   	RenderingProperties: map[string]interface{}{

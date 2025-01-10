@@ -14,6 +14,7 @@ import (
 //   service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
@@ -22,10 +23,7 @@ import (
 //   lb.AddListener(&LoadBalancerListener{
 //   	ExternalPort: jsii.Number(80),
 //   })
-//   lb.AddTarget(service.LoadBalancerTarget(&LoadBalancerTargetOptions{
-//   	ContainerName: jsii.String("MyContainer"),
-//   	ContainerPort: jsii.Number(80),
-//   }))
+//   lb.AddTarget(service)
 //
 type LoadBalancerProps struct {
 	// VPC network of the fleet instances.

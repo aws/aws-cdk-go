@@ -381,6 +381,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_Service{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IService)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			return &j
 		},

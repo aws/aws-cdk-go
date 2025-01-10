@@ -51,6 +51,7 @@ import (
 //   service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 //   service.AddVolume(volume)

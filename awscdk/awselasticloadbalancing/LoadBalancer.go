@@ -22,6 +22,7 @@ import (
 //   service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 //   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{

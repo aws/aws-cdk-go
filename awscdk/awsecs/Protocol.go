@@ -23,6 +23,7 @@ package awsecs
 //   ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   	CloudMapOptions: &CloudMapOptions{
 //   		// Create SRV records - useful for bridge networking
 //   		DnsRecordType: cloudmap.DnsRecordType_SRV,

@@ -17,7 +17,7 @@ package awselasticloadbalancingv2
 //   	// The idle timeout value, in seconds
 //   	IdleTimeout: awscdk.Duration_Seconds(jsii.Number(1000)),
 //
-//   	// Whether HTTP headers with header fields thatare not valid
+//   	// Whether HTTP headers with header fields that are not valid
 //   	// are removed by the load balancer (true), or routed to targets
 //   	DropInvalidHeaderFields: jsii.Boolean(true),
 //

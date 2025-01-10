@@ -9,6 +9,7 @@ package awsecs
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 //   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{

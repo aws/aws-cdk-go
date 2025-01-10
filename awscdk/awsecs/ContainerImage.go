@@ -12,18 +12,34 @@ import (
 // Constructs for types of container images.
 //
 // Example:
-//   var mySecret iSecret
+//   var vpc vpc
 //
 //
-//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
-//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
-//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
-//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
-//   		Cpu: jsii.Number(256),
-//   		Secrets: map[string]secret{
-//   			"MY_SECRET_ENV_VAR": batch.*secret_fromSecretsManager(mySecret),
+//   cluster := ecs.NewCluster(this, jsii.String("FargateCPCluster"), &ClusterProps{
+//   	Vpc: Vpc,
+//   	EnableFargateCapacityProviders: jsii.Boolean(true),
+//   })
+//
+//   taskDefinition := ecs.NewFargateTaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   })
+//
+//   ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
+//   	CapacityProviderStrategies: []capacityProviderStrategy{
+//   		&capacityProviderStrategy{
+//   			CapacityProvider: jsii.String("FARGATE_SPOT"),
+//   			Weight: jsii.Number(2),
 //   		},
-//   	}),
+//   		&capacityProviderStrategy{
+//   			CapacityProvider: jsii.String("FARGATE"),
+//   			Weight: jsii.Number(1),
+//   		},
+//   	},
 //   })
 //
 type ContainerImage interface {

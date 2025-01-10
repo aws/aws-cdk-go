@@ -43,6 +43,13 @@ type EgressOnlyInternetGatewayOptions struct {
 	//
 	// Experimental.
 	Destination *string `field:"optional" json:"destination" yaml:"destination"`
+	// The resource name of the egress-only internet gateway.
+	//
+	// Provided name will be used for tagging.
+	// Default: - no name tag associated and provisioned without a resource name.
+	//
+	// Experimental.
+	EgressOnlyInternetGatewayName *string `field:"optional" json:"egressOnlyInternetGatewayName" yaml:"egressOnlyInternetGatewayName"`
 	// List of subnets where route to EGW will be added.
 	// Default: - no route created.
 	//

@@ -26,6 +26,8 @@ import (
 //   	},
 //   	Period: cdk.Duration_Minutes(jsii.Number(30)),
 //   	Region: jsii.String("region"),
+//   	StackAccount: jsii.String("stackAccount"),
+//   	StackRegion: jsii.String("stackRegion"),
 //   	Statistic: jsii.String("statistic"),
 //   	Unit: awscdk.Aws_cloudwatch.Unit_SECONDS,
 //   }
@@ -66,6 +68,14 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// Default: - Deployment region.
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// Account of the stack this metric is attached to.
+	// Default: - Deployment account.
+	//
+	StackAccount *string `field:"optional" json:"stackAccount" yaml:"stackAccount"`
+	// Region of the stack this metric is attached to.
+	// Default: - Deployment region.
+	//
+	StackRegion *string `field:"optional" json:"stackRegion" yaml:"stackRegion"`
 	// What function to use for aggregating.
 	//
 	// Use the `aws_cloudwatch.Stats` helper class to construct valid input strings.

@@ -75,6 +75,9 @@ type AccessPoint interface {
 	// Implement the `IAccessPoint.regionalDomainName` field.
 	// Experimental.
 	RegionalDomainName() *string
+	// The ARN of the S3 access point.
+	// Experimental.
+	S3AccessPointArn() *string
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
@@ -195,6 +198,16 @@ func (j *jsiiProxy_AccessPoint) RegionalDomainName() *string {
 	_jsii_.Get(
 		j,
 		"regionalDomainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AccessPoint) S3AccessPointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"s3AccessPointArn",
 		&returns,
 	)
 	return returns

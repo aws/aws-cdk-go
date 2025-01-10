@@ -27,6 +27,7 @@ import (
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   	ServiceConnectConfiguration: &ServiceConnectProps{
 //   		Services: []serviceConnectService{
 //   			&serviceConnectService{

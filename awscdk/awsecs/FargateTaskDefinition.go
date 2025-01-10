@@ -29,6 +29,7 @@ import (
 //   ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   	CapacityProviderStrategies: []capacityProviderStrategy{
 //   		&capacityProviderStrategy{
 //   			CapacityProvider: jsii.String("FARGATE_SPOT"),

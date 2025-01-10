@@ -22,6 +22,7 @@ import (
 //   	Cluster: Cluster,
 //   	MemoryLimitMiB: jsii.Number(512),
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+//   	MinHealthyPercent: jsii.Number(100),
 //   	CapacityProviderStrategies: []capacityProviderStrategy{
 //   		&capacityProviderStrategy{
 //   			CapacityProvider: jsii.String("FARGATE_SPOT"),

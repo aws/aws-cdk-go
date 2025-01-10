@@ -14,17 +14,19 @@ import (
 //   var machineImage iMachineImage
 //
 //
-//   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 //   	Vpc: Vpc,
 //   	InstanceType: InstanceType,
 //   	MachineImage: MachineImage,
-//
-//   	// ...
-//
-//   	Init: ec2.CloudFormationInit_FromElements(ec2.InitFile_FromString(jsii.String("/etc/my_instance"), jsii.String("This got written during instance startup"))),
-//   	Signals: autoscaling.Signals_WaitForAll(&SignalsOptions{
-//   		Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   	}),
+//   	BlockDevices: []blockDevice{
+//   		&blockDevice{
+//   			DeviceName: jsii.String("gp3-volume"),
+//   			Volume: autoscaling.BlockDeviceVolume_Ebs(jsii.Number(15), &EbsDeviceOptions{
+//   				VolumeType: autoscaling.EbsDeviceVolumeType_GP3,
+//   				Throughput: jsii.Number(125),
+//   			}),
+//   		},
+//   	},
 //   })
 //
 type AutoScalingGroupProps struct {

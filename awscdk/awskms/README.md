@@ -288,6 +288,26 @@ key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
 > It is highly recommended that the key policy grants access to the account root, rather than specific principals.
 > See https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html for more information.
 
+### Signing and Verification key policies
+
+Creating signatures and verifying them with KMS requires specific permissions.
+The respective policies can be attached to a principal via the `grantSign` and `grantVerify` methods.
+
+```go
+key := kms.NewKey(this, jsii.String("MyKey"))
+user := iam.NewUser(this, jsii.String("MyUser"))
+key.grantSign(user) // Adds 'kms:Sign' to the principal's policy
+key.grantVerify(user)
+```
+
+If both sign and verify permissions are required, they can be applied with one method called `grantSignVerify`.
+
+```go
+key := kms.NewKey(this, jsii.String("MyKey"))
+user := iam.NewUser(this, jsii.String("MyUser"))
+key.grantSignVerify(user)
+```
+
 ### HMAC specific key policies
 
 HMAC keys have a different key policy than other KMS keys. They have a policy for generating and for verifying a MAC.

@@ -75,6 +75,9 @@ type IVpcV2 interface {
 	// For more information, see the {@link https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html#vpc-resize}.
 	// Experimental.
 	SecondaryCidrBlock() *[]IVPCCidrBlock
+	// VpcName to be used for tagging its components.
+	// Experimental.
+	VpcName() *string
 }
 
 // The jsii proxy for IVpcV2
@@ -213,6 +216,16 @@ func (j *jsiiProxy_IVpcV2) SecondaryCidrBlock() *[]IVPCCidrBlock {
 	_jsii_.Get(
 		j,
 		"secondaryCidrBlock",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpcV2) VpcName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcName",
 		&returns,
 	)
 	return returns

@@ -17,6 +17,7 @@ import (
 //   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 //   scalableTarget := loadBalancedFargateService.Service.AutoScaleTaskCount(&EnableScalingProps{

@@ -72,6 +72,11 @@ type Ipam interface {
 	// Access to Ipam resource id that can be used later to add a custom private scope to this IPAM.
 	// Experimental.
 	IpamId() *string
+	// IPAM name to be used for tagging.
+	// Default: no tag specified.
+	//
+	// Experimental.
+	IpamName() *string
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -163,6 +168,16 @@ func (j *jsiiProxy_Ipam) IpamId() *string {
 	_jsii_.Get(
 		j,
 		"ipamId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Ipam) IpamName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipamName",
 		&returns,
 	)
 	return returns

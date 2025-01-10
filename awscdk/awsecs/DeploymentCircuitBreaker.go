@@ -10,6 +10,7 @@ package awsecs
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
 //   	CircuitBreaker: &DeploymentCircuitBreaker{
 //   		Enable: jsii.Boolean(true),
 //   		Rollback: jsii.Boolean(true),

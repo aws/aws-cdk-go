@@ -30,6 +30,7 @@ import (
 //   	},
 //   	MaxScalingCapacity: jsii.Number(5),
 //   	ContainerName: jsii.String("test"),
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 type QueueProcessingEc2ServiceProps struct {

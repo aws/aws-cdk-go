@@ -37,6 +37,7 @@ taskDefinition.AddContainer(jsii.String("DefaultContainer"), &ContainerDefinitio
 ecsService := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -687,6 +688,23 @@ taskDefinition.AddContainer(jsii.String("container"), &ContainerDefinitionOption
 })
 ```
 
+### Enable Fault Injection
+
+You can utilize fault injection with Amazon ECS on both Amazon EC2 and Fargate to test how their application responds to certain impairment scenarios. These tests provide information you can use to optimize your application's performance and resiliency.
+
+When fault injection is enabled, the Amazon ECS container agent allows tasks access to new fault injection endpoints.
+Fault injection only works with tasks using the `AWS_VPC` or `HOST` network modes.
+
+For more infomation, see [Use fault injection with your Amazon ECS and Fargate workloads](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fault-injection.html).
+
+To enable Fault Injection for the task definiton, set `enableFaultInjection` to true.
+
+```go
+ecs.NewEc2TaskDefinition(this, jsii.String("Ec2TaskDefinition"), &Ec2TaskDefinitionProps{
+	EnableFaultInjection: jsii.Boolean(true),
+})
+```
+
 ## Docker labels
 
 You can add labels to the container with the `dockerLabels` property or with the `addDockerLabel` method:
@@ -822,6 +840,7 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	DesiredCount: jsii.Number(5),
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -836,6 +855,7 @@ service := ecs.NewExternalService(this, jsii.String("Service"), &ExternalService
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	DesiredCount: jsii.Number(5),
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -857,6 +877,7 @@ ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	DesiredCount: jsii.Number(5),
+	MinHealthyPercent: jsii.Number(100),
 	TaskDefinitionRevision: ecs.TaskDefinitionRevision_Of(jsii.Number(1)),
 })
 
@@ -864,6 +885,7 @@ ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	DesiredCount: jsii.Number(5),
+	MinHealthyPercent: jsii.Number(100),
 	TaskDefinitionRevision: ecs.TaskDefinitionRevision_LATEST(),
 })
 ```
@@ -886,6 +908,7 @@ var taskDefinition taskDefinition
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	CircuitBreaker: &DeploymentCircuitBreaker{
 		Enable: jsii.Boolean(true),
 		Rollback: jsii.Boolean(true),
@@ -923,6 +946,7 @@ var elbAlarm alarm
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	DeploymentAlarms: &DeploymentAlarmConfig{
 		AlarmNames: []*string{
 			elbAlarm.AlarmName,
@@ -1018,6 +1042,7 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 	ServiceName: jsii.String(ServiceName),
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 
 cpuMetric := cw.NewMetric(&MetricProps{
@@ -1061,6 +1086,7 @@ var taskDefinition taskDefinition
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
@@ -1101,6 +1127,7 @@ var vpc vpc
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
@@ -1147,6 +1174,7 @@ var vpc vpc
 service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 
 lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
@@ -1168,6 +1196,7 @@ var vpc vpc
 service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 
 lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
@@ -1525,6 +1554,7 @@ specificContainer.AddPortMappings(&PortMapping{
 ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	CloudMapOptions: &CloudMapOptions{
 		// Create SRV records - useful for bridge networking
 		DnsRecordType: cloudmap.DnsRecordType_SRV,
@@ -1584,6 +1614,7 @@ taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
 ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	CapacityProviderStrategies: []capacityProviderStrategy{
 		&capacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE_SPOT"),
@@ -1662,6 +1693,7 @@ taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
 ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	CapacityProviderStrategies: []capacityProviderStrategy{
 		&capacityProviderStrategy{
 			CapacityProvider: capacityProvider.CapacityProviderName,
@@ -1775,6 +1807,7 @@ var taskDefinition taskDefinition
 service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	EnableExecuteCommand: jsii.Boolean(true),
 })
 ```
@@ -1850,6 +1883,7 @@ cluster.AddDefaultCloudMapNamespace(&CloudMapNamespaceOptions{
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	ServiceConnectConfiguration: &ServiceConnectProps{
 		Services: []serviceConnectService{
 			&serviceConnectService{
@@ -1875,6 +1909,7 @@ var taskDefinition taskDefinition
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 service.EnableServiceConnect()
 ```
@@ -1889,6 +1924,7 @@ var taskDefinition taskDefinition
 customService := ecs.NewFargateService(this, jsii.String("CustomizedService"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	ServiceConnectConfiguration: &ServiceConnectProps{
 		LogDriver: ecs.LogDrivers_AwsLogs(&AwsLogDriverProps{
 			StreamPrefix: jsii.String("sc-traffic"),
@@ -1919,6 +1955,7 @@ var taskDefinition taskDefinition
 service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 	ServiceConnectConfiguration: &ServiceConnectProps{
 		Services: []serviceConnectService{
 			&serviceConnectService{
@@ -1987,6 +2024,7 @@ taskDefinition.AddVolume(volume)
 service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 
 service.AddVolume(volume)
@@ -2017,6 +2055,7 @@ taskDefinition.AddVolume(volumeFromSnapshot)
 service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
 })
 
 service.AddVolume(volumeFromSnapshot)

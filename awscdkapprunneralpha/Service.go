@@ -38,6 +38,7 @@ import (
 // Experimental.
 type Service interface {
 	awscdk.Resource
+	IService
 	awsiam.IGrantable
 	// The environment this resource belongs to.
 	//
@@ -130,6 +131,7 @@ type Service interface {
 // The jsii proxy struct for Service
 type jsiiProxy_Service struct {
 	internal.Type__awscdkResource
+	jsiiProxy_IService
 	internal.Type__awsiamIGrantable
 }
 

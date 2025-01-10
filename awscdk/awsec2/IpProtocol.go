@@ -20,6 +20,7 @@ package awsec2
 //   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
+//   	MinHealthyPercent: jsii.Number(100),
 //   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 //   })
 //
@@ -28,6 +29,7 @@ package awsec2
 //   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
+//   	MinHealthyPercent: jsii.Number(100),
 //   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 //   })
 //

@@ -62,6 +62,9 @@ type NatGateway interface {
 	//
 	// Experimental.
 	MaxDrainDuration() awscdk.Duration
+	// Id of the NatGateway.
+	// Experimental.
+	NatGatewayId() *string
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -150,6 +153,16 @@ func (j *jsiiProxy_NatGateway) MaxDrainDuration() awscdk.Duration {
 	_jsii_.Get(
 		j,
 		"maxDrainDuration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NatGateway) NatGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"natGatewayId",
 		&returns,
 	)
 	return returns

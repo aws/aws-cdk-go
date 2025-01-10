@@ -23,6 +23,7 @@ import (
 //   			jsii.String("point"),
 //   		},
 //   	},
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 //   loadBalancedFargateService.TargetGroup.ConfigureHealthCheck(&HealthCheck{

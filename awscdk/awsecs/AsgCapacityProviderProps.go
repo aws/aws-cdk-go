@@ -39,8 +39,9 @@ import (
 //
 type AsgCapacityProviderProps struct {
 	// Specifies whether the containers can access the container instance role.
-	// Default: false.
+	// Default: true if.
 	//
+	// Deprecated: See https://github.com/aws/aws-cdk/discussions/32609
 	CanContainersAccessInstanceRole *bool `field:"optional" json:"canContainersAccessInstanceRole" yaml:"canContainersAccessInstanceRole"`
 	// What type of machine image this is.
 	//

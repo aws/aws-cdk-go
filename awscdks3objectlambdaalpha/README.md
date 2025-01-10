@@ -91,3 +91,16 @@ s3objectlambda.NewAccessPoint(stack, jsii.String("MyObjectLambda"), &AccessPoint
 	},
 })
 ```
+
+## Accessing the S3 AccessPoint ARN
+
+If you need access to the s3 accesspoint, you can get its ARN like so:
+
+```go
+import s3objectlambda "github.com/aws/aws-cdk-go/awscdks3objectlambdaalpha"
+
+var accessPoint accessPoint
+s3AccessPointArn := accessPoint.S3AccessPointArn
+```
+
+This is only supported for AccessPoints created in the stack - currently you're unable to get the S3 AccessPoint ARN for imported AccessPoints. To do that you'd have to know the S3 bucket name beforehand.

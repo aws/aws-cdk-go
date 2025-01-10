@@ -16,6 +16,7 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	DesiredCount: jsii.Number(5),
+//   	MinHealthyPercent: jsii.Number(100),
 //   })
 //
 type ExternalServiceProps struct {

@@ -11,20 +11,18 @@ import (
 // The properties for the NetworkLoadBalancedFargateService service.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc vpc
+//   var securityGroup securityGroup
 //
-//
-//   certificate := awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
-//   loadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
-//   	// The default value of listenerPort is 443 if you pass in listenerCertificate
-//   	// It is configured to port 4443 here
-//   	ListenerPort: jsii.Number(4443),
-//   	ListenerCertificate: certificate,
+//   queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("Service"), &NetworkLoadBalancedFargateServiceProps{
+//   	Vpc: Vpc,
+//   	MemoryLimitMiB: jsii.Number(512),
 //   	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   		// The default value of containerPort is 443 if you pass in listenerCertificate
-//   		// It is configured to port 8443 here
-//   		ContainerPort: jsii.Number(8443),
+//   	},
+//   	MinHealthyPercent: jsii.Number(100),
+//   	SecurityGroups: []iSecurityGroup{
+//   		securityGroup,
 //   	},
 //   })
 //

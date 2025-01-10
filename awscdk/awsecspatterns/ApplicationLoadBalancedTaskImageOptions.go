@@ -16,6 +16,7 @@ import (
 //   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 //   	},
+//   	MinHealthyPercent: jsii.Number(100),
 //   	TaskSubnets: &SubnetSelection{
 //   		Subnets: []iSubnet{
 //   			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),

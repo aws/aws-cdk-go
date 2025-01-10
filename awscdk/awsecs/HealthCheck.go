@@ -14,6 +14,7 @@ import (
 //   	Vpc: Vpc,
 //   	MemoryLimitMiB: jsii.Number(512),
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+//   	MinHealthyPercent: jsii.Number(100),
 //   	HealthCheck: &HealthCheck{
 //   		Command: []*string{
 //   			jsii.String("CMD-SHELL"),

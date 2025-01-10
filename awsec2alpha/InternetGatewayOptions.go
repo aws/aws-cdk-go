@@ -20,6 +20,13 @@ package awsec2alpha
 //
 // Experimental.
 type InternetGatewayOptions struct {
+	// The resource name of the internet gateway.
+	//
+	// Provided name will be used for tagging.
+	// Default: - provisioned without a resource name.
+	//
+	// Experimental.
+	InternetGatewayName *string `field:"optional" json:"internetGatewayName" yaml:"internetGatewayName"`
 	// Destination Ipv6 address for EGW route.
 	// Default: - '0.0.0.0' all Ipv4 traffic
 	//

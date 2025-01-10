@@ -51,8 +51,9 @@ type AsgCapacityProvider interface {
 	// Auto Scaling Group.
 	AutoScalingGroup() awsautoscaling.AutoScalingGroup
 	// Specifies whether the containers can access the container instance role.
-	// Default: false.
+	// Default: true if.
 	//
+	// Deprecated: See https://github.com/aws/aws-cdk/discussions/32609
 	CanContainersAccessInstanceRole() *bool
 	// Capacity provider name.
 	// Default: Chosen by CloudFormation.

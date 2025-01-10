@@ -138,6 +138,9 @@ type VpcV2 interface {
 	// Identifier for this VPC.
 	// Experimental.
 	VpcId() *string
+	// VpcName to be used for tagging its components.
+	// Experimental.
+	VpcName() *string
 	// Returns the id of the VPN Gateway (if enabled).
 	// Experimental.
 	VpnGatewayId() *string
@@ -473,6 +476,16 @@ func (j *jsiiProxy_VpcV2) VpcId() *string {
 	_jsii_.Get(
 		j,
 		"vpcId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcV2) VpcName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcName",
 		&returns,
 	)
 	return returns

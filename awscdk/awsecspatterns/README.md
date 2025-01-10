@@ -35,6 +35,7 @@ loadBalancedEcsService := ecsPatterns.NewApplicationLoadBalancedEc2Service(this,
 		},
 	},
 	DesiredCount: jsii.Number(2),
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -57,6 +58,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 			jsii.String("point"),
 		},
 	},
+	MinHealthyPercent: jsii.Number(100),
 })
 
 loadBalancedFargateService.TargetGroup.ConfigureHealthCheck(&HealthCheck{
@@ -156,6 +158,7 @@ loadBalancedEcsService := ecsPatterns.NewNetworkLoadBalancedEc2Service(this, jsi
 		},
 	},
 	DesiredCount: jsii.Number(2),
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -171,6 +174,7 @@ loadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(t
 	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -294,6 +298,7 @@ queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii
 	},
 	MaxScalingCapacity: jsii.Number(5),
 	ContainerName: jsii.String("test"),
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -319,6 +324,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	},
 	MaxScalingCapacity: jsii.Number(5),
 	ContainerName: jsii.String("test"),
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -346,6 +352,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	},
 	MaxScalingCapacity: jsii.Number(5),
 	ContainerName: jsii.String("test"),
+	MinHealthyPercent: jsii.Number(100),
 	DisableCpuBasedScaling: jsii.Boolean(true),
 })
 ```
@@ -370,6 +377,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	},
 	MaxScalingCapacity: jsii.Number(5),
 	ContainerName: jsii.String("test"),
+	MinHealthyPercent: jsii.Number(100),
 	CpuTargetUtilizationPercent: jsii.Number(90),
 })
 ```
@@ -438,6 +446,7 @@ certificate := awscdk.Certificate_FromCertificateArn(this, jsii.String("Cert"), 
 loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 	Vpc: Vpc,
 	Cluster: Cluster,
+	MinHealthyPercent: jsii.Number(100),
 	Certificate: Certificate,
 	SslPolicy: awscdk.SslPolicy_RECOMMENDED,
 	DomainName: jsii.String("api.example.com"),
@@ -461,6 +470,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	CapacityProviderStrategies: []capacityProviderStrategy{
 		&capacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE_SPOT"),
@@ -489,6 +499,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 })
 
 scalableTarget := loadBalancedFargateService.Service.AutoScaleTaskCount(&EnableScalingProps{
@@ -526,6 +537,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 })
 
 scalableTarget := loadBalancedFargateService.Service.AutoScaleTaskCount(&EnableScalingProps{
@@ -555,6 +567,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	DeploymentController: &DeploymentController{
 		Type: ecs.DeploymentControllerType_CODE_DEPLOY,
 	},
@@ -579,6 +592,7 @@ service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.Strin
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	CircuitBreaker: &DeploymentCircuitBreaker{
 		Rollback: jsii.Boolean(true),
 	},
@@ -619,6 +633,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	Vpc: Vpc,
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	MinHealthyPercent: jsii.Number(100),
 	SecurityGroups: []iSecurityGroup{
 		securityGroup,
 	},
@@ -637,6 +652,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	Vpc: Vpc,
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	MinHealthyPercent: jsii.Number(100),
 	AssignPublicIp: jsii.Boolean(true),
 })
 ```
@@ -650,6 +666,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	Vpc: Vpc,
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	MinHealthyPercent: jsii.Number(100),
 	MaxReceiveCount: jsii.Number(42),
 	RetentionPeriod: awscdk.Duration_Days(jsii.Number(7)),
 	VisibilityTimeout: awscdk.Duration_Minutes(jsii.Number(5)),
@@ -668,6 +685,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	Vpc: Vpc,
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	MinHealthyPercent: jsii.Number(100),
 	AssignPublicIp: jsii.Boolean(true),
 	Cooldown: awscdk.Duration_Seconds(jsii.Number(500)),
 })
@@ -684,6 +702,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	Cluster: Cluster,
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	MinHealthyPercent: jsii.Number(100),
 	CapacityProviderStrategies: []capacityProviderStrategy{
 		&capacityProviderStrategy{
 			CapacityProvider: jsii.String("FARGATE_SPOT"),
@@ -707,6 +726,7 @@ queueProcessingFargateService := ecsPatterns.NewQueueProcessingFargateService(th
 	Vpc: Vpc,
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	MinHealthyPercent: jsii.Number(100),
 	HealthCheck: &HealthCheck{
 		Command: []*string{
 			jsii.String("CMD-SHELL"),
@@ -747,6 +767,7 @@ queueProcessingEc2Service := ecsPatterns.NewQueueProcessingEc2Service(this, jsii
 	Cluster: Cluster,
 	MemoryLimitMiB: jsii.Number(512),
 	Image: ecs.ContainerImage_FromRegistry(jsii.String("test")),
+	MinHealthyPercent: jsii.Number(100),
 	CapacityProviderStrategies: []capacityProviderStrategy{
 		&capacityProviderStrategy{
 			CapacityProvider: capacityProvider.CapacityProviderName,
@@ -768,6 +789,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	TaskSubnets: &SubnetSelection{
 		Subnets: []iSubnet{
 			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
@@ -789,6 +811,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	IdleTimeout: awscdk.Duration_Seconds(jsii.Number(120)),
 })
 ```
@@ -985,6 +1008,7 @@ applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedF
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	RuntimePlatform: &RuntimePlatform{
 		CpuArchitecture: ecs.CpuArchitecture_ARM64(),
 		OperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
@@ -1085,6 +1109,7 @@ service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.Strin
 	Cluster: Cluster,
 	Vpc: Vpc,
 	DesiredCount: jsii.Number(1),
+	MinHealthyPercent: jsii.Number(100),
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 		DockerLabels: map[string]*string{
@@ -1112,6 +1137,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	TaskSubnets: &SubnetSelection{
 		Subnets: []iSubnet{
 			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
@@ -1143,6 +1169,7 @@ loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateServi
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	EnableExecuteCommand: jsii.Boolean(true),
 })
 ```
@@ -1232,6 +1259,7 @@ applicationLoadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedF
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 })
 
 networkLoadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateService(this, jsii.String("NLBFargateServiceWithCustomEphemeralStorage"), &NetworkLoadBalancedFargateServiceProps{
@@ -1242,6 +1270,7 @@ networkLoadBalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateSe
 	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 })
 ```
 
@@ -1257,6 +1286,7 @@ queueProcessingFargateService := ecsPatterns.NewNetworkLoadBalancedFargateServic
 	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	SecurityGroups: []iSecurityGroup{
 		securityGroup,
 	},
@@ -1340,6 +1370,7 @@ service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.Strin
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 })
 
@@ -1348,6 +1379,7 @@ applicationLoadBalancedEc2Service := ecsPatterns.NewApplicationLoadBalancedEc2Se
 	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 })
 ```
@@ -1373,6 +1405,7 @@ networkLoadbalancedFargateService := ecsPatterns.NewNetworkLoadBalancedFargateSe
 	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 })
 
@@ -1381,6 +1414,7 @@ networkLoadbalancedEc2Service := ecsPatterns.NewNetworkLoadBalancedEc2Service(th
 	TaskImageOptions: &NetworkLoadBalancedTaskImageOptions{
 		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
 	},
+	MinHealthyPercent: jsii.Number(100),
 	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 })
 ```

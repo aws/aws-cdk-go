@@ -48,6 +48,18 @@ func (k *jsiiProxy_Key) validateGrantGenerateMacParameters(grantee awsiam.IGrant
 	return nil
 }
 
+func (k *jsiiProxy_Key) validateGrantSignParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (k *jsiiProxy_Key) validateGrantSignVerifyParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func (k *jsiiProxy_Key) validateGrantVerifyParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (k *jsiiProxy_Key) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

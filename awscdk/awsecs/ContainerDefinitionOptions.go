@@ -5,32 +5,25 @@ import (
 )
 
 // Example:
-//   var taskDefinition taskDefinition
 //   var cluster cluster
+//   var vpc vpc
 //
-//
-//   // Add a container to the task definition
-//   specificContainer := taskDefinition.AddContainer(jsii.String("Container"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("/aws/aws-example-app")),
-//   	MemoryLimitMiB: jsii.Number(2048),
-//   })
-//
-//   // Add a port mapping
-//   specificContainer.AddPortMappings(&PortMapping{
-//   	ContainerPort: jsii.Number(7600),
-//   	Protocol: ecs.Protocol_TCP,
-//   })
-//
-//   ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+//   service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	CloudMapOptions: &CloudMapOptions{
-//   		// Create SRV records - useful for bridge networking
-//   		DnsRecordType: cloudmap.DnsRecordType_SRV,
-//   		// Targets port TCP port 7600 `specificContainer`
-//   		Container: specificContainer,
-//   		ContainerPort: jsii.Number(7600),
+//   	Vpc: Vpc,
+//   	DesiredCount: jsii.Number(1),
+//   	MinHealthyPercent: jsii.Number(100),
+//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   		DockerLabels: map[string]*string{
+//   			"application.label.one": jsii.String("first_label"),
+//   			"application.label.two": jsii.String("second_label"),
+//   		},
 //   	},
+//   })
+//
+//   service.TaskDefinition.AddContainer(jsii.String("Sidecar"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_*FromRegistry(jsii.String("example/metrics-sidecar")),
 //   })
 //
 type ContainerDefinitionOptions struct {

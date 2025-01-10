@@ -64,6 +64,30 @@ func (i *jsiiProxy_IKey) validateGrantGenerateMacParameters(grantee awsiam.IGran
 	return nil
 }
 
+func (i *jsiiProxy_IKey) validateGrantSignParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IKey) validateGrantSignVerifyParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IKey) validateGrantVerifyParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IKey) validateGrantVerifyMacParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")
