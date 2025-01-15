@@ -50,6 +50,13 @@ listener.AddTargets(jsii.String("ApplicationFleet"), &AddApplicationTargetsProps
 The security groups of the load balancer and the target are automatically
 updated to allow the network traffic.
 
+> NOTE: If the `@aws-cdk/aws-elasticloadbalancingV2:albDualstackWithoutPublicIpv4SecurityGroupRulesDefault` feature flag is set (the default for new projects), and `addListener()` is called with `open: true`,
+> the load balancer's security group will automatically include both IPv4 and IPv6 ingress rules when using `IpAddressType.DUAL_STACK_WITHOUT_PUBLIC_IPV4`.
+>
+> For existing projects that only have IPv4 rules, you can opt-in to IPv6 ingress rules
+> by enabling the feature flag in your cdk.json file. Note that enabling this feature flag
+> will modify existing security group rules.
+
 One (or more) security groups can be associated with the load balancer;
 if a security group isn't provided, one will be automatically created.
 
@@ -276,7 +283,7 @@ For more information, see [Load balancer attributes](https://docs.aws.amazon.com
 ### Setting up Access Log Bucket on Application Load Balancer
 
 The only server-side encryption option that's supported is Amazon S3-managed keys (SSE-S3). For more information
-Documentation: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html
+Documentation: [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html)
 
 ```go
 var vpc vpc
@@ -295,7 +302,7 @@ lb.LogAccessLogs(bucket)
 ### Setting up Connection Log Bucket on Application Load Balancer
 
 Like access log bucket, the only server-side encryption option that's supported is Amazon S3-managed keys (SSE-S3). For more information
-Documentation: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-connection-logging.html
+Documentation: [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-connection-logging.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-connection-logging.html)
 
 ```go
 var vpc vpc
@@ -325,7 +332,7 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 })
 ```
 
-By setting `DUAL_STACK_WITHOUT_PUBLIC_IPV4`, you can provision load balancers without public IPv4s
+By setting `DUAL_STACK_WITHOUT_PUBLIC_IPV4`, you can provision load balancers without public IPv4s:
 
 ```go
 var vpc vpc
@@ -333,6 +340,7 @@ var vpc vpc
 
 lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
 	Vpc: Vpc,
+	InternetFacing: jsii.Boolean(true),
 	IpAddressType: elbv2.IpAddressType_DUAL_STACK_WITHOUT_PUBLIC_IPV4,
 })
 ```
@@ -579,7 +587,7 @@ tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &ApplicationTarge
 })
 ```
 
-For more information see: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html#application-based-stickiness
+For more information see: [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html#application-based-stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html#application-based-stickiness)
 
 ### Setting the target group protocol version
 

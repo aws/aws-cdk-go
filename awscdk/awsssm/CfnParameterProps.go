@@ -28,6 +28,8 @@ package awsssm
 //
 type CfnParameterProps struct {
 	// The type of parameter.
+	//
+	// > Parameters of type `SecureString` are not supported by AWS CloudFormation .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`

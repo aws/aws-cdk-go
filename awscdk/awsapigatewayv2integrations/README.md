@@ -13,6 +13,7 @@
 
   * [Lambda WebSocket Integration](#lambda-websocket-integration)
   * [AWS WebSocket Integration](#aws-websocket-integration)
+  * [Mock WebSocket Integration](#mock-websocket-integration)
 * [Import Issues](#import-issues)
 
   * [DotNet Namespace](#dotnet-namespace)
@@ -344,6 +345,34 @@ webSocketApi.AddRoute(jsii.String("$connect"), &WebSocketRouteOptions{
 
 You can also set additional properties to change the behavior of your integration, such as `contentHandling`.
 See [Working with binary media types for WebSocket APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-develop-binary-media-types.html).
+
+### Mock WebSocket Integration
+
+API Gateway also allows the creation of mock integrations, allowing you to generate API responses without the need for an integration backend. These responses can range in complexity from a static message to a templated response with parameters extracted from the input request or the integration's context. See [Set up data mapping for WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html) and [WebSocket API mapping template reference for API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html) for more information.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
+apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+	WebSocketApi: WebSocketApi,
+	StageName: jsii.String("dev"),
+	AutoDeploy: jsii.Boolean(true),
+})
+
+webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
+	Integration: awscdk.NewWebSocketMockIntegration(jsii.String("DefaultIntegration"), &WebSocketMockIntegrationProps{
+		RequestTemplates: map[string]*string{
+			"application/json": JSON.stringify(map[string]*f64{
+				"statusCode": jsii.Number(200),
+			}),
+		},
+		TemplateSelectionExpression: jsii.String("\\$default"),
+	}),
+	ReturnResponse: jsii.Boolean(true),
+})
+```
 
 ## Import Issues
 

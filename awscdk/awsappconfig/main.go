@@ -216,7 +216,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "applicationId", GoGetter: "ApplicationId"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDeploymentNumber", GoGetter: "AttrDeploymentNumber"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -609,6 +608,15 @@ func init() {
 		map[string]interface{}{
 			"FREEFORM": ConfigurationType_FREEFORM,
 			"FEATURE_FLAGS": ConfigurationType_FEATURE_FLAGS,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appconfig.DeletionProtectionCheck",
+		reflect.TypeOf((*DeletionProtectionCheck)(nil)).Elem(),
+		map[string]interface{}{
+			"ACCOUNT_DEFAULT": DeletionProtectionCheck_ACCOUNT_DEFAULT,
+			"APPLY": DeletionProtectionCheck_APPLY,
+			"BYPASS": DeletionProtectionCheck_BYPASS,
 		},
 	)
 	_jsii_.RegisterClass(

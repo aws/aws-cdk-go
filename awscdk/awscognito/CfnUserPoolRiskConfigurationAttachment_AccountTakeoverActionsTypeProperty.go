@@ -1,9 +1,9 @@
 package awscognito
 
 
-// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
+// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection features.
 //
-// This data type is a request parameter of [SetRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.html) and a response parameter of [DescribeRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.html) .
+// This data type is a request parameter of `API_SetRiskConfiguration` and a response parameter of `API_DescribeRiskConfiguration` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,15 +28,15 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html
 //
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionsTypeProperty struct {
-	// The action that you assign to a high-risk assessment by advanced security features.
+	// The action that you assign to a high-risk assessment by threat protection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-highaction
 	//
 	HighAction interface{} `field:"optional" json:"highAction" yaml:"highAction"`
-	// The action that you assign to a low-risk assessment by advanced security features.
+	// The action that you assign to a low-risk assessment by threat protection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-lowaction
 	//
 	LowAction interface{} `field:"optional" json:"lowAction" yaml:"lowAction"`
-	// The action that you assign to a medium-risk assessment by advanced security features.
+	// The action that you assign to a medium-risk assessment by threat protection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html#cfn-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype-mediumaction
 	//
 	MediumAction interface{} `field:"optional" json:"mediumAction" yaml:"mediumAction"`

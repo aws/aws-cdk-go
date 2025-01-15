@@ -46,27 +46,25 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html
 //
 type CfnFHIRDatastoreProps struct {
-	// The FHIR version of the data store.
+	// The FHIR release version supported by the data store.
 	//
-	// The only supported version is R4.
+	// Current support is for version `R4` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastoretypeversion
 	//
 	DatastoreTypeVersion *string `field:"required" json:"datastoreTypeVersion" yaml:"datastoreTypeVersion"`
-	// The user generated name for the data store.
+	// The data store name (user-generated).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastorename
 	//
 	DatastoreName *string `field:"optional" json:"datastoreName" yaml:"datastoreName"`
-	// The identity provider configuration that you gave when the data store was created.
+	// The identity provider configuration selected when the data store was created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration
 	//
 	IdentityProviderConfiguration interface{} `field:"optional" json:"identityProviderConfiguration" yaml:"identityProviderConfiguration"`
-	// The preloaded data configuration for the data store.
-	//
-	// Only data preloaded from Synthea is supported.
+	// The preloaded Synthea data configuration for the data store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-preloaddataconfig
 	//
 	PreloadDataConfig interface{} `field:"optional" json:"preloadDataConfig" yaml:"preloadDataConfig"`
-	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+	// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-sseconfiguration
 	//
 	SseConfiguration interface{} `field:"optional" json:"sseConfiguration" yaml:"sseConfiguration"`

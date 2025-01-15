@@ -154,8 +154,9 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	AcceleratorTotalMemoryMiB interface{} `field:"optional" json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
-	// - To include instance types with GPU hardware, specify `gpu` .
-	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - For instance types with FPGA accelerators, specify `fpga` .
+	// - For instance types with GPU accelerators, specify `gpu` .
+	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancerequirementsrequest.html#cfn-ec2-ec2fleet-instancerequirementsrequest-acceleratortypes

@@ -189,7 +189,7 @@ type CfnAlarmProps struct {
 	OkActions *[]*string `field:"optional" json:"okActions" yaml:"okActions"`
 	// The period, in seconds, over which the statistic is applied.
 	//
-	// This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+	// This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
 	//
 	// For an alarm based on a math expression, you can't specify `Period` , and instead you use the `Metrics` parameter.
 	//

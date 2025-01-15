@@ -33,6 +33,7 @@ The following targets are supported:
 9. `targets.KinesisDataFirehosePutRecord`: [Put a record to a Kinesis Data Firehose](#put-a-record-to-a-kinesis-data-firehose)
 10. `targets.CodePipelineStartPipelineExecution`: [Start a CodePipeline execution](#start-a-codepipeline-execution)
 11. `targets.SageMakerStartPipelineExecution`: [Start a SageMaker pipeline execution](#start-a-sagemaker-pipeline-execution)
+12. `targets.Universal`: [Invoke a wider set of AWS API](#invoke-a-wider-set-of-aws-api)
 
 ## Invoke a Lambda function
 
@@ -323,6 +324,64 @@ awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 				Name: jsii.String("parameter-name"),
 				Value: jsii.String("parameter-value"),
 			},
+		},
+	}),
+})
+```
+
+## Invoke a wider set of AWS API
+
+Use the `Universal` target to invoke AWS API.
+
+The code snippet below creates an event rule with AWS API as the target which is
+called at midnight every day by EventBridge Scheduler.
+
+```go
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Cron(&CronOptionsWithTimezone{
+		Minute: jsii.String("0"),
+		Hour: jsii.String("0"),
+	}),
+	Target: targets.NewUniversal(&UniversalTargetProps{
+		Service: jsii.String("rds"),
+		Action: jsii.String("stopDBCluster"),
+		Input: awscdkscheduleralpha.ScheduleTargetInput_FromObject(map[string]*string{
+			"DbClusterIdentifier": jsii.String("my-db"),
+		}),
+	}),
+})
+```
+
+The `service` must be in lowercase and the `action` must be in camelCase.
+
+By default, an IAM policy for the Scheduler is extracted from the API call.
+
+You can control the IAM policy for the Scheduler by specifying the `policyStatements` property.
+
+```go
+awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
+	Schedule: awscdkscheduleralpha.ScheduleExpression_Rate(awscdk.Duration_Minutes(jsii.Number(60))),
+	Target: targets.NewUniversal(&UniversalTargetProps{
+		Service: jsii.String("sqs"),
+		Action: jsii.String("sendMessage"),
+		PolicyStatements: []policyStatement{
+			iam.NewPolicyStatement(&PolicyStatementProps{
+				Actions: []*string{
+					jsii.String("sqs:SendMessage"),
+				},
+				Resources: []*string{
+					jsii.String("arn:aws:sqs:us-east-1:123456789012:my_queue"),
+				},
+			}),
+			iam.NewPolicyStatement(&PolicyStatementProps{
+				Actions: []*string{
+					jsii.String("kms:Decrypt"),
+					jsii.String("kms:GenerateDataKey*"),
+				},
+				Resources: []*string{
+					jsii.String("arn:aws:kms:us-east-1:123456789012:key/0987dcba-09fe-87dc-65ba-ab0987654321"),
+				},
+			}),
 		},
 	}),
 })

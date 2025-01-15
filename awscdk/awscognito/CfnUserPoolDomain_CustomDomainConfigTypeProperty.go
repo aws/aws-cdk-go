@@ -3,7 +3,7 @@ package awscognito
 
 // The configuration for a hosted UI custom domain.
 //
-// This data type is a request parameter of [CreateUserPoolDomain](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolDomain.html) and [UpdateUserPoolDomain](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.html) .
+// This data type is a request parameter of `API_CreateUserPoolDomain` and `API_UpdateUserPoolDomain` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

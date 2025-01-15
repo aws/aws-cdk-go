@@ -37,7 +37,7 @@ func (j *jsiiProxy_ParameterGroupFamily) Family() *string {
 }
 
 
-// Constructor for specifying a custom parameter group famil.
+// Constructor for specifying a custom parameter group family.
 // Experimental.
 func NewParameterGroupFamily(family *string) ParameterGroupFamily {
 	_init_.Initialize()
@@ -56,7 +56,7 @@ func NewParameterGroupFamily(family *string) ParameterGroupFamily {
 	return &j
 }
 
-// Constructor for specifying a custom parameter group famil.
+// Constructor for specifying a custom parameter group family.
 // Experimental.
 func NewParameterGroupFamily_Override(p ParameterGroupFamily, family *string) {
 	_init_.Initialize()

@@ -29,7 +29,7 @@ import (
 //   		Name: jsii.String("pk"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	// applys to all replicas, i.e., us-west-2, us-east-1, us-east-2
+//   	// applies to all replicas, i.e., us-west-2, us-east-1, us-east-2
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	Replicas: []replicaTableProps{
 //   		&replicaTableProps{

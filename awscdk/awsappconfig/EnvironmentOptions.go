@@ -11,6 +11,7 @@ package awsappconfig
 //   var monitor monitor
 //
 //   environmentOptions := &EnvironmentOptions{
+//   	DeletionProtectionCheck: awscdk.Aws_appconfig.DeletionProtectionCheck_ACCOUNT_DEFAULT,
 //   	Description: jsii.String("description"),
 //   	EnvironmentName: jsii.String("environmentName"),
 //   	Monitors: []*monitor{
@@ -19,6 +20,10 @@ package awsappconfig
 //   }
 //
 type EnvironmentOptions struct {
+	// A property to prevent accidental deletion of active environments.
+	// Default: undefined - AppConfig default is ACCOUNT_DEFAULT.
+	//
+	DeletionProtectionCheck DeletionProtectionCheck `field:"optional" json:"deletionProtectionCheck" yaml:"deletionProtectionCheck"`
 	// The description of the environment.
 	// Default: - No description.
 	//

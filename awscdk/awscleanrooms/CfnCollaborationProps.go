@@ -124,6 +124,7 @@ type CfnCollaborationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-analyticsengine
 	//
 	AnalyticsEngine *string `field:"optional" json:"analyticsEngine" yaml:"analyticsEngine"`
+	// The ML member abilities for a collaboration member.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatormlmemberabilities
 	//
 	CreatorMlMemberAbilities interface{} `field:"optional" json:"creatorMlMemberAbilities" yaml:"creatorMlMemberAbilities"`

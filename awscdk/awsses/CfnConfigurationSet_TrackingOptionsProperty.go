@@ -16,6 +16,7 @@ package awsses
 //
 //   trackingOptionsProperty := &TrackingOptionsProperty{
 //   	CustomRedirectDomain: jsii.String("customRedirectDomain"),
+//   	HttpsPolicy: jsii.String("httpsPolicy"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html
@@ -25,5 +26,9 @@ type CfnConfigurationSet_TrackingOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html#cfn-ses-configurationset-trackingoptions-customredirectdomain
 	//
 	CustomRedirectDomain *string `field:"optional" json:"customRedirectDomain" yaml:"customRedirectDomain"`
+	// The https policy to use for tracking open and click events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html#cfn-ses-configurationset-trackingoptions-httpspolicy
+	//
+	HttpsPolicy *string `field:"optional" json:"httpsPolicy" yaml:"httpsPolicy"`
 }
 

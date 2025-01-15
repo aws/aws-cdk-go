@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnBot) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnBot) validateSetReplicationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBot) validateSetRoleArnParameters(val *string) error {
 	return nil
 }

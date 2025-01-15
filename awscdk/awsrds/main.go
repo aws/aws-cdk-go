@@ -1257,6 +1257,14 @@ func init() {
 			"LIMITLESS": ClusterScailabilityType_LIMITLESS,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_rds.ClusterScalabilityType",
+		reflect.TypeOf((*ClusterScalabilityType)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": ClusterScalabilityType_STANDARD,
+			"LIMITLESS": ClusterScalabilityType_LIMITLESS,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.CommonRotationUserOptions",
 		reflect.TypeOf((*CommonRotationUserOptions)(nil)).Elem(),

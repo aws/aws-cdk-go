@@ -19,7 +19,7 @@ package awsecs
 //
 //   // An Rule that describes the event trigger (in this case a scheduled run)
 //   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Expression(jsii.String("rate(1 min)")),
+//   	Schedule: events.Schedule_Expression(jsii.String("rate(1 minute)")),
 //   })
 //
 //   // Pass an environment variable to the container 'TheContainer' in the task

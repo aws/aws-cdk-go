@@ -26,116 +26,8 @@ package awsssmquicksetup
 type CfnConfigurationManager_ConfigurationDefinitionProperty struct {
 	// The parameters for the configuration definition type.
 	//
-	// Parameters for configuration definitions vary based the configuration type. The following tables outline the parameters for each configuration type.
+	// Parameters for configuration definitions vary based the configuration type. The following lists outline the parameters for each configuration type.
 	//
-	// - **OpsCenter (Type: AWS QuickSetupType-SSMOpsCenter)** - - `DelegatedAccountId`
-	//
-	// - Description: (Required) The ID of the delegated administrator account.
-	// - `TargetOrganizationalUnits`
-	//
-	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
-	// - `TargetRegions`
-	//
-	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-	// - **Resource Scheduler (Type: AWS QuickSetupType-Scheduler)** - - `TargetTagKey`
-	//
-	// - Description: (Required) The tag key assigned to the instances you want to target.
-	// - `TargetTagValue`
-	//
-	// - Description: (Required) The value of the tag key assigned to the instances you want to target.
-	// - `ICalendarString`
-	//
-	// - Description: (Required) An iCalendar formatted string containing the schedule you want Change Manager to use.
-	// - `TargetAccounts`
-	//
-	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .
-	// - `TargetOrganizationalUnits`
-	//
-	// - Description: (Optional) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
-	// - `TargetRegions`
-	//
-	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-	// - **Default Host Management Configuration (Type: AWS QuickSetupType-DHMC)** - - `UpdateSSMAgent`
-	//
-	// - Description: (Optional) A boolean value that determines whether the SSM Agent is updated on the target instances every 2 weeks. The default value is " `true` ".
-	// - `TargetOrganizationalUnits`
-	//
-	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
-	// - `TargetRegions`
-	//
-	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-	// - **Resource Explorer (Type: AWS QuickSetupType-ResourceExplorer)** - - `SelectedAggregatorRegion`
-	//
-	// - Description: (Required) The AWS Region where you want to create the aggregator index.
-	// - `ReplaceExistingAggregator`
-	//
-	// - Description: (Required) A boolean value that determines whether to demote an existing aggregator if it is in a Region that differs from the value you specify for the `SelectedAggregatorRegion` .
-	// - `TargetOrganizationalUnits`
-	//
-	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
-	// - `TargetRegions`
-	//
-	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-	// - **Change Manager (Type: AWS QuickSetupType-SSMChangeMgr)** - - `DelegatedAccountId`
-	//
-	// - Description: (Required) The ID of the delegated administrator account.
-	// - `JobFunction`
-	//
-	// - Description: (Required) The name for the Change Manager job function.
-	// - `PermissionType`
-	//
-	// - Description: (Optional) Specifies whether you want to use default administrator permissions for the job function role, or provide a custom IAM policy. The valid values are `CustomPermissions` and `AdminPermissions` . The default value for the parameter is `CustomerPermissions` .
-	// - `CustomPermissions`
-	//
-	// - Description: (Optional) A JSON string containing the IAM policy you want your job function to use. You must provide a value for this parameter if you specify `CustomPermissions` for the `PermissionType` parameter.
-	// - `TargetOrganizationalUnits`
-	//
-	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
-	// - `TargetRegions`
-	//
-	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-	// - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
-	//
-	// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
-	// - `EnableSnsNotifications`
-	//
-	// - Description: (Optional) A boolean value that determines whether DevOps Guru sends notifications when an insight is created. The default value is " `true` ".
-	// - `EnableSsmOpsItems`
-	//
-	// - Description: (Optional) A boolean value that determines whether DevOps Guru creates an OpsCenter OpsItem when an insight is created. The default value is " `true` ".
-	// - `EnableDriftRemediation`
-	//
-	// - Description: (Optional) A boolean value that determines whether a drift remediation schedule is used. The default value is " `false` ".
-	// - `RemediationSchedule`
-	//
-	// - Description: (Optional) A rate expression that defines the schedule for drift remediation. The valid values are `rate(30 days)` , `rate(14 days)` , `rate(1 days)` , and `none` . The default value is " `none` ".
-	// - `TargetAccounts`
-	//
-	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .
-	// - `TargetOrganizationalUnits`
-	//
-	// - Description: (Optional) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
-	// - `TargetRegions`
-	//
-	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-	// - **Conformance Packs (Type: AWS QuickSetupType-CFGCPacks)** - - `DelegatedAccountId`
-	//
-	// - Description: (Optional) The ID of the delegated administrator account. This parameter is required for Organization deployments.
-	// - `RemediationSchedule`
-	//
-	// - Description: (Optional) A rate expression that defines the schedule for drift remediation. The valid values are `rate(30 days)` , `rate(14 days)` , `rate(2 days)` , and `none` . The default value is " `none` ".
-	// - `CPackNames`
-	//
-	// - Description: (Required) A comma separated list of AWS Config conformance packs.
-	// - `TargetAccounts`
-	//
-	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .
-	// - `TargetOrganizationalUnits`
-	//
-	// - Description: (Optional) The ID of the root of your Organization. This configuration type doesn't currently support choosing specific OUs. The configuration will be deployed to all the OUs in the Organization.
-	// - `TargetRegions`
-	//
-	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
 	// - **AWS Config Recording (Type: AWS QuickSetupType-CFGRecording)** - - `RecordAllResources`
 	//
 	// - Description: (Optional) A boolean value that determines whether all supported resources are recorded. The default value is " `true` ".
@@ -175,6 +67,108 @@ type CfnConfigurationManager_ConfigurationDefinitionProperty struct {
 	// - `TargetOrganizationalUnits`
 	//
 	// - Description: (Optional) The ID of the root of your Organization. This configuration type doesn't currently support choosing specific OUs. The configuration will be deployed to all the OUs in the Organization.
+	// - `TargetRegions`
+	//
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+	// - **Change Manager (Type: AWS QuickSetupType-SSMChangeMgr)** - - `DelegatedAccountId`
+	//
+	// - Description: (Required) The ID of the delegated administrator account.
+	// - `JobFunction`
+	//
+	// - Description: (Required) The name for the Change Manager job function.
+	// - `PermissionType`
+	//
+	// - Description: (Optional) Specifies whether you want to use default administrator permissions for the job function role, or provide a custom IAM policy. The valid values are `CustomPermissions` and `AdminPermissions` . The default value for the parameter is `CustomerPermissions` .
+	// - `CustomPermissions`
+	//
+	// - Description: (Optional) A JSON string containing the IAM policy you want your job function to use. You must provide a value for this parameter if you specify `CustomPermissions` for the `PermissionType` parameter.
+	// - `TargetOrganizationalUnits`
+	//
+	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
+	// - `TargetRegions`
+	//
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+	// - **Conformance Packs (Type: AWS QuickSetupType-CFGCPacks)** - - `DelegatedAccountId`
+	//
+	// - Description: (Optional) The ID of the delegated administrator account. This parameter is required for Organization deployments.
+	// - `RemediationSchedule`
+	//
+	// - Description: (Optional) A rate expression that defines the schedule for drift remediation. The valid values are `rate(30 days)` , `rate(14 days)` , `rate(2 days)` , and `none` . The default value is " `none` ".
+	// - `CPackNames`
+	//
+	// - Description: (Required) A comma separated list of AWS Config conformance packs.
+	// - `TargetAccounts`
+	//
+	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .
+	// - `TargetOrganizationalUnits`
+	//
+	// - Description: (Optional) The ID of the root of your Organization. This configuration type doesn't currently support choosing specific OUs. The configuration will be deployed to all the OUs in the Organization.
+	// - `TargetRegions`
+	//
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+	// - **Default Host Management Configuration (Type: AWS QuickSetupType-DHMC)** - - `UpdateSSMAgent`
+	//
+	// - Description: (Optional) A boolean value that determines whether the SSM Agent is updated on the target instances every 2 weeks. The default value is " `true` ".
+	// - `TargetOrganizationalUnits`
+	//
+	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
+	// - `TargetRegions`
+	//
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+	// - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
+	//
+	// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
+	// - `EnableSnsNotifications`
+	//
+	// - Description: (Optional) A boolean value that determines whether DevOps Guru sends notifications when an insight is created. The default value is " `true` ".
+	// - `EnableSsmOpsItems`
+	//
+	// - Description: (Optional) A boolean value that determines whether DevOps Guru creates an OpsCenter OpsItem when an insight is created. The default value is " `true` ".
+	// - `EnableDriftRemediation`
+	//
+	// - Description: (Optional) A boolean value that determines whether a drift remediation schedule is used. The default value is " `false` ".
+	// - `RemediationSchedule`
+	//
+	// - Description: (Optional) A rate expression that defines the schedule for drift remediation. The valid values are `rate(30 days)` , `rate(14 days)` , `rate(1 days)` , and `none` . The default value is " `none` ".
+	// - `TargetAccounts`
+	//
+	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .
+	// - `TargetOrganizationalUnits`
+	//
+	// - Description: (Optional) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
+	// - `TargetRegions`
+	//
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+	// - **Distributor (Type: AWS QuickSetupType-Distributor)** - - `PackagesToInstall`
+	//
+	// - Description: (Required) A comma separated list of packages you want to install on the target instances. The valid values are `AWSEFSTools` , `AWSCWAgent` , and `AWSEC2LaunchAgent` .
+	// - `RemediationSchedule`
+	//
+	// - Description: (Optional) A rate expression that defines the schedule for drift remediation. The valid values are `rate(30 days)` , `rate(14 days)` , `rate(2 days)` , and `none` . The default value is " `rate(30 days)` ".
+	// - `IsPolicyAttachAllowed`
+	//
+	// - Description: (Optional) A boolean value that determines whether Quick Setup attaches policies to instances profiles already associated with the target instances. The default value is " `false` ".
+	// - `TargetType`
+	//
+	// - Description: (Optional) Determines how instances are targeted for local account deployments. Don't specify a value for this parameter if you're deploying to OUs. The valid values are `*` , `InstanceIds` , `ResourceGroups` , and `Tags` . Use `*` to target all instances in the account.
+	// - `TargetInstances`
+	//
+	// - Description: (Optional) A comma separated list of instance IDs. You must provide a value for this parameter if you specify `InstanceIds` for the `TargetType` parameter.
+	// - `TargetTagKey`
+	//
+	// - Description: (Required) The tag key assigned to the instances you want to target. You must provide a value for this parameter if you specify `Tags` for the `TargetType` parameter.
+	// - `TargetTagValue`
+	//
+	// - Description: (Required) The value of the tag key assigned to the instances you want to target. You must provide a value for this parameter if you specify `Tags` for the `TargetType` parameter.
+	// - `ResourceGroupName`
+	//
+	// - Description: (Required) The name of the resource group associated with the instances you want to target. You must provide a value for this parameter if you specify `ResourceGroups` for the `TargetType` parameter.
+	// - `TargetAccounts`
+	//
+	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .
+	// - `TargetOrganizationalUnits`
+	//
+	// - Description: (Optional) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
 	// - `TargetRegions`
 	//
 	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
@@ -223,36 +217,12 @@ type CfnConfigurationManager_ConfigurationDefinitionProperty struct {
 	// - `TargetRegions`
 	//
 	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
-	// - **Distributor (Type: AWS QuickSetupType-Distributor)** - - `PackagesToInstall`
+	// - **OpsCenter (Type: AWS QuickSetupType-SSMOpsCenter)** - - `DelegatedAccountId`
 	//
-	// - Description: (Required) A comma separated list of packages you want to install on the target instances. The valid values are `AWSEFSTools` , `AWSCWAgent` , and `AWSEC2LaunchAgent` .
-	// - `RemediationSchedule`
-	//
-	// - Description: (Optional) A rate expression that defines the schedule for drift remediation. The valid values are `rate(30 days)` , `rate(14 days)` , `rate(2 days)` , and `none` . The default value is " `rate(30 days)` ".
-	// - `IsPolicyAttachAllowed`
-	//
-	// - Description: (Optional) A boolean value that determines whether Quick Setup attaches policies to instances profiles already associated with the target instances. The default value is " `false` ".
-	// - `TargetType`
-	//
-	// - Description: (Optional) Determines how instances are targeted for local account deployments. Don't specify a value for this parameter if you're deploying to OUs. The valid values are `*` , `InstanceIds` , `ResourceGroups` , and `Tags` . Use `*` to target all instances in the account.
-	// - `TargetInstances`
-	//
-	// - Description: (Optional) A comma separated list of instance IDs. You must provide a value for this parameter if you specify `InstanceIds` for the `TargetType` parameter.
-	// - `TargetTagKey`
-	//
-	// - Description: (Required) The tag key assigned to the instances you want to target. You must provide a value for this parameter if you specify `Tags` for the `TargetType` parameter.
-	// - `TargetTagValue`
-	//
-	// - Description: (Required) The value of the tag key assigned to the instances you want to target. You must provide a value for this parameter if you specify `Tags` for the `TargetType` parameter.
-	// - `ResourceGroupName`
-	//
-	// - Description: (Required) The name of the resource group associated with the instances you want to target. You must provide a value for this parameter if you specify `ResourceGroups` for the `TargetType` parameter.
-	// - `TargetAccounts`
-	//
-	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .
+	// - Description: (Required) The ID of the delegated administrator account.
 	// - `TargetOrganizationalUnits`
 	//
-	// - Description: (Optional) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
+	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
 	// - `TargetRegions`
 	//
 	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
@@ -295,10 +265,10 @@ type CfnConfigurationManager_ConfigurationDefinitionProperty struct {
 	//
 	// - `OutputS3BucketRegion`
 	//
-	// - Description: (Optional) The AWS Region where the Amazon S3 bucket you want AWS Config to deliver command output to is located.
+	// - Description: (Optional) The AWS Region where the Amazon S3 bucket you want to deliver command output to is located.
 	// - `OutputS3BucketName`
 	//
-	// - Description: (Optional) The name of the Amazon S3 bucket you want AWS Config to deliver command output to.
+	// - Description: (Optional) The name of the Amazon S3 bucket you want to deliver command output to.
 	// - `OutputS3KeyPrefix`
 	//
 	// - Description: (Optional) The key prefix you want to use in the custom Amazon S3 bucket.
@@ -317,6 +287,36 @@ type CfnConfigurationManager_ConfigurationDefinitionProperty struct {
 	// - `ResourceGroupName`
 	//
 	// - Description: (Required) The name of the resource group associated with the instances you want to target. You must provide a value for this parameter if you specify `ResourceGroups` for the `TargetType` parameter.
+	// - `TargetAccounts`
+	//
+	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .
+	// - `TargetOrganizationalUnits`
+	//
+	// - Description: (Optional) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
+	// - `TargetRegions`
+	//
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+	// - **Resource Explorer (Type: AWS QuickSetupType-ResourceExplorer)** - - `SelectedAggregatorRegion`
+	//
+	// - Description: (Required) The AWS Region where you want to create the aggregator index.
+	// - `ReplaceExistingAggregator`
+	//
+	// - Description: (Required) A boolean value that determines whether to demote an existing aggregator if it is in a Region that differs from the value you specify for the `SelectedAggregatorRegion` .
+	// - `TargetOrganizationalUnits`
+	//
+	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
+	// - `TargetRegions`
+	//
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
+	// - **Resource Scheduler (Type: AWS QuickSetupType-Scheduler)** - - `TargetTagKey`
+	//
+	// - Description: (Required) The tag key assigned to the instances you want to target.
+	// - `TargetTagValue`
+	//
+	// - Description: (Required) The value of the tag key assigned to the instances you want to target.
+	// - `ICalendarString`
+	//
+	// - Description: (Required) An iCalendar formatted string containing the schedule you want Change Manager to use.
 	// - `TargetAccounts`
 	//
 	// - Description: (Optional) The ID of the AWS account initiating the configuration deployment. You only need to provide a value for this parameter if you want to deploy the configuration locally. A value must be provided for either `TargetAccounts` or `TargetOrganizationalUnits` .

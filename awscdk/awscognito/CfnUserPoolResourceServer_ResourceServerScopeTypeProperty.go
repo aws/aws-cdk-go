@@ -5,7 +5,7 @@ package awscognito
 //
 // This data type is a member of `ResourceServerScopeType` . For more information, see [Scopes, M2M, and API authorization with resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html) .
 //
-// This data type is a request parameter of [CreateResourceServer](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateResourceServer.html) and a response parameter of [DescribeResourceServer](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeResourceServer.html) .
+// This data type is a request parameter of `API_CreateResourceServer` and a response parameter of `API_DescribeResourceServer` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

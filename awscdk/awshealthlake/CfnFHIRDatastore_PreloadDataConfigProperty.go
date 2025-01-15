@@ -1,9 +1,7 @@
 package awshealthlake
 
 
-// Optional parameter to preload data upon creation of the data store.
-//
-// Currently, the only supported preloaded data is synthetic data generated from Synthea.
+// An optional parameter to preload (import) open source Synthea FHIR data upon creation of the data store.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -440,6 +440,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrBackupVaultArn", GoGetter: "AttrBackupVaultArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEncryptionKeyArn", GoGetter: "AttrEncryptionKeyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVaultState", GoGetter: "AttrVaultState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVaultType", GoGetter: "AttrVaultType"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVaultName", GoGetter: "BackupVaultName"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVaultTags", GoGetter: "BackupVaultTags"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
@@ -468,8 +470,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
-			_jsii_.MemberProperty{JsiiProperty: "vaultState", GoGetter: "VaultState"},
-			_jsii_.MemberProperty{JsiiProperty: "vaultType", GoGetter: "VaultType"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLogicallyAirGappedBackupVault{}

@@ -31,6 +31,7 @@ type CfnCollaboration_PaymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html#cfn-cleanrooms-collaboration-paymentconfiguration-querycompute
 	//
 	QueryCompute interface{} `field:"required" json:"queryCompute" yaml:"queryCompute"`
+	// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html#cfn-cleanrooms-collaboration-paymentconfiguration-machinelearning
 	//
 	MachineLearning interface{} `field:"optional" json:"machineLearning" yaml:"machineLearning"`

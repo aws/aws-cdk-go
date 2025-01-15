@@ -3,9 +3,9 @@ package awscognito
 
 // The automated response to a risk level for adaptive authentication in full-function, or `ENFORCED` , mode.
 //
-// You can assign an action to each risk level that advanced security features evaluates.
+// You can assign an action to each risk level that threat protection evaluates.
 //
-// This data type is a request parameter of [SetRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.html) and a response parameter of [DescribeRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.html) .
+// This data type is a request parameter of `API_SetRiskConfiguration` and a response parameter of `API_DescribeRiskConfiguration` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

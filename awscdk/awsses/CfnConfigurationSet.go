@@ -51,6 +51,7 @@ import (
 //   	},
 //   	TrackingOptions: &TrackingOptionsProperty{
 //   		CustomRedirectDomain: jsii.String("customRedirectDomain"),
+//   		HttpsPolicy: jsii.String("httpsPolicy"),
 //   	},
 //   	VdmOptions: &VdmOptionsProperty{
 //   		DashboardOptions: &DashboardOptionsProperty{

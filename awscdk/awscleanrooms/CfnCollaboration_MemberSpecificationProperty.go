@@ -57,6 +57,7 @@ type CfnCollaboration_MemberSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-memberabilities
 	//
 	MemberAbilities *[]*string `field:"required" json:"memberAbilities" yaml:"memberAbilities"`
+	// The ML abilities granted to the collaboration member.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-mlmemberabilities
 	//
 	MlMemberAbilities interface{} `field:"optional" json:"mlMemberAbilities" yaml:"mlMemberAbilities"`

@@ -825,7 +825,7 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	// applys to all replicas, i.e., us-west-2, us-east-1, us-east-2
+	// applies to all replicas, i.e., us-west-2, us-east-1, us-east-2
 	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 	Replicas: []replicaTableProps{
 		&replicaTableProps{
@@ -1038,7 +1038,7 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 	},
 })
 
-// grantReadData only applys to the table in us-west-2 and the tableKey
+// grantReadData only applies to the table in us-west-2 and the tableKey
 globalTable.GrantReadData(user)
 ```
 
@@ -1080,7 +1080,7 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 	},
 })
 
-// grantReadData applys to the table in us-east-2 and the key arn for the key in us-east-2
+// grantReadData applies to the table in us-east-2 and the key arn for the key in us-east-2
 globalTable.Replica(jsii.String("us-east-2")).GrantReadData(user)
 ```
 
@@ -1128,50 +1128,72 @@ cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
 The `replica` method can be used to generate a metric for a specific replica table:
 
 ```go
-import * as cdk form 'aws-cdk-lib';
-import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch';
+import "github.com/aws/aws-cdk-go/awscdk"
+import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 
-class FooStack extends cdk.Stack {
-  public readonly globalTable: dynamodb.TableV2;
 
-  public constructor(scope: Construct, id: string, props: cdk.StackProps) {
-    super(scope, id, props);
-
-    this.globalTable = new dynamodb.Tablev2(this, 'GlobalTable', {
-      partitionKey: { name: 'pk', type: dynamodb.AttributeType.STRING },
-      replicas: [
-        { region: 'us-east-1' },
-        { region: 'us-east-2' },
-      ],
-    });
-  }
+type fooStack struct {
+	stack
+	globalTable tableV2
 }
 
-interface BarStack extends cdk.StackProps {
-  readonly replicaTable: dynamodb.ITableV2;
+func newFooStack(scope construct, id *string, props stackProps) *fooStack {
+	this := &fooStack{}
+	cdk.NewStack_Override(this, scope, id, props)
+
+	this.globalTable = dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TablePropsV2{
+		PartitionKey: &Attribute{
+			Name: jsii.String("pk"),
+			Type: dynamodb.AttributeType_STRING,
+		},
+		Replicas: []replicaTableProps{
+			&replicaTableProps{
+				Region: jsii.String("us-east-1"),
+			},
+			&replicaTableProps{
+				Region: jsii.String("us-east-2"),
+			},
+		},
+	})
+	return this
 }
 
-class BarStack extends cdk.Stack {
-  public constructor(scope: Construct, id: string, props: BarStackProps) {
-    super(scope, id, props);
-
-    // metric is only for the table in us-east-1
-    const metric = props.replicaTable.metricConsumedReadCapacityUnits();
-
-    new cloudwatch.Alarm(this, 'Alarm', {
-      metric: metric,
-      evaluationPeriods: 1,
-      threshold: 1,
-    });
-  }
+type barStackProps struct {
+	stackProps
+	replicaTable iTableV2
 }
 
-const app = new cdk.App();
-const fooStack = new FooStack(app, 'FooStack', { env: { region: 'us-west-2' } });
-const barStack = new BarStack(app, 'BarStack', {
-  replicaTable: fooStack.globalTable.replica('us-east-1'),
-  env: { region: 'us-east-1' },
-});
+type barStack struct {
+	stack
+}
+
+func newBarStack(scope construct, id *string, props barStackProps) *barStack {
+	this := &barStack{}
+	cdk.NewStack_Override(this, scope, id, props)
+
+	// metric is only for the table in us-east-1
+	metric := *props.replicaTable.MetricConsumedReadCapacityUnits()
+
+	cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
+		Metric: metric,
+		EvaluationPeriods: jsii.Number(1),
+		Threshold: jsii.Number(1),
+	})
+	return this
+}
+
+app := cdk.NewApp()
+fooStack := NewFooStack(app, jsii.String("FooStack"), &stackProps{
+	Env: &Environment{
+		Region: jsii.String("us-west-2"),
+	},
+})
+barStack := NewBarStack(app, jsii.String("BarStack"), &barStackProps{
+	replicaTable: fooStack.globalTable.Replica(jsii.String("us-east-1")),
+	env: &Environment{
+		Region: jsii.String("us-east-1"),
+	},
+})
 ```
 
 ## import from S3 Bucket

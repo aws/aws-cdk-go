@@ -60,7 +60,7 @@ type JobExecutableConfig struct {
 	Type JobType `field:"required" json:"type" yaml:"type"`
 	// The Scala class that serves as the entry point for the job.
 	//
-	// This applies only if your the job langauage is Scala.
+	// This applies only if your the job language is Scala.
 	// Equivalent to a job parameter `--class`.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//

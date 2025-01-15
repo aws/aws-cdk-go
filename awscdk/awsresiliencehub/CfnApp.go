@@ -64,6 +64,7 @@ import (
 //   		},
 //   		InvokerRoleName: jsii.String("invokerRoleName"),
 //   	},
+//   	RegulatoryPolicyArn: jsii.String("regulatoryPolicyArn"),
 //   	ResiliencyPolicyArn: jsii.String("resiliencyPolicyArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -124,6 +125,9 @@ type CfnApp interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Amazon Resource Name (ARN) of the Regulatory Policy.
+	RegulatoryPolicyArn() *string
+	SetRegulatoryPolicyArn(val *string)
 	// The Amazon Resource Name (ARN) of the resiliency policy.
 	ResiliencyPolicyArn() *string
 	SetResiliencyPolicyArn(val *string)
@@ -436,6 +440,16 @@ func (j *jsiiProxy_CfnApp) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApp) RegulatoryPolicyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"regulatoryPolicyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApp) ResiliencyPolicyArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -590,6 +604,14 @@ func (j *jsiiProxy_CfnApp)SetPermissionModel(val interface{}) {
 	_jsii_.Set(
 		j,
 		"permissionModel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApp)SetRegulatoryPolicyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"regulatoryPolicyArn",
 		val,
 	)
 }

@@ -137,6 +137,7 @@ type CfnDBCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Specifies whether to manage the master user password with Amazon Web Services Secrets Manager.
 	ManageMasterUserPassword() interface{}
 	SetManageMasterUserPassword(val interface{})
 	// The name of the master user for the cluster.
@@ -145,6 +146,7 @@ type CfnDBCluster interface {
 	// The password for the master database user.
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
+	// The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and managed in Amazon Web Services Secrets Manager.
 	MasterUserSecretKmsKeyId() *string
 	SetMasterUserSecretKmsKeyId(val *string)
 	// The tree node.
@@ -171,6 +173,7 @@ type CfnDBCluster interface {
 	// You can specify one of the following values:.
 	RestoreType() *string
 	SetRestoreType(val *string)
+	// Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager for the master user password.
 	RotateMasterUserPassword() interface{}
 	SetRotateMasterUserPassword(val interface{})
 	ServerlessV2ScalingConfiguration() interface{}

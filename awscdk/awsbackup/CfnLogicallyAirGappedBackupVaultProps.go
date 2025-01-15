@@ -26,8 +26,6 @@ package awsbackup
 //   		},
 //   		SnsTopicArn: jsii.String("snsTopicArn"),
 //   	},
-//   	VaultState: jsii.String("vaultState"),
-//   	VaultType: jsii.String("vaultType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html
@@ -61,13 +59,5 @@ type CfnLogicallyAirGappedBackupVaultProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-notifications
 	//
 	Notifications interface{} `field:"optional" json:"notifications" yaml:"notifications"`
-	// The current state of the vault.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-vaultstate
-	//
-	VaultState *string `field:"optional" json:"vaultState" yaml:"vaultState"`
-	// The type of vault described.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html#cfn-backup-logicallyairgappedbackupvault-vaulttype
-	//
-	VaultType *string `field:"optional" json:"vaultType" yaml:"vaultType"`
 }
 

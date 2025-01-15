@@ -73,7 +73,7 @@ type ReplicaTableProps struct {
 	// Default: - inherited from the primary table.
 	//
 	GlobalSecondaryIndexOptions *map[string]*ReplicaGlobalSecondaryIndexOptions `field:"optional" json:"globalSecondaryIndexOptions" yaml:"globalSecondaryIndexOptions"`
-	// The maxium read request units.
+	// The maximum read request units.
 	//
 	// Note: This can only be configured if the primary table billing is PAY_PER_REQUEST.
 	// Default: - inherited from the primary table.

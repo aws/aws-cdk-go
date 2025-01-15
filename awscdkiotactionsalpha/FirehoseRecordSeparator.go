@@ -36,7 +36,7 @@ const (
 	// Separate by a windows new line.
 	// Experimental.
 	FirehoseRecordSeparator_WINDOWS_NEWLINE FirehoseRecordSeparator = "WINDOWS_NEWLINE"
-	// Separate by a commma.
+	// Separate by a comma.
 	// Experimental.
 	FirehoseRecordSeparator_COMMA FirehoseRecordSeparator = "COMMA"
 )

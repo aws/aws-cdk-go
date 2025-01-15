@@ -21,9 +21,13 @@ func (w *jsiiProxy_WebSocketMockIntegration) validateBindParameters(options *aws
 	return nil
 }
 
-func validateNewWebSocketMockIntegrationParameters(id *string) error {
+func validateNewWebSocketMockIntegrationParameters(id *string, props *WebSocketMockIntegrationProps) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil

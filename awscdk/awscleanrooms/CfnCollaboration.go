@@ -126,6 +126,7 @@ type CfnCollaboration interface {
 	// The abilities granted to the collaboration creator.
 	CreatorMemberAbilities() *[]*string
 	SetCreatorMemberAbilities(val *[]*string)
+	// The ML member abilities for a collaboration member.
 	CreatorMlMemberAbilities() interface{}
 	SetCreatorMlMemberAbilities(val interface{})
 	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.

@@ -11,11 +11,27 @@ import (
 // Mock WebSocket Integration.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   webSocketMockIntegration := awscdk.Aws_apigatewayv2_integrations.NewWebSocketMockIntegration(jsii.String("id"))
+//
+//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
+//   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+//   	WebSocketApi: WebSocketApi,
+//   	StageName: jsii.String("dev"),
+//   	AutoDeploy: jsii.Boolean(true),
+//   })
+//
+//   webSocketApi.AddRoute(jsii.String("sendMessage"), &WebSocketRouteOptions{
+//   	Integration: awscdk.NewWebSocketMockIntegration(jsii.String("DefaultIntegration"), &WebSocketMockIntegrationProps{
+//   		RequestTemplates: map[string]*string{
+//   			"application/json": JSON.stringify(map[string]*f64{
+//   				"statusCode": jsii.Number(200),
+//   			}),
+//   		},
+//   		TemplateSelectionExpression: jsii.String("\\$default"),
+//   	}),
+//   	ReturnResponse: jsii.Boolean(true),
+//   })
 //
 type WebSocketMockIntegration interface {
 	awsapigatewayv2.WebSocketRouteIntegration
@@ -28,29 +44,29 @@ type jsiiProxy_WebSocketMockIntegration struct {
 	internal.Type__awsapigatewayv2WebSocketRouteIntegration
 }
 
-func NewWebSocketMockIntegration(id *string) WebSocketMockIntegration {
+func NewWebSocketMockIntegration(id *string, props *WebSocketMockIntegrationProps) WebSocketMockIntegration {
 	_init_.Initialize()
 
-	if err := validateNewWebSocketMockIntegrationParameters(id); err != nil {
+	if err := validateNewWebSocketMockIntegrationParameters(id, props); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_WebSocketMockIntegration{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketMockIntegration",
-		[]interface{}{id},
+		[]interface{}{id, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewWebSocketMockIntegration_Override(w WebSocketMockIntegration, id *string) {
+func NewWebSocketMockIntegration_Override(w WebSocketMockIntegration, id *string, props *WebSocketMockIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketMockIntegration",
-		[]interface{}{id},
+		[]interface{}{id, props},
 		w,
 	)
 }

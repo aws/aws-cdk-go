@@ -55,6 +55,10 @@ type CfnBotProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Parameter used to create a replication of the source bot in the secondary region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-replication
+	//
+	Replication interface{} `field:"optional" json:"replication" yaml:"replication"`
 	// Specifies configuration settings for the alias used to test the bot.
 	//
 	// If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.

@@ -1,7 +1,7 @@
 package awshealthlake
 
 
-// The identity provider configuration that you gave when the data store was created.
+// The identity provider configuration selected when the data store was created.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -20,19 +20,19 @@ package awshealthlake
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html
 //
 type CfnFHIRDatastore_IdentityProviderConfigurationProperty struct {
-	// The authorization strategy that you selected when you created the data store.
+	// The authorization strategy selected when the data store was created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration-authorizationstrategy
 	//
 	AuthorizationStrategy *string `field:"required" json:"authorizationStrategy" yaml:"authorizationStrategy"`
-	// If you enabled fine-grained authorization when you created the data store.
+	// The parameter to enable SMART on FHIR fine-grained authorization for the data store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration-finegrainedauthorizationenabled
 	//
 	FineGrainedAuthorizationEnabled interface{} `field:"optional" json:"fineGrainedAuthorizationEnabled" yaml:"fineGrainedAuthorizationEnabled"`
-	// The Amazon Resource Name (ARN) of the Lambda function that you want to use to decode the access token created by the authorization server.
+	// The Amazon Resource Name (ARN) of the Lambda function to use to decode the access token created by the authorization server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration-idplambdaarn
 	//
 	IdpLambdaArn *string `field:"optional" json:"idpLambdaArn" yaml:"idpLambdaArn"`
-	// The JSON metadata elements that you want to use in your identity provider configuration.
+	// The JSON metadata elements to use in your identity provider configuration.
 	//
 	// Required elements are listed based on the launch specification of the SMART application. For more information on all possible elements, see [Metadata](https://docs.aws.amazon.com/https://build.fhir.org/ig/HL7/smart-app-launch/conformance.html#metadata) in SMART's App Launch specification.
 	//

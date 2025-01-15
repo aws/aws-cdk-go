@@ -1,9 +1,9 @@
 package awscognito
 
 
-// Settings for compromised-credentials actions and authentication-event sources with advanced security features in full-function `ENFORCED` mode.
+// Settings for compromised-credentials actions and authentication-event sources with threat protection in full-function `ENFORCED` mode.
 //
-// This data type is a request parameter of [SetRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetRiskConfiguration.html) and a response parameter of [DescribeRiskConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeRiskConfiguration.html) .
+// This data type is a request parameter of `API_SetRiskConfiguration` and a response parameter of `API_DescribeRiskConfiguration` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

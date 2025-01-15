@@ -81,7 +81,7 @@ type Route interface {
 	// The gateway or endpoint targeted by the route.
 	// Experimental.
 	Target() RouteTargetType
-	// The type of router the route is targetting.
+	// The type of router the route is targeting.
 	// Experimental.
 	TargetRouterType() awsec2.RouterType
 	// Apply the given removal policy to this resource.

@@ -107,7 +107,7 @@ type BucketProps struct {
 	// Default: false.
 	//
 	EventBridgeEnabled *bool `field:"optional" json:"eventBridgeEnabled" yaml:"eventBridgeEnabled"`
-	// Inteligent Tiering Configurations.
+	// Intelligent Tiering Configurations.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html
 	//
 	// Default: No Intelligent Tiiering Configurations.

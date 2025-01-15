@@ -364,6 +364,17 @@ cluster.AddCapacity(jsii.String("ASGEncryptedSNS"), &AddCapacityOptions{
 })
 ```
 
+### Container Insights
+
+On a cluster, CloudWatch Container Insights can be enabled by setting the `containerInsightsV2` property. [Container Insights](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html)
+can be disabled, enabled, or enhanced.
+
+```go
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	ContainerInsightsV2: ecs.ContainerInsights_ENHANCED,
+})
+```
+
 ## Task definitions
 
 A task definition describes what a single copy of a **task** should look like.
@@ -1293,7 +1304,7 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 
 // An Rule that describes the event trigger (in this case a scheduled run)
 rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-	Schedule: events.Schedule_Expression(jsii.String("rate(1 min)")),
+	Schedule: events.Schedule_Expression(jsii.String("rate(1 minute)")),
 })
 
 // Pass an environment variable to the container 'TheContainer' in the task

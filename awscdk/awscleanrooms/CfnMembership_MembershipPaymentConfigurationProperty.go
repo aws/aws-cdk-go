@@ -31,6 +31,7 @@ type CfnMembership_MembershipPaymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html#cfn-cleanrooms-membership-membershippaymentconfiguration-querycompute
 	//
 	QueryCompute interface{} `field:"required" json:"queryCompute" yaml:"queryCompute"`
+	// The payment responsibilities accepted by the collaboration member for machine learning costs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html#cfn-cleanrooms-membership-membershippaymentconfiguration-machinelearning
 	//
 	MachineLearning interface{} `field:"optional" json:"machineLearning" yaml:"machineLearning"`

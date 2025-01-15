@@ -22,6 +22,9 @@ package awsmediaconvert
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html
 //
 type CfnQueueProps struct {
+	// Specify the maximum number of jobs your queue can process concurrently.
+	//
+	// For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-concurrentjobs
 	//
 	ConcurrentJobs *float64 `field:"optional" json:"concurrentJobs" yaml:"concurrentJobs"`

@@ -169,4 +169,8 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigatewayv2_integrations.WebSocketMockIntegrationProps",
+		reflect.TypeOf((*WebSocketMockIntegrationProps)(nil)).Elem(),
+	)
 }

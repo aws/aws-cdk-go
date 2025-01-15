@@ -94,7 +94,7 @@ import (
 type CfnUserPoolRiskConfigurationAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+	// The settings for automated responses and notification templates for adaptive authentication with threat protection.
 	AccountTakeoverRiskConfiguration() interface{}
 	SetAccountTakeoverRiskConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -105,7 +105,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	// The app client where this configuration is applied.
 	ClientId() *string
 	SetClientId(val *string)
-	// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+	// Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
 	CompromisedCredentialsRiskConfiguration() interface{}
 	SetCompromisedCredentialsRiskConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced

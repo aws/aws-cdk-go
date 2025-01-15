@@ -8,7 +8,7 @@ func (w *jsiiProxy_WebSocketMockIntegration) validateBindParameters(options *aws
 	return nil
 }
 
-func validateNewWebSocketMockIntegrationParameters(id *string) error {
+func validateNewWebSocketMockIntegrationParameters(id *string, props *WebSocketMockIntegrationProps) error {
 	return nil
 }
 

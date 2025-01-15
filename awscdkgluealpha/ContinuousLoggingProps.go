@@ -28,7 +28,7 @@ import (
 //
 // Experimental.
 type ContinuousLoggingProps struct {
-	// Enable continouous logging.
+	// Enable continuous logging.
 	// Experimental.
 	Enabled *bool `field:"required" json:"enabled" yaml:"enabled"`
 	// Apply the provided conversion pattern.

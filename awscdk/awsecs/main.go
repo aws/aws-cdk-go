@@ -1160,6 +1160,15 @@ func init() {
 		"aws-cdk-lib.aws_ecs.ContainerImageConfig",
 		reflect.TypeOf((*ContainerImageConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.ContainerInsights",
+		reflect.TypeOf((*ContainerInsights)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": ContainerInsights_ENABLED,
+			"DISABLED": ContainerInsights_DISABLED,
+			"ENHANCED": ContainerInsights_ENHANCED,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.ContainerMountPoint",
 		reflect.TypeOf((*ContainerMountPoint)(nil)).Elem(),

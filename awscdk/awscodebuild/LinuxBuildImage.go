@@ -341,6 +341,50 @@ func LinuxBuildImage_AMAZON_LINUX_2_CORETTO_8() IBuildImage {
 	return returns
 }
 
+func LinuxBuildImage_AMAZON_LINUX_2023_4() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"AMAZON_LINUX_2023_4",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_AMAZON_LINUX_2023_5() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"AMAZON_LINUX_2023_5",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_AMAZON_LINUX_2023_CORETTO_11() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"AMAZON_LINUX_2023_CORETTO_11",
+		&returns,
+	)
+	return returns
+}
+
+func LinuxBuildImage_AMAZON_LINUX_2023_CORETTO_8() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
+		"AMAZON_LINUX_2023_CORETTO_8",
+		&returns,
+	)
+	return returns
+}
+
 func LinuxBuildImage_STANDARD_1_0() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage

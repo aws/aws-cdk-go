@@ -94,7 +94,7 @@ type CfnPermissionSet interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// A structure that stores the details of the AWS managed policy.
+	// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
 	ManagedPolicies() *[]*string
 	SetManagedPolicies(val *[]*string)
 	// The name of the permission set.

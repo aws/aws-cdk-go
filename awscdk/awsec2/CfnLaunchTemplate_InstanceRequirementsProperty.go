@@ -154,8 +154,9 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	AcceleratorTotalMemoryMiB interface{} `field:"optional" json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
-	// - For instance types with GPU accelerators, specify `gpu` .
 	// - For instance types with FPGA accelerators, specify `fpga` .
+	// - For instance types with GPU accelerators, specify `gpu` .
+	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html#cfn-ec2-launchtemplate-instancerequirements-acceleratortypes

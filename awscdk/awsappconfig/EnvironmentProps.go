@@ -9,23 +9,19 @@ package awsappconfig
 //   	Application: app,
 //   })
 //
-//   appconfig.NewHostedConfiguration(this, jsii.String("MyFirstHostedConfig"), &HostedConfigurationProps{
+//   appconfig.NewHostedConfiguration(this, jsii.String("MyHostedConfig"), &HostedConfigurationProps{
 //   	Application: app,
 //   	DeployTo: []iEnvironment{
 //   		env,
 //   	},
-//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my first configuration content.")),
-//   })
-//
-//   appconfig.NewHostedConfiguration(this, jsii.String("MySecondHostedConfig"), &HostedConfigurationProps{
-//   	Application: app,
-//   	DeployTo: []*iEnvironment{
-//   		env,
-//   	},
-//   	Content: appconfig.ConfigurationContent_*FromInlineText(jsii.String("This is my second configuration content.")),
+//   	Content: appconfig.ConfigurationContent_FromInlineText(jsii.String("This is my configuration content.")),
 //   })
 //
 type EnvironmentProps struct {
+	// A property to prevent accidental deletion of active environments.
+	// Default: undefined - AppConfig default is ACCOUNT_DEFAULT.
+	//
+	DeletionProtectionCheck DeletionProtectionCheck `field:"optional" json:"deletionProtectionCheck" yaml:"deletionProtectionCheck"`
 	// The description of the environment.
 	// Default: - No description.
 	//

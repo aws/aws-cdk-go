@@ -38,8 +38,6 @@ import (
 //   		},
 //   		SnsTopicArn: jsii.String("snsTopicArn"),
 //   	},
-//   	VaultState: jsii.String("vaultState"),
-//   	VaultType: jsii.String("vaultType"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html
@@ -53,6 +51,8 @@ type CfnLogicallyAirGappedBackupVault interface {
 	SetAccessPolicy(val interface{})
 	AttrBackupVaultArn() *string
 	AttrEncryptionKeyArn() *string
+	AttrVaultState() *string
+	AttrVaultType() *string
 	// The name of a logical container where backups are stored.
 	BackupVaultName() *string
 	SetBackupVaultName(val *string)
@@ -113,12 +113,6 @@ type CfnLogicallyAirGappedBackupVault interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The current state of the vault.
-	VaultState() *string
-	SetVaultState(val *string)
-	// The type of vault described.
-	VaultType() *string
-	SetVaultType(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -278,6 +272,26 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) AttrEncryptionKeyArn() *str
 	_jsii_.Get(
 		j,
 		"attrEncryptionKeyArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) AttrVaultState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVaultState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) AttrVaultType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVaultType",
 		&returns,
 	)
 	return returns
@@ -443,26 +457,6 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) UpdatedProperties() *map[st
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) VaultState() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"vaultState",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) VaultType() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"vaultType",
-		&returns,
-	)
-	return returns
-}
-
 
 func NewCfnLogicallyAirGappedBackupVault(scope constructs.Construct, id *string, props *CfnLogicallyAirGappedBackupVaultProps) CfnLogicallyAirGappedBackupVault {
 	_init_.Initialize()
@@ -547,22 +541,6 @@ func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetNotifications(val interfa
 	_jsii_.Set(
 		j,
 		"notifications",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetVaultState(val *string) {
-	_jsii_.Set(
-		j,
-		"vaultState",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetVaultType(val *string) {
-	_jsii_.Set(
-		j,
-		"vaultType",
 		val,
 	)
 }

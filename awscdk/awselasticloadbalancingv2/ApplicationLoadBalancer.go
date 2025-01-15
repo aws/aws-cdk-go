@@ -62,6 +62,15 @@ type ApplicationLoadBalancer interface {
 	// that might be different than the stack they were imported into.
 	Env() *awscdk.ResourceEnvironment
 	// The IP Address Type for this load balancer.
+	//
+	// If the `@aws-cdk/aws-elasticloadbalancingV2:albDualstackWithoutPublicIpv4SecurityGroupRulesDefault`
+	// feature flag is set (the default for new projects), and `addListener()` is called with `open: true`,
+	// the load balancer's security group will automatically include both IPv4 and IPv6 ingress rules
+	// when using `IpAddressType.DUAL_STACK_WITHOUT_PUBLIC_IPV4`.
+	//
+	// For existing projects that only have IPv4 rules, you can opt-in to IPv6 ingress rules
+	// by enabling the feature flag in your cdk.json file. Note that enabling this feature flag
+	// will modify existing security group rules.
 	IpAddressType() IpAddressType
 	// A list of listeners that have been added to the load balancer.
 	//

@@ -21,7 +21,7 @@ type IApplication interface {
 	// and requires association of each pipeline stage by calling this method with stage Construct.
 	// Experimental.
 	AssociateAllStacksInScope(construct constructs.Construct)
-	// Associate a Cloudformation statck with the application in the given stack.
+	// Associate a Cloudformation stack with the application in the given stack.
 	// Experimental.
 	AssociateApplicationWithStack(stack awscdk.Stack)
 	// Associate this application with an attribute group.

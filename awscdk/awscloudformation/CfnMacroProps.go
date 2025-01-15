@@ -36,6 +36,8 @@ type CfnMacroProps struct {
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The CloudWatch Logs group to which CloudFormation sends error logging information when invoking the macro's underlying Lambda function.
+	//
+	// This will be an existing CloudWatch Logs LogGroup. Neither CloudFormation or Lambda will create the group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-loggroupname
 	//
 	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`

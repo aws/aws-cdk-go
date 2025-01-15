@@ -1,9 +1,9 @@
 package awscognito
 
 
-// The time units you use when you set the duration of ID, access, and refresh tokens.
+// The units that validity times are represented in.
 //
-// The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
+// The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

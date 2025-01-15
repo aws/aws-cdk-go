@@ -81,13 +81,13 @@ type CfnFHIRDatastore interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The user generated name for the data store.
+	// The data store name (user-generated).
 	DatastoreName() *string
 	SetDatastoreName(val *string)
-	// The FHIR version of the data store.
+	// The FHIR release version supported by the data store.
 	DatastoreTypeVersion() *string
 	SetDatastoreTypeVersion(val *string)
-	// The identity provider configuration that you gave when the data store was created.
+	// The identity provider configuration selected when the data store was created.
 	IdentityProviderConfiguration() interface{}
 	SetIdentityProviderConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -102,7 +102,7 @@ type CfnFHIRDatastore interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// The preloaded data configuration for the data store.
+	// The preloaded Synthea data configuration for the data store.
 	PreloadDataConfig() interface{}
 	SetPreloadDataConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -110,7 +110,7 @@ type CfnFHIRDatastore interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+	// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
 	SseConfiguration() interface{}
 	SetSseConfiguration(val interface{})
 	// The stack in which this element is defined.

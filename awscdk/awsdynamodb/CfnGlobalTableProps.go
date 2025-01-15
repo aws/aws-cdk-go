@@ -71,6 +71,7 @@ package awsdynamodb
 //   			},
 //   			PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
 //   				PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//   				RecoveryPeriodInDays: jsii.Number(123),
 //   			},
 //   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
 //   				MaxReadRequestUnits: jsii.Number(123),
@@ -178,6 +179,7 @@ package awsdynamodb
 //   	},
 //   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
 //   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//   		RecoveryPeriodInDays: jsii.Number(123),
 //   	},
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),

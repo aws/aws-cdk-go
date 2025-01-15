@@ -45,6 +45,7 @@ type CfnQueue interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Specify the maximum number of jobs your queue can process concurrently.
 	ConcurrentJobs() *float64
 	SetConcurrentJobs(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced

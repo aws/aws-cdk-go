@@ -1848,7 +1848,7 @@ rds.NewDatabaseCluster(this, jsii.String("LimitlessDatabaseCluster"), &DatabaseC
 		Version: rds.AuroraPostgresEngineVersion_VER_16_4_LIMITLESS(),
 	}),
 	Vpc: Vpc,
-	ClusterScailabilityType: rds.ClusterScailabilityType_LIMITLESS,
+	ClusterScalabilityType: rds.ClusterScalabilityType_LIMITLESS,
 	// Requires enabling Performance Insights
 	EnablePerformanceInsights: jsii.Boolean(true),
 	PerformanceInsightRetention: rds.PerformanceInsightRetention_MONTHS_1,

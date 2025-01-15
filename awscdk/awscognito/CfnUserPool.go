@@ -233,9 +233,7 @@ type CfnUserPool interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The multi-factor authentication (MFA) configuration.
-	//
-	// Valid values include:.
+	// Displays the state of multi-factor authentication (MFA) as on, off, or optional.
 	MfaConfiguration() *string
 	SetMfaConfiguration(val *string)
 	// The tree node.
@@ -256,7 +254,7 @@ type CfnUserPool interface {
 	// The contents of the SMS authentication message.
 	SmsAuthenticationMessage() *string
 	SetSmsAuthenticationMessage(val *string)
-	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service.
+	// The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service.
 	SmsConfiguration() interface{}
 	SetSmsConfiguration(val interface{})
 	// This parameter is no longer used.
@@ -290,10 +288,10 @@ type CfnUserPool interface {
 	// Sets the case sensitivity option for sign-in usernames.
 	UsernameConfiguration() interface{}
 	SetUsernameConfiguration(val interface{})
-	// User pool add-ons.
+	// Contains settings for activation of threat protection, including the operating mode and additional authentication types.
 	UserPoolAddOns() interface{}
 	SetUserPoolAddOns(val interface{})
-	// A friendlhy name for your user pool.
+	// A friendly name for your user pool.
 	UserPoolName() *string
 	SetUserPoolName(val *string)
 	// The tag keys and values to assign to the user pool.

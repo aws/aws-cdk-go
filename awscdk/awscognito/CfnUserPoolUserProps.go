@@ -88,10 +88,12 @@ type CfnUserPoolUserProps struct {
 	//
 	// You must also provide an email address or phone number when you expect the user to do passwordless sign-in with an email or SMS OTP. These attributes must be provided when passwordless options are the only available, or when you don't submit a `TemporaryPassword` .
 	//
-	// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` . You can also do this by calling [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) .
+	// In your `AdminCreateUser` request, you can set the `email_verified` and `phone_number_verified` attributes to `true` . The following conditions apply:
 	//
-	// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
-	// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
+	// - **email** - The email address where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `email_verified` to `true` , or if you set `EMAIL` in the `DesiredDeliveryMediums` parameter.
+	// - **phone_number** - The phone number where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `phone_number` to `true` , or if you set `SMS` in the `DesiredDeliveryMediums` parameter.
+	//
+	// You can also set attributes verified with `API_AdminUpdateUserAttributes` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userattributes
 	//
 	UserAttributes interface{} `field:"optional" json:"userAttributes" yaml:"userAttributes"`
@@ -109,7 +111,7 @@ type CfnUserPoolUserProps struct {
 	//
 	// This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
 	//
-	// Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+	// Your Lambda function can analyze this additional data and act on it. Your function can automatically confirm and verify select users or perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs.
 	//
 	// For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-validationdata

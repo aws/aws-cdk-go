@@ -181,7 +181,7 @@ type TableProps struct {
 	// Default: 5.
 	//
 	WriteCapacity *float64 `field:"optional" json:"writeCapacity" yaml:"writeCapacity"`
-	// Kinesis Data Stream approximate creation timestamp prescision.
+	// Kinesis Data Stream approximate creation timestamp precision.
 	// Default: ApproximateCreationDateTimePrecision.MICROSECOND
 	//
 	KinesisPrecisionTimestamp ApproximateCreationDateTimePrecision `field:"optional" json:"kinesisPrecisionTimestamp" yaml:"kinesisPrecisionTimestamp"`

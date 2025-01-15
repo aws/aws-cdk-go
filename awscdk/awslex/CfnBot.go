@@ -77,6 +77,9 @@ type CfnBot interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Parameter used to create a replication of the source bot in the secondary region.
+	Replication() interface{}
+	SetReplication(val interface{})
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -406,6 +409,16 @@ func (j *jsiiProxy_CfnBot) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBot) Replication() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"replication",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBot) RoleArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -575,6 +588,17 @@ func (j *jsiiProxy_CfnBot)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBot)SetReplication(val interface{}) {
+	if err := j.validateSetReplicationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"replication",
 		val,
 	)
 }

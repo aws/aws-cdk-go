@@ -17,30 +17,33 @@ import (
 // A regional grouping of one or more container instances on which you can run tasks and services.
 //
 // Example:
-//   vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
-//   	IsDefault: jsii.Boolean(true),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   // The VPC and subnet must have associated IPv6 CIDR blocks.
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+//   	IpProtocol: ec2.IpProtocol_DUAL_STACK,
 //   })
-//   cluster := ecs.NewCluster(this, jsii.String("ECSCluster"), &ClusterProps{
+//   cluster := ecs.NewCluster(this, jsii.String("EcsCluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
 //
-//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
-//   	Compatibility: ecs.Compatibility_FARGATE,
-//   	Cpu: jsii.String("256"),
-//   	MemoryMiB: jsii.String("512"),
-//   })
-//
-//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
-//   })
-//
-//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("myService"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
-//   	Cpu: jsii.String("1024"),
-//   	MemoryMiB: jsii.String("1048"),
+//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	MinHealthyPercent: jsii.Number(100),
+//   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
+//   })
+//
+//   applicationLoadBalancedEc2Service := ecsPatterns.NewApplicationLoadBalancedEc2Service(this, jsii.String("myService"), &ApplicationLoadBalancedEc2ServiceProps{
+//   	Cluster: Cluster,
+//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
+//   		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
+//   	MinHealthyPercent: jsii.Number(100),
+//   	IpAddressType: elbv2.IpAddressType_DUAL_STACK,
 //   })
 //
 type Cluster interface {

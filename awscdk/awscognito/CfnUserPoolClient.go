@@ -87,13 +87,13 @@ type CfnUserPoolClient interface {
 	// The access token time limit.
 	AccessTokenValidity() *float64
 	SetAccessTokenValidity(val *float64)
-	// The OAuth grant types that you want your app client to generate.
+	// The OAuth grant types that you want your app client to generate for clients in managed login authentication.
 	AllowedOAuthFlows() *[]*string
 	SetAllowedOAuthFlows(val *[]*string)
-	// Set to `true` to use OAuth 2.0 features in your user pool app client.
+	// Set to `true` to use OAuth 2.0 authorization server features in your app client.
 	AllowedOAuthFlowsUserPoolClient() interface{}
 	SetAllowedOAuthFlowsUserPoolClient(val interface{})
-	// The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
+	// The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with.
 	AllowedOAuthScopes() *[]*string
 	SetAllowedOAuthScopes(val *[]*string)
 	// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
@@ -106,7 +106,7 @@ type CfnUserPoolClient interface {
 	// Amazon Cognito creates a session token for each API request in an authentication flow.
 	AuthSessionValidity() *float64
 	SetAuthSessionValidity(val *float64)
-	// A list of allowed redirect (callback) URLs for the IdPs.
+	// A list of allowed redirect, or callback, URLs for managed login authentication.
 	CallbackUrLs() *[]*string
 	SetCallbackUrLs(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.
@@ -124,15 +124,13 @@ type CfnUserPoolClient interface {
 	// The default redirect URI.
 	DefaultRedirectUri() *string
 	SetDefaultRedirectUri(val *string)
-	// Activates the propagation of additional user context data.
+	// When `true` , your application can include additional `UserContextData` in authentication requests.
 	EnablePropagateAdditionalUserContextData() interface{}
 	SetEnablePropagateAdditionalUserContextData(val interface{})
-	// Activates or deactivates token revocation.
-	//
-	// For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
+	// Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
 	EnableTokenRevocation() interface{}
 	SetEnableTokenRevocation(val interface{})
-	// The authentication flows that you want your user pool client to support.
+	// The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
 	ExplicitAuthFlows() *[]*string
 	SetExplicitAuthFlows(val *[]*string)
 	// When `true` , generates a client secret for the app client.

@@ -28,7 +28,7 @@ type S3LogDestinationProps struct {
 	// The S3 bucket to deliver the log records for the pipe.
 	//
 	// The bucket can be in the same or a different AWS Account. If the bucket is in
-	// a different acccount, specify `bucketOwner`. You must also allow access to the
+	// a different account, specify `bucketOwner`. You must also allow access to the
 	// Pipes role in the bucket policy of the cross-account bucket.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html#cfn-pipes-pipe-s3logdestination-bucketname
 	//

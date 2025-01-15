@@ -11,7 +11,7 @@ import (
 
 // A container for the UI customization information for the hosted UI in a user pool.
 //
-// This data type is a response parameter of [GetUICustomization](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html) .
+// This data type is a response parameter of `API_DescribeUserPoolClient` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -43,7 +43,7 @@ type CfnUserPoolUICustomizationAttachment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The CSS values in the UI customization.
+	// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client.
 	Css() *string
 	SetCss(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -80,7 +80,7 @@ type CfnUserPoolUICustomizationAttachment interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
-	// The ID of the user pool.
+	// The ID of the user pool where you want to apply branding to the classic hosted UI.
 	UserPoolId() *string
 	SetUserPoolId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
