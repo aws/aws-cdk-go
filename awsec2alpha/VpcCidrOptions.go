@@ -27,8 +27,10 @@ import (
 //   		jsii.String("ipv4IpamProvisionedCidrs"),
 //   	},
 //   	Ipv4NetmaskLength: jsii.Number(123),
+//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	Ipv6IpamPool: ipamPool,
 //   	Ipv6NetmaskLength: jsii.Number(123),
+//   	Ipv6PoolId: jsii.String("ipv6PoolId"),
 //   }
 //
 // Experimental.
@@ -68,6 +70,11 @@ type VpcCidrOptions struct {
 	//
 	// Experimental.
 	Ipv4NetmaskLength *float64 `field:"optional" json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
+	// IPv6 CIDR block from the BOYIP IPv6 address pool.
+	// Default: - None.
+	//
+	// Experimental.
+	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// Ipv6 IPAM pool id for VPC range, can only be defined under public scope.
 	// Default: - no pool id.
 	//
@@ -78,5 +85,10 @@ type VpcCidrOptions struct {
 	//
 	// Experimental.
 	Ipv6NetmaskLength *float64 `field:"optional" json:"ipv6NetmaskLength" yaml:"ipv6NetmaskLength"`
+	// ID of the BYOIP IPv6 address pool from which to allocate the IPv6 CIDR block.
+	// Default: - None.
+	//
+	// Experimental.
+	Ipv6PoolId *string `field:"optional" json:"ipv6PoolId" yaml:"ipv6PoolId"`
 }
 

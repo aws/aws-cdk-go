@@ -1,9 +1,9 @@
 package awscognito
 
 
-// A list of user pool policies. Contains the policy that sets password-complexity requirements.
+// A list of user pool policies.
 //
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
+// Contains the policy that sets password-complexity requirements.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -37,8 +37,6 @@ type CfnUserPool_PoliciesProperty struct {
 	// The policy for allowed types of authentication in a user pool.
 	//
 	// To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html#cfn-cognito-userpool-policies-signinpolicy
 	//
 	SignInPolicy interface{} `field:"optional" json:"signInPolicy" yaml:"signInPolicy"`

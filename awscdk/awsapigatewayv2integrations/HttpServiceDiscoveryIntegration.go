@@ -43,7 +43,7 @@ type HttpServiceDiscoveryIntegration interface {
 	PayloadFormatVersion() awsapigatewayv2.PayloadFormatVersion
 	SetPayloadFormatVersion(val awsapigatewayv2.PayloadFormatVersion)
 	// Bind this integration to the route.
-	Bind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
+	Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
 	// Complete the binding of the integration to the route.
 	//
 	// In some cases, there is
@@ -172,8 +172,8 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration)SetPayloadFormatVersion(val a
 	)
 }
 
-func (h *jsiiProxy_HttpServiceDiscoveryIntegration) Bind(_options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
-	if err := h.validateBindParameters(_options); err != nil {
+func (h *jsiiProxy_HttpServiceDiscoveryIntegration) Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig {
+	if err := h.validateBindParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsapigatewayv2.HttpRouteIntegrationConfig
@@ -181,7 +181,7 @@ func (h *jsiiProxy_HttpServiceDiscoveryIntegration) Bind(_options *awsapigateway
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_options},
+		[]interface{}{options},
 		&returns,
 	)
 

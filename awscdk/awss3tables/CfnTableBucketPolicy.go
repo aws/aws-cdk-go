@@ -13,7 +13,7 @@ import (
 //
 // For more information, see [Adding a table bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-add) in the *Amazon Simple Storage Service User Guide* .
 //
-// - **Permissions** - You must have the `s3:PutTableBucketPolicy` permission to use this operation.
+// - **Permissions** - You must have the `s3tables:PutTableBucketPolicy` permission to use this operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

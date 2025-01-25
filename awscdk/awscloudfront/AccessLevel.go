@@ -18,6 +18,8 @@ type AccessLevel string
 const (
 	// Grants read permissions to CloudFront Distribution.
 	AccessLevel_READ AccessLevel = "READ"
+	// Grants list permissions to CloudFront Distribution.
+	AccessLevel_LIST AccessLevel = "LIST"
 	// Grants write permission to CloudFront Distribution.
 	AccessLevel_WRITE AccessLevel = "WRITE"
 	// Grants delete permission to CloudFront Distribution.

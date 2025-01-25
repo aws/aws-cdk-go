@@ -123,6 +123,7 @@ import (
 //   	ResourceSetIds: []*string{
 //   		jsii.String("resourceSetIds"),
 //   	},
+//   	ResourceTagLogicalOperator: jsii.String("resourceTagLogicalOperator"),
 //   	ResourceTags: []interface{}{
 //   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
@@ -210,6 +211,8 @@ type CfnPolicy interface {
 	// The unique identifiers of the resource sets used by the policy.
 	ResourceSetIds() *[]*string
 	SetResourceSetIds(val *[]*string)
+	ResourceTagLogicalOperator() *string
+	SetResourceTagLogicalOperator(val *string)
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
@@ -566,6 +569,16 @@ func (j *jsiiProxy_CfnPolicy) ResourceSetIds() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPolicy) ResourceTagLogicalOperator() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resourceTagLogicalOperator",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicy) ResourceTags() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -763,6 +776,14 @@ func (j *jsiiProxy_CfnPolicy)SetResourceSetIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resourceSetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPolicy)SetResourceTagLogicalOperator(val *string) {
+	_jsii_.Set(
+		j,
+		"resourceTagLogicalOperator",
 		val,
 	)
 }

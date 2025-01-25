@@ -17,6 +17,81 @@ package awsbedrock
 //   	KendraKnowledgeBaseConfiguration: &KendraKnowledgeBaseConfigurationProperty{
 //   		KendraIndexArn: jsii.String("kendraIndexArn"),
 //   	},
+//   	SqlKnowledgeBaseConfiguration: &SqlKnowledgeBaseConfigurationProperty{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		RedshiftConfiguration: &RedshiftConfigurationProperty{
+//   			QueryEngineConfiguration: &RedshiftQueryEngineConfigurationProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				ProvisionedConfiguration: &RedshiftProvisionedConfigurationProperty{
+//   					AuthConfiguration: &RedshiftProvisionedAuthConfigurationProperty{
+//   						Type: jsii.String("type"),
+//
+//   						// the properties below are optional
+//   						DatabaseUser: jsii.String("databaseUser"),
+//   						UsernamePasswordSecretArn: jsii.String("usernamePasswordSecretArn"),
+//   					},
+//   					ClusterIdentifier: jsii.String("clusterIdentifier"),
+//   				},
+//   				ServerlessConfiguration: &RedshiftServerlessConfigurationProperty{
+//   					AuthConfiguration: &RedshiftServerlessAuthConfigurationProperty{
+//   						Type: jsii.String("type"),
+//
+//   						// the properties below are optional
+//   						UsernamePasswordSecretArn: jsii.String("usernamePasswordSecretArn"),
+//   					},
+//   					WorkgroupArn: jsii.String("workgroupArn"),
+//   				},
+//   			},
+//   			StorageConfigurations: []interface{}{
+//   				&RedshiftQueryEngineStorageConfigurationProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					AwsDataCatalogConfiguration: &RedshiftQueryEngineAwsDataCatalogStorageConfigurationProperty{
+//   						TableNames: []*string{
+//   							jsii.String("tableNames"),
+//   						},
+//   					},
+//   					RedshiftConfiguration: &RedshiftQueryEngineRedshiftStorageConfigurationProperty{
+//   						DatabaseName: jsii.String("databaseName"),
+//   					},
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			QueryGenerationConfiguration: &QueryGenerationConfigurationProperty{
+//   				ExecutionTimeoutSeconds: jsii.Number(123),
+//   				GenerationContext: &QueryGenerationContextProperty{
+//   					CuratedQueries: []interface{}{
+//   						&CuratedQueryProperty{
+//   							NaturalLanguage: jsii.String("naturalLanguage"),
+//   							Sql: jsii.String("sql"),
+//   						},
+//   					},
+//   					Tables: []interface{}{
+//   						&QueryGenerationTableProperty{
+//   							Name: jsii.String("name"),
+//
+//   							// the properties below are optional
+//   							Columns: []interface{}{
+//   								&QueryGenerationColumnProperty{
+//   									Description: jsii.String("description"),
+//   									Inclusion: jsii.String("inclusion"),
+//   									Name: jsii.String("name"),
+//   								},
+//   							},
+//   							Description: jsii.String("description"),
+//   							Inclusion: jsii.String("inclusion"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	VectorKnowledgeBaseConfiguration: &VectorKnowledgeBaseConfigurationProperty{
 //   		EmbeddingModelArn: jsii.String("embeddingModelArn"),
 //
@@ -52,6 +127,10 @@ type CfnKnowledgeBase_KnowledgeBaseConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-kendraknowledgebaseconfiguration
 	//
 	KendraKnowledgeBaseConfiguration interface{} `field:"optional" json:"kendraKnowledgeBaseConfiguration" yaml:"kendraKnowledgeBaseConfiguration"`
+	// Configurations for a SQL knowledge base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-sqlknowledgebaseconfiguration
+	//
+	SqlKnowledgeBaseConfiguration interface{} `field:"optional" json:"sqlKnowledgeBaseConfiguration" yaml:"sqlKnowledgeBaseConfiguration"`
 	// Contains details about the model that's used to convert the data source into vector embeddings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-vectorknowledgebaseconfiguration
 	//

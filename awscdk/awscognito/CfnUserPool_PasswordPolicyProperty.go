@@ -3,8 +3,6 @@ package awscognito
 
 // The password policy settings for a user pool, including complexity, history, and length requirements.
 //
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -32,8 +30,6 @@ type CfnUserPool_PasswordPolicyProperty struct {
 	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing.
 	//
 	// Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
-	//
-	// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-passwordhistorysize
 	//
 	PasswordHistorySize *float64 `field:"optional" json:"passwordHistorySize" yaml:"passwordHistorySize"`

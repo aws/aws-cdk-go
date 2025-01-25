@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Interface representing a created or an imported `Job`.
+// Interface representing a new or an imported Glue Job.
 // Experimental.
 type IJob interface {
 	awsiam.IGrantable
@@ -40,11 +40,6 @@ type IJob interface {
 	//
 	// Experimental.
 	OnFailure(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	// Defines a CloudWatch event rule triggered when this job moves to the input jobState.
-	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
-	//
-	// Experimental.
-	OnStateChange(id *string, jobState JobState, options *awsevents.OnEventOptions) awsevents.Rule
 	// Defines a CloudWatch event rule triggered when this job moves to the SUCCEEDED state.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
 	//
@@ -159,22 +154,6 @@ func (i *jsiiProxy_IJob) OnFailure(id *string, options *awsevents.OnEventOptions
 		i,
 		"onFailure",
 		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IJob) OnStateChange(id *string, jobState JobState, options *awsevents.OnEventOptions) awsevents.Rule {
-	if err := i.validateOnStateChangeParameters(id, jobState, options); err != nil {
-		panic(err)
-	}
-	var returns awsevents.Rule
-
-	_jsii_.Invoke(
-		i,
-		"onStateChange",
-		[]interface{}{id, jobState, options},
 		&returns,
 	)
 

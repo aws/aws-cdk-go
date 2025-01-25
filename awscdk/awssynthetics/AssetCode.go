@@ -76,7 +76,7 @@ import (
 type AssetCode interface {
 	Code
 	// Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(scope constructs.Construct, handler *string, family RuntimeFamily) *CodeConfig
+	Bind(scope constructs.Construct, handler *string, family RuntimeFamily, runtimeName *string) *CodeConfig
 }
 
 // The jsii proxy struct for AssetCode
@@ -183,7 +183,7 @@ func AssetCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, handler *string, family RuntimeFamily) *CodeConfig {
+func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, handler *string, family RuntimeFamily, runtimeName *string) *CodeConfig {
 	if err := a.validateBindParameters(scope, handler, family); err != nil {
 		panic(err)
 	}
@@ -192,7 +192,7 @@ func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, handler *string, 
 	_jsii_.Invoke(
 		a,
 		"bind",
-		[]interface{}{scope, handler, family},
+		[]interface{}{scope, handler, family, runtimeName},
 		&returns,
 	)
 

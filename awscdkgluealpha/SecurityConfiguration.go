@@ -19,15 +19,31 @@ import (
 // - Attach a security configuration to a development endpoint to write encrypted Amazon S3 targets.
 //
 // Example:
-//   glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &SecurityConfigurationProps{
-//   	CloudWatchEncryption: &CloudWatchEncryption{
-//   		Mode: glue.CloudWatchEncryptionMode_KMS,
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack stack
+//   var role iRole
+//   var script code
+//
+//   glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
+//   	Role: Role,
+//   	Script: Script,
+//   	JobName: jsii.String("RayCustomJobName"),
+//   	Description: jsii.String("This is a description"),
+//   	WorkerType: glue.WorkerType_Z_2X,
+//   	NumberOfWorkers: jsii.Number(5),
+//   	Runtime: glue.Runtime_RAY_TWO_FOUR,
+//   	MaxRetries: jsii.Number(3),
+//   	MaxConcurrentRuns: jsii.Number(100),
+//   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
+//   	Connections: []iConnection{
+//   		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 //   	},
-//   	JobBookmarksEncryption: &JobBookmarksEncryption{
-//   		Mode: glue.JobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
-//   	},
-//   	S3Encryption: &S3Encryption{
-//   		Mode: glue.S3EncryptionMode_KMS,
+//   	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
+//   	Tags: map[string]*string{
+//   		"FirstTagName": jsii.String("FirstTagValue"),
+//   		"SecondTagName": jsii.String("SecondTagValue"),
+//   		"XTagName": jsii.String("XTagValue"),
 //   	},
 //   })
 //

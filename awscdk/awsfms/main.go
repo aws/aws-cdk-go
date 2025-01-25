@@ -95,6 +95,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "resourcesCleanUp", GoGetter: "ResourcesCleanUp"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceSetIds", GoGetter: "ResourceSetIds"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceTagLogicalOperator", GoGetter: "ResourceTagLogicalOperator"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceTags", GoGetter: "ResourceTags"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceType", GoGetter: "ResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceTypeList", GoGetter: "ResourceTypeList"},

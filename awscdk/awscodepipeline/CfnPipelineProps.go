@@ -66,6 +66,9 @@ import (
 //   						Result: jsii.String("result"),
 //   						Rules: []interface{}{
 //   							&RuleDeclarationProperty{
+//   								Commands: []*string{
+//   									jsii.String("commands"),
+//   								},
 //   								Configuration: configuration,
 //   								InputArtifacts: []interface{}{
 //   									&InputArtifactProperty{
@@ -98,6 +101,9 @@ import (
 //   						Result: jsii.String("result"),
 //   						Rules: []interface{}{
 //   							&RuleDeclarationProperty{
+//   								Commands: []*string{
+//   									jsii.String("commands"),
+//   								},
 //   								Configuration: configuration,
 //   								InputArtifacts: []interface{}{
 //   									&InputArtifactProperty{
@@ -128,6 +134,9 @@ import (
 //   						Result: jsii.String("result"),
 //   						Rules: []interface{}{
 //   							&RuleDeclarationProperty{
+//   								Commands: []*string{
+//   									jsii.String("commands"),
+//   								},
 //   								Configuration: configuration,
 //   								InputArtifacts: []interface{}{
 //   									&InputArtifactProperty{

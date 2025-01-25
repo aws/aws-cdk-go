@@ -3,8 +3,6 @@ package awscognito
 
 // Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
 //
-// This data type is a request parameter of `API_SetRiskConfiguration` and a response parameter of `API_DescribeRiskConfiguration` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

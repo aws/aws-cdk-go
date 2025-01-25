@@ -152,7 +152,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "amazonProvidedIpv6CidrBlock", GoGetter: "AmazonProvidedIpv6CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "cidrBlock", GoGetter: "CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4IpamPoolId", GoGetter: "Ipv4IpamPoolId"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv6CidrBlock", GoGetter: "Ipv6CidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6IpamPoolId", GoGetter: "Ipv6IpamPoolId"},
+			_jsii_.MemberProperty{JsiiProperty: "ipv6Pool", GoGetter: "Ipv6Pool"},
 		},
 		func() interface{} {
 			return &jsiiProxy_IVPCCidrBlock{}
@@ -310,6 +312,10 @@ func init() {
 			"DEFAULT": IpamScopeType_DEFAULT,
 			"CUSTOM": IpamScopeType_CUSTOM,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ec2-alpha.Ipv6PoolSecondaryAddressProps",
+		reflect.TypeOf((*Ipv6PoolSecondaryAddressProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-ec2-alpha.NatConnectivityType",

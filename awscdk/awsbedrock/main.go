@@ -1134,6 +1134,10 @@ func init() {
 		reflect.TypeOf((*CfnKnowledgeBase_BedrockEmbeddingModelConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.CuratedQueryProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_CuratedQueryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.EmbeddingModelConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_EmbeddingModelConfigurationProperty)(nil)).Elem(),
 	)
@@ -1162,6 +1166,22 @@ func init() {
 		reflect.TypeOf((*CfnKnowledgeBase_PineconeFieldMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.QueryGenerationColumnProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_QueryGenerationColumnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.QueryGenerationConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_QueryGenerationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.QueryGenerationContextProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_QueryGenerationContextProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.QueryGenerationTableProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_QueryGenerationTableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RdsConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_RdsConfigurationProperty)(nil)).Elem(),
 	)
@@ -1170,8 +1190,48 @@ func init() {
 		reflect.TypeOf((*CfnKnowledgeBase_RdsFieldMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftProvisionedAuthConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftProvisionedAuthConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftProvisionedConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftProvisionedConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftQueryEngineAwsDataCatalogStorageConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftQueryEngineAwsDataCatalogStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftQueryEngineConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftQueryEngineConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftQueryEngineRedshiftStorageConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftQueryEngineRedshiftStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftQueryEngineStorageConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftQueryEngineStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftServerlessAuthConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftServerlessAuthConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.RedshiftServerlessConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_RedshiftServerlessConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.S3LocationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.SqlKnowledgeBaseConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_SqlKnowledgeBaseConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.StorageConfigurationProperty",
@@ -1385,6 +1445,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.ChatPromptTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnPromptVersion_ChatPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.ContentBlockProperty",
+		reflect.TypeOf((*CfnPromptVersion_ContentBlockProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.MessageProperty",
+		reflect.TypeOf((*CfnPromptVersion_MessageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.PromptAgentResourceProperty",
+		reflect.TypeOf((*CfnPromptVersion_PromptAgentResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.PromptGenAiResourceProperty",
+		reflect.TypeOf((*CfnPromptVersion_PromptGenAiResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.PromptInferenceConfigurationProperty",
 		reflect.TypeOf((*CfnPromptVersion_PromptInferenceConfigurationProperty)(nil)).Elem(),
 	)
@@ -1405,8 +1485,36 @@ func init() {
 		reflect.TypeOf((*CfnPromptVersion_PromptVariantProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.SpecificToolChoiceProperty",
+		reflect.TypeOf((*CfnPromptVersion_SpecificToolChoiceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.SystemContentBlockProperty",
+		reflect.TypeOf((*CfnPromptVersion_SystemContentBlockProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.TextPromptTemplateConfigurationProperty",
 		reflect.TypeOf((*CfnPromptVersion_TextPromptTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.ToolChoiceProperty",
+		reflect.TypeOf((*CfnPromptVersion_ToolChoiceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.ToolConfigurationProperty",
+		reflect.TypeOf((*CfnPromptVersion_ToolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.ToolInputSchemaProperty",
+		reflect.TypeOf((*CfnPromptVersion_ToolInputSchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.ToolProperty",
+		reflect.TypeOf((*CfnPromptVersion_ToolProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnPromptVersion.ToolSpecificationProperty",
+		reflect.TypeOf((*CfnPromptVersion_ToolSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnPromptVersionProps",

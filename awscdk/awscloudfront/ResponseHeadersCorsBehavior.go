@@ -106,6 +106,9 @@ type ResponseHeadersCorsBehavior struct {
 	// You can specify `['*']` to allow all headers.
 	AccessControlAllowHeaders *[]*string `field:"required" json:"accessControlAllowHeaders" yaml:"accessControlAllowHeaders"`
 	// A list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header.
+	//
+	// Allowed methods: `'GET'`, `'DELETE'`, `'HEAD'`, `'OPTIONS'`, `'PATCH'`, `'POST'`, and `'PUT'`.
+	// You can specify `['ALL']` to allow all methods.
 	AccessControlAllowMethods *[]*string `field:"required" json:"accessControlAllowMethods" yaml:"accessControlAllowMethods"`
 	// A list of origins (domain names) that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
 	//

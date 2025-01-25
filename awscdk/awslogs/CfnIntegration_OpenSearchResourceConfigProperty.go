@@ -25,7 +25,7 @@ package awslogs
 type CfnIntegration_OpenSearchResourceConfigProperty struct {
 	// Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
 	//
-	// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
+	// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html#cfn-logs-integration-opensearchresourceconfig-dashboardviewerprincipals
 	//
 	DashboardViewerPrincipals *[]*string `field:"required" json:"dashboardViewerPrincipals" yaml:"dashboardViewerPrincipals"`

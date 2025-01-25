@@ -42,6 +42,17 @@ func validateIpAddresses_Ipv4IpamParameters(ipv4IpamOptions *IpamOptions) error 
 	return nil
 }
 
+func validateIpAddresses_Ipv6ByoipPoolParameters(props *Ipv6PoolSecondaryAddressProps) error {
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateIpAddresses_Ipv6IpamParameters(ipv6IpamOptions *IpamOptions) error {
 	if ipv6IpamOptions == nil {
 		return fmt.Errorf("parameter ipv6IpamOptions is required, but nil was provided")

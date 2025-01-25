@@ -45,7 +45,7 @@ type CfnUserPoolDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The configuration for a custom domain that hosts managed login for your application.
+	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application.
 	CustomDomainConfig() interface{}
 	SetCustomDomainConfig(val interface{})
 	// The name of the domain that you want to update.

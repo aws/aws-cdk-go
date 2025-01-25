@@ -7,7 +7,7 @@ package awslogs
 //
 // Additionally, because you must have at least one parse-type processor in a transformer, you can use `ParseJSON` as that processor for JSON-format logs, so that you can also apply other processors, such as mutate processors, to these logs.
 //
-// For more information about this processor including examples, see [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseJSON) in the *CloudWatch Logs User Guide* .
+// For more information about this processor including examples, see [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) in the *CloudWatch Logs User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

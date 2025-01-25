@@ -1250,6 +1250,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cognito.ManagedLoginVersion",
+		reflect.TypeOf((*ManagedLoginVersion)(nil)).Elem(),
+		map[string]interface{}{
+			"CLASSIC_HOSTED_UI": ManagedLoginVersion_CLASSIC_HOSTED_UI,
+			"NEWER_MANAGED_LOGIN": ManagedLoginVersion_NEWER_MANAGED_LOGIN,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cognito.Mfa",
 		reflect.TypeOf((*Mfa)(nil)).Elem(),
 		map[string]interface{}{

@@ -9,17 +9,6 @@ package awsdatazone
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   redshiftRunConfigurationInputProperty := &RedshiftRunConfigurationInputProperty{
-//   	RedshiftCredentialConfiguration: &RedshiftCredentialConfigurationProperty{
-//   		SecretManagerArn: jsii.String("secretManagerArn"),
-//   	},
-//   	RedshiftStorage: &RedshiftStorageProperty{
-//   		RedshiftClusterSource: &RedshiftClusterStorageProperty{
-//   			ClusterName: jsii.String("clusterName"),
-//   		},
-//   		RedshiftServerlessSource: &RedshiftServerlessStorageProperty{
-//   			WorkgroupName: jsii.String("workgroupName"),
-//   		},
-//   	},
 //   	RelationalFilterConfigurations: []interface{}{
 //   		&RelationalFilterConfigurationProperty{
 //   			DatabaseName: jsii.String("databaseName"),
@@ -37,19 +26,22 @@ package awsdatazone
 //
 //   	// the properties below are optional
 //   	DataAccessRole: jsii.String("dataAccessRole"),
+//   	RedshiftCredentialConfiguration: &RedshiftCredentialConfigurationProperty{
+//   		SecretManagerArn: jsii.String("secretManagerArn"),
+//   	},
+//   	RedshiftStorage: &RedshiftStorageProperty{
+//   		RedshiftClusterSource: &RedshiftClusterStorageProperty{
+//   			ClusterName: jsii.String("clusterName"),
+//   		},
+//   		RedshiftServerlessSource: &RedshiftServerlessStorageProperty{
+//   			WorkgroupName: jsii.String("workgroupName"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html
 //
 type CfnDataSource_RedshiftRunConfigurationInputProperty struct {
-	// The details of the credentials required to access an Amazon Redshift cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-redshiftcredentialconfiguration
-	//
-	RedshiftCredentialConfiguration interface{} `field:"required" json:"redshiftCredentialConfiguration" yaml:"redshiftCredentialConfiguration"`
-	// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-redshiftstorage
-	//
-	RedshiftStorage interface{} `field:"required" json:"redshiftStorage" yaml:"redshiftStorage"`
 	// The relational filter configurations included in the configuration details of the AWS Glue data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-relationalfilterconfigurations
 	//
@@ -58,5 +50,13 @@ type CfnDataSource_RedshiftRunConfigurationInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-dataaccessrole
 	//
 	DataAccessRole *string `field:"optional" json:"dataAccessRole" yaml:"dataAccessRole"`
+	// The details of the credentials required to access an Amazon Redshift cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-redshiftcredentialconfiguration
+	//
+	RedshiftCredentialConfiguration interface{} `field:"optional" json:"redshiftCredentialConfiguration" yaml:"redshiftCredentialConfiguration"`
+	// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html#cfn-datazone-datasource-redshiftrunconfigurationinput-redshiftstorage
+	//
+	RedshiftStorage interface{} `field:"optional" json:"redshiftStorage" yaml:"redshiftStorage"`
 }
 

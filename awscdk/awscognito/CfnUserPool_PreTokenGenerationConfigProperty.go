@@ -3,8 +3,6 @@ package awscognito
 
 // The properties of a pre token generation Lambda trigger.
 //
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

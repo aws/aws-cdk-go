@@ -22,7 +22,7 @@ import (
 type Route53RecordTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(_record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for Route53RecordTarget
@@ -57,8 +57,8 @@ func NewRoute53RecordTarget_Override(r Route53RecordTarget, record awsroute53.IR
 	)
 }
 
-func (r *jsiiProxy_Route53RecordTarget) Bind(_record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
-	if err := r.validateBindParameters(_record); err != nil {
+func (r *jsiiProxy_Route53RecordTarget) Bind(record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := r.validateBindParameters(record); err != nil {
 		panic(err)
 	}
 	var returns *awsroute53.AliasRecordTargetConfig
@@ -66,7 +66,7 @@ func (r *jsiiProxy_Route53RecordTarget) Bind(_record awsroute53.IRecordSet, zone
 	_jsii_.Invoke(
 		r,
 		"bind",
-		[]interface{}{_record, zone},
+		[]interface{}{record, zone},
 		&returns,
 	)
 

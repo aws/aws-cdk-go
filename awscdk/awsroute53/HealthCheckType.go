@@ -61,7 +61,7 @@ const (
 	HealthCheckType_CALCULATED HealthCheckType = "CALCULATED"
 	// Recovery control health check.
 	//
-	// The health check is assocated with a Route53 Application Recovery Controller routing control. If the routing control state is ON, the health check is considered healthy. If the state is OFF, the health check is considered unhealthy.
+	// The health check is associated with a Route53 Application Recovery Controller routing control. If the routing control state is ON, the health check is considered healthy. If the state is OFF, the health check is considered unhealthy.
 	HealthCheckType_RECOVERY_CONTROL HealthCheckType = "RECOVERY_CONTROL"
 )
 

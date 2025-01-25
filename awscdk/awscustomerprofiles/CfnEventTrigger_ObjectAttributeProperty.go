@@ -26,7 +26,7 @@ type CfnEventTrigger_ObjectAttributeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-objectattribute.html#cfn-customerprofiles-eventtrigger-objectattribute-comparisonoperator
 	//
 	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
-	// A list of attribute values used for comparison.
+	// The amount of time of the specified unit.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-objectattribute.html#cfn-customerprofiles-eventtrigger-objectattribute-values
 	//
 	Values *[]*string `field:"required" json:"values" yaml:"values"`

@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// Helper to check if an error is a SynthesisErrors.
+// Helper to check if an error is of a certain type.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,6 +47,9 @@ func NewErrors_Override(e Errors) {
 }
 
 // Test whether the given errors is a ConstructionError.
+//
+// A ConstructionError is a generic error that will be thrown during the App construction or synthesis.
+// To check for more specific errors, use the respective methods.
 func Errors_IsConstructError(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -66,6 +69,9 @@ func Errors_IsConstructError(x interface{}) *bool {
 }
 
 // Test whether the given error is a ValidationError.
+//
+// A ValidationError is thrown when input props are failing to pass the rules of the construct.
+// It usually means the underlying CloudFormation resource(s) would not deploy with a given configuration.
 func Errors_IsValidationError(x interface{}) *bool {
 	_init_.Initialize()
 

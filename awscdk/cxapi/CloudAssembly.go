@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi/internal"
 )
 
 // Represents a deployable cloud application.
@@ -21,6 +22,7 @@ import (
 //   })
 //
 type CloudAssembly interface {
+	cloudassemblyschema.ICloudAssembly
 	// All artifacts included in this assembly.
 	Artifacts() *[]CloudArtifact
 	// The root directory of the cloud assembly.
@@ -63,7 +65,7 @@ type CloudAssembly interface {
 
 // The jsii proxy struct for CloudAssembly
 type jsiiProxy_CloudAssembly struct {
-	_ byte // padding
+	internal.Type__cloudassemblyschemaICloudAssembly
 }
 
 func (j *jsiiProxy_CloudAssembly) Artifacts() *[]CloudArtifact {
@@ -174,6 +176,27 @@ func NewCloudAssembly_Override(c CloudAssembly, directory *string, loadOptions *
 		[]interface{}{directory, loadOptions},
 		c,
 	)
+}
+
+// Return whether the given object is a CloudAssembly.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+func CloudAssembly_IsCloudAssembly(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCloudAssembly_IsCloudAssemblyParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.cx_api.CloudAssembly",
+		"isCloudAssembly",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CloudAssembly) GetNestedAssembly(artifactId *string) CloudAssembly {

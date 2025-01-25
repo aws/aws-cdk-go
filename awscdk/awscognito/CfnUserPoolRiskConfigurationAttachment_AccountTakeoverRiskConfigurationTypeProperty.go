@@ -1,9 +1,7 @@
 package awscognito
 
 
-// The settings for automated responses and notification templates for adaptive authentication with threat protection features.
-//
-// This data type is a request parameter of `API_SetRiskConfiguration` and a response parameter of `API_DescribeRiskConfiguration` .
+// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

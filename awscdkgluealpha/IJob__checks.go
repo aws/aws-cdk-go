@@ -76,22 +76,6 @@ func (i *jsiiProxy_IJob) validateOnFailureParameters(id *string, options *awseve
 	return nil
 }
 
-func (i *jsiiProxy_IJob) validateOnStateChangeParameters(id *string, jobState JobState, options *awsevents.OnEventOptions) error {
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if jobState == "" {
-		return fmt.Errorf("parameter jobState is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (i *jsiiProxy_IJob) validateOnSuccessParameters(id *string, options *awsevents.OnEventOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")

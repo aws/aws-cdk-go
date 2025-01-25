@@ -3,7 +3,7 @@ package awslogs
 
 // Use this processor to split a field into an array of strings using a delimiting character.
 //
-// For more information about this processor including examples, see [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-splitString) in the *CloudWatch Logs User Guide* .
+// For more information about this processor including examples, see [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) in the *CloudWatch Logs User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

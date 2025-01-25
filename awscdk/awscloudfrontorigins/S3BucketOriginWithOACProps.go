@@ -12,9 +12,14 @@ import (
 //   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
 //   	OriginAccessLevels: []accessLevel{
 //   		cloudfront.*accessLevel_READ,
-//   		cloudfront.*accessLevel_WRITE,
-//   		cloudfront.*accessLevel_DELETE,
+//   		cloudfront.*accessLevel_LIST,
 //   	},
+//   })
+//   cloudfront.NewDistribution(this, jsii.String("distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: s3Origin,
+//   	},
+//   	DefaultRootObject: jsii.String("index.html"),
 //   })
 //
 type S3BucketOriginWithOACProps struct {

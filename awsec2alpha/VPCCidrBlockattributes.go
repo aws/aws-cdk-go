@@ -17,8 +17,10 @@ package awsec2alpha
 //   		jsii.String("ipv4IpamProvisionedCidrs"),
 //   	},
 //   	Ipv4NetmaskLength: jsii.Number(123),
+//   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	Ipv6IpamPoolId: jsii.String("ipv6IpamPoolId"),
 //   	Ipv6NetmaskLength: jsii.Number(123),
+//   	Ipv6Pool: jsii.String("ipv6Pool"),
 //   }
 //
 // Experimental.
@@ -53,6 +55,11 @@ type VPCCidrBlockattributes struct {
 	//
 	// Experimental.
 	Ipv4NetmaskLength *float64 `field:"optional" json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
+	// The IPv6 CIDR block from the specified IPv6 address pool.
+	// Default: - No IPv6 CIDR block associated with VPC.
+	//
+	// Experimental.
+	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// IPAM pool for IPv6 address type.
 	// Default: - no IPAM pool Id provided for IPv6.
 	//
@@ -63,5 +70,12 @@ type VPCCidrBlockattributes struct {
 	//
 	// Experimental.
 	Ipv6NetmaskLength *float64 `field:"optional" json:"ipv6NetmaskLength" yaml:"ipv6NetmaskLength"`
+	// The ID of the IPv6 address pool from which to allocate the IPv6 CIDR block.
+	//
+	// Note: BYOIP Pool ID is different than IPAM Pool ID.
+	// Default: - No BYOIP pool associated with VPC.
+	//
+	// Experimental.
+	Ipv6Pool *string `field:"optional" json:"ipv6Pool" yaml:"ipv6Pool"`
 }
 

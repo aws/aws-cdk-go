@@ -7,28 +7,42 @@ import (
 // Properties for enabling Continuous Logging for Glue Jobs.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack stack
+//   var role iRole
+//   var script code
 //
-//   var logGroup logGroup
-//
-//   continuousLoggingProps := &ContinuousLoggingProps{
-//   	Enabled: jsii.Boolean(false),
-//
-//   	// the properties below are optional
-//   	ConversionPattern: jsii.String("conversionPattern"),
-//   	LogGroup: logGroup,
-//   	LogStreamPrefix: jsii.String("logStreamPrefix"),
-//   	Quiet: jsii.Boolean(false),
-//   }
+//   glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
+//   	JobName: jsii.String("PySparkETLJobCustomName"),
+//   	Description: jsii.String("This is a description"),
+//   	Role: Role,
+//   	Script: Script,
+//   	GlueVersion: glue.GlueVersion_V3_0,
+//   	ContinuousLogging: &ContinuousLoggingProps{
+//   		Enabled: jsii.Boolean(false),
+//   	},
+//   	WorkerType: glue.WorkerType_G_2X,
+//   	MaxConcurrentRuns: jsii.Number(100),
+//   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
+//   	Connections: []iConnection{
+//   		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
+//   	},
+//   	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
+//   	Tags: map[string]*string{
+//   		"FirstTagName": jsii.String("FirstTagValue"),
+//   		"SecondTagName": jsii.String("SecondTagValue"),
+//   		"XTagName": jsii.String("XTagValue"),
+//   	},
+//   	NumberOfWorkers: jsii.Number(2),
+//   	MaxRetries: jsii.Number(2),
+//   })
 //
 // See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 //
 // Experimental.
 type ContinuousLoggingProps struct {
-	// Enable continuous logging.
+	// Enable continouous logging.
 	// Experimental.
 	Enabled *bool `field:"required" json:"enabled" yaml:"enabled"`
 	// Apply the provided conversion pattern.

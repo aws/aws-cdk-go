@@ -61,7 +61,7 @@ type HealthCheckProps struct {
 	// If you specify a value for IPAddress:
 	//
 	// Amazon Route 53 sends health check requests to the specified IPv4 or IPv6 address and passes the value of FullyQualifiedDomainName in the Host header for all health checks except TCP health checks. This is typically the fully qualified DNS name of the endpoint on which you want Route 53 to perform health checks.
-	// Note: If you specify a value for Port property other than 80 or 443, Route 53 will constract the value for Host header as FullyQualifiedDomainName:Port.
+	// Note: If you specify a value for Port property other than 80 or 443, Route 53 will construct the value for Host header as FullyQualifiedDomainName:Port.
 	//
 	// If you don't specify a value for IPAddress:
 	//

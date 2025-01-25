@@ -24,7 +24,7 @@ import (
 type S3Code interface {
 	Code
 	// Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
-	Bind(_scope constructs.Construct, _handler *string, _family RuntimeFamily) *CodeConfig
+	Bind(_scope constructs.Construct, _handler *string, _family RuntimeFamily, _runtimeName *string) *CodeConfig
 }
 
 // The jsii proxy struct for S3Code
@@ -131,7 +131,7 @@ func S3Code_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, _handler *string, _family RuntimeFamily) *CodeConfig {
+func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, _handler *string, _family RuntimeFamily, _runtimeName *string) *CodeConfig {
 	if err := s.validateBindParameters(_scope, _handler, _family); err != nil {
 		panic(err)
 	}
@@ -140,7 +140,7 @@ func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, _handler *string, _
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, _handler, _family},
+		[]interface{}{_scope, _handler, _family, _runtimeName},
 		&returns,
 	)
 

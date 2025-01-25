@@ -184,11 +184,7 @@ type CfnDBInstance interface {
 	AttrCertificateDetailsCaIdentifier() *string
 	// The expiration date of the DB instance’s server certificate.
 	AttrCertificateDetailsValidTill() *string
-	// The mode of Database Insights to enable for the DB instance.
-	//
-	// This setting only applies to Amazon Aurora DB instances.
-	//
-	// > Currently, this value is inherited from the DB cluster and can't be changed.
+	// The mode of Database Insights that is enabled for the instance.
 	AttrDatabaseInsightsMode() *string
 	// The Amazon Resource Name (ARN) for the DB instance.
 	AttrDbInstanceArn() *string
@@ -451,9 +447,7 @@ type CfnDBInstance interface {
 	// By default, it isn't encrypted.
 	StorageEncrypted() interface{}
 	SetStorageEncrypted(val interface{})
-	// Specifies the storage throughput value for the DB instance.
-	//
-	// This setting applies only to the `gp3` storage type.
+	// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance.
 	StorageThroughput() *float64
 	SetStorageThroughput(val *float64)
 	// The storage type to associate with the DB instance.

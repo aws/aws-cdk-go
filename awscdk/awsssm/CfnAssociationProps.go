@@ -74,7 +74,7 @@ type CfnAssociationProps struct {
 	AssociationName *string `field:"optional" json:"associationName" yaml:"associationName"`
 	// Choose the parameter that will define how your automation will branch out.
 	//
-	// This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+	// This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
 	//
 	AutomationTargetParameterName *string `field:"optional" json:"automationTargetParameterName" yaml:"automationTargetParameterName"`

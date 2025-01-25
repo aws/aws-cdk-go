@@ -3,8 +3,6 @@ package awscognito
 
 // The configuration of user event logs to an external AWS service like Amazon Data Firehose, Amazon S3, or Amazon CloudWatch Logs.
 //
-// This data type is a request parameter of `API_SetLogDeliveryConfiguration` and a response parameter of `API_GetLogDeliveryConfiguration` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -27,9 +25,7 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html
 //
 type CfnLogDeliveryConfiguration_LogConfigurationProperty struct {
-	// Configuration for the CloudWatch log group destination of user pool detailed activity logging, or of user activity log export with threat protection.
-	//
-	// This data type is a request parameter of `API_SetLogDeliveryConfiguration` and a response parameter of `API_GetLogDeliveryConfiguration` .
+	// Configuration for the CloudWatch log group destination of user pool detailed activity logging, or of user activity log export with advanced security features.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html#cfn-cognito-logdeliveryconfiguration-logconfiguration-cloudwatchlogsconfiguration
 	//
 	CloudWatchLogsConfiguration interface{} `field:"optional" json:"cloudWatchLogsConfiguration" yaml:"cloudWatchLogsConfiguration"`

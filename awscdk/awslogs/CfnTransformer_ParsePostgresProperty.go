@@ -3,7 +3,7 @@ package awslogs
 
 // Use this processor to parse RDS for PostgreSQL vended logs, extract fields, and and convert them into a JSON format.
 //
-// This processor always processes the entire log event message. For more information about this processor including examples, see [parsePostGres](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parsePostGres) .
+// This processor always processes the entire log event message. For more information about this processor including examples, see [parsePostGres](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parsePostGres) .
 //
 // For more information about RDS for PostgreSQL log format, see [RDS for PostgreSQL database log filesTCP flag sequence](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.html#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix) .
 //

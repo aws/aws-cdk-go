@@ -13,6 +13,9 @@ package awscodepipeline
 //   var configuration interface{}
 //
 //   ruleDeclarationProperty := &RuleDeclarationProperty{
+//   	Commands: []*string{
+//   		jsii.String("commands"),
+//   	},
 //   	Configuration: configuration,
 //   	InputArtifacts: []interface{}{
 //   		&InputArtifactProperty{
@@ -33,6 +36,14 @@ package awscodepipeline
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html
 //
 type CfnPipeline_RuleDeclarationProperty struct {
+	// The shell commands to run with your commands rule in CodePipeline.
+	//
+	// All commands are supported except multi-line formats. While CodeBuild logs and permissions are used, you do not need to create any resources in CodeBuild.
+	//
+	// > Using compute time for this action will incur separate charges in AWS CodeBuild .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-commands
+	//
+	Commands *[]*string `field:"optional" json:"commands" yaml:"commands"`
 	// The action configuration fields for the rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-configuration
 	//

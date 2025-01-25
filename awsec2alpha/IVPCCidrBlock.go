@@ -18,9 +18,15 @@ type IVPCCidrBlock interface {
 	// IPAM pool for IPv4 address type.
 	// Experimental.
 	Ipv4IpamPoolId() *string
+	// The IPv6 CIDR block from the specified IPv6 address pool.
+	// Experimental.
+	Ipv6CidrBlock() *string
 	// IPAM pool for IPv6 address type.
 	// Experimental.
 	Ipv6IpamPoolId() *string
+	// The ID of the IPv6 address pool from which to allocate the IPv6 CIDR block.
+	// Experimental.
+	Ipv6Pool() *string
 }
 
 // The jsii proxy for IVPCCidrBlock
@@ -58,11 +64,31 @@ func (j *jsiiProxy_IVPCCidrBlock) Ipv4IpamPoolId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_IVPCCidrBlock) Ipv6CidrBlock() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv6CidrBlock",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IVPCCidrBlock) Ipv6IpamPoolId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"ipv6IpamPoolId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVPCCidrBlock) Ipv6Pool() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipv6Pool",
 		&returns,
 	)
 	return returns

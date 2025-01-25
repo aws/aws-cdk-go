@@ -92,7 +92,9 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The device index for the network interface attachment.
 	//
-	// Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
+	// If the network interface is of type `interface` , you must specify a device index.
+	//
+	// If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the `LaunchTemplate` property of `AWS::EC2::Instance` , then you must include a primary network interface using the `NetworkInterfaces` property of `AWS::EC2::Instance` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex
 	//
 	DeviceIndex *float64 `field:"optional" json:"deviceIndex" yaml:"deviceIndex"`

@@ -27,7 +27,7 @@ type Column struct {
 	// Type of the column.
 	// Experimental.
 	Type *Type `field:"required" json:"type" yaml:"type"`
-	// Comment describing the column.
+	// Coment describing the column.
 	// Default: none.
 	//
 	// Experimental.

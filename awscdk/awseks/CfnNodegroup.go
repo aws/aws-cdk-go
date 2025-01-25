@@ -76,6 +76,7 @@ import (
 //   	UpdateConfig: &UpdateConfigProperty{
 //   		MaxUnavailable: jsii.Number(123),
 //   		MaxUnavailablePercentage: jsii.Number(123),
+//   		UpdateStrategy: jsii.String("updateStrategy"),
 //   	},
 //   	Version: jsii.String("version"),
 //   })

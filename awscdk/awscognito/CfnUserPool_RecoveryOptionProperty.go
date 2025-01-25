@@ -7,8 +7,6 @@ package awscognito
 //
 // For example, if `verified_email` has a priority of `1` and `verified_phone_number` has a priority of `2` , your user pool sends account-recovery messages to a verified email address but falls back to an SMS message if the user has a verified phone number. The `admin_only` option prevents self-service account recovery.
 //
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

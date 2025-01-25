@@ -75,7 +75,7 @@ type InvocationsScalingProps struct {
 	// More documentation available here: https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-scaling-loadtest.html
 	// Experimental.
 	MaxRequestsPerSecond *float64 `field:"required" json:"maxRequestsPerSecond" yaml:"maxRequestsPerSecond"`
-	// Safty factor for calculating the target SageMaker variant invocation per instance.
+	// Safety factor for calculating the target SageMaker variant invocation per instance.
 	//
 	// More documentation available here: https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-scaling-loadtest.html
 	// Default: 0.5

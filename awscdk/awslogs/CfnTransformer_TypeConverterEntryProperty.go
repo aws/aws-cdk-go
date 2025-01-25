@@ -1,7 +1,7 @@
 package awslogs
 
 
-// This object defines one value type that will be converted using the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-typeConverter) processor.
+// This object defines one value type that will be converted using the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-typeConverter) processor.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

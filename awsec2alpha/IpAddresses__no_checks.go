@@ -16,6 +16,10 @@ func validateIpAddresses_Ipv4IpamParameters(ipv4IpamOptions *IpamOptions) error 
 	return nil
 }
 
+func validateIpAddresses_Ipv6ByoipPoolParameters(props *Ipv6PoolSecondaryAddressProps) error {
+	return nil
+}
+
 func validateIpAddresses_Ipv6IpamParameters(ipv6IpamOptions *IpamOptions) error {
 	return nil
 }

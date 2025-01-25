@@ -109,6 +109,26 @@ func IpAddresses_Ipv4Ipam(ipv4IpamOptions *IpamOptions) IIpAddresses {
 	return returns
 }
 
+// A BYOIP IPv6 address pool.
+// Experimental.
+func IpAddresses_Ipv6ByoipPool(props *Ipv6PoolSecondaryAddressProps) IIpAddresses {
+	_init_.Initialize()
+
+	if err := validateIpAddresses_Ipv6ByoipPoolParameters(props); err != nil {
+		panic(err)
+	}
+	var returns IIpAddresses
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-ec2-alpha.IpAddresses",
+		"ipv6ByoipPool",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 // An Ipv6 Ipam Pool.
 // Experimental.
 func IpAddresses_Ipv6Ipam(ipv6IpamOptions *IpamOptions) IIpAddresses {

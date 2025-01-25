@@ -5,7 +5,7 @@ package awslogs
 //
 // This processor can also extract fields from log messages.
 //
-// For more information about this processor including examples, see [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Grok) in the *CloudWatch Logs User Guide* .
+// For more information about this processor including examples, see [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-Grok) in the *CloudWatch Logs User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,7 +24,7 @@ package awslogs
 type CfnTransformer_GrokProperty struct {
 	// The grok pattern to match against the log event.
 	//
-	// For a list of supported grok patterns, see [Supported grok patterns](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#Grok-Patterns) .
+	// For a list of supported grok patterns, see [Supported grok patterns](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#Grok-Patterns) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-grok.html#cfn-logs-transformer-grok-match
 	//
 	Match *string `field:"required" json:"match" yaml:"match"`

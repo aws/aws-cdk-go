@@ -3,8 +3,6 @@ package awscognito
 
 // The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 //
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

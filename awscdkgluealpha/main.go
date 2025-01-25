@@ -8,6 +8,10 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.Action",
+		reflect.TypeOf((*Action)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.AssetCode",
 		reflect.TypeOf((*AssetCode)(nil)).Elem(),
@@ -79,6 +83,21 @@ func init() {
 			"SNAPPY": CompressionType_SNAPPY,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.Condition",
+		reflect.TypeOf((*Condition)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.ConditionLogicalOperator",
+		reflect.TypeOf((*ConditionLogicalOperator)(nil)).Elem(),
+		map[string]interface{}{
+			"EQUALS": ConditionLogicalOperator_EQUALS,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.ConditionalTriggerOptions",
+		reflect.TypeOf((*ConditionalTriggerOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Connection",
 		reflect.TypeOf((*Connection)(nil)).Elem(),
@@ -125,6 +144,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.ContinuousLoggingProps",
 		reflect.TypeOf((*ContinuousLoggingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.CrawlerState",
+		reflect.TypeOf((*CrawlerState)(nil)).Elem(),
+		map[string]interface{}{
+			"RUNNING": CrawlerState_RUNNING,
+			"CANCELLING": CrawlerState_CANCELLING,
+			"CANCELLED": CrawlerState_CANCELLED,
+			"SUCCEEDED": CrawlerState_SUCCEEDED,
+			"FAILED": CrawlerState_FAILED,
+			"ERROR": CrawlerState_ERROR,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.CustomScheduledTriggerOptions",
+		reflect.TypeOf((*CustomScheduledTriggerOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.DailyScheduleTriggerOptions",
+		reflect.TypeOf((*DailyScheduleTriggerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.DataFormat",
@@ -211,6 +250,10 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.DatabaseProps",
 		reflect.TypeOf((*DatabaseProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.EventBatchingCondition",
+		reflect.TypeOf((*EventBatchingCondition)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.ExecutionClass",
 		reflect.TypeOf((*ExecutionClass)(nil)).Elem(),
@@ -261,14 +304,16 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.ExternalTableProps",
 		reflect.TypeOf((*ExternalTableProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.GlueVersion",
 		reflect.TypeOf((*GlueVersion)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
-		},
-		func() interface{} {
-			return &jsiiProxy_GlueVersion{}
+		map[string]interface{}{
+			"V0_9": GlueVersion_V0_9,
+			"V1_0": GlueVersion_V1_0,
+			"V2_0": GlueVersion_V2_0,
+			"V3_0": GlueVersion_V3_0,
+			"V4_0": GlueVersion_V4_0,
+			"V5_0": GlueVersion_V5_0,
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -340,7 +385,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
 			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
-			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
 			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -385,6 +429,27 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-glue-alpha.IWorkflow",
+		reflect.TypeOf((*IWorkflow)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addCustomScheduledTrigger", GoMethod: "AddCustomScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addDailyScheduledTrigger", GoMethod: "AddDailyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addOnDemandTrigger", GoMethod: "AddOnDemandTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addWeeklyScheduledTrigger", GoMethod: "AddWeeklyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowArn", GoGetter: "WorkflowArn"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowName", GoGetter: "WorkflowName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkflow{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.InputFormat",
 		reflect.TypeOf((*InputFormat)(nil)).Elem(),
@@ -411,6 +476,9 @@ func init() {
 		reflect.TypeOf((*Job)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -430,20 +498,49 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
-			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Job{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_JobBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.JobBase",
+		reflect.TypeOf((*JobBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_JobBase{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IJob)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.JobAttributes",
-		reflect.TypeOf((*JobAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.JobBookmarksEncryption",
@@ -456,19 +553,9 @@ func init() {
 			"CLIENT_SIDE_KMS": JobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
 		},
 	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/aws-glue-alpha.JobExecutable",
-		reflect.TypeOf((*JobExecutable)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			return &jsiiProxy_JobExecutable{}
-		},
-	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.JobExecutableConfig",
-		reflect.TypeOf((*JobExecutableConfig)(nil)).Elem(),
+		"@aws-cdk/aws-glue-alpha.JobImportAttributes",
+		reflect.TypeOf((*JobImportAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.JobLanguage",
@@ -479,8 +566,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.JobProps",
-		reflect.TypeOf((*JobProps)(nil)).Elem(),
+		"@aws-cdk/aws-glue-alpha.JobProperties",
+		reflect.TypeOf((*JobProperties)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.JobState",
@@ -495,14 +582,22 @@ func init() {
 			"STOPPED": JobState_STOPPED,
 		},
 	)
-	_jsii_.RegisterClass(
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.JobType",
 		reflect.TypeOf((*JobType)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		map[string]interface{}{
+			"ETL": JobType_ETL,
+			"STREAMING": JobType_STREAMING,
+			"PYTHON_SHELL": JobType_PYTHON_SHELL,
+			"RAY": JobType_RAY,
 		},
-		func() interface{} {
-			return &jsiiProxy_JobType{}
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.MaxCapacity",
+		reflect.TypeOf((*MaxCapacity)(nil)).Elem(),
+		map[string]interface{}{
+			"DPU_1_16TH": MaxCapacity_DPU_1_16TH,
+			"DPU_1": MaxCapacity_DPU_1,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -513,6 +608,10 @@ func init() {
 			"COUNT": MetricType_COUNT,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.NotifyEventTriggerOptions",
+		reflect.TypeOf((*NotifyEventTriggerOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.NumericOverflowHandlingAction",
 		reflect.TypeOf((*NumericOverflowHandlingAction)(nil)).Elem(),
@@ -522,6 +621,10 @@ func init() {
 			"SET_TO_NULL": NumericOverflowHandlingAction_SET_TO_NULL,
 			"DROP_ROW": NumericOverflowHandlingAction_DROP_ROW,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.OnDemandTriggerOptions",
+		reflect.TypeOf((*OnDemandTriggerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.OrcColumnMappingType",
@@ -546,16 +649,183 @@ func init() {
 		reflect.TypeOf((*PartitionIndex)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.PythonRayExecutableProps",
-		reflect.TypeOf((*PythonRayExecutableProps)(nil)).Elem(),
+		"@aws-cdk/aws-glue-alpha.Predicate",
+		reflect.TypeOf((*Predicate)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.PredicateLogical",
+		reflect.TypeOf((*PredicateLogical)(nil)).Elem(),
+		map[string]interface{}{
+			"AND": PredicateLogical_AND,
+			"ANY": PredicateLogical_ANY,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.PySparkEtlJob",
+		reflect.TypeOf((*PySparkEtlJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PySparkEtlJob{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Job)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.PythonShellExecutableProps",
-		reflect.TypeOf((*PythonShellExecutableProps)(nil)).Elem(),
+		"@aws-cdk/aws-glue-alpha.PySparkEtlJobProps",
+		reflect.TypeOf((*PySparkEtlJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.PySparkFlexEtlJob",
+		reflect.TypeOf((*PySparkFlexEtlJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PySparkFlexEtlJob{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Job)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.PythonSparkJobExecutableProps",
-		reflect.TypeOf((*PythonSparkJobExecutableProps)(nil)).Elem(),
+		"@aws-cdk/aws-glue-alpha.PySparkFlexEtlJobProps",
+		reflect.TypeOf((*PySparkFlexEtlJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.PySparkStreamingJob",
+		reflect.TypeOf((*PySparkStreamingJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PySparkStreamingJob{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Job)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.PySparkStreamingJobProps",
+		reflect.TypeOf((*PySparkStreamingJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.PythonShellJob",
+		reflect.TypeOf((*PythonShellJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PythonShellJob{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Job)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.PythonShellJobProps",
+		reflect.TypeOf((*PythonShellJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.PythonVersion",
@@ -567,13 +837,51 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/aws-glue-alpha.Runtime",
-		reflect.TypeOf((*Runtime)(nil)).Elem(),
+		"@aws-cdk/aws-glue-alpha.RayJob",
+		reflect.TypeOf((*RayJob)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
-			return &jsiiProxy_Runtime{}
+			j := jsiiProxy_RayJob{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Job)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.RayJobProps",
+		reflect.TypeOf((*RayJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.Runtime",
+		reflect.TypeOf((*Runtime)(nil)).Elem(),
+		map[string]interface{}{
+			"RAY_TWO_FOUR": Runtime_RAY_TWO_FOUR,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -646,9 +954,131 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.S3TableProps",
 		reflect.TypeOf((*S3TableProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.ScalaSparkEtlJob",
+		reflect.TypeOf((*ScalaSparkEtlJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ScalaSparkEtlJob{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Job)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.ScalaJobExecutableProps",
-		reflect.TypeOf((*ScalaJobExecutableProps)(nil)).Elem(),
+		"@aws-cdk/aws-glue-alpha.ScalaSparkEtlJobProps",
+		reflect.TypeOf((*ScalaSparkEtlJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.ScalaSparkFlexEtlJob",
+		reflect.TypeOf((*ScalaSparkFlexEtlJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ScalaSparkFlexEtlJob{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Job)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.ScalaSparkFlexEtlJobProps",
+		reflect.TypeOf((*ScalaSparkFlexEtlJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.ScalaSparkStreamingJob",
+		reflect.TypeOf((*ScalaSparkStreamingJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
+			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
+			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
+			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ScalaSparkStreamingJob{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Job)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.ScalaSparkStreamingJobProps",
+		reflect.TypeOf((*ScalaSparkStreamingJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Schema",
@@ -862,18 +1292,106 @@ func init() {
 		reflect.TypeOf((*TableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.TriggerOptions",
+		reflect.TypeOf((*TriggerOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.TriggerSchedule",
+		reflect.TypeOf((*TriggerSchedule)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "expressionString", GoGetter: "ExpressionString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_TriggerSchedule{}
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.Type",
 		reflect.TypeOf((*Type)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.WeeklyScheduleTriggerOptions",
+		reflect.TypeOf((*WeeklyScheduleTriggerOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.WorkerType",
 		reflect.TypeOf((*WorkerType)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": WorkerType_STANDARD,
+			"G_1X": WorkerType_G_1X,
+			"G_2X": WorkerType_G_2X,
+			"G_4X": WorkerType_G_4X,
+			"G_8X": WorkerType_G_8X,
+			"G_025X": WorkerType_G_025X,
+			"Z_2X": WorkerType_Z_2X,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.Workflow",
+		reflect.TypeOf((*Workflow)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberMethod{JsiiMethod: "addconditionalTrigger", GoMethod: "AddconditionalTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addCustomScheduledTrigger", GoMethod: "AddCustomScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addDailyScheduledTrigger", GoMethod: "AddDailyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addNotifyEventTrigger", GoMethod: "AddNotifyEventTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addOnDemandTrigger", GoMethod: "AddOnDemandTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addWeeklyScheduledTrigger", GoMethod: "AddWeeklyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildWorkflowArn", GoMethod: "BuildWorkflowArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowArn", GoGetter: "WorkflowArn"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowName", GoGetter: "WorkflowName"},
 		},
 		func() interface{} {
-			return &jsiiProxy_WorkerType{}
+			j := jsiiProxy_Workflow{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_WorkflowBase)
+			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.WorkflowAttributes",
+		reflect.TypeOf((*WorkflowAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.WorkflowBase",
+		reflect.TypeOf((*WorkflowBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addconditionalTrigger", GoMethod: "AddconditionalTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addCustomScheduledTrigger", GoMethod: "AddCustomScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addDailyScheduledTrigger", GoMethod: "AddDailyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addNotifyEventTrigger", GoMethod: "AddNotifyEventTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addOnDemandTrigger", GoMethod: "AddOnDemandTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addWeeklyScheduledTrigger", GoMethod: "AddWeeklyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "buildWorkflowArn", GoMethod: "BuildWorkflowArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowArn", GoGetter: "WorkflowArn"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowName", GoGetter: "WorkflowName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WorkflowBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWorkflow)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.WorkflowProps",
+		reflect.TypeOf((*WorkflowProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.WriteParallel",

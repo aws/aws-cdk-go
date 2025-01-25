@@ -1,134 +1,63 @@
 package awscdkgluealpha
 
-import (
-	_init_ "github.com/aws/aws-cdk-go/awscdkgluealpha/v2/jsii"
-	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-)
 
 // AWS Glue version determines the versions of Apache Spark and Python that are available to the job.
 //
 // Example:
-//   glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
-//   	JobName: jsii.String("EtlJobWithRunQueuing"),
-//   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V5_0(),
-//   		PythonVersion: glue.PythonVersion_THREE,
-//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
-//   	}),
-//   	JobRunQueuingEnabled: jsii.Boolean(true),
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack stack
+//   var role iRole
+//   var script code
+//
+//   glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
+//   	JobName: jsii.String("PySparkETLJobCustomName"),
+//   	Description: jsii.String("This is a description"),
+//   	Role: Role,
+//   	Script: Script,
+//   	GlueVersion: glue.GlueVersion_V3_0,
+//   	ContinuousLogging: &ContinuousLoggingProps{
+//   		Enabled: jsii.Boolean(false),
+//   	},
+//   	WorkerType: glue.WorkerType_G_2X,
+//   	MaxConcurrentRuns: jsii.Number(100),
+//   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
+//   	Connections: []iConnection{
+//   		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
+//   	},
+//   	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
+//   	Tags: map[string]*string{
+//   		"FirstTagName": jsii.String("FirstTagValue"),
+//   		"SecondTagName": jsii.String("SecondTagValue"),
+//   		"XTagName": jsii.String("XTagValue"),
+//   	},
+//   	NumberOfWorkers: jsii.Number(2),
+//   	MaxRetries: jsii.Number(2),
 //   })
 //
 // See: https://docs.aws.amazon.com/glue/latest/dg/add-job.html.
 //
-// If you need to use a GlueVersion that doesn't exist as a static member, you
-// can instantiate a `GlueVersion` object, e.g: `GlueVersion.of('1.5')`.
-//
 // Experimental.
-type GlueVersion interface {
-	// The name of this GlueVersion, as expected by Job resource.
+type GlueVersion string
+
+const (
+	// Glue version using Spark 2.2.1 and Python 2.7.
 	// Experimental.
-	Name() *string
-}
-
-// The jsii proxy struct for GlueVersion
-type jsiiProxy_GlueVersion struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_GlueVersion) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
-		&returns,
-	)
-	return returns
-}
-
-
-// Custom Glue version.
-// Experimental.
-func GlueVersion_Of(version *string) GlueVersion {
-	_init_.Initialize()
-
-	if err := validateGlueVersion_OfParameters(version); err != nil {
-		panic(err)
-	}
-	var returns GlueVersion
-
-	_jsii_.StaticInvoke(
-		"@aws-cdk/aws-glue-alpha.GlueVersion",
-		"of",
-		[]interface{}{version},
-		&returns,
-	)
-
-	return returns
-}
-
-func GlueVersion_V0_9() GlueVersion {
-	_init_.Initialize()
-	var returns GlueVersion
-	_jsii_.StaticGet(
-		"@aws-cdk/aws-glue-alpha.GlueVersion",
-		"V0_9",
-		&returns,
-	)
-	return returns
-}
-
-func GlueVersion_V1_0() GlueVersion {
-	_init_.Initialize()
-	var returns GlueVersion
-	_jsii_.StaticGet(
-		"@aws-cdk/aws-glue-alpha.GlueVersion",
-		"V1_0",
-		&returns,
-	)
-	return returns
-}
-
-func GlueVersion_V2_0() GlueVersion {
-	_init_.Initialize()
-	var returns GlueVersion
-	_jsii_.StaticGet(
-		"@aws-cdk/aws-glue-alpha.GlueVersion",
-		"V2_0",
-		&returns,
-	)
-	return returns
-}
-
-func GlueVersion_V3_0() GlueVersion {
-	_init_.Initialize()
-	var returns GlueVersion
-	_jsii_.StaticGet(
-		"@aws-cdk/aws-glue-alpha.GlueVersion",
-		"V3_0",
-		&returns,
-	)
-	return returns
-}
-
-func GlueVersion_V4_0() GlueVersion {
-	_init_.Initialize()
-	var returns GlueVersion
-	_jsii_.StaticGet(
-		"@aws-cdk/aws-glue-alpha.GlueVersion",
-		"V4_0",
-		&returns,
-	)
-	return returns
-}
-
-func GlueVersion_V5_0() GlueVersion {
-	_init_.Initialize()
-	var returns GlueVersion
-	_jsii_.StaticGet(
-		"@aws-cdk/aws-glue-alpha.GlueVersion",
-		"V5_0",
-		&returns,
-	)
-	return returns
-}
+	GlueVersion_V0_9 GlueVersion = "V0_9"
+	// Glue version using Spark 2.4.3, Python 2.7 and Python 3.6.
+	// Experimental.
+	GlueVersion_V1_0 GlueVersion = "V1_0"
+	// Glue version using Spark 2.4.3 and Python 3.7.
+	// Experimental.
+	GlueVersion_V2_0 GlueVersion = "V2_0"
+	// Glue version using Spark 3.1.1 and Python 3.7.
+	// Experimental.
+	GlueVersion_V3_0 GlueVersion = "V3_0"
+	// Glue version using Spark 3.3.0 and Python 3.10.
+	// Experimental.
+	GlueVersion_V4_0 GlueVersion = "V4_0"
+	// Glue version using Spark 3.5.2 and Python 3.11.
+	// Experimental.
+	GlueVersion_V5_0 GlueVersion = "V5_0"
+)
 

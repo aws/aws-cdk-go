@@ -11,8 +11,6 @@ import (
 
 // A container for the UI customization information for the hosted UI in a user pool.
 //
-// This data type is a response parameter of `API_DescribeUserPoolClient` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

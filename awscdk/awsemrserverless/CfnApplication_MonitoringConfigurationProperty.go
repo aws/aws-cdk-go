@@ -27,6 +27,9 @@ package awsemrserverless
 //   		Enabled: jsii.Boolean(false),
 //   		EncryptionKeyArn: jsii.String("encryptionKeyArn"),
 //   	},
+//   	PrometheusMonitoringConfiguration: &PrometheusMonitoringConfigurationProperty{
+//   		RemoteWriteUrl: jsii.String("remoteWriteUrl"),
+//   	},
 //   	S3MonitoringConfiguration: &S3MonitoringConfigurationProperty{
 //   		EncryptionKeyArn: jsii.String("encryptionKeyArn"),
 //   		LogUri: jsii.String("logUri"),
@@ -46,6 +49,9 @@ type CfnApplication_MonitoringConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-managedpersistencemonitoringconfiguration
 	//
 	ManagedPersistenceMonitoringConfiguration interface{} `field:"optional" json:"managedPersistenceMonitoringConfiguration" yaml:"managedPersistenceMonitoringConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-prometheusmonitoringconfiguration
+	//
+	PrometheusMonitoringConfiguration interface{} `field:"optional" json:"prometheusMonitoringConfiguration" yaml:"prometheusMonitoringConfiguration"`
 	// The Amazon S3 configuration for monitoring log publishing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-s3monitoringconfiguration
 	//

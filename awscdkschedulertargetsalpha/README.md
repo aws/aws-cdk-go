@@ -331,7 +331,7 @@ awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 
 ## Invoke a wider set of AWS API
 
-Use the `Universal` target to invoke AWS API.
+Use the `Universal` target to invoke AWS API. See https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html
 
 The code snippet below creates an event rule with AWS API as the target which is
 called at midnight every day by EventBridge Scheduler.
@@ -354,9 +354,9 @@ awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 
 The `service` must be in lowercase and the `action` must be in camelCase.
 
-By default, an IAM policy for the Scheduler is extracted from the API call.
-
-You can control the IAM policy for the Scheduler by specifying the `policyStatements` property.
+By default, an IAM policy for the Scheduler is extracted from the API call. The action in the policy is constructed using the `service` and `action` prop.
+Re-using the example above, the action will be `rds:stopDBCluster`. Note that not all IAM actions follow the same pattern. In such scenario, please use the
+`policyStatements` prop to override the policy:
 
 ```go
 awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
@@ -386,3 +386,6 @@ awscdkscheduleralpha.NewSchedule(this, jsii.String("Schedule"), &ScheduleProps{
 	}),
 })
 ```
+
+> Note: The default policy uses `*` in the resources field as CDK does not have a straight forward way to auto-discover the resources permission required.
+> It is recommended that you scope the field down to specific resources to have a better security posture.

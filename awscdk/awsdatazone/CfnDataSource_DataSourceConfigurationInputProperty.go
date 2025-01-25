@@ -27,20 +27,10 @@ package awsdatazone
 //
 //   		// the properties below are optional
 //   		AutoImportDataQualityResult: jsii.Boolean(false),
+//   		CatalogName: jsii.String("catalogName"),
 //   		DataAccessRole: jsii.String("dataAccessRole"),
 //   	},
 //   	RedshiftRunConfiguration: &RedshiftRunConfigurationInputProperty{
-//   		RedshiftCredentialConfiguration: &RedshiftCredentialConfigurationProperty{
-//   			SecretManagerArn: jsii.String("secretManagerArn"),
-//   		},
-//   		RedshiftStorage: &RedshiftStorageProperty{
-//   			RedshiftClusterSource: &RedshiftClusterStorageProperty{
-//   				ClusterName: jsii.String("clusterName"),
-//   			},
-//   			RedshiftServerlessSource: &RedshiftServerlessStorageProperty{
-//   				WorkgroupName: jsii.String("workgroupName"),
-//   			},
-//   		},
 //   		RelationalFilterConfigurations: []interface{}{
 //   			&RelationalFilterConfigurationProperty{
 //   				DatabaseName: jsii.String("databaseName"),
@@ -58,6 +48,17 @@ package awsdatazone
 //
 //   		// the properties below are optional
 //   		DataAccessRole: jsii.String("dataAccessRole"),
+//   		RedshiftCredentialConfiguration: &RedshiftCredentialConfigurationProperty{
+//   			SecretManagerArn: jsii.String("secretManagerArn"),
+//   		},
+//   		RedshiftStorage: &RedshiftStorageProperty{
+//   			RedshiftClusterSource: &RedshiftClusterStorageProperty{
+//   				ClusterName: jsii.String("clusterName"),
+//   			},
+//   			RedshiftServerlessSource: &RedshiftServerlessStorageProperty{
+//   				WorkgroupName: jsii.String("workgroupName"),
+//   			},
+//   		},
 //   	},
 //   	SageMakerRunConfiguration: &SageMakerRunConfigurationInputProperty{
 //   		TrackingAssets: map[string][]*string{

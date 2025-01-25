@@ -9,9 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// The infrastructure configuration allows you to specify the infrastructure within which to build and test your image.
+// Creates a new infrastructure configuration.
 //
-// In the infrastructure configuration, you can specify instance types, subnets, and security groups to associate with your instance. You can also associate an Amazon EC2 key pair with the instance used to build your image. This allows you to log on to your instance to troubleshoot if your build fails and you set terminateInstanceOnFailure to false.
+// An infrastructure configuration defines the environment in which your image will be built and tested.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -82,19 +82,19 @@ type CfnInfrastructureConfiguration interface {
 	// The description of the infrastructure configuration.
 	Description() *string
 	SetDescription(val *string)
-	// The instance metadata option settings for the infrastructure configuration.
+	// The instance metadata options that you can set for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
 	InstanceMetadataOptions() interface{}
 	SetInstanceMetadataOptions(val interface{})
-	// The instance profile of the infrastructure configuration.
+	// The instance profile to associate with the instance used to customize your Amazon EC2 AMI.
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
 	// The instance types of the infrastructure configuration.
 	InstanceTypes() *[]*string
 	SetInstanceTypes(val *[]*string)
-	// The Amazon EC2 key pair of the infrastructure configuration.
+	// The key pair of the infrastructure configuration.
 	KeyPair() *string
 	SetKeyPair(val *string)
-	// The logging configuration defines where Image Builder uploads your logs.
+	// The logging configuration of the infrastructure configuration.
 	Logging() interface{}
 	SetLogging(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -120,28 +120,28 @@ type CfnInfrastructureConfiguration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The tags attached to the resource created by Image Builder.
+	// The metadata tags to assign to the Amazon EC2 instance that Image Builder launches during the build process.
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
-	// The security group IDs of the infrastructure configuration.
+	// The security group IDs to associate with the instance used to customize your Amazon EC2 AMI.
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
-	// The Amazon Resource Name (ARN) of the SNS topic for the infrastructure configuration.
+	// The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.
 	SnsTopicArn() *string
 	SetSnsTopicArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The subnet ID of the infrastructure configuration.
+	// The subnet ID in which to place the instance used to customize your Amazon EC2 AMI.
 	SubnetId() *string
 	SetSubnetId(val *string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// The tags of the infrastructure configuration.
+	// The metadata tags to assign to the infrastructure configuration resource that Image Builder creates as output.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
-	// The terminate instance on failure configuration of the infrastructure configuration.
+	// The terminate instance on failure setting of the infrastructure configuration.
 	TerminateInstanceOnFailure() interface{}
 	SetTerminateInstanceOnFailure(val interface{})
 	// Deprecated.

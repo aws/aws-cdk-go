@@ -1,9 +1,7 @@
 package awscognito
 
 
-// Settings for user pool actions when Amazon Cognito detects compromised credentials with threat protection in full-function `ENFORCED` mode.
-//
-// This data type is a request parameter of `API_SetRiskConfiguration` and a response parameter of `API_DescribeRiskConfiguration` .
+// Settings for user pool actions when Amazon Cognito detects compromised credentials with advanced security features in full-function `ENFORCED` mode.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

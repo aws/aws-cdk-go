@@ -73,7 +73,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
 		func() interface{} {
-			return &jsiiProxy_CloudAssembly{}
+			j := jsiiProxy_CloudAssembly{}
+			_jsii_.InitJsiiProxy(&j.Type__cloudassemblyschemaICloudAssembly)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(

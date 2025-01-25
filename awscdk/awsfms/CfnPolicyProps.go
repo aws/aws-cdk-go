@@ -96,6 +96,7 @@ package awsfms
 //   	ResourceSetIds: []*string{
 //   		jsii.String("resourceSetIds"),
 //   	},
+//   	ResourceTagLogicalOperator: jsii.String("resourceTagLogicalOperator"),
 //   	ResourceTags: []interface{}{
 //   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
@@ -286,6 +287,9 @@ type CfnPolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcesetids
 	//
 	ResourceSetIds *[]*string `field:"optional" json:"resourceSetIds" yaml:"resourceSetIds"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetaglogicaloperator
+	//
+	ResourceTagLogicalOperator *string `field:"optional" json:"resourceTagLogicalOperator" yaml:"resourceTagLogicalOperator"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.
 	//
 	// If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .

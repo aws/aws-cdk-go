@@ -8,6 +8,14 @@ func (j *jsiiProxy_Job) validateApplyRemovalPolicyParameters(policy awscdk.Remov
 	return nil
 }
 
+func (j *jsiiProxy_Job) validateBuildJobArnParameters(scope constructs.Construct, jobName *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_Job) validateCodeS3ObjectUrlParameters(code Code) error {
+	return nil
+}
+
 func (j *jsiiProxy_Job) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }
@@ -52,7 +60,11 @@ func (j *jsiiProxy_Job) validateOnTimeoutParameters(id *string, options *awseven
 	return nil
 }
 
-func validateJob_FromJobAttributesParameters(scope constructs.Construct, id *string, attrs *JobAttributes) error {
+func (j *jsiiProxy_Job) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
+	return nil
+}
+
+func validateJob_FromJobAttributesParameters(scope constructs.Construct, id *string, attrs *JobImportAttributes) error {
 	return nil
 }
 
@@ -68,7 +80,7 @@ func validateJob_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
-func validateNewJobParameters(scope constructs.Construct, id *string, props *JobProps) error {
+func validateNewJobParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	return nil
 }
 

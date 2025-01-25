@@ -29,18 +29,16 @@ package awsgamelift
 type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 	// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` .
 	//
-	// Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
+	// Locations can include AWS Region codes (such as `us-west-2` ), local zones, and custom locations (for Anywhere fleets). Each location must be listed only once. For details, see [Amazon GameLift service locations.](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html#cfn-gamelift-gamesessionqueue-priorityconfiguration-locationorder
 	//
 	LocationOrder *[]*string `field:"optional" json:"locationOrder" yaml:"locationOrder"`
-	// The recommended sequence to use when prioritizing where to place new game sessions.
+	// A custom sequence to use when prioritizing where to place new game sessions. Each priority type is listed once.
 	//
-	// Each type can only be listed once.
-	//
-	// - `LATENCY` -- FleetIQ prioritizes locations where the average player latency (provided in each game session request) is lowest.
-	// - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
-	// - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
-	// - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
+	// - `LATENCY` -- Amazon GameLift prioritizes locations where the average player latency is lowest. Player latency data is provided in each game session placement request.
+	// - `COST` -- Amazon GameLift prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) of each destination in the queue.
+	// - `DESTINATION` -- Amazon GameLift prioritizes based on the list order of destinations in the queue configuration.
+	// - `LOCATION` -- Amazon GameLift prioritizes based on the provided order of locations, as defined in `LocationOrder` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html#cfn-gamelift-gamesessionqueue-priorityconfiguration-priorityorder
 	//
 	PriorityOrder *[]*string `field:"optional" json:"priorityOrder" yaml:"priorityOrder"`

@@ -85,6 +85,9 @@ type Bucket interface {
 	// first call to addToResourcePolicy(s).
 	Policy() BucketPolicy
 	SetPolicy(val BucketPolicy)
+	// Role used to set up permissions on this bucket for replication.
+	ReplicationRoleArn() *string
+	SetReplicationRoleArn(val *string)
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds a cross-origin access configuration for objects in an Amazon S3 bucket.
@@ -115,6 +118,12 @@ type Bucket interface {
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_REMOVED)`.
 	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
+	// Function to add required permissions to the destination bucket for cross account replication.
+	//
+	// These permissions will be added as a resource based policy on the bucket.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html
+	//
+	AddReplicationPolicy(roleArn *string, accessControlTransition *bool, account *string)
 	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
 	//
 	// Note that the policy statement may or may not be added to the policy.
@@ -488,6 +497,16 @@ func (j *jsiiProxy_Bucket) Policy() BucketPolicy {
 	return returns
 }
 
+func (j *jsiiProxy_Bucket) ReplicationRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"replicationRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Bucket) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -573,6 +592,14 @@ func (j *jsiiProxy_Bucket)SetPolicy(val BucketPolicy) {
 	_jsii_.Set(
 		j,
 		"policy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_Bucket)SetReplicationRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"replicationRoleArn",
 		val,
 	)
 }
@@ -827,6 +854,17 @@ func (b *jsiiProxy_Bucket) AddObjectRemovedNotification(dest IBucketNotification
 		b,
 		"addObjectRemovedNotification",
 		args,
+	)
+}
+
+func (b *jsiiProxy_Bucket) AddReplicationPolicy(roleArn *string, accessControlTransition *bool, account *string) {
+	if err := b.validateAddReplicationPolicyParameters(roleArn); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"addReplicationPolicy",
+		[]interface{}{roleArn, accessControlTransition, account},
 	)
 }
 

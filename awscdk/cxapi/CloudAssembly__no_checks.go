@@ -24,6 +24,10 @@ func (c *jsiiProxy_CloudAssembly) validateTryGetArtifactParameters(id *string) e
 	return nil
 }
 
+func validateCloudAssembly_IsCloudAssemblyParameters(x interface{}) error {
+	return nil
+}
+
 func validateNewCloudAssemblyParameters(directory *string, loadOptions *cloudassemblyschema.LoadManifestOptions) error {
 	return nil
 }

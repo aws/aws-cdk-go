@@ -3,7 +3,7 @@ package awslogs
 
 // This processor converts a string to lowercase.
 //
-// For more information about this processor including examples, see [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-lowerCaseString) in the *CloudWatch Logs User Guide* .
+// For more information about this processor including examples, see [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-lowerCaseString) in the *CloudWatch Logs User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

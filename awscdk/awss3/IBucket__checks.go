@@ -56,6 +56,14 @@ func (i *jsiiProxy_IBucket) validateAddObjectRemovedNotificationParameters(dest 
 	return nil
 }
 
+func (i *jsiiProxy_IBucket) validateAddReplicationPolicyParameters(roleArn *string) error {
+	if roleArn == nil {
+		return fmt.Errorf("parameter roleArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IBucket) validateAddToResourcePolicyParameters(permission awsiam.PolicyStatement) error {
 	if permission == nil {
 		return fmt.Errorf("parameter permission is required, but nil was provided")

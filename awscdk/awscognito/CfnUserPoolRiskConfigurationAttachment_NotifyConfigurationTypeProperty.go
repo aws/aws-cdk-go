@@ -1,9 +1,7 @@
 package awscognito
 
 
-// The configuration for Amazon SES email messages that threat protection sends to a user when your adaptive authentication automated response has a *Notify* action.
-//
-// This data type is a request parameter of `API_SetRiskConfiguration` and a response parameter of `API_DescribeRiskConfiguration` .
+// The configuration for Amazon SES email messages that advanced security features sends to a user when your adaptive authentication automated response has a *Notify* action.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

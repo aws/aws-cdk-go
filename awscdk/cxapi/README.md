@@ -576,3 +576,21 @@ If the flag is set to false then the default security group rules will only allo
   }
 }
 ```
+
+* `@aws-cdk/aws-iam:oidcRejectUnauthorizedConnections`
+
+When this feature flag is enabled, the default behaviour of OIDC Provider's custom resource handler will
+default to reject unauthorized connections when downloading CA Certificates.
+
+When this feature flag is disabled, the behaviour will be the same as current and will allow downloading
+thumbprints from unsecure connnections.
+
+*cdk.json*
+
+```json
+{
+  "context": {
+    "@aws-cdk/aws-iam:oidcRejectUnauthorizedConnections": true
+  }
+}
+```

@@ -50,6 +50,14 @@ func (c *jsiiProxy_CloudAssembly) validateTryGetArtifactParameters(id *string) e
 	return nil
 }
 
+func validateCloudAssembly_IsCloudAssemblyParameters(x interface{}) error {
+	if x == nil {
+		return fmt.Errorf("parameter x is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCloudAssemblyParameters(directory *string, loadOptions *cloudassemblyschema.LoadManifestOptions) error {
 	if directory == nil {
 		return fmt.Errorf("parameter directory is required, but nil was provided")

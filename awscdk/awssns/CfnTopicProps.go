@@ -29,6 +29,7 @@ import (
 //   		},
 //   	},
 //   	DisplayName: jsii.String("displayName"),
+//   	FifoThroughputScope: jsii.String("fifoThroughputScope"),
 //   	FifoTopic: jsii.Boolean(false),
 //   	KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
 //   	SignatureVersion: jsii.String("signatureVersion"),
@@ -91,6 +92,9 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-fifothroughputscope
+	//
+	FifoThroughputScope *string `field:"optional" json:"fifoThroughputScope" yaml:"fifoThroughputScope"`
 	// Set to true to create a FIFO topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-fifotopic
 	//

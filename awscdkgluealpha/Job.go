@@ -8,27 +8,29 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdkgluealpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Glue Job.
 //
 // Example:
-//   glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
-//   	JobName: jsii.String("EtlJobWithRunQueuing"),
-//   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V5_0(),
-//   		PythonVersion: glue.PythonVersion_THREE,
-//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
-//   	}),
-//   	JobRunQueuingEnabled: jsii.Boolean(true),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var role role
+//
+//   job := glue_alpha.Job_FromJobAttributes(this, jsii.String("MyJob"), &JobImportAttributes{
+//   	JobName: jsii.String("jobName"),
+//
+//   	// the properties below are optional
+//   	Role: role,
 //   })
 //
 // Experimental.
 type Job interface {
-	awscdk.Resource
-	IJob
+	JobBase
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -39,7 +41,7 @@ type Job interface {
 	// that might be different than the stack they were imported into.
 	// Experimental.
 	Env() *awscdk.ResourceEnvironment
-	// The principal this Glue Job is running as.
+	// The principal to grant permissions to.
 	// Experimental.
 	GrantPrincipal() awsiam.IPrincipal
 	// The ARN of the job.
@@ -63,11 +65,6 @@ type Job interface {
 	// The IAM role Glue assumes to run this job.
 	// Experimental.
 	Role() awsiam.IRole
-	// The Spark UI logs location if Spark UI monitoring and debugging is enabled.
-	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
-	//
-	// Experimental.
-	SparkUILoggingLocation() *SparkUILoggingLocation
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
@@ -82,6 +79,16 @@ type Job interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Returns the job arn.
+	// Experimental.
+	BuildJobArn(scope constructs.Construct, jobName *string) *string
+	// Check no usage of reserved arguments.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	CheckNoReservedArgs(defaultArguments *map[string]*string) *map[string]*string
+	// Experimental.
+	CodeS3ObjectUrl(code Code) *string
 	// Experimental.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -136,6 +143,11 @@ type Job interface {
 	// Return a CloudWatch Event Rule matching TIMEOUT state.
 	// Experimental.
 	OnTimeout(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Setup Continuous Loggiung Properties.
+	//
+	// Returns: String containing the args for the continuous logging command.
+	// Experimental.
+	SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps) interface{}
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -143,8 +155,7 @@ type Job interface {
 
 // The jsii proxy struct for Job
 type jsiiProxy_Job struct {
-	internal.Type__awscdkResource
-	jsiiProxy_IJob
+	jsiiProxy_JobBase
 }
 
 func (j *jsiiProxy_Job) Env() *awscdk.ResourceEnvironment {
@@ -217,16 +228,6 @@ func (j *jsiiProxy_Job) Role() awsiam.IRole {
 	return returns
 }
 
-func (j *jsiiProxy_Job) SparkUILoggingLocation() *SparkUILoggingLocation {
-	var returns *SparkUILoggingLocation
-	_jsii_.Get(
-		j,
-		"sparkUILoggingLocation",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_Job) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -239,25 +240,7 @@ func (j *jsiiProxy_Job) Stack() awscdk.Stack {
 
 
 // Experimental.
-func NewJob(scope constructs.Construct, id *string, props *JobProps) Job {
-	_init_.Initialize()
-
-	if err := validateNewJobParameters(scope, id, props); err != nil {
-		panic(err)
-	}
-	j := jsiiProxy_Job{}
-
-	_jsii_.Create(
-		"@aws-cdk/aws-glue-alpha.Job",
-		[]interface{}{scope, id, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Experimental.
-func NewJob_Override(j Job, scope constructs.Construct, id *string, props *JobProps) {
+func NewJob_Override(j Job, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -267,9 +250,9 @@ func NewJob_Override(j Job, scope constructs.Construct, id *string, props *JobPr
 	)
 }
 
-// Creates a Glue Job.
+// Identifies an existing Glue Job from a subset of attributes that can be referenced from within another Stack or Construct.
 // Experimental.
-func Job_FromJobAttributes(scope constructs.Construct, id *string, attrs *JobAttributes) IJob {
+func Job_FromJobAttributes(scope constructs.Construct, id *string, attrs *JobImportAttributes) IJob {
 	_init_.Initialize()
 
 	if err := validateJob_FromJobAttributesParameters(scope, id, attrs); err != nil {
@@ -372,6 +355,51 @@ func (j *jsiiProxy_Job) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (j *jsiiProxy_Job) BuildJobArn(scope constructs.Construct, jobName *string) *string {
+	if err := j.validateBuildJobArnParameters(scope, jobName); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		j,
+		"buildJobArn",
+		[]interface{}{scope, jobName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_Job) CheckNoReservedArgs(defaultArguments *map[string]*string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		j,
+		"checkNoReservedArgs",
+		[]interface{}{defaultArguments},
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_Job) CodeS3ObjectUrl(code Code) *string {
+	if err := j.validateCodeS3ObjectUrlParameters(code); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		j,
+		"codeS3ObjectUrl",
+		[]interface{}{code},
+		&returns,
+	)
+
+	return returns
 }
 
 func (j *jsiiProxy_Job) GeneratePhysicalName() *string {
@@ -557,6 +585,22 @@ func (j *jsiiProxy_Job) OnTimeout(id *string, options *awsevents.OnEventOptions)
 		j,
 		"onTimeout",
 		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_Job) SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps) interface{} {
+	if err := j.validateSetupContinuousLoggingParameters(role, props); err != nil {
+		panic(err)
+	}
+	var returns interface{}
+
+	_jsii_.Invoke(
+		j,
+		"setupContinuousLogging",
+		[]interface{}{role, props},
 		&returns,
 	)
 

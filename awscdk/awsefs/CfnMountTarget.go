@@ -74,7 +74,7 @@ type CfnMountTarget interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Up to five VPC security group IDs, of the form `sg-xxxxxxxx` .
+	// VPC security group IDs, of the form `sg-xxxxxxxx` .
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
 	// The stack in which this element is defined.

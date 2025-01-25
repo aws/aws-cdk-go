@@ -3,8 +3,6 @@ package awscognito
 
 // An image file from a managed login branding style in a user pool.
 //
-// This data type is a request parameter of `API_CreateManagedLoginBranding` and `API_UpdateManagedLoginBranding` , and a response parameter of `API_DescribeManagedLoginBranding` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

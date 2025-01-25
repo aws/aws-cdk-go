@@ -16,6 +16,10 @@ func (b *jsiiProxy_BucketBase) validateAddObjectRemovedNotificationParameters(de
 	return nil
 }
 
+func (b *jsiiProxy_BucketBase) validateAddReplicationPolicyParameters(roleArn *string) error {
+	return nil
+}
+
 func (b *jsiiProxy_BucketBase) validateAddToResourcePolicyParameters(permission awsiam.PolicyStatement) error {
 	return nil
 }

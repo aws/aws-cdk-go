@@ -77,7 +77,7 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 
 When creating a standard S3 origin using `origins.S3BucketOrigin.withOriginAccessControl()`, an [Origin Access Control resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html) is automatically created with the origin type set to `s3` and signing behavior set to `always`.
 
-You can grant read, write or delete access to the OAC using the `originAccessLevels` property:
+You can grant read, list, write or delete access to the OAC using the `originAccessLevels` property:
 
 ```go
 myBucket := s3.NewBucket(this, jsii.String("myBucket"))
@@ -89,6 +89,8 @@ s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOr
 	},
 })
 ```
+
+For details of list permission, see [Setting up OAC with LIST permission](#setting-up-oac-with-list-permission).
 
 You can also pass in a custom S3 origin access control:
 
@@ -347,6 +349,32 @@ See CloudFront docs on [Giving the origin access control permission to access th
 
 > Note: If your bucket previously used OAI, you will need to manually remove the policy statement
 > that gives the OAI access to your bucket after setting up OAC.
+
+#### Setting up OAC with LIST permission
+
+By default, S3 origin returns 403 Forbidden HTTP response when the requested object does not exist.
+When you want to receive 404 Not Found, specify `AccessLevel.LIST` in `originAccessLevels` to add `s3:ListBucket` permission in the bucket policy.
+
+This is useful to distinguish between responses blocked by WAF (403) and responses where the file does not exist (404).
+
+```go
+myBucket := s3.NewBucket(this, jsii.String("myBucket"))
+s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
+	OriginAccessLevels: []accessLevel{
+		cloudfront.*accessLevel_READ,
+		cloudfront.*accessLevel_LIST,
+	},
+})
+cloudfront.NewDistribution(this, jsii.String("distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: s3Origin,
+	},
+	DefaultRootObject: jsii.String("index.html"),
+})
+```
+
+When the origin is associated to the default behavior, it is highly recommended to specify `defaultRootObject` distribution property.
+Without it, the root path `https://xxxx.cloudfront.net/` will return the list of the S3 object keys.
 
 #### Setting up an OAI (legacy)
 

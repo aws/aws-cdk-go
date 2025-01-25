@@ -11,6 +11,7 @@ package awseks
 //   updateConfigProperty := &UpdateConfigProperty{
 //   	MaxUnavailable: jsii.Number(123),
 //   	MaxUnavailablePercentage: jsii.Number(123),
+//   	UpdateStrategy: jsii.String("updateStrategy"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html
@@ -28,5 +29,11 @@ type CfnNodegroup_UpdateConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailablepercentage
 	//
 	MaxUnavailablePercentage *float64 `field:"optional" json:"maxUnavailablePercentage" yaml:"maxUnavailablePercentage"`
+	// The configuration for the behavior to follow during an node group version update of this managed node group.
+	//
+	// You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-updatestrategy
+	//
+	UpdateStrategy *string `field:"optional" json:"updateStrategy" yaml:"updateStrategy"`
 }
 

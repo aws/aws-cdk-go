@@ -35,6 +35,12 @@ type IBucket interface {
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_REMOVED)`.
 	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
+	// Function to add required permissions to the destination bucket for cross account replication.
+	//
+	// These permissions will be added as a resource based policy on the bucket.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html
+	//
+	AddReplicationPolicy(roleArn *string, accessControlTransition *bool, account *string)
 	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
 	//
 	// Note that the policy statement may or may not be added to the policy.
@@ -214,6 +220,9 @@ type IBucket interface {
 	// first call to addToResourcePolicy(s).
 	Policy() BucketPolicy
 	SetPolicy(p BucketPolicy)
+	// Role used to set up permissions on this bucket for replication.
+	ReplicationRoleArn() *string
+	SetReplicationRoleArn(r *string)
 }
 
 // The jsii proxy for IBucket
@@ -266,6 +275,17 @@ func (i *jsiiProxy_IBucket) AddObjectRemovedNotification(dest IBucketNotificatio
 		i,
 		"addObjectRemovedNotification",
 		args,
+	)
+}
+
+func (i *jsiiProxy_IBucket) AddReplicationPolicy(roleArn *string, accessControlTransition *bool, account *string) {
+	if err := i.validateAddReplicationPolicyParameters(roleArn); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"addReplicationPolicy",
+		[]interface{}{roleArn, accessControlTransition, account},
 	)
 }
 
@@ -633,6 +653,24 @@ func (j *jsiiProxy_IBucket)SetPolicy(val BucketPolicy) {
 	_jsii_.Set(
 		j,
 		"policy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_IBucket) ReplicationRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"replicationRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBucket)SetReplicationRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"replicationRoleArn",
 		val,
 	)
 }

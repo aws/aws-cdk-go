@@ -10,7 +10,6 @@ package awsdatazone
 //
 //   cfnDataSourceProps := &CfnDataSourceProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
 //   	Name: jsii.String("name"),
 //   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //   	Type: jsii.String("type"),
@@ -45,20 +44,10 @@ package awsdatazone
 //
 //   			// the properties below are optional
 //   			AutoImportDataQualityResult: jsii.Boolean(false),
+//   			CatalogName: jsii.String("catalogName"),
 //   			DataAccessRole: jsii.String("dataAccessRole"),
 //   		},
 //   		RedshiftRunConfiguration: &RedshiftRunConfigurationInputProperty{
-//   			RedshiftCredentialConfiguration: &RedshiftCredentialConfigurationProperty{
-//   				SecretManagerArn: jsii.String("secretManagerArn"),
-//   			},
-//   			RedshiftStorage: &RedshiftStorageProperty{
-//   				RedshiftClusterSource: &RedshiftClusterStorageProperty{
-//   					ClusterName: jsii.String("clusterName"),
-//   				},
-//   				RedshiftServerlessSource: &RedshiftServerlessStorageProperty{
-//   					WorkgroupName: jsii.String("workgroupName"),
-//   				},
-//   			},
 //   			RelationalFilterConfigurations: []interface{}{
 //   				&RelationalFilterConfigurationProperty{
 //   					DatabaseName: jsii.String("databaseName"),
@@ -76,6 +65,17 @@ package awsdatazone
 //
 //   			// the properties below are optional
 //   			DataAccessRole: jsii.String("dataAccessRole"),
+//   			RedshiftCredentialConfiguration: &RedshiftCredentialConfigurationProperty{
+//   				SecretManagerArn: jsii.String("secretManagerArn"),
+//   			},
+//   			RedshiftStorage: &RedshiftStorageProperty{
+//   				RedshiftClusterSource: &RedshiftClusterStorageProperty{
+//   					ClusterName: jsii.String("clusterName"),
+//   				},
+//   				RedshiftServerlessSource: &RedshiftServerlessStorageProperty{
+//   					WorkgroupName: jsii.String("workgroupName"),
+//   				},
+//   			},
 //   		},
 //   		SageMakerRunConfiguration: &SageMakerRunConfigurationInputProperty{
 //   			TrackingAssets: map[string][]*string{
@@ -85,8 +85,10 @@ package awsdatazone
 //   			},
 //   		},
 //   	},
+//   	ConnectionIdentifier: jsii.String("connectionIdentifier"),
 //   	Description: jsii.String("description"),
 //   	EnableSetting: jsii.String("enableSetting"),
+//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
 //   	PublishOnImport: jsii.Boolean(false),
 //   	Recommendation: &RecommendationConfigurationProperty{
 //   		EnableBusinessNameGeneration: jsii.Boolean(false),
@@ -104,10 +106,6 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-domainidentifier
 	//
 	DomainIdentifier *string `field:"required" json:"domainIdentifier" yaml:"domainIdentifier"`
-	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-environmentidentifier
-	//
-	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The name of the data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-name
 	//
@@ -128,6 +126,10 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
+	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-connectionidentifier
+	//
+	ConnectionIdentifier *string `field:"optional" json:"connectionIdentifier" yaml:"connectionIdentifier"`
 	// The description of the data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-description
 	//
@@ -136,6 +138,10 @@ type CfnDataSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-enablesetting
 	//
 	EnableSetting *string `field:"optional" json:"enableSetting" yaml:"enableSetting"`
+	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-environmentidentifier
+	//
+	EnvironmentIdentifier *string `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html#cfn-datazone-datasource-publishonimport
 	//

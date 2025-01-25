@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// An event trigger resource of Amazon Connect Customer Profiles.
+// Specifies the rules to perform an action based on customer ingested data.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

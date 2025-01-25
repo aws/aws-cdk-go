@@ -18,7 +18,6 @@ import (
 //
 //   cfnDataSource := awscdk.Aws_datazone.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &CfnDataSourceProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
 //   	Name: jsii.String("name"),
 //   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //   	Type: jsii.String("type"),
@@ -53,20 +52,10 @@ import (
 //
 //   			// the properties below are optional
 //   			AutoImportDataQualityResult: jsii.Boolean(false),
+//   			CatalogName: jsii.String("catalogName"),
 //   			DataAccessRole: jsii.String("dataAccessRole"),
 //   		},
 //   		RedshiftRunConfiguration: &RedshiftRunConfigurationInputProperty{
-//   			RedshiftCredentialConfiguration: &RedshiftCredentialConfigurationProperty{
-//   				SecretManagerArn: jsii.String("secretManagerArn"),
-//   			},
-//   			RedshiftStorage: &RedshiftStorageProperty{
-//   				RedshiftClusterSource: &RedshiftClusterStorageProperty{
-//   					ClusterName: jsii.String("clusterName"),
-//   				},
-//   				RedshiftServerlessSource: &RedshiftServerlessStorageProperty{
-//   					WorkgroupName: jsii.String("workgroupName"),
-//   				},
-//   			},
 //   			RelationalFilterConfigurations: []interface{}{
 //   				&RelationalFilterConfigurationProperty{
 //   					DatabaseName: jsii.String("databaseName"),
@@ -84,6 +73,17 @@ import (
 //
 //   			// the properties below are optional
 //   			DataAccessRole: jsii.String("dataAccessRole"),
+//   			RedshiftCredentialConfiguration: &RedshiftCredentialConfigurationProperty{
+//   				SecretManagerArn: jsii.String("secretManagerArn"),
+//   			},
+//   			RedshiftStorage: &RedshiftStorageProperty{
+//   				RedshiftClusterSource: &RedshiftClusterStorageProperty{
+//   					ClusterName: jsii.String("clusterName"),
+//   				},
+//   				RedshiftServerlessSource: &RedshiftServerlessStorageProperty{
+//   					WorkgroupName: jsii.String("workgroupName"),
+//   				},
+//   			},
 //   		},
 //   		SageMakerRunConfiguration: &SageMakerRunConfigurationInputProperty{
 //   			TrackingAssets: map[string][]*string{
@@ -93,8 +93,10 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ConnectionIdentifier: jsii.String("connectionIdentifier"),
 //   	Description: jsii.String("description"),
 //   	EnableSetting: jsii.String("enableSetting"),
+//   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
 //   	PublishOnImport: jsii.Boolean(false),
 //   	Recommendation: &RecommendationConfigurationProperty{
 //   		EnableBusinessNameGeneration: jsii.Boolean(false),
@@ -113,6 +115,8 @@ type CfnDataSource interface {
 	// The metadata forms attached to the assets that the data source works with.
 	AssetFormsInput() interface{}
 	SetAssetFormsInput(val interface{})
+	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run.
+	AttrConnectionId() *string
 	// The timestamp of when the data source was created.
 	AttrCreatedAt() *string
 	// The ID of the Amazon DataZone domain in which the data source exists.
@@ -141,6 +145,9 @@ type CfnDataSource interface {
 	// The configuration of the data source.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
+	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run.
+	ConnectionIdentifier() *string
+	SetConnectionIdentifier(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -352,6 +359,16 @@ func (j *jsiiProxy_CfnDataSource) AssetFormsInput() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) AttrConnectionId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrConnectionId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) AttrCreatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -487,6 +504,16 @@ func (j *jsiiProxy_CfnDataSource) Configuration() interface{} {
 	_jsii_.Get(
 		j,
 		"configuration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) ConnectionIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectionIdentifier",
 		&returns,
 	)
 	return returns
@@ -712,6 +739,14 @@ func (j *jsiiProxy_CfnDataSource)SetConfiguration(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnDataSource)SetConnectionIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"connectionIdentifier",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDataSource)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -740,9 +775,6 @@ func (j *jsiiProxy_CfnDataSource)SetEnableSetting(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataSource)SetEnvironmentIdentifier(val *string) {
-	if err := j.validateSetEnvironmentIdentifierParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"environmentIdentifier",

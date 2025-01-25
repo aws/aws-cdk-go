@@ -12,17 +12,32 @@ import (
 // An AWS Glue connection to a data source.
 //
 // Example:
-//   var securityGroup securityGroup
-//   var subnet subnet
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack stack
+//   var role iRole
+//   var script code
 //
-//   glue.NewConnection(this, jsii.String("MyConnection"), &ConnectionProps{
-//   	Type: glue.ConnectionType_NETWORK(),
-//   	// The security groups granting AWS Glue inbound access to the data source within the VPC
-//   	SecurityGroups: []iSecurityGroup{
-//   		securityGroup,
+//   glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
+//   	Role: Role,
+//   	Script: Script,
+//   	JobName: jsii.String("RayCustomJobName"),
+//   	Description: jsii.String("This is a description"),
+//   	WorkerType: glue.WorkerType_Z_2X,
+//   	NumberOfWorkers: jsii.Number(5),
+//   	Runtime: glue.Runtime_RAY_TWO_FOUR,
+//   	MaxRetries: jsii.Number(3),
+//   	MaxConcurrentRuns: jsii.Number(100),
+//   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
+//   	Connections: []iConnection{
+//   		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
 //   	},
-//   	// The VPC subnet which contains the data source
-//   	Subnet: Subnet,
+//   	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
+//   	Tags: map[string]*string{
+//   		"FirstTagName": jsii.String("FirstTagValue"),
+//   		"SecondTagName": jsii.String("SecondTagValue"),
+//   		"XTagName": jsii.String("XTagValue"),
+//   	},
 //   })
 //
 // Experimental.

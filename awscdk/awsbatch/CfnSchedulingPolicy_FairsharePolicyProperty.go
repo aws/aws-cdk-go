@@ -34,7 +34,9 @@ type CfnSchedulingPolicy_FairsharePolicyProperty struct {
 	ComputeReservation *float64 `field:"optional" json:"computeReservation" yaml:"computeReservation"`
 	// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use.
 	//
-	// A value of zero (0) indicates that only current usage is measured. The decay allows for more recently run jobs to have more weight than jobs that ran earlier. The maximum supported value is 604800 (1 week).
+	// A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+	//
+	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-fairsharepolicy.html#cfn-batch-schedulingpolicy-fairsharepolicy-sharedecayseconds
 	//
 	ShareDecaySeconds *float64 `field:"optional" json:"shareDecaySeconds" yaml:"shareDecaySeconds"`

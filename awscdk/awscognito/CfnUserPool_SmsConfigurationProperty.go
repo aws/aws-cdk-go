@@ -5,8 +5,6 @@ package awscognito
 //
 // To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
 //
-// This data type is a request parameter of `API_CreateUserPool` , `API_UpdateUserPool` , and `API_SetUserPoolMfaConfig` , and a response parameter of `API_CreateUserPool` , `API_UpdateUserPool` , and `API_GetUserPoolMfaConfig` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

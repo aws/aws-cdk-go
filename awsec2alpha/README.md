@@ -112,6 +112,41 @@ awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 
 Since `VpcV2` does not create subnets automatically, users have full control over IP addresses allocation across subnets.
 
+### Bring your own IPv6 addresses (BYOIP)
+
+If you have your own IP address that you would like to use with EC2, you can set up an IPv6 pool via the AWS CLI, and use that pool ID in your application.
+
+Once you have certified your IP address block with an ROA and have obtained an X-509 certificate, you can run the following command to provision your CIDR block in your AWS account:
+
+```shell
+aws ec2 provision-byoip-cidr --region <region> --cidr <your CIDR block> --cidr-authorization-context Message="1|aws|<account>|<your CIDR block>|<expiration date>|SHA256".Signature="<signature>"
+```
+
+When your BYOIP CIDR is provisioned, you can run the following command to retrieve your IPv6 pool ID, which will be used in your VPC declaration:
+
+```shell
+aws ec2 describe-byoip-cidr --region <region>
+```
+
+For more help on setting up your IPv6 address, please review the [EC2 Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html).
+
+Once you have provisioned your address block, you can use the IPv6 in your VPC as follows:
+
+```go
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
+	PrimaryAddressBlock: awsec2alpha.IpAddresses_Ipv4(jsii.String("10.1.0.0/16")),
+	SecondaryAddressBlocks: []iIpAddresses{
+		awsec2alpha.IpAddresses_Ipv6ByoipPool(&Ipv6PoolSecondaryAddressProps{
+			CidrBlockName: jsii.String("MyByoipCidrBlock"),
+			Ipv6PoolId: jsii.String("ipv6pool-ec2-someHashValue"),
+			Ipv6CidrBlock: jsii.String("2001:db8::/32"),
+		}),
+	},
+	EnableDnsHostnames: jsii.Boolean(true),
+	EnableDnsSupport: jsii.Boolean(true),
+})
+```
+
 ## Routing
 
 `RouteTable` is a new construct that allows for route tables to be customized in a variety of ways. For instance, the following example shows how a custom route table can be created and appended to a subnet:

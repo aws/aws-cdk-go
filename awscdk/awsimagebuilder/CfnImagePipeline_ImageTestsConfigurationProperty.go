@@ -26,7 +26,7 @@ type CfnImagePipeline_ImageTestsConfigurationProperty struct {
 	ImageTestsEnabled interface{} `field:"optional" json:"imageTestsEnabled" yaml:"imageTestsEnabled"`
 	// The maximum time in minutes that tests are permitted to run.
 	//
-	// > The timeout attribute is not currently active. This value is ignored.
+	// > The timeout property is not currently active. This value is ignored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
 	//
 	TimeoutMinutes *float64 `field:"optional" json:"timeoutMinutes" yaml:"timeoutMinutes"`

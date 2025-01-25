@@ -18,7 +18,7 @@ type MapProps struct {
 	// Experimental.
 	Style Style `field:"required" json:"style" yaml:"style"`
 	// Specifies the custom layers for the style.
-	// Default: - no custom layes.
+	// Default: - no custom layers.
 	//
 	// Experimental.
 	CustomLayers *[]CustomLayer `field:"optional" json:"customLayers" yaml:"customLayers"`

@@ -75,6 +75,9 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
 //   		},
+//   		PrometheusMonitoringConfiguration: &PrometheusMonitoringConfigurationProperty{
+//   			RemoteWriteUrl: jsii.String("remoteWriteUrl"),
+//   		},
 //   		S3MonitoringConfiguration: &S3MonitoringConfigurationProperty{
 //   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
 //   			LogUri: jsii.String("logUri"),

@@ -68,26 +68,10 @@ The `code` property can use `fromAsset` as shown above to reference a local jar
 file in s3 or `fromBucket` to reference a file in s3.
 
 ```go
-import path "github.com/aws-samples/dummy/path"
-import assets "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdkkinesisanalyticsflinkalpha"
-
-app := core.NewApp()
-stack := core.NewStack(app, jsii.String("FlinkAppCodeFromBucketTest"))
-
-asset := assets.NewAsset(stack, jsii.String("CodeAsset"), &AssetProps{
-	Path: path.join(__dirname, jsii.String("code-asset")),
-})
-bucket := asset.Bucket
-fileKey := asset.S3ObjectKey
-
 flink.NewApplication(stack, jsii.String("App"), &ApplicationProps{
 	Code: flink.ApplicationCode_FromBucket(bucket, fileKey),
 	Runtime: flink.Runtime_FLINK_1_19(),
 })
-
-app.Synth()
 ```
 
 The `propertyGroups` property provides a way of passing arbitrary runtime

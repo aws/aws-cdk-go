@@ -102,6 +102,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataProtectionPolicy", GoGetter: "DataProtectionPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStatusLogging", GoGetter: "DeliveryStatusLogging"},
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
+			_jsii_.MemberProperty{JsiiProperty: "fifoThroughputScope", GoGetter: "FifoThroughputScope"},
 			_jsii_.MemberProperty{JsiiProperty: "fifoTopic", GoGetter: "FifoTopic"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},

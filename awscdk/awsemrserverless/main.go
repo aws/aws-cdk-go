@@ -122,6 +122,10 @@ func init() {
 		reflect.TypeOf((*CfnApplication_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emrserverless.CfnApplication.PrometheusMonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnApplication_PrometheusMonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emrserverless.CfnApplication.S3MonitoringConfigurationProperty",
 		reflect.TypeOf((*CfnApplication_S3MonitoringConfigurationProperty)(nil)).Elem(),
 	)

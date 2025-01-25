@@ -26,9 +26,9 @@ type CfnMountTargetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
 	//
 	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
-	// Up to five VPC security group IDs, of the form `sg-xxxxxxxx` .
+	// VPC security group IDs, of the form `sg-xxxxxxxx` .
 	//
-	// These must be for the same VPC as subnet specified.
+	// These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
 	//
 	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`

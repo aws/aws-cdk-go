@@ -269,7 +269,9 @@ type CfnClusterProps struct {
 	ElasticIp *string `field:"optional" json:"elasticIp" yaml:"elasticIp"`
 	// If `true` , the data in the cluster is encrypted at rest.
 	//
-	// Default: false.
+	// If you set the value on this parameter to `false` , the request will fail.
+	//
+	// Default: true.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
 	//
 	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
@@ -407,6 +409,8 @@ type CfnClusterProps struct {
 	//
 	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// If `true` , the cluster can be accessed from a public network.
+	//
+	// Default: false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
 	//
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`

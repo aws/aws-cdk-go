@@ -13,13 +13,16 @@ import (
 // Represents a Glue Job's Code assets (an asset can be a scripts, a jar, a python file or any other file).
 //
 // Example:
-//   glue.NewJob(this, jsii.String("EnableRunQueuing"), &JobProps{
-//   	JobName: jsii.String("EtlJobWithRunQueuing"),
-//   	Executable: glue.JobExecutable_PythonEtl(&PythonSparkJobExecutableProps{
-//   		GlueVersion: glue.GlueVersion_V5_0(),
-//   		PythonVersion: glue.PythonVersion_THREE,
-//   		Script: glue.Code_FromAsset(path.join(__dirname, jsii.String("job-script"), jsii.String("hello_world.py"))),
-//   	}),
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack stack
+//   var role iRole
+//   var script code
+//
+//   glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
+//   	Role: Role,
+//   	Script: Script,
+//   	JobName: jsii.String("PySparkETLJob"),
 //   	JobRunQueuingEnabled: jsii.Boolean(true),
 //   })
 //

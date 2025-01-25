@@ -8,17 +8,11 @@ import (
 // Properties of a DataQualityTargetTable.
 //
 // Example:
-//   glue.NewDataQualityRuleset(this, jsii.String("MyDataQualityRuleset"), &DataQualityRulesetProps{
-//   	ClientToken: jsii.String("client_token"),
-//   	Description: jsii.String("description"),
-//   	RulesetName: jsii.String("ruleset_name"),
-//   	RulesetDqdl: jsii.String("ruleset_dqdl"),
-//   	Tags: map[string]*string{
-//   		"key1": jsii.String("value1"),
-//   		"key2": jsii.String("value2"),
-//   	},
-//   	TargetTable: glue.NewDataQualityTargetTable(jsii.String("database_name"), jsii.String("table_name")),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//
+//   dataQualityTargetTable := glue_alpha.NewDataQualityTargetTable(jsii.String("databaseName"), jsii.String("tableName"))
 //
 // Experimental.
 type DataQualityTargetTable interface {

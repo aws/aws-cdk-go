@@ -13,7 +13,7 @@ import (
 //
 // For more information, see [Creating a table bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html) in the *Amazon Simple Storage Service User Guide* .
 //
-// - **Permissions** - You must have the `s3:CreateTableBucket` permission to use this operation.
+// - **Permissions** - You must have the `s3tables:CreateTableBucket` permission to use this operation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

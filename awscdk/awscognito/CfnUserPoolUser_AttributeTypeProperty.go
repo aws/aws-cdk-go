@@ -3,8 +3,6 @@ package awscognito
 
 // The name and value of a user attribute.
 //
-// This data type is a request parameter of `API_AdminUpdateUserAttributes` and `API_UpdateUserAttributes` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

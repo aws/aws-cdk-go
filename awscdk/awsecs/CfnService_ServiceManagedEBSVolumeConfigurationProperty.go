@@ -37,6 +37,7 @@ package awsecs
 //   		},
 //   	},
 //   	Throughput: jsii.Number(123),
+//   	VolumeInitializationRate: jsii.Number(123),
 //   	VolumeType: jsii.String("volumeType"),
 //   }
 //
@@ -122,6 +123,9 @@ type CfnService_ServiceManagedEBSVolumeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html#cfn-ecs-service-servicemanagedebsvolumeconfiguration-throughput
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html#cfn-ecs-service-servicemanagedebsvolumeconfiguration-volumeinitializationrate
+	//
+	VolumeInitializationRate *float64 `field:"optional" json:"volumeInitializationRate" yaml:"volumeInitializationRate"`
 	// The volume type.
 	//
 	// This parameter maps 1:1 with the `VolumeType` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference* . For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide* .

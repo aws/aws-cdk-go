@@ -35,6 +35,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addMetric", GoMethod: "AddMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "addObjectCreatedNotification", GoMethod: "AddObjectCreatedNotification"},
 			_jsii_.MemberMethod{JsiiMethod: "addObjectRemovedNotification", GoMethod: "AddObjectRemovedNotification"},
+			_jsii_.MemberMethod{JsiiMethod: "addReplicationPolicy", GoMethod: "AddReplicationPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForObjects", GoMethod: "ArnForObjects"},
@@ -70,6 +71,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailWriteObject", GoMethod: "OnCloudTrailWriteObject"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationRoleArn", GoGetter: "ReplicationRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "s3UrlForObject", GoMethod: "S3UrlForObject"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -108,6 +110,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addEventNotification", GoMethod: "AddEventNotification"},
 			_jsii_.MemberMethod{JsiiMethod: "addObjectCreatedNotification", GoMethod: "AddObjectCreatedNotification"},
 			_jsii_.MemberMethod{JsiiMethod: "addObjectRemovedNotification", GoMethod: "AddObjectRemovedNotification"},
+			_jsii_.MemberMethod{JsiiMethod: "addReplicationPolicy", GoMethod: "AddReplicationPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForObjects", GoMethod: "ArnForObjects"},
@@ -143,6 +146,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailWriteObject", GoMethod: "OnCloudTrailWriteObject"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationRoleArn", GoGetter: "ReplicationRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "s3UrlForObject", GoMethod: "S3UrlForObject"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -1151,6 +1155,10 @@ func init() {
 			"OBJECT_ACL_PUT": EventType_OBJECT_ACL_PUT,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.Filter",
+		reflect.TypeOf((*Filter)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_s3.HttpMethods",
 		reflect.TypeOf((*HttpMethods)(nil)).Elem(),
@@ -1169,6 +1177,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addEventNotification", GoMethod: "AddEventNotification"},
 			_jsii_.MemberMethod{JsiiMethod: "addObjectCreatedNotification", GoMethod: "AddObjectCreatedNotification"},
 			_jsii_.MemberMethod{JsiiMethod: "addObjectRemovedNotification", GoMethod: "AddObjectRemovedNotification"},
+			_jsii_.MemberMethod{JsiiMethod: "addReplicationPolicy", GoMethod: "AddReplicationPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForObjects", GoMethod: "ArnForObjects"},
@@ -1195,6 +1204,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailPutObject", GoMethod: "OnCloudTrailPutObject"},
 			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailWriteObject", GoMethod: "OnCloudTrailWriteObject"},
 			_jsii_.MemberProperty{JsiiProperty: "policy", GoGetter: "Policy"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationRoleArn", GoGetter: "ReplicationRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "s3UrlForObject", GoMethod: "S3UrlForObject"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "transferAccelerationUrlForObject", GoMethod: "TransferAccelerationUrlForObject"},
@@ -1331,6 +1341,20 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ReplaceKey{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.ReplicationRule",
+		reflect.TypeOf((*ReplicationRule)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_s3.ReplicationTimeValue",
+		reflect.TypeOf((*ReplicationTimeValue)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "minutes", GoGetter: "Minutes"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ReplicationTimeValue{}
 		},
 	)
 	_jsii_.RegisterStruct(

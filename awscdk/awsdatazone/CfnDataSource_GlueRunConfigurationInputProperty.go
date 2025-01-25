@@ -26,6 +26,7 @@ package awsdatazone
 //
 //   	// the properties below are optional
 //   	AutoImportDataQualityResult: jsii.Boolean(false),
+//   	CatalogName: jsii.String("catalogName"),
 //   	DataAccessRole: jsii.String("dataAccessRole"),
 //   }
 //
@@ -40,6 +41,10 @@ type CfnDataSource_GlueRunConfigurationInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-autoimportdataqualityresult
 	//
 	AutoImportDataQualityResult interface{} `field:"optional" json:"autoImportDataQualityResult" yaml:"autoImportDataQualityResult"`
+	// The catalog name in the AWS Glue run configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-catalogname
+	//
+	CatalogName *string `field:"optional" json:"catalogName" yaml:"catalogName"`
 	// The data access role included in the configuration details of the AWS Glue data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html#cfn-datazone-datasource-gluerunconfigurationinput-dataaccessrole
 	//

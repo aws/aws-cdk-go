@@ -127,7 +127,7 @@ type CfnUserPoolClient interface {
 	// When `true` , your application can include additional `UserContextData` in authentication requests.
 	EnablePropagateAdditionalUserContextData() interface{}
 	SetEnablePropagateAdditionalUserContextData(val interface{})
-	// Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
+	// Activates or deactivates token revocation.
 	EnableTokenRevocation() interface{}
 	SetEnableTokenRevocation(val interface{})
 	// The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.

@@ -12,6 +12,7 @@ func init() {
 		reflect.TypeOf((*AccessLevel)(nil)).Elem(),
 		map[string]interface{}{
 			"READ": AccessLevel_READ,
+			"LIST": AccessLevel_LIST,
 			"WRITE": AccessLevel_WRITE,
 			"DELETE": AccessLevel_DELETE,
 		},

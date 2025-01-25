@@ -46,7 +46,7 @@ import (
 type BucketWebsiteTarget interface {
 	awsroute53.IAliasRecordTarget
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
+	Bind(record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
 }
 
 // The jsii proxy struct for BucketWebsiteTarget
@@ -81,8 +81,8 @@ func NewBucketWebsiteTarget_Override(b BucketWebsiteTarget, bucket awss3.IBucket
 	)
 }
 
-func (b *jsiiProxy_BucketWebsiteTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
-	if err := b.validateBindParameters(_record); err != nil {
+func (b *jsiiProxy_BucketWebsiteTarget) Bind(record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
+	if err := b.validateBindParameters(record); err != nil {
 		panic(err)
 	}
 	var returns *awsroute53.AliasRecordTargetConfig
@@ -90,7 +90,7 @@ func (b *jsiiProxy_BucketWebsiteTarget) Bind(_record awsroute53.IRecordSet, _zon
 	_jsii_.Invoke(
 		b,
 		"bind",
-		[]interface{}{_record, _zone},
+		[]interface{}{record, _zone},
 		&returns,
 	)
 

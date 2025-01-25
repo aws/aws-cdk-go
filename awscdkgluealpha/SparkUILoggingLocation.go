@@ -26,12 +26,10 @@ import (
 // Experimental.
 type SparkUILoggingLocation struct {
 	// The bucket where the Glue job stores the logs.
-	// Default: - a new bucket will be created.
-	//
 	// Experimental.
 	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
-	// Default: - the logs will be written at the root of the bucket.
+	// Default: '/' - the logs will be written at the root of the bucket.
 	//
 	// Experimental.
 	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`

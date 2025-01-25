@@ -28,10 +28,6 @@ func (i *jsiiProxy_IJob) validateOnFailureParameters(id *string, options *awseve
 	return nil
 }
 
-func (i *jsiiProxy_IJob) validateOnStateChangeParameters(id *string, jobState JobState, options *awsevents.OnEventOptions) error {
-	return nil
-}
-
 func (i *jsiiProxy_IJob) validateOnSuccessParameters(id *string, options *awsevents.OnEventOptions) error {
 	return nil
 }

@@ -5,8 +5,6 @@ package awscognito
 //
 // Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
 //
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -40,8 +38,6 @@ type CfnUserPool_AdminCreateUserConfigProperty struct {
 	//
 	InviteMessageTemplate interface{} `field:"optional" json:"inviteMessageTemplate" yaml:"inviteMessageTemplate"`
 	// This parameter is no longer in use.
-	//
-	// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 	//
 	// The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 	//

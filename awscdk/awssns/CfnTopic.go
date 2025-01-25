@@ -36,6 +36,7 @@ import (
 //   		},
 //   	},
 //   	DisplayName: jsii.String("displayName"),
+//   	FifoThroughputScope: jsii.String("fifoThroughputScope"),
 //   	FifoTopic: jsii.Boolean(false),
 //   	KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
 //   	SignatureVersion: jsii.String("signatureVersion"),
@@ -89,6 +90,8 @@ type CfnTopic interface {
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	FifoThroughputScope() *string
+	SetFifoThroughputScope(val *string)
 	// Set to true to create a FIFO topic.
 	FifoTopic() interface{}
 	SetFifoTopic(val interface{})
@@ -390,6 +393,16 @@ func (j *jsiiProxy_CfnTopic) DisplayName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) FifoThroughputScope() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fifoThroughputScope",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopic) FifoTopic() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -600,6 +613,14 @@ func (j *jsiiProxy_CfnTopic)SetDisplayName(val *string) {
 	_jsii_.Set(
 		j,
 		"displayName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetFifoThroughputScope(val *string) {
+	_jsii_.Set(
+		j,
+		"fifoThroughputScope",
 		val,
 	)
 }

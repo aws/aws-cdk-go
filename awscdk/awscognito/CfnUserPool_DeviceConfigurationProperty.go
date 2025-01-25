@@ -3,14 +3,6 @@ package awscognito
 
 // The device-remembering configuration for a user pool.
 //
-// A `API_DescribeUserPool` request returns a null value for this object when the user pool isn't configured to remember devices. When device remembering is active, you can remember a user's device with a `API_ConfirmDevice` API request. Additionally. when the property `DeviceOnlyRememberedOnUserPrompt` is `true` , you must follow `ConfirmDevice` with an `API_UpdateDeviceStatus` API request that sets the user's device to `remembered` or `not_remembered` .
-//
-// To sign in with a remembered device, include `DEVICE_KEY` in the authentication parameters in your user's `API_InitiateAuth` request. If your app doesn't include a `DEVICE_KEY` parameter, the `API_InitiateAuth` from Amazon Cognito includes newly-generated `DEVICE_KEY` and `DEVICE_GROUP_KEY` values under `NewDeviceMetadata` . Store these values to use in future device-authentication requests.
-//
-// > When you provide a value for any property of `DeviceConfiguration` , you activate the device remembering for the user pool.
-// >
-// > This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

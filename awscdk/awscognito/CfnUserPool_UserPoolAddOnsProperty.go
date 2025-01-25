@@ -1,13 +1,11 @@
 package awscognito
 
 
-// Contains settings for activation of threat protection, including the operating mode and additional authentication types.
+// User pool add-ons.
 //
-// To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to potentially unwanted traffic to your user pool, set to `ENFORCED` .
+// Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
 //
 // For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
-//
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

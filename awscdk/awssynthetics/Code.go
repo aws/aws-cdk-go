@@ -29,7 +29,7 @@ type Code interface {
 	// Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
 	//
 	// Returns: a bound `CodeConfig`.
-	Bind(scope constructs.Construct, handler *string, family RuntimeFamily) *CodeConfig
+	Bind(scope constructs.Construct, handler *string, family RuntimeFamily, runtimeName *string) *CodeConfig
 }
 
 // The jsii proxy struct for Code
@@ -119,7 +119,7 @@ func Code_FromInline(code *string) InlineCode {
 	return returns
 }
 
-func (c *jsiiProxy_Code) Bind(scope constructs.Construct, handler *string, family RuntimeFamily) *CodeConfig {
+func (c *jsiiProxy_Code) Bind(scope constructs.Construct, handler *string, family RuntimeFamily, runtimeName *string) *CodeConfig {
 	if err := c.validateBindParameters(scope, handler, family); err != nil {
 		panic(err)
 	}
@@ -128,7 +128,7 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, handler *string, famil
 	_jsii_.Invoke(
 		c,
 		"bind",
-		[]interface{}{scope, handler, family},
+		[]interface{}{scope, handler, family, runtimeName},
 		&returns,
 	)
 

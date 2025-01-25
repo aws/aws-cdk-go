@@ -57,7 +57,7 @@ type FirewallRuleGroupAssociation interface {
 	FirewallRuleGroupAssociationId() *string
 	// The owner of the association, used only for lists that are not managed by you.
 	//
-	// If you use AWS Firewall Manager to manage your firewallls from DNS Firewall,
+	// If you use AWS Firewall Manager to manage your firewalls from DNS Firewall,
 	// then this reports Firewall Manager as the managed owner.
 	// Experimental.
 	FirewallRuleGroupAssociationManagedOwnerName() *string

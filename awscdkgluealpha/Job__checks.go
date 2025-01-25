@@ -10,12 +10,33 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 func (j *jsiiProxy_Job) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_Job) validateBuildJobArnParameters(scope constructs.Construct, jobName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if jobName == nil {
+		return fmt.Errorf("parameter jobName is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_Job) validateCodeS3ObjectUrlParameters(code Code) error {
+	if code == nil {
+		return fmt.Errorf("parameter code is required, but nil was provided")
 	}
 
 	return nil
@@ -148,7 +169,19 @@ func (j *jsiiProxy_Job) validateOnTimeoutParameters(id *string, options *awseven
 	return nil
 }
 
-func validateJob_FromJobAttributesParameters(scope constructs.Construct, id *string, attrs *JobAttributes) error {
+func (j *jsiiProxy_Job) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
+	if role == nil {
+		return fmt.Errorf("parameter role is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateJob_FromJobAttributesParameters(scope constructs.Construct, id *string, attrs *JobImportAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -191,7 +224,7 @@ func validateJob_IsResourceParameters(construct constructs.IConstruct) error {
 	return nil
 }
 
-func validateNewJobParameters(scope constructs.Construct, id *string, props *JobProps) error {
+func validateNewJobParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
@@ -200,9 +233,6 @@ func validateNewJobParameters(scope constructs.Construct, id *string, props *Job
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

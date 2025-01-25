@@ -10,9 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (l *jsiiProxy_LambdaDestination) validateBindParameters(_scope constructs.Construct, bucket awss3.IBucket) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (l *jsiiProxy_LambdaDestination) validateBindParameters(scope constructs.Construct, bucket awss3.IBucket) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if bucket == nil {

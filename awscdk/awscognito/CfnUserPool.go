@@ -239,8 +239,6 @@ type CfnUserPool interface {
 	// The tree node.
 	Node() constructs.Node
 	// A list of user pool policies.
-	//
-	// Contains the policy that sets password-complexity requirements.
 	Policies() interface{}
 	SetPolicies(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

@@ -1,9 +1,7 @@
 package awscognito
 
 
-// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection features.
-//
-// This data type is a request parameter of `API_SetRiskConfiguration` and a response parameter of `API_DescribeRiskConfiguration` .
+// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

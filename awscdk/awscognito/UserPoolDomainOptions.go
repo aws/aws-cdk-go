@@ -35,5 +35,13 @@ type UserPoolDomainOptions struct {
 	// Default: - not set if `cognitoDomain` is specified, otherwise, throws an error.
 	//
 	CustomDomain *CustomDomainOptions `field:"optional" json:"customDomain" yaml:"customDomain"`
+	// A version that indicates the state of managed login.
+	//
+	// This choice applies to all app clients that host services at the domain.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html
+	//
+	// Default: undefined - Cognito default setting is ManagedLoginVersion.CLASSIC_HOSTED_UI
+	//
+	ManagedLoginVersion ManagedLoginVersion `field:"optional" json:"managedLoginVersion" yaml:"managedLoginVersion"`
 }
 

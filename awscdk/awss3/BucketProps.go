@@ -180,6 +180,10 @@ type BucketProps struct {
 	// Default: - The bucket will be orphaned.
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// A container for one or more replication rules.
+	// Default: - No replication.
+	//
+	ReplicationRules *[]*ReplicationRule `field:"optional" json:"replicationRules" yaml:"replicationRules"`
 	// Destination bucket for the server access logs.
 	// Default: - If "serverAccessLogsPrefix" undefined - access logs disabled, otherwise - log to current bucket.
 	//

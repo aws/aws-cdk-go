@@ -13,8 +13,6 @@ import (
 //
 // Contains details about the group and the way that it contributes to IAM role decisions with identity pools. Identity pools can make decisions about the IAM role to assign based on groups: users get credentials for the role associated with their highest-priority group.
 //
-// This data type is a response parameter of `API_AdminListGroupsForUser` , `API_CreateGroup` , `API_GetGroup` , `API_ListGroups` , and `API_UpdateGroup` .
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

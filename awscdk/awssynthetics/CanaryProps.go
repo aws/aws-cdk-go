@@ -87,6 +87,7 @@ type CanaryProps struct {
 	// Using `Cleanup.LAMBDA` will create a Custom Resource to achieve this.
 	// Default: Cleanup.NOTHING
 	//
+	// Deprecated: use provisionedResourceCleanup.
 	Cleanup Cleanup `field:"optional" json:"cleanup" yaml:"cleanup"`
 	// Key-value pairs that the Synthetics caches and makes available for your canary scripts.
 	//
@@ -107,6 +108,10 @@ type CanaryProps struct {
 	// Default: Size.mebibytes(1024)
 	//
 	Memory awscdk.Size `field:"optional" json:"memory" yaml:"memory"`
+	// Whether to also delete the Lambda functions and layers used by this canary when the canary is deleted.
+	// Default: undefined - the default behavior is to not delete the Lambda functions and layers.
+	//
+	ProvisionedResourceCleanup *bool `field:"optional" json:"provisionedResourceCleanup" yaml:"provisionedResourceCleanup"`
 	// Canary execution role.
 	//
 	// This is the role that will be assumed by the canary upon execution.

@@ -1,7 +1,7 @@
 package awslogs
 
 
-// This object defines one log field key that will be replaced using the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-substituteString) processor.
+// This object defines one log field key that will be replaced using the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-substituteString) processor.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
