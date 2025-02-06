@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdkmskalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,8 +29,7 @@ import (
 //
 // Experimental.
 type Cluster interface {
-	awscdk.Resource
-	ICluster
+	ClusterBase
 	// Get the list of brokers that a client application can use to bootstrap.
 	//
 	// Uses a Custom Resource to make an API call to `getBootstrapBrokers` using the Javascript SDK.
@@ -154,8 +152,7 @@ type Cluster interface {
 
 // The jsii proxy struct for Cluster
 type jsiiProxy_Cluster struct {
-	internal.Type__awscdkResource
-	jsiiProxy_ICluster
+	jsiiProxy_ClusterBase
 }
 
 func (j *jsiiProxy_Cluster) BootstrapBrokers() *string {

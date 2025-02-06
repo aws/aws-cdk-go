@@ -50,6 +50,10 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions.AfterwardsOptions",
 		reflect.TypeOf((*AfterwardsOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.AssignableStateOptions",
+		reflect.TypeOf((*AssignableStateOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.AwsOwnedEncryptionConfiguration",
 		reflect.TypeOf((*AwsOwnedEncryptionConfiguration)(nil)).Elem(),
@@ -365,6 +369,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
 			_jsii_.MemberMethod{JsiiMethod: "afterwards", GoMethod: "Afterwards"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -378,16 +384,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "otherwise", GoMethod: "Otherwise"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -406,6 +416,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_State)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.ChoiceJsonPathProps",
+		reflect.TypeOf((*ChoiceJsonPathProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.ChoiceJsonataProps",
+		reflect.TypeOf((*ChoiceJsonataProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.ChoiceProps",
@@ -459,6 +477,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
 			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -472,16 +492,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -545,6 +569,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
 			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -553,6 +579,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
 			_jsii_.MemberMethod{JsiiMethod: "itemProcessor", GoMethod: "ItemProcessor"},
+			_jsii_.MemberProperty{JsiiProperty: "items", GoGetter: "Items"},
 			_jsii_.MemberProperty{JsiiProperty: "itemSelector", GoGetter: "ItemSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "itemsPath", GoGetter: "ItemsPath"},
 			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
@@ -561,16 +588,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -589,6 +620,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_INextable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.DistributedMapJsonPathProps",
+		reflect.TypeOf((*DistributedMapJsonPathProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.DistributedMapJsonataProps",
+		reflect.TypeOf((*DistributedMapJsonataProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.DistributedMapProps",
@@ -621,6 +660,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -633,16 +674,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -660,6 +705,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_State)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.FailJsonPathProps",
+		reflect.TypeOf((*FailJsonPathProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.FailJsonataProps",
+		reflect.TypeOf((*FailJsonataProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.FailProps",
@@ -830,6 +883,26 @@ func init() {
 			return &jsiiProxy_JsonPath{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.JsonPathCommonOptions",
+		reflect.TypeOf((*JsonPathCommonOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.JsonPathStateProps",
+		reflect.TypeOf((*JsonPathStateProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.JsonataCommonOptions",
+		reflect.TypeOf((*JsonataCommonOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.JsonataStateOptions",
+		reflect.TypeOf((*JsonataStateOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.JsonataStateProps",
+		reflect.TypeOf((*JsonataStateProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_stepfunctions.LogLevel",
 		reflect.TypeOf((*LogLevel)(nil)).Elem(),
@@ -855,6 +928,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
 			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -863,6 +938,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
 			_jsii_.MemberMethod{JsiiMethod: "itemProcessor", GoMethod: "ItemProcessor"},
+			_jsii_.MemberProperty{JsiiProperty: "items", GoGetter: "Items"},
 			_jsii_.MemberProperty{JsiiProperty: "itemSelector", GoGetter: "ItemSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "itemsPath", GoGetter: "ItemsPath"},
 			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
@@ -872,16 +948,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -910,6 +990,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -917,6 +999,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "items", GoGetter: "Items"},
 			_jsii_.MemberProperty{JsiiProperty: "itemSelector", GoGetter: "ItemSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "itemsPath", GoGetter: "ItemsPath"},
 			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
@@ -925,16 +1008,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -955,8 +1042,28 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.MapBaseJsonPathOptions",
+		reflect.TypeOf((*MapBaseJsonPathOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.MapBaseJsonataOptions",
+		reflect.TypeOf((*MapBaseJsonataOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.MapBaseOptions",
+		reflect.TypeOf((*MapBaseOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.MapBaseProps",
 		reflect.TypeOf((*MapBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.MapJsonPathProps",
+		reflect.TypeOf((*MapJsonPathProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.MapJsonataProps",
+		reflect.TypeOf((*MapJsonataProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.MapProps",
@@ -973,6 +1080,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
 			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberMethod{JsiiMethod: "branch", GoMethod: "Branch"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
@@ -987,16 +1096,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -1017,6 +1130,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.ParallelJsonPathProps",
+		reflect.TypeOf((*ParallelJsonPathProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.ParallelJsonataProps",
+		reflect.TypeOf((*ParallelJsonataProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.ParallelProps",
 		reflect.TypeOf((*ParallelProps)(nil)).Elem(),
 	)
@@ -1029,6 +1150,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -1042,16 +1165,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -1070,6 +1197,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_INextable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.PassJsonPathProps",
+		reflect.TypeOf((*PassJsonPathProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.PassJsonataProps",
+		reflect.TypeOf((*PassJsonataProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.PassProps",
@@ -1093,6 +1228,24 @@ func init() {
 		map[string]interface{}{
 			"STANDARD": ProcessorType_STANDARD,
 			"EXPRESS": ProcessorType_EXPRESS,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions.ProvideItems",
+		reflect.TypeOf((*ProvideItems)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "items", GoGetter: "Items"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ProvideItems{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_stepfunctions.QueryLanguage",
+		reflect.TypeOf((*QueryLanguage)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON_PATH": QueryLanguage_JSON_PATH,
+			"JSONATA": QueryLanguage_JSONATA,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1240,6 +1393,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -1252,16 +1407,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -1280,6 +1439,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IChainable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.StateBaseProps",
+		reflect.TypeOf((*StateBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.StateGraph",
@@ -1407,6 +1570,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -1419,16 +1584,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -1446,6 +1615,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_State)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.SucceedJsonPathProps",
+		reflect.TypeOf((*SucceedJsonPathProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.SucceedJsonataProps",
+		reflect.TypeOf((*SucceedJsonataProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.SucceedProps",
@@ -1488,6 +1665,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
 			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -1511,16 +1690,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -1543,13 +1726,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.TaskStateBaseOptions",
+		reflect.TypeOf((*TaskStateBaseOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.TaskStateBaseProps",
 		reflect.TypeOf((*TaskStateBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.TaskStateJsonPathBaseProps",
+		reflect.TypeOf((*TaskStateJsonPathBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.TaskStateJsonataBaseProps",
+		reflect.TypeOf((*TaskStateJsonataBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.Timeout",
 		reflect.TypeOf((*Timeout)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "jsonataExpression", GoGetter: "JsonataExpression"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "seconds", GoGetter: "Seconds"},
 		},
@@ -1566,6 +1762,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addItemProcessor", GoMethod: "AddItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "arguments", GoGetter: "Arguments"},
+			_jsii_.MemberProperty{JsiiProperty: "assign", GoGetter: "Assign"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
 			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
 			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
@@ -1579,16 +1777,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "outputs", GoGetter: "Outputs"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "processor", GoGetter: "Processor"},
 			_jsii_.MemberProperty{JsiiProperty: "processorConfig", GoGetter: "ProcessorConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "processorMode", GoGetter: "ProcessorMode"},
+			_jsii_.MemberProperty{JsiiProperty: "queryLanguage", GoGetter: "QueryLanguage"},
+			_jsii_.MemberMethod{JsiiMethod: "renderAssign", GoMethod: "RenderAssign"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
 			_jsii_.MemberMethod{JsiiMethod: "renderItemProcessor", GoMethod: "RenderItemProcessor"},
 			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
 			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderQueryLanguage", GoMethod: "RenderQueryLanguage"},
 			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
 			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
 			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
@@ -1607,6 +1809,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_INextable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.WaitJsonPathProps",
+		reflect.TypeOf((*WaitJsonPathProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions.WaitJsonataProps",
+		reflect.TypeOf((*WaitJsonataProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.WaitProps",

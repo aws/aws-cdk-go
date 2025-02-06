@@ -78,7 +78,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-prompttemplateconfiguration.html
 //
 type CfnPromptVersion_PromptTemplateConfigurationProperty struct {
-	// Configuration for chat prompt template.
+	// Contains configurations to use the prompt in a conversational format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-prompttemplateconfiguration.html#cfn-bedrock-promptversion-prompttemplateconfiguration-chat
 	//
 	Chat interface{} `field:"optional" json:"chat" yaml:"chat"`

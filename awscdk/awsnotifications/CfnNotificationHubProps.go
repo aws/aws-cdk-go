@@ -15,7 +15,7 @@ package awsnotifications
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationhub.html
 //
 type CfnNotificationHubProps struct {
-	// Region that NotificationHub is present in.
+	// The `NotificationHub` Region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationhub.html#cfn-notifications-notificationhub-region
 	//
 	Region *string `field:"required" json:"region" yaml:"region"`

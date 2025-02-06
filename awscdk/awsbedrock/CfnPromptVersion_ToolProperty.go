@@ -1,7 +1,9 @@
 package awsbedrock
 
 
-// Tool details.
+// Information about a tool that you can use with the Converse API.
+//
+// For more information, see [Call a tool with the Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html) in the Amazon Bedrock User Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,7 +27,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tool.html
 //
 type CfnPromptVersion_ToolProperty struct {
-	// Tool specification.
+	// The specfication for the tool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tool.html#cfn-bedrock-promptversion-tool-toolspec
 	//
 	ToolSpec interface{} `field:"required" json:"toolSpec" yaml:"toolSpec"`

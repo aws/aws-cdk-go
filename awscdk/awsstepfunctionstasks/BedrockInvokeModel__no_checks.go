@@ -108,6 +108,14 @@ func validateBedrockInvokeModel_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateBedrockInvokeModel_JsonataParameters(scope constructs.Construct, id *string, props *BedrockInvokeModelJsonataProps) error {
+	return nil
+}
+
+func validateBedrockInvokeModel_JsonPathParameters(scope constructs.Construct, id *string, props *BedrockInvokeModelJsonPathProps) error {
+	return nil
+}
+
 func validateBedrockInvokeModel_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

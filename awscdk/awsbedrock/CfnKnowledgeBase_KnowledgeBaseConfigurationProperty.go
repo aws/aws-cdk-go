@@ -99,6 +99,7 @@ package awsbedrock
 //   		EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
 //   			BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
 //   				Dimensions: jsii.Number(123),
+//   				EmbeddingDataType: jsii.String("embeddingDataType"),
 //   			},
 //   		},
 //   		SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{
@@ -127,7 +128,7 @@ type CfnKnowledgeBase_KnowledgeBaseConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-kendraknowledgebaseconfiguration
 	//
 	KendraKnowledgeBaseConfiguration interface{} `field:"optional" json:"kendraKnowledgeBaseConfiguration" yaml:"kendraKnowledgeBaseConfiguration"`
-	// Configurations for a SQL knowledge base.
+	// Specifies configurations for a knowledge base connected to an SQL database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-sqlknowledgebaseconfiguration
 	//
 	SqlKnowledgeBaseConfiguration interface{} `field:"optional" json:"sqlKnowledgeBaseConfiguration" yaml:"sqlKnowledgeBaseConfiguration"`

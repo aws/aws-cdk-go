@@ -108,6 +108,14 @@ func validateEmrSetClusterTerminationProtection_IsConstructParameters(x interfac
 	return nil
 }
 
+func validateEmrSetClusterTerminationProtection_JsonataParameters(scope constructs.Construct, id *string, props *EmrSetClusterTerminationProtectionJsonataProps) error {
+	return nil
+}
+
+func validateEmrSetClusterTerminationProtection_JsonPathParameters(scope constructs.Construct, id *string, props *EmrSetClusterTerminationProtectionJsonPathProps) error {
+	return nil
+}
+
 func validateEmrSetClusterTerminationProtection_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

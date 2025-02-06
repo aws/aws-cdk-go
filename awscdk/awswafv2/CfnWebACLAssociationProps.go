@@ -4,14 +4,16 @@ package awswafv2
 // Properties for defining a `CfnWebACLAssociation`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var api eventApi
+//   var webAcl cfnWebACL
 //
-//   cfnWebACLAssociationProps := &CfnWebACLAssociationProps{
-//   	ResourceArn: jsii.String("resourceArn"),
-//   	WebAclArn: jsii.String("webAclArn"),
-//   }
+//
+//   // Associate waf with Event API
+//   // Associate waf with Event API
+//   wafv2.NewCfnWebACLAssociation(this, jsii.String("WafAssociation"), &CfnWebACLAssociationProps{
+//   	ResourceArn: api.ApiArn,
+//   	WebAclArn: webAcl.AttrArn,
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
 //

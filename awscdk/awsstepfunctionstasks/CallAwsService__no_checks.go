@@ -108,6 +108,14 @@ func validateCallAwsService_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateCallAwsService_JsonataParameters(scope constructs.Construct, id *string, props *CallAwsServiceJsonataProps) error {
+	return nil
+}
+
+func validateCallAwsService_JsonPathParameters(scope constructs.Construct, id *string, props *CallAwsServiceJsonPathProps) error {
+	return nil
+}
+
 func validateCallAwsService_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

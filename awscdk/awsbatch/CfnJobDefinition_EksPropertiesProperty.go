@@ -52,6 +52,7 @@ package awsbatch
 //   						MountPath: jsii.String("mountPath"),
 //   						Name: jsii.String("name"),
 //   						ReadOnly: jsii.Boolean(false),
+//   						SubPath: jsii.String("subPath"),
 //   					},
 //   				},
 //   			},
@@ -101,6 +102,7 @@ package awsbatch
 //   						MountPath: jsii.String("mountPath"),
 //   						Name: jsii.String("name"),
 //   						ReadOnly: jsii.Boolean(false),
+//   						SubPath: jsii.String("subPath"),
 //   					},
 //   				},
 //   			},
@@ -121,6 +123,12 @@ package awsbatch
 //   				},
 //   				HostPath: &HostPathProperty{
 //   					Path: jsii.String("path"),
+//   				},
+//   				PersistentVolumeClaim: &EksPersistentVolumeClaimProperty{
+//   					ClaimName: jsii.String("claimName"),
+//
+//   					// the properties below are optional
+//   					ReadOnly: jsii.Boolean(false),
 //   				},
 //   				Secret: &EksSecretProperty{
 //   					SecretName: jsii.String("secretName"),

@@ -19,6 +19,12 @@ package awsbatch
 //   	HostPath: &HostPathProperty{
 //   		Path: jsii.String("path"),
 //   	},
+//   	PersistentVolumeClaim: &EksPersistentVolumeClaimProperty{
+//   		ClaimName: jsii.String("claimName"),
+//
+//   		// the properties below are optional
+//   		ReadOnly: jsii.Boolean(false),
+//   	},
 //   	Secret: &EksSecretProperty{
 //   		SecretName: jsii.String("secretName"),
 //
@@ -48,6 +54,12 @@ type CfnJobDefinition_EksVolumeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-hostpath
 	//
 	HostPath interface{} `field:"optional" json:"hostPath" yaml:"hostPath"`
+	// Specifies the configuration of a Kubernetes `persistentVolumeClaim` bounded to a `persistentVolume` .
+	//
+	// For more information, see [Persistent Volume Claims](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) in the *Kubernetes documentation* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-persistentvolumeclaim
+	//
+	PersistentVolumeClaim interface{} `field:"optional" json:"persistentVolumeClaim" yaml:"persistentVolumeClaim"`
 	// Specifies the configuration of a Kubernetes `secret` volume.
 	//
 	// For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .

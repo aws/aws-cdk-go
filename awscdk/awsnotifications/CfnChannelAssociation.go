@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Notifications::ChannelAssociation Resource Type.
+// The `AWS::Notifications::ChannelAssociation` resource associates a `Channel` with a `NotificationConfiguration` for AWS User Notifications .
+//
+// For more information about AWS User Notifications , see the [AWS User Notifications User Guide](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -26,7 +28,7 @@ import (
 type CfnChannelAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	// ARN identifier of the channel.
+	// The Amazon Resource Name (ARN) of the `Channel` .
 	Arn() *string
 	SetArn(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -50,7 +52,7 @@ type CfnChannelAssociation interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// ARN identifier of the NotificationConfiguration.
+	// The ARN of the `NotificationConfiguration` associated with the `Channel` .
 	NotificationConfigurationArn() *string
 	SetNotificationConfigurationArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

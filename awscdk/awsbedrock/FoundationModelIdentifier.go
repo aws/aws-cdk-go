@@ -900,6 +900,17 @@ func FoundationModelIdentifier_COHERE_RERANK_V3_5() FoundationModelIdentifier {
 	return returns
 }
 
+func FoundationModelIdentifier_LUMA_RAY_V2_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"LUMA_RAY_V2_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_META_LLAMA_2_13B_CHAT_V1_0_4K() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier

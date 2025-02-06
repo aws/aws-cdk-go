@@ -108,6 +108,14 @@ func validateEksCall_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateEksCall_JsonataParameters(scope constructs.Construct, id *string, props *EksCallJsonataProps) error {
+	return nil
+}
+
+func validateEksCall_JsonPathParameters(scope constructs.Construct, id *string, props *EksCallJsonPathProps) error {
+	return nil
+}
+
 func validateEksCall_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

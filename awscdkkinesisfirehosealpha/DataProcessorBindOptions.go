@@ -18,10 +18,10 @@ import (
 //   	Role: role,
 //   }
 //
-// Experimental.
+// Deprecated.
 type DataProcessorBindOptions struct {
 	// The IAM role assumed by Kinesis Data Firehose to write to the destination that this DataProcessor will bind to.
-	// Experimental.
+	// Deprecated.
 	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 }
 

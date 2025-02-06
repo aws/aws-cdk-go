@@ -10,16 +10,20 @@ import (
 )
 
 // Example:
-//   import kms "github.com/aws/aws-cdk-go/awscdk"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   jsonata := sfn.Pass_Jsonata(this, jsii.String("JSONata"))
+//   jsonPath := sfn.Pass_JsonPath(this, jsii.String("JSONPath"))
+//   definition := jsonata.Next(jsonPath)
 //
+//   sfn.NewStateMachine(this, jsii.String("MixedStateMachine"), &StateMachineProps{
+//   	// queryLanguage: sfn.QueryLanguage.JSON_PATH, // default
+//   	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
+//   })
 //
-//   kmsKey := kms.NewKey(this, jsii.String("Key"))
-//   stateMachine := sfn.NewStateMachine(this, jsii.String("StateMachineWithCMKEncryptionConfiguration"), &StateMachineProps{
-//   	StateMachineName: jsii.String("StateMachineWithCMKEncryptionConfiguration"),
-//   	DefinitionBody: sfn.DefinitionBody_FromChainable(sfn.Chain_Start(sfn.NewPass(this, jsii.String("Pass")))),
-//   	StateMachineType: sfn.StateMachineType_STANDARD,
-//   	EncryptionConfiguration: sfn.NewCustomerManagedEncryptionConfiguration(kmsKey, cdk.Duration_Seconds(jsii.Number(60))),
+//   // This throws an error. If JSONata is specified at the top level, JSONPath cannot be used in the state machine definition.
+//   // This throws an error. If JSONata is specified at the top level, JSONPath cannot be used in the state machine definition.
+//   sfn.NewStateMachine(this, jsii.String("JSONataOnlyStateMachine"), &StateMachineProps{
+//   	QueryLanguage: sfn.QueryLanguage_JSONATA,
+//   	DefinitionBody: sfn.DefinitionBody_*FromChainable(definition),
 //   })
 //
 type DefinitionBody interface {

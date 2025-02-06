@@ -16,6 +16,14 @@ func validateWaitTime_DurationParameters(duration awscdk.Duration) error {
 	return nil
 }
 
+func validateWaitTime_SecondsParameters(seconds *string) error {
+	if seconds == nil {
+		return fmt.Errorf("parameter seconds is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateWaitTime_SecondsPathParameters(path *string) error {
 	if path == nil {
 		return fmt.Errorf("parameter path is required, but nil was provided")

@@ -142,7 +142,7 @@ type Cluster interface {
 	// This method provides a streamlined way to assign the 'ecs:UpdateTaskProtection'
 	// permission, enabling the grantee to manage task protection in the ECS cluster.
 	GrantTaskProtection(grantee awsiam.IGrantable) awsiam.Grant
-	// This method returns the specifed CloudWatch metric for this cluster.
+	// This method returns the specified CloudWatch metric for this cluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// This method returns the CloudWatch metric for this clusters CPU reservation.
 	// Default: average over 5 minutes.

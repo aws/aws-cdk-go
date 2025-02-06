@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVerifiedAccessInstanceProps := &CfnVerifiedAccessInstanceProps{
+//   	CidrEndpointsCustomSubDomain: jsii.String("cidrEndpointsCustomSubDomain"),
 //   	Description: jsii.String("description"),
 //   	FipsEnabled: jsii.Boolean(false),
 //   	LoggingConfigurations: &VerifiedAccessLogsProperty{
@@ -55,6 +56,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html
 //
 type CfnVerifiedAccessInstanceProps struct {
+	// The custom subdomain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-cidrendpointscustomsubdomain
+	//
+	CidrEndpointsCustomSubDomain *string `field:"optional" json:"cidrEndpointsCustomSubDomain" yaml:"cidrEndpointsCustomSubDomain"`
 	// A description for the AWS Verified Access instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-description
 	//

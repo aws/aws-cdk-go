@@ -655,6 +655,26 @@ cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 })
 ```
 
+### Selection Criteria: Media Quality Based with AWS Elemental MediaPackageV2
+
+You can setup your origin group to be configured for media quality based failover with your AWS Elemental MediaPackageV2 endpoints.
+You can achieve this behavior in the CDK, again using the `OriginGroup` class:
+
+```go
+cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.NewOriginGroup(&OriginGroupProps{
+			PrimaryOrigin: origins.NewHttpOrigin(jsii.String("<AWS Elemental MediaPackageV2 origin 1>")),
+			FallbackOrigin: origins.NewHttpOrigin(jsii.String("<AWS Elemental MediaPackageV2 origin 2>")),
+			FallbackStatusCodes: []*f64{
+				jsii.Number(404),
+			},
+			SelectionCriteria: cloudfront.OriginSelectionCriteria_MEDIA_QUALITY_BASED,
+		}),
+	},
+})
+```
+
 ## From an API Gateway REST API
 
 Origins can be created from an API Gateway REST API. It is recommended to use a

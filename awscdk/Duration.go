@@ -13,26 +13,28 @@ import (
 // When the amount is passed as a token, unit conversion is not possible.
 //
 // Example:
-//   var myRole role
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
-//   	Role: myRole,
-//   	 // must be assumable by the `lambda.amazonaws.com` service principal
-//   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   	 // defaults to 2 minutes
-//   	MemorySize: jsii.Number(1025),
-//   	 // defaults to 512 if installLatestAwsSdk is true
-//   	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
-//   		Retention: logs.RetentionDays_ONE_DAY,
-//   	}),
-//   	FunctionName: jsii.String("my-custom-name"),
-//   	 // defaults to a CloudFormation generated name
-//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
-//   	 // defaults to `RemovalPolicy.DESTROY`
-//   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
-//   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
-//   	}),
+//   var cluster iCluster
+//   var taskDefinition taskDefinition
+//
+//
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
+//
+//   rule.AddTarget(
+//   targets.NewEcsTask(&EcsTaskProps{
+//   	Cluster: cluster,
+//   	TaskDefinition: taskDefinition,
+//   	PropagateTags: ecs.PropagatedTagSource_TASK_DEFINITION,
+//   	Tags: []tag{
+//   		&tag{
+//   			Key: jsii.String("my-tag"),
+//   			Value: jsii.String("my-tag-value"),
+//   		},
+//   	},
+//   }))
 //
 type Duration interface {
 	// Returns stringified number of duration.

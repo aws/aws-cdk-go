@@ -80,19 +80,11 @@ func validateCfnVerifiedAccessEndpoint_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetApplicationDomainParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetAttachmentTypeParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetDomainCertificateArnParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetEndpointDomainPrefixParameters(val *string) error {
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetCidrOptionsParameters(val interface{}) error {
 	return nil
 }
 
@@ -109,6 +101,10 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetNetworkInterfaceOptions
 }
 
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetPolicyEnabledParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetRdsOptionsParameters(val interface{}) error {
 	return nil
 }
 

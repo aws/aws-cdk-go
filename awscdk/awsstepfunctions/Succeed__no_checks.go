@@ -56,6 +56,14 @@ func validateSucceed_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateSucceed_JsonataParameters(scope constructs.Construct, id *string, props *SucceedJsonataProps) error {
+	return nil
+}
+
+func validateSucceed_JsonPathParameters(scope constructs.Construct, id *string, props *SucceedJsonPathProps) error {
+	return nil
+}
+
 func validateSucceed_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

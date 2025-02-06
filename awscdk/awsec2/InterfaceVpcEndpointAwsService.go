@@ -2181,6 +2181,17 @@ func InterfaceVpcEndpointAwsService_KAFKA() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_KAFKA_CONNECT() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"KAFKA_CONNECT",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_KAFKA_FIPS() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

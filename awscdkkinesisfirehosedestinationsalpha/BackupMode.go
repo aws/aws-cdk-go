@@ -37,15 +37,15 @@ package awscdkkinesisfirehosedestinationsalpha
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated.
 type BackupMode string
 
 const (
 	// All records are backed up.
-	// Experimental.
+	// Deprecated.
 	BackupMode_ALL BackupMode = "ALL"
 	// Only records that failed to deliver or transform are backed up.
-	// Experimental.
+	// Deprecated.
 	BackupMode_FAILED BackupMode = "FAILED"
 )
 

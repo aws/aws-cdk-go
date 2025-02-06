@@ -21,11 +21,16 @@ import (
 //   var taskDefinition taskDefinition
 //
 //
-//   service := ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
+//   ecs.NewEc2Service(this, jsii.String("Ec2Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	DesiredCount: jsii.Number(5),
-//   	MinHealthyPercent: jsii.Number(100),
+//   	Daemon: jsii.Boolean(true),
+//   })
+//
+//   ecs.NewExternalService(this, jsii.String("ExternalService"), &ExternalServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	Daemon: jsii.Boolean(true),
 //   })
 //
 type ExternalService interface {

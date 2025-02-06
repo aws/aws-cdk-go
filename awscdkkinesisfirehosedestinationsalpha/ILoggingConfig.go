@@ -10,17 +10,17 @@ import (
 //
 // This interface defines whether logging is enabled and optionally allows specifying a
 // CloudWatch Log Group for storing error logs.
-// Experimental.
+// Deprecated.
 type ILoggingConfig interface {
 	// If true, log errors when data transformation or data delivery fails.
 	//
 	// `true` when using `EnableLogging`, `false` when using `DisableLogging`.
-	// Experimental.
+	// Deprecated.
 	Logging() *bool
 	// The CloudWatch log group where log streams will be created to hold error logs.
 	// Default: - if `logging` is set to `true`, a log group will be created for you.
 	//
-	// Experimental.
+	// Deprecated.
 	LogGroup() awslogs.ILogGroup
 }
 

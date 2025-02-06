@@ -50,6 +50,7 @@ package awsbatch
 //   			MountPath: jsii.String("mountPath"),
 //   			Name: jsii.String("name"),
 //   			ReadOnly: jsii.Boolean(false),
+//   			SubPath: jsii.String("subPath"),
 //   		},
 //   	},
 //   }

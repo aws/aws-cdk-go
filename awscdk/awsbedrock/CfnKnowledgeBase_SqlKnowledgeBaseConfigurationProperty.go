@@ -1,7 +1,9 @@
 package awsbedrock
 
 
-// Configurations for a SQL knowledge base.
+// Contains configurations for a knowledge base connected to an SQL database.
+//
+// Specify the SQL database type in the `type` field and include the corresponding field. For more information, see [Build a knowledge base by connecting to a structured data source](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html) in the Amazon Bedrock User Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -87,11 +89,11 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-sqlknowledgebaseconfiguration.html
 //
 type CfnKnowledgeBase_SqlKnowledgeBaseConfigurationProperty struct {
-	// SQL query engine type.
+	// The type of SQL database to connect to the knowledge base.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-sqlknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-sqlknowledgebaseconfiguration-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// Configurations for a Redshift knowledge base.
+	// Specifies configurations for a knowledge base connected to an Amazon Redshift database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-sqlknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-sqlknowledgebaseconfiguration-redshiftconfiguration
 	//
 	RedshiftConfiguration interface{} `field:"optional" json:"redshiftConfiguration" yaml:"redshiftConfiguration"`

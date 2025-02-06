@@ -30,5 +30,11 @@ type OriginGroupProps struct {
 	// Default: - 500, 502, 503 and 504.
 	//
 	FallbackStatusCodes *[]*float64 `field:"optional" json:"fallbackStatusCodes" yaml:"fallbackStatusCodes"`
+	// The selection criteria for the origin group.
+	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating
+	//
+	// Default: - OriginSelectionCriteria.DEFAULT
+	//
+	SelectionCriteria awscloudfront.OriginSelectionCriteria `field:"optional" json:"selectionCriteria" yaml:"selectionCriteria"`
 }
 

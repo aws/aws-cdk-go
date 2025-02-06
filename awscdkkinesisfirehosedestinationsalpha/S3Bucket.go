@@ -33,13 +33,13 @@ import (
 //   	Destination: s3Destination,
 //   })
 //
-// Experimental.
+// Deprecated.
 type S3Bucket interface {
 	awscdkkinesisfirehosealpha.IDestination
 	// Binds this destination to the Kinesis Data Firehose delivery stream.
 	//
 	// Implementers should use this method to bind resources to the stack and initialize values using the provided stream.
-	// Experimental.
+	// Deprecated.
 	Bind(scope constructs.Construct, _options *awscdkkinesisfirehosealpha.DestinationBindOptions) *awscdkkinesisfirehosealpha.DestinationConfig
 }
 
@@ -48,7 +48,7 @@ type jsiiProxy_S3Bucket struct {
 	internal.Type__awscdkkinesisfirehosealphaIDestination
 }
 
-// Experimental.
+// Deprecated.
 func NewS3Bucket(bucket awss3.IBucket, props *S3BucketProps) S3Bucket {
 	_init_.Initialize()
 
@@ -66,7 +66,7 @@ func NewS3Bucket(bucket awss3.IBucket, props *S3BucketProps) S3Bucket {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewS3Bucket_Override(s S3Bucket, bucket awss3.IBucket, props *S3BucketProps) {
 	_init_.Initialize()
 

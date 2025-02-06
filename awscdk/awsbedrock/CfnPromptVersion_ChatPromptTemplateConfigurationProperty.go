@@ -1,7 +1,9 @@
 package awsbedrock
 
 
-// Configuration for chat prompt template.
+// Contains configurations to use a prompt in a conversational format.
+//
+// For more information, see [Create a prompt using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -64,19 +66,19 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-chatprompttemplateconfiguration.html
 //
 type CfnPromptVersion_ChatPromptTemplateConfigurationProperty struct {
-	// List of messages for chat prompt template.
+	// Contains messages in the chat for the prompt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-chatprompttemplateconfiguration.html#cfn-bedrock-promptversion-chatprompttemplateconfiguration-messages
 	//
 	Messages interface{} `field:"required" json:"messages" yaml:"messages"`
-	// List of input variables.
+	// An array of the variables in the prompt template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-chatprompttemplateconfiguration.html#cfn-bedrock-promptversion-chatprompttemplateconfiguration-inputvariables
 	//
 	InputVariables interface{} `field:"optional" json:"inputVariables" yaml:"inputVariables"`
-	// Configuration for chat prompt template.
+	// Contains system prompts to provide context to the model or to describe how it should behave.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-chatprompttemplateconfiguration.html#cfn-bedrock-promptversion-chatprompttemplateconfiguration-system
 	//
 	System interface{} `field:"optional" json:"system" yaml:"system"`
-	// Tool configuration.
+	// Configuration information for the tools that the model can use when generating a response.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-chatprompttemplateconfiguration.html#cfn-bedrock-promptversion-chatprompttemplateconfiguration-toolconfiguration
 	//
 	ToolConfiguration interface{} `field:"optional" json:"toolConfiguration" yaml:"toolConfiguration"`

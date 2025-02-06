@@ -39,6 +39,7 @@ package awskinesisfirehose
 //   	},
 //
 //   	// the properties below are optional
+//   	AppendOnly: jsii.Boolean(false),
 //   	BufferingHints: &BufferingHintsProperty{
 //   		IntervalInSeconds: jsii.Number(123),
 //   		SizeInMBs: jsii.Number(123),
@@ -96,6 +97,14 @@ type CfnDeliveryStream_IcebergDestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-s3configuration
 	//
 	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
+	// Describes whether all incoming data for this delivery stream will be append only (inserts only and not for updates and deletes) for Iceberg delivery.
+	//
+	// This feature is only applicable for Apache Iceberg Tables.
+	//
+	// The default value is false. If you set this value to true, Firehose automatically increases the throughput limit of a stream based on the throttling levels of the stream. If you set this parameter to true for a stream with updates and deletes, you will see out of order delivery.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-appendonly
+	//
+	AppendOnly interface{} `field:"optional" json:"appendOnly" yaml:"appendOnly"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-bufferinghints
 	//
 	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`

@@ -31,17 +31,17 @@ import (
 //   	Destination: s3Destination,
 //   })
 //
-// Experimental.
+// Deprecated.
 type LambdaFunctionProcessor interface {
 	IDataProcessor
 	// The constructor props of the LambdaFunctionProcessor.
-	// Experimental.
+	// Deprecated.
 	Props() *DataProcessorProps
 	// Binds this processor to a destination of a delivery stream.
 	//
 	// Implementers should use this method to grant processor invocation permissions to the provided stream and return the
 	// necessary configuration to register as a processor.
-	// Experimental.
+	// Deprecated.
 	Bind(_scope constructs.Construct, options *DataProcessorBindOptions) *DataProcessorConfig
 }
 
@@ -61,7 +61,7 @@ func (j *jsiiProxy_LambdaFunctionProcessor) Props() *DataProcessorProps {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewLambdaFunctionProcessor(lambdaFunction awslambda.IFunction, props *DataProcessorProps) LambdaFunctionProcessor {
 	_init_.Initialize()
 
@@ -79,7 +79,7 @@ func NewLambdaFunctionProcessor(lambdaFunction awslambda.IFunction, props *DataP
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewLambdaFunctionProcessor_Override(l LambdaFunctionProcessor, lambdaFunction awslambda.IFunction, props *DataProcessorProps) {
 	_init_.Initialize()
 

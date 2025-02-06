@@ -22,7 +22,7 @@ type AddonProps struct {
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// Version of the Add-On.
 	//
-	// You can check all available versions with describe-addon-versons.
+	// You can check all available versions with describe-addon-versions.
 	// For example, this lists all available versions for the `eks-pod-identity-agent` addon:
 	// $ aws eks describe-addon-versions --addon-name eks-pod-identity-agent \
 	// --query 'addons[*].addonVersions[*].addonVersion'

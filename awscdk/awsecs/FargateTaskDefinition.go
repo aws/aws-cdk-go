@@ -49,6 +49,8 @@ type FargateTaskDefinition interface {
 	Compatibility() Compatibility
 	// The container definitions.
 	Containers() *[]ContainerDefinition
+	// The number of cpu units used by the task.
+	Cpu() *float64
 	// Default container for this task.
 	//
 	// Load balancers will send traffic to this container. The first
@@ -81,6 +83,8 @@ type FargateTaskDefinition interface {
 	IsExternalCompatible() *bool
 	// Return true if the task definition can be run on a Fargate cluster.
 	IsFargateCompatible() *bool
+	// The amount (in MiB) of memory used by the task.
+	MemoryMiB() *float64
 	// The Docker networking mode to use for the containers in the task.
 	//
 	// Fargate tasks require the awsvpc network mode.
@@ -121,6 +125,7 @@ type FargateTaskDefinition interface {
 	// Adds a firelens log router to the task definition.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
 	// Adds an inference accelerator to the task definition.
+	// Deprecated: ECS TaskDefinition's inferenceAccelerator is EOL since April 2024.
 	AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator)
 	// Adds the specified placement constraint to the task definition.
 	AddPlacementConstraint(constraint PlacementConstraint)
@@ -194,6 +199,16 @@ func (j *jsiiProxy_FargateTaskDefinition) Containers() *[]ContainerDefinition {
 	_jsii_.Get(
 		j,
 		"containers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateTaskDefinition) Cpu() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"cpu",
 		&returns,
 	)
 	return returns
@@ -284,6 +299,16 @@ func (j *jsiiProxy_FargateTaskDefinition) IsFargateCompatible() *bool {
 	_jsii_.Get(
 		j,
 		"isFargateCompatible",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateTaskDefinition) MemoryMiB() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"memoryMiB",
 		&returns,
 	)
 	return returns

@@ -80,7 +80,7 @@ type TaskDefinitionProps struct {
 	// Default: - No volumes are passed to the Docker daemon on a container instance.
 	//
 	Volumes *[]*Volume `field:"optional" json:"volumes" yaml:"volumes"`
-	// The task launch type compatiblity requirement.
+	// The task launch type compatibility requirement.
 	Compatibility Compatibility `field:"required" json:"compatibility" yaml:"compatibility"`
 	// The number of cpu units used by the task.
 	//
@@ -115,6 +115,7 @@ type TaskDefinitionProps struct {
 	// Not supported in Fargate.
 	// Default: - No inference accelerators.
 	//
+	// Deprecated: ECS TaskDefinition's inferenceAccelerator is EOL since April 2024.
 	InferenceAccelerators *[]*InferenceAccelerator `field:"optional" json:"inferenceAccelerators" yaml:"inferenceAccelerators"`
 	// The IPC resource namespace to use for the containers in the task.
 	//

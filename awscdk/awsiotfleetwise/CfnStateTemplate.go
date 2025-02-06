@@ -55,6 +55,8 @@ type CfnStateTemplate interface {
 	AttrArn() *string
 	// The time the state template was created, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrCreationTime() *string
+	// The unique ID of the state template.
+	AttrId() *string
 	// The time the state template was last updated, in seconds since epoch (January 1, 1970 at midnight UTC time).
 	AttrLastModificationTime() *string
 	// Tag Manager which manages the tags for this resource.
@@ -272,6 +274,16 @@ func (j *jsiiProxy_CfnStateTemplate) AttrCreationTime() *string {
 	_jsii_.Get(
 		j,
 		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStateTemplate) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns

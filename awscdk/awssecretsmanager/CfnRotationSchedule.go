@@ -9,20 +9,22 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Sets the rotation schedule and Lambda rotation function for a secret. For more information, see [How rotation works](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) .
+// Configure the rotation schedule and Lambda rotation function for a secret. For more information, see [How rotation works](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) .
 //
-// For Amazon RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html) .
+// For database credentials, refer to the following resources:
 //
-// For Amazon Redshift admin user credentials, see [AWS::Redshift::Cluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html) .
+// - Amazon RDS master user credentials: [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html)
+// - Amazon Redshift admin user credentials: [AWS::Redshift::Cluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html)
 //
-// For the rotation function, you have two options:
+// Choose one of the following options for the rotation function:
 //
-// - You can create a new rotation function based on one of the [Secrets Manager rotation function templates](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) by using `HostedRotationLambda` .
-// - You can choose an existing rotation function by using `RotationLambdaARN` .
+// - Create a new rotation function using `HostedRotationLambda` based on a [Secrets Manager rotation function template](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html) .
+// - Use an existing rotation function by specifying its ARN with `RotationLambdaARN` .
 //
-// For database secrets, if you define both the secret and the database or service in the AWS CloudFormation template, then you need to define the [AWS::SecretsManager::SecretTargetAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html) resource to populate the secret with the connection details of the database or service before you attempt to configure rotation.
-//
-// For a single secret, you can only define one rotation schedule with it.
+// > For database secrets defined in the same AWS CloudFormation template as the database or service:
+// >
+// > - Use the [AWS::SecretsManager::SecretTargetAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html) resource to populate the secret with connection details.
+// > - Add a `DependsOn` attribute to the `RotationSchedule` resource that uses a `SecretTargetAttachment` . This ensures the rotation is configured after the secret is populated with connection details. > You can define only one rotation schedule per secret.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -93,7 +95,7 @@ type CfnRotationSchedule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
+	// Determines whether to rotate the secret immediately or wait until the next scheduled rotation window when the rotation schedule is updated.
 	RotateImmediatelyOnUpdate() interface{}
 	SetRotateImmediatelyOnUpdate(val interface{})
 	// The ARN of an existing Lambda rotation function.

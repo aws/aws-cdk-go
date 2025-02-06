@@ -108,6 +108,14 @@ func validateSageMakerCreateEndpointConfig_IsConstructParameters(x interface{}) 
 	return nil
 }
 
+func validateSageMakerCreateEndpointConfig_JsonataParameters(scope constructs.Construct, id *string, props *SageMakerCreateEndpointConfigJsonataProps) error {
+	return nil
+}
+
+func validateSageMakerCreateEndpointConfig_JsonPathParameters(scope constructs.Construct, id *string, props *SageMakerCreateEndpointConfigJsonPathProps) error {
+	return nil
+}
+
 func validateSageMakerCreateEndpointConfig_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

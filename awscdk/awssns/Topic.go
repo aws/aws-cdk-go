@@ -14,18 +14,17 @@ import (
 // A new SNS topic.
 //
 // Example:
-//   import sns "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdkkinesisfirehosealpha"
+//   var stream deliveryStream
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
+//   topic := sns.NewTopic(this, jsii.String("Topic"))
 //
-//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
-//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-//   	Actions: []iAction{
-//   		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
-//   			MessageFormat: actions.SnsActionMessageFormat_JSON,
-//   		}),
-//   	},
+//   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
+//   	Topic: Topic,
+//   	Endpoint: stream.DeliveryStreamArn,
+//   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
+//   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 //   })
 //
 type Topic interface {
@@ -70,13 +69,18 @@ type Topic interface {
 	TopicName() *string
 	// Adds a delivery status logging configuration to the topic.
 	AddLoggingConfig(config *LoggingConfig)
+	// Adds a SSL policy to the topic resource policy.
+	AddSSLPolicy()
 	// Subscribe some endpoint to this topic.
 	AddSubscription(topicSubscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
-	// will be automatically created upon the first call to `addToResourcePolicy`. If
-	// the topic is imported (`Topic.import`), then this is a no-op.
+	// will be automatically created upon the first call to `addToResourcePolicy`.
+	// However, if `enforceSSL` is set to `true`, the policy has already been created
+	// before the first call to this method.
+	//
+	// If the topic is imported (`Topic.import`), then this is a no-op.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -94,6 +98,8 @@ type Topic interface {
 	//
 	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
 	CreateSSLPolicyDocument() awsiam.PolicyStatement
+	// Creates a topic policy for this topic.
+	CreateTopicPolicy()
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -417,6 +423,14 @@ func (t *jsiiProxy_Topic) AddLoggingConfig(config *LoggingConfig) {
 	)
 }
 
+func (t *jsiiProxy_Topic) AddSSLPolicy() {
+	_jsii_.InvokeVoid(
+		t,
+		"addSSLPolicy",
+		nil, // no parameters
+	)
+}
+
 func (t *jsiiProxy_Topic) AddSubscription(topicSubscription ITopicSubscription) Subscription {
 	if err := t.validateAddSubscriptionParameters(topicSubscription); err != nil {
 		panic(err)
@@ -487,6 +501,14 @@ func (t *jsiiProxy_Topic) CreateSSLPolicyDocument() awsiam.PolicyStatement {
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_Topic) CreateTopicPolicy() {
+	_jsii_.InvokeVoid(
+		t,
+		"createTopicPolicy",
+		nil, // no parameters
+	)
 }
 
 func (t *jsiiProxy_Topic) GeneratePhysicalName() *string {

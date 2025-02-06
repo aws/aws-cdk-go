@@ -19,18 +19,37 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVerifiedAccessEndpoint := awscdk.Aws_ec2.NewCfnVerifiedAccessEndpoint(this, jsii.String("MyCfnVerifiedAccessEndpoint"), &CfnVerifiedAccessEndpointProps{
-//   	ApplicationDomain: jsii.String("applicationDomain"),
 //   	AttachmentType: jsii.String("attachmentType"),
-//   	DomainCertificateArn: jsii.String("domainCertificateArn"),
-//   	EndpointDomainPrefix: jsii.String("endpointDomainPrefix"),
 //   	EndpointType: jsii.String("endpointType"),
 //   	VerifiedAccessGroupId: jsii.String("verifiedAccessGroupId"),
 //
 //   	// the properties below are optional
+//   	ApplicationDomain: jsii.String("applicationDomain"),
+//   	CidrOptions: &CidrOptionsProperty{
+//   		Cidr: jsii.String("cidr"),
+//   		PortRanges: []interface{}{
+//   			&PortRangeProperty{
+//   				FromPort: jsii.Number(123),
+//   				ToPort: jsii.Number(123),
+//   			},
+//   		},
+//   		Protocol: jsii.String("protocol"),
+//   		SubnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
+//   	DomainCertificateArn: jsii.String("domainCertificateArn"),
+//   	EndpointDomainPrefix: jsii.String("endpointDomainPrefix"),
 //   	LoadBalancerOptions: &LoadBalancerOptionsProperty{
 //   		LoadBalancerArn: jsii.String("loadBalancerArn"),
 //   		Port: jsii.Number(123),
+//   		PortRanges: []interface{}{
+//   			&PortRangeProperty{
+//   				FromPort: jsii.Number(123),
+//   				ToPort: jsii.Number(123),
+//   			},
+//   		},
 //   		Protocol: jsii.String("protocol"),
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
@@ -39,10 +58,27 @@ import (
 //   	NetworkInterfaceOptions: &NetworkInterfaceOptionsProperty{
 //   		NetworkInterfaceId: jsii.String("networkInterfaceId"),
 //   		Port: jsii.Number(123),
+//   		PortRanges: []interface{}{
+//   			&PortRangeProperty{
+//   				FromPort: jsii.Number(123),
+//   				ToPort: jsii.Number(123),
+//   			},
+//   		},
 //   		Protocol: jsii.String("protocol"),
 //   	},
 //   	PolicyDocument: jsii.String("policyDocument"),
 //   	PolicyEnabled: jsii.Boolean(false),
+//   	RdsOptions: &RdsOptionsProperty{
+//   		Port: jsii.Number(123),
+//   		Protocol: jsii.String("protocol"),
+//   		RdsDbClusterArn: jsii.String("rdsDbClusterArn"),
+//   		RdsDbInstanceArn: jsii.String("rdsDbInstanceArn"),
+//   		RdsDbProxyArn: jsii.String("rdsDbProxyArn"),
+//   		RdsEndpoint: jsii.String("rdsEndpoint"),
+//   		SubnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -89,6 +125,9 @@ type CfnVerifiedAccessEndpoint interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The options for a CIDR endpoint.
+	CidrOptions() interface{}
+	SetCidrOptions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -129,6 +168,9 @@ type CfnVerifiedAccessEndpoint interface {
 	// The status of the Verified Access policy.
 	PolicyEnabled() interface{}
 	SetPolicyEnabled(val interface{})
+	// The options for an RDS endpoint.
+	RdsOptions() interface{}
+	SetRdsOptions(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -419,6 +461,16 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) CidrOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"cidrOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -524,6 +576,16 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) PolicyEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"policyEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) RdsOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rdsOptions",
 		&returns,
 	)
 	return returns
@@ -648,9 +710,6 @@ func NewCfnVerifiedAccessEndpoint_Override(c CfnVerifiedAccessEndpoint, scope co
 }
 
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetApplicationDomain(val *string) {
-	if err := j.validateSetApplicationDomainParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"applicationDomain",
@@ -669,6 +728,17 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetAttachmentType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetCidrOptions(val interface{}) {
+	if err := j.validateSetCidrOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"cidrOptions",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -678,9 +748,6 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetDomainCertificateArn(val *string) {
-	if err := j.validateSetDomainCertificateArnParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"domainCertificateArn",
@@ -689,9 +756,6 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetDomainCertificateArn(val *string
 }
 
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetEndpointDomainPrefix(val *string) {
-	if err := j.validateSetEndpointDomainPrefixParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"endpointDomainPrefix",
@@ -747,6 +811,17 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetPolicyEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"policyEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint)SetRdsOptions(val interface{}) {
+	if err := j.validateSetRdsOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rdsOptions",
 		val,
 	)
 }

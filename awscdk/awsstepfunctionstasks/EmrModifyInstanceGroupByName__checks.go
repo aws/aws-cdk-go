@@ -248,6 +248,44 @@ func validateEmrModifyInstanceGroupByName_IsConstructParameters(x interface{}) e
 	return nil
 }
 
+func validateEmrModifyInstanceGroupByName_JsonataParameters(scope constructs.Construct, id *string, props *EmrModifyInstanceGroupByNameJsonataProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateEmrModifyInstanceGroupByName_JsonPathParameters(scope constructs.Construct, id *string, props *EmrModifyInstanceGroupByNameJsonPathProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateEmrModifyInstanceGroupByName_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	if root == nil {
 		return fmt.Errorf("parameter root is required, but nil was provided")

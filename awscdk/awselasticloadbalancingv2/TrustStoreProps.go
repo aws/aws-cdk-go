@@ -27,6 +27,7 @@ import (
 //   	},
 //   	// mTLS settings
 //   	MutualAuthentication: &MutualAuthentication{
+//   		AdvertiseTrustStoreCaNames: jsii.Boolean(true),
 //   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
 //   		MutualAuthenticationMode: elbv2.MutualAuthenticationMode_VERIFY,
 //   		TrustStore: *TrustStore,

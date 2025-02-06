@@ -243,6 +243,13 @@ package awscloudfront
 //   			S3OriginConfig: &S3OriginConfigProperty{
 //   				OriginAccessIdentity: jsii.String("originAccessIdentity"),
 //   			},
+//   			VpcOriginConfig: &VpcOriginConfigProperty{
+//   				VpcOriginId: jsii.String("vpcOriginId"),
+//
+//   				// the properties below are optional
+//   				OriginKeepaliveTimeout: jsii.Number(123),
+//   				OriginReadTimeout: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   	PriceClass: jsii.String("priceClass"),

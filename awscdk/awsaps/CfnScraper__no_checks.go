@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnScraper) validateSetDestinationParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnScraper) validateSetRoleConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnScraper) validateSetScrapeConfigurationParameters(val interface{}) error {
 	return nil
 }

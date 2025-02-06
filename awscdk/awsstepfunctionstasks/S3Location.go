@@ -80,7 +80,7 @@ func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 	return returns
 }
 
-// An `IS3Location` determined fully by a JSON Path from the task input.
+// An `IS3Location` determined fully by a JSONata expression or JSON Path from the task input.
 //
 // Due to the dynamic nature of those locations, the IAM grants that will be set by `grantRead` and `grantWrite`
 // apply to the `*` resource.

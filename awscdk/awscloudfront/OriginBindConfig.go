@@ -53,7 +53,15 @@ package awscloudfront
 //   		S3OriginConfig: &S3OriginConfigProperty{
 //   			OriginAccessIdentity: jsii.String("originAccessIdentity"),
 //   		},
+//   		VpcOriginConfig: &VpcOriginConfigProperty{
+//   			VpcOriginId: jsii.String("vpcOriginId"),
+//
+//   			// the properties below are optional
+//   			OriginKeepaliveTimeout: jsii.Number(123),
+//   			OriginReadTimeout: jsii.Number(123),
+//   		},
 //   	},
+//   	SelectionCriteria: awscdk.Aws_cloudfront.OriginSelectionCriteria_DEFAULT,
 //   }
 //
 type OriginBindConfig struct {
@@ -65,5 +73,11 @@ type OriginBindConfig struct {
 	// Default: - nothing is returned.
 	//
 	OriginProperty *CfnDistribution_OriginProperty `field:"optional" json:"originProperty" yaml:"originProperty"`
+	// The selection criteria for how your origins are selected.
+	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating
+	//
+	// Default: - OriginSelectionCriteria.DEFAULT
+	//
+	SelectionCriteria OriginSelectionCriteria `field:"optional" json:"selectionCriteria" yaml:"selectionCriteria"`
 }
 

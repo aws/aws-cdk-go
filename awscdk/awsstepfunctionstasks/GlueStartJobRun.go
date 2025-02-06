@@ -30,6 +30,8 @@ import (
 //
 type GlueStartJobRun interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -44,6 +46,7 @@ type GlueStartJobRun interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -51,6 +54,7 @@ type GlueStartJobRun interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -131,11 +135,13 @@ type GlueStartJobRun interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -143,12 +149,14 @@ type GlueStartJobRun interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -162,6 +170,26 @@ type GlueStartJobRun interface {
 // The jsii proxy struct for GlueStartJobRun
 type jsiiProxy_GlueStartJobRun struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_GlueStartJobRun) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GlueStartJobRun) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_GlueStartJobRun) Branches() *[]awsstepfunctions.StateGraph {
@@ -254,6 +282,16 @@ func (j *jsiiProxy_GlueStartJobRun) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_GlueStartJobRun) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_GlueStartJobRun) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -289,6 +327,16 @@ func (j *jsiiProxy_GlueStartJobRun) ProcessorMode() awsstepfunctions.ProcessorMo
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GlueStartJobRun) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -523,6 +571,54 @@ func GlueStartJobRun_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Starts an AWS Glue job in a Task state using JSONata.
+//
+// OUTPUT: the output of this task is a JobRun structure, for details consult
+// https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-JobRun
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html
+//
+func GlueStartJobRun_Jsonata(scope constructs.Construct, id *string, props *GlueStartJobRunJsonataProps) GlueStartJobRun {
+	_init_.Initialize()
+
+	if err := validateGlueStartJobRun_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns GlueStartJobRun
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Starts an AWS Glue job in a Task state using JSONPath.
+//
+// OUTPUT: the output of this task is a JobRun structure, for details consult
+// https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-JobRun
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html
+//
+func GlueStartJobRun_JsonPath(scope constructs.Construct, id *string, props *GlueStartJobRunJsonPathProps) GlueStartJobRun {
+	_init_.Initialize()
+
+	if err := validateGlueStartJobRun_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns GlueStartJobRun
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -839,6 +935,19 @@ func (g *jsiiProxy_GlueStartJobRun) Next(next awsstepfunctions.IChainable) awsst
 	return returns
 }
 
+func (g *jsiiProxy_GlueStartJobRun) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		g,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (g *jsiiProxy_GlueStartJobRun) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -852,13 +961,13 @@ func (g *jsiiProxy_GlueStartJobRun) RenderBranches() interface{} {
 	return returns
 }
 
-func (g *jsiiProxy_GlueStartJobRun) RenderChoices() interface{} {
+func (g *jsiiProxy_GlueStartJobRun) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		g,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -917,6 +1026,19 @@ func (g *jsiiProxy_GlueStartJobRun) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (g *jsiiProxy_GlueStartJobRun) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		g,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (g *jsiiProxy_GlueStartJobRun) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -930,26 +1052,26 @@ func (g *jsiiProxy_GlueStartJobRun) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (g *jsiiProxy_GlueStartJobRun) RenderRetryCatch() interface{} {
+func (g *jsiiProxy_GlueStartJobRun) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		g,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (g *jsiiProxy_GlueStartJobRun) ToStateJson() *map[string]interface{} {
+func (g *jsiiProxy_GlueStartJobRun) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		g,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

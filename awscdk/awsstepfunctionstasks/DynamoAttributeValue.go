@@ -49,6 +49,27 @@ func (j *jsiiProxy_DynamoAttributeValue) AttributeValue() interface{} {
 }
 
 
+// Sets an attribute of type Boolean from state input through JSONata expression.
+//
+// For example:  "BOOL": true.
+func DynamoAttributeValue_BooleanFromJsonata(value *string) DynamoAttributeValue {
+	_init_.Initialize()
+
+	if err := validateDynamoAttributeValue_BooleanFromJsonataParameters(value); err != nil {
+		panic(err)
+	}
+	var returns DynamoAttributeValue
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"booleanFromJsonata",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
 // Sets an attribute of type Boolean from state input through Json path.
 //
 // For example:  "BOOL": true.
@@ -247,9 +268,10 @@ func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue 
 // Sets an attribute of type String.
 //
 // For example:  "S": "Hello"
-// Strings may be literal values or as JsonPath. Example values:
+// Strings may be literal values or as JSONata expression or as JsonPath. Example values:
 //
 // - `DynamoAttributeValue.fromString('someValue')`
+// - `DynamoAttributeValue.fromString('{% $bar %}')`
 // - `DynamoAttributeValue.fromString(JsonPath.stringAt('$.bar'))`
 func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 	_init_.Initialize()
@@ -293,6 +315,27 @@ func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 // Sets an attribute of type List.
 //
 // For example:  "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"S", "Veggies"}].
+func DynamoAttributeValue_ListFromJsonata(value *string) DynamoAttributeValue {
+	_init_.Initialize()
+
+	if err := validateDynamoAttributeValue_ListFromJsonataParameters(value); err != nil {
+		panic(err)
+	}
+	var returns DynamoAttributeValue
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"listFromJsonata",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Sets an attribute of type List.
+//
+// For example:  "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"S", "Veggies"}].
 func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 
@@ -304,6 +347,27 @@ func DynamoAttributeValue_ListFromJsonPath(value *string) DynamoAttributeValue {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"listFromJsonPath",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Sets an attribute of type Map.
+//
+// For example:  "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}.
+func DynamoAttributeValue_MapFromJsonata(value *string) DynamoAttributeValue {
+	_init_.Initialize()
+
+	if err := validateDynamoAttributeValue_MapFromJsonataParameters(value); err != nil {
+		panic(err)
+	}
+	var returns DynamoAttributeValue
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"mapFromJsonata",
 		[]interface{}{value},
 		&returns,
 	)
@@ -339,7 +403,7 @@ func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 // to maximize compatibility across languages and libraries.
 // However, DynamoDB treats them as number type attributes for mathematical operations.
 //
-// Numbers may be expressed as literal strings or as JsonPath.
+// Numbers may be expressed as literal strings or as JSONata expression or as JsonPath.
 func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 	_init_.Initialize()
 

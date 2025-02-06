@@ -120,8 +120,32 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnection.AuthenticationConfigurationInputProperty",
+		reflect.TypeOf((*CfnConnection_AuthenticationConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnection.AuthorizationCodePropertiesProperty",
+		reflect.TypeOf((*CfnConnection_AuthorizationCodePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnection.BasicAuthenticationCredentialsProperty",
+		reflect.TypeOf((*CfnConnection_BasicAuthenticationCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnConnection.ConnectionInputProperty",
 		reflect.TypeOf((*CfnConnection_ConnectionInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnection.OAuth2ClientApplicationProperty",
+		reflect.TypeOf((*CfnConnection_OAuth2ClientApplicationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnection.OAuth2CredentialsProperty",
+		reflect.TypeOf((*CfnConnection_OAuth2CredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnection.OAuth2PropertiesInputProperty",
+		reflect.TypeOf((*CfnConnection_OAuth2PropertiesInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnConnection.PhysicalConnectionRequirementsProperty",
@@ -1228,8 +1252,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTableOptimizer.IcebergConfigurationProperty",
+		reflect.TypeOf((*CfnTableOptimizer_IcebergConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTableOptimizer.OrphanFileDeletionConfigurationProperty",
+		reflect.TypeOf((*CfnTableOptimizer_OrphanFileDeletionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTableOptimizer.RetentionConfigurationProperty",
+		reflect.TypeOf((*CfnTableOptimizer_RetentionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnTableOptimizer.TableOptimizerConfigurationProperty",
 		reflect.TypeOf((*CfnTableOptimizer_TableOptimizerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTableOptimizer.VpcConfigurationProperty",
+		reflect.TypeOf((*CfnTableOptimizer_VpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnTableOptimizerProps",

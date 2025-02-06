@@ -580,6 +580,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWebExperienceArn", GoGetter: "AttrWebExperienceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWebExperienceId", GoGetter: "AttrWebExperienceId"},
+			_jsii_.MemberProperty{JsiiProperty: "browserExtensionConfiguration", GoGetter: "BrowserExtensionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -620,6 +621,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_qbusiness.CfnWebExperience.BrowserExtensionConfigurationProperty",
+		reflect.TypeOf((*CfnWebExperience_BrowserExtensionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_qbusiness.CfnWebExperience.CustomizationConfigurationProperty",

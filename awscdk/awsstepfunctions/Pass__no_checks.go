@@ -60,6 +60,14 @@ func validatePass_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validatePass_JsonataParameters(scope constructs.Construct, id *string, props *PassJsonataProps) error {
+	return nil
+}
+
+func validatePass_JsonPathParameters(scope constructs.Construct, id *string, props *PassJsonPathProps) error {
+	return nil
+}
+
 func validatePass_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

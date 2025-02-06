@@ -64,7 +64,7 @@ type StateGraph interface {
 	// Resource changes will be bubbled up to the given graph.
 	RegisterSuperGraph(graph StateGraph)
 	// Return the Amazon States Language JSON for this graph.
-	ToGraphJson() *map[string]interface{}
+	ToGraphJson(queryLanguage QueryLanguage) *map[string]interface{}
 	// Return a string description of this graph.
 	ToString() *string
 }
@@ -184,13 +184,13 @@ func (s *jsiiProxy_StateGraph) RegisterSuperGraph(graph StateGraph) {
 	)
 }
 
-func (s *jsiiProxy_StateGraph) ToGraphJson() *map[string]interface{} {
+func (s *jsiiProxy_StateGraph) ToGraphJson(queryLanguage QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		s,
 		"toGraphJson",
-		nil, // no parameters
+		[]interface{}{queryLanguage},
 		&returns,
 	)
 

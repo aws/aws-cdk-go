@@ -1,7 +1,9 @@
 package awsentityresolution
 
 
-// An object containing `FieldName` , `Type` , `GroupName` , `MatchKey` , `Hashing` , and `SubType` .
+// A configuration object for defining input data fields in AWS Entity Resolution .
+//
+// The SchemaInputAttribute specifies how individual fields in your input data should be processed and matched.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -27,18 +29,28 @@ type CfnSchemaMapping_SchemaInputAttributeProperty struct {
 	//
 	FieldName *string `field:"required" json:"fieldName" yaml:"fieldName"`
 	// The type of the attribute, selected from a list of values.
+	//
+	// > Normalization is only supported for `NAME` , `ADDRESS` , `PHONE` , and `EMAIL_ADDRESS` .
+	// >
+	// > If you want to normalize `NAME_FIRST` , `NAME_MIDDLE` , and `NAME_LAST` , you must group them by assigning them to the `NAME` `groupName` .
+	// >
+	// > If you want to normalize `ADDRESS_STREET1` , `ADDRESS_STREET2` , `ADDRESS_STREET3` , `ADDRESS_CITY` , `ADDRESS_STATE` , `ADDRESS_COUNTRY` , and `ADDRESS_POSTALCODE` , you must group them by assigning them to the `ADDRESS` `groupName` .
+	// >
+	// > If you want to normalize `PHONE_NUMBER` and `PHONE_COUNTRYCODE` , you must group them by assigning them to the `PHONE` `groupName` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-schemamapping-schemainputattribute.html#cfn-entityresolution-schemamapping-schemainputattribute-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
 	// A string that instructs AWS Entity Resolution to combine several columns into a unified column with the identical attribute type.
 	//
-	// For example, when working with columns such as `first_name` , `middle_name` , and `last_name` , assigning them a common `groupName` will prompt AWS Entity Resolution to concatenate them into a single value.
+	// For example, when working with columns such as `NAME_FIRST` , `NAME_MIDDLE` , and `NAME_LAST` , assigning them a common `groupName` will prompt AWS Entity Resolution to concatenate them into a single value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-schemamapping-schemainputattribute.html#cfn-entityresolution-schemamapping-schemainputattribute-groupname
 	//
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// Indicates if the column values are hashed in the schema input.
 	//
-	// If the value is set to `TRUE` , the column values are hashed. If the value is set to `FALSE` , the column values are cleartext.
+	// If the value is set to `TRUE` , the column values are hashed.
+	//
+	// If the value is set to `FALSE` , the column values are cleartext.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-schemamapping-schemainputattribute.html#cfn-entityresolution-schemamapping-schemainputattribute-hashed
 	//
 	Hashed interface{} `field:"optional" json:"hashed" yaml:"hashed"`

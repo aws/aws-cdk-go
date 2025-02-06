@@ -33,7 +33,7 @@ import (
 type FirehoseLogDestination interface {
 	IAccessLogDestination
 	// Binds this destination to the Firehose delivery stream.
-	Bind(_stage IStage) *AccessLogDestinationConfig
+	Bind(stage IStage) *AccessLogDestinationConfig
 }
 
 // The jsii proxy struct for FirehoseLogDestination
@@ -68,8 +68,8 @@ func NewFirehoseLogDestination_Override(f FirehoseLogDestination, stream awskine
 	)
 }
 
-func (f *jsiiProxy_FirehoseLogDestination) Bind(_stage IStage) *AccessLogDestinationConfig {
-	if err := f.validateBindParameters(_stage); err != nil {
+func (f *jsiiProxy_FirehoseLogDestination) Bind(stage IStage) *AccessLogDestinationConfig {
+	if err := f.validateBindParameters(stage); err != nil {
 		panic(err)
 	}
 	var returns *AccessLogDestinationConfig
@@ -77,7 +77,7 @@ func (f *jsiiProxy_FirehoseLogDestination) Bind(_stage IStage) *AccessLogDestina
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{_stage},
+		[]interface{}{stage},
 		&returns,
 	)
 

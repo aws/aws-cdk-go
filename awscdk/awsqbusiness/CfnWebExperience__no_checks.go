@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnWebExperience) validateSetApplicationIdParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebExperience) validateSetBrowserExtensionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebExperience) validateSetCustomizationConfigurationParameters(val interface{}) error {
 	return nil
 }

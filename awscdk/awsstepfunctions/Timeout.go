@@ -20,6 +20,8 @@ import (
 //   })
 //
 type Timeout interface {
+	// JSONata expression for this timeout.
+	JsonataExpression() *string
 	// Path for this timeout.
 	Path() *string
 	// Seconds for this timeout.
@@ -29,6 +31,16 @@ type Timeout interface {
 // The jsii proxy struct for Timeout
 type jsiiProxy_Timeout struct {
 	_ byte // padding
+}
+
+func (j *jsiiProxy_Timeout) JsonataExpression() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jsonataExpression",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Timeout) Path() *string {
@@ -96,6 +108,27 @@ func Timeout_Duration(duration awscdk.Duration) Timeout {
 		"aws-cdk-lib.aws_stepfunctions.Timeout",
 		"duration",
 		[]interface{}{duration},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use a dynamic timeout specified by a JSONata expression.
+//
+// The JSONata expression value must be a positive integer.
+func Timeout_Jsonata(jsonataExpression *string) Timeout {
+	_init_.Initialize()
+
+	if err := validateTimeout_JsonataParameters(jsonataExpression); err != nil {
+		panic(err)
+	}
+	var returns Timeout
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Timeout",
+		"jsonata",
+		[]interface{}{jsonataExpression},
 		&returns,
 	)
 

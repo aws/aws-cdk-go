@@ -3,6 +3,8 @@ package awscodepipeline
 
 // The configuration that specifies the result, such as rollback, to occur upon stage failure.
 //
+// For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -48,6 +50,8 @@ package awscodepipeline
 //
 type CfnPipeline_FailureConditionsProperty struct {
 	// The conditions that are configured as failure conditions.
+	//
+	// For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html#cfn-codepipeline-pipeline-failureconditions-conditions
 	//
 	Conditions interface{} `field:"optional" json:"conditions" yaml:"conditions"`

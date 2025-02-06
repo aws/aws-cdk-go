@@ -31,15 +31,30 @@ package awsstepfunctions
 //   })
 //
 type WaitProps struct {
-	// Wait duration.
-	Time WaitTime `field:"required" json:"time" yaml:"time"`
-	// An optional description for this state.
+	// A comment describing this state.
 	// Default: No comment.
 	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// The name of the query language used by the state.
+	//
+	// If the state does not contain a `queryLanguage` field,
+	// then it will use the query language specified in the top-level `queryLanguage` field.
+	// Default: - JSONPath.
+	//
+	QueryLanguage QueryLanguage `field:"optional" json:"queryLanguage" yaml:"queryLanguage"`
 	// Optional name for this state.
 	// Default: - The construct ID will be used as state name.
 	//
 	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
+	// Workflow variables to store in this step.
+	//
+	// Using workflow variables, you can store data in a step and retrieve that data in future steps.
+	// See: https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/workflow-variables.html
+	//
+	// Default: - Not assign variables.
+	//
+	Assign *map[string]interface{} `field:"optional" json:"assign" yaml:"assign"`
+	// Wait duration.
+	Time WaitTime `field:"required" json:"time" yaml:"time"`
 }
 

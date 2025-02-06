@@ -30,6 +30,8 @@ import (
 //
 type CallAwsService interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -44,6 +46,7 @@ type CallAwsService interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -51,6 +54,7 @@ type CallAwsService interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -131,11 +135,13 @@ type CallAwsService interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -143,12 +149,14 @@ type CallAwsService interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -162,6 +170,26 @@ type CallAwsService interface {
 // The jsii proxy struct for CallAwsService
 type jsiiProxy_CallAwsService struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_CallAwsService) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallAwsService) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CallAwsService) Branches() *[]awsstepfunctions.StateGraph {
@@ -254,6 +282,16 @@ func (j *jsiiProxy_CallAwsService) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CallAwsService) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CallAwsService) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -289,6 +327,16 @@ func (j *jsiiProxy_CallAwsService) ProcessorMode() awsstepfunctions.ProcessorMod
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallAwsService) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -523,6 +571,44 @@ func CallAwsService_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// A StepFunctions task using JSONata to call an AWS service API.
+func CallAwsService_Jsonata(scope constructs.Construct, id *string, props *CallAwsServiceJsonataProps) CallAwsService {
+	_init_.Initialize()
+
+	if err := validateCallAwsService_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns CallAwsService
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// A StepFunctions task using JSONPath to call an AWS service API.
+func CallAwsService_JsonPath(scope constructs.Construct, id *string, props *CallAwsServiceJsonPathProps) CallAwsService {
+	_init_.Initialize()
+
+	if err := validateCallAwsService_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns CallAwsService
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -839,6 +925,19 @@ func (c *jsiiProxy_CallAwsService) Next(next awsstepfunctions.IChainable) awsste
 	return returns
 }
 
+func (c *jsiiProxy_CallAwsService) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CallAwsService) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -852,13 +951,13 @@ func (c *jsiiProxy_CallAwsService) RenderBranches() interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CallAwsService) RenderChoices() interface{} {
+func (c *jsiiProxy_CallAwsService) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		c,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -917,6 +1016,19 @@ func (c *jsiiProxy_CallAwsService) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (c *jsiiProxy_CallAwsService) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CallAwsService) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -930,26 +1042,26 @@ func (c *jsiiProxy_CallAwsService) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CallAwsService) RenderRetryCatch() interface{} {
+func (c *jsiiProxy_CallAwsService) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		c,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CallAwsService) ToStateJson() *map[string]interface{} {
+func (c *jsiiProxy_CallAwsService) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		c,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

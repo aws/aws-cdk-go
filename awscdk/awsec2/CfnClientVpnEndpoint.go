@@ -62,6 +62,7 @@ import (
 //   		BannerText: jsii.String("bannerText"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DisconnectOnSessionTimeout: jsii.Boolean(false),
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),
 //   	},
@@ -120,6 +121,9 @@ type CfnClientVpnEndpoint interface {
 	// A brief description of the Client VPN endpoint.
 	Description() *string
 	SetDescription(val *string)
+	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached.
+	DisconnectOnSessionTimeout() interface{}
+	SetDisconnectOnSessionTimeout(val interface{})
 	// Information about the DNS servers to be used for DNS resolution.
 	DnsServers() *[]*string
 	SetDnsServers(val *[]*string)
@@ -427,6 +431,16 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) DisconnectOnSessionTimeout() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"disconnectOnSessionTimeout",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint) DnsServers() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -674,6 +688,17 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetDisconnectOnSessionTimeout(val interface{}) {
+	if err := j.validateSetDisconnectOnSessionTimeoutParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"disconnectOnSessionTimeout",
 		val,
 	)
 }

@@ -14,6 +14,9 @@ package awsiotsitewise
 //   	},
 //   	GreengrassV2: &GreengrassV2Property{
 //   		CoreDeviceThingName: jsii.String("coreDeviceThingName"),
+//
+//   		// the properties below are optional
+//   		CoreDeviceOperatingSystem: jsii.String("coreDeviceOperatingSystem"),
 //   	},
 //   	SiemensIe: &SiemensIEProperty{
 //   		IotCoreThingName: jsii.String("iotCoreThingName"),

@@ -22,6 +22,16 @@ import (
 //   		TenantId: jsii.String("tenantId"),
 //   	},
 //   	DeviceTrustProviderType: jsii.String("deviceTrustProviderType"),
+//   	NativeApplicationOidcOptions: &NativeApplicationOidcOptionsProperty{
+//   		AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   		ClientId: jsii.String("clientId"),
+//   		ClientSecret: jsii.String("clientSecret"),
+//   		Issuer: jsii.String("issuer"),
+//   		PublicSigningKeyEndpoint: jsii.String("publicSigningKeyEndpoint"),
+//   		Scope: jsii.String("scope"),
+//   		TokenEndpoint: jsii.String("tokenEndpoint"),
+//   		UserInfoEndpoint: jsii.String("userInfoEndpoint"),
+//   	},
 //   	OidcOptions: &OidcOptionsProperty{
 //   		AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   		ClientId: jsii.String("clientId"),
@@ -67,6 +77,10 @@ type CfnVerifiedAccessTrustProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-devicetrustprovidertype
 	//
 	DeviceTrustProviderType *string `field:"optional" json:"deviceTrustProviderType" yaml:"deviceTrustProviderType"`
+	// The OpenID Connect (OIDC) options.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-nativeapplicationoidcoptions
+	//
+	NativeApplicationOidcOptions interface{} `field:"optional" json:"nativeApplicationOidcOptions" yaml:"nativeApplicationOidcOptions"`
 	// The options for an OpenID Connect-compatible user-identity trust provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-oidcoptions
 	//

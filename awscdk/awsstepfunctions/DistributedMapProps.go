@@ -20,27 +20,35 @@ package awsstepfunctions
 //   distributedMap.ItemProcessor(sfn.NewPass(this, jsii.String("Pass")))
 //
 type DistributedMapProps struct {
-	// An optional description for this state.
+	// A comment describing this state.
 	// Default: No comment.
 	//
 	Comment *string `field:"optional" json:"comment" yaml:"comment"`
-	// JSONPath expression to select part of the state to be the input to this state.
+	// The name of the query language used by the state.
 	//
-	// May also be the special value JsonPath.DISCARD, which will cause the effective
-	// input to be the empty object {}.
-	// Default: $.
+	// If the state does not contain a `queryLanguage` field,
+	// then it will use the query language specified in the top-level `queryLanguage` field.
+	// Default: - JSONPath.
 	//
-	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
+	QueryLanguage QueryLanguage `field:"optional" json:"queryLanguage" yaml:"queryLanguage"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
+	// Workflow variables to store in this step.
+	//
+	// Using workflow variables, you can store data in a step and retrieve that data in future steps.
+	// See: https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/workflow-variables.html
+	//
+	// Default: - Not assign variables.
+	//
+	Assign *map[string]interface{} `field:"optional" json:"assign" yaml:"assign"`
 	// The JSON that you want to override your default iteration input (mutually exclusive  with `parameters`).
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-itemselector.html
 	//
 	// Default: $.
 	//
 	ItemSelector *map[string]interface{} `field:"optional" json:"itemSelector" yaml:"itemSelector"`
-	// JSONPath expression to select the array to iterate over.
-	// Default: $.
-	//
-	ItemsPath *string `field:"optional" json:"itemsPath" yaml:"itemsPath"`
 	// MaxConcurrency.
 	//
 	// An upper bound on the number of iterations you want running at once.
@@ -49,6 +57,24 @@ type DistributedMapProps struct {
 	// Default: - full concurrency.
 	//
 	MaxConcurrency *float64 `field:"optional" json:"maxConcurrency" yaml:"maxConcurrency"`
+	// JSONPath expression to select part of the state to be the input to this state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// input to be the empty object {}.
+	// Default: $.
+	//
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
+	// JSONPath expression to select part of the state to be the output to this state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// output to be the empty object {}.
+	// Default: $.
+	//
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
+	// JSONPath expression to select the array to iterate over.
+	// Default: $.
+	//
+	ItemsPath *string `field:"optional" json:"itemsPath" yaml:"itemsPath"`
 	// MaxConcurrencyPath.
 	//
 	// A JsonPath that specifies the maximum concurrency dynamically from the state input.
@@ -57,13 +83,6 @@ type DistributedMapProps struct {
 	// Default: - full concurrency.
 	//
 	MaxConcurrencyPath *string `field:"optional" json:"maxConcurrencyPath" yaml:"maxConcurrencyPath"`
-	// JSONPath expression to select part of the state to be the output to this state.
-	//
-	// May also be the special value JsonPath.DISCARD, which will cause the effective
-	// output to be the empty object {}.
-	// Default: $.
-	//
-	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
@@ -80,10 +99,22 @@ type DistributedMapProps struct {
 	// Default: - None.
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
-	// Optional name for this state.
-	// Default: - The construct ID will be used as state name.
+	// Used to specify and transform output from the state.
 	//
-	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
+	// When specified, the value overrides the state output default.
+	// The output field accepts any JSON value (object, array, string, number, boolean, null).
+	// Any string value, including those inside objects or arrays,
+	// will be evaluated as JSONata if surrounded by {% %} characters.
+	// Output also accepts a JSONata expression directly.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-input-output-filtering.html
+	//
+	// Default: - $states.result or $states.errorOutput
+	//
+	Outputs interface{} `field:"optional" json:"outputs" yaml:"outputs"`
+	// The array that the Map state will iterate over.
+	// Default: - The state input as is.
+	//
+	Items ProvideItems `field:"optional" json:"items" yaml:"items"`
 	// Specifies to process a group of items in a single child workflow execution.
 	// Default: - No itemBatcher.
 	//

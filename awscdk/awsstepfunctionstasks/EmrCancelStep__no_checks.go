@@ -108,6 +108,14 @@ func validateEmrCancelStep_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateEmrCancelStep_JsonataParameters(scope constructs.Construct, id *string, props *EmrCancelStepJsonataProps) error {
+	return nil
+}
+
+func validateEmrCancelStep_JsonPathParameters(scope constructs.Construct, id *string, props *EmrCancelStepJsonPathProps) error {
+	return nil
+}
+
 func validateEmrCancelStep_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

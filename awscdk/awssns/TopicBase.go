@@ -54,13 +54,18 @@ type TopicBase interface {
 	TopicArn() *string
 	// The name of the topic.
 	TopicName() *string
+	// Adds a SSL policy to the topic resource policy.
+	AddSSLPolicy()
 	// Subscribe some endpoint to this topic.
 	AddSubscription(topicSubscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
 	// If this topic was created in this stack (`new Topic`), a topic policy
-	// will be automatically created upon the first call to `addToResourcePolicy`. If
-	// the topic is imported (`Topic.import`), then this is a no-op.
+	// will be automatically created upon the first call to `addToResourcePolicy`.
+	// However, if `enforceSSL` is set to `true`, the policy has already been created
+	// before the first call to this method.
+	//
+	// If the topic is imported (`Topic.import`), then this is a no-op.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
@@ -78,6 +83,8 @@ type TopicBase interface {
 	//
 	// For more information, see https://docs.aws.amazon.com/sns/latest/dg/sns-security-best-practices.html#enforce-encryption-data-in-transit.
 	CreateSSLPolicyDocument() awsiam.PolicyStatement
+	// Creates a topic policy for this topic.
+	CreateTopicPolicy()
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -336,6 +343,14 @@ func TopicBase_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+func (t *jsiiProxy_TopicBase) AddSSLPolicy() {
+	_jsii_.InvokeVoid(
+		t,
+		"addSSLPolicy",
+		nil, // no parameters
+	)
+}
+
 func (t *jsiiProxy_TopicBase) AddSubscription(topicSubscription ITopicSubscription) Subscription {
 	if err := t.validateAddSubscriptionParameters(topicSubscription); err != nil {
 		panic(err)
@@ -406,6 +421,14 @@ func (t *jsiiProxy_TopicBase) CreateSSLPolicyDocument() awsiam.PolicyStatement {
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_TopicBase) CreateTopicPolicy() {
+	_jsii_.InvokeVoid(
+		t,
+		"createTopicPolicy",
+		nil, // no parameters
+	)
 }
 
 func (t *jsiiProxy_TopicBase) GeneratePhysicalName() *string {

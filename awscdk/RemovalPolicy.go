@@ -28,25 +28,50 @@ package awscdk
 // ```.
 //
 // Example:
-//   var myRole role
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
-//   	Role: myRole,
-//   	 // must be assumable by the `lambda.amazonaws.com` service principal
-//   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   	 // defaults to 2 minutes
-//   	MemorySize: jsii.Number(1025),
-//   	 // defaults to 512 if installLatestAwsSdk is true
-//   	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
-//   		Retention: logs.RetentionDays_ONE_DAY,
-//   	}),
-//   	FunctionName: jsii.String("my-custom-name"),
-//   	 // defaults to a CloudFormation generated name
-//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
-//   	 // defaults to `RemovalPolicy.DESTROY`
-//   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
-//   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
-//   	}),
+//   var api graphqlApi
+//
+//
+//   user := iam.NewUser(this, jsii.String("User"))
+//   domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
+//   	Version: opensearch.EngineVersion_OPENSEARCH_2_3(),
+//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+//   	FineGrainedAccessControl: &AdvancedSecurityOptions{
+//   		MasterUserArn: user.UserArn,
+//   	},
+//   	EncryptionAtRest: &EncryptionAtRestOptions{
+//   		Enabled: jsii.Boolean(true),
+//   	},
+//   	NodeToNodeEncryption: jsii.Boolean(true),
+//   	EnforceHttps: jsii.Boolean(true),
+//   })
+//   ds := api.AddOpenSearchDataSource(jsii.String("ds"), domain)
+//
+//   ds.CreateResolver(jsii.String("QueryGetTestsResolver"), &BaseResolverProps{
+//   	TypeName: jsii.String("Query"),
+//   	FieldName: jsii.String("getTests"),
+//   	RequestMappingTemplate: appsync.MappingTemplate_FromString(jSON.stringify(map[string]interface{}{
+//   		"version": jsii.String("2017-02-28"),
+//   		"operation": jsii.String("GET"),
+//   		"path": jsii.String("/id/post/_search"),
+//   		"params": map[string]map[string]interface{}{
+//   			"headers": map[string]interface{}{
+//   			},
+//   			"queryString": map[string]interface{}{
+//   			},
+//   			"body": map[string]*f64{
+//   				"from": jsii.Number(0),
+//   				"size": jsii.Number(50),
+//   			},
+//   		},
+//   	})),
+//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromString(jsii.String(`[
+//   	    #foreach($entry in $context.result.hits.hits)
+//   	    #if( $velocityCount > 1 ) , #end
+//   	    $utils.toJson($entry.get("_source"))
+//   	    #end
+//   	  ]`)),
 //   })
 //
 type RemovalPolicy string

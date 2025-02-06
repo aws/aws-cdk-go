@@ -52,6 +52,8 @@ import (
 //
 type EmrCreateCluster interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	// The autoscaling role for the EMR Cluster.
 	//
 	// Only available after task has been added to a state machine.
@@ -74,6 +76,7 @@ type EmrCreateCluster interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -81,6 +84,7 @@ type EmrCreateCluster interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// The service role for the EMR Cluster.
@@ -165,11 +169,13 @@ type EmrCreateCluster interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -177,12 +183,14 @@ type EmrCreateCluster interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -196,6 +204,26 @@ type EmrCreateCluster interface {
 // The jsii proxy struct for EmrCreateCluster
 type jsiiProxy_EmrCreateCluster struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_EmrCreateCluster) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrCreateCluster) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_EmrCreateCluster) AutoScalingRole() awsiam.IRole {
@@ -308,6 +336,16 @@ func (j *jsiiProxy_EmrCreateCluster) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_EmrCreateCluster) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_EmrCreateCluster) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -343,6 +381,16 @@ func (j *jsiiProxy_EmrCreateCluster) ProcessorMode() awsstepfunctions.ProcessorM
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrCreateCluster) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -587,6 +635,48 @@ func EmrCreateCluster_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// A Step Functions task using JSONata to create an EMR Cluster.
+//
+// This task creates a Lambda function to call cross-region AWS API and invokes it.
+func EmrCreateCluster_Jsonata(scope constructs.Construct, id *string, props *EmrCreateClusterJsonataProps) EmrCreateCluster {
+	_init_.Initialize()
+
+	if err := validateEmrCreateCluster_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns EmrCreateCluster
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// A Step Functions task using JSONPath to create an EMR Cluster.
+//
+// This task creates a Lambda function to call cross-region AWS API and invokes it.
+func EmrCreateCluster_JsonPath(scope constructs.Construct, id *string, props *EmrCreateClusterJsonPathProps) EmrCreateCluster {
+	_init_.Initialize()
+
+	if err := validateEmrCreateCluster_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns EmrCreateCluster
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -903,6 +993,19 @@ func (e *jsiiProxy_EmrCreateCluster) Next(next awsstepfunctions.IChainable) awss
 	return returns
 }
 
+func (e *jsiiProxy_EmrCreateCluster) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EmrCreateCluster) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -916,13 +1019,13 @@ func (e *jsiiProxy_EmrCreateCluster) RenderBranches() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrCreateCluster) RenderChoices() interface{} {
+func (e *jsiiProxy_EmrCreateCluster) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		e,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -981,6 +1084,19 @@ func (e *jsiiProxy_EmrCreateCluster) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (e *jsiiProxy_EmrCreateCluster) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EmrCreateCluster) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -994,26 +1110,26 @@ func (e *jsiiProxy_EmrCreateCluster) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrCreateCluster) RenderRetryCatch() interface{} {
+func (e *jsiiProxy_EmrCreateCluster) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		e,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (e *jsiiProxy_EmrCreateCluster) ToStateJson() *map[string]interface{} {
+func (e *jsiiProxy_EmrCreateCluster) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		e,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

@@ -108,6 +108,14 @@ func validateSnsPublish_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateSnsPublish_JsonataParameters(scope constructs.Construct, id *string, props *SnsPublishJsonataProps) error {
+	return nil
+}
+
+func validateSnsPublish_JsonPathParameters(scope constructs.Construct, id *string, props *SnsPublishJsonPathProps) error {
+	return nil
+}
+
 func validateSnsPublish_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

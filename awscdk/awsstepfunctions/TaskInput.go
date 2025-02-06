@@ -8,14 +8,17 @@ import (
 // Type union for task classes that accept multiple types of payload.
 //
 // Example:
-//   var fn function
+//   import apigateway "github.com/aws/aws-cdk-go/awscdk"
+//   var api restApi
 //
-//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with callback"), &LambdaInvokeProps{
-//   	LambdaFunction: fn,
+//
+//   tasks.CallApiGatewayRestApiEndpoint_Jsonata(this, jsii.String("Endpoint"), &CallApiGatewayRestApiEndpointJsonataProps{
+//   	Api: Api,
+//   	StageName: jsii.String("Stage"),
+//   	Method: tasks.HttpMethod_PUT,
 //   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-//   	Payload: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"token": sfn.JsonPath_taskToken(),
-//   		"input": sfn.JsonPath_stringAt(jsii.String("$.someField")),
+//   	Headers: sfn.TaskInput_FromObject(map[string]interface{}{
+//   		"TaskToken": jsii.String("{% States.Array($states.context.taskToken) %}"),
 //   	}),
 //   })
 //

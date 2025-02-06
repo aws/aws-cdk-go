@@ -69,7 +69,7 @@ type EcsJobDefinition interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
-	// Whether to propogate tags from the JobDefinition to the ECS task that Batch spawns.
+	// Whether to propagate tags from the JobDefinition to the ECS task that Batch spawns.
 	PropagateTags() *bool
 	// The number of times to retry a job.
 	//

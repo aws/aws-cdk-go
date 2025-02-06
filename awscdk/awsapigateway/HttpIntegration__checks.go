@@ -8,9 +8,9 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func (h *jsiiProxy_HttpIntegration) validateBindParameters(_method Method) error {
-	if _method == nil {
-		return fmt.Errorf("parameter _method is required, but nil was provided")
+func (h *jsiiProxy_HttpIntegration) validateBindParameters(method Method) error {
+	if method == nil {
+		return fmt.Errorf("parameter method is required, but nil was provided")
 	}
 
 	return nil

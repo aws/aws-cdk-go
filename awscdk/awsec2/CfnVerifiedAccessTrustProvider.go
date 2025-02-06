@@ -29,6 +29,16 @@ import (
 //   		TenantId: jsii.String("tenantId"),
 //   	},
 //   	DeviceTrustProviderType: jsii.String("deviceTrustProviderType"),
+//   	NativeApplicationOidcOptions: &NativeApplicationOidcOptionsProperty{
+//   		AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   		ClientId: jsii.String("clientId"),
+//   		ClientSecret: jsii.String("clientSecret"),
+//   		Issuer: jsii.String("issuer"),
+//   		PublicSigningKeyEndpoint: jsii.String("publicSigningKeyEndpoint"),
+//   		Scope: jsii.String("scope"),
+//   		TokenEndpoint: jsii.String("tokenEndpoint"),
+//   		UserInfoEndpoint: jsii.String("userInfoEndpoint"),
+//   	},
 //   	OidcOptions: &OidcOptionsProperty{
 //   		AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   		ClientId: jsii.String("clientId"),
@@ -91,6 +101,9 @@ type CfnVerifiedAccessTrustProvider interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The OpenID Connect (OIDC) options.
+	NativeApplicationOidcOptions() interface{}
+	SetNativeApplicationOidcOptions(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The options for an OpenID Connect-compatible user-identity trust provider.
@@ -379,6 +392,16 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) NativeApplicationOidcOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"nativeApplicationOidcOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -550,6 +573,17 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider)SetDeviceTrustProviderType(val
 	_jsii_.Set(
 		j,
 		"deviceTrustProviderType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider)SetNativeApplicationOidcOptions(val interface{}) {
+	if err := j.validateSetNativeApplicationOidcOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"nativeApplicationOidcOptions",
 		val,
 	)
 }

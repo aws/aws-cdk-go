@@ -24,3 +24,11 @@ func validateTimeout_DurationParameters(duration awscdk.Duration) error {
 	return nil
 }
 
+func validateTimeout_JsonataParameters(jsonataExpression *string) error {
+	if jsonataExpression == nil {
+		return fmt.Errorf("parameter jsonataExpression is required, but nil was provided")
+	}
+
+	return nil
+}
+

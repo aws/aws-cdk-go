@@ -134,6 +134,38 @@ func validateFail_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateFail_JsonataParameters(scope constructs.Construct, id *string, props *FailJsonataProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateFail_JsonPathParameters(scope constructs.Construct, id *string, props *FailJsonPathProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateFail_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	if root == nil {
 		return fmt.Errorf("parameter root is required, but nil was provided")

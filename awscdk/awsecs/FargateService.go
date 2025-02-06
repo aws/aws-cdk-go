@@ -17,37 +17,30 @@ import (
 // This creates a service using the Fargate launch type on an ECS cluster.
 //
 // Example:
-//   import cw "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var elbAlarm alarm
-//
+//   var vpc vpc
 //
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   	DeploymentAlarms: &DeploymentAlarmConfig{
-//   		AlarmNames: []*string{
-//   			elbAlarm.AlarmName,
-//   		},
-//   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
-//   	},
 //   })
 //
-//   // Defining a deployment alarm after the service has been created
-//   cpuAlarmName := "MyCpuMetricAlarm"
-//   cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
-//   	AlarmName: cpuAlarmName,
-//   	Metric: service.MetricCpuUtilization(),
-//   	EvaluationPeriods: jsii.Number(2),
-//   	Threshold: jsii.Number(80),
+//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+//   	Vpc: Vpc,
+//   	InternetFacing: jsii.Boolean(true),
 //   })
-//   service.EnableDeploymentAlarms([]*string{
-//   	cpuAlarmName,
-//   }, &DeploymentAlarmOptions{
-//   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
+//   listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+//   	Port: jsii.Number(80),
+//   })
+//   service.RegisterLoadBalancerTargets(&EcsTarget{
+//   	ContainerName: jsii.String("web"),
+//   	ContainerPort: jsii.Number(80),
+//   	NewTargetGroupId: jsii.String("ECS"),
+//   	Listener: ecs.ListenerConfig_ApplicationListener(listener, &AddApplicationTargetsProps{
+//   		Protocol: elbv2.ApplicationProtocol_HTTPS,
+//   	}),
 //   })
 //
 type FargateService interface {

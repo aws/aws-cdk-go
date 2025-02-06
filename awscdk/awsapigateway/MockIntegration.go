@@ -98,7 +98,7 @@ import (
 type MockIntegration interface {
 	Integration
 	// Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-	Bind(_method Method) *IntegrationConfig
+	Bind(method Method) *IntegrationConfig
 }
 
 // The jsii proxy struct for MockIntegration
@@ -133,8 +133,8 @@ func NewMockIntegration_Override(m MockIntegration, options *IntegrationOptions)
 	)
 }
 
-func (m *jsiiProxy_MockIntegration) Bind(_method Method) *IntegrationConfig {
-	if err := m.validateBindParameters(_method); err != nil {
+func (m *jsiiProxy_MockIntegration) Bind(method Method) *IntegrationConfig {
+	if err := m.validateBindParameters(method); err != nil {
 		panic(err)
 	}
 	var returns *IntegrationConfig
@@ -142,7 +142,7 @@ func (m *jsiiProxy_MockIntegration) Bind(_method Method) *IntegrationConfig {
 	_jsii_.Invoke(
 		m,
 		"bind",
-		[]interface{}{_method},
+		[]interface{}{method},
 		&returns,
 	)
 

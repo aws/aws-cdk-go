@@ -100,7 +100,7 @@ type Deployment interface {
 	//
 	// This should be called by constructs of the API Gateway model that want to
 	// invalidate the deployment when their settings change. The component will
-	// be resolve()ed during synthesis so tokens are welcome.
+	// be resolved during synthesis so tokens are welcome.
 	AddToLogicalId(data interface{})
 	// Apply the given removal policy to this resource.
 	//

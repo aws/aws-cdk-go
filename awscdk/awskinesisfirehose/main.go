@@ -7,6 +7,14 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_kinesisfirehose.BackupMode",
+		reflect.TypeOf((*BackupMode)(nil)).Elem(),
+		map[string]interface{}{
+			"ALL": BackupMode_ALL,
+			"FAILED": BackupMode_FAILED,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream",
 		reflect.TypeOf((*CfnDeliveryStream)(nil)).Elem(),
@@ -30,6 +38,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamEncryptionConfigurationInput", GoGetter: "DeliveryStreamEncryptionConfigurationInput"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamName", GoGetter: "DeliveryStreamName"},
 			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamType", GoGetter: "DeliveryStreamType"},
+			_jsii_.MemberProperty{JsiiProperty: "directPutSourceConfiguration", GoGetter: "DirectPutSourceConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "elasticsearchDestinationConfiguration", GoGetter: "ElasticsearchDestinationConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "extendedS3DestinationConfiguration", GoGetter: "ExtendedS3DestinationConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -152,6 +161,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DestinationTableConfigurationProperty",
 		reflect.TypeOf((*CfnDeliveryStream_DestinationTableConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DirectPutSourceConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DirectPutSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStream.DocumentIdOptionsProperty",
@@ -316,5 +329,249 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.CfnDeliveryStreamProps",
 		reflect.TypeOf((*CfnDeliveryStreamProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CommonDestinationProps",
+		reflect.TypeOf((*CommonDestinationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.CommonDestinationS3Props",
+		reflect.TypeOf((*CommonDestinationS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.Compression",
+		reflect.TypeOf((*Compression)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Compression{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DataProcessorBindOptions",
+		reflect.TypeOf((*DataProcessorBindOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DataProcessorConfig",
+		reflect.TypeOf((*DataProcessorConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DataProcessorIdentifier",
+		reflect.TypeOf((*DataProcessorIdentifier)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DataProcessorProps",
+		reflect.TypeOf((*DataProcessorProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStream",
+		reflect.TypeOf((*DeliveryStream)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamArn", GoGetter: "DeliveryStreamArn"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamName", GoGetter: "DeliveryStreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPutRecords", GoMethod: "GrantPutRecords"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricBackupToS3Bytes", GoMethod: "MetricBackupToS3Bytes"},
+			_jsii_.MemberMethod{JsiiMethod: "metricBackupToS3DataFreshness", GoMethod: "MetricBackupToS3DataFreshness"},
+			_jsii_.MemberMethod{JsiiMethod: "metricBackupToS3Records", GoMethod: "MetricBackupToS3Records"},
+			_jsii_.MemberMethod{JsiiMethod: "metricIncomingBytes", GoMethod: "MetricIncomingBytes"},
+			_jsii_.MemberMethod{JsiiMethod: "metricIncomingRecords", GoMethod: "MetricIncomingRecords"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DeliveryStream{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDeliveryStream)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStreamAttributes",
+		reflect.TypeOf((*DeliveryStreamAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStreamProps",
+		reflect.TypeOf((*DeliveryStreamProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DestinationBindOptions",
+		reflect.TypeOf((*DestinationBindOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DestinationConfig",
+		reflect.TypeOf((*DestinationConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DestinationS3BackupProps",
+		reflect.TypeOf((*DestinationS3BackupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.DisableLogging",
+		reflect.TypeOf((*DisableLogging)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DisableLogging{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoggingConfig)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.EnableLogging",
+		reflect.TypeOf((*EnableLogging)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EnableLogging{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoggingConfig)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_kinesisfirehose.IDataProcessor",
+		reflect.TypeOf((*IDataProcessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IDataProcessor{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_kinesisfirehose.IDeliveryStream",
+		reflect.TypeOf((*IDeliveryStream)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamArn", GoGetter: "DeliveryStreamArn"},
+			_jsii_.MemberProperty{JsiiProperty: "deliveryStreamName", GoGetter: "DeliveryStreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPutRecords", GoMethod: "GrantPutRecords"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricBackupToS3Bytes", GoMethod: "MetricBackupToS3Bytes"},
+			_jsii_.MemberMethod{JsiiMethod: "metricBackupToS3DataFreshness", GoMethod: "MetricBackupToS3DataFreshness"},
+			_jsii_.MemberMethod{JsiiMethod: "metricBackupToS3Records", GoMethod: "MetricBackupToS3Records"},
+			_jsii_.MemberMethod{JsiiMethod: "metricIncomingBytes", GoMethod: "MetricIncomingBytes"},
+			_jsii_.MemberMethod{JsiiMethod: "metricIncomingRecords", GoMethod: "MetricIncomingRecords"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDeliveryStream{}
+			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_kinesisfirehose.IDestination",
+		reflect.TypeOf((*IDestination)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IDestination{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_kinesisfirehose.ILoggingConfig",
+		reflect.TypeOf((*ILoggingConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ILoggingConfig{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_kinesisfirehose.ISource",
+		reflect.TypeOf((*ISource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ISource{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.KinesisStreamSource",
+		reflect.TypeOf((*KinesisStreamSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+		},
+		func() interface{} {
+			j := jsiiProxy_KinesisStreamSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISource)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.LambdaFunctionProcessor",
+		reflect.TypeOf((*LambdaFunctionProcessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_LambdaFunctionProcessor{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataProcessor)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.S3Bucket",
+		reflect.TypeOf((*S3Bucket)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3Bucket{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDestination)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.S3BucketProps",
+		reflect.TypeOf((*S3BucketProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.StreamEncryption",
+		reflect.TypeOf((*StreamEncryption)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+		},
+		func() interface{} {
+			return &jsiiProxy_StreamEncryption{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_kinesisfirehose.StreamEncryptionType",
+		reflect.TypeOf((*StreamEncryptionType)(nil)).Elem(),
+		map[string]interface{}{
+			"UNENCRYPTED": StreamEncryptionType_UNENCRYPTED,
+			"CUSTOMER_MANAGED": StreamEncryptionType_CUSTOMER_MANAGED,
+			"AWS_OWNED": StreamEncryptionType_AWS_OWNED,
+		},
 	)
 }

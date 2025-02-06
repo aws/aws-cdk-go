@@ -11,6 +11,11 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var key key
+//   var role role
 //
 //   serviceConnectService := &ServiceConnectService{
 //   	PortMappingName: jsii.String("portMappingName"),
@@ -22,6 +27,11 @@ import (
 //   	IngressPortOverride: jsii.Number(123),
 //   	PerRequestTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	Port: jsii.Number(123),
+//   	Tls: &ServiceConnectTlsConfiguration{
+//   		AwsPcaAuthorityArn: jsii.String("awsPcaAuthorityArn"),
+//   		KmsKey: key,
+//   		Role: role,
+//   	},
 //   }
 //
 type ServiceConnectService struct {
@@ -69,5 +79,9 @@ type ServiceConnectService struct {
 	// Default: the container port specified by the port mapping in portMappingName.
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	// A reference to an object that represents a Transport Layer Security (TLS) configuration.
+	// Default: - none.
+	//
+	Tls *ServiceConnectTlsConfiguration `field:"optional" json:"tls" yaml:"tls"`
 }
 

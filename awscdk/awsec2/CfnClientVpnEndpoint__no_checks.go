@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetConnectionLogOptionsParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetDisconnectOnSessionTimeoutParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetServerCertificateArnParameters(val *string) error {
 	return nil
 }

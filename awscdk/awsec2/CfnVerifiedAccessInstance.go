@@ -17,6 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVerifiedAccessInstance := awscdk.Aws_ec2.NewCfnVerifiedAccessInstance(this, jsii.String("MyCfnVerifiedAccessInstance"), &CfnVerifiedAccessInstanceProps{
+//   	CidrEndpointsCustomSubDomain: jsii.String("cidrEndpointsCustomSubDomain"),
 //   	Description: jsii.String("description"),
 //   	FipsEnabled: jsii.Boolean(false),
 //   	LoggingConfigurations: &VerifiedAccessLogsProperty{
@@ -63,6 +64,8 @@ type CfnVerifiedAccessInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
+	// Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+	AttrCidrEndpointsCustomSubDomainNameServers() *[]*string
 	// The creation time.
 	AttrCreationTime() *string
 	// The last updated time.
@@ -74,6 +77,9 @@ type CfnVerifiedAccessInstance interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The custom subdomain.
+	CidrEndpointsCustomSubDomain() *string
+	SetCidrEndpointsCustomSubDomain(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -266,6 +272,16 @@ type jsiiProxy_CfnVerifiedAccessInstance struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessInstance) AttrCidrEndpointsCustomSubDomainNameServers() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrCidrEndpointsCustomSubDomainNameServers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessInstance) AttrCreationTime() *string {
 	var returns *string
 	_jsii_.Get(
@@ -321,6 +337,16 @@ func (j *jsiiProxy_CfnVerifiedAccessInstance) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessInstance) CidrEndpointsCustomSubDomain() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cidrEndpointsCustomSubDomain",
 		&returns,
 	)
 	return returns
@@ -491,6 +517,14 @@ func NewCfnVerifiedAccessInstance_Override(c CfnVerifiedAccessInstance, scope co
 		"aws-cdk-lib.aws_ec2.CfnVerifiedAccessInstance",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessInstance)SetCidrEndpointsCustomSubDomain(val *string) {
+	_jsii_.Set(
+		j,
+		"cidrEndpointsCustomSubDomain",
+		val,
 	)
 }
 

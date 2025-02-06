@@ -36,6 +36,10 @@ import (
 //
 //   	// the properties below are optional
 //   	Alias: jsii.String("alias"),
+//   	RoleConfiguration: &RoleConfigurationProperty{
+//   		SourceRoleArn: jsii.String("sourceRoleArn"),
+//   		TargetRoleArn: jsii.String("targetRoleArn"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -63,6 +67,10 @@ type CfnScraperProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-alias
 	//
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
+	// Role configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-roleconfiguration
+	//
+	RoleConfiguration interface{} `field:"optional" json:"roleConfiguration" yaml:"roleConfiguration"`
 	// (Optional) The list of tag keys and values associated with the scraper.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-tags
 	//

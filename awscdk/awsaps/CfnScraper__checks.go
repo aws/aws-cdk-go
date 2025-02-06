@@ -206,6 +206,30 @@ func (j *jsiiProxy_CfnScraper) validateSetDestinationParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnScraper) validateSetRoleConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnScraper_RoleConfigurationProperty:
+		val := val.(*CfnScraper_RoleConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnScraper_RoleConfigurationProperty:
+		val_ := val.(CfnScraper_RoleConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnScraper_RoleConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnScraper) validateSetScrapeConfigurationParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

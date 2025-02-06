@@ -37,13 +37,13 @@ import (
 //   var api restApi
 //
 //
-//   tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &CallApiGatewayRestApiEndpointProps{
+//   tasks.CallApiGatewayRestApiEndpoint_Jsonata(this, jsii.String("Endpoint"), &CallApiGatewayRestApiEndpointJsonataProps{
 //   	Api: Api,
 //   	StageName: jsii.String("Stage"),
 //   	Method: tasks.HttpMethod_PUT,
 //   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
 //   	Headers: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"TaskToken": sfn.JsonPath_array(sfn.JsonPath_taskToken()),
+//   		"TaskToken": jsii.String("{% States.Array($states.context.taskToken) %}"),
 //   	}),
 //   })
 //
@@ -52,7 +52,9 @@ import (
 type CallApiGatewayRestApiEndpoint interface {
 	awsstepfunctions.TaskStateBase
 	ApiEndpoint() *string
+	Arguments() *map[string]interface{}
 	ArnForExecuteApi() *string
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -67,6 +69,7 @@ type CallApiGatewayRestApiEndpoint interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -74,6 +77,7 @@ type CallApiGatewayRestApiEndpoint interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	StageName() *string
@@ -156,11 +160,13 @@ type CallApiGatewayRestApiEndpoint interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -168,12 +174,14 @@ type CallApiGatewayRestApiEndpoint interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -199,11 +207,31 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ApiEndpoint() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ArnForExecuteApi() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"arnForExecuteApi",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
 		&returns,
 	)
 	return returns
@@ -299,6 +327,16 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -334,6 +372,16 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ProcessorMode() awsstepfunctio
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -578,6 +626,86 @@ func CallApiGatewayRestApiEndpoint_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Call REST API endpoint as a Task using JSONata.
+//
+// Be aware that the header values must be arrays. When passing the Task Token
+// in the headers field `WAIT_FOR_TASK_TOKEN` integration, use
+// `JsonPath.array()` to wrap the token in an array:
+//
+// ```ts
+// import * as apigateway from 'aws-cdk-lib/aws-apigateway';
+// declare const api: apigateway.RestApi;
+//
+// tasks.CallApiGatewayRestApiEndpoint.jsonata(this, 'Endpoint', {
+//   api,
+//   stageName: 'Stage',
+//   method: tasks.HttpMethod.PUT,
+//   integrationPattern: sfn.IntegrationPattern.WAIT_FOR_TASK_TOKEN,
+//   headers: sfn.TaskInput.fromObject({
+//     TaskToken: '{% States.Array($states.context.taskToken) %}',
+//   }),
+// });
+// ```.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-api-gateway.html
+//
+func CallApiGatewayRestApiEndpoint_Jsonata(scope constructs.Construct, id *string, props *CallApiGatewayRestApiEndpointJsonataProps) CallApiGatewayRestApiEndpoint {
+	_init_.Initialize()
+
+	if err := validateCallApiGatewayRestApiEndpoint_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns CallApiGatewayRestApiEndpoint
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Call REST API endpoint as a Task  using JSONPath.
+//
+// Be aware that the header values must be arrays. When passing the Task Token
+// in the headers field `WAIT_FOR_TASK_TOKEN` integration, use
+// `JsonPath.array()` to wrap the token in an array:
+//
+// ```ts
+// import * as apigateway from 'aws-cdk-lib/aws-apigateway';
+// declare const api: apigateway.RestApi;
+//
+// tasks.CallApiGatewayRestApiEndpoint.jsonPath(this, 'Endpoint', {
+//   api,
+//   stageName: 'Stage',
+//   method: tasks.HttpMethod.PUT,
+//   integrationPattern: sfn.IntegrationPattern.WAIT_FOR_TASK_TOKEN,
+//   headers: sfn.TaskInput.fromObject({
+//     TaskToken: sfn.JsonPath.array(sfn.JsonPath.taskToken),
+//   }),
+// });
+// ```.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-api-gateway.html
+//
+func CallApiGatewayRestApiEndpoint_JsonPath(scope constructs.Construct, id *string, props *CallApiGatewayRestApiEndpointJsonPathProps) CallApiGatewayRestApiEndpoint {
+	_init_.Initialize()
+
+	if err := validateCallApiGatewayRestApiEndpoint_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns CallApiGatewayRestApiEndpoint
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -907,6 +1035,19 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Next(next awsstepfunctions.ICh
 	return returns
 }
 
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -920,13 +1061,13 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderBranches() interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderChoices() interface{} {
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		c,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -985,6 +1126,19 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -998,26 +1152,26 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderResultSelector() interfa
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderRetryCatch() interface{} {
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		c,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) ToStateJson() *map[string]interface{} {
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		c,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

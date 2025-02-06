@@ -20,14 +20,14 @@ import (
 //   	Destination: destination,
 //   })
 //
-// Experimental.
+// Deprecated.
 type KinesisStreamSource interface {
 	ISource
 	// Grant read permissions for this source resource and its contents to an IAM principal (the delivery stream).
 	//
 	// If an encryption key is used, permission to use the key to decrypt the
 	// contents of the stream will also be granted.
-	// Experimental.
+	// Deprecated.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 }
 
@@ -37,7 +37,7 @@ type jsiiProxy_KinesisStreamSource struct {
 }
 
 // Creates a new KinesisStreamSource.
-// Experimental.
+// Deprecated.
 func NewKinesisStreamSource(stream awskinesis.IStream) KinesisStreamSource {
 	_init_.Initialize()
 
@@ -56,7 +56,7 @@ func NewKinesisStreamSource(stream awskinesis.IStream) KinesisStreamSource {
 }
 
 // Creates a new KinesisStreamSource.
-// Experimental.
+// Deprecated.
 func NewKinesisStreamSource_Override(k KinesisStreamSource, stream awskinesis.IStream) {
 	_init_.Initialize()
 

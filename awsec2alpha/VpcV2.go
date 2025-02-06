@@ -49,6 +49,9 @@ type VpcV2 interface {
 	// Indicates if DNS support is enabled for this VPC.
 	// Experimental.
 	DnsSupportEnabled() *bool
+	// Returns the id of the Egress Only Internet Gateway (if enabled).
+	// Experimental.
+	EgressOnlyInternetGatewayId() *string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -256,6 +259,16 @@ func (j *jsiiProxy_VpcV2) DnsSupportEnabled() *bool {
 	_jsii_.Get(
 		j,
 		"dnsSupportEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcV2) EgressOnlyInternetGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"egressOnlyInternetGatewayId",
 		&returns,
 	)
 	return returns

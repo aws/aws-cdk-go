@@ -112,6 +112,14 @@ func validateSageMakerCreateTrainingJob_IsConstructParameters(x interface{}) err
 	return nil
 }
 
+func validateSageMakerCreateTrainingJob_JsonataParameters(scope constructs.Construct, id *string, props *SageMakerCreateTrainingJobJsonataProps) error {
+	return nil
+}
+
+func validateSageMakerCreateTrainingJob_JsonPathParameters(scope constructs.Construct, id *string, props *SageMakerCreateTrainingJobJsonPathProps) error {
+	return nil
+}
+
 func validateSageMakerCreateTrainingJob_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

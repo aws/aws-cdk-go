@@ -35,7 +35,7 @@ import (
 type HttpIntegration interface {
 	Integration
 	// Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-	Bind(_method Method) *IntegrationConfig
+	Bind(method Method) *IntegrationConfig
 }
 
 // The jsii proxy struct for HttpIntegration
@@ -70,8 +70,8 @@ func NewHttpIntegration_Override(h HttpIntegration, url *string, props *HttpInte
 	)
 }
 
-func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
-	if err := h.validateBindParameters(_method); err != nil {
+func (h *jsiiProxy_HttpIntegration) Bind(method Method) *IntegrationConfig {
+	if err := h.validateBindParameters(method); err != nil {
 		panic(err)
 	}
 	var returns *IntegrationConfig
@@ -79,7 +79,7 @@ func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_method},
+		[]interface{}{method},
 		&returns,
 	)
 

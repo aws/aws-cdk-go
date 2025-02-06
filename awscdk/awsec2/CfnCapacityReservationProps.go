@@ -9,12 +9,13 @@ package awsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCapacityReservationProps := &CfnCapacityReservationProps{
-//   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	InstanceCount: jsii.Number(123),
 //   	InstancePlatform: jsii.String("instancePlatform"),
 //   	InstanceType: jsii.String("instanceType"),
 //
 //   	// the properties below are optional
+//   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	EbsOptimized: jsii.Boolean(false),
 //   	EndDate: jsii.String("endDate"),
 //   	EndDateType: jsii.String("endDateType"),
@@ -22,8 +23,8 @@ package awsec2
 //   	InstanceMatchCriteria: jsii.String("instanceMatchCriteria"),
 //   	OutPostArn: jsii.String("outPostArn"),
 //   	PlacementGroupArn: jsii.String("placementGroupArn"),
-//   	TagSpecifications: []interface{}{
-//   		&TagSpecificationProperty{
+//   	TagSpecifications: []tagSpecificationProperty{
+//   		&tagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
 //   			Tags: []cfnTag{
 //   				&cfnTag{
@@ -40,13 +41,9 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html
 //
 type CfnCapacityReservationProps struct {
-	// The Availability Zone in which to create the Capacity Reservation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-availabilityzone
-	//
-	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of instances for which to reserve capacity.
 	//
-	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
 	//
 	// Valid range: 1 - 1000.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-instancecount
@@ -64,6 +61,14 @@ type CfnCapacityReservationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-instancetype
 	//
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
+	// The Availability Zone in which to create the Capacity Reservation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-availabilityzone
+	//
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// The Availability Zone ID of the Capacity Reservation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-availabilityzoneid
+	//
+	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
 	//
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
@@ -121,7 +126,7 @@ type CfnCapacityReservationProps struct {
 	// The tags to apply to the Capacity Reservation during launch.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-tagspecifications
 	//
-	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications *[]*CfnCapacityReservation_TagSpecificationProperty `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:.
 	//
 	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .

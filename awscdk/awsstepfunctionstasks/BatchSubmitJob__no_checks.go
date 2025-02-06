@@ -108,6 +108,14 @@ func validateBatchSubmitJob_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateBatchSubmitJob_JsonataParameters(scope constructs.Construct, id *string, props *BatchSubmitJobJsonataProps) error {
+	return nil
+}
+
+func validateBatchSubmitJob_JsonPathParameters(scope constructs.Construct, id *string, props *BatchSubmitJobJsonPathProps) error {
+	return nil
+}
+
 func validateBatchSubmitJob_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

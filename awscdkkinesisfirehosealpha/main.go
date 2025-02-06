@@ -1,4 +1,4 @@
-// The CDK Construct Library for AWS::KinesisFirehose
+// This module is deprecated. All constructs are now available under aws-kinesisfirehose
 package awscdkkinesisfirehosealpha
 
 import (

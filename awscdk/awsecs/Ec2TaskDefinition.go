@@ -107,6 +107,7 @@ type Ec2TaskDefinition interface {
 	// Adds a firelens log router to the task definition.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
 	// Adds an inference accelerator to the task definition.
+	// Deprecated: ECS TaskDefinition's inferenceAccelerator is EOL since April 2024.
 	AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator)
 	// Adds the specified placement constraint to the task definition.
 	AddPlacementConstraint(constraint PlacementConstraint)

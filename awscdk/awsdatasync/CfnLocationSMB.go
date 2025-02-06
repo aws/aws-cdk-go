@@ -60,7 +60,7 @@ type CfnLocationSMB interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies the name of the Active Directory domain that your SMB file server belongs to.
+	// Specifies the Windows domain name that your SMB file server belongs to.
 	Domain() *string
 	SetDomain(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -86,7 +86,7 @@ type CfnLocationSMB interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Specifies the Domain Name Service (DNS) name or IP address of the SMB file server that your DataSync agent will mount.
+	// Specifies the domain name or IP address of the SMB file server that your DataSync agent will mount.
 	ServerHostname() *string
 	SetServerHostname(val *string)
 	// The stack in which this element is defined.

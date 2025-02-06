@@ -18,6 +18,9 @@ import (
 //
 //   cfnTopic := awscdk.Aws_quicksight.NewCfnTopic(this, jsii.String("MyCfnTopic"), &CfnTopicProps{
 //   	AwsAccountId: jsii.String("awsAccountId"),
+//   	ConfigOptions: &TopicConfigOptionsProperty{
+//   		QBusinessInsightsEnabled: jsii.Boolean(false),
+//   	},
 //   	DataSets: []interface{}{
 //   		&DatasetMetadataProperty{
 //   			DatasetArn: jsii.String("datasetArn"),
@@ -278,6 +281,9 @@ import (
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	FolderArns: []*string{
+//   		jsii.String("folderArns"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	TopicId: jsii.String("topicId"),
 //   	UserExperienceVersion: jsii.String("userExperienceVersion"),
@@ -298,6 +304,9 @@ type CfnTopic interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Configuration options for a `Topic` .
+	ConfigOptions() interface{}
+	SetConfigOptions(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -308,6 +317,8 @@ type CfnTopic interface {
 	// The description of the topic.
 	Description() *string
 	SetDescription(val *string)
+	FolderArns() *[]*string
+	SetFolderArns(val *[]*string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -534,6 +545,16 @@ func (j *jsiiProxy_CfnTopic) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) ConfigOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"configOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopic) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -559,6 +580,16 @@ func (j *jsiiProxy_CfnTopic) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTopic) FolderArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"folderArns",
 		&returns,
 	)
 	return returns
@@ -690,6 +721,17 @@ func (j *jsiiProxy_CfnTopic)SetAwsAccountId(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnTopic)SetConfigOptions(val interface{}) {
+	if err := j.validateSetConfigOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"configOptions",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTopic)SetDataSets(val interface{}) {
 	if err := j.validateSetDataSetsParameters(val); err != nil {
 		panic(err)
@@ -705,6 +747,14 @@ func (j *jsiiProxy_CfnTopic)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetFolderArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"folderArns",
 		val,
 	)
 }

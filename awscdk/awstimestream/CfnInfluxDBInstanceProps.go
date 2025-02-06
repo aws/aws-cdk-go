@@ -25,6 +25,7 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	NetworkType: jsii.String("networkType"),
 //   	Organization: jsii.String("organization"),
 //   	Password: jsii.String("password"),
 //   	Port: jsii.Number(123),
@@ -91,6 +92,10 @@ type CfnInfluxDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Network type of the InfluxDB Instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// The name of the initial organization for the initial admin user in InfluxDB.
 	//
 	// An InfluxDB organization is a workspace for a group of users.

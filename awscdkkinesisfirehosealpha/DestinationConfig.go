@@ -147,17 +147,17 @@ import (
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type DestinationConfig struct {
 	// Any resources that were created by the destination when binding it to the stack that must be deployed before the delivery stream is deployed.
 	// Default: [].
 	//
-	// Experimental.
+	// Deprecated.
 	Dependables *[]constructs.IDependable `field:"optional" json:"dependables" yaml:"dependables"`
 	// S3 destination configuration properties.
 	// Default: - S3 destination is not used.
 	//
-	// Experimental.
+	// Deprecated.
 	ExtendedS3DestinationConfiguration *awskinesisfirehose.CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty `field:"optional" json:"extendedS3DestinationConfiguration" yaml:"extendedS3DestinationConfiguration"`
 }
 

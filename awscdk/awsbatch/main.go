@@ -203,6 +203,10 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_EksContainerVolumeMountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.EksPersistentVolumeClaimProperty",
+		reflect.TypeOf((*CfnJobDefinition_EksPersistentVolumeClaimProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.EksPropertiesProperty",
 		reflect.TypeOf((*CfnJobDefinition_EksPropertiesProperty)(nil)).Elem(),
 	)

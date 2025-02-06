@@ -11,6 +11,12 @@ package awsec2
 //   networkInterfaceOptionsProperty := &NetworkInterfaceOptionsProperty{
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
 //   	Port: jsii.Number(123),
+//   	PortRanges: []interface{}{
+//   		&PortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   	},
 //   	Protocol: jsii.String("protocol"),
 //   }
 //
@@ -25,6 +31,10 @@ type CfnVerifiedAccessEndpoint_NetworkInterfaceOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html#cfn-ec2-verifiedaccessendpoint-networkinterfaceoptions-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	// The list of port ranges.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html#cfn-ec2-verifiedaccessendpoint-networkinterfaceoptions-portranges
+	//
+	PortRanges interface{} `field:"optional" json:"portRanges" yaml:"portRanges"`
 	// The IP protocol.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html#cfn-ec2-verifiedaccessendpoint-networkinterfaceoptions-protocol
 	//

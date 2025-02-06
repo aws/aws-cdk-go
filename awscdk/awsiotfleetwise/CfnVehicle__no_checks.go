@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnVehicle) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnVehicle) validateSetStateTemplatesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVehicle) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

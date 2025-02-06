@@ -20,7 +20,13 @@ package awshealthlake
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html
 //
 type CfnFHIRDatastore_IdentityProviderConfigurationProperty struct {
-	// The authorization strategy selected when the data store was created.
+	// The authorization strategy selected when the HealthLake data store is created.
+	//
+	// > HealthLake provides support for both SMART on FHIR V1 and V2 as described below.
+	// >
+	// > - `SMART_ON_FHIR_V1` – Support for only SMART on FHIR V1, which includes `read` (read/search) and `write` (create/update/delete) permissions.
+	// > - `SMART_ON_FHIR` – Support for both SMART on FHIR V1 and V2, which includes `create` , `read` , `update` , `delete` , and `search` permissions.
+	// > - `AWS_AUTH` – The default HealthLake authorization strategy; not affiliated with SMART on FHIR.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration-authorizationstrategy
 	//
 	AuthorizationStrategy *string `field:"required" json:"authorizationStrategy" yaml:"authorizationStrategy"`

@@ -38,6 +38,8 @@ import (
 //
 type AthenaStartQueryExecution interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -52,6 +54,7 @@ type AthenaStartQueryExecution interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -59,6 +62,7 @@ type AthenaStartQueryExecution interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -139,11 +143,13 @@ type AthenaStartQueryExecution interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -151,12 +157,14 @@ type AthenaStartQueryExecution interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -170,6 +178,26 @@ type AthenaStartQueryExecution interface {
 // The jsii proxy struct for AthenaStartQueryExecution
 type jsiiProxy_AthenaStartQueryExecution struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_AthenaStartQueryExecution) Branches() *[]awsstepfunctions.StateGraph {
@@ -262,6 +290,16 @@ func (j *jsiiProxy_AthenaStartQueryExecution) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_AthenaStartQueryExecution) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_AthenaStartQueryExecution) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -297,6 +335,16 @@ func (j *jsiiProxy_AthenaStartQueryExecution) ProcessorMode() awsstepfunctions.P
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -531,6 +579,44 @@ func AthenaStartQueryExecution_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Start an Athena Query as a Task using JSONata.
+func AthenaStartQueryExecution_Jsonata(scope constructs.Construct, id *string, props *AthenaStartQueryExecutionJsonataProps) AthenaStartQueryExecution {
+	_init_.Initialize()
+
+	if err := validateAthenaStartQueryExecution_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns AthenaStartQueryExecution
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Start an Athena Query as a Task using JSONPath.
+func AthenaStartQueryExecution_JsonPath(scope constructs.Construct, id *string, props *AthenaStartQueryExecutionJsonPathProps) AthenaStartQueryExecution {
+	_init_.Initialize()
+
+	if err := validateAthenaStartQueryExecution_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns AthenaStartQueryExecution
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -847,6 +933,19 @@ func (a *jsiiProxy_AthenaStartQueryExecution) Next(next awsstepfunctions.IChaina
 	return returns
 }
 
+func (a *jsiiProxy_AthenaStartQueryExecution) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_AthenaStartQueryExecution) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -860,13 +959,13 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderBranches() interface{} {
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStartQueryExecution) RenderChoices() interface{} {
+func (a *jsiiProxy_AthenaStartQueryExecution) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		a,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -925,6 +1024,19 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (a *jsiiProxy_AthenaStartQueryExecution) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (a *jsiiProxy_AthenaStartQueryExecution) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -938,26 +1050,26 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderResultSelector() interface{}
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStartQueryExecution) RenderRetryCatch() interface{} {
+func (a *jsiiProxy_AthenaStartQueryExecution) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		a,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (a *jsiiProxy_AthenaStartQueryExecution) ToStateJson() *map[string]interface{} {
+func (a *jsiiProxy_AthenaStartQueryExecution) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		a,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

@@ -6,7 +6,7 @@ package awsec2alpha
 // Example:
 //   stack := awscdk.Newstack()
 //   ipam := awsec2alpha.NewIpam(this, jsii.String("Ipam"), &IpamProps{
-//   	OperatingRegion: []*string{
+//   	OperatingRegions: []*string{
 //   		jsii.String("us-west-1"),
 //   	},
 //   })
@@ -62,6 +62,6 @@ type IpamProps struct {
 	// Default: - Stack.region if defined in the stack
 	//
 	// Experimental.
-	OperatingRegion *[]*string `field:"optional" json:"operatingRegion" yaml:"operatingRegion"`
+	OperatingRegions *[]*string `field:"optional" json:"operatingRegions" yaml:"operatingRegions"`
 }
 

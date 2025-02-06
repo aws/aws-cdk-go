@@ -124,6 +124,17 @@ type Ec2ServiceProps struct {
 	// Default: false.
 	//
 	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
+	// Whether to use Availability Zone rebalancing for the service.
+	//
+	// If enabled: `maxHealthyPercent` must be greater than 100; `daemon` must be false; if there
+	// are any `placementStrategies`, the first must be "spread across Availability Zones"; there
+	// must be no `placementConstraints` using `attribute:ecs.availability-zone`, and the
+	// service must not be a target of a Classic Load Balancer.
+	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html
+	//
+	// Default: AvailabilityZoneRebalancing.DISABLED
+	//
+	AvailabilityZoneRebalancing AvailabilityZoneRebalancing `field:"optional" json:"availabilityZoneRebalancing" yaml:"availabilityZoneRebalancing"`
 	// Specifies whether the service will use the daemon scheduling strategy.
 	//
 	// If true, the service scheduler deploys exactly one task on each container instance in your cluster.

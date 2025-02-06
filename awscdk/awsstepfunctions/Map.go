@@ -42,6 +42,8 @@ import (
 type Map interface {
 	MapBase
 	INextable
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
@@ -51,6 +53,7 @@ type Map interface {
 	// Descriptive identifier for this chainable.
 	Id() *string
 	InputPath() *string
+	Items() ProvideItems
 	ItemSelector() *map[string]interface{}
 	ItemsPath() *string
 	Iteration() StateGraph
@@ -58,6 +61,7 @@ type Map interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() StateGraph
 	SetProcessor(val StateGraph)
@@ -65,6 +69,7 @@ type Map interface {
 	SetProcessorConfig(val *ProcessorConfig)
 	ProcessorMode() ProcessorMode
 	SetProcessorMode(val ProcessorMode)
+	QueryLanguage() QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -112,11 +117,13 @@ type Map interface {
 	MakeNext(next State)
 	// Continue normal execution with the given state.
 	Next(next IChainable) Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -124,12 +131,14 @@ type Map interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(queryLanguage QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Validate this state.
@@ -144,6 +153,26 @@ type Map interface {
 type jsiiProxy_Map struct {
 	jsiiProxy_MapBase
 	jsiiProxy_INextable
+}
+
+func (j *jsiiProxy_Map) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Map) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Map) Branches() *[]StateGraph {
@@ -206,6 +235,16 @@ func (j *jsiiProxy_Map) InputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Map) Items() ProvideItems {
+	var returns ProvideItems
+	_jsii_.Get(
+		j,
+		"items",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Map) ItemSelector() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -256,6 +295,16 @@ func (j *jsiiProxy_Map) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Map) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Map) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -291,6 +340,16 @@ func (j *jsiiProxy_Map) ProcessorMode() ProcessorMode {
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Map) QueryLanguage() QueryLanguage {
+	var returns QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -511,6 +570,60 @@ func Map_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Define a Map state using JSONata in the state machine.
+//
+// A `Map` state can be used to run a set of steps for each element of an input array.
+// A Map state will execute the same steps for multiple entries of an array in the state input.
+//
+// While the Parallel state executes multiple branches of steps using the same input, a Map state
+// will execute the same steps for multiple entries of an array in the state input.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html
+//
+func Map_Jsonata(scope constructs.Construct, id *string, props *MapJsonataProps) Map {
+	_init_.Initialize()
+
+	if err := validateMap_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Map
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Map",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Define a Map state using JSONPath in the state machine.
+//
+// A `Map` state can be used to run a set of steps for each element of an input array.
+// A Map state will execute the same steps for multiple entries of an array in the state input.
+//
+// While the Parallel state executes multiple branches of steps using the same input, a Map state
+// will execute the same steps for multiple entries of an array in the state input.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html
+//
+func Map_JsonPath(scope constructs.Construct, id *string, props *MapJsonPathProps) Map {
+	_init_.Initialize()
+
+	if err := validateMap_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Map
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Map",
+		"jsonPath",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add a prefix to the stateId of all States found in a construct tree.
 func Map_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
@@ -693,6 +806,19 @@ func (m *jsiiProxy_Map) Next(next IChainable) Chain {
 	return returns
 }
 
+func (m *jsiiProxy_Map) RenderAssign(topLevelQueryLanguage QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		m,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (m *jsiiProxy_Map) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -706,13 +832,13 @@ func (m *jsiiProxy_Map) RenderBranches() interface{} {
 	return returns
 }
 
-func (m *jsiiProxy_Map) RenderChoices() interface{} {
+func (m *jsiiProxy_Map) RenderChoices(topLevelQueryLanguage QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		m,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -771,6 +897,19 @@ func (m *jsiiProxy_Map) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (m *jsiiProxy_Map) RenderQueryLanguage(topLevelQueryLanguage QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		m,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (m *jsiiProxy_Map) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -784,26 +923,26 @@ func (m *jsiiProxy_Map) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (m *jsiiProxy_Map) RenderRetryCatch() interface{} {
+func (m *jsiiProxy_Map) RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		m,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (m *jsiiProxy_Map) ToStateJson() *map[string]interface{} {
+func (m *jsiiProxy_Map) ToStateJson(queryLanguage QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		m,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{queryLanguage},
 		&returns,
 	)
 

@@ -8,7 +8,169 @@ to call other AWS services.
 Defining a workflow looks like this (for the [Step Functions Job Poller
 example](https://docs.aws.amazon.com/step-functions/latest/dg/job-status-poller-sample.html)):
 
-## Example
+## State Machine
+
+A `stepfunctions.StateMachine` is a resource that takes a state machine
+definition. The definition is specified by its start state, and encompasses
+all states reachable from the start state:
+
+```go
+startState := sfn.Pass_Jsonata(this, jsii.String("StartState"))
+
+sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	DefinitionBody: sfn.DefinitionBody_FromChainable(startState),
+})
+```
+
+State machines are made up of a sequence of **Steps**, which represent different actions
+taken in sequence. Some of these steps represent *control flow* (like `Choice`, `Map` and `Wait`)
+while others represent calls made against other AWS services (like `LambdaInvoke`).
+The second category are called `Task`s and they can all be found in the module [`aws-stepfunctions-tasks`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions_tasks-readme.html).
+
+State machines execute using an IAM Role, which will automatically have all
+permissions added that are required to make all state machine tasks execute
+properly (for example, permissions to invoke any Lambda functions you add to
+your workflow). A role will be created by default, but you can supply an
+existing one as well.
+
+Set the `removalPolicy` prop to `RemovalPolicy.RETAIN` if you want to retain the execution
+history when CloudFormation deletes your state machine.
+
+Alternatively you can specify an existing step functions definition by providing a string or a file that contains the ASL JSON.
+
+```go
+sfn.NewStateMachine(this, jsii.String("StateMachineFromString"), &StateMachineProps{
+	DefinitionBody: sfn.DefinitionBody_FromString(jsii.String("{\"StartAt\":\"Pass\",\"States\":{\"Pass\":{\"Type\":\"Pass\",\"End\":true}}}")),
+})
+
+sfn.NewStateMachine(this, jsii.String("StateMachineFromFile"), &StateMachineProps{
+	DefinitionBody: sfn.DefinitionBody_FromFile(jsii.String("./asl.json")),
+})
+```
+
+## Query Language
+
+Step Functions now provides the ability to select the `QueryLanguage` for the state machine or its states: `JSONata` or `JSONPath`.
+
+For new state machines, we recommend using `JSONata` by specifying it at the state machine level.
+If you do not specify a `QueryLanguage`, the state machine will default to using `JSONPath`.
+
+If a state contains a specified `QueryLanguage`, Step Functions will use the specified query language for that state.
+If the state does not specify a `QueryLanguage`, then it will use the query language specified in the state machine level, or `JSONPath` if none.
+
+If the state machine level `QueryLanguage`  is set to `JSONPath`, then any individual state-level `QueryLanguage` can be set to either `JSONPath` or `JSONata` to support incremental upgrades.
+If the state-level `QueryLanguage` is set to `JSONata`, then any individual state-level `QueryLanguage` can either be `JSONata` or not set.
+
+```go
+jsonata := sfn.Pass_Jsonata(this, jsii.String("JSONata"))
+jsonPath := sfn.Pass_JsonPath(this, jsii.String("JSONPath"))
+definition := jsonata.Next(jsonPath)
+
+sfn.NewStateMachine(this, jsii.String("MixedStateMachine"), &StateMachineProps{
+	// queryLanguage: sfn.QueryLanguage.JSON_PATH, // default
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
+})
+
+// This throws an error. If JSONata is specified at the top level, JSONPath cannot be used in the state machine definition.
+// This throws an error. If JSONata is specified at the top level, JSONPath cannot be used in the state machine definition.
+sfn.NewStateMachine(this, jsii.String("JSONataOnlyStateMachine"), &StateMachineProps{
+	QueryLanguage: sfn.QueryLanguage_JSONATA,
+	DefinitionBody: sfn.DefinitionBody_*FromChainable(definition),
+})
+```
+
+The AWS CDK defines state constructs, and there are 3 ways to initialize them.
+
+| Method | Query Language | Description |
+| ------ | ------- | ------- |
+| `State.jsonata()` | `JSONata` | Use this method to specify a state definition using JSONata only fields.  |
+| `State.jsonPath()` | `JSONPath` | Use this method to specify a state definition using JSONPath only fields. |
+| `new State()` | `JSONata` or `JSONPath` | This is a legacy pattern. Since fields for both JSONata and JSONPath can be used, it is recommended to use `State.jsonata()` or `State.jsonPath()` for better type safety and clarity. |
+
+Code examples for initializing a `Pass` State with each pattern are shown below.
+
+```go
+// JSONata Pattern
+sfn.Pass_Jsonata(this, jsii.String("JSONata Pattern"), &PassJsonataProps{
+	Outputs: map[string]*string{
+		"foo": jsii.String("bar"),
+	},
+})
+
+// JSONPath Pattern
+sfn.Pass_JsonPath(this, jsii.String("JSONPath Pattern"), &PassJsonPathProps{
+	// The outputs does not exist in the props type
+	// outputs: { foo: 'bar' },
+	OutputPath: jsii.String("$.status"),
+})
+
+// Constructor (Legacy) Pattern
+// Constructor (Legacy) Pattern
+sfn.NewPass(this, jsii.String("Constructor Pattern"), &PassProps{
+	QueryLanguage: sfn.QueryLanguage_JSONATA,
+	 // or JSON_PATH
+	// Both outputs and outputPath exist as prop types.
+	Outputs: map[string]*string{
+		"foo": jsii.String("bar"),
+	},
+	 // For JSONata
+	// or
+	OutputPath: jsii.String("$.status"),
+})
+```
+
+Learn more in the blog post [Simplifying developer experience with variables and JSONata in AWS Step Functions](https://aws.amazon.com/jp/blogs/compute/simplifying-developer-experience-with-variables-and-jsonata-in-aws-step-functions/).
+
+### JSONata example
+
+The following example defines a state machine in `JSONata` that calls a fictional service API to update issue labels.
+
+```go
+import events "github.com/aws/aws-cdk-go/awscdk"
+var connection connection
+
+
+getIssue := tasks.HttpInvoke_Jsonata(this, jsii.String("Get Issue"), &HttpInvokeJsonataProps{
+	Connection: Connection,
+	ApiRoot: jsii.String("{% 'https://' & $states.input.hostname %}"),
+	ApiEndpoint: sfn.TaskInput_FromText(jsii.String("{% 'issues/' & $states.input.issue.id %}")),
+	Method: sfn.TaskInput_*FromText(jsii.String("GET")),
+	// Parse the API call result to object and set to the variables
+	Assign: map[string]interface{}{
+		"hostname": jsii.String("{% $states.input.hostname %}"),
+		"issue": jsii.String("{% $parse($states.result.ResponseBody) %}"),
+	},
+})
+
+updateLabels := tasks.HttpInvoke_Jsonata(this, jsii.String("Update Issue Labels"), &HttpInvokeJsonataProps{
+	Connection: Connection,
+	ApiRoot: jsii.String("{% 'https://' & $states.input.hostname %}"),
+	ApiEndpoint: sfn.TaskInput_*FromText(jsii.String("{% 'issues/' & $states.input.issue.id & 'labels' %}")),
+	Method: sfn.TaskInput_*FromText(jsii.String("POST")),
+	Body: sfn.TaskInput_FromObject(map[string]interface{}{
+		"labels": jsii.String("{% [$type, $component] %}"),
+	}),
+})
+notMatchTitleTemplate := sfn.Pass_Jsonata(this, jsii.String("Not Match Title Template"))
+
+definition := getIssue.Next(sfn.Choice_Jsonata(this, jsii.String("Match Title Template?")).When(sfn.Condition_Jsonata(jsii.String("{% $contains($issue.title, /(feat)|(fix)|(chore)(w*):.*/) %}")), updateLabels, &ChoiceTransitionOptions{
+	Assign: map[string]interface{}{
+		"type": jsii.String("{% $match($states.input.title, /(w*)((.*))/).groups[0] %}"),
+		"component": jsii.String("{% $match($states.input.title, /(w*)((.*))/).groups[1] %}"),
+	},
+}).Otherwise(notMatchTitleTemplate))
+
+sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
+	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
+	Comment: jsii.String("automate issue labeling state machine"),
+})
+```
+
+### JSONPath (Legacy pattern) example
+
+Defining a workflow looks like this (for the [Step Functions Job Poller
+example](https://docs.aws.amazon.com/step-functions/latest/dg/sample-project-job-poller.html)):
 
 ```go
 import lambda "github.com/aws/aws-cdk-go/awscdk"
@@ -59,47 +221,66 @@ sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
 You can find more sample snippets and learn more about the service integrations
 in the `aws-cdk-lib/aws-stepfunctions-tasks` package.
 
-## State Machine
-
-A `stepfunctions.StateMachine` is a resource that takes a state machine
-definition. The definition is specified by its start state, and encompasses
-all states reachable from the start state:
-
-```go
-startState := sfn.NewPass(this, jsii.String("StartState"))
-
-sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
-	DefinitionBody: sfn.DefinitionBody_FromChainable(startState),
-})
-```
-
-State machines are made up of a sequence of **Steps**, which represent different actions
-taken in sequence. Some of these steps represent *control flow* (like `Choice`, `Map` and `Wait`)
-while others represent calls made against other AWS services (like `LambdaInvoke`).
-The second category are called `Task`s and they can all be found in the module [`aws-stepfunctions-tasks`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_stepfunctions_tasks-readme.html).
-
-State machines execute using an IAM Role, which will automatically have all
-permissions added that are required to make all state machine tasks execute
-properly (for example, permissions to invoke any Lambda functions you add to
-your workflow). A role will be created by default, but you can supply an
-existing one as well.
-
-Set the `removalPolicy` prop to `RemovalPolicy.RETAIN` if you want to retain the execution
-history when CloudFormation deletes your state machine.
-
-Alternatively you can specify an existing step functions definition by providing a string or a file that contains the ASL JSON.
-
-```go
-sfn.NewStateMachine(this, jsii.String("StateMachineFromString"), &StateMachineProps{
-	DefinitionBody: sfn.DefinitionBody_FromString(jsii.String("{\"StartAt\":\"Pass\",\"States\":{\"Pass\":{\"Type\":\"Pass\",\"End\":true}}}")),
-})
-
-sfn.NewStateMachine(this, jsii.String("StateMachineFromFile"), &StateMachineProps{
-	DefinitionBody: sfn.DefinitionBody_FromFile(jsii.String("./asl.json")),
-})
-```
-
 ## State Machine Data
+
+With variables and state output, you can pass data between the steps of your workflow.
+
+Using workflow variables, you can store data in a step and retrieve that data in future steps. For example, you could store an API response that contains data you might need later. Conversely, state output can only be used as input to the very next step.
+
+### Variable
+
+With workflow variables, you can store data to reference later. For example, Step 1 might store the result from an API request so a part of that request can be re-used later in Step 5.
+
+In the following scenario, the state machine fetches data from an API once. In Step 1, the workflow stores the returned API data (up to 256 KiB per state) in a variable ‘x’ to use in later steps.
+
+Without variables, you would need to pass the data through output from Step 1 to Step 2 to Step 3 to Step 4 to use it in Step 5. What if those intermediate steps do not need the data? Passing data from state to state through outputs and input would be unnecessary effort.
+
+With variables, you can store data and use it in any future step. You can also modify, rearrange, or add steps without disrupting the flow of your data. Given the flexibility of variables, you might only need to use output to return data from `Parallel` and `Map` sub-workflows, and at the end of your state machine execution.
+
+```txt
+(Start)
+   ↓
+[Step 1]→[Return from API]
+   ↓             ↓
+[Step 2] [Assign data to $x]
+   ↓             │
+[Step 3]         │
+   ↓             │
+[Step 4]         │
+   ↓             │
+[Step 5]←────────┘
+   ↓     Use variable $x
+ (End)
+```
+
+Use `assign` to express the above example in AWS CDK. You can use both JSONata and JSONPath to assign.
+
+```go
+import lambda "github.com/aws/aws-cdk-go/awscdk"
+
+var callApiFunc function
+var useVariableFunc function
+
+step1 := tasks.LambdaInvoke_Jsonata(this, jsii.String("Step 1"), &LambdaInvokeJsonataProps{
+	LambdaFunction: callApiFunc,
+	Assign: map[string]interface{}{
+		"x": jsii.String("{% $states.result.Payload.x %}"),
+	},
+})
+step2 := sfn.Pass_Jsonata(this, jsii.String("Step 2"))
+step3 := sfn.Pass_Jsonata(this, jsii.String("Step 3"))
+step4 := sfn.Pass_Jsonata(this, jsii.String("Step 4"))
+step5 := tasks.LambdaInvoke_Jsonata(this, jsii.String("Step 5"), &LambdaInvokeJsonataProps{
+	LambdaFunction: useVariableFunc,
+	Payload: sfn.TaskInput_FromObject(map[string]interface{}{
+		"x": jsii.String("{% $x %}"),
+	}),
+})
+```
+
+For more details, see the [official documentation](https://docs.aws.amazon.com/step-functions/latest/dg/workflow-variables.html)
+
+### State Output
 
 An Execution represents each time the State Machine is run. Every Execution has [State Machine
 Data](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-data.html):
@@ -108,10 +289,73 @@ gets modified by individual steps as the state machine progresses, and finally
 is produced as output.
 
 By default, the entire Data object is passed into every state, and the return data of the step
-becomes new the new Data object. This behavior can be modified by supplying values for `inputPath`,
-`resultSelector`, `resultPath` and `outputPath`.
+becomes new the new Data object. You can change this behavior, but the way you specify it differs depending on the query language you use.
 
-### Manipulating state machine data using inputPath, resultSelector, resultPath and outputPath
+#### JSONata
+
+To change the default behavior of using a JSONata, supplying values for `outputs`. When a string in the value of an ASL field, a JSON object field, or a JSON array element is surrounded by `{% %}` characters, that string will be evaluated as JSONata . Note, the string must start with `{%` with no leading spaces, and must end with `%}` with no trailing spaces. Improperly opening or closing the expression will result in a validation error.
+
+The following example uses JSONata expressions for `outputs` and `time`.
+
+```go
+sfn.Wait_Jsonata(this, jsii.String("Wait"), &WaitJsonataProps{
+	Time: sfn.WaitTime_Timestamp(jsii.String("{% $timestamp %}")),
+	Outputs: map[string]interface{}{
+		"stringArgument": jsii.String("inital-task"),
+		"numberArgument": jsii.Number(123),
+		"booleanArgument": jsii.Boolean(true),
+		"arrayArgument": []interface{}{
+			jsii.Number(1),
+			jsii.String("{% $number %}"),
+			jsii.Number(3),
+		},
+		"intrinsicFunctionsArgument": jsii.String("{% $join($each($obj, function($v) { $v }), ', ') %}"),
+	},
+})
+```
+
+For a brief introduction and complete JSONata reference, see [JSONata.org documentation](https://docs.jsonata.org/overview.html).
+
+##### Reserved variable : $states
+
+Step Functions defines a single reserved variable called $states. In JSONata states, the following structures are assigned to $states for use in JSONata expressions:
+
+```js
+// Reserved $states variable in JSONata states
+const $states = {
+  "input":      // Original input to the state
+  "result":     // API or sub-workflow's result (if successful)
+  "errorOutput":// Error Output in a Catch
+  "context":    // Context object
+}
+```
+
+The structure is as follows when expressed as a type.
+
+```go
+type jsonataStates struct {
+	input interface{}
+	result interface{}
+	errorOutput map[string]interface{}
+	context map[string]interface{}
+}
+```
+
+You can access reserved variables as follows:
+
+```go
+sfn.Pass_Jsonata(this, jsii.String("Pass"), &PassJsonataProps{
+	Outputs: map[string]*string{
+		"foo": jsii.String("{% $states.input.foo %}"),
+	},
+})
+```
+
+#### JSONPath
+
+To change the default behavior of using a JSON path, supplying values for `inputPath`, `resultSelector`, `resultPath`, and `outputPath`.
+
+##### Manipulating state machine data using inputPath, resultSelector, resultPath and outputPath
 
 These properties impact how each individual step interacts with the state machine data:
 
@@ -272,6 +516,18 @@ nextState := sfn.NewPass(this, jsii.String("NextState"))
 pass.Next(nextState)
 ```
 
+When using JSONata, you can use only `outputs`.
+
+```go
+pass := sfn.NewPass(this, jsii.String("Add Hello World"), &PassProps{
+	Outputs: map[string]map[string]*string{
+		"subObject": map[string]*string{
+			"hello": jsii.String("world"),
+		},
+	},
+})
+```
+
 The `Pass` state also supports passing key-value pairs as input. Values can
 be static, or selected from the input with a path.
 
@@ -309,6 +565,11 @@ wait := sfn.NewWait(this, jsii.String("Wait For Trigger Time"), &WaitProps{
 	Time: sfn.WaitTime_TimestampPath(jsii.String("$.triggerTime")),
 })
 
+// When using JSONata
+// const wait = sfn.Wait.jsonata(this, 'Wait For Trigger Time', {
+//   time: sfn.WaitTime.timestamp('{% $triggerTime %}'),
+// });
+
 // Set the next state
 startTheWork := sfn.NewPass(this, jsii.String("StartTheWork"))
 wait.Next(startTheWork)
@@ -327,6 +588,10 @@ successState := sfn.NewPass(this, jsii.String("SuccessState"))
 failureState := sfn.NewPass(this, jsii.String("FailureState"))
 choice.When(sfn.Condition_StringEquals(jsii.String("$.status"), jsii.String("SUCCESS")), successState)
 choice.When(sfn.Condition_NumberGreaterThan(jsii.String("$.attempts"), jsii.Number(5)), failureState)
+
+// When using JSONata
+// choice.when(sfn.Condition.jsonata("{% $status = 'SUCCESS'"), successState);
+// choice.when(sfn.Condition.jsonata('{% $attempts > 5 %}'), failureState);
 
 // Use .otherwise() to indicate what should be done if none of the conditions match
 tryAgainState := sfn.NewPass(this, jsii.String("TryAgainState"))
@@ -369,6 +634,21 @@ the JSON state, a `NoChoiceMatched` error will be thrown. Wrap the state machine
 in a `Parallel` state if you want to catch and recover from this.
 
 #### Available Conditions
+
+#### JSONata
+
+When you're using JSONata, use the `jsonata` function to specify the condition using a JSONata expression:
+
+```go
+sfn.Condition_Jsonata(jsii.String("{% 1+1 = 2 %}")) // true
+sfn.Condition_Jsonata(jsii.String("{% 1+1 != 3 %}")) // true
+sfn.Condition_Jsonata(jsii.String("{% 'world' in ['hello', 'world'] %}")) // true
+sfn.Condition_Jsonata(jsii.String("{% $contains('abracadabra', /a.*a/) %}"))
+```
+
+See the [JSONata comparison operators](https://docs.jsonata.org/comparison-operators) to find more operators.
+
+##### JSONPath
 
 see [step function comparison operators](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-choice-state.html#amazon-states-language-choice-state-rules)
 
@@ -488,6 +768,15 @@ The available functions include States.Format, States.JsonToString, States.Array
 fail := sfn.NewFail(this, jsii.String("Fail"), &FailProps{
 	ErrorPath: sfn.JsonPath_Format(jsii.String("error: {}."), sfn.JsonPath_StringAt(jsii.String("$.someError"))),
 	CausePath: jsii.String("States.Format('cause: {}.', $.someCause)"),
+})
+```
+
+When you use JSONata, you can use JSONata expression in the `error` or `cause` properties.
+
+```go
+fail := sfn.NewFail(this, jsii.String("Fail"), &FailProps{
+	Error: jsii.String("{% 'error:' & $someError & '.' %}"),
+	Cause: jsii.String("{% 'cause:' & $someCause & '.' %}"),
 })
 ```
 

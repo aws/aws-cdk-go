@@ -248,6 +248,44 @@ func validateEmrContainersDeleteVirtualCluster_IsConstructParameters(x interface
 	return nil
 }
 
+func validateEmrContainersDeleteVirtualCluster_JsonataParameters(scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterJsonataProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateEmrContainersDeleteVirtualCluster_JsonPathParameters(scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterJsonPathProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateEmrContainersDeleteVirtualCluster_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	if root == nil {
 		return fmt.Errorf("parameter root is required, but nil was provided")

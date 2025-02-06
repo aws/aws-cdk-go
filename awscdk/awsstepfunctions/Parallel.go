@@ -67,6 +67,8 @@ import (
 type Parallel interface {
 	State
 	INextable
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
@@ -81,6 +83,7 @@ type Parallel interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() StateGraph
 	SetProcessor(val StateGraph)
@@ -88,6 +91,7 @@ type Parallel interface {
 	SetProcessorConfig(val *ProcessorConfig)
 	ProcessorMode() ProcessorMode
 	SetProcessorMode(val ProcessorMode)
+	QueryLanguage() QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -125,11 +129,13 @@ type Parallel interface {
 	MakeNext(next State)
 	// Continue normal execution with the given state.
 	Next(next IChainable) Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -137,12 +143,14 @@ type Parallel interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Validate this state.
@@ -157,6 +165,26 @@ type Parallel interface {
 type jsiiProxy_Parallel struct {
 	jsiiProxy_State
 	jsiiProxy_INextable
+}
+
+func (j *jsiiProxy_Parallel) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Parallel) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Parallel) Branches() *[]StateGraph {
@@ -249,6 +277,16 @@ func (j *jsiiProxy_Parallel) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Parallel) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Parallel) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -284,6 +322,16 @@ func (j *jsiiProxy_Parallel) ProcessorMode() ProcessorMode {
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Parallel) QueryLanguage() QueryLanguage {
+	var returns QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -504,6 +552,54 @@ func Parallel_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Define a Parallel state using JSONata in the state machine.
+//
+// A Parallel state can be used to run one or more state machines at the same
+// time.
+//
+// The Result of a Parallel state is an array of the results of its substatemachines.
+func Parallel_Jsonata(scope constructs.Construct, id *string, props *ParallelJsonataProps) Parallel {
+	_init_.Initialize()
+
+	if err := validateParallel_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Parallel
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Define a Parallel state using JSONPath in the state machine.
+//
+// A Parallel state can be used to run one or more state machines at the same
+// time.
+//
+// The Result of a Parallel state is an array of the results of its substatemachines.
+func Parallel_JsonPath(scope constructs.Construct, id *string, props *ParallelJsonPathProps) Parallel {
+	_init_.Initialize()
+
+	if err := validateParallel_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Parallel
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"jsonPath",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add a prefix to the stateId of all States found in a construct tree.
 func Parallel_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
@@ -672,6 +768,19 @@ func (p *jsiiProxy_Parallel) Next(next IChainable) Chain {
 	return returns
 }
 
+func (p *jsiiProxy_Parallel) RenderAssign(topLevelQueryLanguage QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		p,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (p *jsiiProxy_Parallel) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -685,13 +794,13 @@ func (p *jsiiProxy_Parallel) RenderBranches() interface{} {
 	return returns
 }
 
-func (p *jsiiProxy_Parallel) RenderChoices() interface{} {
+func (p *jsiiProxy_Parallel) RenderChoices(topLevelQueryLanguage QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		p,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -750,6 +859,19 @@ func (p *jsiiProxy_Parallel) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (p *jsiiProxy_Parallel) RenderQueryLanguage(topLevelQueryLanguage QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		p,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (p *jsiiProxy_Parallel) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -763,26 +885,26 @@ func (p *jsiiProxy_Parallel) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (p *jsiiProxy_Parallel) RenderRetryCatch() interface{} {
+func (p *jsiiProxy_Parallel) RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		p,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (p *jsiiProxy_Parallel) ToStateJson() *map[string]interface{} {
+func (p *jsiiProxy_Parallel) ToStateJson(topLevelQueryLanguage QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		p,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

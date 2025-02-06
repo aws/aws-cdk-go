@@ -35,6 +35,8 @@ import (
 //
 type BedrockInvokeModel interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -49,6 +51,7 @@ type BedrockInvokeModel interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -56,6 +59,7 @@ type BedrockInvokeModel interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -136,11 +140,13 @@ type BedrockInvokeModel interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -148,12 +154,14 @@ type BedrockInvokeModel interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -167,6 +175,26 @@ type BedrockInvokeModel interface {
 // The jsii proxy struct for BedrockInvokeModel
 type jsiiProxy_BedrockInvokeModel struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_BedrockInvokeModel) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BedrockInvokeModel) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BedrockInvokeModel) Branches() *[]awsstepfunctions.StateGraph {
@@ -259,6 +287,16 @@ func (j *jsiiProxy_BedrockInvokeModel) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_BedrockInvokeModel) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_BedrockInvokeModel) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -294,6 +332,16 @@ func (j *jsiiProxy_BedrockInvokeModel) ProcessorMode() awsstepfunctions.Processo
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BedrockInvokeModel) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -528,6 +576,44 @@ func BedrockInvokeModel_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.BedrockInvokeModel",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// A Step Functions Task using JSONata to invoke a model in Bedrock.
+func BedrockInvokeModel_Jsonata(scope constructs.Construct, id *string, props *BedrockInvokeModelJsonataProps) BedrockInvokeModel {
+	_init_.Initialize()
+
+	if err := validateBedrockInvokeModel_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns BedrockInvokeModel
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.BedrockInvokeModel",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// A Step Functions Task using JSONPath to invoke a model in Bedrock.
+func BedrockInvokeModel_JsonPath(scope constructs.Construct, id *string, props *BedrockInvokeModelJsonPathProps) BedrockInvokeModel {
+	_init_.Initialize()
+
+	if err := validateBedrockInvokeModel_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns BedrockInvokeModel
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.BedrockInvokeModel",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -844,6 +930,19 @@ func (b *jsiiProxy_BedrockInvokeModel) Next(next awsstepfunctions.IChainable) aw
 	return returns
 }
 
+func (b *jsiiProxy_BedrockInvokeModel) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (b *jsiiProxy_BedrockInvokeModel) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -857,13 +956,13 @@ func (b *jsiiProxy_BedrockInvokeModel) RenderBranches() interface{} {
 	return returns
 }
 
-func (b *jsiiProxy_BedrockInvokeModel) RenderChoices() interface{} {
+func (b *jsiiProxy_BedrockInvokeModel) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		b,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -922,6 +1021,19 @@ func (b *jsiiProxy_BedrockInvokeModel) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (b *jsiiProxy_BedrockInvokeModel) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (b *jsiiProxy_BedrockInvokeModel) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -935,26 +1047,26 @@ func (b *jsiiProxy_BedrockInvokeModel) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (b *jsiiProxy_BedrockInvokeModel) RenderRetryCatch() interface{} {
+func (b *jsiiProxy_BedrockInvokeModel) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		b,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (b *jsiiProxy_BedrockInvokeModel) ToStateJson() *map[string]interface{} {
+func (b *jsiiProxy_BedrockInvokeModel) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		b,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

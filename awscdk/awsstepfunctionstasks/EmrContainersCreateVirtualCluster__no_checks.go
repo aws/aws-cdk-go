@@ -108,6 +108,14 @@ func validateEmrContainersCreateVirtualCluster_IsConstructParameters(x interface
 	return nil
 }
 
+func validateEmrContainersCreateVirtualCluster_JsonataParameters(scope constructs.Construct, id *string, props *EmrContainersCreateVirtualClusterJsonataProps) error {
+	return nil
+}
+
+func validateEmrContainersCreateVirtualCluster_JsonPathParameters(scope constructs.Construct, id *string, props *EmrContainersCreateVirtualClusterJsonPathProps) error {
+	return nil
+}
+
 func validateEmrContainersCreateVirtualCluster_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

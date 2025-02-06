@@ -44,7 +44,7 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated.
 type DestinationS3BackupProps struct {
 	// The length of time that Firehose buffers incoming data before delivering it to the S3 bucket.
 	//
@@ -52,7 +52,7 @@ type DestinationS3BackupProps struct {
 	// Maximum: Duration.seconds(900)
 	// Default: Duration.seconds(300)
 	//
-	// Experimental.
+	// Deprecated.
 	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Kinesis Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
@@ -60,7 +60,7 @@ type DestinationS3BackupProps struct {
 	// Maximum: Size.mebibytes(128)
 	// Default: Size.mebibytes(5)
 	//
-	// Experimental.
+	// Deprecated.
 	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
 	//
@@ -69,7 +69,7 @@ type DestinationS3BackupProps struct {
 	// that reads from the S3 bucket.
 	// Default: - UNCOMPRESSED.
 	//
-	// Experimental.
+	// Deprecated.
 	Compression Compression `field:"optional" json:"compression" yaml:"compression"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to records before writing them to S3.
 	//
@@ -78,12 +78,12 @@ type DestinationS3BackupProps struct {
 	//
 	// Default: "YYYY/MM/DD/HH".
 	//
-	// Experimental.
+	// Deprecated.
 	DataOutputPrefix *string `field:"optional" json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
 	// The AWS KMS key used to encrypt the data that it delivers to your Amazon S3 bucket.
 	// Default: - Data is not encrypted.
 	//
-	// Experimental.
+	// Deprecated.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
@@ -92,17 +92,17 @@ type DestinationS3BackupProps struct {
 	//
 	// Default: "YYYY/MM/DD/HH".
 	//
-	// Experimental.
+	// Deprecated.
 	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 	// The S3 bucket that will store data and failed records.
 	// Default: - If `mode` is set to `BackupMode.ALL` or `BackupMode.FAILED`, a bucket will be created for you.
 	//
-	// Experimental.
+	// Deprecated.
 	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// Configuration that determines whether to log errors during data transformation or delivery failures, and specifies the CloudWatch log group for storing error logs.
 	// Default: - errors will be logged and a log group will be created for you.
 	//
-	// Experimental.
+	// Deprecated.
 	LoggingConfig ILoggingConfig `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 	// Indicates the mode by which incoming records should be backed up to S3, if any.
 	//
@@ -110,7 +110,7 @@ type DestinationS3BackupProps struct {
 	// Default: - If `bucket` is provided, the default will be `BackupMode.ALL`. Otherwise,
 	// source records are not backed up to S3.
 	//
-	// Experimental.
+	// Deprecated.
 	Mode BackupMode `field:"optional" json:"mode" yaml:"mode"`
 }
 

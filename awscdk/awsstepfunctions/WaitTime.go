@@ -65,6 +65,29 @@ func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 	return returns
 }
 
+// Wait for a number of seconds stored in the state object from string. This method can use JSONata expression.
+//
+// If you want to use fixed value, we recommend using `WaitTime.duration()`
+//
+// Example value: `{% $waitSeconds %}`.
+func WaitTime_Seconds(seconds *string) WaitTime {
+	_init_.Initialize()
+
+	if err := validateWaitTime_SecondsParameters(seconds); err != nil {
+		panic(err)
+	}
+	var returns WaitTime
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.WaitTime",
+		"seconds",
+		[]interface{}{seconds},
+		&returns,
+	)
+
+	return returns
+}
+
 // Wait for a number of seconds stored in the state object.
 //
 // Example value: `$.waitSeconds`
@@ -86,7 +109,7 @@ func WaitTime_SecondsPath(path *string) WaitTime {
 	return returns
 }
 
-// Wait until the given ISO8601 timestamp.
+// Wait until the given ISO8601 timestamp. This method can use JSONata expression.
 //
 // Example value: `2016-03-14T01:59:00Z`.
 func WaitTime_Timestamp(timestamp *string) WaitTime {

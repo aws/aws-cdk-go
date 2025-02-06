@@ -108,6 +108,14 @@ func validateSageMakerCreateTransformJob_IsConstructParameters(x interface{}) er
 	return nil
 }
 
+func validateSageMakerCreateTransformJob_JsonataParameters(scope constructs.Construct, id *string, props *SageMakerCreateTransformJobJsonataProps) error {
+	return nil
+}
+
+func validateSageMakerCreateTransformJob_JsonPathParameters(scope constructs.Construct, id *string, props *SageMakerCreateTransformJobJsonPathProps) error {
+	return nil
+}
+
 func validateSageMakerCreateTransformJob_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

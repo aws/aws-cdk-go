@@ -71,7 +71,7 @@ type EcsJobDefinitionProps struct {
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The container that this job will run.
 	Container IEcsContainerDefinition `field:"required" json:"container" yaml:"container"`
-	// Whether to propogate tags from the JobDefinition to the ECS task that Batch spawns.
+	// Whether to propagate tags from the JobDefinition to the ECS task that Batch spawns.
 	// Default: false.
 	//
 	PropagateTags *bool `field:"optional" json:"propagateTags" yaml:"propagateTags"`

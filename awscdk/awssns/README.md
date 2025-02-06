@@ -397,3 +397,23 @@ topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
 	TracingConfig: sns.TracingConfig_ACTIVE,
 })
 ```
+
+## High-throughput mode for Amazon SNS FIFO Topics
+
+High throughput FIFO topics in Amazon SNS efficiently manage high message throughput while maintaining strict message order, ensuring reliability and scalability for applications processing numerous messages.
+This solution is ideal for scenarios demanding both high throughput and ordered message delivery.
+
+To improve message throughput using high throughput FIFO topics, increasing the number of message groups is recommended.
+
+For more information, see [High throughput FIFO topics in Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html).
+
+You can configure high-throughput mode for your FIFO topics by setting the `fifoThroughputScope` property:
+
+```go
+topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
+	Fifo: jsii.Boolean(true),
+	FifoThroughputScope: sns.FifoThroughputScope_TOPIC,
+})
+```
+
+**Note**: The `fifoThroughputScope` property is only available for FIFO topics.

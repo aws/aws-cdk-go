@@ -241,6 +241,16 @@ type ContainerDefinitionOptions struct {
 	// Default: root.
 	//
 	User *string `field:"optional" json:"user" yaml:"user"`
+	// Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest.
+	//
+	// If you set the value for a container as disabled, Amazon ECS will
+	// not resolve the provided container image tag to a digest and will use the
+	// original image URI specified in the container definition for deployment.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-versionconsistency
+	//
+	// Default: VersionConsistency.DISABLED if `image` is a CDK asset, VersionConsistency.ENABLED otherwise
+	//
+	VersionConsistency VersionConsistency `field:"optional" json:"versionConsistency" yaml:"versionConsistency"`
 	// The working directory in which to run commands inside the container.
 	// Default: /.
 	//

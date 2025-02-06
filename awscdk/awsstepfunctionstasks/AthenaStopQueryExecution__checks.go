@@ -248,6 +248,44 @@ func validateAthenaStopQueryExecution_IsConstructParameters(x interface{}) error
 	return nil
 }
 
+func validateAthenaStopQueryExecution_JsonataParameters(scope constructs.Construct, id *string, props *AthenaStopQueryExecutionJsonataProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateAthenaStopQueryExecution_JsonPathParameters(scope constructs.Construct, id *string, props *AthenaStopQueryExecutionJsonPathProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateAthenaStopQueryExecution_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	if root == nil {
 		return fmt.Errorf("parameter root is required, but nil was provided")

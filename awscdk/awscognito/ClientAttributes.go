@@ -13,7 +13,7 @@ import (
 //   clientWriteAttributes := (cognito.NewClientAttributes()).WithStandardAttributes(&StandardAttributesMask{
 //   	Fullname: jsii.Boolean(true),
 //   	Email: jsii.Boolean(true),
-//   }).WithCustomAttributes(jsii.String("favouritePizza"), jsii.String("favouriteBeverage"))
+//   }).WithCustomAttributes(jsii.String("favoritePizza"), jsii.String("favoriteBeverage"))
 //
 //   clientReadAttributes := clientWriteAttributes.WithStandardAttributes(&StandardAttributesMask{
 //   	EmailVerified: jsii.Boolean(true),

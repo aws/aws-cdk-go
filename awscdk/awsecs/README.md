@@ -1258,6 +1258,75 @@ const service = ecs.FargateService.fromFargateServiceAttributes(this, 'EcsServic
 const service = ecs.FargateService.fromFargateServiceArn(this, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
 ```
 
+### Availability Zone rebalancing
+
+ECS services running in AWS can be launched in multiple VPC subnets that are
+each in different Availability Zones (AZs) to achieve high availability. Fargate
+services launched this way will automatically try to achieve an even spread of
+service tasks across AZs, and EC2 services can be instructed to do the same with
+placement strategies. This ensures that the service has equal availability in
+each AZ.
+
+```go
+var vpc vpc
+var cluster cluster
+var taskDefinition taskDefinition
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	// Fargate will try to ensure an even spread of newly launched tasks across
+	// all AZs corresponding to the public subnets of the VPC.
+	VpcSubnets: &SubnetSelection{
+		SubnetType: ec2.SubnetType_PUBLIC,
+	},
+})
+```
+
+However, those approaches only affect how newly launched tasks are placed.
+Service tasks can still become unevenly spread across AZs if there is an
+infrastructure event, like an AZ outage or a lack of available compute capacity
+in an AZ. During such events, newly launched tasks may be placed in AZs in such
+a way that tasks are not evenly spread across all AZs. After the infrastructure
+event is over, the service will remain imbalanced until new tasks are launched
+for some other reason, such as a service deployment.
+
+Availability Zone rebalancing is a feature whereby ECS actively tries to correct
+service AZ imbalances whenever they exist, by moving service tasks from
+overbalanced AZs to underbalanced AZs. When an imbalance is detected, ECS will
+launch new tasks in underbalanced AZs, then stop existing tasks in overbalanced
+AZs, to ensure an even spread.
+
+You can enabled Availability Zone rebalancing when creating your service:
+
+```go
+var cluster cluster
+var taskDefinition taskDefinition
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	AvailabilityZoneRebalancing: ecs.AvailabilityZoneRebalancing_ENABLED,
+})
+```
+
+Availability Zone rebalancing works in the following configurations:
+
+* Services that use the Replica strategy.
+* Services that specify Availability Zone spread as the first task placement
+  strategy, or do not specify a placement strategy.
+
+You can't use Availability Zone rebalancing with services that meet any of the
+following criteria:
+
+* Uses the Daemon strategy.
+* Uses the EXTERNAL launch type (ECSAnywhere).
+* Uses 100% for the maximumPercent value.
+* Uses a Classic Load Balancer.
+* Uses the `attribute:ecs.availability-zone` as a task placement constraint.
+
 ## Task Auto-Scaling
 
 You can configure the task count of a service to match demand. Task auto-scaling is
@@ -2087,6 +2156,20 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 })
 ```
 
+## Disable service container image version consistency
+
+You can disable the
+[container image "version consistency"](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability)
+feature of ECS service deployments on a per-container basis.
+
+```go
+taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	VersionConsistency: ecs.VersionConsistency_DISABLED,
+})
+```
+
 ## Specify a container ulimit
 
 You can specify a container `ulimits` by specifying them in the `ulimits` option while adding the container
@@ -2103,5 +2186,65 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 			SoftLimit: jsii.Number(128),
 		},
 	},
+})
+```
+
+## Service Connect TLS
+
+Service Connect TLS is a feature that allows you to secure the communication between services using TLS.
+
+You can specify the `tls` option in the `services` array of the `serviceConnectConfiguration` property.
+
+The `tls` property is an object with the following properties:
+
+* `role`: The IAM role that's associated with the Service Connect TLS.
+* `awsPcaAuthorityArn`: The ARN of the certificate root authority that secures your service.
+* `kmsKey`: The KMS key used for encryption and decryption.
+
+```go
+var cluster cluster
+var taskDefinition taskDefinition
+var kmsKey iKey
+var role iRole
+
+
+service := ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	ServiceConnectConfiguration: &ServiceConnectProps{
+		Services: []serviceConnectService{
+			&serviceConnectService{
+				Tls: &ServiceConnectTlsConfiguration{
+					Role: *Role,
+					KmsKey: *KmsKey,
+					AwsPcaAuthorityArn: jsii.String("arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/123456789012"),
+				},
+				PortMappingName: jsii.String("api"),
+			},
+		},
+		Namespace: jsii.String("sample namespace"),
+	},
+})
+```
+
+## Daemon scheduling strategy
+
+You can specify whether service use Daemon scheduling strategy by specifying `daemon` option in Service constructs. See [differences between Daemon and Replica scheduling strategy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
+
+```go
+var cluster cluster
+var taskDefinition taskDefinition
+
+
+ecs.NewEc2Service(this, jsii.String("Ec2Service"), &Ec2ServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	Daemon: jsii.Boolean(true),
+})
+
+ecs.NewExternalService(this, jsii.String("ExternalService"), &ExternalServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	Daemon: jsii.Boolean(true),
 })
 ```

@@ -32,6 +32,7 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	NetworkType: jsii.String("networkType"),
 //   	Organization: jsii.String("organization"),
 //   	Password: jsii.String("password"),
 //   	Port: jsii.Number(123),
@@ -122,6 +123,9 @@ type CfnInfluxDBInstance interface {
 	// The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
 	Name() *string
 	SetName(val *string)
+	// Network type of the InfluxDB Instance.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The name of the initial organization for the initial admin user in InfluxDB.
@@ -514,6 +518,16 @@ func (j *jsiiProxy_CfnInfluxDBInstance) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInfluxDBInstance) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInfluxDBInstance) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -735,6 +749,14 @@ func (j *jsiiProxy_CfnInfluxDBInstance)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

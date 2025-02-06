@@ -80,6 +80,10 @@ func validateCfnTopic_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTopic) validateSetConfigOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTopic) validateSetDataSetsParameters(val interface{}) error {
 	return nil
 }

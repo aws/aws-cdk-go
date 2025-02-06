@@ -1,7 +1,9 @@
 package awsbedrock
 
 
-// Tool specification.
+// The specification for the tool.
+//
+// For more information, see [Call a tool with the Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html) in the Amazon Bedrock User Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,14 +25,15 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolspecification.html
 //
 type CfnPromptVersion_ToolSpecificationProperty struct {
-	// Tool input schema.
+	// The input schema for the tool in JSON format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolspecification.html#cfn-bedrock-promptversion-toolspecification-inputschema
 	//
 	InputSchema interface{} `field:"required" json:"inputSchema" yaml:"inputSchema"`
-	// Tool name.
+	// The name for the tool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolspecification.html#cfn-bedrock-promptversion-toolspecification-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The description for the tool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolspecification.html#cfn-bedrock-promptversion-toolspecification-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

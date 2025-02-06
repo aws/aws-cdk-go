@@ -1,5 +1,8 @@
 package awsec2alpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+)
 
 // Options to define InternetGateway for VPC.
 //
@@ -37,5 +40,10 @@ type InternetGatewayOptions struct {
 	//
 	// Experimental.
 	Ipv6Destination *string `field:"optional" json:"ipv6Destination" yaml:"ipv6Destination"`
+	// List of subnets where route to IGW will be added.
+	// Default: - route created for all subnets with Type `SubnetType.Public`
+	//
+	// Experimental.
+	Subnets *[]*awsec2.SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 }
 

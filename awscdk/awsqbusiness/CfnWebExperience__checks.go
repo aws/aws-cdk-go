@@ -187,6 +187,30 @@ func (j *jsiiProxy_CfnWebExperience) validateSetApplicationIdParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebExperience) validateSetBrowserExtensionConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnWebExperience_BrowserExtensionConfigurationProperty:
+		val := val.(*CfnWebExperience_BrowserExtensionConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnWebExperience_BrowserExtensionConfigurationProperty:
+		val_ := val.(CfnWebExperience_BrowserExtensionConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWebExperience_BrowserExtensionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebExperience) validateSetCustomizationConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

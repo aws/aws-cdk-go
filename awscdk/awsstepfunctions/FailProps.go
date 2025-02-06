@@ -10,6 +10,21 @@ package awsstepfunctions
 //   })
 //
 type FailProps struct {
+	// A comment describing this state.
+	// Default: No comment.
+	//
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
+	// The name of the query language used by the state.
+	//
+	// If the state does not contain a `queryLanguage` field,
+	// then it will use the query language specified in the top-level `queryLanguage` field.
+	// Default: - JSONPath.
+	//
+	QueryLanguage QueryLanguage `field:"optional" json:"queryLanguage" yaml:"queryLanguage"`
+	// Optional name for this state.
+	// Default: - The construct ID will be used as state name.
+	//
+	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 	// A description for the cause of the failure.
 	// Default: - No description.
 	//
@@ -21,10 +36,6 @@ type FailProps struct {
 	// Default: - No cause path.
 	//
 	CausePath *string `field:"optional" json:"causePath" yaml:"causePath"`
-	// An optional description for this state.
-	// Default: - No comment.
-	//
-	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Error code used to represent this failure.
 	// Default: - No error code.
 	//
@@ -36,9 +47,5 @@ type FailProps struct {
 	// Default: - No error path.
 	//
 	ErrorPath *string `field:"optional" json:"errorPath" yaml:"errorPath"`
-	// Optional name for this state.
-	// Default: - The construct ID will be used as state name.
-	//
-	StateName *string `field:"optional" json:"stateName" yaml:"stateName"`
 }
 

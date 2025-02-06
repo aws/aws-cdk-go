@@ -9,7 +9,7 @@ package awscognito
 //   clientWriteAttributes := (cognito.NewClientAttributes()).WithStandardAttributes(&StandardAttributesMask{
 //   	Fullname: jsii.Boolean(true),
 //   	Email: jsii.Boolean(true),
-//   }).WithCustomAttributes(jsii.String("favouritePizza"), jsii.String("favouriteBeverage"))
+//   }).WithCustomAttributes(jsii.String("favoritePizza"), jsii.String("favoriteBeverage"))
 //
 //   clientReadAttributes := clientWriteAttributes.WithStandardAttributes(&StandardAttributesMask{
 //   	EmailVerified: jsii.Boolean(true),
@@ -78,7 +78,7 @@ type StandardAttributesMask struct {
 	// Default: false.
 	//
 	PhoneNumberVerified *bool `field:"optional" json:"phoneNumberVerified" yaml:"phoneNumberVerified"`
-	// The user's preffered username, different from the immutable user name.
+	// The user's preferred username, different from the immutable user name.
 	// Default: false.
 	//
 	PreferredUsername *bool `field:"optional" json:"preferredUsername" yaml:"preferredUsername"`

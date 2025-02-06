@@ -28,16 +28,33 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationconfiguration.html
 //
 type CfnNotificationConfigurationProps struct {
+	// The description of the `NotificationConfiguration` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationconfiguration.html#cfn-notifications-notificationconfiguration-description
 	//
 	Description *string `field:"required" json:"description" yaml:"description"`
+	// The name of the `NotificationConfiguration` .
+	//
+	// Supports RFC 3986's unreserved characters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationconfiguration.html#cfn-notifications-notificationconfiguration-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The aggregation preference of the `NotificationConfiguration` .
+	//
+	// - Values:
+	//
+	// - `LONG`
+	//
+	// - Aggregate notifications for long periods of time (12 hours).
+	// - `SHORT`
+	//
+	// - Aggregate notifications for short periods of time (5 minutes).
+	// - `NONE`
+	//
+	// - Don't aggregate notifications.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationconfiguration.html#cfn-notifications-notificationconfiguration-aggregationduration
 	//
 	AggregationDuration *string `field:"optional" json:"aggregationDuration" yaml:"aggregationDuration"`
-	// A list of tags that are attached to the role.
+	// A map of tags assigned to a `NotificationConfiguration` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationconfiguration.html#cfn-notifications-notificationconfiguration-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

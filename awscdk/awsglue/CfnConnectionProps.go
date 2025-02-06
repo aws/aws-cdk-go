@@ -8,7 +8,12 @@ package awsglue
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var athenaProperties interface{}
 //   var connectionProperties interface{}
+//   var customAuthenticationCredentials interface{}
+//   var pythonProperties interface{}
+//   var sparkProperties interface{}
+//   var tokenUrlParametersMap interface{}
 //
 //   cfnConnectionProps := &CfnConnectionProps{
 //   	CatalogId: jsii.String("catalogId"),
@@ -16,6 +21,38 @@ package awsglue
 //   		ConnectionType: jsii.String("connectionType"),
 //
 //   		// the properties below are optional
+//   		AthenaProperties: athenaProperties,
+//   		AuthenticationConfiguration: &AuthenticationConfigurationInputProperty{
+//   			AuthenticationType: jsii.String("authenticationType"),
+//
+//   			// the properties below are optional
+//   			BasicAuthenticationCredentials: &BasicAuthenticationCredentialsProperty{
+//   				Password: jsii.String("password"),
+//   				Username: jsii.String("username"),
+//   			},
+//   			CustomAuthenticationCredentials: customAuthenticationCredentials,
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			OAuth2Properties: &OAuth2PropertiesInputProperty{
+//   				AuthorizationCodeProperties: &AuthorizationCodePropertiesProperty{
+//   					AuthorizationCode: jsii.String("authorizationCode"),
+//   					RedirectUri: jsii.String("redirectUri"),
+//   				},
+//   				OAuth2ClientApplication: &OAuth2ClientApplicationProperty{
+//   					AwsManagedClientApplicationReference: jsii.String("awsManagedClientApplicationReference"),
+//   					UserManagedClientApplicationClientId: jsii.String("userManagedClientApplicationClientId"),
+//   				},
+//   				OAuth2Credentials: &OAuth2CredentialsProperty{
+//   					AccessToken: jsii.String("accessToken"),
+//   					JwtToken: jsii.String("jwtToken"),
+//   					RefreshToken: jsii.String("refreshToken"),
+//   					UserManagedClientApplicationClientSecret: jsii.String("userManagedClientApplicationClientSecret"),
+//   				},
+//   				OAuth2GrantType: jsii.String("oAuth2GrantType"),
+//   				TokenUrl: jsii.String("tokenUrl"),
+//   				TokenUrlParametersMap: tokenUrlParametersMap,
+//   			},
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
 //   		ConnectionProperties: connectionProperties,
 //   		Description: jsii.String("description"),
 //   		MatchCriteria: []*string{
@@ -28,6 +65,12 @@ package awsglue
 //   				jsii.String("securityGroupIdList"),
 //   			},
 //   			SubnetId: jsii.String("subnetId"),
+//   		},
+//   		PythonProperties: pythonProperties,
+//   		SparkProperties: sparkProperties,
+//   		ValidateCredentials: jsii.Boolean(false),
+//   		ValidateForComputeEnvironments: []*string{
+//   			jsii.String("validateForComputeEnvironments"),
 //   		},
 //   	},
 //   }

@@ -15,15 +15,15 @@ package awscdkkinesisfirehosealpha
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
 //
-// Experimental.
+// Deprecated.
 type DataProcessorIdentifier struct {
 	// The parameter name that corresponds to the processor resource's identifier.
 	//
 	// Must be an accepted value in `CfnDeliveryStream.ProcessoryParameterProperty.ParameterName`.
-	// Experimental.
+	// Deprecated.
 	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// The identifier of the underlying processor resource.
-	// Experimental.
+	// Deprecated.
 	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 

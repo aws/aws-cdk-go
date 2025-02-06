@@ -143,7 +143,7 @@ type CfnGuardHook interface {
 	// Specifies the target filters for the Hook.
 	TargetFilters() interface{}
 	SetTargetFilters(val interface{})
-	// Specifies which type of operation the Hook is run against.
+	// Specifies the list of operations the Hook is run against.
 	TargetOperations() *[]*string
 	SetTargetOperations(val *[]*string)
 	// Deprecated.

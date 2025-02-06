@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Notifications::NotificationConfiguration Resource Type.
+// Configures a `NotificationConfiguration` for AWS User Notifications .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,10 +36,14 @@ type CfnNotificationConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggableV2
+	// The aggregation preference of the `NotificationConfiguration` .
 	AggregationDuration() *string
 	SetAggregationDuration(val *string)
+	// The Amazon Resource Name (ARN) of the `NotificationConfiguration` resource.
 	AttrArn() *string
+	// The creation time of the `NotificationConfiguration` .
 	AttrCreationTime() *string
+	// The current status of the `NotificationConfiguration` .
 	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -52,6 +56,7 @@ type CfnNotificationConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The description of the `NotificationConfiguration` .
 	Description() *string
 	SetDescription(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -64,6 +69,7 @@ type CfnNotificationConfiguration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the `NotificationConfiguration` .
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -77,7 +83,7 @@ type CfnNotificationConfiguration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// A list of tags that are attached to the role.
+	// A map of tags assigned to a `NotificationConfiguration` .
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

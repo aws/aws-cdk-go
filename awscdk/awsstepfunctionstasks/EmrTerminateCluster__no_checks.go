@@ -108,6 +108,14 @@ func validateEmrTerminateCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateEmrTerminateCluster_JsonataParameters(scope constructs.Construct, id *string, props *EmrTerminateClusterJsonataProps) error {
+	return nil
+}
+
+func validateEmrTerminateCluster_JsonPathParameters(scope constructs.Construct, id *string, props *EmrTerminateClusterJsonPathProps) error {
+	return nil
+}
+
 func validateEmrTerminateCluster_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

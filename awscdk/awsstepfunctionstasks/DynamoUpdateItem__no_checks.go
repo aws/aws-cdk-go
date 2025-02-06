@@ -108,6 +108,14 @@ func validateDynamoUpdateItem_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateDynamoUpdateItem_JsonataParameters(scope constructs.Construct, id *string, props *DynamoUpdateItemJsonataProps) error {
+	return nil
+}
+
+func validateDynamoUpdateItem_JsonPathParameters(scope constructs.Construct, id *string, props *DynamoUpdateItemJsonPathProps) error {
+	return nil
+}
+
 func validateDynamoUpdateItem_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

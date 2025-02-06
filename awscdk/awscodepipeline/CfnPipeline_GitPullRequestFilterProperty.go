@@ -3,6 +3,12 @@ package awscodepipeline
 
 // The event criteria for the pull request trigger configuration, such as the lists of branches or file paths to include and exclude.
 //
+// The following are valid values for the events for this filter:
+//
+// - CLOSED
+// - OPEN
+// - UPDATED.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -37,7 +43,7 @@ type CfnPipeline_GitPullRequestFilterProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html#cfn-codepipeline-pipeline-gitpullrequestfilter-branches
 	//
 	Branches interface{} `field:"optional" json:"branches" yaml:"branches"`
-	// The field that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration.
+	// The field that specifies which pull request events to filter on (OPEN, UPDATED, CLOSED) for the trigger configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html#cfn-codepipeline-pipeline-gitpullrequestfilter-events
 	//
 	Events *[]*string `field:"optional" json:"events" yaml:"events"`

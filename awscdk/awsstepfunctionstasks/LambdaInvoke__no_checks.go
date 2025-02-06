@@ -108,6 +108,14 @@ func validateLambdaInvoke_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateLambdaInvoke_JsonataParameters(scope constructs.Construct, id *string, props *LambdaInvokeJsonataProps) error {
+	return nil
+}
+
+func validateLambdaInvoke_JsonPathParameters(scope constructs.Construct, id *string, props *LambdaInvokeJsonPathProps) error {
+	return nil
+}
+
 func validateLambdaInvoke_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

@@ -1,7 +1,9 @@
 package awsbedrock
 
 
-// Configuration for chat prompt template.
+// Contains configurations for instructions to provide the model for how to handle input.
+//
+// To learn more, see [Using the Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +17,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-systemcontentblock.html
 //
 type CfnPromptVersion_SystemContentBlockProperty struct {
-	// Configuration for chat prompt template.
+	// A system prompt for the model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-systemcontentblock.html#cfn-bedrock-promptversion-systemcontentblock-text
 	//
 	Text *string `field:"required" json:"text" yaml:"text"`

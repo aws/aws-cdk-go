@@ -107,8 +107,6 @@ type CfnAccessEntry interface {
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// The type of the new access entry.
-	//
-	// Valid values are `Standard` , `FARGATE_LINUX` , `EC2_LINUX` , and `EC2_WINDOWS` .
 	Type() *string
 	SetType(val *string)
 	// Deprecated.

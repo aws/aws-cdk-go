@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Configurations for Redshift query engine Redshift backed storage.
+// Contains configurations for storage in Amazon Redshift.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +15,7 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryengineredshiftstorageconfiguration.html
 //
 type CfnKnowledgeBase_RedshiftQueryEngineRedshiftStorageConfigurationProperty struct {
-	// Redshift database name.
+	// The name of the Amazon Redshift database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryengineredshiftstorageconfiguration.html#cfn-bedrock-knowledgebase-redshiftqueryengineredshiftstorageconfiguration-databasename
 	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`

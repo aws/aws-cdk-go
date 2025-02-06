@@ -14,7 +14,7 @@ import (
 // Example:
 //   stack := awscdk.Newstack()
 //   ipam := awsec2alpha.NewIpam(this, jsii.String("Ipam"), &IpamProps{
-//   	OperatingRegion: []*string{
+//   	OperatingRegions: []*string{
 //   		jsii.String("us-west-1"),
 //   	},
 //   })

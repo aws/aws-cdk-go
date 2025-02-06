@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnDeliveryStream) validateSetDeliveryStreamEncryptionConfigu
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) validateSetDirectPutSourceConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) validateSetElasticsearchDestinationConfigurationParameters(val interface{}) error {
 	return nil
 }

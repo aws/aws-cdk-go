@@ -115,7 +115,7 @@ type CfnDataSource interface {
 	// The metadata forms attached to the assets that the data source works with.
 	AssetFormsInput() interface{}
 	SetAssetFormsInput(val interface{})
-	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run.
+	// The connection ID that's part of the data source summary.
 	AttrConnectionId() *string
 	// The timestamp of when the data source was created.
 	AttrCreatedAt() *string

@@ -14,32 +14,50 @@ import (
 // A Step Functions Task to call a public third-party API.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import events "github.com/aws/aws-cdk-go/awscdk"
+//   var connection connection
 //
 //
-//   connection := events.NewConnection(this, jsii.String("Connection"), &ConnectionProps{
-//   	Authorization: events.Authorization_Basic(jsii.String("username"), awscdk.SecretValue_UnsafePlainText(jsii.String("password"))),
+//   getIssue := tasks.HttpInvoke_Jsonata(this, jsii.String("Get Issue"), &HttpInvokeJsonataProps{
+//   	Connection: Connection,
+//   	ApiRoot: jsii.String("{% 'https://' & $states.input.hostname %}"),
+//   	ApiEndpoint: sfn.TaskInput_FromText(jsii.String("{% 'issues/' & $states.input.issue.id %}")),
+//   	Method: sfn.TaskInput_*FromText(jsii.String("GET")),
+//   	// Parse the API call result to object and set to the variables
+//   	Assign: map[string]interface{}{
+//   		"hostname": jsii.String("{% $states.input.hostname %}"),
+//   		"issue": jsii.String("{% $parse($states.result.ResponseBody) %}"),
+//   	},
 //   })
 //
-//   tasks.NewHttpInvoke(this, jsii.String("Invoke HTTP API"), &HttpInvokeProps{
-//   	ApiRoot: jsii.String("https://api.example.com"),
-//   	ApiEndpoint: sfn.TaskInput_FromText(jsii.String("path/to/resource")),
-//   	Body: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"foo": jsii.String("bar"),
-//   	}),
+//   updateLabels := tasks.HttpInvoke_Jsonata(this, jsii.String("Update Issue Labels"), &HttpInvokeJsonataProps{
 //   	Connection: Connection,
-//   	Headers: sfn.TaskInput_*FromObject(map[string]interface{}{
-//   		"Content-Type": jsii.String("application/json"),
-//   	}),
+//   	ApiRoot: jsii.String("{% 'https://' & $states.input.hostname %}"),
+//   	ApiEndpoint: sfn.TaskInput_*FromText(jsii.String("{% 'issues/' & $states.input.issue.id & 'labels' %}")),
 //   	Method: sfn.TaskInput_*FromText(jsii.String("POST")),
-//   	QueryStringParameters: sfn.TaskInput_*FromObject(map[string]interface{}{
-//   		"id": jsii.String("123"),
+//   	Body: sfn.TaskInput_FromObject(map[string]interface{}{
+//   		"labels": jsii.String("{% [$type, $component] %}"),
 //   	}),
-//   	UrlEncodingFormat: tasks.URLEncodingFormat_BRACKETS,
+//   })
+//   notMatchTitleTemplate := sfn.Pass_Jsonata(this, jsii.String("Not Match Title Template"))
+//
+//   definition := getIssue.Next(sfn.Choice_Jsonata(this, jsii.String("Match Title Template?")).When(sfn.Condition_Jsonata(jsii.String("{% $contains($issue.title, /(feat)|(fix)|(chore)(w*):.*/) %}")), updateLabels, &ChoiceTransitionOptions{
+//   	Assign: map[string]interface{}{
+//   		"type": jsii.String("{% $match($states.input.title, /(w*)((.*))/).groups[0] %}"),
+//   		"component": jsii.String("{% $match($states.input.title, /(w*)((.*))/).groups[1] %}"),
+//   	},
+//   }).Otherwise(notMatchTitleTemplate))
+//
+//   sfn.NewStateMachine(this, jsii.String("StateMachine"), &StateMachineProps{
+//   	DefinitionBody: sfn.DefinitionBody_FromChainable(definition),
+//   	Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	Comment: jsii.String("automate issue labeling state machine"),
 //   })
 //
 type HttpInvoke interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -54,6 +72,7 @@ type HttpInvoke interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -61,6 +80,7 @@ type HttpInvoke interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -142,11 +162,13 @@ type HttpInvoke interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -154,12 +176,14 @@ type HttpInvoke interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -173,6 +197,26 @@ type HttpInvoke interface {
 // The jsii proxy struct for HttpInvoke
 type jsiiProxy_HttpInvoke struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_HttpInvoke) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpInvoke) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_HttpInvoke) Branches() *[]awsstepfunctions.StateGraph {
@@ -265,6 +309,16 @@ func (j *jsiiProxy_HttpInvoke) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_HttpInvoke) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_HttpInvoke) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -300,6 +354,16 @@ func (j *jsiiProxy_HttpInvoke) ProcessorMode() awsstepfunctions.ProcessorMode {
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpInvoke) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -534,6 +598,44 @@ func HttpInvoke_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.HttpInvoke",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// A Step Functions Task to call a public third-party API using JSONata.
+func HttpInvoke_Jsonata(scope constructs.Construct, id *string, props *HttpInvokeJsonataProps) HttpInvoke {
+	_init_.Initialize()
+
+	if err := validateHttpInvoke_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns HttpInvoke
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.HttpInvoke",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// A Step Functions Task to call a public third-party API using JSONPath.
+func HttpInvoke_JsonPath(scope constructs.Construct, id *string, props *HttpInvokeJsonPathProps) HttpInvoke {
+	_init_.Initialize()
+
+	if err := validateHttpInvoke_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns HttpInvoke
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.HttpInvoke",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -863,6 +965,19 @@ func (h *jsiiProxy_HttpInvoke) Next(next awsstepfunctions.IChainable) awsstepfun
 	return returns
 }
 
+func (h *jsiiProxy_HttpInvoke) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		h,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (h *jsiiProxy_HttpInvoke) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -876,13 +991,13 @@ func (h *jsiiProxy_HttpInvoke) RenderBranches() interface{} {
 	return returns
 }
 
-func (h *jsiiProxy_HttpInvoke) RenderChoices() interface{} {
+func (h *jsiiProxy_HttpInvoke) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		h,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -941,6 +1056,19 @@ func (h *jsiiProxy_HttpInvoke) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (h *jsiiProxy_HttpInvoke) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		h,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (h *jsiiProxy_HttpInvoke) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -954,26 +1082,26 @@ func (h *jsiiProxy_HttpInvoke) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (h *jsiiProxy_HttpInvoke) RenderRetryCatch() interface{} {
+func (h *jsiiProxy_HttpInvoke) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		h,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (h *jsiiProxy_HttpInvoke) ToStateJson() *map[string]interface{} {
+func (h *jsiiProxy_HttpInvoke) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		h,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

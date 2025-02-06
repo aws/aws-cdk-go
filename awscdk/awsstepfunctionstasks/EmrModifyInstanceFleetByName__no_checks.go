@@ -108,6 +108,14 @@ func validateEmrModifyInstanceFleetByName_IsConstructParameters(x interface{}) e
 	return nil
 }
 
+func validateEmrModifyInstanceFleetByName_JsonataParameters(scope constructs.Construct, id *string, props *EmrModifyInstanceFleetByNameJsonataProps) error {
+	return nil
+}
+
+func validateEmrModifyInstanceFleetByName_JsonPathParameters(scope constructs.Construct, id *string, props *EmrModifyInstanceFleetByNameJsonPathProps) error {
+	return nil
+}
+
 func validateEmrModifyInstanceFleetByName_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

@@ -108,6 +108,14 @@ func validateAthenaGetQueryExecution_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func validateAthenaGetQueryExecution_JsonataParameters(scope constructs.Construct, id *string, props *AthenaGetQueryExecutionJsonataProps) error {
+	return nil
+}
+
+func validateAthenaGetQueryExecution_JsonPathParameters(scope constructs.Construct, id *string, props *AthenaGetQueryExecutionJsonPathProps) error {
+	return nil
+}
+
 func validateAthenaGetQueryExecution_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

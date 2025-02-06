@@ -92,17 +92,13 @@ type CfnServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The Amazon Resource Name associated with the server, in the form `arn:aws:transfer:region: *account-id* :server/ *server-id* /` .
-	//
-	// An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef` .
+	// Specifies the unique Amazon Resource Name (ARN) of the server.
 	AttrArn() *string
 	// The list of egress IP addresses of this server.
 	//
 	// These IP addresses are only relevant for servers that use the AS2 protocol. They are used for sending asynchronous MDNs. These IP addresses are assigned automatically when you create an AS2 server. Additionally, if you update an existing server and add the AS2 protocol, static IP addresses are assigned as well.
 	AttrAs2ServiceManagedEgressIpAddresses() *[]*string
-	// The service-assigned ID of the server that is created.
-	//
-	// An example `ServerId` is `s-01234567890abcdef` .
+	// Specifies the unique system-assigned identifier for a server that you instantiate.
 	AttrServerId() *string
 	AttrState() *string
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate.

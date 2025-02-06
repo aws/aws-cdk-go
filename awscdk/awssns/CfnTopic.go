@@ -90,6 +90,7 @@ type CfnTopic interface {
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName() *string
 	SetDisplayName(val *string)
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic.
 	FifoThroughputScope() *string
 	SetFifoThroughputScope(val *string)
 	// Set to true to create a FIFO topic.

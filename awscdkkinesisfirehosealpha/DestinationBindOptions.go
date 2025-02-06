@@ -11,7 +11,7 @@ package awscdkkinesisfirehosealpha
 //   destinationBindOptions := &DestinationBindOptions{
 //   }
 //
-// Experimental.
+// Deprecated.
 type DestinationBindOptions struct {
 }
 

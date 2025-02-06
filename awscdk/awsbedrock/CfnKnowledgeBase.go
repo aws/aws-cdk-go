@@ -121,6 +121,7 @@ import (
 //   			EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
 //   				BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
 //   					Dimensions: jsii.Number(123),
+//   					EmbeddingDataType: jsii.String("embeddingDataType"),
 //   				},
 //   			},
 //   			SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{

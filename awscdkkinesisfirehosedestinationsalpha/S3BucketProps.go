@@ -30,7 +30,7 @@ import (
 //   	Destination: s3Destination,
 //   })
 //
-// Experimental.
+// Deprecated.
 type S3BucketProps struct {
 	// The length of time that Firehose buffers incoming data before delivering it to the S3 bucket.
 	//
@@ -38,7 +38,7 @@ type S3BucketProps struct {
 	// Maximum: Duration.seconds(900)
 	// Default: Duration.seconds(300)
 	//
-	// Experimental.
+	// Deprecated.
 	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Kinesis Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
@@ -46,7 +46,7 @@ type S3BucketProps struct {
 	// Maximum: Size.mebibytes(128)
 	// Default: Size.mebibytes(5)
 	//
-	// Experimental.
+	// Deprecated.
 	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
 	//
@@ -55,7 +55,7 @@ type S3BucketProps struct {
 	// that reads from the S3 bucket.
 	// Default: - UNCOMPRESSED.
 	//
-	// Experimental.
+	// Deprecated.
 	Compression Compression `field:"optional" json:"compression" yaml:"compression"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to records before writing them to S3.
 	//
@@ -64,12 +64,12 @@ type S3BucketProps struct {
 	//
 	// Default: "YYYY/MM/DD/HH".
 	//
-	// Experimental.
+	// Deprecated.
 	DataOutputPrefix *string `field:"optional" json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
 	// The AWS KMS key used to encrypt the data that it delivers to your Amazon S3 bucket.
 	// Default: - Data is not encrypted.
 	//
-	// Experimental.
+	// Deprecated.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
@@ -78,29 +78,29 @@ type S3BucketProps struct {
 	//
 	// Default: "YYYY/MM/DD/HH".
 	//
-	// Experimental.
+	// Deprecated.
 	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 	// Configuration that determines whether to log errors during data transformation or delivery failures, and specifies the CloudWatch log group for storing error logs.
 	// Default: - errors will be logged and a log group will be created for you.
 	//
-	// Experimental.
+	// Deprecated.
 	LoggingConfig ILoggingConfig `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 	// The data transformation that should be performed on the data before writing to the destination.
 	// Default: - no data transformation will occur.
 	//
-	// Experimental.
+	// Deprecated.
 	Processor awscdkkinesisfirehosealpha.IDataProcessor `field:"optional" json:"processor" yaml:"processor"`
 	// The IAM role associated with this destination.
 	//
 	// Assumed by Kinesis Data Firehose to invoke processors and write to destinations.
 	// Default: - a role will be created with default permissions.
 	//
-	// Experimental.
+	// Deprecated.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The configuration for backing up source records to S3.
 	// Default: - source records will not be backed up to S3.
 	//
-	// Experimental.
+	// Deprecated.
 	S3Backup *DestinationS3BackupProps `field:"optional" json:"s3Backup" yaml:"s3Backup"`
 }
 

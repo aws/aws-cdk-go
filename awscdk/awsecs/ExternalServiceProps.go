@@ -12,11 +12,16 @@ import (
 //   var taskDefinition taskDefinition
 //
 //
-//   service := ecs.NewExternalService(this, jsii.String("Service"), &ExternalServiceProps{
+//   ecs.NewEc2Service(this, jsii.String("Ec2Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	DesiredCount: jsii.Number(5),
-//   	MinHealthyPercent: jsii.Number(100),
+//   	Daemon: jsii.Boolean(true),
+//   })
+//
+//   ecs.NewExternalService(this, jsii.String("ExternalService"), &ExternalServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	Daemon: jsii.Boolean(true),
 //   })
 //
 type ExternalServiceProps struct {
@@ -106,6 +111,15 @@ type ExternalServiceProps struct {
 	//
 	// [disable-awslint:ref-via-interface].
 	TaskDefinition TaskDefinition `field:"required" json:"taskDefinition" yaml:"taskDefinition"`
+	// By default, service use REPLICA scheduling strategy, this parameter enable DAEMON scheduling strategy.
+	//
+	// If true, the service scheduler deploys exactly one task on each container instance in your cluster.
+	//
+	// When you are using this strategy, do not specify a desired number of tasks or any task placement strategies.
+	// Tasks using the Fargate launch type or the CODE_DEPLOY or EXTERNAL deployment controller types don't support the DAEMON scheduling strategy.
+	// Default: false.
+	//
+	Daemon *bool `field:"optional" json:"daemon" yaml:"daemon"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.

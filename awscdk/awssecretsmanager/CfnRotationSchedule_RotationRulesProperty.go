@@ -5,6 +5,11 @@ package awssecretsmanager
 //
 // We recommend you use `ScheduleExpression` to set a cron or rate expression for the schedule and `Duration` to set the length of the rotation window.
 //
+// > When changing an existing rotation schedule and setting `RotateImmediatelyOnUpdate` to `false` :
+// >
+// > - If using `AutomaticallyAfterDays` or a `ScheduleExpression` with `rate()` , the previously scheduled rotation might still occur.
+// > - To prevent unintended rotations, use a `ScheduleExpression` with `cron()` for granular control over rotation windows.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -13,30 +13,33 @@ import (
 // The base class for all task definitions.
 //
 // Example:
-//   var cluster cluster
 //   var taskDefinition taskDefinition
-//   var vpc vpc
+//   var cluster cluster
 //
-//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//
+//   // Add a container to the task definition
+//   specificContainer := taskDefinition.AddContainer(jsii.String("Container"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("/aws/aws-example-app")),
+//   	MemoryLimitMiB: jsii.Number(2048),
+//   })
+//
+//   // Add a port mapping
+//   specificContainer.AddPortMappings(&PortMapping{
+//   	ContainerPort: jsii.Number(7600),
+//   	Protocol: ecs.Protocol_TCP,
+//   })
+//
+//   ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   })
-//
-//   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
-//   	Vpc: Vpc,
-//   	InternetFacing: jsii.Boolean(true),
-//   })
-//   listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
-//   	Port: jsii.Number(80),
-//   })
-//   service.RegisterLoadBalancerTargets(&EcsTarget{
-//   	ContainerName: jsii.String("web"),
-//   	ContainerPort: jsii.Number(80),
-//   	NewTargetGroupId: jsii.String("ECS"),
-//   	Listener: ecs.ListenerConfig_ApplicationListener(listener, &AddApplicationTargetsProps{
-//   		Protocol: elbv2.ApplicationProtocol_HTTPS,
-//   	}),
+//   	CloudMapOptions: &CloudMapOptions{
+//   		// Create SRV records - useful for bridge networking
+//   		DnsRecordType: cloudmap.DnsRecordType_SRV,
+//   		// Targets port TCP port 7600 `specificContainer`
+//   		Container: specificContainer,
+//   		ContainerPort: jsii.Number(7600),
+//   	},
 //   })
 //
 type TaskDefinition interface {
@@ -118,6 +121,7 @@ type TaskDefinition interface {
 	// Adds a firelens log router to the task definition.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
 	// Adds an inference accelerator to the task definition.
+	// Deprecated: ECS TaskDefinition's inferenceAccelerator is EOL since April 2024.
 	AddInferenceAccelerator(inferenceAccelerator *InferenceAccelerator)
 	// Adds the specified placement constraint to the task definition.
 	AddPlacementConstraint(constraint PlacementConstraint)

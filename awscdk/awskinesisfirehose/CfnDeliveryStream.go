@@ -71,6 +71,9 @@ type CfnDeliveryStream interface {
 	// This can be one of the following values:.
 	DeliveryStreamType() *string
 	SetDeliveryStreamType(val *string)
+	// The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
+	DirectPutSourceConfiguration() interface{}
+	SetDirectPutSourceConfiguration(val interface{})
 	// An Amazon ES destination for the delivery stream.
 	ElasticsearchDestinationConfiguration() interface{}
 	SetElasticsearchDestinationConfiguration(val interface{})
@@ -384,6 +387,16 @@ func (j *jsiiProxy_CfnDeliveryStream) DeliveryStreamType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliveryStream) DirectPutSourceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"directPutSourceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliveryStream) ElasticsearchDestinationConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -648,6 +661,17 @@ func (j *jsiiProxy_CfnDeliveryStream)SetDeliveryStreamType(val *string) {
 	_jsii_.Set(
 		j,
 		"deliveryStreamType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryStream)SetDirectPutSourceConfiguration(val interface{}) {
+	if err := j.validateSetDirectPutSourceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"directPutSourceConfiguration",
 		val,
 	)
 }

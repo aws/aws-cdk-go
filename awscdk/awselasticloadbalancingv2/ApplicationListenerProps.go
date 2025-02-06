@@ -26,6 +26,7 @@ package awselasticloadbalancingv2
 //   		applicationTargetGroup,
 //   	},
 //   	MutualAuthentication: &MutualAuthentication{
+//   		AdvertiseTrustStoreCaNames: jsii.Boolean(false),
 //   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
 //   		MutualAuthenticationMode: awscdk.Aws_elasticloadbalancingv2.MutualAuthenticationMode_OFF,
 //   		TrustStore: trustStore,

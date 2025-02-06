@@ -469,7 +469,7 @@ To generate an ARN for Execute API:
 
 ```go
 api := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
-arn := api.ArnForExecuteApi(jsii.String("GET"), jsii.String("/myApiPath"), jsii.String("dev"))
+arn := api.ArnForExecuteApiV2(jsii.String("$connect"), jsii.String("dev"))
 ```
 
 For a detailed explanation of this function, including usage and examples, please refer to the [Generating ARN for Execute API](#generating-arn-for-execute-api) section under HTTP API.

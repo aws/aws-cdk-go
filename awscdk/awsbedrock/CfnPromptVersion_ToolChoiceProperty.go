@@ -1,6 +1,10 @@
 package awsbedrock
 
 
+// Determines which tools the model should request in a call to `Converse` or `ConverseStream` .
+//
+// `ToolChoice` is only supported by Anthropic Claude 3 models and by Mistral AI Mistral Large. For more information, see [Call a tool with the Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html) in the Amazon Bedrock User Guide.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,15 +24,19 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolchoice.html
 //
 type CfnPromptVersion_ToolChoiceProperty struct {
-	// Any Tool choice.
+	// The model must request at least one tool (no text is generated).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolchoice.html#cfn-bedrock-promptversion-toolchoice-any
 	//
 	Any interface{} `field:"optional" json:"any" yaml:"any"`
-	// Auto Tool choice.
+	// (Default).
+	//
+	// The Model automatically decides if a tool should be called or whether to generate text instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolchoice.html#cfn-bedrock-promptversion-toolchoice-auto
 	//
 	Auto interface{} `field:"optional" json:"auto" yaml:"auto"`
-	// Specific Tool choice.
+	// The Model must request the specified tool.
+	//
+	// Only supported by Anthropic Claude 3 models.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolchoice.html#cfn-bedrock-promptversion-toolchoice-tool
 	//
 	Tool interface{} `field:"optional" json:"tool" yaml:"tool"`

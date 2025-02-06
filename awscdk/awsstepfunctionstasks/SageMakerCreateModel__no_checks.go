@@ -112,6 +112,14 @@ func validateSageMakerCreateModel_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateSageMakerCreateModel_JsonataParameters(scope constructs.Construct, id *string, props *SageMakerCreateModelJsonataProps) error {
+	return nil
+}
+
+func validateSageMakerCreateModel_JsonPathParameters(scope constructs.Construct, id *string, props *SageMakerCreateModelJsonPathProps) error {
+	return nil
+}
+
 func validateSageMakerCreateModel_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

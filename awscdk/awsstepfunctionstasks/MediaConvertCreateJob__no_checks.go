@@ -108,6 +108,14 @@ func validateMediaConvertCreateJob_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateMediaConvertCreateJob_JsonataParameters(scope constructs.Construct, id *string, props *MediaConvertCreateJobJsonataProps) error {
+	return nil
+}
+
+func validateMediaConvertCreateJob_JsonPathParameters(scope constructs.Construct, id *string, props *MediaConvertCreateJobJsonPathProps) error {
+	return nil
+}
+
 func validateMediaConvertCreateJob_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

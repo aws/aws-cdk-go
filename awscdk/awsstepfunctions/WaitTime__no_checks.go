@@ -8,6 +8,10 @@ func validateWaitTime_DurationParameters(duration awscdk.Duration) error {
 	return nil
 }
 
+func validateWaitTime_SecondsParameters(seconds *string) error {
+	return nil
+}
+
 func validateWaitTime_SecondsPathParameters(path *string) error {
 	return nil
 }

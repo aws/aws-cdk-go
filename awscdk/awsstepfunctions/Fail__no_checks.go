@@ -56,6 +56,14 @@ func validateFail_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateFail_JsonataParameters(scope constructs.Construct, id *string, props *FailJsonataProps) error {
+	return nil
+}
+
+func validateFail_JsonPathParameters(scope constructs.Construct, id *string, props *FailJsonPathProps) error {
+	return nil
+}
+
 func validateFail_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

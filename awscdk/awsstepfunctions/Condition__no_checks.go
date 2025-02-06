@@ -60,6 +60,10 @@ func validateCondition_IsTimestampParameters(variable *string) error {
 	return nil
 }
 
+func validateCondition_JsonataParameters(condition *string) error {
+	return nil
+}
+
 func validateCondition_NotParameters(condition Condition) error {
 	return nil
 }

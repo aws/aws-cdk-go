@@ -108,6 +108,14 @@ func validateEventBridgeSchedulerCreateScheduleTask_IsConstructParameters(x inte
 	return nil
 }
 
+func validateEventBridgeSchedulerCreateScheduleTask_JsonataParameters(scope constructs.Construct, id *string, props *EventBridgeSchedulerCreateScheduleTaskJsonataProps) error {
+	return nil
+}
+
+func validateEventBridgeSchedulerCreateScheduleTask_JsonPathParameters(scope constructs.Construct, id *string, props *EventBridgeSchedulerCreateScheduleTaskJsonPathProps) error {
+	return nil
+}
+
 func validateEventBridgeSchedulerCreateScheduleTask_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

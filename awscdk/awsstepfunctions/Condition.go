@@ -336,6 +336,25 @@ func Condition_IsTimestamp(variable *string) Condition {
 	return returns
 }
 
+// JSONata expression condition.
+func Condition_Jsonata(condition *string) Condition {
+	_init_.Initialize()
+
+	if err := validateCondition_JsonataParameters(condition); err != nil {
+		panic(err)
+	}
+	var returns Condition
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"jsonata",
+		[]interface{}{condition},
+		&returns,
+	)
+
+	return returns
+}
+
 // Negate a condition.
 func Condition_Not(condition Condition) Condition {
 	_init_.Initialize()

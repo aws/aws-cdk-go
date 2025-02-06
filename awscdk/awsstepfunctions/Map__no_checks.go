@@ -76,6 +76,14 @@ func validateMap_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateMap_JsonataParameters(scope constructs.Construct, id *string, props *MapJsonataProps) error {
+	return nil
+}
+
+func validateMap_JsonPathParameters(scope constructs.Construct, id *string, props *MapJsonPathProps) error {
+	return nil
+}
+
 func validateMap_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

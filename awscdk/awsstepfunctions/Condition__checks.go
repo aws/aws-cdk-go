@@ -126,6 +126,14 @@ func validateCondition_IsTimestampParameters(variable *string) error {
 	return nil
 }
 
+func validateCondition_JsonataParameters(condition *string) error {
+	if condition == nil {
+		return fmt.Errorf("parameter condition is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCondition_NotParameters(condition Condition) error {
 	if condition == nil {
 		return fmt.Errorf("parameter condition is required, but nil was provided")

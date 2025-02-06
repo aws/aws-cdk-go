@@ -85,7 +85,7 @@ type StandardAttributes struct {
 	// Default: - see the defaults under `StandardAttribute`.
 	//
 	PhoneNumber *StandardAttribute `field:"optional" json:"phoneNumber" yaml:"phoneNumber"`
-	// The user's preffered username, different from the immutable user name.
+	// The user's preferred username, different from the immutable user name.
 	// Default: - see the defaults under `StandardAttribute`.
 	//
 	PreferredUsername *StandardAttribute `field:"optional" json:"preferredUsername" yaml:"preferredUsername"`

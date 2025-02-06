@@ -108,6 +108,14 @@ func validateCallAwsServiceCrossRegion_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
+func validateCallAwsServiceCrossRegion_JsonataParameters(scope constructs.Construct, id *string, props *CallAwsServiceCrossRegionJsonataProps) error {
+	return nil
+}
+
+func validateCallAwsServiceCrossRegion_JsonPathParameters(scope constructs.Construct, id *string, props *CallAwsServiceCrossRegionJsonPathProps) error {
+	return nil
+}
+
 func validateCallAwsServiceCrossRegion_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

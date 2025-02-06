@@ -13,24 +13,30 @@ import (
 // When the amount is passed as a token, unit conversion is not possible.
 //
 // Example:
-//   var bucket bucket
-//   // Provide a Lambda function that will transform records before delivery, with custom
-//   // buffering and retry configuration
-//   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("process-records"))),
+//   multiNodeJob := batch.NewMultiNodeJobDefinition(this, jsii.String("JobDefinition"), &MultiNodeJobDefinitionProps{
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R4, ec2.InstanceSize_LARGE),
+//   	 // optional, omit to let Batch choose the type for you
+//   	Containers: []multiNodeContainer{
+//   		&multiNodeContainer{
+//   			Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("mainMPIContainer"), &EcsEc2ContainerDefinitionProps{
+//   				Image: ecs.ContainerImage_FromRegistry(jsii.String("yourregsitry.com/yourMPIImage:latest")),
+//   				Cpu: jsii.Number(256),
+//   				Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   			}),
+//   			StartNode: jsii.Number(0),
+//   			EndNode: jsii.Number(5),
+//   		},
+//   	},
 //   })
-//   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &DataProcessorProps{
-//   	BufferInterval: awscdk.Duration_Minutes(jsii.Number(5)),
-//   	BufferSize: awscdk.Size_Mebibytes(jsii.Number(5)),
-//   	Retries: jsii.Number(5),
-//   })
-//   s3Destination := destinations.NewS3Bucket(bucket, &S3BucketProps{
-//   	Processor: lambdaProcessor,
-//   })
-//   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destination: s3Destination,
+//   // convenience method
+//   multiNodeJob.AddContainer(&multiNodeContainer{
+//   	StartNode: jsii.Number(6),
+//   	EndNode: jsii.Number(10),
+//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("multiContainer"), &EcsEc2ContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_*FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   		Cpu: jsii.Number(256),
+//   		Memory: cdk.Size_*Mebibytes(jsii.Number(2048)),
+//   	}),
 //   })
 //
 type Size interface {

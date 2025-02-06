@@ -134,6 +134,7 @@ import (
 //   		},
 //   	},
 //   	User: jsii.String("user"),
+//   	VersionConsistency: awscdk.*Aws_ecs.VersionConsistency_ENABLED,
 //   	WorkingDirectory: jsii.String("workingDirectory"),
 //   })
 //

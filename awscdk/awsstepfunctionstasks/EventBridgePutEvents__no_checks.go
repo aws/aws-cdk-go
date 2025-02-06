@@ -108,6 +108,14 @@ func validateEventBridgePutEvents_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateEventBridgePutEvents_JsonataParameters(scope constructs.Construct, id *string, props *EventBridgePutEventsJsonataProps) error {
+	return nil
+}
+
+func validateEventBridgePutEvents_JsonPathParameters(scope constructs.Construct, id *string, props *EventBridgePutEventsJsonPathProps) error {
+	return nil
+}
+
 func validateEventBridgePutEvents_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

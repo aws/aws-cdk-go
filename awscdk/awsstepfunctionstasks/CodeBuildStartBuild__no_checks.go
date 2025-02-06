@@ -108,6 +108,14 @@ func validateCodeBuildStartBuild_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateCodeBuildStartBuild_JsonataParameters(scope constructs.Construct, id *string, props *CodeBuildStartBuildJsonataProps) error {
+	return nil
+}
+
+func validateCodeBuildStartBuild_JsonPathParameters(scope constructs.Construct, id *string, props *CodeBuildStartBuildJsonPathProps) error {
+	return nil
+}
+
 func validateCodeBuildStartBuild_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

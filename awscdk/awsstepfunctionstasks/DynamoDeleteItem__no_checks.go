@@ -108,6 +108,14 @@ func validateDynamoDeleteItem_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateDynamoDeleteItem_JsonataParameters(scope constructs.Construct, id *string, props *DynamoDeleteItemJsonataProps) error {
+	return nil
+}
+
+func validateDynamoDeleteItem_JsonPathParameters(scope constructs.Construct, id *string, props *DynamoDeleteItemJsonPathProps) error {
+	return nil
+}
+
 func validateDynamoDeleteItem_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

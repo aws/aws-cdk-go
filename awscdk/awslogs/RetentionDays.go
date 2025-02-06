@@ -4,29 +4,34 @@ package awslogs
 // How long, in days, the log contents will be retained.
 //
 // Example:
-//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var myLogsPublishingRole role
-//   var vpc vpc
 //
+//   apiKeyProvider := &AppSyncAuthProvider{
+//   	AuthorizationType: appsync.AppSyncAuthorizationType_API_KEY,
+//   }
 //
-//   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-//   	MasterUser: &Login{
-//   		Username: jsii.String("myuser"),
+//   api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
+//   	ApiName: jsii.String("Api"),
+//   	OwnerContact: jsii.String("OwnerContact"),
+//   	AuthorizationConfig: &EventApiAuthConfig{
+//   		AuthProviders: []appSyncAuthProvider{
+//   			apiKeyProvider,
+//   		},
+//   		ConnectionAuthModeTypes: []appSyncAuthorizationType{
+//   			appsync.*appSyncAuthorizationType_API_KEY,
+//   		},
+//   		DefaultPublishAuthModeTypes: []*appSyncAuthorizationType{
+//   			appsync.*appSyncAuthorizationType_API_KEY,
+//   		},
+//   		DefaultSubscribeAuthModeTypes: []*appSyncAuthorizationType{
+//   			appsync.*appSyncAuthorizationType_API_KEY,
+//   		},
 //   	},
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PUBLIC,
+//   	LogConfig: &AppSyncLogConfig{
+//   		FieldLogLevel: appsync.AppSyncFieldLogLevel_INFO,
+//   		Retention: logs.RetentionDays_ONE_WEEK,
 //   	},
-//   	Vpc: Vpc,
-//   	ExportProfilerLogsToCloudWatch: jsii.Boolean(true),
-//   	 // Enable sending profiler logs
-//   	ExportAuditLogsToCloudWatch: jsii.Boolean(true),
-//   	 // Enable sending audit logs
-//   	CloudWatchLogsRetention: logs.RetentionDays_THREE_MONTHS,
-//   	 // Optional - default is to never expire logs
-//   	CloudWatchLogsRetentionRole: myLogsPublishingRole,
 //   })
 //
 type RetentionDays string

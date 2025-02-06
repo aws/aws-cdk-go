@@ -52,7 +52,6 @@ package awsresiliencehub
 //   		},
 //   		InvokerRoleName: jsii.String("invokerRoleName"),
 //   	},
-//   	RegulatoryPolicyArn: jsii.String("regulatoryPolicyArn"),
 //   	ResiliencyPolicyArn: jsii.String("resiliencyPolicyArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -257,10 +256,6 @@ type CfnAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-permissionmodel
 	//
 	PermissionModel interface{} `field:"optional" json:"permissionModel" yaml:"permissionModel"`
-	// Amazon Resource Name (ARN) of the Regulatory Policy.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-regulatorypolicyarn
-	//
-	RegulatoryPolicyArn *string `field:"optional" json:"regulatoryPolicyArn" yaml:"regulatoryPolicyArn"`
 	// The Amazon Resource Name (ARN) of the resiliency policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html#cfn-resiliencehub-app-resiliencypolicyarn
 	//

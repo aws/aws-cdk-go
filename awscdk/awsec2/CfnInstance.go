@@ -230,7 +230,7 @@ type CfnInstance interface {
 	// The credit option for CPU usage of the burstable performance instance.
 	CreditSpecification() interface{}
 	SetCreditSpecification(val interface{})
-	// If you set this parameter to `true` , you can't terminate the instance using the Amazon EC2 console, CLI, or API;.
+	// Indicates whether termination protection is enabled for the instance.
 	DisableApiTermination() interface{}
 	SetDisableApiTermination(val interface{})
 	// Indicates whether the instance is optimized for Amazon EBS I/O.

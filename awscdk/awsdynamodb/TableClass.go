@@ -11,7 +11,9 @@ package awsdynamodb
 //   	},
 //   	ContributorInsights: jsii.Boolean(true),
 //   	TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
-//   	PointInTimeRecovery: jsii.Boolean(true),
+//   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
+//   		PointInTimeRecoveryEnabled: jsii.Boolean(true),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.TableClasses.html

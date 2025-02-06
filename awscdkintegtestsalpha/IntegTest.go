@@ -16,28 +16,40 @@ import (
 // Example:
 //   var app app
 //   var stack stack
-//   var sm iStateMachine
+//   var queue queue
+//   var fn iFunction
 //
 //
-//   testCase := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+//   integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("Integ"), &IntegTestProps{
 //   	TestCases: []*stack{
 //   		stack,
 //   	},
 //   })
 //
-//   // Start an execution
-//   start := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("startExecution"), map[string]*string{
-//   	"stateMachineArn": sm.stateMachineArn,
+//   integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
+//   	FunctionName: fn.FunctionName,
+//   	InvocationType: awscdkintegtestsalpha.InvocationType_EVENT,
+//   	Payload: jSON.stringify(map[string]*string{
+//   		"status": jsii.String("OK"),
+//   	}),
 //   })
 //
-//   // describe the results of the execution
-//   describe := testCase.Assertions.AwsApiCall(jsii.String("StepFunctions"), jsii.String("describeExecution"), map[string]*string{
-//   	"executionArn": start.getAttString(jsii.String("executionArn")),
+//   message := integ.Assertions.AwsApiCall(jsii.String("SQS"), jsii.String("receiveMessage"), map[string]interface{}{
+//   	"QueueUrl": queue.queueUrl,
+//   	"WaitTimeSeconds": jsii.Number(20),
 //   })
 //
-//   // assert the results
-//   describe.Expect(awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
-//   	"status": jsii.String("SUCCEEDED"),
+//   message.AssertAtPath(jsii.String("Messages.0.Body"), awscdkintegtestsalpha.ExpectedResult_ObjectLike(map[string]interface{}{
+//   	"requestContext": map[string]*string{
+//   		"condition": jsii.String("Success"),
+//   	},
+//   	"requestPayload": map[string]*string{
+//   		"status": jsii.String("OK"),
+//   	},
+//   	"responseContext": map[string]*f64{
+//   		"statusCode": jsii.Number(200),
+//   	},
+//   	"responsePayload": jsii.String("success"),
 //   }))
 //
 // Experimental.

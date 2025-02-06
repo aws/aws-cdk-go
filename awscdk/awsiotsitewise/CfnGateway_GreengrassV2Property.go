@@ -12,6 +12,9 @@ package awsiotsitewise
 //
 //   greengrassV2Property := &GreengrassV2Property{
 //   	CoreDeviceThingName: jsii.String("coreDeviceThingName"),
+//
+//   	// the properties below are optional
+//   	CoreDeviceOperatingSystem: jsii.String("coreDeviceOperatingSystem"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html
@@ -21,5 +24,9 @@ type CfnGateway_GreengrassV2Property struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html#cfn-iotsitewise-gateway-greengrassv2-coredevicethingname
 	//
 	CoreDeviceThingName *string `field:"required" json:"coreDeviceThingName" yaml:"coreDeviceThingName"`
+	// The operating system of the core device in AWS IoT Greengrass V2.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html#cfn-iotsitewise-gateway-greengrassv2-coredeviceoperatingsystem
+	//
+	CoreDeviceOperatingSystem *string `field:"optional" json:"coreDeviceOperatingSystem" yaml:"coreDeviceOperatingSystem"`
 }
 

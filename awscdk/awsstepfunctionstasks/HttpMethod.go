@@ -4,20 +4,24 @@ package awsstepfunctionstasks
 // Http Methods that API Gateway supports.
 //
 // Example:
-//   import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import apigateway "github.com/aws/aws-cdk-go/awscdk"
+//   var api restApi
 //
-//   httpApi := apigatewayv2.NewHttpApi(this, jsii.String("MyHttpApi"))
 //
-//   invokeTask := tasks.NewCallApiGatewayHttpApiEndpoint(this, jsii.String("Call HTTP API"), &CallApiGatewayHttpApiEndpointProps{
-//   	ApiId: httpApi.ApiId,
-//   	ApiStack: awscdk.*stack_Of(httpApi),
-//   	Method: tasks.HttpMethod_GET,
+//   tasks.CallApiGatewayRestApiEndpoint_Jsonata(this, jsii.String("Endpoint"), &CallApiGatewayRestApiEndpointJsonataProps{
+//   	Api: Api,
+//   	StageName: jsii.String("Stage"),
+//   	Method: tasks.HttpMethod_PUT,
+//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
+//   	Headers: sfn.TaskInput_FromObject(map[string]interface{}{
+//   		"TaskToken": jsii.String("{% States.Array($states.context.taskToken) %}"),
+//   	}),
 //   })
 //
 type HttpMethod string
 
 const (
-	// Retreive data from a server at the specified resource.
+	// Retrieve data from a server at the specified resource.
 	HttpMethod_GET HttpMethod = "GET"
 	// Send data to the API endpoint to create or udpate a resource.
 	HttpMethod_POST HttpMethod = "POST"
@@ -27,7 +31,7 @@ const (
 	HttpMethod_DELETE HttpMethod = "DELETE"
 	// Apply partial modifications to the resource.
 	HttpMethod_PATCH HttpMethod = "PATCH"
-	// Retreive data from a server at the specified resource without the response body.
+	// Retrieve data from a server at the specified resource without the response body.
 	HttpMethod_HEAD HttpMethod = "HEAD"
 	// Return data describing what other methods and operations the server supports.
 	HttpMethod_OPTIONS HttpMethod = "OPTIONS"

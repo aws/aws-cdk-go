@@ -109,7 +109,28 @@ package awsmediaconnect
 //   		State: jsii.String("state"),
 //   	},
 //   	SourceMonitoringConfig: &SourceMonitoringConfigProperty{
+//   		AudioMonitoringSettings: []interface{}{
+//   			&AudioMonitoringSettingProperty{
+//   				SilentAudio: &SilentAudioProperty{
+//   					State: jsii.String("state"),
+//   					ThresholdSeconds: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   		ContentQualityAnalysisState: jsii.String("contentQualityAnalysisState"),
 //   		ThumbnailState: jsii.String("thumbnailState"),
+//   		VideoMonitoringSettings: []interface{}{
+//   			&VideoMonitoringSettingProperty{
+//   				BlackFrames: &BlackFramesProperty{
+//   					State: jsii.String("state"),
+//   					ThresholdSeconds: jsii.Number(123),
+//   				},
+//   				FrozenFrames: &FrozenFramesProperty{
+//   					State: jsii.String("state"),
+//   					ThresholdSeconds: jsii.Number(123),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	VpcInterfaces: []interface{}{
 //   		&VpcInterfaceProperty{

@@ -32,13 +32,13 @@ import (
 //   	Destination: destination,
 //   })
 //
-// Experimental.
+// Deprecated.
 type StreamEncryption interface {
 	// Optional KMS key used for customer managed encryption.
-	// Experimental.
+	// Deprecated.
 	EncryptionKey() awskms.IKey
 	// The type of server-side encryption for the Kinesis Firehose delivery stream.
-	// Experimental.
+	// Deprecated.
 	Type() StreamEncryptionType
 }
 
@@ -69,7 +69,7 @@ func (j *jsiiProxy_StreamEncryption) Type() StreamEncryptionType {
 
 
 // Configure server-side encryption using an AWS owned key.
-// Experimental.
+// Deprecated.
 func StreamEncryption_AwsOwnedKey() StreamEncryption {
 	_init_.Initialize()
 
@@ -86,7 +86,7 @@ func StreamEncryption_AwsOwnedKey() StreamEncryption {
 }
 
 // Configure server-side encryption using customer managed keys.
-// Experimental.
+// Deprecated.
 func StreamEncryption_CustomerManagedKey(encryptionKey awskms.IKey) StreamEncryption {
 	_init_.Initialize()
 
@@ -103,7 +103,7 @@ func StreamEncryption_CustomerManagedKey(encryptionKey awskms.IKey) StreamEncryp
 }
 
 // No server-side encryption is configured.
-// Experimental.
+// Deprecated.
 func StreamEncryption_Unencrypted() StreamEncryption {
 	_init_.Initialize()
 

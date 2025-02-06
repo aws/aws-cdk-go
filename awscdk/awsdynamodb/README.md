@@ -25,7 +25,9 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 	},
 	ContributorInsights: jsii.Boolean(true),
 	TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
-	PointInTimeRecovery: jsii.Boolean(true),
+	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
+		PointInTimeRecoveryEnabled: jsii.Boolean(true),
+	},
 })
 ```
 
@@ -100,7 +102,7 @@ The following properties are configurable on a per-replica basis, but will be in
 
 * contributorInsights
 * deletionProtection
-* pointInTimeRecovery
+* pointInTimeRecoverySpecification
 * tableClass
 * readCapacity (only configurable if the `TableV2` billing mode is `PROVISIONED`)
 * globalSecondaryIndexes (only `contributorInsights` and `readCapacity`)
@@ -124,12 +126,16 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 		Type: dynamodb.AttributeType_STRING,
 	},
 	ContributorInsights: jsii.Boolean(true),
-	PointInTimeRecovery: jsii.Boolean(true),
+	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
+		PointInTimeRecoveryEnabled: jsii.Boolean(true),
+	},
 	Replicas: []replicaTableProps{
 		&replicaTableProps{
 			Region: jsii.String("us-east-1"),
 			TableClass: dynamodb.TableClass_STANDARD_INFREQUENT_ACCESS,
-			PointInTimeRecovery: jsii.Boolean(false),
+			PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
+				PointInTimeRecoveryEnabled: jsii.Boolean(false),
+			},
 		},
 		&replicaTableProps{
 			Region: jsii.String("us-east-2"),
@@ -874,7 +880,9 @@ globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TableProp
 
 ## Point-in-Time Recovery
 
-`pointInTimeRecovery` provides automatic backups of your DynamoDB table data which helps protect your tables from accidental write or delete operations.
+`pointInTimeRecoverySpecifcation` provides automatic backups of your DynamoDB table data which helps protect your tables from accidental write or delete operations.
+
+You can also choose to set `recoveryPeriodInDays` to a value between `1` and `35` which dictates how many days of recoverable data is stored. If no value is provided, the recovery period defaults to `35` days.
 
 ```go
 table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
@@ -882,7 +890,10 @@ table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
 		Name: jsii.String("pk"),
 		Type: dynamodb.AttributeType_STRING,
 	},
-	PointInTimeRecovery: jsii.Boolean(true),
+	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
+		PointInTimeRecoveryEnabled: jsii.Boolean(true),
+		RecoveryPeriodInDays: jsii.Number(4),
+	},
 })
 ```
 

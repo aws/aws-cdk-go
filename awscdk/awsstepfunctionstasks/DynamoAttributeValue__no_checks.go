@@ -4,6 +4,10 @@ package awsstepfunctionstasks
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateDynamoAttributeValue_BooleanFromJsonataParameters(value *string) error {
+	return nil
+}
+
 func validateDynamoAttributeValue_BooleanFromJsonPathParameters(value *string) error {
 	return nil
 }
@@ -48,7 +52,15 @@ func validateDynamoAttributeValue_FromStringSetParameters(value *[]*string) erro
 	return nil
 }
 
+func validateDynamoAttributeValue_ListFromJsonataParameters(value *string) error {
+	return nil
+}
+
 func validateDynamoAttributeValue_ListFromJsonPathParameters(value *string) error {
+	return nil
+}
+
+func validateDynamoAttributeValue_MapFromJsonataParameters(value *string) error {
 	return nil
 }
 

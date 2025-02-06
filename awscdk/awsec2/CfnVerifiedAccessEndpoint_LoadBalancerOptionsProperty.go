@@ -11,6 +11,12 @@ package awsec2
 //   loadBalancerOptionsProperty := &LoadBalancerOptionsProperty{
 //   	LoadBalancerArn: jsii.String("loadBalancerArn"),
 //   	Port: jsii.Number(123),
+//   	PortRanges: []interface{}{
+//   		&PortRangeProperty{
+//   			FromPort: jsii.Number(123),
+//   			ToPort: jsii.Number(123),
+//   		},
+//   	},
 //   	Protocol: jsii.String("protocol"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -28,6 +34,10 @@ type CfnVerifiedAccessEndpoint_LoadBalancerOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html#cfn-ec2-verifiedaccessendpoint-loadbalanceroptions-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	// The list of port range.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html#cfn-ec2-verifiedaccessendpoint-loadbalanceroptions-portranges
+	//
+	PortRanges interface{} `field:"optional" json:"portRanges" yaml:"portRanges"`
 	// The IP protocol.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html#cfn-ec2-verifiedaccessendpoint-loadbalanceroptions-protocol
 	//

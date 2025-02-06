@@ -68,6 +68,14 @@ func validateChoice_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateChoice_JsonataParameters(scope constructs.Construct, id *string, props *ChoiceJsonataProps) error {
+	return nil
+}
+
+func validateChoice_JsonPathParameters(scope constructs.Construct, id *string, props *ChoiceJsonPathProps) error {
+	return nil
+}
+
 func validateChoice_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

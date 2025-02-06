@@ -7,12 +7,12 @@ import (
 )
 
 // A Kinesis Data Firehose delivery stream destination.
-// Experimental.
+// Deprecated.
 type IDestination interface {
 	// Binds this destination to the Kinesis Data Firehose delivery stream.
 	//
 	// Implementers should use this method to bind resources to the stack and initialize values using the provided stream.
-	// Experimental.
+	// Deprecated.
 	Bind(scope constructs.Construct, options *DestinationBindOptions) *DestinationConfig
 }
 

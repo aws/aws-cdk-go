@@ -110,7 +110,7 @@ type CfnPromptVersion_PromptVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptvariant.html#cfn-bedrock-promptversion-promptvariant-templatetype
 	//
 	TemplateType *string `field:"required" json:"templateType" yaml:"templateType"`
-	// Target resource to invoke with Prompt.
+	// Specifies a generative AI resource with which to use the prompt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptvariant.html#cfn-bedrock-promptversion-promptvariant-genairesource
 	//
 	GenAiResource interface{} `field:"optional" json:"genAiResource" yaml:"genAiResource"`

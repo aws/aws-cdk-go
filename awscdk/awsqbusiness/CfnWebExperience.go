@@ -20,6 +20,11 @@ import (
 //   	ApplicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
+//   	BrowserExtensionConfiguration: &BrowserExtensionConfigurationProperty{
+//   		EnabledBrowserExtensions: []*string{
+//   			jsii.String("enabledBrowserExtensions"),
+//   		},
+//   	},
 //   	CustomizationConfiguration: &CustomizationConfigurationProperty{
 //   		CustomCssUrl: jsii.String("customCssUrl"),
 //   		FaviconUrl: jsii.String("faviconUrl"),
@@ -74,6 +79,9 @@ type CfnWebExperience interface {
 	AttrWebExperienceArn() *string
 	// The identifier of your Amazon Q Business web experience.
 	AttrWebExperienceId() *string
+	// The container for browser extension configuration for an Amazon Q Business web experience.
+	BrowserExtensionConfiguration() interface{}
+	SetBrowserExtensionConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -350,6 +358,16 @@ func (j *jsiiProxy_CfnWebExperience) AttrWebExperienceId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebExperience) BrowserExtensionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"browserExtensionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebExperience) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -585,6 +603,17 @@ func (j *jsiiProxy_CfnWebExperience)SetApplicationId(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWebExperience)SetBrowserExtensionConfiguration(val interface{}) {
+	if err := j.validateSetBrowserExtensionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"browserExtensionConfiguration",
 		val,
 	)
 }

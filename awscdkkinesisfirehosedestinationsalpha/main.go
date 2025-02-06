@@ -1,4 +1,4 @@
-// CDK Destinations Constructs for AWS Kinesis Firehose
+// This module is deprecated. All constructs are now available under aws-kinesisfirehose
 package awscdkkinesisfirehosedestinationsalpha
 
 import (

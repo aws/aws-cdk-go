@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Notifications::EventRule Resource Type.
+// Creates an [`EventRule`](https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html) that is associated with a specified `NotificationConfiguration` .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -33,8 +33,15 @@ import (
 type CfnEventRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The Amazon Resource Name (ARN) of the `EventRule` .
+	//
+	// AWS CloudFormation stack generates this ARN and then uses this ARN associated with the `NotificationConfiguration` .
 	AttrArn() *string
+	// The creation time of the `EventRule` .
 	AttrCreationTime() *string
+	// A list of Amazon EventBridge Managed Rule ARNs associated with this `EventRule` .
+	//
+	// > These are created by AWS User Notifications within your account so your `EventRules` can function.
 	AttrManagedRules() *[]*string
 	AttrStatusSummaryByRegion() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
@@ -46,8 +53,10 @@ type CfnEventRule interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// An additional event pattern used to further filter the events this `EventRule` receives.
 	EventPattern() *string
 	SetEventPattern(val *string)
+	// The event type this rule should match with the EventBridge events.
 	EventType() *string
 	SetEventType(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -62,6 +71,7 @@ type CfnEventRule interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The ARN for the `NotificationConfiguration` associated with this `EventRule` .
 	NotificationConfigurationArn() *string
 	SetNotificationConfigurationArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -69,8 +79,10 @@ type CfnEventRule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// A list of AWS Regions that send events to this `EventRule` .
 	Regions() *[]*string
 	SetRegions(val *[]*string)
+	// The event source this rule should match with the EventBridge event sources.
 	Source() *string
 	SetSource(val *string)
 	// The stack in which this element is defined.

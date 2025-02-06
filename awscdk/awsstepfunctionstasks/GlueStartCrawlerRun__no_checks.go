@@ -108,6 +108,14 @@ func validateGlueStartCrawlerRun_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateGlueStartCrawlerRun_JsonataParameters(scope constructs.Construct, id *string, props *GlueStartCrawlerRunJsonataProps) error {
+	return nil
+}
+
+func validateGlueStartCrawlerRun_JsonPathParameters(scope constructs.Construct, id *string, props *GlueStartCrawlerRunJsonPathProps) error {
+	return nil
+}
+
 func validateGlueStartCrawlerRun_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

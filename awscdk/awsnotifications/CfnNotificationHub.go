@@ -9,7 +9,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Definition of AWS::Notifications::NotificationHub Resource Type.
+// Configures a `NotificationHub` for AWS User Notifications .
+//
+// For more information about notification hub, see the [AWS User Notifications User Guide](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,6 +27,7 @@ import (
 type CfnNotificationHub interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	// The date and time the `NotificationHubOverview` was created.
 	AttrCreationTime() *string
 	AttrNotificationHubStatusSummary() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
@@ -53,7 +56,7 @@ type CfnNotificationHub interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Region that NotificationHub is present in.
+	// The `NotificationHub` Region.
 	Region() *string
 	SetRegion(val *string)
 	// The stack in which this element is defined.

@@ -27,6 +27,8 @@ import (
 //
 type EmrAddStep interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -41,6 +43,7 @@ type EmrAddStep interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -48,6 +51,7 @@ type EmrAddStep interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -128,11 +132,13 @@ type EmrAddStep interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -140,12 +146,14 @@ type EmrAddStep interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -159,6 +167,26 @@ type EmrAddStep interface {
 // The jsii proxy struct for EmrAddStep
 type jsiiProxy_EmrAddStep struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_EmrAddStep) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrAddStep) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_EmrAddStep) Branches() *[]awsstepfunctions.StateGraph {
@@ -251,6 +279,16 @@ func (j *jsiiProxy_EmrAddStep) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_EmrAddStep) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_EmrAddStep) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -286,6 +324,16 @@ func (j *jsiiProxy_EmrAddStep) ProcessorMode() awsstepfunctions.ProcessorMode {
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrAddStep) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -520,6 +568,52 @@ func EmrAddStep_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// A Step Functions Task that using JSONata to add a Step to an EMR Cluster.
+//
+// The StepConfiguration is defined as Parameters in the state machine definition.
+//
+// OUTPUT: the StepId.
+func EmrAddStep_Jsonata(scope constructs.Construct, id *string, props *EmrAddStepJsonataProps) EmrAddStep {
+	_init_.Initialize()
+
+	if err := validateEmrAddStep_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns EmrAddStep
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// A Step Functions Task that using JSONPath to add a Step to an EMR Cluster.
+//
+// The StepConfiguration is defined as Parameters in the state machine definition.
+//
+// OUTPUT: the StepId.
+func EmrAddStep_JsonPath(scope constructs.Construct, id *string, props *EmrAddStepJsonPathProps) EmrAddStep {
+	_init_.Initialize()
+
+	if err := validateEmrAddStep_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns EmrAddStep
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -836,6 +930,19 @@ func (e *jsiiProxy_EmrAddStep) Next(next awsstepfunctions.IChainable) awsstepfun
 	return returns
 }
 
+func (e *jsiiProxy_EmrAddStep) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EmrAddStep) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -849,13 +956,13 @@ func (e *jsiiProxy_EmrAddStep) RenderBranches() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrAddStep) RenderChoices() interface{} {
+func (e *jsiiProxy_EmrAddStep) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		e,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -914,6 +1021,19 @@ func (e *jsiiProxy_EmrAddStep) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (e *jsiiProxy_EmrAddStep) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EmrAddStep) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -927,26 +1047,26 @@ func (e *jsiiProxy_EmrAddStep) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrAddStep) RenderRetryCatch() interface{} {
+func (e *jsiiProxy_EmrAddStep) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		e,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (e *jsiiProxy_EmrAddStep) ToStateJson() *map[string]interface{} {
+func (e *jsiiProxy_EmrAddStep) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		e,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

@@ -27,7 +27,7 @@ import (
 //   	ErrorOutputPrefix: jsii.String("errorOutputPrefix"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type CommonDestinationS3Props struct {
 	// The length of time that Firehose buffers incoming data before delivering it to the S3 bucket.
 	//
@@ -35,7 +35,7 @@ type CommonDestinationS3Props struct {
 	// Maximum: Duration.seconds(900)
 	// Default: Duration.seconds(300)
 	//
-	// Experimental.
+	// Deprecated.
 	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Kinesis Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
@@ -43,7 +43,7 @@ type CommonDestinationS3Props struct {
 	// Maximum: Size.mebibytes(128)
 	// Default: Size.mebibytes(5)
 	//
-	// Experimental.
+	// Deprecated.
 	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
 	//
@@ -52,7 +52,7 @@ type CommonDestinationS3Props struct {
 	// that reads from the S3 bucket.
 	// Default: - UNCOMPRESSED.
 	//
-	// Experimental.
+	// Deprecated.
 	Compression Compression `field:"optional" json:"compression" yaml:"compression"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to records before writing them to S3.
 	//
@@ -61,12 +61,12 @@ type CommonDestinationS3Props struct {
 	//
 	// Default: "YYYY/MM/DD/HH".
 	//
-	// Experimental.
+	// Deprecated.
 	DataOutputPrefix *string `field:"optional" json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
 	// The AWS KMS key used to encrypt the data that it delivers to your Amazon S3 bucket.
 	// Default: - Data is not encrypted.
 	//
-	// Experimental.
+	// Deprecated.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
@@ -75,7 +75,7 @@ type CommonDestinationS3Props struct {
 	//
 	// Default: "YYYY/MM/DD/HH".
 	//
-	// Experimental.
+	// Deprecated.
 	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 }
 

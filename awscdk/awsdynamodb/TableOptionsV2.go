@@ -23,6 +23,12 @@ import (
 //   	DeletionProtection: jsii.Boolean(false),
 //   	KinesisStream: stream,
 //   	PointInTimeRecovery: jsii.Boolean(false),
+//   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
+//   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		RecoveryPeriodInDays: jsii.Number(123),
+//   	},
 //   	ResourcePolicy: policyDocument,
 //   	TableClass: awscdk.Aws_dynamodb.TableClass_STANDARD,
 //   	Tags: []cfnTag{
@@ -47,9 +53,14 @@ type TableOptionsV2 struct {
 	//
 	KinesisStream awskinesis.IStream `field:"optional" json:"kinesisStream" yaml:"kinesisStream"`
 	// Whether point-in-time recovery is enabled.
-	// Default: false.
+	// Default: false - point in time recovery is not enabled.
 	//
+	// Deprecated: use `pointInTimeRecoverySpecification` instead.
 	PointInTimeRecovery *bool `field:"optional" json:"pointInTimeRecovery" yaml:"pointInTimeRecovery"`
+	// Whether point-in-time recovery is enabled and recoveryPeriodInDays is set.
+	// Default: - point in time recovery is not enabled.
+	//
+	PointInTimeRecoverySpecification *PointInTimeRecoverySpecification `field:"optional" json:"pointInTimeRecoverySpecification" yaml:"pointInTimeRecoverySpecification"`
 	// Resource policy to assign to DynamoDB Table.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-resourcepolicy
 	//

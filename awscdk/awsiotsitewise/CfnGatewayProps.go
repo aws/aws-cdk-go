@@ -19,6 +19,9 @@ import (
 //   		},
 //   		GreengrassV2: &GreengrassV2Property{
 //   			CoreDeviceThingName: jsii.String("coreDeviceThingName"),
+//
+//   			// the properties below are optional
+//   			CoreDeviceOperatingSystem: jsii.String("coreDeviceOperatingSystem"),
 //   		},
 //   		SiemensIe: &SiemensIEProperty{
 //   			IotCoreThingName: jsii.String("iotCoreThingName"),
@@ -34,6 +37,7 @@ import (
 //   			CapabilityConfiguration: jsii.String("capabilityConfiguration"),
 //   		},
 //   	},
+//   	GatewayVersion: jsii.String("gatewayVersion"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -61,6 +65,10 @@ type CfnGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
 	//
 	GatewayCapabilitySummaries interface{} `field:"optional" json:"gatewayCapabilitySummaries" yaml:"gatewayCapabilitySummaries"`
+	// The version of the gateway you want to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayversion
+	//
+	GatewayVersion *string `field:"optional" json:"gatewayVersion" yaml:"gatewayVersion"`
 	// A list of key-value pairs that contain metadata for the gateway.
 	//
 	// For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide* .

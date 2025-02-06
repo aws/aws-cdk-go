@@ -108,6 +108,14 @@ func validateEmrContainersDeleteVirtualCluster_IsConstructParameters(x interface
 	return nil
 }
 
+func validateEmrContainersDeleteVirtualCluster_JsonataParameters(scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterJsonataProps) error {
+	return nil
+}
+
+func validateEmrContainersDeleteVirtualCluster_JsonPathParameters(scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterJsonPathProps) error {
+	return nil
+}
+
 func validateEmrContainersDeleteVirtualCluster_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

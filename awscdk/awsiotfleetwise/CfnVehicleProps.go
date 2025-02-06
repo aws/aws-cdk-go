@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var onChange interface{}
+//
 //   cfnVehicleProps := &CfnVehicleProps{
 //   	DecoderManifestArn: jsii.String("decoderManifestArn"),
 //   	ModelManifestArn: jsii.String("modelManifestArn"),
@@ -20,6 +22,20 @@ import (
 //   	AssociationBehavior: jsii.String("associationBehavior"),
 //   	Attributes: map[string]*string{
 //   		"attributesKey": jsii.String("attributes"),
+//   	},
+//   	StateTemplates: []interface{}{
+//   		&StateTemplateAssociationProperty{
+//   			Identifier: jsii.String("identifier"),
+//   			StateTemplateUpdateStrategy: &StateTemplateUpdateStrategyProperty{
+//   				OnChange: onChange,
+//   				Periodic: &PeriodicStateTemplateUpdateStrategyProperty{
+//   					StateTemplateUpdateRate: &TimePeriodProperty{
+//   						Unit: jsii.String("unit"),
+//   						Value: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -54,6 +70,12 @@ type CfnVehicleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-attributes
 	//
 	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
+	// Associate state templates to track the state of the vehicle.
+	//
+	// State templates determine which signal updates the vehicle sends to the cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-statetemplates
+	//
+	StateTemplates interface{} `field:"optional" json:"stateTemplates" yaml:"stateTemplates"`
 	// Metadata which can be used to manage the vehicle.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-tags
 	//

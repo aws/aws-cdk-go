@@ -179,14 +179,6 @@ func validateCfnVerifiedAccessEndpoint_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetApplicationDomainParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetAttachmentTypeParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -195,17 +187,25 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetAttachmentTypeParameter
 	return nil
 }
 
-func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetDomainCertificateArnParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetEndpointDomainPrefixParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetCidrOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnVerifiedAccessEndpoint_CidrOptionsProperty:
+		val := val.(*CfnVerifiedAccessEndpoint_CidrOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnVerifiedAccessEndpoint_CidrOptionsProperty:
+		val_ := val.(CfnVerifiedAccessEndpoint_CidrOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVerifiedAccessEndpoint_CidrOptionsProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil
@@ -278,6 +278,30 @@ func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetPolicyEnabledParameters
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnVerifiedAccessEndpoint) validateSetRdsOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnVerifiedAccessEndpoint_RdsOptionsProperty:
+		val := val.(*CfnVerifiedAccessEndpoint_RdsOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnVerifiedAccessEndpoint_RdsOptionsProperty:
+		val_ := val.(CfnVerifiedAccessEndpoint_RdsOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVerifiedAccessEndpoint_RdsOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

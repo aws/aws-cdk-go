@@ -109,7 +109,7 @@ a `customEventRule` which needs an event pattern (see [here](https://docs.aws.am
 
 ```go
 var repo repository
-var lambdaFuntion function
+var lambdaFunction function
 eventPattern := map[string]interface{}{
 	"detail-type": []*string{
 		jsii.String("CodeCommit Repository State Change"),
@@ -140,7 +140,7 @@ sourceAction := codepipeline_actions.NewCodeCommitSourceAction(&CodeCommitSource
 	Output: sourceOutput,
 	CustomEventRule: map[string]interface{}{
 		"eventPattern": eventPattern,
-		"target": targets.NewLambdaFunction(lambdaFuntion),
+		"target": targets.NewLambdaFunction(lambdaFunction),
 	},
 })
 ```

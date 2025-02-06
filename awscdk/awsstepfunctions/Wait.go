@@ -41,6 +41,8 @@ import (
 type Wait interface {
 	State
 	INextable
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
@@ -55,6 +57,7 @@ type Wait interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() StateGraph
 	SetProcessor(val StateGraph)
@@ -62,6 +65,7 @@ type Wait interface {
 	SetProcessorConfig(val *ProcessorConfig)
 	ProcessorMode() ProcessorMode
 	SetProcessorMode(val ProcessorMode)
+	QueryLanguage() QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -90,11 +94,13 @@ type Wait interface {
 	MakeNext(next State)
 	// Continue normal execution with the given state.
 	Next(next IChainable) Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -102,12 +108,14 @@ type Wait interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -122,6 +130,26 @@ type Wait interface {
 type jsiiProxy_Wait struct {
 	jsiiProxy_State
 	jsiiProxy_INextable
+}
+
+func (j *jsiiProxy_Wait) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Wait) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Wait) Branches() *[]StateGraph {
@@ -214,6 +242,16 @@ func (j *jsiiProxy_Wait) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Wait) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Wait) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -249,6 +287,16 @@ func (j *jsiiProxy_Wait) ProcessorMode() ProcessorMode {
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Wait) QueryLanguage() QueryLanguage {
+	var returns QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -469,6 +517,48 @@ func Wait_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Define a Wait state using JSONata in the state machine.
+//
+// A Wait state can be used to delay execution of the state machine for a while.
+func Wait_Jsonata(scope constructs.Construct, id *string, props *WaitJsonataProps) Wait {
+	_init_.Initialize()
+
+	if err := validateWait_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Wait
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Define a Wait state using JSONPath in the state machine.
+//
+// A Wait state can be used to delay execution of the state machine for a while.
+func Wait_JsonPath(scope constructs.Construct, id *string, props *WaitJsonPathProps) Wait {
+	_init_.Initialize()
+
+	if err := validateWait_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Wait
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"jsonPath",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add a prefix to the stateId of all States found in a construct tree.
 func Wait_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
@@ -587,6 +677,19 @@ func (w *jsiiProxy_Wait) Next(next IChainable) Chain {
 	return returns
 }
 
+func (w *jsiiProxy_Wait) RenderAssign(topLevelQueryLanguage QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		w,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (w *jsiiProxy_Wait) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -600,13 +703,13 @@ func (w *jsiiProxy_Wait) RenderBranches() interface{} {
 	return returns
 }
 
-func (w *jsiiProxy_Wait) RenderChoices() interface{} {
+func (w *jsiiProxy_Wait) RenderChoices(topLevelQueryLanguage QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		w,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -665,6 +768,19 @@ func (w *jsiiProxy_Wait) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (w *jsiiProxy_Wait) RenderQueryLanguage(topLevelQueryLanguage QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		w,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (w *jsiiProxy_Wait) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -678,26 +794,26 @@ func (w *jsiiProxy_Wait) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (w *jsiiProxy_Wait) RenderRetryCatch() interface{} {
+func (w *jsiiProxy_Wait) RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		w,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (w *jsiiProxy_Wait) ToStateJson() *map[string]interface{} {
+func (w *jsiiProxy_Wait) ToStateJson(topLevelQueryLanguage QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		w,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

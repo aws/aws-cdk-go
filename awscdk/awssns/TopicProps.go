@@ -8,7 +8,8 @@ import (
 //
 // Example:
 //   topic := sns.NewTopic(this, jsii.String("MyTopic"), &TopicProps{
-//   	TracingConfig: sns.TracingConfig_ACTIVE,
+//   	Fifo: jsii.Boolean(true),
+//   	FifoThroughputScope: sns.FifoThroughputScope_TOPIC,
 //   })
 //
 type TopicProps struct {
@@ -33,6 +34,12 @@ type TopicProps struct {
 	// Default: None.
 	//
 	Fifo *bool `field:"optional" json:"fifo" yaml:"fifo"`
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic.
+	//
+	// You can only set this property when `fifo` is `true`.
+	// Default: undefined - SNS default setting is FifoThroughputScope.TOPIC
+	//
+	FifoThroughputScope FifoThroughputScope `field:"optional" json:"fifoThroughputScope" yaml:"fifoThroughputScope"`
 	// The list of delivery status logging configurations for the topic.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html.
 	//

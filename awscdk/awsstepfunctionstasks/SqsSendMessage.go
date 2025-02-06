@@ -34,6 +34,8 @@ import (
 //
 type SqsSendMessage interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -48,6 +50,7 @@ type SqsSendMessage interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -55,6 +58,7 @@ type SqsSendMessage interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -135,11 +139,13 @@ type SqsSendMessage interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -147,12 +153,14 @@ type SqsSendMessage interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -166,6 +174,26 @@ type SqsSendMessage interface {
 // The jsii proxy struct for SqsSendMessage
 type jsiiProxy_SqsSendMessage struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_SqsSendMessage) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SqsSendMessage) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_SqsSendMessage) Branches() *[]awsstepfunctions.StateGraph {
@@ -258,6 +286,16 @@ func (j *jsiiProxy_SqsSendMessage) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_SqsSendMessage) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_SqsSendMessage) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -293,6 +331,16 @@ func (j *jsiiProxy_SqsSendMessage) ProcessorMode() awsstepfunctions.ProcessorMod
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SqsSendMessage) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -527,6 +575,44 @@ func SqsSendMessage_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// A StepFunctions Task to send messages to SQS queue using JSONata.
+func SqsSendMessage_Jsonata(scope constructs.Construct, id *string, props *SqsSendMessageJsonataProps) SqsSendMessage {
+	_init_.Initialize()
+
+	if err := validateSqsSendMessage_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns SqsSendMessage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// A StepFunctions Task to send messages to SQS queue using JSONPath.
+func SqsSendMessage_JsonPath(scope constructs.Construct, id *string, props *SqsSendMessageJsonPathProps) SqsSendMessage {
+	_init_.Initialize()
+
+	if err := validateSqsSendMessage_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns SqsSendMessage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -843,6 +929,19 @@ func (s *jsiiProxy_SqsSendMessage) Next(next awsstepfunctions.IChainable) awsste
 	return returns
 }
 
+func (s *jsiiProxy_SqsSendMessage) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_SqsSendMessage) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -856,13 +955,13 @@ func (s *jsiiProxy_SqsSendMessage) RenderBranches() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SqsSendMessage) RenderChoices() interface{} {
+func (s *jsiiProxy_SqsSendMessage) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		s,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -921,6 +1020,19 @@ func (s *jsiiProxy_SqsSendMessage) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (s *jsiiProxy_SqsSendMessage) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_SqsSendMessage) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -934,26 +1046,26 @@ func (s *jsiiProxy_SqsSendMessage) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SqsSendMessage) RenderRetryCatch() interface{} {
+func (s *jsiiProxy_SqsSendMessage) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		s,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (s *jsiiProxy_SqsSendMessage) ToStateJson() *map[string]interface{} {
+func (s *jsiiProxy_SqsSendMessage) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		s,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

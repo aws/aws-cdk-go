@@ -20,13 +20,13 @@ import (
 //   	Destination: destination,
 //   })
 //
-// Experimental.
+// Deprecated.
 type DisableLogging interface {
 	ILoggingConfig
 	// If true, log errors when data transformation or data delivery fails.
 	//
 	// `true` when using `EnableLogging`, `false` when using `DisableLogging`.
-	// Experimental.
+	// Deprecated.
 	Logging() *bool
 }
 
@@ -46,7 +46,7 @@ func (j *jsiiProxy_DisableLogging) Logging() *bool {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewDisableLogging() DisableLogging {
 	_init_.Initialize()
 
@@ -61,7 +61,7 @@ func NewDisableLogging() DisableLogging {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewDisableLogging_Override(d DisableLogging) {
 	_init_.Initialize()
 

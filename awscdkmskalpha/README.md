@@ -233,3 +233,27 @@ cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 	StorageMode: msk.StorageMode_TIERED,
 })
 ```
+
+## MSK Serverless
+
+You can also use MSK Serverless by using `ServerlessCluster` class.
+
+MSK Serverless is a cluster type for Amazon MSK that makes it possible for you to run Apache Kafka without having to manage and scale cluster capacity.
+
+MSK Serverless requires IAM access control for all clusters.
+
+For more infomation, see [Use MSK Serverless clusters](https://docs.aws.amazon.com/msk/latest/developerguide/serverless-getting-started.html).
+
+```go
+var vpc vpc
+
+
+serverlessCluster := msk.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &ServerlessClusterProps{
+	ClusterName: jsii.String("MyServerlessCluster"),
+	VpcConfigs: []vpcConfig{
+		&vpcConfig{
+			Vpc: *Vpc,
+		},
+	},
+})
+```

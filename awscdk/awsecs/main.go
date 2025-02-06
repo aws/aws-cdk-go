@@ -123,6 +123,14 @@ func init() {
 		"aws-cdk-lib.aws_ecs.AuthorizationConfig",
 		reflect.TypeOf((*AuthorizationConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.AvailabilityZoneRebalancing",
+		reflect.TypeOf((*AvailabilityZoneRebalancing)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": AvailabilityZoneRebalancing_ENABLED,
+			"DISABLED": AvailabilityZoneRebalancing_DISABLED,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.AwsLogDriver",
 		reflect.TypeOf((*AwsLogDriver)(nil)).Elem(),
@@ -1664,6 +1672,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "compatibility", GoGetter: "Compatibility"},
 			_jsii_.MemberProperty{JsiiProperty: "containers", GoGetter: "Containers"},
+			_jsii_.MemberProperty{JsiiProperty: "cpu", GoGetter: "Cpu"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultContainer", GoGetter: "DefaultContainer"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ephemeralStorageGiB", GoGetter: "EphemeralStorageGiB"},
@@ -1679,6 +1688,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
 			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "memoryMiB", GoGetter: "MemoryMiB"},
 			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},
@@ -2449,6 +2459,10 @@ func init() {
 		reflect.TypeOf((*ServiceConnectService)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ServiceConnectTlsConfiguration",
+		reflect.TypeOf((*ServiceConnectTlsConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.ServiceManagedEBSVolumeConfiguration",
 		reflect.TypeOf((*ServiceManagedEBSVolumeConfiguration)(nil)).Elem(),
 	)
@@ -2675,6 +2689,14 @@ func init() {
 			"RTTIME": UlimitName_RTTIME,
 			"SIGPENDING": UlimitName_SIGPENDING,
 			"STACK": UlimitName_STACK,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.VersionConsistency",
+		reflect.TypeOf((*VersionConsistency)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": VersionConsistency_ENABLED,
+			"DISABLED": VersionConsistency_DISABLED,
 		},
 	)
 	_jsii_.RegisterStruct(

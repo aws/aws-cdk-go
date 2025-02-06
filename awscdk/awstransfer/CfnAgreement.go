@@ -15,6 +15,8 @@ import (
 //
 // The partner is identified with the `PartnerProfileId` , and the AS2 process is identified with the `LocalProfileId` .
 //
+// > Specify *either* `BaseDirectory` or `CustomDirectories` , but not both. Specifying both causes the command to fail.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

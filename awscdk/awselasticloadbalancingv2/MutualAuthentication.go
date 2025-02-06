@@ -24,6 +24,7 @@ package awselasticloadbalancingv2
 //   	},
 //   	// mTLS settings
 //   	MutualAuthentication: &MutualAuthentication{
+//   		AdvertiseTrustStoreCaNames: jsii.Boolean(true),
 //   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
 //   		MutualAuthenticationMode: elbv2.MutualAuthenticationMode_VERIFY,
 //   		TrustStore: *TrustStore,
@@ -35,6 +36,10 @@ package awselasticloadbalancingv2
 //   })
 //
 type MutualAuthentication struct {
+	// Indicates whether trust store CA names are advertised.
+	// Default: false.
+	//
+	AdvertiseTrustStoreCaNames *bool `field:"optional" json:"advertiseTrustStoreCaNames" yaml:"advertiseTrustStoreCaNames"`
 	// Indicates whether expired client certificates are ignored.
 	//
 	// Cannot be used with MutualAuthenticationMode.OFF or MutualAuthenticationMode.PASS_THROUGH

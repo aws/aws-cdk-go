@@ -26,6 +26,9 @@ import (
 //   		},
 //   		GreengrassV2: &GreengrassV2Property{
 //   			CoreDeviceThingName: jsii.String("coreDeviceThingName"),
+//
+//   			// the properties below are optional
+//   			CoreDeviceOperatingSystem: jsii.String("coreDeviceOperatingSystem"),
 //   		},
 //   		SiemensIe: &SiemensIEProperty{
 //   			IotCoreThingName: jsii.String("iotCoreThingName"),
@@ -41,6 +44,7 @@ import (
 //   			CapabilityConfiguration: jsii.String("capabilityConfiguration"),
 //   		},
 //   	},
+//   	GatewayVersion: jsii.String("gatewayVersion"),
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -75,6 +79,9 @@ type CfnGateway interface {
 	// The gateway's platform.
 	GatewayPlatform() interface{}
 	SetGatewayPlatform(val interface{})
+	// The version of the gateway you want to create.
+	GatewayVersion() *string
+	SetGatewayVersion(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -328,6 +335,16 @@ func (j *jsiiProxy_CfnGateway) GatewayPlatform() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGateway) GatewayVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"gatewayVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGateway) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -465,6 +482,14 @@ func (j *jsiiProxy_CfnGateway)SetGatewayPlatform(val interface{}) {
 	_jsii_.Set(
 		j,
 		"gatewayPlatform",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGateway)SetGatewayVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"gatewayVersion",
 		val,
 	)
 }

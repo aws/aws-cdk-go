@@ -46,9 +46,11 @@ type CfnLocationSMBProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user
 	//
 	User *string `field:"required" json:"user" yaml:"user"`
-	// Specifies the name of the Active Directory domain that your SMB file server belongs to.
+	// Specifies the Windows domain name that your SMB file server belongs to.
 	//
-	// If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.
+	// This parameter applies only if `AuthenticationType` is set to `NTLM` .
+	//
+	// If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
@@ -60,9 +62,12 @@ type CfnLocationSMBProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
 	//
 	Password *string `field:"optional" json:"password" yaml:"password"`
-	// Specifies the Domain Name Service (DNS) name or IP address of the SMB file server that your DataSync agent will mount.
+	// Specifies the domain name or IP address of the SMB file server that your DataSync agent will mount.
 	//
-	// > You can't specify an IP version 6 (IPv6) address.
+	// Remember the following when configuring this parameter:
+	//
+	// - You can't specify an IP version 6 (IPv6) address.
+	// - If you're using Kerberos authentication, you must specify a domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname
 	//
 	ServerHostname *string `field:"optional" json:"serverHostname" yaml:"serverHostname"`

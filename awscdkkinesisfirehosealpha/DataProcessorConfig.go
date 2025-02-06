@@ -16,10 +16,10 @@ package awscdkkinesisfirehosealpha
 //   	ProcessorType: jsii.String("processorType"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type DataProcessorConfig struct {
 	// The key-value pair that identifies the underlying processor resource.
-	// Experimental.
+	// Deprecated.
 	ProcessorIdentifier *DataProcessorIdentifier `field:"required" json:"processorIdentifier" yaml:"processorIdentifier"`
 	// The type of the underlying processor resource.
 	//
@@ -30,7 +30,7 @@ type DataProcessorConfig struct {
 	//
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
 	//
-	// Experimental.
+	// Deprecated.
 	ProcessorType *string `field:"required" json:"processorType" yaml:"processorType"`
 }
 

@@ -108,6 +108,14 @@ func validateEmrModifyInstanceGroupByName_IsConstructParameters(x interface{}) e
 	return nil
 }
 
+func validateEmrModifyInstanceGroupByName_JsonataParameters(scope constructs.Construct, id *string, props *EmrModifyInstanceGroupByNameJsonataProps) error {
+	return nil
+}
+
+func validateEmrModifyInstanceGroupByName_JsonPathParameters(scope constructs.Construct, id *string, props *EmrModifyInstanceGroupByNameJsonPathProps) error {
+	return nil
+}
+
 func validateEmrModifyInstanceGroupByName_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

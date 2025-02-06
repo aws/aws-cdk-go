@@ -108,6 +108,14 @@ func validateEmrContainersStartJobRun_IsConstructParameters(x interface{}) error
 	return nil
 }
 
+func validateEmrContainersStartJobRun_JsonataParameters(scope constructs.Construct, id *string, props *EmrContainersStartJobRunJsonataProps) error {
+	return nil
+}
+
+func validateEmrContainersStartJobRun_JsonPathParameters(scope constructs.Construct, id *string, props *EmrContainersStartJobRunJsonPathProps) error {
+	return nil
+}
+
 func validateEmrContainersStartJobRun_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

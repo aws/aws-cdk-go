@@ -522,6 +522,10 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.OperationsMetricOptions",
 		reflect.TypeOf((*OperationsMetricOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.PointInTimeRecoverySpecification",
+		reflect.TypeOf((*PointInTimeRecoverySpecification)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_dynamodb.ProjectionType",
 		reflect.TypeOf((*ProjectionType)(nil)).Elem(),

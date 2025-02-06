@@ -108,6 +108,14 @@ func validateEcsRunTask_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateEcsRunTask_JsonataParameters(scope constructs.Construct, id *string, props *EcsRunTaskJsonataProps) error {
+	return nil
+}
+
+func validateEcsRunTask_JsonPathParameters(scope constructs.Construct, id *string, props *EcsRunTaskJsonPathProps) error {
+	return nil
+}
+
 func validateEcsRunTask_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

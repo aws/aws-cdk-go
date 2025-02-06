@@ -31,7 +31,7 @@ type AlarmStatusWidgetProps struct {
 	// You can specify one or more alarm states in the value for this field.
 	// The alarm states that you can specify are ALARM, INSUFFICIENT_DATA, and OK.
 	//
-	// If you omit this field or specify an empty array, all the alarms specifed in alarms are displayed.
+	// If you omit this field or specify an empty array, all the alarms specified in alarms are displayed.
 	// Default: -  all the alarms specified in alarms are displayed.
 	//
 	States *[]AlarmState `field:"optional" json:"states" yaml:"states"`

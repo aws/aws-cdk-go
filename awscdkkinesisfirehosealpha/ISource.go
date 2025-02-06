@@ -7,13 +7,13 @@ import (
 )
 
 // An interface for defining a source that can be used in a Kinesis Data Firehose delivery stream.
-// Experimental.
+// Deprecated.
 type ISource interface {
 	// Grant read permissions for this source resource and its contents to an IAM principal (the delivery stream).
 	//
 	// If an encryption key is used, permission to use the key to decrypt the
 	// contents of the stream will also be granted.
-	// Experimental.
+	// Deprecated.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 }
 

@@ -49,6 +49,10 @@ import (
 //
 //   	// the properties below are optional
 //   	Alias: jsii.String("alias"),
+//   	RoleConfiguration: &RoleConfigurationProperty{
+//   		SourceRoleArn: jsii.String("sourceRoleArn"),
+//   		TargetRoleArn: jsii.String("targetRoleArn"),
+//   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
 //   			Key: jsii.String("key"),
@@ -109,6 +113,9 @@ type CfnScraper interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Role configuration.
+	RoleConfiguration() interface{}
+	SetRoleConfiguration(val interface{})
 	// The configuration in use by the scraper.
 	ScrapeConfiguration() interface{}
 	SetScrapeConfiguration(val interface{})
@@ -399,6 +406,16 @@ func (j *jsiiProxy_CfnScraper) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScraper) RoleConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"roleConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScraper) ScrapeConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -502,6 +519,17 @@ func (j *jsiiProxy_CfnScraper)SetDestination(val interface{}) {
 	_jsii_.Set(
 		j,
 		"destination",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScraper)SetRoleConfiguration(val interface{}) {
+	if err := j.validateSetRoleConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"roleConfiguration",
 		val,
 	)
 }

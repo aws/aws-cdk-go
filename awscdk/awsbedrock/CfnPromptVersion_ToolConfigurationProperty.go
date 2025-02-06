@@ -1,7 +1,9 @@
 package awsbedrock
 
 
-// Tool configuration.
+// Configuration information for the tools that you pass to a model.
+//
+// For more information, see [Tool use (function calling)](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html) in the Amazon Bedrock User Guide.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,11 +42,11 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolconfiguration.html
 //
 type CfnPromptVersion_ToolConfigurationProperty struct {
-	// List of Tools.
+	// An array of tools that you want to pass to a model.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolconfiguration.html#cfn-bedrock-promptversion-toolconfiguration-tools
 	//
 	Tools interface{} `field:"required" json:"tools" yaml:"tools"`
-	// Tool choice.
+	// If supported by model, forces the model to request a tool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolconfiguration.html#cfn-bedrock-promptversion-toolconfiguration-toolchoice
 	//
 	ToolChoice interface{} `field:"optional" json:"toolChoice" yaml:"toolChoice"`

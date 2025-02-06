@@ -282,6 +282,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.AudioMonitoringSettingProperty",
+		reflect.TypeOf((*CfnFlow_AudioMonitoringSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.BlackFramesProperty",
+		reflect.TypeOf((*CfnFlow_BlackFramesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.EncryptionProperty",
 		reflect.TypeOf((*CfnFlow_EncryptionProperty)(nil)).Elem(),
 	)
@@ -292,6 +300,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.FmtpProperty",
 		reflect.TypeOf((*CfnFlow_FmtpProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.FrozenFramesProperty",
+		reflect.TypeOf((*CfnFlow_FrozenFramesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.GatewayBridgeSourceProperty",
@@ -322,6 +334,10 @@ func init() {
 		reflect.TypeOf((*CfnFlow_MediaStreamSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.SilentAudioProperty",
+		reflect.TypeOf((*CfnFlow_SilentAudioProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.SourceMonitoringConfigProperty",
 		reflect.TypeOf((*CfnFlow_SourceMonitoringConfigProperty)(nil)).Elem(),
 	)
@@ -332,6 +348,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.SourceProperty",
 		reflect.TypeOf((*CfnFlow_SourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.VideoMonitoringSettingProperty",
+		reflect.TypeOf((*CfnFlow_VideoMonitoringSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.VpcInterfaceAttachmentProperty",

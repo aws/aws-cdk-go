@@ -281,6 +281,17 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// Default: false.
 	//
 	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
+	// The minimum number of CPU units to reserve for the container.
+	// Default: - No minimum CPU units reserved.
+	//
+	ContainerCpu *float64 `field:"optional" json:"containerCpu" yaml:"containerCpu"`
+	// The amount (in MiB) of memory to present to the container.
+	//
+	// If your container attempts to exceed the allocated memory, the container
+	// is terminated.
+	// Default: - No memory limit.
+	//
+	ContainerMemoryLimitMiB *float64 `field:"optional" json:"containerMemoryLimitMiB" yaml:"containerMemoryLimitMiB"`
 	// The health check command and associated configuration parameters for the container.
 	// Default: - Health check configuration from container.
 	//

@@ -21,6 +21,9 @@ type VpcV2Base interface {
 	// AZs for this VPC.
 	// Experimental.
 	AvailabilityZones() *[]*string
+	// Returns the id of the Egress Only Internet Gateway (if enabled).
+	// Experimental.
+	EgressOnlyInternetGatewayId() *string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -193,6 +196,16 @@ func (j *jsiiProxy_VpcV2Base) AvailabilityZones() *[]*string {
 	_jsii_.Get(
 		j,
 		"availabilityZones",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcV2Base) EgressOnlyInternetGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"egressOnlyInternetGatewayId",
 		&returns,
 	)
 	return returns

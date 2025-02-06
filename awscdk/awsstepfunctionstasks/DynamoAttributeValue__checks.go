@@ -6,6 +6,14 @@ import (
 	"fmt"
 )
 
+func validateDynamoAttributeValue_BooleanFromJsonataParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateDynamoAttributeValue_BooleanFromJsonPathParameters(value *string) error {
 	if value == nil {
 		return fmt.Errorf("parameter value is required, but nil was provided")
@@ -94,7 +102,23 @@ func validateDynamoAttributeValue_FromStringSetParameters(value *[]*string) erro
 	return nil
 }
 
+func validateDynamoAttributeValue_ListFromJsonataParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateDynamoAttributeValue_ListFromJsonPathParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateDynamoAttributeValue_MapFromJsonataParameters(value *string) error {
 	if value == nil {
 		return fmt.Errorf("parameter value is required, but nil was provided")
 	}

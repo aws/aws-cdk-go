@@ -23,6 +23,23 @@ import (
 //   	TableOptimizerConfiguration: &TableOptimizerConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		RoleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		OrphanFileDeletionConfiguration: &OrphanFileDeletionConfigurationProperty{
+//   			IcebergConfiguration: &IcebergConfigurationProperty{
+//   				Location: jsii.String("location"),
+//   				OrphanFileRetentionPeriodInDays: jsii.Number(123),
+//   			},
+//   		},
+//   		RetentionConfiguration: &RetentionConfigurationProperty{
+//   			IcebergConfiguration: &IcebergConfigurationProperty{
+//   				Location: jsii.String("location"),
+//   				OrphanFileRetentionPeriodInDays: jsii.Number(123),
+//   			},
+//   		},
+//   		VpcConfiguration: &VpcConfigurationProperty{
+//   			GlueConnectionName: jsii.String("glueConnectionName"),
+//   		},
 //   	},
 //   	Type: jsii.String("type"),
 //   })

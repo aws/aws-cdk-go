@@ -29,6 +29,8 @@ import (
 //
 type BatchSubmitJob interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -43,6 +45,7 @@ type BatchSubmitJob interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -50,6 +53,7 @@ type BatchSubmitJob interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -130,11 +134,13 @@ type BatchSubmitJob interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -142,12 +148,14 @@ type BatchSubmitJob interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -161,6 +169,26 @@ type BatchSubmitJob interface {
 // The jsii proxy struct for BatchSubmitJob
 type jsiiProxy_BatchSubmitJob struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_BatchSubmitJob) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BatchSubmitJob) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BatchSubmitJob) Branches() *[]awsstepfunctions.StateGraph {
@@ -253,6 +281,16 @@ func (j *jsiiProxy_BatchSubmitJob) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_BatchSubmitJob) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_BatchSubmitJob) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -288,6 +326,16 @@ func (j *jsiiProxy_BatchSubmitJob) ProcessorMode() awsstepfunctions.ProcessorMod
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BatchSubmitJob) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -522,6 +570,48 @@ func BatchSubmitJob_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Task to submits an AWS Batch job from a job definition using JSONata.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-batch.html
+//
+func BatchSubmitJob_Jsonata(scope constructs.Construct, id *string, props *BatchSubmitJobJsonataProps) BatchSubmitJob {
+	_init_.Initialize()
+
+	if err := validateBatchSubmitJob_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns BatchSubmitJob
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Task to submits an AWS Batch job from a job definition using JSONPath.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-batch.html
+//
+func BatchSubmitJob_JsonPath(scope constructs.Construct, id *string, props *BatchSubmitJobJsonPathProps) BatchSubmitJob {
+	_init_.Initialize()
+
+	if err := validateBatchSubmitJob_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns BatchSubmitJob
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -838,6 +928,19 @@ func (b *jsiiProxy_BatchSubmitJob) Next(next awsstepfunctions.IChainable) awsste
 	return returns
 }
 
+func (b *jsiiProxy_BatchSubmitJob) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (b *jsiiProxy_BatchSubmitJob) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -851,13 +954,13 @@ func (b *jsiiProxy_BatchSubmitJob) RenderBranches() interface{} {
 	return returns
 }
 
-func (b *jsiiProxy_BatchSubmitJob) RenderChoices() interface{} {
+func (b *jsiiProxy_BatchSubmitJob) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		b,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -916,6 +1019,19 @@ func (b *jsiiProxy_BatchSubmitJob) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (b *jsiiProxy_BatchSubmitJob) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (b *jsiiProxy_BatchSubmitJob) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -929,26 +1045,26 @@ func (b *jsiiProxy_BatchSubmitJob) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (b *jsiiProxy_BatchSubmitJob) RenderRetryCatch() interface{} {
+func (b *jsiiProxy_BatchSubmitJob) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		b,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (b *jsiiProxy_BatchSubmitJob) ToStateJson() *map[string]interface{} {
+func (b *jsiiProxy_BatchSubmitJob) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		b,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Configurations for serverless Redshift query engine.
+// Contains configurations for authentication to Amazon Redshift Serverless.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -21,11 +21,11 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftserverlessconfiguration.html
 //
 type CfnKnowledgeBase_RedshiftServerlessConfigurationProperty struct {
-	// Configurations for Redshift query engine serverless auth setup.
+	// Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftserverlessconfiguration.html#cfn-bedrock-knowledgebase-redshiftserverlessconfiguration-authconfiguration
 	//
 	AuthConfiguration interface{} `field:"required" json:"authConfiguration" yaml:"authConfiguration"`
-	// Workgroup arn.
+	// The ARN of the Amazon Redshift workgroup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftserverlessconfiguration.html#cfn-bedrock-knowledgebase-redshiftserverlessconfiguration-workgrouparn
 	//
 	WorkgroupArn *string `field:"required" json:"workgroupArn" yaml:"workgroupArn"`

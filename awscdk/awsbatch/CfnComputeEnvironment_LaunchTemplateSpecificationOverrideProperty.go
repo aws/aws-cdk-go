@@ -40,7 +40,7 @@ type CfnComputeEnvironment_LaunchTemplateSpecificationOverrideProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-launchtemplatename
 	//
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
-	// The instance type or family that this this override launch template should be applied to.
+	// The instance type or family that this override launch template should be applied to.
 	//
 	// This parameter is required when defining a launch template override.
 	//

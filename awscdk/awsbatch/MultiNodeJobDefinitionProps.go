@@ -86,7 +86,7 @@ type MultiNodeJobDefinitionProps struct {
 	// Default: 0.
 	//
 	MainNode *float64 `field:"optional" json:"mainNode" yaml:"mainNode"`
-	// Whether to propogate tags from the JobDefinition to the ECS task that Batch spawns.
+	// Whether to propagate tags from the JobDefinition to the ECS task that Batch spawns.
 	// Default: false.
 	//
 	PropagateTags *bool `field:"optional" json:"propagateTags" yaml:"propagateTags"`

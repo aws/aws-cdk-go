@@ -211,6 +211,7 @@ type CfnPolicy interface {
 	// The unique identifiers of the resource sets used by the policy.
 	ResourceSetIds() *[]*string
 	SetResourceSetIds(val *[]*string)
+	// Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
 	ResourceTagLogicalOperator() *string
 	SetResourceTagLogicalOperator(val *string)
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.

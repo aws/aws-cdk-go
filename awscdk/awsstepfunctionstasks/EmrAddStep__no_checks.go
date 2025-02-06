@@ -108,6 +108,14 @@ func validateEmrAddStep_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateEmrAddStep_JsonataParameters(scope constructs.Construct, id *string, props *EmrAddStepJsonataProps) error {
+	return nil
+}
+
+func validateEmrAddStep_JsonPathParameters(scope constructs.Construct, id *string, props *EmrAddStepJsonPathProps) error {
+	return nil
+}
+
 func validateEmrAddStep_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

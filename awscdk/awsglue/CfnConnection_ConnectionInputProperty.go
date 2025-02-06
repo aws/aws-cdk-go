@@ -8,12 +8,49 @@ package awsglue
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var athenaProperties interface{}
 //   var connectionProperties interface{}
+//   var customAuthenticationCredentials interface{}
+//   var pythonProperties interface{}
+//   var sparkProperties interface{}
+//   var tokenUrlParametersMap interface{}
 //
 //   connectionInputProperty := &ConnectionInputProperty{
 //   	ConnectionType: jsii.String("connectionType"),
 //
 //   	// the properties below are optional
+//   	AthenaProperties: athenaProperties,
+//   	AuthenticationConfiguration: &AuthenticationConfigurationInputProperty{
+//   		AuthenticationType: jsii.String("authenticationType"),
+//
+//   		// the properties below are optional
+//   		BasicAuthenticationCredentials: &BasicAuthenticationCredentialsProperty{
+//   			Password: jsii.String("password"),
+//   			Username: jsii.String("username"),
+//   		},
+//   		CustomAuthenticationCredentials: customAuthenticationCredentials,
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		OAuth2Properties: &OAuth2PropertiesInputProperty{
+//   			AuthorizationCodeProperties: &AuthorizationCodePropertiesProperty{
+//   				AuthorizationCode: jsii.String("authorizationCode"),
+//   				RedirectUri: jsii.String("redirectUri"),
+//   			},
+//   			OAuth2ClientApplication: &OAuth2ClientApplicationProperty{
+//   				AwsManagedClientApplicationReference: jsii.String("awsManagedClientApplicationReference"),
+//   				UserManagedClientApplicationClientId: jsii.String("userManagedClientApplicationClientId"),
+//   			},
+//   			OAuth2Credentials: &OAuth2CredentialsProperty{
+//   				AccessToken: jsii.String("accessToken"),
+//   				JwtToken: jsii.String("jwtToken"),
+//   				RefreshToken: jsii.String("refreshToken"),
+//   				UserManagedClientApplicationClientSecret: jsii.String("userManagedClientApplicationClientSecret"),
+//   			},
+//   			OAuth2GrantType: jsii.String("oAuth2GrantType"),
+//   			TokenUrl: jsii.String("tokenUrl"),
+//   			TokenUrlParametersMap: tokenUrlParametersMap,
+//   		},
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	ConnectionProperties: connectionProperties,
 //   	Description: jsii.String("description"),
 //   	MatchCriteria: []*string{
@@ -26,6 +63,12 @@ package awsglue
 //   			jsii.String("securityGroupIdList"),
 //   		},
 //   		SubnetId: jsii.String("subnetId"),
+//   	},
+//   	PythonProperties: pythonProperties,
+//   	SparkProperties: sparkProperties,
+//   	ValidateCredentials: jsii.Boolean(false),
+//   	ValidateForComputeEnvironments: []*string{
+//   		jsii.String("validateForComputeEnvironments"),
 //   	},
 //   }
 //
@@ -103,6 +146,14 @@ type CfnConnection_ConnectionInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
 	//
 	ConnectionType *string `field:"required" json:"connectionType" yaml:"connectionType"`
+	// Connection properties specific to the Athena compute environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-athenaproperties
+	//
+	AthenaProperties interface{} `field:"optional" json:"athenaProperties" yaml:"athenaProperties"`
+	// The authentication properties of the connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-authenticationconfiguration
+	//
+	AuthenticationConfiguration interface{} `field:"optional" json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
 	// These key-value pairs define parameters for the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
 	//
@@ -123,5 +174,23 @@ type CfnConnection_ConnectionInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
 	//
 	PhysicalConnectionRequirements interface{} `field:"optional" json:"physicalConnectionRequirements" yaml:"physicalConnectionRequirements"`
+	// Connection properties specific to the Python compute environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-pythonproperties
+	//
+	PythonProperties interface{} `field:"optional" json:"pythonProperties" yaml:"pythonProperties"`
+	// Connection properties specific to the Spark compute environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-sparkproperties
+	//
+	SparkProperties interface{} `field:"optional" json:"sparkProperties" yaml:"sparkProperties"`
+	// A flag to validate the credentials during create connection.
+	//
+	// Default is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-validatecredentials
+	//
+	ValidateCredentials interface{} `field:"optional" json:"validateCredentials" yaml:"validateCredentials"`
+	// The compute environments that the specified connection properties are validated against.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-validateforcomputeenvironments
+	//
+	ValidateForComputeEnvironments *[]*string `field:"optional" json:"validateForComputeEnvironments" yaml:"validateForComputeEnvironments"`
 }
 

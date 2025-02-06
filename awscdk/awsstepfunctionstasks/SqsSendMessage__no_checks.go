@@ -108,6 +108,14 @@ func validateSqsSendMessage_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateSqsSendMessage_JsonataParameters(scope constructs.Construct, id *string, props *SqsSendMessageJsonataProps) error {
+	return nil
+}
+
+func validateSqsSendMessage_JsonPathParameters(scope constructs.Construct, id *string, props *SqsSendMessageJsonPathProps) error {
+	return nil
+}
+
 func validateSqsSendMessage_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

@@ -84,6 +84,10 @@ func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) validateSetDeviceOptionsParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) validateSetNativeApplicationOidcOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVerifiedAccessTrustProvider) validateSetOidcOptionsParameters(val interface{}) error {
 	return nil
 }

@@ -80,10 +80,6 @@ func validateCfnCapacityReservation_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) validateSetAvailabilityZoneParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCapacityReservation) validateSetEbsOptimizedParameters(val interface{}) error {
 	return nil
 }
@@ -104,7 +100,7 @@ func (j *jsiiProxy_CfnCapacityReservation) validateSetInstanceTypeParameters(val
 	return nil
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) validateSetTagSpecificationsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnCapacityReservation) validateSetTagSpecificationsParameters(val *[]*CfnCapacityReservation_TagSpecificationProperty) error {
 	return nil
 }
 

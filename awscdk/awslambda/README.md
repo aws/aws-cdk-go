@@ -1199,10 +1199,10 @@ import "github.com/aws-samples/dummy/cxapi"
 import "github.com/aws/aws-cdk-go/awscdk"
 
 /**
-* Stack verification steps:
-* aws application-autoscaling describe-scalable-targets --service-namespace lambda --resource-ids function:<function name>:prod
-* has a minCapacity of 3 and maxCapacity of 50
-*/
+ * Stack verification steps:
+ * aws application-autoscaling describe-scalable-targets --service-namespace lambda --resource-ids function:<function name>:prod
+ * has a minCapacity of 3 and maxCapacity of 50
+ */
 type testStack struct {
 	stack
 }

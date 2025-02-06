@@ -19,12 +19,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnCapacityReservation := awscdk.Aws_ec2.NewCfnCapacityReservation(this, jsii.String("MyCfnCapacityReservation"), &CfnCapacityReservationProps{
-//   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	InstanceCount: jsii.Number(123),
 //   	InstancePlatform: jsii.String("instancePlatform"),
 //   	InstanceType: jsii.String("instanceType"),
 //
 //   	// the properties below are optional
+//   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	EbsOptimized: jsii.Boolean(false),
 //   	EndDate: jsii.String("endDate"),
 //   	EndDateType: jsii.String("endDateType"),
@@ -32,8 +33,8 @@ import (
 //   	InstanceMatchCriteria: jsii.String("instanceMatchCriteria"),
 //   	OutPostArn: jsii.String("outPostArn"),
 //   	PlacementGroupArn: jsii.String("placementGroupArn"),
-//   	TagSpecifications: []interface{}{
-//   		&TagSpecificationProperty{
+//   	TagSpecifications: []tagSpecificationProperty{
+//   		&tagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
 //   			Tags: []cfnTag{
 //   				&cfnTag{
@@ -52,6 +53,7 @@ import (
 type CfnCapacityReservation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	awscdk.ITaggableV2
 	// Returns the Availability Zone in which the capacity is reserved.
 	//
 	// For example: `us-east-1a` .
@@ -77,6 +79,11 @@ type CfnCapacityReservation interface {
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
+	// The Availability Zone ID of the Capacity Reservation.
+	AvailabilityZoneId() *string
+	SetAvailabilityZoneId(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -140,8 +147,8 @@ type CfnCapacityReservation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags to apply to the Capacity Reservation during launch.
-	TagSpecifications() interface{}
-	SetTagSpecifications(val interface{})
+	TagSpecifications() *[]*CfnCapacityReservation_TagSpecificationProperty
+	SetTagSpecifications(val *[]*CfnCapacityReservation_TagSpecificationProperty)
 	// Indicates the tenancy of the Capacity Reservation.
 	//
 	// A Capacity Reservation can have one of the following tenancy settings:.
@@ -294,6 +301,7 @@ type CfnCapacityReservation interface {
 type jsiiProxy_CfnCapacityReservation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCapacityReservation) AttrAvailabilityZone() *string {
@@ -361,6 +369,26 @@ func (j *jsiiProxy_CfnCapacityReservation) AvailabilityZone() *string {
 	_jsii_.Get(
 		j,
 		"availabilityZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservation) AvailabilityZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"availabilityZoneId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservation) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -546,8 +574,8 @@ func (j *jsiiProxy_CfnCapacityReservation) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) TagSpecifications() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnCapacityReservation) TagSpecifications() *[]*CfnCapacityReservation_TagSpecificationProperty {
+	var returns *[]*CfnCapacityReservation_TagSpecificationProperty
 	_jsii_.Get(
 		j,
 		"tagSpecifications",
@@ -625,12 +653,17 @@ func NewCfnCapacityReservation_Override(c CfnCapacityReservation, scope construc
 }
 
 func (j *jsiiProxy_CfnCapacityReservation)SetAvailabilityZone(val *string) {
-	if err := j.validateSetAvailabilityZoneParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"availabilityZone",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservation)SetAvailabilityZoneId(val *string) {
+	_jsii_.Set(
+		j,
+		"availabilityZoneId",
 		val,
 	)
 }
@@ -730,7 +763,7 @@ func (j *jsiiProxy_CfnCapacityReservation)SetPlacementGroupArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation)SetTagSpecifications(val interface{}) {
+func (j *jsiiProxy_CfnCapacityReservation)SetTagSpecifications(val *[]*CfnCapacityReservation_TagSpecificationProperty) {
 	if err := j.validateSetTagSpecificationsParameters(val); err != nil {
 		panic(err)
 	}

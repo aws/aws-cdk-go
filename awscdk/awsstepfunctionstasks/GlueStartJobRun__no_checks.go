@@ -108,6 +108,14 @@ func validateGlueStartJobRun_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateGlueStartJobRun_JsonataParameters(scope constructs.Construct, id *string, props *GlueStartJobRunJsonataProps) error {
+	return nil
+}
+
+func validateGlueStartJobRun_JsonPathParameters(scope constructs.Construct, id *string, props *GlueStartJobRunJsonPathProps) error {
+	return nil
+}
+
 func validateGlueStartJobRun_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

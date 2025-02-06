@@ -46,6 +46,8 @@ import (
 //
 type CodeBuildStartBuild interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -60,6 +62,7 @@ type CodeBuildStartBuild interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -67,6 +70,7 @@ type CodeBuildStartBuild interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -147,11 +151,13 @@ type CodeBuildStartBuild interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -159,12 +165,14 @@ type CodeBuildStartBuild interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -178,6 +186,26 @@ type CodeBuildStartBuild interface {
 // The jsii proxy struct for CodeBuildStartBuild
 type jsiiProxy_CodeBuildStartBuild struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_CodeBuildStartBuild) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CodeBuildStartBuild) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CodeBuildStartBuild) Branches() *[]awsstepfunctions.StateGraph {
@@ -270,6 +298,16 @@ func (j *jsiiProxy_CodeBuildStartBuild) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CodeBuildStartBuild) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CodeBuildStartBuild) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -305,6 +343,16 @@ func (j *jsiiProxy_CodeBuildStartBuild) ProcessorMode() awsstepfunctions.Process
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CodeBuildStartBuild) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -539,6 +587,44 @@ func CodeBuildStartBuild_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Start a CodeBuild Build as a task using JSONata.
+func CodeBuildStartBuild_Jsonata(scope constructs.Construct, id *string, props *CodeBuildStartBuildJsonataProps) CodeBuildStartBuild {
+	_init_.Initialize()
+
+	if err := validateCodeBuildStartBuild_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns CodeBuildStartBuild
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Start a CodeBuild Build as a task using JSONPath.
+func CodeBuildStartBuild_JsonPath(scope constructs.Construct, id *string, props *CodeBuildStartBuildJsonPathProps) CodeBuildStartBuild {
+	_init_.Initialize()
+
+	if err := validateCodeBuildStartBuild_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns CodeBuildStartBuild
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -855,6 +941,19 @@ func (c *jsiiProxy_CodeBuildStartBuild) Next(next awsstepfunctions.IChainable) a
 	return returns
 }
 
+func (c *jsiiProxy_CodeBuildStartBuild) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CodeBuildStartBuild) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -868,13 +967,13 @@ func (c *jsiiProxy_CodeBuildStartBuild) RenderBranches() interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CodeBuildStartBuild) RenderChoices() interface{} {
+func (c *jsiiProxy_CodeBuildStartBuild) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		c,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -933,6 +1032,19 @@ func (c *jsiiProxy_CodeBuildStartBuild) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (c *jsiiProxy_CodeBuildStartBuild) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (c *jsiiProxy_CodeBuildStartBuild) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -946,26 +1058,26 @@ func (c *jsiiProxy_CodeBuildStartBuild) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CodeBuildStartBuild) RenderRetryCatch() interface{} {
+func (c *jsiiProxy_CodeBuildStartBuild) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		c,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CodeBuildStartBuild) ToStateJson() *map[string]interface{} {
+func (c *jsiiProxy_CodeBuildStartBuild) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		c,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

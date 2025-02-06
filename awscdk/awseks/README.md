@@ -889,7 +889,7 @@ By default, CDK will create a new python lambda function to apply your k8s manif
 
 ```go
 handlerRole := iam.Role_FromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))
-// get the serivceToken from the custom resource provider
+// get the serviceToken from the custom resource provider
 functionArn := lambda.Function_FromFunctionName(this, jsii.String("ProviderOnEventFunc"), jsii.String("ProviderframeworkonEvent-XXX")).FunctionArn
 kubectlProvider := eks.KubectlProvider_FromKubectlProviderAttributes(this, jsii.String("KubectlProvider"), &KubectlProviderAttributes{
 	FunctionArn: jsii.String(FunctionArn),

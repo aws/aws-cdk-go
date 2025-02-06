@@ -206,7 +206,9 @@ type CfnServiceProps struct {
 	//
 	// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
 	//
-	// A capacity provider strategy can contain a maximum of 20 capacity providers.
+	// A capacity provider strategy may contain a maximum of 6 capacity providers.
+	//
+	// > To remove this property from your service resource, specify an empty `CapacityProviderStrategyItem` array.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
 	//
 	CapacityProviderStrategy interface{} `field:"optional" json:"capacityProviderStrategy" yaml:"capacityProviderStrategy"`
@@ -265,6 +267,8 @@ type CfnServiceProps struct {
 	// A list of load balancer objects to associate with the service.
 	//
 	// If you specify the `Role` property, `LoadBalancers` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// > To remove this property from your service resource, specify an empty `LoadBalancer` array.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
 	//
 	LoadBalancers interface{} `field:"optional" json:"loadBalancers" yaml:"loadBalancers"`
@@ -277,12 +281,16 @@ type CfnServiceProps struct {
 	// An array of placement constraint objects to use for tasks in your service.
 	//
 	// You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
+	//
+	// > To remove this property from your service resource, specify an empty `PlacementConstraint` array.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
 	//
 	PlacementConstraints interface{} `field:"optional" json:"placementConstraints" yaml:"placementConstraints"`
 	// The placement strategy objects to use for tasks in your service.
 	//
 	// You can specify a maximum of 5 strategy rules for each service.
+	//
+	// > To remove this property from your service resource, specify an empty `PlacementStrategy` array.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
 	//
 	PlacementStrategies interface{} `field:"optional" json:"placementStrategies" yaml:"placementStrategies"`
@@ -341,7 +349,7 @@ type CfnServiceProps struct {
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 	// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) .
 	//
-	// > Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
+	// > Each service may be associated with one service registry. Multiple service registries for each service isn't supported. > To remove this property from your service resource, specify an empty `ServiceRegistry` array.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
 	//
 	ServiceRegistries interface{} `field:"optional" json:"serviceRegistries" yaml:"serviceRegistries"`
@@ -372,6 +380,8 @@ type CfnServiceProps struct {
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time.
 	//
 	// Currently, the only supported volume type is an Amazon EBS volume.
+	//
+	// > To remove this property from your service resource, specify an empty `ServiceVolumeConfiguration` array.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-volumeconfigurations
 	//
 	VolumeConfigurations interface{} `field:"optional" json:"volumeConfigurations" yaml:"volumeConfigurations"`

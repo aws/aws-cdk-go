@@ -10,6 +10,9 @@ package awsquicksight
 //
 //   cfnTopicProps := &CfnTopicProps{
 //   	AwsAccountId: jsii.String("awsAccountId"),
+//   	ConfigOptions: &TopicConfigOptionsProperty{
+//   		QBusinessInsightsEnabled: jsii.Boolean(false),
+//   	},
 //   	DataSets: []interface{}{
 //   		&DatasetMetadataProperty{
 //   			DatasetArn: jsii.String("datasetArn"),
@@ -270,6 +273,9 @@ package awsquicksight
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	FolderArns: []*string{
+//   		jsii.String("folderArns"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	TopicId: jsii.String("topicId"),
 //   	UserExperienceVersion: jsii.String("userExperienceVersion"),
@@ -282,6 +288,10 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-awsaccountid
 	//
 	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
+	// Configuration options for a `Topic` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-configoptions
+	//
+	ConfigOptions interface{} `field:"optional" json:"configOptions" yaml:"configOptions"`
 	// The data sets that the topic is associated with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-datasets
 	//
@@ -290,6 +300,9 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-folderarns
+	//
+	FolderArns *[]*string `field:"optional" json:"folderArns" yaml:"folderArns"`
 	// The name of the topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-name
 	//

@@ -46,6 +46,8 @@ type CfnIntegration_ScheduledTriggerPropertiesProperty struct {
 	//
 	ScheduleOffset *float64 `field:"optional" json:"scheduleOffset" yaml:"scheduleOffset"`
 	// Specifies the scheduled start time for a scheduled-trigger flow.
+	//
+	// The value must be a date/time value in EPOCH format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-schedulestarttime
 	//
 	ScheduleStartTime *float64 `field:"optional" json:"scheduleStartTime" yaml:"scheduleStartTime"`

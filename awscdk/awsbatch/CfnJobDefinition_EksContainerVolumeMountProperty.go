@@ -14,6 +14,7 @@ package awsbatch
 //   	MountPath: jsii.String("mountPath"),
 //   	Name: jsii.String("name"),
 //   	ReadOnly: jsii.Boolean(false),
+//   	SubPath: jsii.String("subPath"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html
@@ -35,5 +36,9 @@ type CfnJobDefinition_EksContainerVolumeMountProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html#cfn-batch-jobdefinition-ekscontainervolumemount-readonly
 	//
 	ReadOnly interface{} `field:"optional" json:"readOnly" yaml:"readOnly"`
+	// A sub-path inside the referenced volume instead of its root.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html#cfn-batch-jobdefinition-ekscontainervolumemount-subpath
+	//
+	SubPath *string `field:"optional" json:"subPath" yaml:"subPath"`
 }
 

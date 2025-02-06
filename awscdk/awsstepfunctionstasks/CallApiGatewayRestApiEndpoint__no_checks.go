@@ -108,6 +108,14 @@ func validateCallApiGatewayRestApiEndpoint_IsConstructParameters(x interface{}) 
 	return nil
 }
 
+func validateCallApiGatewayRestApiEndpoint_JsonataParameters(scope constructs.Construct, id *string, props *CallApiGatewayRestApiEndpointJsonataProps) error {
+	return nil
+}
+
+func validateCallApiGatewayRestApiEndpoint_JsonPathParameters(scope constructs.Construct, id *string, props *CallApiGatewayRestApiEndpointJsonPathProps) error {
+	return nil
+}
+
 func validateCallApiGatewayRestApiEndpoint_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

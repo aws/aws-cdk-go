@@ -12,52 +12,52 @@ import (
 )
 
 // Represents a Kinesis Data Firehose delivery stream.
-// Experimental.
+// Deprecated.
 type IDeliveryStream interface {
 	awsec2.IConnectable
 	awsiam.IGrantable
 	awscdk.IResource
 	// Grant the `grantee` identity permissions to perform `actions`.
-	// Experimental.
+	// Deprecated.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the `grantee` identity permissions to perform `firehose:PutRecord` and `firehose:PutRecordBatch` actions on this delivery stream.
-	// Experimental.
+	// Deprecated.
 	GrantPutRecords(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this delivery stream.
-	// Experimental.
+	// Deprecated.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of bytes delivered to Amazon S3 for backup over the specified time period.
 	//
 	// By default, this metric will be calculated as an average over a period of 5 minutes.
-	// Experimental.
+	// Deprecated.
 	MetricBackupToS3Bytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the age (from getting into Kinesis Data Firehose to now) of the oldest record in Kinesis Data Firehose.
 	//
 	// Any record older than this age has been delivered to the Amazon S3 bucket for backup.
 	//
 	// By default, this metric will be calculated as an average over a period of 5 minutes.
-	// Experimental.
+	// Deprecated.
 	MetricBackupToS3DataFreshness(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of records delivered to Amazon S3 for backup over the specified time period.
 	//
 	// By default, this metric will be calculated as an average over a period of 5 minutes.
-	// Experimental.
+	// Deprecated.
 	MetricBackupToS3Records(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of bytes ingested successfully into the delivery stream over the specified time period after throttling.
 	//
 	// By default, this metric will be calculated as an average over a period of 5 minutes.
-	// Experimental.
+	// Deprecated.
 	MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of records ingested successfully into the delivery stream over the specified time period after throttling.
 	//
 	// By default, this metric will be calculated as an average over a period of 5 minutes.
-	// Experimental.
+	// Deprecated.
 	MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The ARN of the delivery stream.
-	// Experimental.
+	// Deprecated.
 	DeliveryStreamArn() *string
 	// The name of the delivery stream.
-	// Experimental.
+	// Deprecated.
 	DeliveryStreamName() *string
 }
 

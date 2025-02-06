@@ -332,6 +332,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "gatewayCapabilitySummaries", GoGetter: "GatewayCapabilitySummaries"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayName", GoGetter: "GatewayName"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayPlatform", GoGetter: "GatewayPlatform"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayVersion", GoGetter: "GatewayVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},

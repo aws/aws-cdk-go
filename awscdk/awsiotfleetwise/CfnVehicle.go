@@ -22,6 +22,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var onChange interface{}
+//
 //   cfnVehicle := awscdk.Aws_iotfleetwise.NewCfnVehicle(this, jsii.String("MyCfnVehicle"), &CfnVehicleProps{
 //   	DecoderManifestArn: jsii.String("decoderManifestArn"),
 //   	ModelManifestArn: jsii.String("modelManifestArn"),
@@ -31,6 +33,20 @@ import (
 //   	AssociationBehavior: jsii.String("associationBehavior"),
 //   	Attributes: map[string]*string{
 //   		"attributesKey": jsii.String("attributes"),
+//   	},
+//   	StateTemplates: []interface{}{
+//   		&StateTemplateAssociationProperty{
+//   			Identifier: jsii.String("identifier"),
+//   			StateTemplateUpdateStrategy: &StateTemplateUpdateStrategyProperty{
+//   				OnChange: onChange,
+//   				Periodic: &PeriodicStateTemplateUpdateStrategyProperty{
+//   					StateTemplateUpdateRate: &TimePeriodProperty{
+//   						Unit: jsii.String("unit"),
+//   						Value: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	Tags: []cfnTag{
 //   		&cfnTag{
@@ -97,6 +113,9 @@ type CfnVehicle interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Associate state templates to track the state of the vehicle.
+	StateTemplates() interface{}
+	SetStateTemplates(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Metadata which can be used to manage the vehicle.
@@ -409,6 +428,16 @@ func (j *jsiiProxy_CfnVehicle) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVehicle) StateTemplates() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"stateTemplates",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVehicle) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -525,6 +554,17 @@ func (j *jsiiProxy_CfnVehicle)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVehicle)SetStateTemplates(val interface{}) {
+	if err := j.validateSetStateTemplatesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"stateTemplates",
 		val,
 	)
 }

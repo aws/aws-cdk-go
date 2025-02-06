@@ -60,6 +60,14 @@ func validateWait_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateWait_JsonataParameters(scope constructs.Construct, id *string, props *WaitJsonataProps) error {
+	return nil
+}
+
+func validateWait_JsonPathParameters(scope constructs.Construct, id *string, props *WaitJsonPathProps) error {
+	return nil
+}
+
 func validateWait_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

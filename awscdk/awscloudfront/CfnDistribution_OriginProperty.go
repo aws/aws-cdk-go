@@ -55,6 +55,13 @@ package awscloudfront
 //   	S3OriginConfig: &S3OriginConfigProperty{
 //   		OriginAccessIdentity: jsii.String("originAccessIdentity"),
 //   	},
+//   	VpcOriginConfig: &VpcOriginConfigProperty{
+//   		VpcOriginId: jsii.String("vpcOriginId"),
+//
+//   		// the properties below are optional
+//   		OriginKeepaliveTimeout: jsii.Number(123),
+//   		OriginReadTimeout: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
@@ -128,5 +135,8 @@ type CfnDistribution_OriginProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
 	//
 	S3OriginConfig interface{} `field:"optional" json:"s3OriginConfig" yaml:"s3OriginConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-vpcoriginconfig
+	//
+	VpcOriginConfig interface{} `field:"optional" json:"vpcOriginConfig" yaml:"vpcOriginConfig"`
 }
 

@@ -4,24 +4,26 @@ package awscertificatemanager
 // Properties for your certificate.
 //
 // Example:
-//   exampleCom := route53.NewHostedZone(this, jsii.String("ExampleCom"), &HostedZoneProps{
-//   	ZoneName: jsii.String("example.com"),
-//   })
-//   exampleNet := route53.NewHostedZone(this, jsii.String("ExampleNet"), &HostedZoneProps{
-//   	ZoneName: jsii.String("example.net"),
-//   })
+//   // To use your own domain name in a Distribution, you must associate a certificate
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import route53 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cert := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-//   	DomainName: jsii.String("test.example.com"),
-//   	SubjectAlternativeNames: []*string{
-//   		jsii.String("cool.example.com"),
-//   		jsii.String("test.example.net"),
+//   var hostedZone hostedZone
+//
+//   var myBucket bucket
+//
+//   myCertificate := acm.NewCertificate(this, jsii.String("mySiteCert"), &CertificateProps{
+//   	DomainName: jsii.String("www.example.com"),
+//   	Validation: acm.CertificateValidation_FromDns(hostedZone),
+//   })
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.NewS3Origin(myBucket),
 //   	},
-//   	Validation: acm.CertificateValidation_FromDnsMultiZone(map[string]iHostedZone{
-//   		"test.example.com": exampleCom,
-//   		"cool.example.com": exampleCom,
-//   		"test.example.net": exampleNet,
-//   	}),
+//   	DomainNames: []*string{
+//   		jsii.String("www.example.com"),
+//   	},
+//   	Certificate: myCertificate,
 //   })
 //
 type CertificateProps struct {

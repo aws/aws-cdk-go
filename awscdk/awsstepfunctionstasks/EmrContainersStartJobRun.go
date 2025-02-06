@@ -43,6 +43,8 @@ import (
 type EmrContainersStartJobRun interface {
 	awsstepfunctions.TaskStateBase
 	awsiam.IGrantable
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -59,6 +61,7 @@ type EmrContainersStartJobRun interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -66,6 +69,7 @@ type EmrContainersStartJobRun interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -146,11 +150,13 @@ type EmrContainersStartJobRun interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -158,12 +164,14 @@ type EmrContainersStartJobRun interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -178,6 +186,26 @@ type EmrContainersStartJobRun interface {
 type jsiiProxy_EmrContainersStartJobRun struct {
 	internal.Type__awsstepfunctionsTaskStateBase
 	internal.Type__awsiamIGrantable
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_EmrContainersStartJobRun) Branches() *[]awsstepfunctions.StateGraph {
@@ -280,6 +308,16 @@ func (j *jsiiProxy_EmrContainersStartJobRun) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_EmrContainersStartJobRun) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_EmrContainersStartJobRun) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -315,6 +353,16 @@ func (j *jsiiProxy_EmrContainersStartJobRun) ProcessorMode() awsstepfunctions.Pr
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -549,6 +597,56 @@ func EmrContainersStartJobRun_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Starts a job run Task using JSONata.
+//
+// A job is a unit of work that you submit to Amazon EMR on EKS for execution.
+// The work performed by the job can be defined by a Spark jar, PySpark script, or SparkSQL query.
+// A job run is an execution of the job on the virtual cluster.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-emr-eks.html
+//
+func EmrContainersStartJobRun_Jsonata(scope constructs.Construct, id *string, props *EmrContainersStartJobRunJsonataProps) EmrContainersStartJobRun {
+	_init_.Initialize()
+
+	if err := validateEmrContainersStartJobRun_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns EmrContainersStartJobRun
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Starts a job run Task using JSONPath.
+//
+// A job is a unit of work that you submit to Amazon EMR on EKS for execution.
+// The work performed by the job can be defined by a Spark jar, PySpark script, or SparkSQL query.
+// A job run is an execution of the job on the virtual cluster.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-emr-eks.html
+//
+func EmrContainersStartJobRun_JsonPath(scope constructs.Construct, id *string, props *EmrContainersStartJobRunJsonPathProps) EmrContainersStartJobRun {
+	_init_.Initialize()
+
+	if err := validateEmrContainersStartJobRun_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns EmrContainersStartJobRun
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -865,6 +963,19 @@ func (e *jsiiProxy_EmrContainersStartJobRun) Next(next awsstepfunctions.IChainab
 	return returns
 }
 
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EmrContainersStartJobRun) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -878,13 +989,13 @@ func (e *jsiiProxy_EmrContainersStartJobRun) RenderBranches() interface{} {
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersStartJobRun) RenderChoices() interface{} {
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		e,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -943,6 +1054,19 @@ func (e *jsiiProxy_EmrContainersStartJobRun) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EmrContainersStartJobRun) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -956,26 +1080,26 @@ func (e *jsiiProxy_EmrContainersStartJobRun) RenderResultSelector() interface{} 
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersStartJobRun) RenderRetryCatch() interface{} {
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		e,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersStartJobRun) ToStateJson() *map[string]interface{} {
+func (e *jsiiProxy_EmrContainersStartJobRun) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		e,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

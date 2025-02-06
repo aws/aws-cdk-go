@@ -3,13 +3,13 @@
 <!--BEGIN STABILITY BANNER-->---
 
 
-![cdk-constructs: Experimental](https://img.shields.io/badge/cdk--constructs-experimental-important.svg?style=for-the-badge)
+![cdk-constructs: Developer Preview](https://img.shields.io/badge/cdk--constructs-developer--preview-informational.svg?style=for-the-badge)
 
-> The APIs of higher level constructs in this module are experimental and under active development.
-> They are subject to non-backward compatible changes or removal in any future version. These are
-> not subject to the [Semantic Versioning](https://semver.org/) model and breaking changes will be
-> announced in the release notes. This means that while you may use them, you may need to update
-> your source code when upgrading to a newer version of this package.
+> The APIs of higher level constructs in this module are in **developer preview** before they
+> become stable. We will only make breaking changes to address unforeseen API issues. Therefore,
+> these APIs are not subject to [Semantic Versioning](https://semver.org/), and breaking changes
+> will be announced in release notes. This means that while you may use them, you may need to
+> update your source code when upgrading to a newer version of this package.
 
 ---
 <!--END STABILITY BANNER-->
@@ -20,7 +20,10 @@
 on the VPC being created. `VpcV2` implements the existing [`IVpc`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.IVpc.html), therefore,
 `VpcV2` is compatible with other constructs that accepts `IVpc` (e.g. [`ApplicationLoadBalancer`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer.html#construct-props)).
 
-To create a VPC with both IPv4 and IPv6 support:
+`VpcV2` supports the addition of both primary and secondary addresses. The primary address must be an IPv4 address, which can be specified as a CIDR string or assigned from an IPAM pool. Secondary addresses can be either IPv4 or IPv6.
+By default, `VpcV2` assigns `10.0.0.0/16` as the primary CIDR if no other CIDR is specified.
+
+Below is an example of creating a VPC with both IPv4 and IPv6 support:
 
 ```go
 stack := awscdk.Newstack()
@@ -40,6 +43,7 @@ awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 
 `SubnetV2` is a re-write of the [`ec2.Subnet`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.Subnet.html) construct.
 This new construct can be used to add subnets to a `VpcV2` instance:
+Note: When defining a subnet with `SubnetV2`, CDK automatically creates a new route table, unless a route table is explicitly provided as an input to the construct.
 
 ```go
 stack := awscdk.Newstack()
@@ -60,16 +64,25 @@ awsec2alpha.NewSubnetV2(this, jsii.String("subnetA"), &SubnetV2Props{
 })
 ```
 
+Since `VpcV2` does not create subnets automatically, users have full control over IP addresses allocation across subnets.
+
 ## IP Addresses Management
 
-By default `VpcV2` uses `10.0.0.0/16` as the primary CIDR if none is defined.
-Additional CIDRs can be adding to the VPC via the `secondaryAddressBlocks` prop.
-The following example illustrates the different options of defining the address blocks:
+Additional CIDRs can be added to the VPC via the `secondaryAddressBlocks` property.
+The following example illustrates the options of defining these secondary address blocks using `IPAM`:
+
+Note: There’s currently an issue with IPAM pool deletion that may affect the `cdk --destroy` command. This is because IPAM takes time to detect when the IP address pool has been deallocated after the VPC is deleted. The current workaround is to wait until the IP address is fully deallocated from the pool before retrying the deletion. Below command can be used to check allocations for a pool using CLI
+
+```shell
+aws ec2 get-ipam-pool-allocations --ipam-pool-id <ipam-pool-id>
+```
+
+Ref: https://docs.aws.amazon.com/cli/latest/reference/ec2/get-ipam-pool-allocations.html
 
 ```go
 stack := awscdk.Newstack()
 ipam := awsec2alpha.NewIpam(this, jsii.String("Ipam"), &IpamProps{
-	OperatingRegion: []*string{
+	OperatingRegions: []*string{
 		jsii.String("us-west-1"),
 	},
 })
@@ -110,8 +123,6 @@ awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 })
 ```
 
-Since `VpcV2` does not create subnets automatically, users have full control over IP addresses allocation across subnets.
-
 ### Bring your own IPv6 addresses (BYOIP)
 
 If you have your own IP address that you would like to use with EC2, you can set up an IPv6 pool via the AWS CLI, and use that pool ID in your application.
@@ -149,7 +160,8 @@ myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"), &VpcV2Props{
 
 ## Routing
 
-`RouteTable` is a new construct that allows for route tables to be customized in a variety of ways. For instance, the following example shows how a custom route table can be created and appended to a subnet:
+`RouteTable` is a new construct that allows for route tables to be customized in a variety of ways. Using this construct, a customized route table can be added to the subnets defined using `SubnetV2`.
+For instance, the following example shows how a custom route table can be created and appended to a `SubnetV2`:
 
 ```go
 myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
@@ -568,6 +580,7 @@ For more information, see [Enable VPC internet access using internet gateways](h
 
 You can add an internet gateway to a VPC using `addInternetGateway` method. By default, this method creates a route in all Public Subnets with outbound destination set to `0.0.0.0` for IPv4 and `::0` for IPv6 enabled VPC.
 Instead of using the default settings, you can configure a custom destination range by providing an optional input `destination` to the method.
+In addition to the custom IP range, you can also choose to filter subnets where default routes should be created.
 
 The code example below shows how to add an internet gateway with a custom outbound destination IP range:
 
@@ -584,6 +597,41 @@ subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
 
 myVpc.AddInternetGateway(&InternetGatewayOptions{
 	Ipv4Destination: jsii.String("192.168.0.0/16"),
+})
+```
+
+The following code examples demonstrates how to add an internet gateway with a custom outbound destination IP range for specific subnets:
+
+```go
+stack := awscdk.Newstack()
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+
+mySubnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+myVpc.AddInternetGateway(&InternetGatewayOptions{
+	Ipv4Destination: jsii.String("192.168.0.0/16"),
+	Subnets: []subnetSelection{
+		mySubnet,
+	},
+})
+```
+
+```go
+stack := awscdk.Newstack()
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+
+myVpc.AddInternetGateway(&InternetGatewayOptions{
+	Ipv4Destination: jsii.String("192.168.0.0/16"),
+	Subnets: []subnetSelection{
+		&subnetSelection{
+			SubnetType: awscdk.SubnetType_PRIVATE_WITH_EGRESS,
+		},
+	},
 })
 ```
 
@@ -736,3 +784,205 @@ vpc := awsec2alpha.NewVpcV2(this, jsii.String("VPC-integ-test-tag"), &VpcV2Props
 // Add custom tags if needed
 awscdk.Tags_Of(vpc).Add(jsii.String("Environment"), jsii.String("Production"))
 ```
+
+## Transit Gateway
+
+The AWS Transit Gateway construct library allows you to create and configure Transit Gateway resources using AWS CDK.
+
+See [AWS Transit Gateway Docs](docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) for more info.
+
+### Overview
+
+The Transit Gateway construct (`TransitGateway`) is the main entry point for creating and managing your Transit Gateway infrastructure. It provides methods to create route tables, attach VPCs, and configure cross-account access.
+
+The Transit Gateway construct library provides four main constructs:
+
+* `TransitGateway`: The central hub for your network connections
+* `TransitGatewayRouteTable`: Manages routing between attached networks
+* `TransitGatewayVpcAttachment`: Connects VPCs to the Transit Gateway
+* `TransitGatewayRoute`: Defines routing rules within your Transit Gateway
+
+### Basic Usage
+
+To create a minimal deployable `TransitGateway`:
+
+```go
+transitGateway := awsec2alpha.NewTransitGateway(this, jsii.String("MyTransitGateway"))
+```
+
+### Default Transit Gateway Route Table
+
+By default, `TransitGateway` is created with a default `TransitGatewayRouteTable`, for which automatic Associations and automatic Propagations are enabled.
+
+> Note: When you create a default Transit Gateway in AWS Console, a default Transit Gateway Route Table is automatically created by AWS. However, when using the CDK Transit Gateway L2 construct, the underlying L1 construct is configured with `defaultRouteTableAssociation` and `defaultRouteTablePropagation` explicitly disabled. This ensures that AWS does not create the default route table, allowing the CDK to define a custom default route table instead.
+>
+> As a result, in the AWS Console, the **Default association route table** and **Default propagation route table** settings will appear as disabled. Despite this, the CDK still provides automatic association and propagation functionality through its internal implementation, which can be controlled using the `defaultRouteTableAssociation` and `defaultRouteTablePropagation` properties within the CDK.
+
+You can disable the automatic Association/Propagation on the default `TransitGatewayRouteTable` via the `TransitGateway` properties. This will still create a default route table for you:
+
+```go
+transitGateway := awsec2alpha.NewTransitGateway(this, jsii.String("MyTransitGateway"), &TransitGatewayProps{
+	DefaultRouteTableAssociation: jsii.Boolean(false),
+	DefaultRouteTablePropagation: jsii.Boolean(false),
+})
+```
+
+### Transit Gateway Route Table Management
+
+Add additional Transit Gateway Route Tables using the `addRouteTable()` method:
+
+```go
+transitGateway := awsec2alpha.NewTransitGateway(this, jsii.String("MyTransitGateway"))
+
+routeTable := transitGateway.addRouteTable(jsii.String("CustomRouteTable"))
+```
+
+### Attaching VPCs to the Transit Gateway
+
+Currently only VPC to Transit Gateway attachments are supported.
+
+Create an attachment from a VPC to the Transit Gateway using the `attachVpc()` method:
+
+```go
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+subnet1 := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+subnet2 := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.1.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+transitGateway := awsec2alpha.NewTransitGateway(this, jsii.String("MyTransitGateway"))
+
+// Create a basic attachment
+attachment := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
+	Vpc: myVpc,
+	Subnets: []iSubnet{
+		subnet1,
+		subnet2,
+	},
+})
+
+// Create an attachment with optional parameters
+attachmentWithOptions := transitGateway.attachVpc(jsii.String("VpcAttachmentWithOptions"), &AttachVpcOptions{
+	Vpc: myVpc,
+	Subnets: []*iSubnet{
+		subnet1,
+	},
+	VpcAttachmentOptions: map[string]*bool{
+		"dnsSupport": jsii.Boolean(true),
+		"applianceModeSupport": jsii.Boolean(true),
+		"ipv6Support": jsii.Boolean(true),
+		"securityGroupReferencingSupport": jsii.Boolean(true),
+	},
+})
+```
+
+If you want to automatically associate and propagate routes with transit gateway route tables, you can pass the `associationRouteTable` and `propagationRouteTables` parameters. This will automatically create the necessary associations and propagations based on the provided route tables.
+
+```go
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+subnet1 := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+subnet2 := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.1.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+transitGateway := awsec2alpha.NewTransitGateway(this, jsii.String("MyTransitGateway"))
+associationRouteTable := transitGateway.addRouteTable(jsii.String("AssociationRouteTable"))
+propagationRouteTable1 := transitGateway.addRouteTable(jsii.String("PropagationRouteTable1"))
+propagationRouteTable2 := transitGateway.addRouteTable(jsii.String("PropagationRouteTable2"))
+
+// Create an attachment with automatically created association + propagations
+attachmentWithRoutes := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
+	Vpc: myVpc,
+	Subnets: []iSubnet{
+		subnet1,
+		subnet2,
+	},
+	AssociationRouteTable: associationRouteTable,
+	PropagationRouteTables: []iTransitGatewayRouteTable{
+		propagationRouteTable1,
+		propagationRouteTable2,
+	},
+})
+```
+
+In this example, the `associationRouteTable` is set to `associationRouteTable`, and `propagationRouteTables` is set to an array containing `propagationRouteTable1` and `propagationRouteTable2`. This triggers the automatic creation of route table associations and route propagations between the Transit Gateway and the specified route tables.
+
+### Adding static routes to the route table
+
+Add static routes using either the `addRoute()` method to add an active route or `addBlackholeRoute()` to add a blackhole route:
+
+```go
+transitGateway := awsec2alpha.NewTransitGateway(this, jsii.String("MyTransitGateway"))
+routeTable := transitGateway.addRouteTable(jsii.String("CustomRouteTable"))
+
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+
+attachment := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
+	Vpc: myVpc,
+	Subnets: []iSubnet{
+		subnet,
+	},
+})
+
+// Add a static route to direct traffic
+routeTable.AddRoute(jsii.String("StaticRoute"), attachment, jsii.String("10.0.0.0/16"))
+
+// Block unwanted traffic with a blackhole route
+routeTable.AddBlackholeRoute(jsii.String("BlackholeRoute"), jsii.String("172.16.0.0/16"))
+```
+
+### Route Table Associations and Propagations
+
+Configure route table associations and enable route propagation:
+
+```go
+transitGateway := awsec2alpha.NewTransitGateway(this, jsii.String("MyTransitGateway"))
+routeTable := transitGateway.addRouteTable(jsii.String("CustomRouteTable"))
+myVpc := awsec2alpha.NewVpcV2(this, jsii.String("Vpc"))
+subnet := awsec2alpha.NewSubnetV2(this, jsii.String("Subnet"), &SubnetV2Props{
+	Vpc: myVpc,
+	AvailabilityZone: jsii.String("eu-west-2a"),
+	Ipv4CidrBlock: awsec2alpha.NewIpCidr(jsii.String("10.0.0.0/24")),
+	SubnetType: awscdk.SubnetType_PUBLIC,
+})
+attachment := transitGateway.attachVpc(jsii.String("VpcAttachment"), &AttachVpcOptions{
+	Vpc: myVpc,
+	Subnets: []iSubnet{
+		subnet,
+	},
+})
+
+// Associate an attachment with a route table
+routeTable.AddAssociation(jsii.String("Association"), attachment)
+
+// Enable route propagation for an attachment
+routeTable.EnablePropagation(jsii.String("Propagation"), attachment)
+```
+
+**Associations** — The linking of a Transit Gateway attachment to a specific route table, which determines which routes that attachment will use for routing decisions.
+
+**Propagation** — The automatic advertisement of routes from an attachment to a route table, allowing the route table to learn about available network destinations.

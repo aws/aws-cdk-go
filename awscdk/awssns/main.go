@@ -251,6 +251,14 @@ func init() {
 		"aws-cdk-lib.aws_sns.DeliveryPolicy",
 		reflect.TypeOf((*DeliveryPolicy)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_sns.FifoThroughputScope",
+		reflect.TypeOf((*FifoThroughputScope)(nil)).Elem(),
+		map[string]interface{}{
+			"TOPIC": FifoThroughputScope_TOPIC,
+			"MESSAGE_GROUP": FifoThroughputScope_MESSAGE_GROUP,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_sns.Filter",
 		reflect.TypeOf((*Filter)(nil)).Elem(),
@@ -440,6 +448,7 @@ func init() {
 		reflect.TypeOf((*Topic)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addLoggingConfig", GoMethod: "AddLoggingConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "addSSLPolicy", GoMethod: "AddSSLPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addSubscription", GoMethod: "AddSubscription"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -447,6 +456,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "bindAsNotificationRuleTarget", GoMethod: "BindAsNotificationRuleTarget"},
 			_jsii_.MemberProperty{JsiiProperty: "contentBasedDeduplication", GoGetter: "ContentBasedDeduplication"},
 			_jsii_.MemberMethod{JsiiMethod: "createSSLPolicyDocument", GoMethod: "CreateSSLPolicyDocument"},
+			_jsii_.MemberMethod{JsiiMethod: "createTopicPolicy", GoMethod: "CreateTopicPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "enforceSSL", GoGetter: "EnforceSSL"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "fifo", GoGetter: "Fifo"},
@@ -486,6 +496,7 @@ func init() {
 		"aws-cdk-lib.aws_sns.TopicBase",
 		reflect.TypeOf((*TopicBase)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addSSLPolicy", GoMethod: "AddSSLPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addSubscription", GoMethod: "AddSubscription"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -493,6 +504,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "bindAsNotificationRuleTarget", GoMethod: "BindAsNotificationRuleTarget"},
 			_jsii_.MemberProperty{JsiiProperty: "contentBasedDeduplication", GoGetter: "ContentBasedDeduplication"},
 			_jsii_.MemberMethod{JsiiMethod: "createSSLPolicyDocument", GoMethod: "CreateSSLPolicyDocument"},
+			_jsii_.MemberMethod{JsiiMethod: "createTopicPolicy", GoMethod: "CreateTopicPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "enforceSSL", GoGetter: "EnforceSSL"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "fifo", GoGetter: "Fifo"},

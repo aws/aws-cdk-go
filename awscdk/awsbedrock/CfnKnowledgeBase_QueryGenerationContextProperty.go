@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Context used to improve query generation.
+// >Contains configurations for context to use during query generation.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -36,11 +36,11 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationcontext.html
 //
 type CfnKnowledgeBase_QueryGenerationContextProperty struct {
-	// List of example queries and results.
+	// An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationcontext.html#cfn-bedrock-knowledgebase-querygenerationcontext-curatedqueries
 	//
 	CuratedQueries interface{} `field:"optional" json:"curatedQueries" yaml:"curatedQueries"`
-	// List of tables used for Redshift query generation context.
+	// An array of objects, each of which defines information about a table in the database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationcontext.html#cfn-bedrock-knowledgebase-querygenerationcontext-tables
 	//
 	Tables interface{} `field:"optional" json:"tables" yaml:"tables"`

@@ -108,6 +108,14 @@ func validateStepFunctionsStartExecution_IsConstructParameters(x interface{}) er
 	return nil
 }
 
+func validateStepFunctionsStartExecution_JsonataParameters(scope constructs.Construct, id *string, props *StepFunctionsStartExecutionJsonataProps) error {
+	return nil
+}
+
+func validateStepFunctionsStartExecution_JsonPathParameters(scope constructs.Construct, id *string, props *StepFunctionsStartExecutionJsonPathProps) error {
+	return nil
+}
+
 func validateStepFunctionsStartExecution_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

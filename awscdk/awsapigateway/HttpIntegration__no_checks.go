@@ -4,7 +4,7 @@ package awsapigateway
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (h *jsiiProxy_HttpIntegration) validateBindParameters(_method Method) error {
+func (h *jsiiProxy_HttpIntegration) validateBindParameters(method Method) error {
 	return nil
 }
 

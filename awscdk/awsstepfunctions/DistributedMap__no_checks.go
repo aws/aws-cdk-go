@@ -76,6 +76,14 @@ func validateDistributedMap_IsDistributedMapParameters(x interface{}) error {
 	return nil
 }
 
+func validateDistributedMap_JsonataParameters(scope constructs.Construct, id *string, props *DistributedMapJsonataProps) error {
+	return nil
+}
+
+func validateDistributedMap_JsonPathParameters(scope constructs.Construct, id *string, props *DistributedMapJsonPathProps) error {
+	return nil
+}
+
 func validateDistributedMap_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

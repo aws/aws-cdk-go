@@ -108,6 +108,14 @@ func validateStepFunctionsInvokeActivity_IsConstructParameters(x interface{}) er
 	return nil
 }
 
+func validateStepFunctionsInvokeActivity_JsonataParameters(scope constructs.Construct, id *string, props *StepFunctionsInvokeActivityJsonataProps) error {
+	return nil
+}
+
+func validateStepFunctionsInvokeActivity_JsonPathParameters(scope constructs.Construct, id *string, props *StepFunctionsInvokeActivityJsonPathProps) error {
+	return nil
+}
+
 func validateStepFunctionsInvokeActivity_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

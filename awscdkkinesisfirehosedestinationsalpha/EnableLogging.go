@@ -28,16 +28,16 @@ import (
 //   	Destination: destination,
 //   })
 //
-// Experimental.
+// Deprecated.
 type EnableLogging interface {
 	ILoggingConfig
 	// If true, log errors when data transformation or data delivery fails.
 	//
 	// `true` when using `EnableLogging`, `false` when using `DisableLogging`.
-	// Experimental.
+	// Deprecated.
 	Logging() *bool
 	// The CloudWatch log group where log streams will be created to hold error logs.
-	// Experimental.
+	// Deprecated.
 	LogGroup() awslogs.ILogGroup
 }
 
@@ -67,7 +67,7 @@ func (j *jsiiProxy_EnableLogging) LogGroup() awslogs.ILogGroup {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewEnableLogging(logGroup awslogs.ILogGroup) EnableLogging {
 	_init_.Initialize()
 
@@ -82,7 +82,7 @@ func NewEnableLogging(logGroup awslogs.ILogGroup) EnableLogging {
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewEnableLogging_Override(e EnableLogging, logGroup awslogs.ILogGroup) {
 	_init_.Initialize()
 

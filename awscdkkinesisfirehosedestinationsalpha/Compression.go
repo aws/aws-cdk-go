@@ -18,10 +18,10 @@ import (
 //   	Destination: s3Destination,
 //   })
 //
-// Experimental.
+// Deprecated.
 type Compression interface {
 	// the string value of the Compression.
-	// Experimental.
+	// Deprecated.
 	Value() *string
 }
 
@@ -42,7 +42,7 @@ func (j *jsiiProxy_Compression) Value() *string {
 
 
 // Creates a new Compression instance with a custom value.
-// Experimental.
+// Deprecated.
 func Compression_Of(value *string) Compression {
 	_init_.Initialize()
 

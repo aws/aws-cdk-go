@@ -55,13 +55,18 @@ type CfnRotationScheduleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-hostedrotationlambda
 	//
 	HostedRotationLambda interface{} `field:"optional" json:"hostedRotationLambda" yaml:"hostedRotationLambda"`
-	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
+	// Determines whether to rotate the secret immediately or wait until the next scheduled rotation window when the rotation schedule is updated.
 	//
 	// The rotation schedule is defined in `RotationRules` .
 	//
-	// If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the [`testSecret` step](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an `AWSPENDING` version of the secret and then removes it.
+	// The default for `RotateImmediatelyOnUpdate` is `true` . If you don't specify this value, Secrets Manager rotates the secret immediately.
 	//
-	// If you don't specify this value, then by default, Secrets Manager rotates the secret immediately.
+	// If you set `RotateImmediatelyOnUpdate` to `false` , Secrets Manager tests the rotation configuration by running the [`testSecret` step](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. This test creates an `AWSPENDING` version of the secret and then removes it.
+	//
+	// > When changing an existing rotation schedule and setting `RotateImmediatelyOnUpdate` to `false` :
+	// >
+	// > - If using `AutomaticallyAfterDays` or a `ScheduleExpression` with `rate()` , the previously scheduled rotation might still occur.
+	// > - To prevent unintended rotations, use a `ScheduleExpression` with `cron()` for granular control over rotation windows.
 	//
 	// Rotation is an asynchronous process. For more information, see [How rotation works](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotateimmediatelyonupdate

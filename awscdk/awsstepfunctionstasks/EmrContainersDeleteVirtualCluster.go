@@ -22,6 +22,8 @@ import (
 //
 type EmrContainersDeleteVirtualCluster interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -36,6 +38,7 @@ type EmrContainersDeleteVirtualCluster interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -43,6 +46,7 @@ type EmrContainersDeleteVirtualCluster interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -123,11 +127,13 @@ type EmrContainersDeleteVirtualCluster interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -135,12 +141,14 @@ type EmrContainersDeleteVirtualCluster interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -154,6 +162,26 @@ type EmrContainersDeleteVirtualCluster interface {
 // The jsii proxy struct for EmrContainersDeleteVirtualCluster
 type jsiiProxy_EmrContainersDeleteVirtualCluster struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Branches() *[]awsstepfunctions.StateGraph {
@@ -246,6 +274,16 @@ func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -281,6 +319,16 @@ func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) ProcessorMode() awsstepfun
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -515,6 +563,44 @@ func EmrContainersDeleteVirtualCluster_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deletes an EMR Containers virtual cluster as a Task using JSONata.
+func EmrContainersDeleteVirtualCluster_Jsonata(scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterJsonataProps) EmrContainersDeleteVirtualCluster {
+	_init_.Initialize()
+
+	if err := validateEmrContainersDeleteVirtualCluster_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns EmrContainersDeleteVirtualCluster
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deletes an EMR Containers virtual cluster as a Task using JSONPath.
+func EmrContainersDeleteVirtualCluster_JsonPath(scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterJsonPathProps) EmrContainersDeleteVirtualCluster {
+	_init_.Initialize()
+
+	if err := validateEmrContainersDeleteVirtualCluster_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns EmrContainersDeleteVirtualCluster
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -831,6 +917,19 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) Next(next awsstepfunctions
 	return returns
 }
 
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -844,13 +943,13 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderBranches() interface
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderChoices() interface{} {
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		e,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -909,6 +1008,19 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderNextEnd() interface{
 	return returns
 }
 
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -922,26 +1034,26 @@ func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderResultSelector() int
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderRetryCatch() interface{} {
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		e,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) ToStateJson() *map[string]interface{} {
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		e,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

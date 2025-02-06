@@ -1,7 +1,9 @@
 package awsbedrock
 
 
-// Configurations for generating Redshift engine queries.
+// Contains configurations for query generation.
+//
+// For more information, see [Build a knowledge base by connecting to a structured data source](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-structured.html) in the Amazon Bedrock User Guide..
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -39,11 +41,11 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationconfiguration.html
 //
 type CfnKnowledgeBase_QueryGenerationConfigurationProperty struct {
-	// Max query execution timeout.
+	// The time after which query generation will time out.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationconfiguration.html#cfn-bedrock-knowledgebase-querygenerationconfiguration-executiontimeoutseconds
 	//
 	ExecutionTimeoutSeconds *float64 `field:"optional" json:"executionTimeoutSeconds" yaml:"executionTimeoutSeconds"`
-	// Context used to improve query generation.
+	// Specifies configurations for context to use during query generation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationconfiguration.html#cfn-bedrock-knowledgebase-querygenerationconfiguration-generationcontext
 	//
 	GenerationContext interface{} `field:"optional" json:"generationContext" yaml:"generationContext"`

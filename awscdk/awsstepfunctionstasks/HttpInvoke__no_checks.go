@@ -108,6 +108,14 @@ func validateHttpInvoke_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func validateHttpInvoke_JsonataParameters(scope constructs.Construct, id *string, props *HttpInvokeJsonataProps) error {
+	return nil
+}
+
+func validateHttpInvoke_JsonPathParameters(scope constructs.Construct, id *string, props *HttpInvokeJsonPathProps) error {
+	return nil
+}
+
 func validateHttpInvoke_PrefixStatesParameters(root constructs.IConstruct, prefix *string) error {
 	return nil
 }

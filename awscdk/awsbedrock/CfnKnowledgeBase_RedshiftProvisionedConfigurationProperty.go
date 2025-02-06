@@ -1,7 +1,7 @@
 package awsbedrock
 
 
-// Configurations for provisioned Redshift query engine.
+// Contains configurations for a provisioned Amazon Redshift query engine.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -22,11 +22,11 @@ package awsbedrock
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftprovisionedconfiguration.html
 //
 type CfnKnowledgeBase_RedshiftProvisionedConfigurationProperty struct {
-	// Configurations for Redshift query engine provisioned auth setup.
+	// Specifies configurations for authentication to Amazon Redshift.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftprovisionedconfiguration.html#cfn-bedrock-knowledgebase-redshiftprovisionedconfiguration-authconfiguration
 	//
 	AuthConfiguration interface{} `field:"required" json:"authConfiguration" yaml:"authConfiguration"`
-	// Redshift cluster identifier.
+	// The ID of the Amazon Redshift cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftprovisionedconfiguration.html#cfn-bedrock-knowledgebase-redshiftprovisionedconfiguration-clusteridentifier
 	//
 	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`

@@ -35,7 +35,7 @@ import (
 //
 type Integration interface {
 	// Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-	Bind(_method Method) *IntegrationConfig
+	Bind(method Method) *IntegrationConfig
 }
 
 // The jsii proxy struct for Integration
@@ -70,8 +70,8 @@ func NewIntegration_Override(i Integration, props *IntegrationProps) {
 	)
 }
 
-func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
-	if err := i.validateBindParameters(_method); err != nil {
+func (i *jsiiProxy_Integration) Bind(method Method) *IntegrationConfig {
+	if err := i.validateBindParameters(method); err != nil {
 		panic(err)
 	}
 	var returns *IntegrationConfig
@@ -79,7 +79,7 @@ func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
 	_jsii_.Invoke(
 		i,
 		"bind",
-		[]interface{}{_method},
+		[]interface{}{method},
 		&returns,
 	)
 

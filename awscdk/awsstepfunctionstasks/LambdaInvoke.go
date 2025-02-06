@@ -16,23 +16,21 @@ import (
 // Example:
 //   var fn function
 //
-//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with empty object as payload"), &LambdaInvokeProps{
+//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with callback"), &LambdaInvokeProps{
 //   	LambdaFunction: fn,
+//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
 //   	Payload: sfn.TaskInput_FromObject(map[string]interface{}{
+//   		"token": sfn.JsonPath_taskToken(),
+//   		"input": sfn.JsonPath_stringAt(jsii.String("$.someField")),
 //   	}),
-//   })
-//
-//   // use the output of fn as input
-//   // use the output of fn as input
-//   tasks.NewLambdaInvoke(this, jsii.String("Invoke with payload field in the state input"), &LambdaInvokeProps{
-//   	LambdaFunction: fn,
-//   	Payload: sfn.TaskInput_FromJsonPathAt(jsii.String("$.Payload")),
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html
 //
 type LambdaInvoke interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -47,6 +45,7 @@ type LambdaInvoke interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -54,6 +53,7 @@ type LambdaInvoke interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -134,11 +134,13 @@ type LambdaInvoke interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -146,12 +148,14 @@ type LambdaInvoke interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -165,6 +169,26 @@ type LambdaInvoke interface {
 // The jsii proxy struct for LambdaInvoke
 type jsiiProxy_LambdaInvoke struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_LambdaInvoke) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaInvoke) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_LambdaInvoke) Branches() *[]awsstepfunctions.StateGraph {
@@ -257,6 +281,16 @@ func (j *jsiiProxy_LambdaInvoke) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_LambdaInvoke) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_LambdaInvoke) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -292,6 +326,16 @@ func (j *jsiiProxy_LambdaInvoke) ProcessorMode() awsstepfunctions.ProcessorMode 
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaInvoke) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -526,6 +570,48 @@ func LambdaInvoke_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Invoke a Lambda function as a Task using JSONata.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html
+//
+func LambdaInvoke_Jsonata(scope constructs.Construct, id *string, props *LambdaInvokeJsonataProps) LambdaInvoke {
+	_init_.Initialize()
+
+	if err := validateLambdaInvoke_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns LambdaInvoke
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Invoke a Lambda function as a Task using JSONPath.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html
+//
+func LambdaInvoke_JsonPath(scope constructs.Construct, id *string, props *LambdaInvokeJsonPathProps) LambdaInvoke {
+	_init_.Initialize()
+
+	if err := validateLambdaInvoke_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns LambdaInvoke
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -842,6 +928,19 @@ func (l *jsiiProxy_LambdaInvoke) Next(next awsstepfunctions.IChainable) awsstepf
 	return returns
 }
 
+func (l *jsiiProxy_LambdaInvoke) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (l *jsiiProxy_LambdaInvoke) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -855,13 +954,13 @@ func (l *jsiiProxy_LambdaInvoke) RenderBranches() interface{} {
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvoke) RenderChoices() interface{} {
+func (l *jsiiProxy_LambdaInvoke) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		l,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -920,6 +1019,19 @@ func (l *jsiiProxy_LambdaInvoke) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (l *jsiiProxy_LambdaInvoke) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (l *jsiiProxy_LambdaInvoke) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -933,26 +1045,26 @@ func (l *jsiiProxy_LambdaInvoke) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvoke) RenderRetryCatch() interface{} {
+func (l *jsiiProxy_LambdaInvoke) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		l,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (l *jsiiProxy_LambdaInvoke) ToStateJson() *map[string]interface{} {
+func (l *jsiiProxy_LambdaInvoke) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		l,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

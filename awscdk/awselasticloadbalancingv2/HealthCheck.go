@@ -23,6 +23,8 @@ import (
 //   			jsii.String("point"),
 //   		},
 //   	},
+//   	ContainerCpu: jsii.Number(256),
+//   	ContainerMemoryLimitMiB: jsii.Number(512),
 //   	MinHealthyPercent: jsii.Number(100),
 //   })
 //

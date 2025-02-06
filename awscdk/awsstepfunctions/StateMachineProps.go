@@ -49,6 +49,13 @@ type StateMachineProps struct {
 	// Default: No logging.
 	//
 	Logs *LogOptions `field:"optional" json:"logs" yaml:"logs"`
+	// The name of the query language used by the state machine.
+	//
+	// If the state does not contain a `queryLanguage` field,
+	// then it will use the query language specified in this `queryLanguage` field.
+	// Default: - JSON_PATH.
+	//
+	QueryLanguage QueryLanguage `field:"optional" json:"queryLanguage" yaml:"queryLanguage"`
 	// The removal policy to apply to state machine.
 	// Default: RemovalPolicy.DESTROY
 	//

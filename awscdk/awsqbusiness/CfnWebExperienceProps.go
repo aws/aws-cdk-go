@@ -15,6 +15,11 @@ import (
 //   	ApplicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
+//   	BrowserExtensionConfiguration: &BrowserExtensionConfigurationProperty{
+//   		EnabledBrowserExtensions: []*string{
+//   			jsii.String("enabledBrowserExtensions"),
+//   		},
+//   	},
 //   	CustomizationConfiguration: &CustomizationConfigurationProperty{
 //   		CustomCssUrl: jsii.String("customCssUrl"),
 //   		FaviconUrl: jsii.String("faviconUrl"),
@@ -53,6 +58,10 @@ type CfnWebExperienceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-applicationid
 	//
 	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
+	// The container for browser extension configuration for an Amazon Q Business web experience.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-browserextensionconfiguration
+	//
+	BrowserExtensionConfiguration interface{} `field:"optional" json:"browserExtensionConfiguration" yaml:"browserExtensionConfiguration"`
 	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-customizationconfiguration
 	//

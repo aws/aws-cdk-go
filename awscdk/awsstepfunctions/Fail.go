@@ -19,6 +19,8 @@ import (
 //
 type Fail interface {
 	State
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
@@ -33,6 +35,7 @@ type Fail interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() StateGraph
 	SetProcessor(val StateGraph)
@@ -40,6 +43,7 @@ type Fail interface {
 	SetProcessorConfig(val *ProcessorConfig)
 	ProcessorMode() ProcessorMode
 	SetProcessorMode(val ProcessorMode)
+	QueryLanguage() QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// First state of this Chainable.
@@ -66,11 +70,13 @@ type Fail interface {
 	MakeDefault(def State)
 	// Make the indicated state the default transition of this state.
 	MakeNext(next State)
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -78,12 +84,14 @@ type Fail interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(queryLanguage QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Validate this state.
@@ -97,6 +105,26 @@ type Fail interface {
 // The jsii proxy struct for Fail
 type jsiiProxy_Fail struct {
 	jsiiProxy_State
+}
+
+func (j *jsiiProxy_Fail) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Fail) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Fail) Branches() *[]StateGraph {
@@ -189,6 +217,16 @@ func (j *jsiiProxy_Fail) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Fail) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Fail) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -224,6 +262,16 @@ func (j *jsiiProxy_Fail) ProcessorMode() ProcessorMode {
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Fail) QueryLanguage() QueryLanguage {
+	var returns QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -444,6 +492,48 @@ func Fail_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Define a Fail state using JSONata in the state machine.
+//
+// Reaching a Fail state terminates the state execution in failure.
+func Fail_Jsonata(scope constructs.Construct, id *string, props *FailJsonataProps) Fail {
+	_init_.Initialize()
+
+	if err := validateFail_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Fail
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Define a Fail state using JSONPath in the state machine.
+//
+// Reaching a Fail state terminates the state execution in failure.
+func Fail_JsonPath(scope constructs.Construct, id *string, props *FailJsonPathProps) Fail {
+	_init_.Initialize()
+
+	if err := validateFail_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns Fail
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"jsonPath",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Add a prefix to the stateId of all States found in a construct tree.
 func Fail_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
@@ -546,6 +636,19 @@ func (f *jsiiProxy_Fail) MakeNext(next State) {
 	)
 }
 
+func (f *jsiiProxy_Fail) RenderAssign(topLevelQueryLanguage QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		f,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (f *jsiiProxy_Fail) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -559,13 +662,13 @@ func (f *jsiiProxy_Fail) RenderBranches() interface{} {
 	return returns
 }
 
-func (f *jsiiProxy_Fail) RenderChoices() interface{} {
+func (f *jsiiProxy_Fail) RenderChoices(topLevelQueryLanguage QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		f,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -624,6 +727,19 @@ func (f *jsiiProxy_Fail) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (f *jsiiProxy_Fail) RenderQueryLanguage(topLevelQueryLanguage QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		f,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (f *jsiiProxy_Fail) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -637,26 +753,26 @@ func (f *jsiiProxy_Fail) RenderResultSelector() interface{} {
 	return returns
 }
 
-func (f *jsiiProxy_Fail) RenderRetryCatch() interface{} {
+func (f *jsiiProxy_Fail) RenderRetryCatch(topLevelQueryLanguage QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		f,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (f *jsiiProxy_Fail) ToStateJson() *map[string]interface{} {
+func (f *jsiiProxy_Fail) ToStateJson(queryLanguage QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		f,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{queryLanguage},
 		&returns,
 	)
 

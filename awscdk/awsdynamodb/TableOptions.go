@@ -48,6 +48,12 @@ import (
 //   	MaxReadRequestUnits: jsii.Number(123),
 //   	MaxWriteRequestUnits: jsii.Number(123),
 //   	PointInTimeRecovery: jsii.Boolean(false),
+//   	PointInTimeRecoverySpecification: &PointInTimeRecoverySpecification{
+//   		PointInTimeRecoveryEnabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		RecoveryPeriodInDays: jsii.Number(123),
+//   	},
 //   	ReadCapacity: jsii.Number(123),
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	ReplicationRegions: []*string{
@@ -118,7 +124,7 @@ type TableOptions struct {
 	// The maximum read request units for the table.
 	//
 	// Careful if you add Global Secondary Indexes, as
-	//  those will share the table's maximum on-demand throughput.
+	// those will share the table's maximum on-demand throughput.
 	//
 	// Can only be provided if billingMode is PAY_PER_REQUEST.
 	// Default: - on-demand throughput is disabled.
@@ -134,9 +140,14 @@ type TableOptions struct {
 	//
 	MaxWriteRequestUnits *float64 `field:"optional" json:"maxWriteRequestUnits" yaml:"maxWriteRequestUnits"`
 	// Whether point-in-time recovery is enabled.
-	// Default: - point-in-time recovery is disabled.
+	// Default: false - point in time recovery is not enabled.
 	//
+	// Deprecated: use `pointInTimeRecoverySpecification` instead.
 	PointInTimeRecovery *bool `field:"optional" json:"pointInTimeRecovery" yaml:"pointInTimeRecovery"`
+	// Whether point-in-time recovery is enabled and recoveryPeriodInDays is set.
+	// Default: - point in time recovery is not enabled.
+	//
+	PointInTimeRecoverySpecification *PointInTimeRecoverySpecification `field:"optional" json:"pointInTimeRecoverySpecification" yaml:"pointInTimeRecoverySpecification"`
 	// The read capacity for the table.
 	//
 	// Careful if you add Global Secondary Indexes, as

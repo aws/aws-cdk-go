@@ -41,6 +41,8 @@ import (
 //
 type SageMakerCreateTransformJob interface {
 	awsstepfunctions.TaskStateBase
+	Arguments() *map[string]interface{}
+	Assign() *map[string]interface{}
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
@@ -55,6 +57,7 @@ type SageMakerCreateTransformJob interface {
 	// The tree node.
 	Node() constructs.Node
 	OutputPath() *string
+	Outputs() *map[string]interface{}
 	Parameters() *map[string]interface{}
 	Processor() awsstepfunctions.StateGraph
 	SetProcessor(val awsstepfunctions.StateGraph)
@@ -62,6 +65,7 @@ type SageMakerCreateTransformJob interface {
 	SetProcessorConfig(val *awsstepfunctions.ProcessorConfig)
 	ProcessorMode() awsstepfunctions.ProcessorMode
 	SetProcessorMode(val awsstepfunctions.ProcessorMode)
+	QueryLanguage() awsstepfunctions.QueryLanguage
 	ResultPath() *string
 	ResultSelector() *map[string]interface{}
 	// The execution role for the Sagemaker transform job.
@@ -146,11 +150,13 @@ type SageMakerCreateTransformJob interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Continue normal execution with the given state.
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	// Render the assign in ASL JSON format.
+	RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render parallel branches in ASL JSON format.
 	RenderBranches() interface{}
 	// Render the choices in ASL JSON format.
-	RenderChoices() interface{}
-	// Render InputPath/Parameters/OutputPath in ASL JSON format.
+	RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
+	// Render InputPath/Parameters/OutputPath/Arguments/Output in ASL JSON format.
 	RenderInputOutput() interface{}
 	// Render ItemProcessor in ASL JSON format.
 	RenderItemProcessor() interface{}
@@ -158,12 +164,14 @@ type SageMakerCreateTransformJob interface {
 	RenderIterator() interface{}
 	// Render the default next state in ASL JSON format.
 	RenderNextEnd() interface{}
+	// Render QueryLanguage in ASL JSON format if needed.
+	RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Render ResultSelector in ASL JSON format.
 	RenderResultSelector() interface{}
 	// Render error recovery options in ASL JSON format.
-	RenderRetryCatch() interface{}
+	RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{}
 	// Return the Amazon States Language object for this state.
-	ToStateJson() *map[string]interface{}
+	ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{}
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Allows the state to validate itself.
@@ -177,6 +185,26 @@ type SageMakerCreateTransformJob interface {
 // The jsii proxy struct for SageMakerCreateTransformJob
 type jsiiProxy_SageMakerCreateTransformJob struct {
 	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_SageMakerCreateTransformJob) Arguments() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"arguments",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateTransformJob) Assign() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"assign",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_SageMakerCreateTransformJob) Branches() *[]awsstepfunctions.StateGraph {
@@ -269,6 +297,16 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) OutputPath() *string {
 	return returns
 }
 
+func (j *jsiiProxy_SageMakerCreateTransformJob) Outputs() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"outputs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_SageMakerCreateTransformJob) Parameters() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -304,6 +342,16 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) ProcessorMode() awsstepfunctions
 	_jsii_.Get(
 		j,
 		"processorMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateTransformJob) QueryLanguage() awsstepfunctions.QueryLanguage {
+	var returns awsstepfunctions.QueryLanguage
+	_jsii_.Get(
+		j,
+		"queryLanguage",
 		&returns,
 	)
 	return returns
@@ -548,6 +596,44 @@ func SageMakerCreateTransformJob_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"isConstruct",
 		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Class representing the SageMaker Create Transform Job task using JSONata.
+func SageMakerCreateTransformJob_Jsonata(scope constructs.Construct, id *string, props *SageMakerCreateTransformJobJsonataProps) SageMakerCreateTransformJob {
+	_init_.Initialize()
+
+	if err := validateSageMakerCreateTransformJob_JsonataParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns SageMakerCreateTransformJob
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"jsonata",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Class representing the SageMaker Create Transform Job task using JSONPath.
+func SageMakerCreateTransformJob_JsonPath(scope constructs.Construct, id *string, props *SageMakerCreateTransformJobJsonPathProps) SageMakerCreateTransformJob {
+	_init_.Initialize()
+
+	if err := validateSageMakerCreateTransformJob_JsonPathParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns SageMakerCreateTransformJob
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"jsonPath",
+		[]interface{}{scope, id, props},
 		&returns,
 	)
 
@@ -864,6 +950,19 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) Next(next awsstepfunctions.IChai
 	return returns
 }
 
+func (s *jsiiProxy_SageMakerCreateTransformJob) RenderAssign(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderAssign",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_SageMakerCreateTransformJob) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -877,13 +976,13 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) RenderBranches() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTransformJob) RenderChoices() interface{} {
+func (s *jsiiProxy_SageMakerCreateTransformJob) RenderChoices(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		s,
 		"renderChoices",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
@@ -942,6 +1041,19 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) RenderNextEnd() interface{} {
 	return returns
 }
 
+func (s *jsiiProxy_SageMakerCreateTransformJob) RenderQueryLanguage(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderQueryLanguage",
+		[]interface{}{topLevelQueryLanguage},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_SageMakerCreateTransformJob) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -955,26 +1067,26 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) RenderResultSelector() interface
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTransformJob) RenderRetryCatch() interface{} {
+func (s *jsiiProxy_SageMakerCreateTransformJob) RenderRetryCatch(topLevelQueryLanguage awsstepfunctions.QueryLanguage) interface{} {
 	var returns interface{}
 
 	_jsii_.Invoke(
 		s,
 		"renderRetryCatch",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 
 	return returns
 }
 
-func (s *jsiiProxy_SageMakerCreateTransformJob) ToStateJson() *map[string]interface{} {
+func (s *jsiiProxy_SageMakerCreateTransformJob) ToStateJson(topLevelQueryLanguage awsstepfunctions.QueryLanguage) *map[string]interface{} {
 	var returns *map[string]interface{}
 
 	_jsii_.Invoke(
 		s,
 		"toStateJson",
-		nil, // no parameters
+		[]interface{}{topLevelQueryLanguage},
 		&returns,
 	)
 

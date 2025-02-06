@@ -61,6 +61,10 @@ type CfnDeliveryStreamProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
 	//
 	DeliveryStreamType *string `field:"optional" json:"deliveryStreamType" yaml:"deliveryStreamType"`
+	// The structure that configures parameters such as `ThroughputHintInMBs` for a stream configured with Direct PUT as a source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-directputsourceconfiguration
+	//
+	DirectPutSourceConfiguration interface{} `field:"optional" json:"directPutSourceConfiguration" yaml:"directPutSourceConfiguration"`
 	// An Amazon ES destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.

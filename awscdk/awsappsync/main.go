@@ -7,9 +7,92 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.ApiBase",
+		reflect.TypeOf((*ApiBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApi)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.ApiKeyConfig",
 		reflect.TypeOf((*ApiKeyConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncApiKeyConfig",
+		reflect.TypeOf((*AppSyncApiKeyConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncAuthProvider",
+		reflect.TypeOf((*AppSyncAuthProvider)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.AppSyncAuthorizationType",
+		reflect.TypeOf((*AppSyncAuthorizationType)(nil)).Elem(),
+		map[string]interface{}{
+			"API_KEY": AppSyncAuthorizationType_API_KEY,
+			"IAM": AppSyncAuthorizationType_IAM,
+			"USER_POOL": AppSyncAuthorizationType_USER_POOL,
+			"OIDC": AppSyncAuthorizationType_OIDC,
+			"LAMBDA": AppSyncAuthorizationType_LAMBDA,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncCognitoConfig",
+		reflect.TypeOf((*AppSyncCognitoConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncDomainOptions",
+		reflect.TypeOf((*AppSyncDomainOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.AppSyncEventResource",
+		reflect.TypeOf((*AppSyncEventResource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "resourceArns", GoMethod: "ResourceArns"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AppSyncEventResource{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.AppSyncFieldLogLevel",
+		reflect.TypeOf((*AppSyncFieldLogLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"NONE": AppSyncFieldLogLevel_NONE,
+			"ERROR": AppSyncFieldLogLevel_ERROR,
+			"INFO": AppSyncFieldLogLevel_INFO,
+			"DEBUG": AppSyncFieldLogLevel_DEBUG,
+			"ALL": AppSyncFieldLogLevel_ALL,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncLambdaAuthorizerConfig",
+		reflect.TypeOf((*AppSyncLambdaAuthorizerConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncLogConfig",
+		reflect.TypeOf((*AppSyncLogConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.AppSyncOpenIdConnectConfig",
+		reflect.TypeOf((*AppSyncOpenIdConnectConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.AppsyncFunction",
@@ -141,6 +224,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.BaseAppsyncFunctionProps",
 		reflect.TypeOf((*BaseAppsyncFunctionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.BaseChannelNamespaceProps",
+		reflect.TypeOf((*BaseChannelNamespaceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.BaseDataSource",
@@ -1012,6 +1099,39 @@ func init() {
 		reflect.TypeOf((*CfnSourceApiAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.ChannelNamespace",
+		reflect.TypeOf((*ChannelNamespace)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "channelNamespaceArn", GoGetter: "ChannelNamespaceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPublish", GoMethod: "GrantPublish"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPublishAndSubscribe", GoMethod: "GrantPublishAndSubscribe"},
+			_jsii_.MemberMethod{JsiiMethod: "grantSubscribe", GoMethod: "GrantSubscribe"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ChannelNamespace{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IChannelNamespace)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.ChannelNamespaceOptions",
+		reflect.TypeOf((*ChannelNamespaceOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.ChannelNamespaceProps",
+		reflect.TypeOf((*ChannelNamespaceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.Code",
 		reflect.TypeOf((*Code)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1091,6 +1211,89 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.ElasticsearchDataSourceProps",
 		reflect.TypeOf((*ElasticsearchDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.EventApi",
+		reflect.TypeOf((*EventApi)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addChannelNamespace", GoMethod: "AddChannelNamespace"},
+			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiKeys", GoGetter: "ApiKeys"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "appSyncDomainName", GoGetter: "AppSyncDomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "authProviderTypes", GoGetter: "AuthProviderTypes"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionModeTypes", GoGetter: "ConnectionModeTypes"},
+			_jsii_.MemberProperty{JsiiProperty: "customHttpEndpoint", GoGetter: "CustomHttpEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "customRealtimeEndpoint", GoGetter: "CustomRealtimeEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultPublishModeTypes", GoGetter: "DefaultPublishModeTypes"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultSubscribeModeTypes", GoGetter: "DefaultSubscribeModeTypes"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantConnect", GoMethod: "GrantConnect"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPublish", GoMethod: "GrantPublish"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPublishAndSubscribe", GoMethod: "GrantPublishAndSubscribe"},
+			_jsii_.MemberMethod{JsiiMethod: "grantSubscribe", GoMethod: "GrantSubscribe"},
+			_jsii_.MemberProperty{JsiiProperty: "httpDns", GoGetter: "HttpDns"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeDns", GoGetter: "RealtimeDns"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EventApi{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_EventApiBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.EventApiAttributes",
+		reflect.TypeOf((*EventApiAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.EventApiAuthConfig",
+		reflect.TypeOf((*EventApiAuthConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_appsync.EventApiBase",
+		reflect.TypeOf((*EventApiBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addChannelNamespace", GoMethod: "AddChannelNamespace"},
+			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authProviderTypes", GoGetter: "AuthProviderTypes"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantConnect", GoMethod: "GrantConnect"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPublish", GoMethod: "GrantPublish"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPublishAndSubscribe", GoMethod: "GrantPublishAndSubscribe"},
+			_jsii_.MemberMethod{JsiiMethod: "grantSubscribe", GoMethod: "GrantSubscribe"},
+			_jsii_.MemberProperty{JsiiProperty: "httpDns", GoGetter: "HttpDns"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeDns", GoGetter: "RealtimeDns"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EventApiBase{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ApiBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEventApi)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.EventApiProps",
+		reflect.TypeOf((*EventApiProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.EventBridgeDataSource",
@@ -1279,6 +1482,35 @@ func init() {
 		reflect.TypeOf((*HttpDataSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_appsync.IApi",
+		reflect.TypeOf((*IApi)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IApi{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_appsync.IAppSyncAuthConfig",
+		reflect.TypeOf((*IAppSyncAuthConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "setupCognitoConfig", GoMethod: "SetupCognitoConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "setupLambdaAuthorizerConfig", GoMethod: "SetupLambdaAuthorizerConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "setupOpenIdConnectConfig", GoMethod: "SetupOpenIdConnectConfig"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IAppSyncAuthConfig{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_appsync.IAppsyncFunction",
 		reflect.TypeOf((*IAppsyncFunction)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1292,6 +1524,48 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IAppsyncFunction{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_appsync.IChannelNamespace",
+		reflect.TypeOf((*IChannelNamespace)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "channelNamespaceArn", GoGetter: "ChannelNamespaceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IChannelNamespace{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_appsync.IEventApi",
+		reflect.TypeOf((*IEventApi)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addChannelNamespace", GoMethod: "AddChannelNamespace"},
+			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
+			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authProviderTypes", GoGetter: "AuthProviderTypes"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantConnect", GoMethod: "GrantConnect"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPublish", GoMethod: "GrantPublish"},
+			_jsii_.MemberMethod{JsiiMethod: "grantPublishAndSubscribe", GoMethod: "GrantPublishAndSubscribe"},
+			_jsii_.MemberMethod{JsiiMethod: "grantSubscribe", GoMethod: "GrantSubscribe"},
+			_jsii_.MemberProperty{JsiiProperty: "httpDns", GoGetter: "HttpDns"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "realtimeDns", GoGetter: "RealtimeDns"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IEventApi{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApi)
 			return &j
 		},
 	)
@@ -1460,6 +1734,10 @@ func init() {
 			"MANUAL_MERGE": MergeType_MANUAL_MERGE,
 			"AUTO_MERGE": MergeType_AUTO_MERGE,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.NamespaceAuthConfig",
+		reflect.TypeOf((*NamespaceAuthConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.NoneDataSource",
