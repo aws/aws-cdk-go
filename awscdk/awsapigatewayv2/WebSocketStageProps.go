@@ -28,6 +28,10 @@ type WebSocketStageProps struct {
 	// Default: - no description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Specifies whether detailed metrics are enabled.
+	// Default: false.
+	//
+	DetailedMetricsEnabled *bool `field:"optional" json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// The options for custom domain and api mapping.
 	// Default: - no custom domain and api mapping configuration.
 	//

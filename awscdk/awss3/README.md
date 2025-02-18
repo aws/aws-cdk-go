@@ -1045,7 +1045,7 @@ For more information, please refer to https://docs.aws.amazon.com/AmazonS3/lates
 
 > **NOTE:** AWS managed keys don't allow cross-account use, and therefore can't be used to perform cross-account replication.
 
-If you need to ovveride the bucket ownership to destination account pass the account value to the method to provide permissions to override bucket owner.
+If you need to override the bucket ownership to destination account pass the account value to the method to provide permissions to override bucket owner.
 `addReplicationPolicy(bucket.replicationRoleArn, true, '11111111111')`;
 
 However, if the destination bucket is a referenced bucket, CDK cannot set the bucket policy,

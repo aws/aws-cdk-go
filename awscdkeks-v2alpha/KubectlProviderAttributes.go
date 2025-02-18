@@ -7,7 +7,7 @@ import (
 // Kubectl Provider Attributes.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 //
 //
 //   handlerRole := iam.Role_FromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))

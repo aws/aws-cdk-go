@@ -27,22 +27,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"@aws-cdk/aws-cognito-identitypool-alpha.IIdentityPoolRoleAttachment",
-		reflect.TypeOf((*IIdentityPoolRoleAttachment)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "identityPoolId", GoGetter: "IdentityPoolId"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IIdentityPoolRoleAttachment{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-cognito-identitypool-alpha.IUserPoolAuthenticationProvider",
 		reflect.TypeOf((*IUserPoolAuthenticationProvider)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -56,7 +40,6 @@ func init() {
 		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPool",
 		reflect.TypeOf((*IdentityPool)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addRoleMappings", GoMethod: "AddRoleMappings"},
 			_jsii_.MemberMethod{JsiiMethod: "addUserPoolAuthentication", GoMethod: "AddUserPoolAuthentication"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authenticatedRole", GoGetter: "AuthenticatedRole"},
@@ -129,32 +112,6 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_IdentityPoolProviderUrl{}
 		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolRoleAttachment",
-		reflect.TypeOf((*IdentityPoolRoleAttachment)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
-			_jsii_.MemberProperty{JsiiProperty: "identityPoolId", GoGetter: "IdentityPoolId"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IdentityPoolRoleAttachment{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IIdentityPoolRoleAttachment)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolRoleAttachmentProps",
-		reflect.TypeOf((*IdentityPoolRoleAttachmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-cognito-identitypool-alpha.IdentityPoolRoleMapping",

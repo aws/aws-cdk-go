@@ -75,5 +75,6 @@ const (
 	ComputeType_LAMBDA_4GB ComputeType = "LAMBDA_4GB"
 	ComputeType_LAMBDA_8GB ComputeType = "LAMBDA_8GB"
 	ComputeType_LAMBDA_10GB ComputeType = "LAMBDA_10GB"
+	ComputeType_ATTRIBUTE_BASED ComputeType = "ATTRIBUTE_BASED"
 )
 

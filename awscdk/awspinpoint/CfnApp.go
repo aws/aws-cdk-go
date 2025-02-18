@@ -16,17 +16,22 @@ import (
 // The App resource represents an Amazon Pinpoint application.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import pinpoint "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
+//   var userPool userPool
+//   var pinpointApp cfnApp
+//   var pinpointRole role
 //
-//   cfnApp := awscdk.Aws_pinpoint.NewCfnApp(this, jsii.String("MyCfnApp"), &CfnAppProps{
-//   	Name: jsii.String("name"),
 //
-//   	// the properties below are optional
-//   	Tags: tags,
+//   cognito.NewUserPoolClient(this, jsii.String("Client"), &UserPoolClientProps{
+//   	UserPool: UserPool,
+//   	Analytics: &AnalyticsConfiguration{
+//   		// Your Pinpoint project
+//   		Application: pinpointApp,
+//
+//   		// Whether to include user data in analytics events
+//   		ShareUserData: jsii.Boolean(true),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html

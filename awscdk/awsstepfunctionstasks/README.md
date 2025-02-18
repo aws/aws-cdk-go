@@ -174,6 +174,23 @@ invokeTask := tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Call RES
 })
 ```
 
+By default, the API endpoint URI will be constructed using the AWS region of
+the stack in which the provided `api` is created.
+
+To construct the endpoint with a different region, use the `region` parameter:
+
+```go
+import apigateway "github.com/aws/aws-cdk-go/awscdk"
+
+restApi := apigateway.NewRestApi(this, jsii.String("MyRestApi"))
+invokeTask := tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Call REST API"), &CallApiGatewayRestApiEndpointProps{
+	Api: restApi,
+	StageName: jsii.String("prod"),
+	Method: tasks.HttpMethod_GET,
+	Region: jsii.String("us-west-2"),
+})
+```
+
 Be aware that the header values must be arrays. When passing the Task Token
 in the headers field `WAIT_FOR_TASK_TOKEN` integration, use
 `JsonPath.array()` to wrap the token in an array:
@@ -299,6 +316,8 @@ getObject := tasks.NewCallAwsServiceCrossRegion(this, jsii.String("GetObject"), 
 ```
 
 Other properties such as `additionalIamStatements` can be used in the same way as the `CallAwsService` task.
+
+Note that when you use `integrationPattern.WAIT_FOR_TASK_TOKEN`, the output path changes under `Payload` property.
 
 ## Athena
 
@@ -1303,11 +1322,13 @@ The following code snippet includes a Task state that uses eks:call to list the 
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 
 
 myEksCluster := eks.NewCluster(this, jsii.String("my sample cluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_18(),
+	Version: eks.KubernetesVersion_V1_32(),
 	ClusterName: jsii.String("myEksCluster"),
+	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 })
 
 tasks.NewEksCall(this, jsii.String("Call a EKS Endpoint"), &EksCallProps{

@@ -13,7 +13,6 @@ import (
 //
 // Example:
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster iCluster
 //   var taskDefinition taskDefinition
@@ -23,14 +22,14 @@ import (
 //   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule.AddTarget(
-//   targets.NewEcsTask(&EcsTaskProps{
+//   rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	AssignPublicIp: jsii.Boolean(true),
-//   	SubnetSelection: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PUBLIC,
-//   	},
+//   	TaskCount: jsii.Number(1),
+//
+//   	// Overrides the cpu and memory values in the task definition
+//   	Cpu: jsii.String("512"),
+//   	Memory: jsii.String("512"),
 //   }))
 //
 type EcsTask interface {

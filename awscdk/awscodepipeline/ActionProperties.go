@@ -29,11 +29,17 @@ import (
 //
 //   	// the properties below are optional
 //   	Account: jsii.String("account"),
+//   	Commands: []*string{
+//   		jsii.String("commands"),
+//   	},
 //   	Inputs: []*artifact{
 //   		artifact,
 //   	},
 //   	Outputs: []*artifact{
 //   		artifact,
+//   	},
+//   	OutputVariables: []*string{
+//   		jsii.String("outputVariables"),
 //   	},
 //   	Owner: jsii.String("owner"),
 //   	Region: jsii.String("region"),
@@ -63,8 +69,16 @@ type ActionProperties struct {
 	// In general, a concrete Action class should specify either `resource`,
 	// or `account` - but not both.
 	Account *string `field:"optional" json:"account" yaml:"account"`
+	// Shell commands for the Commands action to run.
+	// Default: - no commands.
+	//
+	Commands *[]*string `field:"optional" json:"commands" yaml:"commands"`
 	Inputs *[]Artifact `field:"optional" json:"inputs" yaml:"inputs"`
 	Outputs *[]Artifact `field:"optional" json:"outputs" yaml:"outputs"`
+	// The names of the variables in your environment that you want to export.
+	// Default: - no output variables.
+	//
+	OutputVariables *[]*string `field:"optional" json:"outputVariables" yaml:"outputVariables"`
 	Owner *string `field:"optional" json:"owner" yaml:"owner"`
 	// The AWS region the given Action resides in.
 	//

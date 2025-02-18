@@ -9,10 +9,16 @@ import (
 // EndpointConfiguration is a property of the AWS::ApiGateway::RestApi resource.
 //
 // Example:
+//   var someEndpoint iVpcEndpoint
+//
+//
 //   api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
 //   	EndpointConfiguration: &EndpointConfiguration{
 //   		Types: []endpointType{
-//   			apigateway.*endpointType_EDGE,
+//   			apigateway.*endpointType_PRIVATE,
+//   		},
+//   		VpcEndpoints: []*iVpcEndpoint{
+//   			someEndpoint,
 //   		},
 //   	},
 //   })

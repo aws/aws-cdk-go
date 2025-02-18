@@ -24,7 +24,7 @@ type S3StaticWebsiteOrigin interface {
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
@@ -61,8 +61,8 @@ func NewS3StaticWebsiteOrigin_Override(s S3StaticWebsiteOrigin, bucket awss3.IBu
 	)
 }
 
-func (s *jsiiProxy_S3StaticWebsiteOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
-	if err := s.validateBindParameters(_scope, options); err != nil {
+func (s *jsiiProxy_S3StaticWebsiteOrigin) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := s.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awscloudfront.OriginBindConfig
@@ -70,7 +70,7 @@ func (s *jsiiProxy_S3StaticWebsiteOrigin) Bind(_scope constructs.Construct, opti
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

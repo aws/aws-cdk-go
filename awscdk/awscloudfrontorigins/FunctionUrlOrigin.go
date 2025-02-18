@@ -32,7 +32,7 @@ type FunctionUrlOrigin interface {
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
@@ -88,8 +88,8 @@ func FunctionUrlOrigin_WithOriginAccessControl(lambdaFunctionUrl awslambda.IFunc
 	return returns
 }
 
-func (f *jsiiProxy_FunctionUrlOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
-	if err := f.validateBindParameters(_scope, options); err != nil {
+func (f *jsiiProxy_FunctionUrlOrigin) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := f.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awscloudfront.OriginBindConfig
@@ -97,7 +97,7 @@ func (f *jsiiProxy_FunctionUrlOrigin) Bind(_scope constructs.Construct, options 
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

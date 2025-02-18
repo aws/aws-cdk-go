@@ -9,8 +9,10 @@ package awsapigateway
 //
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 //   	CustomerId: jsii.String("hello-customer"),
-//   	Stages: []iStage{
-//   		api.DeploymentStage,
+//   	ApiStages: []usagePlanPerApiStage{
+//   		&usagePlanPerApiStage{
+//   			Stage: api.DeploymentStage,
+//   		},
 //   	},
 //   	Quota: &QuotaSettings{
 //   		Limit: jsii.Number(10000),

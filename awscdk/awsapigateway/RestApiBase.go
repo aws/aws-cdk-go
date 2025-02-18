@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -24,6 +26,7 @@ import (
 type RestApiBase interface {
 	awscdk.Resource
 	IRestApi
+	awsiam.IResourceWithPolicy
 	CloudWatchAccount() CfnAccount
 	SetCloudWatchAccount(val CfnAccount)
 	// API Gateway stage that points to the latest deployment (if defined).
@@ -58,6 +61,8 @@ type RestApiBase interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	ResourcePolicy() awsiam.PolicyDocument
+	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The ID of this API Gateway RestApi.
 	RestApiId() *string
 	// A human friendly name for this Rest API.
@@ -80,6 +85,8 @@ type RestApiBase interface {
 	AddDomainName(id *string, options *DomainNameOptions) DomainName
 	// Adds a new gateway response.
 	AddGatewayResponse(id *string, options *GatewayResponseOptions) GatewayResponse
+	// Add a statement to the resource's resource policy.
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Adds a usage plan.
 	AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan
 	// Apply the given removal policy to this resource.
@@ -108,6 +115,10 @@ type RestApiBase interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Add a resource policy that only allows API execution from a VPC Endpoint to create a private API.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-examples.html#apigateway-resource-policies-source-vpc-example
+	//
+	GrantInvokeFromVpcEndpointsOnly(vpcEndpoints *[]awsec2.IVpcEndpoint)
 	// Returns the given named metric for this API.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of requests served from the API cache in a given period.
@@ -152,6 +163,7 @@ type RestApiBase interface {
 type jsiiProxy_RestApiBase struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IRestApi
+	internal.Type__awsiamIResourceWithPolicy
 }
 
 func (j *jsiiProxy_RestApiBase) CloudWatchAccount() CfnAccount {
@@ -219,6 +231,16 @@ func (j *jsiiProxy_RestApiBase) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RestApiBase) ResourcePolicy() awsiam.PolicyDocument {
+	var returns awsiam.PolicyDocument
+	_jsii_.Get(
+		j,
+		"resourcePolicy",
 		&returns,
 	)
 	return returns
@@ -310,6 +332,14 @@ func (j *jsiiProxy_RestApiBase)SetDeploymentStage(val Stage) {
 	_jsii_.Set(
 		j,
 		"deploymentStage",
+		val,
+	)
+}
+
+func (j *jsiiProxy_RestApiBase)SetResourcePolicy(val awsiam.PolicyDocument) {
+	_jsii_.Set(
+		j,
+		"resourcePolicy",
 		val,
 	)
 }
@@ -435,6 +465,22 @@ func (r *jsiiProxy_RestApiBase) AddGatewayResponse(id *string, options *GatewayR
 	return returns
 }
 
+func (r *jsiiProxy_RestApiBase) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := r.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		r,
+		"addToResourcePolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
 func (r *jsiiProxy_RestApiBase) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
 	if err := r.validateAddUsagePlanParameters(id, props); err != nil {
 		panic(err)
@@ -518,6 +564,17 @@ func (r *jsiiProxy_RestApiBase) GetResourceNameAttribute(nameAttr *string) *stri
 	)
 
 	return returns
+}
+
+func (r *jsiiProxy_RestApiBase) GrantInvokeFromVpcEndpointsOnly(vpcEndpoints *[]awsec2.IVpcEndpoint) {
+	if err := r.validateGrantInvokeFromVpcEndpointsOnlyParameters(vpcEndpoints); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"grantInvokeFromVpcEndpointsOnly",
+		[]interface{}{vpcEndpoints},
+	)
 }
 
 func (r *jsiiProxy_RestApiBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {

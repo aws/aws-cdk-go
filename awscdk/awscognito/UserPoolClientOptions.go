@@ -34,6 +34,10 @@ type UserPoolClientOptions struct {
 	// Default: Duration.minutes(60)
 	//
 	AccessTokenValidity awscdk.Duration `field:"optional" json:"accessTokenValidity" yaml:"accessTokenValidity"`
+	// The analytics configuration for this client.
+	// Default: - no analytics configuration.
+	//
+	Analytics *AnalyticsConfiguration `field:"optional" json:"analytics" yaml:"analytics"`
 	// The set of OAuth authentication flows to enable on the client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html
 	//

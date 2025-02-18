@@ -11,16 +11,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_IdentityPool) validateAddRoleMappingsParameters(roleMappings *[]*IdentityPoolRoleMapping) error {
-	for idx_1686ee, v := range *roleMappings {
-		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter roleMappings[%#v]", idx_1686ee) }); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (i *jsiiProxy_IdentityPool) validateAddUserPoolAuthenticationParameters(userPool IUserPoolAuthenticationProvider) error {
 	if userPool == nil {
 		return fmt.Errorf("parameter userPool is required, but nil was provided")

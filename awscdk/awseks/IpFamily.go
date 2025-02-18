@@ -4,6 +4,7 @@ package awseks
 // EKS cluster IP family.
 //
 // Example:
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 //   var vpc vpc
 //
 //
@@ -30,7 +31,7 @@ package awseks
 //   }
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_31(),
+//   	Version: eks.KubernetesVersion_V1_32(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
 //   	VpcSubnets: []subnetSelection{
@@ -38,6 +39,7 @@ package awseks
 //   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},
+//   	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 //   })
 //
 type IpFamily string

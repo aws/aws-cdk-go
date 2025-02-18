@@ -44,7 +44,7 @@ type HttpOrigin interface {
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
@@ -81,8 +81,8 @@ func NewHttpOrigin_Override(h HttpOrigin, domainName *string, props *HttpOriginP
 	)
 }
 
-func (h *jsiiProxy_HttpOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
-	if err := h.validateBindParameters(_scope, options); err != nil {
+func (h *jsiiProxy_HttpOrigin) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := h.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awscloudfront.OriginBindConfig
@@ -90,7 +90,7 @@ func (h *jsiiProxy_HttpOrigin) Bind(_scope constructs.Construct, options *awsclo
 	_jsii_.Invoke(
 		h,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

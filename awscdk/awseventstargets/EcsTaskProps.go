@@ -12,7 +12,6 @@ import (
 //
 // Example:
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster iCluster
 //   var taskDefinition taskDefinition
@@ -22,14 +21,14 @@ import (
 //   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule.AddTarget(
-//   targets.NewEcsTask(&EcsTaskProps{
+//   rule.AddTarget(targets.NewEcsTask(&EcsTaskProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	AssignPublicIp: jsii.Boolean(true),
-//   	SubnetSelection: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PUBLIC,
-//   	},
+//   	TaskCount: jsii.Number(1),
+//
+//   	// Overrides the cpu and memory values in the task definition
+//   	Cpu: jsii.String("512"),
+//   	Memory: jsii.String("512"),
 //   }))
 //
 type EcsTaskProps struct {
@@ -70,12 +69,34 @@ type EcsTaskProps struct {
 	// Key is the name of the container to override, value is the
 	// values you want to override.
 	ContainerOverrides *[]*ContainerOverride `field:"optional" json:"containerOverrides" yaml:"containerOverrides"`
+	// The CPU override for the task.
+	// Default: - The task definition's CPU value.
+	//
+	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
 	// Whether or not to enable the execute command functionality for the containers in this task.
 	//
 	// If true, this enables execute command functionality on all containers in the task.
 	// Default: - false.
 	//
 	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
+	// The ephemeral storage setting override for the task.
+	//
+	// NOTE: This parameter is only supported for tasks hosted on Fargate that use the following platform versions:
+	//  - Linux platform version 1.4.0 or later.
+	//  - Windows platform version 1.0.0 or later.
+	// Default: - The task definition's ephemeral storage value.
+	//
+	EphemeralStorage *EphemeralStorageOverride `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
+	// The execution role for the task.
+	//
+	// The Amazon Resource Name (ARN) of the task execution role override for the task.
+	// Default: - The task definition's execution role.
+	//
+	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
+	// The Elastic Inference accelerator override for the task.
+	// Default: - The task definition's inference accelerator overrides.
+	//
+	InferenceAcceleratorOverrides *[]*InferenceAcceleratorOverride `field:"optional" json:"inferenceAcceleratorOverrides" yaml:"inferenceAcceleratorOverrides"`
 	// Specifies the launch type on which your task is running.
 	//
 	// The launch type that you specify here
@@ -83,6 +104,10 @@ type EcsTaskProps struct {
 	// Default: - 'EC2' if `isEc2Compatible` for the `taskDefinition` is true, otherwise 'FARGATE'.
 	//
 	LaunchType awsecs.LaunchType `field:"optional" json:"launchType" yaml:"launchType"`
+	// The memory override for the task.
+	// Default: - The task definition's memory value.
+	//
+	Memory *string `field:"optional" json:"memory" yaml:"memory"`
 	// The platform version on which to run your task.
 	//
 	// Unless you have specific compatibility requirements, you don't need to specify this.
@@ -123,5 +148,9 @@ type EcsTaskProps struct {
 	// Default: 1.
 	//
 	TaskCount *float64 `field:"optional" json:"taskCount" yaml:"taskCount"`
+	// The IAM role for the task.
+	// Default: - The task definition's task role.
+	//
+	TaskRole awsiam.IRole `field:"optional" json:"taskRole" yaml:"taskRole"`
 }
 

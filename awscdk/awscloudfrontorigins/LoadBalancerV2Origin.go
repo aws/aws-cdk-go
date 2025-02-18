@@ -34,7 +34,7 @@ type LoadBalancerV2Origin interface {
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
@@ -71,8 +71,8 @@ func NewLoadBalancerV2Origin_Override(l LoadBalancerV2Origin, loadBalancer awsel
 	)
 }
 
-func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
-	if err := l.validateBindParameters(_scope, options); err != nil {
+func (l *jsiiProxy_LoadBalancerV2Origin) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := l.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awscloudfront.OriginBindConfig
@@ -80,7 +80,7 @@ func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope constructs.Construct, optio
 	_jsii_.Invoke(
 		l,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

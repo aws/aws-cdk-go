@@ -4,10 +4,6 @@ package awscdkcognitoidentitypoolalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IdentityPool) validateAddRoleMappingsParameters(roleMappings *[]*IdentityPoolRoleMapping) error {
-	return nil
-}
-
 func (i *jsiiProxy_IdentityPool) validateAddUserPoolAuthenticationParameters(userPool IUserPoolAuthenticationProvider) error {
 	return nil
 }

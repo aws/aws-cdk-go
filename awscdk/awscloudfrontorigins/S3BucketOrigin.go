@@ -32,7 +32,7 @@ type S3BucketOrigin interface {
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
@@ -109,8 +109,8 @@ func S3BucketOrigin_WithOriginAccessIdentity(bucket awss3.IBucket, props *S3Buck
 	return returns
 }
 
-func (s *jsiiProxy_S3BucketOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
-	if err := s.validateBindParameters(_scope, options); err != nil {
+func (s *jsiiProxy_S3BucketOrigin) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := s.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awscloudfront.OriginBindConfig
@@ -118,7 +118,7 @@ func (s *jsiiProxy_S3BucketOrigin) Bind(_scope constructs.Construct, options *aw
 	_jsii_.Invoke(
 		s,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

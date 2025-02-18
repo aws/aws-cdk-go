@@ -12,7 +12,7 @@ import (
 //
 // Example:
 //   // Option 2: create your custom mastersRole with scoped assumeBy arn as the Cluster prop. Switch to this role from the AWS console.
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 //   var vpc vpc
 //
 //
@@ -22,8 +22,8 @@ import (
 //
 //   cluster := eks.NewCluster(this, jsii.String("EksCluster"), &ClusterProps{
 //   	Vpc: Vpc,
-//   	Version: eks.KubernetesVersion_V1_31(),
-//   	KubectlLayer: kubectlv31.NewKubectlV31Layer(this, jsii.String("KubectlLayer")),
+//   	Version: eks.KubernetesVersion_V1_32(),
+//   	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("KubectlLayer")),
 //   	MastersRole: MastersRole,
 //   })
 //

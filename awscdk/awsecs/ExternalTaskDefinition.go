@@ -98,7 +98,7 @@ type ExternalTaskDefinition interface {
 	AddExtension(extension ITaskDefinitionExtension)
 	// Adds a firelens log router to the task definition.
 	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
-	// Overriden method to throw error as interface accelerators are not supported for external tasks.
+	// Overridden method to throw error as interface accelerators are not supported for external tasks.
 	AddInferenceAccelerator(_inferenceAccelerator *InferenceAccelerator)
 	// Adds the specified placement constraint to the task definition.
 	AddPlacementConstraint(constraint PlacementConstraint)

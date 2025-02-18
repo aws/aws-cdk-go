@@ -72,9 +72,6 @@ type IdentityPool interface {
 	// Default Role for unauthenticated users.
 	// Experimental.
 	UnauthenticatedRole() awsiam.IRole
-	// Add Role Mappings to the Identity Pool.
-	// Experimental.
-	AddRoleMappings(roleMappings ...*IdentityPoolRoleMapping)
 	// Add a User Pool to the Identity Pool and configure the User Pool client to handle identities.
 	// Experimental.
 	AddUserPoolAuthentication(userPool IUserPoolAuthenticationProvider)
@@ -351,22 +348,6 @@ func IdentityPool_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
-}
-
-func (i *jsiiProxy_IdentityPool) AddRoleMappings(roleMappings ...*IdentityPoolRoleMapping) {
-	if err := i.validateAddRoleMappingsParameters(&roleMappings); err != nil {
-		panic(err)
-	}
-	args := []interface{}{}
-	for _, a := range roleMappings {
-		args = append(args, a)
-	}
-
-	_jsii_.InvokeVoid(
-		i,
-		"addRoleMappings",
-		args,
-	)
 }
 
 func (i *jsiiProxy_IdentityPool) AddUserPoolAuthentication(userPool IUserPoolAuthenticationProvider) {

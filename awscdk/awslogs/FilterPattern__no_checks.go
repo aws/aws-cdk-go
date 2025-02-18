@@ -28,6 +28,10 @@ func validateFilterPattern_NumberValueParameters(jsonField *string, comparison *
 	return nil
 }
 
+func validateFilterPattern_RegexValueParameters(jsonField *string, comparison *string, value *string) error {
+	return nil
+}
+
 func validateFilterPattern_StringValueParameters(jsonField *string, comparison *string, value *string) error {
 	return nil
 }

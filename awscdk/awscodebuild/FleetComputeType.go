@@ -52,5 +52,11 @@ const (
 	// {@link https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types docs}
 	// for more information.
 	FleetComputeType_X2_LARGE FleetComputeType = "X2_LARGE"
+	// Specify the amount of vCPUs, memory, disk space, and the type of machine.
+	//
+	// AWS CodeBuild will select the cheapest instance that satisfies your specified attributes from `computeConfiguration`.
+	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types
+	//
+	FleetComputeType_ATTRIBUTE_BASED FleetComputeType = "ATTRIBUTE_BASED"
 )
 

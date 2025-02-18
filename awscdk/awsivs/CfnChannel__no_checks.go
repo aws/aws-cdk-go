@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnChannel) validateSetInsecureIngestParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetMultitrackInputConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

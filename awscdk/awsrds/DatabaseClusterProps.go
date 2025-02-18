@@ -18,16 +18,19 @@ import (
 //   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
 //   		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
 //   	}),
+//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
+//   	 // Optional - will default to 'admin' username and generated password
 //   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer"), &ProvisionedClusterInstanceProps{
-//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_R6G, ec2.InstanceSize_XLARGE4),
+//   		PubliclyAccessible: jsii.Boolean(false),
 //   	}),
-//   	ServerlessV2MinCapacity: jsii.Number(6.5),
-//   	ServerlessV2MaxCapacity: jsii.Number(64),
 //   	Readers: []iClusterInstance{
-//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader1"), &ServerlessV2ClusterInstanceProps{
-//   			ScaleWithWriter: jsii.Boolean(true),
+//   		rds.ClusterInstance_*Provisioned(jsii.String("reader1"), &ProvisionedClusterInstanceProps{
+//   			PromotionTier: jsii.Number(1),
 //   		}),
-//   		rds.ClusterInstance_*ServerlessV2(jsii.String("reader2")),
+//   		rds.ClusterInstance_ServerlessV2(jsii.String("reader2")),
+//   	},
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
 //   	},
 //   	Vpc: Vpc,
 //   })
@@ -97,6 +100,10 @@ type DatabaseClusterProps struct {
 	// Default: - A username of 'admin' (or 'postgres' for PostgreSQL) and SecretsManager-generated password.
 	//
 	Credentials Credentials `field:"optional" json:"credentials" yaml:"credentials"`
+	// The database insights mode.
+	// Default: - DatabaseInsightsMode.STANDARD when performance insights are enabled and Amazon Aurora engine is used, otherwise not set.
+	//
+	DatabaseInsightsMode DatabaseInsightsMode `field:"optional" json:"databaseInsightsMode" yaml:"databaseInsightsMode"`
 	// Name of a database which is automatically created inside the cluster.
 	// Default: - Database is not created in cluster.
 	//
@@ -141,7 +148,8 @@ type DatabaseClusterProps struct {
 	//
 	EnableLocalWriteForwarding *bool `field:"optional" json:"enableLocalWriteForwarding" yaml:"enableLocalWriteForwarding"`
 	// Whether to enable Performance Insights for the DB cluster.
-	// Default: - false, unless `performanceInsightRetention` or `performanceInsightEncryptionKey` is set.
+	// Default: - false, unless `performanceInsightRetention` or `performanceInsightEncryptionKey` is set,
+	// or `databaseInsightsMode` is set to `DatabaseInsightsMode.ADVANCED`.
 	//
 	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
@@ -203,7 +211,9 @@ type DatabaseClusterProps struct {
 	//
 	PerformanceInsightEncryptionKey awskms.IKey `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Default: 7.
+	//
+	// If you set `databaseInsightsMode` to `DatabaseInsightsMode.ADVANCED`, you must set this property to `PerformanceInsightRetention.MONTHS_15`.
+	// Default: - 7.
 	//
 	PerformanceInsightRetention PerformanceInsightRetention `field:"optional" json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// What port to listen on.

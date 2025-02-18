@@ -1415,6 +1415,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.RemoteNodeNetwork",
+		reflect.TypeOf((*RemoteNodeNetwork)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.RemotePodNetwork",
+		reflect.TypeOf((*RemotePodNetwork)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.Selector",
 		reflect.TypeOf((*Selector)(nil)).Elem(),
 	)

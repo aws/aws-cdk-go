@@ -32,7 +32,7 @@ Here is the minimal example of defining an AWS EKS cluster
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 })
 ```
 
@@ -72,7 +72,7 @@ Creating a new cluster is done using the `Cluster` constructs. The only required
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 })
 ```
 
@@ -80,7 +80,7 @@ You can also use `FargateCluster` to provision a cluster that uses only fargate 
 
 ```go
 eks.NewFargateCluster(this, jsii.String("HelloEKS"), &FargateClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 })
 ```
 
@@ -89,13 +89,13 @@ be created by default. It will only be deployed when `kubectlProviderOptions`
 property is used.**
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 
 
 eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv31.NewKubectlV31Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -103,7 +103,7 @@ eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 ### Managed node groups
 
 Amazon EKS managed node groups automate the provisioning and lifecycle management of nodes (Amazon EC2 instances) for Amazon EKS Kubernetes clusters.
-With Amazon EKS managed node groups, you don’t need to separately provision or register the Amazon EC2 instances that provide compute capacity to run your Kubernetes applications. You can create, update, or terminate nodes for your cluster with a single operation. Nodes run using the latest Amazon EKS optimized AMIs in your AWS account while node updates and terminations gracefully drain nodes to ensure that your applications stay available.
+With Amazon EKS managed node groups, you don't need to separately provision or register the Amazon EC2 instances that provide compute capacity to run your Kubernetes applications. You can create, update, or terminate nodes for your cluster with a single operation. Nodes run using the latest Amazon EKS optimized AMIs in your AWS account while node updates and terminations gracefully drain nodes to ensure that your applications stay available.
 
 > For more details visit [Amazon EKS Managed Node Groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
 
@@ -115,7 +115,7 @@ At cluster instantiation time, you can customize the number of instances and the
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	DefaultCapacity: jsii.Number(5),
 	DefaultCapacityInstance: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_SMALL),
 })
@@ -127,7 +127,7 @@ Additional customizations are available post instantiation. To apply them, set t
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	DefaultCapacity: jsii.Number(0),
 })
 
@@ -189,7 +189,7 @@ The following code defines an Amazon EKS cluster with a default Fargate Profile 
 
 ```go
 cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 })
 ```
 
@@ -208,7 +208,7 @@ You can configure the [cluster endpoint access](https://docs.aws.amazon.com/eks/
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 })
 ```
@@ -230,7 +230,7 @@ To deploy the controller on your EKS cluster, configure the `albController` prop
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	AlbController: &AlbControllerOptions{
 		Version: eks.AlbControllerVersion_V2_8_2(),
 	},
@@ -274,7 +274,7 @@ var vpc vpc
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	Vpc: Vpc,
 	VpcSubnets: []subnetSelection{
 		&subnetSelection{
@@ -324,13 +324,13 @@ To create a `Kubectl Handler`, use `kubectlProviderOptions` when creating the cl
 `kubectlLayer` is the only required property in `kubectlProviderOptions`.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 
 
 eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv31.NewKubectlV31Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -340,7 +340,7 @@ eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 If you want to use an existing kubectl provider function, for example with tight trusted entities on your IAM Roles - you can import the existing provider and then use the imported provider when importing the cluster:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 
 
 handlerRole := iam.Role_FromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))
@@ -362,13 +362,13 @@ cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("Cluster"), &Clus
 You can configure the environment of this function by specifying it at cluster instantiation. For example, this can be useful in order to configure an http proxy:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv31.NewKubectlV31Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 		Environment: map[string]*string{
 			"http_proxy": jsii.String("http://proxy.myproxy.com"),
 		},
@@ -389,13 +389,13 @@ Depending on which version of kubernetes you're targeting, you will need to use 
 the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv31.NewKubectlV31Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -405,15 +405,15 @@ cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 By default, the kubectl provider is configured with 1024MiB of memory. You can use the `memory` option to specify the memory size for the AWS Lambda function:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 
 
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv31.NewKubectlV31Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 		Memory: awscdk.Size_Gibibytes(jsii.Number(4)),
 	},
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 })
 ```
 
@@ -448,7 +448,7 @@ When you create a cluster, you can specify a `mastersRole`. The `Cluster` constr
 var role role
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	MastersRole: role,
 })
 ```
@@ -469,7 +469,7 @@ You can use the `secretsEncryptionKey` to configure which key the cluster will u
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
 cluster := eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	SecretsEncryptionKey: secretsKey,
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 })
 ```
 
@@ -479,7 +479,7 @@ You can also use a similar configuration for running a cluster built using the F
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
 cluster := eks.NewFargateCluster(this, jsii.String("MyFargateCluster"), &FargateClusterProps{
 	SecretsEncryptionKey: secretsKey,
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 })
 ```
 
@@ -525,7 +525,7 @@ eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &Acce
 Use `grantAccess()` to grant the AccessPolicy to an IAM principal:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 var vpc vpc
 
 
@@ -540,9 +540,9 @@ eksAdminRole := iam.NewRole(this, jsii.String("EKSAdminRole"), &RoleProps{
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	Vpc: Vpc,
 	MastersRole: clusterAdminRole,
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv31.NewKubectlV31Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 		Memory: awscdk.Size_Gibibytes(jsii.Number(4)),
 	},
 })
@@ -757,7 +757,7 @@ when a cluster is defined:
 
 ```go
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	Prune: jsii.Boolean(false),
 })
 ```
@@ -1107,7 +1107,7 @@ property. For example:
 ```go
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	// ...
-	Version: eks.KubernetesVersion_V1_31(),
+	Version: eks.KubernetesVersion_V1_32(),
 	ClusterLogging: []clusterLoggingTypes{
 		eks.*clusterLoggingTypes_API,
 		eks.*clusterLoggingTypes_AUTHENTICATOR,

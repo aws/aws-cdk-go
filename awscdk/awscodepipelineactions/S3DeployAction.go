@@ -12,32 +12,30 @@ import (
 // Deploys the sourceArtifact to Amazon S3.
 //
 // Example:
-//   var sourceAction s3SourceAction
-//   var sourceOutput artifact
-//   var deployBucket bucket
+//   var sourceArtifact artifact
+//   var outputArtifact artifact
 //
 //
-//   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
-//   	Stages: []stageProps{
-//   		&stageProps{
-//   			StageName: jsii.String("Source"),
-//   			Actions: []iAction{
-//   				sourceAction,
-//   			},
-//   		},
-//   		&stageProps{
-//   			StageName: jsii.String("Deploy"),
-//   			Actions: []*iAction{
-//   				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
-//   					ActionName: jsii.String("DeployAction"),
-//   					// can reference the variables
-//   					ObjectKey: fmt.Sprintf("%v.txt", sourceAction.variables.VersionId),
-//   					Input: sourceOutput,
-//   					Bucket: deployBucket,
-//   				}),
-//   			},
-//   		},
+//   commandsAction := codepipeline_actions.NewCommandsAction(&CommandsActionProps{
+//   	ActionName: jsii.String("Commands"),
+//   	Commands: []*string{
+//   		jsii.String("export MY_OUTPUT=my-key"),
 //   	},
+//   	Input: sourceArtifact,
+//   	Output: outputArtifact,
+//   	OutputVariables: []*string{
+//   		jsii.String("MY_OUTPUT"),
+//   		jsii.String("CODEBUILD_BUILD_ID"),
+//   	},
+//   })
+//
+//   // Deploy action
+//   deployAction := codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+//   	ActionName: jsii.String("DeployAction"),
+//   	Extract: jsii.Boolean(true),
+//   	Input: outputArtifact,
+//   	Bucket: s3.NewBucket(this, jsii.String("DeployBucket")),
+//   	ObjectKey: commandsAction.Variable(jsii.String("MY_OUTPUT")),
 //   })
 //
 type S3DeployAction interface {

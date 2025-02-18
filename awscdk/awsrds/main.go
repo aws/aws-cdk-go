@@ -1318,6 +1318,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clusterReadEndpoint", GoGetter: "ClusterReadEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterResourceIdentifier", GoGetter: "ClusterResourceIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseInsightsMode", GoGetter: "DatabaseInsightsMode"},
 			_jsii_.MemberProperty{JsiiProperty: "enableDataApi", GoGetter: "EnableDataApi"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1450,6 +1451,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clusterReadEndpoint", GoGetter: "ClusterReadEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterResourceIdentifier", GoGetter: "ClusterResourceIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseInsightsMode", GoGetter: "DatabaseInsightsMode"},
 			_jsii_.MemberProperty{JsiiProperty: "enableDataApi", GoGetter: "EnableDataApi"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1510,6 +1512,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.DatabaseClusterProps",
 		reflect.TypeOf((*DatabaseClusterProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_rds.DatabaseInsightsMode",
+		reflect.TypeOf((*DatabaseInsightsMode)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": DatabaseInsightsMode_STANDARD,
+			"ADVANCED": DatabaseInsightsMode_ADVANCED,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_rds.DatabaseInstance",

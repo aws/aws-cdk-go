@@ -6,23 +6,30 @@ import (
 )
 
 // Example:
-//   var sourceAction s3SourceAction
-//   var sourceOutput artifact
-//   var deployBucket bucket
-//
-//
-//   // Pipeline-level variable
-//   variable := codepipeline.NewVariable(&VariableProps{
-//   	VariableName: jsii.String("bucket-var"),
-//   	Description: jsii.String("description"),
-//   	DefaultValue: jsii.String("sample"),
+//   // Source action
+//   bucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
+//   	Versioned: jsii.Boolean(true),
+//   })
+//   sourceArtifact := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+//   sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
+//   	ActionName: jsii.String("Source"),
+//   	Output: sourceArtifact,
+//   	Bucket: Bucket,
+//   	BucketKey: jsii.String("my.zip"),
 //   })
 //
-//   codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
-//   	PipelineType: codepipeline.PipelineType_V2,
-//   	Variables: []variable{
-//   		variable,
+//   // Commands action
+//   outputArtifact := codepipeline.NewArtifact(jsii.String("OutputArtifact"))
+//   commandsAction := codepipeline_actions.NewCommandsAction(&CommandsActionProps{
+//   	ActionName: jsii.String("Commands"),
+//   	Commands: []*string{
+//   		jsii.String("echo \"some commands\""),
 //   	},
+//   	Input: sourceArtifact,
+//   	Output: outputArtifact,
+//   })
+//
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
 //   	Stages: []stageProps{
 //   		&stageProps{
 //   			StageName: jsii.String("Source"),
@@ -31,15 +38,9 @@ import (
 //   			},
 //   		},
 //   		&stageProps{
-//   			StageName: jsii.String("Deploy"),
+//   			StageName: jsii.String("Commands"),
 //   			Actions: []*iAction{
-//   				codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
-//   					ActionName: jsii.String("DeployAction"),
-//   					// can reference the variables
-//   					ObjectKey: fmt.Sprintf("%v.txt", variable.Reference()),
-//   					Input: sourceOutput,
-//   					Bucket: deployBucket,
-//   				}),
+//   				commandsAction,
 //   			},
 //   		},
 //   	},

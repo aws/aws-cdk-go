@@ -4,7 +4,7 @@ package awscloudfrontorigins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_S3StaticWebsiteOrigin) validateBindParameters(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) error {
+func (s *jsiiProxy_S3StaticWebsiteOrigin) validateBindParameters(scope constructs.Construct, options *awscloudfront.OriginBindOptions) error {
 	return nil
 }
 

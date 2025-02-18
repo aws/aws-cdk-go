@@ -48,6 +48,8 @@ type DatabaseClusterFromSnapshot interface {
 	ClusterResourceIdentifier() *string
 	// Access to the network connections.
 	Connections() awsec2.Connections
+	// The database insights mode.
+	DatabaseInsightsMode() DatabaseInsightsMode
 	EnableDataApi() *bool
 	SetEnableDataApi(val *bool)
 	// The engine for this Cluster.
@@ -286,6 +288,16 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) Connections() awsec2.Connections
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) DatabaseInsightsMode() DatabaseInsightsMode {
+	var returns DatabaseInsightsMode
+	_jsii_.Get(
+		j,
+		"databaseInsightsMode",
 		&returns,
 	)
 	return returns

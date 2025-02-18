@@ -100,6 +100,10 @@ type DatabaseClusterFromSnapshotProps struct {
 	//
 	// Deprecated: use `snapshotCredentials` which allows to generate a new password.
 	Credentials Credentials `field:"optional" json:"credentials" yaml:"credentials"`
+	// The database insights mode.
+	// Default: - DatabaseInsightsMode.STANDARD when performance insights are enabled and Amazon Aurora engine is used, otherwise not set.
+	//
+	DatabaseInsightsMode DatabaseInsightsMode `field:"optional" json:"databaseInsightsMode" yaml:"databaseInsightsMode"`
 	// Name of a database which is automatically created inside the cluster.
 	// Default: - Database is not created in cluster.
 	//
@@ -144,7 +148,8 @@ type DatabaseClusterFromSnapshotProps struct {
 	//
 	EnableLocalWriteForwarding *bool `field:"optional" json:"enableLocalWriteForwarding" yaml:"enableLocalWriteForwarding"`
 	// Whether to enable Performance Insights for the DB cluster.
-	// Default: - false, unless `performanceInsightRetention` or `performanceInsightEncryptionKey` is set.
+	// Default: - false, unless `performanceInsightRetention` or `performanceInsightEncryptionKey` is set,
+	// or `databaseInsightsMode` is set to `DatabaseInsightsMode.ADVANCED`.
 	//
 	EnablePerformanceInsights *bool `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
@@ -206,7 +211,9 @@ type DatabaseClusterFromSnapshotProps struct {
 	//
 	PerformanceInsightEncryptionKey awskms.IKey `field:"optional" json:"performanceInsightEncryptionKey" yaml:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Default: 7.
+	//
+	// If you set `databaseInsightsMode` to `DatabaseInsightsMode.ADVANCED`, you must set this property to `PerformanceInsightRetention.MONTHS_15`.
+	// Default: - 7.
 	//
 	PerformanceInsightRetention PerformanceInsightRetention `field:"optional" json:"performanceInsightRetention" yaml:"performanceInsightRetention"`
 	// What port to listen on.

@@ -306,6 +306,35 @@ func FilterPattern_NumberValue(jsonField *string, comparison *string, value *flo
 	return returns
 }
 
+// A JSON log pattern that compares against a Regex values.
+//
+// This pattern only matches if the event is a JSON event, and the indicated field inside
+// compares with the regex value.
+//
+// Use '$' to indicate the root of the JSON structure. The comparison operator can only
+// compare equality or inequality.
+//
+// For more information, see:
+//
+// https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html
+func FilterPattern_RegexValue(jsonField *string, comparison *string, value *string) JsonPattern {
+	_init_.Initialize()
+
+	if err := validateFilterPattern_RegexValueParameters(jsonField, comparison, value); err != nil {
+		panic(err)
+	}
+	var returns JsonPattern
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.FilterPattern",
+		"regexValue",
+		[]interface{}{jsonField, comparison, value},
+		&returns,
+	)
+
+	return returns
+}
+
 // A space delimited log pattern matcher.
 //
 // The log event is divided into space-delimited columns (optionally

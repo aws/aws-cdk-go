@@ -98,9 +98,9 @@ type ExternalService interface {
 	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	// Overriden method to throw error as `associateCloudMapService` is not supported for external service.
+	// Overridden method to throw error as `associateCloudMapService` is not supported for external service.
 	AssociateCloudMapService(_options *AssociateCloudMapServiceOptions)
-	// Overriden method to throw error as `attachToApplicationTargetGroup` is not supported for external service.
+	// Overridden method to throw error as `attachToApplicationTargetGroup` is not supported for external service.
 	AttachToApplicationTargetGroup(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	// Registers the service as a target of a Classic Load Balancer (CLB).
 	//
@@ -111,11 +111,11 @@ type ExternalService interface {
 	// Don't call this function directly. Instead, call `listener.addTargets()`
 	// to add this service to a load balancer.
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
-	// Overriden method to throw error as `autoScaleTaskCount` is not supported for external service.
+	// Overridden method to throw error as `autoScaleTaskCount` is not supported for external service.
 	AutoScaleTaskCount(_props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
-	// Overriden method to throw error as `configureAwsVpcNetworkingWithSecurityGroups` is not supported for external service.
+	// Overridden method to throw error as `configureAwsVpcNetworkingWithSecurityGroups` is not supported for external service.
 	ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup)
-	// Overriden method to throw error as `enableCloudMap` is not supported for external service.
+	// Overridden method to throw error as `enableCloudMap` is not supported for external service.
 	EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service
 	// Enable Deployment Alarms which take advantage of arbitrary alarms and configure them after service initialization.
 	//
@@ -148,7 +148,7 @@ type ExternalService interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Overriden method to throw error as `loadBalancerTarget` is not supported for external service.
+	// Overridden method to throw error as `loadBalancerTarget` is not supported for external service.
 	LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
 	// This method returns the specified CloudWatch metric name for this service.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -160,7 +160,7 @@ type ExternalService interface {
 	// Default: average over 5 minutes.
 	//
 	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Overriden method to throw error as `registerLoadBalancerTargets` is not supported for external service.
+	// Overridden method to throw error as `registerLoadBalancerTargets` is not supported for external service.
 	RegisterLoadBalancerTargets(_targets ...*EcsTarget)
 	// Returns a string representation of this construct.
 	ToString() *string

@@ -49,7 +49,9 @@ type EventApi interface {
 	ApiArn() *string
 	// an unique AWS AppSync Event API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	ApiId() *string
-	// the configured API keys, if present.
+	// The configured API keys, if present.
+	//
+	// The key of this object is an apiKey name (apiKeyConfig.name) if specified, `Default` otherwise.
 	// Default: - no api key.
 	//
 	ApiKeys() *map[string]CfnApiKey

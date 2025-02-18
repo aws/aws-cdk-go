@@ -8,11 +8,16 @@ import (
 // Kubernetes cluster version.
 //
 // Example:
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
+//
 //   // or
 //   var vpc vpc
+//
+//
 //   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 //   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-//   	Version: eks.KubernetesVersion_V1_31(),
+//   	Version: eks.KubernetesVersion_V1_32(),
+//   	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 //   })
 //   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
 //   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
@@ -255,6 +260,17 @@ func KubernetesVersion_V1_31() KubernetesVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_eks.KubernetesVersion",
 		"V1_31",
+		&returns,
+	)
+	return returns
+}
+
+func KubernetesVersion_V1_32() KubernetesVersion {
+	_init_.Initialize()
+	var returns KubernetesVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"V1_32",
 		&returns,
 	)
 	return returns

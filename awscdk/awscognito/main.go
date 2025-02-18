@@ -29,6 +29,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.AllowedFirstAuthFactors",
+		reflect.TypeOf((*AllowedFirstAuthFactors)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.AnalyticsConfiguration",
+		reflect.TypeOf((*AnalyticsConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.AttributeMapping",
 		reflect.TypeOf((*AttributeMapping)(nil)).Elem(),
 	)
@@ -1320,6 +1328,14 @@ func init() {
 		"aws-cdk-lib.aws_cognito.OidcEndpoints",
 		reflect.TypeOf((*OidcEndpoints)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cognito.PasskeyUserVerification",
+		reflect.TypeOf((*PasskeyUserVerification)(nil)).Elem(),
+		map[string]interface{}{
+			"PREFERRED": PasskeyUserVerification_PREFERRED,
+			"REQUIRED": PasskeyUserVerification_REQUIRED,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.PasswordPolicy",
 		reflect.TypeOf((*PasswordPolicy)(nil)).Elem(),
@@ -1352,6 +1368,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.SignInAliases",
 		reflect.TypeOf((*SignInAliases)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.SignInPolicy",
+		reflect.TypeOf((*SignInPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.SignInUrlOptions",

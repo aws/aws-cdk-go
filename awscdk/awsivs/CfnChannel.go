@@ -22,8 +22,14 @@ import (
 //
 //   cfnChannel := awscdk.Aws_ivs.NewCfnChannel(this, jsii.String("MyCfnChannel"), &CfnChannelProps{
 //   	Authorized: jsii.Boolean(false),
+//   	ContainerFormat: jsii.String("containerFormat"),
 //   	InsecureIngest: jsii.Boolean(false),
 //   	LatencyMode: jsii.String("latencyMode"),
+//   	MultitrackInputConfiguration: &MultitrackInputConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		MaximumResolution: jsii.String("maximumResolution"),
+//   		Policy: jsii.String("policy"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Preset: jsii.String("preset"),
 //   	RecordingConfigurationArn: jsii.String("recordingConfigurationArn"),
@@ -42,17 +48,11 @@ type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	awscdk.ITaggable
-	// The channel ARN.
-	//
-	// For example: `arn:aws:ivs:us-west-2:123456789012:channel/abcdABCDefgh`.
+	// Channel ARN is automatically generated on creation and assigned as the unique identifier.
 	AttrArn() *string
 	// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
-	//
-	// For example: `a1b2c3d4e5f6.global-contribute.live-video.net`
 	AttrIngestEndpoint() *string
-	// Channel playback URL.
-	//
-	// For example: `https://a1b2c3d4e5f6.us-west-2.playback.live-video.net/api/video/v1/us-west-2.123456789012.channel.abcdEFGH.m3u8`
+	// Channel Playback URL.
 	AttrPlaybackUrl() *string
 	// Whether the channel is authorized.
 	Authorized() interface{}
@@ -62,16 +62,17 @@ type CfnChannel interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Indicates which content-packaging format is used (MPEG-TS or fMP4).
+	ContainerFormat() *string
+	SetContainerFormat(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Whether the channel allows insecure RTMP ingest.
+	// Whether the channel allows insecure ingest.
 	InsecureIngest() interface{}
 	SetInsecureIngest(val interface{})
 	// Channel latency mode.
-	//
-	// Valid values:.
 	LatencyMode() *string
 	SetLatencyMode(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -84,15 +85,17 @@ type CfnChannel interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Channel name.
+	MultitrackInputConfiguration() interface{}
+	SetMultitrackInputConfiguration(val interface{})
+	// Channel.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// An optional transcode preset for the channel.
+	// Optional transcode preset for the channel.
 	Preset() *string
 	SetPreset(val *string)
-	// The ARN of a RecordingConfiguration resource.
+	// Recording Configuration ARN.
 	RecordingConfigurationArn() *string
 	SetRecordingConfigurationArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -106,10 +109,10 @@ type CfnChannel interface {
 	Stack() awscdk.Stack
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
-	// An array of key-value pairs to apply to this resource.
+	// A list of key-value pairs that contain metadata for the asset model.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The channel type, which determines the allowable resolution and bitrate.
+	// Channel type, which determines the allowable resolution and bitrate.
 	Type() *string
 	SetType(val *string)
 	// Deprecated.
@@ -329,6 +332,16 @@ func (j *jsiiProxy_CfnChannel) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) ContainerFormat() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"containerFormat",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -364,6 +377,16 @@ func (j *jsiiProxy_CfnChannel) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) MultitrackInputConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"multitrackInputConfiguration",
 		&returns,
 	)
 	return returns
@@ -518,6 +541,14 @@ func (j *jsiiProxy_CfnChannel)SetAuthorized(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnChannel)SetContainerFormat(val *string) {
+	_jsii_.Set(
+		j,
+		"containerFormat",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnChannel)SetInsecureIngest(val interface{}) {
 	if err := j.validateSetInsecureIngestParameters(val); err != nil {
 		panic(err)
@@ -533,6 +564,17 @@ func (j *jsiiProxy_CfnChannel)SetLatencyMode(val *string) {
 	_jsii_.Set(
 		j,
 		"latencyMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetMultitrackInputConfiguration(val interface{}) {
+	if err := j.validateSetMultitrackInputConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"multitrackInputConfiguration",
 		val,
 	)
 }

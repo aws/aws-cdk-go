@@ -7,16 +7,29 @@ import (
 // Properties for the UserPoolClient construct.
 //
 // Example:
-//   var importedPool userPool
+//   import pinpoint "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var userPool userPool
+//   var pinpointApp cfnApp
+//   var pinpointRole role
 //
 //
-//   userPoolClient := cognito.NewUserPoolClient(this, jsii.String("UserPoolClient"), &UserPoolClientProps{
-//   	UserPool: importedPool,
-//   	GenerateSecret: jsii.Boolean(true),
+//   cognito.NewUserPoolClient(this, jsii.String("Client"), &UserPoolClientProps{
+//   	UserPool: UserPool,
+//   	Analytics: &AnalyticsConfiguration{
+//   		// Your Pinpoint project ID
+//   		ApplicationId: pinpointApp.ref,
+//
+//   		// External ID for the IAM role
+//   		ExternalId: jsii.String("sample-external-id"),
+//
+//   		// IAM role that Cognito can assume to publish to Pinpoint
+//   		Role: pinpointRole,
+//
+//   		// Whether to include user data in analytics events
+//   		ShareUserData: jsii.Boolean(true),
+//   	},
 //   })
-//
-//   // Allows you to pass the generated secret to other pieces of infrastructure
-//   secret := userPoolClient.userPoolClientSecret
 //
 type UserPoolClientProps struct {
 	// Validity of the access token.
@@ -27,6 +40,10 @@ type UserPoolClientProps struct {
 	// Default: Duration.minutes(60)
 	//
 	AccessTokenValidity awscdk.Duration `field:"optional" json:"accessTokenValidity" yaml:"accessTokenValidity"`
+	// The analytics configuration for this client.
+	// Default: - no analytics configuration.
+	//
+	Analytics *AnalyticsConfiguration `field:"optional" json:"analytics" yaml:"analytics"`
 	// The set of OAuth authentication flows to enable on the client.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html
 	//

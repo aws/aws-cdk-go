@@ -16,6 +16,7 @@ import (
 // For more information, see [VPC CIDR blocks](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html) in the *Amazon VPC User Guide* .
 //
 // Example:
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 //   var vpc vpc
 //
 //
@@ -42,7 +43,7 @@ import (
 //   }
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_31(),
+//   	Version: eks.KubernetesVersion_V1_32(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
 //   	VpcSubnets: []subnetSelection{
@@ -50,6 +51,7 @@ import (
 //   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},
+//   	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html

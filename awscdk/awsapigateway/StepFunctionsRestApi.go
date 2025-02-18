@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -58,6 +60,8 @@ type StepFunctionsRestApi interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	ResourcePolicy() awsiam.PolicyDocument
+	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The ID of this API Gateway RestApi.
 	RestApiId() *string
 	// A human friendly name for this Rest API.
@@ -84,6 +88,12 @@ type StepFunctionsRestApi interface {
 	AddModel(id *string, props *ModelOptions) Model
 	// Adds a new request validator.
 	AddRequestValidator(id *string, props *RequestValidatorOptions) RequestValidator
+	// Adds a statement to the resource policy associated with this rest api.
+	//
+	// A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+	//
+	// Note that this does not work with imported rest api.
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Adds a usage plan.
 	AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan
 	// Apply the given removal policy to this resource.
@@ -112,6 +122,10 @@ type StepFunctionsRestApi interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Add a resource policy that only allows API execution from a VPC Endpoint to create a private API.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-examples.html#apigateway-resource-policies-source-vpc-example
+	//
+	GrantInvokeFromVpcEndpointsOnly(vpcEndpoints *[]awsec2.IVpcEndpoint)
 	// Returns the given named metric for this API.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of requests served from the API cache in a given period.
@@ -237,6 +251,16 @@ func (j *jsiiProxy_StepFunctionsRestApi) PhysicalName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_StepFunctionsRestApi) ResourcePolicy() awsiam.PolicyDocument {
+	var returns awsiam.PolicyDocument
+	_jsii_.Get(
+		j,
+		"resourcePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_StepFunctionsRestApi) RestApiId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -340,6 +364,14 @@ func (j *jsiiProxy_StepFunctionsRestApi)SetDeploymentStage(val Stage) {
 	_jsii_.Set(
 		j,
 		"deploymentStage",
+		val,
+	)
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi)SetResourcePolicy(val awsiam.PolicyDocument) {
+	_jsii_.Set(
+		j,
+		"resourcePolicy",
 		val,
 	)
 }
@@ -554,6 +586,22 @@ func (s *jsiiProxy_StepFunctionsRestApi) AddRequestValidator(id *string, props *
 	return returns
 }
 
+func (s *jsiiProxy_StepFunctionsRestApi) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := s.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		s,
+		"addToResourcePolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_StepFunctionsRestApi) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
 	if err := s.validateAddUsagePlanParameters(id, props); err != nil {
 		panic(err)
@@ -637,6 +685,17 @@ func (s *jsiiProxy_StepFunctionsRestApi) GetResourceNameAttribute(nameAttr *stri
 	)
 
 	return returns
+}
+
+func (s *jsiiProxy_StepFunctionsRestApi) GrantInvokeFromVpcEndpointsOnly(vpcEndpoints *[]awsec2.IVpcEndpoint) {
+	if err := s.validateGrantInvokeFromVpcEndpointsOnlyParameters(vpcEndpoints); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"grantInvokeFromVpcEndpointsOnly",
+		[]interface{}{vpcEndpoints},
+	)
 }
 
 func (s *jsiiProxy_StepFunctionsRestApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {

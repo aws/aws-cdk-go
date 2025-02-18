@@ -4,9 +4,9 @@ package awscdkivsalpha
 // Properties for creating a new Channel.
 //
 // Example:
-//   myRtmpChannel := ivs.NewChannel(this, jsii.String("myRtmpChannel"), &ChannelProps{
-//   	Type: ivs.ChannelType_STANDARD,
-//   	InsecureIngest: jsii.Boolean(true),
+//   myChannel := ivs.NewChannel(this, jsii.String("myChannel"), &ChannelProps{
+//   	Type: ivs.ChannelType_ADVANCED_HD,
+//   	Preset: ivs.Preset_CONSTRAINED_BANDWIDTH_DELIVERY,
 //   })
 //
 // Experimental.
@@ -25,6 +25,14 @@ type ChannelProps struct {
 	//
 	// Experimental.
 	ChannelName *string `field:"optional" json:"channelName" yaml:"channelName"`
+	// Indicates which content-packaging format is used (MPEG-TS or fMP4).
+	//
+	// If `multitrackInputConfiguration` is specified, only fMP4 can be used.
+	// Otherwise, `containerFormat` may be set to `ContainerFormat.TS` or `ContainerFormat.FRAGMENTED_MP4`.
+	// Default: - `ContainerFormat.FRAGMENTED_MP4` is automatically set when the `multitrackInputConfiguration` is specified. If not specified, it remains undefined and uses the IVS default setting (TS).
+	//
+	// Experimental.
+	ContainerFormat ContainerFormat `field:"optional" json:"containerFormat" yaml:"containerFormat"`
 	// Whether the channel allows insecure RTMP ingest.
 	// Default: false.
 	//
@@ -35,6 +43,15 @@ type ChannelProps struct {
 	//
 	// Experimental.
 	LatencyMode LatencyMode `field:"optional" json:"latencyMode" yaml:"latencyMode"`
+	// Object specifying multitrack input configuration. You must specify `multitrackInputConfiguration` if you want to use MultiTrack Video.
+	//
+	// `multitrackInputConfiguration` is only supported for `ChannelType.STANDARD`.
+	// See: https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/multitrack-video.html
+	//
+	// Default: undefined - IVS default setting is not use MultiTrack Video.
+	//
+	// Experimental.
+	MultitrackInputConfiguration *MultitrackInputConfiguration `field:"optional" json:"multitrackInputConfiguration" yaml:"multitrackInputConfiguration"`
 	// An optional transcode preset for the channel.
 	//
 	// Can be used for ADVANCED_HD and ADVANCED_SD channel types.

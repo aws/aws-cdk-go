@@ -66,6 +66,26 @@ myRtmpChannel := ivs.NewChannel(this, jsii.String("myRtmpChannel"), &ChannelProp
 })
 ```
 
+### Multitrack Video
+
+Multitrack video is a new, low-latency streaming paradigm supported by Amazon Interactive Video Service (IVS) and services that use Amazon IVS.
+
+You can use Multitrack Video by setting the `multitrackInputConfiguration` property.
+Multitrack Video requires both a STANDARD Channel and Fragmented Mp4.
+
+For more information, see [Amazon IVS Multitrack Video](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/multitrack-video.html).
+
+```go
+ivs.NewChannel(this, jsii.String("ChannelWithMultitrackVideo"), &ChannelProps{
+	Type: ivs.ChannelType_STANDARD,
+	ContainerFormat: ivs.ContainerFormat_FRAGMENTED_MP4,
+	MultitrackInputConfiguration: &MultitrackInputConfiguration{
+		MaximumResolution: ivs.MaximumResolution_HD,
+		Policy: ivs.Policy_ALLOW,
+	},
+})
+```
+
 ### Importing an existing channel
 
 You can reference an existing channel, for example, if you need to create a

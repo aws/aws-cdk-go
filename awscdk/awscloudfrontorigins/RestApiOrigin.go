@@ -26,7 +26,7 @@ type RestApiOrigin interface {
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
@@ -63,8 +63,8 @@ func NewRestApiOrigin_Override(r RestApiOrigin, restApi awsapigateway.RestApiBas
 	)
 }
 
-func (r *jsiiProxy_RestApiOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
-	if err := r.validateBindParameters(_scope, options); err != nil {
+func (r *jsiiProxy_RestApiOrigin) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+	if err := r.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *awscloudfront.OriginBindConfig
@@ -72,7 +72,7 @@ func (r *jsiiProxy_RestApiOrigin) Bind(_scope constructs.Construct, options *aws
 	_jsii_.Invoke(
 		r,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

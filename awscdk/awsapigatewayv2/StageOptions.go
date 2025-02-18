@@ -15,6 +15,7 @@ package awsapigatewayv2
 //   stageOptions := &StageOptions{
 //   	AutoDeploy: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
+//   	DetailedMetricsEnabled: jsii.Boolean(false),
 //   	DomainMapping: &DomainMappingOptions{
 //   		DomainName: domainName,
 //
@@ -36,6 +37,10 @@ type StageOptions struct {
 	// Default: - no description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Specifies whether detailed metrics are enabled.
+	// Default: false.
+	//
+	DetailedMetricsEnabled *bool `field:"optional" json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// The options for custom domain and api mapping.
 	// Default: - no custom domain and api mapping configuration.
 	//

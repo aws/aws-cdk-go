@@ -9,27 +9,28 @@ import (
 // Construction properties of the `S3SourceAction S3 source Action`.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var sourceBucket bucket
 //
-//   sourceOutput := codepipeline.NewArtifact()
+//   // later:
+//   var project pipelineProject
 //   key := "some/key.zip"
-//   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
-//   trail.AddS3EventSelector([]s3EventSelector{
-//   	&s3EventSelector{
-//   		Bucket: sourceBucket,
-//   		ObjectPrefix: key,
-//   	},
-//   }, &AddEventSelectorOptions{
-//   	ReadWriteType: cloudtrail.ReadWriteType_WRITE_ONLY,
-//   })
+//   sourceOutput := codepipeline.NewArtifact()
 //   sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
 //   	ActionName: jsii.String("S3Source"),
 //   	BucketKey: key,
 //   	Bucket: sourceBucket,
 //   	Output: sourceOutput,
-//   	Trigger: codepipeline_actions.S3Trigger_EVENTS,
+//   	VariablesNamespace: jsii.String("MyNamespace"),
+//   })
+//   codepipeline_actions.NewCodeBuildAction(&CodeBuildActionProps{
+//   	ActionName: jsii.String("CodeBuild"),
+//   	Project: Project,
+//   	Input: sourceOutput,
+//   	EnvironmentVariables: map[string]buildEnvironmentVariable{
+//   		"VERSION_ID": &buildEnvironmentVariable{
+//   			"value": sourceAction.variables.versionId,
+//   		},
+//   	},
 //   })
 //
 type S3SourceActionProps struct {

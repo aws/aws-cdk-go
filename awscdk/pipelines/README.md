@@ -1368,9 +1368,9 @@ var sharedXRegionUsWest2BucketArn string
 var sharedXRegionUsWest2KeyArn string
 
 
-usWest1Bucket := s3.Bucket_FromBucketAttributes(*scope, jsii.String("UsEast1Bucket"), &BucketAttributes{
+usWest1Bucket := s3.Bucket_FromBucketAttributes(*scope, jsii.String("UsWest1Bucket"), &BucketAttributes{
 	BucketArn: sharedXRegionUsWest1BucketArn,
-	EncryptionKey: kms.Key_FromKeyArn(scope, jsii.String("UsEast1BucketKeyArn"), sharedXRegionUsWest1BucketArn),
+	EncryptionKey: kms.Key_FromKeyArn(scope, jsii.String("UsWest1BucketKeyArn"), sharedXRegionUsWest1BucketArn),
 })
 
 usWest2Bucket := s3.Bucket_FromBucketAttributes(*scope, jsii.String("UsWest2Bucket"), &BucketAttributes{

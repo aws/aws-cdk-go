@@ -10,14 +10,14 @@ import (
 //
 // Example:
 //   cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
-//   	// ...
-//   	SelfSignUpEnabled: jsii.Boolean(true),
-//   	UserVerification: &UserVerificationConfig{
-//   		EmailSubject: jsii.String("Verify your email for our awesome app!"),
-//   		EmailBody: jsii.String("Thanks for signing up to our awesome app! Your verification code is {####}"),
-//   		EmailStyle: cognito.VerificationEmailStyle_CODE,
-//   		SmsMessage: jsii.String("Thanks for signing up to our awesome app! Your verification code is {####}"),
+//   	SignInPolicy: &SignInPolicy{
+//   		AllowedFirstAuthFactors: &AllowedFirstAuthFactors{
+//   			Password: jsii.Boolean(true),
+//   			Passkey: jsii.Boolean(true),
+//   		},
 //   	},
+//   	PasskeyRelyingPartyId: jsii.String("auth.example.com"),
+//   	PasskeyUserVerification: cognito.PasskeyUserVerification_REQUIRED,
 //   })
 //
 type UserPoolProps struct {
@@ -102,6 +102,22 @@ type UserPoolProps struct {
 	// { sms: false, otp: false, email:false }, otherwise.
 	//
 	MfaSecondFactor *MfaSecondFactor `field:"optional" json:"mfaSecondFactor" yaml:"mfaSecondFactor"`
+	// The authentication domain that passkey providers must use as a relying party (RP) in their configuration.
+	//
+	// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
+	// - The user pool is configured for passkey authentication.
+	// - The user pool has a custom domain, whether or not it also has a prefix domain.
+	// - Your application performs authentication with managed login or the classic hosted UI.
+	// Default: - No authentication domain.
+	//
+	PasskeyRelyingPartyId *string `field:"optional" json:"passkeyRelyingPartyId" yaml:"passkeyRelyingPartyId"`
+	// Your user-pool treatment for MFA with a passkey.
+	//
+	// You can override other MFA options and require passkey MFA, or you can set it as preferred.
+	// When passkey MFA is preferred, the hosted UI encourages users to register a passkey at sign-in.
+	// Default: - Cognito default setting is PasskeyUserVerification.PREFERRED
+	//
+	PasskeyUserVerification PasskeyUserVerification `field:"optional" json:"passkeyUserVerification" yaml:"passkeyUserVerification"`
 	// Password policy for this user pool.
 	// Default: - see defaults on each property of PasswordPolicy.
 	//
@@ -135,6 +151,10 @@ type UserPoolProps struct {
 	// Default: true.
 	//
 	SignInCaseSensitive *bool `field:"optional" json:"signInCaseSensitive" yaml:"signInCaseSensitive"`
+	// Sign-in policy for this user pool.
+	// Default: - see defaults on each property of SignInPolicy.
+	//
+	SignInPolicy *SignInPolicy `field:"optional" json:"signInPolicy" yaml:"signInPolicy"`
 	// The IAM role that Cognito will assume while sending SMS messages.
 	// Default: - a new IAM role is created.
 	//

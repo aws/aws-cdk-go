@@ -645,8 +645,10 @@ var api restApi
 
 key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 	CustomerId: jsii.String("hello-customer"),
-	Stages: []iStage{
-		api.DeploymentStage,
+	ApiStages: []usagePlanPerApiStage{
+		&usagePlanPerApiStage{
+			Stage: api.DeploymentStage,
+		},
 	},
 	Quota: &QuotaSettings{
 		Limit: jsii.Number(10000),
@@ -1835,6 +1837,27 @@ By performing this association, we can invoke the API gateway using the followin
 
 ```plaintext
 https://{rest-api-id}-{vpce-id}.execute-api.{region}.amazonaws.com/{stage}
+```
+
+To restrict access to the API Gateway to only the VPC endpoint, you can use the `grantInvokeFromVpcEndpointsOnly` method to [add resource policies](https://docs.aws.amazon.com/apigateway/latest/developerguide/private-api-tutorial.html#private-api-tutorial-attach-resource-policy) to the API Gateway:
+
+```go
+var apiGwVpcEndpoint iVpcEndpoint
+
+
+api := apigateway.NewRestApi(this, jsii.String("PrivateApi"), &RestApiProps{
+	EndpointConfiguration: &EndpointConfiguration{
+		Types: []endpointType{
+			apigateway.*endpointType_PRIVATE,
+		},
+		VpcEndpoints: []*iVpcEndpoint{
+			apiGwVpcEndpoint,
+		},
+	},
+})
+api.GrantInvokeFromVpcEndpointsOnly([]iVpcEndpoint{
+	apiGwVpcEndpoint,
+})
 ```
 
 ## Private Integrations

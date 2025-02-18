@@ -4,11 +4,15 @@ package awseks
 // Options for `AlbController`.
 //
 // Example:
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
+//
+//
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_31(),
+//   	Version: eks.KubernetesVersion_V1_32(),
 //   	AlbController: &AlbControllerOptions{
 //   		Version: eks.AlbControllerVersion_V2_8_2(),
 //   	},
+//   	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 //   })
 //
 type AlbControllerOptions struct {

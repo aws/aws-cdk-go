@@ -5,28 +5,35 @@ package awsapigatewayv2
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bookStoreDefaultFn function
+//   var apiRole role
+//   var table table
 //
 //
-//   getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.example.com"))
-//   bookStoreDefaultIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), bookStoreDefaultFn)
-//
-//   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
-//
-//   httpApi.AddRoutes(&AddRoutesOptions{
-//   	Path: jsii.String("/books"),
-//   	Methods: []httpMethod{
-//   		apigwv2.*httpMethod_GET,
-//   	},
-//   	Integration: getBooksIntegration,
+//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
+//   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &WebSocketStageProps{
+//   	WebSocketApi: WebSocketApi,
+//   	StageName: jsii.String("dev"),
+//   	AutoDeploy: jsii.Boolean(true),
 //   })
-//   httpApi.AddRoutes(&AddRoutesOptions{
-//   	Path: jsii.String("/books"),
-//   	Methods: []*httpMethod{
-//   		apigwv2.*httpMethod_ANY,
-//   	},
-//   	Integration: bookStoreDefaultIntegration,
+//   webSocketApi.AddRoute(jsii.String("$connect"), &WebSocketRouteOptions{
+//   	Integration: awscdk.NewWebSocketAwsIntegration(jsii.String("DynamodbPutItem"), &WebSocketAwsIntegrationProps{
+//   		IntegrationUri: fmt.Sprintf("arn:aws:apigateway:%v:dynamodb:action/PutItem", this.Region),
+//   		IntegrationMethod: apigwv2.HttpMethod_POST,
+//   		CredentialsRole: apiRole,
+//   		RequestTemplates: map[string]*string{
+//   			"application/json": JSON.stringify(map[string]interface{}{
+//   				"TableName": table.tableName,
+//   				"Item": map[string]map[string]*string{
+//   					"id": map[string]*string{
+//   						"S": jsii.String("$context.requestId"),
+//   					},
+//   				},
+//   			}),
+//   		},
+//   	}),
 //   })
 //
 type HttpMethod string

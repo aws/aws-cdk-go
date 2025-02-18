@@ -46,6 +46,48 @@ func NewErrors_Override(e Errors) {
 	)
 }
 
+// Test whether the given error is a AssertionError.
+//
+// An AssertionError is thrown when an assertion fails.
+func Errors_IsAssertionError(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateErrors_IsAssertionErrorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.Errors",
+		"isAssertionError",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Test whether the given error is a CloudAssemblyError.
+//
+// A CloudAssemblyError is thrown for unexpected problems with the synthesized assembly.
+func Errors_IsCloudAssemblyError(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateErrors_IsCloudAssemblyErrorParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.Errors",
+		"isCloudAssemblyError",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
 // Test whether the given errors is a ConstructionError.
 //
 // A ConstructionError is a generic error that will be thrown during the App construction or synthesis.

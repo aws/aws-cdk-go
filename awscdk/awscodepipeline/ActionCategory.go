@@ -22,5 +22,6 @@ const (
 	ActionCategory_APPROVAL ActionCategory = "APPROVAL"
 	ActionCategory_DEPLOY ActionCategory = "DEPLOY"
 	ActionCategory_INVOKE ActionCategory = "INVOKE"
+	ActionCategory_COMPUTE ActionCategory = "COMPUTE"
 )
 

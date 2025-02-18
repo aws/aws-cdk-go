@@ -4,14 +4,17 @@ package awsapigatewayv2
 // Container for defining throttling parameters to API stages.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var api httpApi
 //
-//   throttleSettings := &ThrottleSettings{
-//   	BurstLimit: jsii.Number(123),
-//   	RateLimit: jsii.Number(123),
-//   }
+//
+//   apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
+//   	HttpApi: api,
+//   	Throttle: &ThrottleSettings{
+//   		RateLimit: jsii.Number(1000),
+//   		BurstLimit: jsii.Number(1000),
+//   	},
+//   	DetailedMetricsEnabled: jsii.Boolean(true),
+//   })
 //
 type ThrottleSettings struct {
 	// The maximum API request rate limit over a time ranging from one to a few seconds.

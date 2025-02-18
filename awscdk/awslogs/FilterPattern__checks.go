@@ -66,6 +66,22 @@ func validateFilterPattern_NumberValueParameters(jsonField *string, comparison *
 	return nil
 }
 
+func validateFilterPattern_RegexValueParameters(jsonField *string, comparison *string, value *string) error {
+	if jsonField == nil {
+		return fmt.Errorf("parameter jsonField is required, but nil was provided")
+	}
+
+	if comparison == nil {
+		return fmt.Errorf("parameter comparison is required, but nil was provided")
+	}
+
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFilterPattern_StringValueParameters(jsonField *string, comparison *string, value *string) error {
 	if jsonField == nil {
 		return fmt.Errorf("parameter jsonField is required, but nil was provided")

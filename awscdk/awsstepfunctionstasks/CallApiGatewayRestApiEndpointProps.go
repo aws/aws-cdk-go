@@ -10,17 +10,13 @@ import (
 //
 // Example:
 //   import apigateway "github.com/aws/aws-cdk-go/awscdk"
-//   var api restApi
 //
-//
-//   tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Endpoint"), &CallApiGatewayRestApiEndpointProps{
-//   	Api: Api,
-//   	StageName: jsii.String("Stage"),
-//   	Method: tasks.HttpMethod_PUT,
-//   	IntegrationPattern: sfn.IntegrationPattern_WAIT_FOR_TASK_TOKEN,
-//   	Headers: sfn.TaskInput_FromObject(map[string]interface{}{
-//   		"TaskToken": sfn.JsonPath_array(sfn.JsonPath_taskToken()),
-//   	}),
+//   restApi := apigateway.NewRestApi(this, jsii.String("MyRestApi"))
+//   invokeTask := tasks.NewCallApiGatewayRestApiEndpoint(this, jsii.String("Call REST API"), &CallApiGatewayRestApiEndpointProps{
+//   	Api: restApi,
+//   	StageName: jsii.String("prod"),
+//   	Method: tasks.HttpMethod_GET,
+//   	Region: jsii.String("us-west-2"),
 //   })
 //
 type CallApiGatewayRestApiEndpointProps struct {
@@ -159,5 +155,9 @@ type CallApiGatewayRestApiEndpointProps struct {
 	Api awsapigateway.IRestApi `field:"required" json:"api" yaml:"api"`
 	// Name of the stage where the API is deployed to in API Gateway.
 	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
+	// Specify a custom Region where the API is deployed, e.g. 'us-east-1'.
+	// Default: - Uses the Region of the stack containing the `api`.
+	//
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

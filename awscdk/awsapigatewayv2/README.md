@@ -511,3 +511,25 @@ webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"), &WebSocket
 	ApiKeySelectionExpression: apigwv2.WebSocketApiKeySelectionExpression_HEADER_X_API_KEY(),
 })
 ```
+
+## Common Config
+
+Common config for both HTTP API and WebSocket API
+
+### Route Settings
+
+Represents a collection of route settings.
+
+```go
+var api httpApi
+
+
+apigwv2.NewHttpStage(this, jsii.String("Stage"), &HttpStageProps{
+	HttpApi: api,
+	Throttle: &ThrottleSettings{
+		RateLimit: jsii.Number(1000),
+		BurstLimit: jsii.Number(1000),
+	},
+	DetailedMetricsEnabled: jsii.Boolean(true),
+})
+```

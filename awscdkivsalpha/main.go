@@ -47,6 +47,14 @@ func init() {
 			"ADVANCED_HD": ChannelType_ADVANCED_HD,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-ivs-alpha.ContainerFormat",
+		reflect.TypeOf((*ContainerFormat)(nil)).Elem(),
+		map[string]interface{}{
+			"TS": ContainerFormat_TS,
+			"FRAGMENTED_MP4": ContainerFormat_FRAGMENTED_MP4,
+		},
+	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-ivs-alpha.IChannel",
 		reflect.TypeOf((*IChannel)(nil)).Elem(),
@@ -121,6 +129,19 @@ func init() {
 			"NORMAL": LatencyMode_NORMAL,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-ivs-alpha.MaximumResolution",
+		reflect.TypeOf((*MaximumResolution)(nil)).Elem(),
+		map[string]interface{}{
+			"FULL_HD": MaximumResolution_FULL_HD,
+			"HD": MaximumResolution_HD,
+			"SD": MaximumResolution_SD,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-ivs-alpha.MultitrackInputConfiguration",
+		reflect.TypeOf((*MultitrackInputConfiguration)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-ivs-alpha.PlaybackKeyPair",
 		reflect.TypeOf((*PlaybackKeyPair)(nil)).Elem(),
@@ -147,6 +168,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-ivs-alpha.PlaybackKeyPairProps",
 		reflect.TypeOf((*PlaybackKeyPairProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-ivs-alpha.Policy",
+		reflect.TypeOf((*Policy)(nil)).Elem(),
+		map[string]interface{}{
+			"ALLOW": Policy_ALLOW,
+			"REQUIRE": Policy_REQUIRE,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-ivs-alpha.Preset",

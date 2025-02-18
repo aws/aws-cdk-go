@@ -2830,6 +2830,17 @@ func InterfaceVpcEndpointAwsService_PAYMENT_CRYPTOGRAPHY_CONTROLPLANE() Interfac
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_PAYMENT_CRYPTOGRAPHY_DATAPLANE() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"PAYMENT_CRYPTOGRAPHY_DATAPLANE",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_PAYMENT_CRYTOGRAPHY_DATAPLANE() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

@@ -487,6 +487,10 @@ func init() {
 		"aws-cdk-lib.aws_codebuild.CommonProjectProps",
 		reflect.TypeOf((*CommonProjectProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codebuild.ComputeConfiguration",
+		reflect.TypeOf((*ComputeConfiguration)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_codebuild.ComputeType",
 		reflect.TypeOf((*ComputeType)(nil)).Elem(),
@@ -501,6 +505,7 @@ func init() {
 			"LAMBDA_4GB": ComputeType_LAMBDA_4GB,
 			"LAMBDA_8GB": ComputeType_LAMBDA_8GB,
 			"LAMBDA_10GB": ComputeType_LAMBDA_10GB,
+			"ATTRIBUTE_BASED": ComputeType_ATTRIBUTE_BASED,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -614,6 +619,7 @@ func init() {
 			"LARGE": FleetComputeType_LARGE,
 			"X_LARGE": FleetComputeType_X_LARGE,
 			"X2_LARGE": FleetComputeType_X2_LARGE,
+			"ATTRIBUTE_BASED": FleetComputeType_ATTRIBUTE_BASED,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -951,6 +957,14 @@ func init() {
 			j := jsiiProxy_MacBuildImage{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBuildImage)
 			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_codebuild.MachineType",
+		reflect.TypeOf((*MachineType)(nil)).Elem(),
+		map[string]interface{}{
+			"GENERAL": MachineType_GENERAL,
+			"NVME": MachineType_NVME,
 		},
 	)
 	_jsii_.RegisterClass(

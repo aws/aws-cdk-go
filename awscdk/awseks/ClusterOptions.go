@@ -34,6 +34,7 @@ import (
 //   var vpc vpc
 //
 //   clusterOptions := &ClusterOptions{
+//   	KubectlLayer: layerVersion,
 //   	Version: kubernetesVersion,
 //
 //   	// the properties below are optional
@@ -60,7 +61,6 @@ import (
 //   	KubectlEnvironment: map[string]*string{
 //   		"kubectlEnvironmentKey": jsii.String("kubectlEnvironment"),
 //   	},
-//   	KubectlLayer: layerVersion,
 //   	KubectlMemory: size,
 //   	MastersRole: role,
 //   	OnEventLayer: layerVersion,
@@ -69,6 +69,20 @@ import (
 //   	OutputMastersRoleArn: jsii.Boolean(false),
 //   	PlaceClusterHandlerInVpc: jsii.Boolean(false),
 //   	Prune: jsii.Boolean(false),
+//   	RemoteNodeNetworks: []remoteNodeNetwork{
+//   		&remoteNodeNetwork{
+//   			Cidrs: []*string{
+//   				jsii.String("cidrs"),
+//   			},
+//   		},
+//   	},
+//   	RemotePodNetworks: []remotePodNetwork{
+//   		&remotePodNetwork{
+//   			Cidrs: []*string{
+//   				jsii.String("cidrs"),
+//   			},
+//   		},
+//   	},
 //   	Role: role,
 //   	SecretsEncryptionKey: key,
 //   	SecurityGroup: securityGroup,
@@ -130,6 +144,20 @@ type ClusterOptions struct {
 	// Default: - All public and private subnets.
 	//
 	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
+	// An AWS Lambda Layer which includes `kubectl` and Helm.
+	//
+	// This layer is used by the kubectl handler to apply manifests and install
+	// helm charts. You must pick an appropriate releases of one of the
+	// `@aws-cdk/layer-kubectl-vXX` packages, that works with the version of
+	// Kubernetes you have chosen.
+	//
+	// The handler expects the layer to include the following executables:
+	//
+	// ```
+	// /opt/helm/helm
+	// /opt/kubectl/kubectl
+	// ```.
+	KubectlLayer awslambda.ILayerVersion `field:"required" json:"kubectlLayer" yaml:"kubectlLayer"`
 	// Install the AWS Load Balancer Controller onto the cluster.
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 	//
@@ -188,23 +216,6 @@ type ClusterOptions struct {
 	// Default: - No environment variables.
 	//
 	KubectlEnvironment *map[string]*string `field:"optional" json:"kubectlEnvironment" yaml:"kubectlEnvironment"`
-	// An AWS Lambda Layer which includes `kubectl` and Helm.
-	//
-	// This layer is used by the kubectl handler to apply manifests and install
-	// helm charts. You must pick an appropriate releases of one of the
-	// `@aws-cdk/layer-kubectl-vXX` packages, that works with the version of
-	// Kubernetes you have chosen. If you don't supply this value `kubectl`
-	// 1.20 will be used, but that version is most likely too old.
-	//
-	// The handler expects the layer to include the following executables:
-	//
-	// ```
-	// /opt/helm/helm
-	// /opt/kubectl/kubectl
-	// ```.
-	// Default: - a default layer with Kubectl 1.20.
-	//
-	KubectlLayer awslambda.ILayerVersion `field:"optional" json:"kubectlLayer" yaml:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
 	// Default: Size.gibibytes(1)
 	//
@@ -251,6 +262,14 @@ type ClusterOptions struct {
 	// Default: true.
 	//
 	Prune *bool `field:"optional" json:"prune" yaml:"prune"`
+	// IPv4 CIDR blocks defining the expected address range of hybrid nodes that will join the cluster.
+	// Default: - none.
+	//
+	RemoteNodeNetworks *[]*RemoteNodeNetwork `field:"optional" json:"remoteNodeNetworks" yaml:"remoteNodeNetworks"`
+	// IPv4 CIDR blocks for Pods running Kubernetes webhooks on hybrid nodes.
+	// Default: - none.
+	//
+	RemotePodNetworks *[]*RemotePodNetwork `field:"optional" json:"remotePodNetworks" yaml:"remotePodNetworks"`
 	// KMS secret for envelope encryption for Kubernetes secrets.
 	// Default: - By default, Kubernetes stores all secret object data within etcd and
 	//   all etcd volumes used by Amazon EKS are encrypted at the disk-level

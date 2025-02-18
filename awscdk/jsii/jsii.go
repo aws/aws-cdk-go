@@ -11,12 +11,11 @@ import (
 
 	constructs                "github.com/aws/constructs-go/constructs/v10/jsii"
 	awscliv1                  "github.com/cdklabs/awscdk-asset-awscli-go/awscliv1/v2/jsii"
-	kubectlv20                "github.com/cdklabs/awscdk-asset-kubectl-go/kubectlv20/v2/jsii"
 	nodeproxyagentv6          "github.com/cdklabs/awscdk-asset-node-proxy-agent-go/nodeproxyagentv6/v2/jsii"
 	awscdkcloudassemblyschema "github.com/cdklabs/cloud-assembly-schema-go/awscdkcloudassemblyschema/v39/jsii"
 )
 
-//go:embed aws-cdk-lib-2.178.2.tgz
+//go:embed aws-cdk-lib-2.179.0.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
@@ -24,11 +23,10 @@ var tarball []byte
 func Initialize() {
 	// Ensure all dependencies are initialized
 	awscliv1.Initialize()
-	kubectlv20.Initialize()
 	nodeproxyagentv6.Initialize()
 	awscdkcloudassemblyschema.Initialize()
 	constructs.Initialize()
 
 	// Load this library into the kernel
-	_jsii_.Load("aws-cdk-lib", "2.178.2", tarball)
+	_jsii_.Load("aws-cdk-lib", "2.179.0", tarball)
 }

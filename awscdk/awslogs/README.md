@@ -182,7 +182,7 @@ awscdk.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
 	LogGroup: LogGroup,
 	MetricNamespace: jsii.String("MyApp"),
 	MetricName: jsii.String("Latency"),
-	FilterPattern: awscdk.FilterPattern_Exists(jsii.String("$.latency")),
+	FilterPattern: awscdk.FilterPattern_All(awscdk.FilterPattern_Exists(jsii.String("$.latency")), awscdk.FilterPattern_RegexValue(jsii.String("$.message"), jsii.String("="), jsii.String("bind: address already in use"))),
 	MetricValue: jsii.String("$.latency"),
 })
 ```
@@ -329,6 +329,8 @@ and then descending into it, such as `$.field` or `$.list[0].field`.
 
 * `FilterPattern.stringValue(field, comparison, string)`: matches if the given
   field compares as indicated with the given string value.
+* `FilterPattern.regexValue(field, comparison, string)`: matches if the given
+  field compares as indicated with the given regex pattern.
 * `FilterPattern.numberValue(field, comparison, number)`: matches if the given
   field compares as indicated with the given numerical value.
 * `FilterPattern.isNull(field)`: matches if the given field exists and has the
@@ -352,7 +354,7 @@ Example:
 // Search for all events where the component field is equal to
 // "HttpServer" and either error is true or the latency is higher
 // than 1000.
-pattern := logs.FilterPattern_All(logs.FilterPattern_StringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.FilterPattern_Any(logs.FilterPattern_BooleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.FilterPattern_NumberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))))
+pattern := logs.FilterPattern_All(logs.FilterPattern_StringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.FilterPattern_Any(logs.FilterPattern_BooleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.FilterPattern_NumberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))), logs.FilterPattern_RegexValue(jsii.String("$.message"), jsii.String("="), jsii.String("bind address already in use")))
 ```
 
 ## Space-delimited table patterns

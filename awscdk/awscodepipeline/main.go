@@ -42,6 +42,7 @@ func init() {
 			"APPROVAL": ActionCategory_APPROVAL,
 			"DEPLOY": ActionCategory_DEPLOY,
 			"INVOKE": ActionCategory_INVOKE,
+			"COMPUTE": ActionCategory_COMPUTE,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -56,6 +57,7 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline.Artifact",
 		reflect.TypeOf((*Artifact)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "artifactFiles", GoGetter: "ArtifactFiles"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactName", GoGetter: "ArtifactName"},
 			_jsii_.MemberMethod{JsiiMethod: "atPath", GoMethod: "AtPath"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketName", GoGetter: "BucketName"},

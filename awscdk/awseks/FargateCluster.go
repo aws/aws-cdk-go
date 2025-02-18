@@ -19,8 +19,12 @@ import (
 // `addFargateProfile`.
 //
 // Example:
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
+//
+//
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_31(),
+//   	Version: eks.KubernetesVersion_V1_32(),
+//   	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 //   })
 //
 type FargateCluster interface {
@@ -133,8 +137,6 @@ type FargateCluster interface {
 	//
 	KubectlLambdaRole() awsiam.IRole
 	// An AWS Lambda layer that includes `kubectl` and `helm`.
-	//
-	// If not defined, a default layer will be used containing Kubectl 1.20 and Helm 3.8
 	KubectlLayer() awslambda.ILayerVersion
 	// The amount of memory allocated to the kubectl provider's lambda function.
 	KubectlMemory() awscdk.Size

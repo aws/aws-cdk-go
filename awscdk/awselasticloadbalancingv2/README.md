@@ -345,6 +345,22 @@ lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoad
 })
 ```
 
+### Defining a reserved Application Load Balancer Capacity Unit (LCU)
+
+You can define a [reserved LCU for your Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/capacity-unit-reservation.html).
+To reserve an LCU, you must specify a `minimumCapacityUnit`.
+
+```go
+var vpc vpc
+
+
+lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("LB"), &ApplicationLoadBalancerProps{
+	Vpc: Vpc,
+	// Valid value is between 100 and 1500.
+	MinimumCapacityUnit: jsii.Number(100),
+})
+```
+
 ## Defining a Network Load Balancer
 
 Network Load Balancers are defined in a similar way to Application Load
@@ -508,6 +524,26 @@ lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancer
 lb.AddSecurityGroup(sg2)
 lb.Connections.AllowFromAnyIpv4(ec2.Port_Tcp(jsii.Number(80)))
 ```
+
+### Defining a reserved Network Load Balancer Capacity Unit (LCU)
+
+You can define a [reserved LCU for your Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/capacity-unit-reservation.html).
+
+When requesting a LCU reservation, convert your capacity needs from Mbps to LCUs using the conversion rate of 1 LCU to 2.2 Mbps.
+
+To reserve an LCU, you must specify a `minimumCapacityUnit`.
+
+```go
+var vpc vpc
+
+
+lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("LB"), &NetworkLoadBalancerProps{
+	Vpc: Vpc,
+	MinimumCapacityUnit: jsii.Number(5500),
+})
+```
+
+**Note**: The `minimumCapacityUnit` value is evenly distributed across all active Availability Zones (AZs) for the network load balancer. The distributed value per AZ must be between 2,750 and 45,000 units.
 
 ## Targets and Target Groups
 

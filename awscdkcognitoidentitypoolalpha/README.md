@@ -328,20 +328,6 @@ awscdkcognitoidentitypoolalpha.NewIdentityPool(this, jsii.String("myidentitypool
 })
 ```
 
-Role mappings can also be added after instantiation with the Identity Pool's `addRoleMappings` method:
-
-```go
-import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
-
-var identityPool identityPool
-var myAddedRoleMapping1 identityPoolRoleMapping
-var myAddedRoleMapping2 identityPoolRoleMapping
-var myAddedRoleMapping3 identityPoolRoleMapping
-
-
-identityPool.AddRoleMappings(myAddedRoleMapping1, myAddedRoleMapping2, myAddedRoleMapping3)
-```
-
 #### Provider Urls
 
 Role mappings must be associated with the url of an Identity Provider which can be supplied

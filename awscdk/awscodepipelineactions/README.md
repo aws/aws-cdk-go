@@ -1728,3 +1728,115 @@ pipeline.AddStage(&StageOptions{
 
 See [the AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-StepFunctions.html)
 for information on Action structure reference.
+
+## Compute
+
+### Commands
+
+The Commands action allows you to run shell commands in a virtual compute instance. When you run the action, commands
+specified in the action configuration are run in a separate container. All artifacts that are specified as input
+artifacts to a CodeBuild action are available inside of the container running the commands. This action allows you
+to specify commands without first creating a CodeBuild project.
+
+```go
+// Source action
+bucket := s3.NewBucket(this, jsii.String("SourceBucket"), &BucketProps{
+	Versioned: jsii.Boolean(true),
+})
+sourceArtifact := codepipeline.NewArtifact(jsii.String("SourceArtifact"))
+sourceAction := codepipeline_actions.NewS3SourceAction(&S3SourceActionProps{
+	ActionName: jsii.String("Source"),
+	Output: sourceArtifact,
+	Bucket: Bucket,
+	BucketKey: jsii.String("my.zip"),
+})
+
+// Commands action
+outputArtifact := codepipeline.NewArtifact(jsii.String("OutputArtifact"))
+commandsAction := codepipeline_actions.NewCommandsAction(&CommandsActionProps{
+	ActionName: jsii.String("Commands"),
+	Commands: []*string{
+		jsii.String("echo \"some commands\""),
+	},
+	Input: sourceArtifact,
+	Output: outputArtifact,
+})
+
+pipeline := codepipeline.NewPipeline(this, jsii.String("Pipeline"), &PipelineProps{
+	Stages: []stageProps{
+		&stageProps{
+			StageName: jsii.String("Source"),
+			Actions: []iAction{
+				sourceAction,
+			},
+		},
+		&stageProps{
+			StageName: jsii.String("Commands"),
+			Actions: []*iAction{
+				commandsAction,
+			},
+		},
+	},
+})
+```
+
+If you want to filter the files to be included in the output artifact, you can specify their paths as the second
+argument to `Artifact`.
+
+```go
+var sourceArtifact artifact
+
+
+// filter files to be included in the output artifact
+outputArtifact := codepipeline.NewArtifact(jsii.String("OutputArtifact"), []*string{
+	jsii.String("my-dir/**/*"),
+})
+commandsAction := codepipeline_actions.NewCommandsAction(&CommandsActionProps{
+	ActionName: jsii.String("Commands"),
+	Commands: []*string{
+		jsii.String("mkdir -p my-dir"),
+		jsii.String("echo \"HelloWorld\" > my-dir/file.txt"),
+	},
+	Input: sourceArtifact,
+	Output: outputArtifact,
+})
+```
+
+You can also specify the `outputVariables` property in the `CommandsAction` to emit environment variables that can be used
+in subsequent actions. The variables are those defined in your shell commands or exported as defaults by the CodeBuild service.
+For a reference of CodeBuild environment variables, see
+[Environment variables in build environments](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html)
+in the CodeBuild User Guide.
+
+To use the output variables in a subsequent action, you can use the `variable` method on the action:
+
+```go
+var sourceArtifact artifact
+var outputArtifact artifact
+
+
+commandsAction := codepipeline_actions.NewCommandsAction(&CommandsActionProps{
+	ActionName: jsii.String("Commands"),
+	Commands: []*string{
+		jsii.String("export MY_OUTPUT=my-key"),
+	},
+	Input: sourceArtifact,
+	Output: outputArtifact,
+	OutputVariables: []*string{
+		jsii.String("MY_OUTPUT"),
+		jsii.String("CODEBUILD_BUILD_ID"),
+	},
+})
+
+// Deploy action
+deployAction := codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+	ActionName: jsii.String("DeployAction"),
+	Extract: jsii.Boolean(true),
+	Input: outputArtifact,
+	Bucket: s3.NewBucket(this, jsii.String("DeployBucket")),
+	ObjectKey: commandsAction.Variable(jsii.String("MY_OUTPUT")),
+})
+```
+
+See [the AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-Commands.html)
+for more details about using Commands action in CodePipeline.

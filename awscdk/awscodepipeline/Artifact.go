@@ -48,6 +48,10 @@ import (
 //   })
 //
 type Artifact interface {
+	// The file paths that you want to export as the output artifact for the action.
+	//
+	// This property can only be used in artifacts for `CommandsAction`.
+	ArtifactFiles() *[]*string
 	ArtifactName() *string
 	// The artifact attribute for the name of the S3 bucket where the artifact is stored.
 	BucketName() *string
@@ -80,6 +84,16 @@ type Artifact interface {
 // The jsii proxy struct for Artifact
 type jsiiProxy_Artifact struct {
 	_ byte // padding
+}
+
+func (j *jsiiProxy_Artifact) ArtifactFiles() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"artifactFiles",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Artifact) ArtifactName() *string {
@@ -133,26 +147,32 @@ func (j *jsiiProxy_Artifact) Url() *string {
 }
 
 
-func NewArtifact(artifactName *string) Artifact {
+// An output artifact of an action.
+//
+// Artifacts can be used as input by some actions.
+func NewArtifact(artifactName *string, artifactFiles *[]*string) Artifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_Artifact{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_codepipeline.Artifact",
-		[]interface{}{artifactName},
+		[]interface{}{artifactName, artifactFiles},
 		&j,
 	)
 
 	return &j
 }
 
-func NewArtifact_Override(a Artifact, artifactName *string) {
+// An output artifact of an action.
+//
+// Artifacts can be used as input by some actions.
+func NewArtifact_Override(a Artifact, artifactName *string, artifactFiles *[]*string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_codepipeline.Artifact",
-		[]interface{}{artifactName},
+		[]interface{}{artifactName, artifactFiles},
 		a,
 	)
 }
@@ -160,7 +180,7 @@ func NewArtifact_Override(a Artifact, artifactName *string) {
 // A static factory method used to create instances of the Artifact class.
 //
 // Mainly meant to be used from `decdk`.
-func Artifact_Artifact(name *string) Artifact {
+func Artifact_Artifact(name *string, files *[]*string) Artifact {
 	_init_.Initialize()
 
 	if err := validateArtifact_ArtifactParameters(name); err != nil {
@@ -171,7 +191,7 @@ func Artifact_Artifact(name *string) Artifact {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_codepipeline.Artifact",
 		"artifact",
-		[]interface{}{name},
+		[]interface{}{name, files},
 		&returns,
 	)
 

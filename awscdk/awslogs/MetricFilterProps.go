@@ -11,7 +11,7 @@ import (
 //   	LogGroup: LogGroup,
 //   	MetricNamespace: jsii.String("MyApp"),
 //   	MetricName: jsii.String("Latency"),
-//   	FilterPattern: awscdk.FilterPattern_Exists(jsii.String("$.latency")),
+//   	FilterPattern: awscdk.FilterPattern_All(awscdk.FilterPattern_Exists(jsii.String("$.latency")), awscdk.FilterPattern_RegexValue(jsii.String("$.message"), jsii.String("="), jsii.String("bind: address already in use"))),
 //   	MetricValue: jsii.String("$.latency"),
 //   })
 //

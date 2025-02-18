@@ -9,8 +9,10 @@ package awsapigateway
 //
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &RateLimitedApiKeyProps{
 //   	CustomerId: jsii.String("hello-customer"),
-//   	Stages: []iStage{
-//   		api.DeploymentStage,
+//   	ApiStages: []usagePlanPerApiStage{
+//   		&usagePlanPerApiStage{
+//   			Stage: api.DeploymentStage,
+//   		},
 //   	},
 //   	Quota: &QuotaSettings{
 //   		Limit: jsii.Number(10000),
@@ -71,6 +73,10 @@ type RateLimitedApiKeyProps struct {
 	//
 	Stages *[]IStage `field:"optional" json:"stages" yaml:"stages"`
 	// API Stages to be associated with the RateLimitedApiKey.
+	//
+	// If you already prepared UsagePlan resource explicitly, you should use `stages` property.
+	// If you prefer to prepare UsagePlan resource implicitly via RateLimitedApiKey,
+	// or you should specify throttle settings at each stage individually, you should use `apiStages` property.
 	// Default: none.
 	//
 	ApiStages *[]*UsagePlanPerApiStage `field:"optional" json:"apiStages" yaml:"apiStages"`

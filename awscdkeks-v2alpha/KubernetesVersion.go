@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_31(),
+//   	Version: eks.KubernetesVersion_V1_32(),
 //   	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 //   })
 //
@@ -130,6 +130,17 @@ func KubernetesVersion_V1_31() KubernetesVersion {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-eks-v2-alpha.KubernetesVersion",
 		"V1_31",
+		&returns,
+	)
+	return returns
+}
+
+func KubernetesVersion_V1_32() KubernetesVersion {
+	_init_.Initialize()
+	var returns KubernetesVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-eks-v2-alpha.KubernetesVersion",
+		"V1_32",
 		&returns,
 	)
 	return returns

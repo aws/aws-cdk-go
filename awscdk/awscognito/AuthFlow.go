@@ -4,11 +4,24 @@ package awscognito
 // Types of authentication flow.
 //
 // Example:
-//   pool := cognito.NewUserPool(this, jsii.String("pool"))
-//   pool.addClient(jsii.String("app-client"), &UserPoolClientOptions{
+//   userPool := cognito.NewUserPool(this, jsii.String("myuserpool"), &UserPoolProps{
+//   	SignInPolicy: &SignInPolicy{
+//   		AllowedFirstAuthFactors: &AllowedFirstAuthFactors{
+//   			Password: jsii.Boolean(true),
+//   			 // password authentication must be enabled
+//   			EmailOtp: jsii.Boolean(true),
+//   			 // enables email message one-time password
+//   			SmsOtp: jsii.Boolean(true),
+//   			 // enables SMS message one-time password
+//   			Passkey: jsii.Boolean(true),
+//   		},
+//   	},
+//   })
+//
+//   // You should also configure the user pool client with USER_AUTH authentication flow allowed
+//   userPool.addClient(jsii.String("myclient"), &UserPoolClientOptions{
 //   	AuthFlows: &AuthFlow{
-//   		UserPassword: jsii.Boolean(true),
-//   		UserSrp: jsii.Boolean(true),
+//   		User: jsii.Boolean(true),
 //   	},
 //   })
 //

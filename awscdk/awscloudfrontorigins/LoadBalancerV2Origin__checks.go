@@ -12,9 +12,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (l *jsiiProxy_LoadBalancerV2Origin) validateBindParameters(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) error {
-	if _scope == nil {
-		return fmt.Errorf("parameter _scope is required, but nil was provided")
+func (l *jsiiProxy_LoadBalancerV2Origin) validateBindParameters(scope constructs.Construct, options *awscloudfront.OriginBindOptions) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if options == nil {

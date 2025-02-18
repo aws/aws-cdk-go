@@ -13,7 +13,7 @@ type OriginBase interface {
 	// Binds the origin to the associated Distribution.
 	//
 	// Can be used to grant permissions, create dependent resources, etc.
-	Bind(_scope constructs.Construct, options *OriginBindOptions) *OriginBindConfig
+	Bind(scope constructs.Construct, options *OriginBindOptions) *OriginBindConfig
 	RenderCustomOriginConfig() *CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *CfnDistribution_S3OriginConfigProperty
 }
@@ -33,8 +33,8 @@ func NewOriginBase_Override(o OriginBase, domainName *string, props *OriginProps
 	)
 }
 
-func (o *jsiiProxy_OriginBase) Bind(_scope constructs.Construct, options *OriginBindOptions) *OriginBindConfig {
-	if err := o.validateBindParameters(_scope, options); err != nil {
+func (o *jsiiProxy_OriginBase) Bind(scope constructs.Construct, options *OriginBindOptions) *OriginBindConfig {
+	if err := o.validateBindParameters(scope, options); err != nil {
 		panic(err)
 	}
 	var returns *OriginBindConfig
@@ -42,7 +42,7 @@ func (o *jsiiProxy_OriginBase) Bind(_scope constructs.Construct, options *Origin
 	_jsii_.Invoke(
 		o,
 		"bind",
-		[]interface{}{_scope, options},
+		[]interface{}{scope, options},
 		&returns,
 	)
 

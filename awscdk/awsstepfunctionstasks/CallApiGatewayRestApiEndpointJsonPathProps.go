@@ -147,5 +147,9 @@ type CallApiGatewayRestApiEndpointJsonPathProps struct {
 	Api awsapigateway.IRestApi `field:"required" json:"api" yaml:"api"`
 	// Name of the stage where the API is deployed to in API Gateway.
 	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
+	// Specify a custom Region where the API is deployed, e.g. 'us-east-1'.
+	// Default: - Uses the Region of the stack containing the `api`.
+	//
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

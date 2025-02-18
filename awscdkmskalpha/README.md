@@ -128,7 +128,7 @@ cluster := msk.NewCluster(this, jsii.String("cluster"), &ClusterProps{
 })
 ```
 
-### SASL/IAM
+### IAM
 
 Enable client authentication with [IAM](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html):
 

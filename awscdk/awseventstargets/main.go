@@ -158,6 +158,10 @@ func init() {
 		"aws-cdk-lib.aws_events_targets.EcsTaskProps",
 		reflect.TypeOf((*EcsTaskProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events_targets.EphemeralStorageOverride",
+		reflect.TypeOf((*EphemeralStorageOverride)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events_targets.EventBus",
 		reflect.TypeOf((*EventBus)(nil)).Elem(),
@@ -190,6 +194,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events_targets.InferenceAcceleratorOverride",
+		reflect.TypeOf((*InferenceAcceleratorOverride)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",

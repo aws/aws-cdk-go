@@ -512,6 +512,29 @@ codebuild.NewProject(this, jsii.String("Project"), &ProjectProps{
 })
 ```
 
+### Attribute-based compute
+
+You can use [attribute-based compute](https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html#fleets.attribute-compute) for your fleet by setting the `computeType` to `ATTRIBUTE_BASED`.
+This allows you to specify the attributes in `computeConfiguration` such as vCPUs, memory, disk space, and the machineType.
+After specifying some or all of the available attributes, CodeBuild will select the cheapest compute type from available instance types as that at least matches all given criteria.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+fleet := codebuild.NewFleet(this, jsii.String("MyFleet"), &FleetProps{
+	BaseCapacity: jsii.Number(1),
+	ComputeType: codebuild.FleetComputeType_ATTRIBUTE_BASED,
+	EnvironmentType: codebuild.EnvironmentType_LINUX_CONTAINER,
+	ComputeConfiguration: &ComputeConfiguration{
+		VCpu: jsii.Number(2),
+		Memory: awscdk.Size_Gibibytes(jsii.Number(4)),
+		Disk: awscdk.Size_*Gibibytes(jsii.Number(10)),
+		MachineType: codebuild.MachineType_GENERAL,
+	},
+})
+```
+
 ## Logs
 
 CodeBuild lets you specify an S3 Bucket, CloudWatch Log Group or both to receive logs from your projects.

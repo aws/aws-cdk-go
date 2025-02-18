@@ -47,6 +47,12 @@ type NetworkLoadBalancerProps struct {
 	// Default: - Automatically generated name.
 	//
 	LoadBalancerName *string `field:"optional" json:"loadBalancerName" yaml:"loadBalancerName"`
+	// The minimum capacity (LCU) for a load balancer.
+	// See: https://exampleloadbalancer.com/ondemand_capacity_reservation_calculator.html
+	//
+	// Default: undefined - ELB default is 0 LCU.
+	//
+	MinimumCapacityUnit *float64 `field:"optional" json:"minimumCapacityUnit" yaml:"minimumCapacityUnit"`
 	// Which subnets place the load balancer in.
 	// Default: - the Vpc default strategy.
 	//

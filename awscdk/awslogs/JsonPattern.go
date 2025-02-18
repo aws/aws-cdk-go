@@ -8,10 +8,13 @@ import (
 // Base class for patterns that only match JSON log events.
 //
 // Example:
-//   // Search for all events where the component field is equal to
-//   // "HttpServer" and either error is true or the latency is higher
-//   // than 1000.
-//   pattern := logs.FilterPattern_All(logs.FilterPattern_StringValue(jsii.String("$.component"), jsii.String("="), jsii.String("HttpServer")), logs.FilterPattern_Any(logs.FilterPattern_BooleanValue(jsii.String("$.error"), jsii.Boolean(true)), logs.FilterPattern_NumberValue(jsii.String("$.latency"), jsii.String(">"), jsii.Number(1000))))
+//   awscdk.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
+//   	LogGroup: LogGroup,
+//   	MetricNamespace: jsii.String("MyApp"),
+//   	MetricName: jsii.String("Latency"),
+//   	FilterPattern: awscdk.FilterPattern_All(awscdk.FilterPattern_Exists(jsii.String("$.latency")), awscdk.FilterPattern_RegexValue(jsii.String("$.message"), jsii.String("="), jsii.String("bind: address already in use"))),
+//   	MetricValue: jsii.String("$.latency"),
+//   })
 //
 type JsonPattern interface {
 	IFilterPattern

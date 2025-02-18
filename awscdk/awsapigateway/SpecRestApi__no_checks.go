@@ -16,6 +16,10 @@ func (s *jsiiProxy_SpecRestApi) validateAddGatewayResponseParameters(id *string,
 	return nil
 }
 
+func (s *jsiiProxy_SpecRestApi) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (s *jsiiProxy_SpecRestApi) validateAddUsagePlanParameters(id *string, props *UsagePlanProps) error {
 	return nil
 }
@@ -29,6 +33,10 @@ func (s *jsiiProxy_SpecRestApi) validateGetResourceArnAttributeParameters(arnAtt
 }
 
 func (s *jsiiProxy_SpecRestApi) validateGetResourceNameAttributeParameters(nameAttr *string) error {
+	return nil
+}
+
+func (s *jsiiProxy_SpecRestApi) validateGrantInvokeFromVpcEndpointsOnlyParameters(vpcEndpoints *[]awsec2.IVpcEndpoint) error {
 	return nil
 }
 

@@ -19,11 +19,16 @@ import (
 // The user is still required to create the worker nodes.
 //
 // Example:
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
+//
 //   // or
 //   var vpc vpc
+//
+//
 //   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 //   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-//   	Version: eks.KubernetesVersion_V1_31(),
+//   	Version: eks.KubernetesVersion_V1_32(),
+//   	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 //   })
 //   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
 //   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
@@ -140,8 +145,6 @@ type Cluster interface {
 	//
 	KubectlLambdaRole() awsiam.IRole
 	// An AWS Lambda layer that includes `kubectl` and `helm`.
-	//
-	// If not defined, a default layer will be used containing Kubectl 1.20 and Helm 3.8
 	KubectlLayer() awslambda.ILayerVersion
 	// The amount of memory allocated to the kubectl provider's lambda function.
 	KubectlMemory() awscdk.Size

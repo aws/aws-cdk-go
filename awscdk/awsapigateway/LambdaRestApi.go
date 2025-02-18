@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -73,6 +75,8 @@ type LambdaRestApi interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	ResourcePolicy() awsiam.PolicyDocument
+	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The ID of this API Gateway RestApi.
 	RestApiId() *string
 	// A human friendly name for this Rest API.
@@ -99,6 +103,12 @@ type LambdaRestApi interface {
 	AddModel(id *string, props *ModelOptions) Model
 	// Adds a new request validator.
 	AddRequestValidator(id *string, props *RequestValidatorOptions) RequestValidator
+	// Adds a statement to the resource policy associated with this rest api.
+	//
+	// A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+	//
+	// Note that this does not work with imported rest api.
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Adds a usage plan.
 	AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan
 	// Apply the given removal policy to this resource.
@@ -127,6 +137,10 @@ type LambdaRestApi interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Add a resource policy that only allows API execution from a VPC Endpoint to create a private API.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-examples.html#apigateway-resource-policies-source-vpc-example
+	//
+	GrantInvokeFromVpcEndpointsOnly(vpcEndpoints *[]awsec2.IVpcEndpoint)
 	// Returns the given named metric for this API.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of requests served from the API cache in a given period.
@@ -252,6 +266,16 @@ func (j *jsiiProxy_LambdaRestApi) PhysicalName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_LambdaRestApi) ResourcePolicy() awsiam.PolicyDocument {
+	var returns awsiam.PolicyDocument
+	_jsii_.Get(
+		j,
+		"resourcePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_LambdaRestApi) RestApiId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -355,6 +379,14 @@ func (j *jsiiProxy_LambdaRestApi)SetDeploymentStage(val Stage) {
 	_jsii_.Set(
 		j,
 		"deploymentStage",
+		val,
+	)
+}
+
+func (j *jsiiProxy_LambdaRestApi)SetResourcePolicy(val awsiam.PolicyDocument) {
+	_jsii_.Set(
+		j,
+		"resourcePolicy",
 		val,
 	)
 }
@@ -569,6 +601,22 @@ func (l *jsiiProxy_LambdaRestApi) AddRequestValidator(id *string, props *Request
 	return returns
 }
 
+func (l *jsiiProxy_LambdaRestApi) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := l.validateAddToResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		l,
+		"addToResourcePolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
 func (l *jsiiProxy_LambdaRestApi) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
 	if err := l.validateAddUsagePlanParameters(id, props); err != nil {
 		panic(err)
@@ -652,6 +700,17 @@ func (l *jsiiProxy_LambdaRestApi) GetResourceNameAttribute(nameAttr *string) *st
 	)
 
 	return returns
+}
+
+func (l *jsiiProxy_LambdaRestApi) GrantInvokeFromVpcEndpointsOnly(vpcEndpoints *[]awsec2.IVpcEndpoint) {
+	if err := l.validateGrantInvokeFromVpcEndpointsOnlyParameters(vpcEndpoints); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		l,
+		"grantInvokeFromVpcEndpointsOnly",
+		[]interface{}{vpcEndpoints},
+	)
 }
 
 func (l *jsiiProxy_LambdaRestApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {

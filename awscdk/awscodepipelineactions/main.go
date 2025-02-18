@@ -341,6 +341,28 @@ func init() {
 		"aws-cdk-lib.aws_codepipeline_actions.CodeStarSourceVariables",
 		reflect.TypeOf((*CodeStarSourceVariables)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_codepipeline_actions.CommandsAction",
+		reflect.TypeOf((*CommandsAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bound", GoMethod: "Bound"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberProperty{JsiiProperty: "providedActionProperties", GoGetter: "ProvidedActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "variable", GoMethod: "Variable"},
+			_jsii_.MemberMethod{JsiiMethod: "variableExpression", GoMethod: "VariableExpression"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CommandsAction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Action)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codepipeline_actions.CommandsActionProps",
+		reflect.TypeOf((*CommandsActionProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codepipeline_actions.CommonCloudFormationStackSetOptions",
 		reflect.TypeOf((*CommonCloudFormationStackSetOptions)(nil)).Elem(),

@@ -105,8 +105,6 @@ type ICluster interface {
 	// This role is directly passed to the lambda handler that sends Kube Ctl commands to the cluster.
 	KubectlLambdaRole() awsiam.IRole
 	// An AWS Lambda layer that includes `kubectl` and `helm`.
-	//
-	// If not defined, a default layer will be used containing Kubectl 1.20 and Helm 3.8
 	KubectlLayer() awslambda.ILayerVersion
 	// Amount of memory to allocate to the provider's lambda function.
 	KubectlMemory() awscdk.Size

@@ -8,13 +8,13 @@ import (
 )
 
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv31"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 //
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_31(),
+//   	Version: eks.KubernetesVersion_V1_32(),
 //   	KubectlProviderOptions: &KubectlProviderOptions{
-//   		KubectlLayer: kubectlv31.NewKubectlV31Layer(this, jsii.String("kubectl")),
+//   		KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 //   		Environment: map[string]*string{
 //   			"http_proxy": jsii.String("http://proxy.myproxy.com"),
 //   		},

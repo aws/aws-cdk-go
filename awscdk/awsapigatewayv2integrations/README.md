@@ -7,6 +7,7 @@
   * [Lambda Integration](#lambda)
   * [HTTP Proxy Integration](#http-proxy)
   * [StepFunctions Integration](#stepfunctions-integration)
+  * [SQS Integration](#sqs-integration)
   * [Private Integration](#private-integration)
   * [Request Parameters](#request-parameters)
 * [WebSocket APIs](#websocket-apis)
@@ -136,6 +137,105 @@ httpApi.AddRoutes(&AddRoutesOptions{
 
 * The `executionArn` parameter is required for the `STOP_EXECUTION` subtype. It is necessary to specify the `executionArn` in the `parameterMapping` property of the `HttpStepFunctionsIntegration` object.
 * `START_SYNC_EXECUTION` subtype is only supported for EXPRESS type state machine.
+
+### SQS Integration
+
+SQS integrations enable integrating an HTTP API route with AWS SQS.
+This allows the HTTP API to send, receive and delete messages from an SQS queue.
+
+The following code configures a SQS integrations:
+
+```go
+import sqs "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var queue iQueue
+var httpApi httpApi
+
+
+// default integration (send message)
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/default"),
+	Methods: []httpMethod{
+		apigwv2.*httpMethod_POST,
+	},
+	Integration: awscdk.NewHttpSqsIntegration(jsii.String("defaultIntegration"), &HttpSqsIntegrationProps{
+		Queue: *Queue,
+	}),
+})
+// send message integration
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/send-message"),
+	Methods: []*httpMethod{
+		apigwv2.*httpMethod_POST,
+	},
+	Integration: awscdk.NewHttpSqsIntegration(jsii.String("sendMessageIntegration"), &HttpSqsIntegrationProps{
+		Queue: *Queue,
+		Subtype: apigwv2.HttpIntegrationSubtype_SQS_SEND_MESSAGE,
+	}),
+})
+// receive message integration
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/receive-message"),
+	Methods: []*httpMethod{
+		apigwv2.*httpMethod_POST,
+	},
+	Integration: awscdk.NewHttpSqsIntegration(jsii.String("receiveMessageIntegration"), &HttpSqsIntegrationProps{
+		Queue: *Queue,
+		Subtype: apigwv2.HttpIntegrationSubtype_SQS_RECEIVE_MESSAGE,
+	}),
+})
+// delete message integration
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/delete-message"),
+	Methods: []*httpMethod{
+		apigwv2.*httpMethod_POST,
+	},
+	Integration: awscdk.NewHttpSqsIntegration(jsii.String("deleteMessageIntegration"), &HttpSqsIntegrationProps{
+		Queue: *Queue,
+		Subtype: apigwv2.HttpIntegrationSubtype_SQS_DELETE_MESSAGE,
+	}),
+})
+// purge queue integration
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/purge-queue"),
+	Methods: []*httpMethod{
+		apigwv2.*httpMethod_POST,
+	},
+	Integration: awscdk.NewHttpSqsIntegration(jsii.String("purgeQueueIntegration"), &HttpSqsIntegrationProps{
+		Queue: *Queue,
+		Subtype: apigwv2.HttpIntegrationSubtype_SQS_PURGE_QUEUE,
+	}),
+})
+```
+
+#### SQS integration parameter mappings
+
+You can configure the custom parameter mappings of the SQS integration using the `parameterMapping` property of the `HttpSqsIntegration` object.
+
+The default parameter mapping settings for each subtype are as follows:
+
+```go
+import sqs "github.com/aws/aws-cdk-go/awscdk"
+var queue iQueue
+
+
+// SQS_SEND_MESSAGE
+// SQS_SEND_MESSAGE
+apigwv2.NewParameterMapping().Custom(jsii.String("QueueUrl"), queue.QueueUrl).Custom(jsii.String("MessageBody"), jsii.String("$request.body.MessageBody"))
+
+// SQS_RECEIVE_MESSAGE
+// SQS_RECEIVE_MESSAGE
+apigwv2.NewParameterMapping().Custom(jsii.String("QueueUrl"), queue.QueueUrl)
+
+// SQS_DELETE_MESSAGE
+// SQS_DELETE_MESSAGE
+apigwv2.NewParameterMapping().Custom(jsii.String("QueueUrl"), queue.QueueUrl).Custom(jsii.String("ReceiptHandle"), jsii.String("$request.body.ReceiptHandle"))
+
+// SQS_PURGE_QUEUE
+// SQS_PURGE_QUEUE
+apigwv2.NewParameterMapping().Custom(jsii.String("QueueUrl"), queue.QueueUrl)
+```
 
 ### Private Integration
 

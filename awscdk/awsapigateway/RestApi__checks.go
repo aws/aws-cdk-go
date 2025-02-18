@@ -9,6 +9,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -84,6 +86,14 @@ func (r *jsiiProxy_RestApi) validateAddRequestValidatorParameters(id *string, pr
 	return nil
 }
 
+func (r *jsiiProxy_RestApi) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	if statement == nil {
+		return fmt.Errorf("parameter statement is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (r *jsiiProxy_RestApi) validateAddUsagePlanParameters(id *string, props *UsagePlanProps) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
@@ -122,6 +132,14 @@ func (r *jsiiProxy_RestApi) validateGetResourceArnAttributeParameters(arnAttr *s
 func (r *jsiiProxy_RestApi) validateGetResourceNameAttributeParameters(nameAttr *string) error {
 	if nameAttr == nil {
 		return fmt.Errorf("parameter nameAttr is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (r *jsiiProxy_RestApi) validateGrantInvokeFromVpcEndpointsOnlyParameters(vpcEndpoints *[]awsec2.IVpcEndpoint) error {
+	if vpcEndpoints == nil {
+		return fmt.Errorf("parameter vpcEndpoints is required, but nil was provided")
 	}
 
 	return nil

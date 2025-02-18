@@ -4,15 +4,32 @@ package awscdkcognitoidentitypoolalpha
 // Map roles to users in the Identity Pool based on claims from the Identity Provider.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import cognito_identitypool_alpha "github.com/aws/aws-cdk-go/awscdkcognitoidentitypoolalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var identityPool identityPool
-//   var myAddedRoleMapping1 identityPoolRoleMapping
-//   var myAddedRoleMapping2 identityPoolRoleMapping
-//   var myAddedRoleMapping3 identityPoolRoleMapping
+//   var identityPoolProviderUrl identityPoolProviderUrl
+//   var role role
 //
+//   identityPoolRoleMapping := &IdentityPoolRoleMapping{
+//   	ProviderUrl: identityPoolProviderUrl,
 //
-//   identityPool.AddRoleMappings(myAddedRoleMapping1, myAddedRoleMapping2, myAddedRoleMapping3)
+//   	// the properties below are optional
+//   	MappingKey: jsii.String("mappingKey"),
+//   	ResolveAmbiguousRoles: jsii.Boolean(false),
+//   	Rules: []roleMappingRule{
+//   		&roleMappingRule{
+//   			Claim: jsii.String("claim"),
+//   			ClaimValue: jsii.String("claimValue"),
+//   			MappedRole: role,
+//
+//   			// the properties below are optional
+//   			MatchType: cognito_identitypool_alpha.RoleMappingMatchType_EQUALS,
+//   		},
+//   	},
+//   	UseToken: jsii.Boolean(false),
+//   }
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
 //

@@ -5,11 +5,13 @@ package awsstepfunctionstasks
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv32"
 //
 //
 //   myEksCluster := eks.NewCluster(this, jsii.String("my sample cluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_18(),
+//   	Version: eks.KubernetesVersion_V1_32(),
 //   	ClusterName: jsii.String("myEksCluster"),
+//   	KubectlLayer: kubectlv32.NewKubectlV32Layer(this, jsii.String("kubectl")),
 //   })
 //
 //   tasks.NewEksCall(this, jsii.String("Call a EKS Endpoint"), &EksCallProps{
