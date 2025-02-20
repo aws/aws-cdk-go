@@ -2,59 +2,6 @@ package awscdkclilibalpha
 
 
 // Options to use with cdk bootstrap.
-//
-// Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cli_lib_alpha "github.com/aws/aws-cdk-go/awscdkclilibalpha"
-//
-//   bootstrapOptions := &BootstrapOptions{
-//   	AssetMetadata: jsii.Boolean(false),
-//   	BootstrapBucketName: jsii.String("bootstrapBucketName"),
-//   	BootstrapCustomerKey: jsii.String("bootstrapCustomerKey"),
-//   	BootstrapKmsKeyId: jsii.String("bootstrapKmsKeyId"),
-//   	CaBundlePath: jsii.String("caBundlePath"),
-//   	CfnExecutionPolicy: jsii.String("cfnExecutionPolicy"),
-//   	Color: jsii.Boolean(false),
-//   	Context: map[string]*string{
-//   		"contextKey": jsii.String("context"),
-//   	},
-//   	CustomPermissionsBoundary: jsii.String("customPermissionsBoundary"),
-//   	Debug: jsii.Boolean(false),
-//   	Ec2Creds: jsii.Boolean(false),
-//   	Environments: []*string{
-//   		jsii.String("environments"),
-//   	},
-//   	ExamplePermissionsBoundary: jsii.Boolean(false),
-//   	Execute: jsii.Boolean(false),
-//   	Force: jsii.Boolean(false),
-//   	IgnoreErrors: jsii.Boolean(false),
-//   	Json: jsii.Boolean(false),
-//   	Lookups: jsii.Boolean(false),
-//   	Notices: jsii.Boolean(false),
-//   	PathMetadata: jsii.Boolean(false),
-//   	Profile: jsii.String("profile"),
-//   	Proxy: jsii.String("proxy"),
-//   	PublicAccessBlockConfiguration: jsii.String("publicAccessBlockConfiguration"),
-//   	Qualifier: jsii.String("qualifier"),
-//   	RoleArn: jsii.String("roleArn"),
-//   	ShowTemplate: jsii.Boolean(false),
-//   	Stacks: []*string{
-//   		jsii.String("stacks"),
-//   	},
-//   	Staging: jsii.Boolean(false),
-//   	Strict: jsii.Boolean(false),
-//   	Template: jsii.String("template"),
-//   	TerminationProtection: jsii.Boolean(false),
-//   	ToolkitStackName: jsii.String("toolkitStackName"),
-//   	Trace: jsii.Boolean(false),
-//   	Trust: jsii.String("trust"),
-//   	TrustForLookup: jsii.String("trustForLookup"),
-//   	UsePreviousParameters: jsii.Boolean(false),
-//   	Verbose: jsii.Boolean(false),
-//   	VersionReporting: jsii.Boolean(false),
-//   }
-//
 // Experimental.
 type BootstrapOptions struct {
 	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.

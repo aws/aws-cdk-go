@@ -44,7 +44,7 @@ Currently the package includes implementations for:
 Obtain an `AwsCdkCli` class from an AWS CDK app directory (containing a `cdk.json` file):
 
 ```go
-cli := awscdkclilibalpha.AwsCdkCli_FromCdkAppDirectory(jsii.String("/path/to/cdk/app"))
+const cli = AwsCdkCli.fromCdkAppDirectory("/path/to/cdk/app");
 ```
 
 ### Cloud Assembly Directory Producer
@@ -59,15 +59,12 @@ The return value is the path to the assembly directory.
 A basic implementation would look like this:
 
 ```go
-type myProducer struct {
-}
-
-func (this *myProducer) produce(context map[string]interface{}) promise {
-	app := cdk.NewApp(&AppProps{
-		Context: Context,
-	})
-	stack := cdk.NewStack(app)
-	return app.Synth().Directory
+class MyProducer implements ICloudAssemblyDirectoryProducer {
+  async produce(context: Record<string, any>) {
+    const app = new cdk.App({ context });
+    const stack = new cdk.Stack(app);
+    return app.synth().directory;
+  }
 }
 ```
 
@@ -77,7 +74,7 @@ Since it is not possible to update the context of an app, it must be created as 
 The producer can than be used like this:
 
 ```go
-cli := awscdkclilibalpha.AwsCdkCli_FromCloudAssemblyDirectoryProducer(NewMyProducer())
+const cli = AwsCdkCli.fromCloudAssemblyDirectoryProducer(new MyProducer());
 ```
 
 ## Commands
@@ -86,45 +83,39 @@ cli := awscdkclilibalpha.AwsCdkCli_FromCloudAssemblyDirectoryProducer(NewMyProdu
 
 ```go
 // await this asynchronous method call using a language feature
-cli.List()
+cli.list();
 ```
 
 ### synth
 
 ```go
 // await this asynchronous method call using a language feature
-cli.Synth(&SynthOptions{
-	Stacks: []*string{
-		jsii.String("MyTestStack"),
-	},
-})
+cli.synth({
+  stacks: ['MyTestStack'],
+});
 ```
 
 ### bootstrap
 
 ```go
 // await this asynchronous method call using a language feature
-cli.Bootstrap()
+cli.bootstrap();
 ```
 
 ### deploy
 
 ```go
 // await this asynchronous method call using a language feature
-cli.Deploy(&DeployOptions{
-	Stacks: []*string{
-		jsii.String("MyTestStack"),
-	},
-})
+cli.deploy({
+  stacks: ['MyTestStack'],
+});
 ```
 
 ### destroy
 
 ```go
 // await this asynchronous method call using a language feature
-cli.Destroy(&DestroyOptions{
-	Stacks: []*string{
-		jsii.String("MyTestStack"),
-	},
-})
+cli.destroy({
+  stacks: ['MyTestStack'],
+});
 ```

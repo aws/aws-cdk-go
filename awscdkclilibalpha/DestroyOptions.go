@@ -2,15 +2,6 @@ package awscdkclilibalpha
 
 
 // Options to use with cdk destroy.
-//
-// Example:
-//   // await this asynchronous method call using a language feature
-//   cli.Destroy(&DestroyOptions{
-//   	Stacks: []*string{
-//   		jsii.String("MyTestStack"),
-//   	},
-//   })
-//
 // Experimental.
 type DestroyOptions struct {
 	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.

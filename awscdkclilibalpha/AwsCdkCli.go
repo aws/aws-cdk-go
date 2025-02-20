@@ -6,10 +6,6 @@ import (
 )
 
 // Provides a programmatic interface for interacting with the AWS CDK CLI.
-//
-// Example:
-//   cli := awscdkclilibalpha.AwsCdkCli_FromCdkAppDirectory(jsii.String("/path/to/cdk/app"))
-//
 // Experimental.
 type AwsCdkCli interface {
 	IAwsCdkCli

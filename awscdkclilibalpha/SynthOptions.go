@@ -2,15 +2,6 @@ package awscdkclilibalpha
 
 
 // Options to use with cdk synth.
-//
-// Example:
-//   // await this asynchronous method call using a language feature
-//   cli.Synth(&SynthOptions{
-//   	Stacks: []*string{
-//   		jsii.String("MyTestStack"),
-//   	},
-//   })
-//
 // Experimental.
 type SynthOptions struct {
 	// Include "aws:asset:*" CloudFormation metadata for resources that use assets.
