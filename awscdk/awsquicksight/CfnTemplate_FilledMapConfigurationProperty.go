@@ -1,0 +1,37 @@
+package awsquicksight
+
+
+// The configuration for a `FilledMapVisual` .
+//
+// Example:
+//
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconfiguration.html
+//
+type CfnTemplate_FilledMapConfigurationProperty struct {
+	// The field wells of the visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconfiguration.html#cfn-quicksight-template-filledmapconfiguration-fieldwells
+	//
+	FieldWells interface{} `field:"optional" json:"fieldWells" yaml:"fieldWells"`
+	// The legend display setup of the visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconfiguration.html#cfn-quicksight-template-filledmapconfiguration-legend
+	//
+	Legend interface{} `field:"optional" json:"legend" yaml:"legend"`
+	// The map style options of the filled map visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconfiguration.html#cfn-quicksight-template-filledmapconfiguration-mapstyleoptions
+	//
+	MapStyleOptions interface{} `field:"optional" json:"mapStyleOptions" yaml:"mapStyleOptions"`
+	// The sort configuration of a `FilledMapVisual` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconfiguration.html#cfn-quicksight-template-filledmapconfiguration-sortconfiguration
+	//
+	SortConfiguration interface{} `field:"optional" json:"sortConfiguration" yaml:"sortConfiguration"`
+	// The tooltip display setup of the visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconfiguration.html#cfn-quicksight-template-filledmapconfiguration-tooltip
+	//
+	Tooltip interface{} `field:"optional" json:"tooltip" yaml:"tooltip"`
+	// The window options of the filled map visual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconfiguration.html#cfn-quicksight-template-filledmapconfiguration-windowoptions
+	//
+	WindowOptions interface{} `field:"optional" json:"windowOptions" yaml:"windowOptions"`
+}
+
