@@ -7,8 +7,6 @@ import (
 
 // A principal that represents an AWS Organization.
 //
-// Property organizationId must match regex pattern ^o-[a-z0-9]{10,32}$.
-//
 // Example:
 //   // Grant permissions to an entire AWS organization
 //   var fn function
@@ -16,8 +14,6 @@ import (
 //   org := iam.NewOrganizationPrincipal(jsii.String("o-xxxxxxxxxx"))
 //
 //   fn.GrantInvoke(org)
-//
-// See: https://docs.aws.amazon.com/organizations/latest/APIReference/API_Organization.html
 //
 type OrganizationPrincipal interface {
 	PrincipalBase
